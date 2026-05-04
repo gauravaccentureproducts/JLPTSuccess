@@ -42,21 +42,24 @@
         </a>
 
         <!--
-          N4 card hidden by user directive 2026-05-04. The /N4/ subdirectory
-          and its app remain in the repo (path still serves), but the home-
-          page no longer surfaces ANY card for it (not even a disabled one).
-          To re-enable: uncomment the block below.
-
-          BLOCKED: do not edit any file under /N4/ until the user explicitly
-          unblocks it. See .claude/CLAUDE.md for the governance rule.
-
-          <a class="level-card is-available" href="N4/" data-level="n4">
-            <span class="level-card-code">N4</span>
-            <h3 class="level-card-label">Elementary</h3>
-            <p class="level-card-desc">Builds on N5 with everyday topics, basic written passages, and lower-frequency kanji.</p>
-            <span class="level-card-arrow" aria-hidden="true">→</span>
-          </a>
+          N4 is WORK-BLOCKED (user directive 2026-05-04). The card below
+          renders as a disabled "Coming soon" placeholder — visible but
+          non-clickable, same styling as N3/N2/N1. The /N4/ subdirectory
+          and its previously-deployed app remain in the repo and continue
+          to serve at /JLPTSuccess/N4/ for legacy bookmarks, but no further
+          work happens there. To re-enable as an active card:
+            1. Replace this disabled <div> with the <a class="is-available" href="N4/">…</a> form.
+            2. Update the footer copy to mention N4 is live again.
+            3. Wait for the user's explicit "unblock N4" instruction
+               before editing anything under /N4/.
+          See .claude/CLAUDE.md for the governance rule.
         -->
+        <div class="level-card is-disabled" data-level="n4" aria-disabled="true" title="Content not yet available">
+          <span class="level-card-code">N4</span>
+          <h3 class="level-card-label">Elementary</h3>
+          <p class="level-card-desc">Builds on N5 with everyday topics, basic written passages, and lower-frequency kanji.</p>
+          <span class="level-card-status">Coming soon</span>
+        </div>
 
         <div class="level-card is-disabled" data-level="n3" aria-disabled="true" title="Content not yet available">
           <span class="level-card-code">N3</span>
