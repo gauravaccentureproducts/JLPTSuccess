@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v3';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.29';
 
 const PRECACHE = [
   './',
@@ -81,6 +81,11 @@ const PRECACHE = [
   './locales/zh.json',
   './data/grammar.json',
   './data/questions.json',
+  // IMP-035 (audit round-3): build-stamp + corpus counts. Read by the
+  // footer fallback path, the README-consistency check, and any future
+  // SW logic that needs the cache key without rebuilding it from
+  // CHANGELOG.md.
+  './data/version.json',
   './data/n5_kanji_whitelist.json',
   './data/n5_kanji_readings.json',
   './data/n5_vocab_whitelist.json',
