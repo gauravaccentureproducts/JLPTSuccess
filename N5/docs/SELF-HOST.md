@@ -1,0 +1,162 @@
+# Self-host JLPTSuccess (ISSUE-031, IMP-049, IMP-052)
+
+This guide covers forking the JLPTSuccess N5 sub-app and serving it
+from your own infrastructure — for vocational schools, language
+schools, NGOs, or any institution wanting an offline-capable, no-
+account JLPT N5 prep tool branded for their context.
+
+## TL;DR
+
+```bash
+git clone https://github.com/gauravaccentureproducts/JLPTSuccess.git
+cd JLPTSuccess
+python -m http.server 8000
+# open http://localhost:8000/N5/
+```
+
+Everything runs in the browser — no backend, no database, no API keys.
+The app is ~1 MB shell + lazy-loaded audio. Production deploys are
+static-site hosts (GitHub Pages, Netlify, Vercel, Cloudflare Pages, or
+any nginx/Apache).
+
+## License
+
+- **Code** (HTML / CSS / JS / Python tooling): MIT — see `LICENSE` at
+  repo root. Free to fork, modify, redistribute, sublicense, sell.
+  Attribution + the MIT license text retained in your fork.
+- **Educational content** (grammar patterns, vocab, kanji, reading,
+  listening): CC BY-SA 4.0 — see `N5/CONTENT-LICENSE.md`. Free to
+  redistribute (commercially or not) WITH attribution AND under the
+  same license. If you modify the content, your modified content must
+  also ship under CC BY-SA 4.0.
+- **Third-party assets** (KanjiVG SVGs, Inter / Noto Sans JP fonts):
+  see `N5/NOTICES.md` for individual licenses.
+
+## Brand customization
+
+Three layers of customization, each more invasive than the last:
+
+### Layer 1 — runtime theme overrides (preferred)
+
+Drop a `data/theme-overrides.json` file (any branch / fork / forked
+deploy) with CSS-custom-property mappings. Loaded at app startup;
+overrides the design tokens defined in `css/main.css :root`.
+
+Example `data/theme-overrides.json`:
+
+```json
+{
+  "tokens": {
+    "--color-accent": "#1e6091",
+    "--color-bg":     "#ffffff",
+    "--color-text":   "#212529"
+  },
+  "brand": {
+    "name":      "Acme Language School",
+    "short_name": "Acme N5",
+    "logo_url":  "../assets/logo/acme-mark.svg"
+  }
+}
+```
+
+App loader (`js/app.js`) reads this file at init; missing file = use
+defaults. No code changes needed for color / font / brand-name swaps.
+
+### Layer 2 — per-fork logo + manifest swap
+
+If you need a different favicon / install icon:
+
+1. Replace `assets/logo/icon-192.png`, `icon-512.png`, `mark.svg` with
+   your own in your fork.
+2. Update `N5/manifest.webmanifest` `name` + `short_name` if Layer 1
+   isn't sufficient.
+
+### Layer 3 — full source fork
+
+For more invasive changes (new surfaces, different data corpus, etc.),
+fork the repo and edit directly. The MIT license permits this.
+
+## Deploy targets
+
+### GitHub Pages
+
+The repo is configured to deploy from `master` to `https://<user>.github.io/<repo>/N5/`.
+Fork → Settings → Pages → Source: Deploy from branch → master / `/`
+(root). First deploy takes ~30 seconds.
+
+### Netlify / Vercel / Cloudflare Pages
+
+Drop the repo into the dashboard. Build command: none. Publish
+directory: `/`. The app uses hash routing, so no SPA-redirect setup
+is needed.
+
+### nginx / Apache (institutional intranet)
+
+```
+server {
+  listen 80;
+  server_name jlpt.your-school.example;
+  root /var/www/JLPTSuccess;
+  index index.html;
+  # Hash-routed; no fallback rule needed.
+}
+```
+
+Bundle size on first paint:
+- HTML + main.min.css + app.js = ~150 KB
+- Lazy-loaded JS chunks = ~250 KB
+- Lazy-loaded JSON corpora = ~700 KB
+- Self-hosted fonts (woff2) = ~503 KB
+- Audio MP3s lazy on demand = ~22 MB total (only what the user actually
+  plays gets cached)
+
+Total cold start ~1 MB. Service worker precaches the shell so
+subsequent visits work fully offline.
+
+## Data customization
+
+The 5 corpus files at `N5/data/{grammar,vocab,kanji,reading,listening}.json`
+are the editable content surface. Keep their schema intact (the runtime
+expects specific field names — see `N5/tools/check_content_integrity.py`
+for the 42 invariants), but the actual entries are CC BY-SA — translate,
+adapt, or extend per your curriculum.
+
+If you change item counts or add new fields, run:
+
+```bash
+python N5/tools/check_content_integrity.py
+python N5/tools/build_version_json.py    # bumps data/version.json + sw.js
+```
+
+The integrity check is the release gate; if it fails, the deploy
+shouldn't ship.
+
+## Translations (multilingual deploys)
+
+5 locale files at `N5/locales/{en,vi,id,ne,zh}.json`. The runtime
+detects `navigator.language` on first visit and picks the closest
+match. To add a new locale:
+
+1. Copy `en.json` to `<lc>.json` where `<lc>` is the BCP-47 base
+   (e.g., `pt`, `ar`, `hi`).
+2. Translate the 75 keys.
+3. Add `<lc>` to the `SUPPORTED` array in `N5/js/i18n.js`.
+4. Optionally translate the content body (grammar explanations, vocab
+   glosses, kanji meanings) — see `N5/docs/TRANSLATING.md` for the
+   per-locale content-field workflow.
+
+## Privacy posture
+
+The app makes ZERO network calls during normal operation. CSP at
+`N5/index.html:18` enforces same-origin only. localStorage is
+namespaced under `jlpt-n5-tutor:`. No cookies, no telemetry, no
+third-party scripts.
+
+If you fork and add analytics, **update `N5/PRIVACY.md`** to reflect
+the change. The privacy claim is a niche-defining feature; silently
+adding telemetry erodes the trust the app has been positioned around.
+
+## Issues / contributions
+
+Bug reports + PRs welcome at https://github.com/gauravaccentureproducts/JLPTSuccess.
+For translation contributions specifically, see `docs/TRANSLATING.md`.

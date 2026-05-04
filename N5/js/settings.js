@@ -163,6 +163,8 @@ export async function renderSettings(container) {
   // Wire change handlers
   document.getElementById('set-locale').addEventListener('change', async (e) => {
     await setLocale(e.target.value);
+    // ISSUE-028: notify the header chip group + any other listeners.
+    document.dispatchEvent(new CustomEvent('locale-changed'));
     location.reload();
   });
   // Pass-13: 3-mode furigana radios removed. Auto-furigana feature was

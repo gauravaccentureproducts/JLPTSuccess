@@ -39,6 +39,27 @@ export function initPwa() {
     if (!storage.get(INSTALL_DISMISSED_KEY, false)) showInstallBanner();
   });
 
+  // ISSUE-034 (audit round-4): on-demand install trigger from the home
+  // trust band ("Works offline" pill). Wire any element marked
+  // [data-trust-install] to fire the same prompt deferred above.
+  document.addEventListener('click', async (ev) => {
+    const el = ev.target.closest('[data-trust-install]');
+    if (!el) return;
+    ev.preventDefault();
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const choice = await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      if (choice && choice.outcome === 'dismissed') {
+        // Don't store dismissal — user chose deliberately.
+      }
+    } else {
+      // No prompt available (already installed, or browser doesn't fire
+      // beforeinstallprompt — Firefox/iOS Safari). Show a one-shot toast.
+      _showOfflineHowToast();
+    }
+  });
+
   // Offline indicator
   const updateOnlineState = () => {
     const indicator = ensureOfflineIndicator();
@@ -95,6 +116,28 @@ function ensureOfflineIndicator() {
   el.hidden = true;
   document.body.appendChild(el);
   return el;
+}
+
+// ISSUE-034: fallback toast for browsers that don't fire
+// beforeinstallprompt (Firefox / iOS Safari). Tells the user how to
+// install via the browser's own UI.
+function _showOfflineHowToast() {
+  const ua = navigator.userAgent || '';
+  let how;
+  if (/iPhone|iPad|iPod/i.test(ua)) {
+    how = 'iOS: tap the Share button in Safari, then "Add to Home Screen".';
+  } else if (/Firefox/i.test(ua)) {
+    how = 'Firefox: open the menu, then "Install" or "Add to Home Screen".';
+  } else {
+    how = 'Look for an install / "Add to home screen" option in your browser menu.';
+  }
+  const toast = document.createElement('div');
+  toast.className = 'pwa-toast';
+  toast.setAttribute('role', 'status');
+  toast.innerHTML = `<span>${how}</span><button class="btn-secondary" aria-label="Dismiss">×</button>`;
+  document.body.appendChild(toast);
+  toast.querySelector('button').addEventListener('click', () => toast.remove());
+  setTimeout(() => toast.remove(), 8000);
 }
 
 function showUpdateToast() {

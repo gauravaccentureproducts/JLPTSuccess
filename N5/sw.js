@@ -97,6 +97,14 @@ const PRECACHE = [
   './data/n5_kanji_whitelist.json',
   './data/n5_kanji_readings.json',
   './data/n5_vocab_whitelist.json',
+  // ISSUE-033 (audit round-4): explicit core-N5 vs late-N5 split. Honest
+  // count for the home dashboard + future filter UIs. Guarded by JA-34
+  // invariant in tools/check_content_integrity.py.
+  './data/n5_core_pattern_ids.json',
+  // IMP-052 (audit round-4): institutional theme overrides. Optional —
+  // missing file is the default. Precaching makes the override resolve
+  // offline once a fork has shipped one.
+  './data/theme-overrides.json',
   // Self-hosted fonts (Phase-4 of the Zen Modern overhaul). Inter L/R/M
   // covers all latin UI. Noto Sans JP 400 is N5+N4-subsetted so the file
   // is ~165 KB instead of ~5 MB. Total font footprint: ~503 KB.

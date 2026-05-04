@@ -280,6 +280,19 @@ export async function renderHome(container) {
         <span class="syllabus-watermark" aria-hidden="true">五</span>
         <h1 class="syllabus-title">JLPT N5 Syllabus</h1>
         <p class="syllabus-subtitle">Study grammar, vocabulary, kanji, reading, and listening in a structured order.</p>
+        <!-- ISSUE-027 / IMP-048 (audit round-4): privacy / niche-N2
+             trust band. Surfaces the most-defensible competitive claim
+             on first paint. Each item links to its proof:
+               "Open source" -> /LICENSE
+               "Works offline" -> install banner / docs
+               "Privacy" -> PRIVACY.md -->
+        <p class="syllabus-trust-band" aria-label="Trust signals">
+          <span class="trust-pill"><span aria-hidden="true">●</span> No login</span>
+          <span class="trust-pill"><span aria-hidden="true">●</span> No tracking</span>
+          <a class="trust-pill" href="${'./' /* placeholder for install hook */}" data-trust-install title="Install for offline use"><span aria-hidden="true">●</span> Works offline</a>
+          <a class="trust-pill" href="../../LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> Open source</a>
+          <a class="trust-pill" href="PRIVACY.md" target="_blank" rel="noopener" title="No data leaves your device"><span aria-hidden="true">●</span> 100% on-device</a>
+        </p>
         <ul class="syllabus-stat-pills" aria-label="Corpus size">
           <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.grammar)}</span><span class="syllabus-stat-lbl">grammar patterns</span></li>
           <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.vocab)}</span><span class="syllabus-stat-lbl">vocab words</span></li>

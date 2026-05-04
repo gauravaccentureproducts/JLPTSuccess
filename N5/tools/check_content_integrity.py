@@ -805,6 +805,8 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-31", "Vocab PoS tags in vocabulary_n5.md agree with data/vocab.json (2026-05-02)", lambda: _check_ja_31_vocab_pos_parity()),
     ("JA-32", "Paper-JSON rationales appear verbatim in source MD (2026-05-04)", lambda: _check_ja_32_paper_rationale_md_parity()),
     ("JA-33", "Listening items carry mondai (1-4) + closed format_type enum (2026-05-05)", lambda: _check_ja_33_listening_mondai_taxonomy()),
+    ("JA-34", "Core-N5 vs late-N5 split agrees with grammar.json tier field (2026-05-05)", lambda: _check_ja_34_core_late_split()),
+    ("JA-35", "Every content item carries review_status from closed enum (2026-05-05)", lambda: _check_ja_35_review_status()),
 ]
 
 
@@ -1857,6 +1859,90 @@ def _check_ja_33_listening_mondai_taxonomy() -> list[str]:
                 f"JA-33 {iid}: mondai={m} inconsistent with format_type={ft!r} "
                 f"(expected mondai={FT_TO_MONDAI[ft]})"
             )
+    return failures
+
+
+def _check_ja_35_review_status() -> list[str]:
+    """ISSUE-030 (audit round 4, 2026-05-05): every content item across
+    all 5 corpora must carry `review_status` from a closed enum so the
+    UI can render an honest provenance badge ("LLM-curated" vs
+    "native-reviewed" vs "auto-generated") rather than implying a
+    uniform quality bar across content of mixed provenance.
+    """
+    failures: list[str] = []
+    ALLOWED = {"native_reviewed", "llm_curated", "auto_generated"}
+    targets = [
+        ("data/grammar.json",   "patterns"),
+        ("data/vocab.json",     "entries"),
+        ("data/kanji.json",     "entries"),
+        ("data/reading.json",   "passages"),
+        ("data/listening.json", "items"),
+    ]
+    for fname, key in targets:
+        p = ROOT / fname
+        if not p.exists():
+            failures.append(f"JA-35: {fname} missing")
+            continue
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-35: {fname} parse error: {e}")
+            continue
+        for item in data.get(key, []):
+            iid = item.get("id") or item.get("glyph") or item.get("form") or "?"
+            rs = item.get("review_status")
+            if not rs:
+                failures.append(f"JA-35 {fname} {iid}: missing review_status")
+            elif rs not in ALLOWED:
+                failures.append(f"JA-35 {fname} {iid}: review_status {rs!r} not in closed enum {sorted(ALLOWED)}")
+    return failures
+
+
+def _check_ja_34_core_late_split() -> list[str]:
+    """ISSUE-033 (audit round 4, 2026-05-05): data/n5_core_pattern_ids.json
+    enumerates the strict-N5 vs late-N5 (borderline N5/N4) pattern IDs.
+    Must agree byte-for-byte with the live grammar.json tier field, so
+    the home count "178 patterns (153 core + 25 late-N5)" stays honest
+    as content evolves.
+    """
+    failures: list[str] = []
+    g_path = ROOT / "data" / "grammar.json"
+    w_path = ROOT / "data" / "n5_core_pattern_ids.json"
+    if not g_path.exists():
+        return ["JA-34: data/grammar.json missing"]
+    if not w_path.exists():
+        return ["JA-34: data/n5_core_pattern_ids.json missing"]
+    try:
+        grammar = json.loads(g_path.read_text(encoding="utf-8"))
+        whitelist = json.loads(w_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-34: parse error: {e}"]
+
+    core_actual = sorted(p["id"] for p in grammar.get("patterns", [])
+                         if (p.get("tier", "core_n5") or "core_n5") == "core_n5")
+    late_actual = sorted(p["id"] for p in grammar.get("patterns", [])
+                         if p.get("tier") == "late_n5")
+    core_listed = sorted(whitelist.get("core_n5", []))
+    late_listed = sorted(whitelist.get("late_n5", []))
+
+    if core_actual != core_listed:
+        only_actual = set(core_actual) - set(core_listed)
+        only_listed = set(core_listed) - set(core_actual)
+        if only_actual:
+            failures.append(f"JA-34: core_n5 missing from whitelist: {sorted(only_actual)[:5]}")
+        if only_listed:
+            failures.append(f"JA-34: core_n5 in whitelist but not in grammar.json (drift): {sorted(only_listed)[:5]}")
+    if late_actual != late_listed:
+        only_actual = set(late_actual) - set(late_listed)
+        only_listed = set(late_listed) - set(late_actual)
+        if only_actual:
+            failures.append(f"JA-34: late_n5 missing from whitelist: {sorted(only_actual)[:5]}")
+        if only_listed:
+            failures.append(f"JA-34: late_n5 in whitelist but not in grammar.json: {sorted(only_listed)[:5]}")
+    expected_total = whitelist.get("totalCount")
+    actual_total = len(grammar.get("patterns", []))
+    if expected_total != actual_total:
+        failures.append(f"JA-34: totalCount {expected_total} != live grammar.json count {actual_total}")
     return failures
 
 

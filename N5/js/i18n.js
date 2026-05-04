@@ -51,15 +51,52 @@ async function loadDict() {
 
 /**
  * Initialize from saved settings or browser language. Idempotent.
+ *
+ * ISSUE-029 (audit round-4): when the browser language picks a non-EN
+ * locale on first init (no saved setting), surface a one-time toast so
+ * the user knows the auto-detection happened and how to override it.
  */
 export async function initI18n() {
   const saved = storage.getSettings().uiLocale;
   let initial = saved;
+  let auto = false;
   if (!initial) {
     const browserLc = (navigator.language || 'en').split('-')[0].toLowerCase();
     initial = SUPPORTED.includes(browserLc) ? browserLc : DEFAULT_LOCALE;
+    auto = (initial !== DEFAULT_LOCALE);
   }
   await setLocale(initial);
+  if (auto) {
+    // Defer the toast so it lands after first paint, not during init.
+    queueMicrotask(() => _flashAutoLocaleToast(initial));
+  }
+}
+
+const NATIVE_NAMES = {
+  en: 'English',
+  vi: 'Tiếng Việt',
+  id: 'Bahasa Indonesia',
+  ne: 'नेपाली',
+  zh: '中文',
+};
+
+function _flashAutoLocaleToast(lc) {
+  if (document.getElementById('locale-auto-toast')) return;
+  const t = document.createElement('div');
+  t.id = 'locale-auto-toast';
+  t.className = 'locale-auto-toast';
+  t.setAttribute('role', 'status');
+  t.setAttribute('aria-live', 'polite');
+  t.innerHTML = `
+    App language: <strong lang="${lc}">${NATIVE_NAMES[lc] || lc}</strong>
+    <span class="muted small">— change anytime in Settings.</span>
+    <button type="button" class="locale-auto-toast-close" aria-label="Dismiss">×</button>
+  `;
+  document.body.appendChild(t);
+  const dismiss = () => { t.classList.add('is-leaving'); setTimeout(() => t.remove(), 200); };
+  t.querySelector('.locale-auto-toast-close')?.addEventListener('click', dismiss);
+  // Auto-dismiss after 8 seconds.
+  setTimeout(dismiss, 8000);
 }
 
 /**

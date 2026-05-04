@@ -22,7 +22,7 @@ import { renderReading } from './reading.js';
 import { renderListening } from './listening.js';
 import { renderKanji } from './kanji.js';
 import { renderHome } from './home.js';
-import { initI18n } from './i18n.js';
+import { initI18n, setLocale, currentLocale, supportedLocales } from './i18n.js';
 import { renderPapers } from './papers.js';
 import { renderChangelog } from './changelog.js';
 import { renderFeedback } from './feedback.js';
@@ -220,6 +220,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   initSearch();
   initPwa();
   initFullscreenToggle();
+  initLocaleChips();
+  initThemeOverrides();
   // ISSUE-001: keep the footer version-stamp in sync with CHANGELOG.md so a
   // forgotten manual bump never re-introduces the v1.10.2 → v1.12.27 drift.
   // Cheap because CHANGELOG.md is precached by the SW; if the fetch fails
@@ -285,6 +287,61 @@ document.addEventListener('DOMContentLoaded', () => {
 // "maximize" (4 corners) and "minimize" (inward arrows) shapes via CSS state.
 // The browser's own Esc key exits fullscreen too — we listen for the
 // fullscreenchange event so the button label reflects current state.
+// IMP-052 (audit round-4): runtime theme overrides for institutional
+// forks. Loads data/theme-overrides.json if present; missing file =
+// use the design tokens defined in css/main.css :root. Maps tokens
+// onto :root CSS custom properties; brand-name swap updates document
+// title + the brand-link aria-label.
+async function initThemeOverrides() {
+  try {
+    const r = await fetch('data/theme-overrides.json');
+    if (!r.ok) return;
+    const cfg = await r.json();
+    if (cfg && typeof cfg === 'object') {
+      const root = document.documentElement;
+      for (const [k, v] of Object.entries(cfg.tokens || {})) {
+        if (typeof k === 'string' && k.startsWith('--')) {
+          root.style.setProperty(k, String(v));
+        }
+      }
+      if (cfg.brand && typeof cfg.brand.name === 'string') {
+        const brand = document.querySelector('.brand-link');
+        if (brand) brand.textContent = cfg.brand.name;
+      }
+    }
+  } catch { /* missing file is the default — silently use repo tokens */ }
+}
+
+// ISSUE-028 (audit round-4): wire the header locale-chip group.
+// 5 chips swap the i18n locale on click + reload the active route.
+// `aria-pressed` reflects the current locale.
+function initLocaleChips() {
+  const group = document.getElementById('locale-chip-group');
+  if (!group) return;
+  const sync = () => {
+    const cur = currentLocale();
+    group.querySelectorAll('.locale-chip').forEach(b => {
+      const isActive = b.dataset.lc === cur;
+      b.classList.toggle('is-active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  };
+  group.querySelectorAll('.locale-chip').forEach(b => {
+    if (!supportedLocales.includes(b.dataset.lc)) {
+      b.disabled = true;
+      return;
+    }
+    b.addEventListener('click', async () => {
+      await setLocale(b.dataset.lc);
+      sync();
+      route();   // re-render the active route in the new locale
+    });
+  });
+  sync();
+  // Sync on locale-change event from Settings panel.
+  document.addEventListener('locale-changed', sync);
+}
+
 function initFullscreenToggle() {
   const btn = document.getElementById('fullscreen-toggle');
   if (!btn) return;
