@@ -23,6 +23,10 @@ DONE_IDS = {
     'ISSUE-008', 'ISSUE-009', 'ISSUE-010', 'ISSUE-011', 'ISSUE-012',
     'IMP-018', 'IMP-020', 'IMP-021', 'IMP-022', 'IMP-023',
     'IMP-025', 'IMP-028', 'IMP-029',
+    # Open Questions sheet: Q1 (localStorage namespace migration target)
+    # is closed by IMP-023's `migrate(oldNS, newNS)` helper. Q2-Q7 stay
+    # open — they are product decisions, not implementation items.
+    'Q1',
 }
 
 
@@ -62,9 +66,15 @@ def main() -> int:
         try:
             id_col = next(i for i, v in enumerate(header, start=1)
                           if v and str(v).strip().lower() in ('id', 'issue id', 'item id'))
-            dec_col = next(i for i, v in enumerate(header, start=1)
-                           if v and str(v).strip().lower().startswith('decision'))
-        except StopIteration:
+            # Prefer "Decision (Fix / Avoid / Defer)" over "Decision needed";
+            # both share the "decision" prefix on the Open questions sheet.
+            dec_candidates = [i for i, v in enumerate(header, start=1)
+                              if v and str(v).strip().lower().startswith('decision (')]
+            if not dec_candidates:
+                dec_candidates = [i for i, v in enumerate(header, start=1)
+                                  if v and str(v).strip().lower().startswith('decision')]
+            dec_col = dec_candidates[0]
+        except (StopIteration, IndexError):
             continue
 
         for row in ws.iter_rows(min_row=header_row_idx + 1):
