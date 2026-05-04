@@ -1,6 +1,47 @@
 // LocalStorage adapter - namespaced per spec FR-P4.
 const NS = 'jlpt-n5-tutor:';
 
+// IMP-023 (2026-05-04 audit round 2): namespace migration shim. If the
+// project ever flips NS (e.g. to 'jlptsuccess:n5:' as Q1 in the open-
+// questions sheet asks about), call `migrate(oldNS, newNS)` once at startup
+// before any get/set lands on the new namespace. The shim is defensive: it
+// runs at most once per origin, marked by a sentinel key in the new NS.
+//
+// Use:
+//   import { migrate } from './storage.js';
+//   migrate('jlpt-n5-tutor:', 'jlptsuccess:n5:');
+//
+// Behaviour:
+//   - For each key in localStorage starting with oldNS, copy its value to
+//     the same key under newNS UNLESS newNS already has the key (newer
+//     wins; never overwrite).
+//   - Set sentinel `${newNS}__migrated_from__` = oldNS so subsequent calls
+//     are no-ops.
+//   - oldNS keys are NOT deleted — keeps the old install recoverable if
+//     a learner downgrades the PWA shell.
+export function migrate(oldNS, newNS) {
+  if (oldNS === newNS) return 0;
+  const sentinel = `${newNS}__migrated_from__`;
+  if (localStorage.getItem(sentinel)) return 0;
+  let copied = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith(oldNS)) {
+      const tail = k.slice(oldNS.length);
+      const newKey = newNS + tail;
+      if (localStorage.getItem(newKey) === null) {
+        const v = localStorage.getItem(k);
+        if (v !== null) {
+          localStorage.setItem(newKey, v);
+          copied += 1;
+        }
+      }
+    }
+  }
+  localStorage.setItem(sentinel, oldNS);
+  return copied;
+}
+
 export function get(key, fallback = null) {
   const raw = localStorage.getItem(NS + key);
   if (raw === null) return fallback;

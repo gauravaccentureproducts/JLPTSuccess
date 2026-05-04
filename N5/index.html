@@ -3,22 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSP: static-only, no third-party. 'unsafe-inline' on style is needed for
-       the inline <style> block in the SW-update toast and a11y overrides;
-       script-src omits 'unsafe-inline' so any future inline-script regression
+  <!-- CSP: static-only, no third-party.
+       ISSUE-012 (2026-05-04 round-2 audit): split style-src into
+       style-src-elem ('self', no inline) and style-src-attr ('self'
+       'unsafe-inline', for dynamic progress-bar widths etc.). This
+       forbids inline <style> element injection (the high-risk vector)
+       while still allowing the legitimate `style="width:N%"` attribute
+       writes used by progress bars across test/drill/diagnostic/home/
+       summary modules. The legacy `style-src 'self' 'unsafe-inline'` is
+       retained as a fallback for CSP-Level-2 user agents that ignore
+       the -elem/-attr directives.
+       script-src omits 'unsafe-inline' so any inline-script regression
        fails fast. Per OQ-3 in spec supplement §B.9. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none';">
   <title>JLPT N5</title>
   <meta name="description" content="JLPT N5 study material covering grammar, vocabulary, kanji, reading, and listening — static, on-device, privacy-preserving.">
   <meta name="theme-color" content="#14452a">
   <meta name="color-scheme" content="light dark">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
-  <!-- Inline SVG favicon. Without this, modern browsers fall back to
-       `/favicon.ico` at the GitHub-Pages USER root (not the project root)
-       and log a 404 in the console. CSP allows `img-src data:` so the
-       data URI loads. Same N5 mark as the PWA manifest icon. -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%2314452a'/><text x='50%25' y='58%25' text-anchor='middle' font-family='sans-serif' font-size='110' font-weight='700' fill='white'>N5</text></svg>">
+  <!-- Brand favicon: the canonical JLPTSuccess five-bar mark, served from
+       the top-level assets/logo/. Same mark across the whole suite — the
+       N-level no longer appears in the favicon since the level is conveyed
+       in the URL bar (.../N5/) and the page title. -->
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/mark.svg">
+  <link rel="apple-touch-icon" href="../assets/logo/icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <!-- Preload the two most-used fonts so first paint isn't a system-font
        flash. Inter Regular (latin body) + Noto Sans JP (every ja example).

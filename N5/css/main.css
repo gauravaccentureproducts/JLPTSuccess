@@ -4931,3 +4931,70 @@ html[data-protect="on"][data-blur="true"] body::before {
 @media (max-width: 600px) {
   .kanji-chip { min-height: 44px; padding: 8px 14px; }
 }
+
+/* ============================================================================
+ * Kanji popover — ISSUE-008 (round-2 audit): stroke chip + additional readings
+ * ========================================================================== */
+.kanji-popover-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.kanji-popover-strokes {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+.kanji-popover-additional {
+  margin-top: 8px;
+  border-top: 1px solid var(--color-line-soft, #ebebe6);
+  padding-top: 6px;
+  font-size: var(--text-sm);
+}
+.kanji-popover-additional summary {
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs, 12px);
+  padding: 2px 0;
+  list-style: none;
+}
+.kanji-popover-additional summary::marker { content: ''; }
+.kanji-popover-additional summary::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 120ms ease;
+}
+.kanji-popover-additional[open] summary::before {
+  content: '▾ ';
+}
+.kanji-popover-additional dl {
+  margin: 4px 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 8px;
+  font-size: var(--text-xs, 12px);
+}
+.kanji-popover-additional dt { color: var(--color-text-muted); font-weight: 500; }
+.kanji-popover-additional dd { margin: 0; }
+
+/* Kanji sort dropdown — IMP-025 */
+.kanji-sort-row { gap: 8px; }
+.kanji-sort-select {
+  padding: 6px 10px;
+  font-size: var(--text-sm);
+  border: 1px solid var(--color-line, #d6d6d0);
+  background: var(--color-bg, #fff);
+  color: var(--color-text);
+  border-radius: 6px;
+  min-height: 36px;
+  cursor: pointer;
+}
+.kanji-sort-select:focus {
+  outline: 2px solid var(--color-accent, #14452a);
+  outline-offset: -1px;
+}
+@media (max-width: 600px) {
+  .kanji-sort-select { min-height: 44px; }
+}

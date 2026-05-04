@@ -10,8 +10,20 @@
   "categories": ["education", "productivity"],
   "icons": [
     {
-      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%2314452a'/><text x='50%25' y='58%25' text-anchor='middle' font-family='sans-serif' font-size='84' font-weight='700' fill='white'>JLPT</text></svg>",
+      "src": "assets/logo/icon-192.png",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo/mark.svg",
+      "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     }

@@ -13,8 +13,9 @@
   <meta name="color-scheme" content="light dark">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/">
-  <!-- Inline SVG favicon. Same JLPT mark across the suite. -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%2314452a'/><text x='50%25' y='58%25' text-anchor='middle' font-family='sans-serif' font-size='84' font-weight='700' fill='white'>JLPT</text></svg>">
+  <!-- Site favicon (the brand mark — five-bar ladder). -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo/mark.svg">
+  <link rel="apple-touch-icon" href="assets/logo/icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -22,13 +23,20 @@
   <a href="#app" class="skip-link">Skip to main content</a>
   <header class="app-header" role="banner">
     <div class="brand">
-      <h1><a href="./" class="brand-link" aria-label="JLPTSuccess home">JLPTSuccess</a></h1>
+      <!-- Brand lockup: 5-bar mark + JLPTSuccess wordmark, single SVG.
+           Uses currentColor so it inherits the header's white text color. -->
+      <h1>
+        <a href="./" class="brand-link" aria-label="JLPTSuccess home">
+          <img class="brand-logo" src="assets/logo/horizontal.svg" alt="JLPTSuccess" height="32">
+        </a>
+      </h1>
     </div>
   </header>
 
   <main id="app" role="main">
     <section class="levels-page">
       <header class="levels-header">
+        <img class="levels-hero-logo" src="assets/logo/mark.svg" alt="" aria-hidden="true" width="120" height="68">
         <h2 class="levels-title">JLPTSuccess</h2>
         <p class="levels-subtitle">Choose a level to start. Each level has its own grammar, vocabulary, kanji, reading, and listening study material.</p>
       </header>

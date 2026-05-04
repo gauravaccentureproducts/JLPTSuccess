@@ -36,11 +36,15 @@ export async function renderKanji(container, params) {
 // IMP-003: kanji index now ships with a search/filter row.
 // Filters are AND-composed: text query matches glyph / on / kun / meaning;
 // stroke chip selects a stroke-count bracket; lesson chip selects a
-// lesson_order range. State is module-local so the filters persist while the
-// user navigates within the index but reset on a fresh page load.
+// lesson_order range. IMP-025 (2026-05-04 round 2): added a "Sort by"
+// dropdown so the user can re-order the result set by lesson, frequency,
+// stroke count, or glyph (Unicode codepoint). State is module-local so
+// the filters persist while the user navigates within the index but reset
+// on a fresh page load.
 let _filterText = '';
 let _filterStroke = 'all';   // 'all' | '1-5' | '6-10' | '11-15' | '16+'
 let _filterLesson = 'all';   // 'all' | '1-30' | '31-60' | '61-90' | '91-106'
+let _sortBy = 'lesson';      // 'lesson' | 'frequency' | 'strokes' | 'glyph'
 
 function _strokeBracket(n) {
   if (n == null) return '';
@@ -75,9 +79,26 @@ function _matchesFilter(e, q, strokeBr, lessonBr) {
   return true;
 }
 
+function _sortKey(e) {
+  switch (_sortBy) {
+    case 'frequency': return e.frequency_rank ?? 999;
+    case 'strokes':   return e.stroke_count ?? 999;
+    case 'glyph':     return e.glyph || '';
+    case 'lesson':
+    default:          return e.lesson_order ?? 999;
+  }
+}
+
 function renderIndex(container, entries) {
   const q = _filterText.trim().toLowerCase();
-  const filtered = entries.filter(e => _matchesFilter(e, q, _filterStroke, _filterLesson));
+  const filtered = entries
+    .filter(e => _matchesFilter(e, q, _filterStroke, _filterLesson))
+    .slice()
+    .sort((a, b) => {
+      const ka = _sortKey(a), kb = _sortKey(b);
+      if (typeof ka === 'string') return ka.localeCompare(kb);
+      return ka - kb;
+    });
   const cards = filtered.map(e => `
     <a class="kanji-card" href="#/kanji/${encodeURIComponent(e.glyph)}">
       <span class="kanji-card-glyph" lang="ja">${esc(e.glyph)}</span>
@@ -121,6 +142,16 @@ function renderIndex(container, entries) {
         ${chip('lesson', '91-106', '91-106', _filterLesson === '91-106')}
       </div>
 
+      <div class="kanji-filter-row kanji-sort-row" aria-label="Sort kanji">
+        <span class="kanji-filter-label">Sort:</span>
+        <select id="kanji-sort" class="kanji-sort-select" aria-label="Sort kanji by">
+          <option value="lesson"    ${_sortBy === 'lesson'    ? 'selected' : ''}>Lesson order (default)</option>
+          <option value="frequency" ${_sortBy === 'frequency' ? 'selected' : ''}>Frequency rank</option>
+          <option value="strokes"   ${_sortBy === 'strokes'   ? 'selected' : ''}>Stroke count</option>
+          <option value="glyph"     ${_sortBy === 'glyph'     ? 'selected' : ''}>Glyph (Unicode order)</option>
+        </select>
+      </div>
+
       <p class="kanji-filter-count muted small" aria-live="polite">
         Showing <strong>${filtered.length}</strong> of ${entries.length}.
       </p>
@@ -153,6 +184,15 @@ function renderIndex(container, entries) {
       renderIndex(container, entries);
     });
   });
+
+  // IMP-025: sort dropdown
+  const sortSelect = document.getElementById('kanji-sort');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      _sortBy = sortSelect.value;
+      renderIndex(container, entries);
+    });
+  }
 }
 
 function renderDetail(container, entry, entries) {

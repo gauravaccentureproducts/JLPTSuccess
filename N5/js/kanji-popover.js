@@ -61,14 +61,35 @@ async function showPopover(glyph, anchor) {
       <p><strong lang="ja">${esc(glyph)}</strong> is not in the N5 set yet.</p>
     `;
   } else {
+    // ISSUE-008 (2026-05-04 audit round 2): surface stroke_count next to
+    // the glyph and additional_readings (populated-but-pedagogically-pruned
+    // ON/KUN forms — N5 teaches one of them, this entry shows the other
+    // for cross-reference). Both fields shipped in v1.12.28's IMP-015.
+    const addOn  = entry.additional_readings?.on  || [];
+    const addKun = entry.additional_readings?.kun || [];
+    const strokeChip = entry.stroke_count
+      ? `<span class="kanji-popover-strokes" title="${entry.stroke_count} strokes">${entry.stroke_count}画</span>`
+      : '';
     el.innerHTML = `
       <button class="kanji-popover-close" aria-label="Close">×</button>
-      <div class="kanji-popover-glyph" lang="ja">${esc(entry.glyph)}</div>
+      <div class="kanji-popover-header">
+        <div class="kanji-popover-glyph" lang="ja">${esc(entry.glyph)}</div>
+        ${strokeChip}
+      </div>
       <dl class="kanji-popover-readings">
         ${entry.on?.length ? `<dt>On</dt><dd lang="ja">${entry.on.map(esc).join(' / ')}</dd>` : ''}
         ${entry.kun?.length ? `<dt>Kun</dt><dd lang="ja">${entry.kun.map(esc).join(' / ')}</dd>` : ''}
         ${entry.meanings?.length ? `<dt>Meaning</dt><dd>${entry.meanings.map(esc).join(', ')}</dd>` : ''}
       </dl>
+      ${(addOn.length || addKun.length) ? `
+        <details class="kanji-popover-additional">
+          <summary>Other readings (not taught at N5)</summary>
+          <dl>
+            ${addOn.length  ? `<dt>On</dt><dd lang="ja">${addOn.map(esc).join(' / ')}</dd>`  : ''}
+            ${addKun.length ? `<dt>Kun</dt><dd lang="ja">${addKun.map(esc).join(' / ')}</dd>` : ''}
+          </dl>
+        </details>
+      ` : ''}
       <label class="kanji-popover-known">
         <input type="checkbox" data-known-toggle ${known ? 'checked' : ''}>
         <span>I know this kanji</span>

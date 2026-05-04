@@ -208,49 +208,88 @@ function buildOrderedVocabList(entries) {
   return flat;
 }
 
+function _matchVocab(v, q) {
+  if (!q) return true;
+  const hay = [
+    v.form || '', v.reading || '', v.gloss || '', v.section || '',
+  ].join(' ').toLowerCase();
+  return hay.includes(q);
+}
+
 function renderVocabList(container, data) {
   const entries = data.entries || [];
+  const q = _vocabFilterText.trim().toLowerCase();
   // Use the shared ordering helper so the list and the detail-page
   // prev/next chain agree byte-for-byte.
   const ordered = buildOrderedVocabList(entries);
+  const filtered = ordered.filter(e => _matchVocab(e, q));
   const bySuper = new Map();
   for (const [s] of VOCAB_SUPERSECTS) bySuper.set(s, []);
-  for (const e of ordered) {
+  for (const e of filtered) {
     const sup = vocabSuperSectionFor(e.section || 'Other');
     bySuper.get(sup).push(e);
   }
   const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  const sections = [...bySuper.entries()].map(([sup, items]) => {
-    // No re-sort: items are already in canonical order from buildOrderedVocabList.
-    const cards = items.map(v => `
-      <a class="vocab-card" href="#/learn/vocab/${encodeURIComponent(v.form || '')}">
-        <span class="vocab-form" lang="ja">${esc(v.form || '')}</span>
-        ${v.reading ? `<span class="vocab-reading" lang="ja">${esc(v.reading)}</span>` : ''}
-        <span class="vocab-gloss">${esc(v.gloss || '')}</span>
-      </a>
-    `).join('');
-    return `
-      <details class="vocab-section" id="vocab-${slugify(sup)}">
-        <summary><strong>${esc(sup)}</strong> <span class="muted small">(${items.length})</span></summary>
-        <div class="vocab-grid">${cards}</div>
-      </details>
-    `;
-  }).join('');
+  const isFiltered = q.length > 0;
+  const sections = [...bySuper.entries()]
+    .filter(([, items]) => items.length > 0)
+    .map(([sup, items]) => {
+      // No re-sort: items are already in canonical order from buildOrderedVocabList.
+      const cards = items.map(v => `
+        <a class="vocab-card" href="#/learn/vocab/${encodeURIComponent(v.form || '')}">
+          <span class="vocab-form" lang="ja">${esc(v.form || '')}</span>
+          ${v.reading ? `<span class="vocab-reading" lang="ja">${esc(v.reading)}</span>` : ''}
+          <span class="vocab-gloss">${esc(v.gloss || '')}</span>
+        </a>
+      `).join('');
+      return `
+        <details class="vocab-section" id="vocab-${slugify(sup)}"${isFiltered ? ' open' : ''}>
+          <summary><strong>${esc(sup)}</strong> <span class="muted small">(${items.length})</span></summary>
+          <div class="vocab-grid">${cards}</div>
+        </details>
+      `;
+    }).join('');
 
+  // IMP-029: text-search bar above the section accordion. Mirrors the
+  // kanji-index UX. Auto-expands sections when filter is active so matches
+  // are visible without manual click.
   container.innerHTML = `
     <article class="vocab-toc">
       <a class="back-link" href="#/learn">← Back to Learn</a>
       <h2>Vocabulary</h2>
       <p class="page-lede">${entries.length} N5 words in ${VOCAB_SUPERSECTS.length} sections.</p>
+      <div class="kanji-filters" role="search" aria-label="Filter vocabulary">
+        <input type="search" id="vocab-filter-q" class="kanji-filter-input"
+          placeholder="Search form, reading, or English (e.g. たべる / eat / 飲む)"
+          value="${esc(_vocabFilterText)}" autocomplete="off" lang="ja"
+          aria-label="Search vocabulary">
+        <p class="kanji-filter-count muted small" aria-live="polite">
+          Showing <strong>${filtered.length}</strong> of ${entries.length}.
+        </p>
+      </div>
       <div class="toc-controls">
         <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
         <button type="button" class="btn-secondary toc-collapse-all">Collapse all</button>
       </div>
-      ${sections}
+      ${sections || '<div class="placeholder"><p>No words match the current filter.</p></div>'}
     </article>
   `;
   wireExpandCollapseControls(container, 'details.vocab-section');
+
+  const inp = document.getElementById('vocab-filter-q');
+  if (inp) {
+    inp.addEventListener('input', () => {
+      _vocabFilterText = inp.value;
+      renderVocabList(container, data);
+      const re = document.getElementById('vocab-filter-q');
+      if (re) {
+        re.focus();
+        const v = re.value;
+        re.setSelectionRange(v.length, v.length);
+      }
+    });
+  }
 }
 
 function renderVocabDetail(container, vocabData, grammarData, form) {
@@ -461,11 +500,32 @@ function superCategoryFor(pattern) {
   return 'Set Phrases and Discourse';
 }
 
+// IMP-029 (2026-05-04 audit round 2): grammar / vocab list filter state.
+// Mirrors the chip-based filter UX added to the kanji index in IMP-003.
+// Module-local so the search query and tier persist while the user navigates
+// within the index but reset on a fresh page load.
+let _grammarFilterText = '';
+let _grammarFilterTier = 'all';   // 'all' | 'core_n5' | 'late_n5'
+let _vocabFilterText = '';
+
+function _matchGrammar(p, q, tier) {
+  if (tier !== 'all' && (p.tier || 'core_n5') !== tier) return false;
+  if (!q) return true;
+  const hay = [
+    p.pattern, p.meaning_en, p.meaning_ja || '',
+    p.notes || '', (p.examples || []).map(e => e.ja).join(' '),
+  ].join(' ').toLowerCase();
+  return hay.includes(q);
+}
+
 function renderTOC(container, data) {
   // Group by super-category instead of fine-grained category.
   const bySuperCat = new Map();
   for (const [supercat] of GRAMMAR_SUPERCATS) bySuperCat.set(supercat, []);
-  for (const p of data.patterns) {
+
+  const q = _grammarFilterText.trim().toLowerCase();
+  const filtered = data.patterns.filter(p => _matchGrammar(p, q, _grammarFilterTier));
+  for (const p of filtered) {
     // Pass full pattern so per-id overrides apply (verb-pattern leakers
     // that live inside non-verb subcategories — see PATTERN_SUPERCAT_OVERRIDES).
     const sc = superCategoryFor(p);
@@ -473,11 +533,29 @@ function renderTOC(container, data) {
   }
 
   const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const chip = (group, value, label, active) =>
+    `<button type="button" class="kanji-chip ${active ? 'active' : ''}"
+       data-grammar-filter-group="${group}" data-grammar-filter-value="${value}">${esc(label)}</button>`;
 
   let html = `
     <a class="back-link" href="#/learn">← Back to Learn</a>
     <h2>Grammar</h2>
     <p class="page-lede">${data.patterns.length} patterns in ${bySuperCat.size} sections.</p>
+    <div class="kanji-filters" role="search" aria-label="Filter grammar patterns">
+      <input type="search" id="grammar-filter-q" class="kanji-filter-input"
+        placeholder="Search pattern, meaning, or example (e.g. て-form / wants to / です)"
+        value="${esc(_grammarFilterText)}" autocomplete="off"
+        aria-label="Search grammar patterns">
+      <div class="kanji-filter-row" aria-label="Tier filter">
+        <span class="kanji-filter-label">Tier:</span>
+        ${chip('tier', 'all', 'All', _grammarFilterTier === 'all')}
+        ${chip('tier', 'core_n5', 'Core N5', _grammarFilterTier === 'core_n5')}
+        ${chip('tier', 'late_n5', 'Late N5', _grammarFilterTier === 'late_n5')}
+      </div>
+      <p class="kanji-filter-count muted small" aria-live="polite">
+        Showing <strong>${filtered.length}</strong> of ${data.patterns.length}.
+      </p>
+    </div>
     <div class="toc-controls">
       <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
       <button type="button" class="btn-secondary toc-collapse-all">Collapse all</button>
@@ -487,8 +565,12 @@ function renderTOC(container, data) {
   // 5 short heading rows (one per super-category). Click to expand a
   // section to see its cards.
   for (const [supercat, items] of bySuperCat) {
+    if (items.length === 0) continue;  // hide empty super-categories under filter
     items.sort((a, b) => (a.patternOrder ?? 0) - (b.patternOrder ?? 0));
-    html += `<details class="toc-category" id="cat-${slugify(supercat)}">`;
+    // Auto-expand all sections when an active filter is set, so matches surface
+    // without a manual click.
+    const isFiltered = q || _grammarFilterTier !== 'all';
+    html += `<details class="toc-category" id="cat-${slugify(supercat)}"${isFiltered ? ' open' : ''}>`;
     html += `<summary><h3>${esc(supercat)} <span class="cat-count muted small">(${items.length})</span></h3></summary>`;
     html += `<div class="grammar-grid">`;
     for (const p of items) {
@@ -501,13 +583,36 @@ function renderTOC(container, data) {
     }
     html += `</div></details>`;
   }
-  if (data.patterns.length === 0) {
-    html += `<div class="placeholder"><p>No patterns yet. Add entries to <code>data/grammar.json</code>.</p></div>`;
+  if (filtered.length === 0) {
+    html += `<div class="placeholder"><p>No patterns match the current filter.</p></div>`;
   } else if (data.patterns.length === 1) {
     html += `<div class="placeholder" style="margin-top:24px"><p>Scaffold currently has 1 example pattern. Add more to <code>data/grammar.json</code> as you author content.</p></div>`;
   }
   container.innerHTML = html;
   wireExpandCollapseControls(container, 'details.toc-category');
+
+  // Filter wiring (IMP-029)
+  const inp = document.getElementById('grammar-filter-q');
+  if (inp) {
+    inp.addEventListener('input', () => {
+      _grammarFilterText = inp.value;
+      renderTOC(container, data);
+      const re = document.getElementById('grammar-filter-q');
+      if (re) {
+        re.focus();
+        const v = re.value;
+        re.setSelectionRange(v.length, v.length);
+      }
+    });
+  }
+  container.querySelectorAll('[data-grammar-filter-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const g = btn.dataset.grammarFilterGroup;
+      const v = btn.dataset.grammarFilterValue;
+      if (g === 'tier') _grammarFilterTier = v;
+      renderTOC(container, data);
+    });
+  });
 }
 
 // Wire Expand-all / Collapse-all buttons to the matching details elements.
