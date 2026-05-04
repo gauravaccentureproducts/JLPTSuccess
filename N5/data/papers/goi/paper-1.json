@@ -11,12 +11,12 @@
       "type": "mcq",
       "stem_html": "まいあさ コーヒーを （　　）。",
       "choices": [
-        "たべます",
+        "のみます",
         "みます",
         "ききます",
-        "のみます"
+        "たべます"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "rationale": "コーヒー is something one drinks (のむ).",
       "kbSourceId": "Q1",
       "id": "goi-1.1"
@@ -25,12 +25,12 @@
       "type": "mcq",
       "stem_html": "ばんごはんを （　　） から、テレビを 見ます。",
       "choices": [
-        "のんで",
+        "たべて",
         "かって",
         "かいて",
-        "たべて"
+        "のんで"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "rationale": "ごはん takes たべる.",
       "kbSourceId": "Q2",
       "id": "goi-1.2"
@@ -40,11 +40,11 @@
       "stem_html": "新しい ノートを （　　）。",
       "choices": [
         "ききました",
-        "たべました",
+        "かいました",
         "のみました",
-        "かいました"
+        "たべました"
       ],
-      "correctIndex": 3,
+      "correctIndex": 1,
       "rationale": "ノート is bought (買います).",
       "kbSourceId": "Q3",
       "id": "goi-1.3"
@@ -82,11 +82,11 @@
       "stem_html": "あした こうえんへ さんぽに （　　）。",
       "choices": [
         "きます",
-        "でます",
+        "いきます",
         "はいります",
-        "いきます"
+        "でます"
       ],
-      "correctIndex": 3,
+      "correctIndex": 1,
       "rationale": "direction-へ + いく.",
       "kbSourceId": "Q6",
       "id": "goi-1.6"

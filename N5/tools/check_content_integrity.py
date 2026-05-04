@@ -804,6 +804,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-30", "No past-paper provenance signatures in question text (2026-05-02)", lambda: _check_ja_30_provenance()),
     ("JA-31", "Vocab PoS tags in vocabulary_n5.md agree with data/vocab.json (2026-05-02)", lambda: _check_ja_31_vocab_pos_parity()),
     ("JA-32", "Paper-JSON rationales appear verbatim in source MD (2026-05-04)", lambda: _check_ja_32_paper_rationale_md_parity()),
+    ("JA-33", "Listening items carry mondai (1-4) + closed format_type enum (2026-05-05)", lambda: _check_ja_33_listening_mondai_taxonomy()),
 ]
 
 
@@ -1806,6 +1807,56 @@ def _check_ja_32_paper_rationale_md_parity() -> list[str]:
                     f"{sorted(stale)} — possible stale extraction "
                     f"(MD may have corrected to kana)"
                 )
+    return failures
+
+
+def _check_ja_33_listening_mondai_taxonomy() -> list[str]:
+    """ISSUE-016 (audit round 3, 2026-05-05): every listening item must
+    carry `mondai` (1..4) and `format_type` from the closed enum:
+      task_understanding   (mondai 1, 課題理解)
+      point_understanding  (mondai 2, ポイント理解)
+      utterance_expression (mondai 3, 発話表現)
+      immediate_response   (mondai 4, 即時応答)
+
+    Without this taxonomy the UI cannot surface the official JLPT
+    section structure and the test-mode listening flow cannot mirror the
+    real exam's per-mondai weighting.
+    """
+    failures: list[str] = []
+    p = ROOT / "data" / "listening.json"
+    if not p.exists():
+        return ["JA-33: data/listening.json missing"]
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-33: parse error: {e}"]
+
+    ALLOWED_FT = {
+        "task_understanding",
+        "point_understanding",
+        "utterance_expression",
+        "immediate_response",
+    }
+    FT_TO_MONDAI = {
+        "task_understanding":   1,
+        "point_understanding":  2,
+        "utterance_expression": 3,
+        "immediate_response":   4,
+    }
+
+    for it in data.get("items", []):
+        iid = it.get("id", "?")
+        m = it.get("mondai")
+        ft = it.get("format_type")
+        if not isinstance(m, int) or m not in (1, 2, 3, 4):
+            failures.append(f"JA-33 {iid}: mondai is missing or not in {{1,2,3,4}} (got {m!r})")
+        if ft not in ALLOWED_FT:
+            failures.append(f"JA-33 {iid}: format_type {ft!r} not in closed enum {sorted(ALLOWED_FT)}")
+        elif FT_TO_MONDAI.get(ft) != m:
+            failures.append(
+                f"JA-33 {iid}: mondai={m} inconsistent with format_type={ft!r} "
+                f"(expected mondai={FT_TO_MONDAI[ft]})"
+            )
     return failures
 
 
