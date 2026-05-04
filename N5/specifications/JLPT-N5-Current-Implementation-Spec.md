@@ -1,0 +1,605 @@
+# JLPT N5 — Current Implementation Specification
+
+**Status:** Living document — describes what the app *actually* is today.
+**Version:** v1.12.30
+**Built at:** 2026-05-04T22:42:34Z (per `data/version.json`)
+**Last updated:** 2026-05-05
+**Supersedes:** `JLPT-N5-Functional-Spec-v3.1-supplement.md` (2026-04-30) and the two `.docx` files in this folder, which are now historical record.
+
+This document is the single source of truth for "what does the N5 app do, and how is it built." If a future audit, redesign, or hand-off needs ground truth, start here.
+
+---
+
+## 1. Document control
+
+| Field | Value |
+|---|---|
+| Product | JLPTSuccess — N5 sub-app |
+| Repo | `gauravaccentureproducts/JLPTSuccess` |
+| Live URL | https://gauravaccentureproducts.github.io/JLPTSuccess/N5/ |
+| Source path | `JLPTSuccess/N5/` (within the JLPTSuccess monorepo) |
+| Default branch | `master` |
+| License | Source: implicit (MIT pending). Content: see `CONTENT-LICENSE.md`. KanjiVG: CC BY-SA 3.0 (per `NOTICES.md`). |
+| Maintained by | Solo author + AI build agent |
+
+Predecessor specifications (kept as historical record):
+- `JLPT N5 Grammar Tutor – Functional Spec.docx` — v3 (2026-04-30 informal amendment)
+- `JLPT N5 — Consolidated Spec.docx` — v3 consolidated form
+- `JLPT-N5-Functional-Spec-v3.1-supplement.md` — gap-fill addendum, 2026-04-30
+- `not-required/` (in repo root) — earlier v1 / v2 archives
+
+---
+
+## 2. Brand & product context
+
+JLPTSuccess is a multi-level (N5 → N1) JLPT prep app deployed as a single static GitHub-Pages site. Each level lives as a self-contained sub-app under its own subdirectory. The N5 sub-app is the only currently-active level (N4 is work-blocked per project governance; N3/N2/N1 are coming-soon placeholders).
+
+The app is an offline-first, privacy-respecting, no-account, no-telemetry static PWA. There is no backend, no server, no analytics, and no third-party network calls. Everything ships as files served from GitHub Pages and cached in the browser.
+
+Core values:
+- Correctness over polish. Wrong content shown to a beginner does damage.
+- Privacy by architecture, not by promise. The app cannot leak data because it has nowhere to send it.
+- Offline-first. Once installed, the app works without a network.
+- Multi-locale UI for non-English-native learners (5 locales shipped).
+
+---
+
+## 3. Architecture overview
+
+### 3.1 Repository layout
+
+The N5 sub-app is one directory inside the JLPTSuccess monorepo:
+
+```
+JLPTSuccess/
+├── index.html                        Top-level level picker
+├── assets/logo/                      Shared brand assets (the 5-bar mark)
+├── css/main.css                      Top-level landing-page CSS
+├── manifest.webmanifest              Top-level PWA manifest
+├── N5/                               ← THIS APP
+│   ├── index.html                    N5 app shell
+│   ├── manifest.webmanifest          N5-scoped PWA manifest
+│   ├── sw.js                         N5-scoped service worker
+│   ├── css/main.css + main.min.css   N5 styling
+│   ├── js/                           35 JS modules (see §6)
+│   ├── data/                         41 JSON data files (see §7)
+│   ├── KnowledgeBank/                9 markdown source-of-truth files
+│   ├── locales/                      5 i18n bundles (en/vi/id/ne/zh)
+│   ├── audio/                        711 MP3 files (grammar/reading/listening)
+│   ├── svg/kanji/                    106 stroke-order SVGs from KanjiVG
+│   ├── fonts/                        4 self-hosted woff2 files
+│   ├── tools/                        104 Python scripts (build + audit)
+│   ├── tests/                        Playwright P0 smoke suite
+│   ├── .github/workflows/            CI: content-integrity, lighthouse, playwright, browserstack
+│   └── docs/spec/                    Other internal specs
+├── N4/                               WORK-BLOCKED per governance
+├── N3/, N2/, N1/                     Coming-soon placeholders
+└── .claude/CLAUDE.md                 Project governance rules
+```
+
+### 3.2 Per-level isolation
+
+- **localStorage** — N5 keys are prefixed `jlpt-n5-tutor:*`. No collision with future N4/N3/N2/N1 entries.
+- **Service worker scope** — registered against `/JLPTSuccess/N5/`, so caches are entirely separate from sibling levels.
+- **Build pipeline** — N5 has its own `tools/`, `KnowledgeBank/`, integrity invariants, tests. No shared build infrastructure.
+
+### 3.3 Cross-app navigation
+
+- Top-left brand link "JLPT N5" → goes one level up to `../` (the JLPTSuccess level picker).
+- The level picker offers N5 (active), N4 (visible-but-disabled, work-blocked), N3/N2/N1 (coming-soon disabled).
+- In-app hash routes like `#/levels`, `#/n5`, `#/n4` redirect via `parseRoute()` to `../` (the unified picker handles all level switching).
+
+---
+
+## 4. URL structure & routing
+
+### 4.1 Path layout
+
+All URLs sit under `https://gauravaccentureproducts.github.io/JLPTSuccess/N5/...`.
+
+The app is a single-page application using **hash routing** (no server rewrite needed for static hosts). The path before `#` is always `/JLPTSuccess/N5/`; the route is the part after `#`.
+
+### 4.2 Route table
+
+Implemented in `js/app.js:parseRoute()` + `ROUTES` map:
+
+| Route | Module | Purpose |
+|---|---|---|
+| `#/home` (default) | `home.js → renderHome` | Syllabus dashboard with 6 study cards + recommended order + progress overview |
+| `#/learn` | `learn.js → renderLearn` | Learn hub (5-card index for grammar/vocab/kanji/dokkai/listening) |
+| `#/learn/grammar` | `learn.js` | Grammar pattern catalogue |
+| `#/learn/grammar/<id>` | `learn.js` | Individual pattern detail |
+| `#/learn/vocab` | `learn.js` | Vocabulary catalogue (by section) |
+| `#/learn/vocab/<form>` | `learn.js` | Per-word page with examples |
+| `#/kanji` | `kanji.js → renderKanji` | Kanji index (106 glyphs) |
+| `#/kanji/<glyph>` | `kanji.js` | Per-kanji detail with stroke-order SVG, readings, examples |
+| `#/reading` | `reading.js` | Dokkai (reading) list + per-passage detail |
+| `#/listening` | `listening.js` | Chokai (listening) list + per-item detail with audio |
+| `#/test` | `test.js → renderTest` | Mock test mode (15-question papers, timed) |
+| `#/test/<paper-id>` | `test.js` | Individual paper |
+| `#/sitting/<id>` | `test.js` | Mid-attempt resume state |
+| `#/papers` | `papers.js` | Paper-bank index |
+| `#/drill` | `drill.js` | Practice mode (untimed, immediate feedback) |
+| `#/review` | `review.js` | SRS review queue (SM-2) |
+| `#/diagnostic` | `diagnostic.js` | Diagnostic placement mini-test |
+| `#/missed` | `missed.js` | Wrong-answer history |
+| `#/summary` | `summary.js → renderSummary` | Progress dashboard |
+| `#/settings` | `settings.js` | UI preferences + data export/import |
+| `#/changelog` | `changelog.js` | Version history |
+| `#/feedback` | `feedback.js` | Bug-report + content-correction form (mailto-based) |
+| Topic mini-modules | `kosoado.js`, `wa-vs-ga.js`, `verb-class.js`, `te-form.js`, `particle-pairs.js`, `counters.js` | Standalone explainers for high-confusion N5 topics |
+
+Bookmarks to legacy routes (`#/levels`, `#/n5`, `#/n4`, `#/n3`, `#/n2`, `#/n1`) redirect out to the parent JLPTSuccess level picker via `location.replace('../')`.
+
+---
+
+## 5. Functional surfaces
+
+### 5.1 Home (`#/home`)
+
+**Title:** "JLPT N5 Syllabus."
+
+Renders 6 syllabus cards in canonical order: Grammar / Vocabulary / Kanji / Reading / Listening / Mock Test. Below: a Recommended Study Order (8 numbered steps, each linking into the relevant module). Below that: a Progress Overview (6 rows showing per-module completion).
+
+Source: `js/home.js`.
+
+### 5.2 Learn hub (`#/learn`)
+
+5-card index linking to grammar / vocab / kanji / reading / listening study surfaces.
+
+### 5.3 Grammar (`#/learn/grammar` and per-pattern detail)
+
+178 N5 patterns rendered as a category-grouped list. Each pattern detail shows: pattern, meaning_en, meaning_ja, explanation, form rules, 2-7 examples (each with vocab_id links), common mistakes, contrasts/notes. Audio plays per-example.
+
+### 5.4 Vocabulary (`#/learn/vocab` and per-word detail)
+
+1041 entries grouped into 40 thematic sections. Per-word pages show form, reading, gloss, PoS tag, 5+ example sentences with audio, plus optional cross-references and tier badges (`[Ext]` extended, `[Cul]` cultural).
+
+### 5.5 Kanji (`#/kanji` and per-glyph detail)
+
+106 N5 kanji indexed by stroke count + frequency. Per-glyph detail shows: stroke-order animation (KanjiVG SVG), on-yomi / kun-yomi readings (primary highlighted), meanings, 2+ example vocab linked back, optional notes.
+
+A reusable `kanji-popover.js` lets any kanji character clicked anywhere in the app open a quick-info card.
+
+### 5.6 Reading / Dokkai (`#/reading` and per-passage detail)
+
+40 graded passages with 1-3 comprehension questions each. Each passage carries: title_ja, ja text, audio, kanji_used + vocab_used arrays (for scope tracking), questions with format_role tags (primary/extra) and explanation_en.
+
+### 5.7 Listening / Chokai (`#/listening` and per-item detail)
+
+40 listening items with synthetic gtts audio. Each item: id, format (task/point/utterance/immediate-response), title_ja, audio path, script_ja (full dialogue text), prompt_ja, 4 multiple-choice options, correctAnswer, explanation_en, mondai (1-4), format_type (closed enum).
+
+### 5.8 Mock Test (`#/test`)
+
+28 papers across 4 categories (moji/goi/bunpou/dokkai), 402 paper-bound questions in total. Each paper is a 15-ish-question slice. Test mode runs timed; engine hides the answer + rationale until commit (per JA-9 invariant).
+
+Bank-level question count: **290** unique questions in `data/questions.json` (the source) which the paper-builder slices into the 28 papers.
+
+### 5.9 Practice / Drill (`#/drill`)
+
+Untimed practice mode with immediate feedback. Drives off the same question bank but exposes answer + rationale per attempt.
+
+### 5.10 Review (`#/review`)
+
+SM-2 SRS review queue. The user's grade (Again / Hard / Good / Easy) updates the schedule per-item.
+
+### 5.11 Progress / Summary (`#/summary`)
+
+Aggregate stats + weak-area drill recommendations (foundational pattern regex `^n5-0(0[1-9]|1[0-9])$` for first 19 patterns, plus weak-IDs from grade history).
+
+### 5.12 Settings (`#/settings`)
+
+Locale switcher, theme (auto/light/dark), font size, audio speed (0.75/1.0/1.25), reduce-motion (auto/on/off), furigana mode (always/hide-known/never), data export/import (JSON download).
+
+### 5.13 Mini-modules
+
+`kosoado.js` (こそあど demonstratives), `wa-vs-ga.js` (は vs が), `verb-class.js` (う/る/irregular), `te-form.js` (te-form formation), `particle-pairs.js` (commonly-confused particle pairs), `counters.js` (numeric counters by class). Each is a standalone explainer.
+
+---
+
+## 6. JavaScript module map
+
+**35 modules in `js/`.** All ES modules, vanilla, no build step at runtime.
+
+| Module | Role |
+|---|---|
+| `app.js` | Router + chapter coordinator, route handlers map, skeleton loader, beforeunload guard |
+| `storage.js` | localStorage adapter, namespaced (`jlpt-n5-tutor:*`); SM-2 SRS math |
+| `home.js`, `learn.js`, `kanji.js`, `reading.js`, `listening.js`, `test.js`, `drill.js`, `review.js`, `summary.js`, `diagnostic.js`, `papers.js`, `missed.js`, `settings.js`, `feedback.js`, `changelog.js` | Per-route renderers |
+| `levels.js` | Vestigial in-app level picker (now bypassed; redirects out) |
+| `kanji-popover.js` | Click-on-any-kanji quick info popover |
+| `furigana.js` | Furigana renderer + per-word toggle |
+| `i18n.js` | Locale loader and `t(key)` lookup |
+| `search.js` | Global search across grammar / vocab / kanji |
+| `shortcuts.js` | Keyboard shortcuts |
+| `pwa.js` | Service-worker registration + update toast |
+| `content-protect.js` | Hotlink-protection / scrape-discouragement micro |
+| `normalize.js` | Input normalization (full-width → half-width, kana folding) |
+| `kosoado.js`, `wa-vs-ga.js`, `verb-class.js`, `te-form.js`, `particle-pairs.js`, `counters.js` | Topic-explainer mini-modules |
+| `missed.js` | Missed-questions list |
+
+---
+
+## 7. Data model
+
+**41 JSON files in `data/`** drive the runtime. Source-of-truth markdown lives in `KnowledgeBank/` and is parsed into JSON by `tools/build_data.py` (and friends).
+
+### 7.1 Content scale
+
+| Resource | Count | Source file | Source markdown |
+|---|---|---|---|
+| Grammar patterns | 178 | `data/grammar.json` | `KnowledgeBank/grammar_n5.md` |
+| Vocab entries | 1041 | `data/vocab.json` | `KnowledgeBank/vocabulary_n5.md` |
+| Kanji entries | 106 | `data/kanji.json` | `KnowledgeBank/kanji_n5.md` |
+| Reading passages | 40 | `data/reading.json` | `KnowledgeBank/dokkai_questions_n5.md` |
+| Listening items | 40 | `data/listening.json` | `KnowledgeBank/chokai_questions_n5.md` |
+| Question bank (raw) | 290 | `data/questions.json` | various `*_questions_n5.md` |
+| Mock test papers | 28 | `data/papers/manifest.json` + 28 paper files | derived |
+| Paper-bound questions | 402 | (across paper files) | derived |
+| Audio MP3s | 711 | `audio/grammar/`, `audio/reading/`, `audio/listening/` | gtts-synthesized via `build_audio.py` |
+| Kanji stroke-order SVGs | 106 | `svg/kanji/<glyph>.svg` | KanjiVG (CC BY-SA 3.0) |
+| Locales | 5 | `locales/{en,vi,id,ne,zh}.json` | hand-authored |
+
+### 7.2 Whitelist files (scope enforcement)
+
+| File | Purpose |
+|---|---|
+| `data/n5_kanji_whitelist.json` | Set of 106 N5-syllabus kanji glyphs |
+| `data/n5_kanji_readings.json` | Per-glyph on/kun/primary readings |
+| `data/n5_vocab_whitelist.json` | Set of N5 vocab forms |
+| `data/dokkai_kanji_exception.json` | Kanji legitimately allowed in reading passages outside the strict 106 (justified per item) |
+
+### 7.3 `version.json` — build stamp
+
+Single source of truth for build counts:
+
+```json
+{
+  "version": "v1.12.30",
+  "builtAt": "2026-05-04T22:42:34Z",
+  "counts": { "grammar": 178, "vocab": 1041, "kanji": 106,
+              "reading": 40, "listening": 40, "questions": 290,
+              "papers": 28, "paperQuestions": 402 },
+  "invariants": "41/41 (per tools/check_content_integrity.py)",
+  "cacheVersion": "jlptsuccess-n5-v1.12.30"
+}
+```
+
+Read by: `js/app.js` (footer version display fallback), `sw.js` (cache-version derivation), `tools/check_readme_consistency.py`. Regenerated by `tools/build_version_json.py`.
+
+---
+
+## 8. Storage / state model
+
+### 8.1 localStorage namespace
+
+All keys are prefixed `jlpt-n5-tutor:`. The N5 sub-app cannot read/write other levels' state.
+
+### 8.2 Settings schema
+
+Stored under `jlpt-n5-tutor:settings` (JSON):
+
+| Field | Type | Notes |
+|---|---|---|
+| `furiganaMode` | `'always' / 'hide-known' / 'never'` | 3-mode toggle (per Brief 2 §3.1) |
+| `audioSpeed` | `0.75 / 1.0 / 1.25` | Per-item override |
+| `reduceMotion` | `'auto' / 'on' / 'off'` | Honors `prefers-reduced-motion` when auto |
+| `theme` | `'auto' / 'light' / 'dark'` | Honors `prefers-color-scheme` when auto |
+| `font` | `'default' / 'small' / 'large'` | Body-font scale |
+| `uiLang` | `'en' / 'vi' / 'id' / 'ne' / 'zh'` | Locale picker |
+| `lastLearnId` | `string` | Last-visited grammar/vocab/kanji ID for "Resume where you left off" |
+
+Plus larger objects:
+- `knownKanji` — Set of kanji glyphs the user has marked as "I already know this"
+- `streak` — `{ current, longest, lastStudyDate, days[30] }` for the activity heatmap
+
+### 8.3 SRS schedule
+
+SM-2 algorithm per item. Stored as `{ itemId: { dueAt, interval, easiness, repetitions } }` in localStorage. No server sync.
+
+### 8.4 Progress / grade history
+
+Per-attempt grades stored locally. Powers the weak-area drill recommendations and the progress dashboard.
+
+### 8.5 No PII, no accounts, no cloud
+
+By architectural commitment, nothing leaves the device. There is no auth, no remote storage, no API. The user's data export (`Settings → Export progress`) hands them a JSON file they can re-import on any device.
+
+---
+
+## 9. Service worker & PWA
+
+### 9.1 Cache strategy
+
+Source: `sw.js`.
+
+| Asset class | Strategy | Files |
+|---|---|---|
+| Shell (HTML / CSS / JS modules) | Stale-while-revalidate | All entries in `PRECACHE` array |
+| Content (JSON / locales / manifest) | Cache-first | Same |
+| Audio MP3s | Cache-first, lazy (NOT precached) | ~22 MB across 711 files; cached on first fetch |
+| Kanji stroke-order SVGs | Precached at install | All 106 glyphs (paths derived from whitelist at install time) |
+| Self-hosted fonts | Precached | Inter L/R/M + Noto Sans JP 400 N5+N4-subset (~503 KB total) |
+
+### 9.2 Cache version
+
+`CACHE_VERSION = 'jlptsuccess-n5-v1.12.30'` (mirrors `version.json:version` so a release auto-invalidates the SW cache).
+
+### 9.3 Update flow
+
+When the SW background-fetches a fresh shell file with a different content-length than the cached copy, it broadcasts `SW_UPDATE_AVAILABLE`. The page (`pwa.js`) listens and renders an "Update available — reload?" toast. User accepting sends `SKIP_WAITING` back to the SW.
+
+### 9.4 Install behavior
+
+`manifest.webmanifest` includes:
+- Brand icons from canonical `../assets/logo/` (192×192 + 512×512 PNG, plus SVG mark)
+- App shortcuts (Today's reviews / Mock test / Browse kanji)
+- `display: standalone`
+- Theme color `#14452a` (the brand green)
+
+---
+
+## 10. Build pipeline
+
+**104 Python scripts in `tools/`.** No runtime dependency — these run pre-deploy, write the JSON, then humans (or CI) push.
+
+### 10.1 Core builders
+
+| Script | Output |
+|---|---|
+| `build_data.py` | Master orchestrator: parses KB markdown into all `data/*.json` |
+| `build_audio.py` | Renders MP3s from grammar examples / reading passages / listening scripts via gtts |
+| `build_papers.py` | Slices `questions.json` into 28 mock test papers |
+| `build_version_json.py` | Regenerates `data/version.json` build-stamp |
+| `build_min_css.py` | Minifies `css/main.css` → `css/main.min.css` (~34% smaller) |
+
+### 10.2 Linking + cross-reference
+
+| Script | Purpose |
+|---|---|
+| `link_grammar_examples_to_vocab.py` | Backfills `vocab_ids` arrays on grammar examples (homograph-aware) |
+| `tag_vocab_pos.py` | Verifies per-word PoS tagging |
+
+### 10.3 Auditing + integrity
+
+| Script | Purpose |
+|---|---|
+| `check_content_integrity.py` | **47 invariants** (X-6.1 to X-6.9 plus JA-1 to JA-33+). Release blocker. |
+| `scan_multi_correct.py` | Detects MCQ items where >1 option is arguably correct |
+| `heuristic_audit.py` | Heuristic content-quality flags |
+| `llm_audit.py` | LLM-driven quality audit (mock-mode supported when no API key) |
+| `coverage_compare.py` | Compares our corpus vs jlptsensei.com / tanos.co.uk |
+| `audit_audio_coverage.py` | Verifies audio_manifest entries resolve to actual MP3s |
+| Many fix-batch scripts | One-shot batch fixes from past audit passes (kept for reproducibility) |
+
+### 10.4 Integrity invariants (release blocker)
+
+`tools/check_content_integrity.py` runs **41 named invariants** (counted as PASS in the latest build). Categories:
+
+- **X-6.x** — corpus-shape rules (catalog completeness, kotoshi reading, no-mixed-kanji-kana, lint scripts present, no em-dashes, ru-verb exception flags, no false synonymy claims, no ASCII digits in TTS source, primary-reading sanity)
+- **JA-1 to JA-33+** — Japanese-content quality rules (stem kanji scope, particle-set sanity, furigana/catalog match, vocab-reading uniqueness, answer-key sanity, no two-correct-answers, no duplicate stems, Q-count integrity, engine display contract, no "see n5-" redirect text, no duplicate MCQ choices, kanji KB↔JSON consistency, no out-of-scope kanji in user-facing data, no auto-ruby code in renderer, audio refs resolve, kanji examples in target/whitelist, grammar examples have vocab_ids, reading explanation kanji subset of passage, reading info-search has format_type, reading choices kanji subset of passage, N4-grammar markers require tier=late_n5, kanji kun readings deduplicated, listening script choices match choices array, i-adj kanji primary reading is kun-yomi, whitelist exceptions documented, no duplicate question IDs, no English-translation/title fields in reading/listening, dokkai-paper kanji bounded, question subtype taxonomy is closed, no past-paper provenance signatures, vocab PoS parity, paper-JSON rationale parity, no seed-template literals)
+
+CI gates on green: any failure blocks deploy.
+
+---
+
+## 11. Audio pipeline
+
+- **Engine:** Google Text-to-Speech (`gtts` Python package), Japanese voice.
+- **Inputs:** Grammar examples (`data/grammar.json:examples[].ja`), reading passages (`data/reading.json:passages[].ja`), listening scripts (`data/listening.json:items[].script_ja`).
+- **Output:** MP3 files in `audio/grammar/`, `audio/reading/`, `audio/listening/`.
+- **Manifest:** `data/audio_manifest.json` lists the 711 files; SW caches lazily on first fetch.
+- **Quality:** synthesized — adequate for self-study, not native-speaker quality. Future replacement via VOICEVOX / Piper / native recording is on the roadmap.
+
+---
+
+## 12. Internationalization
+
+5 locales shipped: `en`, `vi` (Vietnamese), `id` (Indonesian), `ne` (Nepali), `zh` (Simplified Chinese).
+
+Files: `locales/{en,vi,id,ne,zh}.json`. UI strings only (chrome) at this stage; per-item rationales / common-mistakes / glosses remain English-only. Bringing those translation surfaces to native quality is the highest-priority strategic-positioning gap (per the audit prompt).
+
+Locale switcher exposed in Settings (`#/settings`). The current default-resolution logic is partial — true `Accept-Language` honoring is on the roadmap.
+
+---
+
+## 13. Privacy posture (hard contract)
+
+Per `PRIVACY.md`:
+
+- No accounts, no login, no auth.
+- No telemetry. No analytics. No third-party scripts.
+- No remote API calls during normal use.
+- All state in `localStorage` (browser-local, namespaced).
+- Service worker only caches same-origin assets.
+- CSP enforces same-origin (see §15).
+
+Verifiable by opening DevTools → Network: only same-origin requests should ever appear (excluding the GitHub Pages CDN serving the static site).
+
+---
+
+## 14. Accessibility commitments
+
+Target: WCAG 2.1 AA. Current state:
+
+- Skip-link to main content (`<a class="skip-link">`)
+- Semantic landmarks: `<header role="banner">`, `<main>`, `<footer>`, `<nav>` with `aria-label`
+- Per-route `body[data-route]` for CSS targeting
+- ARIA labels on icon-only buttons (fullscreen toggle, settings cog)
+- 44 px minimum tap targets on mobile (`@media (max-width: 768px)`)
+- Reduced-motion: respects `prefers-reduced-motion` when `reduceMotion: 'auto'`
+- Theme: respects `prefers-color-scheme` when `theme: 'auto'`
+- Mobile bottom-nav (per Brief 2 P4.4)
+- Self-hosted fonts so first paint isn't a flash of system font
+
+axe-core scan runs in the Playwright P0 smoke suite (`tests/p0-smoke.spec.js`); the build gates on zero serious/critical violations.
+
+---
+
+## 15. Security posture (CSP)
+
+Source: `index.html` meta tag.
+
+```
+default-src 'self';
+img-src 'self' data:;
+media-src 'self' blob:;
+style-src 'self' 'unsafe-inline';
+style-src-elem 'self';                            (CSP3 split)
+style-src-attr 'self' 'unsafe-inline';            (allows inline width="N%")
+script-src 'self';                                (no inline scripts)
+connect-src 'self';
+manifest-src 'self';
+worker-src 'self';
+base-uri 'self';
+form-action 'none';
+```
+
+`script-src` deliberately omits `'unsafe-inline'` so any inline-script regression fails fast. Style is split (per ISSUE-012 round-2 audit) so dynamic `style="width:N%"` writes for progress bars are allowed but `<style>` element injection is forbidden.
+
+---
+
+## 16. Performance budgets
+
+Per `feedback/ui-testing-plan.md` and the Lighthouse CI workflow:
+
+| Metric | Target |
+|---|---|
+| Lighthouse Performance | ≥ 0.85 |
+| Lighthouse Accessibility | ≥ 0.95 |
+| Lighthouse Best Practices | ≥ 0.85 |
+| Lighthouse SEO | ≥ 0.85 (warn-only) |
+| First Contentful Paint | ≤ 2 s on mid-tier mobile |
+
+Levers:
+- CSS minified (`main.min.css`)
+- Self-hosted woff2 fonts (~503 KB total — Inter L/R/M + Noto Sans JP 400 subset)
+- Audio NOT precached (lazy; saves ~22 MB on first install)
+- ES modules cached by URL (`?v=...` query string for cache-bust)
+- Skeleton loaders so layout doesn't shift on route change
+
+---
+
+## 17. Tech stack
+
+| Layer | Choice |
+|---|---|
+| Runtime | Vanilla HTML / CSS / ES modules. No framework. |
+| Routing | Hash-based, in-app router (`js/app.js`) |
+| Storage | `localStorage` only (no IndexedDB, no cookies) |
+| PWA | Web App Manifest + Service Worker |
+| Build (content) | Python 3 scripts in `tools/` |
+| Build (CSS) | `tools/build_min_css.py` (one-pass minifier) |
+| Tests | Playwright + axe-core (`tests/p0-smoke.spec.js`); content-integrity invariants in Python |
+| CI | GitHub Actions (4 workflows) |
+| Hosting | GitHub Pages (master branch root) |
+| Audio | gtts Python (synthesized at build time) |
+| Fonts | Inter (latin) + Noto Sans JP 400 (subset for N5+N4 kanji) |
+| Kanji SVGs | KanjiVG (CC BY-SA 3.0) |
+
+No npm packages at runtime. Node + Playwright are dev-only (`package.json` carries devDependencies for the smoke suite).
+
+---
+
+## 18. Deployment
+
+- **Trigger:** push to `master`.
+- **Workflow:** GitHub Pages auto-deployment (no custom action — Pages serves the repo root directly).
+- **Build time:** ~45 s typical.
+- **Live URL:** https://gauravaccentureproducts.github.io/JLPTSuccess/N5/
+- **Pre-flight gates:**
+  - `tools/check_content_integrity.py` — 47/47 PASS required
+  - Playwright P0 smoke — 26/26 PASS required
+  - Lighthouse CI — within budgets
+
+---
+
+## 19. CI workflows
+
+`.github/workflows/`:
+
+| Workflow | Trigger | Purpose |
+|---|---|---|
+| `content-integrity.yml` | push + PR to main/master | Run `tools/check_content_integrity.py` |
+| `playwright.yml` | push + PR to main/master | P0 smoke suite (26 tests across desktop + mobile chromium) |
+| `lighthouse.yml` | push + PR to main/master | Performance + a11y audits |
+| `browserstack.yml` | manual / opt-in | Cross-browser smoke (Safari, Edge, mobile Chrome) |
+
+---
+
+## 20. Top-level files (source-of-truth)
+
+| File | Role |
+|---|---|
+| `README.md` | Quick orientation + build-pipeline + tests-to-run |
+| `CHANGELOG.md` | User-visible release notes (currently at v1.12.30) |
+| `TASKS.md` | In-flight backlog + open audit-batch tracking |
+| `verification.md` | Audit pass log (Pass-1 through Pass-N findings + closure) |
+| `PRIVACY.md` | Hard-contract privacy statement |
+| `NOTICES.md` | Third-party attributions (KanjiVG, gtts, fonts) |
+| `CONTENT-LICENSE.md` | Content licensing terms |
+| `AUDIO.md` | Audio pipeline + voice details |
+
+---
+
+## 21. Governance / project rules
+
+Per `JLPTSuccess/.claude/CLAUDE.md` (project root):
+
+1. **N4 is work-blocked** — no edits, builds, commits, or pushes affecting `/JLPTSuccess/N4/`. Lifted only by an explicit user instruction.
+2. **Finish-one-job discipline** — before any new work request, the assistant must surface the current outstanding job and wait for explicit re-confirm.
+3. **Keep N4 history intact** — don't delete or refactor.
+4. Same rules do NOT apply to N5 — N5 is the active development surface.
+
+---
+
+## 22. What's deliberately out of scope
+
+Per multiple specifications and active design choice:
+
+- **No accounts / no auth / no cloud sync.** Hard architectural constraint.
+- **No telemetry / analytics.** Hard architectural constraint.
+- **No native mobile app stores (today).** PWA is the install path. (TWA / Capacitor wrapping is a future option but not committed.)
+- **No multi-learner profiles.** A device's localStorage is single-user; multiple humans on the same machine would need separate browser profiles.
+- **No gamification (streaks/XP/leaderboards).** Streak counter exists as a private metric; no public leaderboard, no compare-with-friends.
+- **No native-speaker recordings (today).** All audio is synthesized via gtts. Native re-record is on the roadmap.
+- **No FSRS-4.5 SRS (today).** SM-2 is the current scheduler; FSRS-4.5 migration is on the roadmap.
+
+---
+
+## 23. Roadmap (high-level)
+
+Per the strategic positioning audit (see `prompts/N5Improvement.txt`):
+
+### High priority
+- Native-quality translations for vi/id/ne/zh locales (current locales are UI chrome only — niche-N1 unlock).
+- Native-teacher review of grammar examples + common-mistakes (raises trust signal — niche all).
+- Make the no-account / offline / private posture visibly messaged on the homepage (niche-N2 unlock).
+- LICENSE file + self-host guide (niche-N3 unlock).
+
+### Medium priority
+- Replace gtts with VOICEVOX or native recordings for highest-traffic surfaces (listening + dokkai).
+- FSRS-4.5 SRS migration.
+- Per-locale README + privacy translations.
+- App-store distribution path (Trusted Web Activity for Play Store).
+
+### Lower priority
+- Mnemonic/radical decomposition for kanji (WaniKani-style).
+- Visual-regression test coverage.
+- Cross-skill review queue (currently per-skill).
+- `share_target` manifest entry (let users share text into the app for kanji lookup).
+
+---
+
+## 24. Document hygiene
+
+This spec is a living document. When implementation drifts from this spec:
+
+1. Update the spec, not the other way around.
+2. Bump the "Last updated" line at the top.
+3. Note material changes in `CHANGELOG.md` if user-visible.
+4. The `.docx` files in this folder are HISTORICAL ONLY — do not edit them.
+
+---
+
+*End of specification.*
