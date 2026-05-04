@@ -3407,6 +3407,20 @@ ruby[data-glyph] { cursor: pointer; }
 .kanji-examples-table .ex-form    { font-size: 18px; font-weight: 500; white-space: nowrap; min-width: 80px; }
 .kanji-examples-table .ex-reading { color: var(--c-text-muted, #555); white-space: nowrap; min-width: 100px; }
 .kanji-examples-table .ex-gloss   { color: var(--c-text); }
+/* Sentences-in-context section (IMP-018, 2026-05-04). Each entry has 1-2
+ * short, N5-whitelisted sentences pulled from the grammar/reading/listening
+ * corpora (or hand-authored fallback for isolated kanji). Renders below
+ * the compound examples table. */
+.kanji-sentences { margin-top: 24px; }
+.kanji-sentences h3 { margin-bottom: 8px; }
+.kanji-sentences-list { list-style: none; margin: 0; padding: 0; }
+.kanji-sentences-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.kanji-sentences-list li:last-child { border-bottom: none; }
+.kanji-sentence-ja { margin: 0; font-size: 16px; line-height: 1.5; }
+.kanji-sentence-en { margin: 2px 0 0; }
 .kanji-stroke { margin-top: 24px; }
 .kanji-stroke .stroke-svg {
   width: 100%; max-width: 320px; min-height: 200px;
@@ -3446,11 +3460,17 @@ ruby[data-glyph] { cursor: pointer; }
     min-height: 480px;
     display: grid;
     grid-template-columns: minmax(220px, 280px) 1fr minmax(260px, 320px);
-    grid-template-rows: auto 1fr auto;
+    /* IMP-018 (2026-05-04): added a 3rd content row for the new
+     * .kanji-sentences section in column 2. Glyph (col 1) and stroke
+     * (col 3) span rows 2-3 via the repeated cell name in the template
+     * areas. The sentences row is `auto`-sized so the layout collapses
+     * cleanly when an entry has no sentences. */
+    grid-template-rows: auto 1fr auto auto;
     grid-template-areas:
-      "topbar topbar topbar"
-      "glyph  meta   stroke"
-      "nav    nav    nav";
+      "topbar topbar    topbar"
+      "glyph  meta      stroke"
+      "glyph  sentences stroke"
+      "nav    nav       nav";
     column-gap: 24px;
     row-gap: 16px;
     padding: 16px 20px;
@@ -3512,6 +3532,23 @@ ruby[data-glyph] { cursor: pointer; }
     font-size: 13px;
   }
   .kanji-detail .kanji-examples-table .ex-form { font-size: 16px; }
+
+  /* IMP-018: sentences slot in column 2 row 3. Capped height with
+   * vertical scroll so a kanji with two longer sentences doesn't push
+   * the stroke order off-screen. */
+  .kanji-detail .kanji-sentences {
+    grid-area: sentences;
+    margin: 0;
+    overflow: auto;
+    min-height: 0;
+    max-height: 30vh;
+  }
+  .kanji-detail .kanji-sentences h3 {
+    margin: 0 0 6px;
+    font-size: 14px;
+  }
+  .kanji-detail .kanji-sentence-ja { font-size: 14px; }
+  .kanji-detail .kanji-sentences-list li { padding: 4px 0; }
 
   /* Right column: stroke-order SVG sized to fit available space */
   .kanji-detail .kanji-stroke {

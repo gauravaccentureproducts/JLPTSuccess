@@ -4,6 +4,7 @@
   "private": true,
   "description": "Static, on-device, privacy-preserving tutor for JLPT N5 grammar. App is vanilla HTML/CSS/JS - this package.json only carries devDependencies for the Playwright + axe-core P0 smoke suite per feedback/ui-testing-plan.md §17.1.",
   "scripts": {
+    "build:css": "python tools/build_min_css.py",
     "test:smoke": "playwright test --grep-invert visual-regression",
     "test:smoke:headed": "playwright test --grep-invert visual-regression --headed",
     "test:visual": "playwright test visual-regression",

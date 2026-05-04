@@ -28,6 +28,21 @@ READING_JSON = ROOT / 'data' / 'reading.json'
 LISTENING_JSON = ROOT / 'data' / 'listening.json'
 PAPERS_DIR = ROOT / 'data' / 'papers'
 
+# Hand-authored sentences for the 8 kanji that don't naturally appear in
+# any of the corpus sources (typically isolated body-parts, large numerals,
+# or directional kanji that aren't woven into N5 passages). Each uses only
+# N5-whitelist kanji + the target glyph.
+HAND_AUTHORED = {
+    '万': [{'ja': '五万円 あります。', 'translation_en': 'I have 50,000 yen.'}],
+    '足': [{'ja': '足が いたいです。', 'translation_en': 'My foot hurts.'}],
+    '目': [{'ja': '目が きれいです。', 'translation_en': 'Her eyes are beautiful.'}],
+    '力': [{'ja': '力を かして ください。', 'translation_en': 'Please lend me your strength.'}],
+    '西': [{'ja': '学校は 西に あります。', 'translation_en': 'The school is to the west.'}],
+    '南': [{'ja': '南の くにに 行きました。', 'translation_en': 'I went to a southern country.'}],
+    '空': [{'ja': '空が 青いです。', 'translation_en': 'The sky is blue.'}],
+    '号': [{'ja': '一号せんに のります。', 'translation_en': 'I take line 1.'}],
+}
+
 MAX_SENTENCES_PER_KANJI = 2
 SENTENCE_MIN_LEN = 5      # too-short matches are useless
 SENTENCE_MAX_LEN = 80     # widened from 60 — some passages have a single
@@ -114,18 +129,23 @@ def main() -> int:
     kanji_data = json.loads(KANJI_JSON.read_text(encoding='utf-8'))
     grammar = json.loads(GRAMMAR_JSON.read_text(encoding='utf-8'))
     reading = json.loads(READING_JSON.read_text(encoding='utf-8'))
+    listening = json.loads(LISTENING_JSON.read_text(encoding='utf-8'))
 
     all_grammar_examples = [
         ex for p in grammar.get('patterns', []) for ex in p.get('examples', [])
     ]
     all_passages = reading.get('passages', [])
+    all_listen = listening.get('items', [])
 
     # Track sentences already attached to a kanji, so we don't reuse the
     # same example across multiple kanji entries.
     used_sentences: set[str] = set()
 
     n_added = 0
-    n_no_grammar_match = 0
+    n_from_grammar = 0
+    n_from_reading = 0
+    n_from_listening = 0
+    n_from_papers = 0
     n_total_unmatched = 0
     for entry in kanji_data['entries']:
         if 'sentences' in entry:
@@ -133,11 +153,22 @@ def main() -> int:
             continue
         glyph = entry['glyph']
 
+        # Try sources in priority order: grammar (cleanest, has translations)
+        # → reading → listening → paper-JSONs → hand-authored fallback.
         sents = find_grammar_sentences(glyph, all_grammar_examples, used_sentences)
+        if sents:
+            n_from_grammar += 1
         if not sents:
             sents = find_reading_sentences(glyph, all_passages, used_sentences)
-            if sents:
-                n_no_grammar_match += 1
+            if sents: n_from_reading += 1
+        if not sents:
+            sents = find_listening_sentences(glyph, all_listen, used_sentences)
+            if sents: n_from_listening += 1
+        if not sents:
+            sents = find_paper_sentences(glyph, used_sentences)
+            if sents: n_from_papers += 1
+        if not sents and glyph in HAND_AUTHORED:
+            sents = HAND_AUTHORED[glyph]
 
         if not sents:
             n_total_unmatched += 1
@@ -157,10 +188,10 @@ def main() -> int:
         encoding='utf-8',
     )
     print(f'Sentences added on {n_added}/{len(kanji_data["entries"])} kanji entries.')
-    if n_no_grammar_match:
-        print(f'  fell back to reading.json for {n_no_grammar_match} entries')
+    print(f'  by source: grammar={n_from_grammar}, reading={n_from_reading}, '
+          f'listening={n_from_listening}, papers={n_from_papers}')
     if n_total_unmatched:
-        print(f'  {n_total_unmatched} entries had NO match in either corpus (left unset)')
+        print(f'  {n_total_unmatched} entries had NO match in any corpus (left unset)')
     return 0
 
 

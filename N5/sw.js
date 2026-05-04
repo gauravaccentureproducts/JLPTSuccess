@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v2';
+const CACHE_VERSION = 'jlptsuccess-n5-v3';
 
 const PRECACHE = [
   './',
@@ -29,11 +29,19 @@ const PRECACHE = [
   // viewable on GitHub but not required for the running app and don't need
   // to occupy precache slots. Removed 2026-05-04 (IMP-013 disposition).
   './PRIVACY.md',
+  // IMP-021 (audit round-2): runtime references the minified stylesheet.
+  // The unminified source stays in the repo + precache so devtools can
+  // still resolve it via the `Sources` tab when debugging on-device.
   './css/main.css',
+  './css/main.min.css',
   './js/app.js',
   './js/storage.js',
   './js/furigana.js',
   './js/learn.js',
+  // IMP-022 (audit round-2): code-split chunks of learn.js. Precache both
+  // so the dispatcher's dynamic imports resolve from cache offline.
+  './js/learn-grammar.js',
+  './js/learn-vocab.js',
   './js/test.js',
   './js/review.js',
   './js/summary.js',

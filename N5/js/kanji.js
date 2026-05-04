@@ -239,6 +239,19 @@ function renderDetail(container, entry, entries) {
           </table>
         </section>
       ` : ''}
+      ${entry.sentences?.length ? `
+        <section class="kanji-sentences">
+          <h3>In a sentence</h3>
+          <ul class="kanji-sentences-list">
+            ${entry.sentences.map(s => `
+              <li>
+                <p class="kanji-sentence-ja" lang="ja">${esc(s.ja)}</p>
+                ${s.translation_en ? `<p class="kanji-sentence-en muted small">${esc(s.translation_en)}</p>` : ''}
+              </li>
+            `).join('')}
+          </ul>
+        </section>
+      ` : ''}
       ${entry.stroke_order_svg ? `
         <section class="kanji-stroke">
           <h3>Stroke order</h3>
