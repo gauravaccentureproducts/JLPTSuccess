@@ -1,0 +1,276 @@
+You are operating in audit-only mode on the JLPT N5 sub-app of
+JLPTSuccess. Your one and only job in this run is to produce a
+prioritized list of every existing issue and every improvement idea
+needed to make this a world-class N5 prep app.
+
+You will NOT fix anything. You will NOT implement anything. You will
+NOT modify any file, run any deploy, or make any commit. You will
+produce one ranked list and stop.
+
+## CONTEXT: WHAT THIS APP IS
+
+- Repo: gauravaccentureproducts/JLPTSuccess. Static PWA, no build step,
+  per-level isolation. N5 sub-app at /N5/, deployed to
+  gauravaccentureproducts.github.io/JLPTSuccess/N5/.
+- Tech: vanilla HTML/CSS/JS, service worker scoped to /N5/,
+  localStorage namespaced for N5 only, CSP same-origin.
+- Surfaces (home nav): Grammar, Vocabulary, Kanji, Reading, Listening,
+  Test, Progress. Plus changelog, feedback, privacy.
+- Content scale (per README): 177 grammar patterns, 1003 vocab, 106
+  kanji, 60 dokkai/listening drills.
+- Existing tooling: tools/check_content_integrity.py and Playwright
+  tests under N5/.
+- Privacy contract (PRIVACY.md): no accounts, no telemetry, no
+  third-party scripts, no remote API calls during normal use, all
+  state in localStorage. Hard contract.
+
+## SCOPE: N5 ONLY
+
+In: /N5/data/, KnowledgeBank/, app code, Test mode, Progress dashboard,
+PWA shell, service worker, manifest, CSP, /N5/tools/, all N5
+documentation surfaces (CHANGELOG, PRIVACY, README, in-app help).
+
+Out: /N4/, /N3/, /N2/, /N1/, the top-level level picker beyond N5
+discoverability.
+
+## WHAT TO AUDIT
+
+Examine every dimension below. Missing features count. A surface
+that exists but is shallow vs best-in-class counts.
+
+**Content correctness**
+- Schema integrity per item.
+- Keyed-answer correctness given the stem.
+- Distractor quality — wrongness reason, no accidental correctness,
+  no homophone/synonym ambiguity.
+- Stem naturalness — collocations, idiomaticity, temporal scope.
+- Rationale accuracy and labeling using the established taxonomy
+  (strict equivalence / context-anchored paraphrase / pragmatic
+  substitution / scope exception).
+
+**N5 scope discipline**
+- Kanji whitelist compliance in stems and keyed answers; documented
+  exceptions for distractors.
+- Vocabulary list compliance for keyed answers.
+- Grammar N5-only in stems (flag potential forms, ので vs から policy
+  drift, 〜たことがある with specific time markers, te-form chains
+  beyond N5, any N4+ leakage).
+- Listening scripts: N5 vocab/grammar only; pace matches official N5.
+
+**Corpus structural properties**
+- Answer-position distribution (target 25/25/25/25 ±2).
+- Sub-section balance.
+- Duplicate stems, target words, near-identical choice sets.
+- Mirror-pair adjacency (かす ⇄ かりる, あげる ⇄ もらう).
+- Coverage breadth: every N5 kanji (106), every major vocab cluster
+  (1003), every grammar point (177) appearing somewhere across the
+  app's question and study surfaces.
+
+**Kanji study surface**
+- Presence of all 106 N5 kanji.
+- Per-kanji metadata: meanings, on/kun-yomi, stroke count, stroke
+  order, ≥2 example vocab linked back, ≥1 N5-scope example sentence.
+- Audio coverage consistency.
+- Search / filter (reading, meaning, stroke count, frequency).
+
+**App correctness**
+- Bugs and broken behavior in any N5 surface.
+- Answer-checking edge cases (whitespace, full vs half-width, kana
+  conversion, romaji input, accents).
+- Progress / scoring accuracy across reloads and offline.
+- Review-queue / SRS correctness if present (or absence as gap).
+- Test mode: full paper, timing, scoring matches official JLPT N5
+  weighting, results breakdown, pass-mark display.
+
+**PWA and infra**
+- Service worker scope and cache strategy (assets vs JSON,
+  invalidation).
+- Update flow on new deploy without losing progress.
+- Offline behavior across all surfaces; audio caching.
+- manifest.webmanifest correctness.
+- CSP same-origin enforcement; no new external dependencies.
+- localStorage namespace consistency (README says `n5.*`, PRIVACY
+  says `jlpt-n5-tutor:*` — known drift; verify and surface).
+- Privacy posture verification — Network tab shows only same-origin.
+
+**Performance**
+- Initial load and time to interactive on mid-tier mobile.
+- JSON corpus chunking / lazy loading.
+- Service worker cache size bounded.
+- Navigation smoothness, list rendering on long content.
+
+**UX**
+- Friction vs best-in-class N5 prep apps: review modes, wrong-answer
+  history, hints, post-submit explanations, undo/back, keyboard
+  shortcuts (desktop), tap targets (mobile).
+- Furigana toggle present, working, persistent.
+- Audio controls: speed, replay, segment navigation.
+- Test mode realism vs official JLPT format.
+- Progress dashboard actionability — not raw counts; concrete next
+  actions, weak-area drills.
+- Accessibility: keyboard nav, screen reader labels, contrast, font
+  sizing, reduced-motion respect.
+- Mobile-first responsive layout, ≥44px tap targets, no horizontal
+  scroll, safe-area insets.
+
+**Documentation**
+- CHANGELOG currency.
+- PRIVACY matches actual behavior.
+- README accuracy (counts, paths, commands).
+- In-app help / rationales use plain beginner language; no assumed
+  N4+ vocabulary in explanations.
+- KnowledgeBank internal consistency.
+
+**Tests**
+- check_content_integrity.py runs clean. Coverage gaps vs the
+  structural properties above.
+- Playwright runs clean. Automatable checks not yet covered.
+
+**Market comparison (for improvement ideas)**
+- Reference points: Genki, Minna no Nihongo, Try! N5, Nihongo So-matome
+  N5, official JLPT sample workbook at jlpt.jp, Bunpro, Jisho, JLPT
+  Sensei, Tofugu, Migaku, Marumori.
+- For each surface, what does best-in-class N5 prep do that this app
+  doesn't?
+- Where would a serious N5 self-study learner notice this app falling
+  short of the best free or under-$20 alternative?
+
+## PRIORITIZATION
+
+Every entry must carry both a SEVERITY and a PRIORITY.
+
+**Severity** — what kind of thing is this:
+- BLOCKER: incorrect content shown to users, broken core feature,
+  privacy-contract violation, or factually wrong information that
+  damages learner trust.
+- MAJOR: gap from best-in-class that meaningfully reduces the app's
+  value or learning outcome.
+- MINOR: rough edge that's noticeable but doesn't block use or
+  meaningfully degrade outcomes.
+- IMPROVEMENT: not broken; would raise the ceiling toward best-in-class.
+
+**Priority** — what should be done first, on a 1–5 scale:
+- P1 (do first): high-impact AND ship-blocking AND inexpensive to
+  fix. Fixes obvious correctness or trust issues. No reason to defer.
+- P2 (do soon): high-impact, may be larger lift but clearly worth
+  doing in the current cycle. Closes major gaps from best-in-class.
+- P3 (do this cycle): meaningful improvement, lower urgency, may
+  depend on P1/P2 work landing first.
+- P4 (next cycle): nice-to-have; defer unless cheap to land alongside
+  related work.
+- P5 (someday/maybe): aspirational or low-impact; document but don't
+  schedule.
+
+Priority ≠ severity. A MINOR ID can be P1 if it's a one-line fix that
+removes user-visible drift (e.g., the localStorage namespace doc
+mismatch). A MAJOR can be P3 if it requires foundational work first.
+Do not collapse them into one number.
+
+For every entry also assign IMPACT (HIGH/MEDIUM/LOW) and EFFORT
+(HIGH/MEDIUM/LOW). Priority should be defensible from
+severity + impact + effort + dependencies.
+
+## OUTPUT FORMAT
+
+Produce one report with this structure. No code changes, no
+implementation suggestions beyond a one-sentence direction.
+
+### Section 1: Top-of-list — what to do first
+The 10 highest-priority items overall, mixed across issues and
+improvements, ordered P1 first then by impact. Each as a single line:
+`[ID] [SEVERITY] [PRIORITY] short title — one-sentence why-now`.
+This is the only section where issues and improvements are mixed; it
+exists to answer "if I have one weekend, what do I do?"
+
+### Section 2: Existing Issues (prioritized)
+For each issue:
+- ID (ISSUE-001, ISSUE-002, ...)
+- Severity (BLOCKER / MAJOR / MINOR)
+- Priority (P1–P5)
+- Impact (HIGH / MEDIUM / LOW)
+- Effort (HIGH / MEDIUM / LOW)
+- Category (from the audit dimensions)
+- Location (corpus, paper, item ID, file, function, route)
+- Current state (what's wrong, concretely)
+- Why this matters (one sentence)
+- Suggested fix direction (one sentence — do NOT implement)
+- Dependencies (other IDs that must land first, if any)
+
+Within Section 2, order by Priority (P1 → P5), then Severity, then
+Impact. Group with section subheadings per priority level.
+
+### Section 3: Improvement Ideas (prioritized)
+For each idea:
+- ID (IMP-001, IMP-002, ...)
+- Severity (always IMPROVEMENT — by definition; included for format
+  consistency)
+- Priority (P1–P5)
+- Impact (HIGH / MEDIUM / LOW)
+- Effort (HIGH / MEDIUM / LOW)
+- Category
+- Location / surface affected
+- Current state
+- Best-in-class comparison (which named product does this better,
+  and how — be specific)
+- Suggested direction (one sentence — do NOT implement)
+- Dependencies (other IDs that must land first, if any)
+
+Within Section 3, order by Priority (P1 → P5), then Impact, then
+Effort (lower effort first when impact is tied). Group with section
+subheadings per priority level.
+
+### Section 4: Coverage Map (read-only snapshot)
+Statistical state of the app today. Read-only; do not modify
+anything to produce this.
+- Answer-position distribution per corpus.
+- Coverage counts: kanji covered / 106, vocab covered / 1003, grammar
+  covered / 177.
+- Per-corpus item counts vs target.
+- Test-suite pass status (read existing CI artifacts or run
+  read-only).
+- localStorage namespace currently in use vs documented (README,
+  PRIVACY).
+- Per-surface presence/absence checklist (Grammar, Vocabulary, Kanji,
+  Reading, Listening, Test, Progress, Changelog, Feedback, Privacy).
+
+### Section 5: Out-of-Scope Notes
+Items noticed but out of scope. Logged for later, not prioritized
+within the N5 work.
+- N4-relevant ideas.
+- Top-level (cross-level) improvements.
+- Future-level considerations.
+
+### Section 6: Open Questions
+Items where the audit can't decide without your input.
+- Ambiguous policy choices (corpus rules not documented).
+- Architecture decisions that affect multiple surfaces.
+- Trade-offs that need product judgment.
+List each as `Q1, Q2, ...` with one paragraph context and the
+specific decision needed.
+
+## RULES
+
+- This is listing-only. Do NOT modify any file. Do NOT implement.
+  Do NOT propose code. The "Suggested direction" field is one
+  sentence; that's the ceiling.
+- Read-only inspection of files is fine. Running existing test
+  commands read-only is fine. Anything that mutates state, deploys,
+  or commits is forbidden.
+- Be exhaustive. Missing features count. Shallow surfaces count.
+  An improvement idea is valid even if the app didn't claim to have
+  the feature.
+- Be specific. Every entry points to a concrete location. "UX could
+  be better" is not an entry; "Progress dashboard at #/summary shows
+  raw counts but no next-action recommendation, unlike Bunpro's daily
+  review queue" is.
+- Cite named competitors honestly. If a named product does X better,
+  say so by name. If this app is at parity or ahead, say that too.
+- Severity, priority, impact, and effort are all separate axes. Do
+  not collapse them. A correct prioritization needs all four.
+- One pass. Do not iterate. Do not loop. Produce the report and stop.
+- Do not ask clarifying questions before producing the report. Use
+  reasonable assumptions and surface them in Section 6.
+- Do not start N4 work. Do not modify /N4/. N4-relevant ideas go in
+  Section 5.
+
+Begin the audit now. Produce the full prioritized list. Stop.
