@@ -29,5 +29,28 @@
       "type": "image/svg+xml",
       "purpose": "any"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today's reviews",
+      "short_name": "Reviews",
+      "description": "Open the Daily Drill review queue.",
+      "url": "./#/review",
+      "icons": [{ "src": "../assets/logo/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Start a mock test",
+      "short_name": "Test",
+      "description": "Configure and start a new auto-graded mock test.",
+      "url": "./#/test",
+      "icons": [{ "src": "../assets/logo/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Browse kanji",
+      "short_name": "Kanji",
+      "description": "Open the N5 kanji index.",
+      "url": "./#/kanji",
+      "icons": [{ "src": "../assets/logo/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
   ]
 }

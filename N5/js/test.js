@@ -85,6 +85,18 @@ async function renderSetup(container) {
   const noPriorTests = (storage.getResults() || []).length === 0;
   const lastExamMode = !!settings.examMode;
 
+  // ISSUE-019 (audit round 3): pull live paper-manifest counts so the CTA
+  // string stays in sync with reality (was hard-coded "25 papers"; actual
+  // is 28). Defensive fallback for the rare case the manifest fetch fails
+  // (e.g., file:// load): omit the count rather than render a stale number.
+  let paperCountStr = 'Mock-test papers';
+  try {
+    const m = await fetch('data/papers/manifest.json').then(r => r.ok ? r.json() : null);
+    if (m && m.totalPapers && m.totalQuestions) {
+      paperCountStr = `${m.totalPapers} papers (${m.totalQuestions} questions)`;
+    }
+  } catch { /* keep fallback string */ }
+
   container.innerHTML = `
     <h2>Chapter 2 - Test</h2>
     ${noPriorTests ? `
@@ -114,7 +126,7 @@ async function renderSetup(container) {
     <hr style="border:0; border-top:1px solid var(--c-border); margin:32px 0 24px;">
     <div class="test-papers-cta">
       <h3 style="margin:0 0 8px; font-weight:400;">Mock-test papers</h3>
-      <p style="margin:0 0 12px; color:var(--c-muted);">Take a focused 15-question paper from a specific JLPT section (Moji / Goi / Bunpou / Dokkai). 25 papers across 4 sections, drawn from the audited <code>KnowledgeBank</code> question files.</p>
+      <p style="margin:0 0 12px; color:var(--c-muted);">Take a focused paper from a specific JLPT section (Moji / Goi / Bunpou / Dokkai). ${paperCountStr} across 4 sections, drawn from the audited <code>KnowledgeBank</code> question files.</p>
       <a class="btn-secondary" href="#/papers" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Browse papers →</a>
     </div>
   `;

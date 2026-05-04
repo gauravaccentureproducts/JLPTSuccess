@@ -16,7 +16,7 @@ Open `index.html` in a modern browser (Chrome, Edge, Firefox).
 
 1. Commit and push this folder (or its parent repo) to GitHub.
 2. **Settings → Pages → Source** = `main` branch, root folder (or `/docs` if you nest the app under that).
-3. After the first build (~30 seconds), visit `https://<your-user>.github.io/<repo>/JLPT/N5/` (or wherever the app lives in your repo).
+3. After the first build (~30 seconds), visit `https://<your-user>.github.io/<repo>/N5/` (or wherever the app lives in your repo). The canonical deploy of this repo is at `https://gauravaccentureproducts.github.io/JLPTSuccess/N5/`.
 4. Verify the four chapters load: Learn, Test, Drill, Summary. Take a quick test, miss something, and confirm the Drill badge updates and Chapter 3 / 4 reflect it.
 
 The app uses **only relative paths** and **hash routing** (`#/learn`, `#/test`, …), so it works without any path-rewriting on GitHub Pages - no `404.html` fallback, no `gh-pages` action, nothing else needed.
@@ -41,8 +41,13 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
   vocab.json kanji.json reading.json listening.json
   n5_kanji_whitelist.json n5_vocab_whitelist.json n5_kanji_readings.json
   dokkai_kanji_exception.json audio_manifest.json
-  papers/manifest.json
+  papers/manifest.json                   live counts: 28 papers, 402 questions
   papers/{moji,goi,bunpou,dokkai}/paper-{1..7}.json
+                                         per-section layout: 6 full papers of 15 questions
+                                         + 1 short paper of 10 questions = 100 Q (102 for dokkai).
+                                         The short paper is intentional — it captures the residual
+                                         items after the section's primary 6 papers are filled to
+                                         15 each. Do not "rebalance" by redistributing.
 /audio/                                MP3 files (grammar examples, reading, listening)
 /svg/kanji/                            stroke-order SVGs (one per N5 kanji)
 /locales/                              UI translations (en, vi, id, ne, zh)
@@ -150,4 +155,4 @@ All Phase 1 features implemented and verified end-to-end in a browser preview:
 - Furigana toggle with N5-kanji ruby annotation (pragmatic single-pick readings)
 - Service worker for offline capability
 
-Content: 187 patterns across 23 categories (grammar.json), 219 questions (51 fully authored + 168 stubs). See `TASKS.md` for what remains.
+Content (current as of v1.12.29): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in `grammar.json` · 1041 vocabulary entries in `vocab.json` · 106 N5 kanji in `kanji.json` (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 40 reading passages in `reading.json` · 40 listening items in `listening.json` · 290 mock-test questions in `questions.json` · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time — when in doubt, run `python tools/check_content_integrity.py` which derives them from the live data files. See `TASKS.md` for outstanding work.

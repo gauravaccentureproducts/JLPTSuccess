@@ -77,8 +77,12 @@ async function showPopover(glyph, anchor) {
         ${strokeChip}
       </div>
       <dl class="kanji-popover-readings">
-        ${entry.on?.length ? `<dt>On</dt><dd lang="ja">${entry.on.map(esc).join(' / ')}</dd>` : ''}
-        ${entry.kun?.length ? `<dt>Kun</dt><dd lang="ja">${entry.kun.map(esc).join(' / ')}</dd>` : ''}
+        ${entry.on?.length
+            ? `<dt>On</dt><dd lang="ja">${entry.on.map(esc).join(' / ')}</dd>`
+            : (Array.isArray(entry.on) ? `<dt>On</dt><dd class="muted small">(none at N5)</dd>` : '')}
+        ${entry.kun?.length
+            ? `<dt>Kun</dt><dd lang="ja">${entry.kun.map(esc).join(' / ')}</dd>`
+            : (Array.isArray(entry.kun) ? `<dt>Kun</dt><dd class="muted small">(none at N5)</dd>` : '')}
         ${entry.meanings?.length ? `<dt>Meaning</dt><dd>${entry.meanings.map(esc).join(', ')}</dd>` : ''}
       </dl>
       ${(addOn.length || addKun.length) ? `

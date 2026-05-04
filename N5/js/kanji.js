@@ -213,8 +213,12 @@ function renderDetail(container, entry, entries) {
         <div class="kanji-glyph-cluster">
           <div class="kanji-glyph-big" lang="ja">${esc(entry.glyph)}</div>
           <div class="kanji-readings">
-            ${entry.on?.length ? `<p><strong>On:</strong> <span lang="ja">${entry.on.map(esc).join(' / ')}</span></p>` : ''}
-            ${entry.kun?.length ? `<p><strong>Kun:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>` : ''}
+            ${entry.on?.length
+                ? `<p><strong>On:</strong> <span lang="ja">${entry.on.map(esc).join(' / ')}</span></p>`
+                : (Array.isArray(entry.on) ? `<p><strong>On:</strong> <span class="muted small">(none at N5)</span></p>` : '')}
+            ${entry.kun?.length
+                ? `<p><strong>Kun:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>`
+                : (Array.isArray(entry.kun) ? `<p><strong>Kun:</strong> <span class="muted small">(none at N5)</span></p>` : '')}
             ${entry.meanings?.length ? `<p><strong>Meaning:</strong> ${entry.meanings.map(esc).join(', ')}</p>` : ''}
           </div>
         </div>
