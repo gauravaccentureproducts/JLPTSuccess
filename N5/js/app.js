@@ -1,5 +1,5 @@
 // Router + chapter coordinator.
-import { initStorage, getDueCount, recordStudyToday } from './storage.js';
+import { initStorage, getDueCount, recordStudyToday, getHistory, getResults, getStreak } from './storage.js';
 import { initFuriganaToggle } from './furigana.js';
 import { renderLearn } from './learn.js';
 import { renderTest } from './test.js';
@@ -28,6 +28,8 @@ import { renderChangelog } from './changelog.js';
 import { renderFeedback } from './feedback.js';
 import { renderLevels, renderLevelPlaceholder } from './levels.js';
 import { initContentProtection } from './content-protect.js';
+import { renderMissed } from './missed.js';
+import { renderSitting } from './sitting.js';
 
 const ROUTES = {
   home:       renderHome,
@@ -50,6 +52,8 @@ const ROUTES = {
   papers:     renderPapers,
   changelog:  renderChangelog,
   feedback:   renderFeedback,
+  missed:     renderMissed,    // IMP-008/031: wrong-answer history
+  sitting:    renderSitting,   // ISSUE-020/IMP-032: full mock-paper sitting
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
   // test, etc.) — clicking N5 on the picker navigates to #/home.
@@ -225,7 +229,28 @@ window.addEventListener('DOMContentLoaded', async () => {
   ['click', 'keydown'].forEach(evt => {
     document.addEventListener(evt, () => recordStudyToday(), { once: true });
   });
-  if (!location.hash) location.hash = '#/home';
+  // IMP-044 (audit round-3): first-run onboarding. Fresh installs (no
+  // prior history, no test results, no streak) get routed to the
+  // diagnostic at first touch. Returning users keep their normal hash.
+  // Once seen, the onboardingSeen sentinel keeps subsequent landings on
+  // home — diagnostic stays reachable from #/diagnostic.
+  if (!location.hash) {
+    try {
+      const noHistory = Object.keys(getHistory()).length === 0;
+      const noResults = (getResults() || []).length === 0;
+      const noStreak  = !getStreak()?.lastStudyDate;
+      const isFirstRun = noHistory && noResults && noStreak;
+      const seenOnboard = localStorage.getItem('jlpt-n5-tutor:onboardingSeen');
+      if (isFirstRun && !seenOnboard) {
+        localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1');
+        location.hash = '#/diagnostic';
+      } else {
+        location.hash = '#/home';
+      }
+    } catch {
+      location.hash = '#/home';
+    }
+  }
   await route();
   applyAudioRate();
 });

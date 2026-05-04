@@ -129,6 +129,12 @@ async function renderSetup(container) {
       <p style="margin:0 0 12px; color:var(--c-muted);">Take a focused paper from a specific JLPT section (Moji / Goi / Bunpou / Dokkai). ${paperCountStr} across 4 sections, drawn from the audited <code>KnowledgeBank</code> question files.</p>
       <a class="btn-secondary" href="#/papers" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Browse papers →</a>
     </div>
+    <hr style="border:0; border-top:1px solid var(--c-border); margin:32px 0 24px;">
+    <div class="test-sitting-cta">
+      <h3 style="margin:0 0 8px; font-weight:400;">Full mock-test sitting</h3>
+      <p style="margin:0 0 12px; color:var(--c-muted);">Take the entire JLPT N5 in one sitting: Moji + Goi (25 min) → Bunpou + Dokkai (50 min) → Listening (30 min). Each section runs at the official time budget; auto-submits at zero. ~110 min total including breaks.</p>
+      <a class="btn-secondary" href="#/sitting" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Start sitting →</a>
+    </div>
   `;
   document.getElementById('start-test').addEventListener('click', () => {
     const len = parseInt(document.getElementById('test-length').value, 10);

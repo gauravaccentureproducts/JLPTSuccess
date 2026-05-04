@@ -2864,6 +2864,143 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   font-weight: var(--weight-regular, 400);
 }
 
+/* IMP-036 (audit round-3): 7-day review forecast bar chart on home.
+ * Compact horizontal layout; per-day count above a hairline-rounded
+ * bar, day label below. Reuses the syllabus section rhythm. */
+.syllabus-forecast { margin-top: var(--space-6); }
+.forecast-bar-chart {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-2);
+}
+.forecast-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.forecast-bar-count {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium, 500);
+  color: var(--color-text);
+}
+.forecast-bar-track {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.forecast-bar-fill {
+  width: 60%;
+  min-height: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  display: block;
+}
+
+/* IMP-008/IMP-031 (audit round-3): wrong-answer history page. */
+.missed-page { max-width: 720px; }
+.missed-day-group { margin-top: var(--space-4); }
+.missed-list { list-style: none; margin: 0; padding: 0; }
+.missed-row {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-2);
+  align-items: start;
+}
+.missed-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.missed-row-pattern { grid-column: 2; }
+.missed-row-pattern a { font-weight: var(--weight-medium, 500); }
+.missed-row-answers { grid-column: 2; }
+.missed-row-answers p { margin: 2px 0; }
+.missed-wrong { color: var(--color-incorrect, #b3261e); }
+.missed-right { color: var(--color-correct, #1F4D2E); }
+.missed-actions { margin-top: var(--space-5); }
+
+/* ISSUE-020 / IMP-032 (audit round-3): full mock-paper sitting flow. */
+.sitting-picker { max-width: 720px; }
+.sitting-paper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.sitting-paper-card {
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+  border: 0.5px solid var(--color-line);
+  border-radius: 6px;
+  padding: var(--space-3);
+  transition: background 180ms ease-out;
+}
+.sitting-paper-card:hover { background: var(--color-surface-alt); }
+.sitting-paper-card .card-index {
+  font-size: var(--text-xl);
+  color: var(--color-text-muted);
+}
+.sitting-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+.sitting-section-label {
+  font-size: var(--text-lg);
+  color: var(--color-accent);
+  font-weight: var(--weight-medium, 500);
+}
+.sitting-timer-chip {
+  margin-left: auto;
+  padding: 4px 10px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-sm);
+}
+.sitting-timer-chip.danger { color: var(--color-incorrect, #b3261e); border-color: currentColor; }
+.sitting-form { display: grid; gap: var(--space-4); }
+.sitting-question {
+  border: 0.5px solid var(--color-line);
+  border-radius: 6px;
+  padding: var(--space-3);
+  margin: 0;
+}
+.sitting-question legend {
+  padding: 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.sitting-stem { margin: var(--space-2) 0; }
+.sitting-prompt { font-weight: var(--weight-medium, 500); margin: var(--space-2) 0; }
+.sitting-script { color: var(--color-text-muted); margin: var(--space-2) 0; }
+.sitting-choices { display: grid; gap: var(--space-1); }
+.sitting-choices label {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sitting-choices label:hover { background: var(--color-surface-alt); }
+.sitting-actions { margin-top: var(--space-4); }
+.sitting-break { max-width: 480px; text-align: center; padding: var(--space-6) 0; }
+.sitting-break-actions { margin-top: var(--space-4); }
+.sitting-result { max-width: 640px; }
+
 /* All four major homepage sections share the same vertical rhythm. */
 .syllabus-overview,
 .syllabus-study-order,

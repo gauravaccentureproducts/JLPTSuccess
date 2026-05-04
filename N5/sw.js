@@ -42,6 +42,10 @@ const PRECACHE = [
   // so the dispatcher's dynamic imports resolve from cache offline.
   './js/learn-grammar.js',
   './js/learn-vocab.js',
+  // IMP-008/031, ISSUE-020/IMP-032 (audit round-3): wrong-answer
+  // history view + full mock-paper sitting flow.
+  './js/missed.js',
+  './js/sitting.js',
   './js/test.js',
   './js/review.js',
   './js/summary.js',

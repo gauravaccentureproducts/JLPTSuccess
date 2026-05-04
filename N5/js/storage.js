@@ -132,6 +132,112 @@ export function getDailyGoal() {
   const s = getSettings();
   return Math.max(1, parseInt(s.dailyGoalReviews, 10) || 20);
 }
+
+// IMP-008 / IMP-031 (audit round-3): wrong-answer rolling history. Capped
+// at the most recent 200 misses so the surface stays browsable. Each
+// entry: { qId, patternId, ts, type, wrongAnswer, correctAnswer, source }.
+const WRONG_HISTORY_CAP = 200;
+export function getWrongHistory() {
+  const arr = get('wrongHistory', []);
+  return Array.isArray(arr) ? arr : [];
+}
+export function pushWrongAnswer(entry) {
+  const arr = getWrongHistory();
+  arr.unshift(entry);  // newest first
+  if (arr.length > WRONG_HISTORY_CAP) arr.length = WRONG_HISTORY_CAP;
+  set('wrongHistory', arr);
+}
+export function clearWrongHistory() {
+  set('wrongHistory', []);
+}
+
+// IMP-033 (audit round-3): per-vocab + per-kanji SRS state, mirroring the
+// pattern-history schema. The Mark-as-known toggle on vocab/kanji detail
+// pages now seeds an entry that's treated as "graduated" by getDueXxx;
+// future test/drill flows that grade vocab/kanji will write here.
+//
+// Schema: { firstSeen, lastSeen, attempts, correct, isManuallyKnown,
+//           srsBox, nextDue }
+function getVocabHistory() { return get('vocabHistory', {}); }
+function setVocabHistory(h) { set('vocabHistory', h); }
+function getKanjiHistory() { return get('kanjiHistory', {}); }
+function setKanjiHistory(h) { set('kanjiHistory', h); }
+
+function _seedSrsKnown(history, key) {
+  const e = history[key] || {
+    firstSeen: new Date().toISOString(),
+    lastSeen: null,
+    attempts: 0,
+    correct: 0,
+    isManuallyKnown: false,
+    srsBox: null,
+    nextDue: null,
+  };
+  e.isManuallyKnown = true;
+  e.srsBox = 'graduated';
+  e.nextDue = null;
+  e.lastSeen = new Date().toISOString();
+  history[key] = e;
+  return history;
+}
+
+export function getDueVocabIds() {
+  // Without an explicit grading flow on vocab, "due" is "tracked but not
+  // graduated and past the nextDue date". Initially returns nothing
+  // because no vocab gets entered into history until the user grades it.
+  const h = getVocabHistory();
+  const now = Date.now();
+  return Object.entries(h)
+    .filter(([, v]) => v.srsBox && v.srsBox !== 'graduated')
+    .filter(([, v]) => !v.nextDue || new Date(v.nextDue).getTime() <= now)
+    .map(([k]) => k);
+}
+export function getDueKanjiGlyphs() {
+  const h = getKanjiHistory();
+  const now = Date.now();
+  return Object.entries(h)
+    .filter(([, v]) => v.srsBox && v.srsBox !== 'graduated')
+    .filter(([, v]) => !v.nextDue || new Date(v.nextDue).getTime() <= now)
+    .map(([k]) => k);
+}
+
+// IMP-036 (audit round-3): aggregate FSRS-4 nextDue timestamps from
+// patterns + vocab + kanji into per-day buckets (today + 6 future days).
+// Returns [{date: 'YYYY-MM-DD', count: N, label: 'Today'|'Tomorrow'|'Wed'}].
+export function getReviewForecast(days = 7) {
+  const buckets = {};
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  for (let i = 0; i < days; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() + i);
+    const key = d.toISOString().slice(0, 10);
+    buckets[key] = { date: key, count: 0, label: '' };
+  }
+  const sources = [getHistory(), getVocabHistory(), getKanjiHistory()];
+  for (const src of sources) {
+    for (const e of Object.values(src)) {
+      if (!e.nextDue || e.srsBox === 'graduated') continue;
+      const d = new Date(e.nextDue);
+      d.setHours(0, 0, 0, 0);
+      const key = d.toISOString().slice(0, 10);
+      // Past-due lumps into today.
+      if (d < today) {
+        buckets[Object.keys(buckets)[0]].count += 1;
+      } else if (buckets[key]) {
+        buckets[key].count += 1;
+      }
+    }
+  }
+  const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const out = Object.values(buckets);
+  out.forEach((b, i) => {
+    if (i === 0) b.label = 'Today';
+    else if (i === 1) b.label = 'Tomorrow';
+    else b.label = DAY_NAMES[new Date(b.date).getDay()];
+  });
+  return out;
+}
 export function recordStudyToday() {
   const s = getStreak();
   const today = todayKey();
@@ -158,6 +264,12 @@ export function setKanjiKnown(glyph, known) {
   const m = getKnownKanji();
   if (known) m[glyph] = true; else delete m[glyph];
   set('knownKanji', m);
+  // IMP-033: mirror the manual-known flag into kanjiHistory so the SRS
+  // forecast + due-counter see the kanji as graduated.
+  if (known) {
+    const h = getKanjiHistory();
+    setKanjiHistory(_seedSrsKnown(h, glyph));
+  }
 }
 
 // Per-vocab "I know this word" flags (added 2026-05-01 per OPEN-10:
@@ -171,6 +283,11 @@ export function setVocabKnown(form, known) {
   const m = getKnownVocab();
   if (known) m[form] = true; else delete m[form];
   set('knownVocab', m);
+  // IMP-033: mirror the manual-known flag into vocabHistory.
+  if (known) {
+    const h = getVocabHistory();
+    setVocabHistory(_seedSrsKnown(h, form));
+  }
 }
 
 // Per-passage / per-drill completion tracking (added 2026-05-02 for the
@@ -282,7 +399,7 @@ function updatePatternEntry(entry, isCorrect, nowIso, source = 'test') {
 
 /**
  * Record a test's responses into rolling history.
- * @param {Array<{questionId, grammarPatternId, isCorrect}>} responses
+ * @param {Array<{questionId, grammarPatternId, isCorrect, type, userAnswer, correctAnswer}>} responses
  */
 export function recordTestResponses(responses) {
   const history = getHistory();
@@ -297,6 +414,19 @@ export function recordTestResponses(responses) {
       'test',
     );
     counted += 1;
+    // IMP-008 / IMP-031: record wrong answers into rolling history so the
+    // user can browse "things I got wrong this week" at #/review/missed.
+    if (!r.isCorrect) {
+      pushWrongAnswer({
+        qId: r.questionId,
+        patternId: r.grammarPatternId,
+        ts: now,
+        type: r.type || 'mcq',
+        wrongAnswer: r.userAnswer,
+        correctAnswer: r.correctAnswer,
+        source: 'test',
+      });
+    }
   }
   setHistory(history);
   // IMP-024: count test answers toward today's reviews tally.

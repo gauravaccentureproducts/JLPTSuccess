@@ -13,10 +13,17 @@ let activeIndex = -1;
 async function loadBank() {
   if (bank) return bank;
   try {
-    const [g, v, k] = await Promise.all([
+    // IMP-037 (audit round-3): extend the search index to include reading
+    // passages and listening transcripts. Previously the search bar only
+    // hit the 3 reference corpora (grammar/vocab/kanji); learners trying
+    // to find a phrase from a passage they remember had to scroll the
+    // whole reading section.
+    const [g, v, k, r, l] = await Promise.all([
       fetch('data/grammar.json').then(r => r.json()),
       fetch('data/vocab.json').then(r => r.json()).catch(() => ({ entries: [] })),
       fetch('data/kanji.json').then(r => r.json()).catch(() => ({ entries: [] })),
+      fetch('data/reading.json').then(r => r.json()).catch(() => ({ passages: [] })),
+      fetch('data/listening.json').then(r => r.json()).catch(() => ({ items: [] })),
     ]);
     bank = {
       grammar: (g.patterns || []).map(p => ({
@@ -34,16 +41,25 @@ async function loadBank() {
         id: e.glyph, label: e.glyph, gloss: (e.meanings || []).join(', '),
         haystack: ((e.glyph||'') + ' ' + (e.on||[]).join(' ') + ' ' + (e.kun||[]).join(' ') + ' ' + (e.meanings||[]).join(' ')).toLowerCase(),
       })),
+      // IMP-037: passages + listening items.
+      reading: (r.passages || []).map(p => ({
+        id: p.id, label: p.title_ja || p.id, gloss: p.level || '',
+        haystack: ((p.id||'') + ' ' + (p.title_ja||'') + ' ' + (p.ja||'') + ' ' + (p.topic||'')).toLowerCase(),
+      })),
+      listening: (l.items || []).map(it => ({
+        id: it.id, label: it.title_ja || it.id, gloss: it.format_type || it.format || '',
+        haystack: ((it.id||'') + ' ' + (it.title_ja||'') + ' ' + (it.script_ja||'') + ' ' + (it.format||'')).toLowerCase(),
+      })),
     };
   } catch {
-    bank = { grammar: [], vocab: [], kanji: [] };
+    bank = { grammar: [], vocab: [], kanji: [], reading: [], listening: [] };
   }
   return bank;
 }
 
 function search(query) {
   const q = (query || '').trim().toLowerCase();
-  if (!q) return { grammar: [], vocab: [], kanji: [] };
+  if (!q) return { grammar: [], vocab: [], kanji: [], reading: [], listening: [] };
   const limit = 8;
   const matches = (arr) => arr.filter(x => x.haystack.includes(q)).slice(0, limit);
   // Vocab can have repeated `form` entries when the same word appears in
@@ -62,6 +78,8 @@ function search(query) {
     grammar: matches(bank.grammar),
     vocab: dedupeByLabel(matches(bank.vocab)),
     kanji: matches(bank.kanji),
+    reading: matches(bank.reading || []),
+    listening: matches(bank.listening || []),
   };
 }
 
@@ -69,13 +87,16 @@ function search(query) {
 // previously routed everything to #/learn (the Learn hub) — wrong; the
 // per-word detail route is #/learn/vocab/<form>. Fixed 2026-05-02.
 const HREFS = {
-  grammar: it => `#/learn/${encodeURIComponent(it.id)}`,
-  kanji:   it => `#/kanji/${encodeURIComponent(it.id)}`,
-  vocab:   it => `#/learn/vocab/${encodeURIComponent(it.id)}`,
+  grammar:   it => `#/learn/${encodeURIComponent(it.id)}`,
+  kanji:     it => `#/kanji/${encodeURIComponent(it.id)}`,
+  vocab:     it => `#/learn/vocab/${encodeURIComponent(it.id)}`,
+  reading:   it => `#/reading/${encodeURIComponent(it.id)}`,
+  listening: it => `#/listening/${encodeURIComponent(it.id)}`,
 };
 
 function renderResults(results) {
-  const total = results.grammar.length + results.vocab.length + results.kanji.length;
+  const total = results.grammar.length + results.vocab.length + results.kanji.length
+              + (results.reading?.length || 0) + (results.listening?.length || 0);
   if (total === 0) return `<p class="search-empty muted" role="status">No matches.</p>`;
   // Render in display order: Grammar → Kanji → Vocab. The flat `idx`
   // counter feeds the keyboard-nav handler so ↑/↓ traverse all groups.
@@ -102,6 +123,8 @@ function renderResults(results) {
     ${results.grammar.length ? renderGroup('Grammar', results.grammar, 'grammar') : ''}
     ${results.kanji.length   ? renderGroup('Kanji',   results.kanji,   'kanji')   : ''}
     ${results.vocab.length   ? renderGroup('Vocab',   results.vocab,   'vocab')   : ''}
+    ${results.reading?.length   ? renderGroup('Reading',   results.reading,   'reading')   : ''}
+    ${results.listening?.length ? renderGroup('Listening', results.listening, 'listening') : ''}
     <p class="search-status visually-hidden" aria-live="polite">${total} ${total === 1 ? 'result' : 'results'}.</p>
   `;
 }

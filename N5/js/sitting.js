@@ -1,0 +1,315 @@
+// ISSUE-020 / IMP-032 (audit round-3): full mock-paper sitting flow.
+//
+// Chains 4 paper-1 papers + 1 listening segment into the official JLPT N5
+// rhythm:
+//   Section 1: 文字・語彙 (Moji + Goi)        25 min  (15 + 10 questions, ~1 min/Q)
+//   Section 2: 文法・読解 (Bunpou + Dokkai)   50 min  (15 + 16 questions, ~1.5 min/Q)
+//   Section 3: 聴解        (Listening)       30 min  (12 items, audio-paced)
+//
+// On entry, the user picks a paper number (1..7) and we run section 1
+// (moji-N + goi-N), then prompt to start section 2 (bunpou-N + dokkai-N),
+// then section 3 (listening). Each section runs its own countdown timer
+// at the official budget; auto-submit at zero. Between sections the
+// user gets a 1-minute break screen with a "Skip break" button.
+//
+// At the end, the per-section results aggregate into one score
+// (matching the 0-180 official conversion is out of scope; we report
+// raw correct/total per section + an overall percentage).
+import * as storage from './storage.js';
+
+const SECTIONS = [
+  // [section-id, label, ja-label, [paper-categories], duration-minutes]
+  ['mojigoi',   'Moji + Goi',         '文字・語彙', ['moji', 'goi'],     25],
+  ['bunpoudok', 'Bunpou + Dokkai',    '文法・読解', ['bunpou', 'dokkai'], 50],
+  ['choukai',   'Listening',          '聴解',       ['listening'],       30],
+];
+const BREAK_SECONDS = 60;
+
+let session = null;     // { paperNumber, currentSection, startedAt, sectionResults: [], answers: {} }
+let timerHandle = null;
+let timerEndsAt = null;
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+async function loadPaper(category, n) {
+  const r = await fetch(`data/papers/${category}/paper-${n}.json`);
+  if (!r.ok) return null;
+  return r.json();
+}
+
+async function loadListening() {
+  const r = await fetch('data/listening.json');
+  if (!r.ok) return { items: [] };
+  return r.json();
+}
+
+function fmtTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = String(sec % 60).padStart(2, '0');
+  return `${String(m).padStart(2, '0')}:${s}`;
+}
+
+function startTimer(seconds, onTick, onExpire) {
+  timerEndsAt = Date.now() + seconds * 1000;
+  if (timerHandle) clearInterval(timerHandle);
+  timerHandle = setInterval(() => {
+    const remain = Math.max(0, Math.ceil((timerEndsAt - Date.now()) / 1000));
+    onTick(remain);
+    if (remain <= 0) {
+      clearInterval(timerHandle);
+      timerHandle = null;
+      onExpire();
+    }
+  }, 1000);
+  // Fire one immediate tick so the chip renders the right value before
+  // the first interval lap.
+  onTick(seconds);
+}
+
+export async function renderSitting(container, params) {
+  // Routes:
+  //   #/sitting             — paper-number picker
+  //   #/sitting/<n>         — start section 1 of paper n
+  //   #/sitting/<n>/<i>     — section i (0..2) of paper n
+  //   #/sitting/<n>/result  — final aggregate result
+  const parts = (params || '').split('/').filter(Boolean);
+  if (parts.length === 0) return renderPicker(container);
+  const paperNumber = parseInt(parts[0], 10);
+  if (!Number.isFinite(paperNumber) || paperNumber < 1 || paperNumber > 7) {
+    container.innerHTML = `<p>Bad paper number. <a href="#/sitting">Pick again.</a></p>`;
+    return;
+  }
+  if (parts[1] === 'result') return renderResult(container, paperNumber);
+  const sectionIdx = parts[1] ? parseInt(parts[1], 10) : 0;
+  if (!Number.isFinite(sectionIdx) || sectionIdx < 0 || sectionIdx >= SECTIONS.length) {
+    container.innerHTML = `<p>Bad section. <a href="#/sitting">Restart.</a></p>`;
+    return;
+  }
+  return renderSection(container, paperNumber, sectionIdx);
+}
+
+function renderPicker(container) {
+  container.innerHTML = `
+    <article class="sitting-picker">
+      <a class="back-link" href="#/test">← Back to Test</a>
+      <h2>Full mock-test sitting</h2>
+      <p class="page-lede">
+        Take the entire JLPT N5 in one sitting: <strong>Moji + Goi (25 min)</strong>
+        → break → <strong>Bunpou + Dokkai (50 min)</strong> → break →
+        <strong>Listening (30 min)</strong>. Total ~110 minutes
+        including breaks. Each section runs at the official time budget;
+        unanswered questions auto-submit at zero.
+      </p>
+      <p class="muted">Pick a paper number. All 4 sections from that paper number combine into one sitting.</p>
+      <div class="sitting-paper-grid">
+        ${[1, 2, 3, 4, 5, 6, 7].map(n => `
+          <a class="sitting-paper-card" href="#/sitting/${n}/0">
+            <span class="card-index" aria-hidden="true">${String(n).padStart(2, '0')}</span>
+            <h3>Paper ${n}</h3>
+            <p class="muted small">moji-${n} · goi-${n} · bunpou-${n} · dokkai-${n} · listening</p>
+          </a>
+        `).join('')}
+      </div>
+    </article>
+  `;
+}
+
+async function renderSection(container, paperNumber, sectionIdx) {
+  const [, label, jaLabel, categories, durationMin] = SECTIONS[sectionIdx];
+  if (!session || session.paperNumber !== paperNumber) {
+    session = {
+      paperNumber,
+      currentSection: sectionIdx,
+      startedAt: new Date().toISOString(),
+      sectionResults: [],
+      answers: {},
+    };
+  }
+
+  // Load all questions for this section.
+  let questions = [];
+  if (categories[0] === 'listening') {
+    const d = await loadListening();
+    // Pull the first 12 listening items for the section (round-3 corpus
+    // doesn't have per-paper listening; share the same 12 across all
+    // paper numbers for now).
+    questions = (d.items || []).slice(0, 12).map(it => ({
+      id: it.id,
+      stem_html: it.title_ja || it.id,
+      audio: it.audio,
+      script_ja: it.script_ja,
+      prompt_ja: it.prompt_ja,
+      choices: it.choices || [],
+      correctIndex: (it.choices || []).findIndex(c => c === it.correctAnswer),
+      kind: 'listening',
+    }));
+  } else {
+    for (const cat of categories) {
+      const p = await loadPaper(cat, paperNumber);
+      if (p) {
+        questions.push(...p.questions.map(q => ({ ...q, kind: cat })));
+      }
+    }
+  }
+
+  if (questions.length === 0) {
+    container.innerHTML = `<p>No questions for section ${sectionIdx}. <a href="#/sitting">Restart.</a></p>`;
+    return;
+  }
+
+  const submit = () => {
+    // Grade.
+    let correct = 0;
+    for (const q of questions) {
+      const a = session.answers[q.id];
+      if (typeof a === 'number' && a === q.correctIndex) correct += 1;
+    }
+    session.sectionResults[sectionIdx] = {
+      label, jaLabel, total: questions.length, correct,
+      durationSec: durationMin * 60,
+    };
+    if (sectionIdx + 1 < SECTIONS.length) {
+      // Break screen, then advance.
+      renderBreak(container, paperNumber, sectionIdx + 1);
+    } else {
+      location.hash = `#/sitting/${paperNumber}/result`;
+    }
+  };
+
+  // Render the form.
+  const total = questions.length;
+  container.innerHTML = `
+    <article class="sitting-section">
+      <header class="sitting-section-header">
+        <span class="sitting-section-label" lang="ja">${esc(jaLabel)}</span>
+        <h2>${esc(label)} <span class="muted small">(Paper ${paperNumber}, ${total} questions)</span></h2>
+        <p class="sitting-timer-chip" id="sitting-timer" aria-live="polite">${fmtTime(durationMin * 60)}</p>
+      </header>
+      <form id="sitting-form" class="sitting-form">
+        ${questions.map((q, i) => `
+          <fieldset class="sitting-question" id="sq-${esc(q.id)}">
+            <legend>Q${i + 1}</legend>
+            ${q.audio ? `<audio class="example-audio" controls preload="metadata" src="${esc(q.audio)}"></audio>` : ''}
+            ${q.stem_html ? `<p class="sitting-stem" lang="ja">${q.stem_html}</p>` : ''}
+            ${q.prompt_ja ? `<p class="sitting-prompt" lang="ja">${esc(q.prompt_ja)}</p>` : ''}
+            ${q.script_ja && !q.audio ? `<p class="sitting-script" lang="ja">${esc(q.script_ja)}</p>` : ''}
+            <div class="sitting-choices">
+              ${(q.choices || []).map((ch, ci) => `
+                <label>
+                  <input type="radio" name="${esc(q.id)}" value="${ci}">
+                  <span lang="ja">${esc(ch)}</span>
+                </label>
+              `).join('')}
+            </div>
+          </fieldset>
+        `).join('')}
+        <div class="sitting-actions">
+          <button type="submit" class="btn-primary">Submit section ${sectionIdx + 1} of ${SECTIONS.length}</button>
+        </div>
+      </form>
+    </article>
+  `;
+
+  document.getElementById('sitting-form').addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    if (timerHandle) clearInterval(timerHandle);
+    timerHandle = null;
+    // Capture current selections.
+    for (const q of questions) {
+      const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+      if (sel) session.answers[q.id] = parseInt(sel.value, 10);
+    }
+    submit();
+  });
+  document.getElementById('sitting-form').addEventListener('change', (ev) => {
+    if (ev.target.tagName === 'INPUT') {
+      const q = questions.find(qq => qq.id === ev.target.name);
+      if (q) session.answers[q.id] = parseInt(ev.target.value, 10);
+    }
+  });
+
+  startTimer(
+    durationMin * 60,
+    (remain) => {
+      const chip = document.getElementById('sitting-timer');
+      if (chip) chip.textContent = fmtTime(remain);
+      if (remain <= 60 && chip) chip.classList.add('danger');
+    },
+    () => {
+      // Auto-submit on zero.
+      for (const q of questions) {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) session.answers[q.id] = parseInt(sel.value, 10);
+      }
+      submit();
+    },
+  );
+}
+
+function renderBreak(container, paperNumber, nextSectionIdx) {
+  const [, label, jaLabel] = SECTIONS[nextSectionIdx];
+  let remain = BREAK_SECONDS;
+  container.innerHTML = `
+    <article class="sitting-break">
+      <h2>Break</h2>
+      <p class="page-lede">Stretch. Get water. Section <strong>${nextSectionIdx + 1}</strong> (${esc(label)} / <span lang="ja">${esc(jaLabel)}</span>) starts in <strong id="break-countdown">${remain}</strong>s.</p>
+      <div class="sitting-break-actions">
+        <a class="btn-primary" href="#/sitting/${paperNumber}/${nextSectionIdx}" id="skip-break">Skip break, start now</a>
+      </div>
+    </article>
+  `;
+  if (timerHandle) clearInterval(timerHandle);
+  timerHandle = setInterval(() => {
+    remain -= 1;
+    const el = document.getElementById('break-countdown');
+    if (el) el.textContent = String(remain);
+    if (remain <= 0) {
+      clearInterval(timerHandle);
+      timerHandle = null;
+      location.hash = `#/sitting/${paperNumber}/${nextSectionIdx}`;
+    }
+  }, 1000);
+}
+
+function renderResult(container, paperNumber) {
+  if (!session || !session.sectionResults || session.sectionResults.length < SECTIONS.length) {
+    container.innerHTML = `<p>No completed sitting in memory. <a href="#/sitting">Start again.</a></p>`;
+    return;
+  }
+  let totalCorrect = 0, totalQs = 0;
+  for (const r of session.sectionResults) {
+    totalCorrect += r.correct;
+    totalQs += r.total;
+  }
+  const pct = totalQs > 0 ? Math.round(100 * totalCorrect / totalQs) : 0;
+  const PASS = 60;
+  container.innerHTML = `
+    <article class="sitting-result">
+      <h2>Sitting complete — Paper ${paperNumber}</h2>
+      <p class="page-lede">
+        Score: <strong>${totalCorrect} / ${totalQs}</strong> (${pct}%) ·
+        ${pct >= PASS ? `<span class="pass-badge pass">Pass · ≥ ${PASS}%</span>` : `<span class="pass-badge fail">Below pass · target ${PASS}%</span>`}
+      </p>
+      <table class="category-table">
+        <thead><tr><th>Section</th><th>Score</th><th>%</th></tr></thead>
+        <tbody>
+          ${session.sectionResults.map(r => {
+            const p = r.total ? Math.round(100 * r.correct / r.total) : 0;
+            const cls = p >= PASS ? 'pass' : 'fail';
+            return `<tr class="${cls}"><td>${esc(r.label)} <span class="muted small" lang="ja">(${esc(r.jaLabel)})</span></td><td>${r.correct} / ${r.total}</td><td>${p}%</td></tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+      <div class="test-nav">
+        <a class="btn-primary" href="#/sitting">Try another paper</a>
+        <a class="btn-secondary" href="#/home">Home</a>
+      </div>
+    </article>
+  `;
+  // Reset session so a future click on a paper starts fresh.
+  session = null;
+}

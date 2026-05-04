@@ -255,6 +255,9 @@ export async function renderHome(container) {
   const dailyGoal    = storage.getDailyGoal ? storage.getDailyGoal() : 20;
   const goalPct      = Math.min(100, Math.round(100 * reviewsToday / dailyGoal));
   const dueCount     = storage.getDueCount ? storage.getDueCount() : 0;
+  // IMP-036 (audit round-3): 7-day review forecast bar chart.
+  const forecast = storage.getReviewForecast ? storage.getReviewForecast(7) : [];
+  const forecastMax = Math.max(1, ...forecast.map(f => f.count));
 
   // Resume strip — single-line link above the syllabus title for returning
   // users. First-time visitors see no strip at all. Show the friendly
@@ -349,6 +352,36 @@ export async function renderHome(container) {
           ${renderProgressRow('Mock Test', progress.mockTest)}
         </ul>
       </section>
+
+      ${isReturning && forecast.length ? `
+        <!-- IMP-036 (audit round-3): 7-day review forecast.
+             Aggregates FSRS-4 nextDue dates from grammar + vocab + kanji
+             histories so the learner sees "tomorrow I'll have 8 reviews;
+             Wednesday I'll have 25 — better stay on top of it". -->
+        <section class="syllabus-forecast" aria-label="Review forecast">
+          <header class="section-label">
+            <span class="section-label-text">Review forecast (7 days)</span>
+            <span class="section-label-rule" aria-hidden="true"></span>
+          </header>
+          <ol class="forecast-bar-chart">
+            ${forecast.map(b => {
+              const h = b.count === 0 ? 4 : Math.max(8, Math.round(56 * b.count / forecastMax));
+              return `
+                <li class="forecast-bar">
+                  <span class="forecast-bar-count">${b.count}</span>
+                  <span class="forecast-bar-track" aria-hidden="true">
+                    <span class="forecast-bar-fill" style="height:${h}px"></span>
+                  </span>
+                  <span class="forecast-bar-label muted small">${esc(b.label)}</span>
+                </li>
+              `;
+            }).join('')}
+          </ol>
+          <p class="muted small" style="margin-top:6px;">
+            <a href="#/missed">Browse wrong-answer history →</a>
+          </p>
+        </section>
+      ` : ''}
 
       <section class="syllabus-action" aria-label="Where to start">
         <p class="syllabus-action-prompt">Not sure where to start?</p>
