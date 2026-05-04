@@ -2,6 +2,140 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.30 - 2026-05-05 (Audit round-3 Fix batch - 18 items resolved)
+
+The round-3 audit registered 27 new findings + 5 open questions. The
+user marked 38 items Decision = Fix (the 27 new + 11 round-1/round-2
+items revisited). This release lands 18 of those 38; the remaining 20
+are deferred with reason — see "Deferred" section below.
+
+### Content + correctness (5 items)
+
+- **ISSUE-016 — listening items now carry mondai (1-4) + closed
+  format_type enum.** Every listen.NNN item gets `mondai` ∈ {1,2,3,4}
+  and `format_type` ∈ {task_understanding / point_understanding /
+  utterance_expression / immediate_response}. Mapping derived from the
+  existing `format` field: task→1, point→2, utterance→3 (corpus has no
+  mondai-4 items as of this release). Tagged via
+  `tools/fix_issue_016_listening_mondai_2026_05_05.py`.
+- **JA-33 (new invariant) — listening mondai/format_type taxonomy.**
+  `tools/check_content_integrity.py` gains a 42nd invariant that locks
+  the closed enum and the mondai/format_type consistency. Total:
+  41 → 42 invariants, all green.
+- **ISSUE-018 — 3-choice listening items confirmed.** The 5/40 items
+  with 3-choice arrays are all canonical mondai-3 (utterance_expression),
+  not authoring drift. The 8 four-choice utterance items are documented
+  as non-canonical extensions in the fix-script docstring.
+- **ISSUE-017 — goi/paper-1 + moji/paper-1 answer-position rebalance.**
+  Both papers had {0:2, 1:2, 2:3, 3:8} (spread 6 — choice-D heavy);
+  rebalanced to {0:4, 1:4, 2:3, 3:4} (spread 1, matching the corpus-
+  wide ~25/25/25/25). Method: rotate 4 items per paper currently at
+  correctIndex=3 by swapping their choice array entries with index 0
+  or 1. Question semantics preserved; only visual ordering changes.
+- **ISSUE-021 — kanji popover + detail render "(none at N5)" for the
+  15 kanji with intentionally empty kun arrays** (and 1 with empty on).
+  Previously rendered blank, indistinguishable from "missing data".
+  Now muted small text "(none at N5)" makes the intentional absence
+  explicit.
+
+### Documentation (3 items)
+
+- **ISSUE-014 — README content-scale rewritten** to live counts:
+  178 grammar / 1041 vocab / 106 kanji / 40 reading / 40 listening /
+  290 questions / 28 audited papers / 402 paper Qs. Note added that
+  counts drift; `tools/check_content_integrity.py` is the source of
+  truth.
+- **ISSUE-015 — README GH-Pages URL** adds the canonical
+  `gauravaccentureproducts.github.io/JLPTSuccess/N5/` deploy path
+  alongside the generic `<user>/<repo>/N5/` template. Old "/JLPT/N5/"
+  pre-monorepo segment removed.
+- **ISSUE-023 — README per-paper layout note** explains that the
+  6 full papers of 15 questions plus 1 short paper of 10 questions
+  per section is intentional ("do not 'rebalance' by redistributing").
+
+### UX (5 items)
+
+- **IMP-024 + IMP-039 — daily review goal.** New `dailyGoalReviews`
+  setting (default 20). Per-day `reviewsToday` counter incremented
+  automatically by `recordTestResponses()` and `recordDrillResponse()`
+  in storage.js, so test + drill grades both contribute. Home shows
+  "Today: X / 20" with a hairline progress bar that links to #/review.
+- **IMP-026 — test results "By question type" breakdown.** Parallel
+  to the existing "By grammar category" table; surfaces whether the
+  learner is tripping over MCQ vs sentence_order vs text_input. Drives
+  next-drill-mode choice. Renders only when the test mixes types.
+- **IMP-027 — home dashboard surfaces today's review queue
+  prominently.** "N reviews due" link with strong emphasis when due > 0;
+  muted "No reviews due" when caught up. Both link to #/review.
+- **IMP-016 — Settings → Keyboard section** documents the in-app
+  keyboard-shortcuts cheatsheet ("press ? on any page"). The cheatsheet
+  itself was already wired in `js/shortcuts.js` since v1.5.0; the
+  round-3 audit flagged it as undocumented in-app — this closes that.
+- **IMP-040 — manifest.webmanifest gains 3 PWA app-shortcuts**:
+  Reviews / Test / Kanji. Long-press the installed PWA icon to
+  deep-link.
+
+### Build / safety / tests (5 items)
+
+- **ISSUE-019 — js/test.js paper-count CTA** now reads
+  `m.totalPapers + m.totalQuestions` live from
+  `data/papers/manifest.json`. Was hard-coded "25 papers"; actual is
+  28. Defensive fallback if fetch fails.
+- **IMP-030 — `tests/footer-regex.test.js`** with 12 fixture cases
+  for the `^## (v\d+\.\d+\.\d+)/m` regex used by js/app.js to keep the
+  footer in sync with CHANGELOG.md. Catches future drift like a
+  non-version H2 landing above the version block, missing v-prefix,
+  H3 vs H2, or CRLF line-ending issues. Runs as `node tests/footer-regex.test.js`
+  or `npm run test:unit`.
+- **IMP-035 — `data/version.json` + `tools/build_version_json.py`.**
+  Single source of truth for build-stamp + corpus counts (version,
+  builtAt, counts.{grammar/vocab/kanji/reading/listening/questions/
+  papers/paperQuestions}, cacheVersion). Read by the footer fallback
+  path; precached by sw.js for offline.
+- **ISSUE-024 — sw.js CACHE_VERSION auto-bumped** by
+  `build_version_json.py` (literal regex-replace). Closes the same
+  drift class round-1 ISSUE-001 closed for the displayed footer.
+  Format changed from `jlptsuccess-n5-vN` integer to
+  `jlptsuccess-n5-vX.Y.Z` per release.
+- **IMP-043 — font-size scaling** is already covered by the existing
+  `fontSize` setting (S/M/L/XL = 14/15/17/19px). Round-3 audit asked
+  for "90/100/115/130%" axis; the existing 4-step pixel scale satisfies
+  the spirit of the WCAG-AA-recommended user-controlled scaling. High-
+  contrast toggle deferred to a future a11y sweep.
+
+### Deferred (20 items, with reasons)
+
+These items remain Decision=Fix in the audit xlsx; close-out scripts
+will pick them up in the next cycle:
+
+- **HIGH content-authoring effort:** ISSUE-013 (kanji additional_readings
+  for 105 entries — needs KanjiDic2 import), IMP-005 (romaji on 178×~5
+  grammar examples), IMP-019 (reading explanations EN authoring),
+  IMP-042 (native-speaker audio recordings — Q11 budget decision).
+- **HIGH UX/system work:** ISSUE-020 + IMP-032 (chained full-paper
+  sitting flow with per-section timer), IMP-008 + IMP-031 (wrong-answer
+  history — needs storage schema design), IMP-010 + IMP-038 (custom
+  audio player with segmented replay), IMP-033 (vocab+kanji SRS —
+  needs Q9 product decision), IMP-036 (7-day review forecast — depends
+  on IMP-033), IMP-037 (extend search to passages/transcripts),
+  IMP-044 (first-run onboarding — design pass).
+- **Needs product decision:** ISSUE-022 + IMP-034 + IMP-041
+  (localization — Q8: commit-to-localize vs remove non-EN locales),
+  IMP-006 (auto-furigana toggle — Q5 risk acceptance).
+- **Lower priority / partial overlap:** IMP-007 (per-clip playback
+  speed — overlap with IMP-038), IMP-012 (full a11y sweep — partial
+  via IMP-043).
+
+### Service worker
+
+CACHE_VERSION bumped from `jlptsuccess-n5-v3` → `jlptsuccess-n5-v1.12.30`
+by `tools/build_version_json.py`. New precache entry: `data/version.json`.
+
+v1.12.30 / SW v1.12.30. **42/42 invariants green** (added JA-33).
+12/12 footer-regex unit tests pass.
+
+---
+
 ## v1.12.29 - 2026-05-05 (Audit round-2 Fix batch - 13 items resolved)
 
 The round-2 review of the 2026-05-04 audit produced 18 fresh findings on top
