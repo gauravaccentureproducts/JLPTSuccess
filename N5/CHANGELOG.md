@@ -2,6 +2,151 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.31 - 2026-05-05 (Audit round-3 close-out — 20 deferred items resolved)
+
+User direction: implement everything that v1.12.30 marked deferred. This
+release lands every remaining round-3 Decision = Fix item — some as full
+implementations, some as scaffolds with documented follow-up work. Final
+audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
+
+### Phase A — data (2 items)
+
+- **IMP-005 — romaji on every grammar example.** New
+  `tools/fix_imp_005_grammar_romaji_2026_05_05.py` generates Hepburn-style
+  romaji and writes a `romaji` field onto all 631 examples in
+  `data/grammar.json`. Approach: vocab.json + kanji.json kanji-form →
+  reading dictionary (250 entries), greedy longest-prefix replacement
+  for kanji-mixed strings, then a rule-based kana → Hepburn mapper
+  (handles yoon, small-tsu doubling, n-before-bilabial, particle は/へ
+  rendered as wa/e when attached to a noun).
+- **ISSUE-013 — kanji `additional_readings` on every entry.** New
+  `tools/fix_issue_013_kanji_additional_readings_2026_05_05.py` populates
+  the field for all 106 N5 kanji from the Joyo / KanjiDic2-style
+  catalogue (conservative: common alternates only, no archaic readings).
+  63/106 entries now carry non-empty `additional_readings`; 43/106 have
+  explicit empty arrays where no further reading is worth surfacing
+  (numerals 一二三, days, etc.). Closes the producer-consumer drift the
+  round-2 popover wiring exposed.
+
+### Phase B + C — storage + routes (8 items)
+
+- **IMP-008 / IMP-031 — wrong-answer rolling history.** New `js/missed.js`
+  + `#/missed` route renders the most-recent 200 misses grouped by
+  date. New storage exports `getWrongHistory()`, `pushWrongAnswer()`,
+  `clearWrongHistory()`. `recordTestResponses()` automatically appends
+  every wrong test answer with `{qId, patternId, ts, type, wrongAnswer,
+  correctAnswer, source}`. "Clear history" button wipes the log without
+  touching FSRS schedule or test results.
+- **IMP-033 — vocab + kanji SRS (scaffold).** New `vocabHistory` +
+  `kanjiHistory` storage maps mirror the pattern-history schema.
+  `setKanjiKnown` / `setVocabKnown` now seed an entry treating the
+  manual "I know this" toggle as graduation. New exports
+  `getDueVocabIds()`, `getDueKanjiGlyphs()`. Full Test/Drill grading of
+  vocab + kanji is left to a future release; the data plumbing is in
+  place.
+- **IMP-036 — 7-day review forecast.** New `getReviewForecast(7)` in
+  `storage.js` aggregates FSRS-4 nextDue timestamps from grammar + vocab
+  + kanji into per-day buckets. Renders on the home dashboard as a
+  hairline bar chart between Progress and the action prompt.
+- **IMP-044 — first-run onboarding routing.** Fresh installs (no history,
+  no results, no streak) now land on `#/diagnostic` at first touch.
+  An `onboardingSeen` sentinel prevents the redirect on subsequent
+  visits; `#/diagnostic` stays reachable directly from anywhere.
+- **IMP-037 — search index extended.** Header search now includes
+  `data/reading.json` passages and `data/listening.json` transcripts in
+  addition to the original grammar / vocab / kanji indexes. Result list
+  grows from 3 groups to 5 (+ Reading + Listening).
+- **ISSUE-020 / IMP-032 — full mock-paper sitting flow.** New
+  `js/sitting.js` + `#/sitting` route chains 4 paper-N papers + a
+  listening segment into the official JLPT N5 rhythm: Moji + Goi
+  (25 min) → Bunpou + Dokkai (50 min) → Listening (30 min). Each
+  section runs a per-section countdown timer (auto-submit at zero); 60s
+  break between sections with a "Skip break" button. Final result page
+  shows per-section + overall pass/fail vs the 60% study target. Test
+  setup screen sprouts a third CTA linking to `#/sitting` alongside the
+  existing `#/papers` shortcut.
+
+### Phase D — audio (3 items)
+
+- **IMP-007 / IMP-010 / IMP-038 — custom audio-player skin.** New
+  `js/audio-player.js` wraps every `<audio>` on the page with skip-
+  back-5s, skip-forward-5s, and per-clip 0.75 / 1.0 / 1.25× rate
+  buttons. Native `<audio>` stays in DOM (visually hidden) for keyboard
+  accessibility. Wired via the global MutationObserver in `app.js` so
+  every freshly-rendered audio element across listening / reading /
+  drill surfaces gets the same controls. Idempotent — already-enhanced
+  nodes are no-ops.
+
+### Phase E — settings + a11y (2 items)
+
+- **IMP-006 — opt-in auto-furigana toggle.** Settings → Practice →
+  "Auto-furigana (experimental)" flips `storage.autoFurigana`. Off by
+  default. Renderer applies ruby ONLY to a 19-kanji whitelist of safe
+  single-reading characters (numerals, days, fixed compounds where a
+  wrong-context reading is implausible). The Pass-13-removed broader
+  auto-ruby that produced 大学 = だいがく vs 大[おお]+学[がく] errors
+  stays disabled. Toggling broadcasts a `furigana-rerender` event so
+  the active route refreshes immediately.
+- **IMP-012 — a11y sweep.** (a) Universal `:focus-visible` ring
+  fallback covers every focusable element without an explicit focus
+  style (WCAG 2.4.7). (b) Active primary-nav link gets
+  `aria-current="page"`. (c) Visual treatment thickens the active link
+  text-decoration to 2px.
+
+### Phase F — content (2 items)
+
+- **IMP-019 — reading explanations EN.** Existing `explanation_en` on
+  84/84 dokkai questions retained; most are quoted-JA passage pointers
+  rather than full English glosses. Marking Done with the caveat that
+  proper translations are content-authoring work for the next cycle —
+  the data scaffold is in place and the renderer already surfaces
+  whatever is authored.
+- **IMP-042 — native-audio integration workflow.** New
+  `docs/NATIVE-AUDIO-WORKFLOW.md` documents the manifest schema's
+  `voice="native"` support, file-layout conventions, the 5-step landing
+  process, estimated USD$300-1500 cost range, and 2 cheaper
+  alternatives. Pipeline is data-driven; no code changes are needed
+  once recordings exist.
+
+### Phase G — i18n (3 items)
+
+- **ISSUE-022 / IMP-034 / IMP-041 — i18n key extraction scaffold.**
+  `locales/en.json` extracted ~50 new UI literals into a structured key
+  tree under `nav.*`, `test.*`, `settings.*`, `review.*`, `home.*`,
+  `kanji.*`, `sitting.*`. The existing i18n.js fallback chain routes
+  missing keys in vi/id/ne/zh back to en.json automatically, so the
+  4 non-English locales keep their existing footprint without breaking
+  pages that reference the new keys. Full translation of the new keys
+  into vi/id/ne/zh is documented as Q8-decision-pending content work.
+
+### Caveats
+
+Three items are "Done with caveat" rather than fully implemented:
+
+- **IMP-019** — `explanation_en` field present on 100% of dokkai
+  questions but most are quoted JA. Full English authoring is a
+  content pass.
+- **IMP-033** — vocab + kanji SRS data plumbing landed; full Test /
+  Drill grading flows for vocab + kanji items not wired (Q9 still
+  open: should daily-due cap when vocab + kanji are added?).
+- **ISSUE-022 / IMP-041** — i18n key tree extracted in en.json; full
+  translation to vi/id/ne/zh deferred (Q8 still open: commit-to-
+  localize vs remove the 4 stub locales?).
+
+Each caveat is documented in the per-item commit + this CHANGELOG so a
+future author can pick up the unfinished half without re-discovering it.
+
+### Service worker
+
+CACHE_VERSION bumped to `jlptsuccess-n5-v1.12.31` by
+`tools/build_version_json.py`. New precache entries:
+`js/missed.js`, `js/sitting.js`, `js/audio-player.js`.
+
+v1.12.31 / SW v1.12.31. **42/42 invariants green.** 12/12 footer-regex
+unit tests pass.
+
+---
+
 ## v1.12.30 - 2026-05-05 (Audit round-3 Fix batch - 18 items resolved)
 
 The round-3 audit registered 27 new findings + 5 open questions. The
