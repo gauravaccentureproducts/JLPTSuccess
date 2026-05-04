@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JLPT N4 Tutor - Tests</title>
+  <style>
+    body { font-family: -apple-system, "Segoe UI", sans-serif; margin: 24px; max-width: 900px; }
+    h1 { color: #14452a; }
+    .suite { margin: 16px 0; padding: 12px 16px; border-radius: 6px; background: #fafaf7; border: 1px solid #d8d8d0; }
+    .pass { color: #166534; }
+    .fail { color: #b91c1c; font-weight: bold; }
+    .test { margin: 4px 0; font-family: Consolas, monospace; font-size: 13px; }
+    .summary { font-size: 18px; font-weight: bold; margin-top: 24px; padding: 12px; border-radius: 6px; }
+    .summary.ok { background: #d1fae5; color: #166534; }
+    .summary.bad { background: #fee2e2; color: #b91c1c; }
+  </style>
+</head>
+<body>
+  <h1>JLPT N4 Tutor - Test Suite</h1>
+  <p>Browser-runnable tests for storage / SRS / furigana / grading. No toolchain.</p>
+  <div id="results"></div>
+  <div id="summary" class="summary"></div>
+
+  <script type="module">
+    import * as storage from './js/storage.js';
+    import { renderJa } from './js/furigana.js';
+
+    const out = document.getElementById('results');
+    const summary = document.getElementById('summary');
+    let totalPass = 0, totalFail = 0;
+    let currentSuite = null;
+
+    function suite(name, fn) {
+      currentSuite = { name, pass: 0, fail: 0, lines: [] };
+      try { fn(); } catch (err) { currentSuite.fail++; currentSuite.lines.push(`<div class="test fail">SUITE THREW: ${err.message}</div>`); }
+      const div = document.createElement('div');
+      div.className = 'suite';
+      div.innerHTML = `<h3>${name} <small>(${currentSuite.pass}/${currentSuite.pass + currentSuite.fail})</small></h3>${currentSuite.lines.join('')}`;
+      out.appendChild(div);
+      totalPass += currentSuite.pass;
+      totalFail += currentSuite.fail;
+    }
+
+    function assert(name, cond, detail = '') {
+      if (cond) {
+        currentSuite.pass++;
+        currentSuite.lines.push(`<div class="test pass">✓ ${name}</div>`);
+      } else {
+        currentSuite.fail++;
+        currentSuite.lines.push(`<div class="test fail">✗ ${name}${detail ? ` - ${detail}` : ''}</div>`);
+      }
+    }
+
+    function eq(name, actual, expected) {
+      const ok = JSON.stringify(actual) === JSON.stringify(expected);
+      assert(name, ok, ok ? '' : `expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
+    }
+
+    // ================== STORAGE ==================
+    suite('storage: namespace + reset', () => {
+      storage.reset();
+      storage.set('foo', 42);
+      assert('set/get round-trip', storage.get('foo') === 42);
+      storage.reset();
+      assert('reset clears', storage.get('foo', null) === null);
+      assert('reset doesnt touch un-namespaced', localStorage.getItem('unrelated-key') === null);
+    });
+
+    suite('storage: settings defaults', () => {
+      storage.reset();
+      storage.initStorage();
+      const s = storage.getSettings();
+      assert('default furigana off', s.furiganaOnN5Kanji === false);
+      assert('default test length 20', s.lastTestLength === 20);
+      storage.setSettings({ furiganaOnN5Kanji: true });
+      assert('settings persist', storage.getSettings().furiganaOnN5Kanji === true);
+    });
+
+    suite('storage: weak detection (FR-W1)', () => {
+      storage.reset();
+      storage.initStorage();
+      // 1 attempt, 1 wrong: NOT weak (attempts < 2)
+      storage.recordTestResponses([
+        { questionId: 'q1', grammarPatternId: 'p1', isCorrect: false },
+      ]);
+      assert('1 wrong not weak (attempts<2)', storage.getPatternEntry('p1').isWeak === false);
+      // 2 attempts, 1 wrong, 1 right: errorRate=0.5, weak
+      storage.recordTestResponses([
+        { questionId: 'q2', grammarPatternId: 'p1', isCorrect: true },
+      ]);
+      assert('1/2 wrong is weak (errorRate=0.5, attempts=2)', storage.getPatternEntry('p1').isWeak === true);
+      // 3rd attempt correct: errorRate=1/3=0.33, NOT weak
+      storage.recordTestResponses([
+        { questionId: 'q3', grammarPatternId: 'p1', isCorrect: true },
+      ]);
+      assert('1/3 wrong not weak (0.33 < 0.5)', storage.getPatternEntry('p1').isWeak === false);
+    });
+
+    suite('storage: SRS box transitions (§5.8)', () => {
+      storage.reset();
+      storage.initStorage();
+      // First miss in test → 1d box, immediately due
+      storage.recordTestResponses([
+        { questionId: 'q1', grammarPatternId: 'p1', isCorrect: false },
+      ]);
+      let e = storage.getPatternEntry('p1');
+      assert('miss enters 1d box', e.srsBox === '1d');
+      assert('1d box is immediately due', new Date(e.nextDue) <= new Date());
+      // Correct in DRILL → advances to 3d
+      storage.recordDrillResponse('p1', true);
+      e = storage.getPatternEntry('p1');
+      assert('correct in drill: 1d → 3d', e.srsBox === '3d');
+      assert('consecutiveCorrect = 1', e.consecutiveCorrect === 1);
+      // Wrong in drill → resets to 1d
+      storage.recordDrillResponse('p1', false);
+      e = storage.getPatternEntry('p1');
+      assert('wrong in drill resets to 1d', e.srsBox === '1d');
+      assert('consecutiveCorrect reset to 0', e.consecutiveCorrect === 0);
+      // 4 corrects in drill → graduated
+      for (let i = 0; i < 4; i++) storage.recordDrillResponse('p1', true);
+      e = storage.getPatternEntry('p1');
+      assert('4 consecutive correct → graduated', e.srsBox === 'graduated');
+      assert('graduated patterns have null nextDue', e.nextDue === null);
+      assert('isMastered after graduation', e.isMastered === true);
+    });
+
+    suite('storage: correct in TEST does NOT advance SRS (assessment-only)', () => {
+      storage.reset();
+      storage.initStorage();
+      storage.recordTestResponses([{ questionId: 'q1', grammarPatternId: 'p1', isCorrect: false }]);
+      const before = storage.getPatternEntry('p1').srsBox;
+      assert('after miss in 1d', before === '1d');
+      // Correct in test should NOT advance the box
+      storage.recordTestResponses([{ questionId: 'q2', grammarPatternId: 'p1', isCorrect: true }]);
+      const after = storage.getPatternEntry('p1').srsBox;
+      assert('correct in test stays in 1d (drill earns advancement)', after === '1d');
+    });
+
+    suite('storage: manual mastery (FR-W4)', () => {
+      storage.reset();
+      storage.initStorage();
+      storage.setManuallyKnown('p1', true);
+      const e = storage.getPatternEntry('p1');
+      assert('mark-known: isMastered true', e.isMastered === true);
+      assert('mark-known: isManuallyKnown true', e.isManuallyKnown === true);
+      // Next miss should clear manual flag
+      storage.recordTestResponses([{ questionId: 'q1', grammarPatternId: 'p1', isCorrect: false }]);
+      const e2 = storage.getPatternEntry('p1');
+      assert('miss clears isManuallyKnown', e2.isManuallyKnown === false);
+      assert('miss clears isMastered', e2.isMastered === false);
+    });
+
+    suite('storage: due patterns + count', () => {
+      storage.reset();
+      storage.initStorage();
+      storage.recordTestResponses([
+        { questionId: 'q1', grammarPatternId: 'p1', isCorrect: false },
+        { questionId: 'q2', grammarPatternId: 'p2', isCorrect: false },
+        { questionId: 'q3', grammarPatternId: 'p3', isCorrect: true },
+      ]);
+      const due = storage.getDuePatternIds();
+      assert('2 missed patterns are due', due.length === 2);
+      assert('correct pattern not due', !due.includes('p3'));
+      assert('getDueCount matches', storage.getDueCount() === 2);
+    });
+
+    suite('storage: weak/mastered/seen accessors', () => {
+      storage.reset();
+      storage.initStorage();
+      storage.recordTestResponses([
+        { questionId: 'q1', grammarPatternId: 'pA', isCorrect: false },
+        { questionId: 'q2', grammarPatternId: 'pA', isCorrect: false },
+      ]);
+      assert('pA weak', storage.getWeakPatternIds().includes('pA'));
+      assert('pA seen', storage.getSeenPatternIds().includes('pA'));
+      storage.setManuallyKnown('pB', true);
+      assert('pB mastered', storage.getMasteredPatternIds().includes('pB'));
+    });
+
+    // ================== FURIGANA ==================
+    suite('furigana: explicit annotations', async () => {
+      // Wait for module to load whitelist (best-effort)
+      await new Promise(r => setTimeout(r, 200));
+      const out1 = renderJa('外国人', [{ word: '外国人', reading: 'がいこくじん' }]);
+      assert('explicit annotation creates ruby', out1.includes('<ruby>外国人<rt>がいこくじん</rt></ruby>'));
+    });
+
+    suite('furigana: pure kana passes through', async () => {
+      await new Promise(r => setTimeout(r, 100));
+      const out = renderJa('わたしは がくせいです。');
+      assert('all-kana = no ruby', !out.includes('<ruby>'));
+      // Note: text gets escaped, so check the visible text matches.
+      assert('text preserved', out.includes('わたしは') && out.includes('がくせいです'));
+    });
+
+    suite('furigana: HTML escape on out-of-scope without annotation', async () => {
+      await new Promise(r => setTimeout(r, 100));
+      // Use a kanji NOT in N5 (椅 chair)
+      const out = renderJa('椅子');
+      // Should fall back to ruby with '?' OR be left alone - current impl uses '?' fallback
+      assert('out-of-scope kanji handled', out.includes('<ruby>') || out === '椅子');
+    });
+
+    // ================== GRADING ==================
+    suite('grading: sentence_order array equality', () => {
+      function gradeOrder(user, correct) {
+        if (!Array.isArray(user)) return false;
+        if (user.length !== correct.length) return false;
+        return user.every((t, i) => t === correct[i]);
+      }
+      const correct = ['わたしは', 'だいがく', 'の', 'がくせいです'];
+      assert('exact match passes', gradeOrder([...correct], correct) === true);
+      assert('shuffled fails', gradeOrder(['だいがく', 'わたしは', 'の', 'がくせいです'], correct) === false);
+      assert('shorter fails', gradeOrder(['わたしは', 'だいがく'], correct) === false);
+      assert('non-array fails', gradeOrder('わたしは', correct) === false);
+    });
+
+    suite('grading: mcq exact match', () => {
+      const grade = (user, correct) => user === correct;
+      assert('match passes', grade('は', 'は') === true);
+      assert('mismatch fails', grade('が', 'は') === false);
+      assert('whitespace mismatch fails', grade('は ', 'は') === false);
+    });
+
+    // ================== SUMMARY ==================
+    setTimeout(() => {
+      const total = totalPass + totalFail;
+      summary.className = 'summary ' + (totalFail === 0 ? 'ok' : 'bad');
+      summary.textContent = `${totalPass} / ${total} passing${totalFail > 0 ? ` - ${totalFail} FAILED` : ' - all green'}`;
+      // Expose for preview eval
+      window.__TEST_RESULTS__ = { pass: totalPass, fail: totalFail, total };
+      // Cleanup
+      storage.reset();
+    }, 600);
+  </script>
+</body>
+</html>

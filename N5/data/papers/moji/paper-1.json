@@ -1,0 +1,221 @@
+{
+  "id": "moji-1",
+  "category": "moji",
+  "paperNumber": 1,
+  "name": "Moji Paper 1",
+  "source_file": "KnowledgeBank/moji_questions_n5.md",
+  "source_question_range": "Q1-Q15",
+  "questionCount": 15,
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "あの 人は <u>学生</u> です。",
+      "choices": [
+        "かくせ",
+        "かくせい",
+        "がくせ",
+        "がくせい"
+      ],
+      "correctIndex": 3,
+      "rationale": "学 (ガク) + 生 (セイ).",
+      "kbSourceId": "Q1",
+      "id": "moji-1.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きのう <u>先生</u> に あいました。",
+      "choices": [
+        "せんせえ",
+        "せんぜい",
+        "せんせ",
+        "せんせい"
+      ],
+      "correctIndex": 3,
+      "rationale": "先 (セン) + 生 (セイ).",
+      "kbSourceId": "Q2",
+      "id": "moji-1.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>学校</u> は いえから ちかいです。",
+      "choices": [
+        "かっこう",
+        "がっこ",
+        "かっこ",
+        "がっこう"
+      ],
+      "correctIndex": 3,
+      "rationale": "学 (ガッ) + 校 (コウ), small っ.",
+      "kbSourceId": "Q3",
+      "id": "moji-1.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>大学</u> で にほんごを べんきょうします。",
+      "choices": [
+        "だいがく",
+        "だいかく",
+        "たいがく",
+        "たいかく"
+      ],
+      "correctIndex": 0,
+      "rationale": "大 (ダイ) + 学 (ガク).",
+      "kbSourceId": "Q4",
+      "id": "moji-1.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ちちは <u>会社員</u> です。",
+      "choices": [
+        "かいしゃいん",
+        "がいしゃいん",
+        "かいしゃじん",
+        "かいさいん"
+      ],
+      "correctIndex": 0,
+      "rationale": "会社 (かいしゃ) + 員 (イン).",
+      "kbSourceId": "Q5",
+      "id": "moji-1.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>日本</u> に すんで います。",
+      "choices": [
+        "にっほん",
+        "にぼん",
+        "ひほん",
+        "にほん"
+      ],
+      "correctIndex": 3,
+      "rationale": "日本 = にほん. (The reading にっぽん also exists for formal/political contexts but is not in the answer choices.)",
+      "kbSourceId": "Q6",
+      "id": "moji-1.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>日本語</u> が すこし わかります。",
+      "choices": [
+        "にほんごう",
+        "にぼんご",
+        "にっぽんご",
+        "にほんご"
+      ],
+      "correctIndex": 3,
+      "rationale": "日本 (にほん) + 語 (ゴ).",
+      "kbSourceId": "Q7",
+      "id": "moji-1.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>中国</u> へ いった ことが あります。",
+      "choices": [
+        "ちゅごく",
+        "ちゅうこく",
+        "ちゅうごく",
+        "ちゅごこく"
+      ],
+      "correctIndex": 2,
+      "rationale": "中 (チュウ) + 国 (コク → ごく with rendaku).",
+      "kbSourceId": "Q8",
+      "id": "moji-1.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きょうは <u>月曜日</u> です。",
+      "choices": [
+        "げっつようび",
+        "げつようび",
+        "もくようび",
+        "かようび"
+      ],
+      "correctIndex": 1,
+      "rationale": "月 (ゲツ) + 曜日 (ヨウビ).",
+      "kbSourceId": "Q9",
+      "id": "moji-1.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>水曜日</u> に プールへ いきます。",
+      "choices": [
+        "かようび",
+        "すいようび",
+        "もくようび",
+        "みずようび"
+      ],
+      "correctIndex": 1,
+      "rationale": "水 (スイ) + 曜日 (ヨウビ).",
+      "kbSourceId": "Q10",
+      "id": "moji-1.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>金曜日</u> の よる、ともだちと あいます。",
+      "choices": [
+        "どようび",
+        "かようび",
+        "げつようび",
+        "きんようび"
+      ],
+      "correctIndex": 3,
+      "rationale": "金 (キン) + 曜日.",
+      "kbSourceId": "Q11",
+      "id": "moji-1.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>土曜日</u> は やすみです。",
+      "choices": [
+        "つちようび",
+        "とようび",
+        "どようび",
+        "どっようび"
+      ],
+      "correctIndex": 2,
+      "rationale": "土 (ド) + 曜日.",
+      "kbSourceId": "Q12",
+      "id": "moji-1.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>日曜日</u> に かぞくと こうえんへ いきました。",
+      "choices": [
+        "にっようび",
+        "げつようび",
+        "ひようび",
+        "にちようび"
+      ],
+      "correctIndex": 3,
+      "rationale": "日 (ニチ) + 曜日.",
+      "kbSourceId": "Q13",
+      "id": "moji-1.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きょうは <u>十月</u> ついたちです。",
+      "choices": [
+        "しがつ",
+        "はちがつ",
+        "じゅうがつ",
+        "じゅういちがつ"
+      ],
+      "correctIndex": 2,
+      "rationale": "十 (ジュウ) + 月 (ガツ).",
+      "kbSourceId": "Q14",
+      "id": "moji-1.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>九月</u> に がっこうが はじまります。",
+      "choices": [
+        "くつき",
+        "きゅうがつ",
+        "ここのがつ",
+        "くがつ"
+      ],
+      "correctIndex": 3,
+      "rationale": "九 has reading ク in 九月; 月 reads ガツ for months.",
+      "kbSourceId": "Q15",
+      "id": "moji-1.15"
+    }
+  ]
+}

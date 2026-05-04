@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSP: static-only, no third-party. style 'unsafe-inline' allowed for the
+       inline style block; script omits inline so any future inline-script
+       regression fails fast. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'none';">
+  <title>JLPTSuccess</title>
+  <meta name="description" content="JLPTSuccess — JLPT N5 to N1 study app. Pick a level to start.">
+  <meta name="theme-color" content="#14452a">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/">
+  <!-- Inline SVG favicon. Same JLPT mark across the suite. -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%2314452a'/><text x='50%25' y='58%25' text-anchor='middle' font-family='sans-serif' font-size='84' font-weight='700' fill='white'>JLPT</text></svg>">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a href="#app" class="skip-link">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <h1><a href="./" class="brand-link" aria-label="JLPTSuccess home">JLPTSuccess</a></h1>
+    </div>
+  </header>
+
+  <main id="app" role="main">
+    <section class="levels-page">
+      <header class="levels-header">
+        <h2 class="levels-title">JLPTSuccess</h2>
+        <p class="levels-subtitle">Choose a level to start. Each level has its own grammar, vocabulary, kanji, reading, and listening study material.</p>
+      </header>
+
+      <div class="levels-grid">
+        <a class="level-card is-available" href="N5/" data-level="n5">
+          <span class="level-card-code">N5</span>
+          <h3 class="level-card-label">Beginner</h3>
+          <p class="level-card-desc">Basic Japanese — 177 grammar patterns, 1003 vocab, 106 kanji, 60 dokkai/listening drills.</p>
+          <span class="level-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="level-card is-available" href="N4/" data-level="n4">
+          <span class="level-card-code">N4</span>
+          <h3 class="level-card-label">Elementary</h3>
+          <p class="level-card-desc">Builds on N5 with everyday topics, basic written passages, and lower-frequency kanji.</p>
+          <span class="level-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <div class="level-card is-disabled" data-level="n3" aria-disabled="true" title="Content not yet available">
+          <span class="level-card-code">N3</span>
+          <h3 class="level-card-label">Intermediate</h3>
+          <p class="level-card-desc">Bridge between elementary and upper-intermediate Japanese — natural-speed listening.</p>
+          <span class="level-card-status">Coming soon</span>
+        </div>
+
+        <div class="level-card is-disabled" data-level="n2" aria-disabled="true" title="Content not yet available">
+          <span class="level-card-code">N2</span>
+          <h3 class="level-card-label">Upper-intermediate</h3>
+          <p class="level-card-desc">Newspapers, business contexts, and abstract grammar; expected for university entry.</p>
+          <span class="level-card-status">Coming soon</span>
+        </div>
+
+        <div class="level-card is-disabled" data-level="n1" aria-disabled="true" title="Content not yet available">
+          <span class="level-card-code">N1</span>
+          <h3 class="level-card-label">Advanced</h3>
+          <p class="level-card-desc">Logical reasoning, formal/literary registers, all major grammar at native speed.</p>
+          <span class="level-card-status">Coming soon</span>
+        </div>
+      </div>
+
+      <p class="levels-foot">N5 + N4 are live. N3 → N1 will fill in over time.</p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small class="footer-meta">JLPTSuccess</small>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="PRIVACY.md">Privacy</a>
+      <a href="https://github.com/gauravaccentureproducts/JLPTSuccess" rel="noopener">GitHub</a>
+    </nav>
+  </footer>
+</body>
+</html>

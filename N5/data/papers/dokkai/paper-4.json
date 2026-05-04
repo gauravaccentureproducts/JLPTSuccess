@@ -1,0 +1,253 @@
+{
+  "id": "dokkai-4",
+  "category": "dokkai",
+  "paperNumber": 4,
+  "name": "Dokkai Paper 4",
+  "source_file": "KnowledgeBank/dokkai_questions_n5.md",
+  "source_question_range": "Q49-Q60",
+  "questionCount": 12,
+  "passages": [
+    {
+      "label": "Passage 25 (Q49, Q50)",
+      "text": "私の 父は 毎日 八時に 家を 出ます。 でんしゃで かいしゃに 行きます。 でんしゃは とても こんで います。 ですから 父は いつも 立って います。 かいしゃまで 一時間 ぐらい かかります。 父は 「つかれる」と 言います。",
+      "question_ids": [
+        "dokkai-4.1",
+        "dokkai-4.2"
+      ]
+    },
+    {
+      "label": "Passage 26 (Q51, Q52)",
+      "text": "私の あには ピアノが じょうずです。 五さいから ピアノを ならって います。 こんしゅう、 大学の コンサートで ひきます。 家ぞくは みんな 見に 行きます。 私も 朝から 楽しみに して います。",
+      "question_ids": [
+        "dokkai-4.3",
+        "dokkai-4.4"
+      ]
+    },
+    {
+      "label": "Passage 27 (Q53, Q54)",
+      "text": "たなかさんは 朝ごはんを 食べる 時間が ありません。 まい朝、 でんしゃの 中で パンを 食べます。 でも きょうは でんしゃが こんで いて、 パンを 食べる ことが できませんでした。 きょうの ひるごはんは いつもより たくさん 食べました。",
+      "question_ids": [
+        "dokkai-4.5",
+        "dokkai-4.6"
+      ]
+    },
+    {
+      "label": "Passage 28 (Q55, Q56)",
+      "text": "私の 友だちの じょんさんは アメリカ人です。 でも 日本ごが とても じょうずです。 五年 まえに 日本に 来ました。 いま 日本の かいしゃで はたらいて います。 じょんさんと よく いっしょに 日本ごの 本を 読みます。",
+      "question_ids": [
+        "dokkai-4.7",
+        "dokkai-4.8"
+      ]
+    },
+    {
+      "label": "Passage 29 (Q57, Q58)",
+      "text": "私は きのう、 駅の ちかくの あたらしい きっさてんに 行きました。 その みせは 三月に できました。 コーヒーが おいしくて、 ねだんも 安いです。 きっさてんは いつも こんで います。 こんどは 友だちと いっしょに 行きたいです。",
+      "question_ids": [
+        "dokkai-4.9",
+        "dokkai-4.10"
+      ]
+    },
+    {
+      "label": "Passage 30 (Q59, Q60)",
+      "text": "やまださんは こんしゅうの 土曜日、 たなかさんと いっしょに ハイキングに 行く つもりでした。 でも、 木曜日から 雨が ふって います。 土曜日も 雨の よほうです。 ですから、 ハイキングは らいしゅうに します。 たなかさんも 「らいしゅうの ほうが いい」と 言いました。",
+      "question_ids": [
+        "dokkai-4.11",
+        "dokkai-4.12"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "おとうさんは 何で かいしゃに 行きますか。",
+      "choices": [
+        "でんしゃ",
+        "くるま",
+        "バス",
+        "自てん車"
+      ],
+      "correctIndex": 0,
+      "rationale": "でんしゃで かいしゃに 行きます - commutes by train.",
+      "kbSourceId": "Q49",
+      "passage_text": "> 私の 父は 毎日 八時に 家を 出ます。 でんしゃで かいしゃに 行きます。 でんしゃは とても こんで います。 ですから 父は いつも 立って います。 かいしゃまで 一時間 ぐらい かかります。 父は 「つかれる」と 言います。",
+      "passage_label": "Passage 25 (Q49, Q50)",
+      "id": "dokkai-4.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "どうして おとうさんは 「つかれる」と 言いますか。",
+      "choices": [
+        "でんしゃで 立って いるから",
+        "しごとが むずかしいから",
+        "かいしゃが ちかいから",
+        "朝 はやく おきるから"
+      ],
+      "correctIndex": 0,
+      "rationale": "でんしゃは とても こんで います。...父は いつも 立って います - packed train, has to stand the whole way.",
+      "kbSourceId": "Q50",
+      "passage_text": "> 私の 父は 毎日 八時に 家を 出ます。 でんしゃで かいしゃに 行きます。 でんしゃは とても こんで います。 ですから 父は いつも 立って います。 かいしゃまで 一時間 ぐらい かかります。 父は 「つかれる」と 言います。",
+      "passage_label": "Passage 25 (Q49, Q50)",
+      "id": "dokkai-4.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "あには 何さいから ピアノを ならって いますか。",
+      "choices": [
+        "三さいから",
+        "四さいから",
+        "六さいから",
+        "五さいから"
+      ],
+      "correctIndex": 3,
+      "rationale": "passage says 「五さいから ピアノを ならって います」.",
+      "kbSourceId": "Q51",
+      "passage_text": "> 私の あには ピアノが じょうずです。 五さいから ピアノを ならって います。 こんしゅう、 大学の コンサートで ひきます。 家ぞくは みんな 見に 行きます。 私も 朝から 楽しみに して います。",
+      "passage_label": "Passage 26 (Q51, Q52)",
+      "id": "dokkai-4.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "こんしゅう 何が ありますか。",
+      "choices": [
+        "大学の コンサート",
+        "たんじょうびの パーティー",
+        "ピアノの レッスン",
+        "家ぞくの しょくじ"
+      ],
+      "correctIndex": 0,
+      "rationale": "大学の コンサートで ひきます - older brother plays at the university concert this week.",
+      "kbSourceId": "Q52",
+      "passage_text": "> 私の あには ピアノが じょうずです。 五さいから ピアノを ならって います。 こんしゅう、 大学の コンサートで ひきます。 家ぞくは みんな 見に 行きます。 私も 朝から 楽しみに して います。",
+      "passage_label": "Passage 26 (Q51, Q52)",
+      "id": "dokkai-4.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "たなかさんは ふつう どこで 朝ごはんを 食べますか。",
+      "choices": [
+        "家",
+        "かいしゃ",
+        "みせ",
+        "でんしゃの 中"
+      ],
+      "correctIndex": 3,
+      "rationale": "まい朝、 でんしゃの 中で パンを 食べます - usually eats breakfast (bread) on the train.",
+      "kbSourceId": "Q53",
+      "passage_text": "> たなかさんは 朝ごはんを 食べる 時間が ありません。 まい朝、 でんしゃの 中で パンを 食べます。 でも きょうは でんしゃが こんで いて、 パンを 食べる ことが できませんでした。 きょうの ひるごはんは いつもより たくさん 食べました。",
+      "passage_label": "Passage 27 (Q53, Q54)",
+      "id": "dokkai-4.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "どうして たなかさんは きょう ひるごはんを たくさん 食べましたか。",
+      "choices": [
+        "ひるごはんが おいしかったから",
+        "パンが きらいだから",
+        "やすかったから",
+        "朝ごはんを 食べなかったから"
+      ],
+      "correctIndex": 3,
+      "rationale": "でんしゃが こんで いて、 パンを 食べる ことが できませんでした - couldn't eat breakfast on the crowded train, so ate more at lunch.",
+      "kbSourceId": "Q54",
+      "passage_text": "> たなかさんは 朝ごはんを 食べる 時間が ありません。 まい朝、 でんしゃの 中で パンを 食べます。 でも きょうは でんしゃが こんで いて、 パンを 食べる ことが できませんでした。 きょうの ひるごはんは いつもより たくさん 食べました。",
+      "passage_label": "Passage 27 (Q53, Q54)",
+      "id": "dokkai-4.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "じょんさんは いま 何を して いますか。",
+      "choices": [
+        "学校で べんきょうする",
+        "日本の かいしゃで はたらく",
+        "アメリカに かえる",
+        "日本ごを 教える"
+      ],
+      "correctIndex": 1,
+      "rationale": "いま 日本の かいしゃで はたらいて います - currently works at a Japanese company.",
+      "kbSourceId": "Q55",
+      "passage_text": "> 私の 友だちの じょんさんは アメリカ人です。 でも 日本ごが とても じょうずです。 五年 まえに 日本に 来ました。 いま 日本の かいしゃで はたらいて います。 じょんさんと よく いっしょに 日本ごの 本を 読みます。",
+      "passage_label": "Passage 28 (Q55, Q56)",
+      "id": "dokkai-4.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "じょんさんは 何年 日本に いますか。",
+      "choices": [
+        "一年",
+        "三年",
+        "五年",
+        "十年"
+      ],
+      "correctIndex": 2,
+      "rationale": "五年 まえに 日本に 来ました - came to Japan 5 years ago.",
+      "kbSourceId": "Q56",
+      "passage_text": "> 私の 友だちの じょんさんは アメリカ人です。 でも 日本ごが とても じょうずです。 五年 まえに 日本に 来ました。 いま 日本の かいしゃで はたらいて います。 じょんさんと よく いっしょに 日本ごの 本を 読みます。",
+      "passage_label": "Passage 28 (Q55, Q56)",
+      "id": "dokkai-4.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きっさてんは いつ できましたか。",
+      "choices": [
+        "一月",
+        "二月",
+        "三月",
+        "四月"
+      ],
+      "correctIndex": 2,
+      "rationale": "その みせは 三月に できました - the cafe opened in March.",
+      "kbSourceId": "Q57",
+      "passage_text": "> 私は きのう、 駅の ちかくの あたらしい きっさてんに 行きました。 その みせは 三月に できました。 コーヒーが おいしくて、 ねだんも 安いです。 きっさてんは いつも こんで います。 こんどは 友だちと いっしょに 行きたいです。",
+      "passage_label": "Passage 29 (Q57, Q58)",
+      "id": "dokkai-4.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "どうして この 人は 友だちと もう一どに 行きたいですか。",
+      "choices": [
+        "友だちが はたらいて いるから",
+        "コーヒーが おいしくて、ねだんも 安いから",
+        "みせが えきから ちかいから",
+        "こんで いて にぎやかだから"
+      ],
+      "correctIndex": 1,
+      "rationale": "'コーヒーが おいしくて、 ねだんも 安いです' - the coffee is good and the price is cheap.",
+      "kbSourceId": "Q58",
+      "passage_text": "> 私は きのう、 駅の ちかくの あたらしい きっさてんに 行きました。 その みせは 三月に できました。 コーヒーが おいしくて、 ねだんも 安いです。 きっさてんは いつも こんで います。 こんどは 友だちと いっしょに 行きたいです。",
+      "passage_label": "Passage 29 (Q57, Q58)",
+      "id": "dokkai-4.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "はじめ、ハイキングは いつでしたか。",
+      "choices": [
+        "木曜日",
+        "金曜日",
+        "土曜日",
+        "日曜日"
+      ],
+      "correctIndex": 2,
+      "rationale": "こんしゅうの 土曜日、 ...ハイキングに 行く つもりでした - original plan was hiking this Saturday.",
+      "kbSourceId": "Q59",
+      "passage_text": "> やまださんは こんしゅうの 土曜日、 たなかさんと いっしょに ハイキングに 行く つもりでした。 でも、 木曜日から 雨が ふって います。 土曜日も 雨の よほうです。 ですから、 ハイキングは らいしゅうに します。 たなかさんも 「らいしゅうの ほうが いい」と 言いました。",
+      "passage_label": "Passage 30 (Q59, Q60)",
+      "id": "dokkai-4.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "どうして ハイキングは 後の 日に なりましたか。",
+      "choices": [
+        "たなかさんが いそがしいから",
+        "雨が ふるから",
+        "山が とおいから",
+        "やまださんが びょうき だから"
+      ],
+      "correctIndex": 1,
+      "rationale": "木曜日から 雨が ふって います。土曜日も 雨の よほうです - has been raining since Thursday, Saturday's forecast is also rain, so postponed to next week.",
+      "kbSourceId": "Q60",
+      "passage_text": "> やまださんは こんしゅうの 土曜日、 たなかさんと いっしょに ハイキングに 行く つもりでした。 でも、 木曜日から 雨が ふって います。 土曜日も 雨の よほうです。 ですから、 ハイキングは らいしゅうに します。 たなかさんも 「らいしゅうの ほうが いい」と 言いました。",
+      "passage_label": "Passage 30 (Q59, Q60)",
+      "id": "dokkai-4.12"
+    }
+  ]
+}

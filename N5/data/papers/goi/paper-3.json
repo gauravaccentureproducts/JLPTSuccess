@@ -1,0 +1,221 @@
+{
+  "id": "goi-3",
+  "category": "goi",
+  "paperNumber": 3,
+  "name": "Goi Paper 3",
+  "source_file": "KnowledgeBank/goi_questions_n5.md",
+  "source_question_range": "Q31-Q45",
+  "questionCount": 15,
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "たんじょうびに 友だちから （　　） を もらいました。",
+      "choices": [
+        "しゅくだい",
+        "プレゼント",
+        "ニュース",
+        "しごと"
+      ],
+      "correctIndex": 1,
+      "rationale": "birthday + present.",
+      "kbSourceId": "Q31",
+      "id": "goi-3.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ねこは いすの 下で （　　） います。",
+      "choices": [
+        "はしって",
+        "ねて",
+        "はたらいて",
+        "かって"
+      ],
+      "correctIndex": 1,
+      "rationale": "cat + sleeping.",
+      "kbSourceId": "Q32",
+      "id": "goi-3.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "つかれましたから、（　　） すわりました。",
+      "choices": [
+        "すぐ",
+        "もう",
+        "まだ",
+        "ぜんぜん"
+      ],
+      "correctIndex": 0,
+      "rationale": "immediately. (から: N5-canonical reason conjunction; replaces ので per corpus-wide policy applied alongside the Q5 fix in v1.12.14.)",
+      "kbSourceId": "Q33",
+      "id": "goi-3.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "しゅくだいが むずかしくて、 （　　） わかりませんでした。",
+      "choices": [
+        "ぜんぜん",
+        "たくさん",
+        "すぐ",
+        "とても"
+      ],
+      "correctIndex": 0,
+      "rationale": "ぜんぜん + negative = \"not at all\".",
+      "kbSourceId": "Q34",
+      "id": "goi-3.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: あした パーティーに 来ますか。 B: はい、（　　） 行きます。",
+      "choices": [
+        "たくさん",
+        "すぐ",
+        "まだ",
+        "もちろん"
+      ],
+      "correctIndex": 3,
+      "rationale": "もちろん (of course) is natural as confirmation in response to a Y/N question.",
+      "kbSourceId": "Q35",
+      "id": "goi-3.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "おかねが ありませんから、何も （　　）。",
+      "choices": [
+        "かいません",
+        "たべました",
+        "のみました",
+        "ききました"
+      ],
+      "correctIndex": 0,
+      "rationale": "no money + don't buy.",
+      "kbSourceId": "Q36",
+      "id": "goi-3.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "私の おとうとは 大学生では （　　）。 高校生です。",
+      "choices": [
+        "ありません",
+        "ありました",
+        "あります",
+        "ありませんでした"
+      ],
+      "correctIndex": 0,
+      "rationale": "present negative.",
+      "kbSourceId": "Q37",
+      "id": "goi-3.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "その へやには 子どもが 三（　　） います。",
+      "choices": [
+        "まい",
+        "ほん",
+        "にん",
+        "つ"
+      ],
+      "correctIndex": 2,
+      "rationale": "counter for people.",
+      "kbSourceId": "Q38",
+      "id": "goi-3.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きょうしつには ボールが 五（　　） あります。",
+      "choices": [
+        "にん",
+        "つ",
+        "まい",
+        "ほん"
+      ],
+      "correctIndex": 1,
+      "rationale": "〜つ is the generic native counter for small objects (1-9). ボール (ball) takes 〜つ at N5 level. (Furniture like つくえ takes 〜台 (だい) idiomatically — N4-level distinction.)",
+      "kbSourceId": "Q39",
+      "id": "goi-3.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ペンを 二（　　） 買いました。",
+      "choices": [
+        "つ",
+        "ほん",
+        "にん",
+        "まい"
+      ],
+      "correctIndex": 1,
+      "rationale": "counter for long thin objects.",
+      "kbSourceId": "Q40",
+      "id": "goi-3.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きってを 三（　　） ください。",
+      "choices": [
+        "ほん",
+        "にん",
+        "まい",
+        "つ"
+      ],
+      "correctIndex": 2,
+      "rationale": "counter for flat objects.",
+      "kbSourceId": "Q41",
+      "id": "goi-3.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "しごとは いつも （　　） おわります。",
+      "choices": [
+        "なんじで",
+        "たかい",
+        "ちかい",
+        "はやく"
+      ],
+      "correctIndex": 3,
+      "rationale": "end early (はやく as adverb, no particle).",
+      "kbSourceId": "Q42",
+      "id": "goi-3.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "私の いえから 駅まで （　　） 十分です。",
+      "choices": [
+        "はやい",
+        "ちかい",
+        "あるいて",
+        "たかい"
+      ],
+      "correctIndex": 2,
+      "rationale": "on foot (あるいて 十分です = \"10 minutes on foot\").",
+      "kbSourceId": "Q43",
+      "id": "goi-3.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きょうは あめが ふって いるから、（　　） を もって きました。",
+      "choices": [
+        "かばん",
+        "めがね",
+        "ぼうし",
+        "かさ"
+      ],
+      "correctIndex": 3,
+      "rationale": "rain + umbrella. (から: N5-canonical reason conjunction; replaces ので per corpus-wide policy applied alongside the Q5 fix in v1.12.14.)",
+      "kbSourceId": "Q44",
+      "id": "goi-3.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "さむいですから、（　　） を きて ください。",
+      "choices": [
+        "ぼうし",
+        "かばん",
+        "コート",
+        "パジャマ"
+      ],
+      "correctIndex": 2,
+      "rationale": "cold + コート (coat). パジャマ (pajamas) replaces the previous シャツ distractor — a shirt is also wearable in cold weather, while pajamas are clearly an indoor / sleep garment.",
+      "kbSourceId": "Q45",
+      "id": "goi-3.15"
+    }
+  ]
+}

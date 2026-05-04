@@ -1,0 +1,289 @@
+{
+  "id": "dokkai-7",
+  "category": "dokkai",
+  "paperNumber": 7,
+  "name": "Dokkai Paper 7",
+  "source_file": "KnowledgeBank/dokkai_questions_n4.md",
+  "source_question_range": "Q91-Q102",
+  "questionCount": 12,
+  "passages": [
+    {
+      "label": "Passage 20 (Q91)",
+      "text": "> 代わりは とても instead; in placeです。",
+      "question_ids": [
+        "dokkai-7.1"
+      ]
+    },
+    {
+      "label": "Passage 21 (Q92)",
+      "text": "> 通うは とても to commuteです。",
+      "question_ids": [
+        "dokkai-7.2"
+      ]
+    },
+    {
+      "label": "Passage 22 (Q93)",
+      "text": "> ケーキは とても cakeです。",
+      "question_ids": [
+        "dokkai-7.3"
+      ]
+    },
+    {
+      "label": "Passage 23 (Q94)",
+      "text": "> 計画は とても to planです。",
+      "question_ids": [
+        "dokkai-7.4"
+      ]
+    },
+    {
+      "label": "Passage 24 (Q95)",
+      "text": "> 計画するは とても to planです。",
+      "question_ids": [
+        "dokkai-7.5"
+      ]
+    },
+    {
+      "label": "Passage 25 (Q96)",
+      "text": "> 見物は とても sightseeing; visitです。",
+      "question_ids": [
+        "dokkai-7.6"
+      ]
+    },
+    {
+      "label": "Passage 26 (Q97)",
+      "text": "> 見物するは とても to sightseeingです。",
+      "question_ids": [
+        "dokkai-7.7"
+      ]
+    },
+    {
+      "label": "Passage 27 (Q98)",
+      "text": "> 研究は とても researchです。",
+      "question_ids": [
+        "dokkai-7.8"
+      ]
+    },
+    {
+      "label": "Passage 28 (Q99)",
+      "text": "> 研究するは とても to researchです。",
+      "question_ids": [
+        "dokkai-7.9"
+      ]
+    },
+    {
+      "label": "Passage 29 (Q100)",
+      "text": "> 研究室は とても laboratoryです。",
+      "question_ids": [
+        "dokkai-7.10"
+      ]
+    },
+    {
+      "label": "Passage 30 (Q101)",
+      "text": "> 気は とても spiritです。",
+      "question_ids": [
+        "dokkai-7.11"
+      ]
+    },
+    {
+      "label": "Passage 31 (Q102)",
+      "text": "> 気分は とても feeling; moodです。",
+      "question_ids": [
+        "dokkai-7.12"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "問: 「代わり」の いみは どれですか。",
+      "choices": [
+        "instead",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "flavor",
+        "to return home (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q91",
+      "passage_text": "> 代わりは とても instead; in placeです。",
+      "passage_label": "Passage 20 (Q91)",
+      "id": "dokkai-7.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「通う」の いみは どれですか。",
+      "choices": [
+        "to return home (Group 1 exception - looks like Group 2)",
+        "to commute",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "part-time job"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q92",
+      "passage_text": "> 通うは とても to commuteです。",
+      "passage_label": "Passage 21 (Q92)",
+      "id": "dokkai-7.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「ケーキ」の いみは どれですか。",
+      "choices": [
+        "cake",
+        "accessory",
+        "baby",
+        "flavor"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q93",
+      "passage_text": "> ケーキは とても cakeです。",
+      "passage_label": "Passage 22 (Q93)",
+      "id": "dokkai-7.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「計画」の いみは どれですか。",
+      "choices": [
+        "to plan",
+        "such",
+        "to part-time job",
+        "to return home (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q94",
+      "passage_text": "> 計画は とても to planです。",
+      "passage_label": "Passage 23 (Q94)",
+      "id": "dokkai-7.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「計画する」の いみは どれですか。",
+      "choices": [
+        "to plan",
+        "to know (Group 1 exception - looks like Group 2)",
+        "Asia",
+        "to rise"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q95",
+      "passage_text": "> 計画するは とても to planです。",
+      "passage_label": "Passage 24 (Q95)",
+      "id": "dokkai-7.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「見物」の いみは どれですか。",
+      "choices": [
+        "to rise",
+        "America",
+        "sightseeing",
+        "to part-time job"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q96",
+      "passage_text": "> 見物は とても sightseeing; visitです。",
+      "passage_label": "Passage 25 (Q96)",
+      "id": "dokkai-7.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「見物する」の いみは どれですか。",
+      "choices": [
+        "ah",
+        "to know (Group 1 exception - looks like Group 2)",
+        "Ah",
+        "to sightseeing"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q97",
+      "passage_text": "> 見物するは とても to sightseeingです。",
+      "passage_label": "Passage 26 (Q97)",
+      "id": "dokkai-7.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「研究」の いみは どれですか。",
+      "choices": [
+        "part-time job",
+        "Asia",
+        "research",
+        "Ah"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q98",
+      "passage_text": "> 研究は とても researchです。",
+      "passage_label": "Passage 27 (Q98)",
+      "id": "dokkai-7.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「研究する」の いみは どれですか。",
+      "choices": [
+        "to research",
+        "flavor",
+        "baby",
+        "to part-time job"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q99",
+      "passage_text": "> 研究するは とても to researchです。",
+      "passage_label": "Passage 28 (Q99)",
+      "id": "dokkai-7.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「研究室」の いみは どれですか。",
+      "choices": [
+        "to rise",
+        "Asia",
+        "to run (Group 1 exception - looks like Group 2)",
+        "laboratory"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q100",
+      "passage_text": "> 研究室は とても laboratoryです。",
+      "passage_label": "Passage 29 (Q100)",
+      "id": "dokkai-7.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「気」の いみは どれですか。",
+      "choices": [
+        "spirit",
+        "peace of mind",
+        "Asia",
+        "to rise"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q101",
+      "passage_text": "> 気は とても spiritです。",
+      "passage_label": "Passage 30 (Q101)",
+      "id": "dokkai-7.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「気分」の いみは どれですか。",
+      "choices": [
+        "to rise",
+        "to know (Group 1 exception - looks like Group 2)",
+        "feeling",
+        "such"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q102",
+      "passage_text": "> 気分は とても feeling; moodです。",
+      "passage_label": "Passage 31 (Q102)",
+      "id": "dokkai-7.12"
+    }
+  ]
+}

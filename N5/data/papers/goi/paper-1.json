@@ -1,0 +1,221 @@
+{
+  "id": "goi-1",
+  "category": "goi",
+  "paperNumber": 1,
+  "name": "Goi Paper 1",
+  "source_file": "KnowledgeBank/goi_questions_n5.md",
+  "source_question_range": "Q1-Q15",
+  "questionCount": 15,
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "まいあさ コーヒーを （　　）。",
+      "choices": [
+        "たべます",
+        "みます",
+        "ききます",
+        "のみます"
+      ],
+      "correctIndex": 3,
+      "rationale": "コーヒー is something one drinks (のむ).",
+      "kbSourceId": "Q1",
+      "id": "goi-1.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ばんごはんを （　　） から、テレビを 見ます。",
+      "choices": [
+        "のんで",
+        "かって",
+        "かいて",
+        "たべて"
+      ],
+      "correctIndex": 3,
+      "rationale": "ごはん takes たべる.",
+      "kbSourceId": "Q2",
+      "id": "goi-1.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "新しい ノートを （　　）。",
+      "choices": [
+        "ききました",
+        "たべました",
+        "のみました",
+        "かいました"
+      ],
+      "correctIndex": 3,
+      "rationale": "ノート is bought (買います).",
+      "kbSourceId": "Q3",
+      "id": "goi-1.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きのう 友だちに （　　）。",
+      "choices": [
+        "かいました",
+        "あいました",
+        "しました",
+        "たちました"
+      ],
+      "correctIndex": 1,
+      "rationale": "友だち + に + あう (to meet).",
+      "kbSourceId": "Q4",
+      "id": "goi-1.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "つかれましたから、いえで （　　）。",
+      "choices": [
+        "はたらきます",
+        "やすみます",
+        "はしります",
+        "およぎます"
+      ],
+      "correctIndex": 1,
+      "rationale": "つかれた + やすむ. つかれましたから (polite past + から) is the N5-canonical reason -> action chain (replaces ので which leans N4 in major textbooks).",
+      "kbSourceId": "Q5",
+      "id": "goi-1.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "あした こうえんへ さんぽに （　　）。",
+      "choices": [
+        "きます",
+        "でます",
+        "はいります",
+        "いきます"
+      ],
+      "correctIndex": 3,
+      "rationale": "direction-へ + いく.",
+      "kbSourceId": "Q6",
+      "id": "goi-1.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "たなかさんは いま 学校に （　　）。",
+      "choices": [
+        "かいます",
+        "あります",
+        "もちます",
+        "います"
+      ],
+      "correctIndex": 3,
+      "rationale": "person + います.",
+      "kbSourceId": "Q7",
+      "id": "goi-1.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "つくえの 上に 本が （　　）。",
+      "choices": [
+        "でます",
+        "います",
+        "たちます",
+        "あります"
+      ],
+      "correctIndex": 3,
+      "rationale": "inanimate noun + あります.",
+      "kbSourceId": "Q8",
+      "id": "goi-1.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きょうは てんきが （　　）。",
+      "choices": [
+        "たかいです",
+        "ながいです",
+        "やすいです",
+        "いいです"
+      ],
+      "correctIndex": 3,
+      "rationale": "てんきが いい (the weather is good).",
+      "kbSourceId": "Q9",
+      "id": "goi-1.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "その 本は とても （　　）。",
+      "choices": [
+        "おいしいです",
+        "うるさいです",
+        "おもしろいです",
+        "はやいです"
+      ],
+      "correctIndex": 2,
+      "rationale": "本 + おもしろい (interesting). はやい distractor replaces the prior あつい — あつい is a homophone trap (厚い \"thick\" is plausible for a book), so it weakens distractor quality.",
+      "kbSourceId": "Q10",
+      "id": "goi-1.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "この りんごは あまいですから、（　　）。",
+      "choices": [
+        "おもしろいです",
+        "たかいです",
+        "あおいです",
+        "おいしいです"
+      ],
+      "correctIndex": 3,
+      "rationale": "Sweet apples → delicious. The \"あまいですから\" anchor forces おいしい as the only natural completion: たかい (expensive) and あおい (green/unripe) don't follow from sweetness, and おもしろい (interesting) is unidiomatic for food.",
+      "kbSourceId": "Q11",
+      "id": "goi-1.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "すみませんが、もう いちど （　　） ください。",
+      "choices": [
+        "たべて",
+        "かいて",
+        "はなして",
+        "のんで"
+      ],
+      "correctIndex": 2,
+      "rationale": "もう いちど + 話す (say again).",
+      "kbSourceId": "Q12",
+      "id": "goi-1.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "いえへ かえる まえに、ぎんこうへ （　　）。",
+      "choices": [
+        "いきました",
+        "のみました",
+        "たべました",
+        "ききました"
+      ],
+      "correctIndex": 0,
+      "rationale": "place-へ + いく.",
+      "kbSourceId": "Q13",
+      "id": "goi-1.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "らいねんから 大学で にほんごを （　　）。",
+      "choices": [
+        "あいます",
+        "はしります",
+        "べんきょうします",
+        "やすみます"
+      ],
+      "correctIndex": 2,
+      "rationale": "language + べんきょうする.",
+      "kbSourceId": "Q14",
+      "id": "goi-1.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "しゅくだいが おわってから、テレビを （　　）。",
+      "choices": [
+        "みます",
+        "ききます",
+        "のみます",
+        "ねます"
+      ],
+      "correctIndex": 0,
+      "rationale": "テレビ + みる.",
+      "kbSourceId": "Q15",
+      "id": "goi-1.15"
+    }
+  ]
+}

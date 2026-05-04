@@ -1,0 +1,203 @@
+/* JLPTSuccess landing page (level picker).
+   Self-contained CSS for the top-level domain. Each level subdirectory
+   ships its own complete CSS bundle (the existing N5/css/main.css and
+   N4/css/main.css from the level apps). */
+
+:root {
+  --brand: #14452a;
+  --brand-link: #1a5c38;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5;
+  --card-hover-border: #14452a;
+  --card-disabled-bg: #f4f4f4;
+  --card-disabled-text: #999;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+  --text-base: 16px;
+  --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #f0f0f0;
+    --text-muted: #aaa;
+    --bg: #1a1a1a;
+    --card-bg: #242424;
+    --card-border: #333;
+    --card-hover-border: #4a8a64;
+    --card-disabled-bg: #1f1f1f;
+    --card-disabled-text: #555;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font: 400 var(--text-base)/1.55 var(--font-stack);
+  font-size: max(16px, var(--text-base));  /* iOS auto-zoom prevention */
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  background: var(--brand);
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.app-header {
+  background: var(--brand);
+  color: white;
+  padding: 1rem 1.5rem;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.brand-link {
+  color: white;
+  text-decoration: none;
+}
+.brand-link:hover { text-decoration: underline; }
+
+main { flex: 1; padding: 2rem 1rem; }
+
+.levels-page { max-width: 960px; margin: 0 auto; }
+.levels-header { margin: 1rem 0 2rem; text-align: center; }
+.levels-title { margin: 0 0 0.5rem; font-size: 2rem; color: var(--brand); }
+.levels-subtitle { margin: 0; color: var(--text-muted); font-size: 1.05rem; }
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.level-card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  min-height: 180px;
+}
+.level-card.is-available:hover {
+  border-color: var(--card-hover-border);
+  box-shadow: var(--shadow-md);
+}
+.level-card.is-available:active { transform: scale(0.98); }
+.level-card.is-available:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.level-card.is-disabled {
+  background: var(--card-disabled-bg);
+  color: var(--card-disabled-text);
+  cursor: not-allowed;
+}
+
+.level-card-code {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--brand);
+  letter-spacing: 0.02em;
+}
+.level-card.is-disabled .level-card-code { color: var(--card-disabled-text); }
+
+.level-card-label {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.level-card-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  flex: 1;
+  max-height: 4lh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.level-card-arrow {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--brand);
+}
+.level-card-status {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--card-disabled-text);
+  margin-top: auto;
+}
+
+.levels-foot {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 2rem 0 0;
+}
+
+.app-footer {
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.footer-meta { font-weight: 500; }
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.footer-nav a:hover { color: var(--brand); text-decoration: underline; }
+
+@media (max-width: 768px) {
+  main { padding: 1rem; }
+  .levels-title { font-size: 1.5rem; }
+  .levels-grid { grid-template-columns: 1fr; }
+  .level-card { min-height: 150px; padding: 1.25rem; }
+  .level-card-code { font-size: 1.75rem; }
+  .app-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .footer-nav a { margin: 0 0.5rem; }
+}

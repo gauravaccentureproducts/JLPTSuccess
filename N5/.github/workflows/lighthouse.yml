@@ -1,0 +1,40 @@
+name: lighthouse-ci
+
+# Runs Lighthouse against the static shell on every PR + push to main.
+# Per feedback/ui-testing-plan.md §13 & §19. Asserts:
+#   - Performance >= 0.85
+#   - Accessibility >= 0.95
+#   - Best Practices >= 0.85
+#   - SEO >= 0.85 (warn only)
+# Reports upload to temporary-public-storage so failures link to a
+# detailed report in the PR comments.
+#
+# Configuration: .lighthouserc.json
+# Manual run: npx @lhci/cli autorun
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.14.x
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

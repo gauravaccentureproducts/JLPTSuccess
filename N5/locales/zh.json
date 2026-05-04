@@ -1,0 +1,47 @@
+{
+  "app": {
+    "title": "JLPT N5 语法导师",
+    "tagline": "学习。测试。复习。掌握。"
+  },
+  "nav": {
+    "learn": "学习",
+    "test": "测试",
+    "drill": "每日练习",
+    "review": "复习",
+    "summary": "总结",
+    "settings": "设置",
+    "diagnostic": "诊断"
+  },
+  "drill": {
+    "start": "开始练习",
+    "due_today": "今日到期",
+    "in_queue": "队列中",
+    "graduated": "已掌握"
+  },
+  "test": {
+    "submit": "提交",
+    "submit_remaining": "提交（剩余 ${n} 题）",
+    "next": "下一题",
+    "previous": "上一题",
+    "score": "分数"
+  },
+  "settings": {
+    "title": "设置",
+    "language": "界面语言",
+    "furigana": "N5 汉字振假名",
+    "theme": "主题",
+    "theme_system": "跟随系统",
+    "theme_light": "浅色",
+    "theme_dark": "深色",
+    "font_size": "字号",
+    "export": "导出进度",
+    "import": "导入进度",
+    "reset": "重置全部"
+  },
+  "review": {
+    "grade_again": "再来",
+    "grade_hard": "难",
+    "grade_good": "正确",
+    "grade_easy": "简单"
+  }
+}

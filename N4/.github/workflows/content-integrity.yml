@@ -1,0 +1,54 @@
+name: content-integrity
+
+# Runs the 18 content invariants from feedback/ui-testing-plan.md §12.1.
+#
+# Hard release blocker. All 18 invariants must pass.
+#
+# If a future content edit introduces a finding, the right response is one of:
+#   (a) Fix the data so the invariant passes (preferred)
+#   (b) Add the kanji / particle / construct to the appropriate augmented set
+#       in tools/check_content_integrity.py (with a comment explaining why it's
+#       legitimately in N5 scope)
+# Never silence by removing the check or re-enabling continue-on-error.
+#
+# Manual run:
+#   python tools/check_content_integrity.py            # short summary
+#   python tools/check_content_integrity.py -v         # full violation list
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run all content integrity invariants (24 as of Pass 14c)
+        run: python tools/check_content_integrity.py -v
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Run build-pipeline regression tests (Pass-13 corruption guard)
+        run: python tools/test_build_data.py
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Run design-system compliance checks (Zen Modern)
+        # Hard release-blocker for design drift. 8 rules covering:
+        # emojis, font weights, shadows, hover transforms, accent
+        # tokenisation, radius scale, text-transform, text-shadow.
+        # Source: specifications/jlpt-n5-design-system-zen-modern.md
+        run: python tools/check_design_system.py -v
+        env:
+          PYTHONIOENCODING: utf-8

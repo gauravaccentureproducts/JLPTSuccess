@@ -1,0 +1,19 @@
+{
+  "name": "jlpt-n5-tutor",
+  "version": "1.10.2",
+  "private": true,
+  "description": "Static, on-device, privacy-preserving tutor for JLPT N5 grammar. App is vanilla HTML/CSS/JS - this package.json only carries devDependencies for the Playwright + axe-core P0 smoke suite per feedback/ui-testing-plan.md §17.1.",
+  "scripts": {
+    "test:smoke": "playwright test --grep-invert visual-regression",
+    "test:smoke:headed": "playwright test --grep-invert visual-regression --headed",
+    "test:visual": "playwright test visual-regression",
+    "test:visual:update": "playwright test visual-regression --update-snapshots",
+    "test:install-browsers": "playwright install --with-deps chromium",
+    "test:browserstack": "browserstack-node-sdk playwright test",
+    "serve": "python -m http.server 8000"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.49.0"
+  }
+}

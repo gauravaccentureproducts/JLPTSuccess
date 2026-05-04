@@ -1,0 +1,298 @@
+{
+  "id": "dokkai-3",
+  "category": "dokkai",
+  "paperNumber": 3,
+  "name": "Dokkai Paper 3",
+  "source_file": "KnowledgeBank/dokkai_questions_n4.md",
+  "source_question_range": "Q31-Q45",
+  "questionCount": 15,
+  "passages": [
+    {
+      "label": "Passage 11 (Q31-Q33)",
+      "text": "> わたしの いえの ちかくに 花見 が あります。まいにち 花見する を します。たまに ハンドバッグ に いきます。",
+      "question_ids": [
+        "dokkai-3.1",
+        "dokkai-3.2",
+        "dokkai-3.3"
+      ]
+    },
+    {
+      "label": "Passage 12 (Q34-Q36)",
+      "text": "> わたしの いえの ちかくに 火 が あります。まいにち 開く を します。たまに 昼間 に いきます。",
+      "question_ids": [
+        "dokkai-3.4",
+        "dokkai-3.5",
+        "dokkai-3.6"
+      ]
+    },
+    {
+      "label": "Passage 13 (Q37-Q39)",
+      "text": "> わたしの いえの ちかくに 一度 が あります。まいにち 以外 を します。たまに 医学 に いきます。",
+      "question_ids": [
+        "dokkai-3.7",
+        "dokkai-3.8",
+        "dokkai-3.9"
+      ]
+    },
+    {
+      "label": "Passage 14 (Q40-Q42)",
+      "text": "> わたしの いえの ちかくに 以下 が あります。まいにち 意見 を します。たまに 意見する に いきます。",
+      "question_ids": [
+        "dokkai-3.10",
+        "dokkai-3.11",
+        "dokkai-3.12"
+      ]
+    },
+    {
+      "label": "Passage 15 (Q43-Q45)",
+      "text": "> わたしの いえの ちかくに いっぱい が あります。まいにち 色んな を します。たまに 急ぐ に いきます。",
+      "question_ids": [
+        "dokkai-3.13",
+        "dokkai-3.14",
+        "dokkai-3.15"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "問: 「花見」とは どのような いみですか。",
+      "choices": [
+        "cherry blossom viewing",
+        "bell",
+        "to gather",
+        "to know (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q31",
+      "passage_text": "> わたしの いえの ちかくに 花見 が あります。まいにち 花見する を します。たまに ハンドバッグ に いきます。",
+      "passage_label": "Passage 11 (Q31-Q33)",
+      "id": "dokkai-3.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「花見する」とは どのような いみですか。",
+      "choices": [
+        "suffix for familiar female person",
+        "America",
+        "such",
+        "to cherry blossom viewing"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q32",
+      "passage_text": "> わたしの いえの ちかくに 花見 が あります。まいにち 花見する を します。たまに ハンドバッグ に いきます。",
+      "passage_label": "Passage 11 (Q31-Q33)",
+      "id": "dokkai-3.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「ハンドバッグ」とは どのような いみですか。",
+      "choices": [
+        "handbag",
+        "to rise",
+        "to collect",
+        "such"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q33",
+      "passage_text": "> わたしの いえの ちかくに 花見 が あります。まいにち 花見する を します。たまに ハンドバッグ に いきます。",
+      "passage_label": "Passage 11 (Q31-Q33)",
+      "id": "dokkai-3.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「火」とは どのような いみですか。",
+      "choices": [
+        "fire",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "ah",
+        "to be surprised"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q34",
+      "passage_text": "> わたしの いえの ちかくに 火 が あります。まいにち 開く を します。たまに 昼間 に いきます。",
+      "passage_label": "Passage 12 (Q34-Q36)",
+      "id": "dokkai-3.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「開く」とは どのような いみですか。",
+      "choices": [
+        "to open",
+        "to gather",
+        "Ah",
+        "to part-time job"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q35",
+      "passage_text": "> わたしの いえの ちかくに 火 が あります。まいにち 開く を します。たまに 昼間 に いきます。",
+      "passage_label": "Passage 12 (Q34-Q36)",
+      "id": "dokkai-3.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「昼間」とは どのような いみですか。",
+      "choices": [
+        "to be surprised",
+        "to run (Group 1 exception - looks like Group 2)",
+        "daytime",
+        "flavor"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q36",
+      "passage_text": "> わたしの いえの ちかくに 火 が あります。まいにち 開く を します。たまに 昼間 に いきます。",
+      "passage_label": "Passage 12 (Q34-Q36)",
+      "id": "dokkai-3.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「一度」とは どのような いみですか。",
+      "choices": [
+        "ah",
+        "building",
+        "to collect",
+        "once"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q37",
+      "passage_text": "> わたしの いえの ちかくに 一度 が あります。まいにち 以外 を します。たまに 医学 に いきます。",
+      "passage_label": "Passage 13 (Q37-Q39)",
+      "id": "dokkai-3.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「以外」とは どのような いみですか。",
+      "choices": [
+        "bell",
+        "peace of mind",
+        "announcer",
+        "with the exception of"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q38",
+      "passage_text": "> わたしの いえの ちかくに 一度 が あります。まいにち 以外 を します。たまに 医学 に いきます。",
+      "passage_label": "Passage 13 (Q37-Q39)",
+      "id": "dokkai-3.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「医学」とは どのような いみですか。",
+      "choices": [
+        "to be surprised",
+        "medical science",
+        "announcer",
+        "bell"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q39",
+      "passage_text": "> わたしの いえの ちかくに 一度 が あります。まいにち 以外 を します。たまに 医学 に いきます。",
+      "passage_label": "Passage 13 (Q37-Q39)",
+      "id": "dokkai-3.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「以下」とは どのような いみですか。",
+      "choices": [
+        "not exceeding",
+        "Asia",
+        "to run (Group 1 exception - looks like Group 2)",
+        "Ah"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q40",
+      "passage_text": "> わたしの いえの ちかくに 以下 が あります。まいにち 意見 を します。たまに 意見する に いきます。",
+      "passage_label": "Passage 14 (Q40-Q42)",
+      "id": "dokkai-3.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「意見」とは どのような いみですか。",
+      "choices": [
+        "such",
+        "opinion",
+        "to need (Group 1 exception - looks like Group 2",
+        "ah"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q41",
+      "passage_text": "> わたしの いえの ちかくに 以下 が あります。まいにち 意見 を します。たまに 意見する に いきます。",
+      "passage_label": "Passage 14 (Q40-Q42)",
+      "id": "dokkai-3.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「意見する」とは どのような いみですか。",
+      "choices": [
+        "to cut (Group 1 exception - looks like Group 2",
+        "to opinion",
+        "to part-time job",
+        "peace of mind"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q42",
+      "passage_text": "> わたしの いえの ちかくに 以下 が あります。まいにち 意見 を します。たまに 意見する に いきます。",
+      "passage_label": "Passage 14 (Q40-Q42)",
+      "id": "dokkai-3.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「いっぱい」とは どのような いみですか。",
+      "choices": [
+        "part-time job",
+        "full",
+        "to gather",
+        "literature"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q43",
+      "passage_text": "> わたしの いえの ちかくに いっぱい が あります。まいにち 色んな を します。たまに 急ぐ に いきます。",
+      "passage_label": "Passage 15 (Q43-Q45)",
+      "id": "dokkai-3.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「色んな」とは どのような いみですか。",
+      "choices": [
+        "to return home (Group 1 exception - looks like Group 2)",
+        "grapes",
+        "to part-time job",
+        "various"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q44",
+      "passage_text": "> わたしの いえの ちかくに いっぱい が あります。まいにち 色んな を します。たまに 急ぐ に いきます。",
+      "passage_label": "Passage 15 (Q43-Q45)",
+      "id": "dokkai-3.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「急ぐ」とは どのような いみですか。",
+      "choices": [
+        "to hurry",
+        "to gather",
+        "such",
+        "grapes"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q45",
+      "passage_text": "> わたしの いえの ちかくに いっぱい が あります。まいにち 色んな を します。たまに 急ぐ に いきます。",
+      "passage_label": "Passage 15 (Q43-Q45)",
+      "id": "dokkai-3.15"
+    }
+  ]
+}

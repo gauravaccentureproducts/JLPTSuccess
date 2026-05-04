@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python (for the author-side tool scripts)
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local-only files
+*.local
+*.draft
+.claude/settings.local.json
+.git_commit_msg.txt
+
+# Transient verifier output (regenerated on every audit run; archived copy in not-required/)
+/drift_report.txt
+
+# Node / Playwright (introduced for CI smoke; the app stays vanilla static)
+node_modules/
+playwright-report/
+test-results/
+.lighthouseci/
+# package-lock.json IS committed (removed from gitignore 2026-04-30) — without
+# it, `setup-node@v4 cache: 'npm'` in CI fails because the npm-cache step
+# requires a lock file, and the playwright-p0-smoke workflow could not run.
+audit_out.json

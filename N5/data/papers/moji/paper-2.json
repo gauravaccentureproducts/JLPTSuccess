@@ -1,0 +1,221 @@
+{
+  "id": "moji-2",
+  "category": "moji",
+  "paperNumber": 2,
+  "name": "Moji Paper 2",
+  "source_file": "KnowledgeBank/moji_questions_n5.md",
+  "source_question_range": "Q16-Q30",
+  "questionCount": 15,
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "<u>七月</u> は あついです。",
+      "choices": [
+        "なながつ",
+        "なのがつ",
+        "しちがつ",
+        "ななつき"
+      ],
+      "correctIndex": 2,
+      "rationale": "七 has reading シチ in 七月.",
+      "kbSourceId": "Q16",
+      "id": "moji-2.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>四月</u> から 大学に いきます。",
+      "choices": [
+        "しがつ",
+        "よがつ",
+        "よんがつ",
+        "よっがつ"
+      ],
+      "correctIndex": 0,
+      "rationale": "四 has reading シ in 四月.",
+      "kbSourceId": "Q17",
+      "id": "moji-2.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>今日</u> は とても いい てんきです。",
+      "choices": [
+        "きょう",
+        "こんにち",
+        "こんじつ",
+        "きょうび"
+      ],
+      "correctIndex": 0,
+      "rationale": "今日 is read きょう (irregular jukujikun).",
+      "kbSourceId": "Q18",
+      "id": "moji-2.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>今年</u>の ふゆは さむいです。",
+      "choices": [
+        "ことし",
+        "こんねん",
+        "いまとし",
+        "きんねん"
+      ],
+      "correctIndex": 0,
+      "rationale": "今年 is read ことし (irregular jukujikun reading).",
+      "kbSourceId": "Q19",
+      "id": "moji-2.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>先月</u> たんじょうびでした。",
+      "choices": [
+        "せんがつ",
+        "ぜんげつ",
+        "せんげつ",
+        "ぜんがつ"
+      ],
+      "correctIndex": 2,
+      "rationale": "先 (セン) + 月 (ゲツ).",
+      "kbSourceId": "Q20",
+      "id": "moji-2.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>来週</u> りょこうに いきます。",
+      "choices": [
+        "らいしゅ",
+        "こんしゅう",
+        "らいしゅう",
+        "せんしゅう"
+      ],
+      "correctIndex": 2,
+      "rationale": "来 (ライ) + 週 (シュウ).",
+      "kbSourceId": "Q21",
+      "id": "moji-2.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>毎日</u> にほんごを べんきょうします。",
+      "choices": [
+        "まいにち",
+        "まいひ",
+        "まいじつ",
+        "まいか"
+      ],
+      "correctIndex": 0,
+      "rationale": "毎 (マイ) + 日 (ニチ).",
+      "kbSourceId": "Q22",
+      "id": "moji-2.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>午前</u> くじに がっこうへ いきます。",
+      "choices": [
+        "くぜん",
+        "ごご",
+        "しょうご",
+        "ごぜん"
+      ],
+      "correctIndex": 3,
+      "rationale": "午 (ゴ) + 前 (ゼン).",
+      "kbSourceId": "Q23",
+      "id": "moji-2.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>午後</u> さんじに あいましょう。",
+      "choices": [
+        "ごぜん",
+        "ごこ",
+        "ごご",
+        "ごう"
+      ],
+      "correctIndex": 2,
+      "rationale": "午 (ゴ) + 後 (ゴ).",
+      "kbSourceId": "Q24",
+      "id": "moji-2.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ごじ<u>半</u> に いえに かえります。",
+      "choices": [
+        "ばん",
+        "はん",
+        "なか",
+        "ぱん"
+      ],
+      "correctIndex": 1,
+      "rationale": "半 (ハン).",
+      "kbSourceId": "Q25",
+      "id": "moji-2.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きょうは <u>何曜日</u> ですか。",
+      "choices": [
+        "どようび",
+        "なにようび",
+        "かようび",
+        "なんようび"
+      ],
+      "correctIndex": 3,
+      "rationale": "何 (なん) + 曜日.",
+      "kbSourceId": "Q26",
+      "id": "moji-2.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>何時</u> に きますか。",
+      "choices": [
+        "なじ",
+        "なんじ",
+        "いつじ",
+        "なにじ"
+      ],
+      "correctIndex": 1,
+      "rationale": "何 (なん) + 時 (ジ).",
+      "kbSourceId": "Q27",
+      "id": "moji-2.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "つくえの <u>上</u> に ほんが あります。",
+      "choices": [
+        "うる",
+        "うへ",
+        "うい",
+        "うえ"
+      ],
+      "correctIndex": 3,
+      "rationale": "上 (うえ).",
+      "kbSourceId": "Q28",
+      "id": "moji-2.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ねこは いすの <u>下</u> に います。",
+      "choices": [
+        "しだ",
+        "した",
+        "しぢ",
+        "しと"
+      ],
+      "correctIndex": 1,
+      "rationale": "下 (した).",
+      "kbSourceId": "Q29",
+      "id": "moji-2.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "<u>右</u> に まがって ください。",
+      "choices": [
+        "みき",
+        "みぎ",
+        "みじ",
+        "みち"
+      ],
+      "correctIndex": 1,
+      "rationale": "右 (みぎ).",
+      "kbSourceId": "Q30",
+      "id": "moji-2.15"
+    }
+  ]
+}

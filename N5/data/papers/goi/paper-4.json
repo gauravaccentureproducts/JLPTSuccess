@@ -1,0 +1,221 @@
+{
+  "id": "goi-4",
+  "category": "goi",
+  "paperNumber": 4,
+  "name": "Goi Paper 4",
+  "source_file": "KnowledgeBank/goi_questions_n5.md",
+  "source_question_range": "Q46-Q60",
+  "questionCount": 15,
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "すみません、この みちは よく わかりません。 ちずを （　　） ください。",
+      "choices": [
+        "みせて",
+        "のんで",
+        "たべて",
+        "かって"
+      ],
+      "correctIndex": 0,
+      "rationale": "show me the map.",
+      "kbSourceId": "Q46",
+      "id": "goi-4.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "私は にほんへ いった ことが （　　）。",
+      "choices": [
+        "あります",
+        "します",
+        "なります",
+        "います"
+      ],
+      "correctIndex": 0,
+      "rationale": "こと + ある (experience). Common error: 「〜たことがある」 cannot combine with specific time markers (きょねん, etc.) - it expresses indefinite past experience. Use a plain past tense (きょねん 行きました) for time-specific events instead.",
+      "kbSourceId": "Q47",
+      "id": "goi-4.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "来年 大学へ （　　） つもりです。",
+      "choices": [
+        "いく",
+        "でる",
+        "かえる",
+        "すむ"
+      ],
+      "correctIndex": 0,
+      "rationale": "大学へ行く (go to / attend university) - natural form for entering higher education.",
+      "kbSourceId": "Q48",
+      "id": "goi-4.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "くつを （　　）から、いえに 入って ください。",
+      "choices": [
+        "ぬいで",
+        "あけて",
+        "しめて",
+        "はいて"
+      ],
+      "correctIndex": 0,
+      "rationale": "take off shoes (before entering).",
+      "kbSourceId": "Q49",
+      "id": "goi-4.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "たろうさんは おとうさん（　　） せが たかいです。",
+      "choices": [
+        "が",
+        "より",
+        "の",
+        "に"
+      ],
+      "correctIndex": 1,
+      "rationale": "taller than father.",
+      "kbSourceId": "Q50",
+      "id": "goi-4.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: わたしの ちちは びょういんで はたらいて います。",
+      "choices": [
+        "わたしの ちちは ははと はたらいて います。",
+        "わたしの ちちは いしゃです。",
+        "わたしの ちちは びょうきです。",
+        "わたしの ちちは 学校の 先生です。"
+      ],
+      "correctIndex": 1,
+      "rationale": "「病院で はたらく」 ≈ 「いしゃです」. N5 pragmatic substitution (working at a hospital is the standard textbook paraphrase of \"is a doctor\", though strictly someone could work at a hospital without being a doctor — nurse, admin). Tests the N5 vocab triangle 病院 / はたらく / いしゃ; replaces the prior tautological 「父は医者 = 父の仕事は医者」 which tested no vocabulary.",
+      "kbSourceId": "Q51",
+      "id": "goi-4.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: この りょうりは おいしくないです。",
+      "choices": [
+        "この りょうりは おいしいです。",
+        "この りょうりは あまいです。",
+        "この りょうりは まずいです。",
+        "この りょうりは すきです。"
+      ],
+      "correctIndex": 2,
+      "rationale": "おいしくない ≈ まずい.",
+      "kbSourceId": "Q52",
+      "id": "goi-4.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: たなかさんは えいごを おしえて います。",
+      "choices": [
+        "たなかさんは えいごの 学生です。",
+        "たなかさんは アメリカ人です。",
+        "たなかさんは えいごを ならって います。",
+        "たなかさんは えいごの 先生です。"
+      ],
+      "correctIndex": 3,
+      "rationale": "「英語を教えている」 → 「英語の先生」: a person who teaches X is the teacher of X. Functional relationship; closest among the four options.",
+      "kbSourceId": "Q53",
+      "id": "goi-4.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: わたしは まいにち 七時に おきます。",
+      "choices": [
+        "わたしは よる 七時に おきます。",
+        "わたしは あさ 七時に ねます。",
+        "わたしは あさ 七時に おきます。",
+        "わたしは よる 七時に ねます。"
+      ],
+      "correctIndex": 2,
+      "rationale": "起きる + 朝 (morning) is the typical context.",
+      "kbSourceId": "Q54",
+      "id": "goi-4.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: しゅくだいは ぜんぶ おわりました。",
+      "choices": [
+        "しゅくだいが すこし のこって います。",
+        "しゅくだいは まだ ありません。",
+        "しゅくだいは ぜんぶ しました。",
+        "しゅくだいは ぜんぜん しません でした。"
+      ],
+      "correctIndex": 2,
+      "rationale": "ぜんぶ おわった ≈ ぜんぶ した.",
+      "kbSourceId": "Q55",
+      "id": "goi-4.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: あの レストランは とても 高いです。",
+      "choices": [
+        "あの レストランは やすいです。",
+        "あの レストランは たかい たてものです。",
+        "あの レストランは たかい りょうりが あります。",
+        "あの レストランは おかねが たくさん いります。"
+      ],
+      "correctIndex": 3,
+      "rationale": "高い (expensive) ≈ おかねが たくさん いる.",
+      "kbSourceId": "Q56",
+      "id": "goi-4.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: わたしは くだものが 大すきです。",
+      "choices": [
+        "わたしは くだものが すきじゃ ありません。",
+        "わたしは くだものが きらいです。",
+        "わたしは くだものを たべません。",
+        "わたしは くだものを よく たべます。"
+      ],
+      "correctIndex": 3,
+      "rationale": "大すき + よく食べる.",
+      "kbSourceId": "Q57",
+      "id": "goi-4.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: きのうの よる、はやく ねました。",
+      "choices": [
+        "きのう おそく ねました。",
+        "きのう はやく ねました。",
+        "きのうの あさ、おそく おきました。",
+        "きのうの あさ、はやく おきました。"
+      ],
+      "correctIndex": 1,
+      "rationale": "paraphrase identical with kanji.",
+      "kbSourceId": "Q58",
+      "id": "goi-4.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: にちようびは ひまです。",
+      "choices": [
+        "にちようびは いそがしいです。",
+        "にちようびは しごとが あります。",
+        "にちようびは じかんが あります。",
+        "にちようびは つかれて います。"
+      ],
+      "correctIndex": 2,
+      "rationale": "ひま ≈ じかんが ある.",
+      "kbSourceId": "Q59",
+      "id": "goi-4.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "A: きょうしつに 学生が おおぜい います。",
+      "choices": [
+        "きょうしつには 学生が ぜんぜん いません。",
+        "きょうしつには 学生が たくさん います。",
+        "きょうしつには 学生が 一人 います。",
+        "きょうしつには 学生が 二人 います。"
+      ],
+      "correctIndex": 1,
+      "rationale": "おおぜい (many people) is the closest match among the choices. Strictly, おおぜい is restricted to people while たくさん is general (people, things, abstract); the substitution works here because the noun is 学生 (people).",
+      "kbSourceId": "Q60",
+      "id": "goi-4.15"
+    }
+  ]
+}

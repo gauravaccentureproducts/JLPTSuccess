@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0",
+  "totalPapers": 28,
+  "totalQuestions": 402,
+  "categories": [
+    {
+      "label": "Moji",
+      "label_ja": "文字",
+      "description": "Kanji reading + orthography",
+      "id": "moji",
+      "paperCount": 7,
+      "questionCount": 100,
+      "papers": [
+        {
+          "id": "moji-1",
+          "paperNumber": 1,
+          "name": "Moji Paper 1",
+          "questionCount": 15,
+          "source_question_range": "Q1-Q15"
+        },
+        {
+          "id": "moji-2",
+          "paperNumber": 2,
+          "name": "Moji Paper 2",
+          "questionCount": 15,
+          "source_question_range": "Q16-Q30"
+        },
+        {
+          "id": "moji-3",
+          "paperNumber": 3,
+          "name": "Moji Paper 3",
+          "questionCount": 15,
+          "source_question_range": "Q31-Q45"
+        },
+        {
+          "id": "moji-4",
+          "paperNumber": 4,
+          "name": "Moji Paper 4",
+          "questionCount": 15,
+          "source_question_range": "Q46-Q60"
+        },
+        {
+          "id": "moji-5",
+          "paperNumber": 5,
+          "name": "Moji Paper 5",
+          "questionCount": 15,
+          "source_question_range": "Q61-Q75"
+        },
+        {
+          "id": "moji-6",
+          "paperNumber": 6,
+          "name": "Moji Paper 6",
+          "questionCount": 15,
+          "source_question_range": "Q76-Q90"
+        },
+        {
+          "id": "moji-7",
+          "paperNumber": 7,
+          "name": "Moji Paper 7",
+          "questionCount": 10,
+          "source_question_range": "Q91-Q100"
+        }
+      ]
+    },
+    {
+      "label": "Goi",
+      "label_ja": "語彙",
+      "description": "Vocabulary in context",
+      "id": "goi",
+      "paperCount": 7,
+      "questionCount": 100,
+      "papers": [
+        {
+          "id": "goi-1",
+          "paperNumber": 1,
+          "name": "Goi Paper 1",
+          "questionCount": 15,
+          "source_question_range": "Q1-Q16"
+        },
+        {
+          "id": "goi-2",
+          "paperNumber": 2,
+          "name": "Goi Paper 2",
+          "questionCount": 15,
+          "source_question_range": "Q17-Q31"
+        },
+        {
+          "id": "goi-3",
+          "paperNumber": 3,
+          "name": "Goi Paper 3",
+          "questionCount": 15,
+          "source_question_range": "Q32-Q46"
+        },
+        {
+          "id": "goi-4",
+          "paperNumber": 4,
+          "name": "Goi Paper 4",
+          "questionCount": 15,
+          "source_question_range": "Q47-Q61"
+        },
+        {
+          "id": "goi-5",
+          "paperNumber": 5,
+          "name": "Goi Paper 5",
+          "questionCount": 15,
+          "source_question_range": "Q62-Q77"
+        },
+        {
+          "id": "goi-6",
+          "paperNumber": 6,
+          "name": "Goi Paper 6",
+          "questionCount": 15,
+          "source_question_range": "Q78-Q92"
+        },
+        {
+          "id": "goi-7",
+          "paperNumber": 7,
+          "name": "Goi Paper 7",
+          "questionCount": 10,
+          "source_question_range": "Q93-Q102"
+        }
+      ]
+    },
+    {
+      "label": "Bunpou",
+      "label_ja": "文法",
+      "description": "Grammar (choose form / arrange / passage)",
+      "id": "bunpou",
+      "paperCount": 7,
+      "questionCount": 100,
+      "papers": [
+        {
+          "id": "bunpou-1",
+          "paperNumber": 1,
+          "name": "Bunpou Paper 1",
+          "questionCount": 15,
+          "source_question_range": "Q1-Q15"
+        },
+        {
+          "id": "bunpou-2",
+          "paperNumber": 2,
+          "name": "Bunpou Paper 2",
+          "questionCount": 15,
+          "source_question_range": "Q16-Q30"
+        },
+        {
+          "id": "bunpou-3",
+          "paperNumber": 3,
+          "name": "Bunpou Paper 3",
+          "questionCount": 15,
+          "source_question_range": "Q31-Q45"
+        },
+        {
+          "id": "bunpou-4",
+          "paperNumber": 4,
+          "name": "Bunpou Paper 4",
+          "questionCount": 15,
+          "source_question_range": "Q46-Q60"
+        },
+        {
+          "id": "bunpou-5",
+          "paperNumber": 5,
+          "name": "Bunpou Paper 5",
+          "questionCount": 15,
+          "source_question_range": "Q61-Q75"
+        },
+        {
+          "id": "bunpou-6",
+          "paperNumber": 6,
+          "name": "Bunpou Paper 6",
+          "questionCount": 15,
+          "source_question_range": "Q76-Q90"
+        },
+        {
+          "id": "bunpou-7",
+          "paperNumber": 7,
+          "name": "Bunpou Paper 7",
+          "questionCount": 10,
+          "source_question_range": "Q91-Q100"
+        }
+      ]
+    },
+    {
+      "label": "Dokkai",
+      "label_ja": "読解",
+      "description": "Reading comprehension",
+      "id": "dokkai",
+      "paperCount": 7,
+      "questionCount": 102,
+      "papers": [
+        {
+          "id": "dokkai-1",
+          "paperNumber": 1,
+          "name": "Dokkai Paper 1",
+          "questionCount": 15,
+          "source_question_range": "Q1-Q15"
+        },
+        {
+          "id": "dokkai-2",
+          "paperNumber": 2,
+          "name": "Dokkai Paper 2",
+          "questionCount": 15,
+          "source_question_range": "Q16-Q30"
+        },
+        {
+          "id": "dokkai-3",
+          "paperNumber": 3,
+          "name": "Dokkai Paper 3",
+          "questionCount": 15,
+          "source_question_range": "Q31-Q45"
+        },
+        {
+          "id": "dokkai-4",
+          "paperNumber": 4,
+          "name": "Dokkai Paper 4",
+          "questionCount": 15,
+          "source_question_range": "Q46-Q60"
+        },
+        {
+          "id": "dokkai-5",
+          "paperNumber": 5,
+          "name": "Dokkai Paper 5",
+          "questionCount": 15,
+          "source_question_range": "Q61-Q75"
+        },
+        {
+          "id": "dokkai-6",
+          "paperNumber": 6,
+          "name": "Dokkai Paper 6",
+          "questionCount": 15,
+          "source_question_range": "Q76-Q90"
+        },
+        {
+          "id": "dokkai-7",
+          "paperNumber": 7,
+          "name": "Dokkai Paper 7",
+          "questionCount": 12,
+          "source_question_range": "Q91-Q102"
+        }
+      ]
+    }
+  ]
+}

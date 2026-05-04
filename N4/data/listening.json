@@ -1,0 +1,556 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "entity_count": 30,
+    "id_range": "n4.listen.001..n4.listen.NNN",
+    "id_gap_policy": "Numeric IDs reserved per item; never re-used.",
+    "history": [
+      {
+        "date": "2026-05-04",
+        "delta": "+30 N4 listening seed items (template-generated; native review pending)"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "n4.listen.001",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.001.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、さん時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：病院の 前で どうですか。\n女：カフェの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "病院の 前",
+        "カフェの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "カフェの 前",
+      "explanation_en": "The man initially suggested 病院, but the woman preferred カフェ and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.002",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.002.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、よ時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：えきの 前で どうですか。\n女：えきの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "えきの 前",
+        "えきの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "えきの 前",
+      "explanation_en": "The man initially suggested えき, but the woman preferred えき and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.003",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.003.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、ご時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：えきの 前で どうですか。\n女：デパートの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "えきの 前",
+        "デパートの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "デパートの 前",
+      "explanation_en": "The man initially suggested えき, but the woman preferred デパート and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.004",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.004.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、はち時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：病院の 前で どうですか。\n女：本やの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "病院の 前",
+        "本やの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "本やの 前",
+      "explanation_en": "The man initially suggested 病院, but the woman preferred 本や and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.005",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.005.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、く時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：デパートの 前で どうですか。\n女：銀行の 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "デパートの 前",
+        "銀行の 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "銀行の 前",
+      "explanation_en": "The man initially suggested デパート, but the woman preferred 銀行 and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.006",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.006.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、さん時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：カフェの 前で どうですか。\n女：ホテルの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "カフェの 前",
+        "ホテルの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "ホテルの 前",
+      "explanation_en": "The man initially suggested カフェ, but the woman preferred ホテル and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.007",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.007.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、よ時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：カフェの 前で どうですか。\n女：カフェの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "カフェの 前",
+        "カフェの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "カフェの 前",
+      "explanation_en": "The man initially suggested カフェ, but the woman preferred カフェ and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.008",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.008.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、ご時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：カフェの 前で どうですか。\n女：えきの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "カフェの 前",
+        "えきの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "えきの 前",
+      "explanation_en": "The man initially suggested カフェ, but the woman preferred えき and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.009",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.009.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、はち時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：病院の 前で どうですか。\n女：デパートの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "病院の 前",
+        "デパートの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "デパートの 前",
+      "explanation_en": "The man initially suggested 病院, but the woman preferred デパート and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.010",
+      "format": "task",
+      "title_ja": "どこで 会いますか",
+      "audio": "audio/listening/n4.listen.010.mp3",
+      "script_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。\n男：あした、く時に 会いませんか。\n女：いいですね。どこで 会いますか。\n男：えきの 前で どうですか。\n女：本やの 前の ほうが いいです。\n男：はい、わかりました。",
+      "prompt_ja": "あした、二人は どこで 会いますか。",
+      "choices": [
+        "えきの 前",
+        "本やの 前",
+        "えいがかんの 前",
+        "こうえんの 前"
+      ],
+      "correctAnswer": "本やの 前",
+      "explanation_en": "The man initially suggested えき, but the woman preferred 本や and the man agreed.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.011",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.011.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、りんごは ありますか。\n店：はい、こちらです。200円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "りんごを ひとつ",
+        "りんごを ふたつ",
+        "りんごを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "りんごを ふたつ",
+      "explanation_en": "The man asked for two of the りんご (りんご).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.012",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.012.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、パンは ありますか。\n店：はい、こちらです。150円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "パンを ひとつ",
+        "パンを ふたつ",
+        "パンを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "パンを ふたつ",
+      "explanation_en": "The man asked for two of the パン (ぱん).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.013",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.013.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、ぎゅうにゅうは ありますか。\n店：はい、こちらです。180円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "ぎゅうにゅうを ひとつ",
+        "ぎゅうにゅうを ふたつ",
+        "ぎゅうにゅうを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "ぎゅうにゅうを ふたつ",
+      "explanation_en": "The man asked for two of the ぎゅうにゅう (ぎゅうにゅう).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.014",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.014.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、お茶は ありますか。\n店：はい、こちらです。120円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "お茶を ひとつ",
+        "お茶を ふたつ",
+        "お茶を みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "お茶を ふたつ",
+      "explanation_en": "The man asked for two of the お茶 (おちゃ).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.015",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.015.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、みずは ありますか。\n店：はい、こちらです。100円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "みずを ひとつ",
+        "みずを ふたつ",
+        "みずを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "みずを ふたつ",
+      "explanation_en": "The man asked for two of the みず (みず).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.016",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.016.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、カバンは ありますか。\n店：はい、こちらです。3000円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "カバンを ひとつ",
+        "カバンを ふたつ",
+        "カバンを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "カバンを ふたつ",
+      "explanation_en": "The man asked for two of the カバン (かばん).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.017",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.017.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、くつは ありますか。\n店：はい、こちらです。5000円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "くつを ひとつ",
+        "くつを ふたつ",
+        "くつを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "くつを ふたつ",
+      "explanation_en": "The man asked for two of the くつ (くつ).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.018",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.018.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、シャツは ありますか。\n店：はい、こちらです。2500円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "シャツを ひとつ",
+        "シャツを ふたつ",
+        "シャツを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "シャツを ふたつ",
+      "explanation_en": "The man asked for two of the シャツ (しゃつ).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.019",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.019.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、ぼうしは ありますか。\n店：はい、こちらです。1500円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "ぼうしを ひとつ",
+        "ぼうしを ふたつ",
+        "ぼうしを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "ぼうしを ふたつ",
+      "explanation_en": "The man asked for two of the ぼうし (ぼうし).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.020",
+      "format": "task",
+      "title_ja": "何を 買いましたか",
+      "audio": "audio/listening/n4.listen.020.mp3",
+      "script_ja": "おとこの ひとが みせで かいものを しています。なにを かいましたか。\n男：すみません、じてんしゃは ありますか。\n店：はい、こちらです。12000円です。\n男：じゃあ、ふたつ ください。",
+      "prompt_ja": "おとこの ひとは なにを かいましたか。",
+      "choices": [
+        "じてんしゃを ひとつ",
+        "じてんしゃを ふたつ",
+        "じてんしゃを みっつ",
+        "なにも かいませんでした"
+      ],
+      "correctAnswer": "じてんしゃを ふたつ",
+      "explanation_en": "The man asked for two of the じてんしゃ (じてんしゃ).",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.021",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.021.mp3",
+      "script_ja": "あさっては とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "day after tomorrow",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "day after tomorrow",
+      "explanation_en": "The speaker is talking about day after tomorrow.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.022",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.022.mp3",
+      "script_ja": "ゆうがたは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "evening",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "evening",
+      "explanation_en": "The speaker is talking about evening.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.023",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.023.mp3",
+      "script_ja": "会社員は とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "company employee",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "company employee",
+      "explanation_en": "The speaker is talking about company employee.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.024",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.024.mp3",
+      "script_ja": "せいとは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "pupil, schoolchild",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "pupil, schoolchild",
+      "explanation_en": "The speaker is talking about pupil, schoolchild.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.025",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.025.mp3",
+      "script_ja": "おばあさんは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "grandmother, elderly woman",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "grandmother, elderly woman",
+      "explanation_en": "The speaker is talking about grandmother, elderly woman.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.026",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.026.mp3",
+      "script_ja": "女は とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "woman",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "woman",
+      "explanation_en": "The speaker is talking about woman.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.027",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.027.mp3",
+      "script_ja": "くちは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "mouth",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "mouth",
+      "explanation_en": "The speaker is talking about mouth.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.028",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.028.mp3",
+      "script_ja": "こんやは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "tonight",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "tonight",
+      "explanation_en": "The speaker is talking about tonight.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.029",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.029.mp3",
+      "script_ja": "りょうしんは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "parents",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "parents",
+      "explanation_en": "The speaker is talking about parents.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    },
+    {
+      "id": "n4.listen.030",
+      "format": "task",
+      "title_ja": "なんと いいましたか",
+      "audio": "audio/listening/n4.listen.030.mp3",
+      "script_ja": "けさは とても いいです。",
+      "prompt_ja": "おとこの ひとは なにに ついて はなしていますか。",
+      "choices": [
+        "this morning",
+        "てんき",
+        "りょこう",
+        "しごと"
+      ],
+      "correctAnswer": "this morning",
+      "explanation_en": "The speaker is talking about this morning.",
+      "voice": "synthetic",
+      "review_status": "llm_only"
+    }
+  ]
+}

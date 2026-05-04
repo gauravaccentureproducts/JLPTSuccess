@@ -1,0 +1,85 @@
+# BrowserStack Automate config for the cross-browser smoke suite.
+# DEFER-7 closure (2026-05-03) — testing-plan §10.
+#
+# This file describes the matrix of {browser × OS} combinations that run
+# the same Playwright spec from tests/p0-smoke.spec.js + tests/visual-
+# regression.spec.js against BrowserStack's hosted devices. The local
+# Playwright config (playwright.config.js) only covers Chromium; this
+# adds Safari (macOS + iOS) + Edge (Windows) + Chrome (Android) so the
+# 4 remaining browser/OS gaps from the testing-plan §10 matrix are
+# covered.
+#
+# Activation:
+#   1. Sign up for BrowserStack Automate (free tier covers our minute
+#      budget for nightly runs).
+#   2. Add repository secrets:
+#        BROWSERSTACK_USERNAME
+#        BROWSERSTACK_ACCESS_KEY
+#   3. Add repository variable:
+#        BROWSERSTACK_ENABLED=true
+#   4. The .github/workflows/browserstack.yml workflow will start running
+#      on every push/PR/workflow_dispatch.
+#
+# Until step 3 is set, the workflow exits as a no-op so forks and PRs
+# from contributors without secret access don't fail CI.
+
+userName: ${BROWSERSTACK_USERNAME}
+accessKey: ${BROWSERSTACK_ACCESS_KEY}
+projectName: jlpt-n5-tutor
+buildName: ci-${BROWSERSTACK_BUILD_NAME}
+buildIdentifier: '#${BUILD_NUMBER}'
+
+# Test framework: BrowserStack's Playwright SDK invokes our existing
+# playwright.config.js but overrides the `projects` array with these
+# platforms.
+framework: playwright
+
+# Parallel session cap. Free tier = 5 parallel; we target 4 platforms so
+# this fits without queueing.
+parallelsPerPlatform: 1
+
+platforms:
+  # Safari on macOS — covers the WebKit / Apple-rendering path that
+  # Chromium-based Linux + Windows can't catch (JLPT-N5 furigana <ruby>
+  # rendering, font-feature-settings on Noto Sans JP).
+  - os: OS X
+    osVersion: Sonoma
+    browserName: safari
+    browserVersion: '17.0'
+
+  # Safari on iOS — touch-target sizing + viewport behavior on actual
+  # mobile Safari (Pixel 5 emulation in playwright.config.js doesn't
+  # cover iOS quirks like 100vh-vs-viewport bottom-bar).
+  - deviceName: iPhone 15 Pro
+    osVersion: '17'
+    browserName: safari
+
+  # Edge on Windows — covers Chromium-Edge specifically (most behavior
+  # mirrors desktop Chrome but font-rendering and accent-color CSS
+  # differ).
+  - os: Windows
+    osVersion: '11'
+    browserName: edge
+    browserVersion: latest
+
+  # Chrome on Android — actual mobile Chrome, not Pixel 5 device-emul.
+  # Touch input + keyboard popup behavior differs from emulation.
+  - deviceName: Samsung Galaxy S24
+    osVersion: '14.0'
+    browserName: chrome
+
+# Don't capture videos for passing tests (saves Automate minute budget).
+video: true
+videoUpload: only-on-failure
+
+# Network logs help diagnose CSP / mixed-content failures that only
+# manifest on real Safari.
+networkLogs: true
+consoleLogs: errors
+
+# Test session timeout per platform. Our P0 smoke runs in ~2 min; the
+# VR suite adds ~1 min. 5 min cap leaves headroom.
+sessionTimeout: 300
+
+# Bring-Your-Own-CI: this YAML is consumed by browserstack-node-sdk in
+# the workflow (npx browserstack-node-sdk playwright test).

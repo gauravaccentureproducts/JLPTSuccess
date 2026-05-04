@@ -1,0 +1,8 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "purpose": "JA-28: dokkai-paper kanji bounded by N5 + this exception list. Each entry documents a kanji used in N4 reading passages that is outside the N5 whitelist but justified for N4 reading-level content.",
+    "format": "Map of kanji -> {reason: str, lesson_intro: str, sources: [str]}"
+  },
+  "exceptions": {}
+}

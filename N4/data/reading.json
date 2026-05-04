@@ -1,0 +1,484 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "entity_count": 10,
+    "id_range": "n4.read.001..",
+    "id_gap_policy": "Numeric IDs reserved per passage; never re-used.",
+    "history": [
+      {
+        "date": "2026-05-04",
+        "delta": "+10 N4 reading passages (curated seed; native review pending)"
+      }
+    ]
+  },
+  "passages": [
+    {
+      "id": "n4.read.001",
+      "level": "easy",
+      "topic": "daily-routine",
+      "title_ja": "わたしの 一日",
+      "ja": "わたしは 毎日 七時に 起きます。朝ごはんを 食べてから、学校に 行きます。学校では 日本語と すうがくを 勉強します。午後 三時に うちに 帰って、しゅくだいを します。夜は テレビを 見ながら、ご飯を 食べます。十時ごろ ねます。",
+      "audio": "audio/reading/n4.read.001.mp3",
+      "questions": [
+        {
+          "id": "n4.read.001.q1",
+          "prompt_ja": "この人は 何時に おきますか。",
+          "choices": [
+            "ろく時",
+            "七時",
+            "はち時",
+            "きゅう時"
+          ],
+          "correctAnswer": "七時",
+          "explanation_en": "\"わたしは 毎日 七時に 起きます\" - I get up at seven every day.",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.001.q2",
+          "prompt_ja": "この人は 学校で 何を 勉強しますか。",
+          "choices": [
+            "えいごと すうがく",
+            "日本語と すうがく",
+            "日本語と えいご",
+            "おんがくと すうがく"
+          ],
+          "correctAnswer": "日本語と すうがく",
+          "explanation_en": "\"日本語と すうがくを 勉強します\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.002",
+      "level": "easy",
+      "topic": "weather",
+      "title_ja": "今日の てんき",
+      "ja": "今日は あさから 雨が ふっています。さむい日なので、あつい コーヒーを 飲みました。午後は 雨が やむかも しれませんが、あたたかい 服を 着て でかけたいです。明日は はれると 思います。",
+      "audio": "audio/reading/n4.read.002.mp3",
+      "questions": [
+        {
+          "id": "n4.read.002.q1",
+          "prompt_ja": "今日の てんきは どうですか。",
+          "choices": [
+            "はれ",
+            "くもり",
+            "雨",
+            "ゆき"
+          ],
+          "correctAnswer": "雨",
+          "explanation_en": "\"今日は あさから 雨が ふっています\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.002.q2",
+          "prompt_ja": "この人は 午後 何を したいですか。",
+          "choices": [
+            "うちに いる",
+            "コーヒーを 飲む",
+            "あたたかい服を 着て でかける",
+            "ねる"
+          ],
+          "correctAnswer": "あたたかい服を 着て でかける",
+          "explanation_en": "\"あたたかい 服を 着て でかけたいです\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.003",
+      "level": "easy",
+      "topic": "family",
+      "title_ja": "わたしの 家族",
+      "ja": "わたしの 家族は 五人です。父と 母と 兄が 一人、妹が 一人 います。父は 会社員で、母は 先生です。兄は 大学生で、東京に 住んでいます。妹は 高校生です。わたしたちは 毎週 日曜日に いっしょに 食事を します。",
+      "audio": "audio/reading/n4.read.003.mp3",
+      "questions": [
+        {
+          "id": "n4.read.003.q1",
+          "prompt_ja": "この人の 家族は 何人ですか。",
+          "choices": [
+            "さん人",
+            "よん人",
+            "五人",
+            "ろく人"
+          ],
+          "correctAnswer": "五人",
+          "explanation_en": "\"わたしの 家族は 五人です\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.003.q2",
+          "prompt_ja": "兄は どこに すんでいますか。",
+          "choices": [
+            "おおさか",
+            "きょうと",
+            "東京",
+            "きたうみみち"
+          ],
+          "correctAnswer": "東京",
+          "explanation_en": "\"兄は 大学生で、東京に 住んでいます\"",
+          "format_role": "extra"
+        },
+        {
+          "id": "n4.read.003.q3",
+          "prompt_ja": "家族は いつ いっしょに 食事を しますか。",
+          "choices": [
+            "毎日",
+            "毎週 ど曜日",
+            "毎週 日曜日",
+            "毎げつ"
+          ],
+          "correctAnswer": "毎週 日曜日",
+          "explanation_en": "\"毎週 日曜日に いっしょに 食事を します\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.004",
+      "level": "medium",
+      "topic": "travel",
+      "title_ja": "きょうと旅行",
+      "ja": "先月、わたしは 友だちと きょうとに 行きました。新かんせんで 東京から きょうとまで 二時間半 かかりました。きょうとでは 古い おてらを いくつか 見ました。おてらの 中は しずかで、きれいでした。お昼は きょうとの 有名な 料理を 食べました。とても おいしかったです。また 行きたいと 思います。",
+      "audio": "audio/reading/n4.read.004.mp3",
+      "questions": [
+        {
+          "id": "n4.read.004.q1",
+          "prompt_ja": "いつ きょうとに 行きましたか。",
+          "choices": [
+            "いまにち",
+            "きのう",
+            "先月",
+            "去ねん"
+          ],
+          "correctAnswer": "先月",
+          "explanation_en": "\"先月、わたしは 友だちと きょうとに 行きました\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.004.q2",
+          "prompt_ja": "東京から きょうとまで どのくらい かかりましたか。",
+          "choices": [
+            "いち時間",
+            "二時間半",
+            "さん時間",
+            "よん時間"
+          ],
+          "correctAnswer": "二時間半",
+          "explanation_en": "\"二時間半 かかりました\"",
+          "format_role": "extra"
+        },
+        {
+          "id": "n4.read.004.q3",
+          "prompt_ja": "きょうとで 何を 食べましたか。",
+          "choices": [
+            "アメリカの 料理",
+            "きょうとの 有名な 料理",
+            "中こくの 料理",
+            "なにも 食べなかった"
+          ],
+          "correctAnswer": "きょうとの 有名な 料理",
+          "explanation_en": "\"きょうとの 有名な 料理を 食べました\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.005",
+      "level": "medium",
+      "topic": "shopping",
+      "title_ja": "デパートでの かいもの",
+      "ja": "きのう、わたしは デパートに 行きました。妹の たんじょうびの プレゼントを かいたかったです。一かいで かわいい かばんを 見ましたが、たかかったので、かいませんでした。三かいで 安くて きれいな ぼうしを 見つけました。それを かいました。妹は きっと よろこぶと 思います。",
+      "audio": "audio/reading/n4.read.005.mp3",
+      "questions": [
+        {
+          "id": "n4.read.005.q1",
+          "prompt_ja": "なぜ デパートに 行きましたか。",
+          "choices": [
+            "じぶんの たんじょうびの プレゼントを かうため",
+            "妹の たんじょうびの プレゼントを かうため",
+            "ともだちと あうため",
+            "りょこうの じゅんびのため"
+          ],
+          "correctAnswer": "妹の たんじょうびの プレゼントを かうため",
+          "explanation_en": "\"妹の たんじょうびの プレゼントを かいたかったです\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.005.q2",
+          "prompt_ja": "なぜ 一かいの かばんを かいませんでしたか。",
+          "choices": [
+            "きれいじゃ なかったから",
+            "たかかったから",
+            "いろが よくなかったから",
+            "ちいさかったから"
+          ],
+          "correctAnswer": "たかかったから",
+          "explanation_en": "\"たかかったので、かいませんでした\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.006",
+      "level": "medium",
+      "topic": "study",
+      "title_ja": "日本語の 勉強",
+      "ja": "わたしは 日本語を 勉強しはじめて 一年に なります。さいしょは ひらがなも わからなかったですが、今は かんじも すこし よめます。先生は とても しんせつで、わたしが わからない時は ゆっくり せつめいして くれます。週に 三かい クラスに 行って、毎日 三十分 ふくしゅうします。日本人の 友だちと 話すことが、いちばん 楽しいです。",
+      "audio": "audio/reading/n4.read.006.mp3",
+      "questions": [
+        {
+          "id": "n4.read.006.q1",
+          "prompt_ja": "いつから 日本語を 勉強していますか。",
+          "choices": [
+            "一かげつまえ",
+            "はん年まえ",
+            "一年まえ",
+            "に年まえ"
+          ],
+          "correctAnswer": "一年まえ",
+          "explanation_en": "\"日本語を 勉強しはじめて 一年に なります\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.006.q2",
+          "prompt_ja": "一週間に 何かい クラスに 行きますか。",
+          "choices": [
+            "一かい",
+            "にかい",
+            "三かい",
+            "毎日"
+          ],
+          "correctAnswer": "三かい",
+          "explanation_en": "\"週に 三かい クラスに 行って\"",
+          "format_role": "extra"
+        },
+        {
+          "id": "n4.read.006.q3",
+          "prompt_ja": "いちばん 楽しいことは 何ですか。",
+          "choices": [
+            "先生と 話すこと",
+            "日本人の 友だちと 話すこと",
+            "かんじを よむこと",
+            "ふくしゅうすること"
+          ],
+          "correctAnswer": "日本人の 友だちと 話すこと",
+          "explanation_en": "\"日本人の 友だちと 話すことが、いちばん 楽しいです\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.007",
+      "level": "medium",
+      "topic": "food",
+      "title_ja": "日本の 食べ物",
+      "ja": "日本には おいしい 食べ物が たくさん あります。わたしの すきな 食べ物は すしと ラーメンです。すしは あまり たかくない店で 食べることが できます。ラーメンは みせによって あじが ちがいます。今度の 週まつ、新しい ラーメン店に 行ってみたいです。",
+      "audio": "audio/reading/n4.read.007.mp3",
+      "questions": [
+        {
+          "id": "n4.read.007.q1",
+          "prompt_ja": "この人の すきな 食べ物は 何ですか。",
+          "choices": [
+            "てんぷらと そば",
+            "すしと ラーメン",
+            "うどんと カレー",
+            "おこのみやきと たこやき"
+          ],
+          "correctAnswer": "すしと ラーメン",
+          "explanation_en": "\"わたしの すきな 食べ物は すしと ラーメンです\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.007.q2",
+          "prompt_ja": "ラーメンに ついて 何と 言っていますか。",
+          "choices": [
+            "いつも おなじ あじ",
+            "みせに よって あじが ちがう",
+            "たかい",
+            "からい"
+          ],
+          "correctAnswer": "みせに よって あじが ちがう",
+          "explanation_en": "\"ラーメンは みせによって あじが ちがいます\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.008",
+      "level": "hard",
+      "topic": "work",
+      "title_ja": "新しい 仕事",
+      "ja": "わたしは 来月から 新しい 会社で はたらく ことに なりました。今までの 会社では 五年間 はたらきましたが、もっと 大きい 会社に いきたかったので、てんしょく しました。新しい 会社は 駅から 近くて、たてものも きれいです。どうりょうの 人たちは みんな しんせつそうです。きんちょうしますが、楽しみにしています。",
+      "audio": "audio/reading/n4.read.008.mp3",
+      "questions": [
+        {
+          "id": "n4.read.008.q1",
+          "prompt_ja": "いつから 新しい 仕事を 始めますか。",
+          "choices": [
+            "今にち",
+            "来しゅう",
+            "来月",
+            "来年"
+          ],
+          "correctAnswer": "来月",
+          "explanation_en": "\"来月から 新しい 会社で はたらく ことに なりました\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.008.q2",
+          "prompt_ja": "なぜ てんしょく しましたか。",
+          "choices": [
+            "まえの 会社が きらいだったから",
+            "もっと 大きい 会社に いきたかったから",
+            "おきんが ほしかったから",
+            "いえから 近かったから"
+          ],
+          "correctAnswer": "もっと 大きい 会社に いきたかったから",
+          "explanation_en": "\"もっと 大きい 会社に いきたかったので、てんしょく しました\"",
+          "format_role": "extra"
+        },
+        {
+          "id": "n4.read.008.q3",
+          "prompt_ja": "新しい 会社の ばしょは どうですか。",
+          "choices": [
+            "駅から とおい",
+            "駅から 近い",
+            "いなかに ある",
+            "うみの そばに ある"
+          ],
+          "correctAnswer": "駅から 近い",
+          "explanation_en": "\"駅から 近くて\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.009",
+      "level": "medium",
+      "topic": "health",
+      "title_ja": "びょういん",
+      "ja": "今朝、おなかが いたかったので、びょういんに 行きました。お医者さんは わたしを みてから、「だいじょうぶです。たくさん 休んで ください」と 言いました。くすりも もらいました。三日間、しごとを 休まなければ なりません。一日 三かい くすりを 飲んで、はやく よく なりたいです。",
+      "audio": "audio/reading/n4.read.009.mp3",
+      "questions": [
+        {
+          "id": "n4.read.009.q1",
+          "prompt_ja": "なぜ びょういんに 行きましたか。",
+          "choices": [
+            "あたまが いたかったから",
+            "おなかが いたかったから",
+            "けがを したから",
+            "かぜを ひいたから"
+          ],
+          "correctAnswer": "おなかが いたかったから",
+          "explanation_en": "\"おなかが いたかったので、びょういんに 行きました\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.009.q2",
+          "prompt_ja": "何日 しごとを 休みますか。",
+          "choices": [
+            "一日",
+            "に日",
+            "三日",
+            "一しゅう間"
+          ],
+          "correctAnswer": "三日",
+          "explanation_en": "\"三日間、しごとを 休まなければ なりません\"",
+          "format_role": "extra"
+        },
+        {
+          "id": "n4.read.009.q3",
+          "prompt_ja": "一日に 何かい くすりを 飲みますか。",
+          "choices": [
+            "一かい",
+            "にかい",
+            "三かい",
+            "よんかい"
+          ],
+          "correctAnswer": "三かい",
+          "explanation_en": "\"一日 三かい くすりを 飲んで\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    },
+    {
+      "id": "n4.read.010",
+      "level": "hard",
+      "topic": "opinion",
+      "title_ja": "うんどうの たいせつさ",
+      "ja": "今の 時代、たくさんの 人は あまり うんどうしません。コンピューターや スマートフォンの まえに ずっと すわっていることが 多いです。しかし、けんこうのために うんどうは とても たいせつだと 思います。毎日 三十分でも 歩けば、からだが 元気になります。わたしは 朝、駅まで 歩いて 行くように しています。みなさんも 何か 始めて みませんか。",
+      "audio": "audio/reading/n4.read.010.mp3",
+      "questions": [
+        {
+          "id": "n4.read.010.q1",
+          "prompt_ja": "なぜ 今の 人は あまり うんどうしませんか。",
+          "choices": [
+            "いそがしいから",
+            "コンピューターや スマートフォンの まえに ずっと すわっているから",
+            "うんどうが きらいだから",
+            "おきんが かかるから"
+          ],
+          "correctAnswer": "コンピューターや スマートフォンの まえに ずっと すわっているから",
+          "explanation_en": "\"コンピューターや スマートフォンの まえに ずっと すわっていることが 多いです\"",
+          "format_role": "primary"
+        },
+        {
+          "id": "n4.read.010.q2",
+          "prompt_ja": "この人は 朝 何を しますか。",
+          "choices": [
+            "ジョギング",
+            "駅まで 歩いて 行く",
+            "たいそう",
+            "なにも しない"
+          ],
+          "correctAnswer": "駅まで 歩いて 行く",
+          "explanation_en": "\"わたしは 朝、駅まで 歩いて 行くように しています\"",
+          "format_role": "extra"
+        },
+        {
+          "id": "n4.read.010.q3",
+          "prompt_ja": "この人の 意見は 何ですか。",
+          "choices": [
+            "うんどうは ひつようない",
+            "コンピューターは よくない",
+            "けんこうのために うんどうは たいせつ",
+            "駅まで 歩くのが しんどい"
+          ],
+          "correctAnswer": "けんこうのために うんどうは たいせつ",
+          "explanation_en": "\"けんこうのために うんどうは とても たいせつだと 思います\"",
+          "format_role": "extra"
+        }
+      ],
+      "tier": "core_n4",
+      "voice": "synthetic",
+      "review_status": "llm_authored_curated"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+id,field,severity,finding,suggested_fix,reviewer_initials,confidence
+n5-001,examples[1].ja,MEDIUM,Slight register mismatch — sentence is plain-form but the context (formal greeting) calls for です/ます.,Replace with: わたしは リーです。,RT,5

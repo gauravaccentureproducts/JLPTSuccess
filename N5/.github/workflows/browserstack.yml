@@ -1,0 +1,91 @@
+name: browserstack-cross-browser
+
+# Cross-browser smoke matrix per testing-plan §10 (DEFER-7 closure).
+# Runs the same Playwright spec from tests/ against Safari (macOS + iOS),
+# Edge (Windows), and Chrome (Android) via BrowserStack Automate.
+#
+# Dormant by default. Activates ONLY when:
+#   1. Repo variable BROWSERSTACK_ENABLED == 'true'  (opt-in switch).
+#   2. Repo secrets BROWSERSTACK_USERNAME + BROWSERSTACK_ACCESS_KEY are set.
+#
+# Both gates are required so PRs from forks (which can't read secrets)
+# don't fail CI.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  bstack:
+    # Gate 1: opt-in repo variable. Without this, the job never starts.
+    if: ${{ vars.BROWSERSTACK_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Set up Python (for the static webServer)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Node deps
+        run: npm ci || npm install
+
+      # Gate 2: secrets present? Skip-with-message if not.
+      - name: Verify BrowserStack secrets present
+        id: gate
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        run: |
+          if [ -z "$BROWSERSTACK_USERNAME" ] || [ -z "$BROWSERSTACK_ACCESS_KEY" ]; then
+            echo "::warning::BrowserStack secrets missing — skipping cross-browser run."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install BrowserStack Node SDK (on demand)
+        if: steps.gate.outputs.skip == 'false'
+        run: npm install --no-save browserstack-node-sdk
+
+      - name: Run cross-browser smoke + visual regression on BrowserStack
+        if: steps.gate.outputs.skip == 'false'
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          BROWSERSTACK_BUILD_NAME: ${{ github.run_number }}-${{ github.sha }}
+          BUILD_NUMBER: ${{ github.run_number }}
+          CI: '1'
+        # The SDK reads browserstack.yml in the repo root and overrides
+        # playwright.config.js's `projects` with the platforms array
+        # there. Each platform runs the full spec; failure on any
+        # platform fails the job.
+        run: npx browserstack-node-sdk playwright test
+
+      - name: Upload Playwright traces (failures only)
+        if: failure() && steps.gate.outputs.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: browserstack-traces
+          path: test-results/
+          retention-days: 14
+
+      - name: Upload BrowserStack session links
+        if: always() && steps.gate.outputs.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: browserstack-sessions
+          path: log/
+          retention-days: 14
+        continue-on-error: true

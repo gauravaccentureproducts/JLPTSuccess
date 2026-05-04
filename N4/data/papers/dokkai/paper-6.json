@@ -1,0 +1,298 @@
+{
+  "id": "dokkai-6",
+  "category": "dokkai",
+  "paperNumber": 6,
+  "name": "Dokkai Paper 6",
+  "source_file": "KnowledgeBank/dokkai_questions_n4.md",
+  "source_question_range": "Q76-Q90",
+  "questionCount": 15,
+  "passages": [
+    {
+      "label": "Passage 26 (Q76-Q78)",
+      "text": "> わたしの いえの ちかくに まず が あります。まいにち 見える を します。たまに 見つかる に いきます。",
+      "question_ids": [
+        "dokkai-6.1",
+        "dokkai-6.2",
+        "dokkai-6.3"
+      ]
+    },
+    {
+      "label": "Passage 27 (Q79-Q81)",
+      "text": "> わたしの いえの ちかくに もうすぐ が あります。まいにち 無理 を します。たまに 無くなる に いきます。",
+      "question_ids": [
+        "dokkai-6.4",
+        "dokkai-6.5",
+        "dokkai-6.6"
+      ]
+    },
+    {
+      "label": "Passage 28 (Q82-Q84)",
+      "text": "> わたしの いえの ちかくに 入学 が あります。まいにち 入学する を します。たまに 入院 に いきます。",
+      "question_ids": [
+        "dokkai-6.7",
+        "dokkai-6.8",
+        "dokkai-6.9"
+      ]
+    },
+    {
+      "label": "Passage 29 (Q85-Q87)",
+      "text": "> わたしの いえの ちかくに 行う が あります。まいにち 起こす を します。たまに 屋上 に いきます。",
+      "question_ids": [
+        "dokkai-6.10",
+        "dokkai-6.11",
+        "dokkai-6.12"
+      ]
+    },
+    {
+      "label": "Passage 30 (Q88-Q90)",
+      "text": "> わたしの いえの ちかくに 思い出す が あります。まいにち オートバイ を します。たまに 下りる に いきます。",
+      "question_ids": [
+        "dokkai-6.13",
+        "dokkai-6.14",
+        "dokkai-6.15"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "問: 「まず」とは どのような いみですか。",
+      "choices": [
+        "to rise",
+        "first of all",
+        "grapes",
+        "peace of mind"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q76",
+      "passage_text": "> わたしの いえの ちかくに まず が あります。まいにち 見える を します。たまに 見つかる に いきます。",
+      "passage_label": "Passage 26 (Q76-Q78)",
+      "id": "dokkai-6.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「見える」とは どのような いみですか。",
+      "choices": [
+        "to cut (Group 1 exception - looks like Group 2",
+        "to be seen",
+        "America",
+        "flavor"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q77",
+      "passage_text": "> わたしの いえの ちかくに まず が あります。まいにち 見える を します。たまに 見つかる に いきます。",
+      "passage_label": "Passage 26 (Q76-Q78)",
+      "id": "dokkai-6.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「見つかる」とは どのような いみですか。",
+      "choices": [
+        "peace of mind",
+        "building",
+        "to cut (Group 1 exception - looks like Group 2",
+        "to be found"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q78",
+      "passage_text": "> わたしの いえの ちかくに まず が あります。まいにち 見える を します。たまに 見つかる に いきます。",
+      "passage_label": "Passage 26 (Q76-Q78)",
+      "id": "dokkai-6.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「もうすぐ」とは どのような いみですか。",
+      "choices": [
+        "peace of mind",
+        "to be surprised",
+        "soon",
+        "Ah"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q79",
+      "passage_text": "> わたしの いえの ちかくに もうすぐ が あります。まいにち 無理 を します。たまに 無くなる に いきます。",
+      "passage_label": "Passage 27 (Q79-Q81)",
+      "id": "dokkai-6.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「無理」とは どのような いみですか。",
+      "choices": [
+        "impossible",
+        "to know (Group 1 exception - looks like Group 2)",
+        "to collect",
+        "ah"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q80",
+      "passage_text": "> わたしの いえの ちかくに もうすぐ が あります。まいにち 無理 を します。たまに 無くなる に いきます。",
+      "passage_label": "Passage 27 (Q79-Q81)",
+      "id": "dokkai-6.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「無くなる」とは どのような いみですか。",
+      "choices": [
+        "flavor",
+        "Asia",
+        "literature",
+        "to disappear"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q81",
+      "passage_text": "> わたしの いえの ちかくに もうすぐ が あります。まいにち 無理 を します。たまに 無くなる に いきます。",
+      "passage_label": "Passage 27 (Q79-Q81)",
+      "id": "dokkai-6.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「入学」とは どのような いみですか。",
+      "choices": [
+        "alcohol",
+        "entry to school or university",
+        "ah",
+        "to gather"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q82",
+      "passage_text": "> わたしの いえの ちかくに 入学 が あります。まいにち 入学する を します。たまに 入院 に いきます。",
+      "passage_label": "Passage 28 (Q82-Q84)",
+      "id": "dokkai-6.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「入学する」とは どのような いみですか。",
+      "choices": [
+        "Asia",
+        "to entry to school or university",
+        "literature",
+        "to check"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q83",
+      "passage_text": "> わたしの いえの ちかくに 入学 が あります。まいにち 入学する を します。たまに 入院 に いきます。",
+      "passage_label": "Passage 28 (Q82-Q84)",
+      "id": "dokkai-6.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「入院」とは どのような いみですか。",
+      "choices": [
+        "to return home (Group 1 exception - looks like Group 2)",
+        "America",
+        "literature",
+        "hospitalization"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q84",
+      "passage_text": "> わたしの いえの ちかくに 入学 が あります。まいにち 入学する を します。たまに 入院 に いきます。",
+      "passage_label": "Passage 28 (Q82-Q84)",
+      "id": "dokkai-6.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「行う」とは どのような いみですか。",
+      "choices": [
+        "to rise",
+        "to perform",
+        "bell",
+        "to cut (Group 1 exception - looks like Group 2"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q85",
+      "passage_text": "> わたしの いえの ちかくに 行う が あります。まいにち 起こす を します。たまに 屋上 に いきます。",
+      "passage_label": "Passage 29 (Q85-Q87)",
+      "id": "dokkai-6.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「起こす」とは どのような いみですか。",
+      "choices": [
+        "to be surprised",
+        "to wake",
+        "alcohol",
+        "Africa"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q86",
+      "passage_text": "> わたしの いえの ちかくに 行う が あります。まいにち 起こす を します。たまに 屋上 に いきます。",
+      "passage_label": "Passage 29 (Q85-Q87)",
+      "id": "dokkai-6.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「屋上」とは どのような いみですか。",
+      "choices": [
+        "suffix for familiar female person",
+        "rooftop",
+        "part-time job",
+        "bell"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q87",
+      "passage_text": "> わたしの いえの ちかくに 行う が あります。まいにち 起こす を します。たまに 屋上 に いきます。",
+      "passage_label": "Passage 29 (Q85-Q87)",
+      "id": "dokkai-6.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「思い出す」とは どのような いみですか。",
+      "choices": [
+        "to remember",
+        "peace of mind",
+        "to part-time job",
+        "America"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q88",
+      "passage_text": "> わたしの いえの ちかくに 思い出す が あります。まいにち オートバイ を します。たまに 下りる に いきます。",
+      "passage_label": "Passage 30 (Q88-Q90)",
+      "id": "dokkai-6.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「オートバイ」とは どのような いみですか。",
+      "choices": [
+        "motorcycle",
+        "building",
+        "ah",
+        "bell"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q89",
+      "passage_text": "> わたしの いえの ちかくに 思い出す が あります。まいにち オートバイ を します。たまに 下りる に いきます。",
+      "passage_label": "Passage 30 (Q88-Q90)",
+      "id": "dokkai-6.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「下りる」とは どのような いみですか。",
+      "choices": [
+        "suffix for familiar female person",
+        "to part-time job",
+        "peace of mind",
+        "to get off"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q90",
+      "passage_text": "> わたしの いえの ちかくに 思い出す が あります。まいにち オートバイ を します。たまに 下りる に いきます。",
+      "passage_label": "Passage 30 (Q88-Q90)",
+      "id": "dokkai-6.15"
+    }
+  ]
+}

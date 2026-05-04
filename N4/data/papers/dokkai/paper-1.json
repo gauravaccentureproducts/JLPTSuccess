@@ -1,0 +1,298 @@
+{
+  "id": "dokkai-1",
+  "category": "dokkai",
+  "paperNumber": 1,
+  "name": "Dokkai Paper 1",
+  "source_file": "KnowledgeBank/dokkai_questions_n4.md",
+  "source_question_range": "Q1-Q15",
+  "questionCount": 15,
+  "passages": [
+    {
+      "label": "Passage 1 (Q1-Q3)",
+      "text": "> わたしの いえの ちかくに いる が あります。まいにち あ を します。たまに ああ に いきます。",
+      "question_ids": [
+        "dokkai-1.1",
+        "dokkai-1.2",
+        "dokkai-1.3"
+      ]
+    },
+    {
+      "label": "Passage 2 (Q4-Q6)",
+      "text": "> わたしの いえの ちかくに 味 が あります。まいにち アジア を します。たまに 赤ちゃん に いきます。",
+      "question_ids": [
+        "dokkai-1.4",
+        "dokkai-1.5",
+        "dokkai-1.6"
+      ]
+    },
+    {
+      "label": "Passage 3 (Q7-Q9)",
+      "text": "> わたしの いえの ちかくに アナウンサー が あります。まいにち あんな を します。たまに 安心 に いきます。",
+      "question_ids": [
+        "dokkai-1.7",
+        "dokkai-1.8",
+        "dokkai-1.9"
+      ]
+    },
+    {
+      "label": "Passage 4 (Q10-Q12)",
+      "text": "> わたしの いえの ちかくに アルコール が あります。まいにち 集まる を します。たまに 集める に いきます。",
+      "question_ids": [
+        "dokkai-1.10",
+        "dokkai-1.11",
+        "dokkai-1.12"
+      ]
+    },
+    {
+      "label": "Passage 5 (Q13-Q15)",
+      "text": "> わたしの いえの ちかくに ビル が あります。まいにち ぶどう を します。たまに 文学 に いきます。",
+      "question_ids": [
+        "dokkai-1.13",
+        "dokkai-1.14",
+        "dokkai-1.15"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "問: 「いる」とは どのような いみですか。",
+      "choices": [
+        "to part-time job",
+        "to need (Group 1 exception - looks like Group 2",
+        "literature",
+        "baby"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q1",
+      "passage_text": "> わたしの いえの ちかくに いる が あります。まいにち あ を します。たまに ああ に いきます。",
+      "passage_label": "Passage 1 (Q1-Q3)",
+      "id": "dokkai-1.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「あ」とは どのような いみですか。",
+      "choices": [
+        "announcer",
+        "such",
+        "Ah",
+        "to return home (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q2",
+      "passage_text": "> わたしの いえの ちかくに いる が あります。まいにち あ を します。たまに ああ に いきます。",
+      "passage_label": "Passage 1 (Q1-Q3)",
+      "id": "dokkai-1.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「ああ」とは どのような いみですか。",
+      "choices": [
+        "to part-time job",
+        "ah",
+        "announcer",
+        "to check"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q3",
+      "passage_text": "> わたしの いえの ちかくに いる が あります。まいにち あ を します。たまに ああ に いきます。",
+      "passage_label": "Passage 1 (Q1-Q3)",
+      "id": "dokkai-1.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「味」とは どのような いみですか。",
+      "choices": [
+        "to know (Group 1 exception - looks like Group 2)",
+        "flavor",
+        "Asia",
+        "to need (Group 1 exception - looks like Group 2"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q4",
+      "passage_text": "> わたしの いえの ちかくに 味 が あります。まいにち アジア を します。たまに 赤ちゃん に いきます。",
+      "passage_label": "Passage 2 (Q4-Q6)",
+      "id": "dokkai-1.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「アジア」とは どのような いみですか。",
+      "choices": [
+        "to collect",
+        "to check",
+        "Asia",
+        "announcer"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q5",
+      "passage_text": "> わたしの いえの ちかくに 味 が あります。まいにち アジア を します。たまに 赤ちゃん に いきます。",
+      "passage_label": "Passage 2 (Q4-Q6)",
+      "id": "dokkai-1.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「赤ちゃん」とは どのような いみですか。",
+      "choices": [
+        "Asia",
+        "Ah",
+        "baby",
+        "to check"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q6",
+      "passage_text": "> わたしの いえの ちかくに 味 が あります。まいにち アジア を します。たまに 赤ちゃん に いきます。",
+      "passage_label": "Passage 2 (Q4-Q6)",
+      "id": "dokkai-1.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「アナウンサー」とは どのような いみですか。",
+      "choices": [
+        "to run (Group 1 exception - looks like Group 2)",
+        "announcer",
+        "suffix for familiar female person",
+        "Africa"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q7",
+      "passage_text": "> わたしの いえの ちかくに アナウンサー が あります。まいにち あんな を します。たまに 安心 に いきます。",
+      "passage_label": "Passage 3 (Q7-Q9)",
+      "id": "dokkai-1.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「あんな」とは どのような いみですか。",
+      "choices": [
+        "ah",
+        "such",
+        "Ah",
+        "to cut (Group 1 exception - looks like Group 2"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q8",
+      "passage_text": "> わたしの いえの ちかくに アナウンサー が あります。まいにち あんな を します。たまに 安心 に いきます。",
+      "passage_label": "Passage 3 (Q7-Q9)",
+      "id": "dokkai-1.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「安心」とは どのような いみですか。",
+      "choices": [
+        "Asia",
+        "part-time job",
+        "peace of mind",
+        "to cut (Group 1 exception - looks like Group 2"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q9",
+      "passage_text": "> わたしの いえの ちかくに アナウンサー が あります。まいにち あんな を します。たまに 安心 に いきます。",
+      "passage_label": "Passage 3 (Q7-Q9)",
+      "id": "dokkai-1.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「アルコール」とは どのような いみですか。",
+      "choices": [
+        "grapes",
+        "Ah",
+        "alcohol",
+        "to need (Group 1 exception - looks like Group 2"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q10",
+      "passage_text": "> わたしの いえの ちかくに アルコール が あります。まいにち 集まる を します。たまに 集める に いきます。",
+      "passage_label": "Passage 4 (Q10-Q12)",
+      "id": "dokkai-1.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「集まる」とは どのような いみですか。",
+      "choices": [
+        "to enter (Group 1 exception - looks like Group 2)",
+        "to part-time job",
+        "to gather",
+        "Ah"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q11",
+      "passage_text": "> わたしの いえの ちかくに アルコール が あります。まいにち 集まる を します。たまに 集める に いきます。",
+      "passage_label": "Passage 4 (Q10-Q12)",
+      "id": "dokkai-1.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「集める」とは どのような いみですか。",
+      "choices": [
+        "Asia",
+        "to collect",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "to gather"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q12",
+      "passage_text": "> わたしの いえの ちかくに アルコール が あります。まいにち 集まる を します。たまに 集める に いきます。",
+      "passage_label": "Passage 4 (Q10-Q12)",
+      "id": "dokkai-1.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「ビル」とは どのような いみですか。",
+      "choices": [
+        "baby",
+        "Africa",
+        "grapes",
+        "building"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q13",
+      "passage_text": "> わたしの いえの ちかくに ビル が あります。まいにち ぶどう を します。たまに 文学 に いきます。",
+      "passage_label": "Passage 5 (Q13-Q15)",
+      "id": "dokkai-1.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「ぶどう」とは どのような いみですか。",
+      "choices": [
+        "to know (Group 1 exception - looks like Group 2)",
+        "to collect",
+        "to return home (Group 1 exception - looks like Group 2)",
+        "grapes"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q14",
+      "passage_text": "> わたしの いえの ちかくに ビル が あります。まいにち ぶどう を します。たまに 文学 に いきます。",
+      "passage_label": "Passage 5 (Q13-Q15)",
+      "id": "dokkai-1.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「文学」とは どのような いみですか。",
+      "choices": [
+        "accessory",
+        "ah",
+        "to return home (Group 1 exception - looks like Group 2)",
+        "literature"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q15",
+      "passage_text": "> わたしの いえの ちかくに ビル が あります。まいにち ぶどう を します。たまに 文学 に いきます。",
+      "passage_label": "Passage 5 (Q13-Q15)",
+      "id": "dokkai-1.15"
+    }
+  ]
+}

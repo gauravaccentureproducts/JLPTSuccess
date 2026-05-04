@@ -1,0 +1,3561 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "entity_count": 143,
+    "id_range": "n4.kanji.<glyph>",
+    "id_gap_policy": "ID is the literal glyph; never gappy.",
+    "history": [
+      {
+        "date": "2026-05-04",
+        "delta": "+143 N4-new kanji (N5 prereqs not repeated; whitelist union retained for content scope)"
+      }
+    ]
+  },
+  "entries": [
+    {
+      "id": "n4.kanji.同",
+      "glyph": "同",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 1,
+      "frequency_rank": 1,
+      "on": [
+        "ドウ"
+      ],
+      "kun": [
+        "おな(じ)"
+      ],
+      "primary_reading": "ドウ",
+      "primary_kind": "on",
+      "meanings": [
+        "same",
+        "agree",
+        "equal"
+      ],
+      "stroke_order_svg": "svg/kanji/同.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.事",
+      "glyph": "事",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 2,
+      "frequency_rank": 2,
+      "on": [
+        "ジ"
+      ],
+      "kun": [
+        "こと"
+      ],
+      "primary_reading": "ジ",
+      "primary_kind": "on",
+      "meanings": [
+        "matter",
+        "thing",
+        "fact",
+        "business"
+      ],
+      "stroke_order_svg": "svg/kanji/事.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.自",
+      "glyph": "自",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 3,
+      "frequency_rank": 3,
+      "on": [
+        "ジ",
+        "シ"
+      ],
+      "kun": [
+        "みずか(ら)"
+      ],
+      "primary_reading": "ジ",
+      "primary_kind": "on",
+      "meanings": [
+        "oneself"
+      ],
+      "stroke_order_svg": "svg/kanji/自.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.発",
+      "glyph": "発",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 4,
+      "frequency_rank": 4,
+      "on": [
+        "ハツ",
+        "ホツ"
+      ],
+      "kun": [],
+      "primary_reading": "ハツ",
+      "primary_kind": "on",
+      "meanings": [
+        "departure",
+        "discharge",
+        "emit",
+        "start"
+      ],
+      "stroke_order_svg": "svg/kanji/発.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.者",
+      "glyph": "者",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 5,
+      "frequency_rank": 5,
+      "on": [
+        "シャ"
+      ],
+      "kun": [
+        "もの"
+      ],
+      "primary_reading": "シャ",
+      "primary_kind": "on",
+      "meanings": [
+        "someone",
+        "person"
+      ],
+      "stroke_order_svg": "svg/kanji/者.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.地",
+      "glyph": "地",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 6,
+      "frequency_rank": 6,
+      "on": [
+        "チ",
+        "ジ"
+      ],
+      "kun": [],
+      "primary_reading": "チ",
+      "primary_kind": "on",
+      "meanings": [
+        "ground",
+        "earth"
+      ],
+      "stroke_order_svg": "svg/kanji/地.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.業",
+      "glyph": "業",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 7,
+      "frequency_rank": 7,
+      "on": [
+        "ギョウ"
+      ],
+      "kun": [
+        "わざ"
+      ],
+      "primary_reading": "ギョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "business",
+        "vocation",
+        "arts",
+        "performance"
+      ],
+      "stroke_order_svg": "svg/kanji/業.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.方",
+      "glyph": "方",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 8,
+      "frequency_rank": 8,
+      "on": [
+        "ホウ"
+      ],
+      "kun": [
+        "かた"
+      ],
+      "primary_reading": "ホウ",
+      "primary_kind": "on",
+      "meanings": [
+        "direction",
+        "person",
+        "alternative"
+      ],
+      "stroke_order_svg": "svg/kanji/方.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.場",
+      "glyph": "場",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 9,
+      "frequency_rank": 9,
+      "on": [
+        "ジョウ"
+      ],
+      "kun": [
+        "ば"
+      ],
+      "primary_reading": "ジョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "location",
+        "place"
+      ],
+      "stroke_order_svg": "svg/kanji/場.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.開",
+      "glyph": "開",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 10,
+      "frequency_rank": 10,
+      "on": [
+        "カイ"
+      ],
+      "kun": [
+        "ひら(く)",
+        "あ(ける)"
+      ],
+      "primary_reading": "カイ",
+      "primary_kind": "on",
+      "meanings": [
+        "open",
+        "unfold",
+        "unseal"
+      ],
+      "stroke_order_svg": "svg/kanji/開.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.問",
+      "glyph": "問",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 11,
+      "frequency_rank": 11,
+      "on": [
+        "モン"
+      ],
+      "kun": [
+        "と(う)"
+      ],
+      "primary_reading": "モン",
+      "primary_kind": "on",
+      "meanings": [
+        "question",
+        "ask",
+        "problem"
+      ],
+      "stroke_order_svg": "svg/kanji/問.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.代",
+      "glyph": "代",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 12,
+      "frequency_rank": 12,
+      "on": [
+        "ダイ"
+      ],
+      "kun": [
+        "か(わり)"
+      ],
+      "primary_reading": "ダイ",
+      "primary_kind": "on",
+      "meanings": [
+        "substitute",
+        "change",
+        "convert",
+        "replace"
+      ],
+      "stroke_order_svg": "svg/kanji/代.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.明",
+      "glyph": "明",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 13,
+      "frequency_rank": 13,
+      "on": [
+        "メイ",
+        "ミョウ"
+      ],
+      "kun": [
+        "あか(るい)"
+      ],
+      "primary_reading": "メイ",
+      "primary_kind": "on",
+      "meanings": [
+        "bright",
+        "light"
+      ],
+      "stroke_order_svg": "svg/kanji/明.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.動",
+      "glyph": "動",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 14,
+      "frequency_rank": 14,
+      "on": [
+        "ドウ"
+      ],
+      "kun": [
+        "うご(く)"
+      ],
+      "primary_reading": "ドウ",
+      "primary_kind": "on",
+      "meanings": [
+        "move",
+        "motion",
+        "change"
+      ],
+      "stroke_order_svg": "svg/kanji/動.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.京",
+      "glyph": "京",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 15,
+      "frequency_rank": 15,
+      "on": [
+        "キョウ",
+        "ケイ",
+        "キン"
+      ],
+      "kun": [
+        "みやこ"
+      ],
+      "primary_reading": "キョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "capital"
+      ],
+      "stroke_order_svg": "svg/kanji/京.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.通",
+      "glyph": "通",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 16,
+      "frequency_rank": 16,
+      "on": [
+        "ツウ"
+      ],
+      "kun": [
+        "とお(る)",
+        "かよ(う)"
+      ],
+      "primary_reading": "ツウ",
+      "primary_kind": "on",
+      "meanings": [
+        "traffic",
+        "pass through",
+        "avenue",
+        "commute"
+      ],
+      "stroke_order_svg": "svg/kanji/通.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.理",
+      "glyph": "理",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 17,
+      "frequency_rank": 17,
+      "on": [
+        "リ"
+      ],
+      "kun": [],
+      "primary_reading": "リ",
+      "primary_kind": "on",
+      "meanings": [
+        "logic",
+        "arrangement",
+        "reason",
+        "justice",
+        "truth"
+      ],
+      "stroke_order_svg": "svg/kanji/理.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.体",
+      "glyph": "体",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 18,
+      "frequency_rank": 18,
+      "on": [
+        "タイ"
+      ],
+      "kun": [
+        "からだ"
+      ],
+      "primary_reading": "タイ",
+      "primary_kind": "on",
+      "meanings": [
+        "body",
+        "substance",
+        "object",
+        "reality"
+      ],
+      "stroke_order_svg": "svg/kanji/体.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.主",
+      "glyph": "主",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 19,
+      "frequency_rank": 19,
+      "on": [
+        "シュ"
+      ],
+      "kun": [
+        "ぬし",
+        "おも"
+      ],
+      "primary_reading": "シュ",
+      "primary_kind": "on",
+      "meanings": [
+        "lord",
+        "chief",
+        "master",
+        "main thing",
+        "principal"
+      ],
+      "stroke_order_svg": "svg/kanji/主.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.題",
+      "glyph": "題",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 20,
+      "frequency_rank": 20,
+      "on": [
+        "ダイ"
+      ],
+      "kun": [],
+      "primary_reading": "ダイ",
+      "primary_kind": "on",
+      "meanings": [
+        "topic",
+        "subject"
+      ],
+      "stroke_order_svg": "svg/kanji/題.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.意",
+      "glyph": "意",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 21,
+      "frequency_rank": 21,
+      "on": [
+        "イ"
+      ],
+      "kun": [],
+      "primary_reading": "イ",
+      "primary_kind": "on",
+      "meanings": [
+        "idea",
+        "mind",
+        "heart",
+        "taste",
+        "thought"
+      ],
+      "stroke_order_svg": "svg/kanji/意.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.不",
+      "glyph": "不",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 22,
+      "frequency_rank": 22,
+      "on": [
+        "フ",
+        "ブ"
+      ],
+      "kun": [],
+      "primary_reading": "フ",
+      "primary_kind": "on",
+      "meanings": [
+        "negative",
+        "non-",
+        "bad"
+      ],
+      "stroke_order_svg": "svg/kanji/不.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.作",
+      "glyph": "作",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 23,
+      "frequency_rank": 23,
+      "on": [
+        "サク",
+        "サ"
+      ],
+      "kun": [
+        "つく(る)"
+      ],
+      "primary_reading": "サク",
+      "primary_kind": "on",
+      "meanings": [
+        "make",
+        "production",
+        "prepare",
+        "build"
+      ],
+      "stroke_order_svg": "svg/kanji/作.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.用",
+      "glyph": "用",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 24,
+      "frequency_rank": 24,
+      "on": [
+        "ヨウ"
+      ],
+      "kun": [
+        "もち(いる)"
+      ],
+      "primary_reading": "ヨウ",
+      "primary_kind": "on",
+      "meanings": [
+        "utilize",
+        "business",
+        "service",
+        "use",
+        "employ"
+      ],
+      "stroke_order_svg": "svg/kanji/用.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.度",
+      "glyph": "度",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 25,
+      "frequency_rank": 25,
+      "on": [
+        "ド",
+        "タク"
+      ],
+      "kun": [
+        "たび",
+        "た(い)"
+      ],
+      "primary_reading": "たび",
+      "primary_kind": "kun",
+      "meanings": [
+        "degrees",
+        "occurrence",
+        "time",
+        "counter"
+      ],
+      "stroke_order_svg": "svg/kanji/度.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.強",
+      "glyph": "強",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 26,
+      "frequency_rank": 26,
+      "on": [
+        "キョウ",
+        "ゴウ"
+      ],
+      "kun": [
+        "つよ(い)"
+      ],
+      "primary_reading": "つよ(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "strong"
+      ],
+      "stroke_order_svg": "svg/kanji/強.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.公",
+      "glyph": "公",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 27,
+      "frequency_rank": 27,
+      "on": [
+        "コウ"
+      ],
+      "kun": [],
+      "primary_reading": "コウ",
+      "primary_kind": "on",
+      "meanings": [
+        "public",
+        "prince",
+        "official",
+        "governmental"
+      ],
+      "stroke_order_svg": "svg/kanji/公.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.持",
+      "glyph": "持",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 28,
+      "frequency_rank": 28,
+      "on": [
+        "ジ"
+      ],
+      "kun": [
+        "も(つ)"
+      ],
+      "primary_reading": "ジ",
+      "primary_kind": "on",
+      "meanings": [
+        "hold",
+        "have"
+      ],
+      "stroke_order_svg": "svg/kanji/持.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.野",
+      "glyph": "野",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 29,
+      "frequency_rank": 29,
+      "on": [
+        "ヤ"
+      ],
+      "kun": [
+        "の"
+      ],
+      "primary_reading": "ヤ",
+      "primary_kind": "on",
+      "meanings": [
+        "plains",
+        "field",
+        "rustic",
+        "civilian life"
+      ],
+      "stroke_order_svg": "svg/kanji/野.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.以",
+      "glyph": "以",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 30,
+      "frequency_rank": 30,
+      "on": [
+        "イ"
+      ],
+      "kun": [
+        "もっ(て)"
+      ],
+      "primary_reading": "イ",
+      "primary_kind": "on",
+      "meanings": [
+        "by means of",
+        "because",
+        "in view of"
+      ],
+      "stroke_order_svg": "svg/kanji/以.svg",
+      "recognition_priority": 1,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.思",
+      "glyph": "思",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 31,
+      "frequency_rank": 31,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "おも(う)"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "think"
+      ],
+      "stroke_order_svg": "svg/kanji/思.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.家",
+      "glyph": "家",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 32,
+      "frequency_rank": 32,
+      "on": [
+        "カ"
+      ],
+      "kun": [
+        "いえ",
+        "や",
+        "うち"
+      ],
+      "primary_reading": "カ",
+      "primary_kind": "on",
+      "meanings": [
+        "house",
+        "home",
+        "family",
+        "professional",
+        "expert"
+      ],
+      "stroke_order_svg": "svg/kanji/家.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.世",
+      "glyph": "世",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 33,
+      "frequency_rank": 33,
+      "on": [
+        "セイ",
+        "セ"
+      ],
+      "kun": [
+        "よ"
+      ],
+      "primary_reading": "セイ",
+      "primary_kind": "on",
+      "meanings": [
+        "generation",
+        "world",
+        "society",
+        "public"
+      ],
+      "stroke_order_svg": "svg/kanji/世.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.多",
+      "glyph": "多",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 34,
+      "frequency_rank": 34,
+      "on": [
+        "タ"
+      ],
+      "kun": [
+        "おお(い)"
+      ],
+      "primary_reading": "おお(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "many",
+        "frequent",
+        "much"
+      ],
+      "stroke_order_svg": "svg/kanji/多.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.正",
+      "glyph": "正",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 35,
+      "frequency_rank": 35,
+      "on": [
+        "セイ",
+        "ショウ"
+      ],
+      "kun": [
+        "ただ(しい)",
+        "まさ(に)"
+      ],
+      "primary_reading": "ただ(しい)",
+      "primary_kind": "kun",
+      "meanings": [
+        "correct",
+        "justice",
+        "righteous"
+      ],
+      "stroke_order_svg": "svg/kanji/正.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.院",
+      "glyph": "院",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 36,
+      "frequency_rank": 36,
+      "on": [
+        "イン"
+      ],
+      "kun": [],
+      "primary_reading": "イン",
+      "primary_kind": "on",
+      "meanings": [
+        "institution",
+        "temple",
+        "mansion",
+        "school"
+      ],
+      "stroke_order_svg": "svg/kanji/院.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.心",
+      "glyph": "心",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 37,
+      "frequency_rank": 37,
+      "on": [
+        "シン"
+      ],
+      "kun": [
+        "こころ"
+      ],
+      "primary_reading": "シン",
+      "primary_kind": "on",
+      "meanings": [
+        "heart",
+        "mind",
+        "spirit"
+      ],
+      "stroke_order_svg": "svg/kanji/心.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.界",
+      "glyph": "界",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 38,
+      "frequency_rank": 38,
+      "on": [
+        "カイ"
+      ],
+      "kun": [],
+      "primary_reading": "カイ",
+      "primary_kind": "on",
+      "meanings": [
+        "world",
+        "boundary"
+      ],
+      "stroke_order_svg": "svg/kanji/界.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.教",
+      "glyph": "教",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 39,
+      "frequency_rank": 39,
+      "on": [
+        "キョウ"
+      ],
+      "kun": [
+        "おし(える)",
+        "おそ(わる)"
+      ],
+      "primary_reading": "キョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "teach",
+        "faith",
+        "doctrine"
+      ],
+      "stroke_order_svg": "svg/kanji/教.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.文",
+      "glyph": "文",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 40,
+      "frequency_rank": 40,
+      "on": [
+        "ブン",
+        "モン"
+      ],
+      "kun": [
+        "ふみ"
+      ],
+      "primary_reading": "ブン",
+      "primary_kind": "on",
+      "meanings": [
+        "sentence",
+        "literature",
+        "style",
+        "art"
+      ],
+      "stroke_order_svg": "svg/kanji/文.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.元",
+      "glyph": "元",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 41,
+      "frequency_rank": 41,
+      "on": [
+        "ゲン",
+        "ガン"
+      ],
+      "kun": [
+        "もと"
+      ],
+      "primary_reading": "ゲン",
+      "primary_kind": "on",
+      "meanings": [
+        "beginning",
+        "former time",
+        "origin"
+      ],
+      "stroke_order_svg": "svg/kanji/元.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.重",
+      "glyph": "重",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 42,
+      "frequency_rank": 42,
+      "on": [
+        "ジュウ",
+        "チョウ"
+      ],
+      "kun": [
+        "おも(い)",
+        "かさ(ねる)"
+      ],
+      "primary_reading": "おも(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "heavy",
+        "important",
+        "esteem",
+        "respect"
+      ],
+      "stroke_order_svg": "svg/kanji/重.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.近",
+      "glyph": "近",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 43,
+      "frequency_rank": 43,
+      "on": [
+        "キン"
+      ],
+      "kun": [
+        "ちか(い)"
+      ],
+      "primary_reading": "ちか(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "near",
+        "early",
+        "akin",
+        "tantamount"
+      ],
+      "stroke_order_svg": "svg/kanji/近.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.考",
+      "glyph": "考",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 44,
+      "frequency_rank": 44,
+      "on": [
+        "コウ"
+      ],
+      "kun": [
+        "かんが(える)"
+      ],
+      "primary_reading": "コウ",
+      "primary_kind": "on",
+      "meanings": [
+        "consider",
+        "think over"
+      ],
+      "stroke_order_svg": "svg/kanji/考.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.画",
+      "glyph": "画",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 45,
+      "frequency_rank": 45,
+      "on": [
+        "ガ",
+        "カク"
+      ],
+      "kun": [
+        "かく(する)"
+      ],
+      "primary_reading": "ガ",
+      "primary_kind": "on",
+      "meanings": [
+        "brush-stroke",
+        "picture"
+      ],
+      "stroke_order_svg": "svg/kanji/画.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.海",
+      "glyph": "海",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 46,
+      "frequency_rank": 46,
+      "on": [
+        "カイ"
+      ],
+      "kun": [
+        "うみ"
+      ],
+      "primary_reading": "カイ",
+      "primary_kind": "on",
+      "meanings": [
+        "sea",
+        "ocean"
+      ],
+      "stroke_order_svg": "svg/kanji/海.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.売",
+      "glyph": "売",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 47,
+      "frequency_rank": 47,
+      "on": [
+        "バイ"
+      ],
+      "kun": [
+        "う(る)"
+      ],
+      "primary_reading": "バイ",
+      "primary_kind": "on",
+      "meanings": [
+        "sell"
+      ],
+      "stroke_order_svg": "svg/kanji/売.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.知",
+      "glyph": "知",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 48,
+      "frequency_rank": 48,
+      "on": [
+        "チ"
+      ],
+      "kun": [
+        "し(る)"
+      ],
+      "primary_reading": "チ",
+      "primary_kind": "on",
+      "meanings": [
+        "know",
+        "wisdom"
+      ],
+      "stroke_order_svg": "svg/kanji/知.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.集",
+      "glyph": "集",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 49,
+      "frequency_rank": 49,
+      "on": [
+        "シュウ"
+      ],
+      "kun": [
+        "あつ(める)"
+      ],
+      "primary_reading": "シュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "gather",
+        "meet"
+      ],
+      "stroke_order_svg": "svg/kanji/集.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.別",
+      "glyph": "別",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 50,
+      "frequency_rank": 50,
+      "on": [
+        "ベツ"
+      ],
+      "kun": [
+        "わか(れる)",
+        "わ(ける)"
+      ],
+      "primary_reading": "ベツ",
+      "primary_kind": "on",
+      "meanings": [
+        "separate",
+        "branch off",
+        "diverge"
+      ],
+      "stroke_order_svg": "svg/kanji/別.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.物",
+      "glyph": "物",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 51,
+      "frequency_rank": 51,
+      "on": [
+        "ブツ",
+        "モツ"
+      ],
+      "kun": [
+        "もの"
+      ],
+      "primary_reading": "ブツ",
+      "primary_kind": "on",
+      "meanings": [
+        "thing",
+        "object",
+        "matter"
+      ],
+      "stroke_order_svg": "svg/kanji/物.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.使",
+      "glyph": "使",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 52,
+      "frequency_rank": 52,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "つか(う)"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "use",
+        "order",
+        "messenger",
+        "ambassador"
+      ],
+      "stroke_order_svg": "svg/kanji/使.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.品",
+      "glyph": "品",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 53,
+      "frequency_rank": 53,
+      "on": [
+        "ヒン"
+      ],
+      "kun": [
+        "しな"
+      ],
+      "primary_reading": "ヒン",
+      "primary_kind": "on",
+      "meanings": [
+        "goods",
+        "refinement",
+        "dignity",
+        "article"
+      ],
+      "stroke_order_svg": "svg/kanji/品.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.計",
+      "glyph": "計",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 54,
+      "frequency_rank": 54,
+      "on": [
+        "ケイ"
+      ],
+      "kun": [
+        "はか(る)"
+      ],
+      "primary_reading": "ケイ",
+      "primary_kind": "on",
+      "meanings": [
+        "plot",
+        "plan",
+        "scheme",
+        "measure"
+      ],
+      "stroke_order_svg": "svg/kanji/計.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.死",
+      "glyph": "死",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 55,
+      "frequency_rank": 55,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "し(ぬ)"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "death",
+        "die"
+      ],
+      "stroke_order_svg": "svg/kanji/死.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.特",
+      "glyph": "特",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 56,
+      "frequency_rank": 56,
+      "on": [
+        "トク"
+      ],
+      "kun": [],
+      "primary_reading": "トク",
+      "primary_kind": "on",
+      "meanings": [
+        "special"
+      ],
+      "stroke_order_svg": "svg/kanji/特.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.始",
+      "glyph": "始",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 57,
+      "frequency_rank": 57,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "はじ(める)"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "commence",
+        "begin"
+      ],
+      "stroke_order_svg": "svg/kanji/始.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.朝",
+      "glyph": "朝",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 58,
+      "frequency_rank": 58,
+      "on": [
+        "チョウ"
+      ],
+      "kun": [
+        "あさ"
+      ],
+      "primary_reading": "チョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "morning"
+      ],
+      "stroke_order_svg": "svg/kanji/朝.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.運",
+      "glyph": "運",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 59,
+      "frequency_rank": 59,
+      "on": [
+        "ウン"
+      ],
+      "kun": [
+        "はこ(ぶ)"
+      ],
+      "primary_reading": "ウン",
+      "primary_kind": "on",
+      "meanings": [
+        "carry",
+        "luck",
+        "destiny",
+        "fate",
+        "transport"
+      ],
+      "stroke_order_svg": "svg/kanji/運.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.終",
+      "glyph": "終",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 60,
+      "frequency_rank": 60,
+      "on": [
+        "シュウ"
+      ],
+      "kun": [
+        "お(わる)"
+      ],
+      "primary_reading": "シュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "end",
+        "finish"
+      ],
+      "stroke_order_svg": "svg/kanji/終.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.台",
+      "glyph": "台",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 61,
+      "frequency_rank": 61,
+      "on": [
+        "ダイ",
+        "タイ"
+      ],
+      "kun": [
+        "うてな"
+      ],
+      "primary_reading": "ダイ",
+      "primary_kind": "on",
+      "meanings": [
+        "pedestal",
+        "a stand",
+        "counter for machines"
+      ],
+      "stroke_order_svg": "svg/kanji/台.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.広",
+      "glyph": "広",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 62,
+      "frequency_rank": 62,
+      "on": [
+        "コウ"
+      ],
+      "kun": [
+        "ひろ(い)"
+      ],
+      "primary_reading": "ひろ(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "wide",
+        "broad",
+        "spacious"
+      ],
+      "stroke_order_svg": "svg/kanji/広.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.住",
+      "glyph": "住",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 63,
+      "frequency_rank": 63,
+      "on": [
+        "ジュウ",
+        "チュウ"
+      ],
+      "kun": [
+        "す(む)"
+      ],
+      "primary_reading": "ジュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "dwell",
+        "reside",
+        "live",
+        "inhabit"
+      ],
+      "stroke_order_svg": "svg/kanji/住.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.無",
+      "glyph": "無",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 64,
+      "frequency_rank": 64,
+      "on": [
+        "ム",
+        "ブ"
+      ],
+      "kun": [
+        "な(い)"
+      ],
+      "primary_reading": "な(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "nothingness",
+        "none",
+        "ain't",
+        "nothing",
+        "nil"
+      ],
+      "stroke_order_svg": "svg/kanji/無.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.真",
+      "glyph": "真",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 65,
+      "frequency_rank": 65,
+      "on": [
+        "シン"
+      ],
+      "kun": [
+        "ま",
+        "まこと"
+      ],
+      "primary_reading": "シン",
+      "primary_kind": "on",
+      "meanings": [
+        "true",
+        "reality",
+        "Buddhist sect"
+      ],
+      "stroke_order_svg": "svg/kanji/真.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.有",
+      "glyph": "有",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 66,
+      "frequency_rank": 66,
+      "on": [
+        "ユウ",
+        "ウ"
+      ],
+      "kun": [
+        "あ(る)"
+      ],
+      "primary_reading": "ユウ",
+      "primary_kind": "on",
+      "meanings": [
+        "possess",
+        "have",
+        "exist",
+        "happen"
+      ],
+      "stroke_order_svg": "svg/kanji/有.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.少",
+      "glyph": "少",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 67,
+      "frequency_rank": 67,
+      "on": [
+        "ショウ"
+      ],
+      "kun": [
+        "すく(ない)",
+        "すこ(し)"
+      ],
+      "primary_reading": "ショウ",
+      "primary_kind": "on",
+      "meanings": [
+        "few",
+        "little"
+      ],
+      "stroke_order_svg": "svg/kanji/少.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.町",
+      "glyph": "町",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 68,
+      "frequency_rank": 68,
+      "on": [
+        "チョウ"
+      ],
+      "kun": [
+        "まち"
+      ],
+      "primary_reading": "チョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "town",
+        "village",
+        "block",
+        "street"
+      ],
+      "stroke_order_svg": "svg/kanji/町.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.料",
+      "glyph": "料",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 69,
+      "frequency_rank": 69,
+      "on": [
+        "リョウ"
+      ],
+      "kun": [],
+      "primary_reading": "リョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "fee",
+        "materials"
+      ],
+      "stroke_order_svg": "svg/kanji/料.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.工",
+      "glyph": "工",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 70,
+      "frequency_rank": 70,
+      "on": [
+        "コウ",
+        "ク",
+        "グ"
+      ],
+      "kun": [],
+      "primary_reading": "コウ",
+      "primary_kind": "on",
+      "meanings": [
+        "craft",
+        "construction"
+      ],
+      "stroke_order_svg": "svg/kanji/工.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.建",
+      "glyph": "建",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 71,
+      "frequency_rank": 71,
+      "on": [
+        "ケン",
+        "コン"
+      ],
+      "kun": [
+        "た(てる)"
+      ],
+      "primary_reading": "ケン",
+      "primary_kind": "on",
+      "meanings": [
+        "build"
+      ],
+      "stroke_order_svg": "svg/kanji/建.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.急",
+      "glyph": "急",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 72,
+      "frequency_rank": 72,
+      "on": [
+        "キュウ"
+      ],
+      "kun": [
+        "いそ(ぐ)"
+      ],
+      "primary_reading": "キュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "hurry",
+        "emergency",
+        "sudden",
+        "steep"
+      ],
+      "stroke_order_svg": "svg/kanji/急.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.止",
+      "glyph": "止",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 73,
+      "frequency_rank": 73,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "と(まる)",
+        "とど(まる)",
+        "や(める)",
+        "よ(す)"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "stop",
+        "halt"
+      ],
+      "stroke_order_svg": "svg/kanji/止.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.送",
+      "glyph": "送",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 74,
+      "frequency_rank": 74,
+      "on": [
+        "ソウ"
+      ],
+      "kun": [
+        "おく(る)"
+      ],
+      "primary_reading": "ソウ",
+      "primary_kind": "on",
+      "meanings": [
+        "escort",
+        "send"
+      ],
+      "stroke_order_svg": "svg/kanji/送.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.切",
+      "glyph": "切",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 75,
+      "frequency_rank": 75,
+      "on": [
+        "セツ",
+        "サイ"
+      ],
+      "kun": [
+        "き(る)"
+      ],
+      "primary_reading": "セツ",
+      "primary_kind": "on",
+      "meanings": [
+        "cut",
+        "cutoff",
+        "be sharp"
+      ],
+      "stroke_order_svg": "svg/kanji/切.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.転",
+      "glyph": "転",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 76,
+      "frequency_rank": 76,
+      "on": [
+        "テン"
+      ],
+      "kun": [
+        "ころ(がる)"
+      ],
+      "primary_reading": "テン",
+      "primary_kind": "on",
+      "meanings": [
+        "revolve",
+        "turn around",
+        "change"
+      ],
+      "stroke_order_svg": "svg/kanji/転.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.研",
+      "glyph": "研",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 77,
+      "frequency_rank": 77,
+      "on": [
+        "ケン"
+      ],
+      "kun": [
+        "と(ぐ)"
+      ],
+      "primary_reading": "ケン",
+      "primary_kind": "on",
+      "meanings": [
+        "polish",
+        "study of",
+        "sharpen"
+      ],
+      "stroke_order_svg": "svg/kanji/研.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.究",
+      "glyph": "究",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 78,
+      "frequency_rank": 78,
+      "on": [
+        "キュウ"
+      ],
+      "kun": [],
+      "primary_reading": "キュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "research",
+        "study"
+      ],
+      "stroke_order_svg": "svg/kanji/究.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.楽",
+      "glyph": "楽",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 79,
+      "frequency_rank": 79,
+      "on": [
+        "ガク",
+        "ラク"
+      ],
+      "kun": [
+        "たの(しい)"
+      ],
+      "primary_reading": "たの(しい)",
+      "primary_kind": "kun",
+      "meanings": [
+        "music",
+        "comfort",
+        "ease"
+      ],
+      "stroke_order_svg": "svg/kanji/楽.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.起",
+      "glyph": "起",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 80,
+      "frequency_rank": 80,
+      "on": [
+        "キ"
+      ],
+      "kun": [
+        "お(きる)",
+        "おこ(す)"
+      ],
+      "primary_reading": "キ",
+      "primary_kind": "on",
+      "meanings": [
+        "wake up",
+        "get up",
+        "rouse"
+      ],
+      "stroke_order_svg": "svg/kanji/起.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.着",
+      "glyph": "着",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 81,
+      "frequency_rank": 81,
+      "on": [
+        "チャク"
+      ],
+      "kun": [
+        "き(る)",
+        "つ(く)"
+      ],
+      "primary_reading": "チャク",
+      "primary_kind": "on",
+      "meanings": [
+        "arrive",
+        "wear",
+        "counter for clothing"
+      ],
+      "stroke_order_svg": "svg/kanji/着.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.病",
+      "glyph": "病",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 82,
+      "frequency_rank": 82,
+      "on": [
+        "ビョウ"
+      ],
+      "kun": [
+        "や(む)"
+      ],
+      "primary_reading": "ビョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "ill",
+        "sick"
+      ],
+      "stroke_order_svg": "svg/kanji/病.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.質",
+      "glyph": "質",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 83,
+      "frequency_rank": 83,
+      "on": [
+        "シツ",
+        "シチ"
+      ],
+      "kun": [
+        "たち",
+        "ただ(す)"
+      ],
+      "primary_reading": "シツ",
+      "primary_kind": "on",
+      "meanings": [
+        "substance",
+        "quality",
+        "matter",
+        "temperament"
+      ],
+      "stroke_order_svg": "svg/kanji/質.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.待",
+      "glyph": "待",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 84,
+      "frequency_rank": 84,
+      "on": [
+        "タイ"
+      ],
+      "kun": [
+        "ま(つ)"
+      ],
+      "primary_reading": "タイ",
+      "primary_kind": "on",
+      "meanings": [
+        "wait",
+        "depend on"
+      ],
+      "stroke_order_svg": "svg/kanji/待.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.試",
+      "glyph": "試",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 85,
+      "frequency_rank": 85,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "こころ(みる)",
+        "ため(す)"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "test",
+        "try",
+        "attempt",
+        "experiment"
+      ],
+      "stroke_order_svg": "svg/kanji/試.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.族",
+      "glyph": "族",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 86,
+      "frequency_rank": 86,
+      "on": [
+        "ゾク"
+      ],
+      "kun": [],
+      "primary_reading": "ゾク",
+      "primary_kind": "on",
+      "meanings": [
+        "tribe",
+        "family"
+      ],
+      "stroke_order_svg": "svg/kanji/族.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.銀",
+      "glyph": "銀",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 87,
+      "frequency_rank": 87,
+      "on": [
+        "ギン"
+      ],
+      "kun": [],
+      "primary_reading": "ギン",
+      "primary_kind": "on",
+      "meanings": [
+        "silver"
+      ],
+      "stroke_order_svg": "svg/kanji/銀.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.早",
+      "glyph": "早",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 88,
+      "frequency_rank": 88,
+      "on": [
+        "ソウ",
+        "サ"
+      ],
+      "kun": [
+        "はや(い)"
+      ],
+      "primary_reading": "はや(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "early",
+        "fast"
+      ],
+      "stroke_order_svg": "svg/kanji/早.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.映",
+      "glyph": "映",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 89,
+      "frequency_rank": 89,
+      "on": [
+        "エイ"
+      ],
+      "kun": [
+        "うつ(る)",
+        "は(える)"
+      ],
+      "primary_reading": "エイ",
+      "primary_kind": "on",
+      "meanings": [
+        "reflect",
+        "reflection",
+        "projection"
+      ],
+      "stroke_order_svg": "svg/kanji/映.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.親",
+      "glyph": "親",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 90,
+      "frequency_rank": 90,
+      "on": [
+        "シン"
+      ],
+      "kun": [
+        "おや",
+        "した(しい)"
+      ],
+      "primary_reading": "おや",
+      "primary_kind": "kun",
+      "meanings": [
+        "parent",
+        "intimacy",
+        "relative",
+        "familiarity"
+      ],
+      "stroke_order_svg": "svg/kanji/親.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.験",
+      "glyph": "験",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 91,
+      "frequency_rank": 91,
+      "on": [
+        "ケン"
+      ],
+      "kun": [],
+      "primary_reading": "ケン",
+      "primary_kind": "on",
+      "meanings": [
+        "verification",
+        "effect",
+        "testing"
+      ],
+      "stroke_order_svg": "svg/kanji/験.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.英",
+      "glyph": "英",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 92,
+      "frequency_rank": 92,
+      "on": [
+        "エイ"
+      ],
+      "kun": [],
+      "primary_reading": "エイ",
+      "primary_kind": "on",
+      "meanings": [
+        "England",
+        "English",
+        "hero",
+        "outstanding"
+      ],
+      "stroke_order_svg": "svg/kanji/英.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.医",
+      "glyph": "医",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 93,
+      "frequency_rank": 93,
+      "on": [
+        "イ"
+      ],
+      "kun": [],
+      "primary_reading": "イ",
+      "primary_kind": "on",
+      "meanings": [
+        "doctor",
+        "medicine"
+      ],
+      "stroke_order_svg": "svg/kanji/医.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.仕",
+      "glyph": "仕",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 94,
+      "frequency_rank": 94,
+      "on": [
+        "シ"
+      ],
+      "kun": [],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "attend",
+        "doing",
+        "official",
+        "serve"
+      ],
+      "stroke_order_svg": "svg/kanji/仕.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.去",
+      "glyph": "去",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 95,
+      "frequency_rank": 95,
+      "on": [
+        "キョ",
+        "コ"
+      ],
+      "kun": [
+        "さ(る)"
+      ],
+      "primary_reading": "キョ",
+      "primary_kind": "on",
+      "meanings": [
+        "gone",
+        "past",
+        "quit",
+        "leave",
+        "elapse"
+      ],
+      "stroke_order_svg": "svg/kanji/去.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.味",
+      "glyph": "味",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 96,
+      "frequency_rank": 96,
+      "on": [
+        "ミ"
+      ],
+      "kun": [
+        "あじ"
+      ],
+      "primary_reading": "ミ",
+      "primary_kind": "on",
+      "meanings": [
+        "flavor",
+        "taste"
+      ],
+      "stroke_order_svg": "svg/kanji/味.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.写",
+      "glyph": "写",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 97,
+      "frequency_rank": 97,
+      "on": [
+        "シャ"
+      ],
+      "kun": [
+        "うつ(る)"
+      ],
+      "primary_reading": "シャ",
+      "primary_kind": "on",
+      "meanings": [
+        "copy",
+        "be photographed",
+        "describe"
+      ],
+      "stroke_order_svg": "svg/kanji/写.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.字",
+      "glyph": "字",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 98,
+      "frequency_rank": 98,
+      "on": [
+        "ジ"
+      ],
+      "kun": [],
+      "primary_reading": "ジ",
+      "primary_kind": "on",
+      "meanings": [
+        "character",
+        "letter",
+        "word"
+      ],
+      "stroke_order_svg": "svg/kanji/字.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.答",
+      "glyph": "答",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 99,
+      "frequency_rank": 99,
+      "on": [
+        "トウ"
+      ],
+      "kun": [
+        "こた(える)"
+      ],
+      "primary_reading": "トウ",
+      "primary_kind": "on",
+      "meanings": [
+        "solution",
+        "answer"
+      ],
+      "stroke_order_svg": "svg/kanji/答.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.夜",
+      "glyph": "夜",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 100,
+      "frequency_rank": 100,
+      "on": [
+        "ヤ"
+      ],
+      "kun": [
+        "よ",
+        "よる"
+      ],
+      "primary_reading": "ヤ",
+      "primary_kind": "on",
+      "meanings": [
+        "night",
+        "evening"
+      ],
+      "stroke_order_svg": "svg/kanji/夜.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.音",
+      "glyph": "音",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 101,
+      "frequency_rank": 101,
+      "on": [
+        "オン"
+      ],
+      "kun": [
+        "おと",
+        "ね"
+      ],
+      "primary_reading": "オン",
+      "primary_kind": "on",
+      "meanings": [
+        "sound",
+        "noise"
+      ],
+      "stroke_order_svg": "svg/kanji/音.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.注",
+      "glyph": "注",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 102,
+      "frequency_rank": 102,
+      "on": [
+        "チュウ"
+      ],
+      "kun": [
+        "そそ(ぐ)",
+        "さ(す)",
+        "つ(ぐ)"
+      ],
+      "primary_reading": "チュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "pour",
+        "irrigate",
+        "shed (tears)",
+        "flow into",
+        "concentrate on"
+      ],
+      "stroke_order_svg": "svg/kanji/注.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.帰",
+      "glyph": "帰",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 103,
+      "frequency_rank": 103,
+      "on": [
+        "キ"
+      ],
+      "kun": [
+        "かえ(る)",
+        "かえ(す)"
+      ],
+      "primary_reading": "キ",
+      "primary_kind": "on",
+      "meanings": [
+        "homecoming",
+        "arrive at",
+        "lead to",
+        "result in"
+      ],
+      "stroke_order_svg": "svg/kanji/帰.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.歌",
+      "glyph": "歌",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 104,
+      "frequency_rank": 104,
+      "on": [
+        "カ"
+      ],
+      "kun": [
+        "うた",
+        "うた(う)"
+      ],
+      "primary_reading": "カ",
+      "primary_kind": "on",
+      "meanings": [
+        "song",
+        "sing"
+      ],
+      "stroke_order_svg": "svg/kanji/歌.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.悪",
+      "glyph": "悪",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 105,
+      "frequency_rank": 105,
+      "on": [
+        "アク"
+      ],
+      "kun": [
+        "わる(い)"
+      ],
+      "primary_reading": "わる(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "bad",
+        "evil",
+        "wrong"
+      ],
+      "stroke_order_svg": "svg/kanji/悪.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.図",
+      "glyph": "図",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 106,
+      "frequency_rank": 106,
+      "on": [
+        "ズ",
+        "ト"
+      ],
+      "kun": [
+        "はか(る)"
+      ],
+      "primary_reading": "ズ",
+      "primary_kind": "on",
+      "meanings": [
+        "map",
+        "drawing",
+        "plan",
+        "extraordinary"
+      ],
+      "stroke_order_svg": "svg/kanji/図.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.室",
+      "glyph": "室",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 107,
+      "frequency_rank": 107,
+      "on": [
+        "シツ"
+      ],
+      "kun": [
+        "むろ"
+      ],
+      "primary_reading": "シツ",
+      "primary_kind": "on",
+      "meanings": [
+        "room",
+        "apartment",
+        "chamber",
+        "greenhouse",
+        "cellar"
+      ],
+      "stroke_order_svg": "svg/kanji/室.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.歩",
+      "glyph": "歩",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 108,
+      "frequency_rank": 108,
+      "on": [
+        "ホ",
+        "ブ"
+      ],
+      "kun": [
+        "ある(く)",
+        "あゆ(む)"
+      ],
+      "primary_reading": "ホ",
+      "primary_kind": "on",
+      "meanings": [
+        "walk",
+        "counter for steps"
+      ],
+      "stroke_order_svg": "svg/kanji/歩.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.風",
+      "glyph": "風",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 109,
+      "frequency_rank": 109,
+      "on": [
+        "フウ",
+        "フ"
+      ],
+      "kun": [
+        "かぜ",
+        "かざ-"
+      ],
+      "primary_reading": "フウ",
+      "primary_kind": "on",
+      "meanings": [
+        "wind",
+        "air",
+        "style",
+        "manner"
+      ],
+      "stroke_order_svg": "svg/kanji/風.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.紙",
+      "glyph": "紙",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 110,
+      "frequency_rank": 110,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "かみ"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "paper"
+      ],
+      "stroke_order_svg": "svg/kanji/紙.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.黒",
+      "glyph": "黒",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 111,
+      "frequency_rank": 111,
+      "on": [
+        "コク"
+      ],
+      "kun": [
+        "くろ"
+      ],
+      "primary_reading": "コク",
+      "primary_kind": "on",
+      "meanings": [
+        "black"
+      ],
+      "stroke_order_svg": "svg/kanji/黒.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.春",
+      "glyph": "春",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 112,
+      "frequency_rank": 112,
+      "on": [
+        "シュン"
+      ],
+      "kun": [
+        "はる"
+      ],
+      "primary_reading": "シュン",
+      "primary_kind": "on",
+      "meanings": [
+        "spring"
+      ],
+      "stroke_order_svg": "svg/kanji/春.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.赤",
+      "glyph": "赤",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 113,
+      "frequency_rank": 113,
+      "on": [
+        "セキ",
+        "シャク"
+      ],
+      "kun": [
+        "あか(い)"
+      ],
+      "primary_reading": "あか(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "red"
+      ],
+      "stroke_order_svg": "svg/kanji/赤.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.青",
+      "glyph": "青",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 114,
+      "frequency_rank": 114,
+      "on": [
+        "セイ",
+        "ショウ"
+      ],
+      "kun": [
+        "あお(い)"
+      ],
+      "primary_reading": "あお(い)",
+      "primary_kind": "kun",
+      "meanings": [
+        "blue"
+      ],
+      "stroke_order_svg": "svg/kanji/青.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.館",
+      "glyph": "館",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 115,
+      "frequency_rank": 115,
+      "on": [
+        "カン"
+      ],
+      "kun": [
+        "やかた"
+      ],
+      "primary_reading": "カン",
+      "primary_kind": "on",
+      "meanings": [
+        "building",
+        "mansion",
+        "large building",
+        "palace"
+      ],
+      "stroke_order_svg": "svg/kanji/館.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.屋",
+      "glyph": "屋",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 116,
+      "frequency_rank": 116,
+      "on": [
+        "オク"
+      ],
+      "kun": [
+        "や"
+      ],
+      "primary_reading": "オク",
+      "primary_kind": "on",
+      "meanings": [
+        "roof",
+        "house",
+        "shop",
+        "dealer",
+        "seller"
+      ],
+      "stroke_order_svg": "svg/kanji/屋.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.色",
+      "glyph": "色",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 117,
+      "frequency_rank": 117,
+      "on": [
+        "ショク",
+        "シキ"
+      ],
+      "kun": [
+        "いろ"
+      ],
+      "primary_reading": "ショク",
+      "primary_kind": "on",
+      "meanings": [
+        "color"
+      ],
+      "stroke_order_svg": "svg/kanji/色.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.走",
+      "glyph": "走",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 118,
+      "frequency_rank": 118,
+      "on": [
+        "ソウ"
+      ],
+      "kun": [
+        "はし(る)"
+      ],
+      "primary_reading": "ソウ",
+      "primary_kind": "on",
+      "meanings": [
+        "run"
+      ],
+      "stroke_order_svg": "svg/kanji/走.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.秋",
+      "glyph": "秋",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 119,
+      "frequency_rank": 119,
+      "on": [
+        "シュウ"
+      ],
+      "kun": [
+        "あき"
+      ],
+      "primary_reading": "シュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "autumn",
+        "fall"
+      ],
+      "stroke_order_svg": "svg/kanji/秋.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.夏",
+      "glyph": "夏",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 120,
+      "frequency_rank": 120,
+      "on": [
+        "カ",
+        "ゲ"
+      ],
+      "kun": [
+        "なつ"
+      ],
+      "primary_reading": "カ",
+      "primary_kind": "on",
+      "meanings": [
+        "summer"
+      ],
+      "stroke_order_svg": "svg/kanji/夏.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.習",
+      "glyph": "習",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 121,
+      "frequency_rank": 121,
+      "on": [
+        "シュウ"
+      ],
+      "kun": [
+        "なら(う)"
+      ],
+      "primary_reading": "シュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "learn"
+      ],
+      "stroke_order_svg": "svg/kanji/習.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.洋",
+      "glyph": "洋",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 122,
+      "frequency_rank": 122,
+      "on": [
+        "ヨウ"
+      ],
+      "kun": [],
+      "primary_reading": "ヨウ",
+      "primary_kind": "on",
+      "meanings": [
+        "ocean",
+        "sea",
+        "foreign",
+        "Western style"
+      ],
+      "stroke_order_svg": "svg/kanji/洋.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.旅",
+      "glyph": "旅",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 123,
+      "frequency_rank": 123,
+      "on": [
+        "リョ"
+      ],
+      "kun": [
+        "たび"
+      ],
+      "primary_reading": "リョ",
+      "primary_kind": "on",
+      "meanings": [
+        "trip",
+        "travel"
+      ],
+      "stroke_order_svg": "svg/kanji/旅.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.服",
+      "glyph": "服",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 124,
+      "frequency_rank": 124,
+      "on": [
+        "フク"
+      ],
+      "kun": [],
+      "primary_reading": "フク",
+      "primary_kind": "on",
+      "meanings": [
+        "clothing",
+        "admit",
+        "obey"
+      ],
+      "stroke_order_svg": "svg/kanji/服.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.夕",
+      "glyph": "夕",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 125,
+      "frequency_rank": 125,
+      "on": [],
+      "kun": [
+        "ゆう"
+      ],
+      "primary_reading": "ゆう",
+      "primary_kind": "kun",
+      "meanings": [
+        "evening"
+      ],
+      "stroke_order_svg": "svg/kanji/夕.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.借",
+      "glyph": "借",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 126,
+      "frequency_rank": 126,
+      "on": [
+        "シャク"
+      ],
+      "kun": [
+        "か(りる)"
+      ],
+      "primary_reading": "シャク",
+      "primary_kind": "on",
+      "meanings": [
+        "borrow",
+        "rent"
+      ],
+      "stroke_order_svg": "svg/kanji/借.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.肉",
+      "glyph": "肉",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 127,
+      "frequency_rank": 127,
+      "on": [
+        "ニク"
+      ],
+      "kun": [],
+      "primary_reading": "ニク",
+      "primary_kind": "on",
+      "meanings": [
+        "meat"
+      ],
+      "stroke_order_svg": "svg/kanji/肉.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.貸",
+      "glyph": "貸",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 128,
+      "frequency_rank": 128,
+      "on": [
+        "タイ"
+      ],
+      "kun": [
+        "か(す)",
+        "かし"
+      ],
+      "primary_reading": "タイ",
+      "primary_kind": "on",
+      "meanings": [
+        "lend"
+      ],
+      "stroke_order_svg": "svg/kanji/貸.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.堂",
+      "glyph": "堂",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 129,
+      "frequency_rank": 129,
+      "on": [
+        "ドウ"
+      ],
+      "kun": [],
+      "primary_reading": "ドウ",
+      "primary_kind": "on",
+      "meanings": [
+        "public chamber",
+        "hall"
+      ],
+      "stroke_order_svg": "svg/kanji/堂.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.鳥",
+      "glyph": "鳥",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 130,
+      "frequency_rank": 130,
+      "on": [
+        "チョウ"
+      ],
+      "kun": [
+        "とり"
+      ],
+      "primary_reading": "チョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "bird",
+        "chicken"
+      ],
+      "stroke_order_svg": "svg/kanji/鳥.svg",
+      "recognition_priority": 2,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.飯",
+      "glyph": "飯",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 131,
+      "frequency_rank": 131,
+      "on": [
+        "ハン"
+      ],
+      "kun": [
+        "めし"
+      ],
+      "primary_reading": "ハン",
+      "primary_kind": "on",
+      "meanings": [
+        "meal",
+        "rice"
+      ],
+      "stroke_order_svg": "svg/kanji/飯.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.勉",
+      "glyph": "勉",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 132,
+      "frequency_rank": 132,
+      "on": [
+        "ベン"
+      ],
+      "kun": [
+        "つと(める)"
+      ],
+      "primary_reading": "ベン",
+      "primary_kind": "on",
+      "meanings": [
+        "exertion",
+        "endeavor",
+        "effort"
+      ],
+      "stroke_order_svg": "svg/kanji/勉.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.冬",
+      "glyph": "冬",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 133,
+      "frequency_rank": 133,
+      "on": [
+        "トウ"
+      ],
+      "kun": [
+        "ふゆ"
+      ],
+      "primary_reading": "トウ",
+      "primary_kind": "on",
+      "meanings": [
+        "winter"
+      ],
+      "stroke_order_svg": "svg/kanji/冬.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.昼",
+      "glyph": "昼",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 134,
+      "frequency_rank": 134,
+      "on": [
+        "チュウ"
+      ],
+      "kun": [
+        "ひる"
+      ],
+      "primary_reading": "チュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "daytime",
+        "noon"
+      ],
+      "stroke_order_svg": "svg/kanji/昼.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.茶",
+      "glyph": "茶",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 135,
+      "frequency_rank": 135,
+      "on": [
+        "チャ",
+        "サ"
+      ],
+      "kun": [],
+      "primary_reading": "チャ",
+      "primary_kind": "on",
+      "meanings": [
+        "tea"
+      ],
+      "stroke_order_svg": "svg/kanji/茶.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.弟",
+      "glyph": "弟",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 136,
+      "frequency_rank": 136,
+      "on": [
+        "テイ",
+        "ダイ",
+        "デ"
+      ],
+      "kun": [
+        "おとうと"
+      ],
+      "primary_reading": "テイ",
+      "primary_kind": "on",
+      "meanings": [
+        "younger brother"
+      ],
+      "stroke_order_svg": "svg/kanji/弟.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.牛",
+      "glyph": "牛",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 137,
+      "frequency_rank": 137,
+      "on": [
+        "ギュウ"
+      ],
+      "kun": [
+        "うし"
+      ],
+      "primary_reading": "ギュウ",
+      "primary_kind": "on",
+      "meanings": [
+        "cow"
+      ],
+      "stroke_order_svg": "svg/kanji/牛.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.魚",
+      "glyph": "魚",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 138,
+      "frequency_rank": 138,
+      "on": [
+        "ギョ"
+      ],
+      "kun": [
+        "うお",
+        "さかな"
+      ],
+      "primary_reading": "ギョ",
+      "primary_kind": "on",
+      "meanings": [
+        "fish"
+      ],
+      "stroke_order_svg": "svg/kanji/魚.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.兄",
+      "glyph": "兄",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 139,
+      "frequency_rank": 139,
+      "on": [
+        "キョウ",
+        "ケイ"
+      ],
+      "kun": [
+        "あに"
+      ],
+      "primary_reading": "キョウ",
+      "primary_kind": "on",
+      "meanings": [
+        "elder brother"
+      ],
+      "stroke_order_svg": "svg/kanji/兄.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.犬",
+      "glyph": "犬",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 140,
+      "frequency_rank": 140,
+      "on": [
+        "ケン"
+      ],
+      "kun": [
+        "いぬ"
+      ],
+      "primary_reading": "ケン",
+      "primary_kind": "on",
+      "meanings": [
+        "dog"
+      ],
+      "stroke_order_svg": "svg/kanji/犬.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.妹",
+      "glyph": "妹",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 141,
+      "frequency_rank": 141,
+      "on": [
+        "マイ"
+      ],
+      "kun": [
+        "いもうと"
+      ],
+      "primary_reading": "マイ",
+      "primary_kind": "on",
+      "meanings": [
+        "younger sister"
+      ],
+      "stroke_order_svg": "svg/kanji/妹.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.姉",
+      "glyph": "姉",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 142,
+      "frequency_rank": 142,
+      "on": [
+        "シ"
+      ],
+      "kun": [
+        "あね"
+      ],
+      "primary_reading": "シ",
+      "primary_kind": "on",
+      "meanings": [
+        "elder sister"
+      ],
+      "stroke_order_svg": "svg/kanji/姉.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    },
+    {
+      "id": "n4.kanji.漢",
+      "glyph": "漢",
+      "tier": "core_n4",
+      "n5_prerequisite": false,
+      "lesson_order": 143,
+      "frequency_rank": 143,
+      "on": [
+        "カン"
+      ],
+      "kun": [],
+      "primary_reading": "カン",
+      "primary_kind": "on",
+      "meanings": [
+        "China"
+      ],
+      "stroke_order_svg": "svg/kanji/漢.svg",
+      "recognition_priority": 3,
+      "examples": [],
+      "notes": ""
+    }
+  ]
+}

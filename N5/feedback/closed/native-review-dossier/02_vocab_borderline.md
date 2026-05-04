@@ -1,0 +1,125 @@
+# 02 — Vocab (borderline / register-sensitive)
+
+Filtered to 119 entries where the part-of-speech tag (`verb-3` / `adverb` / `expression` / `interjection` / `conjunction` / `particle`) suggests register or usage subtlety. Cite as the `id` field in `review_log.csv`.
+
+---
+
+- **`n5.vocab.29-verbs-irregular-and-v.する`** — `する` (する) [verb-3] — to do
+- **`n5.vocab.29-verbs-irregular-and-v.来る`** — `来る` (くる) [verb-3] — to come
+- **`n5.vocab.29-verbs-irregular-and-v.べんきょうする`** — `べんきょうする` (べんきょうする) [verb-3] — to study
+- **`n5.vocab.29-verbs-irregular-and-v.けっこんする`** — `けっこんする` (けっこんする) [verb-3] — to get married
+- **`n5.vocab.29-verbs-irregular-and-v.さんぽする`** — `さんぽする` (さんぽする) [verb-3] — to take a walk
+- **`n5.vocab.29-verbs-irregular-and-v.りょこうする`** — `りょこうする` (りょこうする) [verb-3] — to travel
+- **`n5.vocab.29-verbs-irregular-and-v.れんしゅうする`** — `れんしゅうする` (れんしゅうする) [verb-3] — to practice
+- **`n5.vocab.29-verbs-irregular-and-v.しつもんする`** — `しつもんする` (しつもんする) [verb-3] — to ask a question
+- **`n5.vocab.29-verbs-irregular-and-v.しごとする`** — `しごとする` (しごとする) [verb-3] — to work
+- **`n5.vocab.29-verbs-irregular-and-v.電話する`** — `電話する` (でんわする) [verb-3] — to telephone
+- **`n5.vocab.29-verbs-irregular-and-v.コピーする`** — `コピーする` (コピーする) [verb-3] — to copy
+- **`n5.vocab.29-verbs-irregular-and-v.そうじする`** — `そうじする` (そうじする) [verb-3] — to clean
+- **`n5.vocab.29-verbs-irregular-and-v.せんたくする`** — `せんたくする` (せんたくする) [verb-3] — to do laundry
+- **`n5.vocab.29-verbs-irregular-and-v.かいものする`** — `かいものする` (かいものする) [verb-3] — to go shopping
+- **`n5.vocab.33-adverbs.とても`** — `とても` (とても) [adverb] — very
+- **`n5.vocab.33-adverbs.すごく`** — `すごく` (すごく) [adverb] — very (casual)
+- **`n5.vocab.33-adverbs.すこし`** — `すこし` (すこし) [adverb] — a little
+- **`n5.vocab.33-adverbs.ちょっと`** — `ちょっと` (ちょっと) [adverb] — a little
+- **`n5.vocab.33-adverbs.たくさん`** — `たくさん` (たくさん) [adverb] — many, a lot
+- **`n5.vocab.33-adverbs.おおぜい`** — `おおぜい` (おおぜい) [adverb] — a lot of (people)
+- **`n5.vocab.33-adverbs.だいたい`** — `だいたい` (だいたい) [adverb] — generally, roughly
+- **`n5.vocab.33-adverbs.ぜんぶ`** — `ぜんぶ` (ぜんぶ) [adverb] — all
+- **`n5.vocab.33-adverbs.もう`** — `もう` (もう) [adverb] — already
+- **`n5.vocab.33-adverbs.まだ`** — `まだ` (まだ) [adverb] — still, not yet
+- **`n5.vocab.33-adverbs.もうすこし`** — `もうすこし` (もうすこし) [adverb] — a little more
+- **`n5.vocab.33-adverbs.もっと`** — `もっと` (もっと) [adverb] — more
+- **`n5.vocab.33-adverbs.一番`** — `一番` (いちばん) [adverb] — most, number one
+- **`n5.vocab.33-adverbs.とくに`** — `とくに` (とくに) [adverb] — especially
+- **`n5.vocab.33-adverbs.ほんとうに`** — `ほんとうに` (ほんとうに) [adverb] — truly, really
+- **`n5.vocab.33-adverbs.ゆっくり`** — `ゆっくり` (ゆっくり) [adverb] — slowly
+- **`n5.vocab.33-adverbs.すぐ`** — `すぐ` (すぐ) [adverb] — soon
+- **`n5.vocab.33-adverbs.たぶん`** — `たぶん` (たぶん) [adverb] — probably
+- **`n5.vocab.33-adverbs.いっしょに`** — `いっしょに` (いっしょに) [adverb] — together
+- **`n5.vocab.33-adverbs.一人で`** — `一人で` (ひとりで) [adverb] — alone
+- **`n5.vocab.33-adverbs.じぶんで`** — `じぶんで` (じぶんで) [adverb] — by oneself
+- **`n5.vocab.33-adverbs.かならず`** — `かならず` (かならず) [adverb] — surely, definitely
+- **`n5.vocab.33-adverbs.きっと`** — `きっと` (きっと) [adverb] — surely
+- **`n5.vocab.33-adverbs.もちろん`** — `もちろん` (もちろん) [adverb] — of course
+- **`n5.vocab.33-adverbs.どうぞ`** — `どうぞ` (どうぞ) [expression] — please (offering)
+- **`n5.vocab.33-adverbs.どうも`** — `どうも` (どうも) [expression] — thanks, indeed
+- **`n5.vocab.33-adverbs.どうぞよろしく`** — `どうぞよろしく` (どうぞよろしく) [expression] — please treat me well
+- **`n5.vocab.33-adverbs.どう`** — `どう` (どう) [adverb] — how
+- **`n5.vocab.33-adverbs.なぜ`** — `なぜ` (なぜ) [adverb] — why
+- **`n5.vocab.33-adverbs.どうして`** — `どうして` (どうして) [adverb] — why
+- **`n5.vocab.33-adverbs.まっすぐ`** — `まっすぐ` (まっすぐ) [adverb] — straight ahead
+- **`n5.vocab.33-adverbs.もういちど`** — `もういちど` (もういちど) [adverb] — once more
+- **`n5.vocab.33-adverbs.まず`** — `まず` (まず) [adverb] — first of all
+- **`n5.vocab.33-adverbs.もしもし`** — `もしもし` (もしもし) [expression] — hello (telephone)
+- **`n5.vocab.34-conjunctions.そして`** — `そして` (そして) [conjunction] — and then
+- **`n5.vocab.34-conjunctions.それから`** — `それから` (それから) [conjunction] — and then, after that
+- **`n5.vocab.34-conjunctions.それで`** — `それで` (それで) [conjunction] — and so
+- **`n5.vocab.34-conjunctions.でも`** — `でも` (でも) [conjunction] — but, however
+- **`n5.vocab.34-conjunctions.しかし`** — `しかし` (しかし) [conjunction] — but, however
+- **`n5.vocab.34-conjunctions.が`** — `が` (が) [conjunction] — but (clause-connector)
+- **`n5.vocab.34-conjunctions.から`** — `から` (から) [conjunction] — because, so
+- **`n5.vocab.34-conjunctions.だから`** — `だから` (だから) [conjunction] — therefore
+- **`n5.vocab.34-conjunctions.ですから`** — `ですから` (ですから) [conjunction] — therefore (polite)
+- **`n5.vocab.34-conjunctions.それに`** — `それに` (それに) [conjunction] — moreover
+- **`n5.vocab.34-conjunctions.ところで`** — `ところで` (ところで) [conjunction] — by the way
+- **`n5.vocab.34-conjunctions.または`** — `または` (または) [conjunction] — or
+- **`n5.vocab.35-particles-functional-.は`** — `は` (は) [particle] — topic marker
+- **`n5.vocab.35-particles-functional-.が`** — `が` (が) [particle] — subject marker
+- **`n5.vocab.35-particles-functional-.を`** — `を` (を) [particle] — object marker
+- **`n5.vocab.35-particles-functional-.に`** — `に` (に) [particle] — to, at, in (target / time)
+- **`n5.vocab.35-particles-functional-.で`** — `で` (で) [particle] — at, by, with (location of action / means)
+- **`n5.vocab.35-particles-functional-.へ`** — `へ` (へ) [particle] — to (direction)
+- **`n5.vocab.35-particles-functional-.と`** — `と` (と) [particle] — and, with
+- **`n5.vocab.35-particles-functional-.か`** — `か` (か) [particle] — question marker
+- **`n5.vocab.35-particles-functional-.も`** — `も` (も) [particle] — also
+- **`n5.vocab.35-particles-functional-.や`** — `や` (や) [particle] — and (non-exhaustive)
+- **`n5.vocab.35-particles-functional-.の`** — `の` (の) [particle] — of, possessive / nominalizer
+- **`n5.vocab.35-particles-functional-.から`** — `から` (から) [particle] — from, because
+- **`n5.vocab.35-particles-functional-.まで`** — `まで` (まで) [particle] — until
+- **`n5.vocab.35-particles-functional-.ね`** — `ね` (ね) [particle] — sentence-final (agreement)
+- **`n5.vocab.35-particles-functional-.よ`** — `よ` (よ) [particle] — sentence-final (assertion)
+- **`n5.vocab.35-particles-functional-.だけ`** — `だけ` (だけ) [particle] — only
+- **`n5.vocab.35-particles-functional-.しか`** — `しか` (しか) [particle] — only (with negative)
+- **`n5.vocab.35-particles-functional-.ごろ`** — `ごろ` (ごろ) [particle] — around (time)
+- **`n5.vocab.35-particles-functional-.ずつ`** — `ずつ` (ずつ) [particle] — each
+- **`n5.vocab.35-particles-functional-.など`** — `など` (など) [particle] — etc.
+- **`n5.vocab.36-greetings-and-set-phr.おはようございます`** — `おはようございます` (おはようございます) [expression] — good morning
+- **`n5.vocab.36-greetings-and-set-phr.こんにちは`** — `こんにちは` (こんにちは) [expression] — hello / good afternoon
+- **`n5.vocab.36-greetings-and-set-phr.こんばんは`** — `こんばんは` (こんばんは) [expression] — good evening
+- **`n5.vocab.36-greetings-and-set-phr.おやすみなさい`** — `おやすみなさい` (おやすみなさい) [expression] — good night
+- **`n5.vocab.36-greetings-and-set-phr.さようなら`** — `さようなら` (さようなら) [expression] — goodbye
+- **`n5.vocab.36-greetings-and-set-phr.しつれいします`** — `しつれいします` (しつれいします) [expression] — excuse me / pardon me
+- **`n5.vocab.36-greetings-and-set-phr.しつれいしました`** — `しつれいしました` (しつれいしました) [expression] — excuse me (past)
+- **`n5.vocab.36-greetings-and-set-phr.ありがとう`** — `ありがとう` (ありがとう) [expression] — thanks
+- **`n5.vocab.36-greetings-and-set-phr.ありがとうございます`** — `ありがとうございます` (ありがとうございます) [expression] — thank you
+- **`n5.vocab.36-greetings-and-set-phr.どういたしまして`** — `どういたしまして` (どういたしまして) [expression] — you're welcome
+- **`n5.vocab.36-greetings-and-set-phr.すみません`** — `すみません` (すみません) [expression] — excuse me / sorry
+- **`n5.vocab.36-greetings-and-set-phr.ごめんなさい`** — `ごめんなさい` (ごめんなさい) [expression] — I'm sorry
+- **`n5.vocab.36-greetings-and-set-phr.おねがいします`** — `おねがいします` (おねがいします) [expression] — please
+- **`n5.vocab.36-greetings-and-set-phr.いただきます`** — `いただきます` (いただきます) [expression] — said before eating
+- **`n5.vocab.36-greetings-and-set-phr.ごちそうさまでした`** — `ごちそうさまでした` (ごちそうさまでした) [expression] — said after eating
+- **`n5.vocab.36-greetings-and-set-phr.いってきます`** — `いってきます` (いってきます) [expression] — I'm off (and will return)
+- **`n5.vocab.36-greetings-and-set-phr.いってらっしゃい`** — `いってらっしゃい` (いってらっしゃい) [expression] — see you / take care
+- **`n5.vocab.36-greetings-and-set-phr.ただいま`** — `ただいま` (ただいま) [expression] — I'm home
+- **`n5.vocab.36-greetings-and-set-phr.おかえりなさい`** — `おかえりなさい` (おかえりなさい) [expression] — welcome back
+- **`n5.vocab.36-greetings-and-set-phr.はじめまして`** — `はじめまして` (はじめまして) [expression] — nice to meet you
+- **`n5.vocab.36-greetings-and-set-phr.どうぞよろしく`** — `どうぞよろしく` (どうぞよろしく) [expression] — pleased to meet you
+- **`n5.vocab.36-greetings-and-set-phr.おげんきですか`** — `おげんきですか` (おげんきですか) [expression] — how are you?
+- **`n5.vocab.36-greetings-and-set-phr.おかげさまで`** — `おかげさまで` (おかげさまで) [expression] — thanks to you
+- **`n5.vocab.36-greetings-and-set-phr.いらっしゃいませ`** — `いらっしゃいませ` (いらっしゃいませ) [expression] — welcome (to a shop)
+- **`n5.vocab.36-greetings-and-set-phr.どうぞ`** — `どうぞ` (どうぞ) [expression] — please (offering)
+- **`n5.vocab.36-greetings-and-set-phr.どうも`** — `どうも` (どうも) [expression] — thanks
+- **`n5.vocab.36-greetings-and-set-phr.もしもし`** — `もしもし` (もしもし) [expression] — hello (phone)
+- **`n5.vocab.39-function-filler-expre.えーと`** — `えーと` (えーと) [expression] — um, let me see
+- **`n5.vocab.39-function-filler-expre.あの`** — `あの` (あの) [expression] — um (hesitation)
+- **`n5.vocab.39-function-filler-expre.そうですね`** — `そうですね` (そうですね) [expression] — let me think / that's right
+- **`n5.vocab.39-function-filler-expre.そうですか`** — `そうですか` (そうですか) [expression] — is that so?
+- **`n5.vocab.39-function-filler-expre.いいえ`** — `いいえ` (いいえ) [expression] — no
+- **`n5.vocab.39-function-filler-expre.はい`** — `はい` (はい) [expression] — yes
+- **`n5.vocab.39-function-filler-expre.ええ`** — `ええ` (ええ) [expression] — yes (casual)
+- **`n5.vocab.39-function-filler-expre.うん`** — `うん` (うん) [expression] — yeah (informal)
+- **`n5.vocab.39-function-filler-expre.ううん`** — `ううん` (ううん) [expression] — no (informal)
+- **`n5.vocab.39-function-filler-expre.さあ`** — `さあ` (さあ) [expression] — well... (filler / hesitation)
+- **`n5.vocab.39-function-filler-expre.いかが`** — `いかが` (いかが) [expression] — how (polite form of どう)
+- **`n5.vocab.39-function-filler-expre.それでは`** — `それでは` (それでは) [expression] — in that case, well then

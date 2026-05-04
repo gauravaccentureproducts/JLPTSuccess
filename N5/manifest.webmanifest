@@ -1,0 +1,27 @@
+{
+  "name": "JLPT N5 Grammar Tutor",
+  "short_name": "JLPT N5",
+  "description": "Static, on-device, privacy-preserving tutor for JLPT N5 grammar.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fafaf7",
+  "theme_color": "#14452a",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='32' fill='%2314452a'/><text x='50%25' y='58%25' text-anchor='middle' font-family='sans-serif' font-size='110' font-weight='700' fill='white'>N5</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%2314452a'/><text x='50%25' y='58%25' text-anchor='middle' font-family='sans-serif' font-size='280' font-weight='700' fill='white'>N5</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

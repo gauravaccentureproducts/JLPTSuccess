@@ -1,0 +1,298 @@
+{
+  "id": "dokkai-4",
+  "category": "dokkai",
+  "paperNumber": 4,
+  "name": "Dokkai Paper 4",
+  "source_file": "KnowledgeBank/dokkai_questions_n4.md",
+  "source_question_range": "Q46-Q60",
+  "questionCount": 15,
+  "passages": [
+    {
+      "label": "Passage 16 (Q46-Q48)",
+      "text": "> わたしの いえの ちかくに 時代 が あります。まいにち 人口 を します。たまに 人生 に いきます。",
+      "question_ids": [
+        "dokkai-4.1",
+        "dokkai-4.2",
+        "dokkai-4.3"
+      ]
+    },
+    {
+      "label": "Passage 17 (Q49-Q51)",
+      "text": "> わたしの いえの ちかくに 帰り が あります。まいにち 会場 を します。たまに 会話 に いきます。",
+      "question_ids": [
+        "dokkai-4.4",
+        "dokkai-4.5",
+        "dokkai-4.6"
+      ]
+    },
+    {
+      "label": "Passage 18 (Q52-Q54)",
+      "text": "> わたしの いえの ちかくに 考える が あります。まいにち 代わり を します。たまに 通う に いきます。",
+      "question_ids": [
+        "dokkai-4.7",
+        "dokkai-4.8",
+        "dokkai-4.9"
+      ]
+    },
+    {
+      "label": "Passage 19 (Q55-Q57)",
+      "text": "> わたしの いえの ちかくに 計画する が あります。まいにち 見物 を します。たまに 見物する に いきます。",
+      "question_ids": [
+        "dokkai-4.10",
+        "dokkai-4.11",
+        "dokkai-4.12"
+      ]
+    },
+    {
+      "label": "Passage 20 (Q58-Q60)",
+      "text": "> わたしの いえの ちかくに 研究室 が あります。まいにち 気 を します。たまに 気分 に いきます。",
+      "question_ids": [
+        "dokkai-4.13",
+        "dokkai-4.14",
+        "dokkai-4.15"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "問: 「時代」とは どのような いみですか。",
+      "choices": [
+        "to need (Group 1 exception - looks like Group 2",
+        "flavor",
+        "to collect",
+        "period"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q46",
+      "passage_text": "> わたしの いえの ちかくに 時代 が あります。まいにち 人口 を します。たまに 人生 に いきます。",
+      "passage_label": "Passage 16 (Q46-Q48)",
+      "id": "dokkai-4.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「人口」とは どのような いみですか。",
+      "choices": [
+        "Asia",
+        "to cut (Group 1 exception - looks like Group 2",
+        "population",
+        "peace of mind"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q47",
+      "passage_text": "> わたしの いえの ちかくに 時代 が あります。まいにち 人口 を します。たまに 人生 に いきます。",
+      "passage_label": "Passage 16 (Q46-Q48)",
+      "id": "dokkai-4.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「人生」とは どのような いみですか。",
+      "choices": [
+        "to collect",
+        "human life",
+        "to run (Group 1 exception - looks like Group 2)",
+        "Africa"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q48",
+      "passage_text": "> わたしの いえの ちかくに 時代 が あります。まいにち 人口 を します。たまに 人生 に いきます。",
+      "passage_label": "Passage 16 (Q46-Q48)",
+      "id": "dokkai-4.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「帰り」とは どのような いみですか。",
+      "choices": [
+        "return",
+        "such",
+        "alcohol",
+        "to check"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q49",
+      "passage_text": "> わたしの いえの ちかくに 帰り が あります。まいにち 会場 を します。たまに 会話 に いきます。",
+      "passage_label": "Passage 17 (Q49-Q51)",
+      "id": "dokkai-4.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「会場」とは どのような いみですか。",
+      "choices": [
+        "assembly hall",
+        "ah",
+        "grapes",
+        "to rise"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q50",
+      "passage_text": "> わたしの いえの ちかくに 帰り が あります。まいにち 会場 を します。たまに 会話 に いきます。",
+      "passage_label": "Passage 17 (Q49-Q51)",
+      "id": "dokkai-4.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「会話」とは どのような いみですか。",
+      "choices": [
+        "to part-time job",
+        "to cut (Group 1 exception - looks like Group 2",
+        "conversation",
+        "to know (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q51",
+      "passage_text": "> わたしの いえの ちかくに 帰り が あります。まいにち 会場 を します。たまに 会話 に いきます。",
+      "passage_label": "Passage 17 (Q49-Q51)",
+      "id": "dokkai-4.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「考える」とは どのような いみですか。",
+      "choices": [
+        "part-time job",
+        "to think",
+        "to check",
+        "to enter (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q52",
+      "passage_text": "> わたしの いえの ちかくに 考える が あります。まいにち 代わり を します。たまに 通う に いきます。",
+      "passage_label": "Passage 18 (Q52-Q54)",
+      "id": "dokkai-4.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「代わり」とは どのような いみですか。",
+      "choices": [
+        "to gather",
+        "instead",
+        "to return home (Group 1 exception - looks like Group 2)",
+        "Africa"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q53",
+      "passage_text": "> わたしの いえの ちかくに 考える が あります。まいにち 代わり を します。たまに 通う に いきます。",
+      "passage_label": "Passage 18 (Q52-Q54)",
+      "id": "dokkai-4.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「通う」とは どのような いみですか。",
+      "choices": [
+        "to gather",
+        "bell",
+        "peace of mind",
+        "to commute"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q54",
+      "passage_text": "> わたしの いえの ちかくに 考える が あります。まいにち 代わり を します。たまに 通う に いきます。",
+      "passage_label": "Passage 18 (Q52-Q54)",
+      "id": "dokkai-4.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「計画する」とは どのような いみですか。",
+      "choices": [
+        "such",
+        "accessory",
+        "to collect",
+        "to plan"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q55",
+      "passage_text": "> わたしの いえの ちかくに 計画する が あります。まいにち 見物 を します。たまに 見物する に いきます。",
+      "passage_label": "Passage 19 (Q55-Q57)",
+      "id": "dokkai-4.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「見物」とは どのような いみですか。",
+      "choices": [
+        "to gather",
+        "Asia",
+        "accessory",
+        "sightseeing"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q56",
+      "passage_text": "> わたしの いえの ちかくに 計画する が あります。まいにち 見物 を します。たまに 見物する に いきます。",
+      "passage_label": "Passage 19 (Q55-Q57)",
+      "id": "dokkai-4.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「見物する」とは どのような いみですか。",
+      "choices": [
+        "America",
+        "Africa",
+        "flavor",
+        "to sightseeing"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q57",
+      "passage_text": "> わたしの いえの ちかくに 計画する が あります。まいにち 見物 を します。たまに 見物する に いきます。",
+      "passage_label": "Passage 19 (Q55-Q57)",
+      "id": "dokkai-4.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「研究室」とは どのような いみですか。",
+      "choices": [
+        "to return home (Group 1 exception - looks like Group 2)",
+        "Ah",
+        "laboratory",
+        "ah"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q58",
+      "passage_text": "> わたしの いえの ちかくに 研究室 が あります。まいにち 気 を します。たまに 気分 に いきます。",
+      "passage_label": "Passage 20 (Q58-Q60)",
+      "id": "dokkai-4.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「気」とは どのような いみですか。",
+      "choices": [
+        "to collect",
+        "to rise",
+        "spirit",
+        "Africa"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q59",
+      "passage_text": "> わたしの いえの ちかくに 研究室 が あります。まいにち 気 を します。たまに 気分 に いきます。",
+      "passage_label": "Passage 20 (Q58-Q60)",
+      "id": "dokkai-4.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「気分」とは どのような いみですか。",
+      "choices": [
+        "to enter (Group 1 exception - looks like Group 2)",
+        "feeling",
+        "bell",
+        "such"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q60",
+      "passage_text": "> わたしの いえの ちかくに 研究室 が あります。まいにち 気 を します。たまに 気分 に いきます。",
+      "passage_label": "Passage 20 (Q58-Q60)",
+      "id": "dokkai-4.15"
+    }
+  ]
+}

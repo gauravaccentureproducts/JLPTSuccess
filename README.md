@@ -1,0 +1,77 @@
+# JLPTSuccess
+
+A multi-level JLPT (Japanese-Language Proficiency Test) study app covering N5 → N1.
+
+**Live site:** [gauravaccentureproducts.github.io/JLPTSuccess/](https://gauravaccentureproducts.github.io/JLPTSuccess/)
+
+## Architecture
+
+Each level lives as a self-contained sub-app under its own subdirectory and URL path:
+
+| Level | Path | Status |
+|---|---|---|
+| N5 (Beginner) | [`/N5/`](N5/) | Live |
+| N4 (Elementary) | [`/N4/`](N4/) | Live |
+| N3 (Intermediate) | `/N3/` | Coming soon |
+| N2 (Upper-intermediate) | `/N2/` | Coming soon |
+| N1 (Advanced) | `/N1/` | Coming soon |
+
+The top-level page (this repo's `index.html`) is just a level picker. Each level's app shell, data, audio, SVGs, build pipeline, and tests live under that level's subdirectory.
+
+## Running locally
+
+The whole site is static HTML / CSS / JS — no build step.
+
+```bash
+python -m http.server 8000
+# Visit http://localhost:8000/JLPTSuccess/  (or  http://localhost:8000/  if served from inside the repo)
+```
+
+To work on a specific level:
+
+```bash
+cd N5    # or N4, etc.
+python -m http.server 8000
+# Visit http://localhost:8000/
+```
+
+Each level's tests + builders are local to that level:
+
+```bash
+cd N5
+python tools/check_content_integrity.py
+npx playwright test
+```
+
+## Per-level isolation
+
+- **localStorage namespacing:** N5 uses keys prefixed `n5.*`, N4 uses `n4.*`. Per-level progress doesn't bleed across.
+- **Service worker scope:** each level's SW is scoped to its own subdirectory, so cache and offline behavior are independent.
+- **Build pipelines:** each level has its own `tools/` and `KnowledgeBank/`. There is no shared build infrastructure — clones the N5 → N4 patterns at scaffolding time, then evolves independently.
+
+## Migration history
+
+This monorepo was created on 2026-05-04, consolidating the previously separate repos:
+- `gauravaccentureproducts/jlpt-n5-tutor` (kept as pre-migration backup, tag `pre-migration-2026-05-04`)
+- `gauravaccentureproducts/jlpt-n4-tutor` (kept as pre-migration backup, tag `v0.2.1-pre-migration`)
+
+The old deploys at `…github.io/jlpt-n5-tutor/` and `…github.io/jlpt-n4-tutor/` remain alive for the time being but will not receive further updates.
+
+## Adding a new level (N3 → N1)
+
+When content is ready for an additional level:
+
+1. Create the level subdirectory by cloning the N4 scaffold:
+   ```bash
+   cp -r N4 N3
+   ```
+2. Token-substitute `n4` → `n3`, `JLPT N4` → `JLPT N3`, `jlpt-n4-tutor` → `jlpt-n3-tutor` (or update to JLPTSuccess refs).
+3. Wipe content (`data/*.json`, `KnowledgeBank/*.md`) to skeleton state.
+4. Author the level-specific kanji + vocab + grammar inventories.
+5. Run the build pipeline: `python tools/build_n3_kanji.py`, etc.
+6. Update the top-level `index.html` to flip the N3 card from `is-disabled` to `is-available` with `href="N3/"`.
+
+## License
+
+Source code: MIT (see [LICENSE](LICENSE) once added).
+Content: see each level's `CONTENT-LICENSE.md` for level-specific notes; KanjiVG attribution in each level's `NOTICES.md`.

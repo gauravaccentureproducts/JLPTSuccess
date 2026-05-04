@@ -1,0 +1,33 @@
+{
+  "step": 8,
+  "completed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 14, 15],
+  "in_progress": null,
+  "next": 10,
+  "buildVersion": "v0.1.0",
+  "lastCommit": "pending",
+  "tag": "v0.1.0-alpha (superseded by upcoming v0.1.0)",
+  "startedAt": "2026-05-04T10:30:00Z",
+  "deferred": {
+    "10": "Audio pipeline (synthetic gtts) - runs against authored content; ~600 MP3s",
+    "11": "LLM audit - quality review of seed questions",
+    "12": "Coverage comparison - vs jlptsensei.com / tanos.co.uk",
+    "13": "Browser smoke test - requires live server"
+  },
+  "stepNotes": {
+    "3": "kanji whitelist (249 glyphs)",
+    "4": "kanji catalogue structurally complete; per-glyph examples deferred",
+    "5": "vocab seed (1159 entries)",
+    "6": "grammar catalogue (307 patterns)",
+    "7": "reading corpus seed via dokkai_questions_n4.md (102 questions, 30 short passages)",
+    "8": "question banks (591 questions): moji 100 + goi 100 + bunpou 100 + dokkai 102 + externally_sourced 189",
+    "9": "UI N4 wiring",
+    "14": "TASKS/MEMORY/CHANGELOG updated",
+    "15": "DoD: ALL 41 invariants PASS"
+  },
+  "integrityState": {
+    "passing": 41,
+    "failing": 0,
+    "totalInvariants": 41,
+    "status": "ALL GREEN"
+  }
+}

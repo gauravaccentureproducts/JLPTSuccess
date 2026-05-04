@@ -1,0 +1,298 @@
+{
+  "id": "dokkai-5",
+  "category": "dokkai",
+  "paperNumber": 5,
+  "name": "Dokkai Paper 5",
+  "source_file": "KnowledgeBank/dokkai_questions_n4.md",
+  "source_question_range": "Q61-Q75",
+  "questionCount": 15,
+  "passages": [
+    {
+      "label": "Passage 21 (Q61-Q63)",
+      "text": "> わたしの いえの ちかくに 着物 が あります。まいにち 子 を します。たまに 心 に いきます。",
+      "question_ids": [
+        "dokkai-5.1",
+        "dokkai-5.2",
+        "dokkai-5.3"
+      ]
+    },
+    {
+      "label": "Passage 22 (Q64-Q66)",
+      "text": "> わたしの いえの ちかくに このごろ が あります。まいにち コンピュータ を します。たまに コンサート に いきます。",
+      "question_ids": [
+        "dokkai-5.4",
+        "dokkai-5.5",
+        "dokkai-5.6"
+      ]
+    },
+    {
+      "label": "Passage 23 (Q67-Q69)",
+      "text": "> わたしの いえの ちかくに 答え が あります。まいにち 小鳥 を します。たまに こう に いきます。",
+      "question_ids": [
+        "dokkai-5.7",
+        "dokkai-5.8",
+        "dokkai-5.9"
+      ]
+    },
+    {
+      "label": "Passage 24 (Q70-Q72)",
+      "text": "> わたしの いえの ちかくに 工場 が あります。まいにち 高校 を します。たまに 高校生 に いきます。",
+      "question_ids": [
+        "dokkai-5.10",
+        "dokkai-5.11",
+        "dokkai-5.12"
+      ]
+    },
+    {
+      "label": "Passage 25 (Q73-Q75)",
+      "text": "> わたしの いえの ちかくに 教会 が あります。まいにち 急 を します。たまに 急行 に いきます。",
+      "question_ids": [
+        "dokkai-5.13",
+        "dokkai-5.14",
+        "dokkai-5.15"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "問: 「着物」とは どのような いみですか。",
+      "choices": [
+        "kimono",
+        "Ah",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "announcer"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q61",
+      "passage_text": "> わたしの いえの ちかくに 着物 が あります。まいにち 子 を します。たまに 心 に いきます。",
+      "passage_label": "Passage 21 (Q61-Q63)",
+      "id": "dokkai-5.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「子」とは どのような いみですか。",
+      "choices": [
+        "part-time job",
+        "to cut (Group 1 exception - looks like Group 2",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "child"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q62",
+      "passage_text": "> わたしの いえの ちかくに 着物 が あります。まいにち 子 を します。たまに 心 に いきます。",
+      "passage_label": "Passage 21 (Q61-Q63)",
+      "id": "dokkai-5.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「心」とは どのような いみですか。",
+      "choices": [
+        "to enter (Group 1 exception - looks like Group 2)",
+        "heart",
+        "building",
+        "to run (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q63",
+      "passage_text": "> わたしの いえの ちかくに 着物 が あります。まいにち 子 を します。たまに 心 に いきます。",
+      "passage_label": "Passage 21 (Q61-Q63)",
+      "id": "dokkai-5.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「このごろ」とは どのような いみですか。",
+      "choices": [
+        "building",
+        "to rise",
+        "to cut (Group 1 exception - looks like Group 2",
+        "these days"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q64",
+      "passage_text": "> わたしの いえの ちかくに このごろ が あります。まいにち コンピュータ を します。たまに コンサート に いきます。",
+      "passage_label": "Passage 22 (Q64-Q66)",
+      "id": "dokkai-5.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「コンピュータ」とは どのような いみですか。",
+      "choices": [
+        "such",
+        "Africa",
+        "to enter (Group 1 exception - looks like Group 2)",
+        "computer"
+      ],
+      "correctIndex": 3,
+      "rationale": "",
+      "kbSourceId": "Q65",
+      "passage_text": "> わたしの いえの ちかくに このごろ が あります。まいにち コンピュータ を します。たまに コンサート に いきます。",
+      "passage_label": "Passage 22 (Q64-Q66)",
+      "id": "dokkai-5.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「コンサート」とは どのような いみですか。",
+      "choices": [
+        "to need (Group 1 exception - looks like Group 2",
+        "concert",
+        "to rise",
+        "to gather"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q66",
+      "passage_text": "> わたしの いえの ちかくに このごろ が あります。まいにち コンピュータ を します。たまに コンサート に いきます。",
+      "passage_label": "Passage 22 (Q64-Q66)",
+      "id": "dokkai-5.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「答え」とは どのような いみですか。",
+      "choices": [
+        "response",
+        "bell",
+        "announcer",
+        "building"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q67",
+      "passage_text": "> わたしの いえの ちかくに 答え が あります。まいにち 小鳥 を します。たまに こう に いきます。",
+      "passage_label": "Passage 23 (Q67-Q69)",
+      "id": "dokkai-5.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「小鳥」とは どのような いみですか。",
+      "choices": [
+        "America",
+        "to need (Group 1 exception - looks like Group 2",
+        "small bird",
+        "to part-time job"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q68",
+      "passage_text": "> わたしの いえの ちかくに 答え が あります。まいにち 小鳥 を します。たまに こう に いきます。",
+      "passage_label": "Passage 23 (Q67-Q69)",
+      "id": "dokkai-5.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「こう」とは どのような いみですか。",
+      "choices": [
+        "this way",
+        "ah",
+        "bell",
+        "grapes"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q69",
+      "passage_text": "> わたしの いえの ちかくに 答え が あります。まいにち 小鳥 を します。たまに こう に いきます。",
+      "passage_label": "Passage 23 (Q67-Q69)",
+      "id": "dokkai-5.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「工場」とは どのような いみですか。",
+      "choices": [
+        "factory",
+        "such",
+        "announcer",
+        "to return home (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 0,
+      "rationale": "",
+      "kbSourceId": "Q70",
+      "passage_text": "> わたしの いえの ちかくに 工場 が あります。まいにち 高校 を します。たまに 高校生 に いきます。",
+      "passage_label": "Passage 24 (Q70-Q72)",
+      "id": "dokkai-5.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「高校」とは どのような いみですか。",
+      "choices": [
+        "bell",
+        "Asia",
+        "senior high school",
+        "such"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q71",
+      "passage_text": "> わたしの いえの ちかくに 工場 が あります。まいにち 高校 を します。たまに 高校生 に いきます。",
+      "passage_label": "Passage 24 (Q70-Q72)",
+      "id": "dokkai-5.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「高校生」とは どのような いみですか。",
+      "choices": [
+        "to collect",
+        "high school student",
+        "America",
+        "baby"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q72",
+      "passage_text": "> わたしの いえの ちかくに 工場 が あります。まいにち 高校 を します。たまに 高校生 に いきます。",
+      "passage_label": "Passage 24 (Q70-Q72)",
+      "id": "dokkai-5.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「教会」とは どのような いみですか。",
+      "choices": [
+        "to part-time job",
+        "announcer",
+        "church",
+        "Africa"
+      ],
+      "correctIndex": 2,
+      "rationale": "",
+      "kbSourceId": "Q73",
+      "passage_text": "> わたしの いえの ちかくに 教会 が あります。まいにち 急 を します。たまに 急行 に いきます。",
+      "passage_label": "Passage 25 (Q73-Q75)",
+      "id": "dokkai-5.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「急」とは どのような いみですか。",
+      "choices": [
+        "to collect",
+        "sudden",
+        "suffix for familiar female person",
+        "to run (Group 1 exception - looks like Group 2)"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q74",
+      "passage_text": "> わたしの いえの ちかくに 教会 が あります。まいにち 急 を します。たまに 急行 に いきます。",
+      "passage_label": "Passage 25 (Q73-Q75)",
+      "id": "dokkai-5.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "問: 「急行」とは どのような いみですか。",
+      "choices": [
+        "Asia",
+        "hurrying",
+        "part-time job",
+        "to be surprised"
+      ],
+      "correctIndex": 1,
+      "rationale": "",
+      "kbSourceId": "Q75",
+      "passage_text": "> わたしの いえの ちかくに 教会 が あります。まいにち 急 を します。たまに 急行 に いきます。",
+      "passage_label": "Passage 25 (Q73-Q75)",
+      "id": "dokkai-5.15"
+    }
+  ]
+}

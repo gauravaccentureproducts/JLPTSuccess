@@ -1,0 +1,333 @@
+{
+  "id": "dokkai-2",
+  "category": "dokkai",
+  "paperNumber": 2,
+  "name": "Dokkai Paper 2",
+  "source_file": "KnowledgeBank/dokkai_questions_n5.md",
+  "source_question_range": "Q17-Q32",
+  "questionCount": 16,
+  "passages": [
+    {
+      "label": "Passage 9 (Q17, Q18)",
+      "text": "> こんしゅう、 私は とても いそがしかったです。 月曜日と 火曜日は 学校で テストが ありました。 水曜日は 病院に 行きました。 木曜日と 金曜日は アルバイトを しました。 にちようびに やっと やすめます。",
+      "question_ids": [
+        "dokkai-2.1",
+        "dokkai-2.2"
+      ]
+    },
+    {
+      "label": "Passage 10 (Q19, Q20)",
+      "text": "> たなかさんへ\n>\n> 来週の 土曜日、 みんなで 山に のぼりに 行きませんか。 朝 七時に 駅に あつまります。 弁当と 水を じぶんで もって 来て ください。 さむいですから、 あたたかい ふくも わすれないで ください。 行きたい 人は、 私に 電話して ください。\n>\n> やまだ",
+      "question_ids": [
+        "dokkai-2.3",
+        "dokkai-2.4"
+      ]
+    },
+    {
+      "label": "Passage 11 (Q21, Q22)",
+      "text": "> 私の 父は 学校の 先生です。 子どもが すきですから、 毎日 学校に 行くのが 楽しいと 言って います。 母は 病院で はたらいて います。 父も 母も しごとで いそがしいですが、 日曜日は いつも 家に いて、 私と あそびます。",
+      "question_ids": [
+        "dokkai-2.5",
+        "dokkai-2.6"
+      ]
+    },
+    {
+      "label": "Passage 12 (Q23, Q24)",
+      "text": "> あさ おきて、 まどを あけました。 きのうの よる、 たくさん 雨が ふりましたが、 きょうは 天気が とても いいです。 そらは 青くて、 きれいな 花が さいて います。 きょうは こうえんで お弁当を 食べる つもりです。",
+      "question_ids": [
+        "dokkai-2.7",
+        "dokkai-2.8"
+      ]
+    },
+    {
+      "label": "Passage 13 (Q25, Q26)",
+      "text": "> 私は えいごの じゅぎょうが すきです。 先生は アメリカ人で、 とても しんせつです。 むずかしい もんだいでも、 先生に 聞けば、 ていねいに おしえて くれます。 私は 先生に なりたいので、 たくさん べんきょうして います。",
+      "question_ids": [
+        "dokkai-2.9",
+        "dokkai-2.10"
+      ]
+    },
+    {
+      "label": "Passage 14 (Q27, Q28)",
+      "text": "> たなかさんは 毎あさ 七時に おきて、 八時の 電車に のります。 しごとは 九時から はじまります。 家から かいしゃまで 一時間 ぐらい かかります。 ばんごはんは いつも かいしゃの ちかくの レストランで 食べます。 家に かえるのは 十時ごろです。",
+      "question_ids": [
+        "dokkai-2.11",
+        "dokkai-2.12"
+      ]
+    },
+    {
+      "label": "Passage 15 (Q29, Q30)",
+      "text": "> 私の いえには 大きい 犬が 一ぴき います。 名前は シロです。 白い 犬ですから、 シロです。 シロは 五さいです。 とても げんきで、 子どもが 大すきです。 私の おとうとと いっしょに よく あそびます。",
+      "question_ids": [
+        "dokkai-2.13",
+        "dokkai-2.14"
+      ]
+    },
+    {
+      "label": "Passage 16 (Q31, Q32)",
+      "text": "> やまださんは おんがくが すきです。 まいばん、 ねる まえに 一時間 ピアノを ひきます。 にちようびは 友だちの 家に 行って、 いっしょに ピアノを ひきます。 こんしゅうの どようび、 がっこうで コンサートが あります。 やまださんも ひきます。",
+      "question_ids": [
+        "dokkai-2.15",
+        "dokkai-2.16"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "この 人は 何曜日に いそがしくなかったですか。",
+      "choices": [
+        "月曜日",
+        "水曜日",
+        "日曜日",
+        "金曜日"
+      ],
+      "correctIndex": 2,
+      "rationale": "finally rests on Sunday.",
+      "kbSourceId": "Q17",
+      "passage_text": "> こんしゅう、 私は とても いそがしかったです。 月曜日と 火曜日は 学校で テストが ありました。 水曜日は 病院に 行きました。 木曜日と 金曜日は アルバイトを しました。 にちようびに やっと やすめます。",
+      "passage_label": "Passage 9 (Q17, Q18)",
+      "id": "dokkai-2.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "水曜日に この 人は 何を しましたか。",
+      "choices": [
+        "テストを うけた",
+        "病院に 行った",
+        "アルバイトを した",
+        "やすんだ"
+      ],
+      "correctIndex": 1,
+      "rationale": "水曜日は 病院に 行きました - went to the hospital on Wednesday.",
+      "kbSourceId": "Q18",
+      "passage_text": "> こんしゅう、 私は とても いそがしかったです。 月曜日と 火曜日は 学校で テストが ありました。 水曜日は 病院に 行きました。 木曜日と 金曜日は アルバイトを しました。 にちようびに やっと やすめます。",
+      "passage_label": "Passage 9 (Q17, Q18)",
+      "id": "dokkai-2.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "やまださんは みんなに 何を して と 言いましたか。",
+      "choices": [
+        "やまだの いえに 来る",
+        "山に のぼる",
+        "山の しゃしんを とる",
+        "駅で あさごはんを 食べる"
+      ],
+      "correctIndex": 1,
+      "rationale": "asks everyone to call (電話して ください) if they want to come.",
+      "kbSourceId": "Q19",
+      "passage_text": "> たなかさんへ\n>\n> 来週の 土曜日、 みんなで 山に のぼりに 行きませんか。 朝 七時に 駅に あつまります。 弁当と 水を じぶんで もって 来て ください。 さむいですから、 あたたかい ふくも わすれないで ください。 行きたい 人は、 私に 電話して ください。\n>\n> やまだ",
+      "passage_label": "Passage 10 (Q19, Q20)",
+      "id": "dokkai-2.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "みんなは 何を もって 来ますか。",
+      "choices": [
+        "ケーキ と コーヒー",
+        "弁当 と 水 と あたたかい ふく",
+        "何も もって 行かなくて いい",
+        "ふく と お金"
+      ],
+      "correctIndex": 1,
+      "rationale": "弁当と 水を じぶんで もって 来て - bring lunch and water yourself.",
+      "kbSourceId": "Q20",
+      "passage_text": "> たなかさんへ\n>\n> 来週の 土曜日、 みんなで 山に のぼりに 行きませんか。 朝 七時に 駅に あつまります。 弁当と 水を じぶんで もって 来て ください。 さむいですから、 あたたかい ふくも わすれないで ください。 行きたい 人は、 私に 電話して ください。\n>\n> やまだ",
+      "passage_label": "Passage 10 (Q19, Q20)",
+      "id": "dokkai-2.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "この 人の おかあさんは どこで はたらいて いますか。",
+      "choices": [
+        "学校",
+        "病院",
+        "みせ",
+        "レストラン"
+      ],
+      "correctIndex": 1,
+      "rationale": "母は 病院で はたらいて います - mother works at the hospital.",
+      "kbSourceId": "Q21",
+      "passage_text": "> 私の 父は 学校の 先生です。 子どもが すきですから、 毎日 学校に 行くのが 楽しいと 言って います。 母は 病院で はたらいて います。 父も 母も しごとで いそがしいですが、 日曜日は いつも 家に いて、 私と あそびます。",
+      "passage_label": "Passage 11 (Q21, Q22)",
+      "id": "dokkai-2.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "この 人の りょうしんは 日よう日に 何を しますか。",
+      "choices": [
+        "まいにち しごとを する",
+        "山に のぼりに 行く",
+        "家で 子どもと あそぶ",
+        "家で ゆっくり ねる"
+      ],
+      "correctIndex": 2,
+      "rationale": "'日曜日は いつも 家に いて 子どもと あそびます' - parents play with the kids at home on Sundays.",
+      "kbSourceId": "Q22",
+      "passage_text": "> 私の 父は 学校の 先生です。 子どもが すきですから、 毎日 学校に 行くのが 楽しいと 言って います。 母は 病院で はたらいて います。 父も 母も しごとで いそがしいですが、 日曜日は いつも 家に いて、 私と あそびます。",
+      "passage_label": "Passage 11 (Q21, Q22)",
+      "id": "dokkai-2.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きのうの よる、 てんきは どうでしたか。",
+      "choices": [
+        "はれ",
+        "くもり",
+        "雨",
+        "ゆき"
+      ],
+      "correctIndex": 2,
+      "rationale": "たくさん 雨が ふりました - heavy rain last night.",
+      "kbSourceId": "Q23",
+      "passage_text": "> あさ おきて、 まどを あけました。 きのうの よる、 たくさん 雨が ふりましたが、 きょうは 天気が とても いいです。 そらは 青くて、 きれいな 花が さいて います。 きょうは こうえんで お弁当を 食べる つもりです。",
+      "passage_label": "Passage 12 (Q23, Q24)",
+      "id": "dokkai-2.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "この 人は きょう 何を しますか。",
+      "choices": [
+        "こうえんで お弁当を 食べる",
+        "学校に いって しごとを する",
+        "家で 一日 ねて すごす",
+        "雨の 中を さんぽする"
+      ],
+      "correctIndex": 0,
+      "rationale": "'こうえんで お弁当を 食べる つもり' - planning to eat bento at the park.",
+      "kbSourceId": "Q24",
+      "passage_text": "> あさ おきて、 まどを あけました。 きのうの よる、 たくさん 雨が ふりましたが、 きょうは 天気が とても いいです。 そらは 青くて、 きれいな 花が さいて います。 きょうは こうえんで お弁当を 食べる つもりです。",
+      "passage_label": "Passage 12 (Q23, Q24)",
+      "id": "dokkai-2.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "この 人は 何が すきですか。",
+      "choices": [
+        "えいごの じゅぎょう",
+        "アメリカの 国",
+        "しゅくだい",
+        "アメリカ人の 友だち"
+      ],
+      "correctIndex": 0,
+      "rationale": "私は えいごの じゅぎょうが すきです - likes the English class.",
+      "kbSourceId": "Q25",
+      "passage_text": "> 私は えいごの じゅぎょうが すきです。 先生は アメリカ人で、 とても しんせつです。 むずかしい もんだいでも、 先生に 聞けば、 ていねいに おしえて くれます。 私は 先生に なりたいので、 たくさん べんきょうして います。",
+      "passage_label": "Passage 13 (Q25, Q26)",
+      "id": "dokkai-2.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "この 人は 何に なりたいですか。",
+      "choices": [
+        "先生",
+        "学生",
+        "アメリカ人",
+        "いしゃ"
+      ],
+      "correctIndex": 0,
+      "rationale": "先生になりたい.",
+      "kbSourceId": "Q26",
+      "passage_text": "> 私は えいごの じゅぎょうが すきです。 先生は アメリカ人で、 とても しんせつです。 むずかしい もんだいでも、 先生に 聞けば、 ていねいに おしえて くれます。 私は 先生に なりたいので、 たくさん べんきょうして います。",
+      "passage_label": "Passage 13 (Q25, Q26)",
+      "id": "dokkai-2.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "たなかさんは かいしゃまで どのぐらい かかりますか。",
+      "choices": [
+        "一時間",
+        "四十五分",
+        "三十分",
+        "二時間"
+      ],
+      "correctIndex": 0,
+      "rationale": "passage says 「一時間ぐらい」.",
+      "kbSourceId": "Q27",
+      "passage_text": "> たなかさんは 毎あさ 七時に おきて、 八時の 電車に のります。 しごとは 九時から はじまります。 家から かいしゃまで 一時間 ぐらい かかります。 ばんごはんは いつも かいしゃの ちかくの レストランで 食べます。 家に かえるのは 十時ごろです。",
+      "passage_label": "Passage 14 (Q27, Q28)",
+      "id": "dokkai-2.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "たなかさんは どこで ばんごはんを 食べますか。",
+      "choices": [
+        "駅の ちかくの きっさてん",
+        "かいしゃの しょくどう",
+        "かいしゃの ちかくの レストラン",
+        "家の ちかくの レストラン"
+      ],
+      "correctIndex": 2,
+      "rationale": "'ばんごはんは いつも かいしゃの ちかくの レストランで' - dinner is always at a restaurant near the company.",
+      "kbSourceId": "Q28",
+      "passage_text": "> たなかさんは 毎あさ 七時に おきて、 八時の 電車に のります。 しごとは 九時から はじまります。 家から かいしゃまで 一時間 ぐらい かかります。 ばんごはんは いつも かいしゃの ちかくの レストランで 食べます。 家に かえるのは 十時ごろです。",
+      "passage_label": "Passage 14 (Q27, Q28)",
+      "id": "dokkai-2.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "シロは 何さいですか。",
+      "choices": [
+        "一さい",
+        "三さい",
+        "七さい",
+        "五さい"
+      ],
+      "correctIndex": 3,
+      "rationale": "シロは 五さいです - Shiro is 5 years old.",
+      "kbSourceId": "Q29",
+      "passage_text": "> 私の いえには 大きい 犬が 一ぴき います。 名前は シロです。 白い 犬ですから、 シロです。 シロは 五さいです。 とても げんきで、 子どもが 大すきです。 私の おとうとと いっしょに よく あそびます。",
+      "passage_label": "Passage 15 (Q29, Q30)",
+      "id": "dokkai-2.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "どうして いぬの 名前は 「シロ」ですか。",
+      "choices": [
+        "大きいから",
+        "子どもが すきだから",
+        "げんきだから",
+        "白い 犬だから"
+      ],
+      "correctIndex": 3,
+      "rationale": "白い 犬ですから、 シロです - named Shiro because the dog is white (white = しろい).",
+      "kbSourceId": "Q30",
+      "passage_text": "> 私の いえには 大きい 犬が 一ぴき います。 名前は シロです。 白い 犬ですから、 シロです。 シロは 五さいです。 とても げんきで、 子どもが 大すきです。 私の おとうとと いっしょに よく あそびます。",
+      "passage_label": "Passage 15 (Q29, Q30)",
+      "id": "dokkai-2.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "やまださんは いつ 一人で ピアノを ひきますか。",
+      "choices": [
+        "あさ",
+        "ひる",
+        "ねた あと",
+        "ばん (ねるまえ)"
+      ],
+      "correctIndex": 3,
+      "rationale": "まいばん、 ねる まえに 一時間 ピアノを ひきます - plays piano alone every night before bed.",
+      "kbSourceId": "Q31",
+      "passage_text": "> やまださんは おんがくが すきです。 まいばん、 ねる まえに 一時間 ピアノを ひきます。 にちようびは 友だちの 家に 行って、 いっしょに ピアノを ひきます。 こんしゅうの どようび、 がっこうで コンサートが あります。 やまださんも ひきます。",
+      "passage_label": "Passage 16 (Q31, Q32)",
+      "id": "dokkai-2.15"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "こんしゅうの コンサートは どこで ありますか。",
+      "choices": [
+        "友だちの 家",
+        "やまださんの 家",
+        "こうえん",
+        "学校"
+      ],
+      "correctIndex": 3,
+      "rationale": "こんしゅうの どようび、 がっこうで コンサートが あります - concert this Saturday at the school.",
+      "kbSourceId": "Q32",
+      "passage_text": "> やまださんは おんがくが すきです。 まいばん、 ねる まえに 一時間 ピアノを ひきます。 にちようびは 友だちの 家に 行って、 いっしょに ピアノを ひきます。 こんしゅうの どようび、 がっこうで コンサートが あります。 やまださんも ひきます。",
+      "passage_label": "Passage 16 (Q31, Q32)",
+      "id": "dokkai-2.16"
+    }
+  ]
+}

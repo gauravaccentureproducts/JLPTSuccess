@@ -1,0 +1,221 @@
+{
+  "id": "moji-6",
+  "category": "moji",
+  "paperNumber": 6,
+  "name": "Moji Paper 6",
+  "source_file": "KnowledgeBank/moji_questions_n5.md",
+  "source_question_range": "Q76-Q90",
+  "questionCount": 15,
+  "questions": [
+    {
+      "type": "mcq",
+      "stem_html": "__でんわ__ で 友だちと 話します。",
+      "choices": [
+        "電語",
+        "田話",
+        "田語",
+        "電話"
+      ],
+      "correctIndex": 3,
+      "rationale": "電話.",
+      "kbSourceId": "Q76",
+      "id": "moji-6.1"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "きのう __くるま__ を 買いました。",
+      "choices": [
+        "中",
+        "東",
+        "来",
+        "車"
+      ],
+      "correctIndex": 3,
+      "rationale": "車.",
+      "kbSourceId": "Q77",
+      "id": "moji-6.2"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "がっこうへ いく __みち__ で 友だちに あいました。",
+      "choices": [
+        "道",
+        "通",
+        "路",
+        "行"
+      ],
+      "correctIndex": 0,
+      "rationale": "道 (みち - road, way). 道 is whitelisted N5 (kanji whitelist line 98) and listed at vocabulary_n5.md. The distractors 通 / 路 / 行 are family-of-meaning alternatives commonly seen in N4+ vocabulary (通る / 通り pass through, 道路 / 路上 road, 行く go). The semantic-distractor design tests whether the student knows 道 specifically rather than just recognizing the \"road / way\" semantic field.",
+      "kbSourceId": "Q78",
+      "id": "moji-6.3"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "__えき__ で 友だちと あいました。",
+      "choices": [
+        "駅",
+        "馬",
+        "駄",
+        "訳"
+      ],
+      "correctIndex": 0,
+      "rationale": "駅.",
+      "kbSourceId": "Q79",
+      "id": "moji-6.4"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "__みせ__ は えきの まえに あります。",
+      "choices": [
+        "占",
+        "居",
+        "庄",
+        "店"
+      ],
+      "correctIndex": 3,
+      "rationale": "店.",
+      "kbSourceId": "Q80",
+      "id": "moji-6.5"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ばんごはんを いまから __たべます__。",
+      "choices": [
+        "飯べます",
+        "飲べます",
+        "食べます",
+        "喫べます"
+      ],
+      "correctIndex": 2,
+      "rationale": "食べます.",
+      "kbSourceId": "Q81",
+      "id": "moji-6.6"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "パーティーで ジュースを __のみ__ました。",
+      "choices": [
+        "飯みます",
+        "食みます",
+        "飲みます",
+        "飼みます"
+      ],
+      "correctIndex": 2,
+      "rationale": "飲む (のむ - to drink). 飲 is N5; the distractors share visual / phonetic similarity in a different context.",
+      "kbSourceId": "Q82",
+      "id": "moji-6.7"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "ニュースを テレビで __みます__。",
+      "choices": [
+        "視ます",
+        "観ます",
+        "見ます",
+        "看ます"
+      ],
+      "correctIndex": 2,
+      "rationale": "N5 standard 見ます.",
+      "kbSourceId": "Q83",
+      "id": "moji-6.8"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "おんがくを __ききます__。",
+      "choices": [
+        "効きます",
+        "聞きます",
+        "利きます",
+        "訊きます"
+      ],
+      "correctIndex": 1,
+      "rationale": "聞きます.",
+      "kbSourceId": "Q84",
+      "id": "moji-6.9"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "にほんごで __はなします__。",
+      "choices": [
+        "離します",
+        "放します",
+        "話します",
+        "講します"
+      ],
+      "correctIndex": 2,
+      "rationale": "話します.",
+      "kbSourceId": "Q85",
+      "id": "moji-6.10"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "まいばん 本を __よみます__。",
+      "choices": [
+        "詠みます",
+        "読みます",
+        "訳みます",
+        "諳みます"
+      ],
+      "correctIndex": 1,
+      "rationale": "読みます.",
+      "kbSourceId": "Q86",
+      "id": "moji-6.11"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "てがみを __かきます__。",
+      "choices": [
+        "描きます",
+        "書きます",
+        "画きます",
+        "掻きます"
+      ],
+      "correctIndex": 1,
+      "rationale": "書きます.",
+      "kbSourceId": "Q87",
+      "id": "moji-6.12"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "あした 友だちが いえに __きます__。",
+      "choices": [
+        "来ます",
+        "起ます",
+        "着ます",
+        "切ます"
+      ],
+      "correctIndex": 0,
+      "rationale": "来ます (to come).",
+      "kbSourceId": "Q88",
+      "id": "moji-6.13"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "まいあさ 八時に がっこうへ __いきます__。",
+      "choices": [
+        "生きます",
+        "行きます",
+        "帰きます",
+        "入きます"
+      ],
+      "correctIndex": 1,
+      "rationale": "行きます.",
+      "kbSourceId": "Q89",
+      "id": "moji-6.14"
+    },
+    {
+      "type": "mcq",
+      "stem_html": "まいあさ 七時に いえを __でます__。",
+      "choices": [
+        "出ます",
+        "入ます",
+        "立ます",
+        "来ます"
+      ],
+      "correctIndex": 0,
+      "rationale": "出ます.",
+      "kbSourceId": "Q90",
+      "id": "moji-6.15"
+    }
+  ]
+}
