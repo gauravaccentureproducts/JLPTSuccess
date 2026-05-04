@@ -533,6 +533,41 @@ async function renderResults(container) {
     })
     .join('');
 
+  // IMP-026 (audit round-3): per-question-type breakdown alongside the
+  // per-category one. Tells the learner whether they're tripping over
+  // sentence_order vs MCQ vs text_input — useful when choosing which
+  // drill mode to spend the next session on.
+  const TYPE_LABELS = {
+    'mcq':            'Multiple choice',
+    'sentence_order': 'Sentence ordering',
+    'text_input':     'Text input',
+    'dropdown':       'Dropdown',
+  };
+  const byType = new Map();
+  for (const r of result.responses) {
+    const t = r.type || 'mcq';
+    if (!byType.has(t)) byType.set(t, { correct: 0, total: 0 });
+    const e = byType.get(t);
+    e.total += 1;
+    if (r.isCorrect) e.correct += 1;
+  }
+  const typeRows = [...byType.entries()]
+    .sort((a, b) => (a[1].correct / a[1].total) - (b[1].correct / b[1].total))
+    .map(([t, { correct, total }]) => {
+      const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+      const cls = pct >= PASS_PERCENT ? 'pass' : 'fail';
+      const label = TYPE_LABELS[t] || t;
+      return `
+        <tr class="${cls}">
+          <td class="cat-name">${esc(label)}</td>
+          <td class="cat-score">${correct} / ${total}</td>
+          <td class="cat-pct">${pct}%</td>
+          <td class="cat-bar"><div class="cat-bar-track"><div class="cat-bar-fill" style="width:${pct}%"></div></div></td>
+        </tr>
+      `;
+    })
+    .join('');
+
   container.innerHTML = `
     <div class="test-results">
       <h2>Results</h2>
@@ -561,6 +596,19 @@ async function renderResults(container) {
           </table>
           <p class="muted small">Categories sorted by accuracy (weakest first). Pass target ${PASS_PERCENT}%.</p>
         ` : '<p class="muted">No category metadata available for this test.</p>'}
+      </section>
+
+      <section class="category-breakdown">
+        <h3>By question type</h3>
+        ${byType.size > 1 ? `
+          <table class="category-table">
+            <thead>
+              <tr><th>Type</th><th>Score</th><th>%</th><th>Distribution</th></tr>
+            </thead>
+            <tbody>${typeRows}</tbody>
+          </table>
+          <p class="muted small">Types sorted by accuracy (weakest first). Useful for picking your next drill mode.</p>
+        ` : '<p class="muted small">All questions in this test were the same type — type breakdown is only meaningful when the test mixes question formats.</p>'}
       </section>
 
       <section class="answer-review">

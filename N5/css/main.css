@@ -2826,6 +2826,44 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   font-weight: var(--weight-medium, 500);
 }
 
+/* IMP-024 + IMP-027 (audit round-3): home daily-goal progress + due-count
+ * link. Both surface alongside the existing streak chip so a returning
+ * learner sees "Streak 5 · Today 12/20 · 8 reviews due" at a glance. */
+.syllabus-daily-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--color-text);
+}
+.syllabus-daily-progress:hover .syllabus-daily-progress-label {
+  text-decoration: underline;
+}
+.syllabus-daily-progress-bar {
+  display: inline-block;
+  width: 80px;
+  height: 4px;
+  background: var(--color-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.syllabus-daily-progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 220ms ease-out;
+}
+.syllabus-daily-due {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: var(--weight-medium, 500);
+}
+.syllabus-daily-due:hover { text-decoration: underline; }
+.syllabus-daily-due.is-empty {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-regular, 400);
+}
+
 /* All four major homepage sections share the same vertical rhythm. */
 .syllabus-overview,
 .syllabus-study-order,

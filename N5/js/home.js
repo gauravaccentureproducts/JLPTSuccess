@@ -248,6 +248,14 @@ export async function renderHome(container) {
   })();
   const dailyGoalMet = isReturning && streak && streak.lastStudyDate === todayKey;
 
+  // IMP-024 + IMP-027 (audit round-3): surface (a) reviews completed
+  // today vs the user's goal and (b) the FSRS-due queue size,
+  // prominently on the home dashboard. Both link straight to #/review.
+  const reviewsToday = storage.getReviewsToday ? storage.getReviewsToday() : 0;
+  const dailyGoal    = storage.getDailyGoal ? storage.getDailyGoal() : 20;
+  const goalPct      = Math.min(100, Math.round(100 * reviewsToday / dailyGoal));
+  const dueCount     = storage.getDueCount ? storage.getDueCount() : 0;
+
   // Resume strip — single-line link above the syllabus title for returning
   // users. First-time visitors see no strip at all. Show the friendly
   // pattern label ("n5-001 — です/だ") instead of just the ID when the
@@ -279,6 +287,19 @@ export async function renderHome(container) {
         ${isReturning ? `
           <div class="syllabus-daily-status">
             <span class="syllabus-daily-streak">Streak: ${streak?.current ?? 0} ${(streak?.current ?? 0) === 1 ? 'day' : 'days'}</span>
+            <a class="syllabus-daily-progress" href="#/review" title="Open today's review queue">
+              <span class="syllabus-daily-progress-label">Today: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
+              <span class="syllabus-daily-progress-bar" aria-hidden="true">
+                <span class="syllabus-daily-progress-fill" style="width:${goalPct}%"></span>
+              </span>
+            </a>
+            ${dueCount > 0 ? `
+              <a class="syllabus-daily-due" href="#/review">
+                <strong>${dueCount}</strong> review${dueCount === 1 ? '' : 's'} due
+              </a>
+            ` : `
+              <span class="syllabus-daily-due is-empty">No reviews due</span>
+            `}
             <span class="syllabus-daily-today ${dailyGoalMet ? 'is-met' : 'is-pending'}">
               <span class="syllabus-daily-mark" aria-hidden="true">${dailyGoalMet ? '✓' : '○'}</span>
               <span class="syllabus-daily-text">${dailyGoalMet ? 'Practiced today' : 'Not yet practiced today'}</span>

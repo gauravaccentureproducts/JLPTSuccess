@@ -109,6 +109,29 @@ function todayKey() {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 export function getStreak() { return get('streak', { current: 0, longest: 0, lastStudyDate: null, days: [] }); }
+
+// IMP-024 (audit round-3): per-day reviews-completed counter, used by the
+// home daily-goal progress ring. Stored as { date: 'YYYY-MM-DD', count: N }
+// — a single key, overwritten when the day rolls over. Keeping the
+// previous day in storage is unnecessary; the streak object holds the
+// long-term history.
+export function getReviewsToday() {
+  const r = get('reviewsToday', { date: null, count: 0 });
+  return (r.date === todayKey()) ? r.count : 0;
+}
+export function incrementReviewsToday(by = 1) {
+  const today = todayKey();
+  const r = get('reviewsToday', { date: null, count: 0 });
+  const count = (r.date === today ? r.count : 0) + by;
+  set('reviewsToday', { date: today, count });
+  return count;
+}
+export function getDailyGoal() {
+  // Default 20 reviews/day — round number, matches the round-3 audit
+  // recommendation. User can override in Settings.
+  const s = getSettings();
+  return Math.max(1, parseInt(s.dailyGoalReviews, 10) || 20);
+}
 export function recordStudyToday() {
   const s = getStreak();
   const today = todayKey();
@@ -264,6 +287,7 @@ function updatePatternEntry(entry, isCorrect, nowIso, source = 'test') {
 export function recordTestResponses(responses) {
   const history = getHistory();
   const now = new Date().toISOString();
+  let counted = 0;
   for (const r of responses) {
     if (!r.grammarPatternId) continue;
     history[r.grammarPatternId] = updatePatternEntry(
@@ -272,8 +296,11 @@ export function recordTestResponses(responses) {
       now,
       'test',
     );
+    counted += 1;
   }
   setHistory(history);
+  // IMP-024: count test answers toward today's reviews tally.
+  if (counted) incrementReviewsToday(counted);
 }
 
 /**
@@ -282,6 +309,8 @@ export function recordTestResponses(responses) {
  */
 export function recordDrillResponse(grammarPatternId, isCorrect) {
   if (!grammarPatternId) return;
+  // IMP-024: count this drill grade toward today's reviews tally.
+  incrementReviewsToday(1);
   const history = getHistory();
   const now = new Date().toISOString();
   history[grammarPatternId] = updatePatternEntry(

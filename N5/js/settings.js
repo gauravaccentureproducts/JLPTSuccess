@@ -47,6 +47,13 @@ export async function renderSettings(container) {
     </section>
 
     <section class="settings-section">
+      <h3>Keyboard</h3>
+      <p class="settings-row" style="display:block;">
+        <span>Press <kbd>?</kbd> on any page to open the keyboard-shortcuts cheatsheet.</span>
+      </p>
+    </section>
+
+    <section class="settings-section">
       <h3>Practice</h3>
       <label class="settings-row">
         <span>Default test length</span>
@@ -61,6 +68,10 @@ export async function renderSettings(container) {
       <label class="settings-row">
         <span>Daily review cap</span>
         <input type="number" id="set-daily-review" min="5" max="200" value="${s.dailyReviewCap||50}">
+      </label>
+      <label class="settings-row">
+        <span>Daily review goal</span>
+        <input type="number" id="set-daily-goal" min="1" max="200" value="${s.dailyGoalReviews||20}">
       </label>
       <label class="settings-row">
         <span>Audio playback speed</span>
@@ -168,6 +179,11 @@ export async function renderSettings(container) {
   document.getElementById('set-daily-review').addEventListener('change', (e) => {
     storage.setSettings({ dailyReviewCap: parseInt(e.target.value, 10) });
     showSavedToast(`Daily review cap = ${e.target.value}`);
+  });
+  // IMP-024: daily review goal.
+  document.getElementById('set-daily-goal').addEventListener('change', (e) => {
+    storage.setSettings({ dailyGoalReviews: parseInt(e.target.value, 10) });
+    showSavedToast(`Daily review goal = ${e.target.value}`);
   });
   document.getElementById('set-audio-rate').addEventListener('change', (e) => {
     storage.setSettings({ audioPlaybackRate: parseFloat(e.target.value) });
