@@ -1,6 +1,6 @@
-# JLPT N5 Grammar Tutor
+# JLPT N5 Tutor
 
-Browser-based static web app for studying JLPT N5 grammar. **No build step. No server. No accounts.**
+Browser-based static web app for studying JLPT N5: grammar, vocabulary, kanji, reading, and listening. **No server. No accounts. No third-party scripts.** Author-side build tools (Python) live under `/tools/`; the learner runs only the browser.
 
 ## Run locally
 
@@ -28,23 +28,42 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
 ```
 /index.html                            entry point
 /sw.js                                 service worker (offline cache)
+/manifest.webmanifest                  PWA manifest
 /css/main.css                          styling
-/js/                                   app logic (one module per chapter / mode)
-  app.js storage.js furigana.js
-  learn.js test.js review.js summary.js drill.js diagnostic.js
+/js/                                   app logic (one module per surface / mode)
+  app.js storage.js furigana.js i18n.js shortcuts.js search.js pwa.js levels.js
+  learn.js test.js papers.js review.js summary.js drill.js diagnostic.js
+  reading.js listening.js kanji.js kanji-popover.js home.js feedback.js changelog.js
+  kosoado.js wa-vs-ga.js verb-class.js te-form.js particle-pairs.js counters.js
+  content-protect.js settings.js normalize.js
 /data/                                 JSON consumed by the app
   grammar.json questions.json
+  vocab.json kanji.json reading.json listening.json
   n5_kanji_whitelist.json n5_vocab_whitelist.json n5_kanji_readings.json
+  dokkai_kanji_exception.json audio_manifest.json
+  papers/manifest.json
+  papers/{moji,goi,bunpou,dokkai}/paper-{1..7}.json
+/audio/                                MP3 files (grammar examples, reading, listening)
+/svg/kanji/                            stroke-order SVGs (one per N5 kanji)
+/locales/                              UI translations (en, vi, id, ne, zh)
+/fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
+/tests/                                Playwright specs (p0-smoke, visual-regression)
 /tools/                                Python scripts run by the content author only
+  check_content_integrity.py           41 release-blocker invariants
   build_data.py check_coverage.py lint_content.py
-  build_spec.py generate_stub_questions.py
+  build_spec.py build_audio.py
+  fix_*.py                             versioned fixers (one per release)
 /KnowledgeBank/grammar_n5.md           canonical N5 pattern catalog (human source-of-truth)
 /KnowledgeBank/kanji_n5.md             N5 kanji catalog with on/kun readings
 /KnowledgeBank/vocabulary_n5.md        N5 vocab catalog
+/KnowledgeBank/moji_questions_n5.md    Mondai 1 (kanji reading) + Mondai 2 (orthography), 100 Qs
+/KnowledgeBank/goi_questions_n5.md     Mondai 3 (context) + Mondai 4 (paraphrase), 100 Qs
+/KnowledgeBank/bunpou_questions_n5.md  grammar Mondai 1 + 2 + 3, 100 Qs
+/KnowledgeBank/dokkai_questions_n5.md  reading Mondai 4 + 5 + 6, 102 Qs
 /KnowledgeBank/sources.md              reference / authority documentation
 verification.md                        cross-source audit of KnowledgeBank content
 TASKS.md                               task list (mirrors session TodoWrite)
-JLPT N5 Grammar Tutor – Functional Spec.docx     full functional spec
+JLPT N5 Tutor - Functional Spec.docx               full functional spec
 ```
 
 ## Content authoring workflow

@@ -26,6 +26,19 @@ For mock-test mode, the app's test engine MUST hide the `**Answer:**` line and r
 
 Numbers are written using both kanji forms (一, 二, 三, 五, 十, 百, 千) and arabic numerals (1, 2, 100, 1000) - mirroring authentic JLPT papers, which use kanji numerals in narrative text and arabic numerals in prices, addresses, schedules, and time tables. This is intentional, not inconsistency.
 
+## Paper segmentation policy (formalized 2026-05-04, ISSUE-007)
+
+`data/papers/bunpou/paper-N.json` files segment this 100-question corpus into 7 papers using a **Q-order slice rule**: paper-1 covers Q1-Q15, paper-2 covers Q16-Q30, ..., paper-7 covers Q91-Q100. The mapping is recorded in each paper-JSON's `source_question_range` field and in `data/papers/manifest.json`.
+
+**Why Q-order slices, not JLPT-format mixed-Mondai:**
+- The Q-numbered MD source is the canonical reference. A learner reading the MD or comparing notes against the deployed papers can predict exactly which paper a Q is in.
+- Mondai 2 (Q61-90, sentence rearrangement) has a fixed choice-encoding: each numbered fragment is part of the test data. Choice order cannot be permuted without breaking the question. This conflicts with the per-paper position-balance goal that mixed-Mondai segmentation is supposed to deliver.
+- The autonomous-improvement Round 4 rebalance (v1.12.27) achieved 25/25/25/25 corpus-wide for bunpou by re-permuting only the unconstrained Mondai 1 + Mondai 3 items. Two papers (paper-5 [4,5,1,5] and paper-6 [7,1,4,3]) are still per-paper-skewed because every item in those papers is constrained Mondai 2.
+
+**Accepted-with-rationale cost:** a learner practicing paper-5 in isolation will see C-position 1 time out of 15. A test-wise student exploiting that pattern would gain at most ~5 percentage points on a single paper. Across the corpus the distribution is exactly uniform, so multi-paper practice is unbiased.
+
+**Future enhancement (out of current scope):** an "exam-realism" test mode that virtually constructs a 15- or 17-item mixed-Mondai paper at runtime by sampling 9 from Mondai 1 + 4 from Mondai 2 + 4 from Mondai 3. This delivers the JLPT paper format without touching the source-of-truth Q-order mapping. Tracked as ISSUE-006 in the 2026-05-04 audit.
+
 ---
 
 ## Mondai 1 - 文の文法1 (Sentence Grammar 1)

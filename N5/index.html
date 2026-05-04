@@ -9,7 +9,7 @@
        fails fast. Per OQ-3 in spec supplement §B.9. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none';">
   <title>JLPT N5</title>
-  <meta name="description" content="JLPT N5 study material covering grammar, vocabulary, kanji, reading and listening.">
+  <meta name="description" content="JLPT N5 study material covering grammar, vocabulary, kanji, reading, and listening — static, on-device, privacy-preserving.">
   <meta name="theme-color" content="#14452a">
   <meta name="color-scheme" content="light dark">
   <meta name="robots" content="index, follow">
@@ -25,7 +25,7 @@
        Light + Medium load on demand via the @font-face fallback chain. -->
   <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/noto-sans-jp-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/main.css?v=1.11.48">
+  <link rel="stylesheet" href="css/main.css?v=1.12.28">
 </head>
 <body>
   <a href="#app" class="skip-link">Skip to main content</a>
@@ -85,7 +85,7 @@
   </main>
 
   <footer class="app-footer">
-    <small class="footer-meta">v1.10.2</small>
+    <small class="footer-meta" data-footer-version aria-label="App version">v1.12.27</small>
     <nav class="footer-nav" aria-label="Footer">
       <a href="#/changelog" data-route="changelog">What's new</a>
       <a href="PRIVACY.md">Privacy</a>
@@ -93,6 +93,6 @@
     </nav>
   </footer>
 
-  <script type="module" src="js/app.js?v=1.11.48"></script>
+  <script type="module" src="js/app.js?v=1.12.28"></script>
 </body>
 </html>

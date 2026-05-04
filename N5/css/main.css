@@ -4754,3 +4754,180 @@ html[data-protect="on"][data-blur="true"] body::before {
   }
 }
 
+
+/* ============================================================================
+ * Test mode — IMP-001 timer chip, IMP-002 pass badge, IMP-004 category table.
+ * Added 2026-05-04 alongside the corresponding js/test.js changes.
+ * ========================================================================== */
+
+.exam-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.exam-mode-toggle input { width: 18px; height: 18px; cursor: pointer; }
+
+.test-timer-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-surface-alt, #eef2ec);
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  border: 1px solid var(--color-line, #d6d6d0);
+  margin: 0 8px;
+  letter-spacing: 0.02em;
+}
+.test-timer-chip.warning {
+  background: #fff4d6;
+  border-color: #d4a019;
+  color: #6b4a00;
+}
+.test-timer-chip.danger {
+  background: #fde0d6;
+  border-color: #c8462b;
+  color: #6e2010;
+  animation: timer-pulse 1s ease-in-out infinite;
+}
+@keyframes timer-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .test-timer-chip.danger { animation: none; }
+}
+
+.pass-badge {
+  margin: 12px 0 4px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: var(--text-sm);
+}
+.pass-badge.pass {
+  background: #e3efde;
+  color: #1f3d1a;
+  border: 1px solid #6ea860;
+}
+.pass-badge.fail {
+  background: #fbe9e1;
+  color: #5e2412;
+  border: 1px solid #c8462b;
+}
+
+.score-time { margin-left: 12px; }
+
+.category-breakdown { margin: 24px 0 16px; }
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: var(--text-sm);
+}
+.category-table th {
+  text-align: left;
+  padding: 8px 10px;
+  background: var(--color-surface-alt, #eef2ec);
+  border-bottom: 2px solid var(--color-line, #d6d6d0);
+  font-weight: 600;
+}
+.category-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-line-soft, #ebebe6);
+  vertical-align: middle;
+}
+.category-table .cat-pct { font-variant-numeric: tabular-nums; font-weight: 600; }
+.category-table .cat-score { font-variant-numeric: tabular-nums; color: var(--color-text-muted); }
+.category-table tr.fail .cat-pct { color: #c8462b; }
+.category-table tr.pass .cat-pct { color: #2f6f29; }
+.cat-bar-track {
+  width: 120px;
+  height: 8px;
+  background: var(--color-line-soft, #ebebe6);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.cat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c8462b 0%, #d4a019 50%, #6ea860 100%);
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  transition: width 0.4s ease-out;
+}
+@media (max-width: 600px) {
+  .category-table .cat-bar { display: none; }
+}
+
+/* ============================================================================
+ * Kanji index filter — IMP-003.
+ * ========================================================================== */
+
+.kanji-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 24px;
+  padding: 14px 16px;
+  background: var(--color-surface, #faf9f5);
+  border: 1px solid var(--color-line, #d6d6d0);
+  border-radius: 8px;
+}
+.kanji-filter-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: var(--text-md, 16px);
+  border: 1px solid var(--color-line, #d6d6d0);
+  border-radius: 6px;
+  background: var(--color-bg, #fff);
+  color: var(--color-text);
+  min-height: 44px;
+  box-sizing: border-box;
+}
+.kanji-filter-input:focus {
+  outline: 2px solid var(--color-accent, #14452a);
+  outline-offset: -1px;
+  border-color: var(--color-accent, #14452a);
+}
+.kanji-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.kanji-filter-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-right: 4px;
+  min-width: 60px;
+}
+.kanji-chip {
+  padding: 6px 12px;
+  border: 1px solid var(--color-line, #d6d6d0);
+  background: var(--color-bg, #fff);
+  color: var(--color-text);
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  min-height: 36px;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+.kanji-chip:hover {
+  background: var(--color-surface-alt, #eef2ec);
+}
+.kanji-chip.active {
+  background: var(--color-accent, #14452a);
+  color: #fff;
+  border-color: var(--color-accent, #14452a);
+}
+.kanji-filter-count {
+  margin: 4px 0 0;
+}
+@media (max-width: 600px) {
+  .kanji-chip { min-height: 44px; padding: 8px 14px; }
+}

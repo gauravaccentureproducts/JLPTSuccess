@@ -32,16 +32,14 @@ async function loadData() {
   }
 }
 
-// initFuriganaToggle is a no-op since the auto-furigana toggle has been
-// removed from the header. Kept for compatibility with app.js wiring.
+// initFuriganaToggle: NAME IS LEGACY. The auto-furigana toggle was removed
+// in Pass-13 (2026-04-30). The function is now a thin loader for the kanji
+// whitelist used by `renderJa` to mark in-scope vs out-of-scope glyphs;
+// kept under its old name so app.js wiring stays untouched. ISSUE-004
+// (2026-05-04): dropped the dead `#furigana-toggle` DOM lookup since no
+// such element ships in index.html — the comment was confusing future readers.
 export async function initFuriganaToggle(_onChange) {
   await loadData();
-  const toggle = document.getElementById('furigana-toggle');
-  if (toggle) {
-    // Hide the legacy header toggle if it's still in the DOM.
-    const wrapper = toggle.closest('.furigana-toggle, .settings');
-    if (wrapper) wrapper.hidden = true;
-  }
 }
 
 // Legacy compatibility shims (some modules import these).

@@ -33,8 +33,52 @@ export async function renderKanji(container, params) {
   return renderDetail(container, entry, entries);
 }
 
+// IMP-003: kanji index now ships with a search/filter row.
+// Filters are AND-composed: text query matches glyph / on / kun / meaning;
+// stroke chip selects a stroke-count bracket; lesson chip selects a
+// lesson_order range. State is module-local so the filters persist while the
+// user navigates within the index but reset on a fresh page load.
+let _filterText = '';
+let _filterStroke = 'all';   // 'all' | '1-5' | '6-10' | '11-15' | '16+'
+let _filterLesson = 'all';   // 'all' | '1-30' | '31-60' | '61-90' | '91-106'
+
+function _strokeBracket(n) {
+  if (n == null) return '';
+  if (n <= 5) return '1-5';
+  if (n <= 10) return '6-10';
+  if (n <= 15) return '11-15';
+  return '16+';
+}
+function _lessonBracket(n) {
+  if (n == null) return '';
+  if (n <= 30) return '1-30';
+  if (n <= 60) return '31-60';
+  if (n <= 90) return '61-90';
+  return '91-106';
+}
+
+function _matchesFilter(e, q, strokeBr, lessonBr) {
+  if (q) {
+    const additional = e.additional_readings || {};
+    const hay = [
+      e.glyph || '',
+      ...(e.on || []),
+      ...(e.kun || []),
+      ...(additional.on || []),
+      ...(additional.kun || []),
+      ...(e.meanings || []),
+    ].join(' ').toLowerCase();
+    if (!hay.includes(q)) return false;
+  }
+  if (strokeBr !== 'all' && _strokeBracket(e.stroke_count) !== strokeBr) return false;
+  if (lessonBr !== 'all' && _lessonBracket(e.lesson_order) !== lessonBr) return false;
+  return true;
+}
+
 function renderIndex(container, entries) {
-  const cards = entries.map(e => `
+  const q = _filterText.trim().toLowerCase();
+  const filtered = entries.filter(e => _matchesFilter(e, q, _filterStroke, _filterLesson));
+  const cards = filtered.map(e => `
     <a class="kanji-card" href="#/kanji/${encodeURIComponent(e.glyph)}">
       <span class="kanji-card-glyph" lang="ja">${esc(e.glyph)}</span>
       ${e.meanings?.length ? `<span class="kanji-card-meaning">${esc(e.meanings.slice(0,2).join(', '))}</span>` : ''}
@@ -43,12 +87,72 @@ function renderIndex(container, entries) {
       </span>
     </a>
   `).join('');
+
+  const chip = (group, value, label, active) =>
+    `<button type="button" class="kanji-chip ${active ? 'active' : ''}"
+       data-filter-group="${group}" data-filter-value="${value}">${esc(label)}</button>`;
+
   container.innerHTML = `
     <a class="back-link" href="#/learn">← Back to Learn</a>
     <h2>Kanji</h2>
     <p>${entries.length} kanji at JLPT N5 level. Tap any card for readings, meanings, and stroke order.</p>
-    <div class="kanji-card-grid">${cards}</div>
+
+    <div class="kanji-filters" role="search" aria-label="Filter kanji">
+      <input type="search" id="kanji-filter-q" class="kanji-filter-input"
+        placeholder="Search reading, meaning, or glyph (e.g. みず / water / 水)"
+        value="${esc(_filterText)}" autocomplete="off" lang="ja"
+        aria-label="Search kanji by reading, meaning, or glyph">
+
+      <div class="kanji-filter-row" aria-label="Stroke count filter">
+        <span class="kanji-filter-label">Strokes:</span>
+        ${chip('stroke', 'all', 'All', _filterStroke === 'all')}
+        ${chip('stroke', '1-5', '1-5', _filterStroke === '1-5')}
+        ${chip('stroke', '6-10', '6-10', _filterStroke === '6-10')}
+        ${chip('stroke', '11-15', '11-15', _filterStroke === '11-15')}
+        ${chip('stroke', '16+', '16+', _filterStroke === '16+')}
+      </div>
+
+      <div class="kanji-filter-row" aria-label="Lesson order filter">
+        <span class="kanji-filter-label">Lesson:</span>
+        ${chip('lesson', 'all', 'All', _filterLesson === 'all')}
+        ${chip('lesson', '1-30', '1-30', _filterLesson === '1-30')}
+        ${chip('lesson', '31-60', '31-60', _filterLesson === '31-60')}
+        ${chip('lesson', '61-90', '61-90', _filterLesson === '61-90')}
+        ${chip('lesson', '91-106', '91-106', _filterLesson === '91-106')}
+      </div>
+
+      <p class="kanji-filter-count muted small" aria-live="polite">
+        Showing <strong>${filtered.length}</strong> of ${entries.length}.
+      </p>
+    </div>
+
+    <div class="kanji-card-grid">${cards || '<p class="muted">No kanji match the current filters.</p>'}</div>
   `;
+
+  const input = document.getElementById('kanji-filter-q');
+  if (input) {
+    input.addEventListener('input', () => {
+      _filterText = input.value;
+      renderIndex(container, entries);
+      // Re-focus the input after re-render and restore caret.
+      const newInput = document.getElementById('kanji-filter-q');
+      if (newInput) {
+        newInput.focus();
+        const v = newInput.value;
+        newInput.setSelectionRange(v.length, v.length);
+      }
+    });
+  }
+
+  container.querySelectorAll('[data-filter-group]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.filterGroup;
+      const value = btn.dataset.filterValue;
+      if (group === 'stroke') _filterStroke = value;
+      else if (group === 'lesson') _filterLesson = value;
+      renderIndex(container, entries);
+    });
+  });
 }
 
 function renderDetail(container, entry, entries) {

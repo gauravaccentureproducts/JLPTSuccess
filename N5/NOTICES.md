@@ -11,7 +11,7 @@ attributed below per its license.
 - **Files:** `svg/kanji/<glyph>.svg` (106 files, one per N5 kanji)
 - **License:** Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 - **License text:** <https://creativecommons.org/licenses/by-sa/3.0/>
-- **Copyright:** © 2009–2011 Ulrich Apel
+- **Copyright:** © 2009 - 2011 Ulrich Apel
 - **Modifications:** the SVG content is unmodified from upstream; only the file
   names are changed (codepoint-hex `<NNNNN>.svg` → literal-glyph `<漢>.svg`)
   to keep the on-disk filenames learner-readable. The SVG payload itself

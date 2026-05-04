@@ -12,7 +12,7 @@ This app does not collect, transmit, or store any personal data on a remote serv
 
 ## What stays on your device
 
-All learning state — answers you've given, items you've marked known, your study streak, test results, settings — is held only in your browser's `localStorage`, namespaced under `jlpt-n5-tutor:*`. It never leaves your device.
+All learning state - answers you've given, items you've marked known, your study streak, test results, settings - is held only in your browser's `localStorage`, namespaced under `jlpt-n5-tutor:*`. It never leaves your device.
 
 You can:
 

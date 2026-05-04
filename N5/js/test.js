@@ -11,6 +11,28 @@ let lastResults = null;
 let questionBank = null;
 let grammarIndex = null;
 
+// IMP-001: exam-mode timer state. The timer is only created when the user
+// opts in via the Setup screen (`exam-mode` checkbox). Stored on session so
+// renderAttempting can read it after re-renders, and torn down in submitTest.
+let timerInterval = null;
+let timerEndsAt = null;
+
+// JLPT N5 official timing per the published exam structure:
+//   文字・語彙 (Vocabulary):        25 min
+//   文法・読解 (Grammar + Reading): 50 min
+//   聴解     (Listening):         30 min
+//   total paper-based:           105 min
+// Test mode here is grammar-only (questions.json is bunpou-flavored), so a
+// 60-second-per-question budget is a fair proxy for "JLPT pace" — 20 Qs
+// budgets 20 min, 30 Qs budgets 30 min, 50 Qs budgets 50 min, all close to
+// the official pacing. Adjustable per-Q rate stored in seconds.
+const EXAM_MODE_SEC_PER_Q = 60;
+
+// JLPT N5 pass threshold: 80/180 overall = 44.4% (and 19/60 per section).
+// For test mode (variable length, grammar-only) we use a more conservative
+// 60% study-target pass mark — matches Bunpro / Try! N5 study guidance.
+const PASS_PERCENT = 60;
+
 async function loadBank() {
   if (questionBank) return questionBank;
   const res = await fetch('data/questions.json');
@@ -61,6 +83,7 @@ async function renderSetup(container) {
   const settings = storage.getSettings();
   const lastLen = settings.lastTestLength || 20;
   const noPriorTests = (storage.getResults() || []).length === 0;
+  const lastExamMode = !!settings.examMode;
 
   container.innerHTML = `
     <h2>Chapter 2 - Test</h2>
@@ -80,8 +103,13 @@ async function renderSetup(container) {
           <option value="50" ${lastLen===50?'selected':''}>50 questions</option>
         </select>
       </label>
+      <label class="exam-mode-toggle" title="Adds a countdown timer at JLPT pace (~60 seconds per question). Auto-submits at zero.">
+        <input type="checkbox" id="exam-mode" ${lastExamMode ? 'checked' : ''}>
+        <span>Exam mode (timer)</span>
+      </label>
       <button id="start-test" class="btn-primary">Start Test</button>
       <p class="bank-note">Question bank: <strong>${bank.length}</strong> available. Test length is capped at the bank size.</p>
+      <p class="bank-note muted small">Pass mark: <strong>${PASS_PERCENT}%</strong> (JLPT N5 study target).</p>
     </div>
     <hr style="border:0; border-top:1px solid var(--c-border); margin:32px 0 24px;">
     <div class="test-papers-cta">
@@ -92,8 +120,9 @@ async function renderSetup(container) {
   `;
   document.getElementById('start-test').addEventListener('click', () => {
     const len = parseInt(document.getElementById('test-length').value, 10);
-    storage.setSettings({ lastTestLength: len });
-    startTest(len, container);
+    const examMode = !!document.getElementById('exam-mode')?.checked;
+    storage.setSettings({ lastTestLength: len, examMode });
+    startTest(len, container, { examMode });
   });
 }
 
@@ -135,19 +164,52 @@ function shuffle(arr) {
 }
 
 // ---------- Start ----------
-async function startTest(length, container) {
+async function startTest(length, container, opts = {}) {
   const bank = await loadBank();
   const sampled = sampleBalanced(bank, length);
+  const examMode = !!opts.examMode;
   session = {
     questions: sampled,
     answers: {},                   // qid -> answer (string for mcq/dropdown, array for sentence_order)
     tileOrders: {},                // qid -> [] for sentence_order in-progress orders
     currentIdx: 0,
     startedAt: new Date().toISOString(),
+    examMode,                       // IMP-001
+    durationSec: examMode ? length * EXAM_MODE_SEC_PER_Q : null,
   };
+  // IMP-001: schedule the countdown clock if exam mode is on.
+  if (examMode) {
+    timerEndsAt = Date.now() + session.durationSec * 1000;
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => onTimerTick(container), 1000);
+  } else {
+    timerEndsAt = null;
+  }
   view = 'attempting';
   window.__testInProgress = true;  // Brief 2 §7.3: signals quit-prompt
   renderAttempting(container);
+}
+
+// IMP-001: timer-tick handler. Updates the visible chip; on zero, auto-submits
+// without confirmation (JLPT real exams also stop dead at the bell).
+function onTimerTick(container) {
+  if (!timerEndsAt || view !== 'attempting') return;
+  const remainingMs = timerEndsAt - Date.now();
+  const chip = document.getElementById('test-timer');
+  if (chip) {
+    const totalSec = Math.max(0, Math.ceil(remainingMs / 1000));
+    const mm = String(Math.floor(totalSec / 60)).padStart(2, '0');
+    const ss = String(totalSec % 60).padStart(2, '0');
+    chip.textContent = `${mm}:${ss}`;
+    chip.classList.toggle('danger', totalSec <= 60);
+    chip.classList.toggle('warning', totalSec > 60 && totalSec <= 300);
+  }
+  if (remainingMs <= 0) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timerEndsAt = null;
+    submitTest(container);
+  }
 }
 
 // ---------- Attempting ----------
@@ -168,11 +230,22 @@ function renderAttempting(container) {
     answerHtml = `<p class="placeholder-inline">Unsupported question type: ${esc(q.type)}</p>`;
   }
 
+  // IMP-001: timer chip text — pre-render to current remaining if exam mode.
+  let timerChipHtml = '';
+  if (session.examMode && timerEndsAt) {
+    const totalSec = Math.max(0, Math.ceil((timerEndsAt - Date.now()) / 1000));
+    const mm = String(Math.floor(totalSec / 60)).padStart(2, '0');
+    const ss = String(totalSec % 60).padStart(2, '0');
+    const cls = totalSec <= 60 ? ' danger' : (totalSec <= 300 ? ' warning' : '');
+    timerChipHtml = `<span id="test-timer" class="test-timer-chip${cls}" aria-live="polite" title="Time remaining">${mm}:${ss}</span>`;
+  }
+
   container.innerHTML = `
     <div class="test-attempting">
       <div class="test-progress">
         <div class="progress-meta">
           <span>Question <strong>${session.currentIdx + 1}</strong> of <strong>${total}</strong></span>
+          ${timerChipHtml}
           <span class="answered-count">${total - remaining} / ${total} answered</span>
         </div>
         <div class="progress-bar"><div style="width:${((session.currentIdx + 1) / total) * 100}%"></div></div>
@@ -336,6 +409,17 @@ function gradeQuestion(q, answer) {
 }
 
 function submitTest(container) {
+  // IMP-001: stop the countdown if it was running.
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  const elapsedSec = session.startedAt
+    ? Math.round((Date.now() - new Date(session.startedAt).getTime()) / 1000)
+    : null;
+  const timedOut = !!(session.examMode && timerEndsAt && Date.now() >= timerEndsAt);
+  timerEndsAt = null;
+
   const responses = session.questions.map(q => {
     const a = session.answers[q.id];
     return {
@@ -357,6 +441,9 @@ function submitTest(container) {
     correct,
     incorrect: total - correct,
     percent: total > 0 ? Math.round((correct / total) * 100) : 0,
+    examMode: session.examMode || false,
+    elapsedSec,
+    timedOut,
     responses,
   };
 
@@ -386,6 +473,54 @@ async function renderResults(container) {
     return `<li><a href="#/review">${esc(label)}</a></li>`;
   }).join('');
 
+  // IMP-002: pass / fail badge against the JLPT N5 study target.
+  const passed = result.percent >= PASS_PERCENT;
+  const passBadge = `
+    <div class="pass-badge ${passed ? 'pass' : 'fail'}" role="status">
+      ${passed
+        ? `<strong>Pass</strong> · ≥ ${PASS_PERCENT}% study target`
+        : `<strong>Below pass</strong> · target ${PASS_PERCENT}% (you got ${result.percent}%)`}
+    </div>
+  `;
+  // Optional elapsed-time / timed-out indicator (IMP-001 follow-through).
+  let timeChip = '';
+  if (typeof result.elapsedSec === 'number') {
+    const mm = Math.floor(result.elapsedSec / 60);
+    const ss = String(result.elapsedSec % 60).padStart(2, '0');
+    const tag = result.timedOut ? ' (auto-submitted at zero)' : '';
+    timeChip = `<span class="score-time muted small">Time: ${mm}m ${ss}s${tag}</span>`;
+  }
+
+  // IMP-004: per-grammar-category breakdown. questions.json items reference
+  // grammarPatternId; the grammar.json pattern carries `category` (e.g.,
+  // "Particles", "Copula", "Verbs - て-form"). Aggregate correct/total per
+  // category so the learner sees concretely where to focus next.
+  const byCategory = new Map();  // category -> { correct, total }
+  for (const r of result.responses) {
+    const p = grammarIndex.get(r.grammarPatternId);
+    const cat = (p && p.category) || 'Other';
+    if (!byCategory.has(cat)) byCategory.set(cat, { correct: 0, total: 0 });
+    const e = byCategory.get(cat);
+    e.total += 1;
+    if (r.isCorrect) e.correct += 1;
+  }
+  // Sort by lowest accuracy first (most actionable for "where to study next").
+  const breakdownRows = [...byCategory.entries()]
+    .sort((a, b) => (a[1].correct / a[1].total) - (b[1].correct / b[1].total))
+    .map(([cat, { correct, total }]) => {
+      const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+      const cls = pct >= PASS_PERCENT ? 'pass' : 'fail';
+      return `
+        <tr class="${cls}">
+          <td class="cat-name">${esc(cat)}</td>
+          <td class="cat-score">${correct} / ${total}</td>
+          <td class="cat-pct">${pct}%</td>
+          <td class="cat-bar"><div class="cat-bar-track"><div class="cat-bar-fill" style="width:${pct}%"></div></div></td>
+        </tr>
+      `;
+    })
+    .join('');
+
   container.innerHTML = `
     <div class="test-results">
       <h2>Results</h2>
@@ -398,7 +533,22 @@ async function renderResults(container) {
         <div class="score-meta">
           <span class="score-correct">${result.correct} correct</span>
           <span class="score-incorrect">${result.incorrect} incorrect</span>
+          ${timeChip}
         </div>
+        ${passBadge}
+      </section>
+
+      <section class="category-breakdown">
+        <h3>By grammar category</h3>
+        ${byCategory.size > 0 ? `
+          <table class="category-table">
+            <thead>
+              <tr><th>Category</th><th>Score</th><th>%</th><th>Distribution</th></tr>
+            </thead>
+            <tbody>${breakdownRows}</tbody>
+          </table>
+          <p class="muted small">Categories sorted by accuracy (weakest first). Pass target ${PASS_PERCENT}%.</p>
+        ` : '<p class="muted">No category metadata available for this test.</p>'}
       </section>
 
       <section class="answer-review">

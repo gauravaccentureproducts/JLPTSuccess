@@ -211,6 +211,16 @@ window.addEventListener('DOMContentLoaded', async () => {
   initSearch();
   initPwa();
   initFullscreenToggle();
+  // ISSUE-001: keep the footer version-stamp in sync with CHANGELOG.md so a
+  // forgotten manual bump never re-introduces the v1.10.2 → v1.12.27 drift.
+  // Cheap because CHANGELOG.md is precached by the SW; if the fetch fails
+  // (e.g., rare offline first-paint race) the static fallback in index.html
+  // remains visible.
+  fetch('CHANGELOG.md').then(r => r.ok ? r.text() : '').then(text => {
+    const m = text.match(/^## (v\d+\.\d+\.\d+)/m);
+    const el = document.querySelector('[data-footer-version]');
+    if (m && el) el.textContent = m[1];
+  }).catch(() => {});
   // Record study activity for streak (Brief 2 §6.1) on any meaningful interaction
   ['click', 'keydown'].forEach(evt => {
     document.addEventListener(evt, () => recordStudyToday(), { once: true });

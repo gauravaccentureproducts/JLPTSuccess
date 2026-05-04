@@ -22,8 +22,13 @@ const LEVELS = [
     label: 'Elementary',
     desc: 'Builds on N5 with everyday topics, basic written passages, and lower-frequency kanji.',
     href: '../N4/',
-    available: true,
-    external: true,  // sibling-app under the same JLPTSuccess umbrella
+    available: false,  // ISSUE-003 (2026-05-04): flipped to false to honor the
+                       // JLPTSuccess governance rule "N4 IS WORK-BLOCKED"
+                       // (parent /JLPTSuccess/.claude/CLAUDE.md). Even though
+                       // this file is dead code (parseRoute redirects #/levels
+                       // out to ../), keep the LEVELS array consistent with
+                       // the parent picker so any future re-use of this file
+                       // does not silently re-expose the work-blocked level.
   },
   {
     id: 'n3',
@@ -93,7 +98,7 @@ export function renderLevels(container) {
         }).join('')}
       </div>
       <p class="levels-foot">
-        N5 + N4 are live. N3 → N1 will fill in over time.
+        N5 is currently the active level. N4 - N1 will fill in over time.
       </p>
     </section>
   `;

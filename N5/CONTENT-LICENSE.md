@@ -21,7 +21,7 @@ Every byte of the following is original work:
 |---|---|---|
 | `data/grammar.json` (177 patterns) | 177 patterns × ~3 examples each | Project authors, with a per-pattern `examples` array hand-written to illustrate the pattern in N5-scope vocabulary |
 | `data/questions.json` (288 MCQ + variants) | 288 stems + distractor sets | Project authors, with `tools/add_uncovered_questions*.py` documenting the conventions for adding more |
-| `data/papers/*/paper-*.json` (360 paper questions across moji / goi / bunpou / dokkai) | 25 papers × ~14 questions | Project authors, sourced from internal `KnowledgeBank/*_questions_n5.md` mock files (also authored by project — see provenance audit, §3) |
+| `data/papers/*/paper-*.json` (360 paper questions across moji / goi / bunpou / dokkai) | 25 papers × ~14 questions | Project authors, sourced from internal `KnowledgeBank/*_questions_n5.md` mock files (also authored by project - see provenance audit, §3) |
 | `data/reading.json` (30 passages) | 30 short passages + 60 comprehension Qs | Project authors, with stems written to N5 kanji whitelist + format alignment with JEES sample papers |
 | `data/listening.json` (30 drills) | 30 dialogue/monologue scripts + 30 questions | Project authors, with multi-voice F1/M1 tagging for VOICEVOX synthesis |
 | `data/vocab.json` (1003 entries) | 1003 form/reading/gloss/section/pos rows | Compiled by project authors from public N5-syllabus references (see §4) |
@@ -31,7 +31,7 @@ Every byte of the following is original work:
 
 Bundled third-party content is documented in [`NOTICES.md`](./NOTICES.md):
 
-- **KanjiVG** stroke-order SVGs (`svg/kanji/<glyph>.svg`, 106 files) —
+- **KanjiVG** stroke-order SVGs (`svg/kanji/<glyph>.svg`, 106 files) - 
   CC BY-SA 3.0, attributed.
 
 That's the entire third-party surface. Everything else under `data/`
@@ -51,13 +51,13 @@ past paper, the audit catches it before commit.
 ## 4. References used (and not copied from)
 
 The following public-information sources were used **as references for
-distribution / topic / vocabulary scope** — never for question text:
+distribution / topic / vocabulary scope** - never for question text:
 
 | Source | What we took | What we did NOT take |
 |---|---|---|
-| **JEES official sample papers** (jlpt.jp) | The Mondai structure (1–7), the rough question-count distribution per Mondai, the difficulty range | Any specific question text, distractor set, or passage |
+| **JEES official sample papers** (jlpt.jp) | The Mondai structure (1 - 7), the rough question-count distribution per Mondai, the difficulty range | Any specific question text, distractor set, or passage |
 | **JLPT N5 official syllabus** (published by JEES) | The kanji list (106 chars), the vocabulary scope (~800 core entries; we expanded to 1003 with related N5 vocabulary), the grammar inventory (~150 patterns; we cover 177 with related forms) | Anything that would constitute the "exam itself" |
-| **Tofugu / WaniKani / Imabi / Bunpro / JLPTsensei / Tae Kim** | Pattern explanations, common-mistake lists, register notes — used as cross-references when authoring our own `meaning_en` / `notes` fields | Any verbatim text |
+| **Tofugu / WaniKani / Imabi / Bunpro / JLPTsensei / Tae Kim** | Pattern explanations, common-mistake lists, register notes - used as cross-references when authoring our own `meaning_en` / `notes` fields | Any verbatim text |
 | **KANJIDIC2 + JMdict** | On / kun reading lists per kanji, frequency rank | We re-derived our own primary-reading flags + example sentences |
 | **JLPT past-paper *analysis* (third-party books, learner blogs)** | Question-distribution facts, common topics in dokkai (school / shopping / family / weather), characteristic phrasings of Mondai instructions | The actual past-paper questions themselves |
 
@@ -71,7 +71,7 @@ The MCQ paper structure (Mondai 1 文の文法1 60-question section,
 Mondai 2 並べ替え 30-question section, Mondai 3 passage-based
 10-question section, etc.) follows the **standard JLPT N5 format**.
 This is a fact about the test, documented in dozens of learner books
-and on jlpt.jp. The format itself is not copyrightable — only specific
+and on jlpt.jp. The format itself is not copyrightable - only specific
 question text is. Our paper structure mirrors the official one
 deliberately so the student's practice transfers to the real exam.
 
@@ -92,7 +92,7 @@ deliberately so the student's practice transfers to the real exam.
 
 We're open to it. If you represent JEES or the Japan Foundation and
 have a concern about anything in this repo, please contact the
-project owner (see `README.md`) — we'll respond within 7 days. The
+project owner (see `README.md`) - we'll respond within 7 days. The
 provenance audit should support any specific question; if there's a
 specific stem that closely resembles a past paper despite §3 above,
 we'll rewrite it.
@@ -106,8 +106,8 @@ happy to discuss.
 
 The repository's overall license is in `LICENSE`. The content (data
 files, question text, examples, explanations) is governed by that
-license. Any reuse — including by AI training pipelines, commercial
-JLPT-prep products, or other open-source projects — is subject to
+license. Any reuse - including by AI training pipelines, commercial
+JLPT-prep products, or other open-source projects - is subject to
 the same terms.
 
 ---

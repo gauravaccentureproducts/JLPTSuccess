@@ -1,11 +1,24 @@
 # -*- coding: utf-8 -*-
-"""Build JLPT N5 Grammar Tutor Functional Specification as a .docx file.
+"""Build JLPT N5 Tutor Functional Specification as a .docx file.
 
 Run from the repo root:
     python tools/build_spec.py
 
-Overwrites: JLPT N5 Grammar Tutor - Functional Spec.docx
+Output:     specifications/JLPT N5 Grammar Tutor - Functional Spec.docx
 Requires:   pip install python-docx
+
+REPRODUCIBILITY (IMP-017 disposition, 2026-05-04):
+  - All input is inline in this file plus the markdown supplement at
+    specifications/JLPT-N5-Functional-Spec-v3.1-supplement.md. No external
+    state; running twice on the same sources yields a byte-identical .docx
+    (modulo python-docx zip-container fingerprints).
+  - The output filename retains "Grammar Tutor" for stable inbound links
+    from older audit notes and prior releases. The current product name is
+    "JLPT N5 Tutor" (ISSUE-002, 2026-05-04 audit) — the rename was applied
+    to the README, manifest, and in-app surfaces; the spec docx stayed
+    under its historical name.
+  - No flags. No CLI args. No env vars.
+  - To regen in CI: `pip install python-docx==0.8.11 && python tools/build_spec.py`.
 """
 from pathlib import Path
 from docx import Document

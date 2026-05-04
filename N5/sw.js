@@ -1,24 +1,34 @@
 // Service worker - offline caching for the static app.
 // Strategy (Brief 2 §12.1):
-//   * On install: pre-cache the shell.
-//   * Shell (HTML / CSS / JS): stale-while-revalidate. Serve cache instantly,
-//     refresh in the background; post a message to clients when a new shell
-//     is fetched so the page can show "Update available - reload?" toast.
-//   * Content (data/audio/locales/manifest): cache-first.
+//   * On install: pre-cache the SHELL only — HTML, CSS, JS modules, font
+//     subsets, the JSON catalogs (grammar / vocab / kanji / reading /
+//     listening / questions / whitelists), the i18n locales, and the 106
+//     kanji stroke-order SVGs. Total ~3 MB.
+//   * Audio MP3s (~22 MB across grammar/reading/listening) are NOT
+//     precached. They are cached lazily on first fetch via the cache-first
+//     branch of the fetch handler. This means a learner who never opens a
+//     listening drill never downloads its audio. (IMP-013 disposition,
+//     2026-05-04 audit: the prior assumption that 22 MB hit on first visit
+//     was wrong; audio is already on-demand.)
+//   * Shell (HTML / CSS / JS): stale-while-revalidate. Serve cache
+//     instantly, refresh in the background; post a SW_UPDATE_AVAILABLE
+//     message to clients when a new shell version is fetched so the page
+//     can show an "Update available - reload?" toast.
+//   * Content (data/locales/manifest/audio): cache-first.
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1';
+const CACHE_VERSION = 'jlptsuccess-n5-v2';
 
 const PRECACHE = [
   './',
   './index.html',
   './manifest.webmanifest',
-  './README.md',
-  './TASKS.md',
+  // PRIVACY.md is the only narrative doc the app actually links to in the
+  // footer. README/TASKS/NOTICES/CONTENT-LICENSE are repo docs; they're
+  // viewable on GitHub but not required for the running app and don't need
+  // to occupy precache slots. Removed 2026-05-04 (IMP-013 disposition).
   './PRIVACY.md',
-  './NOTICES.md',
-  './CONTENT-LICENSE.md',
   './css/main.css',
   './js/app.js',
   './js/storage.js',
