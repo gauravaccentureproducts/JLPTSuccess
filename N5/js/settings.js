@@ -89,6 +89,18 @@ export async function renderSettings(container) {
           <option value="off"  ${s.reduceMotion===false?'selected':''}>Never reduce</option>
         </select>
       </label>
+      <label class="settings-row">
+        <span>
+          Auto-furigana (experimental)
+          <span class="setting-help muted small" style="display:block; margin-top:2px;">
+            Adds ruby readings on a small whitelist of single-reading kanji
+            (counters, days, fixed compounds). Off by default — Pass-13
+            review found broader auto-ruby produced wrong context-dependent
+            readings. Risk-accepted as opt-in.
+          </span>
+        </span>
+        <input type="checkbox" id="set-auto-furigana" ${s.autoFurigana ? 'checked' : ''}>
+      </label>
     </section>
 
     <section class="settings-section">
@@ -184,6 +196,13 @@ export async function renderSettings(container) {
   document.getElementById('set-daily-goal').addEventListener('change', (e) => {
     storage.setSettings({ dailyGoalReviews: parseInt(e.target.value, 10) });
     showSavedToast(`Daily review goal = ${e.target.value}`);
+  });
+  // IMP-006: auto-furigana opt-in.
+  document.getElementById('set-auto-furigana').addEventListener('change', (e) => {
+    storage.setSettings({ autoFurigana: !!e.target.checked });
+    showSavedToast(`Auto-furigana = ${e.target.checked ? 'on' : 'off'}`);
+    // Trigger a re-render so the change is visible immediately.
+    document.dispatchEvent(new CustomEvent('furigana-rerender'));
   });
   document.getElementById('set-audio-rate').addEventListener('change', (e) => {
     storage.setSettings({ audioPlaybackRate: parseFloat(e.target.value) });

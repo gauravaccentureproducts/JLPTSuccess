@@ -83,7 +83,12 @@ function parseRoute() {
 
 function setActiveNav(name) {
   document.querySelectorAll('.primary-nav a').forEach(a => {
-    a.classList.toggle('active', a.dataset.route === name);
+    const isActive = a.dataset.route === name;
+    a.classList.toggle('active', isActive);
+    // IMP-012 (audit round-3): a11y — expose the active nav link to
+    // assistive tech. aria-current="page" is the canonical signal.
+    if (isActive) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
   });
   // Also publish the active route as a body data attribute so the CSS
   // can hide the primary nav + search on the level picker and on the
@@ -258,10 +263,21 @@ window.addEventListener('DOMContentLoaded', async () => {
 // Re-render the active route when furigana mode changes (Brief 2 §4.1, §4.2)
 // without losing scroll - listens for the custom event from Settings + popover.
 document.addEventListener('furigana-rerender', () => { route(); });
-// Apply audio rate on every route change (any new <audio> elements).
+// Apply audio rate + custom skin to every new <audio> on route change.
+// IMP-007/IMP-010/IMP-038 (audit round-3): the bare <audio controls> is
+// replaced by a skinned wrapper with skip-back-5s, skip-forward-5s,
+// and per-clip 0.75/1.0/1.25× rate buttons. enhanceAudioPlayers is
+// idempotent — already-enhanced nodes are no-ops.
 document.addEventListener('DOMContentLoaded', () => {
-  const obs = new MutationObserver(() => applyAudioRate());
-  obs.observe(document.getElementById('app') || document.body, { childList: true, subtree: true });
+  import('./audio-player.js').then(({ enhanceAudioPlayers }) => {
+    const root = document.getElementById('app') || document.body;
+    const obs = new MutationObserver(() => {
+      applyAudioRate();
+      enhanceAudioPlayers(root);
+    });
+    obs.observe(root, { childList: true, subtree: true });
+    enhanceAudioPlayers(root);
+  });
 });
 
 // Fullscreen toggle (top-right header). Clicking the button toggles between

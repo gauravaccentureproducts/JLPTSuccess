@@ -46,6 +46,10 @@ const PRECACHE = [
   // history view + full mock-paper sitting flow.
   './js/missed.js',
   './js/sitting.js',
+  // IMP-007/IMP-010/IMP-038 (audit round-3): custom audio-player skin.
+  // Lazy-loaded by app.js on DOMContentLoaded so first paint isn't
+  // delayed; precache so the dynamic import resolves offline.
+  './js/audio-player.js',
   './js/test.js',
   './js/review.js',
   './js/summary.js',

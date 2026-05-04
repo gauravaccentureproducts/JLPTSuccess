@@ -3001,6 +3001,93 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .sitting-break-actions { margin-top: var(--space-4); }
 .sitting-result { max-width: 640px; }
 
+/* IMP-007 / IMP-010 / IMP-038 (audit round-3): custom audio-player skin
+ * wraps the native <audio>. Skip-back-5s + skip-forward-5s + per-clip
+ * 0.75/1.0/1.25× rate buttons. Native player stays in the DOM as a
+ * keyboard-accessibility fallback but is hidden so the custom controls
+ * are the visible surface. */
+.audio-skin {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border: 0.5px solid var(--color-line);
+  border-radius: 6px;
+  padding: var(--space-2);
+  background: var(--color-surface, #fff);
+  max-width: 100%;
+}
+.audio-skin-native {
+  /* Hide visually but keep keyboard-focusable. */
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.audio-skin-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  font-variant-numeric: tabular-nums;
+}
+.audio-skin-btn {
+  appearance: none;
+  border: 0.5px solid var(--color-line);
+  background: var(--color-surface, #fff);
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  min-height: 28px;
+}
+.audio-skin-btn:hover { background: var(--color-surface-alt); }
+.audio-skin-play { font-size: var(--text-base); min-width: 36px; }
+.audio-skin-time {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-left: auto;
+}
+.audio-skin-rates { display: inline-flex; gap: 4px; }
+.audio-skin-rate {
+  appearance: none;
+  border: 0.5px solid var(--color-line);
+  background: var(--color-surface, #fff);
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: var(--text-xs);
+  min-height: 26px;
+  font-variant-numeric: tabular-nums;
+}
+.audio-skin-rate.active {
+  background: var(--color-accent);
+  color: var(--color-on-accent, #fff);
+  border-color: var(--color-accent);
+}
+
+/* IMP-012 (audit round-3): a11y sweep — universal focus-visible ring
+ * fallback. Every focusable element that doesn't already declare a
+ * focus-visible style gets a 2px accent ring with 2px offset, matching
+ * the existing button focus treatment. WCAG 2.4.7 (Focus Visible).
+ *
+ * Scoped by `:focus-visible` (not `:focus`) so mouse clicks don't show
+ * the ring — only keyboard / accessibility-tooling navigation does. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Active primary-nav link: visual + a11y (aria-current="page" is set
+ * by app.js). */
+.primary-nav a[aria-current="page"] {
+  text-decoration-thickness: 2px;
+}
+
 /* All four major homepage sections share the same vertical rhythm. */
 .syllabus-overview,
 .syllabus-study-order,

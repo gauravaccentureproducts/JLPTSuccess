@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "JLPT N5 Grammar Tutor",
+    "title": "JLPT N5 study material",
     "tagline": "Learn. Test. Review. Master."
   },
   "nav": {
@@ -8,9 +8,14 @@
     "test": "Test",
     "drill": "Daily Drill",
     "review": "Review",
-    "summary": "Summary",
+    "summary": "Progress",
     "settings": "Settings",
-    "diagnostic": "Diagnostic"
+    "diagnostic": "Diagnostic",
+    "kanji": "Kanji",
+    "reading": "Reading",
+    "listening": "Listening",
+    "missed": "Wrong-answer history",
+    "sitting": "Mock sitting"
   },
   "drill": {
     "start": "Start drill",
@@ -23,25 +28,68 @@
     "submit_remaining": "Submit (${n} remaining)",
     "next": "Next",
     "previous": "Previous",
-    "score": "Score"
+    "score": "Score",
+    "pass_mark": "Pass mark",
+    "exam_mode": "Exam mode (timer)",
+    "by_category": "By grammar category",
+    "by_type": "By question type",
+    "answer_review": "Answer Review",
+    "gap_list": "Grammar Gap List"
   },
   "settings": {
     "title": "Settings",
     "language": "UI language",
     "furigana": "Furigana on N5 kanji",
+    "auto_furigana": "Auto-furigana (experimental)",
     "theme": "Theme",
     "theme_system": "System",
     "theme_light": "Light",
     "theme_dark": "Dark",
     "font_size": "Font size",
+    "daily_new_limit": "Daily new-card limit",
+    "daily_review_cap": "Daily review cap",
+    "daily_goal": "Daily review goal",
+    "audio_speed": "Audio playback speed",
+    "reduce_motion": "Reduce motion",
+    "keyboard": "Keyboard",
+    "keyboard_hint": "Press ? on any page to open the keyboard-shortcuts cheatsheet.",
     "export": "Export progress",
     "import": "Import progress",
-    "reset": "Reset all progress"
+    "reset": "Reset all progress",
+    "danger_zone": "Danger zone"
   },
   "review": {
     "grade_again": "Again",
     "grade_hard": "Hard",
     "grade_good": "Good",
-    "grade_easy": "Easy"
+    "grade_easy": "Easy",
+    "missed_title": "Wrong-answer history",
+    "missed_clear": "Clear history",
+    "no_misses": "You haven't missed anything recently — keep practising."
+  },
+  "home": {
+    "syllabus_title": "JLPT N5 Syllabus",
+    "syllabus_subtitle": "Study grammar, vocabulary, kanji, reading, and listening in a structured order.",
+    "today_label": "Today",
+    "no_reviews_due": "No reviews due",
+    "reviews_due": "${n} reviews due",
+    "practiced_today": "Practiced today",
+    "not_yet_practiced": "Not yet practiced today",
+    "forecast_label": "Review forecast (7 days)"
+  },
+  "kanji": {
+    "popover_strokes": "${n} strokes",
+    "other_readings": "Other readings (not taught at N5)",
+    "none_at_n5": "(none at N5)",
+    "in_a_sentence": "In a sentence"
+  },
+  "sitting": {
+    "title": "Full mock-test sitting",
+    "section_1": "Moji + Goi",
+    "section_2": "Bunpou + Dokkai",
+    "section_3": "Listening",
+    "break": "Break",
+    "skip_break": "Skip break, start now",
+    "sitting_complete": "Sitting complete"
   }
 }
