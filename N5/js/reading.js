@@ -43,8 +43,40 @@ async function loadBank() {
   return bank;
 }
 
-export async function renderReading(container) {
+// 2026-05-05: per-passage deep links via #/reading/<id>. Mirrors how
+// kanji (#/kanji/<glyph>), grammar (#/learn/<id>), and vocab
+// (#/learn/vocab/<form>) detail pages route, so prev/next navigation
+// in renderRead can use plain <a href> links without bespoke session
+// manipulation. Empty params still falls through to the index, and
+// session continuity is preserved when the user navigates to
+// `#/reading` mid-flow (back-link only).
+function _setUpSessionFor(passage) {
+  const settings = (typeof storage !== 'undefined' && storage.getSettings)
+    ? storage.getSettings() : {};
+  const mockTestMode = !!settings.readingMockTestMode;
+  const filtered = mockTestMode
+    ? { ...passage, questions: (passage.questions || []).filter(
+          q => q.format_role === 'primary' || !q.format_role) }
+    : passage;
+  session = { passage: filtered, phase: 'read', answers: {}, idx: 0 };
+}
+
+export async function renderReading(container, params) {
   await loadBank();
+  const slug = params ? decodeURIComponent(params) : '';
+  if (slug) {
+    const passages = bank.passages || [];
+    const found = passages.find(p => p.id === slug);
+    if (found) {
+      // Always set up a fresh session for the targeted passage. Prev/next
+      // nav clicks land here and overwrite any in-progress session for a
+      // different passage (the back-link is the way to abandon).
+      if (!session || session.passage?.id !== found.id) {
+        _setUpSessionFor(found);
+      }
+      return renderSession(container);
+    }
+  }
   if (session) return renderSession(container);
   return renderIndex(container);
 }
@@ -88,14 +120,11 @@ function renderIndex(container) {
   });
   container.querySelectorAll('[data-id]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const p = passages.find(x => x.id === btn.dataset.id);
-      // When mock-test mode is on, narrow the question list to primaries.
-      const filtered = mockTestMode
-        ? { ...p, questions: (p.questions || []).filter(
-              q => q.format_role === 'primary' || !q.format_role) }
-        : p;
-      session = { passage: filtered, phase: 'read', answers: {}, idx: 0 };
-      renderSession(container);
+      // 2026-05-05: navigate via hash so the URL is shareable + the
+      // prev/next nav in renderRead can use the same routing.
+      // Session setup happens inside renderReading() when it receives
+      // the params; mock-test filtering preserved there.
+      location.hash = `#/reading/${encodeURIComponent(btn.dataset.id)}`;
     });
   });
 }
@@ -108,6 +137,26 @@ function renderSession(container) {
 }
 
 function renderRead(container, p) {
+  // Prev / next passage nav (2026-05-05). Walks bank.passages in their
+  // declared order — same source the index page uses (easy → medium →
+  // info-search). Mirrors the .kanji-nav / .vocab-nav patterns:
+  // compact link with the destination's title; empty <span> placeholder
+  // so the flex layout stays balanced when prev or next is missing.
+  const passages = bank?.passages || [];
+  const idx = passages.findIndex(x => x.id === p.id);
+  const prev = idx > 0 ? passages[idx - 1] : null;
+  const next = idx >= 0 && idx < passages.length - 1 ? passages[idx + 1] : null;
+  const navHtml = `
+    <nav class="reading-nav" aria-label="Passage navigation">
+      ${prev
+        ? `<a href="#/reading/${encodeURIComponent(prev.id)}" title="${esc(prev.title_ja || prev.id)}">← <span lang="ja">${renderJa(prev.title_ja || prev.id)}</span></a>`
+        : '<span></span>'}
+      ${next
+        ? `<a href="#/reading/${encodeURIComponent(next.id)}" title="${esc(next.title_ja || next.id)}"><span lang="ja">${renderJa(next.title_ja || next.id)}</span> →</a>`
+        : '<span></span>'}
+    </nav>
+  `;
+
   container.innerHTML = `
     <article class="reading-passage">
       <div class="srs-progress">
@@ -123,6 +172,7 @@ function renderRead(container, p) {
         </div>
       ` : ''}
       <button id="reading-start-q" class="btn-primary">${renderJa('しつもんを はじめる')} (${p.questions.length})</button>
+      ${navHtml}
     </article>
   `;
   document.getElementById('reading-back').addEventListener('click', (e) => {

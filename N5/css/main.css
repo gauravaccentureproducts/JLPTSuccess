@@ -3786,6 +3786,26 @@ ruby[data-glyph] { cursor: pointer; }
 .kanji-stroke-credit { margin-top: 8px; font-size: 12px; }
 .kanji-stroke-credit a { color: var(--color-accent, #1F4D2E); }
 .kanji-nav { display: flex; justify-content: space-between; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--c-border); }
+/* Reading-passage prev/next nav (2026-05-05). Mirrors .kanji-nav /
+ * .vocab-nav so passage detail pages get the same end-of-page
+ * navigation as Grammar / Vocabulary / Kanji. Title text can be long
+ * so each link gets a max-width to keep the layout balanced when the
+ * two passage titles differ in length. */
+.reading-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-border);
+}
+.reading-nav > a,
+.reading-nav > span {
+  max-width: 48%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /* ============================================================================
  * Fit-screen layout for kanji detail (added 2026-05-02 per user direction).
