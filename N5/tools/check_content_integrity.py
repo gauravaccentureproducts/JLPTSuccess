@@ -830,7 +830,18 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
     SKIP_FIELDS = {"translation_en", "explanation_en", "meaning_en", "gloss",
                    "title_en", "prompt_en", "distractor_explanations",
                    "common_mistakes", "reading", "furigana"}
+    # Subtrees rooted at these keys are skipped entirely (their children too).
+    # ISSUE-068 (round-7 2026-05-06): common_mistakes contains Japanese
+    # example sentences that may use any kanji to illustrate the wrong/right
+    # pair (the whole point of the field is showing native-grade Japanese).
+    # The previous SKIP_FIELDS-on-leaf logic missed these because walk()
+    # descended into the dict and the leaf's key became 'wrong'/'right'/'why',
+    # not 'common_mistakes'. Subtree-skip closes that hole.
+    SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations"}
+
     def walk(obj, key, path, hits):
+        if key in SKIP_SUBTREE_FIELDS:
+            return
         if isinstance(obj, str):
             if key in SKIP_FIELDS: return
             for ch in obj:

@@ -238,7 +238,10 @@
       "gloss_id": "keluarga",
       "gloss_ne": "परिवार",
       "gloss_zh": "家人",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 家族 ('clan, extended family'); in Japanese 家族 means immediate household family (one's own household). Use 一族 for clan-level."
+      }
     },
     {
       "id": "n5.vocab.2-people-family.父",
@@ -678,7 +681,10 @@
       "gloss_id": "pria",
       "gloss_ne": "पुरुष",
       "gloss_zh": "男人",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 男 (nán) is neutral 'male / man'; in Japanese 男 (おとこ) standalone is informal/blunt. Polite is 男性 (だんせい) or 男の人."
+      }
     },
     {
       "id": "n5.vocab.2-people-family.女",
@@ -698,7 +704,10 @@
       "gloss_id": "wanita",
       "gloss_ne": "महिला",
       "gloss_zh": "女人",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 女 (nǚ) is a neutral 'female / woman'; in Japanese 女 (おんな) standalone is informal/blunt. Polite is 女性 (じょせい) or 女の人."
+      }
     },
     {
       "id": "n5.vocab.2-people-family.大人",
@@ -753,7 +762,10 @@
           "translation_en": "I am a university student."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 学生 covers all education levels; in Japanese 学生 typically refers to university/college students. For elementary/junior high use 小学生/中学生 specifically."
+      }
     },
     {
       "id": "n5.vocab.3-people-roles.せいと",
@@ -783,7 +795,10 @@
           "translation_en": "I asked the teacher a question."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 先生 ('Mr.' / 'sir', polite address for any adult man); in Japanese 'teacher / doctor / professional', much narrower."
+      }
     },
     {
       "id": "n5.vocab.3-people-roles.いしゃ",
@@ -2628,7 +2643,10 @@
       "gloss_id": "waktu, jam",
       "gloss_ne": "समय, घण्टा",
       "gloss_zh": "时间, 小时",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 时间 ('time'); in Japanese 時間 also means 'time' BUT also serves as a duration counter ('hours': 二時間 = two hours). Mandarin uses 小时 for 'hours'."
+      }
     },
     {
       "id": "n5.vocab.10-time-general.とけい",
@@ -5972,7 +5990,10 @@
       "gloss_id": "pohon",
       "gloss_ne": "रूख",
       "gloss_zh": "树",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 机 (jī) ='machine' / 'opportunity'; in Japanese 机 (つくえ) means 'desk', 機 (き) is 'machine'. The simplified-Chinese 机 maps to Japanese 机 (desk), but the Mandarin meaning is 'machine'."
+      }
     },
     {
       "id": "n5.vocab.14-nature-and-weather.花",
@@ -9172,7 +9193,10 @@
       "gloss_id": "surat",
       "gloss_ne": "चिठी",
       "gloss_zh": "信",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Looks like Mandarin 手纸 ('toilet paper'); in Japanese means 'letter (correspondence)'."
+      }
     },
     {
       "id": "n5.vocab.22-money-and-shopping.にもつ",
@@ -9252,7 +9276,10 @@
       "gloss_id": "mobil",
       "gloss_ne": "कार",
       "gloss_zh": "车, 汽车",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 车 covers all vehicles; in Japanese 車 most commonly means 'car/automobile'. For 'bicycle' use 自転車; for 'train' use 電車."
+      }
     },
     {
       "id": "n5.vocab.23-transport.じどうしゃ",
@@ -9412,7 +9439,10 @@
       "gloss_id": "kereta bawah tanah",
       "gloss_ne": "भूमिगत रेल",
       "gloss_zh": "地铁",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "false_friends": {
+        "zh": "Mandarin 地铁 ('subway'); Japanese 地下鉄 also 'subway' — same meaning, but the kanji 鉄 (iron) is jarring to Mandarin readers since simplified Chinese uses 铁."
+      }
     },
     {
       "id": "n5.vocab.23-transport.ひこうき",
@@ -9507,7 +9537,10 @@
           "translation_en": "I study every day."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 勉强 means 'reluctantly / barely'; in Japanese 勉強 means 'study'. Mandarin learners must un-learn the negative connotation."
+      }
     },
     {
       "id": "n5.vocab.24-school-and-study.じゅぎょう",
@@ -9867,7 +9900,10 @@
           "translation_en": "I read the newspaper in the morning."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 新闻 means 'news (broadcast)'; in Japanese 新聞 means 'newspaper (printed)'. For TV news use ニュース."
+      }
     },
     {
       "id": "n5.vocab.24-school-and-study.かみ",
@@ -10227,7 +10263,10 @@
           "translation_en": "China is a big country."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 中国 ('China'); in Japanese ALSO refers to a region of Western Honshu (中国地方 — Hiroshima, Okayama etc.). 'China' is unambiguously 中国 in news context, but in regional context it can mean the Japanese region."
+      }
     },
     {
       "id": "n5.vocab.25-languages-and-countri.中国語",
@@ -11107,7 +11146,9 @@
           "translation_en": "I cut paper with scissors."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "cut",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つくる",
@@ -11242,7 +11283,9 @@
           "translation_en": "Please enter the room."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "enter",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はく",
@@ -11430,7 +11473,9 @@
           "translation_en": "The class begins."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "begin",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かえる",
@@ -11730,7 +11775,9 @@
           "translation_en": "I arrived at the station at seven."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "switch_on",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならう",
@@ -11840,7 +11887,9 @@
           "translation_en": "The window is open."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "open",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しまる",
@@ -11855,7 +11904,9 @@
           "translation_en": "The shop closes at 9."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "close",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.だす",
@@ -11870,7 +11921,9 @@
           "translation_en": "I take a book out of the bag."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "exit",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おとす",
@@ -11885,7 +11938,9 @@
           "translation_en": "I dropped the key."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "drop",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふく",
@@ -12010,7 +12065,9 @@
           "translation_en": "The car stopped."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "stop",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おく",
@@ -12090,7 +12147,9 @@
           "translation_en": "I turn off the light."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "switch_off",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いる",
@@ -12165,7 +12224,9 @@
           "translation_en": "I get up at seven."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "wake",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出る",
@@ -12180,7 +12241,9 @@
           "translation_en": "I leave the house."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "exit",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.入れる",
@@ -12195,7 +12258,9 @@
           "translation_en": "I put the book in the bag."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "enter",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あける",
@@ -12214,7 +12279,9 @@
           "translation_en": "I open the window."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "open",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる",
@@ -12229,7 +12296,9 @@
           "translation_en": "I close the door."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "close",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おしえる",
@@ -12349,7 +12418,9 @@
           "translation_en": "I put on a shirt."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "cut",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つける",
@@ -12364,7 +12435,9 @@
           "translation_en": "I turn on the TV."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "switch_on",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ならべる",
@@ -12394,7 +12467,9 @@
           "translation_en": "I started studying Japanese."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "begin",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見せる",
@@ -12439,7 +12514,9 @@
           "translation_en": "I make coffee."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "enter",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あつめる",
@@ -12469,7 +12546,9 @@
           "translation_en": "The light went off."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "switch_off",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おちる",
@@ -12484,7 +12563,9 @@
           "translation_en": "The bag fell."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "drop",
+      "transitivity": "intransitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はれる",
@@ -12559,7 +12640,9 @@
           "translation_en": "I close the door."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pair_id": "close",
+      "transitivity": "transitive"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つとめる",
@@ -13544,7 +13627,10 @@
           "translation_en": "This book is interesting."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 面白 ('pale-faced'); in Japanese 面白い means 'interesting / fun'. The kanji breakdown 'face' + 'white' is misleading."
+      }
     },
     {
       "id": "n5.vocab.31-adjectives.つまらない",
@@ -14108,7 +14194,10 @@
           "translation_en": "Are you okay?"
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Looks like Mandarin 大丈夫 ('big husband'); in Japanese means 'OK / no problem'. The literal kanji breakdown is misleading."
+      }
     },
     {
       "id": "n5.vocab.32-adjectives.べんり",
@@ -14318,7 +14407,10 @@
           "translation_en": "What a fine tea."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 结构 ('structure'); in Japanese 結構 means 'fine / no thank you' (when refusing) or 'quite / rather' (adverb). Refusing food with 結構です sounds polite, not structural."
+      }
     },
     {
       "id": "n5.vocab.32-adjectives.たいせつ",
@@ -14378,7 +14470,10 @@
           "translation_en": "This desk is sturdy."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 丈夫 ('husband'); in Japanese means 'sturdy / durable'. Different domain entirely."
+      }
     },
     {
       "id": "n5.vocab.32-adjectives.いや",
@@ -14598,7 +14693,10 @@
           "translation_en": "I like summer the best."
         }
       ],
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "false_friends": {
+        "zh": "Mandarin 一番 ('one round / one time') as a counter; in Japanese 一番 means 'most / number one (best)' as an adverb/adjective."
+      }
     },
     {
       "id": "n5.vocab.33-adverbs.とくに",
