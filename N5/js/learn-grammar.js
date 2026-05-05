@@ -6,6 +6,21 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
+import { currentLocale } from './i18n.js';
+
+// IMP-045 (audit round-5): pick locale-aware grammar explanation when
+// present (native_reviewed only — see data/grammar.json
+// `_translation_status` policy), else fall back to English. Per-locale
+// fields are explanation_vi/_id/_ne/_zh; absence is the default state
+// until reviewers fill them via the docs/TRANSLATING.md workflow.
+function localizedExplanation(p) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = p[`explanation_${lc}`];
+    if (typeof localized === 'string' && localized.trim()) return localized;
+  }
+  return p.explanation_en || '';
+}
 
 // Render-time mapping: 32 fine-grained categories in data/grammar.json
 // to 5 pedagogically-coherent super-categories. Every fine category is
@@ -389,7 +404,7 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
 
       <section>
         <h3 class="section-title">Explanation</h3>
-        <p>${esc(p.explanation_en)}</p>
+        <p>${esc(localizedExplanation(p))}</p>
       </section>
 
       <section>

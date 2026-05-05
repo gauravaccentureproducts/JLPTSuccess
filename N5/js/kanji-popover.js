@@ -4,6 +4,17 @@
 // The "known" flag persists in localStorage and feeds into furigana mode
 // 'hide-known', so toggling a kanji to known immediately hides its ruby.
 import * as storage from './storage.js';
+import { currentLocale } from './i18n.js';
+
+// IMP-047 (audit round-5): same locale-aware fallback as kanji.js.
+function localizedMeanings(entry) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = entry[`meanings_${lc}`];
+    if (Array.isArray(localized) && localized.length) return localized;
+  }
+  return entry.meanings || [];
+}
 
 let bank = null;
 let popoverEl = null;
@@ -83,7 +94,7 @@ async function showPopover(glyph, anchor) {
         ${entry.kun?.length
             ? `<dt>Kun</dt><dd lang="ja">${entry.kun.map(esc).join(' / ')}</dd>`
             : (Array.isArray(entry.kun) ? `<dt>Kun</dt><dd class="muted small">(none at N5)</dd>` : '')}
-        ${entry.meanings?.length ? `<dt>Meaning</dt><dd>${entry.meanings.map(esc).join(', ')}</dd>` : ''}
+        ${(() => { const m = localizedMeanings(entry); return m.length ? `<dt>Meaning</dt><dd>${m.map(esc).join(', ')}</dd>` : ''; })()}
       </dl>
       ${(addOn.length || addKun.length) ? `
         <details class="kanji-popover-additional">

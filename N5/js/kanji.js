@@ -4,6 +4,19 @@
 // The stroke-order SVG path lives in data/kanji.json under stroke_order_svg;
 // the SVG file itself ships separately (KanjiVG drop-in target).
 import * as storage from './storage.js';
+import { currentLocale } from './i18n.js';
+
+// IMP-047 (audit round-5): pick locale-aware meanings if available, else
+// fall back to English. Per-locale fields are `meanings_vi/_id/_ne/_zh`;
+// `meanings` is the canonical English source-of-truth.
+function localizedMeanings(entry) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = entry[`meanings_${lc}`];
+    if (Array.isArray(localized) && localized.length) return localized;
+  }
+  return entry.meanings || [];
+}
 
 let bank = null;
 
@@ -219,7 +232,7 @@ function renderDetail(container, entry, entries) {
             ${entry.kun?.length
                 ? `<p><strong>Kun:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>`
                 : (Array.isArray(entry.kun) ? `<p><strong>Kun:</strong> <span class="muted small">(none at N5)</span></p>` : '')}
-            ${entry.meanings?.length ? `<p><strong>Meaning:</strong> ${entry.meanings.map(esc).join(', ')}</p>` : ''}
+            ${(() => { const m = localizedMeanings(entry); return m.length ? `<p><strong>Meaning:</strong> ${m.map(esc).join(', ')}</p>` : ''; })()}
           </div>
         </div>
         <label class="known-toggle" title="Manually mark this kanji as known. Cleared on the next miss in Test or Drill.">

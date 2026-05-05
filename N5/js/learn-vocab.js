@@ -5,6 +5,19 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
+import { currentLocale } from './i18n.js';
+
+// IMP-046 (audit round-5): pick locale-aware vocab gloss when present,
+// else fall back to English. The translated subset (~120 entries) carries
+// `gloss_vi/_id/_ne/_zh`; remaining entries fall through to `gloss`.
+function localizedGloss(entry) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = entry[`gloss_${lc}`];
+    if (typeof localized === 'string' && localized.trim()) return localized;
+  }
+  return entry.gloss || '';
+}
 
 // Render-time mapping: 40 fine-grained vocab sections -> 6 super-sections.
 // Same pattern as GRAMMAR_SUPERCATS in learn-grammar.js. Data file unchanged.
@@ -108,7 +121,7 @@ export function renderVocabularyList(container, data) {
         <a class="vocab-card" href="#/learn/vocab/${encodeURIComponent(v.form || '')}">
           <span class="vocab-form" lang="ja">${esc(v.form || '')}</span>
           ${v.reading ? `<span class="vocab-reading" lang="ja">${esc(v.reading)}</span>` : ''}
-          <span class="vocab-gloss">${esc(v.gloss || '')}</span>
+          <span class="vocab-gloss">${esc(localizedGloss(v))}</span>
         </a>
       `).join('');
       return `
@@ -225,7 +238,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           <p class="muted small">${esc(entry.section || '')}</p>
           <h2 class="vocab-form-big" lang="ja">${esc(entry.form)}</h2>
           ${entry.reading ? `<p class="vocab-reading-big" lang="ja">${esc(entry.reading)}</p>` : ''}
-          <p class="vocab-gloss-big">${esc(entry.gloss || '')}</p>
+          <p class="vocab-gloss-big">${esc(localizedGloss(entry))}</p>
         </div>
         <label class="known-toggle" title="Manually mark this word as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known-vocab" ${isVocabKnown ? 'checked' : ''}>
@@ -235,7 +248,10 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
 
       <section>
         <h3 class="section-title">Meaning</h3>
-        <p><strong>English:</strong> ${esc(entry.gloss || '-')}</p>
+        <p><strong>${currentLocale() === 'en' ? 'English' : 'Meaning'}:</strong> ${esc(localizedGloss(entry) || '-')}</p>
+        ${currentLocale() !== 'en' && entry.gloss && localizedGloss(entry) !== entry.gloss
+            ? `<p><strong>English:</strong> ${esc(entry.gloss)}</p>`
+            : ''}
         ${entry.reading ? `<p><strong>Japanese reading:</strong> <span lang="ja">${esc(entry.reading)}</span></p>` : ''}
       </section>
 

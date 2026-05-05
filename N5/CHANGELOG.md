@@ -2,6 +2,109 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.35 - 2026-05-05 (IMP-045 / IMP-046 / IMP-047 — content-body i18n)
+
+User direction: implement IMP-045/046/047 — translate the content body
+(grammar explanations / vocab glosses / kanji meanings) into vi/id/ne/zh.
+
+The audit explicitly warned against machine-translating the content
+body because mistranslated JLPT-context-sensitive paragraphs would
+damage the niche-N1 trust claim. This release respects that warning by
+authoring translations directly (Claude as translator, with
+`_provenance: "machine_translated"` tag pending native review) only
+where the strings are **short and concrete enough to be safely
+authored** — kanji meanings and the most-common vocab glosses. Grammar
+explanations get schema + renderer wiring but **no machine-translated
+body**; native reviewers fill those per Q20.
+
+### IMP-047 — kanji meanings (FULL coverage)
+
+`tools/fix_imp_047_kanji_meanings_translate_2026_05_05.py` — author
+authored vi/id/ne/zh translations for **all 106 N5 kanji × all senses**
+(~424 short translations). Each entry now carries:
+
+```
+"meanings":    ["water", "Wednesday"],         (existing English)
+"meanings_vi": ["nước", "thứ Tư"],
+"meanings_id": ["air", "Rabu"],
+"meanings_ne": ["पानी", "बुधबार"],
+"meanings_zh": ["水", "星期三"],
+"meanings_provenance": "machine_translated"
+```
+
+### IMP-046 — vocab glosses (top 120 entries; rest fall back to EN)
+
+`tools/fix_imp_046_vocab_glosses_translate_2026_05_05.py` — authored
+the top 120 most-common N5 vocab entries (pronouns + family +
+demonstratives + question words + numbers + time-general + days). 128
+entries translated total (some forms appear in multiple sections;
+all duplicates got the same translation). **128/1041 = 12% coverage.**
+The remaining 913 entries fall back to the English `gloss` at render
+time; native reviewers fill them via the docs/TRANSLATING.md workflow.
+
+Schema per translated entry:
+
+```
+"gloss":    "school",                  (existing English)
+"gloss_vi": "trường học",
+"gloss_id": "sekolah",
+"gloss_ne": "विद्यालय",
+"gloss_zh": "学校",
+"gloss_provenance": "machine_translated"
+```
+
+### IMP-045 — grammar explanations (SCHEMA ONLY)
+
+`tools/fix_imp_045_grammar_explanations_schema_2026_05_05.py` adds
+a `_translation_status` block at the top of `data/grammar.json`
+documenting the policy: **grammar explanations stay English-only
+until native reviewers author per-locale versions.** Renderer wiring
+(below) handles the per-locale fallback so when a reviewer DOES land
+an `explanation_vi`/`_id`/`_ne`/`_zh`, it appears immediately without
+code changes. **0/178 currently translated** (by design); recruitment
+active per Q20.
+
+### Renderer wiring (4 modules)
+
+All 4 detail-page renderers now pick the locale-aware field with
+graceful EN fallback:
+
+- **`js/kanji.js`** + **`js/kanji-popover.js`** — `localizedMeanings(entry)`
+  helper. Reads `entry.meanings_<lc>` if present + non-empty;
+  otherwise returns `entry.meanings`.
+- **`js/learn-vocab.js`** — `localizedGloss(entry)` helper. Used in
+  the list view, the detail-page big gloss, and the meaning-row.
+  When the user is on a non-EN locale, the detail page also shows
+  the EN gloss as a secondary line so learners can cross-reference.
+- **`js/learn-grammar.js`** — `localizedExplanation(p)` helper.
+  Falls back to `explanation_en` when no per-locale field exists.
+
+All 4 import `currentLocale` from `js/i18n.js`. The locale switch
+re-renders the active route immediately (existing wiring from round-4
+ISSUE-028).
+
+### Provenance status (current corpus state)
+
+```
+Kanji meanings:     106/106 machine_translated  (100%)
+Vocab glosses:       128/1041 machine_translated (12%)
+Grammar explanations:  0/178 (none — schema only, awaiting native reviewers)
+```
+
+**Native review needed everywhere** before promoting `_provenance` to
+`native_reviewed`. The Q21 badge UI launch policy (≥10% native_reviewed
+per corpus) means kanji becomes the first eligible candidate when 11+
+entries get reviewer sign-off.
+
+### Service worker
+
+CACHE_VERSION bumped jlptsuccess-n5-v1.12.34 → v1.12.35. No new
+precache entries — all changes are inside existing files.
+
+v1.12.35 / SW v1.12.35. **44/44 invariants green.**
+
+---
+
 ## v1.12.34 - 2026-05-05 (Round-5 close-out + Q14/Q20/Q21 implementation)
 
 User stamped Permission decisions on the round-5 Items sheet and
