@@ -101,8 +101,24 @@ export async function initI18n() {
       initial = refHint;
       auto = (initial !== DEFAULT_LOCALE);
     } else {
-      const browserLc = (navigator.language || 'en').split('-')[0].toLowerCase();
-      initial = SUPPORTED.includes(browserLc) ? browserLc : DEFAULT_LOCALE;
+      // ISSUE-066 (audit round-7): consult navigator.languages[] (plural —
+      // the priority-ordered array of all browser-language preferences)
+      // before falling back to navigator.language alone. For users whose
+      // device is en-US but Accept-Language is "vi-VN, en-US", the hint
+      // to default to vi is found in navigator.languages[0]. Pick the
+      // FIRST entry whose primary subtag is in SUPPORTED.
+      let pickedFromList = null;
+      const langs = Array.isArray(navigator.languages) ? navigator.languages : [];
+      for (const tag of langs) {
+        const lc = (tag || '').split('-')[0].toLowerCase();
+        if (SUPPORTED.includes(lc)) { pickedFromList = lc; break; }
+      }
+      if (pickedFromList) {
+        initial = pickedFromList;
+      } else {
+        const browserLc = (navigator.language || 'en').split('-')[0].toLowerCase();
+        initial = SUPPORTED.includes(browserLc) ? browserLc : DEFAULT_LOCALE;
+      }
       auto = (initial !== DEFAULT_LOCALE);
     }
   }

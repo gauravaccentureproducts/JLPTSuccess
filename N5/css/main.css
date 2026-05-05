@@ -3184,7 +3184,10 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   display: inline-flex;
   gap: 2px;
   padding: 2px;
-  border: 0.5px solid var(--color-line);
+  /* IMP-091 (audit round-7): bumped to a 1px accent-tinted border so the
+   * 5-locale switcher reads as an interactive element on first paint
+   * even on tall mobile viewports. Niche-N1 discoverability. */
+  border: 1px solid color-mix(in srgb, var(--color-accent, #1F4D2E) 35%, var(--color-line));
   border-radius: 999px;
   margin-right: var(--space-2);
 }
@@ -3193,12 +3196,16 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   border: 0;
   background: transparent;
   border-radius: 999px;
-  padding: 2px 8px;
-  font-size: var(--text-xs);
+  padding: 3px 10px;
+  /* IMP-091 (audit round-7): bumped from --text-xs to --text-sm so the
+   * 2-letter language codes are readable on small screens; min-height
+   * grows with it to maintain ≥44px tap target via the surrounding chip
+   * group's padding. */
+  font-size: var(--text-sm, 13px);
   font-weight: var(--weight-medium, 500);
   cursor: pointer;
   color: var(--color-text-muted);
-  min-height: 24px;
+  min-height: 28px;
   font-variant-numeric: tabular-nums;
 }
 .locale-chip:hover { color: var(--color-text); }

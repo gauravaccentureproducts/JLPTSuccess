@@ -6,6 +6,7 @@ import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
 import { currentLocale } from './i18n.js';
+import { renderItemBadge } from './provenance-badge.js';
 
 // IMP-046 (audit round-5): pick locale-aware vocab gloss when present,
 // else fall back to English. The translated subset (~120 entries) carries
@@ -256,7 +257,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           <p class="muted small">${esc(entry.section || '')}</p>
           <h2 class="vocab-form-big" lang="ja">${esc(entry.form)}</h2>
           ${entry.reading ? `<p class="vocab-reading-big" lang="ja">${esc(entry.reading)}</p>` : ''}
-          <p class="vocab-gloss-big">${esc(localizedGloss(entry))}</p>
+          <p class="vocab-gloss-big">${esc(localizedGloss(entry))} ${renderItemBadge(entry, true)}</p>
         </div>
         <label class="known-toggle" title="Manually mark this word as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known-vocab" ${isVocabKnown ? 'checked' : ''}>
