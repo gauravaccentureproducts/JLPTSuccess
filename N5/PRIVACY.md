@@ -34,4 +34,4 @@ If this app's privacy posture ever changes, the change will be documented in the
 
 ---
 
-*Last updated: 2026-05-02*
+*Last updated: 2026-05-05 (post-monorepo-migration; localStorage namespace claim verified against runtime in `js/storage.js`).*

@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSP: static-only, no third-party. style 'unsafe-inline' allowed for the
-       inline style block; script omits inline so any future inline-script
-       regression fails fast. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'none';">
+  <!-- CSP: static-only, no third-party. Brought to parity with N5's CSP
+       (CSP-3 split for style-src-elem / style-src-attr, plus media-src
+       and worker-src). 'unsafe-inline' allowed only on style attributes,
+       not on style elements; script-src omits 'unsafe-inline' so any
+       inline-script regression fails fast. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none';">
   <title>JLPTSuccess</title>
   <meta name="description" content="JLPTSuccess — JLPT N5 to N1 study app. Pick a level to start.">
   <meta name="theme-color" content="#14452a">
@@ -45,7 +47,7 @@
         <a class="level-card is-available" href="N5/" data-level="n5">
           <span class="level-card-code">N5</span>
           <h3 class="level-card-label">Beginner</h3>
-          <p class="level-card-desc">Basic Japanese — 177 grammar patterns, 1003 vocab, 106 kanji, 60 dokkai/listening drills.</p>
+          <p class="level-card-desc">Basic Japanese — 178 grammar patterns, 1041 vocab (700+ official + supplementary), 106 kanji, 40 reading + 40 listening drills.</p>
           <span class="level-card-arrow" aria-hidden="true">→</span>
         </a>
 
