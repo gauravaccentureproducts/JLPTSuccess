@@ -157,6 +157,18 @@ function renderTimeout(container, name) {
 // be re-translated. Called at the start of every route() so the labels
 // always match the active locale. Resolves the user-reported bug where
 // clicking a locale chip didn't visibly change anything.
+// IMP-069 (audit round-6): generic data-i18n-key attribute walker.
+// Any element with `data-i18n-key="..."` gets its textContent set to
+// `t(key)` on route change. Primary use: footer "Help translate" link
+// + future static labels in index.html. Avoids per-element wiring.
+function applyDataI18nKeys() {
+  document.querySelectorAll('[data-i18n-key]').forEach(el => {
+    const key = el.dataset.i18nKey;
+    const translated = t(key);
+    if (translated && translated !== key) el.textContent = translated;
+  });
+}
+
 function applyNavTranslations() {
   const NAV_KEYS = {
     'learn/grammar': 'nav.learn',     // → "Grammar" / "Học" / etc. — locale "Learn" is closest
@@ -197,6 +209,7 @@ async function route() {
   const handler = ROUTES[name] || renderLearn;
   setActiveNav(handler === renderLearn ? 'learn' : name);
   applyNavTranslations();
+  applyDataI18nKeys();
   renderSkeleton(container, name);
   let timedOut = false;
   const timeoutId = setTimeout(() => {

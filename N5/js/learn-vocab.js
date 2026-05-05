@@ -114,6 +114,24 @@ export function renderVocabularyList(container, data) {
   const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
   const isFiltered = q.length > 0;
+  // IMP-071 (audit round-6): per-section translation-coverage badge
+  // when on a non-EN locale. Counts how many of the section's items
+  // have a populated `gloss_<lc>` field. Helps reviewers focus their
+  // translation effort + signals to learners which sections are
+  // covered. Hidden on EN (no translation concept).
+  const lc = currentLocale();
+  const showCoverage = (lc && lc !== 'en');
+  const coverageOf = (items) => {
+    if (!showCoverage) return '';
+    const total = items.length;
+    if (total === 0) return '';
+    const covered = items.filter(v =>
+      typeof v[`gloss_${lc}`] === 'string' && v[`gloss_${lc}`].trim()
+    ).length;
+    const pct = Math.round(100 * covered / total);
+    const tone = pct >= 50 ? 'good' : pct > 0 ? 'partial' : 'none';
+    return `<span class="vocab-coverage-badge tone-${tone}" title="${covered}/${total} translated">${pct}%</span>`;
+  };
   const sections = [...bySuper.entries()]
     .filter(([, items]) => items.length > 0)
     .map(([sup, items]) => {
@@ -126,7 +144,7 @@ export function renderVocabularyList(container, data) {
       `).join('');
       return `
         <details class="vocab-section" id="vocab-${slugify(sup)}"${isFiltered ? ' open' : ''}>
-          <summary><strong>${esc(sup)}</strong> <span class="muted small">(${items.length})</span></summary>
+          <summary><strong>${esc(sup)}</strong> <span class="muted small">(${items.length})</span> ${coverageOf(items)}</summary>
           <div class="vocab-grid">${cards}</div>
         </details>
       `;
