@@ -2531,24 +2531,36 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .learn-tools-wrap summary { cursor: pointer; padding: 4px 0; min-height: 32px; font-weight: 500; }
 
 /* Grammar TOC cards (Brief 2 follow-up) */
+/* 2026-05-06 (user request): list-tile pages show only the pattern name
+ * for active-recall practice. Cards are vertically centered now that
+ * there's only one line. .grammar-gloss class kept defined below for
+ * back-compat in case any consumer renders the gloss separately. */
 .grammar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 8px 0 20px; }
 .grammar-card {
   display: flex; flex-direction: column; gap: 4px;
-  padding: 10px 14px; min-height: 64px;
+  align-items: center; justify-content: center;
+  padding: 14px; min-height: 64px;
   background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg);
   text-decoration: none; color: inherit;
+  text-align: center;
 }
 .grammar-card:hover { border-color: var(--color-accent, #1F4D2E); background: rgba(20, 69, 42, 0.03); }
 .grammar-pattern { font-weight: 500; font-size: 16px; }
 .grammar-gloss { font-size: 13px; color: var(--c-text-muted, #555); }
 
 /* Vocab grid + cards */
+/* 2026-05-06 (user request): list-tile pages show only the form for
+ * active-recall practice. Cards are vertically centered. .vocab-reading
+ * + .vocab-gloss classes remain defined for any future detail / popover
+ * surface that wants the full breakdown. */
 .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-top: 10px; }
 .vocab-card {
   display: flex; flex-direction: column; gap: 2px;
-  padding: 8px 12px; min-height: 60px;
+  align-items: center; justify-content: center;
+  padding: 12px; min-height: 60px;
   background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 6px;
   text-decoration: none; color: inherit;
+  text-align: center;
 }
 .vocab-card:hover { border-color: var(--color-accent, #1F4D2E); background: rgba(20, 69, 42, 0.04); }
 .vocab-form { font-weight: 500; font-size: 16px; }
@@ -2665,15 +2677,19 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .vocab-nav { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--c-border); }
 
 /* Kanji card grid (replaces dense glyph grid) */
-.kanji-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin: 12px 0; }
+/* 2026-05-06 (user request): list-tile pages show only the kanji glyph
+ * for active-recall practice. Cards now compact + center-aligned, with
+ * glyph as the dominant element. .kanji-card-meaning + .kanji-card-readings
+ * classes kept defined for any future detail / popover surface. */
+.kanji-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin: 12px 0; }
 .kanji-card {
-  display: flex; gap: 12px; align-items: center;
-  padding: 10px 12px; min-height: 72px;
+  display: flex; gap: 12px; align-items: center; justify-content: center;
+  padding: 14px 12px; min-height: 72px;
   background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg);
   text-decoration: none; color: inherit;
 }
 .kanji-card:hover { border-color: var(--color-accent, #1F4D2E); }
-.kanji-card-glyph { font-size: 36px; line-height: 1; flex-shrink: 0; }
+.kanji-card-glyph { font-size: 42px; line-height: 1; flex-shrink: 0; }
 .kanji-card-meaning { font-size: 13px; flex: 1; }
 .kanji-card-readings { font-size: 11px; color: var(--c-text-muted, #555); text-align: right; flex-shrink: 0; line-height: 1.3; }
 

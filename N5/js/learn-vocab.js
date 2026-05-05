@@ -136,11 +136,13 @@ export function renderVocabularyList(container, data) {
   const sections = [...bySuper.entries()]
     .filter(([, items]) => items.length > 0)
     .map(([sup, items]) => {
+      // 2026-05-06 (user request): list-tile pages show only the entry's
+      // primary form for active-recall practice. Reading + gloss appear
+      // on the detail page after click-through. This lets learners
+      // self-assess "do I remember what this means?" before revealing.
       const cards = items.map(v => `
         <a class="vocab-card" href="#/learn/vocab/${encodeURIComponent(v.form || '')}">
           <span class="vocab-form" lang="ja">${esc(v.form || '')}</span>
-          ${v.reading ? `<span class="vocab-reading" lang="ja">${esc(v.reading)}</span>` : ''}
-          <span class="vocab-gloss">${esc(localizedGloss(v))}</span>
         </a>
       `).join('');
       return `

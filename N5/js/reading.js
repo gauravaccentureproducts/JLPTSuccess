@@ -91,16 +91,16 @@ function renderIndex(container) {
     ? storage.getSettings() : {};
   const mockTestMode = !!settings.readingMockTestMode;
 
+  // 2026-05-06 (user request): list-tile pages show only the passage
+  // title for active-recall practice. Topic, level, and question count
+  // appear inside the passage view — keeping the index uncluttered lets
+  // learners self-assess "do I remember what this passage was about?"
+  // before clicking through.
   const items = passages.map(p => {
-    const totalQ = (p.questions || []).length;
-    const primaryQ = (p.questions || []).filter(
-      q => q.format_role === 'primary' || !q.format_role).length;
-    const shownCount = mockTestMode ? primaryQ : totalQ;
     return `
       <li>
         <button class="reading-pick" data-id="${esc(p.id)}">
-          <span class="reading-title"><strong>${renderJa(p.title_ja)}</strong> <span class="muted small">(${renderJa(LEVEL_JA[p.level] || p.level)})</span></span>
-          <span class="muted small">${renderJa(TOPIC_JA[p.topic] || p.topic)} ・ ${shownCount} ${renderJa('もん')}</span>
+          <span class="reading-title"><strong>${renderJa(p.title_ja)}</strong></span>
         </button>
       </li>
     `;

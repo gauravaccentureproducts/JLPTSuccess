@@ -209,7 +209,6 @@ export function renderGrammarTOC(container, data) {
       html += `
         <a class="grammar-card" href="#/learn/${encodeURIComponent(p.id)}">
           <span class="grammar-pattern" lang="ja">${esc(p.pattern)}</span>
-          <span class="grammar-gloss">${esc(localizedMeaning(p))}</span>
         </a>
       `;
     }

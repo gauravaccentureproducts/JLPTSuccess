@@ -112,13 +112,13 @@ function renderIndex(container, entries) {
       if (typeof ka === 'string') return ka.localeCompare(kb);
       return ka - kb;
     });
+  // 2026-05-06 (user request): list-tile pages show only the kanji glyph
+  // for active-recall practice. Readings + meanings appear on the detail
+  // page after click-through. This lets learners self-assess "do I know
+  // this kanji?" before revealing the answer.
   const cards = filtered.map(e => `
     <a class="kanji-card" href="#/kanji/${encodeURIComponent(e.glyph)}">
       <span class="kanji-card-glyph" lang="ja">${esc(e.glyph)}</span>
-      ${e.meanings?.length ? `<span class="kanji-card-meaning">${esc(e.meanings.slice(0,2).join(', '))}</span>` : ''}
-      <span class="kanji-card-readings" lang="ja">
-        ${e.kun?.[0] ? esc(e.kun[0]) : ''}${e.on?.[0] ? `<br>${esc(e.on[0])}` : ''}
-      </span>
     </a>
   `).join('');
 
