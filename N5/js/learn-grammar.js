@@ -22,6 +22,30 @@ function localizedExplanation(p) {
   return p.explanation_en || '';
 }
 
+// ISSUE-056 (audit round-7): pick locale-aware grammar meaning when
+// present, else fall back to English meaning. Same pattern as
+// localizedExplanation() but for the shorter `meaning_*` field.
+function localizedMeaning(p) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = p[`meaning_${lc}`];
+    if (typeof localized === 'string' && localized.trim()) return localized;
+  }
+  return p.meaning_en || '';
+}
+
+// IMP-080 (audit round-7): L1-interference notes per locale.
+// When the current locale matches an l1_notes key, return the note;
+// else return null (renderer hides the section).
+function localizedL1Note(p) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en' && p.l1_notes && typeof p.l1_notes === 'object') {
+    const note = p.l1_notes[lc];
+    if (typeof note === 'string' && note.trim()) return note;
+  }
+  return null;
+}
+
 // Render-time mapping: 32 fine-grained categories in data/grammar.json
 // to 5 pedagogically-coherent super-categories. Every fine category is
 // explicitly mapped (no fallback needed).
@@ -185,7 +209,7 @@ export function renderGrammarTOC(container, data) {
       html += `
         <a class="grammar-card" href="#/learn/${encodeURIComponent(p.id)}">
           <span class="grammar-pattern" lang="ja">${esc(p.pattern)}</span>
-          <span class="grammar-gloss">${esc(p.meaning_en)}</span>
+          <span class="grammar-gloss">${esc(localizedMeaning(p))}</span>
         </a>
       `;
     }
@@ -391,7 +415,7 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
       <div class="pattern-header">
         <div>
           <h2 class="pattern-name">${esc(p.pattern)}</h2>
-          <p class="meaning-en">${esc(p.meaning_en)}</p>
+          <p class="meaning-en">${esc(localizedMeaning(p))}</p>
         </div>
         <label class="known-toggle" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known" ${isKnown ? 'checked' : ''}>
@@ -406,6 +430,19 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
         <h3 class="section-title">Explanation</h3>
         <p>${esc(localizedExplanation(p))}</p>
       </section>
+
+      ${(() => {
+        // IMP-080 (audit round-7): L1-interference note for the active
+        // locale, when authored. Niche-N1 unique-claim lever.
+        const note = localizedL1Note(p);
+        if (!note) return '';
+        return `
+          <section class="l1-note">
+            <h3 class="section-title">L1 note</h3>
+            <p>${esc(note)}</p>
+          </section>
+        `;
+      })()}
 
       <section>
         <h3 class="section-title">Examples (${examples.length})</h3>

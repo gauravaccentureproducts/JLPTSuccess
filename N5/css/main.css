@@ -2590,6 +2590,18 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .provenance-badge.badge-auto   { background: transparent;                  color: var(--color-text-muted);    border: 0.5px dashed var(--color-line); }
 .provenance-banner { margin: 8px 0; }
 
+/* IMP-080 (audit round-7): L1-interference-note callout on grammar
+ * pattern detail. Visually distinguished from regular explanation so
+ * non-EN learners notice the L1-specific guidance. */
+.l1-note {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-left: 3px solid color-mix(in srgb, var(--color-accent, #1F4D2E) 80%, transparent);
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+}
+.l1-note .section-title { margin-top: 0; }
+
 /* IMP-070 (audit round-6): listening transcript-aligned playback.
  * Rendered by js/listening-transcript.js when an item ships with a
  * `lines` array. Seekable rows get hover affordance + active highlight

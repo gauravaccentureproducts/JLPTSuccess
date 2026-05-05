@@ -837,10 +837,22 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
     # The previous SKIP_FIELDS-on-leaf logic missed these because walk()
     # descended into the dict and the leaf's key became 'wrong'/'right'/'why',
     # not 'common_mistakes'. Subtree-skip closes that hole.
-    SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations"}
+    #
+    # ISSUE-056 (round-7 2026-05-06): l1_notes is a dict { vi, id, ne, zh }
+    # whose values are translations into the learner's L1. These contain
+    # whatever script that language uses (incl. Hanzi for zh) and must
+    # not be subjected to the N5-kanji-only rule. Subtree-skip.
+    SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations",
+                           "l1_notes"}
+    # ISSUE-056: locale-suffixed translation fields. The values are
+    # translations into vi/id/ne/zh and contain whatever script that
+    # language uses. Pattern: <basename>_<locale> for locale ∈ {vi,id,ne,zh}.
+    LOCALE_SUFFIX_RE = re.compile(r"^(?:meaning|explanation|gloss|title|prompt|description|note)_(?:vi|id|ne|zh)$")
 
     def walk(obj, key, path, hits):
         if key in SKIP_SUBTREE_FIELDS:
+            return
+        if isinstance(key, str) and LOCALE_SUFFIX_RE.match(key):
             return
         if isinstance(obj, str):
             if key in SKIP_FIELDS: return
