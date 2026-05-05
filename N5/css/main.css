@@ -2555,6 +2555,72 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .vocab-reading { font-size: 12px; color: var(--c-text-muted, #555); }
 .vocab-gloss { font-size: 13px; }
 
+/* IMP-071 (audit round-6): per-section translation-coverage badge in
+ * the vocab list. Renders only on non-EN locales. Tone reflects
+ * coverage:
+ *   good    = ≥50% translated
+ *   partial = 1..49%
+ *   none    = 0% (the most actionable for reviewers — "translate me!")
+ */
+.vocab-coverage-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
+.vocab-coverage-badge.tone-good    { background: var(--color-accent, #1F4D2E); color: var(--color-on-accent, #fff); }
+.vocab-coverage-badge.tone-partial { background: rgba(20, 69, 42, 0.12);       color: var(--color-text); border: 0.5px solid var(--color-accent, #1F4D2E); }
+.vocab-coverage-badge.tone-none    { background: transparent;                  color: var(--color-text-muted); border: 0.5px dashed var(--color-line); }
+
+/* ISSUE-053 (audit round-6): provenance badge styles. Rendered by
+ * js/provenance-badge.js once flag + per-corpus threshold are met. */
+.provenance-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: var(--weight-medium, 500);
+  vertical-align: middle;
+}
+.provenance-badge.badge-native { background: var(--color-accent, #1F4D2E); color: var(--color-on-accent, #fff); }
+.provenance-badge.badge-llm    { background: rgba(20,69,42,0.10);          color: var(--color-text);          border: 0.5px solid var(--color-line); }
+.provenance-badge.badge-auto   { background: transparent;                  color: var(--color-text-muted);    border: 0.5px dashed var(--color-line); }
+.provenance-banner { margin: 8px 0; }
+
+/* IMP-070 (audit round-6): listening transcript-aligned playback.
+ * Rendered by js/listening-transcript.js when an item ships with a
+ * `lines` array. Seekable rows get hover affordance + active highlight
+ * synced to audio.currentTime. */
+.listening-transcript {
+  margin: 8px 0 0;
+  padding: 8px 0 4px;
+  border-top: 1px solid var(--c-border, var(--color-line));
+}
+.transcript-line {
+  padding: 6px 8px;
+  margin: 2px 0;
+  border-radius: 6px;
+  line-height: 1.55;
+}
+.transcript-line-seekable {
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+.transcript-line-seekable:hover {
+  background: rgba(20, 69, 42, 0.06);
+}
+.transcript-line-active {
+  background: rgba(20, 69, 42, 0.18);
+  border-left: 3px solid var(--color-accent, #1F4D2E);
+  padding-left: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .transcript-line-seekable { transition: none; }
+}
+
 /* Vocab detail page */
 .vocab-detail { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 20px 24px; }
 /* Vocab header reuses .pattern-header for layout (flex / justify-content

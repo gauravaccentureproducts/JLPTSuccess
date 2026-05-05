@@ -5,6 +5,7 @@
 // text + plays nothing, with a clear "audio not yet generated" notice.
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
+import { hasAlignedTranscript, renderTranscriptHTML, wireTranscriptSync } from './listening-transcript.js';
 
 let bank = null;
 let session = null;
@@ -131,7 +132,9 @@ function renderItem(container) {
       ${feedback ? `
         <div class="drill-feedback ${correct ? 'correct' : 'incorrect'}">
           <div class="feedback-headline">${correct ? renderJa('せいかい') : renderJa('ざんねん')}</div>
-          ${it.script_ja ? `<details><summary>${renderJa('スクリプトを 見る')}</summary><div>${renderJa(it.script_ja)}</div></details>` : ''}
+          ${hasAlignedTranscript(it)
+            ? `<details open><summary>${renderJa('スクリプト')}</summary>${renderTranscriptHTML(it)}</details>`
+            : (it.script_ja ? `<details><summary>${renderJa('スクリプトを 見る')}</summary><div>${renderJa(it.script_ja)}</div></details>` : '')}
           ${it.explanation_en ? `<p class="muted small">${esc(it.explanation_en)}</p>` : ''}
           <button id="listening-back-list" class="btn-primary">${renderJa('リストに もどる')}</button>
         </div>
@@ -153,6 +156,9 @@ function renderItem(container) {
     session = null;
     renderIndex(container);
   });
+  // IMP-070: wire transcript-line click-to-seek + auto-highlight when
+  // the item ships with a `lines` array. No-op when absent.
+  wireTranscriptSync(container, it);
 }
 
 function esc(s) {
