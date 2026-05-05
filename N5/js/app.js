@@ -235,6 +235,18 @@ window.addEventListener('beforeunload', (ev) => {
 
 let lastConfirmedHash = location.hash;
 window.addEventListener('hashchange', (ev) => {
+  // Skip-link a11y: clicking "Skip to main content" sets the hash to
+  // #app (or any non-route fragment). parseRoute only recognises
+  // hashes that start with `#/`, so without this guard, every
+  // skip-link click silently re-routes the user back to #/home,
+  // losing their place. Detect non-route hashes and short-circuit —
+  // the browser still scrolls to / focuses the target anchor (which
+  // now has tabindex="-1" on <main id="app"> for programmatic focus).
+  // Closes #14 from the developer-issue-list audit.
+  const hash = location.hash;
+  if (hash && !hash.startsWith('#/')) {
+    return;
+  }
   if (shouldPromptOnLeave()) {
     const ok = confirm('Quit this test? Progress so far will be saved to history.');
     if (!ok) {
