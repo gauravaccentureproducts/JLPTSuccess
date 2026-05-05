@@ -1,5 +1,12 @@
 # JLPT N5 Tutor
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../LICENSE)
+[![Content: CC BY-SA 4.0](https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg)](CONTENT-LICENSE.md)
+[![JLPT Level: N5](https://img.shields.io/badge/JLPT-N5-14452a.svg)](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/)
+[![PWA](https://img.shields.io/badge/PWA-installable-brightgreen.svg)](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/)
+[![Locales: 5](https://img.shields.io/badge/locales-EN%20%C2%B7%20VI%20%C2%B7%20ID%20%C2%B7%20NE%20%C2%B7%20ZH-blueviolet.svg)](docs/TRANSLATING.md)
+[![Privacy: no telemetry](https://img.shields.io/badge/privacy-no%20telemetry-success.svg)](PRIVACY.md)
+
 Browser-based static web app for studying JLPT N5: grammar, vocabulary, kanji, reading, and listening. **No server. No accounts. No third-party scripts.** Author-side build tools (Python) live under `/tools/`; the learner runs only the browser.
 
 ## Documentation

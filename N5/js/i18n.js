@@ -49,25 +49,65 @@ async function loadDict() {
   }
 }
 
+// IMP-074 (audit round-6): privacy-preserving referrer-based locale
+// detection. When a user lands from a Vietnamese / Indonesian / Nepali /
+// Chinese-domain referrer, weight that locale higher than the bare
+// navigator.language signal. The referrer is per-request and never
+// stored — same privacy posture as the rest of the app.
+const REFERRER_DOMAIN_HINTS = {
+  '.vn':       'vi',
+  '.id':       'id',
+  '.np':       'ne',
+  '.cn':       'zh',
+  '.tw':       'zh',
+  '.hk':       'zh',
+  '.com.vn':   'vi',
+  '.co.id':    'id',
+  '.com.np':   'ne',
+};
+
+function _hintFromReferrer() {
+  try {
+    const ref = document.referrer || '';
+    if (!ref) return null;
+    const url = new URL(ref);
+    const host = (url.hostname || '').toLowerCase();
+    for (const [suffix, lc] of Object.entries(REFERRER_DOMAIN_HINTS)) {
+      if (host.endsWith(suffix)) return lc;
+    }
+  } catch { /* ignore — bad referrer URL */ }
+  return null;
+}
+
 /**
  * Initialize from saved settings or browser language. Idempotent.
  *
  * ISSUE-029 (audit round-4): when the browser language picks a non-EN
  * locale on first init (no saved setting), surface a one-time toast so
  * the user knows the auto-detection happened and how to override it.
+ *
+ * IMP-074 (audit round-6): referrer-domain hint takes precedence over
+ * bare navigator.language IF the user hasn't yet picked a locale. A
+ * Vietnamese visitor arriving from a .vn blog gets VI even if their
+ * device locale is EN.
  */
 export async function initI18n() {
   const saved = storage.getSettings().uiLocale;
   let initial = saved;
   let auto = false;
   if (!initial) {
-    const browserLc = (navigator.language || 'en').split('-')[0].toLowerCase();
-    initial = SUPPORTED.includes(browserLc) ? browserLc : DEFAULT_LOCALE;
-    auto = (initial !== DEFAULT_LOCALE);
+    const refHint = _hintFromReferrer();
+    if (refHint && SUPPORTED.includes(refHint)) {
+      initial = refHint;
+      auto = (initial !== DEFAULT_LOCALE);
+    } else {
+      const browserLc = (navigator.language || 'en').split('-')[0].toLowerCase();
+      initial = SUPPORTED.includes(browserLc) ? browserLc : DEFAULT_LOCALE;
+      auto = (initial !== DEFAULT_LOCALE);
+    }
   }
   await setLocale(initial);
   if (auto) {
-    // Defer the toast so it lands after first paint, not during init.
     queueMicrotask(() => _flashAutoLocaleToast(initial));
   }
 }

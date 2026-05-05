@@ -46,6 +46,13 @@ def main() -> int:
             '--minify',
             '--target=es2020',
             '--format=esm',
+            # ISSUE-052 / IMP-072 (audit round-6): emit external source
+            # maps so production stack traces map back to readable line
+            # numbers. The .map files do NOT auto-load for normal users
+            # (the //# sourceMappingURL=... comment is fetched by devtools
+            # only when DevTools is opened). Privacy + bundle weight
+            # impact for end users: zero.
+            '--sourcemap=external',
             f'--outfile={out}',
             '--log-level=warning',
         ]
