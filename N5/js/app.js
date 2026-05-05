@@ -258,6 +258,29 @@ window.addEventListener('DOMContentLoaded', async () => {
       location.hash = '#/home';
     }
   }
+  // IMP-063 (audit round-5): handle PWA share_target. When the OS Share
+  // sheet sends a Japanese phrase to JLPTSuccess, the manifest routes
+  // it to /N5/?q=<text>. Pull the q out of the query string, focus the
+  // search input, prefill it, and fire the input event so the search
+  // panel opens with results.
+  try {
+    const qs = new URLSearchParams(location.search);
+    const sharedQ = qs.get('q') || qs.get('text') || qs.get('title');
+    if (sharedQ) {
+      // Strip the query string from the URL so a refresh doesn't re-trigger.
+      history.replaceState(null, '', location.pathname + location.hash);
+      location.hash = '#/home';
+      // Defer focus until the home route renders.
+      queueMicrotask(() => {
+        const input = document.getElementById('search-input');
+        if (input) {
+          input.value = sharedQ;
+          input.focus();
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      });
+    }
+  } catch { /* noop */ }
   await route();
   applyAudioRate();
 });

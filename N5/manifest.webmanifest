@@ -52,5 +52,14 @@
       "url": "./#/kanji",
       "icons": [{ "src": "../assets/logo/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
-  ]
+  ],
+  "share_target": {
+    "action": "./#/search-shared",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text":  "q",
+      "url":   "u"
+    }
+  }
 }

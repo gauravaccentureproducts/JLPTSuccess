@@ -82,19 +82,31 @@ const NATIVE_NAMES = {
 
 function _flashAutoLocaleToast(lc) {
   if (document.getElementById('locale-auto-toast')) return;
-  const t = document.createElement('div');
-  t.id = 'locale-auto-toast';
-  t.className = 'locale-auto-toast';
-  t.setAttribute('role', 'status');
-  t.setAttribute('aria-live', 'polite');
-  t.innerHTML = `
-    App language: <strong lang="${lc}">${NATIVE_NAMES[lc] || lc}</strong>
-    <span class="muted small">— change anytime in Settings.</span>
+  // ISSUE-046 (audit round-5): render the toast in the user's
+  // detected locale rather than English. The toast is the very first
+  // string a non-EN learner sees; English-framed copy around a native
+  // language label is confusing. Falls back to EN if the keys are
+  // missing in the locale (which they shouldn't be — round-4 ISSUE-026
+  // added home.locale_auto_prefix + home.locale_auto_suffix to all 5).
+  const prefix = t('home.locale_auto_prefix');
+  const suffix = t('home.locale_auto_suffix');
+  // Defensive: if t() returned the bare key (lookup miss), fall back.
+  const safePrefix = prefix === 'home.locale_auto_prefix' ? 'App language:' : prefix;
+  const safeSuffix = suffix === 'home.locale_auto_suffix' ? '— change anytime in Settings.' : suffix;
+  const toast = document.createElement('div');
+  toast.id = 'locale-auto-toast';
+  toast.className = 'locale-auto-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.setAttribute('lang', lc);
+  toast.innerHTML = `
+    ${safePrefix} <strong lang="${lc}">${NATIVE_NAMES[lc] || lc}</strong>
+    <span class="muted small">${safeSuffix}</span>
     <button type="button" class="locale-auto-toast-close" aria-label="Dismiss">×</button>
   `;
-  document.body.appendChild(t);
-  const dismiss = () => { t.classList.add('is-leaving'); setTimeout(() => t.remove(), 200); };
-  t.querySelector('.locale-auto-toast-close')?.addEventListener('click', dismiss);
+  document.body.appendChild(toast);
+  const dismiss = () => { toast.classList.add('is-leaving'); setTimeout(() => toast.remove(), 200); };
+  toast.querySelector('.locale-auto-toast-close')?.addEventListener('click', dismiss);
   // Auto-dismiss after 8 seconds.
   setTimeout(dismiss, 8000);
 }
@@ -102,8 +114,16 @@ function _flashAutoLocaleToast(lc) {
 /**
  * Lookup with optional placeholder substitution.
  * Keys use dot notation (e.g. 'drill.start'). Missing keys return the key.
+ *
+ * ISSUE-041 / IMP-059 (audit round-5): underscore-prefixed top-level
+ * keys are reserved for schema metadata (e.g., `_meta.provenance`,
+ * `_meta.note`) and are NOT addressable by t(). Caller asking for
+ * `_meta.something` always gets the key back as a fallback. This keeps
+ * the i18n keyspace clean of metadata leaks.
  */
 export function t(key, vars = {}) {
+  if (typeof key !== 'string' || !key) return key;
+  if (key.startsWith('_')) return key;  // schema metadata, not user-facing
   const parts = key.split('.');
   let cur = dict;
   for (const p of parts) {

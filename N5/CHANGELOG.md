@@ -2,6 +2,96 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.33 - 2026-05-05 (Audit round-5 first batch — 14 items, no breaking changes)
+
+User direction: implement the round-5 Fix items that don't need a
+product decision, skip the rest. This release lands 14 of the 25 new
+round-5 items; 4 stay deferred for product decisions, 3 stay deferred
+for tooling reasons (skip-on-error), 4 still pending.
+
+### Documentation / OSS hygiene (4)
+
+- **ISSUE-036:** `CONTRIBUTING.md` at repo root with quick-links table,
+  license-bucket guidance, integrity-gate instructions, and explicit
+  anti-features list. GitHub Community Standards now satisfied.
+- **ISSUE-038:** `N5/robots.txt` + `N5/sitemap.xml`. Allow all crawlers,
+  block `/N5/tools/test-runner/`, sitemap lists 3 URLs with hreflang
+  alternates for vi/id/ne/zh. SW precaches both.
+- **ISSUE-044:** `docs/SELF-HOST.md` gains a "Manifest-path trap when
+  re-rooting" subsection. Forks know what to update.
+- **ISSUE-047:** `N5/README.md` Documentation table linking the
+  current-impl spec, SELF-HOST, TRANSLATING, NATIVE-AUDIO-WORKFLOW,
+  audit prompt + tracker, PRIVACY, CONTENT-LICENSE, NOTICES,
+  ../LICENSE, ../CONTRIBUTING.md.
+- **IMP-060:** `.github/dependabot.yml`. Weekly npm devDependency audit
+  (Playwright + axe-core) + monthly GitHub-Actions audit when
+  workflows are added.
+
+### Build / safety (2)
+
+- **ISSUE-035:** `tools/build_version_json.py` reads CHECKS list length
+  live from `check_content_integrity.py` via importlib. `data/version.json`
+  now reports `44/44` actual instead of stale `41/41`.
+- **IMP-062:** `npm run build` chains
+  `build:integrity → build:version → build:css → test:unit`. Fails the
+  build on integrity violation. Single command for release.
+
+### UX / discoverability (4)
+
+- **ISSUE-037 + IMP-058:** "Free · No ads · No paywall" sixth pill in
+  home trust band. The strongest niche-N2 differentiator vs Bunpro /
+  WaniKani / Renshuu is now visible.
+- **ISSUE-039 + IMP-061:** "Mock" + "Missed" links in primary-nav.
+  Round-3 routes (#/sitting and #/missed) no longer orphaned from
+  Test / Review CTAs only.
+- **ISSUE-040:** "Open source" trust pill href moved from `../../LICENSE`
+  (broke on non-canonical / localhost) to the GitHub `/blob/master/LICENSE`
+  absolute URL — works on every deploy.
+- **ISSUE-046:** Auto-language toast now renders in the detected
+  locale via `t('home.locale_auto_prefix')` + `t('home.locale_auto_suffix')`,
+  with the new keys translated into vi/id/ne/zh. A Vietnamese-default
+  user no longer sees an English-framed sentence around their native
+  language label.
+
+### PWA (1)
+
+- **IMP-063:** `manifest.webmanifest` gains `share_target` so the OS
+  Share sheet sees JLPTSuccess as a Japanese-text target.
+  `app.js` reads `?q=...` from the launch URL, focuses the search
+  input, prefills it, fires the input event so search results render
+  immediately.
+
+### i18n schema (2)
+
+- **ISSUE-041 / IMP-059:** locale `_provenance` + `_note` migrated to
+  nested `_meta: { provenance, note }`. `i18n.js#t()` now skips
+  underscore-prefixed top-level keys defensively so future schema
+  metadata cannot leak into the user-facing key namespace.
+
+### Skipped this release
+
+- **IMP-057** (CODE_OF_CONDUCT + GitHub issue/PR templates): skipped
+  per user direction.
+- **ISSUE-042** (provenance badge UI launch threshold): blocked on Q21.
+- **ISSUE-043** (JS bundle minification): needs new devDep
+  toolchain (esbuild/terser); deferred.
+- **ISSUE-045 + IMP-065** (visual-regression snapshots): needs
+  Playwright run with browsers installed; deferred.
+- **IMP-064** (locale-confirmation onboarding step): UX call needed.
+- **IMP-066** (GitHub repo metadata): repo admin access required.
+- **IMP-067** (WebP/AVIF icons): needs Pillow with WebP/AVIF; deferred.
+- **IMP-068** (Crowdin/Weblate): community-scale decision.
+
+### Service worker
+
+CACHE_VERSION bumped to `jlptsuccess-n5-v1.12.33` by
+`tools/build_version_json.py`. New precache: `robots.txt`, `sitemap.xml`.
+
+v1.12.33 / SW v1.12.33. **44/44 invariants green.** 12/12 footer-regex
+unit tests pass.
+
+---
+
 ## v1.12.32 - 2026-05-05 (Audit round-4 — strategic-niche pivot, 16 of 22 items)
 
 The audit prompt at `prompts/N5Improvement.txt` was rewritten between

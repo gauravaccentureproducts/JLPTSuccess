@@ -297,6 +297,10 @@ export async function renderHome(container) {
                canonical /JLPTSuccess/N5/ deploy. -->
           <a class="trust-pill" href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> Open source</a>
           <a class="trust-pill" href="PRIVACY.md" target="_blank" rel="noopener" title="No data leaves your device"><span aria-hidden="true">●</span> 100% on-device</a>
+          <!-- ISSUE-037 + IMP-058 (audit round-5): price differentiator pill.
+               Bunpro / WaniKani / Renshuu all charge; this pill makes the
+               niche-N2 claim complete. -->
+          <span class="trust-pill" title="Free, forever. No ads, no paywall, no upsell."><span aria-hidden="true">●</span> Free · No ads · No paywall</span>
         </p>
         <ul class="syllabus-stat-pills" aria-label="Corpus size">
           <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.grammar)}</span><span class="syllabus-stat-lbl">grammar patterns</span></li>

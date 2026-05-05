@@ -1,6 +1,8 @@
 {
-  "_provenance": "machine_translated",
-  "_note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Nepali-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow.",
+  "_meta": {
+    "provenance": "machine_translated",
+    "note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Nepali-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow."
+  },
   "app": {
     "title": "JLPT N5 अध्ययन सामग्री",
     "tagline": "सिक्नुहोस्। परीक्षण गर्नुहोस्। समीक्षा गर्नुहोस्। निपुण हुनुहोस्।"
@@ -77,7 +79,9 @@
     "reviews_due": "${n} समीक्षा बाँकी",
     "practiced_today": "आज अभ्यास गरिएको",
     "not_yet_practiced": "आज अभ्यास भएको छैन",
-    "forecast_label": "समीक्षा पूर्वानुमान (7 दिन)"
+    "forecast_label": "समीक्षा पूर्वानुमान (7 दिन)",
+    "locale_auto_prefix": "एप्लिकेसन भाषा:",
+    "locale_auto_suffix": "— सेटिङमा परिवर्तन गर्न सकिन्छ।"
   },
   "kanji": {
     "popover_strokes": "${n} स्ट्रोक",

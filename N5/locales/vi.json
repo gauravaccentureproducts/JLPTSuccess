@@ -1,6 +1,8 @@
 {
-  "_provenance": "machine_translated",
-  "_note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Vietnamese-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow.",
+  "_meta": {
+    "provenance": "machine_translated",
+    "note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Vietnamese-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow."
+  },
   "app": {
     "title": "Tài liệu học JLPT N5",
     "tagline": "Học. Kiểm tra. Ôn tập. Thành thạo."
@@ -77,7 +79,9 @@
     "reviews_due": "${n} bài ôn đến hạn",
     "practiced_today": "Đã học hôm nay",
     "not_yet_practiced": "Chưa học hôm nay",
-    "forecast_label": "Dự báo ôn tập (7 ngày)"
+    "forecast_label": "Dự báo ôn tập (7 ngày)",
+    "locale_auto_prefix": "Ngôn ngữ ứng dụng:",
+    "locale_auto_suffix": "— có thể thay đổi trong Cài đặt."
   },
   "kanji": {
     "popover_strokes": "${n} nét",
