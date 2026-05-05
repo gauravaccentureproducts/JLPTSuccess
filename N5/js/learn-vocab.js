@@ -8,6 +8,51 @@ import { esc, wireExpandCollapseControls } from './learn.js';
 import { currentLocale } from './i18n.js';
 import { renderItemBadge } from './provenance-badge.js';
 
+// ISSUE-063 + IMP-087 (audit round-7): render NHK pitch-accent {mora,
+// drop} as a compact Tokyo-dialect HL pattern over the reading.
+// drop = 0 -> 平板 (flat-rising LHHHH); drop = 1 -> 頭高 (HLLLL);
+// drop = N -> 中高 (LHHH...drop position then L). N5-suitable concise
+// view; an SVG visualizer can replace this later.
+function _pitchPattern(pa, reading) {
+  if (!pa || !Number.isFinite(pa.mora)) return '';
+  const m = pa.mora;
+  const drop = pa.drop;
+  let pattern = '';
+  for (let i = 1; i <= m; i++) {
+    if (drop === 0) {
+      pattern += i === 1 ? 'L' : 'H';
+    } else if (drop === 1) {
+      pattern += i === 1 ? 'H' : 'L';
+    } else {
+      pattern += i === 1 ? 'L' : (i <= drop ? 'H' : 'L');
+    }
+  }
+  return pattern;
+}
+
+// IMP-088 (audit round-7): map counter codes to their canonical kana
+// readings for display (e.g. 'satsu' -> さつ).
+function _counterKana(code) {
+  const map = {
+    'satsu': 'さつ',
+    'dai': 'だい',
+    'hiki': 'ひき',
+    'wa': 'わ',
+    'mai': 'まい',
+    'ken': 'けん',
+    'hon': 'ほん',
+    'soku': 'そく',
+    'ko': 'こ',
+    'nin': 'にん',
+    'tsu': 'つ',
+    'kai': 'かい',
+    'do': 'ど',
+    'fun': 'ふん',
+    'ji': 'じ',
+  };
+  return map[code] || code;
+}
+
 // IMP-046 (audit round-5): pick locale-aware vocab gloss when present,
 // else fall back to English. The translated subset (~120 entries) carries
 // `gloss_vi/_id/_ne/_zh`; remaining entries fall through to `gloss`.
@@ -274,6 +319,29 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
             ? `<p><strong>English:</strong> ${esc(entry.gloss)}</p>`
             : ''}
         ${entry.reading ? `<p><strong>Japanese reading:</strong> <span lang="ja">${esc(entry.reading)}</span></p>` : ''}
+        ${(() => {
+          // ISSUE-063 + IMP-087 + IMP-088 (audit round-7): surface vocab
+          // depth fields when present. Pitch shown as Tokyo-dialect HL
+          // pattern derived from {mora, drop}; counter shown as the
+          // canonical reading; register chain badge for keigo entries.
+          const out = [];
+          if (entry.pitch_accent && Number.isFinite(entry.pitch_accent.mora)) {
+            out.push(`<p><strong>Pitch accent:</strong> <span class="vocab-pitch" lang="ja">${esc(_pitchPattern(entry.pitch_accent, entry.reading))}</span> <span class="muted small">(drop: ${entry.pitch_accent.drop})</span></p>`);
+          }
+          if (entry.counter) {
+            out.push(`<p><strong>Counter:</strong> <span lang="ja">〜${esc(_counterKana(entry.counter))}</span></p>`);
+          }
+          if (entry.register) {
+            out.push(`<p><strong>Register:</strong> <span class="vocab-register-tag">${esc(entry.register)}</span></p>`);
+          }
+          if (entry.transitivity) {
+            out.push(`<p><strong>Transitivity:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(pair: ${esc(entry.pair_id)})</span>` : ''}</p>`);
+          }
+          if (entry.false_friends && entry.false_friends.zh && currentLocale() === 'zh') {
+            out.push(`<p class="vocab-false-friend"><strong>偽友 / false friend:</strong> ${esc(entry.false_friends.zh)}</p>`);
+          }
+          return out.join('');
+        })()}
       </section>
 
       <section>

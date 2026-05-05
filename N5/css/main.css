@@ -2602,6 +2602,34 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .provenance-badge.badge-auto   { background: transparent;                  color: var(--color-text-muted);    border: 0.5px dashed var(--color-line); }
 .provenance-banner { margin: 8px 0; }
 
+/* ISSUE-063 + IMP-087 + IMP-088 (audit round-7): vocab depth surface
+ * elements on the detail page. */
+.vocab-pitch {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  background: rgba(20, 69, 42, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.vocab-register-tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 10%, transparent);
+  border: 0.5px solid var(--color-accent, #1F4D2E);
+  color: var(--color-text);
+  text-transform: capitalize;
+}
+.vocab-false-friend {
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: rgba(220, 100, 0, 0.06);
+  border-left: 3px solid rgba(220, 100, 0, 0.6);
+  border-radius: 0 6px 6px 0;
+}
+
 /* ISSUE-064 + IMP-082 + IMP-083 (audit round-7): radical, decomposition,
  * mnemonic, and confusable-with surfaces on the kanji detail page.
  * Niche-N4 lift toward WaniKani parity. */
