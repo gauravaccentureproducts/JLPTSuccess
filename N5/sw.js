@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.12.33';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.34';
 
 const PRECACHE = [
   './',
@@ -50,6 +50,46 @@ const PRECACHE = [
   // Lazy-loaded by app.js on DOMContentLoaded so first paint isn't
   // delayed; precache so the dynamic import resolves offline.
   './js/audio-player.js',
+  // ISSUE-043 (audit round-5): minified JS bundle. index.html points
+  // at js/min/app.js; static + dynamic imports cascade to the rest
+  // of js/min/. The unminified js/<name>.js files stay precached
+  // above so DevTools Sources can still resolve them on-device.
+  './js/min/app.js',
+  './js/min/storage.js',
+  './js/min/furigana.js',
+  './js/min/learn.js',
+  './js/min/learn-grammar.js',
+  './js/min/learn-vocab.js',
+  './js/min/missed.js',
+  './js/min/sitting.js',
+  './js/min/audio-player.js',
+  './js/min/test.js',
+  './js/min/review.js',
+  './js/min/summary.js',
+  './js/min/drill.js',
+  './js/min/diagnostic.js',
+  './js/min/settings.js',
+  './js/min/normalize.js',
+  './js/min/kosoado.js',
+  './js/min/wa-vs-ga.js',
+  './js/min/verb-class.js',
+  './js/min/te-form.js',
+  './js/min/i18n.js',
+  './js/min/particle-pairs.js',
+  './js/min/counters.js',
+  './js/min/reading.js',
+  './js/min/listening.js',
+  './js/min/kanji.js',
+  './js/min/kanji-popover.js',
+  './js/min/shortcuts.js',
+  './js/min/search.js',
+  './js/min/home.js',
+  './js/min/changelog.js',
+  './js/min/feedback.js',
+  './js/min/levels.js',
+  './js/min/content-protect.js',
+  './js/min/pwa.js',
+  './js/min/papers.js',
   './js/test.js',
   './js/review.js',
   './js/summary.js',

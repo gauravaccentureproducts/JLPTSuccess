@@ -23,6 +23,11 @@ const ROUTES = [
   { path: '/#/kanji',               slug: 'kanji-index' },
   { path: '/#/reading',             slug: 'reading-list' },
   { path: '/#/settings',            slug: 'settings' },
+  // ISSUE-045 / IMP-065 (audit round-5): coverage for the round-3/4
+  // surfaces that previously had zero pixel-drift protection.
+  { path: '/#/missed',              slug: 'missed-empty' },
+  { path: '/#/sitting',             slug: 'sitting-picker' },
+  { path: '/#/test',                slug: 'test-setup' },
 ];
 
 const VIEWPORTS = [

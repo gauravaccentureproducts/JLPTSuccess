@@ -1,0 +1,13 @@
+const S=5,m=[.75,1,1.25];function f(t){return`
+    <div class="audio-skin-controls">
+      <button type="button" class="audio-skin-btn audio-skin-back" title="Back 5s" aria-label="Skip back 5 seconds">\u22125s</button>
+      <button type="button" class="audio-skin-btn audio-skin-play" title="Play/pause" aria-label="Play or pause">\u25B6</button>
+      <button type="button" class="audio-skin-btn audio-skin-fwd" title="Forward 5s" aria-label="Skip forward 5 seconds">+5s</button>
+      <span class="audio-skin-time" aria-live="off">0:00 / 0:00</span>
+      <span class="audio-skin-rates" role="group" aria-label="Playback speed">
+        ${m.map(n=>`
+          <button type="button" class="audio-skin-rate ${n===t?"active":""}" data-rate="${n}" aria-pressed="${n===t}">${n}\xD7</button>
+        `).join("")}
+      </span>
+    </div>
+  `}function u(t){if(!Number.isFinite(t))return"0:00";const n=Math.floor(t/60),e=String(Math.floor(t%60)).padStart(2,"0");return`${n}:${e}`}function y(t){if(t.dataset.enhanced==="1")return;t.dataset.enhanced="1";let n=1;try{const a=JSON.parse(localStorage.getItem("jlpt-n5-tutor:settings")||"{}");typeof a.audioPlaybackRate=="number"&&(n=a.audioPlaybackRate)}catch{}t.playbackRate=n;const e=document.createElement("div");e.className="audio-skin",t.parentNode.insertBefore(e,t),e.appendChild(t),t.classList.add("audio-skin-native"),t.removeAttribute("controls");const c=document.createElement("div");c.innerHTML=f(n),e.appendChild(c.firstElementChild);const s=e.querySelector(".audio-skin-play"),p=e.querySelector(".audio-skin-back"),k=e.querySelector(".audio-skin-fwd"),b=e.querySelector(".audio-skin-time"),o=e.querySelectorAll(".audio-skin-rate"),l=()=>{b.textContent=`${u(t.currentTime)} / ${u(t.duration)}`};t.addEventListener("timeupdate",l),t.addEventListener("loadedmetadata",l),t.addEventListener("ended",()=>{s.textContent="\u25B6"}),t.addEventListener("play",()=>{s.textContent="\u275A\u275A"}),t.addEventListener("pause",()=>{s.textContent="\u25B6"}),s.addEventListener("click",()=>{t.paused?t.play():t.pause()}),p.addEventListener("click",()=>{t.currentTime=Math.max(0,t.currentTime-5)}),k.addEventListener("click",()=>{t.currentTime=Math.min(t.duration||0,t.currentTime+5)}),o.forEach(a=>{a.addEventListener("click",()=>{const r=parseFloat(a.dataset.rate);Number.isFinite(r)&&(t.playbackRate=r,o.forEach(i=>{const d=parseFloat(i.dataset.rate)===r;i.classList.toggle("active",d),i.setAttribute("aria-pressed",d?"true":"false")}))})})}function E(t=document){t.querySelectorAll('audio:not([data-enhanced="1"])').forEach(y)}export{E as enhanceAudioPlayers};

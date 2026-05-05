@@ -1,6 +1,6 @@
 {
-  "version": "v1.12.33",
-  "builtAt": "2026-05-05T08:50:53Z",
+  "version": "v1.12.34",
+  "builtAt": "2026-05-05T09:04:57Z",
   "counts": {
     "grammar": 178,
     "vocab": 1041,
@@ -12,6 +12,6 @@
     "paperQuestions": 402
   },
   "invariants": "44/44 (per tools/check_content_integrity.py)",
-  "cacheVersion": "jlptsuccess-n5-v1.12.33",
+  "cacheVersion": "jlptsuccess-n5-v1.12.34",
   "note": "Single source of truth for build-stamp + corpus counts. Read by js/app.js footer parser (fallback path), sw.js CACHE_VERSION derivation, and the README-consistency check. Regenerate via `python tools/build_version_json.py`."
 }

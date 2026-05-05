@@ -100,17 +100,47 @@ Honest labeling is critical for trust — the audit is explicit that
 items shouldn't all "look the same to the learner" when quality
 varies.
 
-## Reviewers wanted
+## ⭐ Reviewers wanted (Q20: actively recruiting, 2026-05-05)
 
-| Locale | Reviewer needed | Status |
-|---|---|---|
-| Vietnamese (vi) | Native VN speaker, ideally a JLPT N5 / N4 learner or teacher | open |
-| Indonesian (id) | Native ID speaker, ideally a JLPT N5 / N4 learner or teacher | open |
-| Nepali (ne) | Native NE speaker, ideally a JLPT N5 / N4 learner or teacher | open |
-| Chinese (zh) | Native zh-Hans or zh-Hant speaker | open |
+The 4 non-English locales currently ship as **machine-translated** —
+the round-4 close-out got UI strings from 44% to 100%+ coverage but
+no native speaker has signed off yet. Round-5 audit Q20 resolved as
+"actively recruit per-locale reviewers."
 
-If you're qualified for any of these, please open a GitHub issue
-titled `[i18n] Available to review <locale> translations`.
+**The fastest way to upgrade a single locale from machine-translated
+to native-reviewed:**
+
+1. Read your locale's JSON file (`locales/vi.json` / `id.json` /
+   `ne.json` / `zh.json`).
+2. The `_meta.provenance` field at the top says `machine_translated`
+   today.
+3. Skim the 75 UI strings; fix anything that reads unnaturally or
+   mistranslates JLPT terminology.
+4. Open a PR titled `i18n(<lc>): native review pass — N keys
+   touched`.
+5. In the PR, set `_meta.provenance: "native_reviewed"` and add a
+   `_meta.reviewer: "<your-name>"` line with your name or GitHub
+   handle so the credit lands in `N5/NOTICES.md`.
+
+| Locale | Native speaker review status |
+|---|---|
+| Vietnamese (vi) | ❌ machine-translated · reviewer needed |
+| Indonesian (id) | ❌ machine-translated · reviewer needed |
+| Nepali (ne) | ❌ machine-translated · reviewer needed |
+| Chinese (zh) | ❌ machine-translated · reviewer needed |
+
+**If you can review one of the 4 locales above:**
+
+- Open a GitHub issue titled `[i18n] Available to review <locale>
+  translations` — we will tag your PR for fast-track review.
+- Or just submit the PR directly using the workflow above.
+
+This recruitment is a niche-N1 unblocker: Vietnamese / Indonesian /
+Nepali / Chinese JLPT-N5 candidates are millions of learners
+currently under-served by EN-only apps (Bunpou / WaniKani /
+Renshuu / JLPT Sensei). Native review of even the 75-key UI moves
+the multilingual claim from "infrastructure exists" to "credibly
+reviewed" without translating the full 5000-string content body.
 
 ## Alternative: machine-translation seed pass
 

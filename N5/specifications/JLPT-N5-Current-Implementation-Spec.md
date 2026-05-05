@@ -22,6 +22,7 @@ This document is the single source of truth for "what does the N5 app do, and ho
 | License | **Source: MIT** (`/LICENSE` at repo root — round-4 ISSUE-025 closed). **Content: CC BY-SA 4.0** (`N5/CONTENT-LICENSE.md`). KanjiVG: CC BY-SA 3.0 (per `N5/NOTICES.md`). |
 | Maintained by | Solo author + AI build agent |
 | Strategic niche (round-4) | **Primary: N1 multilingual non-English-native.** Secondary: N2 privacy / no-account / offline. Recommended anti-niches: do NOT chase Bunpro grammar-review depth or WaniKani kanji-mnemonic depth (see `prompts/N5Improvement.txt` §7 + `feedback/n5-audit-2026-05-04.xlsx` Q13). |
+| Provenance badge launch policy (Q21, round-5) | The `review_status` field exists on every content item (round-4 ISSUE-030, default `llm_curated`). The user-facing **badge UI is intentionally NOT shipped today** because every item carries the same value — a uniform badge delivers no differentiation. **Launch threshold: ≥ 10% of items in any single corpus must be `native_reviewed` before the badge UI ships for that corpus.** Until then, the field stays internal-only. |
 
 Predecessor specifications (kept as historical record):
 - `JLPT N5 Grammar Tutor – Functional Spec.docx` — v3 (2026-04-30 informal amendment)
