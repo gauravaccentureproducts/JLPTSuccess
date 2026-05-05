@@ -4,6 +4,7 @@
 // (so the user's "Tests taken" stat stays accurate).
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 let questionBank = null;
 let grammarIndex = null;
@@ -42,7 +43,7 @@ function renderSetup(container) {
   const completed = settings.diagnosticCompleted;
 
   container.innerHTML = `
-    <h2>Diagnostic Test</h2>
+    <h2>${t('page.diagnostic')}</h2>
     <div class="diagnostic-setup">
       <p><strong>${DEFAULT_LENGTH} questions</strong> sampled across the highest-frequency N5 categories. The diagnostic gives you a quick map of which patterns to practice - without affecting your test score history.</p>
       <ul>
@@ -69,7 +70,7 @@ function startDiagnostic(container) {
   const sampled = sampleAcrossCategories(questionBank, DEFAULT_LENGTH);
   if (sampled.length === 0) {
     container.innerHTML = `
-      <h2>Diagnostic Test</h2>
+      <h2>${t('page.diagnostic')}</h2>
       <div class="placeholder"><p>No questions available. Add to <code>data/questions.json</code> first.</p></div>
     `;
     return;

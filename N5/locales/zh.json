@@ -62,7 +62,28 @@
     "export": "导出进度",
     "import": "导入进度",
     "reset": "重置所有进度",
-    "danger_zone": "危险区"
+    "danger_zone": "危险区",
+    "subtitle": "所有设置都在本设备上，不会离开您的浏览器。",
+    "display": "显示",
+    "practice": "练习",
+    "data": "数据",
+    "data_help": "用导出备份您的进度（无云同步）。导入会还原已保存的文件。",
+    "test_length": "默认测试长度",
+    "test_unit": "题",
+    "font_s": "小",
+    "font_m": "中（默认）",
+    "font_l": "大",
+    "font_xl": "特大",
+    "reduce_auto": "跟随系统",
+    "reduce_on": "始终减少",
+    "reduce_off": "从不减少",
+    "auto_furigana_help": "为少量单一读音的汉字添加假名（量词、星期、固定搭配）。默认关闭。",
+    "reset_label": "重置所有进度",
+    "reset_help": "清除学习记录、FSRS 计划、测试结果、连续天数、已知汉字标记和设置。不可撤销。",
+    "reset_btn": "重置…",
+    "reset_confirm": "输入 RESET 以确认。此操作清除本设备上的所有进度。",
+    "reset_confirm_btn": "确认重置",
+    "cancel": "取消"
   },
   "review": {
     "grade_again": "忘记",
@@ -107,5 +128,15 @@
     "open_source": "开源",
     "on_device": "100% 设备本地",
     "free_no_paywall": "免费 · 无广告 · 无付费墙"
+  },
+  "footer": {
+    "help_translate": "帮助翻译"
+  },
+  "page": {
+    "test": "测试",
+    "drill": "每日训练",
+    "review": "复习",
+    "summary": "进度",
+    "diagnostic": "测评"
   }
 }

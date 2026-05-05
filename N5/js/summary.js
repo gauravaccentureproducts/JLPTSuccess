@@ -1,5 +1,6 @@
 // Chapter 4 - Summary. Mastered / weak / untested.
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 let grammarCache = null;
 
@@ -26,7 +27,7 @@ export async function renderSummary(container) {
   // Empty state: no progress at all (no tests, no patterns seen). Brief 2 §3.2.
   if (totalTests === 0 && seenIds.length === 0) {
     container.innerHTML = `
-      <h2>Chapter 4 - Summary</h2>
+      <h2>${t('page.summary')}</h2>
       <div class="empty-state">
         <p><strong>Stats appear here once you've studied.</strong></p>
         <p class="muted">Mastered, Need-practice, and Untested counts appear after a Test or completed lessons.</p>
@@ -37,7 +38,7 @@ export async function renderSummary(container) {
   }
 
   container.innerHTML = `
-    <h2>Chapter 4 - Summary</h2>
+    <h2>${t('page.summary')}</h2>
 
     <section class="summary-stats">
       <div class="stat-card mastered">

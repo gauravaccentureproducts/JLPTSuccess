@@ -3,6 +3,7 @@
 // and runs a session with IMMEDIATE feedback per question (not batched).
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 let questionBank = null;
 let grammarIndex = null;
@@ -51,7 +52,7 @@ async function renderSetup(container) {
 
   if (dueIds.length === 0) {
     container.innerHTML = `
-      <h2>Drill</h2>
+      <h2>${t('page.drill')}</h2>
       <div class="placeholder">
         <p><strong>No patterns due right now.</strong></p>
         <p>Patterns enter Drill the moment you miss them in a Test or Diagnostic. Once in Drill, they reappear at <strong>1d / 3d / 7d / 14d</strong> intervals - graduate after 4 consecutive correct answers.</p>
@@ -67,7 +68,7 @@ async function renderSetup(container) {
 
   if (sampled.length === 0) {
     container.innerHTML = `
-      <h2>Drill</h2>
+      <h2>${t('page.drill')}</h2>
       <div class="placeholder">
         <p><strong>${dueIds.length}</strong> pattern(s) due, but no questions exist for them yet.</p>
         <p class="muted">Add questions for these patterns to <code>data/questions.json</code>.</p>
@@ -77,7 +78,7 @@ async function renderSetup(container) {
   }
 
   container.innerHTML = `
-    <h2>Drill</h2>
+    <h2>${t('page.drill')}</h2>
     <div class="drill-setup">
       <div class="drill-stats">
         <div class="stat-card weak"><div class="stat-num">${dueIds.length}</div><div class="stat-label">Due today</div></div>

@@ -1,4 +1,7 @@
 // Chapter 2 - Test. Auto-graded MCQ + dropdown + sentence_order + text_input.
+// ISSUE-048 (audit round-6): page title now flows through t().
+// eslint-disable-next-line no-unused-vars
+import { t } from './i18n.js';
 // Per spec §5.3, §5.4, §6.2, §6.6 + Brief §2.10.
 import { renderJa } from './furigana.js';
 import { matchesAnswer, normalizeAnswer } from './normalize.js';
@@ -98,7 +101,7 @@ async function renderSetup(container) {
   } catch { /* keep fallback string */ }
 
   container.innerHTML = `
-    <h2>Chapter 2 - Test</h2>
+    <h2>${t('page.test')}</h2>
     ${noPriorTests ? `
       <div class="empty-state-banner">
         <p><strong>Take your first mock test when you've covered at least lessons 1-10.</strong> If you're new, study a few patterns first - missed items will flow into Review and Daily Drill automatically.</p>

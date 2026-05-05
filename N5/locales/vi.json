@@ -62,7 +62,28 @@
     "export": "Xuất tiến trình",
     "import": "Nhập tiến trình",
     "reset": "Xóa toàn bộ",
-    "danger_zone": "Vùng nguy hiểm"
+    "danger_zone": "Vùng nguy hiểm",
+    "subtitle": "Tất cả cài đặt đều lưu trên thiết bị này. Không có gì rời trình duyệt.",
+    "display": "Hiển thị",
+    "practice": "Luyện tập",
+    "data": "Dữ liệu",
+    "data_help": "Dùng xuất để sao lưu tiến trình (không đồng bộ đám mây). Nhập sẽ khôi phục tệp đã lưu.",
+    "test_length": "Số câu mặc định",
+    "test_unit": "câu",
+    "font_s": "Nhỏ",
+    "font_m": "Vừa (mặc định)",
+    "font_l": "Lớn",
+    "font_xl": "Rất lớn",
+    "reduce_auto": "Theo hệ thống",
+    "reduce_on": "Luôn giảm",
+    "reduce_off": "Không bao giờ giảm",
+    "auto_furigana_help": "Hiển thị furigana cho một số kanji đọc đơn giản (số đếm, thứ, từ ghép cố định). Tắt mặc định.",
+    "reset_label": "Xóa toàn bộ tiến trình",
+    "reset_help": "Xóa lịch sử học, lịch FSRS, kết quả thi, streak, các kanji đã biết, và cài đặt. Không thể hoàn tác.",
+    "reset_btn": "Xóa…",
+    "reset_confirm": "Nhập RESET để xác nhận. Lệnh này xóa toàn bộ tiến trình trên thiết bị.",
+    "reset_confirm_btn": "Xác nhận xóa",
+    "cancel": "Hủy"
   },
   "review": {
     "grade_again": "Quên",
@@ -107,5 +128,15 @@
     "open_source": "Mã nguồn mở",
     "on_device": "100% trên thiết bị",
     "free_no_paywall": "Miễn phí · Không quảng cáo · Không trả phí"
+  },
+  "footer": {
+    "help_translate": "Giúp dịch"
+  },
+  "page": {
+    "test": "Kiểm tra",
+    "drill": "Luyện tập",
+    "review": "Ôn tập",
+    "summary": "Tiến độ",
+    "diagnostic": "Đánh giá"
   }
 }

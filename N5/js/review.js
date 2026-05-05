@@ -4,6 +4,7 @@
 // 4-button (Again / Hard / Good / Easy); algorithm advances the schedule.
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 const NEW_PER_DAY_DEFAULT = 10;
 const REVIEW_CAP_DEFAULT = 50;
@@ -79,7 +80,7 @@ function renderSetup(container) {
   const newItems = getNewItems(newPerDay, dueItems);
 
   container.innerHTML = `
-    <h2>Chapter 3 - Review (SRS)</h2>
+    <h2>${t('page.review')}</h2>
     <p>Spaced-repetition session using the SM-2 algorithm. Items reappear at intervals that grow as you grade them correctly and shrink when you miss.</p>
 
     <section class="srs-stats">

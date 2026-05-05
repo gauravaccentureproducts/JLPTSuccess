@@ -1,7 +1,7 @@
 // Settings panel - per spec §3.6 of the developer brief + Brief 2 §5.
 // On-device only. Reads/writes via storage adapter.
 import * as storage from './storage.js';
-import { setLocale, currentLocale, supportedLocales } from './i18n.js';
+import { setLocale, currentLocale, supportedLocales, t } from './i18n.js';
 import { renderJa } from './furigana.js';
 
 const LOCALE_NAMES = {
@@ -15,88 +15,89 @@ const LOCALE_NAMES = {
 export async function renderSettings(container) {
   const s = storage.getSettings();
 
+  // ISSUE-048 (audit round-6): all visible labels now flow through t().
+  // Falls back to EN when a locale key is missing (i18n.t() returns the
+  // key when not found; we never see those strings as long as
+  // locales/<lc>.json keeps the round-6 settings.* + page.* keys).
   container.innerHTML = `
-    <h2>Settings</h2>
-    <p class="muted">All settings live on this device. Nothing leaves your browser.</p>
+    <h2>${t('settings.title')}</h2>
+    <p class="muted">${t('settings.subtitle')}</p>
 
     <section class="settings-section">
-      <h3>Display</h3>
+      <h3>${t('settings.display')}</h3>
       <label class="settings-row">
-        <span>UI language</span>
+        <span>${t('settings.language')}</span>
         <select id="set-locale">
           ${supportedLocales.map(lc => `<option value="${lc}" ${currentLocale()===lc?'selected':''}>${LOCALE_NAMES[lc] || lc}</option>`).join('')}
         </select>
       </label>
       <label class="settings-row">
-        <span>Theme</span>
+        <span>${t('settings.theme')}</span>
         <select id="set-theme">
-          <option value="system" ${(s.theme||'system')==='system'?'selected':''}>System</option>
-          <option value="light"  ${s.theme==='light'?'selected':''}>Light</option>
-          <option value="dark"   ${s.theme==='dark'?'selected':''}>Dark</option>
+          <option value="system" ${(s.theme||'system')==='system'?'selected':''}>${t('settings.theme_system')}</option>
+          <option value="light"  ${s.theme==='light'?'selected':''}>${t('settings.theme_light')}</option>
+          <option value="dark"   ${s.theme==='dark'?'selected':''}>${t('settings.theme_dark')}</option>
         </select>
       </label>
       <label class="settings-row">
-        <span>Font size</span>
+        <span>${t('settings.font_size')}</span>
         <select id="set-font">
-          <option value="s"  ${s.fontSize==='s'?'selected':''}>S</option>
-          <option value="m"  ${(s.fontSize||'m')==='m'?'selected':''}>M (default)</option>
-          <option value="l"  ${s.fontSize==='l'?'selected':''}>L</option>
-          <option value="xl" ${s.fontSize==='xl'?'selected':''}>XL</option>
+          <option value="s"  ${s.fontSize==='s'?'selected':''}>${t('settings.font_s')}</option>
+          <option value="m"  ${(s.fontSize||'m')==='m'?'selected':''}>${t('settings.font_m')}</option>
+          <option value="l"  ${s.fontSize==='l'?'selected':''}>${t('settings.font_l')}</option>
+          <option value="xl" ${s.fontSize==='xl'?'selected':''}>${t('settings.font_xl')}</option>
         </select>
       </label>
     </section>
 
     <section class="settings-section">
-      <h3>Keyboard</h3>
+      <h3>${t('settings.keyboard')}</h3>
       <p class="settings-row" style="display:block;">
-        <span>Press <kbd>?</kbd> on any page to open the keyboard-shortcuts cheatsheet.</span>
+        <span>${t('settings.keyboard_hint')}</span>
       </p>
     </section>
 
     <section class="settings-section">
-      <h3>Practice</h3>
+      <h3>${t('settings.practice')}</h3>
       <label class="settings-row">
-        <span>Default test length</span>
+        <span>${t('settings.test_length')}</span>
         <select id="set-test-length">
-          ${[20,30,50].map(n => `<option value="${n}" ${s.lastTestLength===n?'selected':''}>${n} questions</option>`).join('')}
+          ${[20,30,50].map(n => `<option value="${n}" ${s.lastTestLength===n?'selected':''}>${n} ${t('settings.test_unit')}</option>`).join('')}
         </select>
       </label>
       <label class="settings-row">
-        <span>Daily new-card limit</span>
+        <span>${t('settings.daily_new_limit')}</span>
         <input type="number" id="set-daily-new" min="1" max="50" value="${s.dailyNewLimit||10}">
       </label>
       <label class="settings-row">
-        <span>Daily review cap</span>
+        <span>${t('settings.daily_review_cap')}</span>
         <input type="number" id="set-daily-review" min="5" max="200" value="${s.dailyReviewCap||50}">
       </label>
       <label class="settings-row">
-        <span>Daily review goal</span>
+        <span>${t('settings.daily_goal')}</span>
         <input type="number" id="set-daily-goal" min="1" max="200" value="${s.dailyGoalReviews||20}">
       </label>
       <label class="settings-row">
-        <span>Audio playback speed</span>
+        <span>${t('settings.audio_speed')}</span>
         <select id="set-audio-rate">
           <option value="0.75" ${s.audioPlaybackRate===0.75?'selected':''}>0.75x</option>
-          <option value="1.0"  ${(s.audioPlaybackRate||1.0)===1.0?'selected':''}>1.0x (default)</option>
+          <option value="1.0"  ${(s.audioPlaybackRate||1.0)===1.0?'selected':''}>1.0x</option>
           <option value="1.25" ${s.audioPlaybackRate===1.25?'selected':''}>1.25x</option>
         </select>
       </label>
       <label class="settings-row">
-        <span>Reduce motion</span>
+        <span>${t('settings.reduce_motion')}</span>
         <select id="set-reduce-motion">
-          <option value="auto" ${s.reduceMotion===null||s.reduceMotion===undefined?'selected':''}>Follow system</option>
-          <option value="on"   ${s.reduceMotion===true?'selected':''}>Always reduce</option>
-          <option value="off"  ${s.reduceMotion===false?'selected':''}>Never reduce</option>
+          <option value="auto" ${s.reduceMotion===null||s.reduceMotion===undefined?'selected':''}>${t('settings.reduce_auto')}</option>
+          <option value="on"   ${s.reduceMotion===true?'selected':''}>${t('settings.reduce_on')}</option>
+          <option value="off"  ${s.reduceMotion===false?'selected':''}>${t('settings.reduce_off')}</option>
         </select>
       </label>
       <label class="settings-row">
         <span>
-          Auto-furigana (experimental)
+          ${t('settings.auto_furigana')}
           <span class="setting-help muted small" style="display:block; margin-top:2px;">
-            Adds ruby readings on a small whitelist of single-reading kanji
-            (counters, days, fixed compounds). Off by default — Pass-13
-            review found broader auto-ruby produced wrong context-dependent
-            readings. Risk-accepted as opt-in.
+            ${t('settings.auto_furigana_help')}
           </span>
         </span>
         <input type="checkbox" id="set-auto-furigana" ${s.autoFurigana ? 'checked' : ''}>
@@ -104,31 +105,31 @@ export async function renderSettings(container) {
     </section>
 
     <section class="settings-section">
-      <h3>Data</h3>
-      <p class="muted small">Use export to back up your progress (no cloud sync). Import re-applies a saved file.</p>
+      <h3>${t('settings.data')}</h3>
+      <p class="muted small">${t('settings.data_help')}</p>
       <div class="settings-actions">
-        <button id="set-export">Export progress</button>
-        <button id="set-import-trigger">Import progress…</button>
+        <button id="set-export">${t('settings.export')}</button>
+        <button id="set-import-trigger">${t('settings.import')}</button>
         <input type="file" id="set-import-file" accept="application/json,.json" hidden>
       </div>
       <p id="set-import-msg" class="muted small" role="status" aria-live="polite"></p>
     </section>
 
     <section class="settings-danger-zone" aria-labelledby="danger-zone-label">
-      <p class="danger-label" id="danger-zone-label">Danger zone</p>
+      <p class="danger-label" id="danger-zone-label">${t('settings.danger_zone')}</p>
       <div class="settings-row">
         <div>
-          <span>Reset all progress</span>
-          <p class="setting-help">Clears study history, FSRS schedule, test results, streak, known-kanji flags, and settings. Cannot be undone.</p>
+          <span>${t('settings.reset_label')}</span>
+          <p class="setting-help">${t('settings.reset_help')}</p>
         </div>
-        <button id="set-reset" class="btn-danger">Reset…</button>
+        <button id="set-reset" class="btn-danger">${t('settings.reset_btn')}</button>
       </div>
       <div id="reset-confirm" hidden class="reset-confirm-box">
-        <p><strong>Type <code>RESET</code> to confirm.</strong> This wipes every byte of your progress on this device.</p>
-        <input id="reset-phrase" type="text" autocomplete="off" placeholder="Type RESET">
+        <p><strong>${t('settings.reset_confirm')}</strong></p>
+        <input id="reset-phrase" type="text" autocomplete="off" placeholder="RESET">
         <div class="settings-actions">
-          <button id="reset-confirm-btn" class="btn-danger" disabled>Confirm reset</button>
-          <button id="reset-cancel-btn" class="btn-secondary">Cancel</button>
+          <button id="reset-confirm-btn" class="btn-danger" disabled>${t('settings.reset_confirm_btn')}</button>
+          <button id="reset-cancel-btn" class="btn-secondary">${t('settings.cancel')}</button>
         </div>
       </div>
     </section>

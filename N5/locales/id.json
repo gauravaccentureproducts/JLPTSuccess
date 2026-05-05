@@ -62,7 +62,28 @@
     "export": "Ekspor progres",
     "import": "Impor progres",
     "reset": "Reset semua progres",
-    "danger_zone": "Zona berbahaya"
+    "danger_zone": "Zona berbahaya",
+    "subtitle": "Semua pengaturan di perangkat ini. Tidak ada yang dikirim keluar.",
+    "display": "Tampilan",
+    "practice": "Latihan",
+    "data": "Data",
+    "data_help": "Gunakan ekspor untuk mencadangkan progres (tanpa sinkron awan). Impor mengembalikan file tersimpan.",
+    "test_length": "Panjang tes default",
+    "test_unit": "soal",
+    "font_s": "Kecil",
+    "font_m": "Sedang (default)",
+    "font_l": "Besar",
+    "font_xl": "Sangat besar",
+    "reduce_auto": "Ikuti sistem",
+    "reduce_on": "Selalu kurangi",
+    "reduce_off": "Tidak pernah",
+    "auto_furigana_help": "Menambah furigana di sebagian kecil kanji bacaan tunggal (penghitung, hari, frasa tetap). Default mati.",
+    "reset_label": "Atur ulang semua progres",
+    "reset_help": "Menghapus riwayat belajar, jadwal FSRS, hasil tes, streak, dan pengaturan. Tidak bisa dibatalkan.",
+    "reset_btn": "Atur ulang…",
+    "reset_confirm": "Ketik RESET untuk konfirmasi. Tindakan ini menghapus seluruh progres di perangkat.",
+    "reset_confirm_btn": "Konfirmasi reset",
+    "cancel": "Batal"
   },
   "review": {
     "grade_again": "Ulang",
@@ -107,5 +128,15 @@
     "open_source": "Sumber terbuka",
     "on_device": "100% di perangkat",
     "free_no_paywall": "Gratis · Tanpa iklan · Tanpa berbayar"
+  },
+  "footer": {
+    "help_translate": "Bantu menerjemahkan"
+  },
+  "page": {
+    "test": "Tes",
+    "drill": "Latihan harian",
+    "review": "Ulasan",
+    "summary": "Progres",
+    "diagnostic": "Diagnostik"
   }
 }

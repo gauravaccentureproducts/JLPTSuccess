@@ -58,7 +58,28 @@
     "export": "Export progress",
     "import": "Import progress",
     "reset": "Reset all progress",
-    "danger_zone": "Danger zone"
+    "danger_zone": "Danger zone",
+    "subtitle": "All settings live on this device. Nothing leaves your browser.",
+    "display": "Display",
+    "practice": "Practice",
+    "data": "Data",
+    "data_help": "Use export to back up your progress (no cloud sync). Import re-applies a saved file.",
+    "test_length": "Default test length",
+    "test_unit": "questions",
+    "font_s": "S",
+    "font_m": "M (default)",
+    "font_l": "L",
+    "font_xl": "XL",
+    "reduce_auto": "Follow system",
+    "reduce_on": "Always reduce",
+    "reduce_off": "Never reduce",
+    "auto_furigana_help": "Adds ruby readings on a small whitelist of single-reading kanji (counters, days, fixed compounds). Off by default.",
+    "reset_label": "Reset all progress",
+    "reset_help": "Clears study history, FSRS schedule, test results, streak, known-kanji flags, and settings. Cannot be undone.",
+    "reset_btn": "Reset…",
+    "reset_confirm": "Type RESET to confirm. This wipes every byte of your progress on this device.",
+    "reset_confirm_btn": "Confirm reset",
+    "cancel": "Cancel"
   },
   "review": {
     "grade_again": "Again",
@@ -103,5 +124,15 @@
     "open_source": "Open source",
     "on_device": "100% on-device",
     "free_no_paywall": "Free · No ads · No paywall"
+  },
+  "footer": {
+    "help_translate": "Help translate"
+  },
+  "page": {
+    "test": "Test",
+    "drill": "Daily Drill",
+    "review": "Review",
+    "summary": "Progress",
+    "diagnostic": "Diagnostic"
   }
 }
