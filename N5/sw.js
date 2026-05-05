@@ -94,6 +94,11 @@ const PRECACHE = [
   // SW logic that needs the cache key without rebuilding it from
   // CHANGELOG.md.
   './data/version.json',
+  // ISSUE-038 (audit round-5): SEO + crawler hints. Precaching means
+  // the files are available even on offline / cached-only visits;
+  // search engines hit them on first crawl.
+  './robots.txt',
+  './sitemap.xml',
   './data/n5_kanji_whitelist.json',
   './data/n5_kanji_readings.json',
   './data/n5_vocab_whitelist.json',

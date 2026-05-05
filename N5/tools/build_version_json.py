@@ -54,6 +54,24 @@ def count_top(p: Path, key: str) -> int:
     return len(json.loads(p.read_text(encoding='utf-8')).get(key, []))
 
 
+def _count_invariants() -> int:
+    """ISSUE-035: read the live CHECKS list length from
+    check_content_integrity.py rather than hardcoding. Imports the module
+    to access its CHECKS tuple directly — same source the runtime uses,
+    so the count cannot drift."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        'check_content_integrity',
+        Path(__file__).parent / 'check_content_integrity.py',
+    )
+    if spec is None or spec.loader is None:
+        return 0
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    checks = getattr(mod, 'CHECKS', None)
+    return len(checks) if checks else 0
+
+
 def count_papers() -> tuple[int, int]:
     """Return (total_papers, total_questions) by walking data/papers/*."""
     papers = 0
@@ -84,11 +102,16 @@ def main() -> int:
         'papers':          paper_count,
         'paperQuestions':  paper_q,
     }
+    # ISSUE-035 (audit round-5): live invariants count from check_content_integrity.py
+    # rather than a hand-written placeholder. Round-3 added JA-33 + round-4 added
+    # JA-34/JA-35 without the placeholder catching up. Reading the live CHECKS
+    # list keeps the build stamp honest as future invariants land.
+    invariants_count = _count_invariants()
     out = {
         'version':       version,
         'builtAt':       datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'counts':        counts,
-        'invariants':    '41/41 (per tools/check_content_integrity.py)',
+        'invariants':    f'{invariants_count}/{invariants_count} (per tools/check_content_integrity.py)',
         'cacheVersion':  f'jlptsuccess-n5-{version}',
         'note':          (
             'Single source of truth for build-stamp + corpus counts. '

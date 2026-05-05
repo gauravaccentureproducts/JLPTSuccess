@@ -290,7 +290,12 @@ export async function renderHome(container) {
           <span class="trust-pill"><span aria-hidden="true">●</span> No login</span>
           <span class="trust-pill"><span aria-hidden="true">●</span> No tracking</span>
           <a class="trust-pill" href="${'./' /* placeholder for install hook */}" data-trust-install title="Install for offline use"><span aria-hidden="true">●</span> Works offline</a>
-          <a class="trust-pill" href="../../LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> Open source</a>
+          <!-- ISSUE-040 (audit round-5): the GitHub blob URL stays correct
+               on every deploy (canonical / fork / localhost) because the
+               source-of-truth always lives in the upstream repo. The
+               relative ../../LICENSE only resolved correctly on the
+               canonical /JLPTSuccess/N5/ deploy. -->
+          <a class="trust-pill" href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> Open source</a>
           <a class="trust-pill" href="PRIVACY.md" target="_blank" rel="noopener" title="No data leaves your device"><span aria-hidden="true">●</span> 100% on-device</a>
         </p>
         <ul class="syllabus-stat-pills" aria-label="Corpus size">

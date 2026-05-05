@@ -1,0 +1,14 @@
+# ISSUE-038 (audit round-5): explicit crawler hints + sitemap pointer.
+# JLPTSuccess is intentionally indexable — search-engine traffic is the
+# primary discovery channel for niches N1 (multilingual) and N3
+# (institutional). The privacy contract (no telemetry, no third-party
+# scripts) is unaffected by being indexed.
+
+User-agent: *
+Allow: /
+
+# Block the in-repo developer surface (test runner) from indexing —
+# it's not user-facing.
+Disallow: /N5/tools/test-runner/
+
+Sitemap: https://gauravaccentureproducts.github.io/JLPTSuccess/N5/sitemap.xml

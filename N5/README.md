@@ -2,6 +2,24 @@
 
 Browser-based static web app for studying JLPT N5: grammar, vocabulary, kanji, reading, and listening. **No server. No accounts. No third-party scripts.** Author-side build tools (Python) live under `/tools/`; the learner runs only the browser.
 
+## Documentation
+
+ISSUE-047 (audit round-5): the docs live in this directory. Quick map:
+
+| Doc | Purpose |
+|---|---|
+| [`specifications/JLPT-N5-Current-Implementation-Spec.md`](specifications/JLPT-N5-Current-Implementation-Spec.md) | The authoritative living spec — what the app actually does today (v1.12.32+). |
+| [`docs/SELF-HOST.md`](docs/SELF-HOST.md) | Fork → brand → deploy guide for institutional / school adopters (niche N3). |
+| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for vi/id/ne/zh and new locales (niche N1). |
+| [`docs/NATIVE-AUDIO-WORKFLOW.md`](docs/NATIVE-AUDIO-WORKFLOW.md) | How to swap synthetic gTTS audio for native-speaker recordings. |
+| [`prompts/N5Improvement.txt`](prompts/N5Improvement.txt) | The audit-only prompt that drives every "round" of audit findings. Read for canonical strategic positioning + anti-items list. |
+| [`feedback/n5-audit-2026-05-04.xlsx`](feedback/n5-audit-2026-05-04.xlsx) | Cumulative audit tracker (rounds 1-5). Source of truth for outstanding work. |
+| [`PRIVACY.md`](PRIVACY.md) | Privacy contract — no telemetry, no third-party scripts, no PII. |
+| [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) | CC BY-SA 4.0 for the educational content corpus. |
+| [`NOTICES.md`](NOTICES.md) | Third-party content attributions (KanjiVG, Inter, Noto Sans JP). |
+| [`../LICENSE`](../LICENSE) | MIT for the source code. |
+| [`../CONTRIBUTING.md`](../CONTRIBUTING.md) | Contribution workflow + anti-features list. |
+
 ## Run locally
 
 Open `index.html` in a modern browser (Chrome, Edge, Firefox).

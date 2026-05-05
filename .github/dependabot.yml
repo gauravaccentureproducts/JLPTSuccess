@@ -1,0 +1,45 @@
+# IMP-060 (audit round-5): security updates for the only dependency
+# surface in the project — devDependencies in N5/package.json (Playwright
+# + axe-core for tests). The runtime ships zero npm dependencies so the
+# attack surface is small; this config keeps the tooling current.
+#
+# Schedule: weekly (Monday 09:00 UTC). Group security updates so PR
+# noise stays low.
+#
+# Reference: https://docs.github.com/en/code-security/dependabot/
+
+version: 2
+updates:
+  # JS / npm devDependencies under N5/
+  - package-ecosystem: "npm"
+    directory: "/N5"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "automated"
+
+  # GitHub Actions workflow files (when added)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "chore(actions)"
+    labels:
+      - "github-actions"
+      - "dependencies"
+      - "automated"
