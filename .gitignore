@@ -3,6 +3,9 @@
 .idea/
 .DS_Store
 Thumbs.db
+# MS Office lock files (created when an .xlsx / .docx is open in Office;
+# should never be committed — they are per-session, per-user, ephemeral).
+~$*
 
 # Python
 __pycache__/
