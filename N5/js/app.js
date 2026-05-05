@@ -22,7 +22,7 @@ import { renderReading } from './reading.js';
 import { renderListening } from './listening.js';
 import { renderKanji } from './kanji.js';
 import { renderHome } from './home.js';
-import { initI18n, setLocale, currentLocale, supportedLocales } from './i18n.js';
+import { initI18n, setLocale, currentLocale, supportedLocales, t } from './i18n.js';
 import { renderPapers } from './papers.js';
 import { renderChangelog } from './changelog.js';
 import { renderFeedback } from './feedback.js';
@@ -152,11 +152,51 @@ function renderTimeout(container, name) {
   `;
 }
 
+// 2026-05-05 (locale-chip fix): the primary-nav links in index.html ship
+// with hardcoded English labels. After a locale switch, they need to
+// be re-translated. Called at the start of every route() so the labels
+// always match the active locale. Resolves the user-reported bug where
+// clicking a locale chip didn't visibly change anything.
+function applyNavTranslations() {
+  const NAV_KEYS = {
+    'learn/grammar': 'nav.learn',     // → "Grammar" / "Học" / etc. — locale "Learn" is closest
+    'learn/vocab':   'nav.learn',     // → "Vocabulary" — share Learn-bucket label here too
+    'kanji':         'nav.kanji',
+    'reading':       'nav.reading',
+    'listening':     'nav.listening',
+    'test':          'nav.test',
+    'sitting':       'nav.mock',
+    'missed':        'nav.missed',
+    'summary':       'nav.progress',
+  };
+  // Per-route override: Grammar + Vocabulary deserve their own locale keys
+  // (currently nav.learn collides). Use ad-hoc strings sourced from
+  // home/learn-hub keys when available; fall back to the existing label.
+  const PER_ROUTE = {
+    'learn/grammar': { en: 'Grammar', vi: 'Ngữ pháp', id: 'Tata bahasa', ne: 'व्याकरण', zh: '语法' },
+    'learn/vocab':   { en: 'Vocabulary', vi: 'Từ vựng', id: 'Kosakata',  ne: 'शब्दावली', zh: '词汇' },
+    'kanji':         { en: 'Kanji', vi: 'Kanji', id: 'Kanji', ne: 'कान्जी', zh: '汉字' },
+    'reading':       { en: 'Reading', vi: 'Đọc', id: 'Membaca', ne: 'पढाइ', zh: '阅读' },
+    'listening':     { en: 'Listening', vi: 'Nghe', id: 'Mendengar', ne: 'सुनाइ', zh: '听力' },
+    'test':          { en: 'Test', vi: 'Kiểm tra', id: 'Tes', ne: 'परीक्षण', zh: '测试' },
+    'sitting':       { en: 'Mock', vi: 'Thi thử', id: 'Simulasi', ne: 'मॉक', zh: '模拟' },
+    'missed':        { en: 'Missed', vi: 'Câu sai', id: 'Salah', ne: 'गल्ती', zh: '错题' },
+    'summary':       { en: 'Progress', vi: 'Tiến độ', id: 'Progres', ne: 'प्रगति', zh: '进度' },
+  };
+  const lc = currentLocale();
+  document.querySelectorAll('.primary-nav a[data-route]').forEach(a => {
+    const route = a.dataset.route;
+    const map = PER_ROUTE[route];
+    if (map && map[lc]) a.textContent = map[lc];
+  });
+}
+
 async function route() {
   const container = document.getElementById('app');
   const { name, params } = parseRoute();
   const handler = ROUTES[name] || renderLearn;
   setActiveNav(handler === renderLearn ? 'learn' : name);
+  applyNavTranslations();
   renderSkeleton(container, name);
   let timedOut = false;
   const timeoutId = setTimeout(() => {

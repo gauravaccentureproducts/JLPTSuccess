@@ -21,6 +21,7 @@
 // N5" / "Your ultimate study companion" / "Start your journey." Counts are
 // bare numerals + nouns. (Spec §5.1.1, mandatory.)
 import * as storage from './storage.js';
+import { t, currentLocale } from './i18n.js';
 
 // Cache the corpus counts and pattern label map at module scope so we
 // fetch each data file once per session.
@@ -278,29 +279,19 @@ export async function renderHome(container) {
 
       <header class="syllabus-header">
         <span class="syllabus-watermark" aria-hidden="true">五</span>
-        <h1 class="syllabus-title">JLPT N5 Syllabus</h1>
-        <p class="syllabus-subtitle">Study grammar, vocabulary, kanji, reading, and listening in a structured order.</p>
+        <h1 class="syllabus-title">${t('home.syllabus_title')}</h1>
+        <p class="syllabus-subtitle">${t('home.syllabus_subtitle')}</p>
         <!-- ISSUE-027 / IMP-048 (audit round-4): privacy / niche-N2
              trust band. Surfaces the most-defensible competitive claim
-             on first paint. Each item links to its proof:
-               "Open source" -> /LICENSE
-               "Works offline" -> install banner / docs
-               "Privacy" -> PRIVACY.md -->
+             on first paint. 2026-05-05: trust pills now use t() so
+             they translate when the locale chip switches. -->
         <p class="syllabus-trust-band" aria-label="Trust signals">
-          <span class="trust-pill"><span aria-hidden="true">●</span> No login</span>
-          <span class="trust-pill"><span aria-hidden="true">●</span> No tracking</span>
-          <a class="trust-pill" href="${'./' /* placeholder for install hook */}" data-trust-install title="Install for offline use"><span aria-hidden="true">●</span> Works offline</a>
-          <!-- ISSUE-040 (audit round-5): the GitHub blob URL stays correct
-               on every deploy (canonical / fork / localhost) because the
-               source-of-truth always lives in the upstream repo. The
-               relative ../../LICENSE only resolved correctly on the
-               canonical /JLPTSuccess/N5/ deploy. -->
-          <a class="trust-pill" href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> Open source</a>
-          <a class="trust-pill" href="PRIVACY.md" target="_blank" rel="noopener" title="No data leaves your device"><span aria-hidden="true">●</span> 100% on-device</a>
-          <!-- ISSUE-037 + IMP-058 (audit round-5): price differentiator pill.
-               Bunpro / WaniKani / Renshuu all charge; this pill makes the
-               niche-N2 claim complete. -->
-          <span class="trust-pill" title="Free, forever. No ads, no paywall, no upsell."><span aria-hidden="true">●</span> Free · No ads · No paywall</span>
+          <span class="trust-pill"><span aria-hidden="true">●</span> ${t('trust.no_login')}</span>
+          <span class="trust-pill"><span aria-hidden="true">●</span> ${t('trust.no_tracking')}</span>
+          <a class="trust-pill" href="${'./' /* placeholder for install hook */}" data-trust-install title="Install for offline use"><span aria-hidden="true">●</span> ${t('trust.works_offline')}</a>
+          <a class="trust-pill" href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> ${t('trust.open_source')}</a>
+          <a class="trust-pill" href="PRIVACY.md" target="_blank" rel="noopener" title="No data leaves your device"><span aria-hidden="true">●</span> ${t('trust.on_device')}</a>
+          <span class="trust-pill" title="Free, forever. No ads, no paywall, no upsell."><span aria-hidden="true">●</span> ${t('trust.free_no_paywall')}</span>
         </p>
         <ul class="syllabus-stat-pills" aria-label="Corpus size">
           <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.grammar)}</span><span class="syllabus-stat-lbl">grammar patterns</span></li>
@@ -313,21 +304,21 @@ export async function renderHome(container) {
           <div class="syllabus-daily-status">
             <span class="syllabus-daily-streak">Streak: ${streak?.current ?? 0} ${(streak?.current ?? 0) === 1 ? 'day' : 'days'}</span>
             <a class="syllabus-daily-progress" href="#/review" title="Open today's review queue">
-              <span class="syllabus-daily-progress-label">Today: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
+              <span class="syllabus-daily-progress-label">${t('home.today_label')}: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
               <span class="syllabus-daily-progress-bar" aria-hidden="true">
                 <span class="syllabus-daily-progress-fill" style="width:${goalPct}%"></span>
               </span>
             </a>
             ${dueCount > 0 ? `
               <a class="syllabus-daily-due" href="#/review">
-                <strong>${dueCount}</strong> review${dueCount === 1 ? '' : 's'} due
+                ${t('home.reviews_due', { n: `<strong>${dueCount}</strong>` })}
               </a>
             ` : `
-              <span class="syllabus-daily-due is-empty">No reviews due</span>
+              <span class="syllabus-daily-due is-empty">${t('home.no_reviews_due')}</span>
             `}
             <span class="syllabus-daily-today ${dailyGoalMet ? 'is-met' : 'is-pending'}">
               <span class="syllabus-daily-mark" aria-hidden="true">${dailyGoalMet ? '✓' : '○'}</span>
-              <span class="syllabus-daily-text">${dailyGoalMet ? 'Practiced today' : 'Not yet practiced today'}</span>
+              <span class="syllabus-daily-text">${dailyGoalMet ? t('home.practiced_today') : t('home.not_yet_practiced')}</span>
             </span>
           </div>
         ` : ''}
@@ -382,7 +373,7 @@ export async function renderHome(container) {
              Wednesday I'll have 25 — better stay on top of it". -->
         <section class="syllabus-forecast" aria-label="Review forecast">
           <header class="section-label">
-            <span class="section-label-text">Review forecast (7 days)</span>
+            <span class="section-label-text">${t('home.forecast_label')}</span>
             <span class="section-label-rule" aria-hidden="true"></span>
           </header>
           <ol class="forecast-bar-chart">

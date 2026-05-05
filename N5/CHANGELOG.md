@@ -2,6 +2,43 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.36 - 2026-05-05 (Hotfix — locale chips now visibly translate the home page)
+
+User report: "these tabs are not working" — the EN/VI/ID/NE/ZH chip
+group in the header swapped active state visually but the rendered
+page didn't change.
+
+Root cause: the chip click handler correctly called `setLocale()` +
+`route()`, but most renderers (home.js, primary-nav, etc.) hardcoded
+English strings rather than using `t()` from `i18n.js`. Locale
+plumbing worked at the storage / dict layer; consumption layer was
+disconnected.
+
+Fix:
+  - Added `trust.*` (6 keys) + `nav.{mock, missed, progress}` keys
+    to all 5 locale files. Total UI keys per non-EN locale grew from
+    ~77 to ~86.
+  - Wired `home.js` to import `t()` and use it for: syllabus title,
+    subtitle, all 6 trust-band pills, daily-status block ("Today",
+    "N reviews due", "Practiced today" / "Not yet practiced today"),
+    and review forecast section label.
+  - Added `applyNavTranslations()` in `app.js` called at the start of
+    every `route()`. Translates the 9 primary-nav links (Grammar,
+    Vocabulary, Kanji, Reading, Listening, Test, Mock, Missed,
+    Progress) to the active locale via an inline per-route table.
+
+Result: clicking VI/ID/NE/ZH on the home page now visibly swaps the
+syllabus title, subtitle, trust-band pills, daily-status text,
+forecast label, AND every primary-nav link. Kanji + vocab detail
+pages already responded correctly via the IMP-047/046 wiring shipped
+in v1.12.35; this hotfix makes the home + nav surface match.
+
+Service worker bumped jlptsuccess-n5-v1.12.35 → v1.12.36.
+
+44/44 invariants green.
+
+---
+
 ## v1.12.35 - 2026-05-05 (IMP-045 / IMP-046 / IMP-047 — content-body i18n)
 
 User direction: implement IMP-045/046/047 — translate the content body
