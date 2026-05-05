@@ -2602,6 +2602,49 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .provenance-badge.badge-auto   { background: transparent;                  color: var(--color-text-muted);    border: 0.5px dashed var(--color-line); }
 .provenance-banner { margin: 8px 0; }
 
+/* ISSUE-064 + IMP-082 + IMP-083 (audit round-7): radical, decomposition,
+ * mnemonic, and confusable-with surfaces on the kanji detail page.
+ * Niche-N4 lift toward WaniKani parity. */
+.kanji-mnemonic-block {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 4%, transparent);
+  border-radius: 8px;
+}
+.kanji-mnemonic-block .kanji-radical-glyph {
+  font-size: 22px;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+.kanji-mnemonic-block .kanji-decomposition {
+  font-size: 20px;
+  margin-left: 6px;
+  letter-spacing: 0.05em;
+}
+.kanji-mnemonic-block .kanji-mnemonic {
+  margin: 8px 0 0;
+  font-style: italic;
+}
+.kanji-confusable-block { margin-top: 16px; }
+.kanji-confusable-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 6px;
+}
+.kanji-confusable-card {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 56px; min-height: 56px;
+  font-size: 28px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.kanji-confusable-card:hover {
+  border-color: var(--color-accent, #1F4D2E);
+  background: rgba(20, 69, 42, 0.04);
+}
+
 /* IMP-080 (audit round-7): L1-interference-note callout on grammar
  * pattern detail. Visually distinguished from regular explanation so
  * non-EN learners notice the L1-specific guidance. */

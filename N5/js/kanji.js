@@ -240,6 +240,35 @@ function renderDetail(container, entry, entries) {
           <span>Mark as known</span>
         </label>
       </div>
+      ${(entry.radical || entry.radical_decomposition || entry.mnemonic) ? `
+        <section class="kanji-mnemonic-block">
+          <h3>Radical &amp; mnemonic</h3>
+          ${entry.radical ? `
+            <p><strong>Radical:</strong>
+              <span class="kanji-radical-glyph" lang="ja">${esc(entry.radical.glyph || '')}</span>
+              <span class="muted small">${esc(entry.radical.name || '')}</span>
+            </p>
+          ` : ''}
+          ${entry.radical_decomposition?.length ? `
+            <p><strong>Components:</strong>
+              <span class="kanji-decomposition" lang="ja">${entry.radical_decomposition.map(esc).join(' + ')}</span>
+            </p>
+          ` : ''}
+          ${entry.mnemonic ? `<p class="kanji-mnemonic">${esc(entry.mnemonic)}</p>` : ''}
+        </section>
+      ` : ''}
+      ${entry.confusable_with?.length ? `
+        <section class="kanji-confusable-block">
+          <h3>Don't confuse with</h3>
+          <div class="kanji-confusable-grid">
+            ${entry.confusable_with.map(g => `
+              <a class="kanji-confusable-card" href="#/kanji/${encodeURIComponent(g)}">
+                <span lang="ja">${esc(g)}</span>
+              </a>
+            `).join('')}
+          </div>
+        </section>
+      ` : ''}
       ${entry.examples?.length ? `
         <section class="kanji-examples">
           <h3>Example usage (N5)</h3>
