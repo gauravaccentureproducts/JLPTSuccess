@@ -776,6 +776,125 @@
       "explanation_en": "Evening greeting (こんばんは for evening; おはよう for morning, おやすみ for going to bed).",
       "audio": "audio/listening/n5.listen.040.mp3",
       "review_status": "llm_curated"
+    },
+    {
+      "id": "n5.listen.041",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "いえに かえります",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "おさきに しつれいします。",
+      "choices": [
+        "おつかれさまでした。",
+        "はじめまして。",
+        "ごちそうさまでした。"
+      ],
+      "correctAnswer": "おつかれさまでした。",
+      "explanation_en": "When a colleague says 'お先に失礼します' (leaving work first), the standard reply is 'お疲れさまでした' (you've worked hard). 'はじめまして' is a first-meeting greeting; 'ごちそうさまでした' is for after meals."
+    },
+    {
+      "id": "n5.listen.042",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "ありがとう",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "たんじょうび、おめでとうございます。",
+      "choices": [
+        "ありがとうございます。",
+        "すみません。",
+        "いただきます。"
+      ],
+      "correctAnswer": "ありがとうございます。",
+      "explanation_en": "Standard reply when someone congratulates you on your birthday: 'thank you'. 'すみません' apologises; 'いただきます' is said before eating."
+    },
+    {
+      "id": "n5.listen.043",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "みち を きく",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "すみません、えきは どこですか。",
+      "choices": [
+        "まっすぐ いって、みぎに まがって ください。",
+        "えきは とおいです。",
+        "きっぷは 二まいです。"
+      ],
+      "correctAnswer": "まっすぐ いって、みぎに まがって ください。",
+      "explanation_en": "When asked 'where is the station?' the natural reply is directions ('go straight then turn right'). The other options state distance or count tickets but don't answer 'where'."
+    },
+    {
+      "id": "n5.listen.044",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "いただきます",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "いっしょに ひるごはんを たべませんか。",
+      "choices": [
+        "いいですね、たべましょう。",
+        "もう たべました。",
+        "いってきます。"
+      ],
+      "correctAnswer": "いいですね、たべましょう。",
+      "explanation_en": "When invited 'won't you eat lunch with me?', the warm acceptance is 'sounds good, let's eat'. 'もう食べました' (already ate) is technically a refusal but more abrupt; 'いってきます' (I'm off) is wrong context entirely."
+    },
+    {
+      "id": "n5.listen.045",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "おはよう",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "おはようございます。",
+      "choices": [
+        "おはようございます。",
+        "おやすみなさい。",
+        "さようなら。"
+      ],
+      "correctAnswer": "おはようございます。",
+      "explanation_en": "Greeting echoes greeting: 'good morning' is met with 'good morning'. 'おやすみなさい' is good-night; 'さようなら' is goodbye."
+    },
+    {
+      "id": "n5.listen.046",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "きょうしつで",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "すみません、ペンを かして ください。",
+      "choices": [
+        "はい、どうぞ。",
+        "はい、わかりました。",
+        "いいえ、けっこうです。"
+      ],
+      "correctAnswer": "はい、どうぞ。",
+      "explanation_en": "When asked to lend a pen, the natural reply is 'yes, here you go' ('どうぞ' = please take it). 'わかりました' (understood) doesn't fit a request for an object; 'いいえ、けっこうです' (no thank you) refuses."
+    },
+    {
+      "id": "n5.listen.047",
+      "mondai": 4,
+      "format": "response",
+      "format_type": "immediate_response",
+      "review_status": "llm_curated",
+      "title_ja": "たすけて くれて",
+      "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
+      "script_ja": "すみませんでした。",
+      "choices": [
+        "いいえ、だいじょうぶです。",
+        "おねがいします。",
+        "こちらこそ。"
+      ],
+      "correctAnswer": "いいえ、だいじょうぶです。",
+      "explanation_en": "When someone apologises 'sorry', the gracious reply is 'no, it's fine'. 'おねがいします' (please) is unrelated; 'こちらこそ' (likewise) fits 'thank you' contexts."
     }
   ]
 }

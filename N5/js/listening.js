@@ -17,6 +17,10 @@ const FORMATS = {
   task:      'かだいりかい (タスクりかい)',
   point:     'ポイントりかい',
   utterance: 'はつわひょうげん',
+  // ISSUE-057 (audit round-7): mondai-4 即時応答 (immediate response).
+  // Distinct from utterance/発話表現 (mondai-3). Three short replies,
+  // pick the most natural rejoinder.
+  response:  'そくじおうとう',
 };
 
 async function loadBank() {
