@@ -52,6 +52,48 @@ A "world-class generic JLPT app" is not a viable target for a solo
 + AI build. "Best free multilingual privacy-respecting JLPT N5 app"
 IS a viable target. Audit accordingly.
 
+## DEPTH-FIRST ENRICHMENT MANDATE (read this second — binding for this cycle)
+
+This audit cycle is **depth-first, not width-first**. The N5 corpus
+breadth is FROZEN at the current scale:
+
+  - 178 grammar patterns (`data/grammar.json`)
+  - 1041 vocabulary entries (`data/vocab.json`)
+  - 106 kanji (`data/kanji.json`)
+  - 40 reading passages (`data/reading.json`)
+  - 40 listening drills (`data/listening.json`)
+
+You will NOT recommend adding more grammar patterns, vocab words,
+kanji, passages, or drills in this audit. "Add 30 more N5 vocab"
+is OUT OF SCOPE. The breadth is fixed; this cycle upgrades each
+existing entry toward best-in-class pedagogical depth.
+
+What "depth" means per surface — every audit finding for content
+must map to one or more of these dimensions:
+
+| Surface | Depth dimensions (the only legitimate gaps for this cycle) |
+|---|---|
+| **Grammar** | example count (floor 3, target 5-7); example diversity (different attachment surfaces / registers / topics, not paraphrases); register annotation; common-mistakes entry with specific wrong-vs-right + the why; contrasts cross-links to confusable patterns; L1-interference notes (Mandarin / Vietnamese / Indonesian / Nepali / Hindi); source citations (Genki / Minna / JLPT.jp / Bunpro / JLPT Sensei); audio per example; pitch accent on examples |
+| **Vocab** | example count per word (floor 2, target 3); `gloss_translations` for vi/id/ne/zh (currently the largest niche-N1 gap); pitch accent (Tokyo); collocations list; transitivity-pair cross-link; verb-class flag (godan/ichidan/irregular + Group-1-exception markers for 入る/帰る/走る/知る/切る/要る); register tag (casual/polite/humble/respectful); false-friend flags for L1; conjugation table for verbs; counter pairing for nouns that take counters; audio for all forms |
+| **Kanji** | mnemonic per kanji (largest UX gap vs WaniKani); `radical_decomposition`; stroke-order common-mistake notes; ≥5 compound vocab cross-links; ≥1 N5-scope example sentence; look-alike cluster cross-links (大/犬/太, 木/本/末/未, 人/入/八, 日/目/白, 千/干/王/玉, 上/止/正); `meanings_translations` for vi/id/ne/zh; audio for on/kun-yomi; `frequency_rank`; `recognition_priority` |
+| **Reading** | sentence-by-sentence grammar footnote layer (inline pop-overs); pre-reading vocab preview; native-speaker audio (vs current TTS); paragraph-level summary; literal-vs-natural translation comparison; cultural-context callouts where Japan-specific assumptions appear; post-reading discussion / reflection prompts; `format_role` discipline (primary vs supplementary questions per JA invariants) |
+| **Listening** | timestamped transcript; vocab glossary per drill; slow-version audio variant; situational/cultural context note; discourse-feature annotations (filler words あの/えー/まあ, self-corrections, intonation cues); inference-question expansions (beyond literal retrieval); voice variety verification (≥4 voices across genders/ages); ambient-context layer for mondai 1-2; pre-listening prompt visibility |
+
+The audit must extract the **per-entry depth-deficit FIRST**, before
+any structural or feature improvement. A shallow grammar pattern
+(2 examples, no common-mistake, no contrast) is a higher-priority
+finding than a missing meta-feature, because depth is what
+defensible content competence looks like — and it's what a paying
+or institutional adopter inspects first.
+
+Items that ADD width (new patterns, new words, new passages, new
+drills) MUST be filed under Section 7 (Anti-Items) for this cycle,
+even if they look attractive. They may return in a future width-
+cycle audit. The single exception: if a width-add is required for
+JLPT N5 scope correctness (e.g., a canonically-required grammar
+pattern is genuinely missing), file it as a normal Section-2 issue
+with severity BLOCKER and tag it `[WIDTH-EXCEPTION-SCOPE]`.
+
 ## CONTEXT: WHAT THIS APP IS
 
 - Repo: gauravaccentureproducts/JLPTSuccess. Static PWA, no build step,
@@ -771,12 +813,66 @@ governs everything below. Include:
   privacy posture / discoverability / install path. Mark each cell
   ✅ / ⚠️ / ❌ from the learner's POV.
 
+### Section 0.5: Depth-Deficit Map (mandatory — extracts work-first list)
+
+For each of the five content surfaces (Grammar / Vocab / Kanji /
+Reading / Listening), produce a depth-deficit table. **This is the
+single most important section for this audit cycle** — it is the
+direct input to the implementation cycle that follows. Be quantitative.
+
+For each surface, produce a table with columns:
+
+| Depth dimension | Entries meeting bar | Entries below bar | % below | Worst-offender IDs (top 5) |
+
+Use the dimensions listed in the DEPTH-FIRST ENRICHMENT MANDATE
+matrix. Examples of what a row looks like:
+
+  Grammar — common_mistakes present:    72 / 178   (106 below, 60% below)   n5-003, n5-014, n5-027, n5-058, n5-091
+  Vocab   — gloss_translations all 4:    312 / 1041 (729 below, 70% below)   全部, 始める, 後, 大事, 知る
+  Kanji   — radical_decomposition:       0 / 106   (106 below, 100% below)   日, 月, 木, 山, 川
+
+After the five tables, write:
+
+- **The dominant deficit per surface** — one sentence each, naming
+  the single dimension with the largest entries-below count.
+- **The dominant deficit cross-surface** — the one dimension that, if
+  filled, would move the most entries up the depth bar across all
+  surfaces. This is the answer to "what should we do first."
+- **Effort estimate per surface** — rough person-day estimate to
+  close the dominant deficit, factoring in whether native review is
+  required or LLM-curated-with-spot-check is sufficient.
+- **The 10 worst-offender entries cross-surface** — single ranked
+  list, by (number of dimensions failed × surface weight). Surface
+  weight: Grammar 1.5, Vocab 1.0, Kanji 1.3, Reading 1.2, Listening
+  1.0 — grammar and kanji are the highest-leverage surfaces because
+  every reading/listening item depends on them.
+
+Section 0.5 must be produced before Section 1 and Section 1 must
+be derivable from it.
+
 ### Section 1: Top-of-list — what to do first
 The 10 highest-priority items overall, mixed across issues and
-improvements, ordered P1 first then by impact. Each as a single line:
-`[ID] [SEVERITY] [PRIORITY] [NICHE-FIT] short title — one-sentence
-why-now`. This is the only section where issues and improvements are
-mixed; it exists to answer "if I have one weekend, what do I do?"
+improvements, ordered P1 first then by impact. **In this depth-first
+audit cycle, DEPTH items must occupy at least 7 of the 10 slots.**
+META and (rare) WIDTH-EXCEPTION-SCOPE items may fill the remaining
+3. Each as a single line:
+`[ID] [SEVERITY] [PRIORITY] [NICHE-FIT] [DEPTH|META|WIDTH-EXCEPTION]
+short title — one-sentence why-now`. This is the only section where
+issues and improvements are mixed; it exists to answer "if I have
+one weekend, what do I do?"
+
+The DEPTH/META/WIDTH-EXCEPTION tag classifies the item:
+- **DEPTH**: enriches an existing entry (more examples, missing
+  fields filled, cross-links added, common-mistakes authored). The
+  default and dominant bucket for this cycle.
+- **META**: structural / tooling / governance / surface-level
+  improvement (CI invariants, build pipeline, search UI, etc.) that
+  doesn't directly touch content depth. Cap: 3 of 10.
+- **WIDTH-EXCEPTION**: an entry that must be ADDED for JLPT N5
+  scope correctness (rare). Justify in the title.
+
+Section 1 must trace cleanly back to Section 0.5: every depth item
+in Section 1 should map to a row in the Section 0.5 deficit tables.
 
 ### Section 2: Existing Issues (prioritized)
 For each issue:
@@ -873,15 +969,139 @@ competitors.
   "Do NOT add gamification (streaks, XP, leaderboards) — runs
   counter to the privacy + adult-learner positioning."
   "Do NOT add account / cloud sync — breaks niche N2."
+- **Mandatory entries for this depth-first cycle** (the audit MUST
+  include each of these unless it has a concrete reason not to):
+  "Do NOT add new grammar patterns in this cycle — the 178 patterns
+  already exceed Bunpro's N5 deck width; depth on existing patterns
+  is the higher-leverage move."
+  "Do NOT add new vocabulary entries — 1041 already exceeds the
+  ~700 official scope; depth on existing entries (translations,
+  examples, collocations) is the leverage."
+  "Do NOT add new kanji — 106 matches the canonical N5 set;
+  width-additions outside the documented PRAGMATIC_N5_AUGMENTATION
+  exceptions break JA-13 scope discipline."
+  "Do NOT add new reading passages or listening drills until depth
+  on the current 40+40 reaches the target bar (sentence-by-sentence
+  footnotes, native-speaker audio, transcript timestamps)."
+
+## REGISTRATION (the one allowed write)
+
+This audit is otherwise read-only. There is exactly one write
+permitted: registering the findings into the canonical issue
+registry at:
+
+  N5/feedback/n5-audit-2026-05-04.xlsx
+
+This file is the single source of truth for open issues across
+all N5 audit rounds (currently 138 rows, IDs ISSUE-001..055 +
+IMP-001..079, with Decision values Done / Defer / Avoid). Findings
+that live only in the audit transcript are lost across sessions
+and have to be re-discovered next round — that is the failure mode
+this section exists to prevent.
+
+After producing Sections 0–7, you MUST register every Section-2
+issue and every Section-3 improvement into the xlsx Items sheet,
+following the existing 16-column schema (header at row 4):
+
+  Column 1  ID                 (ISSUE-NNN or IMP-NNN)
+  Column 2  Type               (Issue / Improvement)
+  Column 3  Severity           (BLOCKER / MAJOR / MINOR / IMPROVEMENT)
+  Column 4  Priority           (P1..P5)
+  Column 5  Impact             (HIGH / MEDIUM / LOW)
+  Column 6  Effort             (HIGH / MEDIUM / LOW)
+  Column 7  Category           (from the audit dimensions)
+  Column 8  Location           (file/route/item ID)
+  Column 9  Title              (short, one line)
+  Column 10 Current state      (concrete description)
+  Column 11 Why-it-matters     (best-in-class comparison)
+  Column 12 Suggested direction (one sentence)
+  Column 13 Dependencies       (other IDs)
+  Column 14 Decision           (Fix / Avoid / Defer)
+  Column 15 Description        (long form / context)
+  Column 16 Permission         (auto-action OK, or needs explicit user permission)
+
+ID assignment rules:
+- ISSUE IDs continue from the highest existing `ISSUE-NNN` in the
+  sheet. Inspect the sheet first; do NOT reuse IDs.
+- IMP IDs continue from the highest existing `IMP-NNN`.
+- The audit must perform a one-shot read of the xlsx to discover
+  the next free numbers. The pattern from
+  `tools/register_dev_issue_list_deferrals_2026_05_05.py` is the
+  reference implementation:
+    `wb = openpyxl.load_workbook(XLSX, read_only=True)`
+    iterate Items rows ≥ 5, collect existing IDs, take max(NNN)+1.
+
+Decision-field defaults for new findings:
+- **Fix** — action this cycle. Default for Section 2 P1/P2 issues
+  and Section 3 P1/P2 improvements where the work is unblocked.
+- **Defer** — has a precondition (N4 unblocked, native-review
+  budget approved, design decision pending). The Description field
+  must name the precondition.
+- **Avoid** — explicitly NOT doing (Section 7 anti-items that the
+  audit wants on the record so they don't resurface in future
+  rounds). Width-additions in this depth-first cycle go here.
+
+Permission-field defaults:
+- "No permission required" — for content-depth fixes inside the
+  data files the maintainer already controls.
+- "Requires <X>" — name the gating decision concretely:
+  e.g. "Requires native-reviewer engagement" / "Requires N4
+  work-block lift" / "Requires monetization stance decision".
+
+Registration mechanics — produce one Python script:
+
+  N5/tools/register_audit_<YYYY_MM_DD>.py
+
+modeled on `tools/register_dev_issue_list_deferrals_2026_05_05.py`.
+The script must:
+
+1. Load the workbook in read-write mode.
+2. Build a `set` of existing IDs from rows ≥ 5 of the Items sheet
+   (and Questions sheet for Q-NN entries).
+3. Iterate the in-script `NEW_ROWS` list of tuples.
+4. Skip-and-warn on any ID already in the sheet (idempotent re-run).
+5. Append the rest at `ws.max_row + 1`.
+6. Save the workbook.
+7. Print appended/skipped counts.
+
+After running the script:
+- Verify the `Items` sheet row count increased by exactly the
+  number of new findings (138 baseline + N → 138+N).
+- Commit the script + the updated xlsx in a single audit-
+  registration commit with the message pattern:
+  `audit(round-N): register M findings from <date> depth-first audit`
+- Section 0 of the audit report MUST conclude with a verifiable
+  registration receipt:
+  `Registered M findings into n5-audit-2026-05-04.xlsx`
+  `(Items rows X..Y = M issues + K improvements; Questions rows P..Q = J questions).`
+
+Open Questions (Section 6) go into the sibling **Questions** sheet
+of the same xlsx. Same idempotency rule. Same script.
+
+If the audit produces zero registrable findings (improbable for a
+fresh audit, possible for a re-run), the script must still be
+created (with empty `NEW_ROWS`) and the registration receipt must
+read `Registered 0 findings (no new items detected)`.
 
 ## RULES
 
-- This is listing-only. Do NOT modify any file. Do NOT implement.
-  Do NOT propose code. The "Suggested direction" field is one
-  sentence; that's the ceiling.
+- This is **audit-and-register only**. Do NOT modify content data
+  (`grammar.json`, `vocab.json`, `kanji.json`, `reading.json`,
+  `listening.json`), do NOT modify app code (`js/`, `css/`,
+  `index.html`), do NOT implement fixes, do NOT propose code. The
+  "Suggested direction" field is one sentence; that's the ceiling.
+- The ONLY allowed write is the registration step described in the
+  REGISTRATION section: create
+  `N5/tools/register_audit_<YYYY_MM_DD>.py`, run it once to append
+  new findings to `N5/feedback/n5-audit-2026-05-04.xlsx`, and
+  commit script + xlsx together. No other writes anywhere.
 - Read-only inspection of files is fine. Running existing test
-  commands read-only is fine. Anything that mutates state, deploys,
-  or commits is forbidden.
+  commands read-only is fine. Running the registration script is
+  fine. Any other mutation, deploy, or content commit is forbidden.
+- This audit cycle is **depth-first**. Width-additions (new
+  patterns / words / kanji / passages / drills) go to Section 7
+  (Anti-Items) with Decision = Avoid in the registry, unless the
+  add is a documented JLPT-N5 scope-correctness exception.
 - Be exhaustive. Missing features count. Shallow surfaces count.
   An improvement idea is valid even if the app didn't claim to have
   the feature.
@@ -907,5 +1127,9 @@ competitors.
   prioritized differently if one supports the recommended primary
   niche and the other doesn't.
 
-Begin the audit now. Section 0 (Strategic Positioning Verdict) is
-mandatory and goes first. Produce the full prioritized list. Stop.
+Begin the audit now. Sections 0 → 0.5 → 1 → 2..7 in that order.
+Section 0.5 (Depth-Deficit Map) is the work-priority extractor and
+is mandatory. After Section 7, perform the REGISTRATION step:
+create `N5/tools/register_audit_<YYYY_MM_DD>.py`, run it once,
+verify the xlsx row delta, commit script + updated xlsx in one
+commit. Then stop.
