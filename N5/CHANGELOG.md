@@ -2,6 +2,74 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.37 - 2026-05-05 (Audit round-6: i18n completion + listening transcript scaffold + vocab translation push)
+
+Round-6 audit closed 12 items + 3 open questions in a single pass. The
+biggest user-visible change: every primary page now responds to the
+EN/VI/ID/NE/ZH locale chip (the v1.12.36 hotfix only translated the
+home page + nav). Vocab translations also more than tripled, from
+12% → 46% coverage on the four non-English locales.
+
+### i18n completeness (ISSUE-048, ISSUE-050)
+
+- Settings panel: every label, button, and help text now passes through
+  `t()`. ~30 hardcoded English strings replaced. New `settings.*` keys
+  added to all 5 locale dictionaries (~25 keys per locale).
+- Page titles for Test, Daily Drill, Review, Summary, and Diagnostic
+  now respond to the locale chip via `t('page.test')` …
+  `t('page.diagnostic')`.
+- Footer gains a permanent **"Switch language"** entry that scrolls
+  the chip group into view + fires a brief pulse animation. Closes
+  the gap where the auto-detect toast was the only in-app discovery
+  for non-EN visitors.
+
+### Vocab translation push (ISSUE-049, IMP-046 batch-2)
+
+- Coverage jumped from **128/1041 (12.3%)** to **477/1041 (45.8%)**.
+- Sections covered: Days/Weeks/Months/Years, Time-Frequency, Locations
+  & Places, Nature & Weather, Animals, Food & Drink, Tableware,
+  Colors, Clothing, Money & Shopping, Transport.
+- Per Q21 launch policy, all entries remain `machine_translated`
+  until native review promotes them to `native_reviewed`.
+
+### Listening transcript-aligned playback scaffold (IMP-070)
+
+- New `js/listening-transcript.js` module: when a listening item ships
+  with an optional `lines: [{text_ja, startMs?}]` array, renders the
+  transcript as click-to-seek lines with a synced highlight that
+  follows audio.currentTime.
+- All 40/40 current items have no `lines` field and fall back to the
+  existing single-block `script_ja` rendering bit-for-bit. A future
+  `tools/build_audio.py --align` pass can populate the field from TTS
+  word-timing manifests with no further code changes.
+
+### Discoverability + OSS hygiene (IMP-069/071/073/074, ISSUE-051/052/053)
+
+- "Help translate" link in the footer points at TRANSLATING.md on
+  GitHub, surfacing translator recruitment beyond the docs/.
+- Per-section translation-coverage badges (`X% translated`) in the
+  vocab list, on non-EN locales, with tone-good / tone-partial /
+  tone-none styling.
+- README gains 6 shields.io badges (License, Content licence, Level,
+  PWA, Locales, Privacy) for first-time-visitor scan-ability.
+- Document-referrer locale hint: arriving from `.vn` / `.id` / `.np` /
+  `.cn` / `.tw` / `.hk` boosts the matching locale before falling
+  through to `navigator.language`. Pure heuristic — never overrides
+  saved picks.
+- `.github/FUNDING.yml` placeholder for GitHub Sponsors button.
+- esbuild now emits external sourcemaps (`--sourcemap=external`).
+  Production stack-traces resolve to original source lines without
+  bloating the bundle.
+- `js/provenance-badge.js` feature-flagged stub: computes per-corpus
+  native-reviewed % stats; renders a per-item or banner badge once a
+  corpus crosses the 10% threshold (Q21). Currently disabled via
+  `showProvenanceBadges` setting flag (defaults false).
+
+### Build, content integrity
+
+- 44/44 content-integrity invariants green.
+- All 5 locale dictionaries grow from ~86 to ~115 UI keys.
+
 ## v1.12.36 - 2026-05-05 (Hotfix — locale chips now visibly translate the home page)
 
 User report: "these tabs are not working" — the EN/VI/ID/NE/ZH chip

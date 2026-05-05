@@ -428,6 +428,27 @@ function initLocaleChips() {
   sync();
   // Sync on locale-change event from Settings panel.
   document.addEventListener('locale-changed', sync);
+
+  // ISSUE-050 (audit round-6): footer "Switch language" link — scrolls
+  // the chip group into view + focuses the active chip so the user
+  // sees the picker the first time they reach the bottom of any page.
+  // Falls back to a no-op when the chip group isn't on this page (it
+  // always is — the header is global — but the guard keeps SSR clean).
+  const switchLink = document.getElementById('footer-switch-lang');
+  if (switchLink) {
+    switchLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      group.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const active = group.querySelector('.locale-chip.is-active') || group.querySelector('.locale-chip');
+      if (active) {
+        // Brief visual pulse so the user notices the chips even if they
+        // were already in view (no scrolling needed on tall viewports).
+        group.classList.add('locale-chip-group-pulse');
+        setTimeout(() => group.classList.remove('locale-chip-group-pulse'), 1200);
+        active.focus({ preventScroll: true });
+      }
+    });
+  }
 }
 
 function initFullscreenToggle() {

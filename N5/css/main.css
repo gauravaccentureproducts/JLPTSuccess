@@ -2621,6 +2621,22 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .transcript-line-seekable { transition: none; }
 }
 
+/* ISSUE-050 (audit round-6): footer "Switch language" pulses the chip
+ * group briefly when the link is clicked, so the picker is visually
+ * obvious the first time a non-EN visitor finds it from the footer. */
+@keyframes locale-chip-group-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(20, 69, 42, 0.45); }
+  60%  { box-shadow: 0 0 0 8px rgba(20, 69, 42, 0.0); }
+  100% { box-shadow: 0 0 0 0 rgba(20, 69, 42, 0.0); }
+}
+.locale-chip-group-pulse {
+  border-radius: 999px;
+  animation: locale-chip-group-pulse 1.2s ease-out 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .locale-chip-group-pulse { animation: none; }
+}
+
 /* Vocab detail page */
 .vocab-detail { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 20px 24px; }
 /* Vocab header reuses .pattern-header for layout (flex / justify-content
