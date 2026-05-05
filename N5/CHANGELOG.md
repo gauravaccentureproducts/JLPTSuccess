@@ -2,6 +2,119 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.32 - 2026-05-05 (Audit round-4 — strategic-niche pivot, 16 of 22 items)
+
+The audit prompt at `prompts/N5Improvement.txt` was rewritten between
+round-3 and round-4 to add SALEABILITY / NICHE-FIT framing. Round-4
+audit (Section-0 Strategic Positioning Verdict + the usual 6-section
+list + new Section-7 anti-items list) recommended:
+  Primary niche: **N1 multilingual non-English-native learners.**
+  Secondary niche: **N2 privacy / no-account / offline.**
+  Anti-niches: **don't chase Bunpou grammar-review depth or WaniKani
+  kanji-mnemonic depth** — unwinnable solo+AI.
+
+This release lands 16 of 22 round-4 Fix items. The remaining 6 are
+content-authoring or product-decision blocked (see "Deferred" below).
+
+### Niche N3 (institutional / self-host) — newly claimed
+
+- **ISSUE-025 + IMP-049 — `/LICENSE` (MIT) at repo root** + dual-license
+  note. The repo is now legally forkable. `CONTENT-LICENSE.md`
+  reinforces CC BY-SA 4.0 for the educational corpus.
+- **ISSUE-031 — `docs/SELF-HOST.md`.** Fork → brand → deploy guide.
+  Covers the 3-layer customization model (theme overrides at runtime,
+  per-fork logo + manifest swap, full source fork), 4 deploy targets
+  (GitHub Pages / Netlify / Vercel / nginx), bundle-size discipline
+  notes, and translation contributor flow.
+- **IMP-052 — runtime `data/theme-overrides.json` loader** in `app.js`.
+  Optional file; missing = repo defaults. Maps tokens onto `:root`
+  CSS custom properties + brand-name override. Institutional forks can
+  re-skin without editing source.
+- **IMP-056 — `docs/TRANSLATING.md`.** Translator-contributor on-ramp
+  with native-review provenance flow.
+
+### Niche N1 (multilingual non-English-native) — significantly advanced
+
+- **ISSUE-026 — locales/{vi,id,ne,zh}.json expanded 33 → 75+ keys**
+  (machine-translated, marked `_provenance: "machine_translated"` per
+  `docs/TRANSLATING.md`). UI chrome coverage 44% → 100%+. Native
+  speakers needed to upgrade to `native_reviewed` (audit Q14, Q16).
+- **ISSUE-028 — header locale-chip group** (EN VI ID NE ZH) visible on
+  first paint. Click swaps the active locale + re-renders. Active chip
+  gets the accent fill.
+- **ISSUE-029 — Accept-Language toast.** First init: when
+  navigator.language picks a non-EN supported locale, show a one-time
+  toast with the native-language name + "change anytime in Settings".
+  Auto-dismisses after 8s.
+- **Locales body translation pending (IMP-045/046/047 deferred).** The
+  ~5300-string content body (grammar explanations, vocab glosses,
+  kanji meanings) is still EN-only — needs Q14 budget decision.
+
+### Niche N2 (privacy / no-account / offline) — now visible
+
+- **ISSUE-027 + IMP-048 — home trust band.** Hairline pills on the
+  syllabus header: "No login · No tracking · Works offline · Open source ·
+  100% on-device". Each pill links to its proof (LICENSE, install
+  prompt, PRIVACY.md). The most-defensible competitive claim is now
+  visible on first paint.
+- **ISSUE-034 — install link in trust band** wires the "Works offline"
+  pill to the deferred `beforeinstallprompt`. Firefox / iOS Safari
+  fallback shows a toast with browser-specific instructions.
+
+### Trust + correctness
+
+- **ISSUE-030 — `review_status` provenance scaffold** on every content
+  item across all 5 corpora (1405 / 1405 items, default
+  `llm_curated`). New JA-35 invariant locks the closed enum
+  {native_reviewed, llm_curated, auto_generated}. Native-review
+  upgrades land per-item.
+- **ISSUE-033 — `data/n5_core_pattern_ids.json` whitelist** (153 core
+  + 25 late-N5) + JA-34 invariant guarding the split agrees with
+  `grammar.json#tier`. Honest count for "178 patterns (153 core + 25
+  late-N5)" rather than implying all 178 are strict-N5.
+
+### SEO / discoverability
+
+- **ISSUE-032 + IMP-051 — og: + twitter:card + JSON-LD** in
+  `index.html` head. Social-share previews on Facebook / LinkedIn /
+  Discord / Slack / Twitter now render. JSON-LD `EducationalApplication`
+  schema feeds Google structured-data.
+
+### Tests
+
+- **IMP-055 — `tests/round3-features.spec.js`.** 9 Playwright scenarios
+  covering `#/missed`, `#/sitting`, the trust band, locale chips,
+  JSON-LD schema, og: tags, and the test-setup sitting CTA.
+
+### Deferred (6 of 22) — content-authoring or product-decision blocked
+
+- **IMP-045 — translate `grammar.json#explanation_en`** to vi/id/ne/zh
+  (178 patterns × 4 locales = 712 strings). Blocked on Q14 (translation
+  budget: native vs LLM-only).
+- **IMP-046 — translate `vocab.json#gloss`** to vi/id/ne/zh (1041 × 4
+  = 4164 strings). Same block.
+- **IMP-047 — translate `kanji.json#meanings`** to vi/id/ne/zh
+  (~106 × 4 = ~424 strings). Same block.
+- **IMP-050 — kanji radical decomposition + mnemonics.** Needs
+  KanjiDic2 ingestion + curated mnemonic source. Not on the round-4
+  cutting room.
+- **IMP-053 — RTL CSS via logical properties.** Defers until a real
+  RTL locale is being authored (Arabic / Hebrew / Urdu — none in
+  current SUPPORTED list).
+- **IMP-054 — Trusted Web Activity / Capacitor wrappers** for Play /
+  App Store distribution. Blocked on Q17 (distribution strategy).
+
+### Service worker
+
+CACHE_VERSION bumped to `jlptsuccess-n5-v1.12.32` by
+`tools/build_version_json.py`. New precache entries:
+`data/n5_core_pattern_ids.json`, `data/theme-overrides.json` (optional).
+
+v1.12.32 / SW v1.12.32. **44/44 invariants green** (added JA-34 +
+JA-35). 12/12 footer-regex unit tests pass.
+
+---
+
 ## v1.12.31 - 2026-05-05 (Audit round-3 close-out — 20 deferred items resolved)
 
 User direction: implement everything that v1.12.30 marked deferred. This

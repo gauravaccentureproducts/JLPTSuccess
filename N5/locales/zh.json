@@ -1,20 +1,27 @@
 {
+  "_provenance": "machine_translated",
+  "_note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Chinese-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow.",
   "app": {
-    "title": "JLPT N5 语法导师",
+    "title": "JLPT N5 学习资料",
     "tagline": "学习。测试。复习。掌握。"
   },
   "nav": {
     "learn": "学习",
     "test": "测试",
-    "drill": "每日练习",
+    "drill": "每日训练",
     "review": "复习",
-    "summary": "总结",
+    "summary": "进度",
     "settings": "设置",
-    "diagnostic": "诊断"
+    "diagnostic": "测评",
+    "kanji": "汉字",
+    "reading": "阅读",
+    "listening": "听力",
+    "missed": "错题历史",
+    "sitting": "模拟考试"
   },
   "drill": {
-    "start": "开始练习",
-    "due_today": "今日到期",
+    "start": "开始训练",
+    "due_today": "今日待复习",
     "in_queue": "队列中",
     "graduated": "已掌握"
   },
@@ -23,25 +30,68 @@
     "submit_remaining": "提交（剩余 ${n} 题）",
     "next": "下一题",
     "previous": "上一题",
-    "score": "分数"
+    "score": "得分",
+    "pass_mark": "及格线",
+    "exam_mode": "考试模式（带计时）",
+    "by_category": "按语法类别",
+    "by_type": "按题型",
+    "answer_review": "查看答案",
+    "gap_list": "薄弱语法点"
   },
   "settings": {
     "title": "设置",
     "language": "界面语言",
-    "furigana": "N5 汉字振假名",
+    "furigana": "N5 汉字标注假名",
+    "auto_furigana": "自动假名标注（实验功能）",
     "theme": "主题",
     "theme_system": "跟随系统",
-    "theme_light": "浅色",
-    "theme_dark": "深色",
+    "theme_light": "明亮",
+    "theme_dark": "暗黑",
     "font_size": "字号",
+    "daily_new_limit": "每日新卡片上限",
+    "daily_review_cap": "每日复习上限",
+    "daily_goal": "每日复习目标",
+    "audio_speed": "音频播放速度",
+    "reduce_motion": "减少动画",
+    "keyboard": "键盘",
+    "keyboard_hint": "在任意页面按 ? 打开键盘快捷键说明。",
     "export": "导出进度",
     "import": "导入进度",
-    "reset": "重置全部"
+    "reset": "重置所有进度",
+    "danger_zone": "危险区"
   },
   "review": {
-    "grade_again": "再来",
-    "grade_hard": "难",
+    "grade_again": "忘记",
+    "grade_hard": "困难",
     "grade_good": "正确",
-    "grade_easy": "简单"
+    "grade_easy": "简单",
+    "missed_title": "错题历史",
+    "missed_clear": "清空历史",
+    "no_misses": "最近没有错题——继续保持。"
+  },
+  "home": {
+    "syllabus_title": "JLPT N5 学习大纲",
+    "syllabus_subtitle": "按结构化顺序学习语法、词汇、汉字、阅读和听力。",
+    "today_label": "今天",
+    "no_reviews_due": "今日无待复习",
+    "reviews_due": "${n} 项待复习",
+    "practiced_today": "今日已练习",
+    "not_yet_practiced": "今日还未练习",
+    "forecast_label": "复习预测（7 天）"
+  },
+  "kanji": {
+    "popover_strokes": "${n} 画",
+    "other_readings": "其他读音（N5 不教授）",
+    "none_at_n5": "（N5 阶段无）",
+    "in_a_sentence": "例句"
+  },
+  "sitting": {
+    "title": "完整模拟考试",
+    "section_1": "文字 + 语汇",
+    "section_2": "文法 + 阅读",
+    "section_3": "听力",
+    "break": "休息",
+    "skip_break": "跳过休息，立即开始",
+    "sitting_complete": "模拟考试完成"
   }
 }

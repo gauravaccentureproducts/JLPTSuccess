@@ -1,6 +1,8 @@
 {
+  "_provenance": "machine_translated",
+  "_note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Vietnamese-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow.",
   "app": {
-    "title": "JLPT N5 - Học ngữ pháp",
+    "title": "Tài liệu học JLPT N5",
     "tagline": "Học. Kiểm tra. Ôn tập. Thành thạo."
   },
   "nav": {
@@ -8,9 +10,14 @@
     "test": "Kiểm tra",
     "drill": "Luyện tập",
     "review": "Ôn tập",
-    "summary": "Tổng kết",
+    "summary": "Tiến độ",
     "settings": "Cài đặt",
-    "diagnostic": "Đánh giá"
+    "diagnostic": "Đánh giá",
+    "kanji": "Kanji",
+    "reading": "Đọc hiểu",
+    "listening": "Nghe hiểu",
+    "missed": "Lịch sử câu sai",
+    "sitting": "Thi thử"
   },
   "drill": {
     "start": "Bắt đầu luyện",
@@ -23,25 +30,68 @@
     "submit_remaining": "Nộp (còn ${n} câu)",
     "next": "Tiếp",
     "previous": "Trước",
-    "score": "Điểm"
+    "score": "Điểm",
+    "pass_mark": "Điểm đậu",
+    "exam_mode": "Chế độ thi (có hẹn giờ)",
+    "by_category": "Theo loại ngữ pháp",
+    "by_type": "Theo dạng câu hỏi",
+    "answer_review": "Xem lại đáp án",
+    "gap_list": "Danh sách điểm yếu"
   },
   "settings": {
     "title": "Cài đặt",
     "language": "Ngôn ngữ",
     "furigana": "Phiên âm trên kanji N5",
+    "auto_furigana": "Tự động hiển thị phiên âm (thử nghiệm)",
     "theme": "Giao diện",
     "theme_system": "Theo hệ thống",
     "theme_light": "Sáng",
     "theme_dark": "Tối",
     "font_size": "Cỡ chữ",
+    "daily_new_limit": "Số thẻ mới mỗi ngày",
+    "daily_review_cap": "Giới hạn ôn tập mỗi ngày",
+    "daily_goal": "Mục tiêu ôn tập mỗi ngày",
+    "audio_speed": "Tốc độ phát âm",
+    "reduce_motion": "Giảm chuyển động",
+    "keyboard": "Bàn phím",
+    "keyboard_hint": "Nhấn ? trên bất kỳ trang nào để mở danh sách phím tắt.",
     "export": "Xuất tiến trình",
     "import": "Nhập tiến trình",
-    "reset": "Xóa toàn bộ"
+    "reset": "Xóa toàn bộ",
+    "danger_zone": "Vùng nguy hiểm"
   },
   "review": {
     "grade_again": "Quên",
     "grade_hard": "Khó",
     "grade_good": "Đúng",
-    "grade_easy": "Dễ"
+    "grade_easy": "Dễ",
+    "missed_title": "Lịch sử câu sai",
+    "missed_clear": "Xóa lịch sử",
+    "no_misses": "Bạn chưa làm sai câu nào gần đây — tiếp tục luyện tập."
+  },
+  "home": {
+    "syllabus_title": "Chương trình JLPT N5",
+    "syllabus_subtitle": "Học ngữ pháp, từ vựng, kanji, đọc và nghe theo trình tự có cấu trúc.",
+    "today_label": "Hôm nay",
+    "no_reviews_due": "Không có bài ôn nào đến hạn",
+    "reviews_due": "${n} bài ôn đến hạn",
+    "practiced_today": "Đã học hôm nay",
+    "not_yet_practiced": "Chưa học hôm nay",
+    "forecast_label": "Dự báo ôn tập (7 ngày)"
+  },
+  "kanji": {
+    "popover_strokes": "${n} nét",
+    "other_readings": "Cách đọc khác (không học ở N5)",
+    "none_at_n5": "(không có ở N5)",
+    "in_a_sentence": "Trong câu"
+  },
+  "sitting": {
+    "title": "Thi thử toàn bộ",
+    "section_1": "Moji + Goi (Chữ + Từ vựng)",
+    "section_2": "Bunpou + Dokkai (Ngữ pháp + Đọc)",
+    "section_3": "Choukai (Nghe)",
+    "break": "Nghỉ giải lao",
+    "skip_break": "Bỏ qua, bắt đầu ngay",
+    "sitting_complete": "Đã hoàn thành buổi thi"
   }
 }

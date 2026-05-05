@@ -1,47 +1,97 @@
 {
+  "_provenance": "machine_translated",
+  "_note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Nepali-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow.",
   "app": {
-    "title": "JLPT N5 व्याकरण ट्युटर",
-    "tagline": "सिक्नुहोस्। परीक्षण गर्नुहोस्। समीक्षा गर्नुहोस्।"
+    "title": "JLPT N5 अध्ययन सामग्री",
+    "tagline": "सिक्नुहोस्। परीक्षण गर्नुहोस्। समीक्षा गर्नुहोस्। निपुण हुनुहोस्।"
   },
   "nav": {
-    "learn": "सिक्नु",
+    "learn": "सिक्नुहोस्",
     "test": "परीक्षण",
-    "drill": "अभ्यास",
+    "drill": "दैनिक अभ्यास",
     "review": "समीक्षा",
-    "summary": "सारांश",
+    "summary": "प्रगति",
     "settings": "सेटिङ",
-    "diagnostic": "मूल्याङ्कन"
+    "diagnostic": "मूल्याङ्कन",
+    "kanji": "कान्जी",
+    "reading": "पढाइ",
+    "listening": "सुनाइ",
+    "missed": "गल्ती इतिहास",
+    "sitting": "मॉक परीक्षा"
   },
   "drill": {
-    "start": "अभ्यास सुरु",
-    "due_today": "आज बाँकी",
+    "start": "अभ्यास सुरु गर्नुहोस्",
+    "due_today": "आजको लागि बाँकी",
     "in_queue": "लाइनमा",
-    "graduated": "उत्तीर्ण"
+    "graduated": "सिकिसकेको"
   },
   "test": {
-    "submit": "पेश",
-    "submit_remaining": "पेश (${n} बाँकी)",
+    "submit": "पेस गर्नुहोस्",
+    "submit_remaining": "पेस गर्नुहोस् (${n} बाँकी)",
     "next": "अर्को",
     "previous": "अघिल्लो",
-    "score": "अंक"
+    "score": "स्कोर",
+    "pass_mark": "उत्तीर्ण अंक",
+    "exam_mode": "परीक्षा मोड (टाइमर सहित)",
+    "by_category": "व्याकरण श्रेणी अनुसार",
+    "by_type": "प्रश्न प्रकार अनुसार",
+    "answer_review": "उत्तर समीक्षा",
+    "gap_list": "कमजोर व्याकरण सूची"
   },
   "settings": {
     "title": "सेटिङ",
     "language": "भाषा",
     "furigana": "N5 कान्जीमा फुरिगाना",
+    "auto_furigana": "स्वचालित फुरिगाना (प्रयोगात्मक)",
     "theme": "थिम",
-    "theme_system": "सिस्टम",
+    "theme_system": "सिस्टम अनुसार",
     "theme_light": "उज्यालो",
     "theme_dark": "अँध्यारो",
     "font_size": "फन्ट साइज",
+    "daily_new_limit": "दैनिक नयाँ कार्ड सीमा",
+    "daily_review_cap": "दैनिक समीक्षा सीमा",
+    "daily_goal": "दैनिक समीक्षा लक्ष्य",
+    "audio_speed": "अडियो गति",
+    "reduce_motion": "एनिमेसन कम गर्नुहोस्",
+    "keyboard": "किबोर्ड",
+    "keyboard_hint": "जुनसुकै पेजमा ? थिच्नुहोस् किबोर्ड सर्टकट हेर्न।",
     "export": "प्रगति निर्यात",
     "import": "प्रगति आयात",
-    "reset": "सबै रिसेट"
+    "reset": "सबै प्रगति रिसेट",
+    "danger_zone": "खतरा क्षेत्र"
   },
   "review": {
-    "grade_again": "फेरि",
-    "grade_hard": "कठिन",
-    "grade_good": "ठीक",
-    "grade_easy": "सजिलो"
+    "grade_again": "बिर्सिएँ",
+    "grade_hard": "गाह्रो",
+    "grade_good": "ठिक",
+    "grade_easy": "सजिलो",
+    "missed_title": "गल्ती इतिहास",
+    "missed_clear": "इतिहास खाली गर्नुहोस्",
+    "no_misses": "हालै कुनै गल्ती छैन — अभ्यास जारी राख्नुहोस्।"
+  },
+  "home": {
+    "syllabus_title": "JLPT N5 पाठ्यक्रम",
+    "syllabus_subtitle": "व्याकरण, शब्दावली, कान्जी, पढाइ र सुनाइ संरचित क्रममा सिक्नुहोस्।",
+    "today_label": "आज",
+    "no_reviews_due": "आज समीक्षा गर्नुपर्ने केही छैन",
+    "reviews_due": "${n} समीक्षा बाँकी",
+    "practiced_today": "आज अभ्यास गरिएको",
+    "not_yet_practiced": "आज अभ्यास भएको छैन",
+    "forecast_label": "समीक्षा पूर्वानुमान (7 दिन)"
+  },
+  "kanji": {
+    "popover_strokes": "${n} स्ट्रोक",
+    "other_readings": "अन्य उच्चारण (N5 मा सिकाइँदैन)",
+    "none_at_n5": "(N5 मा छैन)",
+    "in_a_sentence": "वाक्यमा"
+  },
+  "sitting": {
+    "title": "पूर्ण मॉक परीक्षा",
+    "section_1": "Moji + Goi (अक्षर + शब्दावली)",
+    "section_2": "Bunpou + Dokkai (व्याकरण + पढाइ)",
+    "section_3": "Choukai (सुनाइ)",
+    "break": "विश्राम",
+    "skip_break": "छोड्नुहोस्, अब सुरु गर्नुहोस्",
+    "sitting_complete": "मॉक परीक्षा सम्पन्न"
   }
 }

@@ -1,47 +1,97 @@
 {
+  "_provenance": "machine_translated",
+  "_note": "Round-4 (ISSUE-026): expanded from 33 to 75 keys via machine translation by Claude. Needs native-Indonesian-speaker review before being upgraded to native_reviewed. See docs/TRANSLATING.md for the contributor flow.",
   "app": {
-    "title": "JLPT N5 - Tutor Tata Bahasa",
-    "tagline": "Pelajari. Uji. Tinjau. Kuasai."
+    "title": "Materi belajar JLPT N5",
+    "tagline": "Belajar. Tes. Ulang. Kuasai."
   },
   "nav": {
     "learn": "Belajar",
-    "test": "Uji",
-    "drill": "Latihan",
-    "review": "Tinjau",
-    "summary": "Ringkasan",
+    "test": "Tes",
+    "drill": "Latihan harian",
+    "review": "Ulasan",
+    "summary": "Progres",
     "settings": "Pengaturan",
-    "diagnostic": "Diagnostik"
+    "diagnostic": "Uji diagnostik",
+    "kanji": "Kanji",
+    "reading": "Membaca",
+    "listening": "Mendengar",
+    "missed": "Riwayat jawaban salah",
+    "sitting": "Tes simulasi"
   },
   "drill": {
     "start": "Mulai latihan",
     "due_today": "Jatuh tempo hari ini",
     "in_queue": "Dalam antrean",
-    "graduated": "Lulus"
+    "graduated": "Sudah dikuasai"
   },
   "test": {
     "submit": "Kirim",
     "submit_remaining": "Kirim (${n} tersisa)",
     "next": "Berikutnya",
     "previous": "Sebelumnya",
-    "score": "Skor"
+    "score": "Skor",
+    "pass_mark": "Nilai lulus",
+    "exam_mode": "Mode ujian (dengan timer)",
+    "by_category": "Berdasarkan kategori tata bahasa",
+    "by_type": "Berdasarkan jenis soal",
+    "answer_review": "Tinjau jawaban",
+    "gap_list": "Daftar kelemahan tata bahasa"
   },
   "settings": {
     "title": "Pengaturan",
-    "language": "Bahasa",
+    "language": "Bahasa antarmuka",
     "furigana": "Furigana pada kanji N5",
+    "auto_furigana": "Furigana otomatis (eksperimental)",
     "theme": "Tema",
-    "theme_system": "Sistem",
+    "theme_system": "Ikuti sistem",
     "theme_light": "Terang",
     "theme_dark": "Gelap",
     "font_size": "Ukuran font",
-    "export": "Ekspor kemajuan",
-    "import": "Impor kemajuan",
-    "reset": "Reset semua"
+    "daily_new_limit": "Batas kartu baru harian",
+    "daily_review_cap": "Batas ulasan harian",
+    "daily_goal": "Target ulasan harian",
+    "audio_speed": "Kecepatan audio",
+    "reduce_motion": "Kurangi animasi",
+    "keyboard": "Keyboard",
+    "keyboard_hint": "Tekan ? di halaman mana saja untuk membuka daftar pintasan keyboard.",
+    "export": "Ekspor progres",
+    "import": "Impor progres",
+    "reset": "Reset semua progres",
+    "danger_zone": "Zona berbahaya"
   },
   "review": {
-    "grade_again": "Lagi",
+    "grade_again": "Ulang",
     "grade_hard": "Sulit",
-    "grade_good": "Baik",
-    "grade_easy": "Mudah"
+    "grade_good": "Bagus",
+    "grade_easy": "Mudah",
+    "missed_title": "Riwayat jawaban salah",
+    "missed_clear": "Hapus riwayat",
+    "no_misses": "Tidak ada jawaban salah baru-baru ini — terus berlatih."
+  },
+  "home": {
+    "syllabus_title": "Silabus JLPT N5",
+    "syllabus_subtitle": "Pelajari tata bahasa, kosakata, kanji, membaca, dan mendengar secara terstruktur.",
+    "today_label": "Hari ini",
+    "no_reviews_due": "Tidak ada ulasan jatuh tempo",
+    "reviews_due": "${n} ulasan jatuh tempo",
+    "practiced_today": "Sudah berlatih hari ini",
+    "not_yet_practiced": "Belum berlatih hari ini",
+    "forecast_label": "Perkiraan ulasan (7 hari)"
+  },
+  "kanji": {
+    "popover_strokes": "${n} guratan",
+    "other_readings": "Bacaan lain (tidak diajarkan di N5)",
+    "none_at_n5": "(tidak ada di N5)",
+    "in_a_sentence": "Dalam kalimat"
+  },
+  "sitting": {
+    "title": "Tes simulasi penuh",
+    "section_1": "Moji + Goi (Karakter + Kosakata)",
+    "section_2": "Bunpou + Dokkai (Tata bahasa + Membaca)",
+    "section_3": "Choukai (Mendengar)",
+    "break": "Istirahat",
+    "skip_break": "Lewati, mulai sekarang",
+    "sitting_complete": "Tes simulasi selesai"
   }
 }
