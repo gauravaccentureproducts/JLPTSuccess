@@ -94,8 +94,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "わたしは がくせい（　）。",
       "choices": [
-        "です",
         "ます",
+        "です",
         "でした",
         "じゃ"
       ],
@@ -118,8 +118,8 @@
       "question_ja": "きのうは やすみ（　）。",
       "choices": [
         "です",
-        "でした",
         "じゃありません",
+        "でした",
         "ます"
       ],
       "correctAnswer": "でした",
@@ -183,8 +183,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きょう（　）あついですね。",
       "choices": [
-        "は",
         "が",
+        "は",
         "を",
         "で"
       ],
@@ -207,8 +207,8 @@
       "question_ja": "だれ（　）きましたか。",
       "choices": [
         "は",
-        "が",
         "を",
+        "が",
         "に"
       ],
       "correctAnswer": "が",
@@ -230,9 +230,9 @@
       "question_ja": "A：「どんな どうぶつが すきですか。」　B：「ねこ（ ）すきです。」",
       "choices": [
         "は",
-        "が",
+        "に",
         "を",
-        "に"
+        "が"
       ],
       "correctAnswer": "が",
       "explanation_en": "The pattern X が すき expresses 'I like X'. When answering 'What do you like?', the liked-thing always takes が. (は can sound contrastive -  'as for cats, [I] like [them], but...' -  which is N3+ nuance and doesn't match this direct answer.)",
@@ -253,9 +253,9 @@
       "prompt_ja": "「よみます」の もくてきごを しめす ことばを えらんで ください。",
       "question_ja": "（としょかんで）　わたしは ほん（ ）よみます。",
       "choices": [
-        "は",
-        "が",
         "を",
+        "が",
+        "は",
         "に"
       ],
       "correctAnswer": "を",
@@ -278,8 +278,8 @@
       "question_ja": "なに（　）かいましたか。",
       "choices": [
         "は",
-        "が",
         "を",
+        "が",
         "へ"
       ],
       "correctAnswer": "を",
@@ -300,9 +300,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "7時（　）おきます。",
       "choices": [
-        "に",
-        "で",
         "へ",
+        "で",
+        "に",
         "と"
       ],
       "correctAnswer": "に",
@@ -323,10 +323,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "へや（　）ねこが います。",
       "choices": [
-        "に",
+        "を",
         "で",
         "へ",
-        "を"
+        "に"
       ],
       "correctAnswer": "に",
       "explanation_en": "Location of EXISTENCE (with ある／いる) takes に, not で. The cat IS in the room - stative - so に.",
@@ -346,8 +346,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "がっこう（　）かえります。",
       "choices": [
-        "で",
         "へ",
+        "で",
         "を",
         "と"
       ],
@@ -394,8 +394,8 @@
       "question_ja": "としょかん（　）べんきょうします。",
       "choices": [
         "に",
-        "で",
         "へ",
+        "で",
         "を"
       ],
       "correctAnswer": "で",
@@ -417,9 +417,9 @@
       "question_ja": "バス（　）いきます。",
       "choices": [
         "に",
-        "で",
+        "と",
         "へ",
-        "と"
+        "で"
       ],
       "correctAnswer": "で",
       "explanation_en": "で marks means of transport. バスで = 'by bus'. Same pattern: でんしゃで, ひこうきで, タクシーで.",
@@ -439,9 +439,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "ともだち（　）こうえんへ いきました。",
       "choices": [
-        "に",
-        "で",
         "と",
+        "で",
+        "に",
         "を"
       ],
       "correctAnswer": "と",
@@ -464,9 +464,9 @@
       "question_ja": "「こんにちは」（　）いいました。",
       "choices": [
         "は",
-        "を",
+        "と",
         "に",
-        "と"
+        "を"
       ],
       "correctAnswer": "と",
       "explanation_en": "と is the QUOTATION marker before いう (say) and おもう (think). Always と, never を, before quoted speech.",
@@ -487,8 +487,8 @@
       "question_ja": "しごとは 9時（　）はじまります。",
       "choices": [
         "は",
-        "から",
         "まで",
+        "から",
         "に"
       ],
       "correctAnswer": "から",
@@ -511,9 +511,9 @@
       "question_ja": "あつい（　）、まどを あけてください。",
       "choices": [
         "で",
-        "から",
+        "に",
         "と",
-        "に"
+        "から"
       ],
       "correctAnswer": "から",
       "explanation_en": "から after a clause means 'because'. The reason comes first, then the result / request. い-adjectives attach から directly (あついから, not あついですから for plain style).",
@@ -533,8 +533,8 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "（あさは 9時から はじまります。）　5時（　）しごとです。",
       "choices": [
-        "から",
         "まで",
+        "から",
         "に",
         "で"
       ],
@@ -558,8 +558,8 @@
       "question_ja": "うち（　）あるきました。",
       "choices": [
         "で",
-        "へ",
         "まで",
+        "へ",
         "と"
       ],
       "correctAnswer": "まで",
@@ -581,8 +581,8 @@
       "question_ja": "ペン（　）ノートなどを かいました。",
       "choices": [
         "へ",
-        "や",
         "は",
+        "や",
         "で"
       ],
       "correctAnswer": "や",
@@ -605,9 +605,9 @@
       "question_ja": "なにを かいましたか。― ペン（　）ノートなど、いろいろです。",
       "choices": [
         "と",
-        "や",
+        "で",
         "は",
-        "で"
+        "や"
       ],
       "correctAnswer": "や",
       "explanation_en": "や is the natural non-exhaustive listing particle when 'and others' is implied (here reinforced by いろいろです).",
@@ -650,8 +650,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "コーヒー（　）おちゃが いいです。",
       "choices": [
-        "か",
         "と",
+        "か",
         "や",
         "は"
       ],
@@ -674,8 +674,8 @@
       "question_ja": "（田中さんは がくせいです。）　わたし（　）がくせいです。",
       "choices": [
         "は",
-        "も",
         "が",
+        "も",
         "を"
       ],
       "correctAnswer": "も",
@@ -699,8 +699,8 @@
       "choices": [
         "は",
         "が",
-        "も",
-        "を"
+        "を",
+        "も"
       ],
       "correctAnswer": "も",
       "explanation_en": "Question word + も + NEGATIVE verb means 'no one / nothing / nowhere'. だれも きませんでした = 'no one came'.",
@@ -744,9 +744,9 @@
       "question_ja": "（つくえの上に かばんが なんこも あります）　（　）が あなたの かばんですか。",
       "choices": [
         "これ",
-        "それ",
+        "どれ",
         "あれ",
-        "どれ"
+        "それ"
       ],
       "correctAnswer": "どれ",
       "explanation_en": "どれ asks 'which one?' from a set of visible options.",
@@ -767,8 +767,8 @@
       "question_ja": "（　）ほんを よみました。",
       "choices": [
         "これ",
-        "この",
         "これの",
+        "この",
         "これは"
       ],
       "correctAnswer": "この",
@@ -790,9 +790,9 @@
       "question_ja": "（　）くるまは だれのですか。",
       "choices": [
         "あれ",
-        "あの",
+        "あれは",
         "あれの",
-        "あれは"
+        "あの"
       ],
       "correctAnswer": "あの",
       "explanation_en": "Use あの directly before a noun for 'that (far) + Noun'. あれ is a standalone pronoun.",
@@ -812,8 +812,8 @@
       "prompt_ja": "友だちに 学校の 中の ばしょを あんないして います。",
       "question_ja": "（友だちと 学校の 中を あるきながら、ある へやの 前で）　（　）は としょかんです。",
       "choices": [
-        "これ",
         "ここ",
+        "これ",
         "この",
         "それ"
       ],
@@ -836,8 +836,8 @@
       "question_ja": "（　）で かいましたか。",
       "choices": [
         "これ",
-        "ここ",
         "どこ",
+        "ここ",
         "どれ"
       ],
       "correctAnswer": "どこ",
@@ -858,9 +858,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "（　）を たべますか。",
       "choices": [
-        "なに",
-        "なん",
         "どれ",
+        "なん",
+        "なに",
         "どこ"
       ],
       "correctAnswer": "なに",
@@ -882,9 +882,9 @@
       "question_ja": "これは（　）ですか。",
       "choices": [
         "なに",
-        "なん",
+        "だれ",
         "どれ",
-        "だれ"
+        "なん"
       ],
       "correctAnswer": "なん",
       "explanation_en": "Before です / ですか, 'what?' is なん - never なに.",
@@ -949,9 +949,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "（　）いきますか。",
       "choices": [
-        "いつ",
-        "どこ",
         "なに",
+        "どこ",
+        "いつ",
         "だれ"
       ],
       "correctAnswer": "いつ",
@@ -972,10 +972,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "（　）まで やすみですか。",
       "choices": [
-        "いつ",
+        "どれ",
         "どこ",
         "なに",
-        "どれ"
+        "いつ"
       ],
       "correctAnswer": "いつ",
       "explanation_en": "いつまで = 'until when?'. いつ pairs cleanly with から (since when?), まで (until when?), ごろ (around when?).",
@@ -1017,8 +1017,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "コーヒー（　）すきですが、おちゃ（　）すきじゃありません。",
       "choices": [
-        "は ... は",
         "が ... が",
+        "は ... は",
         "は ... が",
         "を ... を"
       ],
@@ -1041,8 +1041,8 @@
       "question_ja": "わたしは えいご（　）できません。",
       "choices": [
         "は",
-        "が",
         "を",
+        "が",
         "に"
       ],
       "correctAnswer": "が",
@@ -1064,9 +1064,9 @@
       "question_ja": "こうえん（　）さんぽしました。",
       "choices": [
         "で",
-        "を",
+        "へ",
         "に",
-        "へ"
+        "を"
       ],
       "correctAnswer": "を",
       "explanation_en": "With movement verbs that traverse a path (さんぽする = to take a walk, あるく = to walk, とぶ = to fly), を marks the path. こうえんを さんぽする = 'walk through the park'.",
@@ -1086,8 +1086,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "ともだち（　）でんわを かけました。",
       "choices": [
-        "を",
         "に",
+        "を",
         "で",
         "と"
       ],
@@ -1153,10 +1153,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "9時（　）5時（　）しごとです。",
       "choices": [
-        "から ... まで",
+        "は ... は",
         "まで ... から",
         "に ... に",
-        "は ... は"
+        "から ... まで"
       ],
       "correctAnswer": "から ... まで",
       "explanation_en": "9時から 5時まで = 'from 9 to 5'. から marks the start, まで marks the end. They are nearly always paired for ranges.",
@@ -1223,8 +1223,8 @@
       "question_ja": "いま（　）じですか。",
       "choices": [
         "なに",
-        "なん",
         "どれ",
+        "なん",
         "どう"
       ],
       "correctAnswer": "なん",
@@ -1245,10 +1245,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "（　）から にほんごを べんきょうしていますか。",
       "choices": [
-        "いつ",
+        "だれ",
         "どこ",
         "なに",
-        "だれ"
+        "いつ"
       ],
       "correctAnswer": "いつ",
       "explanation_en": "いつから = 'since when?'. Pairs with から (start time) for 'since when have you been...?'.",
@@ -1291,8 +1291,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "あした コーヒーを のみ（　）。",
       "choices": [
-        "ます",
         "ません",
+        "ます",
         "ました",
         "ましょう"
       ],
@@ -1315,8 +1315,8 @@
       "question_ja": "わたしは にくを たべ（　）。",
       "choices": [
         "ます",
-        "ません",
         "ました",
+        "ません",
         "ましょう"
       ],
       "correctAnswer": "ません",
@@ -1338,9 +1338,9 @@
       "question_ja": "あした がっこうへ いき（　）。",
       "choices": [
         "ます",
-        "ません",
+        "ましょうか",
         "ました",
-        "ましょうか"
+        "ません"
       ],
       "correctAnswer": "ません",
       "explanation_en": "ません expresses 'will not go'. ます would be affirmative.",
@@ -1360,9 +1360,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きのう えいがを み（　）。",
       "choices": [
-        "ます",
-        "ません",
         "ました",
+        "ません",
+        "ます",
         "ませんでした"
       ],
       "correctAnswer": "ました",
@@ -1407,8 +1407,8 @@
       "question_ja": "きのうは ばんごはんを たべ（　）。",
       "choices": [
         "ません",
-        "ませんでした",
         "ました",
+        "ませんでした",
         "ます"
       ],
       "correctAnswer": "ませんでした",
@@ -1430,9 +1430,9 @@
       "question_ja": "せんしゅう しごとが あり（　）。",
       "choices": [
         "ません",
-        "ませんでした",
+        "ました",
         "ます",
-        "ました"
+        "ませんでした"
       ],
       "correctAnswer": "ませんでした",
       "explanation_en": "せんしゅう (last week) + negative = past negative ませんでした. あります goes to ありませんでした.",
@@ -1452,9 +1452,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "いっしょに ばんごはんを たべ（　）。",
       "choices": [
-        "ます",
-        "ました",
         "ましょう",
+        "ました",
+        "ます",
         "ません"
       ],
       "correctAnswer": "ましょう",
@@ -1499,8 +1499,8 @@
       "question_ja": "いっしょに えいがを み（　）か。",
       "choices": [
         "ます",
-        "ません",
         "ました",
+        "ません",
         "ましょう"
       ],
       "correctAnswer": "ません",
@@ -1522,9 +1522,9 @@
       "question_ja": "コーヒーを のみ（　）か。",
       "choices": [
         "ます",
-        "ません",
+        "ましょう",
         "ました",
-        "ましょう"
+        "ません"
       ],
       "correctAnswer": "ません",
       "explanation_en": "Polite offer / invitation uses ませんか.",
@@ -1567,8 +1567,8 @@
       "prompt_ja": "casual じしょけいを えらんでください。",
       "question_ja": "まいにち すしを（　）。",
       "choices": [
-        "たべる",
         "たべて",
+        "たべる",
         "たべた",
         "たべない"
       ],
@@ -1591,8 +1591,8 @@
       "question_ja": "おさけを（　）。",
       "choices": [
         "のむ",
-        "のまない",
         "のみます",
+        "のまない",
         "のんだ"
       ],
       "correctAnswer": "のまない",
@@ -1614,9 +1614,9 @@
       "question_ja": "あした（　）。",
       "choices": [
         "くる",
-        "こない",
+        "きた",
         "きます",
-        "きた"
+        "こない"
       ],
       "correctAnswer": "こない",
       "explanation_en": "くる is irregular: negative is こない (not くない or くらない).",
@@ -1636,8 +1636,8 @@
       "prompt_ja": "casual かこけいを えらんでください。",
       "question_ja": "きのう ほんを（　）。",
       "choices": [
-        "よむ",
         "よんだ",
+        "よむ",
         "よみました",
         "よまない"
       ],
@@ -1682,9 +1682,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "この ほんは おもしろ（　）です。",
       "choices": [
-        "い",
-        "な",
         "の",
+        "な",
+        "い",
         "だ"
       ],
       "correctAnswer": "い",
@@ -1705,10 +1705,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きょうは さむ（　）です。",
       "choices": [
-        "い",
+        "く",
         "な",
         "じゃ",
-        "く"
+        "い"
       ],
       "correctAnswer": "い",
       "explanation_en": "さむい + です - keep the い.",
@@ -1728,8 +1728,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "この りんごは あま（　）です。",
       "choices": [
-        "い",
         "くない",
+        "い",
         "じゃない",
         "ない"
       ],
@@ -1775,8 +1775,8 @@
       "question_ja": "きのうは あつ（　）です。",
       "choices": [
         "い",
-        "かった",
         "でした",
+        "かった",
         "い でした"
       ],
       "correctAnswer": "かった",
@@ -1798,9 +1798,9 @@
       "question_ja": "テストは（　）ですか。",
       "choices": [
         "むずかしい",
-        "むずかしかった",
+        "むずかしくない",
         "むずかしいでした",
-        "むずかしくない"
+        "むずかしかった"
       ],
       "correctAnswer": "むずかしかった",
       "explanation_en": "Past form: むずかしい → むずかしかった. Add です for polite.",
@@ -1843,8 +1843,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "とうきょうは（　）です。",
       "choices": [
-        "べんり",
         "べんりい",
+        "べんり",
         "べんりな",
         "べんる"
       ],
@@ -1866,9 +1866,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "あの 人は ゆうめい（　）ありません。",
       "choices": [
-        "じゃ",
-        "くない",
         "い じゃ",
+        "くない",
+        "じゃ",
         "な じゃ"
       ],
       "correctAnswer": "じゃ",
@@ -1890,9 +1890,9 @@
       "question_ja": "わたしは スポーツが（　）。",
       "choices": [
         "すき",
-        "すきじゃありません",
+        "すきだ ありません",
         "すきくないです",
-        "すきだ ありません"
+        "すきじゃありません"
       ],
       "correctAnswer": "すきじゃありません",
       "explanation_en": "すき is a な-adj - negative is じゃありません.",
@@ -1912,8 +1912,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "つくえの 上に ほんが（　）。",
       "choices": [
-        "います",
         "あります",
+        "います",
         "です",
         "ます"
       ],
@@ -1959,8 +1959,8 @@
       "question_ja": "きのう おさけを（　）。",
       "choices": [
         "のんだ",
-        "のまなかった",
         "のみました",
+        "のまなかった",
         "のまない"
       ],
       "correctAnswer": "のまなかった",
@@ -1982,9 +1982,9 @@
       "question_ja": "あさごはんを（　）。",
       "choices": [
         "たべた",
-        "たべなかった",
+        "たべない",
         "たべません",
-        "たべない"
+        "たべなかった"
       ],
       "correctAnswer": "たべなかった",
       "explanation_en": "たべる → たべない → たべなかった.",
@@ -2051,8 +2051,8 @@
       "question_ja": "あさごはんを（　）、がっこうへ 行きました。",
       "choices": [
         "たべます",
-        "たべて",
         "たべました",
+        "たべて",
         "たべる"
       ],
       "correctAnswer": "たべて",
@@ -2074,9 +2074,9 @@
       "question_ja": "シャワーを あびて、あさごはんを（　）、出かけました。",
       "choices": [
         "たべる",
-        "たべて",
+        "たべます",
         "たべました",
-        "たべます"
+        "たべて"
       ],
       "correctAnswer": "たべて",
       "explanation_en": "Multiple sequential actions all use te-form except the final one.",
@@ -2096,9 +2096,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "ちょっと（　）ください。",
       "choices": [
-        "まつ",
-        "まちて",
         "まって",
+        "まちて",
+        "まつ",
         "まった"
       ],
       "correctAnswer": "まって",
@@ -2167,8 +2167,8 @@
       "choices": [
         "します",
         "しました",
-        "しています",
-        "しません"
+        "しません",
+        "しています"
       ],
       "correctAnswer": "しています",
       "explanation_en": "けっこんする is a punctual verb - ています expresses the resulting STATE ('is married').",
@@ -2188,8 +2188,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "ここで しゃしんを（　）もいいですか。",
       "choices": [
-        "とる",
         "とって",
+        "とる",
         "とりて",
         "とった"
       ],
@@ -2235,8 +2235,8 @@
       "question_ja": "じゅぎょうちゅうは（　）はいけません。",
       "choices": [
         "はなす",
-        "はなして",
         "はなした",
+        "はなして",
         "はなしません"
       ],
       "correctAnswer": "はなして",
@@ -2258,9 +2258,9 @@
       "question_ja": "ここで たばこを（　）はいけません。",
       "choices": [
         "すう",
-        "すって",
+        "すいて",
         "すうて",
-        "すいて"
+        "すって"
       ],
       "correctAnswer": "すって",
       "explanation_en": "すう → すって (う → って).",
@@ -2280,9 +2280,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "ここで しゃしんを（　）でください。",
       "choices": [
-        "とる",
-        "とって",
         "とらない",
+        "とって",
+        "とる",
         "とります"
       ],
       "correctAnswer": "とらない",
@@ -2326,9 +2326,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きのうは さむ（　）です。",
       "choices": [
-        "くなかった",
-        "くない",
         "かった",
+        "くない",
+        "くなかった",
         "じゃなかった"
       ],
       "correctAnswer": "くなかった",
@@ -2349,10 +2349,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "その えいがは おもしろ（　）。",
       "choices": [
-        "くなかった",
+        "くて",
         "かった",
         "くない",
-        "くて"
+        "くなかった"
       ],
       "correctAnswer": "くなかった",
       "explanation_en": "Past negative form.",
@@ -2372,8 +2372,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "この ほんは おもしろ（　）、やすいです。",
       "choices": [
-        "い",
         "くて",
+        "い",
         "で",
         "かった"
       ],
@@ -2418,9 +2418,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きのうの コンサートは にぎやか（　）。",
       "choices": [
-        "でした",
-        "かった",
         "だった",
+        "かった",
+        "でした",
         "じゃ"
       ],
       "correctAnswer": "でした",
@@ -2441,10 +2441,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "あの 人は ゆうめい（　）か。",
       "choices": [
-        "でした",
+        "かったです",
         "かった",
         "ですか",
-        "かったです"
+        "でした"
       ],
       "correctAnswer": "でした",
       "explanation_en": "ゆうめい (na-adj) past + question = でしたか.",
@@ -2487,8 +2487,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きのうの しけんは かんたん（　）。",
       "choices": [
-        "じゃありませんでした",
         "くなかったです",
+        "じゃありませんでした",
         "でした",
         "じゃありません"
       ],
@@ -2510,9 +2510,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "この まちは しずか（　）、きれいです。",
       "choices": [
-        "で",
-        "くて",
         "だ",
+        "くて",
+        "で",
         "な"
       ],
       "correctAnswer": "で",
@@ -2533,10 +2533,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "あの 人は しんせつ（　）、ゆうめいです。",
       "choices": [
-        "で",
+        "な",
         "くて",
         "だ",
-        "な"
+        "で"
       ],
       "correctAnswer": "で",
       "explanation_en": "しんせつ (kind, na-adj) → しんせつで.",
@@ -2579,8 +2579,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "きょうしつに がくせいが（　）。",
       "choices": [
-        "いません",
         "ありません",
+        "いません",
         "じゃありません",
         "ます"
       ],
@@ -2603,8 +2603,8 @@
       "question_ja": "わたしは にほんへ（　）です。",
       "choices": [
         "行き",
-        "行きたい",
         "行く",
+        "行きたい",
         "行って"
       ],
       "correctAnswer": "行きたい",
@@ -2625,10 +2625,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "なにを（　）ですか。",
       "choices": [
-        "食べたい",
+        "食べた",
         "食べる",
         "食べて",
-        "食べた"
+        "食べたい"
       ],
       "correctAnswer": "食べたい",
       "explanation_en": "たい-form for desires.",
@@ -2649,8 +2649,8 @@
       "question_ja": "いい てんきです（　）。",
       "choices": [
         "の",
-        "で",
         "ね",
+        "で",
         "も"
       ],
       "correctAnswer": "ね",
@@ -2667,8 +2667,8 @@
       "question_ja": "あした しけんです（　）。",
       "choices": [
         "など",
-        "よ",
         "に",
+        "よ",
         "ぐらい"
       ],
       "correctAnswer": "よ",
@@ -2744,8 +2744,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "りんごや バナナ（　）を よく 食べます。",
       "choices": [
-        "など",
         "もの",
+        "など",
         "よ",
         "で"
       ],
@@ -2762,9 +2762,9 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "りんごを ひとつ（　） ください。",
       "choices": [
-        "ずつ",
-        "から",
         "ぐらい",
+        "から",
+        "ずつ",
         "まで"
       ],
       "correctAnswer": "ずつ",
@@ -2781,9 +2781,9 @@
       "question_ja": "これは （　）ですか。",
       "choices": [
         "だけ",
-        "から",
+        "いくら",
         "で",
-        "いくら"
+        "から"
       ],
       "correctAnswer": "いくら",
       "explanation_en": "いくら asks the price.",
@@ -2800,8 +2800,8 @@
       "choices": [
         "や",
         "も",
-        "だけ",
-        "いくつ"
+        "いくつ",
+        "だけ"
       ],
       "correctAnswer": "いくつ",
       "explanation_en": "いくつ asks 'how many' using the native ひと-counter system. Also used to politely ask age (especially of children).",
@@ -2817,9 +2817,9 @@
       "question_ja": "いま （　）ですか。",
       "choices": [
         "は",
-        "なんじ",
+        "へ",
         "だけ",
-        "へ"
+        "なんじ"
       ],
       "correctAnswer": "なんじ",
       "explanation_en": "Counter じ = 'o'clock'. なんじ asks 'what time?'. Pairs with から/まで for time ranges.",
@@ -2852,8 +2852,8 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "シャワーを あびました。（　）、ねました。",
       "choices": [
-        "が",
         "それから",
+        "が",
         "ね",
         "に"
       ],
@@ -2890,8 +2890,8 @@
       "choices": [
         "で",
         "や",
-        "は",
-        "しかし"
+        "しかし",
+        "は"
       ],
       "correctAnswer": "しかし",
       "explanation_en": "Formal/written form of でも. Same meaning, more formal register.",
@@ -2906,10 +2906,10 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "コーヒーは すきです（　）、おちゃは すきじゃありません。",
       "choices": [
-        "も",
+        "が",
         "まで",
         "に",
-        "が"
+        "も"
       ],
       "correctAnswer": "が",
       "explanation_en": "が at end of a clause (after です/ます or plain) means 'but' as a softening connector. Often introduces a contrast or extends thought.",
@@ -2925,8 +2925,8 @@
       "question_ja": "あつい（　）、まどを あけてください。",
       "choices": [
         "ぐらい",
-        "から",
         "の",
+        "から",
         "よ"
       ],
       "correctAnswer": "から",
@@ -2960,10 +2960,10 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "りんご（ ） バナナを たべます。",
       "choices": [
-        "や",
+        "を",
         "は",
         "が",
-        "を"
+        "や"
       ],
       "correctAnswer": "や",
       "explanation_en": "Pattern n5-022: And - non-exhaustive listing. See the pattern detail page for full examples and notes. (Auto-generated template; pending Pass-15 native review.)",
@@ -3008,8 +3008,8 @@
       "prompt_ja": "ふたつの えらびかたを ならべる ことばを えらんで ください。",
       "question_ja": "コーヒー（ ） おちゃが いいです。",
       "choices": [
-        "か",
         "は",
+        "か",
         "が",
         "を"
       ],
@@ -3032,9 +3032,9 @@
       "prompt_ja": "ほかにも がくせいが いる ことを ふまえて、じぶんも おなじだと 言う ことばを えらんで ください。",
       "question_ja": "（さとうさんも たなかさんも がくせいです。）　わたし（　）がくせいです。",
       "choices": [
-        "も",
-        "は",
         "が",
+        "は",
+        "も",
         "を"
       ],
       "correctAnswer": "も",
@@ -3056,10 +3056,10 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "1時間（ ） まちました。",
       "choices": [
-        "ぐらい",
+        "ばかり",
         "くらい",
         "ほど",
-        "ばかり"
+        "ぐらい"
       ],
       "correctAnswer": "ぐらい",
       "explanation_en": "Pattern n5-035: ぐらい / くらい - about, approximately (used with quantities). See the pattern detail page for full examples and notes. (Auto-generated template; pending Pass-15 native review.)",
@@ -3104,8 +3104,8 @@
       "prompt_ja": "おきゃくさんを ていねいに あんないする ことばを えらんで ください。",
       "question_ja": "（おきゃくさんを じぶんの ちかくの せきへ あんないして）　（ ）へ どうぞ。",
       "choices": [
-        "こちら",
         "そちら",
+        "こちら",
         "あちら",
         "どちら"
       ],
@@ -3128,9 +3128,9 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "（ ） 本が すきですか。",
       "choices": [
-        "どんな",
-        "こんな",
         "そんな",
+        "こんな",
+        "どんな",
         "あんな"
       ],
       "correctAnswer": "どんな",
@@ -3152,10 +3152,10 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "（ ） してください。",
       "choices": [
-        "こう",
+        "どう",
         "そう",
         "ああ",
-        "どう"
+        "こう"
       ],
       "correctAnswer": "こう",
       "explanation_en": "Pattern n5-044: こう / そう / ああ / どう - 'this way / that way / how'. See the pattern detail page for full examples and notes. (Auto-generated template; pending Pass-15 native review.)",
@@ -3200,8 +3200,8 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "（ ）が きましたか。",
       "choices": [
-        "だれ",
         "なに",
+        "だれ",
         "なん",
         "どなた"
       ],
@@ -3224,9 +3224,9 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "（ ） いきますか。",
       "choices": [
-        "いつ",
-        "なに",
         "なん",
+        "なに",
+        "いつ",
         "だれ"
       ],
       "correctAnswer": "いつ",
@@ -3248,10 +3248,10 @@
       "prompt_ja": "じぶんが いる ばしょを さして 言う ことばを えらんで ください。",
       "question_ja": "（としょかんの 中で 友だちに 言います）　（ ）は としょかんです。",
       "choices": [
-        "ここ",
+        "どこ",
         "そこ",
         "あそこ",
-        "どこ"
+        "ここ"
       ],
       "correctAnswer": "ここ",
       "explanation_en": "When the speaker is at the place they are describing, use ここ ('here' -  speaker's location). そこ is near the listener; あそこ is far from both; どこ asks 'where?'.",
@@ -3296,8 +3296,8 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "おしごとは （ ）ですか。",
       "choices": [
-        "どう",
         "だれ",
+        "どう",
         "いつ",
         "どこ"
       ],
@@ -3781,8 +3781,8 @@
       "choices": [
         "に / に",
         "で / で",
-        "に / で",
-        "で / に"
+        "で / に",
+        "に / で"
       ],
       "correctAnswer": "で / に",
       "explanation_en": "はたらく (general 'to work') takes location-of-action で. つとめる (to be employed at) takes に because it expresses 'state of being attached to'. Same workplace-meaning, different particle -  direct N5 vs N4-edge minimal pair from external reading 17.",
@@ -3800,10 +3800,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "まいあさ 七時（ ）おきて、八時（ ）うちを 出ます。",
       "choices": [
-        "に / に",
+        "を / に",
         "で / で",
         "に / を",
-        "を / に"
+        "に / に"
       ],
       "correctAnswer": "に / に",
       "explanation_en": "Specific clock-times take に: 七時に (at 7) + 八時に (at 8). Both clauses are time-anchored events; に is the only correct particle for specific time. The 'うちを 出る' (leave home) construction uses を for the source of the leave-action -  but the question only blanks the time particles.",
@@ -3835,8 +3835,8 @@
       "prompt_ja": "ただしい かんじを えらんで ください。",
       "question_ja": "やまださんの がっこうは どこですか。",
       "choices": [
-        "学校",
         "学生",
+        "学校",
         "学行",
         "学日"
       ],
@@ -3854,8 +3854,8 @@
       "question_ja": "らいげつ にほんに 行きます。",
       "choices": [
         "今月",
-        "来月",
         "今週",
+        "来月",
         "来週"
       ],
       "correctAnswer": "来月",
@@ -3873,8 +3873,8 @@
       "choices": [
         "古い",
         "新しい",
-        "高い",
-        "安い"
+        "安い",
+        "高い"
       ],
       "correctAnswer": "高い",
       "explanation_en": "たかい = 高い (expensive / tall). All four are N5 i-adjectives with related meanings: 古い (old), 新しい (new), 安い (cheap, antonym of 高い). Tests precise kanji recognition within a tightly-related semantic field.",
@@ -3907,8 +3907,8 @@
       "prompt_ja": "ただしい かんじを えらんで ください。",
       "question_ja": "きのうは かいしゃを やすみました。",
       "choices": [
-        "会社",
         "会話",
+        "会社",
         "会見",
         "会国"
       ],
@@ -3926,8 +3926,8 @@
       "question_ja": "あのレストランで ばんごはんを たべます。",
       "choices": [
         "飲べ",
-        "食べ",
         "口べ",
+        "食べ",
         "見べ"
       ],
       "correctAnswer": "食べ",
@@ -3961,10 +3961,10 @@
       "prompt_ja": "おなじ いみの ぶんを えらんで ください。",
       "question_ja": "あさって うちに かえります。",
       "choices": [
-        "あしたの つぎの ひに うちに かえります。",
+        "せんしゅうの あとに うちに かえります。",
         "きのうの つぎの ひに うちに かえります。",
         "きょうの つぎの ひに うちに かえります。",
-        "せんしゅうの あとに うちに かえります。"
+        "あしたの つぎの ひに うちに かえります。"
       ],
       "correctAnswer": "あしたの つぎの ひに うちに かえります。",
       "explanation_en": "あさって = day after tomorrow = the day after tomorrow (あしたの つぎの ひ).",
@@ -4034,9 +4034,9 @@
       "question_ja": "この もんだいは やさしいです。",
       "choices": [
         "この もんだいは おもしろいです。",
-        "この もんだいは むずかしくないです。",
+        "この もんだいは あたらしいです。",
         "この もんだいは ながいです。",
-        "この もんだいは あたらしいです。"
+        "この もんだいは むずかしくないです。"
       ],
       "correctAnswer": "この もんだいは むずかしくないです。",
       "explanation_en": "やさしい (easy, 易しい) = むずかしくない (not difficult). Note: やさしい also has a 'kind' sense (優しい), but the easy sense is most common in N5.",
@@ -4070,8 +4070,8 @@
       "question_ja": "ふくを せんたくしました。",
       "choices": [
         "ふくを きました。",
-        "ふくを ぬぎました。",
         "ふくを あらいました。",
+        "ふくを ぬぎました。",
         "ふくを かいました。"
       ],
       "correctAnswer": "ふくを あらいました。",
@@ -4106,9 +4106,9 @@
       "question_ja": "この ケーキは まずいです。",
       "choices": [
         "この ケーキは おいしいです。",
-        "この ケーキは おいしくないです。",
+        "この ケーキは やすくないです。",
         "この ケーキは あまいです。",
-        "この ケーキは やすくないです。"
+        "この ケーキは おいしくないです。"
       ],
       "correctAnswer": "この ケーキは おいしくないです。",
       "explanation_en": "まずい (bad-tasting) = おいしくない (not delicious). Antonym pair; まずい is the i-adjective directly opposite to おいしい.",
@@ -4123,10 +4123,10 @@
       "prompt_ja": "「あげる」と いっしょに つかう、もらう人を しめす ことばを えらんで ください。",
       "question_ja": "わたしは ともだち（ ）プレゼントを あげました。",
       "choices": [
-        "に",
+        "から",
         "を",
         "へ",
-        "から"
+        "に"
       ],
       "correctAnswer": "に",
       "explanation_en": "あげる takes に for the recipient (the person who receives the gift). Structure: [giver] は [recipient] に [item] を あげる.",
@@ -4171,8 +4171,8 @@
       "prompt_ja": "「もらう」と いっしょに つかう、くれた人を しめす ことばを えらんで ください。",
       "question_ja": "わたしは 父（ ）おかねを もらいました。",
       "choices": [
-        "から",
         "へ",
+        "から",
         "で",
         "と"
       ],
@@ -4195,9 +4195,9 @@
       "prompt_ja": "「もらう」の もくてきご（もらった もの）を しめす ことばを えらんで ください。",
       "question_ja": "わたしは あにから プレゼント（ ）もらいました。",
       "choices": [
-        "を",
-        "が",
         "に",
+        "が",
+        "を",
         "へ"
       ],
       "correctAnswer": "を",
@@ -4219,10 +4219,10 @@
       "prompt_ja": "りゆうを やわらかく いう ときに つかう ことばを えらんで ください。",
       "question_ja": "あたまが いたい（ ）、学校を やすみます。",
       "choices": [
-        "ので",
+        "のに",
         "ながら",
         "ても",
-        "のに"
+        "ので"
       ],
       "correctAnswer": "ので",
       "explanation_en": "ので means 'because' / 'so' and is softer / more polite than から. It attaches to the plain form of verbs and adjectives. Here: 'My head hurts, so I'll be absent from school.'",
@@ -4267,8 +4267,8 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "ラジオを （ ）べんきょうします。",
       "choices": [
-        "ききながら",
         "きいて",
+        "ききながら",
         "ききました",
         "きかない"
       ],
@@ -4291,9 +4291,9 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "コーヒーを のみ（ ）、本を 読みます。",
       "choices": [
-        "ながら",
-        "ので",
         "から",
+        "ので",
+        "ながら",
         "でも"
       ],
       "correctAnswer": "ながら",
@@ -4315,10 +4315,10 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "わたしは 毎日 7時に おきます。（ ）7時に おきます。",
       "choices": [
-        "いつも",
+        "ぜんぜん",
         "たまに",
         "あまり",
-        "ぜんぜん"
+        "いつも"
       ],
       "correctAnswer": "いつも",
       "explanation_en": "いつも means 'always' (100% of the time). It naturally pairs with 毎日 ('every day') to emphasize total consistency.",
@@ -4362,8 +4362,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "がっこうは 9じ（ ）3じ までです。",
       "choices": [
-        "まで",
         "から",
+        "まで",
         "に",
         "で"
       ],
@@ -4378,8 +4378,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "げつようび（ ）きんようびまで はたらきます。",
       "choices": [
-        "から",
         "と",
+        "から",
         "に",
         "へ"
       ],
@@ -4394,9 +4394,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "これは わたし（ ）ほんです。",
       "choices": [
-        "の",
-        "は",
         "が",
+        "は",
+        "の",
         "を"
       ],
       "correctAnswer": "の",
@@ -4411,9 +4411,9 @@
       "question_ja": "えいがを 見る（ ）が すきです。",
       "choices": [
         "で",
-        "の",
+        "ところ",
         "もの",
-        "ところ"
+        "の"
       ],
       "correctAnswer": "の",
       "explanation_en": "Nominaliser の turns the verb-clause 見る into a noun phrase 'watching movies'. もの and ところ form different noun phrases (thing-to-watch / place-to-watch) that don't fit the 'X が すきです' frame as cleanly. で is a particle, not a nominaliser. (Earlier this question listed こと in the choice set; こと is also a valid nominaliser here, so it was replaced with で to remove the multi-correct hazard. Native speakers freely use either の or こと for sensory verbs like 見る.)",
@@ -4426,8 +4426,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "100えん（ ）ありません。",
       "choices": [
-        "です",
         "しか",
+        "です",
         "まで",
         "から"
       ],
@@ -4458,9 +4458,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "（ ）にほんへ 行きますか。",
       "choices": [
-        "どうして",
-        "どこ",
         "どうやって",
+        "どこ",
+        "どうして",
         "いくら"
       ],
       "correctAnswer": "どうして",
@@ -4476,8 +4476,8 @@
       "choices": [
         "どうして",
         "なぜ",
-        "どうやって",
-        "どこ"
+        "どこ",
+        "どうやって"
       ],
       "correctAnswer": "どうやって",
       "explanation_en": "どうやって = how / by what means. Expected answer is means: バスで, でんしゃで, etc.",
@@ -4490,9 +4490,9 @@
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
       "question_ja": "きょうは（ ）ですか。",
       "choices": [
-        "なんがつ",
-        "なんにち",
         "なんようび",
+        "なんにち",
+        "なんがつ",
         "なんじ"
       ],
       "correctAnswer": "なんようび",
@@ -4508,8 +4508,8 @@
       "question_ja": "おたんじょうびは（ ）ですか。",
       "choices": [
         "なんようび",
-        "なんじ",
         "なんがつなんにち",
+        "なんじ",
         "なんねん"
       ],
       "correctAnswer": "なんがつなんにち",
@@ -4525,9 +4525,9 @@
       "question_ja": "てつだい（ ）か。",
       "choices": [
         "ます",
-        "ました",
+        "ましょう",
         "ません",
-        "ましょう"
+        "ました"
       ],
       "correctAnswer": "ましょう",
       "explanation_en": "Verb-ましょうか = 'shall I / shall we ~?' The か at the end + the offer-context make ましょう the only fit. ます would be a plain statement, not an offer.",
@@ -4541,8 +4541,8 @@
       "question_ja": "いま、ごはんを たべて（ ）。",
       "choices": [
         "います",
-        "いません",
         "あります",
+        "いません",
         "ありません"
       ],
       "correctAnswer": "いません",
@@ -4557,9 +4557,9 @@
       "question_ja": "ばんごはんを たべ（ ）、テレビを 見ます。",
       "choices": [
         "て",
-        "てから",
+        "ても",
         "ながら",
-        "ても"
+        "てから"
       ],
       "correctAnswer": "てから",
       "explanation_en": "Verb-てから = 'after doing X'. Sequential meaning: first eat dinner, THEN watch TV. て alone would also work but てから makes the sequence explicit.",
@@ -4604,9 +4604,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "つくえの うえ（ ）ほんが あります。",
       "choices": [
-        "に",
-        "で",
         "を",
+        "で",
+        "に",
         "と"
       ],
       "correctAnswer": "に",
@@ -4620,10 +4620,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "わたしの ほんは つくえの うえ（ ）あります。",
       "choices": [
-        "に",
+        "と",
         "で",
         "を",
-        "と"
+        "に"
       ],
       "correctAnswer": "に",
       "explanation_en": "XはYに あります = 'X is at Y' (already-known X first). Same locating particle に as the location-first variant. Topic は marks the already-known thing.",
@@ -4685,9 +4685,9 @@
       "question_ja": "にほんご（ ）すこし わかります。",
       "choices": [
         "を",
-        "が",
+        "で",
         "に",
-        "で"
+        "が"
       ],
       "correctAnswer": "が",
       "explanation_en": "~がわかります = 'understand X'. が, not を. The understood-thing is grammatically the subject of the understanding-state, not the object.",
@@ -4733,8 +4733,8 @@
       "question_ja": "スーパーへ かいもの（ ）行きます。",
       "choices": [
         "を",
-        "に",
         "で",
+        "に",
         "と"
       ],
       "correctAnswer": "に",
@@ -4749,9 +4749,9 @@
       "question_ja": "ほんを（ ）かいましたか。",
       "choices": [
         "いくら",
-        "なんさつ",
+        "どれくらい",
         "いくつ",
-        "どれくらい"
+        "なんさつ"
       ],
       "correctAnswer": "なんさつ",
       "explanation_en": "なん + counter is the standard 'how many [counter]?' form. For books, the counter is さつ (冊). いくら is for prices; いくつ is the general 'how many' for native counters.",
@@ -4765,9 +4765,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "A: あした、しごとに 行く（ ）。\nB: ううん、行かない。",
       "choices": [
-        "の",
-        "よ",
         "ね",
+        "よ",
+        "の",
         "と"
       ],
       "correctAnswer": "の",
@@ -4782,10 +4782,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "らいしゅう しけん（ ）あります。",
       "choices": [
-        "が",
+        "で",
         "を",
         "に",
-        "で"
+        "が"
       ],
       "correctAnswer": "が",
       "explanation_en": "X ga arimasu is the canonical pattern for there is/have an event. Subject is marked by ga. Distractors: wo marks direct objects (arimasu is intransitive); ni marks location/time; de marks place of action.",
@@ -4816,8 +4816,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "いま なん（ ）ですか。",
       "choices": [
-        "じ",
         "ふん",
+        "じ",
         "にち",
         "がつ"
       ],
@@ -4833,9 +4833,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "がっこうは ８じ（ ）に はじまります。",
       "choices": [
-        "はん",
-        "ばん",
         "まえ",
+        "ばん",
+        "はん",
         "あと"
       ],
       "correctAnswer": "はん",
@@ -4850,10 +4850,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "（ ）あさ ７じに おきます。",
       "choices": [
-        "まいにち",
+        "あした",
         "きのう",
         "こんばん",
-        "あした"
+        "まいにち"
       ],
       "correctAnswer": "まいにち",
       "explanation_en": "mainichi = every day. Pairs with habitual present. Distractors: kinou (yesterday), konban (tonight), ashita (tomorrow) -  all single-day temporals, not recurrence.",
@@ -4884,8 +4884,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "ごはんを たべる（ ）に てを あらいます。",
       "choices": [
-        "まえ",
         "あと",
+        "まえ",
         "うしろ",
         "うえ"
       ],
@@ -4901,9 +4901,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "べんきょうした（ ）で、ともだちと あいます。",
       "choices": [
-        "あと",
-        "まえ",
         "とき",
+        "まえ",
+        "あと",
         "うち"
       ],
       "correctAnswer": "あと",
@@ -4918,10 +4918,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "「もう おそいですから、（ ）かえります。」",
       "choices": [
-        "では",
+        "だから",
         "でも",
         "けれど",
-        "だから"
+        "では"
       ],
       "correctAnswer": "では",
       "explanation_en": "dewa (formal) / ja (casual) = well then -  transitions from a stated reason to a follow-up action. Distractors: demo (but/however) introduces contrast, not transition; keredo (but) similar contrast; dakara (therefore) is causal explanation, not transition.",
@@ -4952,8 +4952,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "「（ ）にほんへ きましたか。」「にほんごを べんきょうしたいですから。」",
       "choices": [
-        "どうして",
         "いつ",
+        "どうして",
         "どこ",
         "だれ"
       ],
@@ -4969,9 +4969,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "たんじょうびに、ともだち（ ）プレゼントを くれました。",
       "choices": [
-        "が",
-        "を",
         "に",
+        "を",
+        "が",
         "で"
       ],
       "correctAnswer": "が",
@@ -4986,10 +4986,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "きのう（ ）ひとは たなかさんです。",
       "choices": [
-        "きた",
+        "こない",
         "きます",
         "きました",
-        "こない"
+        "きた"
       ],
       "correctAnswer": "きた",
       "explanation_en": "Plain-form verb modifies a following noun (relative clause). kita hito = the person who came. Distractors: kimasu/kimashita are polite-form (cannot modify a noun directly in N5); konai would mean the person who doesnt come -  wrong sense for past event.",
@@ -5020,8 +5020,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "じゅぎょうは ９じ（ ）１２じまでです。",
       "choices": [
-        "から",
         "まで",
+        "から",
         "に",
         "へ"
       ],
@@ -5037,9 +5037,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "これは わたし（ ）ほんです。",
       "choices": [
-        "の",
-        "は",
         "が",
+        "は",
+        "の",
         "を"
       ],
       "correctAnswer": "の",
@@ -5054,10 +5054,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "わたしは コーヒー（ ）します。",
       "choices": [
-        "に",
+        "で",
         "を",
         "が",
-        "で"
+        "に"
       ],
       "correctAnswer": "に",
       "explanation_en": "X に します = decide on / choose X (e.g., when ordering at a restaurant). The choice marker is に. Distractors: を + する is generic 'do X'; が marks subject; で is means/place.",
@@ -5088,8 +5088,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "あした、あめが ふる（ ）おもいます。",
       "choices": [
-        "と",
         "を",
+        "と",
         "に",
         "で"
       ],
@@ -5105,9 +5105,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "せんせいは「あした テストです」（ ）言いました。",
       "choices": [
-        "と",
-        "を",
         "に",
+        "を",
+        "と",
         "で"
       ],
       "correctAnswer": "と",
@@ -5122,10 +5122,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "すみません、コーヒー（ ）ください。",
       "choices": [
-        "を",
+        "の",
         "に",
         "が",
-        "の"
+        "を"
       ],
       "correctAnswer": "を",
       "explanation_en": "Noun + を + kudasai = please give me [noun]. The thing requested takes the object marker を. Distractors: に is recipient/time; が marks subject; の is possessive.",
@@ -5156,8 +5156,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "コーヒー（ ）いかがですか。",
       "choices": [
-        "は",
         "を",
+        "は",
         "に",
         "が"
       ],
@@ -5173,9 +5173,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "「ごはんを たべましたか。」「いいえ、（ ）たべて いません。」",
       "choices": [
-        "まだ",
-        "もう",
         "いま",
+        "もう",
+        "まだ",
         "すぐ"
       ],
       "correctAnswer": "まだ",
@@ -5190,10 +5190,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "「しゅくだいを しましたか。」「はい、（ ）しました。」",
       "choices": [
-        "もう",
+        "あとで",
         "まだ",
         "いま",
-        "あとで"
+        "もう"
       ],
       "correctAnswer": "もう",
       "explanation_en": "mou + V-mashita = already (action completed). The affirmative answer 'yes, already did' pins もう. Distractors: まだ would pair with negative; いま (now) doesn't match completed-past; あとで (later) is future.",
@@ -5224,8 +5224,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "あした、たぶん あめが ふる（ ）。",
       "choices": [
-        "でしょう",
         "でした",
+        "でしょう",
         "ですか",
         "でして"
       ],
@@ -5241,9 +5241,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "あの ひとは たなか（ ）です。",
       "choices": [
-        "さん",
-        "ちゃん",
         "くん",
+        "ちゃん",
+        "さん",
         "さま"
       ],
       "correctAnswer": "さん",
@@ -5258,10 +5258,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "（ ）ちゃを のみますか。",
       "choices": [
-        "お",
+        "を",
         "ご",
         "の",
-        "を"
+        "お"
       ],
       "correctAnswer": "お",
       "explanation_en": "o-cha = (honorific) tea. Native-Japanese-origin words usually take お (o-); Sino-Japanese words take ご (go-). Distractors: ご is for Sino-Japanese stems (gohan, gokazoku); の is possessive; を is object marker.",
@@ -5292,8 +5292,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "わたしは にほんへ 行った（ ）が あります。",
       "choices": [
-        "こと",
         "もの",
+        "こと",
         "ところ",
         "とき"
       ],
@@ -5309,9 +5309,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "つかれた ときは、はやく ねた（ ）が いいです。",
       "choices": [
-        "ほう",
-        "もの",
         "こと",
+        "もの",
+        "ほう",
         "ところ"
       ],
       "correctAnswer": "ほう",
@@ -5326,10 +5326,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "この にもつは おも（ ）。",
       "choices": [
-        "すぎます",
+        "すぎない",
         "すぎる",
         "すぎて",
-        "すぎない"
+        "すぎます"
       ],
       "correctAnswer": "すぎます",
       "explanation_en": "i-adj-stem (drop い) + sugimasu = too [adj]. omoi → omo + sugimasu = 'too heavy'. Distractors: sugiru (plain form, would need different polite-level context), sugite (te-form, conjunction not a sentence ender), suginai (negative -  would mean 'not too heavy' which contradicts the implied complaint).",
@@ -5360,8 +5360,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "（みせの 中で）すみません、トイレは（ ）ですか。",
       "choices": [
-        "どこ",
         "ここ",
+        "どこ",
         "そこ",
         "なに"
       ],
@@ -5377,9 +5377,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "クラスで（ ）せが たかい ひとは たなかさんです。",
       "choices": [
-        "いちばん",
-        "とても",
         "もっと",
+        "とても",
+        "いちばん",
         "あまり"
       ],
       "correctAnswer": "いちばん",
@@ -5394,10 +5394,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "わたしは 七時（ ）あさごはんを たべます。",
       "choices": [
-        "に",
+        "を",
         "で",
         "へ",
-        "を"
+        "に"
       ],
       "correctAnswer": "に",
       "explanation_en": "Specific clock-times take に. Distractors: で is means/place-of-action (七時で = ungrammatical for times); へ is destination direction (times don't take direction); を is object marker.",
@@ -5428,8 +5428,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "わたしは 毎日 ８じに（ ）おきます。",
       "choices": [
-        "いつも",
         "あまり",
+        "いつも",
         "ぜんぜん",
         "ときどき"
       ],
@@ -5445,9 +5445,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "（ ）すわって ください。",
       "choices": [
-        "どうぞ",
-        "どうも",
         "すみません",
+        "どうも",
+        "どうぞ",
         "おねがい"
       ],
       "correctAnswer": "どうぞ",
@@ -5462,10 +5462,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "A: あついです（ ）。\nB: ええ、ほんとうに あついですね。",
       "choices": [
-        "ね",
+        "の",
         "よ",
         "か",
-        "の"
+        "ね"
       ],
       "correctAnswer": "ね",
       "explanation_en": "ね seeks confirmation/agreement; B's response 'ええ、ほんとうに...ですね' (yes, really hot) confirms agreement, which only pairs with ね from A. Distractors: よ is assertive (informing -  B wouldn't agree-back as enthusiastically), か would make A's line a question, の is informal-question.",
@@ -5496,8 +5496,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "A: この みせは あたらしいです（ ）。\nB: そうですね、せんしゅう できました。",
       "choices": [
-        "ね",
         "よ",
+        "ね",
         "か",
         "の"
       ],
@@ -5513,9 +5513,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "じゅぎょう（ ）あとで、ともだちと あいます。",
       "choices": [
-        "の",
-        "を",
         "に",
+        "を",
+        "の",
         "が"
       ],
       "correctAnswer": "の",
@@ -5530,10 +5530,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "ごはん（ ）まえに、てを あらいます。",
       "choices": [
-        "の",
+        "で",
         "を",
         "に",
-        "で"
+        "の"
       ],
       "correctAnswer": "の",
       "explanation_en": "Noun の まえに = before [Noun]. Same genitive-link pattern as n5-160 with まえ. Distractors: を/に/で don't link nouns to まえ in this temporal pattern.",
@@ -5564,8 +5564,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "ごはんを たべた（ ）で、しゅくだいを します。",
       "choices": [
-        "あと",
         "まえ",
+        "あと",
         "とき",
         "ところ"
       ],
@@ -5581,9 +5581,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "ごはんを たべる まえに、（ ）と 言います。",
       "choices": [
-        "いただきます",
-        "ごちそうさま",
         "おはようございます",
+        "ごちそうさま",
+        "いただきます",
         "おやすみなさい"
       ],
       "correctAnswer": "いただきます",
@@ -5598,10 +5598,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "A: どうして きょう やすみましたか。\nB: あたまが いたかった（ ）。",
       "choices": [
-        "んです",
+        "ました",
         "ます",
         "でした",
-        "ました"
+        "んです"
       ],
       "correctAnswer": "んです",
       "explanation_en": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense -  past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an i-adj, not a verb).",
@@ -5632,8 +5632,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "しゅくだいは あした まで ですから、きょう 出さ（ ）いいです。",
       "choices": [
-        "なくても",
         "なくては",
+        "なくても",
         "ないと",
         "なくちゃ"
       ],
@@ -5649,9 +5649,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "あした、テストですから、こんばん べんきょうし（ ）いけません。",
       "choices": [
-        "なくては",
-        "なくても",
         "ないで",
+        "なくても",
+        "なくては",
         "なくて"
       ],
       "correctAnswer": "なくては",
@@ -5666,10 +5666,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "がっこうの ルールを まもら（ ）なりません。",
       "choices": [
-        "なくては",
+        "なくて",
         "なくても",
         "ないで",
-        "なくて"
+        "なくては"
       ],
       "correctAnswer": "なくては",
       "explanation_en": "V-stem + なくては + ならない = must [V] (formal obligation, same as いけない). The なりません ending forces なくては. Distractors: なくても is permission-not-to (with いい); ないで is V-without-doing; なくて is bare conjunction.",
@@ -5700,8 +5700,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "もう ５じだ。はやく かえら（ ）。",
       "choices": [
-        "なくちゃ",
         "なくては",
+        "なくちゃ",
         "ないと",
         "なくても"
       ],
@@ -5717,9 +5717,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "たなかさんは、あした こない（ ）言って いました。",
       "choices": [
-        "って",
-        "を",
         "が",
+        "を",
+        "って",
         "に"
       ],
       "correctAnswer": "って",
@@ -5734,10 +5734,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "おすしの たべ（ ）を おしえて ください。",
       "choices": [
-        "かた",
+        "ひと",
         "とき",
         "ばしょ",
-        "ひと"
+        "かた"
       ],
       "correctAnswer": "かた",
       "explanation_en": "V-stem (drop ます) + かた = way of [V]-ing. tabe-kata = way of eating. Distractors: とき (time/when), ばしょ (place), ひと (person) -  none form 'way of' in this construction.",
@@ -5768,8 +5768,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "あぶない！　そこへ 行く（ ）！",
       "choices": [
-        "な",
         "ね",
+        "な",
         "よ",
         "の"
       ],
@@ -5785,9 +5785,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "「おなかが すきました。なに（ ）たべませんか。」",
       "choices": [
-        "か",
-        "も",
         "を",
+        "も",
+        "か",
         "に"
       ],
       "correctAnswer": "か",
@@ -5802,10 +5802,10 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "つかれましたから、なに（ ）たべたく ありません。",
       "choices": [
-        "も",
+        "が",
         "か",
         "を",
-        "が"
+        "も"
       ],
       "correctAnswer": "も",
       "explanation_en": "なに + も + negative = nothing. The negative たべたく ありません forces も (not か, which would be positive 'something'). Distractors: か is positive existence; を/が don't form Q-word compounds.",
@@ -5836,8 +5836,8 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "つかれましたから、きょうは どこ（ ）行きません。",
       "choices": [
-        "も",
         "か",
+        "も",
         "へ",
         "を"
       ],
@@ -5853,9 +5853,9 @@
       "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
       "question_ja": "わたしは いつ（ ）７じに おきます。",
       "choices": [
-        "も",
-        "か",
         "に",
+        "か",
+        "も",
         "の"
       ],
       "correctAnswer": "も",
@@ -5870,10 +5870,10 @@
       "prompt_ja": "（ ）に 入る ことばを えらんで ください。",
       "question_ja": "日本語を 話す こと（ ）できます。",
       "choices": [
-        "が",
+        "で",
         "を",
         "に",
-        "で"
+        "が"
       ],
       "correctAnswer": "が",
       "explanation_en": "「ことができる」 takes が on the こと nominalizer. Within the こと-clause the verb 話す retains its normal object 日本語を; only the outer こと takes が.",

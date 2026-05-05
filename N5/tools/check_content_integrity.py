@@ -807,6 +807,9 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-33", "Listening items carry mondai (1-4) + closed format_type enum (2026-05-05)", lambda: _check_ja_33_listening_mondai_taxonomy()),
     ("JA-34", "Core-N5 vs late-N5 split agrees with grammar.json tier field (2026-05-05)", lambda: _check_ja_34_core_late_split()),
     ("JA-35", "Every content item carries review_status from closed enum (2026-05-05)", lambda: _check_ja_35_review_status()),
+    ("JA-36", "Answer-position distribution per corpus within +/-10pp of even (2026-05-06)", lambda: _check_ja_36_answer_position_balance()),
+    ("JA-37", "localStorage namespace in code matches PRIVACY.md verbatim (2026-05-06)", lambda: _check_ja_37_namespace_doc_parity()),
+    ("JA-38", "Every grammar pattern has >=1 common_mistakes entry (2026-05-06)", lambda: _check_ja_38_common_mistakes_floor()),
 ]
 
 
@@ -1977,6 +1980,155 @@ def _check_ja_29_subtype_taxonomy() -> list[str]:
                 f"Register the subtype in tools/check_content_integrity.py "
                 f"and confirm renderer support before adding new instances."
             )
+    return failures
+
+
+def _check_ja_36_answer_position_balance() -> list[str]:
+    """ISSUE-061 (audit round-7, 2026-05-06): correct-answer position
+    distribution must be within ±10 percentage points of an even 25/25/25/25
+    split per corpus. Catches authoring drift toward "always answer-1
+    syndrome" that runtime shuffle in test/drill/diagnostic masks but
+    paper builders don't.
+
+    Tolerance is 10pp (so any single position 15-35% is OK). Tighter
+    later if needed. Soft-fails per-corpus, listing the offending
+    distribution for transparency.
+    """
+    from collections import Counter
+    failures: list[str] = []
+    TOLERANCE_PP = 10.0
+
+    targets: list[tuple[str, "Counter[int]", int]] = []
+    # 1) data/questions.json — has 'choices' + 'correctAnswer' (string match)
+    qpath = ROOT / "data" / "questions.json"
+    if qpath.exists():
+        try:
+            data = json.loads(qpath.read_text(encoding="utf-8"))
+            counts = Counter()
+            total = 0
+            for q in data.get("questions", []):
+                cs = q.get("choices", [])
+                ca = q.get("correctAnswer")
+                if isinstance(cs, list) and ca in cs:
+                    counts[cs.index(ca)] += 1
+                    total += 1
+            if total > 0:
+                targets.append(("data/questions.json", counts, total))
+        except Exception as e:
+            failures.append(f"JA-36: questions.json parse error: {e}")
+
+    # 2) Per-paper-category aggregation — papers carry 'correctIndex'
+    papers_dir = ROOT / "data" / "papers"
+    if papers_dir.exists():
+        for cat_dir in sorted(papers_dir.iterdir()):
+            if not cat_dir.is_dir():
+                continue
+            counts = Counter()
+            total = 0
+            for pf in sorted(cat_dir.glob("*.json")):
+                try:
+                    p = json.loads(pf.read_text(encoding="utf-8"))
+                except Exception:
+                    continue
+                for q in p.get("questions", []):
+                    ci = q.get("correctIndex")
+                    if isinstance(ci, int):
+                        counts[ci] += 1
+                        total += 1
+            if total > 0:
+                targets.append((f"data/papers/{cat_dir.name}/", counts, total))
+
+    for name, counts, total in targets:
+        # Compute percentages and check tolerance
+        ideal = 25.0
+        for pos in (0, 1, 2, 3):
+            pct = 100.0 * counts.get(pos, 0) / total
+            if abs(pct - ideal) > TOLERANCE_PP:
+                pct_str = ", ".join(
+                    f"pos{p}={100.0 * counts.get(p, 0) / total:.1f}%"
+                    for p in (0, 1, 2, 3)
+                )
+                failures.append(
+                    f"JA-36 {name} (n={total}): position {pos} at {pct:.1f}% "
+                    f"violates ±{TOLERANCE_PP}pp from 25%. Distribution: {pct_str}. "
+                    f"Either rebalance (per-item correctAnswer rotation) or "
+                    f"document the runtime-shuffle compensation explicitly."
+                )
+                break  # one failure per corpus is enough
+
+    return failures
+
+
+def _check_ja_37_namespace_doc_parity() -> list[str]:
+    """ISSUE-065 (audit round-7, 2026-05-06): the localStorage namespace
+    used in js/storage.js must appear verbatim in PRIVACY.md. Closes the
+    drift vector that triggered round-3 ISSUE-024 and the niche-N2
+    privacy-positioning concern.
+    """
+    failures: list[str] = []
+    storage_js = ROOT / "js" / "storage.js"
+    privacy_md = ROOT / "PRIVACY.md"
+    if not storage_js.exists():
+        return ["JA-37: js/storage.js missing"]
+    if not privacy_md.exists():
+        return ["JA-37: PRIVACY.md missing"]
+
+    code = storage_js.read_text(encoding="utf-8")
+    privacy = privacy_md.read_text(encoding="utf-8")
+
+    # Extract namespace prefixes from localStorage.setItem / getItem calls.
+    # Pattern: localStorage.setItem('<namespace>:<key>', ...) or template
+    # literals starting with the same prefix.
+    namespace_re = re.compile(
+        r"""localStorage\.(?:setItem|getItem|removeItem)\(\s*['"`]([^'"`:]+:)"""
+    )
+    namespaces = set(namespace_re.findall(code))
+    if not namespaces:
+        # No localStorage usage extracted. Treat as PASS (storage layer might
+        # have been refactored to a different mechanism).
+        return []
+
+    # Each extracted namespace must appear verbatim in PRIVACY.md.
+    for ns in sorted(namespaces):
+        if ns not in privacy:
+            failures.append(
+                f"JA-37 namespace {ns!r} used in js/storage.js but not "
+                f"documented verbatim in PRIVACY.md. Niche-N2 privacy-doc "
+                f"drift; either update PRIVACY.md or change the namespace."
+            )
+    return failures
+
+
+def _check_ja_38_common_mistakes_floor() -> list[str]:
+    """ISSUE-068 (audit round-7, 2026-05-06): every grammar pattern must
+    carry ≥1 common_mistakes entry. Pedagogical floor — patterns at zero
+    drop below the per-pattern depth bar the audit-prompt enforces.
+
+    Soft-fails (lists patterns at zero) so authoring waves can drive the
+    count down to zero progressively.
+    """
+    failures: list[str] = []
+    g_path = ROOT / "data" / "grammar.json"
+    if not g_path.exists():
+        return ["JA-38: data/grammar.json missing"]
+    try:
+        data = json.loads(g_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-38: parse error: {e}"]
+
+    zero_patterns = []
+    for p in data.get("patterns", []):
+        cms = p.get("common_mistakes")
+        if not isinstance(cms, list) or len(cms) == 0:
+            zero_patterns.append(p.get("id", "?"))
+
+    if zero_patterns:
+        failures.append(
+            f"JA-38: {len(zero_patterns)} grammar patterns have zero "
+            f"common_mistakes entries. Author at least one specific "
+            f"common-mistake per pattern. Patterns: {zero_patterns[:10]}"
+            + ("..." if len(zero_patterns) > 10 else "")
+        )
     return failures
 
 
