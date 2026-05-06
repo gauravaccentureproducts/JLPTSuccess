@@ -79,19 +79,42 @@ function renderSetup(container) {
   const dueItems = getDueItems(cap);
   const newItems = getNewItems(newPerDay, dueItems);
 
+  // IMP-092 Phase 2A (audit round-9, 2026-05-07): surface the unified
+  // due-counts across grammar+vocab+kanji on the review setup page,
+  // matching the design brief's "47 reviews due today (12 grammar ·
+  // 23 vocab · 12 kanji)" pattern. Phase 2B (full unified card-render
+  // routing by skill) is queued separately; the current session stays
+  // grammar-only until the card-render rewrite ships.
+  const dueBySkill = storage.getDueCountsBySkill();
+  const unifiedDueTotal = dueBySkill.grammar + dueBySkill.vocab + dueBySkill.kanji;
+
   container.innerHTML = `
     <h2>${t('page.review')}</h2>
     <p>Spaced-repetition session using the SM-2 algorithm. Items reappear at intervals that grow as you grade them correctly and shrink when you miss.</p>
 
+    ${unifiedDueTotal > 0 ? `
+      <!-- IMP-092 Phase 2A: unified daily review aggregate -->
+      <section class="srs-unified-summary" aria-label="Today's reviews across all skills">
+        <h3 style="margin:0 0 8px; font-weight:500;">Today: <strong>${unifiedDueTotal}</strong> review${unifiedDueTotal === 1 ? '' : 's'} due across all skills</h3>
+        <p class="muted small" style="margin:0 0 12px;">
+          ${dueBySkill.grammar} grammar · ${dueBySkill.vocab} vocab · ${dueBySkill.kanji} kanji
+          <span style="margin-left:8px;">(see <a href="#/summary">Progress dashboard</a> for forecast)</span>
+        </p>
+        <p class="muted small" style="margin:0;">
+          The session below covers <strong>grammar reviews only</strong> for now. Vocab and kanji reviews surface on their respective Learn pages until the unified card render ships (IMP-092 Phase 2B).
+        </p>
+      </section>
+    ` : ''}
+
     <section class="srs-stats">
       <div class="stat-card weak">
         <div class="stat-num">${dueItems.length}</div>
-        <div class="stat-label">Due today</div>
+        <div class="stat-label">Grammar due</div>
         <div class="stat-hint">SRS scheduled</div>
       </div>
       <div class="stat-card neutral">
         <div class="stat-num">${newItems.length}</div>
-        <div class="stat-label">New</div>
+        <div class="stat-label">New grammar</div>
         <div class="stat-hint">never reviewed</div>
       </div>
       <div class="stat-card mastered">

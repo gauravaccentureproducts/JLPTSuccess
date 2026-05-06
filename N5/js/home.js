@@ -260,7 +260,17 @@ export async function renderHome(container) {
   const reviewsToday = storage.getReviewsToday ? storage.getReviewsToday() : 0;
   const dailyGoal    = storage.getDailyGoal ? storage.getDailyGoal() : 20;
   const goalPct      = Math.min(100, Math.round(100 * reviewsToday / dailyGoal));
-  const dueCount     = storage.getDueCount ? storage.getDueCount() : 0;
+  // IMP-092 Phase 2A (audit round-9, 2026-05-07): home page now shows
+  // the unified due-count across grammar + vocab + kanji (was grammar-
+  // only). The previous getDueCount() lookup is preserved for any other
+  // call sites; the home aggregate uses the per-skill breakdown sum.
+  const _dueBySkill  = storage.getDueCountsBySkill
+    ? storage.getDueCountsBySkill()
+    : { grammar: storage.getDueCount ? storage.getDueCount() : 0, vocab: 0, kanji: 0 };
+  const dueCount     = _dueBySkill.grammar + _dueBySkill.vocab + _dueBySkill.kanji;
+  const dueBreakdown = (_dueBySkill.vocab > 0 || _dueBySkill.kanji > 0)
+    ? `<span class="muted small" style="margin-left:6px;">(${_dueBySkill.grammar} grammar · ${_dueBySkill.vocab} vocab · ${_dueBySkill.kanji} kanji)</span>`
+    : '';
   // IMP-036 (audit round-3): 7-day review forecast bar chart.
   const forecast = storage.getReviewForecast ? storage.getReviewForecast(7) : [];
   const forecastMax = Math.max(1, ...forecast.map(f => f.count));
@@ -316,7 +326,7 @@ export async function renderHome(container) {
             </a>
             ${dueCount > 0 ? `
               <a class="syllabus-daily-due" href="#/review">
-                ${t('home.reviews_due', { n: `<strong>${dueCount}</strong>` })}
+                ${t('home.reviews_due', { n: `<strong>${dueCount}</strong>` })}${dueBreakdown}
               </a>
             ` : `
               <span class="syllabus-daily-due is-empty">${t('home.no_reviews_due')}</span>
