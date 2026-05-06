@@ -12872,7 +12872,6 @@
         }
       ],
       "review_status": "llm_curated",
-      "pair_id": "cut",
       "transitivity": "transitive",
       "gloss_hi": "पहनना (ऊपरी)",
       "gloss_provenance": {
@@ -12998,7 +12997,6 @@
         }
       ],
       "review_status": "llm_curated",
-      "pair_id": "enter",
       "transitivity": "transitive",
       "gloss_hi": "बनाना (चाय/कॉफ़ी)",
       "gloss_provenance": {
@@ -13164,7 +13162,6 @@
         }
       ],
       "review_status": "llm_curated",
-      "pair_id": "close",
       "transitivity": "transitive",
       "gloss_hi": "बाँधना / कसना",
       "gloss_provenance": {
@@ -19936,5 +19933,24 @@
         "hi": "llm_curated"
       }
     }
-  ]
+  ],
+  "_meta": {
+    "transitivity_pair_gaps": {
+      "note": "Pair_id integrity: 9 complete pairs (open/close/enter/exit/begin/drop/switch_on/switch_off) + 3 single-sided pairs where the partner verb is absent from the N5 vocab corpus. Documented per ISSUE-100 (round-9 audit, 2026-05-06). Adding the missing partners (止める, 起こす, 切れる) is a width-add deferred to a future cycle (cf. anti-items list in audit-round9-2026-05-06.md §7).",
+      "asymmetric_pairs": {
+        "stop": {
+          "present": "止まる (とまる, intransitive)",
+          "absent": "止める (とめる, transitive)"
+        },
+        "wake": {
+          "present": "起きる (おきる, intransitive)",
+          "absent": "起こす (おこす, transitive)"
+        },
+        "cut": {
+          "present": "切る (きる, transitive, Group-1 exception)",
+          "absent": "切れる (きれる, intransitive)"
+        }
+      }
+    }
+  }
 }
