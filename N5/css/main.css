@@ -2055,6 +2055,35 @@ label {
   font-weight: 500;
   letter-spacing: 0.05em;
 }
+
+/* IMP-092 Phase 2B (audit round-9, 2026-05-07): card-type indicator
+   badge for the unified review queue. Shows 文 (grammar) / 語 (vocab) /
+   漢 (kanji) so the learner immediately knows what skill the current
+   card is testing without reading the body. */
+.srs-skill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 6px;
+  border: 0.5px solid var(--c-border);
+}
+.srs-skill-grammar {
+  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 10%, transparent);
+  color: var(--c-primary-dark, #14452a);
+}
+.srs-skill-vocab {
+  background: color-mix(in srgb, #2563eb 10%, transparent);
+  color: #1e40af;
+}
+.srs-skill-kanji {
+  background: color-mix(in srgb, #d97706 10%, transparent);
+  color: #92400e;
+}
 .srs-content { padding: 16px 0; }
 .srs-content .pattern-name {
   font-size: 28px;
@@ -3038,6 +3067,83 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .home-syllabus .resume-strip:hover {
   background: var(--color-surface-alt);
   border-color: var(--color-line-strong);
+}
+
+/* Q44 onboarding starter-pack (round-9 follow-up 2026-05-07). Renders
+ * for first-time visitors only (no localStorage history); replaced by
+ * the resume-strip once the user opens any pattern. The 5-pattern
+ * curated path is an alternative to the diagnostic for users who
+ * prefer "show me what to learn" over "test me on what I know." */
+.home-syllabus .starter-pack {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent, #1F4D2E) 25%, transparent);
+  border-radius: 8px;
+}
+.starter-pack-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-accent);
+}
+.starter-pack-lede {
+  margin: 0 0 var(--space-3);
+}
+.starter-pack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-2);
+}
+.starter-pack-list li { margin: 0; }
+.starter-pack-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--color-text);
+  min-height: 44px;
+}
+.starter-pack-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-alt);
+}
+.starter-pack-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 12%, transparent);
+  color: var(--color-accent);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.starter-pack-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.starter-pack-meta strong {
+  font-weight: 500;
+  font-size: var(--text-md);
+}
+.starter-pack-meta small {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.starter-pack-foot {
+  margin: 0;
+  text-align: center;
 }
 
 /* Page title block - compact, syllabus-focused, no marketing copy.

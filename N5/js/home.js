@@ -285,12 +285,49 @@ export async function renderHome(container) {
     ? `<a class="resume-strip" href="#/learn/${encodeURIComponent(lastViewed)}">Last session: ${esc(resumeLabel)}.</a>`
     : '';
 
+  // Q44 onboarding "first 60 seconds" path (lowest-effort lane: starter-set).
+  // For brand-new users who skipped or finished the diagnostic, surface a
+  // curated 5-pattern starter pack — the foundational grammatical machinery
+  // every N5 learner needs first. The 5 are chosen by frequency × didactic
+  // weight, not by lesson order: です (sentences), は (topic marker), Verb-ます
+  // (polite verbs), い-adjectives (sentence with [adj]), か (questions).
+  // Once the user opens any of them, they appear in `history` and this strip
+  // disappears (becomes the "Last session" resume strip instead).
+  const STARTER_PATTERNS = [
+    { id: 'n5-001', label: 'です／〜ます', why: 'How sentences end politely' },
+    { id: 'n5-002', label: 'は',            why: 'The topic marker' },
+    { id: 'n5-058', label: 'Verb-ます',    why: 'Polite verb form' },
+    { id: 'n5-077', label: 'い-Adjectives', why: 'Describing things' },
+    { id: 'n5-024', label: 'か',            why: 'Asking questions' },
+  ];
+  const starterStrip = (!isReturning) ? `
+    <aside class="starter-pack" aria-labelledby="starter-pack-h">
+      <h3 id="starter-pack-h" class="starter-pack-title">New to JLPT N5? Start here.</h3>
+      <p class="starter-pack-lede muted small">These 5 patterns are the foundation — every other N5 grammar pattern builds on these. Tap any one to read the explanation, examples, and common mistakes. Roughly <strong>5 minutes per pattern</strong>.</p>
+      <ol class="starter-pack-list">
+        ${STARTER_PATTERNS.map((p, i) => `
+          <li>
+            <a href="#/learn/${encodeURIComponent(p.id)}" class="starter-pack-card">
+              <span class="starter-pack-num">${i + 1}</span>
+              <span class="starter-pack-meta">
+                <strong lang="ja">${esc(p.label)}</strong>
+                <small>${esc(p.why)}</small>
+              </span>
+            </a>
+          </li>
+        `).join('')}
+      </ol>
+      <p class="starter-pack-foot muted small">Or take the <a href="#/diagnostic">10-question diagnostic</a> to see what you already know.</p>
+    </aside>
+  ` : '';
+
   container.innerHTML = `
     <section class="home-syllabus">
       <p class="home-up-link">
         <a href="#/levels">← All JLPT levels</a>
       </p>
       ${resumeStrip}
+      ${starterStrip}
 
       <header class="syllabus-header">
         <span class="syllabus-watermark" aria-hidden="true">五</span>

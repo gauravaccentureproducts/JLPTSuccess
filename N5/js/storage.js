@@ -776,6 +776,80 @@ export function undoSrsResponse(grammarPatternId, snapshot) {
   return true;
 }
 
+// IMP-092 Phase 2B (audit round-9, 2026-05-07): skill-aware SRS
+// recording. Routes to the right history map (grammar / vocab /
+// kanji) and applies the same FSRS algorithm. Used by the unified
+// review queue when a card is graded.
+//
+// Returns the pre-update snapshot for undo support, mirroring
+// recordSrsResponse's contract.
+export function recordUnifiedSrsResponse(skill, id, grade) {
+  if (!skill || !id) return null;
+  const now = new Date().toISOString();
+  let history, setter;
+  if (skill === 'grammar') {
+    history = getHistory();
+    setter = setHistory;
+  } else if (skill === 'vocab') {
+    history = getVocabHistory();
+    setter = setVocabHistory;
+  } else if (skill === 'kanji') {
+    history = getKanjiHistory();
+    setter = setKanjiHistory;
+  } else {
+    return null;
+  }
+  const existing = history[id] || FRESH_PATTERN_ENTRY;
+  const preUpdateSnapshot = JSON.parse(JSON.stringify(existing));
+  const updated = applyFsrs(existing, grade, now);
+  // Keep rolling-history fields in sync (mirrors grammar recordSrsResponse)
+  updated.attempts = (updated.attempts || 0) + 1;
+  if (grade < 3) {
+    updated.incorrect = (updated.incorrect || 0) + 1;
+    updated.consecutiveCorrect = 0;
+  } else {
+    updated.correct = (updated.correct || 0) + 1;
+    updated.consecutiveCorrect = (updated.consecutiveCorrect || 0) + 1;
+  }
+  updated.errorRate = updated.incorrect / Math.max(1, updated.attempts);
+  updated.isWeak = updated.errorRate >= 0.5 && updated.attempts >= 2;
+  // Vocab/kanji items mark "graduated" via srsBox to integrate with the
+  // existing IMP-033 schema; grammar uses isMastered.
+  if (skill === 'grammar') {
+    updated.isMastered = updated.isManuallyKnown || updated.consecutiveCorrect >= 4;
+  } else {
+    if (updated.consecutiveCorrect >= 4 || updated.isManuallyKnown) {
+      updated.srsBox = 'graduated';
+    } else {
+      updated.srsBox = updated.srsBox || 'learning';
+    }
+  }
+  history[id] = updated;
+  setter(history);
+  return preUpdateSnapshot;
+}
+
+export function undoUnifiedSrsResponse(skill, id, snapshot) {
+  if (!skill || !id || !snapshot) return false;
+  let history, setter;
+  if (skill === 'grammar') {
+    history = getHistory();
+    setter = setHistory;
+  } else if (skill === 'vocab') {
+    history = getVocabHistory();
+    setter = setVocabHistory;
+  } else if (skill === 'kanji') {
+    history = getKanjiHistory();
+    setter = setKanjiHistory;
+  } else {
+    return false;
+  }
+  if (!history[id]) return false;
+  history[id] = snapshot;
+  setter(history);
+  return true;
+}
+
 export function getSrsState(grammarPatternId) {
   const e = getHistory()[grammarPatternId];
   if (!e) return null;

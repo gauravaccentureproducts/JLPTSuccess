@@ -14,12 +14,19 @@ let view = 'setup';
 
 let grammarIndex = null;
 let questionIndex = null; // pid -> [questions]
+// IMP-092 Phase 2B (audit round-9, 2026-05-07): vocab + kanji indexes
+// for the unified review session. Loaded lazily alongside grammar.
+let vocabIndex = null;    // form -> entry
+let vocabByIdIndex = null; // id   -> entry
+let kanjiIndex = null;    // glyph -> entry
 
 async function loadData() {
-  if (grammarIndex && questionIndex) return;
-  const [g, q] = await Promise.all([
+  if (grammarIndex && questionIndex && vocabIndex && kanjiIndex) return;
+  const [g, q, v, k] = await Promise.all([
     fetch('data/grammar.json').then(r => r.json()),
     fetch('data/questions.json').then(r => r.json()),
+    fetch('data/vocab.json').then(r => r.json()),
+    fetch('data/kanji.json').then(r => r.json()),
   ]);
   grammarIndex = new Map((g.patterns || []).map(p => [p.id, p]));
   questionIndex = new Map();
@@ -27,6 +34,13 @@ async function loadData() {
     if (!questionIndex.has(qq.grammarPatternId)) questionIndex.set(qq.grammarPatternId, []);
     questionIndex.get(qq.grammarPatternId).push(qq);
   }
+  vocabIndex = new Map();
+  vocabByIdIndex = new Map();
+  for (const e of (v.entries || [])) {
+    if (e.form) vocabIndex.set(e.form, e);
+    if (e.id) vocabByIdIndex.set(e.id, e);
+  }
+  kanjiIndex = new Map((k.entries || []).map(e => [e.glyph, e]));
 }
 
 function getDueItems(limit) {
@@ -142,8 +156,30 @@ function renderSetup(container) {
   `;
 
   document.getElementById('srs-start')?.addEventListener('click', () => {
+    // IMP-092 Phase 2B: build the unified queue. Grammar new items still
+    // come from getNewItems (since vocab/kanji new-card admission is
+    // configured separately and is currently 0/day by default — they
+    // enter the SRS via Mark-as-known). The unified queue function
+    // covers due-only across all three skills.
+    const grammarItemsAsUnified = [...dueItems, ...newItems].map(it => ({
+      skill: 'grammar',
+      id: it.pid,
+      entry: it.entry,
+      isNew: it.isNew,
+    }));
+    // Pull due vocab + kanji from the unified queue and merge round-robin
+    const allUnified = storage.getUnifiedDueQueue ? storage.getUnifiedDueQueue() : [];
+    const nonGrammarUnified = allUnified.filter(it => it.skill !== 'grammar');
+    // Round-robin interleave grammar-with-news + non-grammar
+    const queue = [];
+    const buckets = [grammarItemsAsUnified, nonGrammarUnified];
+    while (buckets.some(b => b.length > 0)) {
+      for (const b of buckets) {
+        if (b.length > 0) queue.push(b.shift());
+      }
+    }
     session = {
-      queue: [...dueItems, ...newItems],
+      queue,
       idx: 0,
       grades: [],
       startedAt: new Date().toISOString(),
@@ -157,33 +193,86 @@ function renderCard(container) {
   const item = session.queue[session.idx];
   if (!item) return renderFinished(container);
 
-  const pattern = grammarIndex.get(item.pid);
-  if (!pattern) {
-    advance(container, 3); // skip unknown
-    return;
-  }
-
-  const examples = (pattern.examples || []).filter(ex => ex.ja && !ex.ja.includes('(see '));
-  const example = examples[0];
-  const meaning = pattern.meaning_en || '';
+  // IMP-092 Phase 2B: legacy items use `pid`; unified items use
+  // `{skill, id}`. Default to grammar for backward compatibility.
+  const skill = item.skill || 'grammar';
+  const itemId = item.id || item.pid;
   const total = session.queue.length;
+
+  // Card-type indicator badge — shows in the progress row
+  const SKILL_BADGES = {
+    grammar: { label: '文', cls: 'srs-skill-grammar', name: 'Grammar' },
+    vocab:   { label: '語', cls: 'srs-skill-vocab',   name: 'Vocab'   },
+    kanji:   { label: '漢', cls: 'srs-skill-kanji',   name: 'Kanji'   },
+  };
+  const badge = SKILL_BADGES[skill] || SKILL_BADGES.grammar;
+
+  // Skill-specific card body
+  let cardBody = '';
+  let detailHref = `#/learn/${encodeURIComponent(itemId)}`;
+  if (skill === 'grammar') {
+    const pattern = grammarIndex.get(itemId);
+    if (!pattern) { advance(container, 3); return; }
+    const examples = (pattern.examples || []).filter(ex => ex.ja && !ex.ja.includes('(see '));
+    const example = examples[0];
+    const meaning = pattern.meaning_en || '';
+    cardBody = `
+      <h3 class="pattern-name">${renderJa(pattern.pattern)}</h3>
+      <p class="meaning-en">${esc(meaning)}</p>
+      ${example ? `
+        <div class="srs-example">
+          <p>${renderJa(example.ja, example.furigana || [])}</p>
+          ${example.translation_en ? `<p class="muted small">${esc(example.translation_en)}</p>` : ''}
+        </div>
+      ` : ''}
+      ${pattern.explanation_en ? `<p class="srs-explanation">${esc(pattern.explanation_en)}</p>` : ''}
+    `;
+  } else if (skill === 'vocab') {
+    // Look up by id first (unified queue), fall back to form.
+    const entry = (vocabByIdIndex && vocabByIdIndex.get(itemId))
+      || (vocabIndex && vocabIndex.get(itemId));
+    if (!entry) { advance(container, 3); return; }
+    const exampleSentence = (entry.examples && entry.examples[0]) || null;
+    cardBody = `
+      <h3 class="pattern-name" lang="ja">${esc(entry.form || '')}</h3>
+      <p class="meaning-en"><span lang="ja" class="vocab-reading">${esc(entry.reading || '')}</span>
+        ${entry.pos ? `<span class="muted small" style="margin-left:8px;">${esc(entry.pos)}</span>` : ''}</p>
+      <p class="meaning-en"><strong>${esc(entry.gloss || '')}</strong></p>
+      ${entry.gloss_hi ? `<p class="muted small" lang="hi">${esc(entry.gloss_hi)}</p>` : ''}
+      ${exampleSentence ? `
+        <div class="srs-example">
+          <p lang="ja">${esc(exampleSentence.ja || exampleSentence)}</p>
+          ${exampleSentence.translation_en ? `<p class="muted small">${esc(exampleSentence.translation_en)}</p>` : ''}
+        </div>
+      ` : ''}
+      ${entry.collocations && entry.collocations.length ? `
+        <p class="muted small">Collocations: <span lang="ja">${entry.collocations.slice(0, 3).map(esc).join(' · ')}</span></p>
+      ` : ''}
+    `;
+    detailHref = entry.form ? `#/learn/vocab/${encodeURIComponent(entry.form)}` : '#/learn/vocab';
+  } else if (skill === 'kanji') {
+    const entry = kanjiIndex && kanjiIndex.get(itemId);
+    if (!entry) { advance(container, 3); return; }
+    cardBody = `
+      <h3 class="pattern-name kanji-glyph-big" lang="ja" style="font-size:5em; line-height:1;">${esc(entry.glyph)}</h3>
+      ${entry.on?.length ? `<p class="meaning-en"><strong>On:</strong> <span lang="ja">${entry.on.map(esc).join(' / ')}</span></p>` : ''}
+      ${entry.kun?.length ? `<p class="meaning-en"><strong>Kun:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>` : ''}
+      ${entry.meanings?.length ? `<p class="meaning-en"><strong>Meaning:</strong> ${entry.meanings.map(esc).join(', ')}</p>` : ''}
+      ${entry.meanings_hi?.length ? `<p class="muted small" lang="hi">${entry.meanings_hi.map(esc).join(', ')}</p>` : ''}
+      ${entry.mnemonic ? `<p class="srs-explanation">${esc(entry.mnemonic)}</p>` : ''}
+    `;
+    detailHref = `#/kanji/${encodeURIComponent(entry.glyph)}`;
+  }
 
   container.innerHTML = `
     <div class="srs-card">
       <div class="srs-progress">
         <span>Review · Card <strong>${session.idx + 1}</strong> of <strong>${total}</strong></span>
+        <span class="srs-skill-badge ${badge.cls}" title="${badge.name}" lang="ja">${badge.label}</span>
         ${item.isNew ? '<span class="srs-tag new">NEW</span>' : ''}
       </div>
       <article class="srs-content">
-        <h3 class="pattern-name">${renderJa(pattern.pattern)}</h3>
-        <p class="meaning-en">${esc(meaning)}</p>
-        ${example ? `
-          <div class="srs-example">
-            <p>${renderJa(example.ja, example.furigana || [])}</p>
-            ${example.translation_en ? `<p class="muted small">${esc(example.translation_en)}</p>` : ''}
-          </div>
-        ` : ''}
-        ${pattern.explanation_en ? `<p class="srs-explanation">${esc(pattern.explanation_en)}</p>` : ''}
+        ${cardBody}
       </article>
 
       <div class="srs-grade-row">
@@ -210,7 +299,7 @@ function renderCard(container) {
 
       <div class="test-nav">
         <button id="srs-end">End session</button>
-        <a href="#/learn/${encodeURIComponent(item.pid)}" class="srs-link">View full lesson →</a>
+        <a href="${detailHref}" class="srs-link">View full lesson →</a>
       </div>
     </div>
   `;
@@ -218,11 +307,16 @@ function renderCard(container) {
   container.querySelectorAll('[data-grade]').forEach(btn => {
     btn.addEventListener('click', () => {
       const grade = parseInt(btn.dataset.grade, 10);
-      // Capture the pre-update snapshot so the 2s-undo flow can restore
-      // it; recordSrsResponse returns the cloned old entry.
-      const snapshot = storage.recordSrsResponse(item.pid, grade);
-      session.grades.push({ pid: item.pid, grade, snapshot });
-      advance(container, grade, { lastGraded: { pid: item.pid, grade, snapshot } });
+      // IMP-092 Phase 2B: skill-aware grade recording. Routes to
+      // recordUnifiedSrsResponse which writes to the right history map
+      // (grammar / vocab / kanji). Falls back to grammar-only behavior
+      // for legacy items missing item.skill.
+      const useUnified = item.skill && storage.recordUnifiedSrsResponse;
+      const snapshot = useUnified
+        ? storage.recordUnifiedSrsResponse(skill, itemId, grade)
+        : storage.recordSrsResponse(itemId, grade);
+      session.grades.push({ skill, pid: itemId, grade, snapshot });
+      advance(container, grade, { lastGraded: { skill, pid: itemId, grade, snapshot, isUnified: useUnified } });
     });
   });
 
@@ -275,7 +369,11 @@ function mountUndoToast(container, lastGraded) {
   // Roll back on click. Removes the just-recorded grade from the
   // session log AND restores storage to the pre-grade snapshot.
   document.getElementById('undo-grade-btn').addEventListener('click', () => {
-    const ok = storage.undoSrsResponse(lastGraded.pid, lastGraded.snapshot);
+    // IMP-092 Phase 2B: skill-aware undo. Falls back to grammar-only
+    // for legacy items.
+    const ok = lastGraded.isUnified && storage.undoUnifiedSrsResponse
+      ? storage.undoUnifiedSrsResponse(lastGraded.skill, lastGraded.pid, lastGraded.snapshot)
+      : storage.undoSrsResponse(lastGraded.pid, lastGraded.snapshot);
     if (ok) {
       // Pop the last grade entry from the session log so the finished
       // screen + summary stats stay in sync with storage.
