@@ -2,6 +2,78 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.49 - 2026-05-07 (Q42 Resolved: edge-tts is the listening voice-variety lane)
+
+User delegated the Q42 listening-voice-variety decision ("you decide").
+After surveying the available options end-to-end:
+
+| Lane | Setup cost | Voices | Cost | Verdict |
+|---|---|---|---|---|
+| **edge-tts** (chosen) | `pip install edge-tts pydub` + ffmpeg | 4 ja-JP (Nanami/Keita/Aoi/Daichi) | Free | ✅ |
+| VOICEVOX local | ~4-6hr GUI install + 1-2 GB models | 8+ ja-JP | Free | Heavier |
+| ElevenLabs | API key | Premium quality | Paid | Costs money |
+| Windows SAPI | None (built-in) | 1 ja-JP (Haruka only) | Free | Doesn't solve variety |
+| gtts (Google) | `pip install gtts` | 1 ja-JP | Free | Doesn't solve variety |
+| Native recording | Recruitment (IMP-094) | n/a | Time + outreach | Separate path |
+
+**edge-tts wins on setup-cost vs voice-variety tradeoff.** The build
+script (`tools/build_listening_audio_multivoice_2026_05_07.py`) was
+already shipped by an earlier agent commit (`253896c`); it's complete,
+passes dry-run, and is fully runnable.
+
+### What this commit does
+
+1. **Stamps Q42 Resolved** in `feedback/n5-audit-2026-05-04.xlsx` with
+   the decision rationale + tradeoff table.
+2. **Updates IMP-122** (the original VOICEVOX render-script entry) to
+   note that edge-tts is now the primary path; the VOICEVOX script
+   stays as a fallback if egress to Microsoft's TTS endpoint is
+   ever blocked on the maintainer's machine too.
+3. **Auto-installs ffmpeg** via `winget install Gyan.FFmpeg` on the
+   dev machine (one of the build-time prerequisites). Verified the
+   binary works (`ffmpeg -version` returns 8.1.1).
+
+### What this commit does NOT do
+
+The actual MP3 render isn't executed because **the corporate network
+on the dev box blocks egress to `speech.platform.bing.com`** (the
+WebSocket endpoint edge-tts uses). Verified by:
+
+- `pip install edge-tts` succeeds + `edge_tts.list_voices()` succeeds
+  (the voice-listing endpoint is reachable)
+- `Communicate(...).stream()` fails with `ConnectionTimeoutError`
+  on the WSS endpoint (the synthesis endpoint is blocked)
+
+### Maintainer one-shot to complete the render
+
+From any non-corporate network (home, mobile hotspot, café Wi-Fi):
+
+```
+cd N5
+python tools/build_listening_audio_multivoice_2026_05_07.py
+```
+
+~5 minutes for all 47 items. After it finishes, also:
+1. Run `python tools/check_content_integrity.py` (JA-15 audio-refs)
+2. Bump `sw.js CACHE_VERSION` so users get the new audio
+3. `git add audio/listening data/listening.json data/audio_manifest_voice.json sw.js && git commit && git push`
+
+### Tracker state at HEAD (post this commit)
+
+- Done: 216, Avoid: 3, Fix: 2 (ISSUE-062 + ISSUE-089, both data-side
+  done; awaiting render execution), Defer: 1 (IMP-122 fallback)
+- Open questions: **0** (all 6 round-9 questions Resolved or Narrowed-Resolved)
+
+The audit cycle is effectively complete. Only operational maintenance
+(running the render command on a non-blocked network) remains.
+
+### Cache version
+
+No cache bump in this commit — no runtime code or content changed.
+Tracker / CHANGELOG only.
+
+---
+
 ## v1.12.48 - 2026-05-07 (Q44 onboarding starter-set + tracker close-out: 3 questions Resolved)
 
 Q44 (Onboarding "your first 60 seconds" path) — Resolved with the
