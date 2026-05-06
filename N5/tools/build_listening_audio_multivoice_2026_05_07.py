@@ -103,7 +103,87 @@ async def render_segment_edge_tts(text: str, voice: str, out_path: Path):
     await communicate.save(str(out_path))
 
 
-async def render_item(item: dict, args, manifest: dict) -> tuple[str, str]:
+async def render_segment_voicevox(text: str, speaker_id: int, out_path: Path):
+    """Fallback: render one segment via local VOICEVOX HTTP at :50021.
+
+    Auto-detects whether VOICEVOX is reachable. Maps the 4 edge-tts
+    voices to VOICEVOX speaker IDs:
+      ja-JP-NanamiNeural   -> speaker 8  (春日部つむぎ female)
+      ja-JP-KeitaNeural    -> speaker 11 (玄野武宏 male)
+      ja-JP-AoiNeural      -> speaker 0  (四国めたん female-younger)
+      ja-JP-DaichiNeural   -> speaker 13 (青山龍星 male-mature)
+    """
+    import urllib.request
+    import urllib.parse
+    # 1. audio_query
+    qurl = f'http://localhost:50021/audio_query?speaker={speaker_id}&text={urllib.parse.quote(text)}'
+    qreq = urllib.request.Request(qurl, method='POST')
+    with urllib.request.urlopen(qreq, timeout=15) as r:
+        query = r.read()
+    # 2. synthesis
+    surl = f'http://localhost:50021/synthesis?speaker={speaker_id}'
+    sreq = urllib.request.Request(
+        surl, data=query, method='POST',
+        headers={'Content-Type': 'application/json', 'Accept': 'audio/wav'},
+    )
+    with urllib.request.urlopen(sreq, timeout=60) as r:
+        wav_data = r.read()
+    # Write WAV; pydub will transcode to MP3
+    wav_path = out_path.with_suffix('.wav')
+    wav_path.write_bytes(wav_data)
+    try:
+        from pydub import AudioSegment
+        audio = AudioSegment.from_wav(str(wav_path))
+        audio.export(str(out_path), format='mp3')
+    finally:
+        if wav_path.exists():
+            wav_path.unlink()
+
+
+VOICEVOX_SPEAKER_MAP = {
+    'ja-JP-NanamiNeural': 8,
+    'ja-JP-KeitaNeural': 11,
+    'ja-JP-AoiNeural': 0,
+    'ja-JP-DaichiNeural': 13,
+}
+
+
+def detect_provider() -> str:
+    """Auto-detect which TTS provider is reachable.
+    Returns 'voicevox', 'edge-tts', or 'none'."""
+    import socket
+    # Try VOICEVOX first (fully local, no privacy concern)
+    try:
+        with socket.create_connection(('localhost', 50021), timeout=2):
+            return 'voicevox'
+    except OSError:
+        pass
+    # Try edge-tts (build-time network call)
+    try:
+        with socket.create_connection(('speech.platform.bing.com', 443), timeout=5):
+            return 'edge-tts'
+    except OSError:
+        pass
+    return 'none'
+
+
+async def render_segment(text: str, voice_name: str, out_path: Path, provider: str):
+    """Dispatch to the auto-detected provider."""
+    if provider == 'voicevox':
+        speaker_id = VOICEVOX_SPEAKER_MAP.get(voice_name, 8)
+        await render_segment_voicevox(text, speaker_id, out_path)
+    elif provider == 'edge-tts':
+        await render_segment_edge_tts(text, voice_name, out_path)
+    else:
+        raise RuntimeError(
+            f'No TTS provider reachable. Either:\n'
+            f'  1. Install VOICEVOX engine and start it on :50021, OR\n'
+            f'  2. Run from a machine with network egress to '
+            f'speech.platform.bing.com:443 (edge-tts)'
+        )
+
+
+async def render_item(item: dict, args, manifest: dict, provider: str) -> tuple[str, str]:
     """Render one listening item. Returns (id, status)."""
     iid = item['id']
     vp = item.get('voice_planned')
@@ -122,7 +202,7 @@ async def render_item(item: dict, args, manifest: dict) -> tuple[str, str]:
             return iid, 'skipped (up-to-date)'
 
     if args.dry_run:
-        return iid, f'would render with primary={vp.get("primary")}, secondary={vp.get("secondary")}'
+        return iid, f'would render via {provider} with primary={vp.get("primary")}, secondary={vp.get("secondary")}'
 
     # Render. For multi-line scripts (dialogue), render each line then
     # concatenate via pydub. For single-line, render directly.
@@ -136,14 +216,14 @@ async def render_item(item: dict, args, manifest: dict) -> tuple[str, str]:
 
     if not lines or len(lines) <= 1:
         # Single-segment render
-        await render_segment_edge_tts(script.strip(), primary, out_path)
+        await render_segment(script.strip(), primary, out_path, provider)
     else:
         # Multi-line render — each line as a separate segment, then concat
         try:
             from pydub import AudioSegment
         except ImportError:
             print('  pydub not installed — falling back to single-voice render')
-            await render_segment_edge_tts(script.strip(), primary, out_path)
+            await render_segment(script.strip(), primary, out_path, provider)
             return iid, f'rendered (single voice fallback): {primary}'
 
         seg_paths = []
@@ -155,7 +235,7 @@ async def render_item(item: dict, args, manifest: dict) -> tuple[str, str]:
                 speaker = detect_speaker(line.get('text_ja', ''))
                 voice = role_map.get(speaker, primary if speaker == 'narrator' else secondary)
                 seg_path = OUT_DIR / f'.{iid}.seg{i}.mp3'
-                await render_segment_edge_tts(text, voice, seg_path)
+                await render_segment(text, voice, seg_path, provider)
                 seg_paths.append(seg_path)
 
             # Concatenate with 500ms silence between
@@ -192,13 +272,27 @@ async def main_async(args):
     if args.limit:
         todo = todo[:args.limit]
 
+    # Auto-detect provider once. In --dry-run mode, prefer reporting the
+    # detected provider but tolerate 'none' (no actual rendering happens).
+    provider = detect_provider()
+    print(f'TTS provider detected: {provider}')
+    if provider == 'none' and not args.dry_run:
+        raise RuntimeError(
+            'No TTS provider reachable. Either:\n'
+            '  1. Install VOICEVOX engine and start it on :50021 (recommended,\n'
+            '     fully local, no privacy concern), OR\n'
+            '  2. Run from a machine with network egress to '
+            'speech.platform.bing.com:443 (edge-tts).\n'
+            'Re-run with --dry-run to preview the plan without rendering.'
+        )
+
     print(f'Items to process: {len(todo)} / {len(items)}')
     if args.dry_run:
         print('--dry-run: no files will be written')
 
     rendered = 0
     for it in todo:
-        iid, status = await render_item(it, args, manifest)
+        iid, status = await render_item(it, args, manifest, provider)
         print(f'  {iid}: {status}')
         if 'rendered' in status:
             rendered += 1
