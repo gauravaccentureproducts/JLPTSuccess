@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "totalPapers": 28,
-  "totalQuestions": 402,
+  "totalPapers": 29,
+  "totalQuestions": 426,
   "categories": [
     {
       "label": "Moji",
@@ -16,49 +16,56 @@
           "paperNumber": 1,
           "name": "Moji Paper 1",
           "questionCount": 15,
-          "source_question_range": "Q1-Q15"
+          "source_question_range": "Q1-Q15",
+          "expectedDurationMin": 11
         },
         {
           "id": "moji-2",
           "paperNumber": 2,
           "name": "Moji Paper 2",
           "questionCount": 15,
-          "source_question_range": "Q16-Q30"
+          "source_question_range": "Q16-Q30",
+          "expectedDurationMin": 11
         },
         {
           "id": "moji-3",
           "paperNumber": 3,
           "name": "Moji Paper 3",
           "questionCount": 15,
-          "source_question_range": "Q31-Q45"
+          "source_question_range": "Q31-Q45",
+          "expectedDurationMin": 11
         },
         {
           "id": "moji-4",
           "paperNumber": 4,
           "name": "Moji Paper 4",
           "questionCount": 15,
-          "source_question_range": "Q46-Q60"
+          "source_question_range": "Q46-Q60",
+          "expectedDurationMin": 11
         },
         {
           "id": "moji-5",
           "paperNumber": 5,
           "name": "Moji Paper 5",
           "questionCount": 15,
-          "source_question_range": "Q61-Q75"
+          "source_question_range": "Q61-Q75",
+          "expectedDurationMin": 11
         },
         {
           "id": "moji-6",
           "paperNumber": 6,
           "name": "Moji Paper 6",
           "questionCount": 15,
-          "source_question_range": "Q76-Q90"
+          "source_question_range": "Q76-Q90",
+          "expectedDurationMin": 11
         },
         {
           "id": "moji-7",
           "paperNumber": 7,
           "name": "Moji Paper 7",
           "questionCount": 10,
-          "source_question_range": "Q91-Q100"
+          "source_question_range": "Q91-Q100",
+          "expectedDurationMin": 8
         }
       ]
     },
@@ -75,49 +82,56 @@
           "paperNumber": 1,
           "name": "Goi Paper 1",
           "questionCount": 15,
-          "source_question_range": "Q1-Q15"
+          "source_question_range": "Q1-Q15",
+          "expectedDurationMin": 11
         },
         {
           "id": "goi-2",
           "paperNumber": 2,
           "name": "Goi Paper 2",
           "questionCount": 15,
-          "source_question_range": "Q16-Q30"
+          "source_question_range": "Q16-Q30",
+          "expectedDurationMin": 11
         },
         {
           "id": "goi-3",
           "paperNumber": 3,
           "name": "Goi Paper 3",
           "questionCount": 15,
-          "source_question_range": "Q31-Q45"
+          "source_question_range": "Q31-Q45",
+          "expectedDurationMin": 11
         },
         {
           "id": "goi-4",
           "paperNumber": 4,
           "name": "Goi Paper 4",
           "questionCount": 15,
-          "source_question_range": "Q46-Q60"
+          "source_question_range": "Q46-Q60",
+          "expectedDurationMin": 11
         },
         {
           "id": "goi-5",
           "paperNumber": 5,
           "name": "Goi Paper 5",
           "questionCount": 15,
-          "source_question_range": "Q61-Q75"
+          "source_question_range": "Q61-Q75",
+          "expectedDurationMin": 11
         },
         {
           "id": "goi-6",
           "paperNumber": 6,
           "name": "Goi Paper 6",
           "questionCount": 15,
-          "source_question_range": "Q76-Q90"
+          "source_question_range": "Q76-Q90",
+          "expectedDurationMin": 11
         },
         {
           "id": "goi-7",
           "paperNumber": 7,
           "name": "Goi Paper 7",
           "questionCount": 10,
-          "source_question_range": "Q91-Q100"
+          "source_question_range": "Q91-Q100",
+          "expectedDurationMin": 8
         }
       ]
     },
@@ -134,49 +148,56 @@
           "paperNumber": 1,
           "name": "Bunpou Paper 1",
           "questionCount": 15,
-          "source_question_range": "Q1-Q15"
+          "source_question_range": "Q1-Q15",
+          "expectedDurationMin": 24
         },
         {
           "id": "bunpou-2",
           "paperNumber": 2,
           "name": "Bunpou Paper 2",
           "questionCount": 15,
-          "source_question_range": "Q16-Q30"
+          "source_question_range": "Q16-Q30",
+          "expectedDurationMin": 24
         },
         {
           "id": "bunpou-3",
           "paperNumber": 3,
           "name": "Bunpou Paper 3",
           "questionCount": 15,
-          "source_question_range": "Q31-Q45"
+          "source_question_range": "Q31-Q45",
+          "expectedDurationMin": 24
         },
         {
           "id": "bunpou-4",
           "paperNumber": 4,
           "name": "Bunpou Paper 4",
           "questionCount": 15,
-          "source_question_range": "Q46-Q60"
+          "source_question_range": "Q46-Q60",
+          "expectedDurationMin": 24
         },
         {
           "id": "bunpou-5",
           "paperNumber": 5,
           "name": "Bunpou Paper 5",
           "questionCount": 15,
-          "source_question_range": "Q61-Q75"
+          "source_question_range": "Q61-Q75",
+          "expectedDurationMin": 24
         },
         {
           "id": "bunpou-6",
           "paperNumber": 6,
           "name": "Bunpou Paper 6",
           "questionCount": 15,
-          "source_question_range": "Q76-Q90"
+          "source_question_range": "Q76-Q90",
+          "expectedDurationMin": 24
         },
         {
           "id": "bunpou-7",
           "paperNumber": 7,
           "name": "Bunpou Paper 7",
           "questionCount": 10,
-          "source_question_range": "Q91-Q100"
+          "source_question_range": "Q91-Q100",
+          "expectedDurationMin": 16
         }
       ]
     },
@@ -193,51 +214,419 @@
           "paperNumber": 1,
           "name": "Dokkai Paper 1",
           "questionCount": 16,
-          "source_question_range": "Q1-Q16"
+          "source_question_range": "Q1-Q16",
+          "expectedDurationMin": 26
         },
         {
           "id": "dokkai-2",
           "paperNumber": 2,
           "name": "Dokkai Paper 2",
           "questionCount": 16,
-          "source_question_range": "Q17-Q32"
+          "source_question_range": "Q17-Q32",
+          "expectedDurationMin": 26
         },
         {
           "id": "dokkai-3",
           "paperNumber": 3,
           "name": "Dokkai Paper 3",
           "questionCount": 16,
-          "source_question_range": "Q33-Q48"
+          "source_question_range": "Q33-Q48",
+          "expectedDurationMin": 26
         },
         {
           "id": "dokkai-4",
           "paperNumber": 4,
           "name": "Dokkai Paper 4",
           "questionCount": 12,
-          "source_question_range": "Q49-Q60"
+          "source_question_range": "Q49-Q60",
+          "expectedDurationMin": 19
         },
         {
           "id": "dokkai-5",
           "paperNumber": 5,
           "name": "Dokkai Paper 5",
           "questionCount": 15,
-          "source_question_range": "Q61-Q75"
+          "source_question_range": "Q61-Q75",
+          "expectedDurationMin": 24
         },
         {
           "id": "dokkai-6",
           "paperNumber": 6,
           "name": "Dokkai Paper 6",
           "questionCount": 15,
-          "source_question_range": "Q76-Q90"
+          "source_question_range": "Q76-Q90",
+          "expectedDurationMin": 24
         },
         {
           "id": "dokkai-7",
           "paperNumber": 7,
           "name": "Dokkai Paper 7",
           "questionCount": 12,
-          "source_question_range": "Q91-Q102"
+          "source_question_range": "Q91-Q102",
+          "expectedDurationMin": 19
         }
       ]
+    },
+    {
+      "id": "chokai",
+      "label": "Chokai",
+      "label_ja": "聴解",
+      "description": "Listening — virtual paper aggregating 24-Q from 47-item pool",
+      "paperCount": 1,
+      "questionCount": 24,
+      "papers": [
+        {
+          "id": "chokai-1",
+          "paperNumber": 1,
+          "name": "聴解 Virtual Paper 1",
+          "questionCount": 24,
+          "expectedDurationMin": 30,
+          "mondai_breakdown": {
+            "M1": 7,
+            "M2": 6,
+            "M3": 5,
+            "M4": 6
+          },
+          "source_listening_ids": [
+            "n5.listen.001",
+            "n5.listen.002",
+            "n5.listen.003",
+            "n5.listen.004",
+            "n5.listen.013",
+            "n5.listen.014",
+            "n5.listen.015",
+            "n5.listen.005",
+            "n5.listen.006",
+            "n5.listen.007",
+            "n5.listen.008",
+            "n5.listen.019",
+            "n5.listen.020",
+            "n5.listen.009",
+            "n5.listen.010",
+            "n5.listen.011",
+            "n5.listen.012",
+            "n5.listen.025",
+            "n5.listen.041",
+            "n5.listen.042",
+            "n5.listen.043",
+            "n5.listen.044",
+            "n5.listen.045",
+            "n5.listen.046"
+          ],
+          "note": "Virtual paper — sampled from listening pool. Real JLPT N5 Chokai = 24Q in 30 min."
+        }
+      ]
+    }
+  ],
+  "combined_sections": [
+    {
+      "id": "genngo-chishiki-moji-goi-1",
+      "paperNumber": 1,
+      "name_ja": "言語知識（文字・語彙）Paper 1",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 1",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-1",
+        "goi-1"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-1",
+      "paperNumber": 1,
+      "name_ja": "言語知識（文法）・読解 Paper 1",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 1",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-1",
+        "dokkai-1"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "genngo-chishiki-moji-goi-2",
+      "paperNumber": 2,
+      "name_ja": "言語知識（文字・語彙）Paper 2",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 2",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-2",
+        "goi-2"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-2",
+      "paperNumber": 2,
+      "name_ja": "言語知識（文法）・読解 Paper 2",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 2",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-2",
+        "dokkai-2"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "genngo-chishiki-moji-goi-3",
+      "paperNumber": 3,
+      "name_ja": "言語知識（文字・語彙）Paper 3",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 3",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-3",
+        "goi-3"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-3",
+      "paperNumber": 3,
+      "name_ja": "言語知識（文法）・読解 Paper 3",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 3",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-3",
+        "dokkai-3"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "genngo-chishiki-moji-goi-4",
+      "paperNumber": 4,
+      "name_ja": "言語知識（文字・語彙）Paper 4",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 4",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-4",
+        "goi-4"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-4",
+      "paperNumber": 4,
+      "name_ja": "言語知識（文法）・読解 Paper 4",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 4",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-4",
+        "dokkai-4"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "genngo-chishiki-moji-goi-5",
+      "paperNumber": 5,
+      "name_ja": "言語知識（文字・語彙）Paper 5",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 5",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-5",
+        "goi-5"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-5",
+      "paperNumber": 5,
+      "name_ja": "言語知識（文法）・読解 Paper 5",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 5",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-5",
+        "dokkai-5"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "genngo-chishiki-moji-goi-6",
+      "paperNumber": 6,
+      "name_ja": "言語知識（文字・語彙）Paper 6",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 6",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-6",
+        "goi-6"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-6",
+      "paperNumber": 6,
+      "name_ja": "言語知識（文法）・読解 Paper 6",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 6",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-6",
+        "dokkai-6"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "genngo-chishiki-moji-goi-7",
+      "paperNumber": 7,
+      "name_ja": "言語知識（文字・語彙）Paper 7",
+      "name_en": "Language Knowledge (Moji+Goi) Paper 7",
+      "sectionLabel": "言語知識（文字・語彙）",
+      "questionCount": 30,
+      "expectedDurationMin": 25,
+      "componentPapers": [
+        "moji-7",
+        "goi-7"
+      ],
+      "note": "Real JLPT N5 Section 1: 35Q in 25min. App ships 30Q via two 15Q half-papers."
+    },
+    {
+      "id": "genngo-chishiki-bunpou-dokkai-7",
+      "paperNumber": 7,
+      "name_ja": "言語知識（文法）・読解 Paper 7",
+      "name_en": "Language Knowledge (Bunpou)+Reading Paper 7",
+      "sectionLabel": "言語知識（文法）・読解",
+      "questionCount": 31,
+      "expectedDurationMin": 50,
+      "componentPapers": [
+        "bunpou-7",
+        "dokkai-7"
+      ],
+      "note": "Real JLPT N5 Section 2: 32Q in 50min. App ships 31Q (15+16)."
+    },
+    {
+      "id": "chokai-1-virtual",
+      "paperNumber": 1,
+      "name_ja": "聴解 Virtual Paper 1",
+      "name_en": "Chokai (Listening) Virtual Paper 1",
+      "sectionLabel": "聴解",
+      "questionCount": 24,
+      "expectedDurationMin": 30,
+      "componentPapers": [
+        "chokai-1"
+      ],
+      "note": "Virtual paper sampled from 47-item listening pool. Real JLPT N5 Chokai = 24Q in 30min."
+    }
+  ],
+  "full_mock_papers": [
+    {
+      "id": "full-mock-1",
+      "paperNumber": 1,
+      "name_ja": "JLPT N5 模擬試験 Paper 1",
+      "name_en": "JLPT N5 Full Mock Paper 1",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-1",
+        "genngo-chishiki-bunpou-dokkai-1",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    },
+    {
+      "id": "full-mock-2",
+      "paperNumber": 2,
+      "name_ja": "JLPT N5 模擬試験 Paper 2",
+      "name_en": "JLPT N5 Full Mock Paper 2",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-2",
+        "genngo-chishiki-bunpou-dokkai-2",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    },
+    {
+      "id": "full-mock-3",
+      "paperNumber": 3,
+      "name_ja": "JLPT N5 模擬試験 Paper 3",
+      "name_en": "JLPT N5 Full Mock Paper 3",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-3",
+        "genngo-chishiki-bunpou-dokkai-3",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    },
+    {
+      "id": "full-mock-4",
+      "paperNumber": 4,
+      "name_ja": "JLPT N5 模擬試験 Paper 4",
+      "name_en": "JLPT N5 Full Mock Paper 4",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-4",
+        "genngo-chishiki-bunpou-dokkai-4",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    },
+    {
+      "id": "full-mock-5",
+      "paperNumber": 5,
+      "name_ja": "JLPT N5 模擬試験 Paper 5",
+      "name_en": "JLPT N5 Full Mock Paper 5",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-5",
+        "genngo-chishiki-bunpou-dokkai-5",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    },
+    {
+      "id": "full-mock-6",
+      "paperNumber": 6,
+      "name_ja": "JLPT N5 模擬試験 Paper 6",
+      "name_en": "JLPT N5 Full Mock Paper 6",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-6",
+        "genngo-chishiki-bunpou-dokkai-6",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    },
+    {
+      "id": "full-mock-7",
+      "paperNumber": 7,
+      "name_ja": "JLPT N5 模擬試験 Paper 7",
+      "name_en": "JLPT N5 Full Mock Paper 7",
+      "totalQuestions": 85,
+      "totalDurationMin": 105,
+      "sections": [
+        "genngo-chishiki-moji-goi-7",
+        "genngo-chishiki-bunpou-dokkai-7",
+        "chokai-1-virtual"
+      ],
+      "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
     }
   ]
 }
