@@ -17,6 +17,54 @@ import * as storage from './storage.js';
 const SUPPORTED = ['en', 'vi', 'id', 'ne', 'zh', 'hi'];
 const DEFAULT_LOCALE = 'en';
 
+// Phase 2 of locale transition (2026-05-06): locales being removed in
+// Phase 3. Persisted preferences in this set get migrated to 'en' on
+// first load post-transition. Existing-user safety contract — no error,
+// no white screen, no re-prompt.
+const DEPRECATED_LOCALES = ['vi', 'id', 'ne', 'zh'];
+
+let _migrationRunThisSession = false;
+
+/**
+ * Migrate persisted-locale settings for users who picked vi/id/ne/zh
+ * before the en+hi narrowing. Runs at most once per session. Idempotent
+ * for users already on en or hi.
+ *
+ * - vi/id/ne/zh -> en, persisted, console.info exactly once.
+ * - any value not in {en, hi, ...DEPRECATED_LOCALES} -> en, persisted.
+ * - en or hi -> no-op.
+ *
+ * Must run BEFORE setLocale() / loadDict() in the bootstrap. Safe to
+ * call multiple times (the _migrationRunThisSession guard limits the
+ * console output but the migration itself is naturally idempotent).
+ */
+export function migrateLocaleSetting() {
+  let settings;
+  try {
+    settings = storage.getSettings();
+  } catch {
+    return; // storage layer broken; nothing to migrate from
+  }
+  const cur = settings && settings.uiLocale;
+  if (cur === 'en' || cur === 'hi') return;
+  const wasDeprecated = DEPRECATED_LOCALES.includes(cur);
+  const wasJunk = cur != null && !wasDeprecated;
+  if (!wasDeprecated && !wasJunk && cur != null) return;
+  // Persist 'en' so the next load does not need to re-migrate.
+  try {
+    storage.setSettings({ uiLocale: 'en' });
+  } catch { /* swallow */ }
+  if (!_migrationRunThisSession) {
+    _migrationRunThisSession = true;
+    if (wasDeprecated) {
+      // Privacy-safe console signal — no PII, no network call.
+      console.info(`locale migrated: ${cur} -> en (Phase 3 of locale transition)`);
+    } else if (wasJunk) {
+      console.info(`locale migrated: ${cur} -> en (unknown locale)`);
+    }
+  }
+}
+
 let dict = {};
 let locale = DEFAULT_LOCALE;
 let loadedFor = null;
@@ -96,6 +144,11 @@ function _hintFromReferrer() {
  * device locale is EN.
  */
 export async function initI18n() {
+  // Phase 2 of locale transition (2026-05-06): migrate persisted vi/id/
+  // ne/zh -> en BEFORE any locale-dependent rendering. After Phase 3
+  // ships these locales become un-supported; this hook makes the
+  // existing-user journey through the transition silent.
+  migrateLocaleSetting();
   const saved = storage.getSettings().uiLocale;
   let initial = saved;
   let auto = false;
