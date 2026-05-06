@@ -12,7 +12,9 @@
 
 import * as storage from './storage.js';
 
-const SUPPORTED = ['en', 'vi', 'id', 'ne', 'zh'];
+// Phase 1 of locale transition (2026-05-06): Hindi 'hi' added additively
+// alongside the existing 5 locales. Phase 3 prunes vi/id/ne/zh.
+const SUPPORTED = ['en', 'vi', 'id', 'ne', 'zh', 'hi'];
 const DEFAULT_LOCALE = 'en';
 
 let dict = {};
@@ -61,9 +63,11 @@ const REFERRER_DOMAIN_HINTS = {
   '.cn':       'zh',
   '.tw':       'zh',
   '.hk':       'zh',
+  '.in':       'hi',
   '.com.vn':   'vi',
   '.co.id':    'id',
   '.com.np':   'ne',
+  '.co.in':    'hi',
 };
 
 function _hintFromReferrer() {
@@ -134,6 +138,7 @@ const NATIVE_NAMES = {
   id: 'Bahasa Indonesia',
   ne: 'नेपाली',
   zh: '中文',
+  hi: 'हिन्दी',
 };
 
 function _flashAutoLocaleToast(lc) {

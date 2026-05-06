@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.12.38';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.39';
 
 const PRECACHE = [
   './',
@@ -127,6 +127,7 @@ const PRECACHE = [
   './locales/id.json',
   './locales/ne.json',
   './locales/zh.json',
+  './locales/hi.json',
   './data/grammar.json',
   './data/questions.json',
   // IMP-035 (audit round-3): build-stamp + corpus counts. Read by the

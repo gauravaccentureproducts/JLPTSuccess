@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "provenance": "llm_curated",
+    "review_status": "llm_curated",
+    "note": "Initial Hindi UI strings authored 2026-05-06 as part of the en+hi locale transition. Native review pending — quality bar for this pass is functional clarity, not literary elegance. Devanagari script throughout; English loan-words allowed for technical JLPT terminology where Hindi has no settled equivalent."
+  },
+  "app": {
+    "title": "JLPT N5 अध्ययन सामग्री",
+    "tagline": "सीखें। परखें। दोहराएँ। महारत पाएँ।"
+  },
+  "nav": {
+    "learn": "सीखें",
+    "test": "परीक्षा",
+    "drill": "दैनिक अभ्यास",
+    "review": "दोहराव",
+    "summary": "प्रगति",
+    "settings": "सेटिंग्स",
+    "diagnostic": "जाँच परीक्षा",
+    "kanji": "कान्जी",
+    "reading": "पठन",
+    "listening": "श्रवण",
+    "missed": "छूटे प्रश्न",
+    "sitting": "मॉक परीक्षा",
+    "mock": "मॉक",
+    "progress": "प्रगति"
+  },
+  "drill": {
+    "start": "अभ्यास शुरू करें",
+    "due_today": "आज देय",
+    "in_queue": "कतार में",
+    "graduated": "पूरा"
+  },
+  "test": {
+    "submit": "जमा करें",
+    "submit_remaining": "जमा करें (${n} बचे हैं)",
+    "next": "अगला",
+    "previous": "पिछला",
+    "score": "अंक",
+    "pass_mark": "उत्तीर्ण अंक",
+    "exam_mode": "परीक्षा मोड (टाइमर)",
+    "by_category": "व्याकरण श्रेणी अनुसार",
+    "by_type": "प्रश्न प्रकार अनुसार",
+    "answer_review": "उत्तर समीक्षा",
+    "gap_list": "व्याकरण कमज़ोरी सूची"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "UI भाषा",
+    "furigana": "N5 कान्जी पर फ़ुरिगाना",
+    "auto_furigana": "स्वतः फ़ुरिगाना (प्रायोगिक)",
+    "theme": "थीम",
+    "theme_system": "सिस्टम",
+    "theme_light": "लाइट",
+    "theme_dark": "डार्क",
+    "font_size": "फ़ॉन्ट आकार",
+    "daily_new_limit": "दैनिक नए कार्ड की सीमा",
+    "daily_review_cap": "दैनिक दोहराव सीमा",
+    "daily_goal": "दैनिक दोहराव लक्ष्य",
+    "audio_speed": "ऑडियो गति",
+    "reduce_motion": "गति कम करें",
+    "keyboard": "कीबोर्ड",
+    "keyboard_hint": "किसी भी पृष्ठ पर ? दबाकर कीबोर्ड शॉर्टकट देखें।",
+    "export": "प्रगति निर्यात करें",
+    "import": "प्रगति आयात करें",
+    "reset": "सारी प्रगति रीसेट करें",
+    "danger_zone": "ख़तरा क्षेत्र",
+    "subtitle": "सभी सेटिंग्स इसी डिवाइस पर रहती हैं। कुछ भी ब्राउज़र से बाहर नहीं जाता।",
+    "display": "प्रदर्शन",
+    "practice": "अभ्यास",
+    "data": "डेटा",
+    "data_help": "अपनी प्रगति का बैकअप लेने के लिए निर्यात का उपयोग करें (क्लाउड सिंक नहीं)। आयात सेव की गई फ़ाइल को फिर से लागू करता है।",
+    "test_length": "डिफ़ॉल्ट परीक्षा लंबाई",
+    "test_unit": "प्रश्न",
+    "font_s": "S",
+    "font_m": "M (डिफ़ॉल्ट)",
+    "font_l": "L",
+    "font_xl": "XL",
+    "reduce_auto": "सिस्टम के अनुसार",
+    "reduce_on": "हमेशा कम करें",
+    "reduce_off": "कभी कम न करें",
+    "auto_furigana_help": "एकल-पठन वाले कान्जी (काउंटर, दिन, स्थिर यौगिक) की एक छोटी सूची पर रूबी पठन जोड़ता है। डिफ़ॉल्ट रूप से बंद।",
+    "reset_label": "सारी प्रगति रीसेट करें",
+    "reset_help": "अध्ययन इतिहास, FSRS कार्यक्रम, परीक्षा परिणाम, स्ट्रीक, ज्ञात-कान्जी फ़्लैग और सेटिंग्स साफ़ करता है। पूर्ववत नहीं किया जा सकता।",
+    "reset_btn": "रीसेट…",
+    "reset_confirm": "पुष्टि के लिए RESET टाइप करें। यह इस डिवाइस पर आपकी सारी प्रगति मिटा देगा।",
+    "reset_confirm_btn": "रीसेट की पुष्टि करें",
+    "cancel": "रद्द करें"
+  },
+  "review": {
+    "grade_again": "फिर से",
+    "grade_hard": "कठिन",
+    "grade_good": "अच्छा",
+    "grade_easy": "आसान",
+    "missed_title": "ग़लत-उत्तर इतिहास",
+    "missed_clear": "इतिहास साफ़ करें",
+    "no_misses": "आपने हाल ही में कुछ नहीं छोड़ा — अभ्यास जारी रखें।"
+  },
+  "home": {
+    "syllabus_title": "JLPT N5 पाठ्यक्रम",
+    "syllabus_subtitle": "व्याकरण, शब्दावली, कान्जी, पठन और श्रवण को क्रमबद्ध तरीक़े से सीखें।",
+    "today_label": "आज",
+    "no_reviews_due": "कोई दोहराव बाक़ी नहीं",
+    "reviews_due": "${n} दोहराव बाक़ी",
+    "practiced_today": "आज अभ्यास किया",
+    "not_yet_practiced": "आज अभी अभ्यास नहीं हुआ",
+    "forecast_label": "दोहराव पूर्वानुमान (७ दिन)",
+    "locale_auto_prefix": "ऐप भाषा:",
+    "locale_auto_suffix": "— सेटिंग्स में कभी भी बदलें।"
+  },
+  "kanji": {
+    "popover_strokes": "${n} स्ट्रोक",
+    "other_readings": "अन्य पठन (N5 में नहीं पढ़ाए जाते)",
+    "none_at_n5": "(N5 में नहीं)",
+    "in_a_sentence": "एक वाक्य में"
+  },
+  "sitting": {
+    "title": "पूर्ण मॉक परीक्षा सत्र",
+    "section_1": "मोजी + गोई",
+    "section_2": "बुनपोऊ + दोक्काइ",
+    "section_3": "श्रवण",
+    "break": "विराम",
+    "skip_break": "विराम छोड़ें, अभी शुरू करें",
+    "sitting_complete": "सत्र पूरा"
+  },
+  "trust": {
+    "no_login": "कोई लॉगिन नहीं",
+    "no_tracking": "कोई ट्रैकिंग नहीं",
+    "works_offline": "ऑफ़लाइन काम करता है",
+    "open_source": "ओपन सोर्स",
+    "on_device": "100% डिवाइस पर",
+    "free_no_paywall": "मुफ़्त · कोई विज्ञापन नहीं · कोई पेवॉल नहीं"
+  },
+  "footer": {
+    "help_translate": "अनुवाद में मदद करें",
+    "switch_lang": "भाषा बदलें"
+  },
+  "page": {
+    "test": "परीक्षा",
+    "drill": "दैनिक अभ्यास",
+    "review": "दोहराव",
+    "summary": "प्रगति",
+    "diagnostic": "जाँच परीक्षा"
+  }
+}
