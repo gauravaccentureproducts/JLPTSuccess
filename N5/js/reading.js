@@ -93,7 +93,7 @@ function renderIndex(container) {
 
   // 2026-05-06 (user request): list-tile pages show only the passage
   // title for active-recall practice. Topic, level, and question count
-  // appear inside the passage view — keeping the index uncluttered lets
+  // appear inside the passage view - keeping the index uncluttered lets
   // learners self-assess "do I remember what this passage was about?"
   // before clicking through.
   const items = passages.map(p => {
@@ -110,7 +110,7 @@ function renderIndex(container) {
     <p>${renderJa('みじかい JLPT けいしきの ぶんしょうと しつもんです。')} ${passages.length} ${renderJa('ぶんしょうが あります。やさしい → ふつう → じょうほうけんさく の じゅんに ならんで います。')}</p>
     <label class="reading-mode-toggle">
       <input type="checkbox" id="reading-mock-mode" ${mockTestMode ? 'checked' : ''}>
-      <span>${renderJa('もぎテストモード')} (primary questions only — matches official JLPT N5 distribution)</span>
+      <span>${renderJa('もぎテストモード')} (primary questions only - matches official JLPT N5 distribution)</span>
     </label>
     <ul class="reading-list">${items}</ul>
   `;
@@ -138,7 +138,7 @@ function renderSession(container) {
 
 function renderRead(container, p) {
   // Prev / next passage nav (2026-05-05). Walks bank.passages in their
-  // declared order — same source the index page uses (easy → medium →
+  // declared order - same source the index page uses (easy → medium →
   // info-search). Mirrors the .kanji-nav / .vocab-nav patterns:
   // compact link with the destination's title; empty <span> placeholder
   // so the flex layout stays balanced when prev or next is missing.

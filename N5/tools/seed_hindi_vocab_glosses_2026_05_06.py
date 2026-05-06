@@ -1,7 +1,7 @@
 """Seed Hindi (gloss_hi) translations on the 925 vocab entries that
 were missing them post-locale-transition (Phase 4 stripped vi/id/ne/zh
 sub-keys but the Hindi seed pass for vocab was deferred to a depth-fill
-cycle — this is that cycle).
+cycle - this is that cycle).
 
 Matches by `form` field (with gloss-substring disambiguation for
 homographs). Idempotent: skips entries that already have a populated
@@ -18,7 +18,7 @@ VOCAB = ROOT / 'data' / 'vocab.json'
 # Hindi glosses keyed by `form`. Authored 2026-05-06 by Claude as part
 # of the en+hi locale transition depth-fill cycle.
 #
-# For homograph forms (same kana/kanji, different meaning — e.g. はし
+# For homograph forms (same kana/kanji, different meaning - e.g. はし
 # = chopsticks / bridge / edge; とる = take / take a photo), the value
 # is a list of (gloss-substring-hint, hindi) tuples. The matcher picks
 # the hint whose substring appears in the entry's English gloss.
@@ -951,7 +951,7 @@ def lookup_hindi(form: str, gloss: str) -> str | None:
         return None
     if isinstance(val, str):
         return val
-    # List of (hint, hindi) tuples — pick the first whose hint appears in gloss
+    # List of (hint, hindi) tuples - pick the first whose hint appears in gloss
     if isinstance(val, list):
         gloss_lower = (gloss or '').lower()
         for hint, hindi in val:

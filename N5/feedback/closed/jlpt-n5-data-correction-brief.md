@@ -1,4 +1,4 @@
-# JLPT N5 Data Bundle — Japanese Accuracy Correction Brief
+# JLPT N5 Data Bundle - Japanese Accuracy Correction Brief
 
 **Audit scope:** 10 attached files comprising the runtime data bundle for the JLPT N5 tutor app:
 `grammar.json`, `kanji.json`, `vocab.json`, `questions.json`, `reading.json`, `listening.json`, `n5_kanji_readings.json`, `n5_kanji_whitelist.json`, `n5_vocab_whitelist.json`, `audio_manifest.json`.
@@ -14,9 +14,9 @@
 
 ---
 
-## 1. CRITICAL — factual errors that teach learners wrong Japanese
+## 1. CRITICAL - factual errors that teach learners wrong Japanese
 
-### 1.1 `n5_kanji_readings.json#会` — wrong on-yomi listed
+### 1.1 `n5_kanji_readings.json#会` - wrong on-yomi listed
 
 **Current:**
 ```json
@@ -33,7 +33,7 @@
 - `え` is the secondary on-yomi (会釈 etc., not strictly N5 but standard for the kanji)
 - `あ` is the kun-yomi (会う = あう), which IS in the N5 verb list and must be present
 
-### 1.2 `n5_kanji_readings.json#番` — wrong on-yomi listed
+### 1.2 `n5_kanji_readings.json#番` - wrong on-yomi listed
 
 **Current:**
 ```json
@@ -47,7 +47,7 @@
 "番": { "on": ["ばん"], "kun": [], "primary": "ばん" }
 ```
 
-### 1.3 `n5_kanji_readings.json` — missing entries for 4 kanji in the whitelist
+### 1.3 `n5_kanji_readings.json` - missing entries for 4 kanji in the whitelist
 
 **Current state:** `n5_kanji_whitelist.json` lists 106 kanji. `n5_kanji_readings.json` only has 102. The missing four are:
 - 号
@@ -66,7 +66,7 @@
 ```
 Note: `わたくし` is the formal first-person and is the JLPT-tested kun-yomi alongside わたし. Both should be present.
 
-### 1.4 `grammar.json` — n5-184/185/186/187 all share the wrong (copy-pasted) examples
+### 1.4 `grammar.json` - n5-184/185/186/187 all share the wrong (copy-pasted) examples
 
 **Current state:** Four patterns about question-word + か/も compounds all carry the same two examples, which only feature なにか/なにも:
 
@@ -109,7 +109,7 @@ n5-187 (いつか / いつも):
 ]
 ```
 
-n5-184 (なにか / なにも) — current examples are fine, but expand for symmetry:
+n5-184 (なにか / なにも) - current examples are fine, but expand for symmetry:
 ```json
 "examples": [
   { "ja": "なにか たべたいです。", "form": "affirmative", "translation_en": "I want to eat something.", "furigana": [] },
@@ -118,7 +118,7 @@ n5-184 (なにか / なにも) — current examples are fine, but expand for sym
 ]
 ```
 
-### 1.5 `grammar.json#n5-031` — pattern label says "informal question marker" but examples are all polite-form か questions
+### 1.5 `grammar.json#n5-031` - pattern label says "informal question marker" but examples are all polite-form か questions
 
 **Current:**
 ```json
@@ -138,12 +138,12 @@ n5-184 (なにか / なにも) — current examples are fine, but expand for sym
 ```
 
 **Problem:** Label-content mismatch.
-- "Informal question marker" (in modern Japanese pedagogy) refers to **の** at end of plain-form sentences, e.g., 「行くの?」 「どこに行くの?」 — not か.
+- "Informal question marker" (in modern Japanese pedagogy) refers to **の** at end of plain-form sentences, e.g., 「行くの?」 「どこに行くの?」 - not か.
 - The displayed examples all use polite-form か questions, which are the canonical *formal* question marker, not informal.
 
 The grammar source markdown (n5_grammar.md §2 sub-bullets of の) clearly intended "informal question marker = の" as a sub-use of の. The parser stripped that context and turned it into a standalone pattern, then populated examples from the canonical か pattern via the duplicate-cleanup mechanism.
 
-**Fix (Option A — preferred):** Repurpose n5-031 as the informal-の question pattern that was intended:
+**Fix (Option A - preferred):** Repurpose n5-031 as the informal-の question pattern that was intended:
 ```json
 {
   "id": "n5-031",
@@ -168,9 +168,9 @@ The grammar source markdown (n5_grammar.md §2 sub-bullets of の) clearly inten
 }
 ```
 
-**Fix (Option B — if scope is fixed):** Delete n5-031 entirely as a redundant artifact of the parsing process. Document the deletion.
+**Fix (Option B - if scope is fixed):** Delete n5-031 entirely as a redundant artifact of the parsing process. Document the deletion.
 
-### 1.6 `grammar.json#n5-091` (います) — bad example sentence
+### 1.6 `grammar.json#n5-091` (います) - bad example sentence
 
 **Current:**
 ```
@@ -188,14 +188,14 @@ The grammar source markdown (n5_grammar.md §2 sub-bullets of の) clearly inten
 { "ja": "うちには いぬが 二ひき います。", "form": "affirmative", "translation_en": "We have two dogs at home.", "furigana": [] }
 ```
 
-### 1.7 `listening.json#n5.listen.007` — script uses N4 grammar (～し, ～すぎる)
+### 1.7 `listening.json#n5.listen.007` - script uses N4 grammar (～し, ～すぎる)
 
 **Current script:**
 > ぼくは あきが いちばん すきです。あきは あつくない**し**、さむくないです。たべものも おいしいです。なつは あつ**すぎ**ます。ふゆは さむ**すぎ**ます。はるは すきですが、あきの ほうが もっと すきです。
 
 **Problem:** Two grammar items in this script are out of N5 scope:
 - `～し` (parallel reasons / "and what's more") is firmly N4.
-- `～すぎる` (excess; "too much") is N4 in standard syllabi (Bunpro lists it as N4; Genki II; some sources call it borderline late N5). The corpus's own `grammar.json` only includes `～すぎる` if at all in upper-N5/borderline categories — but the listening script uses it freely.
+- `～すぎる` (excess; "too much") is N4 in standard syllabi (Bunpro lists it as N4; Genki II; some sources call it borderline late N5). The corpus's own `grammar.json` only includes `～すぎる` if at all in upper-N5/borderline categories - but the listening script uses it freely.
 
 A learner who is genuinely at N5 will not parse this monologue.
 
@@ -206,17 +206,17 @@ A learner who is genuinely at N5 will not parse this monologue.
 
 This says the same thing using N5-only patterns: いちばん, から (reason), が (topic-shift "but"), いちばん again as superlative.
 
-### 1.8 `reading.json` — 13 of 30 passages use kanji outside the project's whitelist
+### 1.8 `reading.json` - 13 of 30 passages use kanji outside the project's whitelist
 
 **Affected passages and the rogue kanji:**
 
 | Passage | Non-whitelist kanji | Suggested action |
 |---|---|---|
 | n5.read.001 | 京 (in 東京) | Either add 京 to whitelist (it's in standard N5 lists) or render as とうきょう |
-| n5.read.002 | 帰, 家 | Render as かえる, いえ — or add to whitelist (家 in particular is on most N5 lists) |
+| n5.read.002 | 帰, 家 | Render as かえる, いえ - or add to whitelist (家 in particular is on most N5 lists) |
 | n5.read.005 | 元, 兄 | Render as げんき, あに |
 | n5.read.006 | 思 | Render as おもう (思います → おもいます) |
-| n5.read.008 | 家 | Render as いえ — or add 家 to whitelist |
+| n5.read.008 | 家 | Render as いえ - or add 家 to whitelist |
 | n5.read.012 | 帰, 家 | Same as above |
 | n5.read.013 | 京, 都 | Render 京都 as きょうと; the destination is N5-thematic but the kanji aren't in the project's list |
 | n5.read.016 | 家, 早 | Render as いえ, はやく |
@@ -228,12 +228,12 @@ This says the same thing using N5-only patterns: いちばん, から (reason), 
 
 **Recommendation:** Pick ONE policy and apply it everywhere:
 
-- **Policy A — strict whitelist:** Force every kanji rendered in any user-facing JSON to be in `n5_kanji_whitelist.json`. Render anything else in kana. (This is the policy stated in the corpus's own README and source markdown files.)
-- **Policy B — naturalness exception for reading passages:** Allow common compounds like 東京, 京都, 家, お茶 in passages because these are visually natural for any Japanese reader and learners will see them everywhere. This requires expanding the whitelist or marking these as a documented "passage exception" (and updating consumers that filter by whitelist).
+- **Policy A - strict whitelist:** Force every kanji rendered in any user-facing JSON to be in `n5_kanji_whitelist.json`. Render anything else in kana. (This is the policy stated in the corpus's own README and source markdown files.)
+- **Policy B - naturalness exception for reading passages:** Allow common compounds like 東京, 京都, 家, お茶 in passages because these are visually natural for any Japanese reader and learners will see them everywhere. This requires expanding the whitelist or marking these as a documented "passage exception" (and updating consumers that filter by whitelist).
 
 Whichever you pick, the current state is inconsistent: the whitelist *exists* and is enforced for vocab.json (0 violations there) but not for reading passages.
 
-### 1.9 `reading.json` — comprehension questions use kanji not in passage
+### 1.9 `reading.json` - comprehension questions use kanji not in passage
 
 In several reading items, the question-prompt or answer-choices use non-whitelist kanji (家, 帰, 京, 都, 兄, 音, 発) that are also not in the corresponding passage's whitelist scope. This is a double violation: scope creep AND inconsistency with §1.8.
 
@@ -241,23 +241,23 @@ In several reading items, the question-prompt or answer-choices use non-whitelis
 
 **Fix:** Apply the same policy decision from §1.8. If whitelist is enforced, rewrite the question stems and choices in kana.
 
-### 1.10 `listening.json` — 4 of 12 listening scripts use kanji outside the whitelist
+### 1.10 `listening.json` - 4 of 12 listening scripts use kanji outside the whitelist
 
 **Affected:**
-- n5.listen.001 — uses `明` (in 明日)
-- n5.listen.003 — uses `明` (in 明日), `家`
-- n5.listen.004 — uses `注`, `文` (in 注文)
-- n5.listen.009 — uses `知` (in 知らない)
+- n5.listen.001 - uses `明` (in 明日)
+- n5.listen.003 - uses `明` (in 明日), `家`
+- n5.listen.004 - uses `注`, `文` (in 注文)
+- n5.listen.009 - uses `知` (in 知らない)
 
 **Note:** Listening scripts are spoken; the Japanese on the page is for the test-taker / app developer to see, not for the audio. Still, if the app surfaces these scripts to learners (e.g., as a transcript), the kanji policy applies. And `注文` carries semantic weight that can't be rendered as ちゅうもん without the learner knowing the word.
 
-**Fix:** Apply the same policy as §1.8. If strict, rewrite to: あした (not 明日), 家 → いえ, 注文する → (paraphrase as `カフェで 男の人が 何を ください と 言っています` — but this loses naturalness). Recommend the targeted whitelist expansion to include 明, 家, 知 (all three are on standard JLPT N5 lists from JLPT Sensei, Bunpro, Tobira) before continuing.
+**Fix:** Apply the same policy as §1.8. If strict, rewrite to: あした (not 明日), 家 → いえ, 注文する → (paraphrase as `カフェで 男の人が 何を ください と 言っています` - but this loses naturalness). Recommend the targeted whitelist expansion to include 明, 家, 知 (all three are on standard JLPT N5 lists from JLPT Sensei, Bunpro, Tobira) before continuing.
 
 ---
 
-## 2. HIGH — pedagogical errors that mislead but don't directly teach wrong facts
+## 2. HIGH - pedagogical errors that mislead but don't directly teach wrong facts
 
-### 2.1 `grammar.json#n5-069` (Verb-て) — missing the ぐ→いで rule
+### 2.1 `grammar.json#n5-069` (Verb-て) - missing the ぐ→いで rule
 
 **Current `form_rules.conjugations`:**
 ```
@@ -287,7 +287,7 @@ Both およぐ and いそぐ are in `vocab.json`. A student trying to conjugate 
 
 Apply the same fix to the past-tense (た-form) pattern n5-067 if it exists and has the same gap.
 
-### 2.2 `n5_kanji_readings.json` — primary readings for 高/長/安 are the wrong choice for N5
+### 2.2 `n5_kanji_readings.json` - primary readings for 高/長/安 are the wrong choice for N5
 
 **Current:**
 - 高: primary = `こう` (on-yomi)
@@ -310,11 +310,11 @@ The on-yomi readings (こう, ちょう, あん) appear only in compounds that a
 
 For consistency, also review:
 - 古: primary = `ふる` ✓ already correct
-- 新: primary = `しん` — borderline, but 新しい (あたらしい) is more frequent at N5 than 新聞 (しんぶん). Consider switching to `あたら`.
+- 新: primary = `しん` - borderline, but 新しい (あたらしい) is more frequent at N5 than 新聞 (しんぶん). Consider switching to `あたら`.
 
-### 2.3 `n5_kanji_readings.json` — duplicate kun readings polluting the lists
+### 2.3 `n5_kanji_readings.json` - duplicate kun readings polluting the lists
 
-**Current state — duplicate entries within kun arrays:**
+**Current state - duplicate entries within kun arrays:**
 ```
 二: kun = ["ふた", "ふた"]
 七: kun = ["なな", "なな", "なの"]
@@ -358,17 +358,17 @@ Or, if the schema can't carry parens:
 
 Apply across all the listed entries. The minimum acceptable fix is deduplication; the maximum-quality fix preserves okurigana-binding.
 
-### 2.4 `n5_kanji_readings.json` — convention is hiragana for on-yomi (project decision differs from standard)
+### 2.4 `n5_kanji_readings.json` - convention is hiragana for on-yomi (project decision differs from standard)
 
-**Observation:** The corpus's source markdown (`kanji_n5.md`) mandates that on-yomi be displayed in **katakana** (e.g., イチ, セン), per long-standing kanji-dictionary convention. But `n5_kanji_readings.json` stores them in **hiragana** (いち, せん) — same as kun-yomi, which makes on/kun visually indistinguishable.
+**Observation:** The corpus's source markdown (`kanji_n5.md`) mandates that on-yomi be displayed in **katakana** (e.g., イチ, セン), per long-standing kanji-dictionary convention. But `n5_kanji_readings.json` stores them in **hiragana** (いち, せん) - same as kun-yomi, which makes on/kun visually indistinguishable.
 
 **Decision needed:**
 - If the runtime app converts on-yomi to katakana for display, this is fine, document it.
-- If the runtime app displays the JSON values as-is, the on/kun visual distinction is lost — significant pedagogical regression vs. the source markdown.
+- If the runtime app displays the JSON values as-is, the on/kun visual distinction is lost - significant pedagogical regression vs. the source markdown.
 
 **Recommended fix:** Normalize on-yomi to katakana in this JSON to match the project's stated convention, OR add a documented note that the runtime renderer is responsible for the conversion. Either is acceptable; ambiguity is not.
 
-### 2.5 `grammar.json#n5-110` — sentence reading conflicts with kana convention
+### 2.5 `grammar.json#n5-110` - sentence reading conflicts with kana convention
 
 **Current:** "ビールを 3ぼん ください。"
 
@@ -376,15 +376,15 @@ Apply across all the listed entries. The minimum acceptable fix is deduplication
 
 **Fix:** Standardize on one convention across all of `grammar.json` and `questions.json`. Recommended: kanji counters (3本) since the kanji 本 is in the N5 whitelist and 3 is universally readable. If that's not feasible, use `さんぼん` (all kana) and ensure no learner has to infer rendaku.
 
-### 2.6 `grammar.json#n5-104` (Verb-stem + たいです) — example "もう ねたい。" is plain form in a polite-form pattern
+### 2.6 `grammar.json#n5-104` (Verb-stem + たいです) - example "もう ねたい。" is plain form in a polite-form pattern
 
 **Current examples list includes:** `"もう ねたい。"`
 
-**Problem:** The pattern is explicitly **～たいです** (polite). Three of the four examples are polite (にほんへ 行きたいです / コーヒーが 飲みたいです / なにを 食べたいですか). The fourth, `もう ねたい`, drops です — making it plain form. That's not wrong Japanese, but it's wrong for *this* pattern.
+**Problem:** The pattern is explicitly **～たいです** (polite). Three of the four examples are polite (にほんへ 行きたいです / コーヒーが 飲みたいです / なにを 食べたいですか). The fourth, `もう ねたい`, drops です - making it plain form. That's not wrong Japanese, but it's wrong for *this* pattern.
 
 **Fix:** Either change the example to `もう ねたいです。` or move it to a separate plain-form companion pattern. If you want to demonstrate that たい-stems CAN end the sentence plainly, do so explicitly in the explanation, not silently in an example.
 
-### 2.7 `questions.json#q-0040` — translation matches an unnatural Japanese sentence
+### 2.7 `questions.json#q-0040` - translation matches an unnatural Japanese sentence
 
 **Current:**
 ```
@@ -398,11 +398,11 @@ translation_en: I study Japanese books every day.
 - 「日本語を 勉強します」 (study Japanese)
 - 「日本語の 本を 読みます」 (read Japanese books)
 
-`勉強する + を + 本` reads as "study a book," which sounds odd in Japanese — the natural object of 勉強 is a subject, not a book.
+`勉強する + を + 本` reads as "study a book," which sounds odd in Japanese - the natural object of 勉強 is a subject, not a book.
 
-**Fix:** Replace the verb tile with `読みます` so the assembled sentence becomes 「まいにち にほんごの ほんを 読みます」 ("Every day I read Japanese books"). Update translation accordingly. The pattern being tested (n5-001) is the basic copula/sentence — any natural N5 sentence works.
+**Fix:** Replace the verb tile with `読みます` so the assembled sentence becomes 「まいにち にほんごの ほんを 読みます」 ("Every day I read Japanese books"). Update translation accordingly. The pattern being tested (n5-001) is the basic copula/sentence - any natural N5 sentence works.
 
-### 2.8 `listening.json#n5.listen.011` — prompt and answer text overlap too much
+### 2.8 `listening.json#n5.listen.011` - prompt and answer text overlap too much
 
 **Current:**
 - prompt_ja: 「もう おなかが いっぱいです。何と 言いますか。」
@@ -417,26 +417,26 @@ translation_en: I study Japanese books every day.
 
 The test-taker now has to construct the polite refusal from the situation, not pick the option that echoes the prompt.
 
-### 2.9 `grammar.json` — counter rule mixing in n5-110
+### 2.9 `grammar.json` - counter rule mixing in n5-110
 
 The pattern says "Object + counter + Verb" but the example has rendaku that students need to know to read it correctly. Without a separate counter-readings module/page, the example `ビールを 3ぼん ください。` introduces さんぼん rendaku without flagging it. Add a `notes` field calling out: "Note: 三本 reads さんぼん with rendaku (連濁). See the counters reference for full reading patterns."
 
 ---
 
-## 3. MEDIUM — content correctness with smaller pedagogical impact
+## 3. MEDIUM - content correctness with smaller pedagogical impact
 
-### 3.1 `grammar.json` — meaning_ja entries inconsistent quality
+### 3.1 `grammar.json` - meaning_ja entries inconsistent quality
 
 **Observation:** Pattern entries have a `meaning_ja` field meant to give a Japanese-language label. Quality is mixed:
 
 | Pattern | meaning_ja | Comment |
 |---|---|---|
 | n5-001 | ていねいな いいかた | OK |
-| n5-002 | わだいの しるし | Uncommon term — `しるし` for "marker" reads as "mark/sign" generally; standard term is `じょし` (助詞). Recommended: `しゅだいの じょし` |
-| n5-008 | 「いっしょに」「と」「いう」 | Quoting the words it covers — readable but stilted; better: `「と」(いっしょに、と、ひきよう)` |
+| n5-002 | わだいの しるし | Uncommon term - `しるし` for "marker" reads as "mark/sign" generally; standard term is `じょし` (助詞). Recommended: `しゅだいの じょし` |
+| n5-008 | 「いっしょに」「と」「いう」 | Quoting the words it covers - readable but stilted; better: `「と」(いっしょに、と、ひきよう)` |
 | n5-009 | 「いつ・どこ から」「りゆう」 | Mixed Japanese punctuation in a Japanese label |
-| n5-013 | 「〜も」 | Empty — just the form again |
-| n5-019 | 「いつ」 | Empty — just the form again |
+| n5-013 | 「〜も」 | Empty - just the form again |
+| n5-019 | 「いつ」 | Empty - just the form again |
 
 **Fix:** Either:
 - Standardize: write `meaning_ja` as one short noun phrase using simple kana (e.g., `いつかを たずねる ことば` for いつ).
@@ -444,7 +444,7 @@ The pattern says "Object + counter + Verb" but the example has rendaku that stud
 
 The current state is half-finished and inconsistent. A 日本語教師 reviewing it would not approve as-is.
 
-### 3.2 `grammar.json#n5-185` (and 186, 187) — ungrammatical "へも" pattern absent
+### 3.2 `grammar.json#n5-185` (and 186, 187) - ungrammatical "へも" pattern absent
 
 When teaching どこへも and the parallel いつへも constructions (which actually appear in everyday Japanese), the pattern doesn't address them. For learners, knowing 「どこへも 行きません」 vs 「どこにも 行きません」 (both grammatical, slightly different nuance) is a meaningful N5-late distinction.
 
@@ -453,7 +453,7 @@ When teaching どこへも and the parallel いつへも constructions (which ac
 "notes": "Both どこへも and どこにも occur. どこへも emphasizes motion ('not going anywhere'); どこにも emphasizes location ('not present anywhere'). At N5, treat them as interchangeable for negative sentences."
 ```
 
-### 3.3 `vocab.json` — readings missing on hiragana-form entries that are actually pure-kana
+### 3.3 `vocab.json` - readings missing on hiragana-form entries that are actually pure-kana
 
 Many hiragana-form entries have `"reading": null`. That's correct: a hiragana-form word doesn't need a separate reading. But:
 
@@ -469,7 +469,7 @@ Many hiragana-form entries have `"reading": null`. That's correct: a hiragana-fo
 
 This is a schema-hygiene improvement, not a content bug. Apply systematically.
 
-### 3.4 `vocab.json` — gloss for かれ / かのじょ is misleading
+### 3.4 `vocab.json` - gloss for かれ / かのじょ is misleading
 
 **Current:**
 - かれ: "he, him (boyfriend - more advanced sense)"
@@ -478,34 +478,34 @@ This is a schema-hygiene improvement, not a content bug. Apply systematically.
 **Problem:** At N5, 彼/彼女 are taught primarily as boyfriend/girlfriend, not as third-person pronouns. The "boyfriend/girlfriend" sense is the *common* spoken sense; the third-person "he/she" sense is more literary. The gloss has them backwards in importance.
 
 **Fix:**
-- かれ: "boyfriend; he, him (third-person — somewhat literary)"
-- かのじょ: "girlfriend; she, her (third-person — somewhat literary)"
+- かれ: "boyfriend; he, him (third-person - somewhat literary)"
+- かのじょ: "girlfriend; she, her (third-person - somewhat literary)"
 
 Also: at N5, learners are taught not to use 彼/彼女 as third-person pronouns in speech because Japanese drops the pronoun. Worth a `notes` field.
 
-### 3.5 `listening.json` — utterance-format prompts mix formality registers
+### 3.5 `listening.json` - utterance-format prompts mix formality registers
 
 **Item n5.listen.012** asks for the morning greeting to a teacher; correct answer = `おはようございます` (polite form). Good.
 
 But other utterance items (n5.listen.011) put plain-form distractors (`ありがとう、いただきます`, `もう 一つ ください`) where the situation calls for polite refusal. A learner can identify the right answer by the politeness level alone, before parsing the meaning.
 
 **Fix:** Make distractors share the politeness register of the correct answer where possible, so the test discriminates on meaning, not register. For n5.listen.011, the correct answer is polite (`すみません、〜`); distractors should also be polite forms with wrong meanings:
-- "ありがとうございます。いただきます。" (correct register, wrong meaning — accepting)
-- "すみません、もう 一つ ください。" (correct register, wrong meaning — asking for more)
+- "ありがとうございます。いただきます。" (correct register, wrong meaning - accepting)
+- "すみません、もう 一つ ください。" (correct register, wrong meaning - asking for more)
 
-### 3.6 `reading.json#n5.read.018` — non-N5 kanji 音, 発 in question stem
+### 3.6 `reading.json#n5.read.018` - non-N5 kanji 音, 発 in question stem
 
-The reading question for passage 018 uses 音 (おと) and 発 (はつ — in 発音 = はつおん, "pronunciation"). Both are non-N5 kanji.
+The reading question for passage 018 uses 音 (おと) and 発 (はつ - in 発音 = はつおん, "pronunciation"). Both are non-N5 kanji.
 
 **Fix:** Either render in kana (はつおん, おと) or rewrite the question to avoid 発音. Since 発音 itself isn't N5 vocab, prefer rewriting.
 
-### 3.7 `questions.json` — coverage gap (84 of 187 grammar patterns have no question)
+### 3.7 `questions.json` - coverage gap (84 of 187 grammar patterns have no question)
 
 **Observation:** Of 187 grammar patterns, only 103 have any question in `questions.json`. That includes intentional duplicates that would share questions (n5-022 redirects to n5-011 etc.), but also includes 30+ patterns with no test coverage at all.
 
-**Fix:** Compile the list of patterns with zero coverage and prioritize question-bank growth for them. This is a content-coverage issue, not a correctness issue per se — but it directly affects the app's usability.
+**Fix:** Compile the list of patterns with zero coverage and prioritize question-bank growth for them. This is a content-coverage issue, not a correctness issue per se - but it directly affects the app's usability.
 
-### 3.8 `questions.json#q-0028` and similar — situational meta-prompts use non-N5 kanji
+### 3.8 `questions.json#q-0028` and similar - situational meta-prompts use non-N5 kanji
 
 Q-0028, q-0029, q-0032, q-0049 use stage-direction prefixes like:
 - 「(自分の 手の 中の 本を みせながら)」
@@ -521,7 +521,7 @@ Q-0028, q-0029, q-0032, q-0049 use stage-direction prefixes like:
 
 Currently the corpus is silent on this distinction.
 
-### 3.9 `grammar.json#n5-094` notes — 「〜があります」 is overloaded
+### 3.9 `grammar.json#n5-094` notes - 「〜があります」 is overloaded
 
 The pattern n5-094 「〜があります」 shows three meanings packed into one entry:
 - "have (ownership): 子どもが あります"
@@ -529,13 +529,13 @@ The pattern n5-094 「〜があります」 shows three meanings packed into one
 - "have (illness/condition): ねつが あります"
 
 These three meanings are pedagogically distinct. A learner who sees one example might assume the pattern works the same way for all three. In practice:
-- 子どもがあります — uncommon in modern Japanese; native speakers say 子どもがいます (animate).
-- しけんがあります — standard.
-- ねつがあります — standard.
+- 子どもがあります - uncommon in modern Japanese; native speakers say 子どもがいます (animate).
+- しけんがあります - standard.
+- ねつがあります - standard.
 
 **Fix:** Either split into sub-entries OR add a clear note: "Note: for animate possessions (children, pets), use いる/いて with possessive structure: 子どもが二人 います。 NOT 子どもが二人あります。"
 
-### 3.10 `n5_kanji_readings.json#何` — primary `なに` may be the wrong choice
+### 3.10 `n5_kanji_readings.json#何` - primary `なに` may be the wrong choice
 
 **Current:** 何 has `primary: なに`.
 
@@ -549,26 +549,26 @@ Document the intent and verify the renderer behaves consistently. A note in the 
 
 ---
 
-## 4. LOW — polish
+## 4. LOW - polish
 
-### 4.1 `audio_manifest.json` — 489 of 629 items marked `skipped: true`
+### 4.1 `audio_manifest.json` - 489 of 629 items marked `skipped: true`
 
-Status is OK (the build script clearly knows what it's doing), but worth verifying that the runtime app handles the skipped flag — if it tries to fetch a skipped path it'll 404. Add a release-blocker check: "no question, grammar pattern, listening item references a skipped audio file."
+Status is OK (the build script clearly knows what it's doing), but worth verifying that the runtime app handles the skipped flag - if it tries to fetch a skipped path it'll 404. Add a release-blocker check: "no question, grammar pattern, listening item references a skipped audio file."
 
-### 4.2 `audio_manifest.json` — backend is `gtts`
+### 4.2 `audio_manifest.json` - backend is `gtts`
 
 gTTS audio is robotic and lacks pitch-accent. For a JLPT N5 learner, gTTS is acceptable for short example sentences but inadequate for listening practice (where pitch and natural prosody matter). Recommend upgrading to:
-- Azure Neural Japanese voices (Nanami, Keita) — best quality / lowest cost ratio
-- ElevenLabs Japanese — higher quality, higher cost
-- Native voice talent — gold standard but expensive
+- Azure Neural Japanese voices (Nanami, Keita) - best quality / lowest cost ratio
+- ElevenLabs Japanese - higher quality, higher cost
+- Native voice talent - gold standard but expensive
 
 This is a quality-of-content issue, not an accuracy issue, but worth flagging since it affects the listening module's usefulness.
 
-### 4.3 `questions.json` — half-width parens in stage directions
+### 4.3 `questions.json` - half-width parens in stage directions
 
 q-0028, q-0029, q-0032, q-0049 use ASCII `()` for stage directions while using full-width `（）` for the test blank. This is a defensible design (visually distinguishes context from test) but inconsistent with Japanese typography norms. If the project has a style guide, follow it. If not, prefer full-width across all Japanese text.
 
-### 4.4 Schema hygiene — `furigana: []` always empty
+### 4.4 Schema hygiene - `furigana: []` always empty
 
 In `grammar.json`, every example has `"furigana": []`. The field exists in the schema but is never populated. Either:
 - Populate it (significant work, but adds value for the app's furigana toggle), or
@@ -576,13 +576,13 @@ In `grammar.json`, every example has `"furigana": []`. The field exists in the s
 
 Empty fields invite future bugs.
 
-### 4.5 `listening.json` — choice text and prompt text use の linker inconsistently
+### 4.5 `listening.json` - choice text and prompt text use の linker inconsistently
 
-In n5.listen.001 choices: "えきの 前", "カフェの 前", "えいがかんの 前", "デパートの 前" — all use `の` linker correctly. ✓
+In n5.listen.001 choices: "えきの 前", "カフェの 前", "えいがかんの 前", "デパートの 前" - all use `の` linker correctly. ✓
 
-But in n5.listen.005 choices: "おきるのが おそかったから" — uses nominalizing の plus subject が. This is grammatically fine but introduces nominalization (n5-030) inside a listening choice. Borderline; OK to keep but verify the test-taker has met n5-030 before this listening item is exposed to them.
+But in n5.listen.005 choices: "おきるのが おそかったから" - uses nominalizing の plus subject が. This is grammatically fine but introduces nominalization (n5-030) inside a listening choice. Borderline; OK to keep but verify the test-taker has met n5-030 before this listening item is exposed to them.
 
-### 4.6 `vocab.json` — missing `pos` (part-of-speech) field
+### 4.6 `vocab.json` - missing `pos` (part-of-speech) field
 
 The schema has `id, form, reading, gloss, section`. There's no part-of-speech tag. Without it, the app can't filter (e.g., "show only verbs") or generate inflection drills automatically. Recommend adding `pos`: noun / i-adj / na-adj / verb-1 / verb-2 / verb-3 / adverb / particle / conjunction / interjection.
 

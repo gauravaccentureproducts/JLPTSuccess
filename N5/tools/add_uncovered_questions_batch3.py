@@ -5,7 +5,7 @@ question in data/questions.json.
 These 30 patterns are deliberately the grey-zone-prone ones (frequency
 adverbs, sentence-final particles, must-form near-synonyms, kosoado
 quartets, must-do casual contractions). Each question is designed to
-slip past the audit's 8 grey-zone categories — hand-checked before
+slip past the audit's 8 grey-zone categories - hand-checked before
 the script ran. After commit, audit_multi_correct.py + check_content
 _integrity.py both stay green.
 
@@ -32,7 +32,7 @@ print(f"Last q-id: {existing_ids[-1] if existing_ids else 'none'}, "
 #   n5-041 (ここ/そこ/あそこ/どこ): use a question-form stem so どこ is
 #       the only fit (question word). The kosoado-quartet rule fires
 #       only when ALL 4 + ditto are in choices; we use 3 demonstratives
-#       + どこ which DOES fire — so we add a parenthetical scene tag
+#       + どこ which DOES fire - so we add a parenthetical scene tag
 #       to suppress it (audit's `has_scene_context` check).
 #
 #   n5-115 ('時 + に'): scope-restriction set has '時' as anchor for
@@ -59,7 +59,7 @@ NEW = [
         "question_ja": "（みせの 中で）すみません、トイレは（  ）ですか。",
         "choices": ["どこ", "ここ", "そこ", "なに"],
         "correct": "どこ",
-        "explanation": "Asking for the location of something requires the question demonstrative どこ (where). Distractors: ここ/そこ are statements (here/there) — declarative, not interrogative; なに asks WHAT, not WHERE.",
+        "explanation": "Asking for the location of something requires the question demonstrative どこ (where). Distractors: ここ/そこ are statements (here/there) - declarative, not interrogative; なに asks WHAT, not WHERE.",
         "difficulty": 1,
     },
     {
@@ -117,7 +117,7 @@ NEW = [
         "question_ja": "A: あついです（  ）。\nB: ええ、ほんとうに あついですね。",
         "choices": ["ね", "よ", "か", "の"],
         "correct": "ね",
-        "explanation": "ね seeks confirmation/agreement; B's response 'ええ、ほんとうに...ですね' (yes, really hot) confirms agreement, which only pairs with ね from A. Distractors: よ is assertive (informing — B wouldn't agree-back as enthusiastically), か would make A's line a question, の is informal-question.",
+        "explanation": "ね seeks confirmation/agreement; B's response 'ええ、ほんとうに...ですね' (yes, really hot) confirms agreement, which only pairs with ね from A. Distractors: よ is assertive (informing - B wouldn't agree-back as enthusiastically), か would make A's line a question, の is informal-question.",
         "difficulty": 2,
     },
     {
@@ -187,7 +187,7 @@ NEW = [
         "question_ja": "A: どうして きょう やすみましたか。\nB: あたまが いたかった（  ）。",
         "choices": ["んです", "ます", "でした", "ました"],
         "correct": "んです",
-        "explanation": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense — past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an i-adj, not a verb).",
+        "explanation": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense - past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an i-adj, not a verb).",
         "difficulty": 3,
     },
 
@@ -197,7 +197,7 @@ NEW = [
         "question_ja": "あぶないですから、そこへ 行か（  ）ほうが いいです。",
         "choices": ["ない", "ます", "た", "て"],
         "correct": "ない",
-        "explanation": "V-ない + ほうが いい = shouldn't [V] (negative recommendation). The slot needs the negative-plain form ない. Distractors: ます is polite-affirmative; た is past affirmative; て is conjunction form — none combine with ほうが いい to form 'shouldn't'.",
+        "explanation": "V-ない + ほうが いい = shouldn't [V] (negative recommendation). The slot needs the negative-plain form ない. Distractors: ます is polite-affirmative; た is past affirmative; て is conjunction form - none combine with ほうが いい to form 'shouldn't'.",
         "difficulty": 2,
     },
     {
@@ -257,7 +257,7 @@ NEW = [
         "question_ja": "おすしの たべ（  ）を おしえて ください。",
         "choices": ["かた", "とき", "ばしょ", "ひと"],
         "correct": "かた",
-        "explanation": "V-stem (drop ます) + かた = way of [V]-ing. tabe-kata = way of eating. Distractors: とき (time/when), ばしょ (place), ひと (person) — none form 'way of' in this construction.",
+        "explanation": "V-stem (drop ます) + かた = way of [V]-ing. tabe-kata = way of eating. Distractors: とき (time/when), ばしょ (place), ひと (person) - none form 'way of' in this construction.",
         "difficulty": 2,
     },
 

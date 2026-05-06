@@ -24,7 +24,7 @@ const DEFAULT_LOCALE = 'en';
 
 // Phase 2 of locale transition (2026-05-06): locales being removed in
 // Phase 3. Persisted preferences in this set get migrated to 'en' on
-// first load post-transition. Existing-user safety contract — no error,
+// first load post-transition. Existing-user safety contract - no error,
 // no white screen, no re-prompt.
 const DEPRECATED_LOCALES = ['vi', 'id', 'ne', 'zh'];
 
@@ -62,7 +62,7 @@ export function migrateLocaleSetting() {
   if (!_migrationRunThisSession) {
     _migrationRunThisSession = true;
     if (wasDeprecated) {
-      // Privacy-safe console signal — no PII, no network call.
+      // Privacy-safe console signal - no PII, no network call.
       console.info(`locale migrated: ${cur} -> en (Phase 3 of locale transition)`);
     } else if (wasJunk) {
       console.info(`locale migrated: ${cur} -> en (unknown locale)`);
@@ -108,7 +108,7 @@ async function loadDict() {
 // detection. When a user lands from a Vietnamese / Indonesian / Nepali /
 // Chinese-domain referrer, weight that locale higher than the bare
 // navigator.language signal. The referrer is per-request and never
-// stored — same privacy posture as the rest of the app.
+// stored - same privacy posture as the rest of the app.
 // Phase 3 of locale transition (2026-05-06): only India hints survive.
 // The four deprecated-locale hints were removed alongside SUPPORTED.
 const REFERRER_DOMAIN_HINTS = {
@@ -125,7 +125,7 @@ function _hintFromReferrer() {
     for (const [suffix, lc] of Object.entries(REFERRER_DOMAIN_HINTS)) {
       if (host.endsWith(suffix)) return lc;
     }
-  } catch { /* ignore — bad referrer URL */ }
+  } catch { /* ignore - bad referrer URL */ }
   return null;
 }
 
@@ -156,7 +156,7 @@ export async function initI18n() {
       initial = refHint;
       auto = (initial !== DEFAULT_LOCALE);
     } else {
-      // ISSUE-066 (audit round-7): consult navigator.languages[] (plural —
+      // ISSUE-066 (audit round-7): consult navigator.languages[] (plural -
       // the priority-ordered array of all browser-language preferences)
       // before falling back to navigator.language alone. For users whose
       // device is en-US but Accept-Language is "vi-VN, en-US", the hint
@@ -194,13 +194,13 @@ function _flashAutoLocaleToast(lc) {
   // detected locale rather than English. The toast is the very first
   // string a non-EN learner sees; English-framed copy around a native
   // language label is confusing. Falls back to EN if the keys are
-  // missing in the locale (which they shouldn't be — round-4 ISSUE-026
+  // missing in the locale (which they shouldn't be - round-4 ISSUE-026
   // added home.locale_auto_prefix + home.locale_auto_suffix to all 5).
   const prefix = t('home.locale_auto_prefix');
   const suffix = t('home.locale_auto_suffix');
   // Defensive: if t() returned the bare key (lookup miss), fall back.
   const safePrefix = prefix === 'home.locale_auto_prefix' ? 'App language:' : prefix;
-  const safeSuffix = suffix === 'home.locale_auto_suffix' ? '— change anytime in Settings.' : suffix;
+  const safeSuffix = suffix === 'home.locale_auto_suffix' ? '- change anytime in Settings.' : suffix;
   const toast = document.createElement('div');
   toast.id = 'locale-auto-toast';
   toast.className = 'locale-auto-toast';

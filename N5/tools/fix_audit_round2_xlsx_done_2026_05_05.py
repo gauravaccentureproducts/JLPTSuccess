@@ -25,7 +25,7 @@ DONE_IDS = {
     'IMP-025', 'IMP-028', 'IMP-029',
     # Open Questions sheet: Q1 (localStorage namespace migration target)
     # is closed by IMP-023's `migrate(oldNS, newNS)` helper. Q2-Q7 stay
-    # open — they are product decisions, not implementation items.
+    # open - they are product decisions, not implementation items.
     'Q1',
 }
 

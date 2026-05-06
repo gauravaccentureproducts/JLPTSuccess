@@ -9,7 +9,7 @@
 //   but is visually hidden so the custom controls own the surface.
 //   This keeps keyboard accessibility (space to play) intact via the
 //   underlying element.
-// - Each instance is independent — pressing 1.25× on one clip doesn't
+// - Each instance is independent - pressing 1.25× on one clip doesn't
 //   affect another. The global Settings audio-rate still applies as
 //   the *initial* rate; per-clip overrides stick until the page is
 //   navigated away.

@@ -1,4 +1,4 @@
-# learnjapaneseaz.com extraction — analysis and gap audit
+# learnjapaneseaz.com extraction - analysis and gap audit
 
 **Source:** `feedback/external-corpus/learnjapaneseaz-extract.json`
 **Date:** 2026-05-01
@@ -27,16 +27,16 @@ Looking at the kanji tests' underlined targets:
 
 | Kanji | External uses | Our N5 whitelist | Note |
 |---|---|---|---|
-| 田舎 (いなか) | test 3 | `田`,`舎` — 田 is N5; 舎 is OOS | Compound used at N5 level externally |
+| 田舎 (いなか) | test 3 | `田`,`舎` - 田 is N5; 舎 is OOS | Compound used at N5 level externally |
 | 億 (おく) | test 3 | OOS | Hundred-million counter; could appear at N5 |
 | 大使館 (たいしかん) | test 3 | `大` N5; `使`,`館` OOS | "embassy" |
-| 銀行 (ぎんこう) | tests 5, 6, 13 | `銀`,`行` — 行 N5; 銀 N4 | Standard N5 location vocab |
-| 動物 (どうぶつ) | test 2 | `動`,`物` — both N5? | Verify |
+| 銀行 (ぎんこう) | tests 5, 6, 13 | `銀`,`行` - 行 N5; 銀 N4 | Standard N5 location vocab |
+| 動物 (どうぶつ) | test 2 | `動`,`物` - both N5? | Verify |
 | 写真 (しゃしん) | test 2 | both N5 | OK |
 | 北海道 (ほっかいどう) | test 16 | `北`,`海`,`道` N5 | OK |
 | 風呂 (ふろ) | test 16 | both OOS | "bath" |
 | 一週間 (いっしゅうかん) | test 14 | `一`,`週`,`間` N5 | OK |
-| 荷物 (にもつ) | test 12 | `荷`,`物` — 物 N5; 荷 OOS | "luggage" |
+| 荷物 (にもつ) | test 12 | `荷`,`物` - 物 N5; 荷 OOS | "luggage" |
 | 黒い (くろい) | test 12 | `黒` N5? | Verify |
 | 雑誌 (ざっし) | reading 15 | `雑`,`誌` OOS | "magazine" |
 
@@ -48,27 +48,27 @@ Distinct vocab observed in external corpus that's not in our `n5_vocab_whitelist
 
 | Word | External context | N5-appropriate? |
 |---|---|---|
-| かいだん (階段) | vocab 6 q1 — "stairs" | **Yes** — common N5 |
-| ポケット | vocab 6 q6 — "pocket" | **Yes** — standard katakana N5 |
-| わたる (渡る) | vocab 6 q8 — "to cross" | **Yes** — Genki I L13 |
-| かける (眼鏡を掛ける) | vocab 6 q9 — "to wear glasses" | **Yes** — N5 collocation |
-| ぬぐ (脱ぐ) | vocab 6 q10 — "to take off (shoes)" | **Yes** — N5 |
-| はく (履く) | vocab 2 q7 — "to wear (lower body)" | **Yes** — N5 |
-| すう (吸う) | vocab 2 q6 — "to inhale / smoke" | **Yes** — N5 |
-| ひく (引く) | vocab 2 q4 + 7 q1 — "風邪を引く / catch a cold" | **Yes** — N5 collocation |
-| とまる (止まる) | vocab 7 q2 — "to stop" | **Yes** — N5 |
-| あまい (甘い) | vocab 7 q4 — "sweet" | **Yes** — N5 |
-| くらい (暗い) | vocab 7 q5 — "dark" | **Yes** — N5 |
-| わかい (若い) | vocab 7 q3 + 2 q10 — "young" | **Yes** — N5 |
-| やさしい (易しい) | vocab 7 q9 — "easy" | **Yes** — N5 (note: vs 優しい "kind") |
-| ニュース | vocab 7 q7 — "news" | **Yes** — katakana N5 |
-| しゃわー (シャワー) | vocab 3 q10 — "shower" | **Yes** — katakana N5 |
-| あびる (浴びる) | vocab 3 q10 — "to take a shower" | **Yes** — N5 collocation |
-| じしょ (辞書) | vocab 3 q9 — "dictionary" | **Yes** — N5 |
-| たんご (単語) | vocab 3 q8 — "vocabulary word" | **Yes** — N5 |
-| すくない (少ない) | vocab 3 q8 — "few" | **Yes** — N5 |
-| あのう | vocab 3 q6 — interjection "um..." | **Yes** — N5 spoken |
-| たったいま | vocab 4 q2, 3 q7 — "just now" | **Yes** — N5 |
+| かいだん (階段) | vocab 6 q1 - "stairs" | **Yes** - common N5 |
+| ポケット | vocab 6 q6 - "pocket" | **Yes** - standard katakana N5 |
+| わたる (渡る) | vocab 6 q8 - "to cross" | **Yes** - Genki I L13 |
+| かける (眼鏡を掛ける) | vocab 6 q9 - "to wear glasses" | **Yes** - N5 collocation |
+| ぬぐ (脱ぐ) | vocab 6 q10 - "to take off (shoes)" | **Yes** - N5 |
+| はく (履く) | vocab 2 q7 - "to wear (lower body)" | **Yes** - N5 |
+| すう (吸う) | vocab 2 q6 - "to inhale / smoke" | **Yes** - N5 |
+| ひく (引く) | vocab 2 q4 + 7 q1 - "風邪を引く / catch a cold" | **Yes** - N5 collocation |
+| とまる (止まる) | vocab 7 q2 - "to stop" | **Yes** - N5 |
+| あまい (甘い) | vocab 7 q4 - "sweet" | **Yes** - N5 |
+| くらい (暗い) | vocab 7 q5 - "dark" | **Yes** - N5 |
+| わかい (若い) | vocab 7 q3 + 2 q10 - "young" | **Yes** - N5 |
+| やさしい (易しい) | vocab 7 q9 - "easy" | **Yes** - N5 (note: vs 優しい "kind") |
+| ニュース | vocab 7 q7 - "news" | **Yes** - katakana N5 |
+| しゃわー (シャワー) | vocab 3 q10 - "shower" | **Yes** - katakana N5 |
+| あびる (浴びる) | vocab 3 q10 - "to take a shower" | **Yes** - N5 collocation |
+| じしょ (辞書) | vocab 3 q9 - "dictionary" | **Yes** - N5 |
+| たんご (単語) | vocab 3 q8 - "vocabulary word" | **Yes** - N5 |
+| すくない (少ない) | vocab 3 q8 - "few" | **Yes** - N5 |
+| あのう | vocab 3 q6 - interjection "um..." | **Yes** - N5 spoken |
+| たったいま | vocab 4 q2, 3 q7 - "just now" | **Yes** - N5 |
 
 **Action:** Audit `n5_vocab_whitelist.json` against the union of all vocab used in external. Likely 30-50 N5-legitimate words missing.
 
@@ -88,7 +88,7 @@ The external corpus tests grammar through reading-fill-blanks. Patterns observed
 | ～たり～たり | none observed | We have via grammar (n5-094) |
 | ～たら conditional | kanji 3 (`一億円あったら`) | **N4 boundary; we deliberately exclude.** |
 
-The external corpus is **slightly more lenient** than ours on N4-boundary patterns (たら conditional, 紹介する, 卒業する, 大学院). This validates our stricter N5-scope — our content will feel "lower-N4-level" to a strict-N5 learner, but we're aligned with where the official JLPT actually lands.
+The external corpus is **slightly more lenient** than ours on N4-boundary patterns (たら conditional, 紹介する, 卒業する, 大学院). This validates our stricter N5-scope - our content will feel "lower-N4-level" to a strict-N5 learner, but we're aligned with where the official JLPT actually lands.
 
 ---
 
@@ -136,7 +136,7 @@ Cross-checking external scope against ours:
 
 - **External is more lenient on N4-edge:** uses 雑誌, 紹介する, 卒業, 大学院, ～たら conditional, ～ながら + relative clause.
 - **Our scope is stricter (per `tier: "late_n5"` flag in reading.json):** we explicitly tag/contain these as late-N5 instead of mixing with core-N5.
-- **Our stricter approach is defensible:** real JLPT N5 is closer to our scope. The external corpus is "exam-prep with realistic dilution" — i.e., ~10% N4 leakage that mirrors the real test's hardest 10%.
+- **Our stricter approach is defensible:** real JLPT N5 is closer to our scope. The external corpus is "exam-prep with realistic dilution" - i.e., ~10% N4 leakage that mirrors the real test's hardest 10%.
 
 **Action:** Document this scope-discipline difference in spec supplement so future authors don't drift.
 
@@ -146,7 +146,7 @@ The external distractors are consistently:
 - **Plausible:** all 4 are real Japanese words / forms.
 - **Same word-class:** all nouns OR all verbs OR all adjectives within an option set.
 - **Length-symmetric:** 4 choices have similar character counts.
-- **Phonetically near-similar (kanji-reading tests):** お**な**じ / お**う**じ / そ**う**じ / ど**う**じ — minimal-pair distractors.
+- **Phonetically near-similar (kanji-reading tests):** お**な**じ / お**う**じ / そ**う**じ / ど**う**じ - minimal-pair distractors.
 
 Our F-14 audit found pattern-meta questions where distractors mixed pattern labels with single particles. The external corpus shows what good looks like. **Action:** Add this as a question-authoring-style note in README.
 
@@ -154,7 +154,7 @@ Our F-14 audit found pattern-meta questions where distractors mixed pattern labe
 
 ## 5. Concrete authoring proposals (priority-ranked)
 
-### P0 — Immediately useful for our corpus
+### P0 - Immediately useful for our corpus
 
 1. **Add ~10 paraphrase-style text_input/mcq questions** modeled on external vocab-15 / vocab-17. Each tests vocab equivalence:
    - おととい = ふつかまえ
@@ -176,13 +176,13 @@ Our F-14 audit found pattern-meta questions where distractors mixed pattern labe
    - "私は バス（）会社（）行きます" (で / に / で)
    - Tests particle selection in connected discourse (richer than our isolated-particle MCQs).
 
-### P1 — Worth doing if time
+### P1 - Worth doing if time
 
 4. **Add ~5 kanji-writing MCQ questions** (give kana, pick correct kanji from 4 visually-similar options). The external tests 16-25 show this is a standard JLPT format. Currently we only test kanji-recognition (reading) via the Kanji deep-dive page; not as graded MCQ.
 
 5. **Add a `paraphrase` question type** to questions.json schema. Documented in README. Renderer needs minor update to format the "given X, pick equivalent" prompt.
 
-### P2 — Roadmap
+### P2 - Roadmap
 
 6. **Re-audit `n5_vocab_whitelist.json`** against the union of all vocab observed in the external 218 questions. Estimated 30-50 missing core-N5 words (kaiダん, ぬぐ, わたる, ひく, とまる, etc).
 

@@ -14,7 +14,7 @@ This script fixes both:
      row, column-by-column.
 
 The Decision cell's green-tinted fill is value-dependent (Done = green
-FFC8E6C8) and is NOT auto-applied here — the user picks Fix/Avoid/Defer
+FFC8E6C8) and is NOT auto-applied here - the user picks Fix/Avoid/Defer
 from the dropdown first, then a future fix_audit_round*.py close-out
 script can stamp the fill on Done rows the same way round-1+2 did.
 
@@ -30,7 +30,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 XLSX = Path(__file__).resolve().parent.parent / 'feedback' / 'n5-audit-2026-05-04.xlsx'
 
 # (sheet name, decision column letter, header row index, reference row to copy
-#  styling from — picked because it has the canonical font/border/alignment)
+#  styling from - picked because it has the canonical font/border/alignment)
 TARGETS = [
     ('Audit findings', 'N', 4, 5),
     ('Open questions', 'E', 3, 4),
@@ -122,7 +122,7 @@ def main() -> int:
         for cr in target_dv.sqref.ranges:
             cr_str = str(cr)
             if cr_str.startswith(col):
-                # Replace this range — it's the one we want to grow.
+                # Replace this range - it's the one we want to grow.
                 if not replaced:
                     new_ranges.add(CellRange(wanted))
                     replaced = True

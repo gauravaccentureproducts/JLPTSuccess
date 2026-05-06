@@ -1,30 +1,30 @@
 """Stamp Done on the round-4 items shipped in v1.12.32 close-out.
 
 Items closed this batch (16 of 22):
-  ISSUE-025 — LICENSE (MIT) at repo root
-  ISSUE-026 — locales/{vi,id,ne,zh}.json expanded 33 -> 75+ keys (machine-translated; needs native review)
-  ISSUE-027 — privacy trust band on home
-  ISSUE-028 — header locale-chip switcher
-  ISSUE-029 — Accept-Language toast
-  ISSUE-030 — review_status provenance scaffold (1405/1405 items)
-  ISSUE-031 — docs/SELF-HOST.md
-  ISSUE-032 — og: tags + JSON-LD in index.html
-  ISSUE-033 — n5_core_pattern_ids.json + JA-34 invariant
-  ISSUE-034 — install link in trust band + Firefox/iOS fallback toast
-  IMP-048   — trust band visual / ISSUE-027 paired
-  IMP-049   — LICENSE + dual-license note + SELF-HOST guide / ISSUE-025+031 paired
-  IMP-051   — og: + JSON-LD / ISSUE-032 paired
-  IMP-052   — runtime theme-overrides loader (data/theme-overrides.json)
-  IMP-055   — round3-features.spec.js Playwright spec
-  IMP-056   — docs/TRANSLATING.md
+  ISSUE-025 - LICENSE (MIT) at repo root
+  ISSUE-026 - locales/{vi,id,ne,zh}.json expanded 33 -> 75+ keys (machine-translated; needs native review)
+  ISSUE-027 - privacy trust band on home
+  ISSUE-028 - header locale-chip switcher
+  ISSUE-029 - Accept-Language toast
+  ISSUE-030 - review_status provenance scaffold (1405/1405 items)
+  ISSUE-031 - docs/SELF-HOST.md
+  ISSUE-032 - og: tags + JSON-LD in index.html
+  ISSUE-033 - n5_core_pattern_ids.json + JA-34 invariant
+  ISSUE-034 - install link in trust band + Firefox/iOS fallback toast
+  IMP-048   - trust band visual / ISSUE-027 paired
+  IMP-049   - LICENSE + dual-license note + SELF-HOST guide / ISSUE-025+031 paired
+  IMP-051   - og: + JSON-LD / ISSUE-032 paired
+  IMP-052   - runtime theme-overrides loader (data/theme-overrides.json)
+  IMP-055   - round3-features.spec.js Playwright spec
+  IMP-056   - docs/TRANSLATING.md
 
-Deferred to next cycle (6 of 22) — content-authoring or product-decision blocked:
-  IMP-045 — translate grammar.json explanations to vi/id/ne/zh (HIGH content effort, blocked on Q14)
-  IMP-046 — translate vocab.json glosses to vi/id/ne/zh (same, ~1041 entries × 4)
-  IMP-047 — translate kanji.json meanings to vi/id/ne/zh (same)
-  IMP-050 — kanji radical decomposition + mnemonic (KanjiDic2 import + curated mnemonics)
-  IMP-053 — RTL CSS via logical properties (blocked on real RTL locale being authored)
-  IMP-054 — Trusted Web Activity / Capacitor wrappers (blocked on Q17 distribution decision)
+Deferred to next cycle (6 of 22) - content-authoring or product-decision blocked:
+  IMP-045 - translate grammar.json explanations to vi/id/ne/zh (HIGH content effort, blocked on Q14)
+  IMP-046 - translate vocab.json glosses to vi/id/ne/zh (same, ~1041 entries × 4)
+  IMP-047 - translate kanji.json meanings to vi/id/ne/zh (same)
+  IMP-050 - kanji radical decomposition + mnemonic (KanjiDic2 import + curated mnemonics)
+  IMP-053 - RTL CSS via logical properties (blocked on real RTL locale being authored)
+  IMP-054 - Trusted Web Activity / Capacitor wrappers (blocked on Q17 distribution decision)
 """
 from __future__ import annotations
 import io, sys

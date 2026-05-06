@@ -80,7 +80,7 @@ def gloss_pos(form: str, reading: str | None, gloss: str) -> str:
     if GLOSS_NA_ADJ_RE.search(g):
         return "na-adj"
     if GLOSS_VERB_RE.match(g):
-        # "to know (Group 1 ...)" etc. — distinguish via gloss markers if present
+        # "to know (Group 1 ...)" etc. - distinguish via gloss markers if present
         if "group 1" in g or "godan" in g or "u-verb" in g:
             return "verb-1"
         if "group 2" in g or "ichidan" in g or "ru-verb" in g:
@@ -92,7 +92,7 @@ def gloss_pos(form: str, reading: str | None, gloss: str) -> str:
             return "verb-3"
         if (reading or form).endswith("る"):
             return "verb-2"  # weak guess; many Group-1 also end in る (the
-            # Pass-9 audit warned about this — but at the bulk level, ru-verb
+            # Pass-9 audit warned about this - but at the bulk level, ru-verb
             # is the more frequent guess)
         return "verb-1"
     # Default: noun (the safe bet for "miscellaneous" sections)

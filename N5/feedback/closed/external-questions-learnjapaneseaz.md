@@ -1,19 +1,19 @@
-# External JLPT N5 Question Bank — learnjapaneseaz.com
+# External JLPT N5 Question Bank - learnjapaneseaz.com
 
 **Source:** https://learnjapaneseaz.com/jlpt-n5-grammar-practice.html (17 practice tests)
 **Extracted:** 2026-05-01
 **Purpose:** Reference corpus for our N5 question-bank audit (cross-check coverage, distractor quality, multi-correct-answer detection).
 
 **Format key per question:**
-- **Stem** — Japanese sentence (`（　　）` or `___★___` marks the blank).
-- **Options** — 4 choices as published.
-- **Correct** — answer marked correct on the source.
+- **Stem** - Japanese sentence (`（　　）` or `___★___` marks the blank).
+- **Options** - 4 choices as published.
+- **Correct** - answer marked correct on the source.
 - Tests 1-3, 5-8, 10, 12, 14, 16 are blank-fill MCQ (single-blank in stem).
-- Tests 4, 9, 11, 13, 15, 17 are sentence-ordering — the `★` slot is the answer position; the option marked correct is the word that goes in the `★` slot.
+- Tests 4, 9, 11, 13, 15, 17 are sentence-ordering - the `★` slot is the answer position; the option marked correct is the word that goes in the `★` slot.
 
 ---
 
-## Test 1 (10 questions — blank-fill MCQ)
+## Test 1 (10 questions - blank-fill MCQ)
 
 **Q1** それはわたし（　　）かさです。
 - Options: を / が / の / も
@@ -57,7 +57,7 @@
 
 ---
 
-## Test 2 (10 questions — blank-fill MCQ)
+## Test 2 (10 questions - blank-fill MCQ)
 
 **Q1** わたしはいしゃ（　　）なりたいです。
 - Options: に / が / を / も
@@ -101,7 +101,7 @@
 
 ---
 
-## Test 3 (10 questions — blank-fill MCQ)
+## Test 3 (10 questions - blank-fill MCQ)
 
 **Q1** きょうはまだ何も（　　）。
 - Options: 食べました。/ 食べないでした。/ 食べていました。/ 食べていません。
@@ -145,7 +145,7 @@
 
 ---
 
-## Test 4 (10 questions — sentence-ordering; pick the word for the ★ slot)
+## Test 4 (10 questions - sentence-ordering; pick the word for the ★ slot)
 
 **Q1** わたし ___ ___ ___★___ ___ はです。
 - Options: 1) すき  2) りょうり  3) は  4) が
@@ -189,7 +189,7 @@
 
 ---
 
-## Test 5 (10 questions — blank-fill MCQ)
+## Test 5 (10 questions - blank-fill MCQ)
 
 **Q1** 木（　　）いすを作ります。
 - Options: を / が / と / で
@@ -233,7 +233,7 @@
 
 ---
 
-## Test 6 (10 questions — blank-fill MCQ)
+## Test 6 (10 questions - blank-fill MCQ)
 
 **Q1** このかんじは何（　　）よみますか。
 - Options: が / で / と / か
@@ -277,7 +277,7 @@
 
 ---
 
-## Test 7 (10 questions — blank-fill MCQ)
+## Test 7 (10 questions - blank-fill MCQ)
 
 **Q1** 山下「きょうパーティーがありますから、田中さん（　　）来てください。」
 - Options: に / も / や / で
@@ -321,7 +321,7 @@
 
 ---
 
-## Test 8 (16 questions — blank-fill MCQ)
+## Test 8 (16 questions - blank-fill MCQ)
 
 **Q1** りんご（　　）三つ かいました。
 - Options: の / に / が / を
@@ -389,7 +389,7 @@
 
 ---
 
-## Test 9 (5 questions — sentence-ordering)
+## Test 9 (5 questions - sentence-ordering)
 
 **Q1** 学校まで ___ ___★___ ___ ___ 。
 - Options: 1) バス  2) かよって  3) います  4) で
@@ -413,7 +413,7 @@
 
 ---
 
-## Test 10 (16 questions — blank-fill MCQ)
+## Test 10 (16 questions - blank-fill MCQ)
 
 **Q1** 先生（　　）いろいろ 習いました。
 - Options: しか / から / ので / のが
@@ -481,7 +481,7 @@
 
 ---
 
-## Test 11 (5 questions — sentence-ordering)
+## Test 11 (5 questions - sentence-ordering)
 
 **Q1** 地震 ___★___ ___ ___ ___ ました。
 - Options: 1) が  2) たてもの  3) で  4) こわれ
@@ -505,7 +505,7 @@
 
 ---
 
-## Test 12 (16 questions — blank-fill MCQ)
+## Test 12 (16 questions - blank-fill MCQ)
 
 **Q1** くるまの うしろ（　　）こどもが います。
 - Options: に / で / を / へ
@@ -573,7 +573,7 @@
 
 ---
 
-## Test 13 (5 questions — sentence-ordering)
+## Test 13 (5 questions - sentence-ordering)
 
 **Q1** 王さんは ___ ___ ___★___ ___ 。
 - Options: 1) じょうず  2) です  3) りょうり  4) が
@@ -597,7 +597,7 @@
 
 ---
 
-## Test 14 (16 questions — blank-fill MCQ)
+## Test 14 (16 questions - blank-fill MCQ)
 
 **Q1** あめ（　　）にわの そうじが できませんでした。
 - Options: で / を / に / の
@@ -665,7 +665,7 @@
 
 ---
 
-## Test 15 (5 questions — sentence-ordering)
+## Test 15 (5 questions - sentence-ordering)
 
 **Q1** このバスは ___ ___★___ ___ ___ 。
 - Options: 1) 駅前  2) 通り  3) を  4) ます
@@ -689,7 +689,7 @@
 
 ---
 
-## Test 16 (16 questions — blank-fill MCQ)
+## Test 16 (16 questions - blank-fill MCQ)
 
 **Q1** あれは（　　）スープです。
 - Options: きらい / きらいな / きらいの / きらいは
@@ -757,7 +757,7 @@
 
 ---
 
-## Test 17 (5 questions — sentence-ordering)
+## Test 17 (5 questions - sentence-ordering)
 
 **Q1** ___ ___★___ ___ ___ 新幹線で行きます。
 - Options: 1) 東京  2) 京都  3) から  4) まで
@@ -789,11 +789,11 @@
 | 8, 10, 12, 14, 16 | Blank-fill MCQ | 16 each | 80 |
 | 4 | Sentence-order ★ | 10 | 10 |
 | 9, 11, 13, 15, 17 | Sentence-order ★ | 5 each | 25 |
-| **Total** | — | — | **175** |
+| **Total** | - | - | **175** |
 
 ## Notes for downstream use
 
 - These are externally authored questions; cross-check against our `data/questions.json` (166 entries) to identify gaps in our coverage.
 - The source does **not** publish per-question explanations; the "explanation" snippets above (where shown) were inferred by the extractor and should not be treated as authoritative.
-- Several questions in the source contain visible typos in stems (`（　　 ））`, full-width-paren-paren combinations) — these are artifacts of the source page, not extraction errors.
+- Several questions in the source contain visible typos in stems (`（　　 ））`, full-width-paren-paren combinations) - these are artifacts of the source page, not extraction errors.
 - Tests 4 and 9-17 ★-style require knowing the *position* the answer fills, not just the lexical answer; if used as drill items in our app, the rendering must show the surrounding scaffold.

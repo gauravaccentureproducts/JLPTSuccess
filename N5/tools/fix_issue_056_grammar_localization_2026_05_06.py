@@ -6,11 +6,11 @@ Schema additions per pattern covered here:
   explanation_vi / explanation_id / explanation_ne / explanation_zh
   meaning_provenance: "machine_translated"
   explanation_provenance: "machine_translated"
-  l1_notes: { vi, id, ne, zh }   (top-15 patterns only — IMP-080)
+  l1_notes: { vi, id, ne, zh }   (top-15 patterns only - IMP-080)
 
 Per user clarification (2026-05-06): translate the meaning + explanation
 INSTRUCTIONS only. The Japanese pattern itself, Japanese examples, and
-meaning_ja stay in Japanese — that is what the learner is studying.
+meaning_ja stay in Japanese - that is what the learner is studying.
 
 Idempotent. All translations remain `machine_translated` until native
 review per Q21 provenance-badge launch policy.
@@ -123,9 +123,9 @@ TRANSLATIONS = {
             'zh': 'に 在 N5 有三个主要功能：(1) 与 ある/いる 配合表示存在地点；(2) 具体时间点（七時に "在7点"）；(3) 与移动动词配合表示目的地。与 で（动作地点）对比。',
         },
         'l1_notes': {
-            'vi': 'Tiếng Việt dùng "ở" cho vị trí và "lúc" cho thời gian — hai từ riêng biệt. Tiếng Nhật gộp thành một に. Lỗi phổ biến: dùng で thay vì に cho vị trí tồn tại.',
-            'id': 'Bahasa Indonesia memakai "di" untuk lokasi dan "pada" untuk waktu — dua kata terpisah. Bahasa Jepang menggabungkannya menjadi に. Kesalahan umum: pakai で alih-alih に untuk lokasi keberadaan.',
-            'ne': 'नेपालीमा स्थान र समयको लागि "मा" साझा छ — に सँग समान। तर に र で को भेद नेपालीमा छैन। 学校にいる (विद्यालयमा छ) vs 学校で勉強する (विद्यालयमा पढ्ने) फरक हो।',
+            'vi': 'Tiếng Việt dùng "ở" cho vị trí và "lúc" cho thời gian - hai từ riêng biệt. Tiếng Nhật gộp thành một に. Lỗi phổ biến: dùng で thay vì に cho vị trí tồn tại.',
+            'id': 'Bahasa Indonesia memakai "di" untuk lokasi dan "pada" untuk waktu - dua kata terpisah. Bahasa Jepang menggabungkannya menjadi に. Kesalahan umum: pakai で alih-alih に untuk lokasi keberadaan.',
+            'ne': 'नेपालीमा स्थान र समयको लागि "मा" साझा छ - に सँग समान। तर に र で को भेद नेपालीमा छैन। 学校にいる (विद्यालयमा छ) vs 学校で勉強する (विद्यालयमा पढ्ने) फरक हो।',
             'zh': '中文「在」既表静态存在也表动态发生（"在家"/"在家吃饭"）。日语严格区分：静态存在用 に（家にいる），动作进行用 で（家で食べる）。这是日语初学者最大难点之一。',
         },
     },
@@ -134,7 +134,7 @@ TRANSLATIONS = {
             'vi': 'Trợ từ phương hướng へ (đến / hướng về - dùng với động từ chuyển động)',
             'id': 'Partikel arah へ (menuju - dipakai dengan kata kerja gerakan)',
             'ne': 'दिशा चिन्ह へ (तिर / लाई - गति क्रियासँग प्रयोग)',
-            'zh': '方向标记 へ（朝向 — 与移动动词搭配）',
+            'zh': '方向标记 へ（朝向 - 与移动动词搭配）',
         },
         'explanation': {
             'vi': 'へ theo sau danh từ chỉ đích đến với động từ chuyển động (行く, 来る, 帰る). Phát âm là "e", không phải "he". に cũng có thể dùng tương tự, nhưng へ nhấn mạnh hơn vào hướng đi (quá trình); に nhấn vào điểm đích (kết quả).',
@@ -171,24 +171,24 @@ TRANSLATIONS = {
             'zh': '助词 と（和（伴随）/ 和（列举）/ 引语）',
         },
         'explanation': {
-            'vi': 'と có 3 vai trò N5: (1) cùng với ai đó (ともだちと行く "đi với bạn"); (2) liệt kê đầy đủ A và B (パンとミルク "bánh mì và sữa" — chỉ A và B); (3) trích dẫn (「はい」と言う "nói rằng \'vâng\'"). So sánh với や (liệt kê không đầy đủ).',
-            'id': 'と memiliki 3 peran N5: (1) bersama seseorang (ともだちと行く "pergi dengan teman"); (2) daftar lengkap A dan B (パンとミルク "roti dan susu" — hanya A dan B); (3) kutipan (「はい」と言う "berkata \'ya\'"). Bandingkan dengan や (daftar tidak lengkap).',
-            'ne': 'と का N5 मा 3 भूमिका: (1) कसैसँग (ともだちと行く "साथीसँग जाने"); (2) पूर्ण सूची A र B (パンとミルク "रोटी र दूध — खालि A र B"); (3) उद्धरण (「はい」と言う "\'ho\' भन्ने")। や (अपूर्ण सूची) सँग तुलना।',
-            'zh': 'と 在 N5 有三个功能：(1) 与某人同行（ともだちと行く "和朋友去"）；(2) 完全列举 A 和 B（パンとミルク "面包和牛奶 — 仅A和B"）；(3) 引语（「はい」と言う "说\'是\'"）。与 や（不完全列举）对比。',
+            'vi': 'と có 3 vai trò N5: (1) cùng với ai đó (ともだちと行く "đi với bạn"); (2) liệt kê đầy đủ A và B (パンとミルク "bánh mì và sữa" - chỉ A và B); (3) trích dẫn (「はい」と言う "nói rằng \'vâng\'"). So sánh với や (liệt kê không đầy đủ).',
+            'id': 'と memiliki 3 peran N5: (1) bersama seseorang (ともだちと行く "pergi dengan teman"); (2) daftar lengkap A dan B (パンとミルク "roti dan susu" - hanya A dan B); (3) kutipan (「はい」と言う "berkata \'ya\'"). Bandingkan dengan や (daftar tidak lengkap).',
+            'ne': 'と का N5 मा 3 भूमिका: (1) कसैसँग (ともだちと行く "साथीसँग जाने"); (2) पूर्ण सूची A र B (パンとミルク "रोटी र दूध - खालि A र B"); (3) उद्धरण (「はい」と言う "\'ho\' भन्ने")। や (अपूर्ण सूची) सँग तुलना।',
+            'zh': 'と 在 N5 有三个功能：(1) 与某人同行（ともだちと行く "和朋友去"）；(2) 完全列举 A 和 B（パンとミルク "面包和牛奶 - 仅A和B"）；(3) 引语（「はい」と言う "说\'是\'"）。与 や（不完全列举）对比。',
         },
     },
     'n5-009': {
         'meaning': {
             'vi': 'Trợ từ から (từ - điểm bắt đầu / vì - lý do)',
-            'id': 'Partikel から (dari — titik awal / karena — alasan)',
-            'ne': 'から (देखि / बाट — सुरु बिन्दु / किनभने — कारण)',
-            'zh': '助词 から（从 — 起点 / 因为 — 原因）',
+            'id': 'Partikel から (dari - titik awal / karena - alasan)',
+            'ne': 'から (देखि / बाट - सुरु बिन्दु / किनभने - कारण)',
+            'zh': '助词 から（从 - 起点 / 因为 - 原因）',
         },
         'explanation': {
-            'vi': 'から có 2 vai trò N5: (1) điểm bắt đầu trong thời gian / không gian (九時から "từ 9 giờ", 学校から "từ trường"); (2) lý do — gắn vào câu hoàn chỉnh (ねむいから帰ります "vì buồn ngủ nên về"). Đi cặp với まで (đến).',
-            'id': 'から memiliki 2 peran N5: (1) titik awal waktu/ruang (九時から "dari jam 9", 学校から "dari sekolah"); (2) alasan — menempel pada klausa lengkap (ねむいから帰ります "karena ngantuk pulang"). Berpasangan dengan まで (sampai).',
-            'ne': 'から का N5 मा 2 भूमिका: (1) समय/स्थानको सुरु बिन्दु (九時から "९ बजे देखि", 学校から "विद्यालयबाट"); (2) कारण — पूर्ण उपवाक्यमा जोडिएर (ねむいから帰ります "निद्रा लागेको हुनाले फर्किने")। まで (सम्म) सँग जोडी।',
-            'zh': 'から 在 N5 有两个功能：(1) 时间/空间起点（九時から "从9点起"、学校から "从学校"）；(2) 原因 — 接在完整句末（ねむいから帰ります "因为困了所以回去"）。与 まで（直到）配对。',
+            'vi': 'から có 2 vai trò N5: (1) điểm bắt đầu trong thời gian / không gian (九時から "từ 9 giờ", 学校から "từ trường"); (2) lý do - gắn vào câu hoàn chỉnh (ねむいから帰ります "vì buồn ngủ nên về"). Đi cặp với まで (đến).',
+            'id': 'から memiliki 2 peran N5: (1) titik awal waktu/ruang (九時から "dari jam 9", 学校から "dari sekolah"); (2) alasan - menempel pada klausa lengkap (ねむいから帰ります "karena ngantuk pulang"). Berpasangan dengan まで (sampai).',
+            'ne': 'から का N5 मा 2 भूमिका: (1) समय/स्थानको सुरु बिन्दु (九時から "९ बजे देखि", 学校から "विद्यालयबाट"); (2) कारण - पूर्ण उपवाक्यमा जोडिएर (ねむいから帰ります "निद्रा लागेको हुनाले फर्किने")। まで (सम्म) सँग जोडी।',
+            'zh': 'から 在 N5 有两个功能：(1) 时间/空间起点（九時から "从9点起"、学校から "从学校"）；(2) 原因 - 接在完整句末（ねむいから帰ります "因为困了所以回去"）。与 まで（直到）配对。',
         },
         'l1_notes': {
             'vi': 'Người học Việt thường nhầm から (lý do, ý chủ quan) với ので (lý do, khách quan/lịch sự). から OK trong hội thoại; ので lịch sự hơn cho lý do trang trọng.',
@@ -199,10 +199,10 @@ TRANSLATIONS = {
     },
     'n5-010': {
         'meaning': {
-            'vi': 'Trợ từ まで (đến / cho đến — điểm kết thúc thời gian hoặc không gian)',
-            'id': 'Partikel まで (sampai — titik akhir waktu atau ruang)',
-            'ne': 'まで (सम्म — समय वा स्थानको अन्त्य बिन्दु)',
-            'zh': '助词 まで（到 — 时间或空间终点）',
+            'vi': 'Trợ từ まで (đến / cho đến - điểm kết thúc thời gian hoặc không gian)',
+            'id': 'Partikel まで (sampai - titik akhir waktu atau ruang)',
+            'ne': 'まで (सम्म - समय वा स्थानको अन्त्य बिन्दु)',
+            'zh': '助词 まで（到 - 时间或空间终点）',
         },
         'explanation': {
             'vi': 'まで đánh dấu điểm kết thúc trong thời gian (五時まで "đến 5 giờ") hoặc không gian (駅まで歩く "đi bộ đến ga"). Thường đi cặp với から để chỉ phạm vi (九時から五時まで "từ 9 đến 5 giờ").',
@@ -213,10 +213,10 @@ TRANSLATIONS = {
     },
     'n5-011': {
         'meaning': {
-            'vi': 'Trợ từ や (và — liệt kê không đầy đủ, "X, Y và những thứ tương tự")',
-            'id': 'Partikel や (dan — daftar tidak lengkap, "X, Y dan sejenisnya")',
-            'ne': 'や (र — अपूर्ण सूची, "X, Y र अन्य")',
-            'zh': '助词 や（和 — 不完全列举，"X、Y 等"）',
+            'vi': 'Trợ từ や (và - liệt kê không đầy đủ, "X, Y và những thứ tương tự")',
+            'id': 'Partikel や (dan - daftar tidak lengkap, "X, Y dan sejenisnya")',
+            'ne': 'や (र - अपूर्ण सूची, "X, Y र अन्य")',
+            'zh': '助词 や（和 - 不完全列举，"X、Y 等"）',
         },
         'explanation': {
             'vi': 'や liệt kê hai hoặc nhiều thứ một cách không đầy đủ, ngụ ý "và những thứ khác tương tự". Khác với と (liệt kê đầy đủ chỉ X và Y). Thường đi với など ở cuối: パンやミルクなど "bánh mì, sữa và các thứ khác".',
@@ -253,8 +253,8 @@ TRANSLATIONS = {
             'zh': '该组在句中替代名词（これは本です "这是书"）。按距离区分：これ 近说话者；それ 近听者；あれ 离两者都远；どれ 是疑问词。与 この/その/あの（指示形容词，必须接名词）不同。',
         },
         'l1_notes': {
-            'vi': 'Tiếng Việt có "này/đó/kia" nhưng không phân biệt rõ "gần người nghe" và "xa cả hai" như tiếng Nhật. Nhớ それ là khoảng cách RELATIONAL — gần người nghe, không phải gần người nói.',
-            'id': 'Bahasa Indonesia memiliki "ini/itu" tapi tidak membedakan "dekat lawan bicara" vs "jauh dari keduanya" seperti bahasa Jepang. Ingat それ adalah jarak RELASIONAL — dekat lawan bicara.',
+            'vi': 'Tiếng Việt có "này/đó/kia" nhưng không phân biệt rõ "gần người nghe" và "xa cả hai" như tiếng Nhật. Nhớ それ là khoảng cách RELATIONAL - gần người nghe, không phải gần người nói.',
+            'id': 'Bahasa Indonesia memiliki "ini/itu" tapi tidak membedakan "dekat lawan bicara" vs "jauh dari keduanya" seperti bahasa Jepang. Ingat それ adalah jarak RELASIONAL - dekat lawan bicara.',
             'ne': 'नेपालीमा "यो/त्यो/उ" भेद छ तर श्रोता-केन्द्रित そ-छुट्टै छैन। それ श्रोता नजिक हो (वक्ता बाट होइन)।',
             'zh': '中文「这/那」二分；日语 こ・そ・あ 三分，且 そ 是"听者侧"而非简单的"远近"。中国学习者最易在 それ vs あれ 上犯错。',
         },
@@ -298,7 +298,7 @@ TRANSLATIONS = {
             'vi': 'なに / なん (cái gì - phát âm thay đổi tùy ngữ cảnh)',
             'id': 'なに / なん (apa - pengucapan berubah tergantung konteks)',
             'ne': 'なに / なん (के - सन्दर्भ अनुसार उच्चारण फरक)',
-            'zh': 'なに / なん（什么 — 读音随上下文变化）',
+            'zh': 'なに / なん（什么 - 读音随上下文变化）',
         },
         'explanation': {
             'vi': '何 đọc là なに hoặc なん tùy theo từ theo sau: trước /d/, /n/, /t/, hoặc đếm số → なん (なんですか, なんにん). Trước các âm khác → なに (なにを, なにが). Là từ hỏi cơ bản nhất ở N5.',
@@ -312,7 +312,7 @@ TRANSLATIONS = {
             'vi': 'だれ / どなた (ai - だれ thân mật; どなた lịch sự)',
             'id': 'だれ / どなた (siapa - だれ kasual; どなた sopan)',
             'ne': 'だれ / どなた (को - だれ अनौपचारिक; どなた आदर)',
-            'zh': 'だれ / どなた（谁 — だれ 普通；どなた 尊敬）',
+            'zh': 'だれ / どなた（谁 - だれ 普通；どなた 尊敬）',
         },
         'explanation': {
             'vi': 'だれ là dạng cơ bản. どなた là dạng lịch sự, dùng khi hỏi tên người không quen hoặc khách hàng. Cả hai không đi với さん (誰さん là sai).',
@@ -326,7 +326,7 @@ TRANSLATIONS = {
             'vi': 'いつ (khi nào - đi với から / まで / ごろ để hỏi thời gian chi tiết)',
             'id': 'いつ (kapan - dipakai dengan から / まで / ごろ untuk pertanyaan waktu lebih detail)',
             'ne': 'いつ (कहिले - から / まで / ごろ सँग समय विस्तृत प्रश्नको लागि)',
-            'zh': 'いつ（什么时候 — 与 から / まで / ごろ 配合提问更详细的时间）',
+            'zh': 'いつ（什么时候 - 与 から / まで / ごろ 配合提问更详细的时间）',
         },
         'explanation': {
             'vi': 'いつ là từ hỏi thời gian cơ bản. Khi muốn cụ thể: いつから ("từ khi nào"), いつまで ("đến khi nào"), いつごろ ("khoảng khi nào"). いつ không cần trợ từ に sau nó (いつ来ますか không phải いつに).',
@@ -340,7 +340,7 @@ TRANSLATIONS = {
             'vi': 'から ～ まで (từ X đến Y - đánh dấu phạm vi đôi, thời gian hoặc không gian)',
             'id': 'から ～ まで (dari X sampai Y - menandai rentang ganda, waktu atau ruang)',
             'ne': 'から ～ まで (X देखि Y सम्म - दोहोरो सीमा चिन्ह, समय वा स्थान)',
-            'zh': 'から ～ まで（从 X 到 Y — 双重范围标记，时间或空间）',
+            'zh': 'から ～ まで（从 X 到 Y - 双重范围标记，时间或空间）',
         },
         'explanation': {
             'vi': 'Cặp X から Y まで đánh dấu phạm vi đầy đủ trong thời gian (九時から五時まで "từ 9 đến 5 giờ") hoặc không gian (東京から大阪まで "từ Tokyo đến Osaka"). Cả hai trợ từ thường xuất hiện cùng nhau.',
@@ -357,10 +357,10 @@ TRANSLATIONS = {
             'zh': 'か（句末疑问助词）',
         },
         'explanation': {
-            'vi': 'か thêm vào cuối câu để biến nó thành câu hỏi. Trong tiếng Nhật lịch sự (です/ます), không cần dấu chấm hỏi — か đã đủ. (これは本です + か = これは本ですか). Trong văn phong thân mật, dấu hỏi đôi khi đi với か hoặc thay か.',
-            'id': 'か ditambahkan di akhir kalimat untuk menjadikannya pertanyaan. Dalam bahasa Jepang sopan (です/ます), tidak butuh tanda tanya — か sudah cukup. (これは本です + か = これは本ですか). Dalam gaya kasual, tanda tanya kadang menyertai か atau menggantikannya.',
-            'ne': 'か वाक्यको अन्त्यमा जोडेर प्रश्न बनाइन्छ। विनम्र जापानीमा (です/ます), प्रश्न चिन्ह आवश्यक छैन — か पर्याप्त छ। (これは本です + か = これは本ですか)। अनौपचारिक शैलीमा प्रश्न चिन्ह か सँगै वा か को सट्टा आउँछ।',
-            'zh': 'か 加在句末使其成为疑问句。礼貌日语（です/ます）不需问号——か 即可。(これは本です + か = これは本ですか)。口语中问号有时与 か 同用或代替 か。',
+            'vi': 'か thêm vào cuối câu để biến nó thành câu hỏi. Trong tiếng Nhật lịch sự (です/ます), không cần dấu chấm hỏi - か đã đủ. (これは本です + か = これは本ですか). Trong văn phong thân mật, dấu hỏi đôi khi đi với か hoặc thay か.',
+            'id': 'か ditambahkan di akhir kalimat untuk menjadikannya pertanyaan. Dalam bahasa Jepang sopan (です/ます), tidak butuh tanda tanya - か sudah cukup. (これは本です + か = これは本ですか). Dalam gaya kasual, tanda tanya kadang menyertai か atau menggantikannya.',
+            'ne': 'か वाक्यको अन्त्यमा जोडेर प्रश्न बनाइन्छ। विनम्र जापानीमा (です/ます), प्रश्न चिन्ह आवश्यक छैन - か पर्याप्त छ। (これは本です + か = これは本ですか)। अनौपचारिक शैलीमा प्रश्न चिन्ह か सँगै वा か को सट्टा आउँछ।',
+            'zh': 'か 加在句末使其成为疑问句。礼貌日语（です/ます）不需问号--か 即可。(これは本です + か = これは本ですか)。口语中问号有时与 か 同用或代替 か。',
         },
     },
     'n5-024': {
@@ -368,7 +368,7 @@ TRANSLATIONS = {
             'vi': 'か (hoặc - giữa các lựa chọn)',
             'id': 'か (atau - di antara pilihan)',
             'ne': 'か (वा - विकल्पहरूको बीच)',
-            'zh': 'か（或 — 在选项之间）',
+            'zh': 'か（或 - 在选项之间）',
         },
         'explanation': {
             'vi': 'か giữa hai danh từ có nghĩa "hoặc" (パンかミルク "bánh mì hoặc sữa"). Khác với か cuối câu hỏi. Có thể nối nhiều lựa chọn: パンかミルクかコーヒー. Để hỏi "X hay Y?" dùng XかY (どちら)ですか.',
@@ -427,10 +427,10 @@ TRANSLATIONS = {
             'zh': '〜の（属格 / 名词修饰助词）',
         },
         'explanation': {
-            'vi': 'の nối hai danh từ — danh từ đầu mô tả hoặc sở hữu danh từ thứ hai. 私の本 "sách của tôi", 日本の食べ物 "thức ăn Nhật". Tương đương với "của" trong tiếng Việt nhưng dùng phổ quát hơn (không chỉ sở hữu).',
-            'id': 'の menghubungkan dua kata benda — KB pertama menjelaskan atau memiliki KB kedua. 私の本 "buku saya", 日本の食べ物 "makanan Jepang". Setara dengan "punya" di Indonesia tapi dipakai lebih luas (tidak hanya kepemilikan).',
-            'ne': 'の दुई संज्ञा जोड्छ — पहिलो संज्ञाले दोस्रोलाई वर्णन गर्छ वा स्वामित्व जनाउँछ। 私の本 "मेरो किताब", 日本の食べ物 "जापानी खाना"। नेपाली "को" जस्तै तर थप व्यापक।',
-            'zh': 'の 连接两个名词 — 第一个名词修饰或拥有第二个名词。私の本 "我的书"、日本の食べ物 "日本的食物"。类似中文「的」但用法更广。',
+            'vi': 'の nối hai danh từ - danh từ đầu mô tả hoặc sở hữu danh từ thứ hai. 私の本 "sách của tôi", 日本の食べ物 "thức ăn Nhật". Tương đương với "của" trong tiếng Việt nhưng dùng phổ quát hơn (không chỉ sở hữu).',
+            'id': 'の menghubungkan dua kata benda - KB pertama menjelaskan atau memiliki KB kedua. 私の本 "buku saya", 日本の食べ物 "makanan Jepang". Setara dengan "punya" di Indonesia tapi dipakai lebih luas (tidak hanya kepemilikan).',
+            'ne': 'の दुई संज्ञा जोड्छ - पहिलो संज्ञाले दोस्रोलाई वर्णन गर्छ वा स्वामित्व जनाउँछ। 私の本 "मेरो किताब", 日本の食べ物 "जापानी खाना"। नेपाली "को" जस्तै तर थप व्यापक।',
+            'zh': 'の 连接两个名词 - 第一个名词修饰或拥有第二个名词。私の本 "我的书"、日本の食べ物 "日本的食物"。类似中文「的」但用法更广。',
         },
         'l1_notes': {
             'zh': '中文「的」与日语 の 极相似，导致中国学习者容易过度使用 の。但日语形容词不接 の：「红的书」是「赤い本」，不是「赤いの本」。「漂亮的人」是「きれいな人」，不是「きれいなの人」。这是中国学习者最高频的 N5 错误。',
@@ -458,13 +458,13 @@ TRANSLATIONS = {
             'vi': '〜の (danh từ hóa - biến mệnh đề thành danh từ)',
             'id': '〜の (nominalisator - mengubah klausa menjadi kata benda)',
             'ne': '〜の (नामकरण - उपवाक्यलाई संज्ञा बनाउने)',
-            'zh': '〜の（名词化 — 将子句转为名词）',
+            'zh': '〜の（名词化 - 将子句转为名词）',
         },
         'explanation': {
-            'vi': 'の sau dạng từ điển của động từ hoặc tính từ biến cả mệnh đề thành một danh từ ("việc làm X"). 日本語を勉強するのが好きです "tôi thích việc học tiếng Nhật". Khác với の sở hữu — nominalize chuyển toàn bộ động từ thành noun phrase.',
-            'id': 'の setelah bentuk kamus kata kerja atau kata sifat mengubah seluruh klausa menjadi kata benda ("hal melakukan X"). 日本語を勉強するのが好きです "saya suka belajar bahasa Jepang". Berbeda dari の posesif — nominalize mengubah seluruh kata kerja menjadi frasa nomina.',
+            'vi': 'の sau dạng từ điển của động từ hoặc tính từ biến cả mệnh đề thành một danh từ ("việc làm X"). 日本語を勉強するのが好きです "tôi thích việc học tiếng Nhật". Khác với の sở hữu - nominalize chuyển toàn bộ động từ thành noun phrase.',
+            'id': 'の setelah bentuk kamus kata kerja atau kata sifat mengubah seluruh klausa menjadi kata benda ("hal melakukan X"). 日本語を勉強するのが好きです "saya suka belajar bahasa Jepang". Berbeda dari の posesif - nominalize mengubah seluruh kata kerja menjadi frasa nomina.',
             'ne': 'क्रिया वा विशेषणको शब्दकोश रूप पछि の ले उपवाक्यलाई संज्ञामा रूपान्तरण गर्छ ("X गर्ने कुरा")। 日本語を勉強するのが好きです "जापानी भाषा पढ्ने मन पर्छ"। स्वामित्व の सँग फरक।',
-            'zh': '动词或形容词字典形后接 の 将整个子句名词化（"做 X 的事"）。日本語を勉強するのが好きです "我喜欢学日语"。与所有格 の 不同——nominalize 将整个动词转为名词性词组。',
+            'zh': '动词或形容词字典形后接 の 将整个子句名词化（"做 X 的事"）。日本語を勉強するのが好きです "我喜欢学日语"。与所有格 の 不同--nominalize 将整个动词转为名词性词组。',
         },
     },
 }

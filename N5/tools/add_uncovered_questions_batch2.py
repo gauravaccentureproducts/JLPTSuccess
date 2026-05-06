@@ -126,7 +126,7 @@ NEW = [
         "question_ja": "あした、たぶん あめが ふる（  ）。",
         "choices": ["でしょう", "でした", "ですか", "でして"],
         "correct": "でしょう",
-        "explanation": "deshou = probably / I expect (paired with tabun 'probably' in the stem for emphasis). Distractors: deshita (past copula), desu ka (question ending — would change meaning), deshite (te-form, ungrammatical sentence-finally).",
+        "explanation": "deshou = probably / I expect (paired with tabun 'probably' in the stem for emphasis). Distractors: deshita (past copula), desu ka (question ending - would change meaning), deshite (te-form, ungrammatical sentence-finally).",
         "difficulty": 2,
     },
     {
@@ -134,7 +134,7 @@ NEW = [
         "question_ja": "あの ひとは たなか（  ）です。",
         "choices": ["さん", "ちゃん", "くん", "さま"],
         "correct": "さん",
-        "explanation": "san is the standard polite name suffix (Mr./Ms.) for adults in neutral contexts. Distractors: chan (young children / very close friends), kun (young men / juniors), sama (extremely formal — overkill for everyday use).",
+        "explanation": "san is the standard polite name suffix (Mr./Ms.) for adults in neutral contexts. Distractors: chan (young children / very close friends), kun (young men / juniors), sama (extremely formal - overkill for everyday use).",
         "difficulty": 1,
     },
     {
@@ -150,7 +150,7 @@ NEW = [
         "question_ja": "にちようびは ほんを よんだり、おんがくを きいたり（  ）。",
         "choices": ["します", "あります", "います", "なります"],
         "correct": "します",
-        "explanation": "V-tari V-tari + suru = do A and B (among other things). The pattern needs the suru helper at the end to bind the listed activities. Distractors: arimasu/imasu are existence verbs; narimasu is 'become' — none bind tari-listings.",
+        "explanation": "V-tari V-tari + suru = do A and B (among other things). The pattern needs the suru helper at the end to bind the listed activities. Distractors: arimasu/imasu are existence verbs; narimasu is 'become' - none bind tari-listings.",
         "difficulty": 2,
     },
     {
@@ -174,7 +174,7 @@ NEW = [
         "question_ja": "この りょうりは からい（  ）。",
         "choices": ["すぎます", "すぎる", "すぎて", "すぎない"],
         "correct": "すぎます",
-        "explanation": "i-adj-stem (drop い) + sugimasu = too [adj]. karai → kara + sugimasu = 'too spicy'. Wait — actually karai stem is kara-, but the construction is karasugiru. Distractors: sugiru (plain form mid-sentence inappropriate), sugite (te-form), suginai (negative). The polite-finished-sentence form sugimasu fits the deshou-style ending.",
+        "explanation": "i-adj-stem (drop い) + sugimasu = too [adj]. karai → kara + sugimasu = 'too spicy'. Wait - actually karai stem is kara-, but the construction is karasugiru. Distractors: sugiru (plain form mid-sentence inappropriate), sugite (te-form), suginai (negative). The polite-finished-sentence form sugimasu fits the deshou-style ending.",
         "difficulty": 3,
     },
     {
@@ -187,9 +187,9 @@ NEW = [
     },
 ]
 
-# Fix n5-177 — the stem I wrote uses karai (i-adj) and the answer slot
+# Fix n5-177 - the stem I wrote uses karai (i-adj) and the answer slot
 # attaches the suffix to the stem. Re-checking: 'kono ryouri wa karai
-# (sugimasu)' — putting すぎます after the い-form would require dropping
+# (sugimasu)' - putting すぎます after the い-form would require dropping
 # the い: 'kono ryouri wa kara-sugimasu'. So my stem is malformed.
 # Fix: change stem to something cleaner.
 for n in NEW:
@@ -201,7 +201,7 @@ for n in NEW:
             "i-adj-stem (drop い) + sugimasu = too [adj]. omoi → omo + "
             "sugimasu = 'too heavy'. Distractors: sugiru (plain form, "
             "would need different polite-level context), sugite (te-form, "
-            "conjunction not a sentence ender), suginai (negative — would "
+            "conjunction not a sentence ender), suginai (negative - would "
             "mean 'not too heavy' which contradicts the implied complaint)."
         )
 

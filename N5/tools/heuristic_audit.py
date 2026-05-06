@@ -14,30 +14,30 @@ detectable, at $0 and ~50ms.
 
 Issue classes detected:
 
-H1 — STUB_REDIRECT — `notes` field contains internal authoring text
+H1 - STUB_REDIRECT - `notes` field contains internal authoring text
      ("Duplicate-cleanup redirect", "See n5-XXX for", etc.). Equivalent
      to Pass-12 F-12.3 fix in questions.json, applied to grammar.json.
      Caught n5-115 in the LLM validation.
 
-H2 — PATTERN_MISMATCH — none of the pattern's examples contains the
+H2 - PATTERN_MISMATCH - none of the pattern's examples contains the
      pattern field's distinctive token. Caught n5-115 in validation
      (4 of 5 examples didn't have 時).
 
-H3 — REGISTER_MIX — examples mix plain forms (-た / -だ / -る at
+H3 - REGISTER_MIX - examples mix plain forms (-た / -だ / -る at
      end-of-clause) with polite forms (-ました / -ます / -です) within
      one pattern entry. Caught Pass-13 F-13.9 / F-13.10 class.
 
-H4 — EMPTY_TRANSLATION — `translation_en` is empty, "TBD", placeholder,
+H4 - EMPTY_TRANSLATION - `translation_en` is empty, "TBD", placeholder,
      or just whitespace.
 
-H5 — DUPLICATE_EXAMPLES — two examples with byte-identical `ja` field
+H5 - DUPLICATE_EXAMPLES - two examples with byte-identical `ja` field
      within one pattern (auto-gen leak class).
 
-H6 — SCOPE_LEAK_KANJI — examples contain a kanji NOT in
+H6 - SCOPE_LEAK_KANJI - examples contain a kanji NOT in
      `data/n5_kanji_whitelist.json`. Equivalent of JA-13 invariant
      applied per-pattern with a per-finding output.
 
-H7 — META_FIELD_LEAK — any field that looks like internal metadata
+H7 - META_FIELD_LEAK - any field that looks like internal metadata
      ("kosoado_role", "_*" prefix, etc.) is non-empty AND would render
      in the user-facing display. (Conservative check.)
 
@@ -77,7 +77,7 @@ POLITE_END_RE = re.compile(r"(ました|ません|ます|でした|です)[。�
 PLAIN_END_RE = re.compile(r"(?<![ま])(た|だ|る|い)[。！？]?$")  # rough; excludes -ました
 STUB_RE = re.compile(
     # Only the unambiguous auto-gen markers. "See n5-XXX" alone is too loose
-    # — n5-029's `notes` legitimately says "Differentiated from n5-028
+    # - n5-029's `notes` legitimately says "Differentiated from n5-028
     # (possessive sense)..." which is useful content, not stub. We want to
     # catch only the auto-injected boilerplate.
     r"Duplicate-cleanup redirect"
@@ -100,7 +100,7 @@ def is_plain(s: str) -> bool:
     return bool(PLAIN_END_RE.search(s.strip()))
 
 
-# Use explicit Unicode escapes for the tilde-likes — they look identical
+# Use explicit Unicode escapes for the tilde-likes - they look identical
 # but have distinct codepoints (U+301C wave dash, U+FF5E fullwidth tilde,
 # U+007E ASCII tilde, U+223C TILDE OPERATOR). Data uses U+FF5E for ~の,
 # U+301C for some others; both must be treated as separators.
@@ -161,7 +161,7 @@ def audit_one(p: dict, whitelist: set[str]) -> list[dict]:
     pid = p["id"]
     examples = p.get("examples", [])
 
-    # H1 — stub-redirect text in notes (or any text field)
+    # H1 - stub-redirect text in notes (or any text field)
     for field in ("notes", "common_mistakes", "meaning_en"):
         v = p.get(field)
         if isinstance(v, str) and STUB_RE.search(v):
@@ -174,7 +174,7 @@ def audit_one(p: dict, whitelist: set[str]) -> list[dict]:
                 "suggested_fix": "Replace with proper grammar notes or remove the field.",
             })
 
-    # H2 — pattern-mismatch (no example contains ANY of the pattern's
+    # H2 - pattern-mismatch (no example contains ANY of the pattern's
     # distinctive tokens). Slash-families count as one unit: a 4-pronoun
     # pattern is fine if examples cover any subset. Whitespace-insensitive
     # match: examples often have spaces (`じかん が あります`) that are
@@ -199,12 +199,12 @@ def audit_one(p: dict, whitelist: set[str]) -> list[dict]:
                 "suggested_fix": "Author at least 2-3 examples that demonstrate the actual pattern.",
             })
 
-    # H3 — register mix within one pattern
+    # H3 - register mix within one pattern
     if len(examples) >= 2:
         polite_count = sum(1 for ex in examples if is_polite(ex.get("ja", "")))
         plain_count = sum(1 for ex in examples if is_plain(ex.get("ja", "")))
         # Only flag if there's a real mix and the pattern isn't *about* register
-        # (e.g., n5-067 Verb-ta plain past — by definition mixes registers).
+        # (e.g., n5-067 Verb-ta plain past - by definition mixes registers).
         meaning_lc = (p.get("meaning_en") or "").lower()
         register_topical = any(
             kw in meaning_lc
@@ -222,7 +222,7 @@ def audit_one(p: dict, whitelist: set[str]) -> list[dict]:
                 "suggested_fix": "Pick one register; convert all examples to match.",
             })
 
-    # H4 — empty / placeholder translation
+    # H4 - empty / placeholder translation
     for i, ex in enumerate(examples):
         en = ex.get("translation_en", "")
         if not en or en.strip().lower() in ("tbd", "todo", "placeholder", "n/a", "..."):
@@ -235,7 +235,7 @@ def audit_one(p: dict, whitelist: set[str]) -> list[dict]:
                 "suggested_fix": "Author a proper English translation.",
             })
 
-    # H5 — duplicate examples within a pattern
+    # H5 - duplicate examples within a pattern
     seen_ja: dict[str, int] = {}
     for i, ex in enumerate(examples):
         ja = ex.get("ja", "")
@@ -253,7 +253,7 @@ def audit_one(p: dict, whitelist: set[str]) -> list[dict]:
         else:
             seen_ja[ja] = i
 
-    # H6 — kanji scope leak in examples or notes
+    # H6 - kanji scope leak in examples or notes
     for i, ex in enumerate(examples):
         ja = ex.get("ja", "")
         for ch in KANJI_RE.findall(ja):

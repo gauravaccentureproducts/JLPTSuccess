@@ -4,17 +4,17 @@ User stamped Permission decision on Items + Decision (Fix/Avoid) on
 Questions. The user clarified: "Fix response in question means do as
 you recommend." Acting on those:
 
-ITEMS — closing per user's stamp:
+ITEMS - closing per user's stamp:
   ISSUE-043, ISSUE-045, IMP-065, IMP-067    [Allow / Fix]    -> Done (just shipped)
   ISSUE-042                                 [Wait / Fix]     -> Done (policy: ≥10% native-reviewed before badge UI)
   IMP-045/046/047/050/054, IMP-064, IMP-068 [Defer / Fix]    -> Done (deferred per user; tracked in CHANGELOG)
   IMP-053                                   [Defer / Avoid]  -> Avoid (RTL CSS not needed without RTL locale)
   IMP-066                                   [You do this/Fix]-> Done (handed off to user GitHub admin)
 
-QUESTIONS — closing per user's stamp:
+QUESTIONS - closing per user's stamp:
   Q4 Q6 Q8 Q12 Q13 Q17 Q18 Q19 Q22 Q23      [Fix]   -> Done (recommendation accepted)
   Q11 Q15 Q16                               [Avoid] -> Avoid
-  Q14 Q20 Q21                               [Fix]   -> Done (recommendation IMPLEMENTED — translator
+  Q14 Q20 Q21                               [Fix]   -> Done (recommendation IMPLEMENTED - translator
                                                             recruitment, badge policy, build script)
 """
 from __future__ import annotations

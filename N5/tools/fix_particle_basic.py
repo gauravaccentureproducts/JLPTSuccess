@@ -10,12 +10,12 @@ four particle options as grammatically valid. Fixes either:
   (c) tighten the verb / object so semantic ambiguity collapses.
 
 Affected:
-  q-0013  どこ___いきますか — へ/に ambiguous → replace に with から in choices
-  q-0026  わたし___がくせいです (も) — は/も ambiguous → add prior-sentence
-  q-0422  わたし___がくせいです (も) — same bug, different scene to avoid dup
-  q-0016  ともだち___いきました (と) — と/に ambiguous → add destination
-  q-0020  5時___しごとです (まで) — まで/から ambiguous → add 9時から prefix
-  q-0044  ともだち___でんわをしました (に) — に/と ambiguous → use かけました
+  q-0013  どこ___いきますか - へ/に ambiguous → replace に with から in choices
+  q-0026  わたし___がくせいです (も) - は/も ambiguous → add prior-sentence
+  q-0422  わたし___がくせいです (も) - same bug, different scene to avoid dup
+  q-0016  ともだち___いきました (と) - と/に ambiguous → add destination
+  q-0020  5時___しごとです (まで) - まで/から ambiguous → add 9時から prefix
+  q-0044  ともだち___でんわをしました (に) - に/と ambiguous → use かけました
 
 Idempotent: re-running after a fix is a no-op.
 """
@@ -26,7 +26,7 @@ QUESTIONS_PATH = Path(__file__).resolve().parent.parent / 'data' / 'questions.js
 
 FIXES = {
     'q-0013': {
-        # Replace に in distractors with から (which is wrong here — どこから
+        # Replace に in distractors with から (which is wrong here - どこから
         # changes the meaning to "where from"). へ is now uniquely correct
         # for motion destination.
         'question_ja': 'どこ（　）いきますか。',
@@ -48,7 +48,7 @@ FIXES = {
         'distractor_explanations': {
             'は': "は would topicalize 'I' but lose the 'also' meaning. Since 田中さん has already been said to be a student, the natural connector is も ('me too').",
             'が': "が would mark the speaker as the focused / selected subject ('it is I who am the student'), which contradicts the additive context.",
-            'を': "を marks a direct object of a transitive verb. がくせい is a noun predicate, not an object — を doesn't fit.",
+            'を': "を marks a direct object of a transitive verb. がくせい is a noun predicate, not an object - を doesn't fit.",
         },
     },
     'q-0422': {
@@ -60,18 +60,18 @@ FIXES = {
         'distractor_explanations': {
             'は': "は would just topicalize 'I' without the 'also' nuance. The context lists multiple students, so the additive も is what natively connects the speaker to the group.",
             'が': "が would single out the speaker as the focused subject, which clashes with the inclusive context (the prior sentence already names other students).",
-            'を': "を marks a direct object of a transitive verb. がくせい is the noun predicate of a copula sentence — を is grammatically impossible here.",
+            'を': "を marks a direct object of a transitive verb. がくせい is the noun predicate of a copula sentence - を is grammatically impossible here.",
         },
     },
     'q-0016': {
         'question_ja': 'ともだち（　）こうえんへ いきました。',
         'choices': ['に', 'で', 'と', 'を'],
         'correctAnswer': 'と',
-        'explanation_en': "と marks the companion / co-actor of the action. With an explicit destination (こうえんへ), the only natural reading for ともだち___ is 'with my friend'. Without the destination, ともだちに いきました 'went to my friend's place' is also valid — that's why the destination clause is required to disambiguate.",
+        'explanation_en': "と marks the companion / co-actor of the action. With an explicit destination (こうえんへ), the only natural reading for ともだち___ is 'with my friend'. Without the destination, ともだちに いきました 'went to my friend's place' is also valid - that's why the destination clause is required to disambiguate.",
         'distractor_explanations': {
             'に': "に would mark a destination ('went to my friend'), but the destination slot is already filled by こうえんへ. So ともだち__ here must mark the companion, which uses と.",
             'で': "で marks location of action or means/instrument. It does not fit a person performing the action together with the speaker.",
-            'を': "を marks a direct object (or path with motion verbs). A person who joins the action is not a direct object — use と.",
+            'を': "を marks a direct object (or path with motion verbs). A person who joins the action is not a direct object - use と.",
         },
     },
     'q-0020': {
@@ -81,7 +81,7 @@ FIXES = {
         'correctAnswer': 'まで',
         'explanation_en': "まで marks the end-point of a range (time or place). Paired with から ('from'), the structure 〜から 〜まで expresses 'from X until Y'. The prior sentence already supplies 9時から ('from 9'); the blank requires the matching まで for 'until 5'.",
         'distractor_explanations': {
-            'から': "から means 'from'. The prior sentence already established 9時から, so the missing piece is the end-point — まで.",
+            'から': "から means 'from'. The prior sentence already established 9時から, so the missing piece is the end-point - まで.",
             'に': "に marks a single point in time (e.g., 5時に おきます = 'wake up at 5'). It does not pair with から to express a range.",
             'で': "で marks location of action or means. It does not mark a time end-point.",
         },
@@ -90,11 +90,11 @@ FIXES = {
         'question_ja': 'ともだち（　）でんわを かけました。',
         'choices': ['を', 'に', 'で', 'と'],
         'correctAnswer': 'に',
-        'explanation_en': "でんわを かける ('to make / place a phone call') takes に for the recipient — the person being called. Note: でんわを する (a more general verb) can take と for 'phone-talk with', so the verb was changed to かけました to lock the answer to に.",
+        'explanation_en': "でんわを かける ('to make / place a phone call') takes に for the recipient - the person being called. Note: でんわを する (a more general verb) can take と for 'phone-talk with', so the verb was changed to かけました to lock the answer to に.",
         'distractor_explanations': {
-            'を': "を marks the direct object — but でんわを is already filling that slot. The recipient of かける takes a separate particle (に).",
+            'を': "を marks the direct object - but でんわを is already filling that slot. The recipient of かける takes a separate particle (に).",
             'で': "で marks location of action or means/instrument. It cannot mark the recipient of a phone call.",
-            'と': "と would mean 'phoned WITH (i.e., talked together)' — that nuance pairs with でんわを する, not かける. Since the verb is かけました ('made a call'), the recipient takes に.",
+            'と': "と would mean 'phoned WITH (i.e., talked together)' - that nuance pairs with でんわを する, not かける. Since the verb is かけました ('made a call'), the recipient takes に.",
         },
     },
 }

@@ -884,7 +884,7 @@ Re-rendered 49 affected MP3s (the ones whose source `ja` contained at least one 
 
 ---
 
-## Pass 11 — Sample audit (2026-04-30, ~30% surface)
+## Pass 11 - Sample audit (2026-04-30, ~30% surface)
 
 **Audit perspective:** Pass-11 reviewer (per `feedback/native-teacher-review-request.md`) sampled `data/grammar.json` (~30 patterns of 187), `data/reading.json` (8 of 30 passages), `data/listening.json` (items 1-6 of 12), `data/questions.json` (sweep across 250), plus spot-checks on `data/vocab.json` and `data/kanji.json`. Full deep-audit deferred to 2026-07-30 quarterly gate.
 
@@ -892,8 +892,8 @@ Re-rendered 49 affected MP3s (the ones whose source `ja` contained at least one 
 
 ### 11.1 CRITICAL applied (2)
 
-- **F-11.1** `data/grammar.json` — 6 patterns had stub-redirect text in `meaning_en` ("(see n5-XXX for full content)"); learners saw the redirect verbatim. Replaced with proper meaning text.
-- **F-11.2** `data/questions.json` — 2 questions had two grammatically-correct answers (から/ので class). Distractor regenerated.
+- **F-11.1** `data/grammar.json` - 6 patterns had stub-redirect text in `meaning_en` ("(see n5-XXX for full content)"); learners saw the redirect verbatim. Replaced with proper meaning text.
+- **F-11.2** `data/questions.json` - 2 questions had two grammatically-correct answers (から/ので class). Distractor regenerated.
 
 ### 11.2 HIGH applied (8)
 
@@ -922,13 +922,13 @@ Calendar reminder scheduled: cron `0 9 30 1,4,7,10 *`, next run 2026-07-30 09:00
 
 ---
 
-## Pass 12 — Native-teacher re-audit (2026-04-30)
+## Pass 12 - Native-teacher re-audit (2026-04-30)
 
 **Audit perspective:** Re-audit of `data/grammar.json` (50 new patterns sampled), `data/reading.json` (8 additional passages), `data/questions.json` (sweep across all 250) and `data/kanji.json` (full schema audit). Surfaced ~56 systemic issues (3 CRITICAL clusters, 1 HIGH, 2 MEDIUM systemic, 4 LOW individual) that automation alone couldn't catch.
 
-### 12.1 CRITICAL systemic clusters (3) — all applied
+### 12.1 CRITICAL systemic clusters (3) - all applied
 
-- **F-12.1** `data/questions.json` q-0232/q-0233 — both plain (のむ/たべる) AND polite (のみます/たべます) as options for English-only stems. Replaced polite distractor with te-form distractor.
+- **F-12.1** `data/questions.json` q-0232/q-0233 - both plain (のむ/たべる) AND polite (のみます/たべます) as options for English-only stems. Replaced polite distractor with te-form distractor.
 - **F-12.2** q-0220, q-0223, q-0280 had a duplicate option each (ません x2; ました x2; が x2). Replaced duplicates.
 - **F-12.3** 40 questions (q-0280, q-0282, …, q-0399) had literal "(see n5-XXX for full content)" in `question_ja` from the Pass-11 stub-pattern era. Stripped redirect text + replaced with actual first example from canonical pattern.
 
@@ -936,12 +936,12 @@ Calendar reminder scheduled: cron `0 9 30 1,4,7,10 *`, next run 2026-07-30 09:00
 
 - **F-12.4** `data/listening.json` n5.listen.009 broken bracket header: 「（しちゃくが しらない人に きく とき）」 → 「（知らない人に 時間を 聞く とき）」.
 
-### 12.3 MEDIUM systemic (2) — both applied
+### 12.3 MEDIUM systemic (2) - both applied
 
-- **F-12.5** `data/kanji.json` — 10 entries (二, 七, 分, 見, 聞, 入, 立, 休, 高, 白) had duplicate readings within their on/kun arrays. Deduplicated, preserving order.
+- **F-12.5** `data/kanji.json` - 10 entries (二, 七, 分, 見, 聞, 入, 立, 休, 高, 白) had duplicate readings within their on/kun arrays. Deduplicated, preserving order.
 - **F-12.6** Pattern-A + Pattern-E sweep across runtime data: 27 fixes in `data/` (mixed-kanji-kana 「時かん」→「時間」, yen amounts without commas), 2 in `KnowledgeBank/externally_sourced_n5.md` (Q111, Q162). Total 29 fixes.
 
-### 12.4 LOW individual (4) — all applied
+### 12.4 LOW individual (4) - all applied
 
 - F-12.7: grammar.json n5-008 ex[1] translation cleaned
 - F-12.8: grammar.json n5-103 ex[0] translation softened + new Common Mistake added (capability vs completion senses)
@@ -950,8 +950,8 @@ Calendar reminder scheduled: cron `0 9 30 1,4,7,10 *`, next run 2026-07-30 09:00
 
 ### 12.5 New CI invariants added in Pass 12
 
-- **JA-10** "No (see n5-) redirect text in user-facing data" — walks all data/*.json files, checks 16 learner-facing field names, exempts `notes`. PASS after F-12.3 fixes.
-- **JA-11** "No duplicate MCQ choices" — walks `data/questions.json`, fails build if any `choices` array has duplicates. PASS after F-12.2 fixes.
+- **JA-10** "No (see n5-) redirect text in user-facing data" - walks all data/*.json files, checks 16 learner-facing field names, exempts `notes`. PASS after F-12.3 fixes.
+- **JA-11** "No duplicate MCQ choices" - walks `data/questions.json`, fails build if any `choices` array has duplicates. PASS after F-12.2 fixes.
 
 | Pass 12 | Findings | Fixed | Open |
 |---|---|---|---|
@@ -963,32 +963,32 @@ Calendar reminder scheduled: cron `0 9 30 1,4,7,10 *`, next run 2026-07-30 09:00
 
 ---
 
-## Pass 13 — Native-teacher accuracy + data-pipeline corruption (2026-04-30)
+## Pass 13 - Native-teacher accuracy + data-pipeline corruption (2026-04-30)
 
 **Audit perspective:** Fresh native-speaker audit specifically targeting Japanese language teaching accuracy across `data/` and `KnowledgeBank/`. Read 60 grammar patterns end-to-end + all 30 reading passages + sampled vocab/kanji. **Discovered data-pipeline corruption bugs that prior automated sweeps couldn't catch.**
 
 ### 13.1 CRITICAL data-pipeline corruption (4)
 
-- **F-13.1** `data/kanji.json` 番 had `on=['ごう']` — that's the on-yomi of 号, not 番. Cross-contamination during JSON extraction. Plus `meanings` was comma-split into a broken array. Corrected to `on=['ばん'], kun=[], meanings=['number', 'turn']`.
-- **F-13.2** `data/kanji.json` 会 had `on=['いん']` — that's 員's on-yomi, not 会. Same cross-contamination class. Corrected to `on=['かい', 'え'], kun=['あ'], meanings=['meeting', 'association']`.
-- **F-13.3** `data/kanji.json` 円 still had `kun=['まる']` despite Pass-9 L-4.2 explicitly removing it from `KnowledgeBank/kanji_n5.md`. Cross-file consistency regression — JSON not regenerated after KB fix. Removed まる kun; simplified `meanings=['yen']`.
-- **F-13.4** `data/kanji.json` 生 had `meanings=['life', 'birth (primary N5 use: in compounds like 学生', '先生)']` — comma-in-parenthetical broke meanings into 3 fragments. Cleaned to `meanings=['life', 'birth']`.
+- **F-13.1** `data/kanji.json` 番 had `on=['ごう']` - that's the on-yomi of 号, not 番. Cross-contamination during JSON extraction. Plus `meanings` was comma-split into a broken array. Corrected to `on=['ばん'], kun=[], meanings=['number', 'turn']`.
+- **F-13.2** `data/kanji.json` 会 had `on=['いん']` - that's 員's on-yomi, not 会. Same cross-contamination class. Corrected to `on=['かい', 'え'], kun=['あ'], meanings=['meeting', 'association']`.
+- **F-13.3** `data/kanji.json` 円 still had `kun=['まる']` despite Pass-9 L-4.2 explicitly removing it from `KnowledgeBank/kanji_n5.md`. Cross-file consistency regression - JSON not regenerated after KB fix. Removed まる kun; simplified `meanings=['yen']`.
+- **F-13.4** `data/kanji.json` 生 had `meanings=['life', 'birth (primary N5 use: in compounds like 学生', '先生)']` - comma-in-parenthetical broke meanings into 3 fragments. Cleaned to `meanings=['life', 'birth']`.
 
 ### 13.2 HIGH grammar-pattern corrections (3)
 
-- **F-13.5** `n5-022` (や particle) ex[2] read 「なにや なにを かいましたか」 — unnatural. Replaced with 「やさいや くだものを 買いました。」.
+- **F-13.5** `n5-022` (や particle) ex[2] read 「なにや なにを かいましたか」 - unnatural. Replaced with 「やさいや くだものを 買いました。」.
 - **F-13.6** `n5-076`: pattern name was 「Verb-から」 but content discusses 「Verb-てから」. Renamed pattern field.
 - **F-13.7** `n5-160`: pattern name 「Noun + の + あとで」 but second example used Verb-た+あとで which belongs to n5-163. Removed mismatched examples; added clean Noun+の+あとで example.
 
-### 13.3 MEDIUM register/orthography (6) + LOW (1) — all applied
+### 13.3 MEDIUM register/orthography (6) + LOW (1) - all applied
 
-- F-13.8 — `n5-091` standardised on 「友だち」 (one form per pattern)
-- F-13.9 — `n5-127` standardised to all-polite register
-- F-13.10 — `n5-082` plain-form past-negative in polite-pattern context fixed
-- F-13.11 — reading.json n5.read.010 bare numbers without counters: 「つくえが 25こ あります。」
-- F-13.12 — n5.read.024 「日本ご」 (mixed) → 「日本語」 (語 is N5)
-- F-13.13 — n5.read.029 「なつ休み」 → 「夏休み」 + 「30どより 上です」 → 「30度より 高いです」
-- F-13.14 (LOW) — n5.read.005 「父は きょうしで」 → 「父は 先生で」 (more natural conversational register)
+- F-13.8 - `n5-091` standardised on 「友だち」 (one form per pattern)
+- F-13.9 - `n5-127` standardised to all-polite register
+- F-13.10 - `n5-082` plain-form past-negative in polite-pattern context fixed
+- F-13.11 - reading.json n5.read.010 bare numbers without counters: 「つくえが 25こ あります。」
+- F-13.12 - n5.read.024 「日本ご」 (mixed) → 「日本語」 (語 is N5)
+- F-13.13 - n5.read.029 「なつ休み」 → 「夏休み」 + 「30どより 上です」 → 「30度より 高いです」
+- F-13.14 (LOW) - n5.read.005 「父は きょうしで」 → 「父は 先生で」 (more natural conversational register)
 
 ### 13.4 Build-pipeline root cause + permanent fix
 
@@ -1001,7 +1001,7 @@ Both fixed; `data/kanji.json` regenerated (97 → 106 entries; **recovered 9 mis
 
 ### 13.5 New CI invariant added in Pass 13.5
 
-- **JA-12** "Kanji KB / JSON consistency" — walks `data/kanji.json`, asserts every entry's `glyph` is also in `KnowledgeBank/kanji_n5.md`. Catches future KB↔JSON drift.
+- **JA-12** "Kanji KB / JSON consistency" - walks `data/kanji.json`, asserts every entry's `glyph` is also in `KnowledgeBank/kanji_n5.md`. Catches future KB↔JSON drift.
 
 ### 13.6 Architectural decision: auto-furigana removed
 
@@ -1011,8 +1011,8 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 - `js/furigana.js` rewritten to render in-scope N5 kanji as plain `<span class="kanji-glyph">` and out-of-scope kanji as `<ruby>kanji<rt>?</rt></ruby>` (visible flag for content authors).
 - Explicit per-word `furigana: [{word, reading}, ...]` arrays in JSON are now ignored (parameter renamed to `_explicitFurigana`).
 - New invariants:
-  - **JA-13** "No out-of-scope kanji in user-facing data" — every user-facing field across `data/*.json` contains only kanji in `data/n5_kanji_whitelist.json`. Forces content authors to use kana for any out-of-scope word.
-  - **JA-14** "No auto-ruby code in renderer" — greps `js/furigana.js` for `readings[ch].primary` etc. as a regression guard.
+  - **JA-13** "No out-of-scope kanji in user-facing data" - every user-facing field across `data/*.json` contains only kanji in `data/n5_kanji_whitelist.json`. Forces content authors to use kana for any out-of-scope word.
+  - **JA-14** "No auto-ruby code in renderer" - greps `js/furigana.js` for `readings[ch].primary` etc. as a regression guard.
 
 | Pass 13 | Findings | Fixed | Open |
 |---|---|---|---|
@@ -1026,7 +1026,7 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 
 ---
 
-## Pass 14 — Data-correction brief, CRITICAL/HIGH batch (2026-04-30)
+## Pass 14 - Data-correction brief, CRITICAL/HIGH batch (2026-04-30)
 
 **Audit perspective:** External brief at `feedback/jlpt-n5-data-correction-brief.md` from a senior 日本語教師, raising 35 actionable items across CRITICAL/HIGH/MEDIUM/LOW. Pass 14 applies the CRITICAL + HIGH subset; Pass 14b follows up with HIGH/MEDIUM batch.
 
@@ -1037,15 +1037,15 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 - §1.1 `n5_kanji_readings.json#会` wrong on-yomi
 - §1.2 `n5_kanji_readings.json#番` wrong on-yomi
 - §1.3 `n5_kanji_readings.json` missing entries for 4 whitelist kanji (号/員/社/私)
-- §1.4 `grammar.json` n5-184/185/186/187 share copy-pasted examples — distinct examples authored
+- §1.4 `grammar.json` n5-184/185/186/187 share copy-pasted examples - distinct examples authored
 - §1.6 `grammar.json#n5-091` (います) bad example sentence
 
 ### 14.2 HIGH applied (5)
 
 - §1.5 `grammar.json#n5-031` pattern label says "informal question marker" but examples are polite-form
-- §1.7 `listening.json#n5.listen.007` script uses N4 grammar (〜し, 〜すぎる) — rewritten to N5-only
-- §1.8 / §1.9 / §1.10 reading + listening passages with kanji outside N5 whitelist — substituted with kana
-- §2.8 `listening.json#n5.listen.011` prompt and answer text overlap — N4 passive すすめられました replaced with N5 すすめました
+- §1.7 `listening.json#n5.listen.007` script uses N4 grammar (〜し, 〜すぎる) - rewritten to N5-only
+- §1.8 / §1.9 / §1.10 reading + listening passages with kanji outside N5 whitelist - substituted with kana
+- §2.8 `listening.json#n5.listen.011` prompt and answer text overlap - N4 passive すすめられました replaced with N5 すすめました
 - §2.9 `grammar.json` counter rule mixing in n5-110
 
 ### 14.3 MEDIUM applied (1)
@@ -1061,7 +1061,7 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 
 ---
 
-## Pass 14b — Data-correction brief, HIGH/MEDIUM follow-up (2026-04-30)
+## Pass 14b - Data-correction brief, HIGH/MEDIUM follow-up (2026-04-30)
 
 **Audit perspective:** Continuation of Pass 14, applying the next 6 items from the brief (HIGH + MEDIUM tier).
 
@@ -1073,9 +1073,9 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 
 ### 14b.2 MEDIUM applied (3)
 
-- §3.2 `grammar.json#n5-185/186/187` — added contrast/notes section explaining どこへも vs どこにも
-- §3.3 `vocab.json` — readings missing on 794 hiragana-form entries; set `reading = form` defensively in build_data.py for hiragana-only entries
-- §3.4 `vocab.json` — gloss for かれ / かのじょ rewritten (was misleading)
+- §3.2 `grammar.json#n5-185/186/187` - added contrast/notes section explaining どこへも vs どこにも
+- §3.3 `vocab.json` - readings missing on 794 hiragana-form entries; set `reading = form` defensively in build_data.py for hiragana-only entries
+- §3.4 `vocab.json` - gloss for かれ / かのじょ rewritten (was misleading)
 
 ### 14b.3 Build-pipeline hardening
 
@@ -1091,14 +1091,14 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 
 ---
 
-## Pass 14c — Low-effort backlog batch (2026-04-30 → 2026-05-01)
+## Pass 14c - Low-effort backlog batch (2026-04-30 → 2026-05-01)
 
 **Audit perspective:** Sweep of 6 lowest-effort items from the data-correction brief deferral list and tooling backlog. Triggered by user direction "fix all of them one by one, starting with low-effort first".
 
 ### 14c.1 Items applied (6)
 
 - **§4.2 audio_manifest voice metadata flag.** Top-level `voice_default = "synthetic-gtts"`; per-item `voice` stamped on all 631 entries. `tools/build_audio.py` now skips items marked `voice: "native"` so externally recorded items are never synthesised over. Unblocks the OQ-2 listening-corpus expansion plan.
-- **Dead CSS cleanup.** Removed `.hero-stats`, `.trust-strip`, and nested rules — orphaned after v1.6.1 copy audit removed those DOM elements. ~28 lines.
+- **Dead CSS cleanup.** Removed `.hero-stats`, `.trust-strip`, and nested rules - orphaned after v1.6.1 copy audit removed those DOM elements. ~28 lines.
 - **§3.10 何 primary reading.** `なに` → `なん`. Across N5 vocab (何時/何曜日/何月/何日/何人), `なん` dominates. Updated `tools/build_data.py` PASS10_PRIMARY_OVERRIDES *and* the JSON file so source and generated stay in sync. (Note: `primary` field is unused at runtime since Pass 13 auto-furigana removal.)
 - **§4.3 questions.json half-width parens.** q-0028/q-0029/q-0032/q-0049 stage-direction `(...)` converted to `（...）`. Sweep targeted `question_ja` only and only outermost wrappers containing JA chars.
 - **§4.5 listening の-linker.** `n5.listen.005` got `requires_patterns: ["n5-030"]` + `_curriculum_note` documenting the nominalising-の dependency. Future curriculum-prerequisite enforcer can read this.
@@ -1106,7 +1106,7 @@ Pass-13 native-speaker review found auto-generated ruby was producing wrong read
 
 ### 14c.2 New CI invariant added in Pass 14c
 
-- **JA-15** "Audio refs resolve to files on disk" — walks `data/audio_manifest.json`, normalises Windows-style backslashes, checks file existence. PASS on current corpus.
+- **JA-15** "Audio refs resolve to files on disk" - walks `data/audio_manifest.json`, normalises Windows-style backslashes, checks file existence. PASS on current corpus.
 
 | Pass 14c | Findings | Fixed | Open |
 |---|---|---|---|
@@ -1133,15 +1133,15 @@ CI invariant count: 9 (Pass 1-10) → 11 (Pass 12 + JA-10/11) → 12 (Pass 13 + 
 
 ---
 
-## Pass 15a — Free heuristic audit on all 187 patterns (2026-05-01)
+## Pass 15a - Free heuristic audit on all 187 patterns (2026-05-01)
 
-**Audit perspective:** Per the EB-2 automation analysis (which proposed an LLM-based audit at ~$11.50/pass), this Pass executes a **free** alternative: a Python heuristic scanner (`tools/heuristic_audit.py`) that catches the *same classes of issues* the LLM caught in the 5-pattern validation experiment, applied to all 187 patterns. Heuristic-only — no LLM judgment, just deterministic checks for the issue classes that surfaced in the validation.
+**Audit perspective:** Per the EB-2 automation analysis (which proposed an LLM-based audit at ~$11.50/pass), this Pass executes a **free** alternative: a Python heuristic scanner (`tools/heuristic_audit.py`) that catches the *same classes of issues* the LLM caught in the 5-pattern validation experiment, applied to all 187 patterns. Heuristic-only - no LLM judgment, just deterministic checks for the issue classes that surfaced in the validation.
 
 **Issue classes detected:**
-- **H1** STUB_REDIRECT — `notes` field contains internal authoring text ("Duplicate-cleanup redirect", "Examples inlined from canonical pattern", "primary discussion of this pattern"). Same class as Pass-12 F-12.3 fixed for `data/questions.json`.
-- **H2** PATTERN_MISMATCH — none of the pattern's examples contains any token from the pattern field (whitespace-insensitive substring match against any of the slash-split tokens).
-- **H3** REGISTER_MIX — examples mix plain (-た/-だ/-る) and polite (-ました/-ます/-です) forms within one pattern, AND the pattern isn't topically about register.
-- **H4** EMPTY_TRANSLATION, **H5** DUPLICATE_EXAMPLES, **H6** SCOPE_LEAK_KANJI, **H7** META_FIELD_LEAK — additional checks; current corpus had 0 findings of these classes.
+- **H1** STUB_REDIRECT - `notes` field contains internal authoring text ("Duplicate-cleanup redirect", "Examples inlined from canonical pattern", "primary discussion of this pattern"). Same class as Pass-12 F-12.3 fixed for `data/questions.json`.
+- **H2** PATTERN_MISMATCH - none of the pattern's examples contains any token from the pattern field (whitespace-insensitive substring match against any of the slash-split tokens).
+- **H3** REGISTER_MIX - examples mix plain (-た/-だ/-る) and polite (-ました/-ます/-です) forms within one pattern, AND the pattern isn't topically about register.
+- **H4** EMPTY_TRANSLATION, **H5** DUPLICATE_EXAMPLES, **H6** SCOPE_LEAK_KANJI, **H7** META_FIELD_LEAK - additional checks; current corpus had 0 findings of these classes.
 
 **Run cost:** $0, ~50ms wall-clock. The heuristic catches the same issue classes as the LLM-audit prototype caught in the 5-pattern validation but at zero marginal cost and full 187-pattern coverage.
 
@@ -1150,7 +1150,7 @@ CI invariant count: 9 (Pass 1-10) → 11 (Pass 12 + JA-10/11) → 12 (Pass 13 + 
 | Rule | Severity | Count | Real / heuristic-noise |
 |---|---|---|---|
 | H1 STUB_REDIRECT | MEDIUM | 39 | 38 real, 1 false-positive (n5-029 had legitimate "Differentiated from n5-028..." content) |
-| H2 PATTERN_MISMATCH | HIGH | 11 | 5 real, 6 false-positives (verb-conjugation forms — examples use なりました vs pattern-cited なります, etc.) |
+| H2 PATTERN_MISMATCH | HIGH | 11 | 5 real, 6 false-positives (verb-conjugation forms - examples use なりました vs pattern-cited なります, etc.) |
 | H3 REGISTER_MIX | MEDIUM | 10 | 2 real, 8 false-positives (patterns about other topics where mixed registers in examples are natural variety) |
 | **Total** | | **60** | **45 real / 15 false-positives = 75% precision** |
 
@@ -1158,7 +1158,7 @@ CI invariant count: 9 (Pass 1-10) → 11 (Pass 12 + JA-10/11) → 12 (Pass 13 + 
 
 Two iterations narrowed false positives:
 - H1 STUB_RE tightened: only flag the unambiguous auto-gen markers ("Duplicate-cleanup redirect", "inlined from canonical pattern", "primary discussion of this pattern"). The earlier broader regex caught n5-029's legitimate "See n5-028" cross-reference.
-- H2 split regex extended to include FULLWIDTH SLASH (U+FF0F), FULLWIDTH TILDE (U+FF5E) explicitly — previously only matched ASCII `/` and U+301C wave dash, missing the half of patterns that use the fullwidth variants. Plus `+` separator and parens.
+- H2 split regex extended to include FULLWIDTH SLASH (U+FF0F), FULLWIDTH TILDE (U+FF5E) explicitly - previously only matched ASCII `/` and U+301C wave dash, missing the half of patterns that use the fullwidth variants. Plus `+` separator and parens.
 - H2 substring match now whitespace-insensitive on both pattern token and example (`じかん が あります` matches token `があります`).
 
 After tightening: 60 findings down from 79. Remaining 15 false-positives are real heuristic limitations (verb-conjugation forms; non-register-topical patterns with mixed examples) that an LLM audit would handle better.
@@ -1178,16 +1178,16 @@ After tightening: 60 findings down from 79. Remaining 15 false-positives are rea
 - **n5-175** (〜なきゃいけない common spoken): ex[0] formerly identical. Replaced with `はやく かえらなきゃ いけない` to demonstrate the contraction.
 
 **H3 register normalisation (2 patterns):**
-- **n5-105** (Verb-stem + たくないです — *don't want to*, polite): ex[1] `なにも たべたくない` (plain) → `なにも たべたくないです` (polite, matching the pattern's register).
-- **n5-106** (Noun + が ほしいです — *want a noun*, polite): ex[1] `おかねが ほしい` (plain) → `おかねが ほしいです`.
+- **n5-105** (Verb-stem + たくないです - *don't want to*, polite): ex[1] `なにも たべたくない` (plain) → `なにも たべたくないです` (polite, matching the pattern's register).
+- **n5-106** (Noun + が ほしいです - *want a noun*, polite): ex[1] `おかねが ほしい` (plain) → `おかねが ほしいです`.
 
 ### 15a.4 Findings deferred to true Pass-15
 
-**H2 deferred (2 patterns)** — n5-102 / n5-140 (〜が わかります — *understand*): both have examples like 「日本語が すこし わかります」 — DOES demonstrate the pattern, but the heuristic flags because of intervening words. Real authoring quality issue: 1-2 examples should show the bare 〜が わかります construction without modifiers (e.g., 「えいごが わかります」 / 「もんだいが わかりません」). **Deferred to native review.**
+**H2 deferred (2 patterns)** - n5-102 / n5-140 (〜が わかります - *understand*): both have examples like 「日本語が すこし わかります」 - DOES demonstrate the pattern, but the heuristic flags because of intervening words. Real authoring quality issue: 1-2 examples should show the bare 〜が わかります construction without modifiers (e.g., 「えいごが わかります」 / 「もんだいが わかりません」). **Deferred to native review.**
 
-**H2 false positives (4 patterns)** — n5-113, 143, 176, 177: all use the verb in a conjugated form (なります→なりました, すぎる→すぎます) that the substring-match heuristic doesn't follow. Not actually a data issue. **Heuristic limitation; no fix needed.**
+**H2 false positives (4 patterns)** - n5-113, 143, 176, 177: all use the verb in a conjugated form (なります→なりました, すぎる→すぎます) that the substring-match heuristic doesn't follow. Not actually a data issue. **Heuristic limitation; no fix needed.**
 
-**H3 false positives (8 patterns)** — n5-004, 009, 014, 038, 039, 044, 108, 110: patterns about a non-register topic (を particle, から conjunction, demonstratives, counters) with mixed-register examples. Mix is natural variety, not a flaw. **Heuristic limitation; no fix needed.**
+**H3 false positives (8 patterns)** - n5-004, 009, 014, 038, 039, 044, 108, 110: patterns about a non-register topic (を particle, から conjunction, demonstratives, counters) with mixed-register examples. Mix is natural variety, not a flaw. **Heuristic limitation; no fix needed.**
 
 ### 15a.5 Heuristic precision at this corpus state
 
@@ -1230,4 +1230,4 @@ CI invariant count unchanged (still 25). Pass 15a was a content/data pass, not a
 
 ---
 
-Open audit surface as of 2026-05-01 (post Pass-15a): the H2 deferrals (n5-102, n5-140), 21 reading passages, 591 KB question entries — deferred to **2026-07-30 quarterly Pass-15-true gate** for native or LLM-judgment review. See `feedback/native-teacher-review-request.md` for the full prioritised P1-P14 audit plan and `feedback/llm-audit-validation-report.md` for the LLM-audit pipeline that will replace ~80% of native-review work.
+Open audit surface as of 2026-05-01 (post Pass-15a): the H2 deferrals (n5-102, n5-140), 21 reading passages, 591 KB question entries - deferred to **2026-07-30 quarterly Pass-15-true gate** for native or LLM-judgment review. See `feedback/native-teacher-review-request.md` for the full prioritised P1-P14 audit plan and `feedback/llm-audit-validation-report.md` for the LLM-audit pipeline that will replace ~80% of native-review work.

@@ -4,23 +4,23 @@ that mirror the catalog).
 
 What this script does:
 
-  1. data/kanji.json — sync 後 kun ordering with kanji_n5.md.
+  1. data/kanji.json - sync 後 kun ordering with kanji_n5.md.
      入 was already in sync. No JSON-level scope-flag mirror needed
      (the [N4+] notes are MD-only annotations).
 
-  2. data/n5_kanji_readings.json — sync 後 kun ordering same.
+  2. data/n5_kanji_readings.json - sync 後 kun ordering same.
 
-  3. data/grammar.json — n5-131 (もらう):
+  3. data/grammar.json - n5-131 (もらう):
      pattern field "～に～をもらいます" → "～に / から ～をもらいます"
      meaning_en clarified to mention both particles
      form_rules note about source-marker alternation
      (The from-source example already exists; only labeling lags.)
 
-  4. data/grammar.json — add new pattern n5-188:
+  4. data/grammar.json - add new pattern n5-188:
      Verb (plain dictionary) + ことができる (productive can-do form)
      With 3 examples, common_mistakes, full schema mirroring n5-103.
 
-  5. data/questions.json — add q-0579 covering n5-188 (DEFER-1
+  5. data/questions.json - add q-0579 covering n5-188 (DEFER-1
      100% coverage maintained: 178 patterns / 178 with questions).
      Also add q-0580 for variety (negative form). Refresh _meta.
 
@@ -76,7 +76,7 @@ def sync_ato_kun() -> None:
 
 
 # =====================================================================
-# 3. n5-131 もらう — update pattern label + meaning_en
+# 3. n5-131 もらう - update pattern label + meaning_en
 # =====================================================================
 def update_morau() -> None:
     p = ROOT / 'data' / 'grammar.json'

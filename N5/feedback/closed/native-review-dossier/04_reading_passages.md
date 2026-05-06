@@ -1,10 +1,10 @@
-# 04 — Reading passages (30 dokkai)
+# 04 - Reading passages (30 dokkai)
 
 Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 rewrites (esp. §1.4, §1.5, §2.1) need fresh native eyes.
 
 ---
 
-## `n5.read.001` — じこしょうかい
+## `n5.read.001` - じこしょうかい
 
 - **level:** easy
 - **topic:** self-introduction
@@ -24,7 +24,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] とうきょうの こうこう
   - [ ] うち
 
-## `n5.read.002` — まいにちの せいかつ
+## `n5.read.002` - まいにちの せいかつ
 
 - **level:** easy
 - **topic:** daily routine
@@ -49,7 +49,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] テレビを 見ます
   - [ ] あるきます
 
-## `n5.read.003` — しゅうまつの よてい
+## `n5.read.003` - しゅうまつの よてい
 
 - **level:** easy
 - **topic:** weekend plan
@@ -69,7 +69,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] 本を よみます
   - [ ] うちに かえります
 
-## `n5.read.004` — コンビニで
+## `n5.read.004` - コンビニで
 
 - **level:** medium
 - **topic:** shopping
@@ -89,7 +89,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] 350円
   - [ ] 500円
 
-## `n5.read.005` — わたしの かぞく
+## `n5.read.005` - わたしの かぞく
 
 - **level:** medium
 - **topic:** family
@@ -114,7 +114,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] 大学生
   - [✓] こうこうせい
 
-## `n5.read.006` — きょうの てんき
+## `n5.read.006` - きょうの てんき
 
 - **level:** medium
 - **topic:** weather
@@ -134,7 +134,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] ゆきが ふっていました
   - [ ] くもりでした
 
-## `n5.read.007` — としょかんの おしらせ
+## `n5.read.007` - としょかんの おしらせ
 
 - **level:** info-search
 - **topic:** schedule
@@ -158,7 +158,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] 1かげつ
   - [ ] 2かげつ
 
-## `n5.read.008` — 学校へ
+## `n5.read.008` - 学校へ
 
 - **level:** medium
 - **topic:** transport
@@ -178,7 +178,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] あるいて
   - [ ] じてんしゃで
 
-## `n5.read.009` — わたしの しゅみ
+## `n5.read.009` - わたしの しゅみ
 
 - **level:** easy
 - **topic:** hobby
@@ -198,7 +198,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] やすみます
   - [ ] テレビを 見ます
 
-## `n5.read.010` — わたしの きょうしつ
+## `n5.read.010` - わたしの きょうしつ
 
 - **level:** easy
 - **topic:** school
@@ -218,7 +218,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] こうえん
   - [ ] がっこう
 
-## `n5.read.011` — きょうの ひるごはん
+## `n5.read.011` - きょうの ひるごはん
 
 - **level:** easy
 - **topic:** food
@@ -238,7 +238,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] おいしかった
   - [ ] やすかった
 
-## `n5.read.012` — 本やで
+## `n5.read.012` - 本やで
 
 - **level:** easy
 - **topic:** shopping
@@ -258,7 +258,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] やすかった
   - [ ] たかかった
 
-## `n5.read.013` — きょうとへの りょこう
+## `n5.read.013` - きょうとへの りょこう
 
 - **level:** medium
 - **topic:** travel
@@ -283,7 +283,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] 本
   - [ ] ふく
 
-## `n5.read.014` — あたらしい ふく
+## `n5.read.014` - あたらしい ふく
 
 - **level:** medium
 - **topic:** shopping
@@ -303,7 +303,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] 8,000円
   - [ ] 13,000円
 
-## `n5.read.015` — はる
+## `n5.read.015` - はる
 
 - **level:** easy
 - **topic:** weather
@@ -323,7 +323,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] あに
   - [ ] ともだち
 
-## `n5.read.016` — びょうきです
+## `n5.read.016` - びょうきです
 
 - **level:** medium
 - **topic:** health
@@ -343,7 +343,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] いしゃに 行きます
   - [ ] ともだちに 会います
 
-## `n5.read.017` — カフェの メニュー
+## `n5.read.017` - カフェの メニュー
 
 - **level:** info-search
 - **topic:** schedule
@@ -368,7 +368,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] ケーキ
   - [ ] サンドイッチ
 
-## `n5.read.018` — 日本語の べんきょう
+## `n5.read.018` - 日本語の べんきょう
 
 - **level:** medium
 - **topic:** study
@@ -388,7 +388,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] かんじ
   - [ ] たんご
 
-## `n5.read.019` — せんしゅうの 日よう日
+## `n5.read.019` - せんしゅうの 日よう日
 
 - **level:** easy
 - **topic:** weekend
@@ -408,7 +408,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] 本を よみました
   - [ ] かいものを しました
 
-## `n5.read.020` — わたしの 先生
+## `n5.read.020` - わたしの 先生
 
 - **level:** medium
 - **topic:** school
@@ -428,7 +428,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] おもしろいです
   - [ ] ながいです
 
-## `n5.read.021` — ひこうきの じかん
+## `n5.read.021` - ひこうきの じかん
 
 - **level:** info-search
 - **topic:** schedule
@@ -454,7 +454,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] 50,000円
   - [✓] 62,500円
 
-## `n5.read.022` — きのうの ばん
+## `n5.read.022` - きのうの ばん
 
 - **level:** easy
 - **topic:** weekend
@@ -474,7 +474,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] あに
   - [ ] ともだち
 
-## `n5.read.023` — バスていの おしらせ
+## `n5.read.023` - バスていの おしらせ
 
 - **level:** medium
 - **topic:** transport
@@ -498,7 +498,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] 600円
   - [ ] 750円
 
-## `n5.read.024` — わたしの 友だち
+## `n5.read.024` - わたしの 友だち
 
 - **level:** easy
 - **topic:** people
@@ -518,7 +518,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] あまり わかりません
   - [ ] むずかしいです
 
-## `n5.read.025` — 土よう日の あさ
+## `n5.read.025` - 土よう日の あさ
 
 - **level:** medium
 - **topic:** daily routine
@@ -538,7 +538,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] さんぽします
   - [ ] テレビを 見ます
 
-## `n5.read.026` — くだものを かいに
+## `n5.read.026` - くだものを かいに
 
 - **level:** easy
 - **topic:** shopping
@@ -558,7 +558,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] 5本
   - [ ] 7本
 
-## `n5.read.027` — 友だちからの メモ
+## `n5.read.027` - 友だちからの メモ
 
 - **level:** medium
 - **topic:** request
@@ -580,7 +580,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] デパートの まえ
   - [ ] がっこう
 
-## `n5.read.028` — わたしの へや
+## `n5.read.028` - わたしの へや
 
 - **level:** medium
 - **topic:** room
@@ -600,7 +600,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [✓] にわ
   - [ ] こうえん
 
-## `n5.read.029` — なつ
+## `n5.read.029` - なつ
 
 - **level:** easy
 - **topic:** weather
@@ -620,7 +620,7 @@ Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. Pass-15 
   - [ ] ねたい
   - [ ] 本を よみたい
 
-## `n5.read.030` — ゆうびんきょくへの 行きかた
+## `n5.read.030` - ゆうびんきょくへの 行きかた
 
 - **level:** medium
 - **topic:** directions

@@ -286,7 +286,7 @@ def rebalance_listening() -> None:
 # Bunpou Mondai 1 (Q1-60): single-blank multiple choice. Items where the
 # 4 distractors include a clear "right form / wrong tense / wrong polarity"
 # pattern have natural ordering. Without manual review, no items are
-# constrained — all choices are particles or verb forms with no obvious
+# constrained - all choices are particles or verb forms with no obvious
 # pedagogical ordering.
 #
 # Bunpou Mondai 2 (Q61-90): sentence rearrangement. Choice order is the

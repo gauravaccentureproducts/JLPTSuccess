@@ -1,6 +1,6 @@
-# F-17.9 closure note — vocabulary POS tags decision
+# F-17.9 closure note - vocabulary POS tags decision
 
-**Item:** F-17.9 (LOW) — Pass-17 KB audit §4.1 suggested adding optional part-of-speech tags (`[noun]`, `[い-adj]`, `[v1]`, etc.) to `KnowledgeBank/vocabulary_n5.md` entries so the runtime app can filter by POS.
+**Item:** F-17.9 (LOW) - Pass-17 KB audit §4.1 suggested adding optional part-of-speech tags (`[noun]`, `[い-adj]`, `[v1]`, etc.) to `KnowledgeBank/vocabulary_n5.md` entries so the runtime app can filter by POS.
 
 **Decision date:** 2026-05-01
 **Decided by:** native-Japanese-language-teacher review + runtime-state audit.
@@ -37,14 +37,14 @@ POS coverage:
 
 ## Decision
 
-**Closed as deferred — no MD-side annotation needed.**
+**Closed as deferred - no MD-side annotation needed.**
 
 The audit's stated motivation ("the runtime app can't filter 'show me only verbs' without scraping the gloss") is **already resolved at the JSON layer**. The runtime reads `data/vocab.json`, which carries explicit POS tags. Adding `[noun]` / `[v1]` / `[い-adj]` markers to `vocabulary_n5.md` would be:
 
-1. **Redundant** — the runtime path doesn't read `vocabulary_n5.md`.
-2. **Cosmetic** — would only benefit human readers of the MD file directly; the format already encodes POS implicitly via section headings (Section 27 = Group-1 verbs, Section 28 = Group-2 verbs, etc.).
-3. **Costly** — ~1000 entries to manually annotate. Risk-of-error: if the manual annotation diverges from `tools/tag_vocab_pos.py`'s output, the JSON becomes out-of-sync with the MD and JA-12 invariant fails.
-4. **No clear consumer** — no current or near-term feature requires MD-side POS visibility.
+1. **Redundant** - the runtime path doesn't read `vocabulary_n5.md`.
+2. **Cosmetic** - would only benefit human readers of the MD file directly; the format already encodes POS implicitly via section headings (Section 27 = Group-1 verbs, Section 28 = Group-2 verbs, etc.).
+3. **Costly** - ~1000 entries to manually annotate. Risk-of-error: if the manual annotation diverges from `tools/tag_vocab_pos.py`'s output, the JSON becomes out-of-sync with the MD and JA-12 invariant fails.
+4. **No clear consumer** - no current or near-term feature requires MD-side POS visibility.
 
 If a future feature emerges that NEEDS raw-MD POS (e.g., a Markdown-only static-site generation that doesn't go through `build_data.py`), reopen with concrete consumer requirements.
 
@@ -60,7 +60,7 @@ Suggested follow-up (low priority, future commit): add a brief "POS source-of-tr
 
 ## Closure type
 
-**`[x]` — closed as intentional deferral with affirmative rationale.** The cost/benefit doesn't justify the change; runtime already provides the capability the audit was concerned about.
+**`[x]` - closed as intentional deferral with affirmative rationale.** The cost/benefit doesn't justify the change; runtime already provides the capability the audit was concerned about.
 
 This closes F-17.9.
 

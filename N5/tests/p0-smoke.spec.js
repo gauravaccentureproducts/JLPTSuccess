@@ -205,7 +205,7 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
     await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
     await page.evaluate(() => {
-      // Streak from yesterday — not today.
+      // Streak from yesterday - not today.
       const yesterday = new Date(Date.now() - 86400_000);
       const key = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,'0')}-${String(yesterday.getDate()).padStart(2,'0')}`;
       localStorage.setItem('jlpt-n5-tutor:streak', JSON.stringify({

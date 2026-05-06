@@ -14,17 +14,17 @@ Removal patterns (case-sensitive, exact key match):
     translations container (gloss_translations, meanings_translations,
     l1_notes, false_friends).
   Locale-suffixed provenance/status fields: <basename>_provenance with
-    a value referencing a deprecated locale (left alone — provenance is
+    a value referencing a deprecated locale (left alone - provenance is
     metadata about the translation, not the translation itself).
 
 After pruning, the script also REMOVES `false_friends.zh` (since the
-zh locale is gone) but does not seed `false_friends.hi` placeholders —
+zh locale is gone) but does not seed `false_friends.hi` placeholders -
 those come from a separate authoring pass.
 
 Idempotent: re-runs on an already-pruned file delete nothing extra.
 
 NOT in scope this script: seeding gloss_hi / meanings_hi placeholders.
-That's a separate authoring pass — the schema slots are created here
+That's a separate authoring pass - the schema slots are created here
 implicitly by leaving _en values in place; a follow-up Hindi-translation
 authoring pass populates the _hi side.
 

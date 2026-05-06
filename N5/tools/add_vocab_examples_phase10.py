@@ -1,10 +1,10 @@
 """Phase 10 (2026-05-03): close the inline-example gap. 132 vocab
-entries previously had no inline `examples` array — they were only
+entries previously had no inline `examples` array - they were only
 cited via grammar.json's `vocab_ids`. This batch authors a dedicated
 example sentence for each so vocab detail pages don't fall back on
 the grammar-pattern citation.
 
-All N5 scope (kanji + kana). Idempotent — skips entries that already
+All N5 scope (kanji + kana). Idempotent - skips entries that already
 have at least one inline example.
 """
 import io, json, sys

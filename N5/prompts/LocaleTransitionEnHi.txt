@@ -1,7 +1,7 @@
 You are operating in implementation mode on the JLPT N5 sub-app of
 JLPTSuccess. Your single job in this run is to transition the app
 from a 5-locale shell (English / Vietnamese / Indonesian / Nepali /
-Chinese) to a 2-locale shell (English / Hindi) — completely,
+Chinese) to a 2-locale shell (English / Hindi) - completely,
 safely, and without regressions or side-effect bugs.
 
 You WILL implement this end-to-end: code, content data, docs,
@@ -19,7 +19,7 @@ the conversation that produced this prompt) found that:
 
 - Vietnamese, Indonesian, Burmese, Bengali, Sinhala, Brazilian
   Portuguese, Filipino/Tagalog, Thai, and Chinese all have at
-  least one — usually several — established competing JLPT prep
+  least one - usually several - established competing JLPT prep
   apps in their native language. The "no competitor" framing for
   niche-N1 was wrong for those locales.
 - Nepali is genuinely uncovered, but the absolute market is too
@@ -29,7 +29,7 @@ the conversation that produced this prompt) found that:
   73% are at N5 or N4 level (perfect product-market fit). NO
   dedicated Hindi-native JLPT prep app was found in app-store or
   curated-list searches. Yoisho Academy delivers in English with
-  optional Hindi tutoring — closest competitor, but not an app
+  optional Hindi tutoring - closest competitor, but not an app
   and not Hindi-medium pedagogy.
 
 The strategic decision is: **stop spreading thin across 5 mediocre
@@ -42,7 +42,7 @@ This is a strategic narrowing, not a feature regression. Existing
 users with persisted vi/id/ne/zh locale settings will fall back
 gracefully to English. No user loses access to any content.
 
-## GOAL — END STATE
+## GOAL - END STATE
 
 After this transition completes, the app must satisfy ALL of:
 
@@ -101,7 +101,7 @@ After this transition completes, the app must satisfy ALL of:
 - `N5/feedback/n5-audit-2026-05-04.xlsx` (registration of the
   architectural decision)
 - Top-level: `index.html`, `README.md`, `PRIVACY.md`, `MIGRATION.md`,
-  `NOTICES.md` (only the multilingual-claim text — no other top-level
+  `NOTICES.md` (only the multilingual-claim text - no other top-level
   changes)
 - Top-level: `CONTRIBUTING.md` (if it lists supported locales)
 - `N5/tests/**/*.spec.js` and any Playwright spec asserting locale
@@ -110,14 +110,14 @@ After this transition completes, the app must satisfy ALL of:
 **Out of scope (do NOT touch):**
 - `/N4/` anything (work-blocked per CLAUDE.md Rule 1). N4 has its
   own `js/i18n.js` and TASKS.md and CHANGELOG.md that mention
-  5 locales — leave them alone. The N4 sub-app will be transitioned
+  5 locales - leave them alone. The N4 sub-app will be transitioned
   in a separate cycle when the work-block lifts.
 - `/N3/`, `/N2/`, `/N1/` (do not exist yet)
 - Top-level repo settings beyond what's needed for the
   multilingual-claim text update
 - Any unrelated content-correction work surfaced incidentally
 
-## PRE-FLIGHT INVENTORY (Phase 0 — read-only)
+## PRE-FLIGHT INVENTORY (Phase 0 - read-only)
 
 Before writing any code, build a complete inventory of what
 references the four locales being removed. This is the safety
@@ -128,7 +128,7 @@ net against missed call sites. Do not skip this step.
    others.
 
 2. **Code references**: grep the entire N5 tree (excluding
-   `N5/js/min/` — those are generated and will rebuild) for the
+   `N5/js/min/` - those are generated and will rebuild) for the
    following patterns and produce a verified hit list:
    - `'vi'`, `'id'`, `'ne'`, `'zh'` (string literals)
    - `"vi"`, `"id"`, `"ne"`, `"zh"`
@@ -177,7 +177,7 @@ Each phase below produces exactly one commit. After each commit,
 run the test suite and verify clean. If a phase introduces a
 regression, fix-forward in a follow-up commit; do not amend.
 
-### Phase 1: Add Hindi (`hi`) as a new locale — additive only
+### Phase 1: Add Hindi (`hi`) as a new locale - additive only
 
 Goal: ship `hi` alongside the existing 5 locales without removing
 anything. This is reversible; if anything breaks, the 5-locale
@@ -189,7 +189,7 @@ Tasks:
   `review_status: llm_curated` in any internal-tracking field;
   the file itself follows the same flat schema as `en.json`.
   Translation quality bar: **functional clarity over literary
-  elegance** for Phase 1 — a native-review pass will follow as
+  elegance** for Phase 1 - a native-review pass will follow as
   a separate cycle. Do NOT use Romanized Hindi for the UI; use
   Devanagari script throughout.
 - Update `N5/js/i18n.js`:
@@ -218,7 +218,7 @@ Tasks:
   Test → Progress. Every UI string must render in Devanagari.
   Switching back to EN (or VI/ID/NE/ZH for the moment) must
   still work.
-- Commit message: `feat(i18n): add Hindi (hi) locale — additive`.
+- Commit message: `feat(i18n): add Hindi (hi) locale - additive`.
 
 ### Phase 2: Add migration code for existing users
 
@@ -283,7 +283,7 @@ Tasks:
   switch HI → EN → HI; confirm no 404 in the network panel for
   any locale fetch; confirm a hard reload clears old caches and
   loads only the v_NN+2 assets.
-- Commit message: `refactor(i18n): remove vi/id/ne/zh locales — strategic narrowing to en+hi`.
+- Commit message: `refactor(i18n): remove vi/id/ne/zh locales - strategic narrowing to en+hi`.
 
 ### Phase 4: Strip vi/id/ne/zh fields from content data
 
@@ -292,19 +292,19 @@ Goal: make the content corpus match the new locale set. Every
 (or be a flat string when only English is intended).
 
 Files to touch (per the Phase 0 inventory; verify the list):
-- `N5/data/grammar.json` — strip `gloss_translations.{vi,id,ne,zh}`,
+- `N5/data/grammar.json` - strip `gloss_translations.{vi,id,ne,zh}`,
   `explanation_{vi,id,ne,zh}`, any `notes.l1_*` for
   Vietnamese/Indonesian/Nepali/Mandarin learners.
-- `N5/data/vocab.json` — strip `gloss_translations.{vi,id,ne,zh}`.
-- `N5/data/kanji.json` — strip `meanings_translations.{vi,id,ne,zh}`.
-- `N5/data/reading.json` — strip any per-locale gloss / summary.
-- `N5/data/listening.json` — strip any per-locale transcript /
+- `N5/data/vocab.json` - strip `gloss_translations.{vi,id,ne,zh}`.
+- `N5/data/kanji.json` - strip `meanings_translations.{vi,id,ne,zh}`.
+- `N5/data/reading.json` - strip any per-locale gloss / summary.
+- `N5/data/listening.json` - strip any per-locale transcript /
   gloss.
-- `N5/data/questions.json` — strip any per-locale rationale / hint.
-- `N5/data/papers/**/*.json` (~28 files) — same pattern.
+- `N5/data/questions.json` - strip any per-locale rationale / hint.
+- `N5/data/papers/**/*.json` (~28 files) - same pattern.
 
 Add Hindi placeholder fields where they don't exist yet:
-- `gloss_translations.hi` on every vocab entry — populate with an
+- `gloss_translations.hi` on every vocab entry - populate with an
   LLM-curated Hindi gloss. Mark `review_status: llm_curated` in
   the entry's metadata if the schema supports it.
 - `meanings_translations.hi` on every kanji entry.
@@ -322,7 +322,7 @@ Use a tooling script for the bulk transformation; do not edit
      field names like `gloss_vi`, `notes_id`, etc.), remove it.
   3. Adds `gloss_translations.hi` / `meanings_translations.hi`
      stubs where the corresponding `.en` exists and the `.hi`
-     does not — populated via a separate translation pass (see
+     does not - populated via a separate translation pass (see
      guidance below).
   4. Writes the file back with consistent formatting (preserve
      2-space indent, key order via `sort_keys=False`).
@@ -338,32 +338,32 @@ honestly. Lying about ourselves in marketing is a niche-N2
 (privacy / honesty) violation.
 
 Files to touch:
-- `N5/README.md` — multilingual section now says "English + native
+- `N5/README.md` - multilingual section now says "English + native
   Hindi" not "5 locales". Strategic positioning blurb (if any)
   updated.
-- `N5/PRIVACY.md` — locale list updated (it likely names the 5).
-- `N5/CHANGELOG.md` — add a top-of-file entry for this transition;
+- `N5/PRIVACY.md` - locale list updated (it likely names the 5).
+- `N5/CHANGELOG.md` - add a top-of-file entry for this transition;
   do not delete the historical 5-locale changelog entries (they
   are accurate at-the-time records).
-- `N5/NOTICES.md` (if present) — same.
-- `N5/docs/TRANSLATING.md` — rewrite for the en+hi state. Document
+- `N5/NOTICES.md` (if present) - same.
+- `N5/docs/TRANSLATING.md` - rewrite for the en+hi state. Document
   the Hindi UI-string review-status workflow. Remove
   vi/id/ne/zh translation contributor instructions.
-- `N5/docs/CHANGELOG-archive.md` — leave historical entries; add
+- `N5/docs/CHANGELOG-archive.md` - leave historical entries; add
   archive-pointer if needed.
-- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` —
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` -
   v1.12.x bump; update §i18n / §locales / §multilingual-shell
   sections; update niche-N1 framing.
 - `N5/specifications/JLPT-N5-Functional-Spec-v3.1-supplement.md`
-  — same.
-- `N5/specifications/README.md` — same.
-- `N5/TASKS.md` — add transition entry; do not edit historical
+  - same.
+- `N5/specifications/README.md` - same.
+- `N5/TASKS.md` - add transition entry; do not edit historical
   rows.
-- `N5/feedback/MASTER-TASK-LIST.md` — add a transition row;
+- `N5/feedback/MASTER-TASK-LIST.md` - add a transition row;
   historical rows untouched.
-- `N5/feedback/ui-testing-plan.md` — chip count expectation
+- `N5/feedback/ui-testing-plan.md` - chip count expectation
   updated.
-- `N5/prompts/N5Improvement.txt` — niche-N1 framing rewritten:
+- `N5/prompts/N5Improvement.txt` - niche-N1 framing rewritten:
   - Replace "multilingual non-English-native learners
     (Vietnamese / Indonesian / Filipino / Nepali / Hindi /
     Chinese-speaking)" with a Hindi-led wording.
@@ -372,17 +372,17 @@ Files to touch:
   - Update the L1-interference notes section: keep Hindi only.
   - Update Section 4 (Coverage Map) locale completeness table
     expectation.
-- Top-level `JLPTSuccess/index.html` — N5 card description, hero
+- Top-level `JLPTSuccess/index.html` - N5 card description, hero
   copy, og:* / twitter:* metadata if they mention multilingual.
-- Top-level `JLPTSuccess/README.md` — multilingual claim text.
-- Top-level `JLPTSuccess/PRIVACY.md` — same.
-- Top-level `JLPTSuccess/MIGRATION.md` — historical record;
+- Top-level `JLPTSuccess/README.md` - multilingual claim text.
+- Top-level `JLPTSuccess/PRIVACY.md` - same.
+- Top-level `JLPTSuccess/MIGRATION.md` - historical record;
   add post-script noting the en+hi narrowing happened on
   2026-05-DD with a link to the registry IMP-NNN.
-- Top-level `JLPTSuccess/NOTICES.md` — same.
-- `CONTRIBUTING.md` — if it lists locales, update.
+- Top-level `JLPTSuccess/NOTICES.md` - same.
+- `CONTRIBUTING.md` - if it lists locales, update.
 
-Commit message: `docs: rewrite multilingual claim — strategic narrowing to en+hi`.
+Commit message: `docs: rewrite multilingual claim - strategic narrowing to en+hi`.
 
 ### Phase 6: CI invariants + tools
 
@@ -396,7 +396,7 @@ Tasks:
   - If a locale-completeness invariant exists (per IMP-079
     in the registry), update its expected key set.
   - If no such invariant exists, add JA-NN (next free
-    JA invariant number — read the file to find it). The
+    JA invariant number - read the file to find it). The
     invariant: every `*_translations` object on every
     content entry has exactly the keys `{'en', 'hi'}`. Any
     other key fails CI. Empty values fail CI for `en`;
@@ -470,7 +470,7 @@ Tasks:
   - Category: Strategic positioning / locale architecture
   - Location: N5/locales/, N5/js/i18n.js, N5/data/*.json,
     N5/specifications/*, top-level brand surfaces
-  - Title: Strategic narrowing — 5-locale shell → en+hi only
+  - Title: Strategic narrowing - 5-locale shell → en+hi only
   - Current state: Transitioned on 2026-05-DD per market-
     research conversation 2026-05-06. Hindi added (high-demand
     low-competition niche per top-5 JLPT country with no
@@ -493,7 +493,7 @@ Tasks:
     on the date the script runs)
   - Description: Backstory + market-research summary + locale
     counts before/after. Reference the conversation date.
-  - Permission: No further permission needed — user explicitly
+  - Permission: No further permission needed - user explicitly
     requested this transition on 2026-05-06.
 - Run the script. Verify the xlsx row count increased by 1.
 - Commit message: `audit(reg): register locale-transition architectural decision (IMP-NNN)`.
@@ -502,9 +502,9 @@ Tasks:
 
 Tasks:
 - Run the FULL test suite one more time:
-  - `python tools/check_content_integrity.py` (from N5/) — exit 0
-  - `npx playwright test` — all green
-  - Open `tests.html` if present — all green
+  - `python tools/check_content_integrity.py` (from N5/) - exit 0
+  - `npx playwright test` - all green
+  - Open `tests.html` if present - all green
 - Verify the diff is clean:
   - Diff vs `pre-locale-transition` tag should show:
     - `N5/locales/` net delta: -4 files, +1 file
@@ -523,11 +523,11 @@ Tasks:
     - **ZERO** changes under `/N4/`
 - Push: `git push origin master` (the working branch was
   `locale-transition-en-hi`, but per project convention all phase
-  commits land on master after verification — see existing
+  commits land on master after verification - see existing
   per-feature commits in the log).
 - Verify GitHub Pages deploy succeeds.
 - Live URL smoke test on https://gauravaccentureproducts.github.io/JLPTSuccess/N5/
-  (and the level picker at /JLPTSuccess/) — confirm chip group
+  (and the level picker at /JLPTSuccess/) - confirm chip group
   renders EN | HI; switching works.
 
 ## HINDI SEED CONTENT GUIDANCE
@@ -565,12 +565,12 @@ review every string in context.
 
 For each vocab entry's English gloss, produce a Hindi equivalent.
 - Use Devanagari script.
-- For verbs, use the dictionary form (X करना / X होना) — match
+- For verbs, use the dictionary form (X करना / X होना) - match
   the form used in the English gloss.
 - For nouns, use the most common Hindi equivalent. Avoid
   Sanskritized academic terms when a colloquial Hindi word is
   more natural.
-- For adjectives, use the form that pairs with होना ("to be") —
+- For adjectives, use the form that pairs with होना ("to be") -
   e.g., 大きい "big" → बड़ा (so it can take है: यह बड़ा है).
 - Keep glosses short (≤ 30 characters) to fit UI density.
 - Mark every entry's review-status as `llm_curated` in any
@@ -597,7 +597,7 @@ Hindi-specific notes. Mandatory coverage:
 - **Postposition vs particle mapping (the most important Hindi
   L1 note).** Hindi has postpositions (ने/को/से/में/पर/के लिए);
   Japanese has particles (が/を/から/に/で/へ/と/も). Mapping is
-  not 1:1 — common confusion:
+  not 1:1 - common confusion:
   - Hindi से ("from" / "by means of") splits into Japanese から
     (source) AND で (instrument). Hindi speakers often pick the
     wrong one.
@@ -605,7 +605,7 @@ Hindi-specific notes. Mandatory coverage:
     splits into Japanese を (direct object) AND に (indirect
     object / direction). Same pitfall.
   - Hindi में ("in") usually maps to Japanese に (existence
-    location) but can map to で (action location) — context-
+    location) but can map to で (action location) - context-
     dependent. Hindi speakers benefit from explicit に vs で
     teaching with the existence-vs-action distinction.
 
@@ -625,7 +625,7 @@ Hindi-specific notes. Mandatory coverage:
 
 - **Politeness mismatch (3-tier Hindi vs morphological Japanese
   honorifics).** Hindi has a 3-tier pronoun politeness (तू / तुम
-  / आप) but minimal verb morphology for politeness — politeness
+  / आप) but minimal verb morphology for politeness - politeness
   is mostly expressed lexically. Japanese has 2-tier basic
   politeness (casual / です・ます) PLUS a separate full
   morphological honorific system (謙譲語 / 尊敬語). Hindi
@@ -661,7 +661,7 @@ preserve the existing schema conventions). Each pattern that
 involves any of the above contrasts should carry the relevant
 note.
 
-## REGRESSION CHECKS — MANDATORY
+## REGRESSION CHECKS - MANDATORY
 
 After Phase 8, before Phase 9, every check below must pass.
 Failure = stop, diagnose, fix-forward in a new commit; do not
@@ -702,7 +702,7 @@ proceed to Phase 9 with any check red.
    exit 0. The new locale-completeness invariant (or updated
    existing) shows 100% `en` coverage and ≥ 95% `hi` coverage.
 
-10. **Playwright suite.** `npx playwright test` — full green.
+10. **Playwright suite.** `npx playwright test` - full green.
     Visual-regression deltas zero (after baseline regen).
 
 11. **Build pipeline.** `python tools/build_min_js.py` produces
@@ -741,7 +741,7 @@ revert.
   fetch). Acceptable mid-transition fallback.
 - **Hard rollback (after any phase)**: `git reset --hard pre-locale-transition`
   on the working branch, then a fresh transition cycle. Requires
-  user explicit permission per CLAUDE.md governance — do NOT
+  user explicit permission per CLAUDE.md governance - do NOT
   invoke `git reset --hard` autonomously.
 
 Pre-emptive safety: before Phase 3 (the first destructive step),
@@ -752,7 +752,7 @@ origin. Push the tag explicitly:
 ## GUARDRAILS
 
 - **N4 work-block.** Do NOT touch any file under `/N4/`. The
-  inventory grep WILL show N4 hits — that's expected (N4 has its
+  inventory grep WILL show N4 hits - that's expected (N4 has its
   own i18n module that mentions 5 locales). The diff at the end
   must show zero N4 file changes. The N4 transition is a separate
   cycle.

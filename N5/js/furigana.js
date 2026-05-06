@@ -37,7 +37,7 @@ async function loadData() {
 // whitelist used by `renderJa` to mark in-scope vs out-of-scope glyphs;
 // kept under its old name so app.js wiring stays untouched. ISSUE-004
 // (2026-05-04): dropped the dead `#furigana-toggle` DOM lookup since no
-// such element ships in index.html — the comment was confusing future readers.
+// such element ships in index.html - the comment was confusing future readers.
 export async function initFuriganaToggle(_onChange) {
   await loadData();
 }
@@ -59,7 +59,7 @@ export function getFuriganaMode() { return 'never'; }
 // flips the storage key. The renderer consults the flag at every
 // render call so toggling is instantaneous.
 const SAFE_SINGLE_READING = {
-  // Numerals — always on-yomi in compound, but standalone forms use the
+  // Numerals - always on-yomi in compound, but standalone forms use the
   // native counter prefix. Limit auto-furigana to compound contexts via
   // a minimum-length check (handled in the caller).
   '百': 'ひゃく', '千': 'せん', '万': 'まん', '円': 'えん',

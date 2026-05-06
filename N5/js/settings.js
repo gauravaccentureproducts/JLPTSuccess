@@ -137,7 +137,7 @@ export async function renderSettings(container) {
 
   // Saved-toast helper: brief on-screen confirmation that a setting
   // change actually persisted. Settings that have a visible side-effect
-  // (theme, font) don't need it because the page literally changes —
+  // (theme, font) don't need it because the page literally changes -
   // but settings like "Daily new-card limit" or "Default test length"
   // have no visual feedback otherwise, so a returning user can't tell
   // if their click was accepted. Single shared toast, debounced so

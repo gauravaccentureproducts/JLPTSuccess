@@ -13,10 +13,10 @@ prompt_ja, and replace stub distractor explanations with reasons that
 contrast each demonstrative's deictic role.
 
 Affected:
-  q-0424  (これ/それ/あれ/どれ) — add: speaker holds the book
-  q-0425  (こちら/そちら/あちら/どちら) — add: host guiding guest to own seat
-  q-0431  (ここ/そこ/あそこ/どこ) — add: speaker is at the library
-  q-0432  (どれ/これ/それ/あれ) — add: many bags on the desk
+  q-0424  (これ/それ/あれ/どれ) - add: speaker holds the book
+  q-0425  (こちら/そちら/あちら/どちら) - add: host guiding guest to own seat
+  q-0431  (ここ/そこ/あそこ/どこ) - add: speaker is at the library
+  q-0432  (どれ/これ/それ/あれ) - add: many bags on the desk
 
 Idempotent: re-running the script after a fix is a no-op.
 """
@@ -29,7 +29,7 @@ FIXES = {
     'q-0424': {
         'question_ja': '（じぶんの 手の 中の 本を 友だちに みせて）　（  ）は ほんです。',
         'prompt_ja': 'じぶんの 手に もっている 本を みせて 言う ことばを えらんで ください。',
-        'explanation_en': "When the speaker is holding the item, use これ ('this' — near speaker). それ marks things near the listener; あれ marks things far from both; どれ asks 'which one?'.",
+        'explanation_en': "When the speaker is holding the item, use これ ('this' - near speaker). それ marks things near the listener; あれ marks things far from both; どれ asks 'which one?'.",
         'distractor_explanations': {
             'それ': "それ is for things near the LISTENER. Here the speaker is holding the book in their own hand, so これ (near speaker) is correct.",
             'あれ': "あれ is for things far from BOTH speaker and listener. The book is in the speaker's own hand, so use これ.",
@@ -49,7 +49,7 @@ FIXES = {
     'q-0431': {
         'question_ja': '（としょかんの 中で 友だちに 言います）　（  ）は としょかんです。',
         'prompt_ja': 'じぶんが いる ばしょを さして 言う ことばを えらんで ください。',
-        'explanation_en': "When the speaker is at the place they are describing, use ここ ('here' — speaker's location). そこ is near the listener; あそこ is far from both; どこ asks 'where?'.",
+        'explanation_en': "When the speaker is at the place they are describing, use ここ ('here' - speaker's location). そこ is near the listener; あそこ is far from both; どこ asks 'where?'.",
         'distractor_explanations': {
             'そこ': "そこ is for places near the LISTENER. The speaker is INSIDE the library, so use ここ.",
             'あそこ': "あそこ is for places FAR from both speaker and listener. The speaker is right there in the library.",

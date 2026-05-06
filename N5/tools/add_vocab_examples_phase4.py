@@ -250,7 +250,7 @@ ADDITIONS = {
 
 
 def main() -> int:
-    """Match my additions by FORM rather than full ID — the section
+    """Match my additions by FORM rather than full ID - the section
     portion of the ID is hard to reconstruct from outside the data
     (e.g. '11-time-days-weeks-month' vs my guessed '11-time-days-
     weeks-months-y'). For each additions key, derive the form (the
@@ -258,7 +258,7 @@ def main() -> int:
     whose form == that token AND whose ID starts with the section
     prefix from the additions key.
 
-    Falls back gracefully — if no entry matches, the addition is
+    Falls back gracefully - if no entry matches, the addition is
     listed as not-found. False matches across sections are blocked
     by the section-prefix anchor.
     """

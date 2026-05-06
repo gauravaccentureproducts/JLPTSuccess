@@ -2,7 +2,7 @@
 JSONs, to compare against the documented naturalness-exception list
 (see KnowledgeBank/dokkai_questions_n5.md line 17).
 
-This is a read-only audit — no files are modified. Output is a sorted
+This is a read-only audit - no files are modified. Output is a sorted
 list of every non-N5 kanji + its frequency + a sample passage. Used
 to make the dokkai naturalness exception explicit and complete.
 """

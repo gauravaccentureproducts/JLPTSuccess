@@ -61,7 +61,7 @@ MANUAL_EXAMPLES: dict[str, list[dict]] = {
         {"form": "手",     "reading": "て",       "gloss": "hand"},
         {"form": "上手",   "reading": "じょうず", "gloss": "skilful, good at"},
         # K-1 substitution applied at data-time: 紙 is OUT of N5 scope, so
-        # 「手紙」 (てがみ) is authored as 「手がみ」 — target kanji 手 stays,
+        # 「手紙」 (てがみ) is authored as 「手がみ」 - target kanji 手 stays,
         # 紙 becomes its contextual reading がみ (rendaku ka -> ga).
         {"form": "手がみ", "reading": "てがみ",   "gloss": "letter (correspondence)"},
     ],

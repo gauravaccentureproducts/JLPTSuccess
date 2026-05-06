@@ -12,8 +12,8 @@ Each entry gets:
 Coverage: this pass authors readings for every kanji from the
 well-established Joyo / KanjiDic2-style readings catalogue. Entries
 already carrying additional_readings keep their existing values
-(idempotent). Empty arrays are valid and explicit — meaning "no
-non-N5 reading worth surfacing" — and are distinct from a missing
+(idempotent). Empty arrays are valid and explicit - meaning "no
+non-N5 reading worth surfacing" - and are distinct from a missing
 field (which would imply "not yet authored").
 
 Note: this is a one-shot authoring pass; future cycles can refine
@@ -33,7 +33,7 @@ KANJI = ROOT / 'data' / 'kanji.json'
 # Empty arrays are explicit: "no further reading taught at higher levels
 # that's worth surfacing on the N5 popover".
 #
-# Source: Joyo kanji readings catalogue. Conservative — only common
+# Source: Joyo kanji readings catalogue. Conservative - only common
 # alternate readings are included; archaic / extremely rare readings
 # are omitted to keep the popover useful for an N5 learner.
 ADDITIONAL = {
@@ -167,7 +167,7 @@ def main() -> int:
         glyph = e.get('glyph')
         if not glyph:
             continue
-        # Has existing additional_readings? Skip — keep curator's edits.
+        # Has existing additional_readings? Skip - keep curator's edits.
         if 'additional_readings' in e and e['additional_readings']:
             existing = e['additional_readings']
             if existing.get('on') or existing.get('kun'):

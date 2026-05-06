@@ -3,14 +3,14 @@
 Audit 2026-05-02: questions.json has 16 translation_en entries left
 over from earlier authoring passes. None of them are referenced by
 the runtime (js/{drill,questions,quiz,papers,reading,listening}.js
-all checked — zero `q.translation_en` / `question.translation_en` /
+all checked - zero `q.translation_en` / `question.translation_en` /
 `item.translation_en` reads). They are silently shipped dead data.
 
 Per same direction as the dokkai/listening Japanification, delete
 these fields. Idempotent.
 
 NOT TOUCHING:
-  - data/grammar.json — translation_en is genuinely rendered by
+  - data/grammar.json - translation_en is genuinely rendered by
     js/learn.js (grammar examples) and js/review.js (review screen).
     Grammar pattern teaching legitimately needs English glosses.
 """

@@ -2,7 +2,7 @@
 
 JLPT N5 Tutor ships ~600 short Japanese audio clips (~19 MB) that play
 inline on grammar examples, reading passages, and listening drills. All
-audio is generated **offline at build time** and committed to the repo —
+audio is generated **offline at build time** and committed to the repo -
 the runtime never makes a TTS API call.
 
 ## Current state (2026-05-02)
@@ -14,7 +14,7 @@ the runtime never makes a TTS API call.
 | Listening | 30             | 12      | gTTS    |
 | **Total** | **611**        | **592 (96.9%)** | mixed |
 
-19 clips are missing — primarily listening 013–030 (INFRA-1) and one
+19 clips are missing - primarily listening 013–030 (INFRA-1) and one
 grammar example (`n5-167.2`). These will be regenerated on the next
 build cycle.
 
@@ -22,9 +22,9 @@ The current backend is gTTS (Google Translate TTS via the `gtts` Python
 library). It works but has known limitations for Japanese:
 
 - Robotic prosody on katakana words ("コーヒー" sounds halting)
-- Single voice — every speaker sounds identical, which is wrong for
+- Single voice - every speaker sounds identical, which is wrong for
   listening dialogues with multiple turns
-- Network call required at build time (not at runtime — but it does
+- Network call required at build time (not at runtime - but it does
   mean the build is non-reproducible without internet)
 
 ## Target backend: VOICEVOX
@@ -32,10 +32,10 @@ library). It works but has known limitations for Japanese:
 [VOICEVOX](https://voicevox.hiroshiba.jp/) is a free, MIT-style,
 local-only Japanese TTS engine with 30+ trained voices. It gives us:
 
-- **Native Japanese prosody** — designed for Japanese, not English-with-Japanese-words
-- **Multi-voice dialogue** — different speakers per turn in listening drills
-- **Offline build** — no network at build time once the engine is downloaded
-- **Higher audio quality** — neural TTS, sounds natural
+- **Native Japanese prosody** - designed for Japanese, not English-with-Japanese-words
+- **Multi-voice dialogue** - different speakers per turn in listening drills
+- **Offline build** - no network at build time once the engine is downloaded
+- **Higher audio quality** - neural TTS, sounds natural
 
 ## How to run a full re-render with VOICEVOX
 
@@ -43,7 +43,7 @@ One-time setup (per machine):
 
 1. Download the VOICEVOX engine for your OS:
    https://voicevox.hiroshiba.jp/ (~200 MB, free, MIT-style license)
-2. Launch the app — it auto-starts an HTTP engine on
+2. Launch the app - it auto-starts an HTTP engine on
    `http://127.0.0.1:50021`
 3. Install ffmpeg (used to transcode WAV → MP3):
    - Windows: `winget install ffmpeg` or grab a static build from
@@ -129,7 +129,7 @@ python tools/audit_audio_coverage.py
 Output: per-module `present / declared` counts, list of missing IDs,
 and a JSON dump of the gap list to `feedback/audio-coverage-gaps.json`.
 Run before/after a build to confirm what changed. Exit code 0 if 100%,
-non-zero otherwise — wire into a pre-commit hook if you want to
+non-zero otherwise - wire into a pre-commit hook if you want to
 hard-block missing-audio commits.
 
 ## Troubleshooting
@@ -144,7 +144,7 @@ http://127.0.0.1:<port>`.
 
 Either ffmpeg isn't on `PATH`, or your input WAV has corrupt headers.
 Run `ffmpeg -i path/to/seg-000.wav` to inspect; if the file is empty,
-the VOICEVOX synth call returned 0 bytes (engine bug — restart the app).
+the VOICEVOX synth call returned 0 bytes (engine bug - restart the app).
 
 **`HTTP Error 422` from VOICEVOX**
 
@@ -156,7 +156,7 @@ re-write the line in hiragana for that one entry.
 **The build silently produces 0-byte mp3s**
 
 Check that ffmpeg is finding `libmp3lame`. Run `ffmpeg -encoders | grep
-mp3` — should list `libmp3lame`. If missing, your ffmpeg was built
+mp3` - should list `libmp3lame`. If missing, your ffmpeg was built
 without the codec; install a full build (most distributions package
 this; Windows static builds from gyan.dev include it).
 
@@ -184,7 +184,7 @@ audio/
     ├── n5.listen.001.mp3 # listening item id verbatim
     └── ...
 
-data/audio_manifest.json   # build state — which IDs were rendered
+data/audio_manifest.json   # build state - which IDs were rendered
                             # by which backend, with content hashes
 ```
 

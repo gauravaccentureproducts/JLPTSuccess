@@ -1,9 +1,9 @@
-// Changelog viewer — renders CHANGELOG.md inside the app shell so the
+// Changelog viewer - renders CHANGELOG.md inside the app shell so the
 // "What's new" link in the footer points at #/changelog instead of a raw
 // .md file on GitHub. Per spec §5.11 (homepage update 2026-05-02): users
 // see the changelog with the app's own typography, dark-mode tokens, etc.
 //
-// Markdown rendering is intentionally minimal — the changelog uses a small
+// Markdown rendering is intentionally minimal - the changelog uses a small
 // subset (headings, lists, paragraphs, inline `code` and **bold**) and we
 // avoid pulling in a parser library to honour the no-third-party CSP.
 //
@@ -87,7 +87,7 @@ function mdToHtml(md) {
       continue;
     }
 
-    // Blank line — close any open block
+    // Blank line - close any open block
     if (/^\s*$/.test(raw)) {
       closeList(); closePara();
       continue;
@@ -111,7 +111,7 @@ function inline(s) {
   // Bold + italic
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>');
-  // Links [text](url) — only allow same-origin or full URLs we can vet
+  // Links [text](url) - only allow same-origin or full URLs we can vet
   s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text, url) => {
     const safeUrl = /^(https?:|#|\/|\.\/|mailto:)/.test(url) ? url : '#';
     const ext = /^https?:/.test(safeUrl) ? ' rel="noopener noreferrer" target="_blank"' : '';

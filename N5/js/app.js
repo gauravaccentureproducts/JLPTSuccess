@@ -56,7 +56,7 @@ const ROUTES = {
   sitting:    renderSitting,   // ISSUE-020/IMP-032: full mock-paper sitting
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
-  // test, etc.) — clicking N5 on the picker navigates to #/home.
+  // test, etc.) - clicking N5 on the picker navigates to #/home.
   levels:     renderLevels,
   n4:         renderLevelPlaceholder,
   n3:         renderLevelPlaceholder,
@@ -66,7 +66,7 @@ const ROUTES = {
 
 function parseRoute() {
   // Default landing is the N5 syllabus dashboard.
-  // The level picker now lives at the parent path (../) — handled by
+  // The level picker now lives at the parent path (../) - handled by
   // JLPTSuccess/index.html, NOT by this app. Any bookmark to #/levels
   // bounces out via the location.replace below.
   const hash = location.hash;
@@ -85,7 +85,7 @@ function setActiveNav(name) {
   document.querySelectorAll('.primary-nav a').forEach(a => {
     const isActive = a.dataset.route === name;
     a.classList.toggle('active', isActive);
-    // IMP-012 (audit round-3): a11y — expose the active nav link to
+    // IMP-012 (audit round-3): a11y - expose the active nav link to
     // assistive tech. aria-current="page" is the canonical signal.
     if (isActive) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
@@ -171,8 +171,8 @@ function applyDataI18nKeys() {
 
 function applyNavTranslations() {
   const NAV_KEYS = {
-    'learn/grammar': 'nav.learn',     // → "Grammar" / "Học" / etc. — locale "Learn" is closest
-    'learn/vocab':   'nav.learn',     // → "Vocabulary" — share Learn-bucket label here too
+    'learn/grammar': 'nav.learn',     // → "Grammar" / "Học" / etc. - locale "Learn" is closest
+    'learn/vocab':   'nav.learn',     // → "Vocabulary" - share Learn-bucket label here too
     'kanji':         'nav.kanji',
     'reading':       'nav.reading',
     'listening':     'nav.listening',
@@ -256,7 +256,7 @@ window.addEventListener('hashchange', (ev) => {
   // #app (or any non-route fragment). parseRoute only recognises
   // hashes that start with `#/`, so without this guard, every
   // skip-link click silently re-routes the user back to #/home,
-  // losing their place. Detect non-route hashes and short-circuit —
+  // losing their place. Detect non-route hashes and short-circuit -
   // the browser still scrolls to / focuses the target anchor (which
   // now has tabindex="-1" on <main id="app"> for programmatic focus).
   // Closes #14 from the developer-issue-list audit.
@@ -309,7 +309,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // prior history, no test results, no streak) get routed to the
   // diagnostic at first touch. Returning users keep their normal hash.
   // Once seen, the onboardingSeen sentinel keeps subsequent landings on
-  // home — diagnostic stays reachable from #/diagnostic.
+  // home - diagnostic stays reachable from #/diagnostic.
   if (!location.hash) {
     try {
       const noHistory = Object.keys(getHistory()).length === 0;
@@ -361,7 +361,7 @@ document.addEventListener('furigana-rerender', () => { route(); });
 // IMP-007/IMP-010/IMP-038 (audit round-3): the bare <audio controls> is
 // replaced by a skinned wrapper with skip-back-5s, skip-forward-5s,
 // and per-clip 0.75/1.0/1.25× rate buttons. enhanceAudioPlayers is
-// idempotent — already-enhanced nodes are no-ops.
+// idempotent - already-enhanced nodes are no-ops.
 document.addEventListener('DOMContentLoaded', () => {
   import('./audio-player.js').then(({ enhanceAudioPlayers }) => {
     const root = document.getElementById('app') || document.body;
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Fullscreen toggle (top-right header). Clicking the button toggles between
 // document fullscreen and windowed mode. We swap the SVG icon between the
 // "maximize" (4 corners) and "minimize" (inward arrows) shapes via CSS state.
-// The browser's own Esc key exits fullscreen too — we listen for the
+// The browser's own Esc key exits fullscreen too - we listen for the
 // fullscreenchange event so the button label reflects current state.
 // IMP-052 (audit round-4): runtime theme overrides for institutional
 // forks. Loads data/theme-overrides.json if present; missing file =
@@ -401,7 +401,7 @@ async function initThemeOverrides() {
         if (brand) brand.textContent = cfg.brand.name;
       }
     }
-  } catch { /* missing file is the default — silently use repo tokens */ }
+  } catch { /* missing file is the default - silently use repo tokens */ }
 }
 
 // ISSUE-028 (audit round-4): wire the header locale-chip group.
@@ -433,11 +433,11 @@ function initLocaleChips() {
   // Sync on locale-change event from Settings panel.
   document.addEventListener('locale-changed', sync);
 
-  // ISSUE-050 (audit round-6): footer "Switch language" link — scrolls
+  // ISSUE-050 (audit round-6): footer "Switch language" link - scrolls
   // the chip group into view + focuses the active chip so the user
   // sees the picker the first time they reach the bottom of any page.
   // Falls back to a no-op when the chip group isn't on this page (it
-  // always is — the header is global — but the guard keeps SSR clean).
+  // always is - the header is global - but the guard keeps SSR clean).
   const switchLink = document.getElementById('footer-switch-lang');
   if (switchLink) {
     switchLink.addEventListener('click', (e) => {
@@ -477,7 +477,7 @@ function initFullscreenToggle() {
         else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
       }
     } catch (err) {
-      // Permissions-Policy or user gesture issues — fail silently; the button
+      // Permissions-Policy or user gesture issues - fail silently; the button
       // is opportunistic and shouldn't block the rest of the UI.
       console.warn('Fullscreen toggle failed:', err);
     }

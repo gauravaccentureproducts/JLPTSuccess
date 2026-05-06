@@ -1,14 +1,14 @@
 """ISSUE-017 (audit round-3): rebalance answer-position on goi/paper-1
 and moji/paper-1.
 
-Both papers had distribution {0:2, 1:2, 2:3, 3:8} (spread 6) — almost
+Both papers had distribution {0:2, 1:2, 2:3, 3:8} (spread 6) - almost
 half the answers landed on choice D, defeating the face-validity of
 "audited paper". Target: {0:4, 1:4, 2:3, 3:4} (spread 1, mirroring the
 global 25.1/25.1/24.9/24.9% the rest of the corpus achieves).
 
 Method: pick 4 items per paper currently at correctIndex=3 and rotate
 their choice arrays so the right answer moves to a different slot.
-This preserves question semantics — only the visual ordering changes —
+This preserves question semantics - only the visual ordering changes -
 and the correctIndex updates in lock-step.
 
 Per-paper plan:

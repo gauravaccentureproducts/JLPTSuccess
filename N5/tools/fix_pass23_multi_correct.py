@@ -31,11 +31,11 @@ QUESTION_FIXES = {
     'q-0293': {
         'question_ja': 'わたしは コーヒー（  ）飲みます。 おちゃや ジュースは 飲みません。',
         'prompt_ja': '「ほかは 飲まない」こと を あらわす ことばを えらんで ください。',
-        'explanation_en': "だけ means 'only / nothing but' — it limits the action to the noun marked. The follow-up sentence 'I don't drink tea or juice' confirms the scope: only coffee, nothing else.",
+        'explanation_en': "だけ means 'only / nothing but' - it limits the action to the noun marked. The follow-up sentence 'I don't drink tea or juice' confirms the scope: only coffee, nothing else.",
         'distractor_explanations': {
-            'など': "など means 'and others / etc.' — it implies more than just coffee. The follow-up sentence ('I don't drink tea or juice') contradicts that, so など is wrong here.",
+            'など': "など means 'and others / etc.' - it implies more than just coffee. The follow-up sentence ('I don't drink tea or juice') contradicts that, so など is wrong here.",
             'に': "に marks destinations, recipients, or specific times. It does not mark scope-limitation on a direct object before a transitive verb.",
-            'や': "や means 'and (non-exhaustive)' BETWEEN two nouns. It needs a second noun after the blank — there isn't one here.",
+            'や': "や means 'and (non-exhaustive)' BETWEEN two nouns. It needs a second noun after the blank - there isn't one here.",
         },
     },
     # User-implicit problem #2 (multi-correct):
@@ -48,7 +48,7 @@ QUESTION_FIXES = {
         'explanation_en': "から marks the starting point ('from'). Paired with the verb はじまる ('to start'), the natural reading is 'work starts FROM 9'.",
         'distractor_explanations': {
             'は': "は is the topic marker. It cannot mark a time as a start/end point.",
-            'まで': "まで marks an end point ('until'). With はじまる ('start'), an end-point marker doesn't fit — start-verbs pair with から.",
+            'まで': "まで marks an end point ('until'). With はじまる ('start'), an end-point marker doesn't fit - start-verbs pair with から.",
             'に': "に marks a single specific time ('at 9'), not the start of a range. With はじまる, a starting point is what's being marked, so から is the natural fit.",
         },
     },

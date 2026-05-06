@@ -9,7 +9,7 @@ If no grammar example contains a kanji, fall back to scanning
 data/reading.json passages and synthesise a 1-clause excerpt around the
 glyph (clean cut at sentence punctuation 。/、 boundaries).
 
-If still no match, leave the entry's `sentences` field absent — a separate
+If still no match, leave the entry's `sentences` field absent - a separate
 audit invariant can flag the gap. (Empirically all 106 N5 kanji appear in
 the grammar/reading corpora; the fallback is defensive.)
 
@@ -45,7 +45,7 @@ HAND_AUTHORED = {
 
 MAX_SENTENCES_PER_KANJI = 2
 SENTENCE_MIN_LEN = 5      # too-short matches are useless
-SENTENCE_MAX_LEN = 80     # widened from 60 — some passages have a single
+SENTENCE_MAX_LEN = 80     # widened from 60 - some passages have a single
                           # 70-char sentence containing the kanji
 
 

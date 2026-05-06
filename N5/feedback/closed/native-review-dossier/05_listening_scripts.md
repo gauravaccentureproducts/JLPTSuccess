@@ -1,4 +1,4 @@
-# 05 — Listening dialogues (30 items)
+# 05 - Listening dialogues (30 items)
 
 Cite as `n5.listen.NNN`. Speaker-turn naturalness, pacing, 
 and register fit (e.g. shop / school / office) are the main 
@@ -7,7 +7,7 @@ comprehension question / choices.
 
 ---
 
-## `n5.listen.001` — どこで 会いますか
+## `n5.listen.001` - どこで 会いますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -27,7 +27,7 @@ comprehension question / choices.
   - [ ] えいがかんの 前
   - [ ] デパートの 前
 
-## `n5.listen.002` — 何を 買いますか
+## `n5.listen.002` - 何を 買いますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -48,7 +48,7 @@ comprehension question / choices.
   - [ ] パンと ぎゅうにゅう
   - [ ] たまごと ぎゅうにゅう
 
-## `n5.listen.003` — 何時に 出ますか
+## `n5.listen.003` - 何時に 出ますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -67,7 +67,7 @@ comprehension question / choices.
   - [ ] 9時
   - [ ] 9時半
 
-## `n5.listen.004` — のみものを えらぶ
+## `n5.listen.004` - のみものを えらぶ
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -87,7 +87,7 @@ comprehension question / choices.
   - [ ] おちゃ
   - [ ] ジュース
 
-## `n5.listen.005` — おくれた りゆう
+## `n5.listen.005` - おくれた りゆう
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -106,7 +106,7 @@ comprehension question / choices.
   - [ ] おきるのが おそかったから
   - [ ] あさごはんを 食べたから
 
-## `n5.listen.006` — 本は どこですか
+## `n5.listen.006` - 本は どこですか
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -126,7 +126,7 @@ comprehension question / choices.
   - [ ] つくえの 上
   - [ ] つくえの 下
 
-## `n5.listen.007` — すきな きせつ
+## `n5.listen.007` - すきな きせつ
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -142,7 +142,7 @@ comprehension question / choices.
   - [✓] あき
   - [ ] ふゆ
 
-## `n5.listen.008` — たんじょうびに ほしい もの
+## `n5.listen.008` - たんじょうびに ほしい もの
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -162,7 +162,7 @@ comprehension question / choices.
   - [✓] カメラ
   - [ ] ペン
 
-## `n5.listen.009` — 時間を 聞く
+## `n5.listen.009` - 時間を 聞く
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -176,7 +176,7 @@ comprehension question / choices.
   - [✓] すみません、いま 何時ですか。
   - [ ] どこに 行きますか。
 
-## `n5.listen.010` — きっぷを 買う
+## `n5.listen.010` - きっぷを 買う
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -190,7 +190,7 @@ comprehension question / choices.
   - [✓] とうきょうまで 一まい おねがいします。
   - [ ] どようびに 行きます。
 
-## `n5.listen.011` — ていねいに ことわる
+## `n5.listen.011` - ていねいに ことわる
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -204,7 +204,7 @@ comprehension question / choices.
   - [✓] すみません、もう おなかが いっぱいです。
   - [ ] もう 一つ ください。
 
-## `n5.listen.012` — あさの あいさつ
+## `n5.listen.012` - あさの あいさつ
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -218,7 +218,7 @@ comprehension question / choices.
   - [✓] おはようございます。
   - [ ] おやすみなさい。
 
-## `n5.listen.013` — 何時に 会いますか
+## `n5.listen.013` - 何時に 会いますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -236,7 +236,7 @@ B: わかりました。
   - [ ] 9時
   - [✓] 9時はん
 
-## `n5.listen.014` — どこで まちますか
+## `n5.listen.014` - どこで まちますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -254,7 +254,7 @@ B: わかりました。
   - [ ] 駅の 南の 出口
   - [ ] 駅の 前
 
-## `n5.listen.015` — 店で 何を 買いますか
+## `n5.listen.015` - 店で 何を 買いますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -272,7 +272,7 @@ B: わかりました。
   - [ ] ぎゅうにゅうと パン
   - [ ] りんごだけ
 
-## `n5.listen.016` — だれと 行きますか
+## `n5.listen.016` - だれと 行きますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -290,7 +290,7 @@ B: ですから、母と 行きます。
   - [✓] 母
   - [ ] ひとりで
 
-## `n5.listen.017` — 先生は いつ 来ますか
+## `n5.listen.017` - 先生は いつ 来ますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -308,7 +308,7 @@ B: ですから、母と 行きます。
   - [✓] 三時はん
   - [ ] 四時
 
-## `n5.listen.018` — どうやって 行きますか
+## `n5.listen.018` - どうやって 行きますか
 
 - **format:** task
 - **script (setup + dialogue):**
@@ -326,7 +326,7 @@ B: 電車で 行きます。
   - [ ] バス
   - [ ] あるいて
 
-## `n5.listen.019` — しゅくだいが ない りゆう
+## `n5.listen.019` - しゅくだいが ない りゆう
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -344,7 +344,7 @@ B: 電車で 行きます。
   - [ ] わすれたから
   - [ ] 本が なかったから
 
-## `n5.listen.020` — 本は いくらでしたか
+## `n5.listen.020` - 本は いくらでしたか
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -362,7 +362,7 @@ B: でも、おもしろい 本ですよ。
   - [✓] 千五百円
   - [ ] 二千円
 
-## `n5.listen.021` — としょかんの 時間
+## `n5.listen.021` - としょかんの 時間
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -378,7 +378,7 @@ B: でも、おもしろい 本ですよ。
   - [ ] 1時から 4時まで
   - [ ] 9時から 4時まで
 
-## `n5.listen.022` — あしたの てんき
+## `n5.listen.022` - あしたの てんき
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -395,7 +395,7 @@ B: でも、おもしろい 本ですよ。
   - [ ] ゆき
   - [ ] つめたい
 
-## `n5.listen.023` — しゅくだいは 何よう日
+## `n5.listen.023` - しゅくだいは 何よう日
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -413,7 +413,7 @@ B: でも、おもしろい 本ですよ。
   - [ ] 水よう日と 金よう日
   - [ ] 月よう日と 金よう日
 
-## `n5.listen.024` — きょう だれが 来ますか
+## `n5.listen.024` - きょう だれが 来ますか
 
 - **format:** point
 - **script (setup + dialogue):**
@@ -430,7 +430,7 @@ B: でも、おもしろい 本ですよ。
   - [✓] 父の 先生・母の 友だち・父
   - [ ] 先生と 友だちだけ
 
-## `n5.listen.025` — あさの 先生への あいさつ
+## `n5.listen.025` - あさの 先生への あいさつ
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -445,7 +445,7 @@ B: でも、おもしろい 本ですよ。
   - [ ] こんばんは
   - [ ] さようなら
 
-## `n5.listen.026` — 店で コーヒーを たのむ
+## `n5.listen.026` - 店で コーヒーを たのむ
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -460,7 +460,7 @@ B: でも、おもしろい 本ですよ。
   - [ ] コーヒーは どこですか
   - [ ] コーヒーが すきです
 
-## `n5.listen.027` — のみものを ていねいに ことわる
+## `n5.listen.027` - のみものを ていねいに ことわる
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -475,7 +475,7 @@ B: でも、おもしろい 本ですよ。
   - [✓] いいえ、けっこうです
   - [ ] おねがいします
 
-## `n5.listen.028` — 友だちの いえに 入る
+## `n5.listen.028` - 友だちの いえに 入る
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -490,7 +490,7 @@ B: でも、おもしろい 本ですよ。
   - [✓] しつれいします
   - [ ] どうも ありがとう
 
-## `n5.listen.029` — 食べる まえ
+## `n5.listen.029` - 食べる まえ
 
 - **format:** utterance
 - **script (setup + dialogue):**
@@ -505,7 +505,7 @@ B: でも、おもしろい 本ですよ。
   - [ ] しつれいします
   - [ ] すみません
 
-## `n5.listen.030` — みちを 聞く
+## `n5.listen.030` - みちを 聞く
 
 - **format:** utterance
 - **script (setup + dialogue):**

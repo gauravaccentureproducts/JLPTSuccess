@@ -7,7 +7,7 @@ vocab.json. Their canonical pair-form is also absent from vocab.json
 (except くらい-i-adj-dark and れい-noun-courtesy, which are
 homograph entries with different meanings).
 
-Resolution: add 9 NEW vocab.json entries — one per multi-form line —
+Resolution: add 9 NEW vocab.json entries - one per multi-form line -
 using the precedent established by 8 existing entries (何, 四, 七, 九,
 分, etc.) where the `reading` field carries multi-form notation while
 `form` stays single. The drift checker splits both `form` and `reading`
@@ -69,8 +69,8 @@ def E(form, reading, gloss, sect, pos, ja, en):
 
 
 NEW_ENTRIES = [
-    # 1: いい / よい (i-adj "good") — いい more colloquial; よい formal
-    E('いい', 'いい / よい', 'good (いい more colloquial; よい more formal/literary — same meaning)',
+    # 1: いい / よい (i-adj "good") - いい more colloquial; よい formal
+    E('いい', 'いい / よい', 'good (いい more colloquial; よい more formal/literary - same meaning)',
       31, 'i-adj',
       'きょうは いい てんきです。',
       "It's nice weather today."),
@@ -80,12 +80,12 @@ NEW_ENTRIES = [
       'いえに かえります。',
       "I'll go home."),
     # 3: ぐらい / くらい (particle "about, approximately")
-    E('ぐらい', 'ぐらい / くらい', 'about, approximately (ぐらい more common after voiced sounds; くらい elsewhere — particle of estimate)',
+    E('ぐらい', 'ぐらい / くらい', 'about, approximately (ぐらい more common after voiced sounds; くらい elsewhere - particle of estimate)',
       35, 'particle',
       '一時間 ぐらい かかります。',
       'It takes about an hour.'),
     # 4: けれど / けれども / けど (conj "but, however")
-    E('けれど', 'けれど / けれども / けど', 'but / however (けど most casual; けれど middle; けれども most formal — same meaning)',
+    E('けれど', 'けれど / けれども / けど', 'but / however (けど most casual; けれど middle; けれども most formal - same meaning)',
       34, 'conjunction',
       'いそがしいけれど、行きます。',
       "I'm busy but I'll go."),
@@ -95,17 +95,17 @@ NEW_ENTRIES = [
       'おはよう ございます。',
       'Good morning. (formal)'),
     # 6: じゃあ / では / じゃ (exp "well then")
-    E('じゃあ', 'じゃあ / では / じゃ', 'well then / so (じゃあ casual; では formal; じゃ very casual — discourse marker for transitioning)',
+    E('じゃあ', 'じゃあ / では / じゃ', 'well then / so (じゃあ casual; では formal; じゃ very casual - discourse marker for transitioning)',
       39, 'expression',
       'じゃあ、また あした。',
       'Well then, see you tomorrow.'),
     # 7: みんな / みな (noun "everyone")
-    E('みんな', 'みんな / みな', 'everyone / all (みんな more colloquial; みな more formal — both function as inclusive "everyone")',
+    E('みんな', 'みんな / みな', 'everyone / all (みんな more colloquial; みな more formal - both function as inclusive "everyone")',
       1, 'noun',
       'みんなで がんばりましょう。',
       "Let's all do our best together."),
     # 8: やはり / やっぱり (adv "as expected")
-    E('やはり', 'やはり / やっぱり', 'as expected / after all (やはり more formal; やっぱり colloquial — confirms an expectation or returns to a prior view)',
+    E('やはり', 'やはり / やっぱり', 'as expected / after all (やはり more formal; やっぱり colloquial - confirms an expectation or returns to a prior view)',
       33, 'adverb',
       'やはり 日本料理が 好きです。',
       'As expected, I like Japanese food.'),

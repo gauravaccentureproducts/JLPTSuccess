@@ -4,9 +4,9 @@ choices could be valid completions, grouped by category.
 
 Output is human-reviewable; native-teacher review picks the actual fixes.
 Categories scanned:
-  A. choices include に AND へ — motion verb may accept both
-  B. choices include は AND が — topic vs subject ambiguity
-  C. choices include で AND に — location-of-action vs location-of-being
+  A. choices include に AND へ - motion verb may accept both
+  B. choices include は AND が - topic vs subject ambiguity
+  C. choices include で AND に - location-of-action vs location-of-being
   D. choices include 4 demonstratives without context (ko-so-a-do family,
      remaining cases after the basic fix pass)
   E. polite-vs-casual copula choices (です vs だ) without register cue

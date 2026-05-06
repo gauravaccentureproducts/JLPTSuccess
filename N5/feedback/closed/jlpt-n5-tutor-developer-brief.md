@@ -1,4 +1,4 @@
-# JLPT N5 Tutor — Developer Instruction Brief
+# JLPT N5 Tutor - Developer Instruction Brief
 
 **Project:** `https://gauravaccentureproducts.github.io/jlpt-n5-tutor/`
 **Current state:** Static SPA, GitHub Pages, hash-based routing, tabs for Learn / Test / Drill 0 / Review / Summary, furigana toggle, on-device only (no backend, no analytics).
@@ -14,7 +14,7 @@ These are non-negotiable and must hold after every change:
 2. **No data leaves the device.** No analytics, no telemetry, no third-party tracking, no remote API calls during normal use. All progress, SRS state, and settings live in `localStorage` (or `IndexedDB` if size demands it).
 3. **No login, no account.** Anonymous by default.
 4. **Offline-capable.** Must work fully offline after first load. Implement a service worker and PWA manifest.
-5. **Cross-browser.** Chrome, Firefox, Safari, Edge — last 2 versions. Mobile Safari and Chrome Android are first-class.
+5. **Cross-browser.** Chrome, Firefox, Safari, Edge - last 2 versions. Mobile Safari and Chrome Android are first-class.
 6. **Backups via export/import.** Because there is no cloud sync, the user must be able to export their progress to a JSON file and re-import it.
 
 ---
@@ -27,19 +27,19 @@ The Learn module must cover at minimum the following pattern families. Sequence 
 
 - Copula: `Xはです`, `Xじゃありません`, past `でした` / `じゃありませんでした`
 - Particles, in this introduction order: `は`, `も`, `を`, `が`, `に` (location of existence, time point, direction, indirect object), `で` (location of action, means/instrument), `へ`, `と` (with, and), `から`〜`まで`, `や` (non-exhaustive listing), `の` (possessive, modifier), `か` (question, alternative)
-- Demonstratives: full こそあど grid — `これ／それ／あれ／どれ`, `この／その／あの／どの＋N`, `ここ／そこ／あそこ／どこ`, `こちら／そちら／あちら／どちら`
+- Demonstratives: full こそあど grid - `これ／それ／あれ／どれ`, `この／その／あの／どの＋N`, `ここ／そこ／あそこ／どこ`, `こちら／そちら／あちら／どちら`
 - Existence: `あります／います` with `に` and `が`
 - い-adjectives: present/past, affirmative/negative, attributive vs predicative, `〜くて` connecting form
 - な-adjectives: same four corners, `〜で` connecting form
 - Verbs: dictionary form → polite `〜ます／〜ません／〜ました／〜ませんでした`, then plain past `〜た／〜なかった`, plain negative `〜ない`
-- `〜て` form (dedicated module — see §2.2)
-- `〜ています` (continuous / habitual / state — note all three uses)
+- `〜て` form (dedicated module - see §2.2)
+- `〜ています` (continuous / habitual / state - note all three uses)
 - `〜てください`, `〜てもいいです`, `〜てはいけません`
 - `〜たいです` (desire), `〜ませんか／〜ましょう` (invitation)
 - `〜が好き／嫌い／上手／下手／分かる／ある／いる`
 - Comparison: `XはYより〜`, `XとYとどちらが〜`, `〜の中で〜がいちばん〜`
 - Time expressions: `〜時／〜分`, `〜年／〜月／〜日／〜曜日`, frequency adverbs (`いつも、よく、ときどき、あまり、ぜんぜん`)
-- Counters (dedicated module — see §2.4)
+- Counters (dedicated module - see §2.4)
 - Question words: `何、誰、どこ、いつ、どう、どの、どれ、いくら、いくつ、どうして／なぜ`
 - Conjunctions: `そして、それから、でも、しかし、〜が`
 - Sentence-level: `〜から` (because), `〜とき`, `〜前に`, `〜あとで`
@@ -68,7 +68,7 @@ Build a corpus of ~30 short passages (80–200 characters) graded by lesson cove
 
 ## 2. Modules to build or rebuild
 
-### 2.1 Verb classification module (NEW — must come before conjugation)
+### 2.1 Verb classification module (NEW - must come before conjugation)
 
 **Why:** Students can only conjugate confidently if they can classify a verb on sight. Skipping this is the single most common cause of N5 conjugation breakdown.
 
@@ -78,7 +78,7 @@ Build a corpus of ~30 short passages (80–200 characters) graded by lesson cove
 - Must handle the high-frequency exceptions explicitly: `帰る`, `入る`, `走る`, `知る`, `切る`, `要る`, `しゃべる`, `すべる` are Group 1 even though they end in `〜る` after `e/i`. The drill must oversample these.
 - After the user passes a threshold (e.g. 90% on 50 mixed verbs), unlock the conjugation gym (§2.3).
 
-### 2.2 て-form gym (NEW — dedicated module)
+### 2.2 て-form gym (NEW - dedicated module)
 
 **Why:** て-form gates almost every later pattern.
 
@@ -96,7 +96,7 @@ Build a corpus of ~30 short passages (80–200 characters) graded by lesson cove
 - Mistake screen must show the rule the user violated, not just "wrong."
 - Track per-ending accuracy (e.g. "you miss `〜ぐ → 〜いで` 60% of the time") and surface this in the Summary tab.
 
-### 2.3 Conjugation gym (NEW — superset of て-form)
+### 2.3 Conjugation gym (NEW - superset of て-form)
 
 A four-corner grid drill: present/past × affirmative/negative, in both 丁寧形 and 普通形. Cycle through:
 - Verb forms (all groups)
@@ -147,12 +147,12 @@ Each item must show both translations after the user answers, so the user learns
 
 JLPT-format reading: short passages, multiple-choice comprehension questions, no time pressure in practice mode, optional timer in test mode. Difficulty must scale with which patterns the learner has unlocked (don't show passages using `〜ている` until that pattern is taught).
 
-### 2.9 Listening module (NEW — biggest gap in current app)
+### 2.9 Listening module (NEW - biggest gap in current app)
 
 **Why:** N5 listening = ~30 min, ~24 questions, roughly a third of the exam. The current app has no audio. This is the most important addition.
 
 **What to build:**
-- Native-speaker audio for every example sentence and every reading passage. If hiring native voice talent is out of scope, use a high-quality TTS (e.g. Azure Japanese neural voices, Google Cloud TTS Japanese — but cache outputs as MP3/Ogg and ship them as static assets so no runtime API call happens).
+- Native-speaker audio for every example sentence and every reading passage. If hiring native voice talent is out of scope, use a high-quality TTS (e.g. Azure Japanese neural voices, Google Cloud TTS Japanese - but cache outputs as MP3/Ogg and ship them as static assets so no runtime API call happens).
 - Three drill formats matching the JLPT N5 listening section:
   1. **課題理解** (task comprehension): play audio, show 4 picture/text options, pick the correct one.
   2. **ポイント理解** (point comprehension): same shape, audio is dialogic.
@@ -168,7 +168,7 @@ The current app likely tests recognition only. Add production:
 ### 2.11 Spaced-repetition Review (REWORK existing tab)
 
 Replace the current Review behavior with a real SRS:
-- Algorithm: FSRS (preferred — modern, open) or SM-2 (simpler, well-known). Either is fine.
+- Algorithm: FSRS (preferred - modern, open) or SM-2 (simpler, well-known). Either is fine.
 - State per item: stability, difficulty, due-date, lapses, reps. Persist in `localStorage`.
 - Daily session: show only items due today plus a configurable number of new items (default 10).
 - Grading: 4 buttons (Again / Hard / Good / Easy) feed back into the algorithm.
@@ -185,7 +185,7 @@ The Summary should be diagnostic, not just descriptive. Required sections:
 
 ### 2.13 Rename "Drill 0"
 
-The label `Drill 0` is opaque. Rename to whatever it actually is — likely `Daily Drill`, `Mixed Review`, or `Today's Practice`. If the `0` is meaningful (e.g. drill index in a series), expose what 1, 2, 3 are too, or remove the index.
+The label `Drill 0` is opaque. Rename to whatever it actually is - likely `Daily Drill`, `Mixed Review`, or `Today's Practice`. If the `0` is meaningful (e.g. drill index in a series), expose what 1, 2, 3 are too, or remove the index.
 
 ---
 
@@ -209,7 +209,7 @@ Every Japanese text node must be wrapped (or its container marked) with `lang="j
 
 ### 3.3 Typography
 
-Load **Noto Sans JP** as the primary Japanese webfont (subset to JLPT N5 + N4 character sets to keep file size down — roughly 200KB woff2). Fallback stack:
+Load **Noto Sans JP** as the primary Japanese webfont (subset to JLPT N5 + N4 character sets to keep file size down - roughly 200KB woff2). Fallback stack:
 
 ```css
 font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
@@ -228,7 +228,7 @@ Without this, Windows machines without an installed Japanese font render some sh
 
 ### 3.5 Internationalization of the UI chrome
 
-The lesson content stays Japanese; the *interface* and English glosses should be translatable. JLPT N5 candidates worldwide are heavily Vietnamese, Indonesian, Nepali, and Chinese — not just English speakers. Build with an i18n layer (e.g. a simple `t(key)` lookup against JSON files in `/locales/{en,vi,id,ne,zh}.json`) even if only `en` ships at v1. UI language selectable in Settings.
+The lesson content stays Japanese; the *interface* and English glosses should be translatable. JLPT N5 candidates worldwide are heavily Vietnamese, Indonesian, Nepali, and Chinese - not just English speakers. Build with an i18n layer (e.g. a simple `t(key)` lookup against JSON files in `/locales/{en,vi,id,ne,zh}.json`) even if only `en` ships at v1. UI language selectable in Settings.
 
 ### 3.6 Settings panel (NEW)
 
@@ -339,7 +339,7 @@ All data ships as static JSON in `/data/`. Suggested shapes:
 
 ## 5. Tech recommendations (non-binding)
 
-- **Framework:** Vanilla JS, Preact, or Svelte. Avoid heavy frameworks — bundle size matters and there is no SSR need.
+- **Framework:** Vanilla JS, Preact, or Svelte. Avoid heavy frameworks - bundle size matters and there is no SSR need.
 - **Build:** Vite with the `vite-plugin-pwa` plugin.
 - **State:** Zustand or a small custom store; SRS state in `localStorage`, larger logs in `IndexedDB` via `idb-keyval`.
 - **Routing:** Continue with hash-based routing for GitHub Pages compatibility.
@@ -366,14 +366,14 @@ A feature is "done" only when all of the following hold. Apply this checklist to
 
 ## 7. Phasing (suggested order of work)
 
-**Phase 1 — Foundation (highest leverage, fixes the biggest gaps):**
+**Phase 1 - Foundation (highest leverage, fixes the biggest gaps):**
 1. Add native-speaker / TTS audio to all existing example sentences.
 2. Replace Review with a real SRS (FSRS or SM-2).
 3. Rebuild Summary as a diagnostic dashboard.
 4. Rename "Drill 0" and clarify navigation labels.
 5. Migrate furigana to `<ruby>`; set `lang="ja"`; load Noto Sans JP.
 
-**Phase 2 — Curriculum completeness:**
+**Phase 2 - Curriculum completeness:**
 6. Verb classification module + drill.
 7. Dedicated て-form gym.
 8. Counters module with image drills.
@@ -381,13 +381,13 @@ A feature is "done" only when all of the following hold. Apply this checklist to
 10. は vs が module with minimal pairs.
 11. Particle minimal-pair drills replacing any single-answer particle drills.
 
-**Phase 3 — Test fidelity:**
+**Phase 3 - Test fidelity:**
 12. Listening module with all three JLPT N5 listening question types.
 13. Reading passages module with comprehension questions.
 14. 並べ替え production drills.
 15. Type-the-answer production drills with forgiving matcher.
 
-**Phase 4 — Polish and reach:**
+**Phase 4 - Polish and reach:**
 16. Settings panel (themes, font sizes, language).
 17. PWA + service worker + offline.
 18. i18n with at least English; structure ready for VI/ID/NE/ZH.
@@ -413,7 +413,7 @@ A feature is "done" only when all of the following hold. Apply this checklist to
 - [ ] Works fully offline after one online load.
 - [ ] All Japanese text renders in a Japanese font on a clean Windows machine without Japanese language pack.
 - [ ] Furigana toggle hides/shows ruby across the entire app.
-- [ ] Audio plays on iOS Safari (this is historically broken — verify autoplay policies).
+- [ ] Audio plays on iOS Safari (this is historically broken - verify autoplay policies).
 - [ ] Export → wipe → import round-trips progress without loss.
 - [ ] Lighthouse: Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 90, PWA installable.
 - [ ] Screen reader announces "に, particle" not "ni" or silence when reading drills.

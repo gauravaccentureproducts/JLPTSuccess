@@ -18,21 +18,21 @@ assignees: []
 
 ## Type of issue
 
-<!-- Tick the most relevant — multiple if applicable. -->
-- [ ] **Wrong reading** — the kanji or word reading is incorrect
-- [ ] **Unnatural Japanese** — phrasing a native speaker would not actually say
-- [ ] **Register mix** — example mixes plain and polite registers inappropriately
-- [ ] **Scope leak** — uses N4+ grammar / vocab / kanji that exceed N5 scope
-- [ ] **Pattern mismatch** — example doesn't actually demonstrate the pattern claimed
-- [ ] **Orthographic** — same word written different ways within one item
-- [ ] **Wrong translation** — the English/locale gloss doesn't match the Japanese
-- [ ] **Wrong answer key** — the marked-correct option is not actually correct
-- [ ] **Two correct answers** — more than one option is defensibly correct
+<!-- Tick the most relevant - multiple if applicable. -->
+- [ ] **Wrong reading** - the kanji or word reading is incorrect
+- [ ] **Unnatural Japanese** - phrasing a native speaker would not actually say
+- [ ] **Register mix** - example mixes plain and polite registers inappropriately
+- [ ] **Scope leak** - uses N4+ grammar / vocab / kanji that exceed N5 scope
+- [ ] **Pattern mismatch** - example doesn't actually demonstrate the pattern claimed
+- [ ] **Orthographic** - same word written different ways within one item
+- [ ] **Wrong translation** - the English/locale gloss doesn't match the Japanese
+- [ ] **Wrong answer key** - the marked-correct option is not actually correct
+- [ ] **Two correct answers** - more than one option is defensibly correct
 - [ ] **Other** (describe below)
 
 ## Current state (what the app shows)
 
-<!-- Quote the exact text — both the Japanese and the explanation/gloss as currently shown. -->
+<!-- Quote the exact text - both the Japanese and the explanation/gloss as currently shown. -->
 
 ```
 <paste here>
@@ -52,10 +52,10 @@ assignees: []
 
 ## Severity
 
-- [ ] **Critical** — directly teaches wrong Japanese (block release)
-- [ ] **High** — pedagogical error that confuses learners
-- [ ] **Medium** — minor inaccuracy or inconsistency
-- [ ] **Low** — polish / orthographic preference
+- [ ] **Critical** - directly teaches wrong Japanese (block release)
+- [ ] **High** - pedagogical error that confuses learners
+- [ ] **Medium** - minor inaccuracy or inconsistency
+- [ ] **Low** - polish / orthographic preference
 
 ## Reporter context (optional)
 

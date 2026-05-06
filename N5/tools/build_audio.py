@@ -98,7 +98,7 @@ class VoicevoxBackend:
     Setup (one-time):
         1. Install VOICEVOX from https://voicevox.hiroshiba.jp/
            (Windows / macOS / Linux desktop app, free, MIT-style)
-        2. Launch the app — it starts an HTTP engine on
+        2. Launch the app - it starts an HTTP engine on
            http://127.0.0.1:50021/
         3. Run this builder: `python tools/build_audio.py --backend voicevox`
 
@@ -348,7 +348,7 @@ def main() -> int:
 
     # Read prior manifest (if any) so per-item `voice: "native"` overrides
     # are preserved across rebuilds. Per OQ-2 backlog (TASKS.md): items
-    # marked "native" are recorded externally — the builder must NOT try to
+    # marked "native" are recorded externally - the builder must NOT try to
     # synthesise them. This keeps the corpus mixed-voice safe.
     prior_voice: dict[str, str] = {}
     if MANIFEST.exists():

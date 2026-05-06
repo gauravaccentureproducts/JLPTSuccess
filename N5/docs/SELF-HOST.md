@@ -1,7 +1,7 @@
 # Self-host JLPTSuccess (ISSUE-031, IMP-049, IMP-052)
 
 This guide covers forking the JLPTSuccess N5 sub-app and serving it
-from your own infrastructure — for vocational schools, language
+from your own infrastructure - for vocational schools, language
 schools, NGOs, or any institution wanting an offline-capable, no-
 account JLPT N5 prep tool branded for their context.
 
@@ -14,18 +14,18 @@ python -m http.server 8000
 # open http://localhost:8000/N5/
 ```
 
-Everything runs in the browser — no backend, no database, no API keys.
+Everything runs in the browser - no backend, no database, no API keys.
 The app is ~1 MB shell + lazy-loaded audio. Production deploys are
 static-site hosts (GitHub Pages, Netlify, Vercel, Cloudflare Pages, or
 any nginx/Apache).
 
 ## License
 
-- **Code** (HTML / CSS / JS / Python tooling): MIT — see `LICENSE` at
+- **Code** (HTML / CSS / JS / Python tooling): MIT - see `LICENSE` at
   repo root. Free to fork, modify, redistribute, sublicense, sell.
   Attribution + the MIT license text retained in your fork.
 - **Educational content** (grammar patterns, vocab, kanji, reading,
-  listening): CC BY-SA 4.0 — see `N5/CONTENT-LICENSE.md`. Free to
+  listening): CC BY-SA 4.0 - see `N5/CONTENT-LICENSE.md`. Free to
   redistribute (commercially or not) WITH attribution AND under the
   same license. If you modify the content, your modified content must
   also ship under CC BY-SA 4.0.
@@ -36,7 +36,7 @@ any nginx/Apache).
 
 Three layers of customization, each more invasive than the last:
 
-### Layer 1 — runtime theme overrides (preferred)
+### Layer 1 - runtime theme overrides (preferred)
 
 Drop a `data/theme-overrides.json` file (any branch / fork / forked
 deploy) with CSS-custom-property mappings. Loaded at app startup;
@@ -62,7 +62,7 @@ Example `data/theme-overrides.json`:
 App loader (`js/app.js`) reads this file at init; missing file = use
 defaults. No code changes needed for color / font / brand-name swaps.
 
-### Layer 2 — per-fork logo + manifest swap
+### Layer 2 - per-fork logo + manifest swap
 
 If you need a different favicon / install icon:
 
@@ -76,8 +76,8 @@ If you need a different favicon / install icon:
 The default `manifest.webmanifest` and `sw.js` assume the deploy lives
 at `/JLPTSuccess/N5/`. The PWA app-shortcuts (Reviews / Test / Kanji)
 use relative URLs like `./#/review` which resolve correctly in that
-context. If you fork and re-deploy at a different URL — for example
-`/japanese-prep/n5/` or root `/` — you may need to update:
+context. If you fork and re-deploy at a different URL - for example
+`/japanese-prep/n5/` or root `/` - you may need to update:
 
 - `manifest.webmanifest`: `start_url`, `scope`, and each `shortcuts[].url`
   if you change the app's path. Relative `./` is usually fine; absolute
@@ -94,7 +94,7 @@ The integrity check (`tools/check_content_integrity.py`) does not
 verify these per-deploy paths because they're context-dependent.
 Test the PWA install flow on your target deploy URL before publishing.
 
-### Layer 3 — full source fork
+### Layer 3 - full source fork
 
 For more invasive changes (new surfaces, different data corpus, etc.),
 fork the repo and edit directly. The MIT license permits this.
@@ -140,8 +140,8 @@ subsequent visits work fully offline.
 
 The 5 corpus files at `N5/data/{grammar,vocab,kanji,reading,listening}.json`
 are the editable content surface. Keep their schema intact (the runtime
-expects specific field names — see `N5/tools/check_content_integrity.py`
-for the 42 invariants), but the actual entries are CC BY-SA — translate,
+expects specific field names - see `N5/tools/check_content_integrity.py`
+for the 42 invariants), but the actual entries are CC BY-SA - translate,
 adapt, or extend per your curriculum.
 
 If you change item counts or add new fields, run:
@@ -166,7 +166,7 @@ picks the closest match. To add a new locale for your fork:
 2. Translate the 75 keys.
 3. Add `<lc>` to the `SUPPORTED` array in `N5/js/i18n.js`.
 4. Optionally translate the content body (grammar explanations, vocab
-   glosses, kanji meanings) — see `N5/docs/TRANSLATING.md` for the
+   glosses, kanji meanings) - see `N5/docs/TRANSLATING.md` for the
    per-locale content-field workflow.
 
 ## Privacy posture

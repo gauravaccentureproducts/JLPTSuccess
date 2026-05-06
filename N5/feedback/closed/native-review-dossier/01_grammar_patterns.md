@@ -1,4 +1,4 @@
-# 01 — Grammar patterns (n5-001 .. n5-187)
+# 01 - Grammar patterns (n5-001 .. n5-187)
 
 
 Cite as `n5-NNN` in `review_log.csv`. For per-example issues,
@@ -6,7 +6,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
 
 ---
 
-## n5-001 — `〜です／〜ます`
+## n5-001 - `〜です／〜ます`
 
 - **tier:** core_n5
 - **meaning_en:** Polite copula / polite verb ending
@@ -24,7 +24,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` まいにち にほんごを べんきょうします。
     > I study Japanese every day.
 
-## n5-002 — `は`
+## n5-002 - `は`
 
 - **tier:** core_n5
 - **meaning_en:** Topic marker - introduces what the sentence is about (already-known information)
@@ -44,7 +44,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[5]` コーヒーは すきですが、おちゃは すきじゃありません。
     > I like coffee, but I don't like tea.
 
-## n5-003 — `が`
+## n5-003 - `が`
 
 - **tier:** core_n5
 - **meaning_en:** Subject marker - marks new information, focus, or the subject of certain stative verbs/adjectives
@@ -61,7 +61,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` へやに テレビが あります。
     > There is a TV in the room.
 
-## n5-004 — `を`
+## n5-004 - `を`
 
 - **tier:** core_n5
 - **meaning_en:** Direct object marker - marks the noun receiving the action of a transitive verb
@@ -78,7 +78,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` みずを ください。
     > Please give me water.
 
-## n5-005 — `に`
+## n5-005 - `に`
 
 - **tier:** core_n5
 - **meaning_en:** Multi-purpose: location of existence / specific time / direction-destination / indirect object (recipient)
@@ -96,7 +96,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` うちに かえります。
     > I'm going home.
 
-## n5-006 — `へ`
+## n5-006 - `へ`
 
 - **tier:** core_n5
 - **meaning_en:** Direction marker - toward (used with movement verbs)
@@ -111,7 +111,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` がっこうへ かえりました。
     > I returned to school.
 
-## n5-007 — `で`
+## n5-007 - `で`
 
 - **tier:** core_n5
 - **meaning_en:** Location of action / means / instrument - where action takes place, by what means, with what tool
@@ -128,7 +128,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` にほんごで はなしました。
     > I spoke in Japanese.
 
-## n5-008 — `と`
+## n5-008 - `と`
 
 - **tier:** core_n5
 - **meaning_en:** With (companion) / and (exhaustive listing) / quotation marker
@@ -145,7 +145,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` だれと いきますか。
     > Who are you going with?
 
-## n5-009 — `から`
+## n5-009 - `から`
 
 - **tier:** core_n5
 - **meaning_en:** From (starting point in time / place) / because (reason)
@@ -163,7 +163,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` たかいから、かいません。
     > It's expensive, so I won't buy it.
 
-## n5-010 — `まで`
+## n5-010 - `まで`
 
 - **tier:** core_n5
 - **meaning_en:** Until / up to (a point in time or place); often paired with から
@@ -180,7 +180,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` そこまで タクシーで いきません。
     > I won't take a taxi that far.
 
-## n5-011 — `や`
+## n5-011 - `や`
 
 - **tier:** core_n5
 - **meaning_en:** And - non-exhaustive listing (these and others)
@@ -195,7 +195,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` こうえんや えきの ちかくに カフェが あります。
     > There are cafes near parks, stations, etc.
 
-## n5-013 — `も`
+## n5-013 - `も`
 
 - **tier:** core_n5
 - **meaning_en:** Also / too / even (with negation: 'not even / no one / nothing')
@@ -212,7 +212,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` なにも たべませんか。
     > Won't you eat anything?
 
-## n5-014 — `これ／それ／あれ／どれ`
+## n5-014 - `これ／それ／あれ／どれ`
 
 - **tier:** core_n5
 - **meaning_en:** Pronouns: this / that-near-listener / that-far / which-one (standalone, no noun follows)
@@ -229,7 +229,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` これを ください。
     > Please give me this.
 
-## n5-015 — `この／その／あの／どの ＋ N (noun)`
+## n5-015 - `この／その／あの／どの ＋ N (noun)`
 
 - **tier:** core_n5
 - **meaning_en:** Adjective form: this / that / which + Noun (always followed by a noun)
@@ -246,7 +246,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` この みせは あまり たかくないです。
     > This shop isn't very expensive.
 
-## n5-016 — `ここ／そこ／あそこ／どこ`
+## n5-016 - `ここ／そこ／あそこ／どこ`
 
 - **tier:** core_n5
 - **meaning_en:** Location words: here / there-near-listener / over-there / where
@@ -263,7 +263,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` どこにも いきません。
     > I'm not going anywhere.
 
-## n5-017 — `なに／なん`
+## n5-017 - `なに／なん`
 
 - **tier:** core_n5
 - **meaning_en:** What - pronounced なに or なん depending on what follows
@@ -280,7 +280,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` なんで きましたか。
     > How (by what means) did you come?
 
-## n5-018 — `だれ／どなた`
+## n5-018 - `だれ／どなた`
 
 - **tier:** core_n5
 - **meaning_en:** Who - だれ casual; どなた polite
@@ -297,7 +297,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` あの 人は だれですか。
     > Who is that person?
 
-## n5-019 — `いつ`
+## n5-019 - `いつ`
 
 - **tier:** core_n5
 - **meaning_en:** When - pairs with から / まで / ごろ for richer time questions
@@ -314,7 +314,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` いつでも いいです。
     > Any time is fine.
 
-## n5-021 — `から～まで`
+## n5-021 - `から～まで`
 
 - **tier:** core_n5
 - **meaning_en:** から ～ まで - from X to Y (paired range marker)
@@ -329,7 +329,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` げつようびから きんようびまで がっこうです。
     > School is Monday through Friday.
 
-## n5-023 — `か`
+## n5-023 - `か`
 
 - **tier:** core_n5
 - **meaning_en:** Sentence-final question marker
@@ -346,7 +346,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` これは ペンですか、えんぴつですか。
     > Is this a pen or a pencil?
 
-## n5-024 — `か`
+## n5-024 - `か`
 
 - **tier:** core_n5
 - **meaning_en:** Or (between alternatives)
@@ -359,7 +359,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あしたか あさってに いきます。
     > I'll go tomorrow or the day after.
 
-## n5-025 — `ね`
+## n5-025 - `ね`
 
 - **tier:** core_n5
 - **meaning_en:** ね - sentence-final confirmation / agreement particle
@@ -374,7 +374,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` むずかしかったですね。
     > That was tough, wasn't it?
 
-## n5-026 — `よ`
+## n5-026 - `よ`
 
 - **tier:** core_n5
 - **meaning_en:** よ - sentence-final assertion / new-information particle
@@ -389,7 +389,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` あぶないですよ。
     > It's dangerous!
 
-## n5-027 — `よね`
+## n5-027 - `よね`
 
 - **tier:** core_n5
 - **meaning_en:** よね - combined: assertion + seeking agreement ("...right?")
@@ -402,7 +402,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` これで いいですよね。
     > This is OK, right?
 
-## n5-028 — `～の`
+## n5-028 - `～の`
 
 - **tier:** core_n5
 - **meaning_en:** ～の (possessive / noun-modifier)
@@ -415,7 +415,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あれは だれの かばんですか。
     > Whose bag is that?
 
-## n5-029 — `possessive / noun-modifier`
+## n5-029 - `possessive / noun-modifier`
 
 - **tier:** core_n5
 - **meaning_en:** Possessive / noun-modifier
@@ -431,7 +431,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` 友だちの たんじょうびです。
     > It's my friend's birthday. (noun-modifier の: links possessor to event)
 
-## n5-030 — `nominalizer in basic use`
+## n5-030 - `nominalizer in basic use`
 
 - **tier:** core_n5
 - **meaning_en:** ～の (nominalizer - turns a verb/adj clause into a noun)
@@ -442,7 +442,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` テレビを 見るのは おもしろいです。
     > Watching TV is fun.
 
-## n5-031 — `〜の`
+## n5-031 - `〜の`
 
 - **tier:** core_n5
 - **meaning_en:** Sentence-final の as informal question marker (plain-form + の?)
@@ -456,7 +456,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` ごはん 食べないの？
     > Aren't you going to eat?
 
-## n5-033 — `だけ`
+## n5-033 - `だけ`
 
 - **tier:** core_n5
 - **meaning_en:** だけ - only / just (limiting particle)
@@ -471,7 +471,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` 1,000円だけ あります。
     > I only have 1000 yen.
 
-## n5-034 — `しか～ない`
+## n5-034 - `しか～ない`
 
 - **tier:** core_n5
 - **meaning_en:** しか〜ない - only (with negative verb)
@@ -482,7 +482,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` わたししか いません。
     > Only I am here.
 
-## n5-035 — `ぐらい / くらい`
+## n5-035 - `ぐらい / くらい`
 
 - **tier:** core_n5
 - **meaning_en:** ぐらい / くらい - about, approximately (used with quantities)
@@ -495,7 +495,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` 10分ぐらい かかります。
     > It takes about 10 minutes.
 
-## n5-036 — `ごろ`
+## n5-036 - `ごろ`
 
 - **tier:** core_n5
 - **meaning_en:** ごろ - around, approximately (used with time points)
@@ -508,7 +508,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` いつごろ 来ますか。
     > Around when will you come?
 
-## n5-037 — `など`
+## n5-037 - `など`
 
 - **tier:** core_n5
 - **meaning_en:** など - etc. (and so on)
@@ -521,7 +521,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` そふぼや ともだちなどに あいました。
     > I met my grandparents, friends, and others.
 
-## n5-038 — `ずつ`
+## n5-038 - `ずつ`
 
 - **tier:** core_n5
 - **meaning_en:** ずつ - each / per (distributive amount)
@@ -532,7 +532,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 1日に 30分ずつ べんきょうします。
     > I study 30 minutes each day.
 
-## n5-039 — `これ / それ / あれ / どれ`
+## n5-039 - `これ / それ / あれ / どれ`
 
 - **tier:** core_n5
 - **meaning_en:** Pronouns: this / that / which one
@@ -549,7 +549,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` これを ください。
     > Please give me this.
 
-## n5-040 — `この / その / あの / どの + Noun`
+## n5-040 - `この / その / あの / どの + Noun`
 
 - **tier:** core_n5
 - **meaning_en:** Adjectival demonstratives + noun
@@ -566,7 +566,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` この みせは あまり たかくないです。
     > This shop isn't very expensive.
 
-## n5-041 — `ここ / そこ / あそこ / どこ`
+## n5-041 - `ここ / そこ / あそこ / どこ`
 
 - **tier:** core_n5
 - **meaning_en:** Location words
@@ -583,7 +583,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` どこにも いきません。
     > I'm not going anywhere.
 
-## n5-042 — `こちら / そちら / あちら / どちら`
+## n5-042 - `こちら / そちら / あちら / どちら`
 
 - **tier:** core_n5
 - **meaning_en:** こちら / そちら / あちら / どちら - polite directions / options
@@ -596,7 +596,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` どちらが いいですか。
     > Which (of two) is good?
 
-## n5-043 — `こんな / そんな / あんな / どんな + Noun`
+## n5-043 - `こんな / そんな / あんな / どんな + Noun`
 
 - **tier:** core_n5
 - **meaning_en:** こんな / そんな / あんな / どんな + Noun - 'this/that kind of'
@@ -609,7 +609,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あんな 大きい いえに すみたいです。
     > I want to live in that kind of big house.
 
-## n5-044 — `こう / そう / ああ / どう`
+## n5-044 - `こう / そう / ああ / どう`
 
 - **tier:** core_n5
 - **meaning_en:** こう / そう / ああ / どう - 'this way / that way / how'
@@ -622,7 +622,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` どう 行きますか。
     > How do we get there?
 
-## n5-045 — `なん / なに`
+## n5-045 - `なん / なに`
 
 - **tier:** core_n5
 - **meaning_en:** What
@@ -639,7 +639,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` なんで きましたか。
     > How (by what means) did you come?
 
-## n5-046 — `だれ / どなた`
+## n5-046 - `だれ / どなた`
 
 - **tier:** core_n5
 - **meaning_en:** Who
@@ -656,7 +656,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` あの 人は だれですか。
     > Who is that person?
 
-## n5-048 — `どこ`
+## n5-048 - `どこ`
 
 - **tier:** core_n5
 - **meaning_en:** Where (covered by ここ-series)
@@ -673,7 +673,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` どこにも いきません。
     > I'm not going anywhere.
 
-## n5-049 — `どれ / どの / どちら`
+## n5-049 - `どれ / どの / どちら`
 
 - **tier:** core_n5
 - **meaning_en:** どれ / どの / どちら - 'which' (selection from options)
@@ -686,7 +686,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` コーヒーと おちゃと、どちらが すきですか。
     > Which do you prefer, coffee or tea?
 
-## n5-050 — `どう / いかが`
+## n5-050 - `どう / いかが`
 
 - **tier:** core_n5
 - **meaning_en:** どう / いかが - 'how / how about' (state, opinion, polite offer)
@@ -701,7 +701,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` もう いっぱい いかがですか。
     > Would you like another cup?
 
-## n5-051 — `どうして / なぜ`
+## n5-051 - `どうして / なぜ`
 
 - **tier:** core_n5
 - **meaning_en:** どうして / なぜ - 'why'
@@ -714,7 +714,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` どうして 日本語を べんきょうしていますか。
     > Why are you studying Japanese?
 
-## n5-052 — `どうやって`
+## n5-052 - `どうやって`
 
 - **tier:** late_n5
 - **meaning_en:** どうやって - 'how / by what means'
@@ -725,7 +725,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` どうやって つくりますか。
     > How do you make it?
 
-## n5-053 — `いくら`
+## n5-053 - `いくら`
 
 - **tier:** core_n5
 - **meaning_en:** いくら - 'how much' (price)
@@ -738,7 +738,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` この りんごは いくらですか。
     > How much is this apple?
 
-## n5-054 — `いくつ`
+## n5-054 - `いくつ`
 
 - **tier:** core_n5
 - **meaning_en:** いくつ - 'how many' (general counter / age)
@@ -749,7 +749,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` おこさんは おいくつですか。
     > How old is your child?
 
-## n5-055 — `なんじ`
+## n5-055 - `なんじ`
 
 - **tier:** core_n5
 - **meaning_en:** なんじ - 'what time'
@@ -762,7 +762,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あした なんじに あいましょうか。
     > What time shall we meet tomorrow?
 
-## n5-056 — `なんようび`
+## n5-056 - `なんようび`
 
 - **tier:** core_n5
 - **meaning_en:** なんようび - 'what day of the week'
@@ -773,7 +773,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` テストは なんようびですか。
     > What day is the test?
 
-## n5-057 — `なんがつ なんにち`
+## n5-057 - `なんがつ なんにち`
 
 - **tier:** core_n5
 - **meaning_en:** なんがつ / なんにち - 'what month / what day'
@@ -784,7 +784,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` きょうは なんにちですか。
     > What day of the month is it today?
 
-## n5-058 — `Verb-ます`
+## n5-058 - `Verb-ます`
 
 - **tier:** core_n5
 - **meaning_en:** Polite non-past affirmative verb ending
@@ -799,7 +799,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` まいにち にほんごを べんきょうします。
     > I study Japanese every day.
 
-## n5-059 — `Verb-ません`
+## n5-059 - `Verb-ません`
 
 - **tier:** core_n5
 - **meaning_en:** Polite non-past negative verb ending
@@ -814,7 +814,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` テレビを みませんか。
     > Won't you watch TV?
 
-## n5-060 — `Verb-ました`
+## n5-060 - `Verb-ました`
 
 - **tier:** core_n5
 - **meaning_en:** Polite past affirmative verb ending
@@ -829,7 +829,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` ともだちに あいました。
     > I met a friend.
 
-## n5-061 — `Verb-ませんでした`
+## n5-061 - `Verb-ませんでした`
 
 - **tier:** core_n5
 - **meaning_en:** Polite past negative verb ending
@@ -844,7 +844,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` ともだちに あいませんでした。
     > I didn't meet my friend.
 
-## n5-062 — `Verb-ましょう`
+## n5-062 - `Verb-ましょう`
 
 - **tier:** core_n5
 - **meaning_en:** Let's / shall we (volitional / suggestion)
@@ -859,7 +859,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` コーヒーを のみましょう。
     > Let's drink coffee.
 
-## n5-063 — `Verb-ましょうか`
+## n5-063 - `Verb-ましょうか`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-ましょうか - 'shall I / shall we (offer/suggestion)?'
@@ -872,7 +872,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` いっしょに 行きましょうか。
     > Shall we go together?
 
-## n5-064 — `Verb-ませんか`
+## n5-064 - `Verb-ませんか`
 
 - **tier:** core_n5
 - **meaning_en:** Won't you...? (polite invitation)
@@ -887,7 +887,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` こうえんへ いきませんか。
     > Shall we go to the park?
 
-## n5-065 — `Verb-る / Verb-う`
+## n5-065 - `Verb-る / Verb-う`
 
 - **tier:** core_n5
 - **meaning_en:** Plain (dictionary) form - non-past affirmative, casual / written
@@ -903,7 +903,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` べんきょうする じかんが ない。
     > [I] don't have time to study. (casual)
 
-## n5-066 — `Verb-ない`
+## n5-066 - `Verb-ない`
 
 - **tier:** core_n5
 - **meaning_en:** Plain non-past negative
@@ -918,7 +918,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` べんきょうしない 人。
     > A person who doesn't study.
 
-## n5-067 — `Verb-た`
+## n5-067 - `Verb-た`
 
 - **tier:** core_n5
 - **meaning_en:** Plain past affirmative (た-form)
@@ -933,7 +933,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` がっこうへ いった。
     > [I] went to school.
 
-## n5-068 — `Verb-なかった`
+## n5-068 - `Verb-なかった`
 
 - **tier:** core_n5
 - **meaning_en:** Plain past negative (-なかった)
@@ -948,7 +948,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` せんしゅう しけんが なかった。
     > There was no exam last week.
 
-## n5-069 — `Verb-て`
+## n5-069 - `Verb-て`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-て (te-form) - connector / sequence / request base
@@ -963,7 +963,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` はを みがいて、ねてください。
     > Brush your teeth and go to bed.
 
-## n5-070 — `Verb-て、Verb-て、…`
+## n5-070 - `Verb-て、Verb-て、…`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-て、Verb-て、… - sequential / chained actions
@@ -978,7 +978,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` デパートに 行って、なにを 買いましたか。
     > You went to the department store and bought what?
 
-## n5-071 — `Verb-てください`
+## n5-071 - `Verb-てください`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-てください - please do (polite request / instruction)
@@ -993,7 +993,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` あした 来てください。
     > Please come tomorrow.
 
-## n5-072 — `Verb-ています`
+## n5-072 - `Verb-ています`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-ています - progressive / current state / habitual
@@ -1009,7 +1009,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` なにを していますか。
     > What are you doing?
 
-## n5-073 — `Verb-ていません`
+## n5-073 - `Verb-ていません`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-ていません - currently NOT doing / NOT in state
@@ -1020,7 +1020,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` けっこんしていません。
     > I'm not married.
 
-## n5-074 — `Verb-てもいいです`
+## n5-074 - `Verb-てもいいです`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-てもいいです - may / it's OK to do (permission)
@@ -1035,7 +1035,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` この本を 読んでもいいです。
     > You can read this book.
 
-## n5-075 — `Verb-てはいけません`
+## n5-075 - `Verb-てはいけません`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-てはいけません - must not / it's forbidden
@@ -1050,7 +1050,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` おそく ねてはいけませんよ。
     > You shouldn't go to bed late.
 
-## n5-076 — `Verb-てから`
+## n5-076 - `Verb-てから`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-てから - 'after doing X'
@@ -1063,7 +1063,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` シャワーを あびてから ねます。
     > I'll go to bed after a shower.
 
-## n5-077 — `Verb-ないでください`
+## n5-077 - `Verb-ないでください`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-ないでください - please don't do
@@ -1078,7 +1078,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` あぶないですから、はいらないでください。
     > It's dangerous, so please don't enter.
 
-## n5-078 — `い-Adjective + Noun`
+## n5-078 - `い-Adjective + Noun`
 
 - **tier:** core_n5
 - **meaning_en:** い-Adjective + Noun - adjective directly before noun
@@ -1091,7 +1091,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あつい コーヒーが すきです。
     > I like hot coffee.
 
-## n5-079 — `い-Adjective + です`
+## n5-079 - `い-Adjective + です`
 
 - **tier:** core_n5
 - **meaning_en:** い-Adjective + です - polite present affirmative
@@ -1106,7 +1106,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` この りんごは あまいです。
     > This apple is sweet.
 
-## n5-080 — `い-Adjective negative: ～くないです / ～くありません`
+## n5-080 - `い-Adjective negative: ～くないです / ～くありません`
 
 - **tier:** core_n5
 - **meaning_en:** い-Adjective negative - present polite
@@ -1122,7 +1122,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` この りんごは あまくないです。
     > This apple isn't sweet.
 
-## n5-081 — `い-Adjective past: ～かったです`
+## n5-081 - `い-Adjective past: ～かったです`
 
 - **tier:** core_n5
 - **meaning_en:** い-Adjective past - was [adjective]
@@ -1137,7 +1137,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` きのうの ばんごはんは おいしかったです。
     > Yesterday's dinner was delicious.
 
-## n5-082 — `い-Adjective past negative: ～くなかったです / ～くありませんでした`
+## n5-082 - `い-Adjective past negative: ～くなかったです / ～くありませんでした`
 
 - **tier:** core_n5
 - **meaning_en:** い-Adjective past negative
@@ -1152,7 +1152,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` りょうりは おいしくありませんでした。
     > The meal wasn't tasty.
 
-## n5-083 — `い-Adjective て-form: ～くて`
+## n5-083 - `い-Adjective て-form: ～くて`
 
 - **tier:** core_n5
 - **meaning_en:** い-Adjective て-form (-くて) - connector
@@ -1167,7 +1167,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` いそがしくて、行けません。
     > I'm busy, so I can't go.
 
-## n5-084 — `な-Adjective + な + Noun`
+## n5-084 - `な-Adjective + な + Noun`
 
 - **tier:** core_n5
 - **meaning_en:** な-Adjective + な + Noun
@@ -1180,7 +1180,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` きれいな はなが さきました。
     > Pretty flowers bloomed.
 
-## n5-085 — `な-Adjective + です`
+## n5-085 - `な-Adjective + です`
 
 - **tier:** core_n5
 - **meaning_en:** な-Adjective + です - polite present affirmative
@@ -1196,7 +1196,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` とうきょうは べんりです。
     > Tokyo is convenient.
 
-## n5-086 — `な-Adjective negative: ～じゃありません / ～ではありません`
+## n5-086 - `な-Adjective negative: ～じゃありません / ～ではありません`
 
 - **tier:** core_n5
 - **meaning_en:** な-Adjective negative - polite present
@@ -1211,7 +1211,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` わたしは スポーツが すきじゃありません。
     > I don't like sports.
 
-## n5-087 — `な-Adjective past: ～でした`
+## n5-087 - `な-Adjective past: ～でした`
 
 - **tier:** core_n5
 - **meaning_en:** な-Adjective past - was [adjective] (uses でした)
@@ -1226,7 +1226,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` とうきょうは しずかじゃありませんでした。
     > Tokyo wasn't quiet.
 
-## n5-088 — `な-Adjective past negative: ～じゃありませんでした`
+## n5-088 - `な-Adjective past negative: ～じゃありませんでした`
 
 - **tier:** core_n5
 - **meaning_en:** な-Adjective past negative
@@ -1241,7 +1241,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` りょうりは すきじゃありませんでした。
     > I didn't like the food.
 
-## n5-089 — `な-Adjective て-form: ～で`
+## n5-089 - `な-Adjective て-form: ～で`
 
 - **tier:** core_n5
 - **meaning_en:** な-Adjective て-form (~で) - connector
@@ -1256,7 +1256,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` この りんごは あまくて、すきです。
     > This apple is sweet and I like it.
 
-## n5-090 — `あります`
+## n5-090 - `あります`
 
 - **tier:** core_n5
 - **meaning_en:** あります - there is / exists (inanimate things)
@@ -1272,7 +1272,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` なにか しつもんが ありますか。
     > Do you have any questions?
 
-## n5-091 — `います`
+## n5-091 - `います`
 
 - **tier:** core_n5
 - **meaning_en:** います - there is / exists (animate things - people, animals)
@@ -1289,7 +1289,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` きょうだいが いますか。
     > Do you have siblings?
 
-## n5-092 — `～に～があります / います`
+## n5-092 - `～に～があります / います`
 
 - **tier:** core_n5
 - **meaning_en:** ～に～が あります／います - 'there is X at Y' (location-first existence)
@@ -1304,7 +1304,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` こうえんに 子どもが いますか。
     > Are there children in the park?
 
-## n5-093 — `～は～にあります / います`
+## n5-093 - `～は～にあります / います`
 
 - **tier:** core_n5
 - **meaning_en:** ～は～にあります／います - 'X is at Y' (already-known X)
@@ -1317,7 +1317,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` デパートは どこに ありますか。
     > Where is the department store?
 
-## n5-094 — `～があります`
+## n5-094 - `～があります`
 
 - **tier:** core_n5
 - **meaning_en:** ～が あります - 'have / there is' (events, skills, possessions)
@@ -1331,7 +1331,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` なにか しつもんが ありますか。
     > Do you have any questions?
 
-## n5-095 — `～は～より～です`
+## n5-095 - `～は～より～です`
 
 - **tier:** core_n5
 - **meaning_en:** AはBより [adj] です - 'A is more [adj] than B'
@@ -1344,7 +1344,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` この本は あの本より おもしろいですか。
     > Is this book more interesting than that one?
 
-## n5-096 — `～より～のほうが～です`
+## n5-096 - `～より～のほうが～です`
 
 - **tier:** core_n5
 - **meaning_en:** ～より～のほうが [adj] です - '~ is more [adj] than ~' (focuses on the bigger one)
@@ -1355,7 +1355,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` おちゃより コーヒーのほうが すきです。
     > I prefer coffee over tea.
 
-## n5-097 — `～と～と、どちらが～ですか`
+## n5-097 - `～と～と、どちらが～ですか`
 
 - **tier:** core_n5
 - **meaning_en:** AとBと、どちらが ～ですか - 'which is more ~, A or B?' (2-way question)
@@ -1366,7 +1366,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` コーヒーと おちゃと、どちらが いいですか。
     > Coffee or tea - which is good?
 
-## n5-098 — `～`
+## n5-098 - `～`
 
 - **tier:** core_n5
 - **meaning_en:** Most ~ of all (covered by superlative pattern)
@@ -1379,7 +1379,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` なにが すきですか。
     > What do you like?
 
-## n5-099 — `～がすきです / きらいです`
+## n5-099 - `～がすきです / きらいです`
 
 - **tier:** core_n5
 - **meaning_en:** ～が すきです / きらいです - like / dislike
@@ -1392,7 +1392,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` なにが すきですか。
     > What do you like?
 
-## n5-100 — `～がじょうずです / へたです`
+## n5-100 - `～がじょうずです / へたです`
 
 - **tier:** core_n5
 - **meaning_en:** ～が じょうずです / へたです - good at / bad at
@@ -1403,7 +1403,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` わたしは りょうりが へたです。
     > I'm bad at cooking.
 
-## n5-101 — `～がほしいです`
+## n5-101 - `～がほしいです`
 
 - **tier:** core_n5
 - **meaning_en:** ～が ほしいです - want (an object)
@@ -1416,7 +1416,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` なにも ほしくないです。
     > I don't want anything.
 
-## n5-102 — `～がわかります`
+## n5-102 - `～がわかります`
 
 - **tier:** core_n5
 - **meaning_en:** ～が わかります - understand / know
@@ -1429,7 +1429,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` わかりました。
     > I understand. / Got it.
 
-## n5-103 — `～ができます`
+## n5-103 - `～ができます`
 
 - **tier:** core_n5
 - **meaning_en:** ～が できます - can do / be able to / have ability in
@@ -1442,7 +1442,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` ばんごはんが できました。
     > Dinner is ready.
 
-## n5-104 — `Verb-stem + たいです`
+## n5-104 - `Verb-stem + たいです`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-stem + たいです - want to do
@@ -1457,7 +1457,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` もう ねたいです。
     > I want to sleep already.
 
-## n5-105 — `Verb-stem + たくないです`
+## n5-105 - `Verb-stem + たくないです`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-stem + たくないです - don't want to
@@ -1468,7 +1468,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` なにも たべたくないです。
     > I don't want to eat anything.
 
-## n5-106 — `Noun + が ほしいです`
+## n5-106 - `Noun + が ほしいです`
 
 - **tier:** core_n5
 - **meaning_en:** Noun + が ほしいです (same as n5-101 but with explicit noun emphasis)
@@ -1479,7 +1479,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` おかねが ほしいです。
     > I want money.
 
-## n5-107 — `Verb-stem + に いきます / きます / かえります`
+## n5-107 - `Verb-stem + に いきます / きます / かえります`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-stem + に 行きます／来ます／かえります - go/come/return TO DO X
@@ -1492,7 +1492,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` うちへ ごはんを たべに かえります。
     > I'm going home to eat.
 
-## n5-108 — `Number + counter`
+## n5-108 - `Number + counter`
 
 - **tier:** core_n5
 - **meaning_en:** Number + counter - counting things in Japanese (人, まい, 本, はい, さつ, つ, etc.)
@@ -1508,7 +1508,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` ビールを 2本 飲みます。
     > I'll drink 2 bottles of beer.
 
-## n5-109 — `いくつ / いくら / なんにん / なんまい etc.`
+## n5-109 - `いくつ / いくら / なんにん / なんまい etc.`
 
 - **tier:** core_n5
 - **meaning_en:** How many / how much (counter questions)
@@ -1519,7 +1519,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` おこさんは おいくつですか。
     > How old is your child?
 
-## n5-110 — `Verb + counter + Verb`
+## n5-110 - `Verb + counter + Verb`
 
 - **tier:** core_n5
 - **meaning_en:** Object + counter + Verb - quantity comes BEFORE the verb
@@ -1531,7 +1531,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ビールを 3本 ください。
     > Please give me 3 beers.
 
-## n5-111 — `～じ`
+## n5-111 - `～じ`
 
 - **tier:** core_n5
 - **meaning_en:** ～じ - o'clock (counter)
@@ -1544,7 +1544,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` なんじですか。
     > What time is it?
 
-## n5-112 — `～ふん / ぷん`
+## n5-112 - `～ふん / ぷん`
 
 - **tier:** core_n5
 - **meaning_en:** ～ふん / ～ぷん - minute(s) (counter)
@@ -1555,7 +1555,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 5ふんまえに いきます。
     > I'll go 5 minutes earlier.
 
-## n5-113 — `～じはん`
+## n5-113 - `～じはん`
 
 - **tier:** core_n5
 - **meaning_en:** ～じはん - half past (~30 minutes)
@@ -1566,7 +1566,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 9時はんに あいましょう。
     > Let's meet at 9:30.
 
-## n5-114 — `～から～まで`
+## n5-114 - `～から～まで`
 
 - **tier:** core_n5
 - **meaning_en:** From X to Y (paired range - already covered)
@@ -1581,7 +1581,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` げつようびから きんようびまで がっこうです。
     > School is Monday through Friday.
 
-## n5-115 — `～に`
+## n5-115 - `～に`
 
 - **tier:** core_n5
 - **meaning_en:** Particle に marking specific clock-times (〜時に, 〜時はんに, 何時に, etc.)
@@ -1598,7 +1598,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` 12時に ねます。
     > I sleep at 12 o'clock.
 
-## n5-116 — `まいにち / まいしゅう / まいつき / まいとし`
+## n5-116 - `まいにち / まいしゅう / まいつき / まいとし`
 
 - **tier:** core_n5
 - **meaning_en:** まいにち / まいしゅう / まいつき / まいとし - every day / week / month / year
@@ -1609,7 +1609,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` まいしゅう 友だちに あいます。
     > I meet friends every week.
 
-## n5-117 — `きょう / あした / きのう / あさって / おととい`
+## n5-117 - `きょう / あした / きのう / あさって / おととい`
 
 - **tier:** core_n5
 - **meaning_en:** Time-of-day vocabulary: きょう / あした / きのう / あさって / おととい
@@ -1622,7 +1622,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` きのう しけんでした。
     > Yesterday was the exam.
 
-## n5-118 — `いま / すぐ / もう / まだ`
+## n5-118 - `いま / すぐ / もう / まだ`
 
 - **tier:** core_n5
 - **meaning_en:** いま / すぐ / もう / まだ - temporal adverbs
@@ -1637,7 +1637,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` まだ ここに います。
     > I'm still here.
 
-## n5-119 — `～まえ`
+## n5-119 - `～まえ`
 
 - **tier:** core_n5
 - **meaning_en:** ～まえ - before
@@ -1648,7 +1648,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ねる まえに 本を 読みます。
     > I read a book before going to bed.
 
-## n5-120 — `～あと`
+## n5-120 - `～あと`
 
 - **tier:** core_n5
 - **meaning_en:** ～あと - after
@@ -1659,7 +1659,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ばんごはんを たべた あとで テレビを 見ます。
     > I watch TV after dinner.
 
-## n5-121 — `そして`
+## n5-121 - `そして`
 
 - **tier:** core_n5
 - **meaning_en:** そして - 'and / and then' (clause connector)
@@ -1670,7 +1670,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` とうきょうへ 行きました。そして、きょうとへも 行きました。
     > I went to Tokyo. And to Kyoto too.
 
-## n5-122 — `それから`
+## n5-122 - `それから`
 
 - **tier:** core_n5
 - **meaning_en:** それから - 'and then / after that'
@@ -1681,7 +1681,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` コーヒーを 飲みました。それから、出かけました。
     > I drank coffee. Then I went out.
 
-## n5-123 — `でも`
+## n5-123 - `でも`
 
 - **tier:** core_n5
 - **meaning_en:** でも - 'but / however' (sentence-initial)
@@ -1692,7 +1692,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` あつかったです。でも、たのしかったです。
     > It was hot. But it was fun.
 
-## n5-124 — `しかし`
+## n5-124 - `しかし`
 
 - **tier:** core_n5
 - **meaning_en:** しかし - 'however' (formal contrast)
@@ -1701,7 +1701,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` テストは むずかしかったです。しかし、できました。
     > The test was hard. However, I did it.
 
-## n5-125 — `では / じゃ`
+## n5-125 - `では / じゃ`
 
 - **tier:** core_n5
 - **meaning_en:** では / じゃ - 'well then / in that case' (transition)
@@ -1712,7 +1712,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` では、はじめましょう。
     > Now then, let's begin.
 
-## n5-126 — `が`
+## n5-126 - `が`
 
 - **tier:** core_n5
 - **meaning_en:** が (clause connector) - 'but / however' (mid-sentence)
@@ -1725,7 +1725,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` すみませんが、もう いちど おねがいします。
     > Sorry, but please say it once more.
 
-## n5-127 — `けれど / けど`
+## n5-127 - `けれど / けど`
 
 - **tier:** core_n5
 - **meaning_en:** けれど / けど - 'but' (informal contrast)
@@ -1736,7 +1736,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 行きたいけど、時間が ありません。
     > I want to go, but I don't have time.
 
-## n5-129 — `どうして～か。～から。`
+## n5-129 - `どうして～か。～から。`
 
 - **tier:** core_n5
 - **meaning_en:** どうして〜か。〜から。 - Q-and-A reason pattern
@@ -1745,7 +1745,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` どうして 来ませんでしたか。―あたまが いたかったからです。
     > Why didn't you come? - Because I had a headache.
 
-## n5-130 — `～に～をあげます`
+## n5-130 - `～に～をあげます`
 
 - **tier:** core_n5
 - **meaning_en:** あげる / あげます - give (to others)
@@ -1756,7 +1756,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 母に はなを あげます。
     > I give flowers to my mother.
 
-## n5-131 — `～に～をもらいます`
+## n5-131 - `～に～をもらいます`
 
 - **tier:** core_n5
 - **meaning_en:** ～に～を もらいます - receive (from)
@@ -1767,7 +1767,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 母から おかねを もらいます。
     > I receive money from my mother.
 
-## n5-132 — `～が～をくれます`
+## n5-132 - `～が～をくれます`
 
 - **tier:** core_n5
 - **meaning_en:** ～が～を くれます - give (to me / in-group)
@@ -1778,7 +1778,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 父が プレゼントを くれました。
     > My father gave me a present.
 
-## n5-133 — `Sentence + から、Sentence`
+## n5-133 - `Sentence + から、Sentence`
 
 - **tier:** core_n5
 - **meaning_en:** Because (sentence connector - already covered)
@@ -1789,7 +1789,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` おなかが すいたから、なにか たべましょう。
     > I'm hungry, so let's eat something.
 
-## n5-134 — `Sentence + ので、Sentence`
+## n5-134 - `Sentence + ので、Sentence`
 
 - **tier:** core_n5
 - **meaning_en:** ～ので、～ - 'because' (softer than から)
@@ -1800,7 +1800,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` 今日は 雨なので、行きません。
     > Since it's raining today, I won't go.
 
-## n5-135 — `Verb`
+## n5-135 - `Verb`
 
 - **tier:** core_n5
 - **meaning_en:** Verb (plain) + Noun - relative clauses (basic)
@@ -1813,7 +1813,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` おすしを たべる 人
     > people who eat sushi
 
-## n5-136 — `Adjective + Noun`
+## n5-136 - `Adjective + Noun`
 
 - **tier:** core_n5
 - **meaning_en:** Adjective + noun (covered by い-adj+N and な-adj+N)
@@ -1826,7 +1826,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あつい コーヒーが すきです。
     > I like hot coffee.
 
-## n5-137 — `Noun + の + Noun`
+## n5-137 - `Noun + の + Noun`
 
 - **tier:** core_n5
 - **meaning_en:** Noun の Noun (covered by ～の)
@@ -1839,7 +1839,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あれは だれの かばんですか。
     > Whose bag is that?
 
-## n5-142 — `～にします`
+## n5-142 - `～にします`
 
 - **tier:** core_n5
 - **meaning_en:** ～にします - decide on / choose
@@ -1850,7 +1850,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` なにに しますか。
     > What will you have?
 
-## n5-143 — `～になります / ～くなります`
+## n5-143 - `～になります / ～くなります`
 
 - **tier:** core_n5
 - **meaning_en:** ～になります / ～くなります - becomes
@@ -1863,7 +1863,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あつくなりました。
     > It became hot.
 
-## n5-144 — `Verb-stem + ながら`
+## n5-144 - `Verb-stem + ながら`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-stem + ながら - while doing (simultaneously)
@@ -1875,7 +1875,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` コーヒーを 飲みながら 本を 読みます。
     > I drink coffee while reading a book.
 
-## n5-145 — `～とおもいます`
+## n5-145 - `～とおもいます`
 
 - **tier:** late_n5
 - **meaning_en:** ～と おもいます - I think (that)
@@ -1886,7 +1886,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` いいと おもいます。
     > I think it's good.
 
-## n5-146 — `～と言いました`
+## n5-146 - `～と言いました`
 
 - **tier:** late_n5
 - **meaning_en:** ～と 言いました - said that ~
@@ -1897,7 +1897,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ともだちは 行くと 言いました。
     > My friend said he would go.
 
-## n5-147 — `よく / ときどき / あまり / ぜんぜん + Verb`
+## n5-147 - `よく / ときどき / あまり / ぜんぜん + Verb`
 
 - **tier:** core_n5
 - **meaning_en:** Frequency adverbs: よく / ときどき / あまり / ぜんぜん
@@ -1912,7 +1912,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` ぜんぜん 食べません。
     > I don't eat at all.
 
-## n5-148 — `いつも / たいてい / たまに`
+## n5-148 - `いつも / たいてい / たまに`
 
 - **tier:** core_n5
 - **meaning_en:** いつも / たいてい / たまに - always / usually / occasionally
@@ -1925,7 +1925,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` たまに 友だちに あいます。
     > I occasionally meet friends.
 
-## n5-149 — `～をください`
+## n5-149 - `～をください`
 
 - **tier:** core_n5
 - **meaning_en:** ～を ください - please give me ~
@@ -1936,7 +1936,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` コーヒーを ふたつ ください。
     > Two coffees, please.
 
-## n5-150 — `～をおねがいします`
+## n5-150 - `～をおねがいします`
 
 - **tier:** core_n5
 - **meaning_en:** ～を おねがいします - I'd like ~ / please give ~ (more polite than ください)
@@ -1953,7 +1953,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[4]` もう いちど おねがいします。
     > Once more, please. (e.g., asking for repetition)
 
-## n5-151 — `～はいかがですか`
+## n5-151 - `～はいかがですか`
 
 - **tier:** core_n5
 - **meaning_en:** ～は いかがですか - how about ~? (polite offer)
@@ -1964,7 +1964,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` もう いっぱい いかがですか。
     > Would you like another cup?
 
-## n5-152 — `どうぞ / どうも / すみません / おねがいします`
+## n5-152 - `どうぞ / どうも / すみません / おねがいします`
 
 - **tier:** core_n5
 - **meaning_en:** Set polite phrases: どうぞ / どうも / すみません / おねがいします
@@ -1977,7 +1977,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` どうも ありがとうございます。
     > Thank you very much.
 
-## n5-153 — `まだ + Verb-ていません`
+## n5-153 - `まだ + Verb-ていません`
 
 - **tier:** core_n5
 - **meaning_en:** まだ + Verb-ていません - not yet (an action that's still pending)
@@ -1988,7 +1988,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` まだ しゅくだいを していません。
     > I haven't done my homework yet.
 
-## n5-154 — `もう + Verb-ました`
+## n5-154 - `もう + Verb-ました`
 
 - **tier:** core_n5
 - **meaning_en:** もう + Verb-ました - already (action completed)
@@ -1999,7 +1999,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` もう しゅくだいは おわりましたか。
     > Have you finished your homework yet?
 
-## n5-155 — `〜が、〜`
+## n5-155 - `〜が、〜`
 
 - **tier:** core_n5
 - **meaning_en:** Mid-sentence が (but) - see particle が clause connector
@@ -2012,7 +2012,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` すみませんが、もう いちど おねがいします。
     > Sorry, but please say it once more.
 
-## n5-156 — `〜ね / 〜よ`
+## n5-156 - `〜ね / 〜よ`
 
 - **tier:** core_n5
 - **meaning_en:** Sentence-final ね / よ - see ね / よ entries
@@ -2027,7 +2027,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` むずかしかったですね。
     > That was tough, wasn't it?
 
-## n5-157 — `〜でしょう`
+## n5-157 - `〜でしょう`
 
 - **tier:** late_n5
 - **meaning_en:** 〜でしょう - probably / right?
@@ -2039,7 +2039,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` むずかしいでしょう？
     > It's hard, right?
 
-## n5-158 — `〜だろう`
+## n5-158 - `〜だろう`
 
 - **tier:** late_n5
 - **meaning_en:** Casual/plain version of でしょう
@@ -2050,7 +2050,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` むずかしいだろう？
     > It's probably difficult, right?
 
-## n5-159 — `〜ですね / 〜ですよ`
+## n5-159 - `〜ですね / 〜ですよ`
 
 - **tier:** core_n5
 - **meaning_en:** Polite ね/よ - see ね/よ entries
@@ -2065,7 +2065,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[3]` むずかしかったですね。
     > That was tough, wasn't it?
 
-## n5-160 — `Noun + の + あとで`
+## n5-160 - `Noun + の + あとで`
 
 - **tier:** core_n5
 - **meaning_en:** Noun の あとで - see ～あと
@@ -2076,7 +2076,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` じゅぎょうの あとで としょかんに 行きます。
     > After class, I go to the library.
 
-## n5-161 — `Noun + の + まえに`
+## n5-161 - `Noun + の + まえに`
 
 - **tier:** core_n5
 - **meaning_en:** Noun の まえに - see ～まえ
@@ -2087,7 +2087,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ねる まえに 本を 読みます。
     > I read a book before going to bed.
 
-## n5-162 — `Verb`
+## n5-162 - `Verb`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-plain まえに - see ～まえ
@@ -2098,7 +2098,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ねる まえに 本を 読みます。
     > I read a book before going to bed.
 
-## n5-163 — `Verb`
+## n5-163 - `Verb`
 
 - **tier:** core_n5
 - **meaning_en:** Verb-た あとで - see ～あと
@@ -2109,7 +2109,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` ばんごはんを たべた あとで テレビを 見ます。
     > I watch TV after dinner.
 
-## n5-164 — `～さん`
+## n5-164 - `～さん`
 
 - **tier:** core_n5
 - **meaning_en:** ～さん - name suffix (Mr./Ms./equivalent)
@@ -2120,7 +2120,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` やまださんに あいました。
     > I met Yamada-san.
 
-## n5-165 — `お～ / ご～`
+## n5-165 - `お～ / ご～`
 
 - **tier:** core_n5
 - **meaning_en:** お～ / ご～ - beautifying / honorific prefixes
@@ -2133,7 +2133,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` ごりょうしんは おげんきですか。
     > Are your parents well?
 
-## n5-166 — `いただきます / ごちそうさま / おはようございます etc.`
+## n5-166 - `いただきます / ごちそうさま / おはようございます etc.`
 
 - **tier:** core_n5
 - **meaning_en:** Set greetings: いただきます / ごちそうさま / おはようございます etc.
@@ -2146,10 +2146,10 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` おはようございます。
     > Good morning.
 
-## n5-167 — `～んです / ～のです`
+## n5-167 - `～んです / ～のです`
 
 - **tier:** late_n5
-- **meaning_en:** ～んです / ～のです — explanation, emphasis, or asking for an explanation
+- **meaning_en:** ～んです / ～のです - explanation, emphasis, or asking for an explanation
 - **meaning_ja:** 「〜んです」（せつめい・きょうちょう）
 - **notes:** late_n5 tier: the form is N5 but the explanation/emphasis nuance crosses into N4 territory. The 3 examples here cover the most common N5-appropriate uses (giving a reason, asking for one, providing context). For deeper discussion of the contrast register-shift behavior or the assertive ～んだ casual form, see N4 sources. Pending native-teacher review of the framing per Pass-16 F-15.23 note (2026-05-01).
 - **examples:**
@@ -2160,7 +2160,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` あした しけんが あるんです。
     > (The reason is) I have an exam tomorrow.
 
-## n5-168 — `～たり〜たりする`
+## n5-168 - `～たり〜たりする`
 
 - **tier:** late_n5
 - **meaning_en:** ～たり〜たりする - do A and B (among other things)
@@ -2170,7 +2170,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` しゅうまつは 本を 読んだり、えいがを 見たり します。
     > On weekends I do things like read books and watch movies.
 
-## n5-169 — `Verb-た + ことがある`
+## n5-169 - `Verb-た + ことがある`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-た + ことが ある - have done before (experience)
@@ -2182,7 +2182,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` すしを 食べたことが ありますか。
     > Have you ever eaten sushi?
 
-## n5-170 — `Verb-た + ほうがいい`
+## n5-170 - `Verb-た + ほうがいい`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-た + ほうが いい - should do
@@ -2194,7 +2194,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` びょういんに 行ったほうが いいです。
     > You should go to the hospital.
 
-## n5-171 — `Verb-ない + ほうがいい`
+## n5-171 - `Verb-ない + ほうがいい`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-ない + ほうが いい - shouldn't do
@@ -2203,7 +2203,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` あまり 食べないほうが いいです。
     > You'd better not eat too much.
 
-## n5-172 — `～なくてもいい`
+## n5-172 - `～なくてもいい`
 
 - **tier:** late_n5
 - **meaning_en:** ～なくても いい - don't have to
@@ -2213,7 +2213,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` あした 来なくても いいです。
     > You don't have to come tomorrow.
 
-## n5-173 — `～なくてはいけない`
+## n5-173 - `～なくてはいけない`
 
 - **tier:** late_n5
 - **meaning_en:** ～なくては いけない - must do
@@ -2223,7 +2223,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` まいにち べんきょうしなくては いけない。
     > I must study every day.
 
-## n5-174 — `～なくてはならない`
+## n5-174 - `～なくてはならない`
 
 - **tier:** late_n5
 - **meaning_en:** Must do (formal variant - same as いけない)
@@ -2232,7 +2232,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` しゅくだいを しなくては ならない。
     > I must do my homework.
 
-## n5-175 — `～ないといけない`
+## n5-175 - `～ないといけない`
 
 - **tier:** late_n5
 - **meaning_en:** Must do (common spoken variant)
@@ -2241,7 +2241,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` はやく かえらないと いけない。
     > I must go home soon.
 
-## n5-176 — `～なくちゃ / ～なきゃ`
+## n5-176 - `～なくちゃ / ～なきゃ`
 
 - **tier:** late_n5
 - **meaning_en:** Must do (casual contractions)
@@ -2250,7 +2250,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` もう 行かなくては いけません。
     > I have to go now.
 
-## n5-177 — `Verb-stem / Adj-stem + すぎる`
+## n5-177 - `Verb-stem / Adj-stem + すぎる`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-stem / Adj-stem + すぎる - too much / excessive
@@ -2261,7 +2261,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` この りょうりは あますぎます。
     > This food is too sweet.
 
-## n5-178 — `Verb-plain + つもりだ / つもりです`
+## n5-178 - `Verb-plain + つもりだ / つもりです`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-plain + つもりだ - intend to
@@ -2270,7 +2270,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` あした 行くつもりです。
     > I plan to go tomorrow.
 
-## n5-179 — `～って`
+## n5-179 - `～って`
 
 - **tier:** late_n5
 - **meaning_en:** ～って - casual quotation marker / topic introducer
@@ -2279,7 +2279,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` 「あした 来る」って 言いました。
     > He said 'I'll come tomorrow'.
 
-## n5-180 — `Verb-stem + ～かた`
+## n5-180 - `Verb-stem + ～かた`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-stem + ～かた - way of doing
@@ -2288,7 +2288,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` この かんじの 読みかたは なんですか。
     > How do you read this kanji?
 
-## n5-181 — `～なあ`
+## n5-181 - `～なあ`
 
 - **tier:** late_n5
 - **meaning_en:** ～なあ - sentence-final exclamation ('I really feel...')
@@ -2297,7 +2297,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` おいしいなあ。
     > Mmm, this is good.
 
-## n5-182 — `Verb-plain + な`
+## n5-182 - `Verb-plain + な`
 
 - **tier:** late_n5
 - **meaning_en:** Verb-plain + な - strong/casual prohibition ("don't!")
@@ -2306,7 +2306,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[0]` 行くな！
     > Don't go!
 
-## n5-183 — `Question word + か / も compounds`
+## n5-183 - `Question word + か / も compounds`
 
 - **tier:** core_n5
 - **meaning_en:** Question word + か / も - 'something / anyone' compounds
@@ -2317,7 +2317,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[1]` なにも たべません。
     > I won't eat anything.
 
-## n5-184 — `なにか / なにも`
+## n5-184 - `なにか / なにも`
 
 - **tier:** core_n5
 - **meaning_en:** Something / nothing - see compound rule
@@ -2330,7 +2330,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` なにか のみますか。
     > Will you have something to drink?
 
-## n5-185 — `だれか / だれも`
+## n5-185 - `だれか / だれも`
 
 - **tier:** core_n5
 - **meaning_en:** Someone / no one
@@ -2343,7 +2343,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` だれかと いっしょに いきましょう。
     > Let's go with someone.
 
-## n5-186 — `どこか / どこも`
+## n5-186 - `どこか / どこも`
 
 - **tier:** late_n5
 - **meaning_en:** Somewhere / nowhere
@@ -2357,7 +2357,7 @@ use `n5-NNN.examples[K]` where K is the 0-based index.
   - `[2]` きょうは どこへも いきません。
     > Today I'm not going anywhere.
 
-## n5-187 — `いつか / いつも`
+## n5-187 - `いつか / いつも`
 
 - **tier:** late_n5
 - **meaning_en:** Sometime / always

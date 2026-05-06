@@ -3,7 +3,7 @@ Quick coverage comparison: our questions.json (163 questions tagged to N5
 patterns) vs the externally extracted learnjapaneseaz.com corpus (175
 questions across 17 tests).
 
-External corpus has no pattern-id tags — we infer the topic by inspecting
+External corpus has no pattern-id tags - we infer the topic by inspecting
 the BLANK in each stem, since the answer is the particle/grammar form
 being tested. Then we tally: what fraction of N5 patterns covered, and
 which N5 patterns are over- or under-represented.

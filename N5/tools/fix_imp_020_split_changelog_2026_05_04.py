@@ -7,7 +7,7 @@ historic and bloat the main file.
 
 This script:
 1. Reads the current CHANGELOG.md.
-2. Splits at the v1.9.0 boundary — keeps v1.10.0 and newer in the main file.
+2. Splits at the v1.9.0 boundary - keeps v1.10.0 and newer in the main file.
 3. Writes the v1.9.0-and-older block to docs/CHANGELOG-archive.md with a
    short preface explaining the split.
 4. Replaces the tail of CHANGELOG.md with a "see archive" pointer.
@@ -30,7 +30,7 @@ SPLIT_HEADING = '## v1.9.0 - 2026-05-02 (Japanese-first language sweep)'
 ARCHIVE_PREFACE = """# Changelog archive (v1.0.0 - v1.9.0)
 
 These entries pre-date the v1.10.0 syllabus-dashboard milestone (2026-05-02).
-They are kept verbatim for historical reference only — see `../CHANGELOG.md`
+They are kept verbatim for historical reference only - see `../CHANGELOG.md`
 for the active backlog.
 
 ---
@@ -53,7 +53,7 @@ def main() -> int:
 
     # Idempotency check.
     if 'docs/CHANGELOG-archive.md' in text:
-        print('Already split — pointer present in main CHANGELOG.md.')
+        print('Already split - pointer present in main CHANGELOG.md.')
         return 0
 
     idx = text.find(SPLIT_HEADING)
@@ -69,7 +69,7 @@ def main() -> int:
         head = head[:-3].rstrip()
 
     # Archive payload = v1.9.0 through end-of-file (drop the original
-    # trailing "*This changelog…*" sign-off — the new pointer footer
+    # trailing "*This changelog…*" sign-off - the new pointer footer
     # in the main file restores it).
     tail = text[idx:].rstrip()
     SIGN_OFF = '*This changelog only records changes visible to users. For commit-level history, see git log.*'

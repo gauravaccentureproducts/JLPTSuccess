@@ -1,5 +1,5 @@
 # IMP-060 (audit round-5): security updates for the only dependency
-# surface in the project — devDependencies in N5/package.json (Playwright
+# surface in the project - devDependencies in N5/package.json (Playwright
 # + axe-core for tests). The runtime ships zero npm dependencies so the
 # attack surface is small; this config keeps the tooling current.
 #

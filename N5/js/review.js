@@ -263,7 +263,7 @@ function mountUndoToast(container, lastGraded) {
     teardownUndoToast();
   });
 
-  // Pause the auto-dismiss while the user hovers over the toast — gives
+  // Pause the auto-dismiss while the user hovers over the toast - gives
   // people on slow reading speed a chance to react.
   toast.addEventListener('mouseenter', () => {
     if (undoTimer) { clearTimeout(undoTimer); undoTimer = null; }

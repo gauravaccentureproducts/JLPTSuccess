@@ -13,7 +13,7 @@
 - [ ] Documentation only
 - [ ] Refactor / internal cleanup (no functional change)
 - [ ] Build / tooling / CI
-- [ ] Breaking change (requires a coordinated rollout — see "Breaking change" section below)
+- [ ] Breaking change (requires a coordinated rollout - see "Breaking change" section below)
 
 ## Linked issue(s)
 
@@ -21,11 +21,11 @@
 
 ## Scope of files touched
 
-<!-- Quick sanity check — which level subdir does this touch? -->
+<!-- Quick sanity check - which level subdir does this touch? -->
 
 - [ ] Top-level (JLPTSuccess root: index.html, css, manifest, etc.)
 - [ ] N5
-- [ ] N4 — ⚠️ **WORK-BLOCKED**, requires explicit unblock from the maintainer (see [.claude/CLAUDE.md](../.claude/CLAUDE.md))
+- [ ] N4 - ⚠️ **WORK-BLOCKED**, requires explicit unblock from the maintainer (see [.claude/CLAUDE.md](../.claude/CLAUDE.md))
 - [ ] N3 / N2 / N1 (placeholder updates only)
 - [ ] Cross-repo / shared assets
 

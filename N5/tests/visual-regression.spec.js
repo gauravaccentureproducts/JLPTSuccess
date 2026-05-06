@@ -35,7 +35,7 @@ const VIEWPORTS = [
   { name: 'mobile',  width: 375,  height: 812 },
 ];
 
-test.describe('Visual regression — homepage + canonical routes', () => {
+test.describe('Visual regression - homepage + canonical routes', () => {
   for (const vp of VIEWPORTS) {
     for (const route of ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {

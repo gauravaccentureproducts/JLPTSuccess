@@ -5,7 +5,7 @@
 // `learn-vocab.js` respectively. The dispatcher in this file dynamic-
 // imports the right chunk on demand, so the hub renders without paying
 // for code paths the user hasn't asked for. The two chunks reuse `esc`
-// and `wireExpandCollapseControls` exported below — keeping these here
+// and `wireExpandCollapseControls` exported below - keeping these here
 // avoids duplication and a third "shared" module.
 
 let grammarCache = null;
@@ -106,7 +106,7 @@ function renderHub(container) {
       <a class="hub-card" href="#/learn/vocab">
         <p class="card-index" aria-hidden="true">02</p>
         <h3>Vocabulary</h3>
-        <p>${vocabCount} words grouped by topic — people, time, places, verbs, adjectives.</p>
+        <p>${vocabCount} words grouped by topic - people, time, places, verbs, adjectives.</p>
         <span class="hub-cta">Browse</span>
       </a>
       <a class="hub-card" href="#/kanji">
@@ -138,7 +138,7 @@ function renderHub(container) {
   `;
 }
 
-// Shared helpers — exported so the lazy-loaded `learn-grammar.js` and
+// Shared helpers - exported so the lazy-loaded `learn-grammar.js` and
 // `learn-vocab.js` can reuse them without a third "shared" module. Both
 // are tiny pure functions; co-locating them with the dispatcher keeps the
 // dependency graph flat (chunks → dispatcher; dispatcher → chunks at
@@ -154,7 +154,7 @@ export function esc(s) {
 
 // Wire Expand-all / Collapse-all buttons to the matching `<details>`
 // elements in the rendered container. Used by Grammar TOC, Vocab list,
-// and Listening index — anywhere the page presents a stack of accordion
+// and Listening index - anywhere the page presents a stack of accordion
 // sections with global expand/collapse controls.
 export function wireExpandCollapseControls(container, detailsSelector) {
   const expand = container.querySelector('.toc-expand-all');

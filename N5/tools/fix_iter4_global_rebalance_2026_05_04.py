@@ -74,7 +74,7 @@ def rebalance_corpus_globally(cat: str) -> None:
         print(f'  {cat}: already balanced (constrained={constrained_dist}, current uncon={cur_uncon}, target uncon={target_uncon})')
         return
 
-    print(f'  {cat}: rebalancing — constrained={constrained_dist}, cur_uncon={cur_uncon}, target_uncon={target_uncon}, deltas={deltas}')
+    print(f'  {cat}: rebalancing - constrained={constrained_dist}, cur_uncon={cur_uncon}, target_uncon={target_uncon}, deltas={deltas}')
 
     # Group unconstrained by current pos
     by_pos = {0:[], 1:[], 2:[], 3:[]}

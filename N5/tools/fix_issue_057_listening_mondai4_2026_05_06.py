@@ -6,7 +6,7 @@ zero. This batch adds 7 items (one over the floor for variety).
 
 Mondai 4 (即時応答) format:
   - Single-line stimulus (a question or prompt).
-  - 3 short response options (NOT 4 — official format).
+  - 3 short response options (NOT 4 - official format).
   - Pick the most natural reply.
   - Tests pragmatic + register awareness, not vocab.
 

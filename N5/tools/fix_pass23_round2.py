@@ -1,11 +1,11 @@
 """Pass-23 round 2: fix the remaining real issues round-1 audit found.
 
-(1) Five prompts have non-N5 vocab (あらわす, ような, めいし, どうし) —
+(1) Five prompts have non-N5 vocab (あらわす, ような, めいし, どうし) -
     rewrite all to the generic N5-pure prompt. The question stems
     already carry the context anchor; the prompts' explanatory hints
     were leaking N3+ vocabulary for no learner benefit.
 
-(2) q-0022 (ペン（ ）ノートなどを かいました) — や is the canonical N5
+(2) q-0022 (ペン（ ）ノートなどを かいました) - や is the canonical N5
     pattern for "X や Y など" (non-exhaustive list); と with など is also
     grammatical but less idiomatic. To eliminate any multi-correct
     risk, replace と in the choices with へ (clearly wrong).
@@ -21,7 +21,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ROOT = Path(__file__).resolve().parent.parent
 
 QUESTION_FIXES = {
-    # Cat J prompt scope-leak fixes — five prompts use N3+ vocab.
+    # Cat J prompt scope-leak fixes - five prompts use N3+ vocab.
     # Replace with the generic N5-pure prompt; question stems carry context.
     'q-0020': {
         'prompt_ja': '（  ）に いれる ことばを えらんで ください。',

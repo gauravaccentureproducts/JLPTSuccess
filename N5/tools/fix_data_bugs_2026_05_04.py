@@ -13,7 +13,7 @@ Bug 2 (MED): 40 whitelist entries don't appear as form/reading in
              vocabulary_n5.md by extracting all word-form tokens. The
              whitelist is intentionally a SUPERSET of vocab.json forms:
                - 10 multi-form aliases (e.g., みんな when canonical is
-                 みな in vocab.json) — by design, recognized via MD
+                 みな in vocab.json) - by design, recognized via MD
                  multi-form entries.
                - 30 recognition-only items (genuine N5 vocab tokens
                  used in vocabulary_n5.md gloss/example text but never
@@ -23,7 +23,7 @@ Bug 2 (MED): 40 whitelist entries don't appear as form/reading in
              audits don't re-flag this as drift. The whitelist's role
              (recognition allowlist for lint_content.py) is distinct
              from vocab.json's role (canonical structured catalog).
-             No data-content changes — both files are correct as-is
+             No data-content changes - both files are correct as-is
              relative to their purposes.
 
 Idempotent.
@@ -117,7 +117,7 @@ def fix_n188_audio() -> None:
 # =====================================================================
 # Bug 2: write a sibling README documenting the whitelist's intent
 # =====================================================================
-README_TEXT = """# n5_vocab_whitelist.json — Design
+README_TEXT = """# n5_vocab_whitelist.json - Design
 
 This whitelist is **generated** from `KnowledgeBank/vocabulary_n5.md` by
 `tools/build_data.py`. It is NOT a hand-curated mirror of `data/vocab.json`.
@@ -142,7 +142,7 @@ fields. As of 2026-05-04:
 
 The 40 extras fall into two categories.
 
-### Multi-form aliases (10 — by design)
+### Multi-form aliases (10 - by design)
 
 `vocabulary_n5.md` lists certain words under a single multi-form entry like
 `- いい / よい - [i-adj] good`. `tools/build_data.py` extracts BOTH
@@ -162,7 +162,7 @@ the canonical form (よい). This is correct and expected:
 | やはり | やっぱり | `やはり / やっぱり - [adv.] as expected` |
 | ゼロ | れい | `ゼロ / れい - [num.] zero` |
 
-### Recognition-only items (30 — pending vocab.json authoring)
+### Recognition-only items (30 - pending vocab.json authoring)
 
 These tokens appear in `vocabulary_n5.md` (extracted by build_data.py) and
 are recognized as in-scope by `tools/lint_content.py`, but do not have full
@@ -202,7 +202,7 @@ that happen to lack a full structured entry.
   - **Removing a deprecated form**: edit `vocabulary_n5.md` to remove the
     line, then re-run `tools/build_data.py`.
 
-The whitelist is a **derived artifact** — never edit it by hand.
+The whitelist is a **derived artifact** - never edit it by hand.
 """
 
 

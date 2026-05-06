@@ -4,7 +4,7 @@ the repo for editing + debugging; the minified copies are what
 index.html ships in production.
 
 esbuild is invoked through `npx --yes esbuild` so no project-level
-devDep install is required — esbuild is fetched lazily at first run
+devDep install is required - esbuild is fetched lazily at first run
 and cached by npm. Total minified bundle size drops ~30-40%.
 
 Idempotent: re-running rewrites every js/min/<name>.js. Safe to run

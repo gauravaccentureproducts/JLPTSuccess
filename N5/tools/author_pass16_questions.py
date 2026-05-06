@@ -9,7 +9,7 @@ Authors 10 new MCQs across 5 patterns:
   - n5-144 Verb-stem + ながら (while doing)   : 2 questions
   - n5-148 いつも / たいてい / たまに         : 2 questions
 
-n5-167 (んです / のです) is intentionally skipped per F-15.23 — borderline
+n5-167 (んです / のです) is intentionally skipped per F-15.23 - borderline
 N5/N4, needs native-teacher input on N5-appropriate framing.
 
 Each question:
@@ -42,7 +42,7 @@ NEW_QUESTIONS = [
         'distractor_explanations': {
             'を': "を already marks プレゼント (the thing being given). あげる takes one を for the object, not two. The recipient slot uses に.",
             'へ': "へ marks the destination of motion verbs (e.g., がっこうへ いく). For the recipient of giving / receiving verbs, use に.",
-            'から': "から marks the SOURCE of an action ('from'). 'Friend から' would mean the friend gave something to me — the opposite direction of あげる. Use に for 'to whom'.",
+            'から': "から marks the SOURCE of an action ('from'). 'Friend から' would mean the friend gave something to me - the opposite direction of あげる. Use に for 'to whom'.",
         },
         'high_confusion': False,
         'difficulty': 2,
@@ -57,7 +57,7 @@ NEW_QUESTIONS = [
         'question_ja': '父は 母に はな（  ）あげました。',
         'choices': ['を', 'が', 'に', 'で'],
         'correctAnswer': 'を',
-        'explanation_en': "を marks the direct object — what is being given. Structure: [giver] は [recipient] に [item] を あげる. Here father (父) gives flowers (はな) to mother (母).",
+        'explanation_en': "を marks the direct object - what is being given. Structure: [giver] は [recipient] に [item] を あげる. Here father (父) gives flowers (はな) to mother (母).",
         'distractor_explanations': {
             'が': "が marks the subject. Father is already the topic (父は); flowers are not the doer of the action.",
             'に': "に marks the recipient (母に already takes に). The thing given uses を, not に.",
@@ -77,7 +77,7 @@ NEW_QUESTIONS = [
         'question_ja': 'わたしは 父（  ）おかねを もらいました。',
         'choices': ['から', 'へ', 'で', 'と'],
         'correctAnswer': 'から',
-        'explanation_en': "から marks the source — the person from whom something is received. Structure: [receiver] は [source] から [item] を もらう. Note: に also works for the source with もらう (e.g., 父に もらいました), but から is the most direct way to signal 'from' and is unambiguous in this MCQ.",
+        'explanation_en': "から marks the source - the person from whom something is received. Structure: [receiver] は [source] から [item] を もらう. Note: に also works for the source with もらう (e.g., 父に もらいました), but から is the most direct way to signal 'from' and is unambiguous in this MCQ.",
         'distractor_explanations': {
             'へ': "へ marks the destination of motion verbs. The source of もらう (the giver) takes から (or に), never へ.",
             'で': "で marks instrument or location of action. It does not mark the source-person of もらう.",
@@ -96,7 +96,7 @@ NEW_QUESTIONS = [
         'question_ja': 'わたしは 兄から プレゼント（  ）もらいました。',
         'choices': ['を', 'が', 'に', 'へ'],
         'correctAnswer': 'を',
-        'explanation_en': "を marks the direct object — what is being received. Structure: [receiver] は [source] から [item] を もらう. Here 'I' receive a present (プレゼント) from 'older brother' (兄).",
+        'explanation_en': "を marks the direct object - what is being received. Structure: [receiver] は [source] から [item] を もらう. Here 'I' receive a present (プレゼント) from 'older brother' (兄).",
         'distractor_explanations': {
             'が': "が marks the subject. The receiver (わたし) is already the topic; the present is not the doer of the action.",
             'に': "に could mark the source (兄に もらいました), but 兄から already fills that role. The thing being received uses を.",
@@ -138,7 +138,7 @@ NEW_QUESTIONS = [
         'explanation_en': "When ので follows a noun or な-adjective, you must insert な between them: 雨 → 雨なので. The plain copula だ does not appear before ので; it becomes な.",
         'distractor_explanations': {
             'の': "雨のので is ungrammatical. The connector for noun + ので is な, not の. (の is the genitive / possessive particle, used differently.)",
-            'だ': "雨だので is incorrect. The plain-form copula だ does not survive in front of ので — it shifts to な instead.",
+            'だ': "雨だので is incorrect. The plain-form copula だ does not survive in front of ので - it shifts to な instead.",
             'で': "雨でので doubles up the で / な-form connectors and is ungrammatical. The fixed pattern is noun + な + ので.",
         },
         'high_confusion': True,
@@ -158,7 +158,7 @@ NEW_QUESTIONS = [
         'explanation_en': "Verb-stem + ながら expresses two actions performed simultaneously by the same subject. きく (to listen) → stem きき + ながら = ききながら ('while listening'). Note: both actions must share the same subject.",
         'distractor_explanations': {
             'きいて': "きいて (te-form) connects sequential actions: 'listen, then study'. It does not express simultaneous action.",
-            'ききました': "ききました is past polite — a complete sentence ending. It cannot connect two actions in the middle of one sentence.",
+            'ききました': "ききました is past polite - a complete sentence ending. It cannot connect two actions in the middle of one sentence.",
             'きかない': "きかない is the negative ('don't listen'), and gives the wrong meaning. It also doesn't form the simultaneous-action structure.",
         },
         'high_confusion': False,
@@ -216,7 +216,7 @@ NEW_QUESTIONS = [
         'explanation_en': "たまに means 'occasionally / once in a while' (low frequency). It naturally pairs with '月に 1回' ('once a month'), which describes infrequent activity.",
         'distractor_explanations': {
             'いつも': "いつも ('always') describes 100% frequency. It contradicts '月に 1回' (only once a month).",
-            'とても': "とても means 'very' — it modifies degree, not frequency. *とても 見ます is ungrammatical for an action verb.",
+            'とても': "とても means 'very' - it modifies degree, not frequency. *とても 見ます is ungrammatical for an action verb.",
             'よく': "よく ('often / frequently') describes high-medium frequency. It contradicts the explicit '月に 1回' which is low frequency.",
         },
         'high_confusion': True,

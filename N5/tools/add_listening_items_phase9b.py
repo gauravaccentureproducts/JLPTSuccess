@@ -84,7 +84,7 @@ ITEMS = [
             "ねる",
         ],
         "correctAnswer": "かおを あらう",
-        "explanation_en": "'はやく かおを あらって' — wash face first, then breakfast.",
+        "explanation_en": "'はやく かおを あらって' - wash face first, then breakfast.",
     },
 
     # ===== POINT comprehension (3) =====

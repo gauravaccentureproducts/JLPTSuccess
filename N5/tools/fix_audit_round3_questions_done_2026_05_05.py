@@ -1,16 +1,16 @@
 """Update Open questions sheet decisions for the questions resolved in
 v1.12.31 close-out.
 
-Q9 — vocab + kanji SRS scope: DECIDED. IMP-033 shipped the data plumbing
+Q9 - vocab + kanji SRS scope: DECIDED. IMP-033 shipped the data plumbing
   without a special vocab+kanji daily cap; existing dailyReviewCap
   applies uniformly across all 3 history sources.
 
-Q10 — mock-paper sitting timing: DECIDED. ISSUE-020/IMP-032 shipped
+Q10 - mock-paper sitting timing: DECIDED. ISSUE-020/IMP-032 shipped
   real-time enforced timing per section (auto-submit at zero) with a
   60-second between-section break that the user can skip.
 
 Q8 (i18n commit-vs-remove), Q11 (native audio budget), Q12 (round-2 Q2-Q7
-unanswered) stay open — they need actual product/budget decisions, not
+unanswered) stay open - they need actual product/budget decisions, not
 implementation calls.
 """
 from __future__ import annotations

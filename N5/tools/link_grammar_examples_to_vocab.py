@@ -14,7 +14,7 @@ Disambiguation strategy:
 - For NON-homograph forms (1 vocab entry per form): straightforward link.
 - For homograph forms (>=2 entries):
   (a) If glosses are equivalent (e.g., 魚 in both Animals and Food
-      sections, both glossed "fish"), link to ALL — they're alternative
+      sections, both glossed "fish"), link to ALL - they're alternative
       thematic placements, not different senses.
   (b) If glosses are different, apply disambiguation rules from
       HOMOGRAPH_RULES below. These rules are deterministic regex/POS
@@ -77,7 +77,7 @@ def rule_kata(entries, ja, form):
     Verb-stem + 〜かた, e.g., 読みかた). Otherwise person sense."""
     # Match 〜みかた / 〜きかた / 〜しかた / 〜ちかた / etc. (Verb-stem ending in i + かた)
     way_signal = re.search(r"[いきしちにひみり]かた", ja) or re.search(r"[え-お]かた", ja)
-    # Also match: 食べ方 etc. — but our data uses kana 〜かた
+    # Also match: 食べ方 etc. - but our data uses kana 〜かた
     if way_signal:
         return _ids(_filter(entries, lambda e: _gloss_matches(e, "way of doing")))
     # Person sense: preceded by demonstrative or possessive
@@ -96,13 +96,13 @@ def rule_ha(entries, ja, form):
     # in N5 examples.
     if re.search(r"は\s+\S", ja) or "は、" in ja or "は。" in ja:
         return _ids(_filter(entries, lambda e: _is_pos(e, "particle")))
-    # Tooth/leaf require explicit context — over-link to noun senses
+    # Tooth/leaf require explicit context - over-link to noun senses
     return _ids(_filter(entries, lambda e: _is_pos(e, "noun")))
 
 
 def rule_hito(entries, ja, form):
     """人: 'person' (pronoun) vs counter for people.
-    Counter signal: preceded by a number — 一人, 二人, 三人, etc."""
+    Counter signal: preceded by a number - 一人, 二人, 三人, etc."""
     if re.search(r"[一二三四五六七八九十百0-9０-９]\s*人", ja):
         return _ids(_filter(entries, lambda e: _is_pos(e, "counter")))
     return _ids(_filter(entries, lambda e: _is_pos(e, "pronoun")))
@@ -143,7 +143,7 @@ def rule_hai(entries, ja, form):
 
 def rule_kai(entries, ja, form):
     """かい: floor vs times. Floor: 〜階. Times: 〜回. Surface form かい
-    in kana is rarely disambiguated alone — over-link."""
+    in kana is rarely disambiguated alone - over-link."""
     return _ids(entries)
 
 
@@ -176,7 +176,7 @@ def rule_ga(entries, ja, form):
     """が: conjunction 'but' vs particle 'subject marker'. Conjunction:
     after a clause-ending form. Particle: after a noun."""
     if re.search(r"(です|ます|でした|ました|だ|た|い)が", ja):
-        # Clause + が — could be conjunction or formal-soft particle. Default conj.
+        # Clause + が - could be conjunction or formal-soft particle. Default conj.
         return _ids(_filter(entries, lambda e: _is_pos(e, "conjunction")))
     return _ids(_filter(entries, lambda e: _is_pos(e, "particle")))
 
@@ -223,7 +223,7 @@ _BOUNDARY = set(" 　、。！？「」（）()\n\t" + "　")
 def matches_in_example(form: str, ja: str, pos: str = "") -> bool:
     """POS-aware substring check.
 
-    Long forms (≥3 chars) are matched directly — the substring is
+    Long forms (≥3 chars) are matched directly - the substring is
     distinctive enough that false positives are unlikely.
 
     Short forms (1-2 chars) need word-boundary signals to avoid the
@@ -236,11 +236,11 @@ def matches_in_example(form: str, ja: str, pos: str = "") -> bool:
 
     - **All other POS**: standalone token, requires boundary on BOTH
       sides. Catches counter こ matching at start of この (before is
-      string-start which is a boundary, but after is の — fails). Same
+      string-start which is a boundary, but after is の - fails). Same
       for で-in-です (no boundary after で), は-in-はな (no boundary
       after は), etc.
 
-    Conjugated verbs aren't handled — only the dictionary form matches
+    Conjugated verbs aren't handled - only the dictionary form matches
     literally. This is an accepted under-linking; a proper Japanese
     morphological analyser would be needed for full coverage.
     """
@@ -251,7 +251,7 @@ def matches_in_example(form: str, ja: str, pos: str = "") -> bool:
     # 2+-char forms: substring match is sufficient. Compounds like
     # 読みかた (verb-stem + かた) attach without space, so requiring a
     # boundary would miss the legitimate compound match. False-positive
-    # risk at 2 chars is low — vocab forms aren't typically substrings
+    # risk at 2 chars is low - vocab forms aren't typically substrings
     # of other vocab forms at this length.
     if len(form) >= 2:
         # Counter-specific boundary: a 2-char counter (かい / ほん /
@@ -281,7 +281,7 @@ def matches_in_example(form: str, ja: str, pos: str = "") -> bool:
         # _PARTICLE_END catches the typical "previous word ended on a
         # particle" left context. _RIGHT_OK extends _BOUNDARY with the
         # particles and copula/modifier starts that legitimately attach
-        # to the END of a noun/adj (e.g., 「あしを」 — を attaches and
+        # to the END of a noun/adj (e.g., 「あしを」 - を attaches and
         # IS a valid right context).
         #
         # Best-effort: Japanese has no real word boundaries, but the
@@ -424,7 +424,7 @@ def conjugation_matches(dict_form: str, pos: str, ja: str) -> bool:
                         "ています", "ていません"):
                 candidates.append(e_stem + suf)
     elif pos == "verb-3":
-        # Irregular: する / 来る (くる) — handle by exact-form lookup
+        # Irregular: する / 来る (くる) - handle by exact-form lookup
         if dict_form == "する":
             candidates.extend(["します","しました","しません","しませんでした",
                                 "して","した","しない","しなかった","しよう","しましょう",
@@ -536,7 +536,7 @@ def main() -> int:
                     homograph_decisions[form] += 1
             # Post-filter: kana-conjugation collisions between irregular
             # 来る (verb-3, ます-stem き) and きる (verb-2 "to wear",
-            # ms-stem also き) — surface forms きました / きます /
+            # ms-stem also き) - surface forms きました / きます /
             # きませんでした / きて / きた are ambiguous between the
             # two. When 来る is linked AND the example has no clothing
             # context (シャツ / セーター / 服 / きもの / ようふく),

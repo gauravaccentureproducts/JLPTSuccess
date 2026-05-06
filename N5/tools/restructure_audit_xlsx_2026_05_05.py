@@ -1,7 +1,7 @@
 """Restructure feedback/n5-audit-2026-05-04.xlsx for clarity:
 
   1. Drop the 3 reference-only sheets ("Top-10 do these first",
-     "Coverage map", "Legend") — they were cumulative reference data,
+     "Coverage map", "Legend") - they were cumulative reference data,
      not actionable.
   2. Rename "Audit findings" -> "Items" and "Open questions" -> "Questions".
   3. Add a "Plain English" column to "Items" so a non-technical reader
@@ -13,7 +13,7 @@
      decision is described in simple language.
 
 Preserves all existing data, formatting, and the existing
-"Decision (Fix / Avoid / Defer)" column. Idempotent — running twice
+"Decision (Fix / Avoid / Defer)" column. Idempotent - running twice
 produces no further change.
 """
 from __future__ import annotations
@@ -28,7 +28,7 @@ XLSX = Path(__file__).resolve().parent.parent / 'feedback' / 'n5-audit-2026-05-0
 # Plain-English text for each currently-pending item or recently-active
 # row. Keys = ID. Format: (plain English, permission-decision-option,
 # explanation if pending). For items already Done / Avoid we leave the
-# new columns blank — they're closed and don't need re-discussion.
+# new columns blank - they're closed and don't need re-discussion.
 PLAIN_ENGLISH = {
     # Round-5 needs-decision items (still pending)
     'ISSUE-042': (
@@ -37,7 +37,7 @@ PLAIN_ENGLISH = {
         'Three options: (a) show the badge anyway with a note "all currently AI-drafted, native review in progress", (b) wait until at least 50 items are native-reviewed before showing, (c) skip the badge entirely and use the data only behind the scenes.',
     ),
     'IMP-064': (
-        "When a Vietnamese / Indonesian / Nepali / Chinese visitor opens the app for the first time, we currently auto-detect their browser language and show a small toast. Should we add an extra step BEFORE the placement test asking 'Your language is X — keep this or pick another?'",
+        "When a Vietnamese / Indonesian / Nepali / Chinese visitor opens the app for the first time, we currently auto-detect their browser language and show a small toast. Should we add an extra step BEFORE the placement test asking 'Your language is X - keep this or pick another?'",
         'Defer',
         'UX trade-off: extra step = more friction but more clarity. Skipping it = faster but the locale auto-detect might surprise a user who shares a device.',
     ),
@@ -56,7 +56,7 @@ PLAIN_ENGLISH = {
     'ISSUE-043': (
         "Make the JavaScript files smaller by running them through a minifier (esbuild or terser). Would shrink the 387 KB JS bundle by ~30-40%, making the app load faster on slow phones.",
         'Allow',
-        'Needs me to install a new dev tool (esbuild via npm). Failure is silent — if your dev environment blocks npm installs, the build just keeps using the unminified files.',
+        'Needs me to install a new dev tool (esbuild via npm). Failure is silent - if your dev environment blocks npm installs, the build just keeps using the unminified files.',
     ),
     'ISSUE-045': (
         "Add automated screenshot tests for the new pages (Mock Sitting, Wrong-answer history, audio player, trust band). If a future change accidentally breaks the layout, the test catches it.",
@@ -74,11 +74,11 @@ PLAIN_ENGLISH = {
         'Same Playwright dependency as ISSUE-045.',
     ),
 
-    # Round-4 deferred Fix items (still pending — content / decision blocked)
+    # Round-4 deferred Fix items (still pending - content / decision blocked)
     'IMP-045': (
         "Translate the 178 grammar lesson explanations (the long English text explaining each grammar point) into Vietnamese, Indonesian, Nepali, Chinese.",
         'Defer',
-        'About 712 sentences to translate. Cannot ship machine-translated grammar explanations — the audit explicitly warned this would damage trust. Needs human translators (paid or volunteer).',
+        'About 712 sentences to translate. Cannot ship machine-translated grammar explanations - the audit explicitly warned this would damage trust. Needs human translators (paid or volunteer).',
     ),
     'IMP-046': (
         "Translate the 1041 vocabulary glosses (the English meaning of each word like '車 = car') into Vietnamese, Indonesian, Nepali, Chinese.",
@@ -93,7 +93,7 @@ PLAIN_ENGLISH = {
     'IMP-050': (
         "Add radical breakdown + memory hint to each kanji (e.g., 校 = 木 + 交 = tree + cross). This is what WaniKani is famous for.",
         'Defer',
-        'Substantial content authoring. Need to import data from KanjiDic2 (free) and write hints. The audit recommends NOT chasing WaniKani depth — minimum-viable only.',
+        'Substantial content authoring. Need to import data from KanjiDic2 (free) and write hints. The audit recommends NOT chasing WaniKani depth - minimum-viable only.',
     ),
     'IMP-053': (
         "Make the CSS layout work for right-to-left languages (Arabic, Hebrew, Urdu) in case we add such locales in the future.",
@@ -120,7 +120,7 @@ QUESTION_PLAIN = {
     'Q16': "Native-Japanese review staffing: commission paid reviewers, partner with a Japanese language school, or rely on community PRs?",
     'Q17': "Distribution strategy: PWA-only (current) or also wrap for Android Play Store + iOS App Store via TWA / Capacitor?",
     'Q18': "Round-2/3 leftover questions: resolve as a batch sit-down or continue case-by-case?",
-    'Q19': "Build-stamp invariants count: should the build script auto-compute it (now done — ISSUE-035 closed), or accept hand-written placeholder?",
+    'Q19': "Build-stamp invariants count: should the build script auto-compute it (now done - ISSUE-035 closed), or accept hand-written placeholder?",
     'Q20': "Native-review staffing recruitment: actively recruit per-locale reviewers via Reddit / Discord / GitHub issue, or wait passively?",
     'Q21': "Provenance badge UI: when do we ship the 'AI-drafted vs native-reviewed' badge? See ISSUE-042 for options a/b/c.",
     'Q22': "SEO marketing: invest time in Show HN / blog posts / SEO improvements, or stay intentionally low-discoverability?",
@@ -229,7 +229,7 @@ def main() -> int:
                 _copy_style(ws.cell(row=header_row_idx + 1, column=1), cell_p)
                 populated_perm += 1
 
-    # Step 4: data validation on the new Permission decision column —
+    # Step 4: data validation on the new Permission decision column -
     # simpler dropdown than the legacy Fix/Avoid/Defer one.
     last_data_row = ws.max_row
     perm_letter = ws.cell(row=header_row_idx, column=perm_col).column_letter

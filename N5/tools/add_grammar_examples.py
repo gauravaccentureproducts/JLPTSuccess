@@ -10,7 +10,7 @@ Each addition is:
                     (affirmative / negative / past / etc., or a generic
                     `affirmative` when no specific form applies)
   - translation_en: faithful English translation
-  - vocab_ids:      empty list — the link_grammar_examples_to_vocab.py
+  - vocab_ids:      empty list - the link_grammar_examples_to_vocab.py
                     tool can auto-populate later. JA-17 only requires
                     the field exist.
 
@@ -136,9 +136,9 @@ ADDITIONS = {
     ],
     'n5-129': [
         {'ja': 'どうして 行きませんでしたか。―ねつが あったからです。', 'form': 'affirmative',
-         'translation_en': 'Why didn\'t you go? — Because I had a fever.'},
+         'translation_en': 'Why didn\'t you go? - Because I had a fever.'},
         {'ja': 'どうして 学校を 休みましたか。―あたまが いたかったからです。', 'form': 'affirmative',
-         'translation_en': 'Why did you skip school? — Because I had a headache.'},
+         'translation_en': 'Why did you skip school? - Because I had a headache.'},
     ],
     'n5-130': [
         {'ja': '先生に 花を あげました。', 'form': 'affirmative',

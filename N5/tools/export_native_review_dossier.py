@@ -1,4 +1,4 @@
-"""Native-review dossier exporter — closes INFRA-4 / INFRA-5 prep.
+"""Native-review dossier exporter - closes INFRA-4 / INFRA-5 prep.
 
 The Pass-11 native-teacher review still has empty P1-P14 sections in
 TASKS.md because the reviewer needs a single self-contained pack: the
@@ -7,24 +7,24 @@ content to review, formatted for tracking, with stable IDs to cite back.
 This script generates that pack from the live data files. Output:
 
   feedback/native-review-dossier/
-    01_grammar_patterns.md      — all 177 grammar patterns, one per
+    01_grammar_patterns.md      - all 177 grammar patterns, one per
                                    section, with examples + stem +
                                    meaning_en + notes; ID-cited so
                                    reviewer can write `n5-001: …`
-    02_vocab_borderline.md      — vocab entries where the pos field
+    02_vocab_borderline.md      - vocab entries where the pos field
                                    indicates a borderline category
-                                   (verb-3, adverb, expression — high
+                                   (verb-3, adverb, expression - high
                                    register/usage variability)
-    03_kanji_readings.md        — 106 kanji with on / kun / meanings
+    03_kanji_readings.md        - 106 kanji with on / kun / meanings
                                    for primary-reading verification
-    04_reading_passages.md      — all 30 dokkai passages + their
+    04_reading_passages.md      - all 30 dokkai passages + their
                                    comprehension Qs (Pass-15 rewrites
                                    especially flagged for native eyes)
-    05_listening_scripts.md     — 30 listening dialogues with speakers
+    05_listening_scripts.md     - 30 listening dialogues with speakers
                                    tagged; verifies natural turn-taking
-    cover.md                    — review process, severity rubric,
+    cover.md                    - review process, severity rubric,
                                    issue-tracking format
-    review_log.csv              — empty template the reviewer fills in
+    review_log.csv              - empty template the reviewer fills in
                                    (id, severity, finding, suggested fix)
 
 Run: python tools/export_native_review_dossier.py
@@ -53,7 +53,7 @@ def _load(name: str) -> dict:
 
 def write_cover():
     today = date.today().isoformat()
-    content = f"""# JLPT N5 Tutor — Native-Reviewer Dossier
+    content = f"""# JLPT N5 Tutor - Native-Reviewer Dossier
 
 Generated: {today}
 Source revision: see git log on `data/` directory at this commit
@@ -63,7 +63,7 @@ Review channel: file findings into `review_log.csv` (template included)
 
 This pack is the single bundle a native-Japanese teacher needs to
 audit the live JLPT N5 corpus end-to-end. Every entry has a stable ID
-(e.g. `n5-001`, `n5.kanji.人`, `n5.read.001`) — the reviewer cites
+(e.g. `n5-001`, `n5.kanji.人`, `n5.read.001`) - the reviewer cites
 that ID in the log; we map the citation back to the source file
 without ambiguity.
 
@@ -84,22 +84,22 @@ without ambiguity.
 | CRITICAL | Factually wrong (false claim about Japanese grammar / wrong reading / etc). Must fix before next release. |
 | HIGH | Unnatural-but-not-wrong (a native speaker would phrase it differently). Should fix. |
 | MEDIUM | Polish / register / nuance. Fix when convenient. |
-| LOW | Style preference — e.g. "I'd use 〜じゃ instead of 〜では here." Optional. |
+| LOW | Style preference - e.g. "I'd use 〜じゃ instead of 〜では here." Optional. |
 
 ## Issue format
 
 In `review_log.csv`, one row per finding. Required fields:
 
-- `id` — the cited pattern/word/passage/script ID
-- `field` — which field has the issue (e.g. `meaning_en`, `examples[2].ja`, `notes`)
-- `severity` — CRITICAL / HIGH / MEDIUM / LOW
-- `finding` — what's wrong, in 1-2 sentences
-- `suggested_fix` — concrete replacement text (ideal) or "discuss" (if it needs a chat)
+- `id` - the cited pattern/word/passage/script ID
+- `field` - which field has the issue (e.g. `meaning_en`, `examples[2].ja`, `notes`)
+- `severity` - CRITICAL / HIGH / MEDIUM / LOW
+- `finding` - what's wrong, in 1-2 sentences
+- `suggested_fix` - concrete replacement text (ideal) or "discuss" (if it needs a chat)
 
 Optional:
 
-- `reviewer_initials` — for multi-reviewer setups
-- `confidence` — 1-5 (5 = certain; 1 = "I'd want to check with a colleague")
+- `reviewer_initials` - for multi-reviewer setups
+- `confidence` - 1-5 (5 = certain; 1 = "I'd want to check with a colleague")
 
 ## Kanji primary-reading precedence (file 03)
 
@@ -111,10 +111,10 @@ primary in this order:
    regardless of which list it came from.
 2. Otherwise: if the kanji has any kun readings, the **first kun**
    is primary (the standalone i-adjective / verb-stem form is what
-   N5 learners encounter first — see `高い`, `長い`, `安い`, `白い`).
+   N5 learners encounter first - see `高い`, `長い`, `安い`, `白い`).
 3. Otherwise: the **first on** is primary.
 
-Some kanji are genuinely tied (e.g. `新` — 新聞 しんぶん and 新しい
+Some kanji are genuinely tied (e.g. `新` - 新聞 しんぶん and 新しい
 あたらしい are both N5 contexts). For those, either reading is
 acceptable as primary; the listed one is fine unless you have a
 strong textbook-aligned reason to swap.
@@ -123,7 +123,7 @@ strong textbook-aligned reason to swap.
 
 Some grammar patterns have a `meaning_ja:` field that contains only
 the pattern itself in 「」 brackets (e.g., `「いつ・どこ まで」` for
-`まで`). This is intentional — those patterns are particles or
+`まで`). This is intentional - those patterns are particles or
 function words whose meaning is best explained in English at N5
 level; a Japanese gloss would be circular. **Skip these as
 "deliberately blank"** unless you can supply a learner-friendly
@@ -141,7 +141,7 @@ side processes by severity tier.
 
 def write_grammar():
     g = _load("grammar")
-    lines = ["# 01 — Grammar patterns (n5-001 .. n5-187)\n",
+    lines = ["# 01 - Grammar patterns (n5-001 .. n5-187)\n",
              "",
              "Cite as `n5-NNN` in `review_log.csv`. For per-example issues,",
              "use `n5-NNN.examples[K]` where K is the 0-based index.",
@@ -149,7 +149,7 @@ def write_grammar():
              "---",
              ""]
     for p in g["patterns"]:
-        lines.append(f"## {p['id']} — `{p.get('pattern','')}`")
+        lines.append(f"## {p['id']} - `{p.get('pattern','')}`")
         lines.append("")
         lines.append(f"- **tier:** {p.get('tier','core_n5')}")
         lines.append(f"- **meaning_en:** {p.get('meaning_en','')}")
@@ -175,7 +175,7 @@ def write_vocab():
                       "conjunction", "particle"}
     items = [e for e in v["entries"] if e.get("pos") in BORDERLINE_POS]
     lines = [
-        "# 02 — Vocab (borderline / register-sensitive)",
+        "# 02 - Vocab (borderline / register-sensitive)",
         "",
         f"Filtered to {len(items)} entries where the part-of-speech tag "
         "(`verb-3` / `adverb` / `expression` / `interjection` / `conjunction` "
@@ -184,24 +184,24 @@ def write_vocab():
         "",
         "---", ""]
     for e in items:
-        lines.append(f"- **`{e['id']}`** — `{e.get('form','')}` ({e.get('reading','')}) "
-                     f"[{e.get('pos','')}] — {e.get('gloss','')}")
+        lines.append(f"- **`{e['id']}`** - `{e.get('form','')}` ({e.get('reading','')}) "
+                     f"[{e.get('pos','')}] - {e.get('gloss','')}")
     (OUT / "02_vocab_borderline.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"  wrote 02_vocab_borderline.md ({len(items)} entries)")
 
 
 def write_kanji():
     k = _load("kanji")
-    lines = ["# 03 — Kanji readings (106 entries)",
+    lines = ["# 03 - Kanji readings (106 entries)",
              "",
              "Cite as the `id` field. The FIRST reading in each `on` / `kun` "
-             "list is the runtime primary — flag if a different reading "
+             "list is the runtime primary - flag if a different reading "
              "is more representative for N5 contexts.",
              "",
              "---", ""]
     for e in k["entries"]:
-        on = " / ".join(e.get("on") or []) or "—"
-        kun = " / ".join(e.get("kun") or []) or "—"
+        on = " / ".join(e.get("on") or []) or "-"
+        kun = " / ".join(e.get("kun") or []) or "-"
         meanings = ", ".join(e.get("meanings") or [])
         # Primary-reading surface: prefer the explicit `primary_reading`
         # field when set; else fall back to the first-kun rule then
@@ -213,7 +213,7 @@ def write_kanji():
                 primary, primary_kind = e["kun"][0], "kun"
             elif e.get("on"):
                 primary, primary_kind = e["on"][0], "on"
-        lines.append(f"## `{e['id']}` — {e['glyph']}")
+        lines.append(f"## `{e['id']}` - {e['glyph']}")
         lines.append("")
         lines.append(f"- **on:** {on}")
         lines.append(f"- **kun:** {kun}")
@@ -230,14 +230,14 @@ def write_kanji():
 def write_reading():
     r = _load("reading")
     passages = r.get("passages") or []
-    lines = ["# 04 — Reading passages (30 dokkai)",
+    lines = ["# 04 - Reading passages (30 dokkai)",
              "",
              "Cite as `n5.read.NNN`. Per-question issues: `n5.read.NNN.questions[K]`. "
              "Pass-15 rewrites (esp. §1.4, §1.5, §2.1) need fresh native eyes.",
              "",
              "---", ""]
     for p in passages:
-        lines.append(f"## `{p['id']}` — {p.get('title_ja','')}")
+        lines.append(f"## `{p['id']}` - {p.get('title_ja','')}")
         lines.append("")
         lines.append(f"- **level:** {p.get('level','')}")
         lines.append(f"- **topic:** {p.get('topic','')}")
@@ -259,7 +259,7 @@ def write_reading():
 def write_listening():
     li = _load("listening")
     items = li.get("items") or []
-    lines = ["# 05 — Listening dialogues (30 items)",
+    lines = ["# 05 - Listening dialogues (30 items)",
              "",
              "Cite as `n5.listen.NNN`. Speaker-turn naturalness, pacing, ",
              "and register fit (e.g. shop / school / office) are the main ",
@@ -268,7 +268,7 @@ def write_listening():
              "",
              "---", ""]
     for it in items:
-        lines.append(f"## `{it['id']}` — {it.get('title_ja') or ''}")
+        lines.append(f"## `{it['id']}` - {it.get('title_ja') or ''}")
         lines.append("")
         lines.append(f"- **format:** {it.get('format','')}")
         # The setup line is the first line of script_ja (the speakers-and-
@@ -307,7 +307,7 @@ def write_review_log_template():
             "n5-001",
             "examples[1].ja",
             "MEDIUM",
-            "Slight register mismatch — sentence is plain-form but the "
+            "Slight register mismatch - sentence is plain-form but the "
             "context (formal greeting) calls for です/ます.",
             "Replace with: わたしは リーです。",
             "RT",

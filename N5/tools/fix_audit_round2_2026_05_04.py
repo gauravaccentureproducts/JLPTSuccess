@@ -1,4 +1,4 @@
-"""Audit round 2 (2026-05-04) — apply Fix-marked corpus changes.
+"""Audit round 2 (2026-05-04) - apply Fix-marked corpus changes.
 
 Covers ISSUE-009 (backfill missing difficulty), ISSUE-010 (collapse
 double-spaces in test stems), and IMP-023 housekeeping confirmation.
@@ -17,7 +17,7 @@ changes: list[str] = []
 
 
 # ----------------------------------------------------------------------------
-# ISSUE-009 — backfill `difficulty` on questions that lack it.
+# ISSUE-009 - backfill `difficulty` on questions that lack it.
 # Heuristic: difficulty = 1 (easiest) if `grammarPatternId` is in the first
 # 60 lessons (n5-001 .. n5-060), 2 if 061..120, 3 if 121+ or marked late_n5.
 # Fast and stable; subsequent hand-tuning is a separate workstream.
@@ -54,7 +54,7 @@ def backfill_difficulty():
 
 
 # ----------------------------------------------------------------------------
-# ISSUE-010 — collapse runs of >=2 ASCII spaces to single space in
+# ISSUE-010 - collapse runs of >=2 ASCII spaces to single space in
 # `question_ja` / `prompt_ja`. Preserves full-width spaces inside parens
 # such as `（  ）` (these are JLPT blank markers and must stay paired).
 # ----------------------------------------------------------------------------
@@ -69,7 +69,7 @@ def collapse_double_spaces():
             if not isinstance(s, str):
                 continue
             # Replace runs of 2+ ASCII spaces with one. Full-width spaces
-            # (U+3000) untouched — they live inside `（  ）` blank markers
+            # (U+3000) untouched - they live inside `（  ）` blank markers
             # and the JLPT convention pairs them.
             new = re.sub(r'(?<! ) {2,}(?! )', ' ', s)  # only inner runs
             new = re.sub(r' {2,}', ' ', new)            # any other run

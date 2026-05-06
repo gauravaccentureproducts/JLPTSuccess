@@ -316,9 +316,9 @@ For each locale, switch to it via Settings and run §17.1 smoke. Specifically ch
 
 This section has three layers:
 
-- **§12.1** Automated content invariants — the audit's checks running on every PR
-- **§12.2** Runtime JA accuracy spot-checks — what to verify in the live app
-- **§12.3** Periodic re-audit cadence — Pass-N protocol
+- **§12.1** Automated content invariants - the audit's checks running on every PR
+- **§12.2** Runtime JA accuracy spot-checks - what to verify in the live app
+- **§12.3** Periodic re-audit cadence - Pass-N protocol
 
 ### 12.1 Automated content invariants in CI
 
@@ -330,7 +330,7 @@ Re-encode the Pass-9 cross-file consistency checks (`verification.md` §8.6) as 
 | **X-6.2 Reading consistency** | Every reading taught in `vocabulary_n5.md` matches the reading rendered in question files. Specifically: 今年 = ことし everywhere except as a deliberate distractor | vocab catalog |
 | **X-6.3 No mixed-kanji-kana words** | No word contains kanji directly followed by hiragana that is *not* okurigana of that kanji (excludes legitimate forms like 食べる, 大きい). Guard list: 図しょかん, 大さか, 東きょう, 京と, 時かん, 中ご, 日ご | regex sweep |
 | **X-6.4 No orphan vocab in question stems** | Every non-trivial word in a question stem appears in `vocabulary_n5.md` or is covered by a documented exception | vocab catalog |
-| **X-6.5 No em-dashes** | Zero `—` (U+2014) across all 9 KB files | grep |
+| **X-6.5 No em-dashes** | Zero `-` (U+2014) across all 9 KB files | grep |
 | **X-6.6 Group-1 ru-verb flags** | 入る, 帰る, 走る, 知る, 切る, 要る all carry the "Group 1 exception" annotation in `vocabulary_n5.md` | vocab catalog |
 | **X-6.7 No false direct-synonymy** | No rationale claims "Direct synonymy" / "Direct antonym pair" / "= " for relationships that are actually approximation-by-elimination (whitelist of genuinely-synonymous pairs maintained) | rationale audit |
 | **X-6.8 No raw ASCII digits in TTS source** | No string in `data/grammar.json` `examples[].ja`, `data/reading.json` `passages[].ja`, or `data/listening.json` `items[].script_ja` contains an ASCII digit (`[0-9]`) adjacent to Japanese characters at audio-build time. `tools/build_audio.py:normalize_for_tts()` substitutes ASCII digits → kanji digits before passing to gTTS so the audio reads "三" (さん), not "three" (スリー). The regression guard verifies that every MP3 in `audio/` was generated AFTER the most recent edit to its source `ja` field. | `tools/check_content_integrity.py` (new check) |
@@ -371,7 +371,7 @@ Each check is one short function. Total: ~16 invariants, ~150 lines of Python.
 
 ### 12.2 Runtime JA accuracy spot-checks (during UI testing)
 
-The CI invariants catch **structural** breakage in the JSON. They cannot catch **semantic** breakage — for example, a perfectly-formed question whose Japanese is unnatural. That requires human review.
+The CI invariants catch **structural** breakage in the JSON. They cannot catch **semantic** breakage - for example, a perfectly-formed question whose Japanese is unnatural. That requires human review.
 
 For every UI test session (P0 / P1 / P2), include the following JA spot-checks:
 
@@ -412,7 +412,7 @@ Pass condition: every spot-check succeeds, OR the failure is logged as a new fin
 
 - **JA × i18n (§6):** Switching locales must not corrupt Japanese text rendering. Specifically, no half-width katakana when full-width was authored; no kanji turned into "?" boxes.
 - **JA × a11y (§5):** Screen readers should announce furigana correctly (or `aria-hidden` it if double-announcement happens). NVDA + Japanese voice should pronounce 学校 as がっこう, not as がく-こう.
-- **JA × audio (§7-§8):** TTS audio should match the on-screen reading. If 今日 is shown with reading きょう, the audio should say きょう, not こんにち. **Specific regression guard (Pass-10):** numbers must read in Japanese, not English. Every audio-bearing example with a digit (e.g. `本を 3さつ 読みました`) must read "さんさつ" via the `normalize_for_tts()` digit→kanji substitution; "スリーさつ" is a hard fail. Spot-check by playing one MP3 from each of `audio/grammar/n5-005.0.mp3` (7じ), `audio/listening/n5.listen.001.mp3` (3時), `audio/reading/n5.read.002.mp3` (6時, 9時, 5時, 10時) — every digit should be rendered in Japanese.
+- **JA × audio (§7-§8):** TTS audio should match the on-screen reading. If 今日 is shown with reading きょう, the audio should say きょう, not こんにち. **Specific regression guard (Pass-10):** numbers must read in Japanese, not English. Every audio-bearing example with a digit (e.g. `本を 3さつ 読みました`) must read "さんさつ" via the `normalize_for_tts()` digit→kanji substitution; "スリーさつ" is a hard fail. Spot-check by playing one MP3 from each of `audio/grammar/n5-005.0.mp3` (7じ), `audio/listening/n5.listen.001.mp3` (3時), `audio/reading/n5.read.002.mp3` (6時, 9時, 5時, 10時) - every digit should be rendered in Japanese.
 - **JA × visual (§16):** Furigana ruby alignment is correct (centered above base text); no overlapping; readable at 100% zoom and at 200% zoom.
 
 ### 12.3 Periodic re-audit (Pass-N protocol)
@@ -433,7 +433,7 @@ Pass condition: every spot-check succeeds, OR the failure is logged as a new fin
 
 ### 12.4 Content-integrity (UI ↔ data mapping)
 
-These were the original §12 checks — kept here because they're still important, but subordinate to JA accuracy.
+These were the original §12 checks - kept here because they're still important, but subordinate to JA accuracy.
 
 | Test | Pass condition |
 |---|---|
@@ -667,7 +667,7 @@ For ad-hoc UX review:
 - **Speaking practice** - out of scope (microphone input).
 - **Engine math (SRS intervals)** - already covered by `tests.html`.
 
-**Note on JA correctness:** Earlier drafts of this plan listed "Content correctness in JA" as out of scope. **That was wrong.** JA accuracy is the foundational concern of this app and is now §12 — the most important perspective in the plan. Audit Passes 1-9 in `verification.md` set the bar; §12.1 keeps it enforced in CI; §12.2 keeps it spot-checked at runtime; §12.3 keeps it re-audited every quarter.
+**Note on JA correctness:** Earlier drafts of this plan listed "Content correctness in JA" as out of scope. **That was wrong.** JA accuracy is the foundational concern of this app and is now §12 - the most important perspective in the plan. Audit Passes 1-9 in `verification.md` set the bar; §12.1 keeps it enforced in CI; §12.2 keeps it spot-checked at runtime; §12.3 keeps it re-audited every quarter.
 
 ---
 
@@ -675,9 +675,9 @@ For ad-hoc UX review:
 
 The plan itself is "in use" when:
 
-1. **§12.1 invariants are enforceable** — `tools/check_content_integrity.py` exists, runs all 16 checks, and is wired into CI as a release blocker.
-2. **§12.2 spot-checks are documented** — every release log includes the 3-question JA spot-check from §12.2.1.
-3. **§12.3 re-audit cadence is set** — calendar reminder for quarterly Pass-N re-audit; or trigger on any 10+ KB-edit batch.
+1. **§12.1 invariants are enforceable** - `tools/check_content_integrity.py` exists, runs all 16 checks, and is wired into CI as a release blocker.
+2. **§12.2 spot-checks are documented** - every release log includes the 3-question JA spot-check from §12.2.1.
+3. **§12.3 re-audit cadence is set** - calendar reminder for quarterly Pass-N re-audit; or trigger on any 10+ KB-edit batch.
 4. Every release runs §17.1 (P0 smoke).
 5. Every release runs §17.2 (P1 gate); failures block deploy.
 6. Every milestone runs §17.3 (P2 full regression); findings logged as Pass-N audit entry.

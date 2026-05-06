@@ -50,7 +50,7 @@ def find_correct_idx(choices: list, correct_answer: str) -> int:
 # Pre-rebalance content fixes (apply BEFORE position permutation so the new
 # choice content gets permuted into the target distribution).
 READING_CONTENT_FIXES = {
-    # n5.read.011 q2: replace つめたかった (implausible — passage explicitly says あつかった)
+    # n5.read.011 q2: replace つめたかった (implausible - passage explicitly says あつかった)
     # with しおからかった (plausible distractor at N5 level).
     'n5.read.011.q2': {
         'choices_replace': {'つめたかった': 'しおからかった'},

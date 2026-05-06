@@ -4,7 +4,7 @@ Reads `css/main.css` and writes `css/main.min.css`. The deployed `index.html`
 references the .min.css; the source `.css` stays in the repo for editing
 and review (via the Sources tab in DevTools when debugging).
 
-Conservative approach — no third-party dependency, only the standard library:
+Conservative approach - no third-party dependency, only the standard library:
 1. Strip `/* ... */` comments (multi-line aware), but skip them when they
    sit inside a CSS string literal `"..."` / `'...'`.
 2. Collapse runs of whitespace (including newlines) to a single space.
@@ -63,7 +63,7 @@ def strip_comments_outside_strings(text: str) -> str:
             # find closing
             j = text.find('*/', i + 2)
             if j < 0:
-                # unterminated — keep verbatim and stop
+                # unterminated - keep verbatim and stop
                 out.append(text[i:])
                 return ''.join(out)
             i = j + 2

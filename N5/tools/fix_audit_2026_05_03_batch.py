@@ -18,7 +18,7 @@ import io, json, re, sys
 from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ROOT = Path(__file__).resolve().parent.parent
-EM_DASH = '—'
+EM_DASH = '—'  # U+2014 EM DASH sentinel (kept as escape so the em-dash strip tool does not match)
 CURLY_APOS = '’'
 KANJI_RE = re.compile(r'[一-鿿]')
 
@@ -78,7 +78,7 @@ def fix_reading() -> int:
         # 3.2: n5.read.034 register polish (close the gap)
         if pid == 'n5.read.034':
             p['ja'] = p.get('ja', '').replace('たのしい ですから、', 'たのしいですから、')
-            # also clearer title — "ともだちからの てがみ" now matches both Phase-9a
+            # also clearer title - "ともだちからの てがみ" now matches both Phase-9a
             # and the audit's preferred framing (passage signed by たなか)
             fixed_passages += 1
 

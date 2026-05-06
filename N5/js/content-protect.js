@@ -1,6 +1,6 @@
 // Content-protection layer (2026-05-02).
 //
-// IMPORTANT — what this is and isn't:
+// IMPORTANT - what this is and isn't:
 //   - This module raises FRICTION against casual copying / sharing of
 //     question content. It is NOT security. The site is a static PWA;
 //     anyone with browser devtools can extract `data/*.json` directly.
@@ -27,14 +27,14 @@
 // Usage: imported and initialized once from js/app.js.
 //
 // FEATURE FLAG (2026-05-02): the content-protection layer is currently
-// MASKED — initContentProtection() is a no-op and the CSS rules below
+// MASKED - initContentProtection() is a no-op and the CSS rules below
 // are scoped to `html[data-protect="on"]` (which is never set when the
 // flag is off). Reason: the user needs to take screenshots / copy text
 // to file bug reports against the site, and the layer was blocking that.
 // To re-enable the full layer (right-click block, copy/cut block,
 // devtools-shortcut block, screenshot blur, print-page blank, body
 // user-select:none, etc.) flip CONTENT_PROTECT_ENABLED back to true.
-// No other change required — JS init re-attaches handlers AND sets the
+// No other change required - JS init re-attaches handlers AND sets the
 // `data-protect="on"` attribute on <html>, which activates the gated
 // CSS rules at css/main.css §3478.
 const CONTENT_PROTECT_ENABLED = false;
@@ -104,7 +104,7 @@ export function initContentProtection() {
       e.stopPropagation();
       return false;
     }
-    // F12 / Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C — devtools
+    // F12 / Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C - devtools
     if (e.key === 'F12') {
       e.preventDefault();
       return false;
@@ -113,7 +113,7 @@ export function initContentProtection() {
       e.preventDefault();
       return false;
     }
-    // PrtScn — most OSes don't deliver this to the browser, but try.
+    // PrtScn - most OSes don't deliver this to the browser, but try.
     if (k === 'printscreen') {
       e.preventDefault();
       blurPage();
@@ -122,8 +122,8 @@ export function initContentProtection() {
   }, { capture: true });
 
   // 6. Screenshot deterrent via window blur. When focus leaves the
-  // tab/window — which happens for Cmd+Shift+4 / Win+Shift+S region
-  // selectors and OS-level screenshot tools — obscure the body via
+  // tab/window - which happens for Cmd+Shift+4 / Win+Shift+S region
+  // selectors and OS-level screenshot tools - obscure the body via
   // CSS [data-blur] toggle on <html>.
   window.addEventListener('blur', blurPage);
   window.addEventListener('focus', unblurPage);
@@ -134,7 +134,7 @@ export function initContentProtection() {
 
   // 7. Catch programmatic clipboard writes (drag-to-OS, etc.).
   // We can't truly block navigator.clipboard.writeText, but on most
-  // pages the content is read via getSelection() — we override that.
+  // pages the content is read via getSelection() - we override that.
   try {
     const origGetSelection = window.getSelection;
     window.getSelection = function () {

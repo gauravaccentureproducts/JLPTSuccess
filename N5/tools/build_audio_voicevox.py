@@ -1,4 +1,4 @@
-"""VOICEVOX audio pipeline upgrade — scaffold.
+"""VOICEVOX audio pipeline upgrade - scaffold.
 
 Closes INFRA-1/2/3 (master task list) by laying down the executable
 template for migrating from gTTS (current) to VOICEVOX (target). VOICEVOX
@@ -6,13 +6,13 @@ gives us:
 
   * Proper Japanese prosody (gTTS speaks katakana words awkwardly)
   * Multi-voice dialogue support (male/female speakers per turn)
-  * Local synthesis — no external API calls during build (privacy +
+  * Local synthesis - no external API calls during build (privacy +
     reproducibility)
   * Higher quality / more natural intonation, especially for the
     listening drills which are dialogue-heavy
 
 Status: scaffold only. The actual VOICEVOX engine binary is NOT bundled
-in this repo — it's a 200+ MB native dependency (Linux/macOS/Windows
+in this repo - it's a 200+ MB native dependency (Linux/macOS/Windows
 binaries differ). To run this script, you must:
 
   1. Download VOICEVOX engine for your platform:
@@ -56,10 +56,10 @@ DEFAULT_ENDPOINT = "http://127.0.0.1:50021"
 # Speaker map. IDs come from /speakers on a running VOICEVOX engine.
 # These three are the most common male/female voices for N5-level dialogue.
 SPEAKER_PRESETS = {
-    "F1_tsumugi":  8,   # 春日部つむぎ ノーマル — default female (warm, casual)
-    "F2_metan":    2,   # 四国めたん ノーマル — alternate female (upbeat)
-    "M1_zundamon": 3,   # ずんだもん ノーマル — default male (younger)
-    "M2_kurono":   11,  # 玄野武宏 ノーマル — alternate male (deeper)
+    "F1_tsumugi":  8,   # 春日部つむぎ ノーマル - default female (warm, casual)
+    "F2_metan":    2,   # 四国めたん ノーマル - alternate female (upbeat)
+    "M1_zundamon": 3,   # ずんだもん ノーマル - default male (younger)
+    "M2_kurono":   11,  # 玄野武宏 ノーマル - alternate male (deeper)
 }
 
 
@@ -324,7 +324,7 @@ def main(argv: list[str] | None = None) -> int:
         if not text:
             continue
         # Output is .mp3 (transcoded post-synth). Final path varies per
-        # module — listening uses the explicit `audio` field if given.
+        # module - listening uses the explicit `audio` field if given.
         if args.target == "listening" and it.get("audio"):
             out_path = ROOT / it["audio"]
         else:
@@ -354,7 +354,7 @@ def main(argv: list[str] | None = None) -> int:
                 try:
                     status = fut.result()
                 except Exception as e:
-                    print(f"  {iid}: ERROR — {e}")
+                    print(f"  {iid}: ERROR - {e}")
                     n_failed += 1
                     continue
                 if status == "rendered":   n_rendered += 1
@@ -370,7 +370,7 @@ def main(argv: list[str] | None = None) -> int:
                     target_manifest, args.dry_run, args.resume,
                 )
             except Exception as e:
-                print(f"  {iid}: ERROR — {e}")
+                print(f"  {iid}: ERROR - {e}")
                 n_failed += 1
                 continue
             if status == "rendered":   n_rendered += 1

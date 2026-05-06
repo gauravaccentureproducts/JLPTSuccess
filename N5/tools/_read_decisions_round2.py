@@ -1,4 +1,4 @@
-"""Read xlsx — list rows where Decision = Fix and that are NOT yet Done."""
+"""Read xlsx - list rows where Decision = Fix and that are NOT yet Done."""
 from __future__ import annotations
 import io, sys
 from pathlib import Path
@@ -20,7 +20,7 @@ dec_col = next(c for c in range(1, ws.max_column + 1)
 print(f'Sheets: {wb.sheetnames}')
 print(f'Audit-findings header row: {header}, decision col: {dec_col}\n')
 
-print('=== Audit findings — current decisions ===')
+print('=== Audit findings - current decisions ===')
 fix_rows = []
 for r in range(header + 1, ws.max_row + 1):
     rid = ws.cell(row=r, column=1).value
@@ -47,7 +47,7 @@ ws2 = wb['Open questions']
 header2 = next(r for r in range(1, 6) if ws2.cell(row=r, column=1).value == 'ID')
 dec_col2 = next(c for c in range(1, ws2.max_column + 1)
                 if 'Decision' in (ws2.cell(row=header2, column=c).value or ''))
-print(f'\n=== Open questions — current decisions ===')
+print(f'\n=== Open questions - current decisions ===')
 q_fix = []
 for r in range(header2 + 1, ws2.max_row + 1):
     qid = ws2.cell(row=r, column=1).value

@@ -188,7 +188,7 @@ mode, mobile, returning-user, and translated locales.
 
 ### 1.8 Save the file.
 
-After all the above edits, save `jlpt-n5-design-system-zen-modern.md`. Verify zero em-dashes (`—`, U+2014) and zero en-dashes (`–`, U+2013) in the modified sections. Verify no emojis were added.
+After all the above edits, save `jlpt-n5-design-system-zen-modern.md`. Verify zero em-dashes (`-`, U+2014) and zero en-dashes (`–`, U+2013) in the modified sections. Verify no emojis were added.
 
 ---
 
@@ -201,7 +201,7 @@ Only after Step 1 is saved and committed. The design system is now the source of
 **Find:** in `index.html` (or wherever the `<title>` element lives):
 
 ```html
-<title>JLPT N5 — study material</title>
+<title>JLPT N5 - study material</title>
 ```
 
 **Replace with:**
@@ -384,7 +384,7 @@ Run a grep across the homepage source files (HTML, JS templates, locale files) a
 - `Daily mixed drills`
 - `spaced-repetition Review`
 - `Updated [Month] [Year]` in the footer
-- Any em-dash `—` (U+2014)
+- Any em-dash `-` (U+2014)
 - Any en-dash `–` (U+2013)
 - Any emoji
 - `Search...` (with ellipsis; the placeholder is the single word `Search`)

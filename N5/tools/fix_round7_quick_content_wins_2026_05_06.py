@@ -1,4 +1,4 @@
-"""Round-7 Batch C — quick content wins (2026-05-06).
+"""Round-7 Batch C - quick content wins (2026-05-06).
 
 Adds four cross-cutting content layers in one pass:
   1. IMP-084: transitivity pair_id on the 12 canonical N5 transitive/
@@ -86,8 +86,8 @@ MANDARIN_FALSE_FRIENDS = {
     ('学生', 'がくせい'):         "Mandarin 学生 covers all education levels; in Japanese 学生 typically refers to university/college students. For elementary/junior high use 小学生/中学生 specifically.",
     ('新聞', 'しんぶん'):         "Mandarin 新闻 means 'news (broadcast)'; in Japanese 新聞 means 'newspaper (printed)'. For TV news use ニュース.",
     ('車', 'くるま'):             "Mandarin 车 covers all vehicles; in Japanese 車 most commonly means 'car/automobile'. For 'bicycle' use 自転車; for 'train' use 電車.",
-    ('地下鉄', 'ちかてつ'):       "Mandarin 地铁 ('subway'); Japanese 地下鉄 also 'subway' — same meaning, but the kanji 鉄 (iron) is jarring to Mandarin readers since simplified Chinese uses 铁.",
-    ('中国', 'ちゅうごく'):       "Mandarin 中国 ('China'); in Japanese ALSO refers to a region of Western Honshu (中国地方 — Hiroshima, Okayama etc.). 'China' is unambiguously 中国 in news context, but in regional context it can mean the Japanese region.",
+    ('地下鉄', 'ちかてつ'):       "Mandarin 地铁 ('subway'); Japanese 地下鉄 also 'subway' - same meaning, but the kanji 鉄 (iron) is jarring to Mandarin readers since simplified Chinese uses 铁.",
+    ('中国', 'ちゅうごく'):       "Mandarin 中国 ('China'); in Japanese ALSO refers to a region of Western Honshu (中国地方 - Hiroshima, Okayama etc.). 'China' is unambiguously 中国 in news context, but in regional context it can mean the Japanese region.",
     ('天', 'てん'):               "Mandarin 天 ('day' / 'sky'); in Japanese 天 means 'heaven / sky' but is rarely a standalone word. For 'day' use 日.",
     ('家族', 'かぞく'):           "Mandarin 家族 ('clan, extended family'); in Japanese 家族 means immediate household family (one's own household). Use 一族 for clan-level.",
     ('暗算', 'あんざん'):         "Mandarin 暗算 ('to plot against / scheme'); in Japanese 暗算 means 'mental arithmetic'. Polar-opposite tone (one is sinister, one is academic).",

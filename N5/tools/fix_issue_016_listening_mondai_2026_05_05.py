@@ -14,7 +14,7 @@ The current corpus uses three free-form values: task / point / utterance.
 - task      → mondai 1, format_type "task_understanding"
 - point     → mondai 2, format_type "point_understanding"
 - utterance → mondai 3, format_type "utterance_expression"
-              (irrespective of choice count — the 4-choice variants in
+              (irrespective of choice count - the 4-choice variants in
               this corpus are non-canonical but utterance-style; no
               mondai 4 items exist as of v1.12.29)
 

@@ -16,7 +16,7 @@ explicit list avoids those homograph traps.
 
 Idempotent: re-running is a no-op once fixes are applied.
 
-Audit total: "24+ entries" — this script applies 23 explicit + leaves 1
+Audit total: "24+ entries" - this script applies 23 explicit + leaves 1
 for a follow-up scan after the runtime test passes (covered separately
 in tools/find_remaining_pos_drift.py).
 """
@@ -28,19 +28,19 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # (section_slug, form, target_pos)
 FIXES = [
-    # §1.1 Section 14 Nature/Weather — i-adjectives mis-stamped as noun
+    # §1.1 Section 14 Nature/Weather - i-adjectives mis-stamped as noun
     ('14-nature-and-weather', 'あつい',   'i-adj'),
     ('14-nature-and-weather', 'さむい',   'i-adj'),
     ('14-nature-and-weather', 'すずしい', 'i-adj'),
     ('14-nature-and-weather', 'あたたかい','i-adj'),
-    # §1.1 Section 20 Colors — i-adjectives mis-stamped as noun
+    # §1.1 Section 20 Colors - i-adjectives mis-stamped as noun
     # Glosses say "(adj)" explicitly; gloss directly contradicted POS.
     ('20-colors', '白い',   'i-adj'),
     ('20-colors', 'くろい', 'i-adj'),
     ('20-colors', 'あかい', 'i-adj'),
     ('20-colors', 'あおい', 'i-adj'),
     ('20-colors', 'きいろい','i-adj'),
-    # §1.1 Section 12 Time/Frequency — adverbs mis-stamped as noun
+    # §1.1 Section 12 Time/Frequency - adverbs mis-stamped as noun
     ('12-time-frequency-sequen', 'いつも',  'adverb'),
     ('12-time-frequency-sequen', 'よく',    'adverb'),
     ('12-time-frequency-sequen', '時々',    'adverb'),
@@ -51,7 +51,7 @@ FIXES = [
     ('12-time-frequency-sequen', 'もう',    'adverb'),
     ('12-time-frequency-sequen', 'まだ',    'adverb'),
     ('12-time-frequency-sequen', 'はじめて','adverb'),
-    # §1.1 Section 30 Verbs Existence/Possession — Group-2 mis-stamped Group-1
+    # §1.1 Section 30 Verbs Existence/Possession - Group-2 mis-stamped Group-1
     # CRITICAL pedagogically: wrong group → wrong conjugation.
     ('30-verbs-existence-and-p', 'いる',   'verb-2'),  # iru = exist (ichidan)
     ('30-verbs-existence-and-p', 'あげる', 'verb-2'),

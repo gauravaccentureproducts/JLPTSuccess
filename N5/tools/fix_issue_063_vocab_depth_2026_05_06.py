@@ -1,5 +1,5 @@
 """ISSUE-063 + IMP-087 + IMP-088 (audit round-7, 2026-05-06): vocab
-depth fields — pitch_accent + counter on representative N5 vocab.
+depth fields - pitch_accent + counter on representative N5 vocab.
 
 Three additive fields:
   pitch_accent  -> { mora, drop }   from NHK 日本語発音アクセント新辞典
@@ -13,7 +13,7 @@ Authoring scope this pass: ~120 highest-frequency N5 entries
 canonical counters). Remaining ~920 entries fall back to the absence
 of the field (no rendering at all).
 
-Idempotent. Native review of pitch accents pending — sourced from
+Idempotent. Native review of pitch accents pending - sourced from
 publicly-available NHK / wadoku data; mora counts cross-checked.
 """
 from __future__ import annotations
@@ -58,7 +58,7 @@ DEPTH = {
     ('姉', 'あね'):           {'pitch_accent': {'mora': 2, 'drop': 0}, 'register': 'humble'},
     ('弟', 'おとうと'):       {'pitch_accent': {'mora': 4, 'drop': 4}},
     ('妹', 'いもうと'):       {'pitch_accent': {'mora': 4, 'drop': 4}},
-    # Daily verbs (verb-stem accent — these may need refinement)
+    # Daily verbs (verb-stem accent - these may need refinement)
     ('食べる', 'たべる'):     {'pitch_accent': {'mora': 3, 'drop': 2}},
     ('飲む', 'のむ'):         {'pitch_accent': {'mora': 2, 'drop': 1}},
     ('見る', 'みる'):         {'pitch_accent': {'mora': 2, 'drop': 1}},
@@ -70,7 +70,7 @@ DEPTH = {
     ('読む', 'よむ'):         {'pitch_accent': {'mora': 2, 'drop': 1}},
     ('書く', 'かく'):         {'pitch_accent': {'mora': 2, 'drop': 1}},
     ('買う', 'かう'):         {'pitch_accent': {'mora': 2, 'drop': 0}},
-    # Counters — nouns that pair canonically with a counter
+    # Counters - nouns that pair canonically with a counter
     ('本', 'ほん'):           {'pitch_accent': {'mora': 2, 'drop': 1}, 'counter': 'satsu'},  # 本 -> 〜冊 (さつ)
     ('車', 'くるま'):         {'pitch_accent': {'mora': 3, 'drop': 0}, 'counter': 'dai'},     # 車 -> 〜台
     ('猫', 'ねこ'):           {'pitch_accent': {'mora': 2, 'drop': 1}, 'counter': 'hiki'},    # 猫 -> 〜匹

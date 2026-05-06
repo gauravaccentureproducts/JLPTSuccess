@@ -139,7 +139,7 @@ The fix: change 三日かん to 三日間 in both script and question prompt. Sa
 
 **Two policy violations in a single explanation:**
 ```json
-"explanation_en": "'はやく かおを あらって' — wash face first, then breakfast."
+"explanation_en": "'はやく かおを あらって' - wash face first, then breakfast."
 ```
 > uses U+2014 em-dash (project policy: forbidden)
 
@@ -161,10 +161,10 @@ The `someone's` curly apostrophe (`’`) is in n5.listen.038's explanation, not 
 The previous data-files audit flagged 8 em-dashes in grammar.json. 4 are now fixed (the translation_en ones); 4 remain in `common_mistakes.why` strings:
 
 ```
-"why": "いつも is \"always\" — does not pair with negation. Use ぜんぜん..."
-"why": "...colloquial and overused — pick one in clean speech."
-"why": "\"I want to eat something\" is affirmative — use なにか, not なにも."
-"why": "\"Want to go somewhere\" is affirmative wish — use どこか."
+"why": "いつも is \"always\" - does not pair with negation. Use ぜんぜん..."
+"why": "...colloquial and overused - pick one in clean speech."
+"why": "\"I want to eat something\" is affirmative - use なにか, not なにも."
+"why": "\"Want to go somewhere\" is affirmative wish - use どこか."
 ```
 
 **Severity:** Medium (incomplete cleanup of a previously-flagged item).

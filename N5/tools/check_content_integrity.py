@@ -66,6 +66,9 @@ RU_VERB_EXCEPTIONS = ["入る", "はいる", "かえる", "帰る", "はしる",
 RU_VERB_FLAG_TEXT = "Group 1 exception"
 
 # X-6.5: em-dash codepoint
+# Note: keep the literal U+2014 character below — DO NOT replace with hyphen.
+# The strip_em_dashes_*.py tool excludes itself by filename; this file has
+# the same sentinel role for the integrity check.
 EM_DASH = "—"
 
 # X-6.3: known mixed-kanji-kana antipatterns from Pass-9 audit
@@ -936,7 +939,7 @@ def _check_ja_16_kanji_examples_in_scope() -> list[str]:
 def _check_ja_17_examples_have_vocab_ids() -> list[str]:
     """Every non-empty example in data/grammar.json must have a
     `vocab_ids` field (a list, possibly empty). This prevents the
-    homograph mismatch class flagged 2026-05-01 — without explicit
+    homograph mismatch class flagged 2026-05-01 - without explicit
     example→vocab links, the renderer falls back to substring matching
     on the form field, which can't disambiguate homographs.
 
@@ -1008,7 +1011,7 @@ def _check_ja_18_reading_explanation_kanji() -> list[str]:
 
     The convention in data/reading.json is that explanations quote the
     relevant passage line in single quotes, like `'毎日 30どより 高いです'`.
-    These quoted phrases must match the passage rendering exactly — if
+    These quoted phrases must match the passage rendering exactly - if
     the passage uses うち (kana) but the explanation quotes 家 (kanji),
     the learner scans for the quoted phrase in the passage, fails to
     find it, and trust degrades.
@@ -1051,7 +1054,7 @@ def _check_ja_18_reading_explanation_kanji() -> list[str]:
                         failures.append(
                             f"JA-18 {qid} explanation quotes kanji "
                             f"'{ch}' not in passage {pid} "
-                            f"(passage uses different rendering — "
+                            f"(passage uses different rendering - "
                             f"likely kana). Quote: {quoted[:50]!r}"
                         )
                         if len(failures) >= 20:
@@ -1070,7 +1073,7 @@ def _check_ja_20_reading_choices_kanji() -> list[str]:
     We accept the case where a choice contains a kanji that ALSO doesn't
     appear in the passage but is conceptually allowed (e.g., 何 or 人 in
     a question-style distractor). Specifically: only flag kanji that
-    appear in the OTHER choices' rendering as kana — that's the strong
+    appear in the OTHER choices' rendering as kana - that's the strong
     inconsistency signal (n5.read.010 q1 had bare numbers but the passage
     used 〜こ counter; that's the class to catch).
     """
@@ -1098,13 +1101,13 @@ def _check_ja_20_reading_choices_kanji() -> list[str]:
             # The strong consistency check: every kanji in the
             # CORRECT-answer choice must appear in the passage. If the
             # correct answer rendering doesn't match the passage, the
-            # question is inconsistent. (Distractors get more leeway —
+            # question is inconsistent. (Distractors get more leeway -
             # they're foils.)
             for ch in correct:
                 if is_kanji(ch) and ch not in passage_kanji:
                     failures.append(
                         f"JA-20 {qid} correctAnswer uses kanji '{ch}' "
-                        f"not in passage {pid} (rendering mismatch — "
+                        f"not in passage {pid} (rendering mismatch - "
                         f"the answer should match the passage's form). "
                         f"correctAnswer={correct!r}"
                     )
@@ -1117,7 +1120,7 @@ def _check_ja_20_reading_choices_kanji() -> list[str]:
 
 # Heuristic patterns that strongly suggest N4 grammar in a passage. Each
 # entry: (regex, description). Used by JA-21. Patterns are deliberately
-# conservative — false negatives are acceptable, false positives must be
+# conservative - false negatives are acceptable, false positives must be
 # rare since they'd block release.
 #
 # Calibrated against the live corpus 2026-05-01:
@@ -1210,7 +1213,7 @@ def _check_ja_19_reading_info_search_format() -> list[str]:
 def _check_ja_22_kun_dedup() -> list[str]:
     """Every kanji's `kun` reading list in n5_kanji_readings.json must
     contain no duplicate entries. Pass-15 consolidated audit §2.2 found
-    10 entries with repeats (二/七/分/見/聞/入/立/休/高/白) — artefacts
+    10 entries with repeats (二/七/分/見/聞/入/立/休/高/白) - artefacts
     of stripping okurigana.
     """
     failures: list[str] = []
@@ -1244,7 +1247,7 @@ def _check_ja_23_listening_script_choices_match() -> list[str]:
     `script_ja` (style: '1. xxx\\n2. yyy\\n3. zzz') must have those exact
     strings in the `choices` array. Pass-15 consolidated audit §1.1
     found n5.listen.011 mismatch (script said 'ありがとう' but choices
-    array said 'ありがとうございます') — a direct grading bug.
+    array said 'ありがとうございます') - a direct grading bug.
 
     We do not require items to embed numbered choices; this check only
     fires when items DO embed them and validates consistency.
@@ -1327,12 +1330,12 @@ def _check_ja_25_whitelist_exceptions_documented() -> list[str]:
 
     Spec: specifications/procedure-manual-appendix-c-pass22-polish.md C.4.
 
-    The exceptions doc is OPTIONAL — if absent, the check passes (allows
+    The exceptions doc is OPTIONAL - if absent, the check passes (allows
     bootstrapping). Once present, every project-whitelist entry that is
     not in the official scope must be justified there.
 
     Bootstrapping the official-scope list: the N5 official scope is
-    canonically 103 kanji per JLPT.jp (the project whitelist is 106 — the
+    canonically 103 kanji per JLPT.jp (the project whitelist is 106 - the
     extra 3 are documented exceptions). For now we accept the project
     whitelist verbatim if the exceptions doc is absent; once the
     exceptions doc lands, validation kicks in.
@@ -1401,7 +1404,7 @@ def _check_ja_25_whitelist_exceptions_documented() -> list[str]:
 def _check_ja_26_no_duplicate_question_ids() -> list[str]:
     """Pass-23 (2026-05-02): no two entries in data/questions.json may
     share the same `id` field. JA-7 catches duplicate STEMS but not
-    duplicate IDs — and the latter happened twice (Pass-16 ↔ Pass-15-P0
+    duplicate IDs - and the latter happened twice (Pass-16 ↔ Pass-15-P0
     over q-0454..q-0463; parallel-session ↔ Pass-16 over q-0479..q-0488).
 
     The runtime uses IDs as primary keys for storage and SRS state, so
@@ -1447,7 +1450,7 @@ def _check_ja_27_no_english_in_japanese_modules() -> list[str]:
       - explanation_en (rationale shown after a wrong answer)
       - prompt_en      (legacy on listening; no items currently carry it)
       - any field on data/grammar.json (grammar pattern teaching genuinely
-        needs English glosses — out of scope for this invariant)
+        needs English glosses - out of scope for this invariant)
       - any field on data/questions.json (question stems are short and
         sometimes carry translation_en for the learner; orthogonal to the
         passage-EN-translation rule we are locking down here)
@@ -1543,7 +1546,7 @@ def _check_ja_30_provenance() -> list[str]:
     that suggest direct copying from JLPT past papers (JEES citations,
     year-numbered exam markers, "過去問" / "真題" terminology, etc.).
 
-    Mirrors the standalone tool tools/audit_provenance.py — kept inline
+    Mirrors the standalone tool tools/audit_provenance.py - kept inline
     here so the standard CI integrity check (one command) catches a
     leak without needing a separate workflow step. See CONTENT-LICENSE.md
     §3 for the policy this enforces.
@@ -1573,7 +1576,7 @@ def _check_ja_30_provenance() -> list[str]:
             m = pat.search(text)
             if m:
                 failures.append(
-                    f"JA-30 {where}: {why} — '{m.group(0)[:60]}'"
+                    f"JA-30 {where}: {why} - '{m.group(0)[:60]}'"
                 )
 
     qpath = ROOT / "data" / "questions.json"
@@ -1776,13 +1779,13 @@ def _check_ja_32_paper_rationale_md_parity() -> list[str]:
 
     This narrow check avoids false-positives on AUTHORED rationales
     (e.g., bunpou-5/6 sentence-rearrange where the rationale was
-    expanded during audit fixes) — authored rationales reuse kanji
+    expanded during audit fixes) - authored rationales reuse kanji
     that were already in the MD's stem / choices, so they pass. But a
     stale-extracted rationale that uses a kanji the MD has corrected
     to kana fails immediately.
 
     A complementary check (kana-only JSON rationale where MD has
-    kanji) is intentionally NOT enforced — kana is always permissible
+    kanji) is intentionally NOT enforced - kana is always permissible
     at N5 level; only stale kanji that contradicts a kana-only MD
     surface as drift.
     """
@@ -1836,7 +1839,7 @@ def _check_ja_32_paper_rationale_md_parity() -> list[str]:
                 failures.append(
                     f"JA-32 {paper_path.name} {q.get('id', '?')} "
                     f"({kb_q}): rationale uses kanji not in MD source: "
-                    f"{sorted(stale)} — possible stale extraction "
+                    f"{sorted(stale)} - possible stale extraction "
                     f"(MD may have corrected to kana)"
                 )
     return failures
@@ -2026,7 +2029,7 @@ def _check_ja_36_answer_position_balance() -> list[str]:
     TOLERANCE_PP = 10.0
 
     targets: list[tuple[str, "Counter[int]", int]] = []
-    # 1) data/questions.json — has 'choices' + 'correctAnswer' (string match)
+    # 1) data/questions.json - has 'choices' + 'correctAnswer' (string match)
     qpath = ROOT / "data" / "questions.json"
     if qpath.exists():
         try:
@@ -2044,7 +2047,7 @@ def _check_ja_36_answer_position_balance() -> list[str]:
         except Exception as e:
             failures.append(f"JA-36: questions.json parse error: {e}")
 
-    # 2) Per-paper-category aggregation — papers carry 'correctIndex'
+    # 2) Per-paper-category aggregation - papers carry 'correctIndex'
     papers_dir = ROOT / "data" / "papers"
     if papers_dir.exists():
         for cat_dir in sorted(papers_dir.iterdir()):
@@ -2128,7 +2131,7 @@ def _check_ja_37_namespace_doc_parity() -> list[str]:
 
 def _check_ja_38_common_mistakes_floor() -> list[str]:
     """ISSUE-068 (audit round-7, 2026-05-06): every grammar pattern must
-    carry ≥1 common_mistakes entry. Pedagogical floor — patterns at zero
+    carry ≥1 common_mistakes entry. Pedagogical floor - patterns at zero
     drop below the per-pattern depth bar the audit-prompt enforces.
 
     Soft-fails (lists patterns at zero) so authoring waves can drive the
@@ -2168,7 +2171,7 @@ def _check_ja_39_locale_set_en_hi() -> list[str]:
     js/i18n.js SUPPORTED list must also be exactly the literal
     ['en', 'hi'].
 
-    locales/ folder must contain exactly en.json + hi.json — no
+    locales/ folder must contain exactly en.json + hi.json - no
     additional files, no missing files.
     """
     failures: list[str] = []
@@ -2183,7 +2186,7 @@ def _check_ja_39_locale_set_en_hi() -> list[str]:
                 f"JA-39: locales/ contains {json_files}; expected {expected}"
             )
 
-    # 2) Content-data scan — no <basename>_<lc> for lc in deprecated
+    # 2) Content-data scan - no <basename>_<lc> for lc in deprecated
     DEPRECATED = {"vi", "id", "ne", "zh"}
     locale_field_re = re.compile(
         r"^(?:meaning|meanings|explanation|gloss|title|prompt|description|note)_"
@@ -2235,7 +2238,7 @@ def _check_ja_39_locale_set_en_hi() -> list[str]:
             except Exception as e:
                 failures.append(f"JA-39 parse error on {pf.name}: {e}")
 
-    # 3) js/i18n.js SUPPORTED list literal — best-effort regex match
+    # 3) js/i18n.js SUPPORTED list literal - best-effort regex match
     i18n = ROOT / "js" / "i18n.js"
     if i18n.exists():
         src = i18n.read_text(encoding="utf-8")

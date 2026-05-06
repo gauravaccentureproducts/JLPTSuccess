@@ -4,7 +4,7 @@
 // `native_reviewed` before the badge UI ships for that corpus. This
 // module provides the infrastructure pre-wired behind a feature flag
 // (`storage.settings.showProvenanceBadges`, default false). When a
-// reviewer pass crosses the threshold, flip the flag — no rewriting
+// reviewer pass crosses the threshold, flip the flag - no rewriting
 // from scratch.
 //
 // Reads the existing review_status / meanings_provenance / gloss_provenance
@@ -64,7 +64,7 @@ export function renderCorpusBanner(corpusName, stats) {
   return `
     <p class="provenance-banner muted small">
       ${corpusName}: ${stats.nativeReviewed} of ${stats.total} items native-reviewed
-      (${pct}% — threshold ${THRESHOLD_PERCENT}%).
+      (${pct}% - threshold ${THRESHOLD_PERCENT}%).
     </p>
   `;
 }

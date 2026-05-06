@@ -254,7 +254,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
   // Pull example sentences from grammar.json. Each example carries a
   // `vocab_ids: [...]` field (populated by tools/link_grammar_examples_to_vocab.py)
   // listing exactly which vocab entries it demonstrates. We filter by ID
-  // — not by substring on the form field — so homographs (e.g., かた "person"
+  // - not by substring on the form field - so homographs (e.g., かた "person"
   // vs かた "way of doing") never cross-contaminate. See JA-17 invariant.
   //
   // Backward-compat fallback: if an example has no vocab_ids field (older
@@ -340,7 +340,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
             out.push(`<p><strong>Transitivity:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(pair: ${esc(entry.pair_id)})</span>` : ''}</p>`);
           }
           // Phase 3 of locale transition (2026-05-06): the false_friends.zh
-          // hook is removed alongside the zh locale — currentLocale() can
+          // hook is removed alongside the zh locale - currentLocale() can
           // no longer return 'zh'. The underlying data is stripped in
           // Phase 4. If/when a Hindi false-friends list is authored, a
           // false_friends.hi hook can replace this with the same shape.

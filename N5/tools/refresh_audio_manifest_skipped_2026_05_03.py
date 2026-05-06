@@ -1,7 +1,7 @@
 """Refresh `skipped` flag on every audio_manifest.json entry to reflect
 whether the MP3 actually exists on disk now.
 
-Closes infra-audit §2.2 (HIGH) — at audit time 688/708 items were
+Closes infra-audit §2.2 (HIGH) - at audit time 688/708 items were
 flagged `skipped: true` because their MP3s weren't rendered yet. Since
 then the gTTS render pass produced all 708 MP3s (verified by the
 orphan-audio cleanup tool: 708 files on disk == 708 manifest entries,

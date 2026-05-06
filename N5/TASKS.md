@@ -2,7 +2,7 @@
 
 > **2026-05-06 transition note:** The 5-locale shell (en/vi/id/ne/zh) was narrowed to 2 locales (en + hi) per IMP-096 architectural decision. Historical task rows below mention the original 5-locale state and are preserved for record; the current state is en+hi only. See CHANGELOG v1.12.40 for the rationale.
 
-Last updated: 2026-05-02 (Content-protection layer — v1.10.1 / SW v90 / 38 invariants. Closes the JA-first language sweep + DEFER-1 backlog + content-deterrent layer in three releases on the same day: v1.9.0 (Japanese-first surface), v1.10.0 (syllabus dashboard + 100% grammar-pattern test coverage + multi-correct categories F/G/H + JA-29 subtype-taxonomy lock), v1.10.1 (content-protection layer + GitHub-link removal). Added invariants over the day: JA-26..JA-29. Content-protection layer raises friction against casual copying; honest limitations documented in `js/content-protect.js`. **39/39 CI invariants green**.)
+Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invariants. Closes the JA-first language sweep + DEFER-1 backlog + content-deterrent layer in three releases on the same day: v1.9.0 (Japanese-first surface), v1.10.0 (syllabus dashboard + 100% grammar-pattern test coverage + multi-correct categories F/G/H + JA-29 subtype-taxonomy lock), v1.10.1 (content-protection layer + GitHub-link removal). Added invariants over the day: JA-26..JA-29. Content-protection layer raises friction against casual copying; honest limitations documented in `js/content-protect.js`. **39/39 CI invariants green**.)
 
 ## Live site
 
@@ -22,14 +22,14 @@ Last updated: 2026-05-02 (Content-protection layer — v1.10.1 / SW v90 / 38 inv
 - Export / import progress round-trips through JSON
 - 37 browser-runnable tests
 - **Vocab corpus**: 1003 structured entries (data/vocab.json); whitelist 951 entries
-- **Kanji corpus**: 106 entries with stroke-order SVG slot (data/kanji.json) — recovered 9 missing entries via Pass-13 build-pipeline fix.
+- **Kanji corpus**: 106 entries with stroke-order SVG slot (data/kanji.json) - recovered 9 missing entries via Pass-13 build-pipeline fix.
 - **Reading corpus**: 30 graded passages with 2-3 comprehension Qs each (data/reading.json)
 - **Listening corpus**: 30 items across 3 JLPT formats in data/listening.json (expanded from 12 by Pass-15-adjacent corpus work)
 - **Audio assets**: 491 MP3 files committed - 449 grammar examples, 30 reading passages, 12 listening scripts (~19 MB total). Generated via gTTS (build-time only).
 - **Audio TTS pipeline**: tools/build_audio.py - auto-detects piper-tts / gtts / pyttsx3. Idempotent. Uses string-suffix concat (not Path.with_suffix) so example IDs like 'n5-001.0' don't collide.
 - **Codebase em-dash-free** (881 occurrences stripped)
 - **Japanese-first learner surface (2026-05-02)**: dokkai + listening titles all in JA; English passage-translation panel removed from dokkai; UI page chrome (titles, intro, buttons, feedback labels, stat labels, level/topic) all rendered in JA via `renderJa()`. English glosses retained only on grammar examples (`grammar.json` `translation_en`) and after-answer rationales (`explanation_en`) where L1 scaffolding teaches new patterns.
-- **Content-protection layer (2026-05-02 v1.10.1)**: deters casual copying of question content. CSS `user-select: none` on body (with input/textarea/`.allow-select` opt-outs); JS module `js/content-protect.js` blocks contextmenu / copy / cut / dragstart / selectstart / Ctrl+C/A/X/S/P/U / F12 / Ctrl+Shift+I/J/K/C; window-blur sets `html[data-blur=true]` to obscure during region-screenshots; `@media print` blanks the page. NOT security — devtools / view-source / phone-camera-of-screen still work; honest limits documented in module header. GitHub source links removed from footer + changelog fallback + PRIVACY.md.
+- **Content-protection layer (2026-05-02 v1.10.1)**: deters casual copying of question content. CSS `user-select: none` on body (with input/textarea/`.allow-select` opt-outs); JS module `js/content-protect.js` blocks contextmenu / copy / cut / dragstart / selectstart / Ctrl+C/A/X/S/P/U / F12 / Ctrl+Shift+I/J/K/C; window-blur sets `html[data-blur=true]` to obscure during region-screenshots; `@media print` blanks the page. NOT security - devtools / view-source / phone-camera-of-screen still work; honest limits documented in module header. GitHub source links removed from footer + changelog fallback + PRIVACY.md.
 
 ---
 
@@ -114,7 +114,7 @@ Analyzed `specifications/JLPT N5 Grammar Tutor – Functional Spec.docx` (v3, 33
 
 **Next steps:**
 
-- [x] Sign-off matrix (§B.1.2): filled in  §B.1.2 with current state — Content reviewer slot has partial sign-off (Pass-11 reviewer 田中, ~30% surface, full pass due 2026-07-30); Engineering and A11y slots filled by automated tooling (CI integrity check + axe-core); Product owner slot left for project author. Full external-reviewer sign-offs pending for MEXT-aligned release.
+- [x] Sign-off matrix (§B.1.2): filled in  §B.1.2 with current state - Content reviewer slot has partial sign-off (Pass-11 reviewer 田中, ~30% surface, full pass due 2026-07-30); Engineering and A11y slots filled by automated tooling (CI integrity check + axe-core); Product owner slot left for project author. Full external-reviewer sign-offs pending for MEXT-aligned release.
 - [x] Open questions (§B.9) triaged 2026-04-30. **OQ-1** Recommendation engine: deferred to v2.0 (target 2026-09-30; blocked on Pass-11 corpus completion). **OQ-2** Listening corpus expansion: deferred to v1.6 (target 2026-07-30; blocked on Pass-11 listening review). **OQ-3** CSP meta tag: approved for v1.6 (target 2026-05-15; ~30 min implementation). **OQ-4** Audio playback history in export schema: deferred indefinitely (privacy conflict). **OQ-5** N4 expansion: closed out-of-scope per Brief 1. Plus 2 new: **OQ-6** Japanese-version brief: open (target 2026-07-30; translate brief, defer app). **OQ-7** Empty furigana[] field: closed-keep (functional optional override).
 - [x] Merge supplement into a new v4 .docx; archive v3 to `not-required/`. Done: extended `tools/build_spec.py` with a small markdown→docx renderer (handles headings, paragraphs, bullets, numbered lists, tables, code fences, **bold** / `code` / [link]() inline). Subtitle bumped v3→v4. v4 .docx is 72 KB (up from v3's 53 KB) at `specifications/JLPT N5 Grammar Tutor – Functional Spec.docx`. v3 archived to `not-required/JLPT N5 Grammar Tutor – Functional Spec v3.docx`.
 - [x] Calendar reminder: first quarterly Pass-N re-audit on 2026-07-30 (per §D.2). Already scheduled in commit `bcd343f` as the recurring task `jlpt-n5-quarterly-pass-audit` (cron `0 9 30 1,4,7,10 *`); next run 2026-07-30 9 AM local. Listed twice in this section so checking both.
@@ -125,10 +125,10 @@ Analyzed `specifications/JLPT N5 Grammar Tutor – Functional Spec.docx` (v3, 33
 
 Four items from the active backlog cannot be closed in code; each has a real external dependency. Capturing them here as explicit handoff entries with the action that unblocks them. The cron `jlpt-n5-quarterly-pass-audit` will surface them again on 2026-07-30.
 
-### EB-1 — OQ-2 Listening corpus expansion 12 → 30+ items
+### EB-1 - OQ-2 Listening corpus expansion 12 → 30+ items
 
 - **Status**: APPROVED for v1.6 (per §B.9 OQ-2 closure 2026-04-30); not started.
-- **Blocker**: native Japanese voice talent. Synthetic TTS (gTTS, Piper) is unacceptable for new items — at N5 the listening test measures phoneme/prosody discrimination, so synthetic prosody artefacts would over-fit learners to artefacts rather than the language.
+- **Blocker**: native Japanese voice talent. Synthetic TTS (gTTS, Piper) is unacceptable for new items - at N5 the listening test measures phoneme/prosody discrimination, so synthetic prosody artefacts would over-fit learners to artefacts rather than the language.
 - **Unblocks when**: a native-speaker recording channel exists. Three viable channels:
   1. Paid voice actor (~3-5 hr studio session for ~20 items at N5 length).
   2. Volunteer Japanese-native already engaged with the project (e.g., the Pass-11 reviewer "Suiraku San" listed in the supplement sign-off matrix).
@@ -140,23 +140,23 @@ Four items from the active backlog cannot be closed in code; each has a real ext
 - **Estimated effort once unblocked**: ~6-10 hr (script authoring + studio session + post-production + integration).
 - **Owner**: Content owner (Suiraku San).
 
-### EB-2 — Pass-15 deep semantic re-audit
+### EB-2 - Pass-15 deep semantic re-audit
 
 - **Status**: SCHEDULED for 2026-07-30 quarterly gate (cron is set).
-- **Blocker**: native Japanese reviewer time. **PARTIALLY UNBLOCKED 2026-05-01** — see validation experiment below.
+- **Blocker**: native Japanese reviewer time. **PARTIALLY UNBLOCKED 2026-05-01** - see validation experiment below.
 - **Scope** (~70% of corpus): 157 unreviewed `data/grammar.json` patterns; 21 unreviewed `data/reading.json` passages; 591 unreviewed `KnowledgeBank/*_questions_n5.md` entries; full re-audit of KB catalogs (already audited 9× via Pass 1-10).
-- **Also covers** the 69 questions deferred from Item 4 (template generator couldn't handle compound patterns) — the reviewer should hand-author those.
+- **Also covers** the 69 questions deferred from Item 4 (template generator couldn't handle compound patterns) - the reviewer should hand-author those.
 - **Estimated effort once unblocked**: ~10-12 hr across multiple sessions for native reviewer; **~3 hr triage with LLM-audit pipeline** (see below).
 - **Owner**: Content reviewer (Suiraku San) per §B.1.2 sign-off matrix; LLM-audit pipeline owned by Engineering.
 
-#### LLM-audit validation result — 2026-05-01
+#### LLM-audit validation result - 2026-05-01
 
 Per the deep-research analysis on automating external-blocked items, an LLM-audit pipeline was prototyped (`tools/llm_audit.py`) and validated on a 5-pattern sample from the unreviewed surface. Result: **GO**.
 
 Key data points (full report at `feedback/llm-audit-validation-report.md`):
 - 5 real findings on 5 patterns (1.0 findings/pattern), comparable to Pass-12 native density (1.12) and 3.5× Pass-13's density (0.28).
 - The LLM caught a HIGH-severity PATTERN_MISMATCH on n5-115 (4 of 5 examples don't demonstrate the pattern) that had been sitting in the data through 13 prior native passes.
-- The LLM caught a stub-redirect-text-in-notes-field issue exactly analogous to what Pass-12 F-12.3 fixed in `data/questions.json` — the `data/grammar.json` equivalent had been missed.
+- The LLM caught a stub-redirect-text-in-notes-field issue exactly analogous to what Pass-12 F-12.3 fixed in `data/questions.json` - the `data/grammar.json` equivalent had been missed.
 - One false positive caught during validation (encoding-related; UTF-8 vs cp932 round-trip issue). Mitigation: enforce UTF-8 round-trip on the prompt builder.
 
 Cost: ~$11.50 per full 187-pattern pass. Quarterly cost: ~$46/year. Triage time: ~3 hr per pass (vs 10-12 hr for full native review).
@@ -169,22 +169,22 @@ Cost: ~$11.50 per full 187-pattern pass. Quarterly cost: ~$46/year. Triage time:
 
 This converts EB-2 from a fully external-blocked item to a human-light item where the LLM does the bulk of the review and a native spot-checks.
 
-### EB-3 — OQ-6 Brief translation to Japanese (optional)
+### EB-3 - OQ-6 Brief translation to Japanese (optional)
 
-- **Status**: DEFERRED to 2026-07-30 as a separate optional task (per §B.9 OQ-6 closure 2026-04-30 — distinct from the closed UI-stays-English decision).
+- **Status**: DEFERRED to 2026-07-30 as a separate optional task (per §B.9 OQ-6 closure 2026-04-30 - distinct from the closed UI-stays-English decision).
 - **Blocker**: a Japan-based reviewer engagement to make the translated brief useful. Without one, the translation has no audience.
 - **Unblocks when**: a Japan-based reviewer (e.g., a 文部科学省 contact) commits to reading the brief.
 - **Estimated effort once unblocked**: ~4 hr translation + cross-review.
 - **Owner**: Project author + Content reviewer.
-- **Priority**: P4 (lowest among external backlog) — only worth doing if outreach is in progress.
+- **Priority**: P4 (lowest among external backlog) - only worth doing if outreach is in progress.
 
-### EB-4 — OQ-1 v2.0 ML-backed recommender (richer than current minimal widget)
+### EB-4 - OQ-1 v2.0 ML-backed recommender (richer than current minimal widget)
 
 - **Status**: DEFERRED to v2.0 (target 2026-09-30 per §B.9 OQ-1 closure).
 - **Blocker**: learner-base data. The current minimal recommender (state-driven, in-app, no telemetry) is honest about its inputs. A richer ML version would need either (a) on-device learning data we don't currently retain at scale, or (b) a privacy-respecting analytics channel that doesn't exist (and would conflict with Hard constraint #2 "no telemetry").
-- **Unblocks when**: a privacy-respecting input source emerges — e.g., the export/import flow becomes common enough that anonymised analysis of exported state could inform recommendation. Or the Hard-constraint #2 stance is revisited.
+- **Unblocks when**: a privacy-respecting input source emerges - e.g., the export/import flow becomes common enough that anonymised analysis of exported state could inform recommendation. Or the Hard-constraint #2 stance is revisited.
 - **Estimated effort once unblocked**: ~6-8 hr design + implementation.
-- **Priority**: P4 — only worth doing if (a) usage justifies it AND (b) a privacy-clean data path exists.
+- **Priority**: P4 - only worth doing if (a) usage justifies it AND (b) a privacy-clean data path exists.
 
 ### Summary of what's open after 2026-05-01 sweep
 
@@ -198,7 +198,7 @@ Code-tier backlog is empty. Every code-doable item from the data-correction brie
 
 ## Open-question follow-ups - decided 2026-04-30
 
-Per the §B.9 batch decision on 2026-04-30, four OQ rows were closed. Three were code-only and have already shipped in v1.6 — the fourth (OQ-2 listening corpus) is a content-authoring task with a hard external dependency, captured below.
+Per the §B.9 batch decision on 2026-04-30, four OQ rows were closed. Three were code-only and have already shipped in v1.6 - the fourth (OQ-2 listening corpus) is a content-authoring task with a hard external dependency, captured below.
 
 ### OQ-2 backlog item: listening corpus expansion 12 → 30+ items (native voice required)
 
@@ -206,20 +206,20 @@ Per the §B.9 batch decision on 2026-04-30, four OQ rows were closed. Three were
 - **Hard constraint**: new listening items MUST be recorded with a **native Japanese voice talent**. gTTS is acceptable for the existing 12 items as a transitional baseline, but it cannot be used for new items. Rationale: at JLPT N5 the listening section tests phoneme + prosody discrimination; gTTS prosody artefacts are memorisable in a way that doesn't transfer to real human speech, so a corpus dominated by gTTS would over-fit learners to an artefact rather than the language.
 - **Why this isn't a code task**: cannot be done by editing `tools/build_audio.py`. Even if the script accepted a different TTS engine, no synthetic engine satisfies the native-voice requirement. The blocker is procurement / authoring, not code.
 - **What needs to happen** (sequenced):
-  1. Procure native voice talent — options: (a) hire a Japanese voice actor (paid, ~3-5 hr session for ~20 items at N5 length); (b) recruit a fluent Japanese-native volunteer reviewer who is already engaged with the project; (c) license existing N5-graded audio (rights-clearance question).
+  1. Procure native voice talent - options: (a) hire a Japanese voice actor (paid, ~3-5 hr session for ~20 items at N5 length); (b) recruit a fluent Japanese-native volunteer reviewer who is already engaged with the project; (c) license existing N5-graded audio (rights-clearance question).
   2. Author the new scripts: 18 new items (12 → 30) split across the three JLPT formats (~6 task / ~6 point / ~6 utterance). Scripts must stay strictly inside the N5 grammar/vocab/kanji whitelists per existing JA-13 invariant.
   3. Record at studio-quality (≥ 44.1 kHz, mono, ≤ -3 dB peak, ≤ -23 LUFS integrated); deliver as MP3 (CBR 128 kbps) to match the existing corpus footprint (~115 KB / item).
   4. Add per-item `voice` metadata to `data/listening.json` (`voice: "native" | "gtts"`) so the build pipeline + UI can flag transitional gTTS items and the next pass can swap them out individually.
   5. Update `tools/build_audio.py` to skip items with `voice: "native"` (audio is recorded externally, not synthesised) and to honour a per-item `voice` override on existing items when re-recordings arrive.
   6. Re-run content-integrity CI; verify JA-13 (no out-of-scope kanji) and the new voice-metadata invariant pass.
 - **Owner**: Content owner (Suiraku San per §B.1.2 sign-off matrix) for script authoring + voice procurement; Engineering owner (Gaurav Srivastava) for the metadata / pipeline plumbing only.
-- **Status**: OPEN, not started. Deferred until a native voice channel is in place. Tracked here so it doesn't get lost in OQ-2's "approved" status — approval is the *decision*, not the *delivery*.
+- **Status**: OPEN, not started. Deferred until a native voice channel is in place. Tracked here so it doesn't get lost in OQ-2's "approved" status - approval is the *decision*, not the *delivery*.
 
 ### Other 2026-04-30 closures (already shipped, no follow-up needed)
 
-- [x] **OQ-3** — CSP meta tag added to `index.html`; SW `CACHE_VERSION` bumped (v29 → v30).
-- [x] **OQ-1 (minimal)** — "What should I study next?" recommender widget added to Home (`js/home.js` `pickRecommendation()` + `renderRecommendation()` + `.home-recommend` styles in `css/main.css`). Reads `getStreak()` + `getDueCount()` + `lastLearnId`, routes to one of Learn / Review / Drill. Richer ML-backed engine still deferred to v2.0.
-- [x] **OQ-6** — Decision: app UI/instructions stay in **English** (the app teaches Japanese, but chrome stays English so learners are never blocked). Five existing locales (en/vi/id/ne/zh) translate the English chrome — no `ja` locale will be added. Brief translation still tracked for 2026-07-30 as a separate optional task.
+- [x] **OQ-3** - CSP meta tag added to `index.html`; SW `CACHE_VERSION` bumped (v29 → v30).
+- [x] **OQ-1 (minimal)** - "What should I study next?" recommender widget added to Home (`js/home.js` `pickRecommendation()` + `renderRecommendation()` + `.home-recommend` styles in `css/main.css`). Reads `getStreak()` + `getDueCount()` + `lastLearnId`, routes to one of Learn / Review / Drill. Richer ML-backed engine still deferred to v2.0.
+- [x] **OQ-6** - Decision: app UI/instructions stay in **English** (the app teaches Japanese, but chrome stays English so learners are never blocked). Five existing locales (en/vi/id/ne/zh) translate the English chrome - no `ja` locale will be added. Brief translation still tracked for 2026-07-30 as a separate optional task.
 
 ---
 
@@ -231,28 +231,28 @@ Two visible gaps on every kanji detail card (verified in browser preview at `#/k
 
 - **Goal**: Each of the 106 kanji cards should show 2-3 N5-syllabus example words containing that kanji, so learners see the kanji in actual context (not just the bare glyph + readings + English meaning).
 - **Selection rule**:
-  - Examples must be real N5-syllabus words — sourced from `data/vocab.json` cross-referenced with `data/n5_vocab_whitelist.json`.
+  - Examples must be real N5-syllabus words - sourced from `data/vocab.json` cross-referenced with `data/n5_vocab_whitelist.json`.
   - 2-3 examples per kanji is the sweet spot; up to 5 only when high-frequency or pedagogically useful.
   - Per-example fields: `form` (rendered string), `reading` (full kana reading), `gloss` (short English).
-- **Rendering rule** (critical — aligns with existing JA-13 invariant + post-Pass-13 design):
+- **Rendering rule** (critical - aligns with existing JA-13 invariant + post-Pass-13 design):
   - If **every** kanji in the example word is in `data/n5_kanji_whitelist.json` → render the word in **full kanji** form. Examples:
-    - 新 → `新しい` (新 in scope; しい is kana — keep as-is)
-    - 新 → `新聞` (both 新 and 聞 are in N5 — keep as-is)
-    - 古 → `古い`, `古本` (本 is N5 — keep as-is)
-    - 長 → `長い`, `校長` (校 is N5 — keep as-is)
+    - 新 → `新しい` (新 in scope; しい is kana - keep as-is)
+    - 新 → `新聞` (both 新 and 聞 are in N5 - keep as-is)
+    - 古 → `古い`, `古本` (本 is N5 - keep as-is)
+    - 長 → `長い`, `校長` (校 is N5 - keep as-is)
   - If **any** kanji in the example word is **out of** N5 → that kanji is **substituted with its contextual kana reading**, while the *target* kanji (the one the card is about) stays as kanji. Hypothetical example given by user 2026-04-30: if 聞 were not in N5, then `新聞` would be authored as `新ぶん` (新 stays kanji because the card is about 新; 聞 → ぶん, the on-reading used in 新聞).
-  - Reading correctness: the kana substitution must use the **contextually correct** reading for the compound (on vs kun depends on the word). This is authoring judgment — cannot be fully auto-generated; requires curated input.
+  - Reading correctness: the kana substitution must use the **contextually correct** reading for the compound (on vs kun depends on the word). This is authoring judgment - cannot be fully auto-generated; requires curated input.
 - **Storage**: add `examples: [{form, reading, gloss}]` field to each entry in `data/kanji.json`. Authoring source: `KnowledgeBank/kanji_n5.md` (curated by content reviewer). `tools/build_data.py` propagates from KB → JSON.
 - **UI**: render between the on/kun/meaning meta-strip and the "Stroke order" heading on the kanji detail view. Match existing label style (bold "On:" / "Kun:" / "Meaning:" pattern). Suggested layout: a small table with three columns (form | reading | gloss).
 - **CI invariant** to add (call it JA-15): every example word's `form` field, when scanned for kanji, contains only kanji that are either (a) the target kanji or (b) members of the N5 whitelist. Any other kanji = build-fail. Mirrors JA-13.
 - **Files touched**: `KnowledgeBank/kanji_n5.md` (add examples per entry), `tools/build_data.py` (parse + emit), `data/kanji.json` (regenerated), `js/kanji.js` + relevant CSS (render), `tools/check_content_integrity.py` (JA-15).
-- **Effort estimate**: ~4-6 hr — most of it authoring (106 kanji × 2-3 examples = ~250-300 example words to curate + verify N5-scope substitutions). Code wiring is ~1 hr.
+- **Effort estimate**: ~4-6 hr - most of it authoring (106 kanji × 2-3 examples = ~250-300 example words to curate + verify N5-scope substitutions). Code wiring is ~1 hr.
 - **Priority**: P2 (learner-visible content gap; not release-blocking but degrades the kanji-card pedagogically).
 
 ### Task K-2: Ship stroke-order SVGs (KanjiVG drop-in)
 
 - **Goal**: Replace the visible placeholder text "Stroke-order SVG not yet shipped. Drop-in target: `svg/kanji/<glyph>.svg` (KanjiVG-compatible)." with actual stroke-order animations on all 106 kanji cards.
-- **Current state**: `data/kanji.json` already has a `stroke_order_svg` slot per entry; the kanji detail view checks it and falls back to the placeholder text when absent. Verified in browser preview at `#/kanji/古` (slot #100) and `#/kanji/長` (slot #101) — placeholder is shown to learners, which looks unfinished.
+- **Current state**: `data/kanji.json` already has a `stroke_order_svg` slot per entry; the kanji detail view checks it and falls back to the placeholder text when absent. Verified in browser preview at `#/kanji/古` (slot #100) and `#/kanji/長` (slot #101) - placeholder is shown to learners, which looks unfinished.
 - **Source**: KanjiVG (https://kanjivg.tagaini.net/) is licensed CC BY-SA 3.0. Contains stroke-order SVGs for all 106 N5 kanji. License is compatible with the project (static, attributed).
 - **Drop-in process**:
   1. Download KanjiVG release SVGs for the 106 N5 glyphs in `data/n5_kanji_whitelist.json`.
@@ -266,21 +266,21 @@ Two visible gaps on every kanji detail card (verified in browser preview at `#/k
   - Footer carries CC BY-SA attribution.
   - SW precaches all 106 SVGs; offline test confirms each kanji card renders without network.
 - **Files touched**: `svg/kanji/*.svg` (106 new files, ~20-50 KB total), `sw.js` (precache list), `index.html` or `NOTICES.md` (attribution), possibly `js/kanji.js` if the renderer needs to switch from `<img src=...>` to inline `<svg>` for stroke animation.
-- **Effort estimate**: ~1-2 hr (mostly file copying + verification). The KanjiVG dataset is already complete and authoritative — no authoring required.
-- **Priority**: P1 (every kanji card currently shows placeholder text to the learner — visible quality gap). Should ship before next release.
+- **Effort estimate**: ~1-2 hr (mostly file copying + verification). The KanjiVG dataset is already complete and authoritative - no authoring required.
+- **Priority**: P1 (every kanji card currently shows placeholder text to the learner - visible quality gap). Should ship before next release.
 - **Open question** for the implementer: animated stroke-order (requires KanjiVGAnim or similar runtime) or static numbered strokes (simpler, lighter)? Static is the lower-effort path; animated is the better learner experience but doubles complexity. Recommend static for v1.6, animated for v2.0.
 
 ---
 
 ## Copy audit: remove sales-promo voice - raised 2026-04-30
 
-**Frame** (user direction 2026-04-30): the current home-page hero reads like a marketing landing page (outcome-promise headline, ✓-prefixed trust ticks, second-person imperative CTAs). For a free static study tool with no funnel, no upsell, and no monetisation, this voice is **mismatched** — it implies a product trying to sell itself, when the product just exists to be used. Strip the sales gloss; keep facts and quiet competence. Reviewer perspective for this audit: a senior copywriter editing an institutional reference site (think MIT OpenCourseWare or arxiv.org), not a SaaS landing page.
+**Frame** (user direction 2026-04-30): the current home-page hero reads like a marketing landing page (outcome-promise headline, ✓-prefixed trust ticks, second-person imperative CTAs). For a free static study tool with no funnel, no upsell, and no monetisation, this voice is **mismatched** - it implies a product trying to sell itself, when the product just exists to be used. Strip the sales gloss; keep facts and quiet competence. Reviewer perspective for this audit: a senior copywriter editing an institutional reference site (think MIT OpenCourseWare or arxiv.org), not a SaaS landing page.
 
-**Scope of fix**: copy-only. No content/data changes; only labels, microcopy, headlines, and meta strings. Treat as a single rewriting pass — the goal is consistent voice across all surfaces, so prefer one big PR over piecemeal edits.
+**Scope of fix**: copy-only. No content/data changes; only labels, microcopy, headlines, and meta strings. Treat as a single rewriting pass - the goal is consistent voice across all surfaces, so prefer one big PR over piecemeal edits.
 
 **Effort estimate**: ~1.5-2 hr to apply all 17 findings + verify in browser + update specs/CHANGELOG. Low risk (no data invariants touched).
 
-**Priority**: P2 — visible on the home page (the front door); affects every first-time visitor's first impression. Should land before any external-reviewer outreach (Pass-11 native teacher, MEXT alignment).
+**Priority**: P2 - visible on the home page (the front door); affects every first-time visitor's first impression. Should land before any external-reviewer outreach (Pass-11 native teacher, MEXT alignment).
 
 ### Voice guidelines (the rewrite contract)
 
@@ -297,7 +297,7 @@ The rewrite should obey these rules so future copy doesn't drift back:
 
 ### Findings (17 items, ordered by visibility)
 
-#### A. Hero — `js/home.js`
+#### A. Hero - `js/home.js`
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
@@ -305,18 +305,18 @@ The rewrite should obey these rules so future copy doesn't drift back:
 | A2 | `Continue your N5 study` (returning h2) | `Continue` | Possessive "your" + "study" is aspirational. The single word reads as a quiet hand-off back to the work. |
 | A3 | `<ul class="trust-strip">` with `✓ Works offline` / `✓ No login required` / `✓ Your progress stays on this device` | Inline sentence: `Works offline. Open access. Progress stays in your browser.` (or remove the trust strip entirely, since the same facts are now in PRIVACY.md and the footer link makes them discoverable) | ✓-prefixed trust badges are the textbook pattern of a SaaS landing page. The facts are correct; only the framing needs to change. |
 | A4 | `Start your first lesson` (primary CTA, first-time) | `Start a lesson` *or* `Open Learn` | "Your first" is onboarding-funnel rhetoric. |
-| A5 | `Continue lessons` (primary CTA, returning) | Keep as-is — this is already neutral. | — |
-| A6 | `Take a placement check` (secondary CTA) | Keep as-is. The word "Take" is fine in this context (we say "take a quiz" in normal English). | — |
+| A5 | `Continue lessons` (primary CTA, returning) | Keep as-is - this is already neutral. | - |
+| A6 | `Take a placement check` (secondary CTA) | Keep as-is. The word "Take" is fine in this context (we say "take a quiz" in normal English). | - |
 | A7 | `Already familiar with some N5 material? Take the placement check above to skip what you know.` (footnote) | `If you've studied some N5 already, the placement check above can shorten the path.` *or* simply `Placement check above for partial-N5 starters.` | "to skip what you know" is rationalising the action. The fact (skip-what-you-know) belongs on the placement-check button, not as preemptive copy under the hero. |
 
-#### B. Hero stats — `js/home.js`
+#### B. Hero stats - `js/home.js`
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
 | B1 | Pill badges `187 grammar`, `1003 vocab`, `106 kanji`, `30 reading`, `12 listening` | Keep counts, drop the pill styling for a flatter list: `187 grammar patterns · 1003 vocabulary · 106 kanji · 30 reading passages · 12 listening drills` | Pills look like marketing "stat cards". A plain list reads as a table of contents. The numbers themselves are factual and should stay. (NOTE: this reverses L5 from today's batch. Discuss before applying.) |
 | B2 | Returning-user tagline `${grammarCount} grammar patterns. ${vocabCount} vocab words. ${kanjiCount} N5 kanji.` | `${grammarCount} patterns. ${vocabCount} words. ${kanjiCount} kanji.` | "Vocab words" is redundant; "N5 kanji" is implied by the page context. |
 
-#### C. Recommender widget — `js/home.js`
+#### C. Recommender widget - `js/home.js`
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
@@ -327,7 +327,7 @@ The rewrite should obey these rules so future copy doesn't drift back:
 | C5 | `Try a quick mixed drill` | `Mixed drill` *or* `Practice` | "Try" + "quick" both signal sales/persuasion. |
 | C6 | `Pick up the next lesson` | `Next lesson` | Remove the imperative wrapper. |
 
-#### D. Returning resume cards — `js/home.js`
+#### D. Returning resume cards - `js/home.js`
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
@@ -336,31 +336,31 @@ The rewrite should obey these rules so future copy doesn't drift back:
 | D3 | `All caught up - come back tomorrow.` | `No reviews due.` | "Come back tomorrow" is engagement-loop copy that anthropomorphises the tool. |
 | D4 | `Learn something new` (button when no due) | `Open Learn` | "Learn something new" is encouraging-coach voice. |
 
-#### E. CTA elsewhere — across files
+#### E. CTA elsewhere - across files
 
 | # | Current | Location | Proposed |
 |---|---|---|---|
 | E1 | `Start your first lesson` | `js/summary.js:34` (empty-state) | `Start a lesson` |
 | E2 | `Your dashboard fills in as you study.` | `js/summary.js:32` | `Stats appear here once you've studied.` |
 | E3 | `★ Graduated! This pattern is mastered.` | `js/drill.js:282` | `Graduated. Pattern mastered.` (drop the ★) |
-| E4 | `✓ Correct` / `✗ Not quite` | `js/drill.js:292`, `js/counters.js:222` | `Correct` / `Wrong` (drop the glyphs; rely on color + headline weight) — OR replace ✓/✗ with proper SVG icons. Decision needed; the glyphs render inconsistently across platforms (Windows shows them as plain text, mobile may render as emoji). |
+| E4 | `✓ Correct` / `✗ Not quite` | `js/drill.js:292`, `js/counters.js:222` | `Correct` / `Wrong` (drop the glyphs; rely on color + headline weight) - OR replace ✓/✗ with proper SVG icons. Decision needed; the glyphs render inconsistently across platforms (Windows shows them as plain text, mobile may render as emoji). |
 
-#### F. Site chrome — `index.html`
+#### F. Site chrome - `index.html`
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
-| F1 | `<title>JLPT N5 Grammar Tutor</title>` | `<title>JLPT N5</title>` *or* `<title>JLPT N5 — study material</title>` | "Grammar Tutor" undersells (the site has vocab/kanji/reading/listening too) and "Tutor" is brandy. Per existing UI brief §1.1 #1, this contradicts the hero scope statement. |
+| F1 | `<title>JLPT N5 Grammar Tutor</title>` | `<title>JLPT N5</title>` *or* `<title>JLPT N5 - study material</title>` | "Grammar Tutor" undersells (the site has vocab/kanji/reading/listening too) and "Tutor" is brandy. Per existing UI brief §1.1 #1, this contradicts the hero scope statement. |
 | F2 | `<meta name="description" content="Static, on-device, privacy-preserving tutor for JLPT N5 grammar.">` | `<meta name="description" content="Free JLPT N5 study material covering grammar, vocabulary, kanji, reading and listening. Works offline; no account.">` | "Static, on-device, privacy-preserving" is technical jargon a non-developer searcher won't parse. Keep the same *facts* in plain English. |
-| F3 | `aria-label="JLPT N5 Grammar Tutor - return to home"` (brand link) | `aria-label="JLPT N5 — return to home"` | Match the new title. |
+| F3 | `aria-label="JLPT N5 Grammar Tutor - return to home"` (brand link) | `aria-label="JLPT N5 - return to home"` | Match the new title. |
 
-#### G. Footer — `index.html`
+#### G. Footer - `index.html`
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
-| G1 | `v1.5.0 · What's new` (left) | Keep as-is. Plain, factual. | — |
-| G2 | `Privacy · Source on GitHub` (right) | Keep as-is. | — |
+| G1 | `v1.5.0 · What's new` (left) | Keep as-is. Plain, factual. | - |
+| G2 | `Privacy · Source on GitHub` (right) | Keep as-is. | - |
 
-#### H. Recommender — minor
+#### H. Recommender - minor
 
 | # | Current | Proposed | Reason |
 |---|---|---|---|
@@ -371,32 +371,32 @@ The rewrite should obey these rules so future copy doesn't drift back:
 When the rewrite ships:
 
 - [x] No occurrence of `Pass JLPT N5 with` anywhere in user-facing files. **Verified 2026-05-01:** 0 hits across `js/`, `index.html`. Removed during the v1.7.1 hero deletion.
-- [x] No occurrence of `Master`, `Crush`, `Ace`, `Easily`, `Quickly`, `Effortlessly` as adverbs/verbs about study outcomes. **Verified 2026-05-01:** only `★ Mastered` (status badge label, descriptive noun) remains — not the audit target which was about marketing imperatives like "Master JLPT in X days".
+- [x] No occurrence of `Master`, `Crush`, `Ace`, `Easily`, `Quickly`, `Effortlessly` as adverbs/verbs about study outcomes. **Verified 2026-05-01:** only `★ Mastered` (status badge label, descriptive noun) remains - not the audit target which was about marketing imperatives like "Master JLPT in X days".
 - [x] No `✓ ` (check + space) prefix in any visible label outside drill answer-feedback. **Verified 2026-05-01:** 0 hits. Test-review screen still uses bare ✓/✗ as centered glyphs (typographic dingbats, not emoji), color-coded via CSS classes.
 - [x] No `Start your first` or `Begin your` patterns. **Verified 2026-05-01:** 0 hits. The home page no longer has any CTAs at all (hero removed in v1.7.1).
-- [x] Site title + meta description rewritten per F1, F2. **Verified 2026-05-01:** title is `JLPT N5 — study material` (matches F1 descriptive form). Description: `Free JLPT N5 study material covering grammar, vocabulary, kanji, reading and listening. Works offline; no account.` (factual, no marketing voice).
+- [x] Site title + meta description rewritten per F1, F2. **Verified 2026-05-01:** title is `JLPT N5 - study material` (matches F1 descriptive form). Description: `Free JLPT N5 study material covering grammar, vocabulary, kanji, reading and listening. Works offline; no account.` (factual, no marketing voice).
 - [x] CHANGELOG.md gets a note that the home tagline + hero copy were updated for voice consistency. **Already covered** in CHANGELOG entries v1.7.1 (hero removed) and v1.7.11 (decorative emojis removed) and v1.8.0 (Zen Modern overhaul).
-- [x] Spec supplement §1.1.5 (Trust strip) and §15 (Copy revisions) updated to match the new voice. **Applied 2026-05-01:** see commit on this date — sections retroactively documented to reflect that the trust strip + hero CTA were removed entirely rather than rewritten.
-- [x] Browser preview verification: home page (first-time + returning), summary empty-state, drill answer feedback all reviewed. **Applied 2026-05-01 via Claude_Preview MCP (Tier 0)** — Python http.server running on :8765, navigated to home / Learn hub / Summary empty-state, computed-style inspection on key elements (body, .section-label-text, .section-label-rule, .brand-link, .card-index, .pillar-card). Verified: tabular-nums on body, hairline 0.5px on rules, weight 500 on labels, no shadows on cards, brand mark 五 via ::before pseudo-element, numbered indices 01-05 on Learn hub. Console: 0 errors. One finding caught + fixed: `.pillar-card p` rule was overriding `.card-index` color on home (rendered muted instead of faint per spec §4.4) — promoted via `.pillar-card .card-index, .hub-card .card-index { color: var(--color-text-faint); }`. Replaced by automation: **`tools/check_design_system.py` (Tier 1)** — 8-rule static checker wired into `.github/workflows/content-integrity.yml` runs every push + PR. Catches recurring drift classes (emojis, weight 600/700, box-shadow, hover-transforms, legacy accent #14452a, non-token radii, text-transform / text-shadow violations).
+- [x] Spec supplement §1.1.5 (Trust strip) and §15 (Copy revisions) updated to match the new voice. **Applied 2026-05-01:** see commit on this date - sections retroactively documented to reflect that the trust strip + hero CTA were removed entirely rather than rewritten.
+- [x] Browser preview verification: home page (first-time + returning), summary empty-state, drill answer feedback all reviewed. **Applied 2026-05-01 via Claude_Preview MCP (Tier 0)** - Python http.server running on :8765, navigated to home / Learn hub / Summary empty-state, computed-style inspection on key elements (body, .section-label-text, .section-label-rule, .brand-link, .card-index, .pillar-card). Verified: tabular-nums on body, hairline 0.5px on rules, weight 500 on labels, no shadows on cards, brand mark 五 via ::before pseudo-element, numbered indices 01-05 on Learn hub. Console: 0 errors. One finding caught + fixed: `.pillar-card p` rule was overriding `.card-index` color on home (rendered muted instead of faint per spec §4.4) - promoted via `.pillar-card .card-index, .hub-card .card-index { color: var(--color-text-faint); }`. Replaced by automation: **`tools/check_design_system.py` (Tier 1)** - 8-rule static checker wired into `.github/workflows/content-integrity.yml` runs every push + PR. Catches recurring drift classes (emojis, weight 600/700, box-shadow, hover-transforms, legacy accent #14452a, non-token radii, text-transform / text-shadow violations).
 
 ### Open decisions (flag for user before implementer starts)
 
 1. **B1 (pill badges vs flat list)**: today's L5 batch made the stats into pills. Going flat reverses that. Decide: keep pills (visual scoreboard, mild marketing feel) or revert to flat list (institutional, plain). Recommend **revert to flat** to be consistent with the rest of the rewrite.
-2. **A3 (trust strip)**: should the strip stay (rewritten) or be removed entirely now that PRIVACY.md is linked from the footer? Recommend **remove from hero** — the privacy story is one click away in the footer; on-page repetition is the hallmark of a landing page trying to convince a skeptic. Removing it is the most coherent application of the voice guideline.
+2. **A3 (trust strip)**: should the strip stay (rewritten) or be removed entirely now that PRIVACY.md is linked from the footer? Recommend **remove from hero** - the privacy story is one click away in the footer; on-page repetition is the hallmark of a landing page trying to convince a skeptic. Removing it is the most coherent application of the voice guideline.
 3. **E4 (glyphs)**: drop ✓/✗ entirely (rely on color + label) or replace with SVG? Recommend **keep label only** for v1.6 (lowest effort, most consistent with the new voice); SVG icon work belongs in the M-bucket UI polish anyway.
-4. **F1 (site title)**: shorter `JLPT N5` or descriptive `JLPT N5 — study material`? The descriptive form helps SEO and accessibility (screen readers read the title on landing). Recommend the descriptive form.
+4. **F1 (site title)**: shorter `JLPT N5` or descriptive `JLPT N5 - study material`? The descriptive form helps SEO and accessibility (screen readers read the title on landing). Recommend the descriptive form.
 
 ---
 
 ## Native Japanese teacher review request - 2026-04-30
 
-Brief at `feedback/native-teacher-review-request.md`. Covers **both** `data/` (runtime JSON, never deeply native-reviewed) **and** `KnowledgeBank/` (catalog files, audited 10 times — this pass brings a fresh native eye).
+Brief at `feedback/native-teacher-review-request.md`. Covers **both** `data/` (runtime JSON, never deeply native-reviewed) **and** `KnowledgeBank/` (catalog files, audited 10 times - this pass brings a fresh native eye).
 
 - **Scope (14 priorities):**
   - P1-P2: `data/grammar.json` (~935 examples), `data/reading.json` (30 passages)
-  - P3-P7: KB question banks — moji / goi / bunpou / dokkai / authentic_extracted (591 Qs total)
+  - P3-P7: KB question banks - moji / goi / bunpou / dokkai / authentic_extracted (591 Qs total)
   - P8-P9: `data/questions.json` (250 Qs), `data/listening.json` (12 scripts)
-  - P10-P12: KB catalog files — grammar_n5.md / vocabulary_n5.md / kanji_n5.md
+  - P10-P12: KB catalog files - grammar_n5.md / vocabulary_n5.md / kanji_n5.md
   - P13-P14: spot-checks on `data/vocab.json` and `data/kanji.json` (mostly mirror KB)
   - Optional: audio QA on ~20 random MP3s
 - **Effort:** ~10-15 hours total, splittable; partial reviews welcome (P1 alone is ~2-3 hours).
@@ -420,7 +420,7 @@ A native Japanese teacher commissioned by 文部科学省 audited the brief itse
 
 - [x] **F-4** §6 missing "naturalness trumps policy" escape clause. Add rule 8 explicitly authorizing the reviewer to flag policy-compliant-but-unnatural stems.
 - [x] **F-5** §1 audit-history table uses inconsistent terminology: Pass 8 "Native-teacher review" (English) vs Pass 9 "External 日本語教師 brief" (mixed). Standardize on "日本語教師 (native-speaker)" labels per pass.
-- [x] **F-6** §2.1 priority list buries `data/listening.json` at P9. Promote to P3 — audio is the area where native expertise is most uniquely needed; non-native maintainers can't judge pitch accent / rendaku / gemination.
+- [x] **F-6** §2.1 priority list buries `data/listening.json` at P9. Promote to P3 - audio is the area where native expertise is most uniquely needed; non-native maintainers can't judge pitch accent / rendaku / gemination.
 - [x] **F-7** §3.1 IN-scope list missing two important categories: (a) causative/passive (させる/られる) at the N5/N4 boundary; (b) counter-noun mismatches (まい / ほん / つ / さつ misuse).
 - [x] **F-8** §4 severity model has only one worked example (HIGH). Add a CRITICAL exemplar (the から/ので two-correct-answers case is the canonical example) to calibrate severity thresholds for the reviewer.
 - [x] **F-9** §6.4 reading-passage naturalness exception lacks a specific list. Add §6.4.1 enumerating allowed non-N5 kanji: family terms (兄/姉/弟/妹/主人), ≥50% prevalence common nouns (部屋/病院/教室/公園/旅行/仕事/結婚/自分/番組/季節), all Japanese place names, all proper-noun person names.
@@ -429,8 +429,8 @@ A native Japanese teacher commissioned by 文部科学省 audited the brief itse
 
 - [x] **F-10** §2.1 effort estimates (e.g., 935 sentences in 2 hours = ~7 sec each) are optimistic. Add footnote: careful audit takes 2-3× the listed time; if going faster, reviewer is sampling not auditing.
 - [x] **F-11** §3.1 "Inferential paraphrases sold as synonymy" needs Japanese gloss: 「言い換え類義で類義語ではなく文脈推論を要求しているもの」.
-- [x] **F-12** §3.1 wrong-readings example uses 今年=ことし. Better N5 example: 一日 = ついたち (date) vs いちにち (duration) — context-sensitive readings is itself a finding category.
-- [x] **F-13** §8.1 file-access mentions only `git clone`. Add ZIP-download path: GitHub「Code → Download ZIP」 — no git installation required.
+- [x] **F-12** §3.1 wrong-readings example uses 今年=ことし. Better N5 example: 一日 = ついたち (date) vs いちにち (duration) - context-sensitive readings is itself a finding category.
+- [x] **F-13** §8.1 file-access mentions only `git clone`. Add ZIP-download path: GitHub「Code → Download ZIP」 - no git installation required.
 - [x] **F-14** Brief is English-only. Add §8.2.5 explicitly accepting Japanese-language findings; project will translate ingested findings.
 - [x] **F-15** Part B template sections are unnumbered while Part A uses §1-§11. Number Part B as B.1 through B.9 for stable cross-references in the audit log.
 - [x] **F-16** §1 doesn't summarize what Pass 10 found. Add §1.1 summarizing Pass 10's 309 findings (274 ASCII-digit + 35 wrong-primary-readings) so Pass-11 reviewer knows what's already known-good.
@@ -448,7 +448,7 @@ A native Japanese teacher commissioned by 文部科学省 audited the brief itse
 - [x] Audit-pass numbering (Pass 1-11) becoming unwieldy. Consider migrating to year-based scheme (Audit-2026-Q2-NatRev etc.) before Pass 20.
 - [x] Brief should reference `tests.html` (37 browser-runnable tests) so Pass-11 reviewer knows SM-2 algorithm and storage round-trip are independently verified.
 
-### Reviewer engagement workflow (COMPLETE — Pass-11 / Pass-12 / Pass-13 cycle)
+### Reviewer engagement workflow (COMPLETE - Pass-11 / Pass-12 / Pass-13 cycle)
 
 - [x] Identify reviewer (native Japanese teacher commissioned by 文部科学省 - simulated/in-context engagement).
 - [x] Send brief; agree on scope and turnaround.
@@ -462,21 +462,21 @@ A native-teacher review of `data/grammar.json` (sampled 30 of 187 patterns), `da
 
 #### CRITICAL (2) - release blockers
 
-- [x] **F-1** `data/questions.json` q-0028 has 3 grammatically-valid options. Stem 「（  ）は なんですか」 with これ/それ/あれ/どれ — without contextual anchoring, これ + それ + あれ all fit; only どれ is wrong. Fix: add disambiguating context to the stem (e.g., 「あそこに あるもの」 to force あれ).
+- [x] **F-1** `data/questions.json` q-0028 has 3 grammatically-valid options. Stem 「（  ）は なんですか」 with これ/それ/あれ/どれ - without contextual anchoring, これ + それ + あれ all fit; only どれ is wrong. Fix: add disambiguating context to the stem (e.g., 「あそこに あるもの」 to force あれ).
 - [x] **F-2** `data/questions.json` q-0237 has 2 grammatically-valid options. Stem 「がっこうへ（  ）。」 with translation "[I] went to school"; both いった (plain past) and いきました (polite past) complete the sentence. Same class as the Pass-9 C-1.3 から/ので bug. Fix: drop いきました from options, OR add register cue to the stem.
 
 #### HIGH (5) - next release
 
 - [x] **F-3** `data/grammar.json` patterns n5-039 / n5-046 / n5-162 / n5-174 / n5-184 / n5-185 (and likely others) are stub cross-references. Their `examples[]` array contains `ja: "(see n5-XXX)"` which renders verbatim to the learner. Fix: inline the referenced content OR convert these to runtime redirects OR hide from TOC.
-- [x] **F-4** `data/reading.json` `n5.read.021` uses しんかんせん (N4 vocab). Pass-9 M-3.4 already removed this from `KnowledgeBank/bunpou_questions_n5.md` Q24 — cross-file consistency regression. Fix: replace with ひこうき (1 hour, more believable) or でんしゃ.
+- [x] **F-4** `data/reading.json` `n5.read.021` uses しんかんせん (N4 vocab). Pass-9 M-3.4 already removed this from `KnowledgeBank/bunpou_questions_n5.md` Q24 - cross-file consistency regression. Fix: replace with ひこうき (1 hour, more believable) or でんしゃ.
 - [x] **F-5** Mixed-script numerals throughout `data/grammar.json` and `data/reading.json`. Specifically `7じ` (ASCII digit + hiragana counter) is non-native; should be 7時 or 七時 or しちじ. Run a sweep against `[0-9]+じ` regex and normalize.
-- [x] **F-6** `data/listening.json` `n5.listen.001` script reads 「おとこの人と 女の人が」 — 「おとこ」 in kana but 「女」 in kanji; both are N5 catalog kanji; the matched gender pair should render symmetrically. Fix: standardize on 「男の人と 女の人」 (full kanji).
+- [x] **F-6** `data/listening.json` `n5.listen.001` script reads 「おとこの人と 女の人が」 - 「おとこ」 in kana but 「女」 in kanji; both are N5 catalog kanji; the matched gender pair should render symmetrically. Fix: standardize on 「男の人と 女の人」 (full kanji).
 - [x] **F-7** `data/grammar.json` n5-091 (います) ex[2] is two slash-separated sentences in one example: 「きのう ともだちが 来ました。 / ともだちが いました。」. Template violation; the two sentences mean different things (action vs state). Fix: split into two separate `examples[]` entries with distinct translations.
 
 #### MEDIUM (7) - next quarterly review
 
 - [x] **F-8** `data/reading.json` n5.read.030 uses 「土よう日」 (mixed kanji+kana for Saturday). All 3 chars 土/曜/日 are in N5 catalog. Fix: 土曜日.
-- [x] **F-9** `data/reading.json` n5.read.001 reads 「東京の だいがく」 — 大学 in kana while 東京 + 日本語 are in kanji. Inconsistent. Fix: 東京の大学.
+- [x] **F-9** `data/reading.json` n5.read.001 reads 「東京の だいがく」 - 大学 in kana while 東京 + 日本語 are in kanji. Inconsistent. Fix: 東京の大学.
 - [x] **F-10** `data/reading.json` n5.read.006 uses かもしれません (N4 grammar) in an N5 reading passage. Naturalness exception covers kanji not grammar. Fix: replace with 「ふるとおもいます」 or 「ふるでしょう」.
 - [x] **F-11** `data/reading.json` n5.read.021 uses literal `+` sign in 「おとな 2人 + 子ども 1人」. Foreign math notation. Fix: 「おとな2人と 子ども1人で」.
 - [x] **F-12** `data/reading.json` n5.read.021 uses 「14000円」 without thousands separator. Japanese print convention is 「14,000円」.
@@ -487,11 +487,11 @@ A native-teacher review of `data/grammar.json` (sampled 30 of 187 patterns), `da
 
 - [x] **F-15** `data/grammar.json` n5-005 `meaning_ja` reads 「ばしょ・じかん・あいてを しめす」. 「あいて」 (相手, N4) is technically out of N5 vocab; the kana rendering is policy-compliant but reads childish. Fix: rephrase to 「ばしょ・じかん・人を しめす」.
 - [x] **F-16** `data/grammar.json` n5-002 (は particle) ex[2] 「にくは たべません」 uses contrastive-は as an early example for topic-marker は. Sequencing risk: beginners conflate the two. Demote to later position with explicit contrast pair.
-- [x] **F-17** `data/reading.json` n5.read.026 closes with bare 「やすかったです」 — feels juvenile. Fix: 「やすくて、よかったです」 or add intensifier.
+- [x] **F-17** `data/reading.json` n5.read.026 closes with bare 「やすかったです」 - feels juvenile. Fix: 「やすくて、よかったです」 or add intensifier.
 
 #### Out-of-scope but noticed (advisory)
 
-- [x] Reading passages don't consistently mark dialogue with 「」 quotation marks — register-tracking harder for learners. **Verified moot:** survey of all 30 reading passages found 0 dialogue patterns; corpus is uniformly narrative. Closed without action.
+- [x] Reading passages don't consistently mark dialogue with 「」 quotation marks - register-tracking harder for learners. **Verified moot:** survey of all 30 reading passages found 0 dialogue patterns; corpus is uniformly narrative. Closed without action.
 - [x] `data/grammar.json` `meaning_ja` field had dual use. **Fixed:** 40 stub patterns' meaning_ja cleaned (redirect text replaced with canonical pattern's meaning_ja). Cross-reference moved to dedicated  field. Schema is now single-purpose.
 - [x] `data/grammar.json` examples have empty `furigana: []` member. **Verified intentional (OQ-7):**  line 80 reads the field as an optional explicit-override for cases where auto-rendering gets a reading wrong. Field is functional schema, populated per-example only when needed. Closed as keep. Documented in FSD §B.9 OQ-7.
 
@@ -528,23 +528,23 @@ Fresh native-speaker audit specifically targeting Japanese language teaching acc
 
 #### CRITICAL (data-pipeline corruption discovered)
 
-- [x] **F-13.1** (CRITICAL) `data/kanji.json` 番 entry has `on=['ごう']` — **that is the on-yomi of 号, not 番**. Cross-contamination during JSON extraction. Real value should be `on=['ばん']`. Plus `meanings` was comma-split into a broken array `['number (primary N5 use: in 電話番号', '番号)']`. **APPLIED:** corrected to `on=['ばん'], kun=[], meanings=['number', 'turn']`.
-- [x] **F-13.2** (CRITICAL) `data/kanji.json` 会 entry has `on=['いん']` — **that is 員's on-yomi, not 会**. Same cross-contamination class as F-13.1. Also `meanings=['member', 'staff']` are 員's meanings, not 会's. **APPLIED:** corrected to `on=['かい', 'え'], kun=['あ'], meanings=['meeting', 'association']`.
-- [x] **F-13.3** (CRITICAL) `data/kanji.json` 円 entry still has `kun=['まる']` despite Pass-9 L-4.2 explicitly removing it from `KnowledgeBank/kanji_n5.md`. Cross-file consistency regression — `data/kanji.json` was not regenerated after Pass-9 KB fix. **APPLIED:** removed まる kun; simplified `meanings=['yen']`.
-- [x] **F-13.4** (CRITICAL) `data/kanji.json` 生 entry had `meanings=['life', 'birth (primary N5 use: in compounds like 学生', '先生)']` — comma-in-parenthetical broke the meanings array into 3 fragments. **APPLIED:** cleaned to `meanings=['life', 'birth']`.
+- [x] **F-13.1** (CRITICAL) `data/kanji.json` 番 entry has `on=['ごう']` - **that is the on-yomi of 号, not 番**. Cross-contamination during JSON extraction. Real value should be `on=['ばん']`. Plus `meanings` was comma-split into a broken array `['number (primary N5 use: in 電話番号', '番号)']`. **APPLIED:** corrected to `on=['ばん'], kun=[], meanings=['number', 'turn']`.
+- [x] **F-13.2** (CRITICAL) `data/kanji.json` 会 entry has `on=['いん']` - **that is 員's on-yomi, not 会**. Same cross-contamination class as F-13.1. Also `meanings=['member', 'staff']` are 員's meanings, not 会's. **APPLIED:** corrected to `on=['かい', 'え'], kun=['あ'], meanings=['meeting', 'association']`.
+- [x] **F-13.3** (CRITICAL) `data/kanji.json` 円 entry still has `kun=['まる']` despite Pass-9 L-4.2 explicitly removing it from `KnowledgeBank/kanji_n5.md`. Cross-file consistency regression - `data/kanji.json` was not regenerated after Pass-9 KB fix. **APPLIED:** removed まる kun; simplified `meanings=['yen']`.
+- [x] **F-13.4** (CRITICAL) `data/kanji.json` 生 entry had `meanings=['life', 'birth (primary N5 use: in compounds like 学生', '先生)']` - comma-in-parenthetical broke the meanings array into 3 fragments. **APPLIED:** cleaned to `meanings=['life', 'birth']`.
 
 #### HIGH (grammar pattern corrections)
 
-- [x] **F-13.5** (HIGH) `data/grammar.json` n5-022 (や particle) ex[2] read 「なにや なにを かいましたか」 — **unnatural use of や with the question word なに**. A native speaker would say 「なにと なにを」 or simply 「なにを」. **APPLIED:** replaced with 「やさいや くだものを 買いました。」 (natural shopping example).
+- [x] **F-13.5** (HIGH) `data/grammar.json` n5-022 (や particle) ex[2] read 「なにや なにを かいましたか」 - **unnatural use of や with the question word なに**. A native speaker would say 「なにと なにを」 or simply 「なにを」. **APPLIED:** replaced with 「やさいや くだものを 買いました。」 (natural shopping example).
 - [x] **F-13.6** (HIGH) `data/grammar.json` n5-076: pattern name was 「Verb-から」 but content discusses 「Verb-てから」. Pattern-name mismatch. **APPLIED:** renamed pattern field to 「Verb-てから」.
 - [x] **F-13.7** (HIGH) `data/grammar.json` n5-160: pattern name is 「Noun + の + あとで」 but second example used 「ばんごはんを たべた あとで」 (Verb-た + あとで) which belongs to n5-163. Mismatch between pattern name and content. **APPLIED:** removed Verb-た+あとで examples; added clean Noun+の+あとで example (じゅぎょうの あとで).
 
 #### MEDIUM (register / orthography consistency)
 
 - [x] **F-13.8** (MEDIUM) `data/grammar.json` n5-091 (います) within same pattern used 「ともだち」 (kana) in ex[2] AND 「友だち」 (kanji) in ex[3]. Inconsistent orthography for the same word inside one pattern. **APPLIED:** standardized on 「友だち」 (kanji form, since 友 is N5 catalog).
-- [x] **F-13.9** (MEDIUM) `data/grammar.json` n5-127 ex[0]: 「むずかしいけど、おもしろいです。」 — mixed plain (むずかしいけど) and polite (おもしろいです) registers in one example. **APPLIED:** standardized to all-polite 「むずかしいですけど、おもしろいです。」.
-- [x] **F-13.10** (MEDIUM) `data/grammar.json` n5-082 ex[1]: 「その えいがは おもしろくなかった。」 — uses plain past negative in a pattern teaching `～くなかったです`. **APPLIED:** standardized to 「おもしろくなかったです」.
-- [x] **F-13.11** (MEDIUM) `data/reading.json` n5.read.010 had ungrammatical 「つくえが 25あります。 いすも 25あります。」 — bare numbers without counters. **APPLIED:** added こ counter: 「つくえが 25こ あります。 いすも 25こ あります。」.
+- [x] **F-13.9** (MEDIUM) `data/grammar.json` n5-127 ex[0]: 「むずかしいけど、おもしろいです。」 - mixed plain (むずかしいけど) and polite (おもしろいです) registers in one example. **APPLIED:** standardized to all-polite 「むずかしいですけど、おもしろいです。」.
+- [x] **F-13.10** (MEDIUM) `data/grammar.json` n5-082 ex[1]: 「その えいがは おもしろくなかった。」 - uses plain past negative in a pattern teaching `～くなかったです`. **APPLIED:** standardized to 「おもしろくなかったです」.
+- [x] **F-13.11** (MEDIUM) `data/reading.json` n5.read.010 had ungrammatical 「つくえが 25あります。 いすも 25あります。」 - bare numbers without counters. **APPLIED:** added こ counter: 「つくえが 25こ あります。 いすも 25こ あります。」.
 - [x] **F-13.12** (MEDIUM) `data/reading.json` n5.read.024 had 「日本ご」 (mixed kanji+kana) while other passages use 「日本語」 (full kanji; 語 is N5). **APPLIED:** standardized to 「日本語」.
 - [x] **F-13.13** (MEDIUM) `data/reading.json` n5.read.029 had 「なつ休み」 (mixed kanji+kana for 夏休み) and 「30どより 上です」 (unusual phrasing for temperature comparison). **APPLIED:** 「夏休み」 (per passage naturalness exception) and 「30度より 高いです」 (natural temperature comparison).
 
@@ -555,7 +555,7 @@ Fresh native-speaker audit specifically targeting Japanese language teaching acc
 #### Out-of-scope / advisory (not yet applied)
 
 - [x] **Build-pipeline bug** FIXED: Bug located on line 107 (kanji-header regex required `\s*$` end-anchor, so `[Ext]`-tagged kanji like 員/号/社/私 were not recognized as new entries; their fields contaminated the previous entry). Plus line 142 split meanings on `[/,;]` without stripping parentheticals, fragmenting glosses. Both fixed; data/kanji.json regenerated (97→106 entries; recovered 9 missing kanji including 手/力/口/目/足 from Pass-9 Body section). New JA-12 invariant added to integrity script: catches future KB↔JSON drift. NOTE: build-pipeline bug (or whatever generates `data/kanji.json` from `kanji_n5.md`) has parsing bugs around (a) commas inside parenthetical glosses and (b) cross-contamination between adjacent entries when one is `[Ext]`-tagged. The script should be audited and fixed; until then, regenerating from KB will reintroduce the bugs. Recommend: add a comparison check (KB ↔ JSON) to `tools/check_content_integrity.py` as JA-12, OR audit `tools/build_data.py` and run a controlled regeneration.
-- [x] **Counter-readings verification** acknowledged: 七/八/九 minor-frequency kun stems for date readings are kept for reference completeness; documented as acceptable per audit-pass log: `data/kanji.json` 七 (`kun=['なな', 'なの']`), 八 (`kun=['やっ', 'や', 'よう']`), 九 (`kun=['ここの']`) — these are minor-frequency kun stems for the special date readings (七日 なのか, 八日 ようか, 九日 ここのか). Acceptable for a complete reference but not all are N5-tested. Consider documenting which are N5-essential.
+- [x] **Counter-readings verification** acknowledged: 七/八/九 minor-frequency kun stems for date readings are kept for reference completeness; documented as acceptable per audit-pass log: `data/kanji.json` 七 (`kun=['なな', 'なの']`), 八 (`kun=['やっ', 'や', 'よう']`), 九 (`kun=['ここの']`) - these are minor-frequency kun stems for the special date readings (七日 なのか, 八日 ようか, 九日 ここのか). Acceptable for a complete reference but not all are N5-tested. Consider documenting which are N5-essential.
 
 #### Cumulative Pass tally
 
@@ -575,7 +575,7 @@ A re-audit of `data/grammar.json` (50 new patterns sampled), `data/reading.json`
 
 #### HIGH (1 individual; applied)
 
-- [x] **F-12.4** (HIGH) `data/listening.json` n5.listen.009: bracket header read 「（しちゃくが しらない人に きく とき）」 — broken Japanese. Fix: 「（知らない人に 時間を 聞く とき）」.
+- [x] **F-12.4** (HIGH) `data/listening.json` n5.listen.009: bracket header read 「（しちゃくが しらない人に きく とき）」 - broken Japanese. Fix: 「（知らない人に 時間を 聞く とき）」.
 
 #### MEDIUM (2 systemic; both applied)
 
@@ -584,10 +584,10 @@ A re-audit of `data/grammar.json` (50 new patterns sampled), `data/reading.json`
 
 #### LOW (4 individual; pending application)
 
-- [x] **F-12.7** (LOW) `data/grammar.json` n5-008 ex[1] — APPLIED. Translation cleaned: "I ate bread and coffee."
-- [x] **F-12.8** (LOW) `data/grammar.json` n5-103 — APPLIED both fixes: ex[0] translation softened ("I can use Japanese / I'm able to do (in) Japanese"); new Common Mistake added explaining capability vs completion senses with restaurant/schedule example.
-- [x] **F-12.9** (LOW) `data/grammar.json` n5-067 — APPLIED. NOTE extracted from translation_en into a separate `note` field on the example object.
-- [x] **F-12.10** (LOW) `data/grammar.json` n5-029 — APPLIED. Differentiated from n5-028 with 4 noun-modifier-focused examples (occupation, material, location, possessor-event). meaning_ja and notes updated to reflect the differentiation.
+- [x] **F-12.7** (LOW) `data/grammar.json` n5-008 ex[1] - APPLIED. Translation cleaned: "I ate bread and coffee."
+- [x] **F-12.8** (LOW) `data/grammar.json` n5-103 - APPLIED both fixes: ex[0] translation softened ("I can use Japanese / I'm able to do (in) Japanese"); new Common Mistake added explaining capability vs completion senses with restaurant/schedule example.
+- [x] **F-12.9** (LOW) `data/grammar.json` n5-067 - APPLIED. NOTE extracted from translation_en into a separate `note` field on the example object.
+- [x] **F-12.10** (LOW) `data/grammar.json` n5-029 - APPLIED. Differentiated from n5-028 with 4 noun-modifier-focused examples (occupation, material, location, possessor-event). meaning_ja and notes updated to reflect the differentiation.
 
 #### Strategic recommendation - extend integrity script
 
@@ -607,16 +607,16 @@ Follow-up to Pass-20. Captures (a) the level-agnostic conversion that landed in 
 
 #### CLOSED in this pass (10 of 10)
 
-- [x] **F-22.0** **Level-agnostic conversion of procedure manual + Appendix B** — both files were originally written with N4 hardcoded as the target level. **Applied 2026-05-01 (commit `e7b6290`):** introduced placeholder convention (`<L>` / `<P>` / `<L-1>` / `N<L>` / `n<L>-`). Generalized all paths, tier values, section titles, and prose. An agent reading the manual now substitutes `<L>` at every placeholder and gets a manual scoped to whichever level they are building.
-- [x] **F-22.1** (LOW) **Distractor explanation rubric / template** — **Applied 2026-05-01:** documented in Appendix C §C.1. 4-sentence rubric (role mismatch / consequence / optional citation / optional nuance), 60-180 char range, English neutral declarative register, 5 worked examples spanning particles / verb forms / demonstratives / adjective conjugation / counters.
-- [x] **F-22.2** (LOW) **ko-so-a-do scene-context formatting standard** — **Applied 2026-05-01:** documented in Appendix C §C.2. Placement rule, length range (8-30 chars), kanji policy (JA-13 applies; convert to kana before scene-shortening), tense rule, 12 canonical examples (3 per quartet × 4 quartets).
-- [x] **F-22.3** (MEDIUM) **JA-2 / JA-23 invariant interaction** — **Applied 2026-05-01:** documented in Appendix C §C.3. JA-2 stays HARD (CI fail), JA-23 stays ADVISORY (`-W` mode warning). When scene context per §C.2 is present, JA-23 is suppressed. Includes implementation sketch for the future code change to `check_content_integrity.py`.
-- [x] **F-22.4** (MEDIUM) **Augmented-set escape-valve guard** — **Applied 2026-05-01:** spec documented in Appendix C §C.4 (WHY-comment convention + `exceptions.md` doc format). **Code-side also applied:** added `_check_ja_25_whitelist_exceptions_documented` to `tools/check_content_integrity.py` and registered as JA-25; created `data/n5_kanji_whitelist.exceptions.md` initial register (currently empty — bootstrapping mode until `data/n5_official_kanji_scope.json` lands). All 34 invariants green.
-- [x] **F-22.5** (LOW) **LLM-audit prompt template extraction** — **Applied 2026-05-01:** prompt extracted to `tools/prompts/llm_audit.prompt.md` with delimiters, taxonomy table, severity guide, output schema, rate-limit / retry strategy, and per-level adaptation notes. **Code-side also applied:** `tools/llm_audit.py` now loads `SYSTEM_PROMPT` via `_load_system_prompt()` from the external file (between `## ---SYSTEM_PROMPT---` / `## ---END---` delimiters), defines `PROMPT_VERSION = "2026-05-01"` for reproducibility, stamps `_prompt_version` on every audit result (real and mock), and adds a `--prompt-version` CLI flag (verified: prints `prompt_version: 2026-05-01`, `prompt_chars: 2130`, first 200 chars of body). Future prompt edits bump the version string.
-- [x] **F-22.6** (LOW) **Auto-generation stop-condition formalization** — **Applied 2026-05-01:** documented in Appendix C §C.5. Three STOP conditions (per-Mondai count, corpus coverage, external-corpus distribution within 20%), three ANTI-stop conditions, pre-merge sanity check sketch.
-- [x] **F-22.7** (LOW) **TASKS.md template canonicalization** — **Applied 2026-05-01:** created `specifications/tasks-md-template.md` with required top-level structure, required snapshot fields, Pass-N body structure, F-N.K item format, severity guide, 5 update rules (R1..R5), empty-skeleton starter, worked-example pointers, anti-pattern list.
-- [x] **F-22.8** (LOW) **PWA spec extraction** — **Applied 2026-05-01:** documented in Appendix C §C.6. Full manifest, icon-set rules, service worker cache-name versioning, per-asset-class strategy table (6 classes), update toast UX, offline fallback page, pre-cache list, smoke-test integration.
-- [x] **F-22.9** (LOW) **Same-pattern-string conflict resolution rule** — **Applied 2026-05-01:** documented in Appendix C §C.7. Pre-add check, conflict-resolution decision tree (Jaccard 80% / 50%-80% / <50%), commit-message documentation requirement, JA-24 invariant alignment.
+- [x] **F-22.0** **Level-agnostic conversion of procedure manual + Appendix B** - both files were originally written with N4 hardcoded as the target level. **Applied 2026-05-01 (commit `e7b6290`):** introduced placeholder convention (`<L>` / `<P>` / `<L-1>` / `N<L>` / `n<L>-`). Generalized all paths, tier values, section titles, and prose. An agent reading the manual now substitutes `<L>` at every placeholder and gets a manual scoped to whichever level they are building.
+- [x] **F-22.1** (LOW) **Distractor explanation rubric / template** - **Applied 2026-05-01:** documented in Appendix C §C.1. 4-sentence rubric (role mismatch / consequence / optional citation / optional nuance), 60-180 char range, English neutral declarative register, 5 worked examples spanning particles / verb forms / demonstratives / adjective conjugation / counters.
+- [x] **F-22.2** (LOW) **ko-so-a-do scene-context formatting standard** - **Applied 2026-05-01:** documented in Appendix C §C.2. Placement rule, length range (8-30 chars), kanji policy (JA-13 applies; convert to kana before scene-shortening), tense rule, 12 canonical examples (3 per quartet × 4 quartets).
+- [x] **F-22.3** (MEDIUM) **JA-2 / JA-23 invariant interaction** - **Applied 2026-05-01:** documented in Appendix C §C.3. JA-2 stays HARD (CI fail), JA-23 stays ADVISORY (`-W` mode warning). When scene context per §C.2 is present, JA-23 is suppressed. Includes implementation sketch for the future code change to `check_content_integrity.py`.
+- [x] **F-22.4** (MEDIUM) **Augmented-set escape-valve guard** - **Applied 2026-05-01:** spec documented in Appendix C §C.4 (WHY-comment convention + `exceptions.md` doc format). **Code-side also applied:** added `_check_ja_25_whitelist_exceptions_documented` to `tools/check_content_integrity.py` and registered as JA-25; created `data/n5_kanji_whitelist.exceptions.md` initial register (currently empty - bootstrapping mode until `data/n5_official_kanji_scope.json` lands). All 34 invariants green.
+- [x] **F-22.5** (LOW) **LLM-audit prompt template extraction** - **Applied 2026-05-01:** prompt extracted to `tools/prompts/llm_audit.prompt.md` with delimiters, taxonomy table, severity guide, output schema, rate-limit / retry strategy, and per-level adaptation notes. **Code-side also applied:** `tools/llm_audit.py` now loads `SYSTEM_PROMPT` via `_load_system_prompt()` from the external file (between `## ---SYSTEM_PROMPT---` / `## ---END---` delimiters), defines `PROMPT_VERSION = "2026-05-01"` for reproducibility, stamps `_prompt_version` on every audit result (real and mock), and adds a `--prompt-version` CLI flag (verified: prints `prompt_version: 2026-05-01`, `prompt_chars: 2130`, first 200 chars of body). Future prompt edits bump the version string.
+- [x] **F-22.6** (LOW) **Auto-generation stop-condition formalization** - **Applied 2026-05-01:** documented in Appendix C §C.5. Three STOP conditions (per-Mondai count, corpus coverage, external-corpus distribution within 20%), three ANTI-stop conditions, pre-merge sanity check sketch.
+- [x] **F-22.7** (LOW) **TASKS.md template canonicalization** - **Applied 2026-05-01:** created `specifications/tasks-md-template.md` with required top-level structure, required snapshot fields, Pass-N body structure, F-N.K item format, severity guide, 5 update rules (R1..R5), empty-skeleton starter, worked-example pointers, anti-pattern list.
+- [x] **F-22.8** (LOW) **PWA spec extraction** - **Applied 2026-05-01:** documented in Appendix C §C.6. Full manifest, icon-set rules, service worker cache-name versioning, per-asset-class strategy table (6 classes), update toast UX, offline fallback page, pre-cache list, smoke-test integration.
+- [x] **F-22.9** (LOW) **Same-pattern-string conflict resolution rule** - **Applied 2026-05-01:** documented in Appendix C §C.7. Pre-add check, conflict-resolution decision tree (Jaccard 80% / 50%-80% / <50%), commit-message documentation requirement, JA-24 invariant alignment.
 
 #### Pass-22 fully closed
 
@@ -632,34 +632,34 @@ External review (see `feedback/procedure-manual-review-issues.md`) of the new `s
 
 #### CLOSED in this pass (15 of 40)
 
-- [x] **F-20.1** (CRITICAL) **Source authorities for content inventories** — Issues 1, 8, 33. Closed via Appendix A.7: pointers to JLPT.jp, Bunpro N4, Tanos N4 with cross-reference rules. Tier classification rule: `core_n4` = both Bunpro+Tanos; `late_n4` = Bunpro only; `n3_borderline` = Tanos N3 but commonly N4-taught.
-- [x] **F-20.2** (CRITICAL) **Required-inputs precondition** — Issues 4, 16. Closed via Appendix A.1: enumerated all N5 source files an agent needs read access to, plus halt-and-report rule when missing.
-- [x] **F-20.3** (HIGH) **Default decisions for §15 open questions** — Issue 25. Closed via Appendix A.2: 6-row table of zero-interaction defaults (synthetic TTS, defer handwriting/IME/speed-test, hardcode mock-test timing, no monetization).
-- [x] **F-20.4** (HIGH) **Fallback procedures for external-blocked items** — Issues 19, 21, 39. Closed via Appendix A.3: synthetic-TTS fallback for native voice, LLM-audit fallback for native review, English-only brief, v1 minimal recommender.
-- [x] **F-20.5** (HIGH) **Minimum-viable subset** — Issue 20. Closed via Appendix A.4: 8-layer priority order; one-shot agent ships layers 0-2 + skeleton of 3-7 = ~20-30% of full deliverable.
-- [x] **F-20.6** (HIGH) **Definition of done** — Issue 40. Closed via Appendix A.5: 12 self-checkable conditions including CI green, no duplicate IDs, no stub redirects, browser smoke test, ≥25 questions per Mondai, PWA installable.
-- [x] **F-20.7** (HIGH) **SM-2 SRS exact parameters** — Issue 29. Closed via Appendix A.10: full formula, EF init/clamp, interval rules, lapse handling, localStorage key shape, cross-device merge semantics.
-- [x] **F-20.8** (HIGH) **Furigana generation procedure** — Issue 26. Closed via Appendix A.11: tokenizer-based pipeline (mecab/kuromoji), filter-by-tier rule, ruby markup, 3-mode CSS visibility, graceful-degradation fallback.
-- [x] **F-20.9** (HIGH) **JSON schema extraction recipe** — Issue 3. Closed via Appendix A.6: derive-from-N5 procedure with field-by-field shape inventory for grammar.json, questions.json, vocab.json, kanji.json, reading.json, listening.json, audio_manifest.json.
-- [x] **F-20.10** (HIGH) **Question-count budget per Mondai** — Issue 37. Closed via Appendix A.8: 13-row table mapping each KB file × Mondai → target question count. Total N4 = ~530 questions.
-- [x] **F-20.11** (HIGH) **JLPT exam structure tables** — Issue 38. Closed via Appendix A.9: 5-row table (N5..N1) with section times, pass scores, section thresholds.
+- [x] **F-20.1** (CRITICAL) **Source authorities for content inventories** - Issues 1, 8, 33. Closed via Appendix A.7: pointers to JLPT.jp, Bunpro N4, Tanos N4 with cross-reference rules. Tier classification rule: `core_n4` = both Bunpro+Tanos; `late_n4` = Bunpro only; `n3_borderline` = Tanos N3 but commonly N4-taught.
+- [x] **F-20.2** (CRITICAL) **Required-inputs precondition** - Issues 4, 16. Closed via Appendix A.1: enumerated all N5 source files an agent needs read access to, plus halt-and-report rule when missing.
+- [x] **F-20.3** (HIGH) **Default decisions for §15 open questions** - Issue 25. Closed via Appendix A.2: 6-row table of zero-interaction defaults (synthetic TTS, defer handwriting/IME/speed-test, hardcode mock-test timing, no monetization).
+- [x] **F-20.4** (HIGH) **Fallback procedures for external-blocked items** - Issues 19, 21, 39. Closed via Appendix A.3: synthetic-TTS fallback for native voice, LLM-audit fallback for native review, English-only brief, v1 minimal recommender.
+- [x] **F-20.5** (HIGH) **Minimum-viable subset** - Issue 20. Closed via Appendix A.4: 8-layer priority order; one-shot agent ships layers 0-2 + skeleton of 3-7 = ~20-30% of full deliverable.
+- [x] **F-20.6** (HIGH) **Definition of done** - Issue 40. Closed via Appendix A.5: 12 self-checkable conditions including CI green, no duplicate IDs, no stub redirects, browser smoke test, ≥25 questions per Mondai, PWA installable.
+- [x] **F-20.7** (HIGH) **SM-2 SRS exact parameters** - Issue 29. Closed via Appendix A.10: full formula, EF init/clamp, interval rules, lapse handling, localStorage key shape, cross-device merge semantics.
+- [x] **F-20.8** (HIGH) **Furigana generation procedure** - Issue 26. Closed via Appendix A.11: tokenizer-based pipeline (mecab/kuromoji), filter-by-tier rule, ruby markup, 3-mode CSS visibility, graceful-degradation fallback.
+- [x] **F-20.9** (HIGH) **JSON schema extraction recipe** - Issue 3. Closed via Appendix A.6: derive-from-N5 procedure with field-by-field shape inventory for grammar.json, questions.json, vocab.json, kanji.json, reading.json, listening.json, audio_manifest.json.
+- [x] **F-20.10** (HIGH) **Question-count budget per Mondai** - Issue 37. Closed via Appendix A.8: 13-row table mapping each KB file × Mondai → target question count. Total N4 = ~530 questions.
+- [x] **F-20.11** (HIGH) **JLPT exam structure tables** - Issue 38. Closed via Appendix A.9: 5-row table (N5..N1) with section times, pass scores, section thresholds.
 
 #### CLOSED in Appendix B (12 of original 15 deferred)
 
 Appendix B at `specifications/procedure-manual-appendix-b-extracted-from-n5.md` (~700 lines) extracts schemas, rules, and conventions directly from the N5 codebase. Each item below points to the appendix section that closes it.
 
-- [x] **F-20.15** (HIGH) Complete KB markdown grammar per file — closed via Appendix B.7 (BNF for grammar.md, vocab.md, kanji.md, *_questions.md, reading.md, chokai.md).
-- [x] **F-20.16** (HIGH) Data/*.json schemas — closed via Appendix B.3 (field-by-field for grammar.json, questions.json, vocab.json, kanji.json, reading.json, listening.json, audio_manifest.json).
-- [x] **F-20.17** (HIGH) Executable invariant rule specifications — closed via Appendix B.8 (all 28 invariants X-6.1..6.9 + JA-1..24 with extracted rules + violation messages).
-- [x] **F-20.18** (HIGH, **P0**) Audio manifest schema + voice metadata — closed via Appendix B.2 (top-level structure, AudioItem shape, voice tag enum, JA-15 invariant rule, build-pipeline behavior).
-- [x] **F-20.19** (HIGH) i18n locale-file format — closed via Appendix B.4 (per-locale single JSON file at locales/<lang>.json, nested-key structure, source-locale-of-truth = en.json, fallback policy).
-- [x] **F-20.20** (HIGH, **P0**) Vocab-ID slug derivation rule — closed via Appendix B.1 (verbatim from build_data.py: `re.sub(r"[^a-z0-9]+", "-", section.lower()).strip("-")[:24] or "misc"`, then `n4.vocab.{slug}.{form}` with `.2/.3` disambiguator).
-- [x] **F-20.21** (HIGH) Kanji-tier vs grammar-tier interaction — closed via Appendix B.10 (tier values per corpus; UNION whitelist composition rule; JA-13 interaction; cross-level scaling for N3/N2/N1).
-- [x] **F-20.22** (HIGH) Complete UI module list — closed via Appendix B.6 (all 25 js/*.js files with responsibility, dependencies, exports; state contract; routing contract).
-- [x] **F-20.23** (HIGH) Front-end test framework + Playwright config — closed via Appendix B.5 (verbatim playwright.config.js + 11 smoke-test categories + run instructions).
-- [x] **F-20.24** (HIGH) Diagnostic Summary algorithm — closed via Appendix B.9 (error-pattern detection threshold rule; recommendation decision tree; session log retention; heatmap layout; storage shape contract).
-- [x] **F-20.25** (HIGH) N5+N4 prerequisite-tier convention — closed via Appendix B.10.2 (UNION composition recommended; alternative strict-level mode rejected with rationale).
-- [x] **F-20.26** (MEDIUM) External-corpus URL list per level — closed via Appendix B.11 (per-level grammar/kanji/vocab/practice URLs for N5..N1; jlpt.jp official samples; fair-use boundaries; attribution requirements).
+- [x] **F-20.15** (HIGH) Complete KB markdown grammar per file - closed via Appendix B.7 (BNF for grammar.md, vocab.md, kanji.md, *_questions.md, reading.md, chokai.md).
+- [x] **F-20.16** (HIGH) Data/*.json schemas - closed via Appendix B.3 (field-by-field for grammar.json, questions.json, vocab.json, kanji.json, reading.json, listening.json, audio_manifest.json).
+- [x] **F-20.17** (HIGH) Executable invariant rule specifications - closed via Appendix B.8 (all 28 invariants X-6.1..6.9 + JA-1..24 with extracted rules + violation messages).
+- [x] **F-20.18** (HIGH, **P0**) Audio manifest schema + voice metadata - closed via Appendix B.2 (top-level structure, AudioItem shape, voice tag enum, JA-15 invariant rule, build-pipeline behavior).
+- [x] **F-20.19** (HIGH) i18n locale-file format - closed via Appendix B.4 (per-locale single JSON file at locales/<lang>.json, nested-key structure, source-locale-of-truth = en.json, fallback policy).
+- [x] **F-20.20** (HIGH, **P0**) Vocab-ID slug derivation rule - closed via Appendix B.1 (verbatim from build_data.py: `re.sub(r"[^a-z0-9]+", "-", section.lower()).strip("-")[:24] or "misc"`, then `n4.vocab.{slug}.{form}` with `.2/.3` disambiguator).
+- [x] **F-20.21** (HIGH) Kanji-tier vs grammar-tier interaction - closed via Appendix B.10 (tier values per corpus; UNION whitelist composition rule; JA-13 interaction; cross-level scaling for N3/N2/N1).
+- [x] **F-20.22** (HIGH) Complete UI module list - closed via Appendix B.6 (all 25 js/*.js files with responsibility, dependencies, exports; state contract; routing contract).
+- [x] **F-20.23** (HIGH) Front-end test framework + Playwright config - closed via Appendix B.5 (verbatim playwright.config.js + 11 smoke-test categories + run instructions).
+- [x] **F-20.24** (HIGH) Diagnostic Summary algorithm - closed via Appendix B.9 (error-pattern detection threshold rule; recommendation decision tree; session log retention; heatmap layout; storage shape contract).
+- [x] **F-20.25** (HIGH) N5+N4 prerequisite-tier convention - closed via Appendix B.10.2 (UNION composition recommended; alternative strict-level mode rejected with rationale).
+- [x] **F-20.26** (MEDIUM) External-corpus URL list per level - closed via Appendix B.11 (per-level grammar/kanji/vocab/practice URLs for N5..N1; jlpt.jp official samples; fair-use boundaries; attribution requirements).
 
 #### MOVED to N4 sibling project + bootstrapped via inventory manifests (3 items, 2026-05-01)
 
@@ -667,23 +667,23 @@ F-20.12 (N4 kanji whitelist), F-20.13 (N4 vocab inventory), F-20.14 (N4 grammar 
 
 **Native-teacher bootstrapping addendum (2026-05-01):** acting on user direction "close these items as well from the perspective of a native japanese language teacher; refer the sources mentioned in `KnowledgeBank/sources.md`", produced authoritative-source-cited draft inventories in `feedback/`:
 
-- [x] **F-20.12 (bootstrapped)** — `feedback/n4-kanji-inventory.md`: 166 N4-additional kanji from JLPT Sensei (pages 1+2) with on/kun/meaning. Tanos verification deferred (server returned 500 at fetch time — N4 build should retry). Edge-case borderline N5↔N4 placements (会, 事, 自, 言, 兄, 弟, 妹, 姉) flagged for native-review at N4 build time.
-- [x] **F-20.13 (bootstrapped)** — `feedback/n4-vocab-inventory-sample.md`: ~100-entry alphabetical sample (a-h) from JLPT Sensei + section-breakdown estimate (~600 N4-additional split across 11 categories). Honorific / kenjougo entries flagged for structural section. Full corpus deferred to N4-build-time fetch from Tanos N4 CSV (per Appendix B.12.2 recipe).
-- [x] **F-20.14 (bootstrapped)** — `feedback/n4-grammar-inventory.md`: ~130 patterns from JLPT Sensei (pages 1-4). Tier-distribution estimate (~92 core_n4, ~26 late_n4, ~13 n3_borderline). Genki II Lessons 13-23 cross-coverage check confirms alignment. META-topic entries (transitive/intransitive, volitional, passive) flagged for consolidation. Pattern-family split decisions (みたい / よう / そう) called out.
+- [x] **F-20.12 (bootstrapped)** - `feedback/n4-kanji-inventory.md`: 166 N4-additional kanji from JLPT Sensei (pages 1+2) with on/kun/meaning. Tanos verification deferred (server returned 500 at fetch time - N4 build should retry). Edge-case borderline N5↔N4 placements (会, 事, 自, 言, 兄, 弟, 妹, 姉) flagged for native-review at N4 build time.
+- [x] **F-20.13 (bootstrapped)** - `feedback/n4-vocab-inventory-sample.md`: ~100-entry alphabetical sample (a-h) from JLPT Sensei + section-breakdown estimate (~600 N4-additional split across 11 categories). Honorific / kenjougo entries flagged for structural section. Full corpus deferred to N4-build-time fetch from Tanos N4 CSV (per Appendix B.12.2 recipe).
+- [x] **F-20.14 (bootstrapped)** - `feedback/n4-grammar-inventory.md`: ~130 patterns from JLPT Sensei (pages 1-4). Tier-distribution estimate (~92 core_n4, ~26 late_n4, ~13 n3_borderline). Genki II Lessons 13-23 cross-coverage check confirms alignment. META-topic entries (transitive/intransitive, volitional, passive) flagged for consolidation. Pattern-family split decisions (みたい / よう / そう) called out.
 
 Master index at `feedback/n4-inventory-manifest.md` ties all three together with source-authority map, headcounts, edge-case annotations, and a "what an actual N4 build should do" guide. **Note:** these manifests do NOT modify N5 live data; they live in `feedback/` as bootstrap input for the future N4 build.
 
-#### CLOSED-BY-POINTER (8 of 40) — strengthened via this pass, registered as Pass-22 polish candidates
+#### CLOSED-BY-POINTER (8 of 40) - strengthened via this pass, registered as Pass-22 polish candidates
 
-- [-] **F-20.27** Issue 12 — auto-generation stop condition. Strengthened by A.4 minimum-viable subset (declares targets per layer).
-- [-] **F-20.28** Issue 13 — distractor explanation rubric/template. Pass-22 candidate.
-- [-] **F-20.29** Issue 22 — ko-so-a-do scene-context formatting standard. Pass-22 candidate.
-- [-] **F-20.30** Issue 23 — same-pattern-string conflict resolution rule. Closed-by-pointer to F-19 dedup work.
-- [-] **F-20.31** Issue 24 — TASKS.md template structure. Closed-by-pointer to N5's existing TASKS.md.
-- [-] **F-20.32** Issue 27 — JA-2/JA-23 invariant interaction. Pass-22 candidate.
-- [-] **F-20.33** Issue 28 — augmented-set escape valve guard. Pass-22 candidate (need a "exceptions need a comment matching regex `# WHY:` " enforcement).
-- [-] **F-20.34** Issue 32 — PWA spec. Closed-by-pointer to N5's manifest + sw.js.
-- [-] **F-20.35** Issue 34 — LLM audit prompt template, rate limits. Pass-22 candidate (extract from `tools/llm_audit.py`).
+- [-] **F-20.27** Issue 12 - auto-generation stop condition. Strengthened by A.4 minimum-viable subset (declares targets per layer).
+- [-] **F-20.28** Issue 13 - distractor explanation rubric/template. Pass-22 candidate.
+- [-] **F-20.29** Issue 22 - ko-so-a-do scene-context formatting standard. Pass-22 candidate.
+- [-] **F-20.30** Issue 23 - same-pattern-string conflict resolution rule. Closed-by-pointer to F-19 dedup work.
+- [-] **F-20.31** Issue 24 - TASKS.md template structure. Closed-by-pointer to N5's existing TASKS.md.
+- [-] **F-20.32** Issue 27 - JA-2/JA-23 invariant interaction. Pass-22 candidate.
+- [-] **F-20.33** Issue 28 - augmented-set escape valve guard. Pass-22 candidate (need a "exceptions need a comment matching regex `# WHY:` " enforcement).
+- [-] **F-20.34** Issue 32 - PWA spec. Closed-by-pointer to N5's manifest + sw.js.
+- [-] **F-20.35** Issue 34 - LLM audit prompt template, rate limits. Pass-22 candidate (extract from `tools/llm_audit.py`).
 
 ---
 
@@ -693,43 +693,43 @@ Comprehensive duplicate scan across 10 categories triggered by concern that two 
 
 **Scan tool:** the scan + triage scripts (`_dup_scan.py`, `_dup_triage.py`) were one-shot diagnostics and were cleaned up after producing this finding list. Re-run by hand if needed.
 
-#### Clean (no duplicates) — 8 categories
+#### Clean (no duplicates) - 8 categories
 
-- Question IDs (questions.json) — clean after the Pass-16 dedup (renumber to q-0479..q-0488).
-- Pattern IDs (grammar.json), Vocab IDs (vocab.json), Kanji glyphs, Reading passage IDs, Listening item IDs — all unique.
-- TASKS.md Pass-N headers — unique.
-- Audio manifest paths — unique.
+- Question IDs (questions.json) - clean after the Pass-16 dedup (renumber to q-0479..q-0488).
+- Pattern IDs (grammar.json), Vocab IDs (vocab.json), Kanji glyphs, Reading passage IDs, Listening item IDs - all unique.
+- TASKS.md Pass-N headers - unique.
+- Audio manifest paths - unique.
 
-#### Confirmed-intentional duplicates — NOT bugs
+#### Confirmed-intentional duplicates - NOT bugs
 
 - 2 duplicate `question_ja` stems:
-  - `q-0001` / `q-0418` share `わたしは がくせい（ ）。` — q-0001 is the MCQ form, q-0418 is the text_input form. Same canonical stem rendered in both formats by design.
-  - `q-0019` / `q-0358` share `あつい（ ）、まどを あけてください。` — both target `から` but are tagged to two different pattern IDs (n5-009 vs n5-128). The question pair isn't strictly wrong; the **root cause** is the duplicate pattern entries (cascade — see F-19.2 below).
+  - `q-0001` / `q-0418` share `わたしは がくせい（ ）。` - q-0001 is the MCQ form, q-0418 is the text_input form. Same canonical stem rendered in both formats by design.
+  - `q-0019` / `q-0358` share `あつい（ ）、まどを あけてください。` - both target `から` but are tagged to two different pattern IDs (n5-009 vs n5-128). The question pair isn't strictly wrong; the **root cause** is the duplicate pattern entries (cascade - see F-19.2 below).
 - 62 of 72 vocab `(form, reading)` pairs are documented homographs (は = tooth/leaf/particle; かた = person/way; いる = exist/need; etc.). Handled by `tools/link_grammar_examples_to_vocab.py` HOMOGRAPH_RULES.
 - 10 of 72 vocab pairs are intentional cross-section listings (e.g., `おゆ` listed in §14 nature, §18 drinks, §37 common-nouns). The ID encodes the section so unique IDs are preserved; the section duplication enables the section-based vocab UI. Some entries carry an explicit `(also in §X)` annotation; an annotation-completeness sub-pass might be worth doing if the catalog ever lints for this, but it's not a duplicate-bug.
-- 3 grammar entries with pattern string `Verb` (n5-135 relative clauses / n5-162 まえに / n5-163 あとで) — different constructs, identically prefixed. Not duplicates.
-- 1 grammar pair with pattern string `が` (n5-003 subject marker vs n5-126 clause connector "but") — genuine functional split. Keep both.
+- 3 grammar entries with pattern string `Verb` (n5-135 relative clauses / n5-162 まえに / n5-163 あとで) - different constructs, identically prefixed. Not duplicates.
+- 1 grammar pair with pattern string `が` (n5-003 subject marker vs n5-126 clause connector "but") - genuine functional split. Keep both.
 
-#### Real cleanup candidates — 9 grammar-pattern redundancies
+#### Real cleanup candidates - 9 grammar-pattern redundancies
 
 The catalog has two ID ranges that overlap on the same surface form. Most entries in the higher-numbered range duplicate earlier ones in scope/meaning. This is pre-existing drift from Pass-15-era splits that introduced new IDs without retiring the merged-form ones; it is **not** caused by the parallel-session collision.
 
 For each pair below, recommended action: pick the canonical ID, migrate any questions tagged to the duplicate over to the canonical, then remove the duplicate pattern entry.
 
-- [x] **F-19.1** (MEDIUM) **`か` triplet redundancy** — n5-012 ("sentence-final + or" combined) is now superseded by n5-023 (sentence-final) + n5-024 (OR). Retire n5-012 OR re-scope to a different aspect.
-- [x] **F-19.2** (MEDIUM) **`から` redundancy** — n5-128 (clause connector "because") is a subset of n5-009 (from / because). q-0358 is tagged to n5-128; if n5-128 is retired, q-0358 should migrate to n5-009 (which removes the q-0019/q-0358 stem-duplication noted above).
-- [x] **F-19.3** (MEDIUM) **`まで` redundancy** — n5-020 duplicates n5-010.
-- [x] **F-19.4** (MEDIUM) **`や` redundancy** — n5-022 duplicates n5-011.
-- [x] **F-19.5** (LOW) **`も` redundancy** — n5-032 ("Also/too") is a subset of n5-013 (which adds the with-negation sense). Verify before merging.
-- [x] **F-19.6** (LOW) **`いつ` redundancy** — n5-047 ("When") is a subset of n5-019 (which notes pairing with から/まで/ごろ).
-- [x] **F-19.7** (MEDIUM) **`〜があります` redundancy** — n5-141 duplicates n5-094.
-- [x] **F-19.8** (MEDIUM) **`〜が好き` redundancy** — n5-138 duplicates n5-099.
-- [x] **F-19.9** (MEDIUM) **`〜がじょうず` redundancy** — n5-139 duplicates n5-100.
-- [x] **F-19.10** (MEDIUM) **`〜がわかります` redundancy** — n5-140 duplicates n5-102.
+- [x] **F-19.1** (MEDIUM) **`か` triplet redundancy** - n5-012 ("sentence-final + or" combined) is now superseded by n5-023 (sentence-final) + n5-024 (OR). Retire n5-012 OR re-scope to a different aspect.
+- [x] **F-19.2** (MEDIUM) **`から` redundancy** - n5-128 (clause connector "because") is a subset of n5-009 (from / because). q-0358 is tagged to n5-128; if n5-128 is retired, q-0358 should migrate to n5-009 (which removes the q-0019/q-0358 stem-duplication noted above).
+- [x] **F-19.3** (MEDIUM) **`まで` redundancy** - n5-020 duplicates n5-010.
+- [x] **F-19.4** (MEDIUM) **`や` redundancy** - n5-022 duplicates n5-011.
+- [x] **F-19.5** (LOW) **`も` redundancy** - n5-032 ("Also/too") is a subset of n5-013 (which adds the with-negation sense). Verify before merging.
+- [x] **F-19.6** (LOW) **`いつ` redundancy** - n5-047 ("When") is a subset of n5-019 (which notes pairing with から/まで/ごろ).
+- [x] **F-19.7** (MEDIUM) **`〜があります` redundancy** - n5-141 duplicates n5-094.
+- [x] **F-19.8** (MEDIUM) **`〜が好き` redundancy** - n5-138 duplicates n5-099.
+- [x] **F-19.9** (MEDIUM) **`〜がじょうず` redundancy** - n5-139 duplicates n5-100.
+- [x] **F-19.10** (MEDIUM) **`〜がわかります` redundancy** - n5-140 duplicates n5-102.
 
 Plus a cascade item:
 
-- [x] **F-19.11** (LOW) **q-0019 / q-0358 duplicate stem** — cascade-resolves automatically when F-19.2 is fixed (q-0358 migrates to n5-009, then a stem-duplication check decides if both are still needed or one is consolidated).
+- [x] **F-19.11** (LOW) **q-0019 / q-0358 duplicate stem** - cascade-resolves automatically when F-19.2 is fixed (q-0358 migrates to n5-009, then a stem-duplication check decides if both are still needed or one is consolidated).
 
 
 **F-19 cluster CLOSED 2026-05-01.** Applied via `tools/_apply_f19_dedup.py` (one-shot, self-deleted): 10 duplicate / subset patterns retired (n5-012/020/022/032/047/128/138/139/140/141), 8 questions re-pointed to canonical pattern IDs (q-0024 → n5-023, q-0025 → n5-024, q-0358 → n5-009, q-0419 → n5-011, q-0422 → n5-013, q-0430 → n5-019, q-0479 → n5-021). Pattern count 187 → 177. F-19.11 cascade-resolved (q-0358 migrated to n5-009; no more stem duplication). 33/33 content-integrity invariants green.
@@ -743,7 +743,7 @@ Plus a cascade item:
    c. Remove the duplicate from `data/grammar.json`.
    d. Re-run `tools/link_grammar_examples_to_vocab.py` since example positions shift.
    e. Run integrity check.
-3. Clean up F-19.11 by re-running the duplicate-stem check (a one-line addition to `check_content_integrity.py` would prevent this class of bug going forward — see Pass-18 §5 candidate).
+3. Clean up F-19.11 by re-running the duplicate-stem check (a one-line addition to `check_content_integrity.py` would prevent this class of bug going forward - see Pass-18 §5 candidate).
 
 Estimated effort: ~1-2 hours for all 10 + the cascade. Idempotent script feasible. Not blocking; defer to a focused Pass-19 commit.
 
@@ -753,26 +753,26 @@ Estimated effort: ~1-2 hours for all 10 + the cascade. Idempotent script feasibl
 
 Applied the audit at `feedback/jlpt-n5-knowledgebank-md-audit-2026-05-01.md` (1 critical, 3 high, 4 medium, 1 low). 8 actionable items closed; 1 LOW item deliberately deferred.
 
-#### CRITICAL (1) — closed
+#### CRITICAL (1) - closed
 
-- [x] **F-17.1** (CRITICAL) **bunpou Q94 (Mondai 3 Passage A blank 4) had two valid answers (に / へ)** — same multi-correct class as the previously-fixed Q50/Q51. **Applied 2026-05-01:** replaced choice 1 (に) with で in `KnowledgeBank/bunpou_questions_n5.md`. With で as a clearly-wrong distractor (学校で 行きます would mark the location of the going-action and is ungrammatical), へ remains the unique correct answer. Sweep performed across 11 questions in bunpou where both に and へ appear in the choice list — Q94 was the ONLY actual multi-correct case; the others have a different correct answer entirely (で / が / を / から), so に+へ-as-distractors are fine.
+- [x] **F-17.1** (CRITICAL) **bunpou Q94 (Mondai 3 Passage A blank 4) had two valid answers (に / へ)** - same multi-correct class as the previously-fixed Q50/Q51. **Applied 2026-05-01:** replaced choice 1 (に) with で in `KnowledgeBank/bunpou_questions_n5.md`. With で as a clearly-wrong distractor (学校で 行きます would mark the location of the going-action and is ungrammatical), へ remains the unique correct answer. Sweep performed across 11 questions in bunpou where both に and へ appear in the choice list - Q94 was the ONLY actual multi-correct case; the others have a different correct answer entirely (で / が / を / から), so に+へ-as-distractors are fine.
 
-#### HIGH (3) — all closed
+#### HIGH (3) - all closed
 
-- [x] **F-17.2** (HIGH) **goi Q60, Q80 residual "direct synonym" overclaims** — two more cases that escaped the previous synonym-softening sweep. **Applied 2026-05-01:** softened both rationales. Q60 (おおぜい ≈ たくさん) now reads "...closest match... Strictly, おおぜい is restricted to people while たくさん is general; the substitution works here because the noun is 学生 (people)." Q80 (あつくない ≈ すずしい) now reads "...by elimination... Strictly, あつくない (not hot) is broader than すずしい (cool) - 'warm' (あたたかい) also qualifies as 'not hot' - but the other three options are clearly wrong..." Cross-file grep for `irect synonym|directly equivalent|same as` returns zero hits.
-- [x] **F-17.3** (HIGH) **dokkai stem-kanji policy** — 17 of 102 stems use non-N5 kanji (妹, 家, 朝, 初, 作, 阪, 図, 館). The header documented an exception for *passages* but not stems. **Applied 2026-05-01 (option 1 — formalize the practical pattern):** added a `Question-stem kanji policy` line to the dokkai header stating "question stems may reuse any non-N5 kanji that already appears in the passage they reference, so the question phrasing stays parallel to the source text. Standalone non-N5 kanji that are NOT present in the corresponding passage are forbidden in stems and must be written in kana." The 17 existing stems all satisfy this rule (their non-N5 kanji also appears in the passage), so no content changes were needed.
-- [x] **F-17.4** (HIGH) **vocabulary かれ / かのじょ glosses still marked boyfriend/girlfriend as "more advanced"** — flagged in prior audit, not previously fixed. The boyfriend/girlfriend sense is the *common* spoken sense at N5 level. **Applied 2026-05-01:** rewrote both glosses. かれ now reads "boyfriend; he, him (the third-person sense is somewhat literary; spoken Japanese normally drops the pronoun)"; かのじょ parallel.
+- [x] **F-17.2** (HIGH) **goi Q60, Q80 residual "direct synonym" overclaims** - two more cases that escaped the previous synonym-softening sweep. **Applied 2026-05-01:** softened both rationales. Q60 (おおぜい ≈ たくさん) now reads "...closest match... Strictly, おおぜい is restricted to people while たくさん is general; the substitution works here because the noun is 学生 (people)." Q80 (あつくない ≈ すずしい) now reads "...by elimination... Strictly, あつくない (not hot) is broader than すずしい (cool) - 'warm' (あたたかい) also qualifies as 'not hot' - but the other three options are clearly wrong..." Cross-file grep for `irect synonym|directly equivalent|same as` returns zero hits.
+- [x] **F-17.3** (HIGH) **dokkai stem-kanji policy** - 17 of 102 stems use non-N5 kanji (妹, 家, 朝, 初, 作, 阪, 図, 館). The header documented an exception for *passages* but not stems. **Applied 2026-05-01 (option 1 - formalize the practical pattern):** added a `Question-stem kanji policy` line to the dokkai header stating "question stems may reuse any non-N5 kanji that already appears in the passage they reference, so the question phrasing stays parallel to the source text. Standalone non-N5 kanji that are NOT present in the corresponding passage are forbidden in stems and must be written in kana." The 17 existing stems all satisfy this rule (their non-N5 kanji also appears in the passage), so no content changes were needed.
+- [x] **F-17.4** (HIGH) **vocabulary かれ / かのじょ glosses still marked boyfriend/girlfriend as "more advanced"** - flagged in prior audit, not previously fixed. The boyfriend/girlfriend sense is the *common* spoken sense at N5 level. **Applied 2026-05-01:** rewrote both glosses. かれ now reads "boyfriend; he, him (the third-person sense is somewhat literary; spoken Japanese normally drops the pronoun)"; かのじょ parallel.
 
-#### MEDIUM (4) — 3 closed, 1 closed-by-policy
+#### MEDIUM (4) - 3 closed, 1 closed-by-policy
 
-- [x] **F-17.5** (MEDIUM) **kanji 上 / 下 kun lists include N4 verb readings (あげる / さげる)** — at N5 the standalone use of 上 is overwhelmingly うえ; the verb forms are N4. **Applied 2026-05-01:** kept the readings (so learners who encounter them recognize them) but flagged each with `[N4+ verb reading; listed for recognition only]` so the N5 scope is explicit.
-- [x] **F-17.6** (MEDIUM) **goi remaining "synonym" claims sweep** — searched the file for `irect synonym|directly equivalent|same as`; only the Q60 / Q80 cases were present, both fixed in F-17.2. No further action.
-- [x] **F-17.7** (MEDIUM) **moji invented distractor verb forms** — the test is orthographic (which kanji visually belongs), not conjugation-grammaticality, but the invented distractors could mislead. **Applied 2026-05-01:** added a `Distractor verb-form convention (orthography questions)` section to the moji header explicitly documenting the convention with examples (出ります / 経ちます).
-- [x] **F-17.8** (MEDIUM) **dokkai Q78 distractor uses non-N5 kanji 簡単** — covered by the documented exception, but visually inconsistent. **Applied 2026-05-01:** replaced `たのしくて、簡単だった` with `たのしくて、らくだった` (kana for the same semantic content).
+- [x] **F-17.5** (MEDIUM) **kanji 上 / 下 kun lists include N4 verb readings (あげる / さげる)** - at N5 the standalone use of 上 is overwhelmingly うえ; the verb forms are N4. **Applied 2026-05-01:** kept the readings (so learners who encounter them recognize them) but flagged each with `[N4+ verb reading; listed for recognition only]` so the N5 scope is explicit.
+- [x] **F-17.6** (MEDIUM) **goi remaining "synonym" claims sweep** - searched the file for `irect synonym|directly equivalent|same as`; only the Q60 / Q80 cases were present, both fixed in F-17.2. No further action.
+- [x] **F-17.7** (MEDIUM) **moji invented distractor verb forms** - the test is orthographic (which kanji visually belongs), not conjugation-grammaticality, but the invented distractors could mislead. **Applied 2026-05-01:** added a `Distractor verb-form convention (orthography questions)` section to the moji header explicitly documenting the convention with examples (出ります / 経ちます).
+- [x] **F-17.8** (MEDIUM) **dokkai Q78 distractor uses non-N5 kanji 簡単** - covered by the documented exception, but visually inconsistent. **Applied 2026-05-01:** replaced `たのしくて、簡単だった` with `たのしくて、らくだった` (kana for the same semantic content).
 
-#### LOW (1) — deferred with rationale
+#### LOW (1) - deferred with rationale
 
-- [x] **F-17.9** (LOW) **vocabulary part-of-speech tags** — audit suggested adding `[noun]`, `[い-adj]`, `[v1]`, etc. tags so the runtime can filter. **Deferred 2026-05-01:** the runtime already has POS data via `data/vocab.json` (built from this MD by `tools/build_data.py` + `tools/tag_vocab_pos.py`). MD-side annotation would be cosmetic for human readers but redundant for the app. ~1000 entries to manually annotate; cost/benefit doesn't justify it. Re-evaluate if a future feature needs raw-MD POS.
+- [x] **F-17.9** (LOW) **vocabulary part-of-speech tags** - audit suggested adding `[noun]`, `[い-adj]`, `[v1]`, etc. tags so the runtime can filter. **Deferred 2026-05-01:** the runtime already has POS data via `data/vocab.json` (built from this MD by `tools/build_data.py` + `tools/tag_vocab_pos.py`). MD-side annotation would be cosmetic for human readers but redundant for the app. ~1000 entries to manually annotate; cost/benefit doesn't justify it. Re-evaluate if a future feature needs raw-MD POS.
 
 #### Side-effect
 
@@ -781,9 +781,9 @@ Applied the audit at `feedback/jlpt-n5-knowledgebank-md-audit-2026-05-01.md` (1 
 #### CI checks recommended by §5 (not yet wired)
 
 The audit recommends 6 cross-file consistency checks for CI. Three are already covered (X-6.5 em-dash check; JA-13 kanji whitelist; JA-1 stem-kanji scope). Three are scaffolded but not yet wired:
-1. Two-valid-answers detection — `tools/scan_multi_correct.py` exists from Pass-15; could be wired as a non-blocking warn.
-2. Synonym-overclaim regex — could be a one-line addition to `check_content_integrity.py`.
-3. Question-stem-kanji-in-passage cross-check (dokkai) — would need new logic to read both stem and passage and compute set intersection.
+1. Two-valid-answers detection - `tools/scan_multi_correct.py` exists from Pass-15; could be wired as a non-blocking warn.
+2. Synonym-overclaim regex - could be a one-line addition to `check_content_integrity.py`.
+3. Question-stem-kanji-in-passage cross-check (dokkai) - would need new logic to read both stem and passage and compute set intersection.
 
 Pass-18 candidate: wire these three checks. Not blocking, but valuable preventive infrastructure.
 
@@ -793,25 +793,25 @@ CI: 30/30 content invariants green, 4/4 build-pipeline regression tests pass.
 
 ## Pass-15 multi-correct-answer audit - 2026-05-01 (BASIC TIER APPLIED)
 
-Native-teacher review identified MCQs in `data/questions.json` where the stem accepts more than one of the four choices as a grammatically valid completion. Triggered by user-reported example: `（  ）は ほんです。` with options これ/それ/あれ/どれ marked correct=これ — but without spatial context, それ and あれ are equally valid.
+Native-teacher review identified MCQs in `data/questions.json` where the stem accepts more than one of the four choices as a grammatically valid completion. Triggered by user-reported example: `（  ）は ほんです。` with options これ/それ/あれ/どれ marked correct=これ - but without spatial context, それ and あれ are equally valid.
 
 **Pass-15 basic tier closed 2026-05-01.** 10 questions fixed across two categories. CI 26/26 invariants green.
 
-#### CRITICAL — context-less ko-so-a-do (4 fixes)
+#### CRITICAL - context-less ko-so-a-do (4 fixes)
 
-- [x] **F-15.1** (CRITICAL) **q-0424** `（ ）は ほんです。` correct=これ — context-less: それ/あれ also valid. Added scene `（じぶんの 手の 中の 本を 友だちに みせて）` so only これ fits. Real distractor explanations replace `Wrong choice - see pattern detail` stubs.
-- [x] **F-15.2** (CRITICAL) **q-0425** `（ ）へ どうぞ。` correct=こちら — added scene `（おきゃくさんを じぶんの ちかくの せきへ あんないして）`.
-- [x] **F-15.3** (CRITICAL) **q-0431** `（ ）は としょかんです。` correct=ここ — added scene `（としょかんの 中で 友だちに 言います）`.
-- [x] **F-15.4** (HIGH) **q-0432** `（ ）が あなたの ですか。` correct=どれ — strengthened by adding scene `（つくえの 上に かばんが いくつも あります）` plus full distractor explanations contrasting yes/no question (with は) vs selection (with どれが).
+- [x] **F-15.1** (CRITICAL) **q-0424** `（ ）は ほんです。` correct=これ - context-less: それ/あれ also valid. Added scene `（じぶんの 手の 中の 本を 友だちに みせて）` so only これ fits. Real distractor explanations replace `Wrong choice - see pattern detail` stubs.
+- [x] **F-15.2** (CRITICAL) **q-0425** `（ ）へ どうぞ。` correct=こちら - added scene `（おきゃくさんを じぶんの ちかくの せきへ あんないして）`.
+- [x] **F-15.3** (CRITICAL) **q-0431** `（ ）は としょかんです。` correct=ここ - added scene `（としょかんの 中で 友だちに 言います）`.
+- [x] **F-15.4** (HIGH) **q-0432** `（ ）が あなたの ですか。` correct=どれ - strengthened by adding scene `（つくえの 上に かばんが いくつも あります）` plus full distractor explanations contrasting yes/no question (with は) vs selection (with どれが).
 
-#### HIGH — particle multi-correct (6 fixes)
+#### HIGH - particle multi-correct (6 fixes)
 
-- [x] **F-15.5** (HIGH) **q-0013** `どこ___いきますか。` correct=へ — choices [で,へ,を,に]: へ AND に both valid for motion destination at N5. Replaced に in choices with から (clearly wrong: "where from"). Added explanations for each.
-- [x] **F-15.6** (HIGH) **q-0026** `わたし___がくせいです。` correct=も — identical stem to q-0004 (correct=は). Added prior-sentence scene `（田中さんは がくせいです。）` to force additive も reading.
-- [x] **F-15.7** (HIGH) **q-0422** same shape as q-0026 (different pattern ref n5-032) — different scene `（さとうさんも たなかさんも がくせいです。）` to avoid being a near-duplicate of q-0026.
-- [x] **F-15.8** (HIGH) **q-0016** `ともだち___いきました。` correct=と — と (with friend) and に (to friend) both valid. Added explicit destination `こうえんへ` so と (companion) is the only natural reading.
-- [x] **F-15.9** (HIGH) **q-0020** `5時___しごとです。` correct=まで — まで (until 5) and から (from 5) both valid. Added prior sentence `（あさは 9時から はじまります。）` so まで is the matching range-end.
-- [x] **F-15.10** (HIGH) **q-0044** `ともだち___でんわをしました。` correct=に — に (recipient) and と (companion) both valid for general 〜をする. Tightened verb to `かけました` ("placed a call") which lexically requires に for the recipient.
+- [x] **F-15.5** (HIGH) **q-0013** `どこ___いきますか。` correct=へ - choices [で,へ,を,に]: へ AND に both valid for motion destination at N5. Replaced に in choices with から (clearly wrong: "where from"). Added explanations for each.
+- [x] **F-15.6** (HIGH) **q-0026** `わたし___がくせいです。` correct=も - identical stem to q-0004 (correct=は). Added prior-sentence scene `（田中さんは がくせいです。）` to force additive も reading.
+- [x] **F-15.7** (HIGH) **q-0422** same shape as q-0026 (different pattern ref n5-032) - different scene `（さとうさんも たなかさんも がくせいです。）` to avoid being a near-duplicate of q-0026.
+- [x] **F-15.8** (HIGH) **q-0016** `ともだち___いきました。` correct=と - と (with friend) and に (to friend) both valid. Added explicit destination `こうえんへ` so と (companion) is the only natural reading.
+- [x] **F-15.9** (HIGH) **q-0020** `5時___しごとです。` correct=まで - まで (until 5) and から (from 5) both valid. Added prior sentence `（あさは 9時から はじまります。）` so まで is the matching range-end.
+- [x] **F-15.10** (HIGH) **q-0044** `ともだち___でんわをしました。` correct=に - に (recipient) and と (companion) both valid for general 〜をする. Tightened verb to `かけました` ("placed a call") which lexically requires に for the recipient.
 
 #### Side-effects (kanji scope cleanup, integrity-driven)
 
@@ -819,34 +819,34 @@ Native-teacher review identified MCQs in `data/questions.json` where the stem ac
 
 #### Flagged but NOT fixed (out of multi-correct scope)
 
-- [x] **F-15.12** (MEDIUM) **q-0420 / q-0421 duplicate** — both stems were `あなたは がくせいです（ ）。` correct=か, but tagged to different patterns (n5-023 = sentence-final か, n5-024 = OR-between-alternatives か). The duplicate stem only tested the n5-023 sense. **Applied 2026-05-01:** rewrote q-0421 stem to `コーヒー（ ）おちゃが いいです。` with prompt `ふたつの えらびかたを ならべる ことばを えらんで ください。` so it tests the n5-024 OR sense. Real distractor explanations replace the stub `Wrong choice` text.
+- [x] **F-15.12** (MEDIUM) **q-0420 / q-0421 duplicate** - both stems were `あなたは がくせいです（ ）。` correct=か, but tagged to different patterns (n5-023 = sentence-final か, n5-024 = OR-between-alternatives か). The duplicate stem only tested the n5-023 sense. **Applied 2026-05-01:** rewrote q-0421 stem to `コーヒー（ ）おちゃが いいです。` with prompt `ふたつの えらびかたを ならべる ことばを えらんで ください。` so it tests the n5-024 OR sense. Real distractor explanations replace the stub `Wrong choice` text.
 
 #### Tier-2 Japanese-accuracy fixes (3 more)
 
-- [x] **F-15.13** (HIGH) **n5-024 grammar pattern had wrong examples** — first two examples (`あなたは がくせいですか。` / `なにを たべましたか。`) were copy-pasted from n5-023 (sentence-final か); they don't illustrate the OR sense the pattern teaches. **Applied 2026-05-01:** replaced examples with three OR-か illustrations (`コーヒーか おちゃが いいです。` / `ペンか えんぴつで かいてください。` / `あしたか あさってに いきます。`). Re-ran `tools/link_grammar_examples_to_vocab.py` to populate `vocab_ids` (JA-17 invariant).
-- [x] **F-15.14** (MEDIUM) **q-0007 ねこ___すきです** — stem accepted は (contrastive topic) as a grammatically valid alternative to が. **Applied 2026-05-01:** added Q&A scaffold `A：「どんな どうぶつが すきですか。」　B：「ねこ（ ）すきです。」` so が is the natural answer (the question pattern X が すき forces が in the response). Real distractor explanations added.
-- [x] **F-15.15** (MEDIUM) **q-0008 ほん___よみます** — stem accepted は (contrastive topic) as alternative to を. **Applied 2026-05-01:** added scene `（としょかんで）　わたしは ほん（ ）よみます。` so を is the natural direct-object marker. Real distractor explanations added.
+- [x] **F-15.13** (HIGH) **n5-024 grammar pattern had wrong examples** - first two examples (`あなたは がくせいですか。` / `なにを たべましたか。`) were copy-pasted from n5-023 (sentence-final か); they don't illustrate the OR sense the pattern teaches. **Applied 2026-05-01:** replaced examples with three OR-か illustrations (`コーヒーか おちゃが いいです。` / `ペンか えんぴつで かいてください。` / `あしたか あさってに いきます。`). Re-ran `tools/link_grammar_examples_to_vocab.py` to populate `vocab_ids` (JA-17 invariant).
+- [x] **F-15.14** (MEDIUM) **q-0007 ねこ___すきです** - stem accepted は (contrastive topic) as a grammatically valid alternative to が. **Applied 2026-05-01:** added Q&A scaffold `A：「どんな どうぶつが すきですか。」　B：「ねこ（ ）すきです。」` so が is the natural answer (the question pattern X が すき forces が in the response). Real distractor explanations added.
+- [x] **F-15.15** (MEDIUM) **q-0008 ほん___よみます** - stem accepted は (contrastive topic) as alternative to を. **Applied 2026-05-01:** added scene `（としょかんで）　わたしは ほん（ ）よみます。` so を is the natural direct-object marker. Real distractor explanations added.
 - [x] **F-15.16** Side-effect: 好 kanji in q-0007 distractor explanation breached JA-13 (out-of-scope). Removed the `(好き)` parenthetical; the distractor still reads naturally without it.
 
 #### Linker tooling fix (caught while verifying Tier-2 metadata)
 
-- [x] **F-15.17** (MEDIUM) **Vocab linker false-positive substring matches** — `tools/link_grammar_examples_to_vocab.py` was substring-matching short standalone nouns/adjectives without right-side word-boundary checking. Caught by the new n5-024 example `あしたか あさってに いきます。` which got a spurious link to `n5.vocab.4-body-parts.あし` (foot) because `あし` is a substring of `あした` (tomorrow). **Applied 2026-05-01:** extended the existing 2-char left-boundary check (formerly only `expression` / `interjection` POS) to include `noun` / `na-adjective` / `i-adjective` / `adverb`, AND added a right-boundary check that accepts `_BOUNDARY` chars + particles (はがをにでとも) + common copula/modifier starts (のなだへやかねよ). Re-ran linker: still 587/587 examples linked (100%); the false positive is gone. The HOMOGRAPH_RULES dispatch system was the wrong place for this fix because it only fires for vocab-form clusters with multiple entries, and `あし` has only one entry in vocab.json.
+- [x] **F-15.17** (MEDIUM) **Vocab linker false-positive substring matches** - `tools/link_grammar_examples_to_vocab.py` was substring-matching short standalone nouns/adjectives without right-side word-boundary checking. Caught by the new n5-024 example `あしたか あさってに いきます。` which got a spurious link to `n5.vocab.4-body-parts.あし` (foot) because `あし` is a substring of `あした` (tomorrow). **Applied 2026-05-01:** extended the existing 2-char left-boundary check (formerly only `expression` / `interjection` POS) to include `noun` / `na-adjective` / `i-adjective` / `adverb`, AND added a right-boundary check that accepts `_BOUNDARY` chars + particles (はがをにでとも) + common copula/modifier starts (のなだへやかねよ). Re-ran linker: still 587/587 examples linked (100%); the false positive is gone. The HOMOGRAPH_RULES dispatch system was the wrong place for this fix because it only fires for vocab-form clusters with multiple entries, and `あし` has only one entry in vocab.json.
 
-#### Coverage gap analysis vs external corpus — 2026-05-01
+#### Coverage gap analysis vs external corpus - 2026-05-01
 
 Cross-coverage report at `feedback/coverage-comparison.md`. Six N5 grammar patterns have ZERO question coverage in our bank; they appear in `data/grammar.json` but no question references their pattern ID, and a full-text search for their key forms across all 163 questions returns zero hits:
 
-- [x] **F-15.18** (MEDIUM) **n5-130 あげる (give to others)** — **Applied 2026-05-01:** authored 2 MCQs (q-0479 recipient-に, q-0480 object-を). _Originally q-0454/0455; renumbered after a parallel Pass-15 P0 commit landed paraphrase questions at the same IDs._
-- [x] **F-15.19** (MEDIUM) **n5-131 もらう (receive from)** — **Applied 2026-05-01:** authored 2 MCQs (q-0481 source-から, q-0482 object-を).
-- [x] **F-15.20** (MEDIUM) **n5-134 ので (because, softer than から)** — **Applied 2026-05-01:** authored 2 MCQs (q-0483 ので-vs-{ながら,ても,のに}, q-0484 testing the noun+な+ので connector — hits the common mistake from the pattern's `common_mistakes`).
-- [x] **F-15.21** (MEDIUM) **n5-144 Verb-stem + ながら (while doing)** — **Applied 2026-05-01:** authored 2 MCQs (q-0485 verb-stem form ききながら-vs-other-conjugations, q-0486 ながら-vs-other-particle).
-- [x] **F-15.22** (LOW) **n5-148 いつも / たいてい / たまに (always / usually / occasionally)** — **Applied 2026-05-01:** authored 2 MCQs anchoring on frequency phrases — q-0487 (毎日 → いつも) and q-0488 (月に 1かい → たまに). たいてい distractor reserved for future expansion (no question explicitly tests it as the answer; would need a "ほとんど 毎日" anchor that risks ambiguity with いつも).
-- [x] **F-15.23** (LOW) **n5-167 ～んです / ～のです (explanation / emphasis)** — **Closed 2026-05-01:** authored conservative N5-appropriate entry with `tier: "late_n5"`. 3 examples (affirmative-explanation / question-asking / context-providing); 2 common_mistakes (using んです for flat fact / missing な linker after noun); 1 contrast vs plain です. Notes flag this entry as pending native-teacher review of the framing. The form (Plain + んです) is N5; the explanation/emphasis nuance crosses into N4 — late_n5 tier captures this correctly.
+- [x] **F-15.18** (MEDIUM) **n5-130 あげる (give to others)** - **Applied 2026-05-01:** authored 2 MCQs (q-0479 recipient-に, q-0480 object-を). _Originally q-0454/0455; renumbered after a parallel Pass-15 P0 commit landed paraphrase questions at the same IDs._
+- [x] **F-15.19** (MEDIUM) **n5-131 もらう (receive from)** - **Applied 2026-05-01:** authored 2 MCQs (q-0481 source-から, q-0482 object-を).
+- [x] **F-15.20** (MEDIUM) **n5-134 ので (because, softer than から)** - **Applied 2026-05-01:** authored 2 MCQs (q-0483 ので-vs-{ながら,ても,のに}, q-0484 testing the noun+な+ので connector - hits the common mistake from the pattern's `common_mistakes`).
+- [x] **F-15.21** (MEDIUM) **n5-144 Verb-stem + ながら (while doing)** - **Applied 2026-05-01:** authored 2 MCQs (q-0485 verb-stem form ききながら-vs-other-conjugations, q-0486 ながら-vs-other-particle).
+- [x] **F-15.22** (LOW) **n5-148 いつも / たいてい / たまに (always / usually / occasionally)** - **Applied 2026-05-01:** authored 2 MCQs anchoring on frequency phrases - q-0487 (毎日 → いつも) and q-0488 (月に 1かい → たまに). たいてい distractor reserved for future expansion (no question explicitly tests it as the answer; would need a "ほとんど 毎日" anchor that risks ambiguity with いつも).
+- [x] **F-15.23** (LOW) **n5-167 ～んです / ～のです (explanation / emphasis)** - **Closed 2026-05-01:** authored conservative N5-appropriate entry with `tier: "late_n5"`. 3 examples (affirmative-explanation / question-asking / context-providing); 2 common_mistakes (using んです for flat fact / missing な linker after noun); 1 contrast vs plain です. Notes flag this entry as pending native-teacher review of the framing. The form (Plain + んです) is N5; the explanation/emphasis nuance crosses into N4 - late_n5 tier captures this correctly.
 
 #### Pass-16 questions added (10) and side-effects
 
 - 10 new MCQs landed: originally q-0454 .. q-0463; **renumbered to q-0479 .. q-0488 on 2026-05-01 after dedup** (a parallel Pass-15 P0 commit had independently authored 19 questions at q-0454 .. q-0472, colliding with my IDs in q-0454 .. q-0463). Bank size: 163 → 173 (no change post-dedup; the Pass-15 P0 set added separately).
-- Side-effect: 6 out-of-scope kanji introductions caught by JA-13 invariant (兄, 文, 字, 回 across 3 questions) — converted to kana (あに, もじ, じ, かい) in `tools/author_pass16_questions.py` and applied via inline kanji-replacement before commit. JA-13 now PASS again.
+- Side-effect: 6 out-of-scope kanji introductions caught by JA-13 invariant (兄, 文, 字, 回 across 3 questions) - converted to kana (あに, もじ, じ, かい) in `tools/author_pass16_questions.py` and applied via inline kanji-replacement before commit. JA-13 now PASS again.
 - Dedup repair: `tools/renumber_pass16_dedup.py` is idempotent and documents the collision in `_meta.history`.
 - All 30 content invariants green; 4/4 build-pipeline regression tests pass.
 
@@ -854,14 +854,14 @@ These six patterns produced a "no real questions" experience for ~3% of the curr
 
 #### Reviewed false positives (no fix needed)
 
-q-0007 ねこ___すきです (が only at N5); q-0008 ほん___よみます (を only at N5); q-0027 だれ___きませんでした (も only — interrogative+negative pattern); q-0419 りんご___バナナをたべます (や is correct among the 4 choices; と is not present); q-0043 こうえん___さんぽしました (canonical N5 answer is を, although で is borderline acceptable in colloquial Japanese — flagged for native review but kept).
+q-0007 ねこ___すきです (が only at N5); q-0008 ほん___よみます (を only at N5); q-0027 だれ___きませんでした (も only - interrogative+negative pattern); q-0419 りんご___バナナをたべます (や is correct among the 4 choices; と is not present); q-0043 こうえん___さんぽしました (canonical N5 answer is を, although で is borderline acceptable in colloquial Japanese - flagged for native review but kept).
 
 #### Tooling
 
-- `tools/scan_multi_correct.py` — scanner that flags candidate multi-correct MCQs across 5 categories (に/へ, は/が, で/に, ko-so-a-do without context, polite/casual copula mix). Run after any future bulk edits to questions.json.
-- `tools/fix_kosoado_basic.py` — idempotent applier for the 4 ko-so-a-do fixes.
-- `tools/fix_particle_basic.py` — idempotent applier for the 6 particle fixes.
-- `tools/inspect_candidates.py` — diagnostic dump of question_ja / choices / correct for a fixed list of IDs.
+- `tools/scan_multi_correct.py` - scanner that flags candidate multi-correct MCQs across 5 categories (に/へ, は/が, で/に, ko-so-a-do without context, polite/casual copula mix). Run after any future bulk edits to questions.json.
+- `tools/fix_kosoado_basic.py` - idempotent applier for the 4 ko-so-a-do fixes.
+- `tools/fix_particle_basic.py` - idempotent applier for the 6 particle fixes.
+- `tools/inspect_candidates.py` - diagnostic dump of question_ja / choices / correct for a fixed list of IDs.
 
 ---
 
@@ -877,27 +877,27 @@ Comprehensive audit of `data/questions.json` from native-speaker + structural-in
 - **F-14.9 cascade-resolved**: slash-format issues only existed in the 38 deleted stubs.
 - **Phase F** (authoring): 12 sentence_order + 8 text_input questions added (q-0434..q-0453). Resolved F-14.10.
 
-#### CRITICAL (3 classes — ALL RESOLVED)
+#### CRITICAL (3 classes - ALL RESOLVED)
 
 - [x] **F-14.1** (CRITICAL) **38 pattern-meta questions teach nothing** (q-0280 through q-0416 family). All matched pattern `つぎの いみに あう パターン：`. Answer was literally quoted in the stem; distractors mixed wildly different types so the correct option was identifiable from format alone. **Applied 2026-05-01:** deleted 38 questions matching the stub pattern. Bank: 181 → 143. IDs deleted: q-0280, q-0281, q-0288, q-0290, q-0291, q-0294, q-0300, q-0301, q-0311, q-0316, q-0318, q-0319, q-0321, q-0325, q-0326, q-0329, q-0338, q-0339, q-0343, q-0344, q-0349, q-0361, q-0363, q-0374, q-0376, q-0379, q-0382, q-0384, q-0389, q-0393, q-0398, q-0400, q-0408, q-0409, q-0412, q-0413, q-0414, q-0416.
-- [x] **F-14.2** (CRITICAL) **Answer literally in stem** — q-0311, q-0316, q-0382, q-0398. Resolved by F-14.1 deletion.
-- [x] **F-14.3** (CRITICAL) **q-0382 rendering corruption** — double colon. Resolved by F-14.1 deletion.
+- [x] **F-14.2** (CRITICAL) **Answer literally in stem** - q-0311, q-0316, q-0382, q-0398. Resolved by F-14.1 deletion.
+- [x] **F-14.3** (CRITICAL) **q-0382 rendering corruption** - double colon. Resolved by F-14.1 deletion.
 
-#### HIGH (3 classes — ALL RESOLVED)
+#### HIGH (3 classes - ALL RESOLVED)
 
-- [x] **F-14.4** (HIGH) **Prompt-stem mismatch in 37 pattern-meta questions** — Resolved by F-14.1 deletion.
-- [x] **F-14.5** (HIGH) **q-0418 dual-mode schema** — `type: text_input` but also has stale `choices` array. **Applied 2026-05-01:** dropped the `choices` field. q-0418 is now canonical text_input with `acceptedAnswers` (4 entries) + `correctAnswer` ("です") for feedback display.
-- [x] **F-14.6** (HIGH) **ID gaps** — 9 gaps totalling 290 missing IDs in declared range q-0001..q-0433. **Applied 2026-05-01 (option C — keep gaps but document):** added `_meta` block to `data/questions.json` with `id_gap_policy: "documented"`, `id_gaps[]` array enumerating each gap, `id_gap_explanation` text covering Pass-9/12/14 deletion history, and a contract note that "tooling MUST treat IDs as opaque strings, not contiguous-integer suffixes." Renumbering rejected as too risky — would break URL bookmarks, exported localStorage state, and verification.md cross-references.
+- [x] **F-14.4** (HIGH) **Prompt-stem mismatch in 37 pattern-meta questions** - Resolved by F-14.1 deletion.
+- [x] **F-14.5** (HIGH) **q-0418 dual-mode schema** - `type: text_input` but also has stale `choices` array. **Applied 2026-05-01:** dropped the `choices` field. q-0418 is now canonical text_input with `acceptedAnswers` (4 entries) + `correctAnswer` ("です") for feedback display.
+- [x] **F-14.6** (HIGH) **ID gaps** - 9 gaps totalling 290 missing IDs in declared range q-0001..q-0433. **Applied 2026-05-01 (option C - keep gaps but document):** added `_meta` block to `data/questions.json` with `id_gap_policy: "documented"`, `id_gaps[]` array enumerating each gap, `id_gap_explanation` text covering Pass-9/12/14 deletion history, and a contract note that "tooling MUST treat IDs as opaque strings, not contiguous-integer suffixes." Renumbering rejected as too risky - would break URL bookmarks, exported localStorage state, and verification.md cross-references.
 
-#### MEDIUM (3 classes — ALL RESOLVED)
+#### MEDIUM (3 classes - ALL RESOLVED)
 
-- [x] **F-14.7** (MEDIUM) **Distractor-length asymmetry** — Resolved by F-14.1 deletion.
-- [x] **F-14.8** (MEDIUM) **Pattern-meta choices mix incompatible types** — Resolved by F-14.1 deletion.
-- [x] **F-14.9** (MEDIUM) **Inconsistent slash convention in choices** — **Verified 2026-05-01:** 0 full-width `／` remaining in `data/questions.json`; 0 choices contain slashes at all. The slash-format inconsistencies only existed in the 38 stub questions deleted in F-14.1. Cascade-resolved.
+- [x] **F-14.7** (MEDIUM) **Distractor-length asymmetry** - Resolved by F-14.1 deletion.
+- [x] **F-14.8** (MEDIUM) **Pattern-meta choices mix incompatible types** - Resolved by F-14.1 deletion.
+- [x] **F-14.9** (MEDIUM) **Inconsistent slash convention in choices** - **Verified 2026-05-01:** 0 full-width `／` remaining in `data/questions.json`; 0 choices contain slashes at all. The slash-format inconsistencies only existed in the 38 stub questions deleted in F-14.1. Cascade-resolved.
 
 #### LOW / Schema (informational)
 
-- [x] **F-14.10** (LOW) **Type distribution skewed** — **Phase F applied 2026-05-01:** authored 12 sentence_order + 8 text_input questions (q-0434..q-0453) covering productive N5 grammar (topic は ordering, location あります, te-form chains, counter ordering, comparison より, want が ほしい, Verb-tai, prohibition Verb-てはいけません, particle selection は/を/に/で/が, te-form / past / negative production). Bank: 143 → 163. Distribution: 138 mcq / 16 sentence_order / 9 text_input. Mcq still leads but non-mcq types are no longer token presence.
+- [x] **F-14.10** (LOW) **Type distribution skewed** - **Phase F applied 2026-05-01:** authored 12 sentence_order + 8 text_input questions (q-0434..q-0453) covering productive N5 grammar (topic は ordering, location あります, te-form chains, counter ordering, comparison より, want が ほしい, Verb-tai, prohibition Verb-てはいけません, particle selection は/を/に/で/が, te-form / past / negative production). Bank: 143 → 163. Distribution: 138 mcq / 16 sentence_order / 9 text_input. Mcq still leads but non-mcq types are no longer token presence.
 - [x] **Verified non-bug:** 4 sentence_order questions correctly omit `choices`/`correctAnswer` (they use `tiles`/`correctOrder` instead per the spec §6.2 schema). This was a sanity-check note from the audit, not a fix-needed item.
 
 #### Recommended fix sequence (updated 2026-05-01)
@@ -931,7 +931,7 @@ Other sections:
 
 Use as a **catalog** - triage by P0/P1/P2 tier, don't run all 22 every release. **§12 always runs.**
 
-### CI engineering work (COMPLETE — content-integrity / Lighthouse / Playwright wired)
+### CI engineering work (COMPLETE - content-integrity / Lighthouse / Playwright wired)
 
 - [x] **Create `tools/check_content_integrity.py`** (672 lines, stdlib-only) implementing 18 invariants from §12.1 (X-6.1-X-6.9 + JA-1-JA-9). All 18 now **PASS** on current KB; exit code 0. Heuristics calibrated through three rounds:
   - Catalog parser tolerates `[Ext]` / `[Cul]` tag suffixes on kanji entries

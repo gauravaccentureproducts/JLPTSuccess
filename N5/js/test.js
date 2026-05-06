@@ -26,14 +26,14 @@ let timerEndsAt = null;
 //   聴解     (Listening):         30 min
 //   total paper-based:           105 min
 // Test mode here is grammar-only (questions.json is bunpou-flavored), so a
-// 60-second-per-question budget is a fair proxy for "JLPT pace" — 20 Qs
+// 60-second-per-question budget is a fair proxy for "JLPT pace" - 20 Qs
 // budgets 20 min, 30 Qs budgets 30 min, 50 Qs budgets 50 min, all close to
 // the official pacing. Adjustable per-Q rate stored in seconds.
 const EXAM_MODE_SEC_PER_Q = 60;
 
 // JLPT N5 pass threshold: 80/180 overall = 44.4% (and 19/60 per section).
 // For test mode (variable length, grammar-only) we use a more conservative
-// 60% study-target pass mark — matches Bunpro / Try! N5 study guidance.
+// 60% study-target pass mark - matches Bunpro / Try! N5 study guidance.
 const PASS_PERCENT = 60;
 
 async function loadBank() {
@@ -56,7 +56,7 @@ async function loadGrammarIndex() {
 export async function renderTest(container, params) {
   // State reset on navigation back to bare #/test from elsewhere. If the
   // user finished a test, navigated away (Learn / Drill / etc.), and then
-  // clicks "Test" in the nav, they expect a fresh setup — not the stale
+  // clicks "Test" in the nav, they expect a fresh setup - not the stale
   // results page from earlier. Preserve mid-attempt state (view='attempting')
   // because a user navigating away mid-test probably wants to resume.
   if (!params && view === 'results') {
@@ -251,7 +251,7 @@ function renderAttempting(container) {
     answerHtml = `<p class="placeholder-inline">Unsupported question type: ${esc(q.type)}</p>`;
   }
 
-  // IMP-001: timer chip text — pre-render to current remaining if exam mode.
+  // IMP-001: timer chip text - pre-render to current remaining if exam mode.
   let timerChipHtml = '';
   if (session.examMode && timerEndsAt) {
     const totalSec = Math.max(0, Math.ceil((timerEndsAt - Date.now()) / 1000));
@@ -544,7 +544,7 @@ async function renderResults(container) {
 
   // IMP-026 (audit round-3): per-question-type breakdown alongside the
   // per-category one. Tells the learner whether they're tripping over
-  // sentence_order vs MCQ vs text_input — useful when choosing which
+  // sentence_order vs MCQ vs text_input - useful when choosing which
   // drill mode to spend the next session on.
   const TYPE_LABELS = {
     'mcq':            'Multiple choice',
@@ -617,7 +617,7 @@ async function renderResults(container) {
             <tbody>${typeRows}</tbody>
           </table>
           <p class="muted small">Types sorted by accuracy (weakest first). Useful for picking your next drill mode.</p>
-        ` : '<p class="muted small">All questions in this test were the same type — type breakdown is only meaningful when the test mixes question formats.</p>'}
+        ` : '<p class="muted small">All questions in this test were the same type - type breakdown is only meaningful when the test mixes question formats.</p>'}
       </section>
 
       <section class="answer-review">

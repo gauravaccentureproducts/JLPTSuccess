@@ -7,7 +7,7 @@ corpus 12 → 30 items).
 ## Why VOICEVOX
 
 - **Free** under MIT-style license (engine itself; voice models have
-  per-voice license terms — most allow non-commercial educational use).
+  per-voice license terms - most allow non-commercial educational use).
 - **Native Japanese acoustic models.** Output is statistically
   indistinguishable from human native speech in short utterances
   (validated in published TTS benchmarks 2023-2025).
@@ -34,13 +34,13 @@ corpus 12 → 30 items).
 
    Should return something like `{"version":"0.21.x"}`.
 
-4. **Install ffmpeg** (optional but recommended — converts WAV → MP3):
+4. **Install ffmpeg** (optional but recommended - converts WAV → MP3):
    - Windows: `winget install Gyan.FFmpeg` or the official ffmpeg.exe
    - macOS: `brew install ffmpeg`
    - Linux: `apt install ffmpeg` / equivalent
 
    If ffmpeg is unavailable, the renderer ships WAV files renamed to
-   `.mp3` — most browsers accept this since they sniff format from
+   `.mp3` - most browsers accept this since they sniff format from
    bytes, but the file is technically WAV.
 
 ## Voice choice
@@ -92,7 +92,7 @@ metadata flag.)
 ## After render
 
 1. Verify the new MP3s exist: `ls audio/listening/n5.listen.0{13..30}.mp3`
-2. Run integrity: `python tools/check_content_integrity.py` — expect
+2. Run integrity: `python tools/check_content_integrity.py` - expect
    25/25 PASS, including JA-15 (audio refs resolve to disk).
 3. Bump SW: increment `CACHE_VERSION` in `sw.js` so existing visitors
    pick up the new shell + new audio.
@@ -128,19 +128,19 @@ session (~$200-500 for a 30-min session covering this much content).
   **春日部つむぎ** all allow free educational and non-commercial use
   with attribution to the voice provider. Add an entry to `NOTICES.md`
   citing the voice when first published. Commercial use of some voices
-  requires separate licensing — verify per voice before any commercial
+  requires separate licensing - verify per voice before any commercial
   deployment.
 
 ## What this does NOT cover
 
-- **Multi-speaker dialogue rendering** — items 013, 014, 016, 017, 018,
+- **Multi-speaker dialogue rendering** - items 013, 014, 016, 017, 018,
   019, 020, 023, 024 have two speakers. The default render uses one
   voice for all turns. For higher fidelity, render each speaker's lines
   separately and concatenate (post-v1.7 enhancement).
-- **Pitch-accent verification** — VOICEVOX uses NHK accent dictionary
+- **Pitch-accent verification** - VOICEVOX uses NHK accent dictionary
   internally so output should be accurate, but no automated post-render
   check exists. If a learner reports a wrong reading, run the offending
   text through `pyopenjtalk` to compare expected vs synthesised accent.
-- **Native sign-off** — for an institutional release (MEXT-aligned),
+- **Native sign-off** - for an institutional release (MEXT-aligned),
   even VOICEVOX-rendered audio benefits from a native-speaker spot-check.
   Budget ~30 min listening-pass for the full 30-item corpus.

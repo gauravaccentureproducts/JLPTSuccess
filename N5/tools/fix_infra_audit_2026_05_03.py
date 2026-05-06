@@ -11,7 +11,7 @@ import io, json, sys
 from pathlib import Path
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ROOT = Path(__file__).resolve().parent.parent
-EM_DASH = '—'
+EM_DASH = '—'  # U+2014 EM DASH sentinel
 
 
 # ---------- 1.1 + 3.2 + 3.3: kanji-readings + kanji.json sync ----------
@@ -33,7 +33,7 @@ def fix_kanji_readings_and_kanji_json() -> int:
     kanji = json.loads(kpath.read_text(encoding='utf-8'))
 
     changed = 0
-    # 1.1 — fix the 4 wrong/debatable primaries in n5_kanji_readings.json
+    # 1.1 - fix the 4 wrong/debatable primaries in n5_kanji_readings.json
     PRIMARY_FIXES = {
         '語': 'ご',     # was かた (literary)
         '天': 'てん',   # was あめ (rare for 天-alone)
@@ -50,7 +50,7 @@ def fix_kanji_readings_and_kanji_json() -> int:
     rpath.write_text(json.dumps(readings, ensure_ascii=False, indent=2),
                      encoding='utf-8')
 
-    # 3.2 + 3.3 — for each kanji.json entry, sync kun-list ordering with
+    # 3.2 + 3.3 - for each kanji.json entry, sync kun-list ordering with
     # the readings file AND propagate primary_reading.
     for k in kanji.get('entries', []):
         glyph = k.get('glyph')

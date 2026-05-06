@@ -9,7 +9,7 @@ import { esc, wireExpandCollapseControls } from './learn.js';
 import { currentLocale } from './i18n.js';
 
 // IMP-045 (audit round-5): pick locale-aware grammar explanation when
-// present (native_reviewed only — see data/grammar.json
+// present (native_reviewed only - see data/grammar.json
 // `_translation_status` policy), else fall back to English. Per-locale
 // fields are explanation_vi/_id/_ne/_zh; absence is the default state
 // until reviewers fill them via the docs/TRANSLATING.md workflow.
@@ -102,10 +102,10 @@ const GRAMMAR_SUPERCATS = [
 // time markers, etc.). Moved to "Verbs" to remove the cross-bucket
 // duplication the user flagged 2026-05-01.
 const PATTERN_SUPERCAT_OVERRIDES = {
-  'n5-135': 'Verbs',  // Verb (plain) + Noun — relative clauses
-  'n5-144': 'Verbs',  // Verb-stem + ながら — while doing
-  'n5-153': 'Verbs',  // まだ + Verb-ていません — not yet
-  'n5-154': 'Verbs',  // もう + Verb-ました — already
+  'n5-135': 'Verbs',  // Verb (plain) + Noun - relative clauses
+  'n5-144': 'Verbs',  // Verb-stem + ながら - while doing
+  'n5-153': 'Verbs',  // まだ + Verb-ていません - not yet
+  'n5-154': 'Verbs',  // もう + Verb-ました - already
   'n5-162': 'Verbs',  // Verb-plain ましょう (see 〜ます)
   'n5-163': 'Verbs',  // Verb-た あとで (see 〜あと)
 };
@@ -299,11 +299,11 @@ function attachesLabel(key) {
 
 // Build the "How to use / 使い方" table. Two layouts depending on the
 // pattern's form-shape:
-//   (A) Uniform pattern — same surface form attaches to every entry in
+//   (A) Uniform pattern - same surface form attaches to every entry in
 //       `attaches_to` (typical: ～だろう, ～ながら, etc.). Render rows of
 //       attach-points on the left and one merged cell on the right
 //       carrying the literal pattern.
-//   (B) Conjugating pattern — `conjugations` lists multiple forms with
+//   (B) Conjugating pattern - `conjugations` lists multiple forms with
 //       distinct examples (typical: 〜です／〜ます, ーは, etc.). The
 //       attach-point table at top still shows the rowspan layout for
 //       quick scanning; a secondary "Forms" table underneath shows the
@@ -364,7 +364,7 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
   const isWeak = !!entry?.isWeak && !isMastered;
 
   // Prev / next pattern in TOC order. allPatterns may be undefined if a future
-  // caller forgets to thread it through — degrade gracefully (no nav row).
+  // caller forgets to thread it through - degrade gracefully (no nav row).
   const ordered = Array.isArray(allPatterns) ? buildOrderedPatternList(allPatterns) : [];
   const idx = ordered.findIndex(x => x.id === p.id);
   const prev = idx > 0 ? ordered[idx - 1] : null;

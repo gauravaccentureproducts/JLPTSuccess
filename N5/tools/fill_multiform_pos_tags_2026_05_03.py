@@ -8,7 +8,7 @@ match (form pattern stops at the first space). The fix is to insert
 sourced from the corresponding vocab.json entry.
 
 JA-31 will silently skip these lines (no LINE_RE match) and that's
-fine — the file format goal is reader-visible PoS, not 100% JA-31
+fine - the file format goal is reader-visible PoS, not 100% JA-31
 matchability for multi-form variants.
 
 Idempotent: re-running won't double-insert.
@@ -100,7 +100,7 @@ MANUAL_FALLBACK: dict[frozenset[str], str] = {
     frozenset(['けれど', 'けれども', 'けど']): 'conj.',
     frozenset(['じゃあ', 'では']): 'exp.',
     frozenset(['やはり', 'やっぱり']): 'adv.',
-    # (b) homograph override — must beat vocab.json's match
+    # (b) homograph override - must beat vocab.json's match
     frozenset(['ぐらい', 'くらい']): 'part.',
     frozenset(['ゼロ', 'れい']): 'num.',
 }
@@ -112,7 +112,7 @@ def lookup_pos(tokens: list[str], by_form: dict[str, set[str]],
 
     Resolution order:
       1. MANUAL_FALLBACK override (handles both no-match and homograph
-         mis-tag cases — must run BEFORE vocab.json lookup).
+         mis-tag cases - must run BEFORE vocab.json lookup).
       2. Single-candidate vocab.json match.
       3. Multi-candidate priority list (rare; only for unambiguous
          word-class chains).

@@ -51,11 +51,11 @@ export function initPwa() {
       const choice = await deferredPrompt.userChoice;
       deferredPrompt = null;
       if (choice && choice.outcome === 'dismissed') {
-        // Don't store dismissal — user chose deliberately.
+        // Don't store dismissal - user chose deliberately.
       }
     } else {
       // No prompt available (already installed, or browser doesn't fire
-      // beforeinstallprompt — Firefox/iOS Safari). Show a one-shot toast.
+      // beforeinstallprompt - Firefox/iOS Safari). Show a one-shot toast.
       _showOfflineHowToast();
     }
   });

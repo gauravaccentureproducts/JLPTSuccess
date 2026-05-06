@@ -67,7 +67,7 @@ MISTAKES = {
     'n5-043': {
         'wrong': 'こんなの本が好きです。',
         'right': 'こんな本が好きです。',
-        'why': "こんな/そんな/あんな/どんな directly modify the following noun — no の between them and the noun. Compare with これの (incorrect) vs この (correct) for the demonstrative noun-modifier."
+        'why': "こんな/そんな/あんな/どんな directly modify the following noun - no の between them and the noun. Compare with これの (incorrect) vs この (correct) for the demonstrative noun-modifier."
     },
     'n5-044': {
         'wrong': 'こうの感じです。',
@@ -117,7 +117,7 @@ MISTAKES = {
     'n5-127': {
         'wrong': '行きましたけど、楽しいでした。',
         'right': '行きましたけど、楽しかったです。',
-        'why': "けど/けれど doesn't fix the conjugation of the second clause — past-tense i-adjectives still take the い→かった ending (楽しかった), not 楽しいでした. Beginners use けど as a 'reset' and forget conjugation rules."
+        'why': "けど/けれど doesn't fix the conjugation of the second clause - past-tense i-adjectives still take the い→かった ending (楽しかった), not 楽しいでした. Beginners use けど as a 'reset' and forget conjugation rules."
     },
     'n5-136': {
         'wrong': '高いの本です。 / 静かの部屋です。',
@@ -147,7 +147,7 @@ MISTAKES = {
     'n5-165': {
         'wrong': 'お電話番号 -> ご電話番号',
         'right': 'お電話番号 (correct, 和語 reading)',
-        'why': "お~ attaches to native (和語) words; ご~ attaches to Sino-Japanese (漢語) words. 電話 is 漢語 so ご should win — but 電話 has been so thoroughly nativised that お電話 is the standard. Exception lists matter: お+和語, ご+漢語 with documented overrides."
+        'why': "お~ attaches to native (和語) words; ご~ attaches to Sino-Japanese (漢語) words. 電話 is 漢語 so ご should win - but 電話 has been so thoroughly nativised that お電話 is the standard. Exception lists matter: お+和語, ご+漢語 with documented overrides."
     },
     'n5-168': {
         'wrong': '本を読んだり、テレビを見ました。',
@@ -157,7 +157,7 @@ MISTAKES = {
     'n5-176': {
         'wrong': '行かなくちゃです。',
         'right': '行かなくちゃ。 / 行かなければなりません。',
-        'why': "なくちゃ / なきゃ are casual contractions — they don't combine with です. The full polite form is 〜なければなりません. Beginners try to politify a contraction by adding です, which sounds wrong."
+        'why': "なくちゃ / なきゃ are casual contractions - they don't combine with です. The full polite form is 〜なければなりません. Beginners try to politify a contraction by adding です, which sounds wrong."
     },
     'n5-177': {
         'wrong': '食べてすぎました。',

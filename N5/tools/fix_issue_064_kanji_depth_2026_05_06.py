@@ -1,11 +1,11 @@
 """ISSUE-064 + IMP-082 (audit round-7, 2026-05-06): kanji depth fields.
 
 Adds three optional fields to data/kanji.json entries:
-  radical                — primary radical name + glyph
-  radical_decomposition  — list of components (kanji or radical bits)
-  mnemonic               — one-line memorable phrase tying components to meaning
+  radical                - primary radical name + glyph
+  radical_decomposition  - list of components (kanji or radical bits)
+  mnemonic               - one-line memorable phrase tying components to meaning
 
-Covers all 106 N5 kanji. Authored from N5-syllabus knowledge — no
+Covers all 106 N5 kanji. Authored from N5-syllabus knowledge - no
 external KanjiVG dependency. Decomposition is component-level (not
 stroke-level) so it doubles as visual-mnemonic seed.
 
@@ -37,7 +37,7 @@ KANJI_DEPTH = {
     '七': ('一', 'one (radical 1)',            ['七'],         'A horizontal stroke crossed by a hook = SEVEN.'),
     '八': ('八', 'eight (radical 12)',         ['八'],         'Two strokes splitting outward like a fan = EIGHT.'),
     '九': ('乙', 'second / hook',              ['丿', '乙'],   'A diagonal hook curling like the digit 9 = NINE.'),
-    '十': ('十', 'ten (radical 24)',           ['十'],         'A plus sign — Roman numeral X rotated = TEN.'),
+    '十': ('十', 'ten (radical 24)',           ['十'],         'A plus sign - Roman numeral X rotated = TEN.'),
     # === Larger numbers + money ===
     '百': ('白', 'white',                      ['一', '白'],   'One (一) over white (白) = a HUNDRED whitewashed walls.'),
     '千': ('十', 'ten',                        ['丿', '十'],   'A slash (丿) over ten (十) = a THOUSAND tally marks.'),
@@ -51,13 +51,13 @@ KANJI_DEPTH = {
     '木': ('木', 'tree (radical 75)',          ['木'],         'A trunk with branches and roots = TREE.'),
     '金': ('金', 'metal/gold (radical 167)',   ['人', '王', '丶'], 'A person (人) over a king (王) with two specks of gold = METAL/GOLD.'),
     '土': ('土', 'earth (radical 32)',         ['十', '一'],   'A cross stuck in the ground = EARTH.'),
-    '曜': ('日', 'sun',                        ['日', '羽', '隹'], 'Sun (日) + feathers (羽) + bird (隹) — DAY OF THE WEEK named after a celestial body.'),
+    '曜': ('日', 'sun',                        ['日', '羽', '隹'], 'Sun (日) + feathers (羽) + bird (隹) - DAY OF THE WEEK named after a celestial body.'),
     '年': ('干', 'dry',                        ['一', '丨', '干'], 'A stalk grown over time = a YEAR.'),
     '時': ('日', 'sun',                        ['日', '寺'],   'Sun (日) + temple (寺, time-keeper) = TIME / hour.'),
     '分': ('刀', 'knife',                      ['八', '刀'],   'Splitting (八) with a knife (刀) = MINUTE / divide.'),
     '半': ('十', 'ten',                        ['丷', '一', '十'], 'Mark cutting in two = HALF.'),
     '今': ('人', 'person',                     ['人', '丶', '一'], 'A person under a roof at this very instant = NOW.'),
-    '毎': ('毋', 'mother',                     ['人', '母'],   'A person (人) over a mother (母) — every child has one = EVERY.'),
+    '毎': ('毋', 'mother',                     ['人', '母'],   'A person (人) over a mother (母) - every child has one = EVERY.'),
     '週': ('辶', 'walk',                       ['辶', '周'],   'Walking (辶) around (周) the calendar = WEEK.'),
     '午': ('十', 'ten',                        ['丿', '十'],   'A pestle pointing down at noon = NOON.'),
     # === Question word ===
@@ -67,7 +67,7 @@ KANJI_DEPTH = {
     '男': ('田', 'rice paddy',                 ['田', '力'],   'Power (力) in the rice field (田) = MAN.'),
     '女': ('女', 'woman (radical 38)',         ['女'],         'A figure with crossed legs sitting gracefully = WOMAN.'),
     '子': ('子', 'child (radical 39)',         ['子'],         'A baby with arms outstretched and swaddled = CHILD.'),
-    '父': ('父', 'father (radical 88)',        ['父'],         'Two crossing strokes — paternal authority figure = FATHER.'),
+    '父': ('父', 'father (radical 88)',        ['父'],         'Two crossing strokes - paternal authority figure = FATHER.'),
     '母': ('母', 'mother (radical 80)',        ['母'],         'Two breasts inside a body = MOTHER.'),
     '友': ('又', 'right hand',                 ['ナ', '又'],   'Two hands clasped = FRIEND.'),
     '先': ('儿', 'human legs',                 ['牛', '儿'],   'A person (儿) striding ahead = PREVIOUS / earlier.'),
@@ -85,18 +85,18 @@ KANJI_DEPTH = {
     '国': ('囗', 'enclosure',                  ['囗', '玉'],   'A jewel (玉) inside borders (囗) = COUNTRY.'),
     '会': ('人', 'person',                     ['人', '云'],   'People (人) gathering in clouds (云) = MEET.'),
     '社': ('礻', 'altar',                      ['礻', '土'],   'Altar (礻) on the earth (土) where people gather = COMPANY / shrine.'),
-    '員': ('口', 'mouth',                      ['口', '貝'],   'Mouth (口) over shell-money (貝) — a paid speaker = MEMBER / employee.'),
+    '員': ('口', 'mouth',                      ['口', '貝'],   'Mouth (口) over shell-money (貝) - a paid speaker = MEMBER / employee.'),
     # === Size / position ===
     '大': ('大', 'big (radical 37)',           ['大'],         'A person with arms stretched wide = BIG.'),
     '中': ('丨', 'line',                       ['口', '丨'],   'A line through the middle of a box = MIDDLE.'),
     '小': ('小', 'small (radical 42)',         ['小'],         'Three small specks scattered = SMALL.'),
     '上': ('一', 'one',                        ['上'],         'A mark above the baseline = UP.'),
     '下': ('一', 'one',                        ['下'],         'A mark below the baseline = DOWN.'),
-    '左': ('工', 'work',                       ['ナ', '工'],   'A hand (ナ) holding a tool (工) — natural left-hand grip = LEFT.'),
-    '右': ('口', 'mouth',                      ['ナ', '口'],   'A hand (ナ) over a mouth (口) — natural right-hand bite = RIGHT.'),
+    '左': ('工', 'work',                       ['ナ', '工'],   'A hand (ナ) holding a tool (工) - natural left-hand grip = LEFT.'),
+    '右': ('口', 'mouth',                      ['ナ', '口'],   'A hand (ナ) over a mouth (口) - natural right-hand bite = RIGHT.'),
     '前': ('刂', 'knife (right)',              ['丷', '一', '月', '刂'], 'In FRONT, knife (刂) ready, sharing meat (月) with a smile (丷一).'),
     '後': ('彳', 'going man',                  ['彳', '幺', '夂'], 'A traveler (彳) trailing behind = AFTER.'),
-    '外': ('夕', 'evening',                    ['夕', '卜'],   'Evening (夕) divination (卜) — done OUTSIDE the home.'),
+    '外': ('夕', 'evening',                    ['夕', '卜'],   'Evening (夕) divination (卜) - done OUTSIDE the home.'),
     # === Compass directions ===
     '東': ('木', 'tree',                       ['木', '日'],   'Sun (日) rising behind a tree (木) = EAST.'),
     '西': ('襾', 'cover',                      ['西'],         'A bird returning to its nest at sunset = WEST.'),
@@ -111,17 +111,17 @@ KANJI_DEPTH = {
     '天': ('大', 'big',                        ['一', '大'],   'The biggest thing (大) under the line (一) = HEAVEN / sky.'),
     '気': ('气', 'steam',                      ['气', '〆'],   'Steam (气) rising = SPIRIT / mood / air.'),
     '花': ('艹', 'grass',                      ['艹', '化'],   'Grass (艹) transforming (化) = FLOWER.'),
-    '空': ('穴', 'cave',                       ['穴', '工'],   'A cave (穴) of work (工) — empty above = SKY / empty.'),
-    '電': ('雨', 'rain',                       ['雨', '田'],   'Rain (雨) hitting a paddy (田) — lightning = ELECTRICITY.'),
+    '空': ('穴', 'cave',                       ['穴', '工'],   'A cave (穴) of work (工) - empty above = SKY / empty.'),
+    '電': ('雨', 'rain',                       ['雨', '田'],   'Rain (雨) hitting a paddy (田) - lightning = ELECTRICITY.'),
     # === Travel + transport ===
     '車': ('車', 'vehicle (radical 159)',      ['車'],         'A wheel with axle and bed = VEHICLE / car.'),
     '道': ('辶', 'walk',                       ['辶', '首'],   'Walking (辶) with one\'s head (首) up = ROAD / way.'),
     '店': ('广', 'roof',                       ['广', '占'],   'Under a roof (广), claim a spot (占) = SHOP.'),
-    '駅': ('馬', 'horse',                      ['馬', '尺'],   'Horse (馬) measured (尺) — a relay STATION.'),
+    '駅': ('馬', 'horse',                      ['馬', '尺'],   'Horse (馬) measured (尺) - a relay STATION.'),
     # === Eating + sensing ===
     '食': ('食', 'eat (radical 184)',          ['食'],         'A roof over good things to eat = EAT.'),
-    '飲': ('食', 'eat',                        ['飠', '欠'],   'Food (飠) and a yawn (欠) — DRINK to wash it down.'),
-    '見': ('見', 'see (radical 147)',          ['目', '儿'],   'Eye (目) on legs (儿) — looking around = SEE.'),
+    '飲': ('食', 'eat',                        ['飠', '欠'],   'Food (飠) and a yawn (欠) - DRINK to wash it down.'),
+    '見': ('見', 'see (radical 147)',          ['目', '儿'],   'Eye (目) on legs (儿) - looking around = SEE.'),
     '聞': ('門', 'gate',                       ['門', '耳'],   'Ear (耳) at the gate (門) = HEAR.'),
     '読': ('言', 'speech',                     ['言', '売'],   'Speech (言) selling (売) ideas = READ.'),
     '書': ('日', 'sun',                        ['書'],         'A brush over a writing surface in daylight = WRITE / book.'),
@@ -129,15 +129,15 @@ KANJI_DEPTH = {
     # === Motion ===
     '来': ('木', 'tree',                       ['一', '米'],   'Like a tree growing toward you = COME.'),
     '行': ('行', 'go (radical 144)',           ['彳', '亍'],   'Two walking-man halves = GO.'),
-    '出': ('凵', 'open box',                   ['出'],         'Stacked containers — sticking OUT.'),
-    '入': ('入', 'enter (radical 11)',         ['入'],         'Two strokes meeting at a point — going INSIDE = ENTER.'),
+    '出': ('凵', 'open box',                   ['出'],         'Stacked containers - sticking OUT.'),
+    '入': ('入', 'enter (radical 11)',         ['入'],         'Two strokes meeting at a point - going INSIDE = ENTER.'),
     '立': ('立', 'stand (radical 117)',        ['立'],         'A person planted on the ground = STAND.'),
     '休': ('亻', 'person (left)',              ['亻', '木'],   'A person (亻) leaning on a tree (木) = REST.'),
     '言': ('言', 'speech (radical 149)',       ['言'],         'Words (言) leaving the mouth = SAY.'),
     '買': ('貝', 'shell/money',                ['四', '貝'],   'Net (四) for shell-money (貝) = BUY.'),
     # === Adjectives ===
     '高': ('高', 'tall (radical 189)',         ['高'],         'A tall pavilion silhouette = TALL / expensive.'),
-    '安': ('宀', 'roof',                       ['宀', '女'],   'A woman (女) under a roof (宀) — peaceful and CHEAP.'),
+    '安': ('宀', 'roof',                       ['宀', '女'],   'A woman (女) under a roof (宀) - peaceful and CHEAP.'),
     '新': ('斤', 'axe',                        ['立', '木', '斤'], 'A standing tree freshly cut by an axe = NEW.'),
     '古': ('口', 'mouth',                      ['十', '口'],   'Ten (十) generations of stories (口) = OLD.'),
     '長': ('長', 'long (radical 168)',         ['長'],         'Long flowing hair on an elder = LONG.'),

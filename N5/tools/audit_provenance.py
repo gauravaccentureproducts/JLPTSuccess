@@ -1,7 +1,7 @@
 """Provenance audit: scan every text field in every data file for
 past-paper signatures.
 
-Triggered by CONTENT-LICENSE.md §3 (2026-05-02 — formalized after
+Triggered by CONTENT-LICENSE.md §3 (2026-05-02 - formalized after
 clarifying that the corpus is original, not sourced from JLPT past
 papers). Run before every release as part of the content-integrity
 gate; exit non-zero if any signature is found.
@@ -14,7 +14,7 @@ Detects:
 
 If a hit appears, the report shows the question id + field + matching
 substring. The expected fix is to re-author the offending stem in the
-project's own voice — not to add an exception or override the rule.
+project's own voice - not to add an exception or override the rule.
 """
 from __future__ import annotations
 
@@ -98,7 +98,7 @@ def main() -> int:
             for field in GRAMMAR_FIELDS:
                 scan(p.get(field, ""), pid, field, hits)
 
-    # KnowledgeBank/*.md (raw source files for the paper questions —
+    # KnowledgeBank/*.md (raw source files for the paper questions -
     # these are also project-authored but worth scanning to catch any
     # references in the metadata / notes sections)
     kb_dir = ROOT / "KnowledgeBank"
@@ -114,13 +114,13 @@ def main() -> int:
                 continue
 
     print("=" * 72)
-    print(f"  PROVENANCE AUDIT — {ROOT}")
+    print(f"  PROVENANCE AUDIT - {ROOT}")
     print("=" * 72)
     print(f"\nTotal hits: {len(hits)}")
     if hits:
         print()
         for h in hits[:50]:
-            print(f"  {h['qid']} [{h['field']}] — {h['rule']}: {h['snippet'][:80]}")
+            print(f"  {h['qid']} [{h['field']}] - {h['rule']}: {h['snippet'][:80]}")
         if len(hits) > 50:
             print(f"  ... and {len(hits) - 50} more")
         print()

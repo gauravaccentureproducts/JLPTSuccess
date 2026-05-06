@@ -74,7 +74,7 @@ async function showPopover(glyph, anchor) {
   } else {
     // ISSUE-008 (2026-05-04 audit round 2): surface stroke_count next to
     // the glyph and additional_readings (populated-but-pedagogically-pruned
-    // ON/KUN forms — N5 teaches one of them, this entry shows the other
+    // ON/KUN forms - N5 teaches one of them, this entry shows the other
     // for cross-reference). Both fields shipped in v1.12.28's IMP-015.
     const addOn  = entry.additional_readings?.on  || [];
     const addKun = entry.additional_readings?.kun || [];

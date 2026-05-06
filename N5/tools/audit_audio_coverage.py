@@ -1,10 +1,10 @@
-"""Audit audio coverage — which audio refs declared in data files have
+"""Audit audio coverage - which audio refs declared in data files have
 real .mp3 files on disk, and which are missing.
 
 Three sources of audio refs:
-  1. data/grammar.json — patterns[].examples[].audio (when present)
-  2. data/reading.json — passages[].audio
-  3. data/listening.json — items[].audio
+  1. data/grammar.json - patterns[].examples[].audio (when present)
+  2. data/reading.json - passages[].audio
+  3. data/listening.json - items[].audio
 
 Output: per-module coverage report (count + first-N missing IDs) + a
 JSON dump of the gap list to feedback/audio-coverage-gaps.json so the
@@ -79,7 +79,7 @@ def main() -> int:
 
     gaps: dict[str, list[dict]] = {}
     print("=" * 72)
-    print(f"  AUDIO COVERAGE AUDIT — {ROOT}")
+    print(f"  AUDIO COVERAGE AUDIT - {ROOT}")
     print("=" * 72)
     overall_declared = overall_present = 0
     for name, refs in sections:

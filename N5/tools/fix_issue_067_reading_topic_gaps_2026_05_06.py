@@ -219,7 +219,7 @@ def main() -> int:
         if new_p['id'] in existing:
             print(f'  skip {new_p["id"]} (exists)')
             continue
-        # No audio file yet — leave audio absent or build later via build_audio.py
+        # No audio file yet - leave audio absent or build later via build_audio.py
         passages.append(new_p)
         n_added += 1
 

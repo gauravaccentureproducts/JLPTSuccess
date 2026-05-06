@@ -241,15 +241,15 @@ A learner viewing the 名 kanji card sees "name" listed twice, which looks like 
 **Locations:**
 
 ```
-grammar.json — em-dashes (U+2014):
-- explanation_en for "9時に — specific time + に. かいぎ (meeting)..."
-- explanation_en for "何時に — question word for clock-time + に..."
-- explanation_en for "12時に — midnight bedtime..."
-- translation_en "Why didn't you go? — Because I had a fever."
-- translation_en "Why did you skip school? — Because I had a headache."
-- meaning_en "～んです / ～のです — explanation, emphasis, or asking..."
+grammar.json - em-dashes (U+2014):
+- explanation_en for "9時に - specific time + に. かいぎ (meeting)..."
+- explanation_en for "何時に - question word for clock-time + に..."
+- explanation_en for "12時に - midnight bedtime..."
+- translation_en "Why didn't you go? - Because I had a fever."
+- translation_en "Why did you skip school? - Because I had a headache."
+- meaning_en "～んです / ～のです - explanation, emphasis, or asking..."
 
-grammar.json — en-dashes (U+2013):
+grammar.json - en-dashes (U+2013):
 - form_rules label "Paired with から (from–to)"
 - common_mistakes why "Order is start–end: から first, then まで."
 ```

@@ -18,11 +18,11 @@ assignees: []
 
 <!-- JLPTSuccess deliberately optimizes for specific niches over generic JLPT-prep parity. Tick what this idea supports: -->
 
-- [ ] **N1 — Multilingual non-English-native learners** (better translations, L1-interference notes, locale parity)
-- [ ] **N2 — Privacy / no-account / offline-first** (capabilities that work without an account or network)
-- [ ] **N3 — Self-hostable / institutional use** (forking, branding, packaging)
-- [ ] **N4 — All-in-one (single app for grammar + vocab + kanji + reading + listening)**
-- [ ] **None of the above** — general-improvement; please justify why it's worth doing despite not advancing a niche claim
+- [ ] **N1 - Multilingual non-English-native learners** (better translations, L1-interference notes, locale parity)
+- [ ] **N2 - Privacy / no-account / offline-first** (capabilities that work without an account or network)
+- [ ] **N3 - Self-hostable / institutional use** (forking, branding, packaging)
+- [ ] **N4 - All-in-one (single app for grammar + vocab + kanji + reading + listening)**
+- [ ] **None of the above** - general-improvement; please justify why it's worth doing despite not advancing a niche claim
 
 ## Out-of-scope check
 
@@ -31,15 +31,15 @@ assignees: []
 - ❌ User accounts / authentication / cloud sync (privacy commitment)
 - ❌ Telemetry / analytics / tracking (privacy commitment)
 - ❌ Streaks / XP / leaderboards / gamification beyond a private streak counter
-- ❌ Native mobile apps in App Store / Play Store (today — PWA is the install path)
+- ❌ Native mobile apps in App Store / Play Store (today - PWA is the install path)
 - ❌ Multi-learner profiles within one device (use separate browser profiles)
 - ❌ Anything requiring a remote API at runtime
 
-If your idea hits one of the above, it's likely a hard "no" — but feel free to file it anyway with reasoning if you think the trade-off is worth re-opening.
+If your idea hits one of the above, it's likely a hard "no" - but feel free to file it anyway with reasoning if you think the trade-off is worth re-opening.
 
 ## Suggested approach (optional)
 
-<!-- If you have a sense of how it could be implemented — file path, JS module, integration with existing surfaces — share it. Not required; the maintainer will figure it out otherwise. -->
+<!-- If you have a sense of how it could be implemented - file path, JS module, integration with existing surfaces - share it. Not required; the maintainer will figure it out otherwise. -->
 
 ## Comparison / inspiration (optional)
 

@@ -1,5 +1,5 @@
 """IMP-045 (audit round-5): SCHEMA-ONLY pass for grammar explanation
-translations. Does NOT machine-translate the content body — the round-5
+translations. Does NOT machine-translate the content body - the round-5
 audit explicitly warned this would damage the niche-N1 trust claim
 ("DO NOT machine-translate the content body"). Instead this pass:
 
@@ -43,7 +43,7 @@ def main() -> int:
             'IMP-045 (audit round-5): grammar.json content-body '
             'translation. Per Q14 + the round-5 anti-items list, '
             'the long English explanations are NOT machine-translated '
-            '— they would be confidently wrong in subtle JLPT-context-'
+            '- they would be confidently wrong in subtle JLPT-context-'
             'sensitive ways. Native reviewers (per Q20 recruitment in '
             'docs/TRANSLATING.md) author the per-locale fields when '
             'available. Renderer falls back to explanation_en when a '

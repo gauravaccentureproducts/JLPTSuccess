@@ -40,7 +40,7 @@ assignees: []
 
 ## Screenshots / video (optional)
 
-<!-- Drag-drop into this textarea — helps a lot for layout/visual bugs. -->
+<!-- Drag-drop into this textarea - helps a lot for layout/visual bugs. -->
 
 ## Additional context
 

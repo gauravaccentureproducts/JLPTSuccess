@@ -206,7 +206,7 @@ def main() -> int:
     p.write_text(json.dumps(vocab, ensure_ascii=False, indent=2), encoding='utf-8')
     print(f'Added {added} new vocab entries:')
     for new in NEW_ENTRIES:
-        print(f'  + {new["id"]}  [{new["pos"]}]  {new["form"]} ({new["reading"]}) — {new["gloss"][:50]}')
+        print(f'  + {new["id"]}  [{new["pos"]}]  {new["form"]} ({new["reading"]}) - {new["gloss"][:50]}')
     return 0
 
 

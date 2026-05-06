@@ -3,7 +3,7 @@
 Thanks for considering a contribution. This project is a static, no-
 account, privacy-respecting JLPT N5 prep app deployed as a PWA. The
 canonical strategic positioning is in `N5/prompts/N5Improvement.txt`
-— audit-driven, niche-fit-aware. Read that first if you're proposing
+- audit-driven, niche-fit-aware. Read that first if you're proposing
 a feature.
 
 ## Quick links
@@ -49,16 +49,16 @@ PR. Most pure-data work is content; most JS/CSS/Python work is code.
 
 1. Check the audit tracker (`N5/feedback/n5-audit-2026-05-04.xlsx`)
    to see if it's already considered. Many features were
-   intentionally excluded — see Section 7 of `N5/prompts/N5Improvement.txt`
+   intentionally excluded - see Section 7 of `N5/prompts/N5Improvement.txt`
    ("Anti-Items") for the canonical "do not build this" list.
 2. Open a feature-request issue. If your feature aligns with a niche
    already on the roadmap (N1 multilingual / N2 privacy / N3 self-
-   host / N4 all-in-one), say so explicitly — it accelerates review.
+   host / N4 all-in-one), say so explicitly - it accelerates review.
 
 ### Submitting a code change
 
 1. Fork the repo + create a topic branch.
-2. Make your change. Match existing code style — vanilla JS/CSS/Python,
+2. Make your change. Match existing code style - vanilla JS/CSS/Python,
    no framework dependencies. Keep PRs focused on one logical change.
 3. **Run the integrity gate before pushing:**
    ```bash
@@ -141,4 +141,4 @@ in an issue before writing code.
 Open a discussion or an issue. We'd rather answer questions than
 review a PR that doesn't fit the project's scope.
 
-— JLPTSuccess maintainers
+- JLPTSuccess maintainers

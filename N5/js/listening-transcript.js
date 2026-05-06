@@ -16,7 +16,7 @@
 //
 // When `lines` is absent (current 40/40 items), the caller falls back
 // to the single-block `script_ja` rendering. This module is purely
-// additive — pre-existing behavior is preserved bit-for-bit.
+// additive - pre-existing behavior is preserved bit-for-bit.
 //
 // Authoring of `lines` arrays is out of scope for this PR. The build
 // pipeline (tools/build_audio.py) can add an `--align` step in a future

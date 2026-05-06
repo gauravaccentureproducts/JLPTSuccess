@@ -5,7 +5,7 @@
 import { matchesAnswer } from './normalize.js';
 import * as storage from './storage.js';
 
-// Visual marker for "1 thing" in the count drill — Unicode geometric
+// Visual marker for "1 thing" in the count drill - Unicode geometric
 // shape (Black Circle, U+25CF), renders as plain typography on every
 // platform. Repeat this N times to show "this many objects".
 const COUNT_DOT = '●';

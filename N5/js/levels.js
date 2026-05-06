@@ -1,7 +1,7 @@
 // Level-picker page (Level 1) and placeholder pages for N3-N1.
 //
 // VESTIGIAL UNDER JLPTSuccess (2026-05-04): the level picker now lives
-// at the parent path (../) — handled by JLPTSuccess/index.html — so this
+// at the parent path (../) - handled by JLPTSuccess/index.html - so this
 // in-app `#/levels` route is no longer reachable. parseRoute() in app.js
 // redirects any hit to `../`. This file is kept as dead code in case the
 // per-level placeholder pages (renderLevelPlaceholder) need to render
@@ -12,7 +12,7 @@ const LEVELS = [
     id: 'n5',
     code: 'N5',
     label: 'Beginner',
-    desc: 'Basic Japanese — 177 grammar patterns, 1003 vocab, 106 kanji, 60 dokkai/listening drills.',
+    desc: 'Basic Japanese - 177 grammar patterns, 1003 vocab, 106 kanji, 60 dokkai/listening drills.',
     href: '#/home',          // Routes into the existing N5 dashboard
     available: true,
   },
@@ -34,7 +34,7 @@ const LEVELS = [
     id: 'n3',
     code: 'N3',
     label: 'Intermediate',
-    desc: 'Bridge between elementary and upper-intermediate Japanese — natural-speed listening.',
+    desc: 'Bridge between elementary and upper-intermediate Japanese - natural-speed listening.',
     href: '#/n3',
     available: false,
   },
@@ -66,13 +66,13 @@ export function renderLevels(container) {
       <div class="levels-grid">
         ${LEVELS.map(lvl => {
           // Available levels render as anchors (clickable). Unavailable
-          // levels render as <div> with aria-disabled — visible, in
+          // levels render as <div> with aria-disabled - visible, in
           // their own grid cell, but not focusable + not clickable.
           // Keeps the layout intact without inviting a click that
           // would route to a "nothing here" placeholder.
           if (lvl.available) {
             // External links (sibling deploys like the N4 tutor) carry
-            // rel="noopener" + target="_self" — explicit same-tab so the
+            // rel="noopener" + target="_self" - explicit same-tab so the
             // user understands they're switching to a separate app.
             const externalAttrs = lvl.external
               ? ' rel="noopener" data-external="true"'

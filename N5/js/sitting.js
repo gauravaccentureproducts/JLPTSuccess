@@ -72,10 +72,10 @@ function startTimer(seconds, onTick, onExpire) {
 
 export async function renderSitting(container, params) {
   // Routes:
-  //   #/sitting             — paper-number picker
-  //   #/sitting/<n>         — start section 1 of paper n
-  //   #/sitting/<n>/<i>     — section i (0..2) of paper n
-  //   #/sitting/<n>/result  — final aggregate result
+  //   #/sitting             - paper-number picker
+  //   #/sitting/<n>         - start section 1 of paper n
+  //   #/sitting/<n>/<i>     - section i (0..2) of paper n
+  //   #/sitting/<n>/result  - final aggregate result
   const parts = (params || '').split('/').filter(Boolean);
   if (parts.length === 0) return renderPicker(container);
   const paperNumber = parseInt(parts[0], 10);
@@ -289,7 +289,7 @@ function renderResult(container, paperNumber) {
   const PASS = 60;
   container.innerHTML = `
     <article class="sitting-result">
-      <h2>Sitting complete — Paper ${paperNumber}</h2>
+      <h2>Sitting complete - Paper ${paperNumber}</h2>
       <p class="page-lede">
         Score: <strong>${totalCorrect} / ${totalQs}</strong> (${pct}%) ·
         ${pct >= PASS ? `<span class="pass-badge pass">Pass · ≥ ${PASS}%</span>` : `<span class="pass-badge fail">Below pass · target ${PASS}%</span>`}

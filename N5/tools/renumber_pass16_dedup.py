@@ -1,6 +1,6 @@
 """
 Repair: 10 IDs (q-0454 .. q-0463) currently appear TWICE in
-data/questions.json — once from my Pass-16 commit (2f90e61) using
+data/questions.json - once from my Pass-16 commit (2f90e61) using
 patterns n5-130 / n5-131 / n5-134 / n5-144 / n5-148, and again from a
 parallel Pass-15 P0 commit (12629d5) using paraphrase subtype with
 patterns n5-117 / n5-079 / etc. Both branches landed independently and
@@ -46,8 +46,8 @@ for q in data['questions']:
     else:
         non_colliding.append(q)
 
-print(f'Mine (Pass-16): {len(mine)} entries — IDs: {sorted(q["id"] for q in mine)}')
-print(f'Others (parallel Pass-15 P0 paraphrase): {len(others)} entries — IDs: {sorted(q["id"] for q in others)}')
+print(f'Mine (Pass-16): {len(mine)} entries - IDs: {sorted(q["id"] for q in mine)}')
+print(f'Others (parallel Pass-15 P0 paraphrase): {len(others)} entries - IDs: {sorted(q["id"] for q in others)}')
 print(f'Non-colliding: {len(non_colliding)}')
 
 if not mine:

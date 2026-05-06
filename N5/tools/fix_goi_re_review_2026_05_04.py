@@ -42,7 +42,7 @@ JSON_FIXES = {
         'rationale': 'つかれた + やすむ. つかれましたから (polite past + から) is the N5-canonical reason -> action chain (replaces ので which leans N4 in major textbooks).',
     },
 
-    # Q51 / goi-4.6: full rewrite — stem now tests vocab triangle
+    # Q51 / goi-4.6: full rewrite - stem now tests vocab triangle
     # 病院/はたらく/医者 instead of the prior tautology
     # 「父は医者 = 父の仕事は医者」.
     (4, 'goi-4.6'): {
@@ -54,12 +54,12 @@ JSON_FIXES = {
             'わたしの ちちは 学校の 先生です。',
         ],
         'correctIndex': 1,
-        'rationale': '「病院で はたらく」 ≈ 「いしゃです」. N5 pragmatic substitution (working at a hospital is the standard textbook paraphrase of "is a doctor", though strictly someone could work at a hospital without being a doctor — nurse, admin). Tests the N5 vocab triangle 病院 / はたらく / いしゃ; replaces the prior tautological 「父は医者 = 父の仕事は医者」 which tested no vocabulary.',
+        'rationale': '「病院で はたらく」 ≈ 「いしゃです」. N5 pragmatic substitution (working at a hospital is the standard textbook paraphrase of "is a doctor", though strictly someone could work at a hospital without being a doctor - nurse, admin). Tests the N5 vocab triangle 病院 / はたらく / いしゃ; replaces the prior tautological 「父は医者 = 父の仕事は医者」 which tested no vocabulary.',
     },
 
     # Q94 / goi-7.4: tighten rationale labelling
     (7, 'goi-7.4'): {
-        'rationale': 'あまくないです (i-adj + です polite neg) = あまく ありません (formal polite neg). Two equivalent polite negative forms of i-adjectives — a true synonymy item rather than a graded approximation. Same meaning, different polite form.',
+        'rationale': 'あまくないです (i-adj + です polite neg) = あまく ありません (formal polite neg). Two equivalent polite negative forms of i-adjectives - a true synonymy item rather than a graded approximation. Same meaning, different polite form.',
     },
 
     # Q98 / goi-7.8: remove わたす [Ext] entirely. New keyed verb is

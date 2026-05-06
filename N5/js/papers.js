@@ -1,4 +1,4 @@
-// Mock-test "papers" — multi-paper, category-organized practice.
+// Mock-test "papers" - multi-paper, category-organized practice.
 //
 // Surfaces the 360 audited KB questions (moji + goi + bunpou + dokkai)
 // that previously sat in source-MD form without reaching learners. The
@@ -7,9 +7,9 @@
 // JSONs.
 //
 // Routing:
-//   #/papers                   — 4-card category index (Moji / Goi / Bunpou / Dokkai)
-//   #/papers/<category>        — list of papers for that category
-//   #/papers/<category>/<n>    — start the n-th paper (mock-test flow)
+//   #/papers                   - 4-card category index (Moji / Goi / Bunpou / Dokkai)
+//   #/papers/<category>        - list of papers for that category
+//   #/papers/<category>/<n>    - start the n-th paper (mock-test flow)
 //
 // Score persistence: per-paper localStorage keys via the storage module.
 
@@ -78,7 +78,7 @@ export async function renderPapers(container, params) {
   // `view === 'attempting' | 'results'` is meaningful only when the URL
   // points to a specific paper (#/papers/<cat>/<n>, parts.length === 2).
   // If the URL is now the index (#/papers) or a category list
-  // (#/papers/<cat>), the user has navigated out of the flow — clear
+  // (#/papers/<cat>), the user has navigated out of the flow - clear
   // the stale state so the requested page can render. Without this,
   // clicking "Back to <cat> papers" on the results page just re-rendered
   // the results page (the early-return below short-circuited routing).
@@ -136,7 +136,7 @@ async function renderCategoryIndex(container) {
       <h2>Mock-test Papers</h2>
       <p class="page-lede">${m.totalQuestions} audited JLPT N5 questions across ${m.totalPapers} papers in 4 sections. Each paper is sized to a study-session (15 questions, ~10 minutes). Scores persist locally so you can track which papers you've completed.</p>
       <div class="paper-cat-grid">${cards}</div>
-      <p class="papers-foot-note">Source: <code>KnowledgeBank/{moji,goi,bunpou,dokkai}_questions_n5.md</code> — curated and native-teacher-reviewed across Pass-9 through Pass-19.</p>
+      <p class="papers-foot-note">Source: <code>KnowledgeBank/{moji,goi,bunpou,dokkai}_questions_n5.md</code> - curated and native-teacher-reviewed across Pass-9 through Pass-19.</p>
     </article>
   `;
 }

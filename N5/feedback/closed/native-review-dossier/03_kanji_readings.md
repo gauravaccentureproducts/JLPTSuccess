@@ -1,10 +1,10 @@
-# 03 — Kanji readings (106 entries)
+# 03 - Kanji readings (106 entries)
 
-Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runtime primary — flag if a different reading is more representative for N5 contexts.
+Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runtime primary - flag if a different reading is more representative for N5 contexts.
 
 ---
 
-## `n5.kanji.一` — 一
+## `n5.kanji.一` - 一
 
 - **on:** いち / いつ
 - **kun:** ひと
@@ -12,7 +12,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** one
 - **freq rank (within N5):** 5
 
-## `n5.kanji.二` — 二
+## `n5.kanji.二` - 二
 
 - **on:** に
 - **kun:** ふた
@@ -20,7 +20,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** two
 - **freq rank (within N5):** 6
 
-## `n5.kanji.三` — 三
+## `n5.kanji.三` - 三
 
 - **on:** さん
 - **kun:** みっ / み
@@ -28,7 +28,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** three
 - **freq rank (within N5):** 27
 
-## `n5.kanji.四` — 四
+## `n5.kanji.四` - 四
 
 - **on:** し
 - **kun:** よっ / よ / よん
@@ -36,7 +36,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** four
 - **freq rank (within N5):** 68
 
-## `n5.kanji.五` — 五
+## `n5.kanji.五` - 五
 
 - **on:** ご
 - **kun:** いつ
@@ -44,7 +44,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** five
 - **freq rank (within N5):** 62
 
-## `n5.kanji.六` — 六
+## `n5.kanji.六` - 六
 
 - **on:** ろく
 - **kun:** むっ / む
@@ -52,7 +52,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** six
 - **freq rank (within N5):** 98
 
-## `n5.kanji.七` — 七
+## `n5.kanji.七` - 七
 
 - **on:** しち
 - **kun:** なな / なの
@@ -60,7 +60,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** seven
 - **freq rank (within N5):** 69
 
-## `n5.kanji.八` — 八
+## `n5.kanji.八` - 八
 
 - **on:** はち
 - **kun:** やっ / や / よう
@@ -68,7 +68,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** eight
 - **freq rank (within N5):** 7
 
-## `n5.kanji.九` — 九
+## `n5.kanji.九` - 九
 
 - **on:** きゅう / く
 - **kun:** ここの
@@ -76,7 +76,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** nine
 - **freq rank (within N5):** 56
 
-## `n5.kanji.十` — 十
+## `n5.kanji.十` - 十
 
 - **on:** じゅう / じっ
 - **kun:** とお / と
@@ -84,15 +84,15 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** ten
 - **freq rank (within N5):** 26
 
-## `n5.kanji.百` — 百
+## `n5.kanji.百` - 百
 
 - **on:** ひゃく
-- **kun:** —
+- **kun:** -
 - **primary reading:** ひゃく (on)
 - **meanings:** hundred
 - **freq rank (within N5):** 11
 
-## `n5.kanji.千` — 千
+## `n5.kanji.千` - 千
 
 - **on:** せん
 - **kun:** ち
@@ -100,23 +100,23 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** thousand
 - **freq rank (within N5):** 81
 
-## `n5.kanji.万` — 万
+## `n5.kanji.万` - 万
 
 - **on:** まん
-- **kun:** —
+- **kun:** -
 - **primary reading:** まん (on)
 - **meanings:** ten thousand
 - **freq rank (within N5):** 45
 
-## `n5.kanji.円` — 円
+## `n5.kanji.円` - 円
 
 - **on:** えん
-- **kun:** —
+- **kun:** -
 - **primary reading:** えん (on)
 - **meanings:** yen
 - **freq rank (within N5):** 49
 
-## `n5.kanji.日` — 日
+## `n5.kanji.日` - 日
 
 - **on:** にち / じつ
 - **kun:** ひ / -び / -か
@@ -124,7 +124,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** day, sun
 - **freq rank (within N5):** 88
 
-## `n5.kanji.月` — 月
+## `n5.kanji.月` - 月
 
 - **on:** げつ / がつ
 - **kun:** つき
@@ -132,7 +132,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** month, moon
 - **freq rank (within N5):** 58
 
-## `n5.kanji.火` — 火
+## `n5.kanji.火` - 火
 
 - **on:** か
 - **kun:** ひ
@@ -140,7 +140,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** fire, Tuesday
 - **freq rank (within N5):** 50
 
-## `n5.kanji.水` — 水
+## `n5.kanji.水` - 水
 
 - **on:** すい
 - **kun:** みず
@@ -148,7 +148,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** water, Wednesday
 - **freq rank (within N5):** 79
 
-## `n5.kanji.木` — 木
+## `n5.kanji.木` - 木
 
 - **on:** もく / ぼく
 - **kun:** き / こ-
@@ -156,7 +156,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** tree, wood, Thursday
 - **freq rank (within N5):** 94
 
-## `n5.kanji.金` — 金
+## `n5.kanji.金` - 金
 
 - **on:** きん / こん
 - **kun:** かね / かな-
@@ -164,7 +164,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** gold, money, Friday
 - **freq rank (within N5):** 59
 
-## `n5.kanji.土` — 土
+## `n5.kanji.土` - 土
 
 - **on:** ど / と
 - **kun:** つち
@@ -172,15 +172,15 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** earth, soil, Saturday
 - **freq rank (within N5):** 84
 
-## `n5.kanji.曜` — 曜
+## `n5.kanji.曜` - 曜
 
 - **on:** よう
-- **kun:** —
+- **kun:** -
 - **primary reading:** よう (on)
 - **meanings:** weekday
 - **freq rank (within N5):** 16
 
-## `n5.kanji.年` — 年
+## `n5.kanji.年` - 年
 
 - **on:** ねん
 - **kun:** とし
@@ -188,7 +188,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** year
 - **freq rank (within N5):** 91
 
-## `n5.kanji.時` — 時
+## `n5.kanji.時` - 時
 
 - **on:** じ
 - **kun:** とき
@@ -196,7 +196,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** time, hour
 - **freq rank (within N5):** 9
 
-## `n5.kanji.分` — 分
+## `n5.kanji.分` - 分
 
 - **on:** ぶん / ふん / ぶ
 - **kun:** わ
@@ -204,7 +204,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** minute, part, divide
 - **freq rank (within N5):** 18
 
-## `n5.kanji.半` — 半
+## `n5.kanji.半` - 半
 
 - **on:** はん
 - **kun:** なか
@@ -212,7 +212,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** half
 - **freq rank (within N5):** 43
 
-## `n5.kanji.今` — 今
+## `n5.kanji.今` - 今
 
 - **on:** こん
 - **kun:** いま
@@ -220,31 +220,31 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** now
 - **freq rank (within N5):** 15
 
-## `n5.kanji.毎` — 毎
+## `n5.kanji.毎` - 毎
 
 - **on:** まい
-- **kun:** —
+- **kun:** -
 - **primary reading:** まい (on)
 - **meanings:** every
 - **freq rank (within N5):** 22
 
-## `n5.kanji.週` — 週
+## `n5.kanji.週` - 週
 
 - **on:** しゅう
-- **kun:** —
+- **kun:** -
 - **primary reading:** しゅう (on)
 - **meanings:** week
 - **freq rank (within N5):** 71
 
-## `n5.kanji.午` — 午
+## `n5.kanji.午` - 午
 
 - **on:** ご
-- **kun:** —
+- **kun:** -
 - **primary reading:** ご (on)
 - **meanings:** noon
 - **freq rank (within N5):** 63
 
-## `n5.kanji.何` — 何
+## `n5.kanji.何` - 何
 
 - **on:** か
 - **kun:** なに / なん
@@ -252,7 +252,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** what
 - **freq rank (within N5):** 14
 
-## `n5.kanji.人` — 人
+## `n5.kanji.人` - 人
 
 - **on:** じん / にん
 - **kun:** ひと
@@ -260,7 +260,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** person
 - **freq rank (within N5):** 1
 
-## `n5.kanji.男` — 男
+## `n5.kanji.男` - 男
 
 - **on:** だん / なん
 - **kun:** おとこ
@@ -268,7 +268,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** man, male
 - **freq rank (within N5):** 28
 
-## `n5.kanji.女` — 女
+## `n5.kanji.女` - 女
 
 - **on:** じょ / にょ
 - **kun:** おんな / め
@@ -276,7 +276,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** woman, female
 - **freq rank (within N5):** 73
 
-## `n5.kanji.子` — 子
+## `n5.kanji.子` - 子
 
 - **on:** し / す
 - **kun:** こ
@@ -284,7 +284,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** child
 - **freq rank (within N5):** 64
 
-## `n5.kanji.父` — 父
+## `n5.kanji.父` - 父
 
 - **on:** ふ
 - **kun:** ちち
@@ -292,7 +292,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** father
 - **freq rank (within N5):** 31
 
-## `n5.kanji.母` — 母
+## `n5.kanji.母` - 母
 
 - **on:** ぼ
 - **kun:** はは
@@ -300,7 +300,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** mother
 - **freq rank (within N5):** 32
 
-## `n5.kanji.友` — 友
+## `n5.kanji.友` - 友
 
 - **on:** ゆう
 - **kun:** とも
@@ -308,7 +308,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** friend
 - **freq rank (within N5):** 95
 
-## `n5.kanji.先` — 先
+## `n5.kanji.先` - 先
 
 - **on:** せん
 - **kun:** さき
@@ -316,7 +316,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** previous, ahead, tip
 - **freq rank (within N5):** 82
 
-## `n5.kanji.生` — 生
+## `n5.kanji.生` - 生
 
 - **on:** せい
 - **kun:** い / う
@@ -324,7 +324,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** life, birth
 - **freq rank (within N5):** 12
 
-## `n5.kanji.手` — 手
+## `n5.kanji.手` - 手
 
 - **on:** しゅ
 - **kun:** て
@@ -332,7 +332,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** hand
 - **freq rank (within N5):** 35
 
-## `n5.kanji.足` — 足
+## `n5.kanji.足` - 足
 
 - **on:** そく
 - **kun:** あし
@@ -340,7 +340,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** foot, leg
 - **freq rank (within N5):** 37
 
-## `n5.kanji.目` — 目
+## `n5.kanji.目` - 目
 
 - **on:** もく
 - **kun:** め
@@ -348,7 +348,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** eye
 - **freq rank (within N5):** 38
 
-## `n5.kanji.口` — 口
+## `n5.kanji.口` - 口
 
 - **on:** こう
 - **kun:** くち
@@ -356,7 +356,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** mouth
 - **freq rank (within N5):** 39
 
-## `n5.kanji.力` — 力
+## `n5.kanji.力` - 力
 
 - **on:** りょく / りき
 - **kun:** ちから
@@ -364,7 +364,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** power, strength
 - **freq rank (within N5):** 40
 
-## `n5.kanji.学` — 学
+## `n5.kanji.学` - 学
 
 - **on:** がく
 - **kun:** まな
@@ -372,15 +372,15 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** study, learning
 - **freq rank (within N5):** 53
 
-## `n5.kanji.校` — 校
+## `n5.kanji.校` - 校
 
 - **on:** こう
-- **kun:** —
+- **kun:** -
 - **primary reading:** こう (on)
 - **meanings:** school
 - **freq rank (within N5):** 36
 
-## `n5.kanji.本` — 本
+## `n5.kanji.本` - 本
 
 - **on:** ほん
 - **kun:** もと
@@ -388,7 +388,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** book, origin, main
 - **freq rank (within N5):** 2
 
-## `n5.kanji.語` — 語
+## `n5.kanji.語` - 語
 
 - **on:** ご
 - **kun:** かた
@@ -396,7 +396,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** language, word
 - **freq rank (within N5):** 61
 
-## `n5.kanji.国` — 国
+## `n5.kanji.国` - 国
 
 - **on:** こく
 - **kun:** くに
@@ -404,7 +404,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** country
 - **freq rank (within N5):** 44
 
-## `n5.kanji.会` — 会
+## `n5.kanji.会` - 会
 
 - **on:** かい / え
 - **kun:** あ
@@ -412,23 +412,23 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** meeting, association
 - **freq rank (within N5):** 13
 
-## `n5.kanji.社` — 社
+## `n5.kanji.社` - 社
 
 - **on:** しゃ
-- **kun:** —
+- **kun:** -
 - **primary reading:** しゃ (on)
 - **meanings:** company
 - **freq rank (within N5):** 106
 
-## `n5.kanji.員` — 員
+## `n5.kanji.員` - 員
 
 - **on:** いん
-- **kun:** —
+- **kun:** -
 - **primary reading:** いん (on)
 - **meanings:** member, staff
 - **freq rank (within N5):** 105
 
-## `n5.kanji.大` — 大
+## `n5.kanji.大` - 大
 
 - **on:** だい / たい
 - **kun:** おお
@@ -436,7 +436,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** big, large
 - **freq rank (within N5):** 4
 
-## `n5.kanji.中` — 中
+## `n5.kanji.中` - 中
 
 - **on:** ちゅう
 - **kun:** なか
@@ -444,7 +444,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** middle, inside
 - **freq rank (within N5):** 3
 
-## `n5.kanji.小` — 小
+## `n5.kanji.小` - 小
 
 - **on:** しょう
 - **kun:** ちい / こ- / お-
@@ -452,7 +452,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** small, little
 - **freq rank (within N5):** 25
 
-## `n5.kanji.上` — 上
+## `n5.kanji.上` - 上
 
 - **on:** じょう
 - **kun:** うえ / あ
@@ -460,7 +460,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** up, above
 - **freq rank (within N5):** 74
 
-## `n5.kanji.下` — 下
+## `n5.kanji.下` - 下
 
 - **on:** か / げ
 - **kun:** した / さ
@@ -468,7 +468,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** down, below
 - **freq rank (within N5):** 29
 
-## `n5.kanji.左` — 左
+## `n5.kanji.左` - 左
 
 - **on:** さ
 - **kun:** ひだり
@@ -476,7 +476,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** left
 - **freq rank (within N5):** 65
 
-## `n5.kanji.右` — 右
+## `n5.kanji.右` - 右
 
 - **on:** う / ゆう
 - **kun:** みぎ
@@ -484,7 +484,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** right
 - **freq rank (within N5):** 46
 
-## `n5.kanji.前` — 前
+## `n5.kanji.前` - 前
 
 - **on:** ぜん
 - **kun:** まえ
@@ -492,7 +492,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** before, front
 - **freq rank (within N5):** 17
 
-## `n5.kanji.後` — 後
+## `n5.kanji.後` - 後
 
 - **on:** ご / こう
 - **kun:** のち / うし / あと
@@ -500,7 +500,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** after, behind
 - **freq rank (within N5):** 19
 
-## `n5.kanji.外` — 外
+## `n5.kanji.外` - 外
 
 - **on:** がい
 - **kun:** そと
@@ -508,7 +508,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** outside
 - **freq rank (within N5):** 52
 
-## `n5.kanji.東` — 東
+## `n5.kanji.東` - 東
 
 - **on:** とう
 - **kun:** ひがし
@@ -516,7 +516,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** east
 - **freq rank (within N5):** 85
 
-## `n5.kanji.西` — 西
+## `n5.kanji.西` - 西
 
 - **on:** せい / さい
 - **kun:** にし
@@ -524,7 +524,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** west
 - **freq rank (within N5):** 60
 
-## `n5.kanji.南` — 南
+## `n5.kanji.南` - 南
 
 - **on:** なん
 - **kun:** みなみ
@@ -532,7 +532,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** south
 - **freq rank (within N5):** 87
 
-## `n5.kanji.北` — 北
+## `n5.kanji.北` - 北
 
 - **on:** ほく
 - **kun:** きた
@@ -540,7 +540,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** north
 - **freq rank (within N5):** 92
 
-## `n5.kanji.間` — 間
+## `n5.kanji.間` - 間
 
 - **on:** かん / けん
 - **kun:** あいだ / ま
@@ -548,7 +548,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** interval, between, space
 - **freq rank (within N5):** 54
 
-## `n5.kanji.山` — 山
+## `n5.kanji.山` - 山
 
 - **on:** さん
 - **kun:** やま
@@ -556,7 +556,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** mountain
 - **freq rank (within N5):** 66
 
-## `n5.kanji.川` — 川
+## `n5.kanji.川` - 川
 
 - **on:** せん
 - **kun:** かわ
@@ -564,7 +564,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** river
 - **freq rank (within N5):** 83
 
-## `n5.kanji.田` — 田
+## `n5.kanji.田` - 田
 
 - **on:** でん
 - **kun:** た
@@ -572,7 +572,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** rice field
 - **freq rank (within N5):** 67
 
-## `n5.kanji.雨` — 雨
+## `n5.kanji.雨` - 雨
 
 - **on:** う
 - **kun:** あめ
@@ -580,7 +580,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** rain
 - **freq rank (within N5):** 47
 
-## `n5.kanji.天` — 天
+## `n5.kanji.天` - 天
 
 - **on:** てん
 - **kun:** あめ / あま-
@@ -588,15 +588,15 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** heaven, sky
 - **freq rank (within N5):** 70
 
-## `n5.kanji.気` — 気
+## `n5.kanji.気` - 気
 
 - **on:** き / け
-- **kun:** —
+- **kun:** -
 - **primary reading:** き (on)
 - **meanings:** spirit, mood, air
 - **freq rank (within N5):** 55
 
-## `n5.kanji.花` — 花
+## `n5.kanji.花` - 花
 
 - **on:** か
 - **kun:** はな
@@ -604,7 +604,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** flower
 - **freq rank (within N5):** 51
 
-## `n5.kanji.空` — 空
+## `n5.kanji.空` - 空
 
 - **on:** くう
 - **kun:** そら / あ / から
@@ -612,15 +612,15 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** sky, empty
 - **freq rank (within N5):** 57
 
-## `n5.kanji.電` — 電
+## `n5.kanji.電` - 電
 
 - **on:** でん
-- **kun:** —
+- **kun:** -
 - **primary reading:** でん (on)
 - **meanings:** electricity
 - **freq rank (within N5):** 34
 
-## `n5.kanji.車` — 車
+## `n5.kanji.車` - 車
 
 - **on:** しゃ
 - **kun:** くるま
@@ -628,7 +628,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** car, vehicle
 - **freq rank (within N5):** 33
 
-## `n5.kanji.道` — 道
+## `n5.kanji.道` - 道
 
 - **on:** どう
 - **kun:** みち
@@ -636,7 +636,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** road, way
 - **freq rank (within N5):** 75
 
-## `n5.kanji.店` — 店
+## `n5.kanji.店` - 店
 
 - **on:** てん
 - **kun:** みせ
@@ -644,15 +644,15 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** shop, store
 - **freq rank (within N5):** 76
 
-## `n5.kanji.駅` — 駅
+## `n5.kanji.駅` - 駅
 
 - **on:** えき
-- **kun:** —
+- **kun:** -
 - **primary reading:** えき (on)
 - **meanings:** station
 - **freq rank (within N5):** 48
 
-## `n5.kanji.食` — 食
+## `n5.kanji.食` - 食
 
 - **on:** しょく
 - **kun:** た / く
@@ -660,7 +660,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** eat, food
 - **freq rank (within N5):** 77
 
-## `n5.kanji.飲` — 飲
+## `n5.kanji.飲` - 飲
 
 - **on:** いん
 - **kun:** の
@@ -668,7 +668,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** drink
 - **freq rank (within N5):** 80
 
-## `n5.kanji.見` — 見
+## `n5.kanji.見` - 見
 
 - **on:** けん
 - **kun:** み
@@ -676,7 +676,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** see, look
 - **freq rank (within N5):** 10
 
-## `n5.kanji.聞` — 聞
+## `n5.kanji.聞` - 聞
 
 - **on:** ぶん / もん
 - **kun:** き
@@ -684,7 +684,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** hear, listen, ask
 - **freq rank (within N5):** 30
 
-## `n5.kanji.読` — 読
+## `n5.kanji.読` - 読
 
 - **on:** どく
 - **kun:** よ
@@ -692,7 +692,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** read
 - **freq rank (within N5):** 86
 
-## `n5.kanji.書` — 書
+## `n5.kanji.書` - 書
 
 - **on:** しょ
 - **kun:** か
@@ -700,7 +700,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** write
 - **freq rank (within N5):** 41
 
-## `n5.kanji.話` — 話
+## `n5.kanji.話` - 話
 
 - **on:** わ
 - **kun:** はな / はなし
@@ -708,7 +708,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** talk, speak, story
 - **freq rank (within N5):** 100
 
-## `n5.kanji.来` — 来
+## `n5.kanji.来` - 来
 
 - **on:** らい
 - **kun:** く / きた
@@ -716,7 +716,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** come
 - **freq rank (within N5):** 97
 
-## `n5.kanji.行` — 行
+## `n5.kanji.行` - 行
 
 - **on:** こう / ぎょう / あん
 - **kun:** い / ゆ / おこな
@@ -724,7 +724,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** go, conduct
 - **freq rank (within N5):** 8
 
-## `n5.kanji.出` — 出
+## `n5.kanji.出` - 出
 
 - **on:** しゅつ / すい
 - **kun:** で / だ
@@ -732,7 +732,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** exit, go out, put out
 - **freq rank (within N5):** 72
 
-## `n5.kanji.入` — 入
+## `n5.kanji.入` - 入
 
 - **on:** にゅう
 - **kun:** い / はい
@@ -740,7 +740,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** enter, put in
 - **freq rank (within N5):** 90
 
-## `n5.kanji.立` — 立
+## `n5.kanji.立` - 立
 
 - **on:** りつ / りゅう
 - **kun:** た
@@ -748,7 +748,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** stand
 - **freq rank (within N5):** 89
 
-## `n5.kanji.休` — 休
+## `n5.kanji.休` - 休
 
 - **on:** きゅう
 - **kun:** やす
@@ -756,7 +756,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** rest, holiday
 - **freq rank (within N5):** 42
 
-## `n5.kanji.言` — 言
+## `n5.kanji.言` - 言
 
 - **on:** げん / ごん
 - **kun:** い / こと
@@ -764,7 +764,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** say, word
 - **freq rank (within N5):** 21
 
-## `n5.kanji.買` — 買
+## `n5.kanji.買` - 買
 
 - **on:** ばい
 - **kun:** か
@@ -772,7 +772,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** buy
 - **freq rank (within N5):** 93
 
-## `n5.kanji.高` — 高
+## `n5.kanji.高` - 高
 
 - **on:** こう
 - **kun:** たか
@@ -780,7 +780,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** high, tall, expensive
 - **freq rank (within N5):** 23
 
-## `n5.kanji.安` — 安
+## `n5.kanji.安` - 安
 
 - **on:** あん
 - **kun:** やす
@@ -788,7 +788,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** cheap, safe, peaceful
 - **freq rank (within N5):** 96
 
-## `n5.kanji.新` — 新
+## `n5.kanji.新` - 新
 
 - **on:** しん
 - **kun:** あたら / あら / にい-
@@ -796,7 +796,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** new
 - **freq rank (within N5):** 78
 
-## `n5.kanji.古` — 古
+## `n5.kanji.古` - 古
 
 - **on:** こ
 - **kun:** ふる
@@ -804,7 +804,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** old
 - **freq rank (within N5):** 99
 
-## `n5.kanji.長` — 長
+## `n5.kanji.長` - 長
 
 - **on:** ちょう
 - **kun:** なが
@@ -812,7 +812,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** long, leader
 - **freq rank (within N5):** 24
 
-## `n5.kanji.白` — 白
+## `n5.kanji.白` - 白
 
 - **on:** はく / びゃく
 - **kun:** しろ / しら-
@@ -820,7 +820,7 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** white
 - **freq rank (within N5):** 101
 
-## `n5.kanji.名` — 名
+## `n5.kanji.名` - 名
 
 - **on:** めい / みょう
 - **kun:** な
@@ -828,25 +828,25 @@ Cite as the `id` field. The FIRST reading in each `on` / `kun` list is the runti
 - **meanings:** name
 - **freq rank (within N5):** 20
 
-## `n5.kanji.番` — 番
+## `n5.kanji.番` - 番
 
 - **on:** ばん
-- **kun:** —
+- **kun:** -
 - **primary reading:** ばん (on)
 - **meanings:** number, turn
 - **freq rank (within N5):** 103
 
-## `n5.kanji.号` — 号
+## `n5.kanji.号` - 号
 
 - **on:** ごう
-- **kun:** —
+- **kun:** -
 - **primary reading:** ごう (on)
 - **meanings:** number
 - **freq rank (within N5):** 104
 
-## `n5.kanji.私` — 私
+## `n5.kanji.私` - 私
 
-- **on:** —
+- **on:** -
 - **kun:** わたし
 - **primary reading:** わたし (kun)
 - **meanings:** I, me

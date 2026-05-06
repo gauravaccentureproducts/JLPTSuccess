@@ -1,7 +1,7 @@
 """ISSUE-030 (audit round-4): scaffold review_status / provenance tags
 on every content item across the 5 corpora.
 
-Default tag for the whole corpus today is `llm_curated` — most content
+Default tag for the whole corpus today is `llm_curated` - most content
 was authored by Claude/GPT-style assistants with author review, then
 audited by the 41/43 content-integrity invariants. Any item that has
 explicitly been native-reviewed (by a Japanese speaker) can be
@@ -9,7 +9,7 @@ upgraded to `native_reviewed` in a follow-up pass.
 
 Schema:
   review_status: "native_reviewed" | "llm_curated" | "auto_generated"
-  reviewed_by:   string (optional — name / handle of native reviewer)
+  reviewed_by:   string (optional - name / handle of native reviewer)
   reviewed_at:   ISO timestamp (optional)
 
 This pass writes `review_status: "llm_curated"` on every item that
@@ -26,7 +26,7 @@ DATA = ROOT / 'data'
 
 DEFAULT_STATUS = 'llm_curated'
 
-# (file, top-level-key, item-shape — describes how to walk)
+# (file, top-level-key, item-shape - describes how to walk)
 TARGETS = [
     ('grammar.json',   'patterns'),
     ('vocab.json',     'entries'),

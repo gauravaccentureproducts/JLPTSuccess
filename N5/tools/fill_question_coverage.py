@@ -124,7 +124,7 @@ def build_question(pattern: dict, q_id: str) -> dict | None:
     for ex in examples:
         ex_ja = ex.get("ja") or ex.get("japanese") or ex.get("text") or ""
         # Try the resolved `correct` token first. If not in this example,
-        # try other family members from the pool — if any are present, use
+        # try other family members from the pool - if any are present, use
         # THAT as the correct answer for this question (so the question
         # still demonstrates the pattern's family).
         if correct in ex_ja:

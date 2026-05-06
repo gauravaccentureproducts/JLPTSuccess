@@ -5,9 +5,9 @@ Findings:
    using `en` field instead of canonical `translation_en`. Rename.
 2. MAJOR: 19 paper-files have per-paper position skew (max position
    exceeds n/4+1+tolerance). Per-paper rebalance.
-3. MINOR: Cross-corpus duplicate stem (moji Q82 / goi Q1) — same shell
+3. MINOR: Cross-corpus duplicate stem (moji Q82 / goi Q1) - same shell
    「まいあさ コーヒーを X」. Diversify moji Q82.
-4. MINOR: 17 items with choice-length asymmetry — defer to iteration 2
+4. MINOR: 17 items with choice-length asymmetry - defer to iteration 2
    for content-authoring care; flag 4 worst with stem-only signal risk
    (where the keyed answer is the only "long enough to be the answer"
    choice, e.g. Q5 [3,4,3,14]).
@@ -63,7 +63,7 @@ def fix_grammar_en_field() -> None:
 # 2. Per-paper position rebalance
 # ============================================================================
 
-# Constraint sets from prior rounds — items that should NOT be permuted
+# Constraint sets from prior rounds - items that should NOT be permuted
 # within a paper because their choice order has pedagogical meaning.
 
 GOI_CONSTRAINED = {'Q38', 'Q39', 'Q40', 'Q41', 'Q64', 'Q73', 'Q83', 'Q92'}

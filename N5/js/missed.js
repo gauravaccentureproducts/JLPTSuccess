@@ -5,7 +5,7 @@
 // answer · the correct answer · link back to the pattern detail page.
 //
 // "Clear history" button wipes the rolling log (it does NOT touch
-// FSRS-4 schedule or test results — only the browsable trail). Same
+// FSRS-4 schedule or test results - only the browsable trail). Same
 // interaction model as Anki's Browser view filtered by "again".
 import * as storage from './storage.js';
 
@@ -58,7 +58,7 @@ export async function renderMissed(container) {
         <a class="back-link" href="#/review">← Back to Review</a>
         <h2>Wrong-answer history</h2>
         <div class="placeholder">
-          <p>You haven't missed anything recently — keep practising. Wrong answers from Test and Drill flow into this list automatically (most recent 200).</p>
+          <p>You haven't missed anything recently - keep practising. Wrong answers from Test and Drill flow into this list automatically (most recent 200).</p>
         </div>
       </article>
     `;

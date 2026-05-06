@@ -37,13 +37,13 @@ changes: list[str] = []
 
 
 # (paper_n, qid) -> dict of fields to update
-# 'stem_html', 'choices', 'correctIndex', 'rationale' — any subset
+# 'stem_html', 'choices', 'correctIndex', 'rationale' - any subset
 JSON_FIXES = {
     # =========== Critical ===========
     # Q21/goi-2.6: rewrite stem to anchor うえ via 「から おちました」 verb
     (2, 'goi-2.6'): {
         'stem_html': 'ほんが つくえの （　　）から おちました。',
-        'rationale': 'things fall from above; おちる anchors うえ uniquely (a book cannot fall from under, in front of, or behind a desk — only from on top of it).',
+        'rationale': 'things fall from above; おちる anchors うえ uniquely (a book cannot fall from under, in front of, or behind a desk - only from on top of it).',
     },
     # Q94/goi-7.4: replace choice #3 with true polite-form paraphrase
     (7, 'goi-7.4'): {
@@ -84,7 +84,7 @@ JSON_FIXES = {
     # Q39/goi-3.9: swap noun 机 → ボール (because 〜つ takes generic objects, not furniture)
     (3, 'goi-3.9'): {
         'stem_html': 'きょうしつには ボールが 五（　　） あります。',
-        'rationale': '〜つ is the generic native counter for small objects (1-9). ボール (ball) takes 〜つ at N5 level. (Furniture like つくえ takes 〜台 (だい) idiomatically — N4-level distinction.)',
+        'rationale': '〜つ is the generic native counter for small objects (1-9). ボール (ball) takes 〜つ at N5 level. (Furniture like つくえ takes 〜台 (だい) idiomatically - N4-level distinction.)',
     },
     # Q68/goi-5.8: 学生 → 人 (broader scope, matches だれも)
     (5, 'goi-5.8'): {
@@ -94,11 +94,11 @@ JSON_FIXES = {
             'きょうしつに 二人 います。',
             'きょうしつに 学生が おおぜい います。',
         ],
-        'rationale': 'だれも (no one — universal over people) ↔ 人が いません (no people). Both negate the existence of any person, so the scope matches exactly.',
+        'rationale': 'だれも (no one - universal over people) ↔ 人が いません (no people). Both negate the existence of any person, so the scope matches exactly.',
     },
     # Q79/goi-6.4: add caveat to align with Q80's style
     (6, 'goi-6.4'): {
-        'rationale': 'by elimination among the four options. Strictly, 大きくない (not big) is broader than ちいさい (small) — 中ぐらい (medium-sized) also fits 大きくない. Among the four options, ちいさい is the closest single-word match.',
+        'rationale': 'by elimination among the four options. Strictly, 大きくない (not big) is broader than ちいさい (small) - 中ぐらい (medium-sized) also fits 大きくない. Among the four options, ちいさい is the closest single-word match.',
     },
     # Q89/goi-6.14: rewrite keyed; 「高い お金」 is unnatural
     (6, 'goi-6.14'): {
@@ -108,12 +108,12 @@ JSON_FIXES = {
             'その くつは ながかったです。',
             'その くつは よかったです。',
         ],
-        'rationale': '高かった (was expensive) ↔ たくさん お金を 払った (paid a lot of money). Note: 「高い お金」 is unnatural — money is not 高い/安い; ねだん (price) is. Hence the rewording from a prior version.',
+        'rationale': '高かった (was expensive) ↔ たくさん お金を 払った (paid a lot of money). Note: 「高い お金」 is unnatural - money is not 高い/安い; ねだん (price) is. Hence the rewording from a prior version.',
     },
     # Q45/goi-3.15: シャツ → パジャマ (clearly indoor, not cold-weather garment)
     (3, 'goi-3.15'): {
         'choices': ['ぼうし', 'かばん', 'コート', 'パジャマ'],
-        'rationale': 'cold + コート (coat). パジャマ (pajamas) replaces the previous シャツ distractor — a shirt is also wearable in cold weather, while pajamas are clearly an indoor / sleep garment.',
+        'rationale': 'cold + コート (coat). パジャマ (pajamas) replaces the previous シャツ distractor - a shirt is also wearable in cold weather, while pajamas are clearly an indoor / sleep garment.',
     },
 
     # =========== Minor polish ===========
@@ -128,9 +128,9 @@ JSON_FIXES = {
     # Q10/goi-1.10: replace あついです distractor (homophone 暑い/厚い trap) with はやいです
     (1, 'goi-1.10'): {
         'choices': ['おいしいです', 'うるさいです', 'おもしろいです', 'はやいです'],
-        'rationale': '本 + おもしろい (interesting). はやい distractor replaces the prior あつい — あつい is a homophone trap (厚い "thick" is plausible for a book), so it weakens distractor quality.',
+        'rationale': '本 + おもしろい (interesting). はやい distractor replaces the prior あつい - あつい is a homophone trap (厚い "thick" is plausible for a book), so it weakens distractor quality.',
     },
-    # Q19/goi-2.4: stem light on context — add topic anchor
+    # Q19/goi-2.4: stem light on context - add topic anchor
     (2, 'goi-2.4'): {
         'stem_html': 'きのうは しごとが とても （　　）。',
         'rationale': 'past i-adj + です. しごとが いそがしい (work was busy) is the canonical N5 stem-and-answer pairing for this grammar pattern. The topic word しごと anchors いそがしい uniquely.',
@@ -157,7 +157,7 @@ def update_paper_jsons() -> None:
 
 
 # =====================================================================
-# MD source updates — by Q-number, full block replacement
+# MD source updates - by Q-number, full block replacement
 # =====================================================================
 # Each entry: (kb_qnum, full_replacement_text). The replacement starts
 # with `### Q<N>` and ends just before the blank line before the next
@@ -334,7 +334,7 @@ def update_md_source() -> None:
             changes.append(f'goi_questions_n5.md {qnum}: NOT FOUND (skipped)')
             continue
         if m.group(0).strip() == replacement.strip():
-            continue  # idempotent — already in fixed state
+            continue  # idempotent - already in fixed state
         text = text[:m.start()] + replacement + '\n' + text[m.end():]
         changes.append(f'goi_questions_n5.md {qnum}: replaced block')
     if text != original_text:

@@ -32,7 +32,7 @@ QUESTION_FIXES = {
         'prompt_ja': 'ふたつの えらびかたを ならべる ことばを えらんで ください。',
         'choices': ['か', 'は', 'が', 'を'],
         'correctAnswer': 'か',
-        'explanation_en': "か between two nouns means 'or' — it joins alternatives, e.g., コーヒーか おちゃ ('coffee or tea'). This is the use covered by pattern n5-024 (distinct from sentence-final か / question marker, which is n5-023).",
+        'explanation_en': "か between two nouns means 'or' - it joins alternatives, e.g., コーヒーか おちゃ ('coffee or tea'). This is the use covered by pattern n5-024 (distinct from sentence-final か / question marker, which is n5-023).",
         'distractor_explanations': {
             'は': "は marks the topic. Between two nouns it does not mean 'or'; it would split the sentence into a topic-comment relation that does not fit here.",
             'が': "が marks the subject. It does not connect two alternative nouns. The OR-particle is か.",
@@ -45,11 +45,11 @@ QUESTION_FIXES = {
         'prompt_ja': '「すきな もの」を こたえる ときに つかう ことばを えらんで ください。',
         'choices': ['は', 'が', 'を', 'に'],
         'correctAnswer': 'が',
-        'explanation_en': "The pattern X が すき expresses 'I like X'. When answering 'What do you like?', the liked-thing always takes が. (は can sound contrastive — 'as for cats, [I] like [them], but...' — which is N3+ nuance and doesn't match this direct answer.)",
+        'explanation_en': "The pattern X が すき expresses 'I like X'. When answering 'What do you like?', the liked-thing always takes が. (は can sound contrastive - 'as for cats, [I] like [them], but...' - which is N3+ nuance and doesn't match this direct answer.)",
         'distractor_explanations': {
             'は': "は would topicalize 'cats' and add a contrastive nuance ('as for cats... [implying contrast with another animal]'). When directly answering 'what do you like', the natural particle is が.",
             'を': "を marks the direct object of a transitive verb. すき (好き) is a な-adjective ('liked'), not a verb, so its target is marked with が, not を.",
-            'に': "に marks destination, recipient, or specific time. It does not mark the target of すき / きらい / じょうず etc. — those use が.",
+            'に': "に marks destination, recipient, or specific time. It does not mark the target of すき / きらい / じょうず etc. - those use が.",
         },
     },
     # F-15.15: q-0008 ほん___よみます (correct=を)
@@ -58,10 +58,10 @@ QUESTION_FIXES = {
         'prompt_ja': '「よみます」の もくてきごを しめす ことばを えらんで ください。',
         'choices': ['は', 'が', 'を', 'に'],
         'correctAnswer': 'を',
-        'explanation_en': "を marks the direct object of a transitive verb. ほんを よみます = 'I read books'. (は can topicalize 'books' for contrastive nuance — 'as for books, [I] read [them], but...' — which is N3+ pragmatics and doesn't fit a plain statement of what one does at the library.)",
+        'explanation_en': "を marks the direct object of a transitive verb. ほんを よみます = 'I read books'. (は can topicalize 'books' for contrastive nuance - 'as for books, [I] read [them], but...' - which is N3+ pragmatics and doesn't fit a plain statement of what one does at the library.)",
         'distractor_explanations': {
             'は': "は would topicalize 'books' with contrastive nuance ('as for books...'). For a simple statement 'I read books', the direct-object particle is を.",
-            'が': "が marks the subject (the doer). 'Books' is what is read, not who is reading — so it cannot take が.",
+            'が': "が marks the subject (the doer). 'Books' is what is read, not who is reading - so it cannot take が.",
             'に': "に marks destination, recipient, or specific time. It does not mark the direct object of an action verb.",
         },
     },

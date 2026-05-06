@@ -1,7 +1,7 @@
 """Phase 4 (continued, 2026-05-06): seed Hindi translations on vocab
 gloss_hi + kanji meanings_hi for the highest-frequency N5 entries.
 
-Coverage targets this pass — modeled on the round-6 IMP-046 batch-1
+Coverage targets this pass - modeled on the round-6 IMP-046 batch-1
 template (top-128 priority vocab + 106 kanji):
 
   Vocab:  ~150 entries spanning pronouns, family, demonstratives,

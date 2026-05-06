@@ -2,7 +2,7 @@
 
 For each of the 106 N5 kanji, populate `meanings_vi/_id/_ne/_zh` arrays
 mirroring the structure of the existing `meanings` (English) array.
-Authored by Claude using N5-syllabus context awareness — these are
+Authored by Claude using N5-syllabus context awareness - these are
 short concrete concepts (numbers, days, body parts, basic verbs) where
 machine-translation quality is high but native review is still
 recommended before promoting `_provenance` to `native_reviewed`.
@@ -29,7 +29,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 ROOT = Path(__file__).resolve().parent.parent
 KANJI = ROOT / 'data' / 'kanji.json'
 
-# Format per kanji: (vi, id, ne, zh) — each is a list of strings, one
+# Format per kanji: (vi, id, ne, zh) - each is a list of strings, one
 # per English-meaning sense. Aligned positionally with the existing
 # `meanings` array.
 TRANSLATIONS = {

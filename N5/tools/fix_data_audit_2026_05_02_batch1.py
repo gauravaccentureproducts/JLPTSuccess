@@ -9,10 +9,10 @@ Items addressed in this script:
   4.2  kanji.json   - add jukujikun note to 大人 example in 大
 
 Items NOT in this script (separate handling):
-  1.1  vocab.json PoS mass-mistag — runs in fix_pos_thematic_sections.py
-  2.4  132 vocab entries without examples — content authoring (Phase 6)
-  3.1  Section 38 retention — kept as deliberate; doc-only, no data change
-  4.1  32 stub patterns — explicitly "deliberate design choice" per audit
+  1.1  vocab.json PoS mass-mistag - runs in fix_pos_thematic_sections.py
+  2.4  132 vocab entries without examples - content authoring (Phase 6)
+  3.1  Section 38 retention - kept as deliberate; doc-only, no data change
+  4.1  32 stub patterns - explicitly "deliberate design choice" per audit
 
 Idempotent: re-running is a no-op once fixes are in.
 """
@@ -160,7 +160,7 @@ def fix_3_2_kanji_dedupe(kanji):
 # En-dash (U+2013): typically use "-" (range hyphen, no surrounding space change)
 # ============================================================
 def fix_3_3_dashes(grammar):
-    em = '—'
+    em = '-'
     en = '–'
     em_count = 0
     en_count = 0
@@ -170,8 +170,8 @@ def fix_3_3_dashes(grammar):
         if not isinstance(s, str): return s
         em_count += s.count(em)
         en_count += s.count(en)
-        # Em-dash: " — " → " - " (preserve spacing); standalone em → "-"
-        s = s.replace(' — ', ' - ').replace('—', '-')
+        # Em-dash: " - " → " - " (preserve spacing); standalone em → "-"
+        s = s.replace(' - ', ' - ').replace('-', '-')
         # En-dash: standalone en → "-" (range marker)
         s = s.replace('–', '-')
         return s

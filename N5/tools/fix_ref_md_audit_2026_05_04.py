@@ -149,7 +149,7 @@ def fix_kanji_md() -> None:
 
 
 # =====================================================================
-# §1.3: vocab POS mistags — fix BOTH vocab.json AND vocabulary_n5.md
+# §1.3: vocab POS mistags - fix BOTH vocab.json AND vocabulary_n5.md
 # =====================================================================
 def fix_vocab_pos() -> None:
     # Pairs: (vocab.json id-substring filter or form, expected POS in JSON, MD-line-search-needle, MD-tag).

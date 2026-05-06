@@ -1,10 +1,10 @@
 """Close all 12 items from feedback/jlpt-n5-moji-and-source-audit-2026-05-03.md.
 
 Pre-state findings (verified before writing this script):
-  §2.3 already closed — bunpou source has 0 occurrences of all 9 flagged
+  §2.3 already closed - bunpou source has 0 occurrences of all 9 flagged
        kanji (朝, 思, 京, 阪, 牛, 乳, 公, 園, 楽). Earlier session work
        cleaned them up. Nothing to do.
-  §4.2 already closed — goi source has 0 occurrences of 去.
+  §4.2 already closed - goi source has 0 occurrences of 去.
 
 Items requiring fixes:
   §1.1 CRITICAL: re-extract 24 moji-4/5/6/7 empty stems from KB MD
@@ -18,10 +18,10 @@ Items requiring fixes:
   §4.1 LOW:     replace 熱 with ねつ in bunpou rationale.
 
 Auto-closed:
-  §3.2  bunpou-7 ぎんこう  — clarification only; existing fix stands.
-  §3.3  Q92 起ちます       — distractor, policy-allowed; no fix.
-  §3.4  manifest totals    — positive finding; no fix.
-  §3.5  Q62 rationale      — positive finding; no fix.
+  §3.2  bunpou-7 ぎんこう  - clarification only; existing fix stands.
+  §3.3  Q92 起ちます       - distractor, policy-allowed; no fix.
+  §3.4  manifest totals    - positive finding; no fix.
+  §3.5  Q62 rationale      - positive finding; no fix.
 
 Idempotent. JA-13 / JA-28 invariants run via check_content_integrity.py
 after this script.
@@ -202,7 +202,7 @@ def fix_dokkai_exception_register() -> None:
         if isinstance(doc, list):
             note = (
                 f'2026-05-03 (moji-and-source audit §2.2): added {", ".join(added)} '
-                f'with justifications — 向 for 〜向け target-audience compounds, '
+                f'with justifications - 向 for 〜向け target-audience compounds, '
                 f'央 for 中央 proper nouns (parks/stations), 付 for 〜付き menu '
                 f'convention. All three appear in dokkai passage content multiple '
                 f'times; kana-substitution would reduce passage authenticity.'

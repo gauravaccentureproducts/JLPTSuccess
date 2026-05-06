@@ -17,7 +17,7 @@ const NS = 'jlpt-n5-tutor:';
 //     wins; never overwrite).
 //   - Set sentinel `${newNS}__migrated_from__` = oldNS so subsequent calls
 //     are no-ops.
-//   - oldNS keys are NOT deleted — keeps the old install recoverable if
+//   - oldNS keys are NOT deleted - keeps the old install recoverable if
 //     a learner downgrades the PWA shell.
 export function migrate(oldNS, newNS) {
   if (oldNS === newNS) return 0;
@@ -112,7 +112,7 @@ export function getStreak() { return get('streak', { current: 0, longest: 0, las
 
 // IMP-024 (audit round-3): per-day reviews-completed counter, used by the
 // home daily-goal progress ring. Stored as { date: 'YYYY-MM-DD', count: N }
-// — a single key, overwritten when the day rolls over. Keeping the
+// - a single key, overwritten when the day rolls over. Keeping the
 // previous day in storage is unnecessary; the streak object holds the
 // long-term history.
 export function getReviewsToday() {
@@ -127,7 +127,7 @@ export function incrementReviewsToday(by = 1) {
   return count;
 }
 export function getDailyGoal() {
-  // Default 20 reviews/day — round number, matches the round-3 audit
+  // Default 20 reviews/day - round number, matches the round-3 audit
   // recommendation. User can override in Settings.
   const s = getSettings();
   return Math.max(1, parseInt(s.dailyGoalReviews, 10) || 20);
@@ -302,7 +302,7 @@ export function getCompletedReading() { return get('completedReading', {}); }
 export function isReadingCompleted(id) { return !!getCompletedReading()[id]; }
 export function setReadingCompleted(id) {
   const m = getCompletedReading();
-  if (m[id]) return; // idempotent — first-completion only
+  if (m[id]) return; // idempotent - first-completion only
   m[id] = { at: new Date().toISOString() };
   set('completedReading', m);
 }
@@ -504,7 +504,7 @@ export function getPatternEntry(id) {
 
 // =============== SRS algorithm: FSRS-4 (EB-4 Tier-1, 2026-05-01) ===============
 //
-// Replaces SM-2 with FSRS-4 (Free Spaced Repetition Scheduler v4) — the
+// Replaces SM-2 with FSRS-4 (Free Spaced Repetition Scheduler v4) - the
 // algorithm Anki 23.10+ uses by default. Better recall prediction than SM-2,
 // no new data collection required, fully on-device.
 //
@@ -554,7 +554,7 @@ function clampDifficulty(d) {
 }
 
 function initialFsrsState(grade) {
-  // First-ever review of an item — no prior memory state.
+  // First-ever review of an item - no prior memory state.
   const fg = toFsrsGrade(grade);
   const stability = Math.max(0.1, FSRS_W[fg - 1]);  // w[0..3] index by grade-1
   const difficulty = clampDifficulty(FSRS_W[4] - (fg - 3) * FSRS_W[5]);

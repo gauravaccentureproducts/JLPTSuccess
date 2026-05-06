@@ -32,7 +32,7 @@ async function loadBank() {
       })),
       // Vocab: keep `form` as the route-id (matches the per-word detail route
       // #/learn/vocab/<form>) but also surface `reading` separately so
-      // kanji-form entries show the kana reading inline ("新しい — あたらしい — new").
+      // kanji-form entries show the kana reading inline ("新しい - あたらしい - new").
       vocab: (v.entries || []).slice(0, 1500).map(e => ({
         id: e.form, label: e.form, gloss: e.gloss || '', reading: e.reading || '',
         haystack: ((e.form||'') + ' ' + (e.reading||'') + ' ' + (e.gloss||'')).toLowerCase(),
@@ -65,7 +65,7 @@ function search(query) {
   // Vocab can have repeated `form` entries when the same word appears in
   // multiple thematic sections (e.g., 名前 in §1 and §15). Dedupe by form
   // so the result list doesn't show the same word twice with the same
-  // route — the click would land on the same detail page anyway.
+  // route - the click would land on the same detail page anyway.
   const dedupeByLabel = (arr) => {
     const seen = new Set();
     return arr.filter(x => {
@@ -84,7 +84,7 @@ function search(query) {
 }
 
 // URL builders. Each maps a result item to its canonical route. Vocab
-// previously routed everything to #/learn (the Learn hub) — wrong; the
+// previously routed everything to #/learn (the Learn hub) - wrong; the
 // per-word detail route is #/learn/vocab/<form>. Fixed 2026-05-02.
 const HREFS = {
   grammar:   it => `#/learn/${encodeURIComponent(it.id)}`,
@@ -105,7 +105,7 @@ function renderResults(results) {
     const href = HREFS[kind](it);
     const dataIdx = idx++;
     // For vocab: if reading differs from form (i.e., form contains kanji),
-    // show "form (reading) — gloss". Otherwise just "form — gloss".
+    // show "form (reading) - gloss". Otherwise just "form - gloss".
     const labelHTML = (kind === 'vocab' && it.reading && it.reading !== it.label)
       ? `<span lang="ja">${esc(it.label)}</span> <span class="muted small" lang="ja">(${esc(it.reading)})</span>`
       : `<span lang="ja">${esc(it.label)}</span>`;

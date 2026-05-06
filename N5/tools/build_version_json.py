@@ -57,7 +57,7 @@ def count_top(p: Path, key: str) -> int:
 def _count_invariants() -> int:
     """ISSUE-035: read the live CHECKS list length from
     check_content_integrity.py rather than hardcoding. Imports the module
-    to access its CHECKS tuple directly — same source the runtime uses,
+    to access its CHECKS tuple directly - same source the runtime uses,
     so the count cannot drift."""
     import importlib.util
     spec = importlib.util.spec_from_file_location(
@@ -123,7 +123,7 @@ def main() -> int:
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
     # ISSUE-024: rewrite sw.js CACHE_VERSION to match the latest version.
-    # Idempotent — replace_all with the same value is a no-op.
+    # Idempotent - replace_all with the same value is a no-op.
     sw_text = SW.read_text(encoding='utf-8')
     new_sw_text, n = SW_CACHE_VERSION_RE.subn(
         lambda m: f'{m.group(1)}{out["cacheVersion"]}{m.group(3)}',

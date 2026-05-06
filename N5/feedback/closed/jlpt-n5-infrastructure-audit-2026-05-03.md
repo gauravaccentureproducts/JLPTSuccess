@@ -136,9 +136,9 @@ Spot-checking q-0504..0578 (sampled 15): all are well-formed mcq questions with 
 
 64 em-dashes spread across 46 questions, mostly in `explanation_en` and `distractor_explanations` fields. Examples:
 
-- q-0007: "...は can sound contrastive — 'as for cats, [I] like [them], but...' — which is N3+ nuance..."
-- q-0008: "...は can topicalize 'books' for contrastive nuance — 'as for books, [I] read [them], but...' — ..."
-- q-0044: "...the recipient — the person being called..."
+- q-0007: "...は can sound contrastive - 'as for cats, [I] like [them], but...' - which is N3+ nuance..."
+- q-0008: "...は can topicalize 'books' for contrastive nuance - 'as for books, [I] read [them], but...' - ..."
+- q-0044: "...the recipient - the person being called..."
 - q-0488: 4 em-dashes in a single explanation about frequency adverbs
 
 **Problem:** the project's documented style policy prohibits U+2014 em-dashes in user-facing strings. These appear in explanations that get rendered to learners. Same class of issue as the previously-flagged grammar.json em-dashes (which were partially cleaned up - 4 remain there).

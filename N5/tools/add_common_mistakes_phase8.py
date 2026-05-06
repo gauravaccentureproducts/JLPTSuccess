@@ -196,7 +196,7 @@ ADDITIONS = {
     # いつも / たいてい / たまに (frequency)
     'n5-148': [
         M('いつも 行きません。 (intent: "I never go")', '行きません。 / ぜんぜん 行きません。',
-          'いつも is "always" — does not pair with negation. Use ぜんぜん or just the negative verb for "never".'),
+          'いつも is "always" - does not pair with negation. Use ぜんぜん or just the negative verb for "never".'),
     ],
     # ～をください (please give me)
     'n5-149': [
@@ -236,7 +236,7 @@ ADDITIONS = {
     # ～ですね / ～ですよ (tag particles)
     'n5-159': [
         M('いい てんきですよね。 (overuse)', 'いい てんきですね。 (or よ, not both)',
-          'よ asserts new info; ね seeks agreement. Stacking よね is colloquial and overused — pick one in clean speech.'),
+          'よ asserts new info; ね seeks agreement. Stacking よね is colloquial and overused - pick one in clean speech.'),
     ],
     # Noun + の + あとで (after Noun)
     'n5-160': [
@@ -310,7 +310,7 @@ ADDITIONS = {
         M('なにか 食べません。', 'なにも 食べません。',
           'なにか pairs with affirmative ("eat something"); なにも with negative ("eat nothing"). Don\'t mix.'),
         M('なにも 食べたいです。', 'なにか 食べたいです。',
-          '"I want to eat something" is affirmative — use なにか, not なにも.'),
+          '"I want to eat something" is affirmative - use なにか, not なにも.'),
     ],
     # だれか / だれも (someone / nobody)
     'n5-185': [
@@ -322,7 +322,7 @@ ADDITIONS = {
         M('どこか 行きません。', 'どこも 行きません。',
           'With negative, どこも = "(go) nowhere". どこか + negative is ungrammatical.'),
         M('どこも 行きたいです。', 'どこか 行きたいです。',
-          '"Want to go somewhere" is affirmative wish — use どこか.'),
+          '"Want to go somewhere" is affirmative wish - use どこか.'),
     ],
     # いつか / いつも (sometime / always)
     'n5-187': [

@@ -1,4 +1,4 @@
-# Seasoned-Japanese-Teacher Audit — 2026-05-02
+# Seasoned-Japanese-Teacher Audit - 2026-05-02
 
 Pass-24 content audit done from the perspective of a working JLPT N5
 instructor. Combined automated heuristic scans (`tools/audit_teacher_review.py`)
@@ -33,9 +33,9 @@ red flags:
 
 Plus 25-question stratified manual eyeball review.
 
-## Findings — fixed in this pass
+## Findings - fixed in this pass
 
-### F-T6.1 (LOW) — `n5-172` (～なくてもいい) missing `tier: late_n5`
+### F-T6.1 (LOW) - `n5-172` (～なくてもいい) missing `tier: late_n5`
 Pattern is at the N5/N4 boundary (Genki I L17 in some editions; Genki II
 L17 in others; JEES official scope places it in N4). The category name
 already calls it "Borderline" but the machine-readable `tier` field was
@@ -43,14 +43,14 @@ unset.
 
 **Fix applied:** added `"tier": "late_n5"`.
 
-### F-T6.2 (LOW) — `n5-176` (～なくちゃ / ～なきゃ) missing `tier: late_n5`
+### F-T6.2 (LOW) - `n5-176` (～なくちゃ / ～なきゃ) missing `tier: late_n5`
 Colloquial contractions of `～なければならない`. Standard textbook
 classification: N4 (Genki II L17 plain-form contractions). Should not
 appear at core-N5 level without a boundary flag.
 
 **Fix applied:** added `"tier": "late_n5"`.
 
-### F-T7.1 (MEDIUM) — q-0507 multi-correct (の vs こと)
+### F-T7.1 (MEDIUM) - q-0507 multi-correct (の vs こと)
 Stem: 「えいがを 見る（  ）が すきです。」
 Choices: こと / の / もの / ところ
 Marked correct: の.
@@ -67,24 +67,24 @@ nominaliser; もの and ところ form different noun phrases that don't fit
 the 「X が すきです」 frame as cleanly). Rationale rewritten to document
 the substitution and acknowledge the の/こと interchangeability.
 
-## Findings — clean (audit confirms no issue)
+## Findings - clean (audit confirms no issue)
 
-### T-1, T-2, T-3, T-4, T-8 — clean
+### T-1, T-2, T-3, T-4, T-8 - clean
 Zero findings each. The Pass-23 round-3 multi-correct sweep + Pass-13
 kanji-scope work + the N5-vocab/kanji catalog discipline have already
 caught the patterns these checks watch for.
 
-### T-9 — clean (after refining heuristic)
+### T-9 - clean (after refining heuristic)
 Initial heuristic flagged 6 questions; on review, 5 had parenthetical
 scene contexts that were the anchor (heuristic missed them) and 1
 (q-0509 「（  ）ほんを ください。」) was a form-test (これ vs この vs
-それ vs ここ — only one is grammatical regardless of distance), not a
+それ vs ここ - only one is grammatical regardless of distance), not a
 distance-test. Heuristic refined to filter these false positives; final
 finding count: 0.
 
-## Findings — false positives (heuristic limitations)
+## Findings - false positives (heuristic limitations)
 
-### T-5 (EN gloss) — 11 findings, all false positives
+### T-5 (EN gloss) - 11 findings, all false positives
 
 Manual review confirmed every flagged item is a correct natural
 translation. The patterns my heuristic over-fires on:
@@ -100,7 +100,7 @@ translation. The patterns my heuristic over-fires on:
    negation regex but is a tag-question marker, not negation.
 5. **～なくてもいい / ～なくては いけない / ～なくては ならない idioms**:
    double-negative obligation patterns. JA has なく/ない, EN has "don't
-   have to" / "must" — semantically aligned but surface-level
+   have to" / "must" - semantically aligned but surface-level
    negation polarity differs.
 
 **No fixes needed.** The regex is documented in
@@ -109,9 +109,9 @@ called out in the SUPPRESS_IDIOM list and the comment block. A more
 sophisticated heuristic would need a JA dependency parser; out of scope
 for an automated check.
 
-## Findings — content-authoring opportunities (not bugs)
+## Findings - content-authoring opportunities (not bugs)
 
-### T-7 — 56 high-confusion patterns lack `common_mistakes` content
+### T-7 - 56 high-confusion patterns lack `common_mistakes` content
 
 187 grammar patterns, 177 carry a `common_mistakes` array, ~10 have it
 empty. Of those plus a broader high-confusion subset (patterns whose
@@ -119,7 +119,7 @@ pattern-string contains a particle character), 56 lack the rich
 "learner pitfall" content that distinguishes a teaching-quality bank
 from a reference-quality one.
 
-This is **not an error** — the patterns are correct, and the
+This is **not an error** - the patterns are correct, and the
 `common_mistakes` field is optional. It IS a content-authoring
 opportunity: a real Japanese teacher would say a learner-facing bank
 should call out the top 1-2 confusion classes per high-frequency
@@ -130,13 +130,13 @@ pattern.
 each from teacher experience; total ~12-15 hours for the 56-pattern
 set. Out of scope for this audit.
 
-## Manual eyeball review — 25 stratified-random questions
+## Manual eyeball review - 25 stratified-random questions
 
 Reviewed deterministically (random.seed=42) across 25 grammar patterns:
 
 - **23/25**: fully correct, natural Japanese, accurate answer key,
   pedagogically sound rationale.
-- **q-0500** 「およぎ（  ）できます」 (answer が): borderline natural —
+- **q-0500** 「およぎ（  ）できます」 (answer が): borderline natural -
   「およぎが できます」 is colloquial; standard form is 「およぐ ことが
   できます」 or just 「およげます」. Acceptable but a teacher would
   prefer the standard form. **NOT FIXED** (acceptable as-is).
@@ -160,10 +160,10 @@ item, not a correctness item.
 
 ## Tooling shipped
 
-- `tools/audit_teacher_review.py` — 9-class teacher-perspective heuristic
+- `tools/audit_teacher_review.py` - 9-class teacher-perspective heuristic
   audit. Re-runnable. Filterable via `--category T-N`. Documents its own
   false-positive boundaries inline.
-- `tools/sample_questions_for_review.py` — deterministic stratified
+- `tools/sample_questions_for_review.py` - deterministic stratified
   25-question sampler for manual review.
-- `tools/audit_dokkai_kanji_scope.py` (shipped earlier in the JA-sweep) —
+- `tools/audit_dokkai_kanji_scope.py` (shipped earlier in the JA-sweep) -
   inventories non-N5 kanji in dokkai papers.

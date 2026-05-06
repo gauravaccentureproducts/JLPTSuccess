@@ -1,23 +1,23 @@
 """Fix all 7 outstanding items from feedback/new/jlpt-n5-paper-files-audit-2026-05-03.md.
 
 Items already passing on baseline verifier (don't re-fix):
-  §2.3 dokkai-4 Q58 prompt    — already cleaned
-  §3.3 goi-6 Q87 二十さい      — already cleaned
-  §3.4 dokkai-4 Q60 後の 日    — already cleaned
-  §4.1 goi-1 Q11 distractors  — re-tightened by this script anyway
+  §2.3 dokkai-4 Q58 prompt    - already cleaned
+  §3.3 goi-6 Q87 二十さい      - already cleaned
+  §3.4 dokkai-4 Q60 後の 日    - already cleaned
+  §4.1 goi-1 Q11 distractors  - re-tightened by this script anyway
 
 Items addressed here:
-  §1.1 + §3.1  bunpou-5/6 — re-extract 19 missing stems + write rationales
+  §1.1 + §3.1  bunpou-5/6 - re-extract 19 missing stems + write rationales
                             (covers §3.1 since we author rationales as we go)
-  §2.1         goi-4/5/6/7 — replace 4 non-N5 kanji (早/少/紙/売) with kana
-  §2.2         bunpou-7 + KB markdown — ぎんこうから かえって → 学校から かえって
+  §2.1         goi-4/5/6/7 - replace 4 non-N5 kanji (早/少/紙/売) with kana
+  §2.2         bunpou-7 + KB markdown - ぎんこうから かえって → 学校から かえって
   §2.4         strip trailing '---' residue from 5 rationales
   §3.2         merge explanation_en into rationale (bunpou-4.11, goi-2.6)
   §3.5         strip leading '> ' markdown blockquote from dokkai-4 passages
   §4.1         anchor goi-1 Q11 stem to disambiguate おいしい from たかい
 
 Idempotent. JA-13 N5-kanji-scope guard runs at end (via
-check_content_integrity.py — caller's responsibility).
+check_content_integrity.py - caller's responsibility).
 """
 from __future__ import annotations
 import io
@@ -53,7 +53,7 @@ def all_questions(paper: dict) -> list[dict]:
 
 
 # =====================================================================
-# §1.1 + §3.1: bunpou-5/6 — re-extract stems + rationales from KB markdown
+# §1.1 + §3.1: bunpou-5/6 - re-extract stems + rationales from KB markdown
 # =====================================================================
 # Hand-curated mapping. The KB markdown stems use the
 #   "leading-text ___ ___ ★ ___ trailing-text" pattern. Where the
@@ -183,7 +183,7 @@ def fix_bunpou_5_6() -> None:
 
 
 # =====================================================================
-# §2.1: goi non-N5 kanji in choices — replace with kana
+# §2.1: goi non-N5 kanji in choices - replace with kana
 # =====================================================================
 GOI_KANJI_REPLACEMENTS = [
     # (paper_n, qid, find, replace, note)
@@ -359,7 +359,7 @@ def fix_goi_1_q11_anchor() -> None:
             continue
         stem = q.get('stem_html') or ''
         if 'あまい' in stem:
-            # Already anchored — nothing to do.
+            # Already anchored - nothing to do.
             return
         # Anchor stem with sweetness so おいしい is the unique natural
         # completion. Choices stay as ?+です strings.

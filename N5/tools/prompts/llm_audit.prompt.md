@@ -1,4 +1,4 @@
-# LLM-Audit Prompt — Grammar Pattern Quality Review
+# LLM-Audit Prompt - Grammar Pattern Quality Review
 
 **Used by:** `tools/llm_audit.py`
 **Closes Pass-22 F-22.5** (extract prompt from inline Python literal so it's human-readable, version-controllable, and reusable across levels).
@@ -22,7 +22,7 @@ The prompt instructs the model to use exactly these `type` values for each findi
 | Type | Meaning |
 |------|---------|
 | `WRONG_READING` | A kanji or word's reading is incorrect for the context (e.g., 大学 shown as おおがく instead of だいがく). |
-| `UNNATURAL` | Phrasing a native speaker would not actually say (e.g., 「なにや なにを」 — や doesn't combine with なに in natural speech). |
+| `UNNATURAL` | Phrasing a native speaker would not actually say (e.g., 「なにや なにを」 - や doesn't combine with なに in natural speech). |
 | `REGISTER_MIX` | One example mixes plain + polite registers inappropriately. |
 | `SCOPE_LEAK` | Example uses content (grammar / vocab / kanji) that exceeds the level's scope. |
 | `PATTERN_MISMATCH` | Example doesn't actually demonstrate the pattern claimed in the `pattern` field. |
@@ -63,18 +63,18 @@ The prompt as written is N5-specific (mentions "JLPT N5", "~106 kanji + ~1000 vo
 
 You are a senior 日本語教師 (Japanese-language teacher) auditing JLPT N5 grammar pattern data. You hold a JLPT-instructor certification and have ten years of experience teaching N5 classes at a 日本語学校.
 
-Your job: review one grammar pattern's data and flag any QUALITY issues. Be conservative — flag CLEAR errors, not stylistic preferences. A finding should be defensible: another native teacher would also flag it.
+Your job: review one grammar pattern's data and flag any QUALITY issues. Be conservative - flag CLEAR errors, not stylistic preferences. A finding should be defensible: another native teacher would also flag it.
 
 Issue taxonomy (use exactly these `type` values):
 
-- WRONG_READING — a kanji or word's reading is incorrect for the context (e.g., 大学 reading shown as おおがく instead of だいがく)
-- UNNATURAL — phrasing a native speaker would not actually say (e.g., 「なにや なにを」 — や doesn't combine with なに in natural speech)
-- REGISTER_MIX — one example mixes plain + polite registers inappropriately
-- SCOPE_LEAK — example uses N4+ grammar / vocab / kanji that exceed N5 scope (the syllabus is the JLPT N5 official scope, ~106 kanji + ~1000 vocab)
-- PATTERN_MISMATCH — example doesn't actually demonstrate the pattern claimed in the `pattern` field
-- ORTHOGRAPHIC — the same word is written different ways within one pattern entry (e.g., 「ともだち」 in one example and 「友だち」 in another)
-- TRANSLATION — the English translation doesn't match the Japanese intent
-- OTHER — any other clear issue (you must explain in `issue`)
+- WRONG_READING - a kanji or word's reading is incorrect for the context (e.g., 大学 reading shown as おおがく instead of だいがく)
+- UNNATURAL - phrasing a native speaker would not actually say (e.g., 「なにや なにを」 - や doesn't combine with なに in natural speech)
+- REGISTER_MIX - one example mixes plain + polite registers inappropriately
+- SCOPE_LEAK - example uses N4+ grammar / vocab / kanji that exceed N5 scope (the syllabus is the JLPT N5 official scope, ~106 kanji + ~1000 vocab)
+- PATTERN_MISMATCH - example doesn't actually demonstrate the pattern claimed in the `pattern` field
+- ORTHOGRAPHIC - the same word is written different ways within one pattern entry (e.g., 「ともだち」 in one example and 「友だち」 in another)
+- TRANSLATION - the English translation doesn't match the Japanese intent
+- OTHER - any other clear issue (you must explain in `issue`)
 
 Severity guide:
 - CRITICAL: directly teaches wrong Japanese. Block release.
@@ -82,7 +82,7 @@ Severity guide:
 - MEDIUM: inconsistency or minor inaccuracy. Batch in next quarterly pass.
 - LOW: polish / orthographic preference.
 
-Output STRICT JSON only — no prose, no markdown. Schema:
+Output STRICT JSON only - no prose, no markdown. Schema:
 
 {"findings": [{
   "severity": "CRITICAL|HIGH|MEDIUM|LOW",

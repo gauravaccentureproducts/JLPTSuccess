@@ -1,6 +1,6 @@
 // Service worker - offline caching for the static app.
 // Strategy (Brief 2 §12.1):
-//   * On install: pre-cache the SHELL only — HTML, CSS, JS modules, font
+//   * On install: pre-cache the SHELL only - HTML, CSS, JS modules, font
 //     subsets, the JSON catalogs (grammar / vocab / kanji / reading /
 //     listening / questions / whitelists), the i18n locales, and the 106
 //     kanji stroke-order SVGs. Total ~3 MB.
@@ -143,7 +143,7 @@ const PRECACHE = [
   // count for the home dashboard + future filter UIs. Guarded by JA-34
   // invariant in tools/check_content_integrity.py.
   './data/n5_core_pattern_ids.json',
-  // IMP-052 (audit round-4): institutional theme overrides. Optional —
+  // IMP-052 (audit round-4): institutional theme overrides. Optional -
   // missing file is the default. Precaching makes the override resolve
   // offline once a fork has shipped one.
   './data/theme-overrides.json',
@@ -177,7 +177,7 @@ self.addEventListener('install', (event) => {
 
     // CRITICAL: use { cache: 'reload' } on every precache request so the SW
     // bypasses the BROWSER'S HTTP cache and pulls truly-fresh bytes from the
-    // network. Without this, a CACHE_VERSION bump alone is insufficient — if
+    // network. Without this, a CACHE_VERSION bump alone is insufficient - if
     // the browser HTTP cache already holds stale js/css from a prior visit,
     // cache.addAll() reads from that stale layer and the SW propagates the
     // stale content forward into its own cache. Symptom: bumping the SW

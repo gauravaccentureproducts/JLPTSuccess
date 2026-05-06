@@ -14,7 +14,7 @@ REPRODUCIBILITY (IMP-017 disposition, 2026-05-04):
     (modulo python-docx zip-container fingerprints).
   - The output filename retains "Grammar Tutor" for stable inbound links
     from older audit notes and prior releases. The current product name is
-    "JLPT N5 Tutor" (ISSUE-002, 2026-05-04 audit) — the rename was applied
+    "JLPT N5 Tutor" (ISSUE-002, 2026-05-04 audit) - the rename was applied
     to the README, manifest, and in-app surfaces; the spec docx stayed
     under its historical name.
   - No flags. No CLI args. No env vars.
@@ -923,7 +923,7 @@ print("Saved spec docx ({} bytes).".format(Path(OUT_PATH).stat().st_size))
 # canonical "JLPT N5 Grammar Tutor – Functional Spec.docx" but
 # is visibly distinct in a directory listing.
 # ============================================================
-CONSOLIDATED_PATH = str(OUT_DIR / "JLPT N5 — Consolidated Spec.docx")
+CONSOLIDATED_PATH = str(OUT_DIR / "JLPT N5 - Consolidated Spec.docx")
 
 
 def chapter_cover(num, title, source_note):
@@ -936,7 +936,7 @@ def chapter_cover(num, title, source_note):
 
 # Chapter 1 = v3 hardcoded + v3.1-supplement content (which now ALSO
 # includes the design system as its §G after the 2026-05-04 merge).
-# It's at the top of the consolidated doc (no explicit chapter cover —
+# It's at the top of the consolidated doc (no explicit chapter cover -
 # the v3 spec opens with its own document title and section h1s).
 # Append the remaining chapters in stable-to-volatile order.
 #
@@ -959,14 +959,14 @@ if UI_TESTING_PATH.exists():
         "Source: feedback/ui-testing-plan.md")
     render_markdown(UI_TESTING_PATH)
 
-# Chapter 3: Procedure Manual (now self-contained — Appendices B/C/D
+# Chapter 3: Procedure Manual (now self-contained - Appendices B/C/D
 # absorbed inline 2026-05-04). Lives at the JLPT root, one level above
 # this repo, because it is intentionally level-agnostic and not owned
 # by N5.
 PROC_MANUAL_PATH = ROOT.parent / "procedure-manual-build-next-jlpt-level.md"
 if PROC_MANUAL_PATH.exists():
     chapter_cover(3,
-        "Procedure Manual — Building the Next JLPT Level App",
+        "Procedure Manual - Building the Next JLPT Level App",
         "Source: <JLPT-root>/procedure-manual-build-next-jlpt-level.md "
         "(includes Appendix B + Appendix C + TASKS.md template inline)")
     render_markdown(PROC_MANUAL_PATH)

@@ -1,7 +1,7 @@
 # Changelog archive (v1.0.0 - v1.9.0)
 
 These entries pre-date the v1.10.0 syllabus-dashboard milestone (2026-05-02).
-They are kept verbatim for historical reference only — see `../CHANGELOG.md`
+They are kept verbatim for historical reference only - see `../CHANGELOG.md`
 for the active backlog.
 
 ---

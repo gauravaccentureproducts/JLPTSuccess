@@ -178,7 +178,7 @@ def update_md_source() -> None:
 def revise_inference_policy_header() -> None:
     """The v1.12.12 header documented Q70/Q76/Q86/Q97/Q100 as deliberate
     inference convention. After tightening, that framing is no longer
-    accurate — the items are now direct paraphrases. Revise the section
+    accurate - the items are now direct paraphrases. Revise the section
     to record what happened."""
     text = KB.read_text(encoding='utf-8')
     OLD = '''### Inference-style paraphrases (Mondai 4 / 言い換え類義)

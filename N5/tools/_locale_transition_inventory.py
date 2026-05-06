@@ -76,7 +76,7 @@ def main() -> int:
                 repo_top_hits[top.name] = (kind, m.group(0)[:50])
                 break
 
-    # N4 (work-blocked) — separate
+    # N4 (work-blocked) - separate
     n4_root = REPO_ROOT / 'N4'
     n4_hits = scan(n4_root, 'N4') if n4_root.exists() else {}
 
@@ -89,7 +89,7 @@ def main() -> int:
     out.append('plus any 5-locale claim text. The transition prompt requires this inventory')
     out.append('to be committed before Phase 1 begins.')
     out.append('')
-    out.append('## N5 sub-app — files to edit')
+    out.append('## N5 sub-app - files to edit')
     out.append('')
     by_dir = defaultdict(list)
     for path in sorted(n5_hits):
@@ -103,7 +103,7 @@ def main() -> int:
         for p in paths:
             kinds = ', '.join(f'`{k}`' for k, _ in n5_hits[p][:3])
             sample = n5_hits[p][0][1].replace('|', '\\|')
-            out.append(f'- `{p}` — kinds: {kinds} — sample: `{sample}`')
+            out.append(f'- `{p}` - kinds: {kinds} - sample: `{sample}`')
         out.append('')
 
     out.append('## Top-level (JLPTSuccess root) files to edit')
@@ -111,15 +111,15 @@ def main() -> int:
     if repo_top_hits:
         for fn, (kind, sample) in sorted(repo_top_hits.items()):
             sample_md = sample.replace('|', '\\|')
-            out.append(f'- `{fn}` — kind `{kind}` — sample `{sample_md}`')
+            out.append(f'- `{fn}` - kind `{kind}` - sample `{sample_md}`')
     else:
         out.append('_(no top-level hits)_')
     out.append('')
 
-    out.append('## /N4/ contamination (FLAGGED — must NOT be edited)')
+    out.append('## /N4/ contamination (FLAGGED - must NOT be edited)')
     out.append('')
     out.append('Per `.claude/CLAUDE.md` Rule 1, `/N4/` is work-blocked. The grep below')
-    out.append('shows N4 files that reference vi/id/ne/zh — they MUST remain unchanged.')
+    out.append('shows N4 files that reference vi/id/ne/zh - they MUST remain unchanged.')
     out.append('Phase 10 verifies `git diff pre-locale-transition..HEAD --stat` shows zero')
     out.append('N4 deltas.')
     out.append('')

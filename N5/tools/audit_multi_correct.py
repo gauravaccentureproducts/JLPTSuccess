@@ -7,7 +7,7 @@ particle-pair set; this audit extends to:
 
   A. Interchangeable particle pairs (Pass-15 baseline).
   B. Scope / restriction particles attaching to noun-before-verb:
-     {など, だけ, しか, ばかり, も} — multiple of these can be valid
+     {など, だけ, しか, ばかり, も} - multiple of these can be valid
      simultaneously when the stem doesn't disambiguate.
   C. List-conjunction particles between nouns: {と, や, とか, など}.
   D. Frequency adverbs: {いつも, よく, たまに, あまり, ぜんぜん}.
@@ -67,21 +67,21 @@ INTERCHANGEABLE_PAIRS = [
 SCOPE_RESTRICTION_PARTICLES = {'など', 'だけ', 'しか', 'ばかり', 'も', 'は'}
 
 # Frequency adverbs (calibration grey-zone candidates).
-# Note: とても is intentionally excluded — it's a degree adverb (very), not
+# Note: とても is intentionally excluded - it's a degree adverb (very), not
 # frequency. Including it caused E-category false positives in Pass-23 r2.
 FREQ_ADVERBS = {'いつも', 'よく', 'たまに', 'あまり', 'ぜんぜん',
                 'たいてい', 'ときどき'}
 
 # Subset of FREQ_ADVERBS where the boundaries are subjective: a learner
 # could defensibly pick either depending on personal threshold.
-# Pass-23 r4 (2026-05-02) — added after q-0488 (月に 1かい → たまに OR よく
+# Pass-23 r4 (2026-05-02) - added after q-0488 (月に 1かい → たまに OR よく
 # both defensible) demonstrated that calibration questions need their own
 # stricter audit even when only 2 of these are in the choice set.
 FREQ_GREYZONE_PAIRS = [
-    {'よく', 'たまに'},      # "often" vs "occasionally" — fuzzy mid-low band
-    {'よく', 'ときどき'},    # "often" vs "sometimes" — fuzzy mid band
-    {'たまに', 'ときどき'},  # "occasionally" vs "sometimes" — near synonyms
-    {'いつも', 'たいてい'},  # "always" vs "usually" — near synonyms
+    {'よく', 'たまに'},      # "often" vs "occasionally" - fuzzy mid-low band
+    {'よく', 'ときどき'},    # "often" vs "sometimes" - fuzzy mid band
+    {'たまに', 'ときどき'},  # "occasionally" vs "sometimes" - near synonyms
+    {'いつも', 'たいてい'},  # "always" vs "usually" - near synonyms
 ]
 
 # Sentence-final speech-act particles. With a bare statement stem
@@ -114,10 +114,10 @@ def has_scene_context(stem: str) -> bool:
     Refined 2026-05-02 (Pass-23 round 2) to reduce false-positive rate:
     the previous version flagged questions where one of the OTHER choices
     was a clearly-distinguishing distractor. The audit shouldn't trip on
-    those — they're not actually multi-correct."""
+    those - they're not actually multi-correct."""
     if not stem:
         return False
-    # Pattern: (scene)　stem-with-blank — full-width parens before blank
+    # Pattern: (scene)　stem-with-blank - full-width parens before blank
     if re.search(r'^[（(][^）)]+[）)][\s　]', stem):
         return True
     # Pattern: prior-sentence ending in 。 followed by stem
@@ -129,13 +129,13 @@ def has_scene_context(stem: str) -> bool:
     anchors = ['毎日', '毎週', '毎年', '毎朝', 'いつも', '一日', '月に',
                '年に', '週に', '一回', '1回', '1かい', '一度', 'しか',
                'ぜんぜん', 'あまり', '前', 'まえ', 'あとで', 'すこし',
-               # Destination/recipient/source anchors — if a separate
+               # Destination/recipient/source anchors - if a separate
                # destination is given (e.g., へ, に at another position
                # in the stem), the blank can't ALSO be a destination
                # particle, so に/へ are not multi-correct.
                'こうえんへ', 'がっこうへ', 'いえへ', 'えきへ', 'みせへ',
                'にちようびに', 'げつようびに', 'かようびに',
-               # Verb-specific disambiguators — these verbs only pair
+               # Verb-specific disambiguators - these verbs only pair
                # with one of an interchangeable pair, not both.
                'はじまります', 'はじまる', 'おわります', 'おわる',
                'かけました', 'かけます', 'いいました', 'いう',
@@ -180,7 +180,7 @@ def has_scene_context(stem: str) -> bool:
             return True
     # Joint-activity-verb pattern: "<person>（ ）<obj>を <verb>" where
     # the verb is one that doesn't take a に-recipient (見る, 食べる, 飲む,
-    # あそぶ). The person-noun + blank takes と (companion), not に — so
+    # あそぶ). The person-noun + blank takes と (companion), not に - so
     # に/と aren't actually interchangeable here.
     joint_verbs = ['見ました', '見ます', '見る',
                    '食べました', '食べます', '食べる',
@@ -288,7 +288,7 @@ def check_question(q: dict) -> list[dict]:
             'multi_correct_with': sorted(freq_in_choices - {correct}),
         })
 
-    # F. Frequency calibration grey-zone — stricter than E. A numeric
+    # F. Frequency calibration grey-zone - stricter than E. A numeric
     # frequency in the stem (月に Xかい / 週に Xかい / etc.) maps to a
     # range of frequency adverbs that depend on speaker subjectivity.
     # Pass-23 r4: q-0488 (月に 1かい → たまに OR よく) demonstrated that
@@ -394,7 +394,7 @@ def load_paper_questions():
                 # Translate the paper format to a unified shape. For
                 # passage-context questions the stem_html is just a pointer
                 # ("→ blank [2]") and the disambiguating context lives in
-                # passage_text — splice them so the anchor heuristics see
+                # passage_text - splice them so the anchor heuristics see
                 # the full context.
                 stem = q.get('stem_html', '')
                 if q.get('passage_text'):

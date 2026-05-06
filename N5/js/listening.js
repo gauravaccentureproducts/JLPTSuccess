@@ -102,7 +102,7 @@ function renderItem(container) {
   const feedback = picked != null;
   const correct = picked === it.correctAnswer;
   // Mark as completed the first time the user submits any answer (right
-  // or wrong — listening counts toward syllabus progress on engagement,
+  // or wrong - listening counts toward syllabus progress on engagement,
   // not just correctness, since the audio comprehension is the practice).
   if (feedback) {
     storage.setListeningCompleted(it.id);

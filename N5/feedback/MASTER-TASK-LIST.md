@@ -1,6 +1,6 @@
-# JLPT N5 Tutor — Master Task List
+# JLPT N5 Tutor - Master Task List
 
-> **2026-05-06 transition note:** Historical UNC-1 / verification rows below mention the 5-locale shell (en/vi/id/ne/zh). The shell was narrowed to 2 locales (en + hi) on 2026-05-06 per IMP-096 architectural decision. Rows are preserved for historical record — the current state is en+hi only. See CHANGELOG v1.12.40 for rationale.
+> **2026-05-06 transition note:** Historical UNC-1 / verification rows below mention the 5-locale shell (en/vi/id/ne/zh). The shell was narrowed to 2 locales (en + hi) on 2026-05-06 per IMP-096 architectural decision. Rows are preserved for historical record - the current state is en+hi only. See CHANGELOG v1.12.40 for rationale.
 
 **Compiled:** 2026-05-01
 **Sources:** 15 feedback documents in `feedback/` cross-referenced against current shipped state
@@ -8,11 +8,11 @@
 
 This is the consolidated successor to all individual audit / brief docs. It lists every distinct action item across all feedback, classified as:
 
-- ✅ **DONE** — verified shipped (cited where possible)
-- ⚠ **OPEN** — actionable, no infrastructure blocker, ready to fix
-- 🔧 **OPEN-INFRA** — open but needs external resource (audio pipeline, native reviewer, content-authoring batch)
-- 📦 **DEFERRED** — explicitly punted (long-term roadmap)
-- ❓ **UNCERTAIN** — needs verification before classifying
+- ✅ **DONE** - verified shipped (cited where possible)
+- ⚠ **OPEN** - actionable, no infrastructure blocker, ready to fix
+- 🔧 **OPEN-INFRA** - open but needs external resource (audio pipeline, native reviewer, content-authoring batch)
+- 📦 **DEFERRED** - explicitly punted (long-term roadmap)
+- ❓ **UNCERTAIN** - needs verification before classifying
 
 ---
 
@@ -30,45 +30,45 @@ Updated 2026-05-03 (night, final). **🎉 All 125 items closed.** Every bucket i
 
 **Bottom line: 🎉 every line item resolved.** 125/125 done. The project is feature-complete relative to the 15 feedback documents that drove this sweep. Future work (N4 corpus, additional review passes, VOICEVOX upgrade) opens fresh tracker entries when triggered; this list is the closing line on the JLPT N5 maintenance phase.
 
-**Closed 2026-05-03 (night — implemented the last 3 deferred items):**
-- ✅ DEFER-6 → DONE — Playwright visual-regression suite wired into CI. Baselines captured for 6 routes × 2 viewports × 2 projects = 24 PNGs at `tests/visual-regression.spec.js-snapshots/`. `prefers-reduced-motion: reduce` emulation, `networkidle` wait, and 0.1% pixel-diff tolerance prevent flakes from sub-pixel font rendering. Daily-status row on home masked because it changes daily. `.github/workflows/playwright.yml` no longer excludes `--grep-invert visual-regression`. Verified 24/24 green locally.
-- ✅ DEFER-7 → DONE — BrowserStack cross-browser scaffolding shipped. `browserstack.yml` defines a 4-platform matrix (Safari macOS Sonoma + Safari iOS 17 + Edge Win11 + Chrome Android 14) consumed by `browserstack-node-sdk playwright test`. New workflow `.github/workflows/browserstack.yml` runs the same Playwright spec on those platforms when `vars.BROWSERSTACK_ENABLED == 'true'` AND repo secrets `BROWSERSTACK_USERNAME` + `BROWSERSTACK_ACCESS_KEY` are present. Without those, the workflow gracefully skips (forks + secret-less PRs don't fail CI). Activation = 3 lines in repo settings.
-- ✅ DEFER-10 → DONE — UI-design-brief §1.2 elements restored within the v1.7.1 syllabus layout (no resurrection of the removed full hero):
-    - **五 kanji watermark** — absolutely-positioned glyph behind the title, opacity 0.06, `clamp(96px, 18vw, 220px)` size, `aria-hidden`, `pointer-events: none`.
-    - **Pill-badge stats** — 5-pill row under the subtitle showing "177 grammar patterns / 1,003 vocab words / 106 kanji / 40 reading passages / 40 listening drills" with `aria-label="Corpus size"`. Mobile breakpoint at 480px tightens padding/font.
-    - **CTA lift-on-hover** — `.btn-action-primary` and `.btn-action-secondary` now `transform: translateY(-1px)` + soft `box-shadow` on hover; reset on `:active`. Suppressed under `prefers-reduced-motion: reduce` (D-3 design-system rule).
+**Closed 2026-05-03 (night - implemented the last 3 deferred items):**
+- ✅ DEFER-6 → DONE - Playwright visual-regression suite wired into CI. Baselines captured for 6 routes × 2 viewports × 2 projects = 24 PNGs at `tests/visual-regression.spec.js-snapshots/`. `prefers-reduced-motion: reduce` emulation, `networkidle` wait, and 0.1% pixel-diff tolerance prevent flakes from sub-pixel font rendering. Daily-status row on home masked because it changes daily. `.github/workflows/playwright.yml` no longer excludes `--grep-invert visual-regression`. Verified 24/24 green locally.
+- ✅ DEFER-7 → DONE - BrowserStack cross-browser scaffolding shipped. `browserstack.yml` defines a 4-platform matrix (Safari macOS Sonoma + Safari iOS 17 + Edge Win11 + Chrome Android 14) consumed by `browserstack-node-sdk playwright test`. New workflow `.github/workflows/browserstack.yml` runs the same Playwright spec on those platforms when `vars.BROWSERSTACK_ENABLED == 'true'` AND repo secrets `BROWSERSTACK_USERNAME` + `BROWSERSTACK_ACCESS_KEY` are present. Without those, the workflow gracefully skips (forks + secret-less PRs don't fail CI). Activation = 3 lines in repo settings.
+- ✅ DEFER-10 → DONE - UI-design-brief §1.2 elements restored within the v1.7.1 syllabus layout (no resurrection of the removed full hero):
+    - **五 kanji watermark** - absolutely-positioned glyph behind the title, opacity 0.06, `clamp(96px, 18vw, 220px)` size, `aria-hidden`, `pointer-events: none`.
+    - **Pill-badge stats** - 5-pill row under the subtitle showing "177 grammar patterns / 1,003 vocab words / 106 kanji / 40 reading passages / 40 listening drills" with `aria-label="Corpus size"`. Mobile breakpoint at 480px tightens padding/font.
+    - **CTA lift-on-hover** - `.btn-action-primary` and `.btn-action-secondary` now `transform: translateY(-1px)` + soft `box-shadow` on hover; reset on `:active`. Suppressed under `prefers-reduced-motion: reduce` (D-3 design-system rule).
     - Cache-buster bumped to v=1.11.20.
 
-**Closed 2026-05-03 (evening — final verification sweep):**
-- ✅ DEFER-2 → DONE — codified by JA-29 (Pass-23 r5 design decision, 2026-05-02). `tools/check_content_integrity.py:1719-1722` documents: subtype is the canonical extension point; promoting `paraphrase` to a top-level type would force renderer changes for marginal gain. JA-29 locks the subtype taxonomy at `paraphrase` / `kanji_writing`. Was listed deferred but officially closed-by-decision a day ago.
-- ✅ DEFER-4 → DONE — `lesson_order` and `frequency_rank` fields present on **all 106/106** kanji entries in `data/kanji.json`. Verified via direct field-presence count. Was listed deferred but had shipped.
-- ✅ DEFER-5 → DONE — POS tags on **1014/1014** vocab entries in `KnowledgeBank/vocabulary_n5.md`. Pass-22 (2026-05-02) tagged 1002 single-form entries (validated by JA-31). Today's `tools/fill_multiform_pos_tags_2026_05_03.py` filled the remaining 12 multi-form `form1 / form2 - gloss` lines that JA-31's LINE_RE intentionally skips (form-pattern stops at first whitespace). Two homograph mis-tag overrides applied: くらい "about" particle (vocab.json's くらい is the i-adj "dark") and ゼロ/れい "zero" numeral (vocab.json's れい is the noun "courtesy"). All 40 content-integrity invariants green post-fill.
+**Closed 2026-05-03 (evening - final verification sweep):**
+- ✅ DEFER-2 → DONE - codified by JA-29 (Pass-23 r5 design decision, 2026-05-02). `tools/check_content_integrity.py:1719-1722` documents: subtype is the canonical extension point; promoting `paraphrase` to a top-level type would force renderer changes for marginal gain. JA-29 locks the subtype taxonomy at `paraphrase` / `kanji_writing`. Was listed deferred but officially closed-by-decision a day ago.
+- ✅ DEFER-4 → DONE - `lesson_order` and `frequency_rank` fields present on **all 106/106** kanji entries in `data/kanji.json`. Verified via direct field-presence count. Was listed deferred but had shipped.
+- ✅ DEFER-5 → DONE - POS tags on **1014/1014** vocab entries in `KnowledgeBank/vocabulary_n5.md`. Pass-22 (2026-05-02) tagged 1002 single-form entries (validated by JA-31). Today's `tools/fill_multiform_pos_tags_2026_05_03.py` filled the remaining 12 multi-form `form1 / form2 - gloss` lines that JA-31's LINE_RE intentionally skips (form-pattern stops at first whitespace). Two homograph mis-tag overrides applied: くらい "about" particle (vocab.json's くらい is the i-adj "dark") and ゼロ/れい "zero" numeral (vocab.json's れい is the noun "courtesy"). All 40 content-integrity invariants green post-fill.
 
-**Closed 2026-05-03 (afternoon — verification + code-already-shipped sweep):**
-- ✅ DEFER-1 → DONE — grammar pattern coverage is **177/177 (100%)**. Today's pass-15+ batch authored q-0504..q-0578 (75 mcq) referencing the previously-uncovered patterns via `grammarPatternId`. Verified via `tools/_pending_audit_2026_05_03.py`: every pattern in `grammar.json` has at least one question. (DEFER-8 was folded into this; auto-closes too.)
-- ✅ DEFER-3 → DONE — `tier` taxonomy is live on `grammar.json`. Distribution: 152 `core_n5` + 25 `late_n5` (parallels `reading.json` `tier` field). Already shipped; was listed deferred but stale.
-- ✅ DEFER-9 → DONE — heuristic audit of the 9 MEDIUM data-brief items confirms they were addressed in Pass-13/14/15: 何 dual-reading (なに/なん) preserved with single gloss; 〜があります not overloaded (3 distinct patterns); 0/1003 vocab missing `gloss`; meaning_ja consistency matches grammar.json (177/177 entries have `meaning_ja`). Remaining items are polish-tier and don't warrant a tracker entry.
-- ✅ INFRA-1 → DONE — all 40 listening items in `data/listening.json` resolve to MP3s on disk (gTTS-shimmed via Phase-2 audio render). The "audio manifest entries for listening 13-30" gap is closed. (INFRA-2 — VOICEVOX-quality polish — is a separate item, still open.)
-- ✅ Infra-audit §4.1 storage-waste → DONE — `tools/cleanup_orphan_audio_2026_05_03.py` removed 41 orphan grammar-example MP3s (0.75 MB) for retired pattern IDs (n5-012/020/022/032/047/128/138-141) and stale .3/.4 slots on n5-024/031 (whose example count went from 5 → 3). Audio total: 22.0 MB → 21.2 MB. Idempotent; re-derives orphan set every run.
-- ✅ DEFER-12 → DONE — `js/reading.js#renderIndex` reads `settings.readingMockTestMode`, renders a checkbox at the top of the reading index, and filters each passage's questions by `format_role === 'primary' || !format_role` when on; passage-click handler applies the same filter to `session.passage` so the reading flow only walks primary questions. Setting persists via `storage.setSettings`. Verified in preview: mock-on shows 1/1/1 questions across n5.read.001/002/003 vs 2/3/2 with mock-off. Was listed deferred but renderer change had already shipped — only the task-tracker entry was stale.
-- ✅ DEFER-13 → DONE — `js/home.js` lines 240-278 render the daily-goal-met badge as `.syllabus-daily-today` (✓ Practiced today / ○ Not yet practiced today) decoupled from the streak count. Verified at `#/home`: status block present, marks toggle correctly with `localStorage.streak.lastStudyDate`. Was listed deferred but already shipped.
-- ✅ DEFER-14 → DONE — `js/review.js` lines 186-273 + `js/storage.js` `recordSrsResponse` (returns snapshot) + `undoSrsResponse` (restores snapshot). Verified end-to-end: grade button fires → snapshot stored → toast renders ("Recorded: <Grade> ↶ Undo") with 2s auto-dismiss + hover-pause + click rollback. State byte-identical pre-grade vs post-undo. Was listed deferred but already shipped.
-- ✅ UNC-1 → VERIFIED present — `#/settings` panel has UI language (5 locales), Theme (System/Light/Dark), Font size (S/M/L/XL), Default test length, Daily new-card limit, Daily review cap, Audio playback speed, Reduce motion, Export progress, Import progress, Reset all progress. Matches UX-brief2 §5 in full.
-- ✅ UNC-2 → CLOSED by design — Pass-13 native review concluded auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]); the 3-mode toggle was DROPPED and not re-introduced. See `js/settings.js` line 119 comment + OPEN-8 closure.
+**Closed 2026-05-03 (afternoon - verification + code-already-shipped sweep):**
+- ✅ DEFER-1 → DONE - grammar pattern coverage is **177/177 (100%)**. Today's pass-15+ batch authored q-0504..q-0578 (75 mcq) referencing the previously-uncovered patterns via `grammarPatternId`. Verified via `tools/_pending_audit_2026_05_03.py`: every pattern in `grammar.json` has at least one question. (DEFER-8 was folded into this; auto-closes too.)
+- ✅ DEFER-3 → DONE - `tier` taxonomy is live on `grammar.json`. Distribution: 152 `core_n5` + 25 `late_n5` (parallels `reading.json` `tier` field). Already shipped; was listed deferred but stale.
+- ✅ DEFER-9 → DONE - heuristic audit of the 9 MEDIUM data-brief items confirms they were addressed in Pass-13/14/15: 何 dual-reading (なに/なん) preserved with single gloss; 〜があります not overloaded (3 distinct patterns); 0/1003 vocab missing `gloss`; meaning_ja consistency matches grammar.json (177/177 entries have `meaning_ja`). Remaining items are polish-tier and don't warrant a tracker entry.
+- ✅ INFRA-1 → DONE - all 40 listening items in `data/listening.json` resolve to MP3s on disk (gTTS-shimmed via Phase-2 audio render). The "audio manifest entries for listening 13-30" gap is closed. (INFRA-2 - VOICEVOX-quality polish - is a separate item, still open.)
+- ✅ Infra-audit §4.1 storage-waste → DONE - `tools/cleanup_orphan_audio_2026_05_03.py` removed 41 orphan grammar-example MP3s (0.75 MB) for retired pattern IDs (n5-012/020/022/032/047/128/138-141) and stale .3/.4 slots on n5-024/031 (whose example count went from 5 → 3). Audio total: 22.0 MB → 21.2 MB. Idempotent; re-derives orphan set every run.
+- ✅ DEFER-12 → DONE - `js/reading.js#renderIndex` reads `settings.readingMockTestMode`, renders a checkbox at the top of the reading index, and filters each passage's questions by `format_role === 'primary' || !format_role` when on; passage-click handler applies the same filter to `session.passage` so the reading flow only walks primary questions. Setting persists via `storage.setSettings`. Verified in preview: mock-on shows 1/1/1 questions across n5.read.001/002/003 vs 2/3/2 with mock-off. Was listed deferred but renderer change had already shipped - only the task-tracker entry was stale.
+- ✅ DEFER-13 → DONE - `js/home.js` lines 240-278 render the daily-goal-met badge as `.syllabus-daily-today` (✓ Practiced today / ○ Not yet practiced today) decoupled from the streak count. Verified at `#/home`: status block present, marks toggle correctly with `localStorage.streak.lastStudyDate`. Was listed deferred but already shipped.
+- ✅ DEFER-14 → DONE - `js/review.js` lines 186-273 + `js/storage.js` `recordSrsResponse` (returns snapshot) + `undoSrsResponse` (restores snapshot). Verified end-to-end: grade button fires → snapshot stored → toast renders ("Recorded: <Grade> ↶ Undo") with 2s auto-dismiss + hover-pause + click rollback. State byte-identical pre-grade vs post-undo. Was listed deferred but already shipped.
+- ✅ UNC-1 → VERIFIED present - `#/settings` panel has UI language (5 locales), Theme (System/Light/Dark), Font size (S/M/L/XL), Default test length, Daily new-card limit, Daily review cap, Audio playback speed, Reduce motion, Export progress, Import progress, Reset all progress. Matches UX-brief2 §5 in full.
+- ✅ UNC-2 → CLOSED by design - Pass-13 native review concluded auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]); the 3-mode toggle was DROPPED and not re-introduced. See `js/settings.js` line 119 comment + OPEN-8 closure.
 
 **Closed today (full sweep):**
-- ✅ OPEN-1, 2, 3 (LLM-audit findings — n5-115 examples, n5-115 notes, n5-008 ex[1])
-- ✅ OPEN-4 (kanji-reading hiragana convention — README documented)
-- ✅ OPEN-5 (counter-numeral convention — README documented)
+- ✅ OPEN-1, 2, 3 (LLM-audit findings - n5-115 examples, n5-115 notes, n5-008 ex[1])
+- ✅ OPEN-4 (kanji-reading hiragana convention - README documented)
+- ✅ OPEN-5 (counter-numeral convention - README documented)
 - ✅ OPEN-6 (session-end summary verified shipped; daily-goal sub-item → DEFER-13)
 - ✅ OPEN-7 (undo-2s → DEFER-14)
-- ✅ OPEN-8 (3-mode furigana spec requirement formally dropped — README documented)
-- ✅ OPEN-9 (Zen Modern microinteractions deviation — spec supplement B.15)
-- ✅ OPEN-10 (Mark-as-known position consistency — CSS layout normalised)
+- ✅ OPEN-8 (3-mode furigana spec requirement formally dropped - README documented)
+- ✅ OPEN-9 (Zen Modern microinteractions deviation - spec supplement B.15)
+- ✅ OPEN-10 (Mark-as-known position consistency - CSS layout normalised)
 
 ---
 
-## 1. ⚠ OPEN — Ready to fix (9 items)
+## 1. ⚠ OPEN - Ready to fix (9 items)
 
 ### CRITICAL
 None. All factual-error items closed.
@@ -79,63 +79,63 @@ None. All factual-error items closed.
 
 | ID | Source | Status |
 |---|---|---|
-| ~~OPEN-1~~ | LLM-audit §n5-115 | ✅ **CLOSED** — replaced 5 examples with time-specific 〜時に demonstrations (9時/何時/5時はん/12時); refined meaning_en from "covered by" redirect-style text. |
-| ~~OPEN-2~~ | LLM-audit §n5-115 | ✅ **CLOSED** — verified the stub-redirect text was already removed in a prior pass. No data change needed. |
-| ~~OPEN-3~~ | LLM-audit §n5-008 | ✅ **CLOSED** — ex[1] `パンと コーヒーを たべました` → `母と えいがを 見ました` (clean companion-と use). |
+| ~~OPEN-1~~ | LLM-audit §n5-115 | ✅ **CLOSED** - replaced 5 examples with time-specific 〜時に demonstrations (9時/何時/5時はん/12時); refined meaning_en from "covered by" redirect-style text. |
+| ~~OPEN-2~~ | LLM-audit §n5-115 | ✅ **CLOSED** - verified the stub-redirect text was already removed in a prior pass. No data change needed. |
+| ~~OPEN-3~~ | LLM-audit §n5-008 | ✅ **CLOSED** - ex[1] `パンと コーヒーを たべました` → `母と えいがを 見ました` (clean companion-と use). |
 
 ### MEDIUM
 
 | ID | Source | Item |
 |---|---|---|
-| ~~OPEN-4~~ | data-brief §2.4 | ✅ **CLOSED** — decision: keep both `on` and `kun` as hiragana in `n5_kanji_readings.json`. Documented in README "Kanji reading display convention" section. The on/kun distinction is conveyed via labelled fields, not typography. |
-| ~~OPEN-5~~ | data-brief §2.5 | ✅ **CLOSED** — surveyed corpus 2026-05-01: 194 arabic+N5-kanji, 43 arabic+kana, 34 kanji+kanji legacy, 29 kanji+kana legacy. Documented going-forward convention in README "Counter-numeral display convention": **arabic numeral + counter-as-kanji-if-N5-else-kana** (e.g., `7時` / `5本` / `1かい` / `8ふん`). The ~30 legacy kanji+kanji forms in passage prose don't need normalisation. |
-| **~~OPEN-6~~** | UX-brief2 §6 | **Verified 2026-05-01:** session-end summary already exists (`js/drill.js#renderFinishedView` → `.drill-finished` block with score / correct / incorrect / pattern-update list). The streak indicator on home is also live. The remaining sub-item — a "daily-goal-met" badge separate from the streak — is moved to DEFER-13. |
+| ~~OPEN-4~~ | data-brief §2.4 | ✅ **CLOSED** - decision: keep both `on` and `kun` as hiragana in `n5_kanji_readings.json`. Documented in README "Kanji reading display convention" section. The on/kun distinction is conveyed via labelled fields, not typography. |
+| ~~OPEN-5~~ | data-brief §2.5 | ✅ **CLOSED** - surveyed corpus 2026-05-01: 194 arabic+N5-kanji, 43 arabic+kana, 34 kanji+kanji legacy, 29 kanji+kana legacy. Documented going-forward convention in README "Counter-numeral display convention": **arabic numeral + counter-as-kanji-if-N5-else-kana** (e.g., `7時` / `5本` / `1かい` / `8ふん`). The ~30 legacy kanji+kanji forms in passage prose don't need normalisation. |
+| **~~OPEN-6~~** | UX-brief2 §6 | **Verified 2026-05-01:** session-end summary already exists (`js/drill.js#renderFinishedView` → `.drill-finished` block with score / correct / incorrect / pattern-update list). The streak indicator on home is also live. The remaining sub-item - a "daily-goal-met" badge separate from the streak - is moved to DEFER-13. |
 | **~~OPEN-7~~ → DEFER-14** | testing-plan §9 | **Verified 2026-05-01:** undo-on-grading 2s window NOT implemented. Moved to DEFER-14 (small UX feature, ~45 min effort, low frequency-of-need). Plan: capture last-grade state in `js/storage.js`, render a "↶ Undo (2s)" toast on grade commit, expose a 2s setTimeout-cancel hook to revert. Not on critical path. |
 
 ### LOW
 
 | ID | Source | Item |
 |---|---|---|
-| ~~OPEN-8~~ | UX-brief2 §4.1 | ✅ **CLOSED** — formally drop the 3-mode spec requirement. Pass-13 native review showed auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]). Decision documented in README "Furigana mode" section + `js/settings.js` line 119 + verification.md Pass 13. App ships with binary on/off toggle. |
-| ~~OPEN-9~~ | UI-design §8.2 | ✅ **CLOSED** — spec supplement §B.15 added documenting Zen Modern §0.5 + §8 supersedes UI-design-brief §8.2 microinteractions. Design-system rules D-3/D-4/D-8 enforce in CI. |
-| ~~OPEN-10~~ | User report 2026-05-01 | ✅ **CLOSED** — added `.known-toggle` markup to `renderVocabDetail` (js/learn.js) and `renderDetail` (js/kanji.js) in same header-right position as `renderPatternDetail`. New `getKnownVocab` / `setVocabKnown` storage functions parallel to existing kanji versions. CSS `.kanji-glyph-cluster` wrapper added so the glyph+readings stay grouped left while the toggle floats right. |
+| ~~OPEN-8~~ | UX-brief2 §4.1 | ✅ **CLOSED** - formally drop the 3-mode spec requirement. Pass-13 native review showed auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]). Decision documented in README "Furigana mode" section + `js/settings.js` line 119 + verification.md Pass 13. App ships with binary on/off toggle. |
+| ~~OPEN-9~~ | UI-design §8.2 | ✅ **CLOSED** - spec supplement §B.15 added documenting Zen Modern §0.5 + §8 supersedes UI-design-brief §8.2 microinteractions. Design-system rules D-3/D-4/D-8 enforce in CI. |
+| ~~OPEN-10~~ | User report 2026-05-01 | ✅ **CLOSED** - added `.known-toggle` markup to `renderVocabDetail` (js/learn.js) and `renderDetail` (js/kanji.js) in same header-right position as `renderPatternDetail`. New `getKnownVocab` / `setVocabKnown` storage functions parallel to existing kanji versions. CSS `.kanji-glyph-cluster` wrapper added so the glyph+readings stay grouped left while the toggle floats right. |
 
 ---
 
-## 2. 🔧 OPEN-INFRA — Needs external resource (0 items)
+## 2. 🔧 OPEN-INFRA - Needs external resource (0 items)
 
 | ID | Source | Item | Blocker |
 |---|---|---|---|
-| ~~**INFRA-1**~~ | consolidated §2.3 | ~~Audio manifest entries for listening 13-30~~ | ✅ **CLOSED 2026-05-03** — all 40 listening items resolve to MP3s on disk via gTTS shim. |
-| ~~**INFRA-2**~~ | consolidated §3.1 | ~~Audio backend unification (gTTS → VOICEVOX everywhere)~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** — user accepted current gTTS implementation. The VOICEVOX upgrade (pitch-accent, multi-character voices, offline rendering) was deemed not worth install + render-pipeline cost for current scope. Activation recipe parked in `feedback/voicevox-integration-notes.md` for future content tiers. |
-| ~~**INFRA-3**~~ | consolidated §3.2 | ~~Multi-voice dialogue audio (male/female VOICEVOX speakers)~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** — same decision as INFRA-2. Speaker context is established in prompt text (「男の人と女の人が話しています...」) so audio-level differentiation isn't required for question solvability at N5. |
-| ~~**INFRA-4**~~ | native-review §2 | ~~Pass-11 native-teacher review (P1-P14 sections empty)~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** — content already passed 10 audit passes (485 findings closed: JLPT 出題者 + 日本語教師 + content-correction + TTS audit + reading + infra). The remaining gap is naturalness polish; severity is MEDIUM not CRITICAL. The complete review packet (`feedback/closed/native-teacher-review-request.md` + 5-file dossier in `feedback/closed/native-review-dossier/` + `review_log.csv` template) stays in-tree for a future opportunistic reviewer — if a native-speaking teacher becomes available in the user's network later, the brief is ready to hand over and the closure can be reverted to a tracker entry without re-deriving the activation recipe. |
-| ~~**INFRA-5**~~ | reading-feedback §6 | ~~Native review of rewrites in Pass-15 §1.4, §1.5, §2.1~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** — strict subset of INFRA-4; auto-closes with the same decision. The Pass-15 rewrites already passed the automated invariant suite (JA-18 kanji-subset, JA-19 format_type, JA-28 dokkai N5 bound) plus a re-audit pass. If a future native review opens, it picks these up as part of the `04_reading_passages.md` dossier file. |
+| ~~**INFRA-1**~~ | consolidated §2.3 | ~~Audio manifest entries for listening 13-30~~ | ✅ **CLOSED 2026-05-03** - all 40 listening items resolve to MP3s on disk via gTTS shim. |
+| ~~**INFRA-2**~~ | consolidated §3.1 | ~~Audio backend unification (gTTS → VOICEVOX everywhere)~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** - user accepted current gTTS implementation. The VOICEVOX upgrade (pitch-accent, multi-character voices, offline rendering) was deemed not worth install + render-pipeline cost for current scope. Activation recipe parked in `feedback/voicevox-integration-notes.md` for future content tiers. |
+| ~~**INFRA-3**~~ | consolidated §3.2 | ~~Multi-voice dialogue audio (male/female VOICEVOX speakers)~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** - same decision as INFRA-2. Speaker context is established in prompt text (「男の人と女の人が話しています...」) so audio-level differentiation isn't required for question solvability at N5. |
+| ~~**INFRA-4**~~ | native-review §2 | ~~Pass-11 native-teacher review (P1-P14 sections empty)~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** - content already passed 10 audit passes (485 findings closed: JLPT 出題者 + 日本語教師 + content-correction + TTS audit + reading + infra). The remaining gap is naturalness polish; severity is MEDIUM not CRITICAL. The complete review packet (`feedback/closed/native-teacher-review-request.md` + 5-file dossier in `feedback/closed/native-review-dossier/` + `review_log.csv` template) stays in-tree for a future opportunistic reviewer - if a native-speaking teacher becomes available in the user's network later, the brief is ready to hand over and the closure can be reverted to a tracker entry without re-deriving the activation recipe. |
+| ~~**INFRA-5**~~ | reading-feedback §6 | ~~Native review of rewrites in Pass-15 §1.4, §1.5, §2.1~~ | ✅ **CLOSED-BY-DECISION 2026-05-03** - strict subset of INFRA-4; auto-closes with the same decision. The Pass-15 rewrites already passed the automated invariant suite (JA-18 kanji-subset, JA-19 format_type, JA-28 dokkai N5 bound) plus a re-audit pass. If a future native review opens, it picks these up as part of the `04_reading_passages.md` dossier file. |
 
 ---
 
-## 3. 📦 DEFERRED — Long-term roadmap (0 items active; all 14 closed-but-listed for traceability)
+## 3. 📦 DEFERRED - Long-term roadmap (0 items active; all 14 closed-but-listed for traceability)
 
 | ID | Source | Item | Why deferred |
 |---|---|---|---|
-| ~~**DEFER-1**~~ | external-corpus | ~~78 grammar patterns still uncovered by questions~~ | ✅ **CLOSED 2026-05-03** — coverage now 177/177 (100%). q-0504..q-0578 batch closed the gap. |
-| ~~**DEFER-2**~~ | data-brief §6 / external-corpus P1#5 | ~~Promote `paraphrase` from mcq subtype to first-class question type~~ | ✅ **CLOSED 2026-05-03** — Pass-23 r5 design decision codified by JA-29 (`tools/check_content_integrity.py:1719-1722`): subtype is the canonical extension point; promoting paraphrase to a top-level type would force renderer changes for marginal gain. JA-29 locks the subtype taxonomy at `paraphrase` / `kanji_writing`. |
-| ~~**DEFER-3**~~ | external-corpus P2#7 | ~~`tier` taxonomy on `grammar.json`~~ | ✅ **CLOSED 2026-05-03** — `tier` field live on grammar.json with 152 `core_n5` + 25 `late_n5`. |
-| ~~**DEFER-4**~~ | consolidated §4.2 | ~~Per-kanji `lesson_order` / `frequency_rank` field in `kanji.json`~~ | ✅ **CLOSED 2026-05-03** — both fields present on all 106/106 kanji entries. Was listed deferred but had shipped. |
-| ~~**DEFER-5**~~ | KB-md §4.1 | ~~Optional POS tags `[v1]`/`[v2]`/`[i-adj]`/etc. on vocabulary_n5.md~~ | ✅ **CLOSED 2026-05-03** — 1014/1014 entries now carry POS tags. Pass-22 (2026-05-02) tagged 1002 single-form entries (validated by JA-31). The remaining 12 multi-form `form1 / form2 - gloss` lines were filled by `tools/fill_multiform_pos_tags_2026_05_03.py` — vocab.json lookup with manual override for two homograph mis-tags (くらい "about" particle vs くらい "dark" i-adj; ゼロ/れい "zero" numeral vs れい "courtesy" noun). |
-| ~~**DEFER-6**~~ | testing-plan §16 | ~~Visual-regression Playwright screenshots~~ | ✅ **CLOSED 2026-05-03** — 24 baselines captured (6 routes × 2 viewports × 2 projects) at `tests/visual-regression.spec.js-snapshots/`; CI now runs the suite (no more `--grep-invert visual-regression`); 0.1% pixel-diff tolerance handles sub-pixel font noise. |
-| ~~**DEFER-7**~~ | testing-plan §10 | ~~Cross-browser BrowserStack (Safari/iOS + Android + Linux)~~ | ✅ **CLOSED 2026-05-03** — `browserstack.yml` + `.github/workflows/browserstack.yml` ship a 4-platform matrix (Safari macOS + Safari iOS + Edge Win11 + Chrome Android). Dormant until `vars.BROWSERSTACK_ENABLED=true` + secrets are added. |
-| ~~**DEFER-8**~~ | external-corpus | ~~Coverage-comparison gap: tokens external tests but we don't~~ | ✅ **CLOSED 2026-05-03** — folded into DEFER-1; auto-closes with 100% pattern coverage. |
-| ~~**DEFER-9**~~ | data-brief §3 | ~~9 MEDIUM data-brief items~~ | ✅ **CLOSED 2026-05-03** — heuristic probes all green: 何 dual-reading preserved, 〜があります not overloaded (3 distinct patterns), 0/1003 vocab missing gloss, meaning_ja 177/177 on grammar. |
-| ~~**DEFER-10**~~ | UI-design §1.2 | ~~Pill-badge hero stats / kanji watermark / CTA hover states~~ | ✅ **CLOSED 2026-05-03** — restored §1.2 elements within the v1.7.1 syllabus-header layout (no resurrection of the removed full hero): 五 watermark (clamp 96-220px, opacity 0.06, aria-hidden), 5 stat pills with corpus counts, lift-on-hover CTA buttons (`translateY(-1px)` + soft shadow, suppressed under `prefers-reduced-motion`). |
+| ~~**DEFER-1**~~ | external-corpus | ~~78 grammar patterns still uncovered by questions~~ | ✅ **CLOSED 2026-05-03** - coverage now 177/177 (100%). q-0504..q-0578 batch closed the gap. |
+| ~~**DEFER-2**~~ | data-brief §6 / external-corpus P1#5 | ~~Promote `paraphrase` from mcq subtype to first-class question type~~ | ✅ **CLOSED 2026-05-03** - Pass-23 r5 design decision codified by JA-29 (`tools/check_content_integrity.py:1719-1722`): subtype is the canonical extension point; promoting paraphrase to a top-level type would force renderer changes for marginal gain. JA-29 locks the subtype taxonomy at `paraphrase` / `kanji_writing`. |
+| ~~**DEFER-3**~~ | external-corpus P2#7 | ~~`tier` taxonomy on `grammar.json`~~ | ✅ **CLOSED 2026-05-03** - `tier` field live on grammar.json with 152 `core_n5` + 25 `late_n5`. |
+| ~~**DEFER-4**~~ | consolidated §4.2 | ~~Per-kanji `lesson_order` / `frequency_rank` field in `kanji.json`~~ | ✅ **CLOSED 2026-05-03** - both fields present on all 106/106 kanji entries. Was listed deferred but had shipped. |
+| ~~**DEFER-5**~~ | KB-md §4.1 | ~~Optional POS tags `[v1]`/`[v2]`/`[i-adj]`/etc. on vocabulary_n5.md~~ | ✅ **CLOSED 2026-05-03** - 1014/1014 entries now carry POS tags. Pass-22 (2026-05-02) tagged 1002 single-form entries (validated by JA-31). The remaining 12 multi-form `form1 / form2 - gloss` lines were filled by `tools/fill_multiform_pos_tags_2026_05_03.py` - vocab.json lookup with manual override for two homograph mis-tags (くらい "about" particle vs くらい "dark" i-adj; ゼロ/れい "zero" numeral vs れい "courtesy" noun). |
+| ~~**DEFER-6**~~ | testing-plan §16 | ~~Visual-regression Playwright screenshots~~ | ✅ **CLOSED 2026-05-03** - 24 baselines captured (6 routes × 2 viewports × 2 projects) at `tests/visual-regression.spec.js-snapshots/`; CI now runs the suite (no more `--grep-invert visual-regression`); 0.1% pixel-diff tolerance handles sub-pixel font noise. |
+| ~~**DEFER-7**~~ | testing-plan §10 | ~~Cross-browser BrowserStack (Safari/iOS + Android + Linux)~~ | ✅ **CLOSED 2026-05-03** - `browserstack.yml` + `.github/workflows/browserstack.yml` ship a 4-platform matrix (Safari macOS + Safari iOS + Edge Win11 + Chrome Android). Dormant until `vars.BROWSERSTACK_ENABLED=true` + secrets are added. |
+| ~~**DEFER-8**~~ | external-corpus | ~~Coverage-comparison gap: tokens external tests but we don't~~ | ✅ **CLOSED 2026-05-03** - folded into DEFER-1; auto-closes with 100% pattern coverage. |
+| ~~**DEFER-9**~~ | data-brief §3 | ~~9 MEDIUM data-brief items~~ | ✅ **CLOSED 2026-05-03** - heuristic probes all green: 何 dual-reading preserved, 〜があります not overloaded (3 distinct patterns), 0/1003 vocab missing gloss, meaning_ja 177/177 on grammar. |
+| ~~**DEFER-10**~~ | UI-design §1.2 | ~~Pill-badge hero stats / kanji watermark / CTA hover states~~ | ✅ **CLOSED 2026-05-03** - restored §1.2 elements within the v1.7.1 syllabus-header layout (no resurrection of the removed full hero): 五 watermark (clamp 96-220px, opacity 0.06, aria-hidden), 5 stat pills with corpus counts, lift-on-hover CTA buttons (`translateY(-1px)` + soft shadow, suppressed under `prefers-reduced-motion`). |
 | ~~**DEFER-11**~~ | dev-brief | ~~Authentic-extracted N5 content re-source from official JEES samples~~ | **Closed by decision 2026-05-02:** original-content policy formalized in `CONTENT-LICENSE.md`. Past-paper text would be a copyright issue; we author original questions in JLPT format, using JEES samples only as reference for distribution / topic / difficulty calibration. JA-30 invariant + `tools/audit_provenance.py` enforce the policy at CI time. If a future need arises for licensed past-paper content, see `feedback/jees-inquiry-template.md` for the formal-permission path. |
-| ~~**DEFER-12**~~ | reading §3.5 | ~~Mock-test mode primary-only-question-distribution per JLPT format~~ | ✅ **CLOSED 2026-05-03** — `js/reading.js#renderIndex` reads `settings.readingMockTestMode`, renders a checkbox at the top of the reading index, and filters each passage's questions by `format_role === 'primary' \|\| !format_role` when on; passage-click handler applies the same filter to `session.passage` so the reading flow only walks primary questions. Setting persists via `storage.setSettings`. Verified in preview: mock-on shows 1/1/1 questions across n5.read.001/002/003 vs 2/3/2 with mock-off. |
-| ~~**DEFER-13**~~ | (was OPEN-6 partial) | ~~Daily-goal-met badge separate from streak count~~ | ✅ **CLOSED 2026-05-03** — `js/home.js` renders `.syllabus-daily-today` ("✓ Practiced today" / "○ Not yet practiced today") + `.syllabus-daily-streak` ("Streak: N days") side-by-side; toggles via `localStorage.streak.lastStudyDate === todayKey`. Verified in browser. |
-| ~~**DEFER-14**~~ | (was OPEN-7) | ~~Undo-on-grading 2s window in Review~~ | ✅ **CLOSED 2026-05-03** — `js/review.js#mountUndoToast` + `js/storage.js#undoSrsResponse`; 2s auto-dismiss with hover-pause; click restores byte-identical pre-grade snapshot; verified end-to-end in browser. |
+| ~~**DEFER-12**~~ | reading §3.5 | ~~Mock-test mode primary-only-question-distribution per JLPT format~~ | ✅ **CLOSED 2026-05-03** - `js/reading.js#renderIndex` reads `settings.readingMockTestMode`, renders a checkbox at the top of the reading index, and filters each passage's questions by `format_role === 'primary' \|\| !format_role` when on; passage-click handler applies the same filter to `session.passage` so the reading flow only walks primary questions. Setting persists via `storage.setSettings`. Verified in preview: mock-on shows 1/1/1 questions across n5.read.001/002/003 vs 2/3/2 with mock-off. |
+| ~~**DEFER-13**~~ | (was OPEN-6 partial) | ~~Daily-goal-met badge separate from streak count~~ | ✅ **CLOSED 2026-05-03** - `js/home.js` renders `.syllabus-daily-today` ("✓ Practiced today" / "○ Not yet practiced today") + `.syllabus-daily-streak` ("Streak: N days") side-by-side; toggles via `localStorage.streak.lastStudyDate === todayKey`. Verified in browser. |
+| ~~**DEFER-14**~~ | (was OPEN-7) | ~~Undo-on-grading 2s window in Review~~ | ✅ **CLOSED 2026-05-03** - `js/review.js#mountUndoToast` + `js/storage.js#undoSrsResponse`; 2s auto-dismiss with hover-pause; click restores byte-identical pre-grade snapshot; verified end-to-end in browser. |
 
 ---
 
-## 4. ✅ DONE — Recently verified shipped (selected highlights)
+## 4. ✅ DONE - Recently verified shipped (selected highlights)
 
 This section lists items the audit docs flag as "to-do" but which have actually been delivered. Cited for verification audit-traceability.
 
@@ -219,13 +219,13 @@ Pedagogical foundations + design overhaul shipped:
 
 ---
 
-## 5. ❓ UNCERTAIN — Need verification (3 items, low priority)
+## 5. ❓ UNCERTAIN - Need verification (3 items, low priority)
 
 | ID | Item | Status |
 |---|---|---|
-| ~~UNC-1~~ | Settings panel completeness vs UX-brief2 §5 | ✅ **VERIFIED 2026-05-03** — UI language (5 locales) / Theme (System/Light/Dark) / Font size (S/M/L/XL) / Default test length / Daily new-card limit / Daily review cap / Audio playback speed / Reduce motion / Export / Import / Reset all present. Matches §5 in full. |
-| ~~UNC-2~~ | Furigana toggle quick-access in header (testing-plan §9) | ✅ **CLOSED BY DESIGN** — Pass-13 dropped the toggle entirely; auto-furigana was producing wrong context readings. See `js/settings.js` line 119 + OPEN-8 closure. Header has no toggle by deliberate design. |
-| ~~UNC-3~~ | n5-031 example post-fix (today's swap from こない→食べない) — re-tag vocab_ids | ✅ **CLOSED 2026-05-03** — ran `tools/link_grammar_examples_to_vocab.py`; n5-031 ex[2] (`ごはん 食べないの？`) now links `n5.vocab.28-verbs-group-2-verbs.食べる`. 628/628 grammar examples linked (100%). All 40 invariants green. |
+| ~~UNC-1~~ | Settings panel completeness vs UX-brief2 §5 | ✅ **VERIFIED 2026-05-03** - UI language (5 locales) / Theme (System/Light/Dark) / Font size (S/M/L/XL) / Default test length / Daily new-card limit / Daily review cap / Audio playback speed / Reduce motion / Export / Import / Reset all present. Matches §5 in full. |
+| ~~UNC-2~~ | Furigana toggle quick-access in header (testing-plan §9) | ✅ **CLOSED BY DESIGN** - Pass-13 dropped the toggle entirely; auto-furigana was producing wrong context readings. See `js/settings.js` line 119 + OPEN-8 closure. Header has no toggle by deliberate design. |
+| ~~UNC-3~~ | n5-031 example post-fix (today's swap from こない→食べない) - re-tag vocab_ids | ✅ **CLOSED 2026-05-03** - ran `tools/link_grammar_examples_to_vocab.py`; n5-031 ex[2] (`ごはん 食べないの？`) now links `n5.vocab.28-verbs-group-2-verbs.食べる`. 628/628 grammar examples linked (100%). All 40 invariants green. |
 
 ---
 

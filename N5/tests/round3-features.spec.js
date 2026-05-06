@@ -1,7 +1,7 @@
 // IMP-055 (audit round-4): regression coverage for the round-3 routes
 // shipped in v1.12.30 + v1.12.31:
-//   #/missed   — wrong-answer history
-//   #/sitting  — full mock-paper sitting flow
+//   #/missed   - wrong-answer history
+//   #/sitting  - full mock-paper sitting flow
 //   home daily-goal progress + due-count surface
 //   custom audio-player skin (skip ±5s + per-clip rate buttons)
 //
@@ -26,7 +26,7 @@ test.describe('round-3 + round-4 surface regression', () => {
     await expect(pills.nth(4)).toContainText('100% on-device');
   });
 
-  test('header has 2 locale chips (EN / HI) — narrowed 2026-05-06 per IMP-096', async ({ page }) => {
+  test('header has 2 locale chips (EN / HI) - narrowed 2026-05-06 per IMP-096', async ({ page }) => {
     await page.goto('/');
     const group = page.locator('#locale-chip-group');
     await expect(group).toBeVisible();

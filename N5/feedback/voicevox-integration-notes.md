@@ -10,7 +10,7 @@ render cost.
 
 gTTS produces intelligible Japanese audio for short single-speaker
 clips. The N5 corpus is 1,003 vocab + ~15-second listening drills + a
-handful of grammar examples — no long-form narration, no pitch-accent
+handful of grammar examples - no long-form narration, no pitch-accent
 drills, no dialogue practice that requires per-character voice
 differentiation. The speaker context in listening drills is set in the
 prompt text (`男の人と女の人が話しています ...`), so audio-level
@@ -35,12 +35,12 @@ dialogues, the calculation flips.
 The VOICEVOX engine is the headless TTS server. It exposes a REST API
 on `http://localhost:50021`. Three install options:
 
-- **Windows / macOS / Linux desktop app** — bundles GUI + engine.
-  https://voicevox.hiroshiba.jp/ — download the runtime (~1.5 GB
+- **Windows / macOS / Linux desktop app** - bundles GUI + engine.
+  https://voicevox.hiroshiba.jp/ - download the runtime (~1.5 GB
   with all default voices).
-- **Docker** — `docker run -p 50021:50021 voicevox/voicevox_engine:cpu-latest`
-  — recommended for CI / build pipelines. CPU-only image is ~700 MB.
-- **GPU image** — `voicevox/voicevox_engine:nvidia-latest` if a CUDA
+- **Docker** - `docker run -p 50021:50021 voicevox/voicevox_engine:cpu-latest`
+  - recommended for CI / build pipelines. CPU-only image is ~700 MB.
+- **GPU image** - `voicevox/voicevox_engine:nvidia-latest` if a CUDA
   GPU is available. Roughly 5x faster but unnecessary for batch
   rendering.
 
@@ -57,13 +57,13 @@ own license. For an educational app most are fine; the project should
 deliberately pick voices whose ToS permits the use case.
 
 Recommended starter set (all permit commercial use with attribution):
-- ずんだもん (Zundamon) — neutral teen voice, 5 styles
-- 四国めたん (Shikoku Metan) — female teen voice, 5 styles
-- 春日部つむぎ (Kasukabe Tsumugi) — female young-adult voice
-- 玄野武宏 (Kurono Takehiro) — male adult voice (good for "男の人" speakers)
+- ずんだもん (Zundamon) - neutral teen voice, 5 styles
+- 四国めたん (Shikoku Metan) - female teen voice, 5 styles
+- 春日部つむぎ (Kasukabe Tsumugi) - female young-adult voice
+- 玄野武宏 (Kurono Takehiro) - male adult voice (good for "男の人" speakers)
 
 Each voice has an integer `speaker_id` queryable via
-`GET /speakers`. Pin the IDs in the renderer script — never use the
+`GET /speakers`. Pin the IDs in the renderer script - never use the
 default since `speaker_id=0` may shift between releases.
 
 For the attribution requirement: add a `CREDITS.md` listing each
@@ -81,13 +81,13 @@ with a different synthesis function:
 import requests
 
 def render_voicevox(text: str, speaker_id: int, out_path: Path) -> None:
-    # 1. Audio query — VOICEVOX returns a per-text accent dictionary
+    # 1. Audio query - VOICEVOX returns a per-text accent dictionary
     #    that you can hand-edit before synthesis.
     q = requests.post(
         "http://localhost:50021/audio_query",
         params={"text": text, "speaker": speaker_id},
     ).json()
-    # 2. Synthesis — pass the (possibly hand-tweaked) query back to get WAV.
+    # 2. Synthesis - pass the (possibly hand-tweaked) query back to get WAV.
     wav = requests.post(
         "http://localhost:50021/synthesis",
         params={"speaker": speaker_id},
@@ -128,7 +128,7 @@ Budget ~4 hours for the full sweep on the current corpus.
 
 ### 6. Cutover
 
-The audio_manifest.json schema doesn't change — same `path`, `id`,
+The audio_manifest.json schema doesn't change - same `path`, `id`,
 `backend` fields. Bump `backend` from `gtts` to `voicevox` in the
 manifest. JA-15 (audio refs resolve to files on disk) keeps catching
 broken paths. Replace the gTTS-rendered MP3s in place; the SW cache

@@ -249,10 +249,10 @@ def update_bunpou_md() -> None:
 #   keep: バスが おくれたから (transport theme), でんしゃが おくれたから (correct)
 #   replace: あさごはんを 食べたから, おきるのが おそかったから
 #   with: あたまが いたかったから, バスが 来なかったから (both school-excuse-plausible)
-#   But this changes the "no support" pattern — actually for N5 listening, distractors
+#   But this changes the "no support" pattern - actually for N5 listening, distractors
 #   often DO have zero support; that's part of the format. The bigger issue is
 #   choice 1 「バスが おくれたから」 (bus delayed) is parallel to keyed
-#   「でんしゃが おくれたから」 — that's a fine "swapped vehicle" distractor.
+#   「でんしゃが おくれたから」 - that's a fine "swapped vehicle" distractor.
 #
 # Keeping the audit's recommendation but more conservatively: just swap one
 # distractor to make the trap-set tighter.

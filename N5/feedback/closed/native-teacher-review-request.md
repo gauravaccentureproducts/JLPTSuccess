@@ -20,7 +20,7 @@
 
 A free, browser-based, no-login, offline-capable study app for learners who are wrapping up JLPT N5. It teaches all N5 grammar patterns, drills them with a 591-question bank, and runs SM-2 spaced repetition over weak items. All progress lives on the user's device; no telemetry; no accounts.
 
-**Why we need you:** the app's correctness has been audited 10 times already, summarized below. Even after this much auditing, fresh native eyes find things prior reviewers (and automated checks) miss — especially when you read the content as a teacher would, not as a checklist.
+**Why we need you:** the app's correctness has been audited 10 times already, summarized below. Even after this much auditing, fresh native eyes find things prior reviewers (and automated checks) miss - especially when you read the content as a teacher would, not as a checklist.
 
 | Pass | Lens | Findings closed |
 |---|---|---|
@@ -40,9 +40,9 @@ For Pass 11, this means: if you find auto-furigana errors in the runtime UI, the
 
 ### 1.2 Project's institutional alignment
 
-While this app is not endorsed by 文部科学省 (MEXT) or 国際交流基金 (Japan Foundation), it aspires to align with their published N5-level guidance and the JEES official sample papers. Reviewer findings that strengthen this alignment — especially via the Japanese-side authoritative sources in §7.1 — are particularly welcome.
+While this app is not endorsed by 文部科学省 (MEXT) or 国際交流基金 (Japan Foundation), it aspires to align with their published N5-level guidance and the JEES official sample papers. Reviewer findings that strengthen this alignment - especially via the Japanese-side authoritative sources in §7.1 - are particularly welcome.
 
-This review (Pass 11) covers **both** the source-of-truth catalog files in `KnowledgeBank/` **and** the runtime JSON files in `data/` that the app actually serves. The two are related but not identical — `data/*.json` is derived from / inspired by `KnowledgeBank/*.md` but contains additional examples, expanded forms, and runtime-only content (questions, reading passages, listening scripts) that have never been deeply native-reviewed.
+This review (Pass 11) covers **both** the source-of-truth catalog files in `KnowledgeBank/` **and** the runtime JSON files in `data/` that the app actually serves. The two are related but not identical - `data/*.json` is derived from / inspired by `KnowledgeBank/*.md` but contains additional examples, expanded forms, and runtime-only content (questions, reading passages, listening scripts) that have never been deeply native-reviewed.
 
 ---
 
@@ -52,7 +52,7 @@ Read the files below as a native speaker would read a textbook draft. For each e
 
 ### 2.1 Files to review (in priority order)
 
-> **Estimate footnote:** Estimates below are for fluent silent reading. A careful audit (mental render-aloud + cross-reference against catalog rules + naturalness check) is typically **2-3× these durations**. If you find yourself going faster, you are sampling, not auditing — please note that explicitly in your findings file.
+> **Estimate footnote:** Estimates below are for fluent silent reading. A careful audit (mental render-aloud + cross-reference against catalog rules + naturalness check) is typically **2-3× these durations**. If you find yourself going faster, you are sampling, not auditing - please note that explicitly in your findings file.
 
 | Priority | File | What's in it | Approx. items | Estimated effort (fluent read; 2-3× for audit) |
 |---|---|---|---|---|
@@ -73,7 +73,7 @@ Read the files below as a native speaker would read a textbook draft. For each e
 
 > **Note on P3 prioritization:** Listening was promoted from P9 to P3 because audio quality is the area where native expertise is most uniquely needed (TTS errors in pitch accent / rendaku / gemination are inaudible to non-native maintainers) and the highest-stakes pedagogically (a learner who internalizes a wrong pronunciation carries it for years).
 
-If you only have time for one file, do **P1 (`data/grammar.json`)** — it has the highest learner exposure (every Learn lesson surfaces 4-6 of these examples).
+If you only have time for one file, do **P1 (`data/grammar.json`)** - it has the highest learner exposure (every Learn lesson surfaces 4-6 of these examples).
 
 If you have several hours, the recommended sequence is **P1 → P2 → P3 (with audio)** → one of **P4-P8** (pick the question type you teach most often).
 
@@ -85,10 +85,10 @@ Listen to ~20 random MP3 files from `audio/` while reading the script in the cor
 
 These are out of scope (skip):
 
-- `data/audio_manifest.json`, `data/n5_kanji_whitelist.json`, `data/n5_vocab_whitelist.json` — generated artifacts; reviewing them would be reviewing a build output, not authored content
-- `data/n5_kanji_readings.json` — covered fully by Pass-10 (audio/auto-furigana audit)
-- `KnowledgeBank/sources.md` — references / meta-info, mostly English
-- Anything in `js/`, `css/`, `tools/`, `tests.html`, `feedback/`, `specifications/` — code, plans, and process docs; not learner-facing JA content (apart from short UI labels which are out of this review's scope)
+- `data/audio_manifest.json`, `data/n5_kanji_whitelist.json`, `data/n5_vocab_whitelist.json` - generated artifacts; reviewing them would be reviewing a build output, not authored content
+- `data/n5_kanji_readings.json` - covered fully by Pass-10 (audio/auto-furigana audit)
+- `KnowledgeBank/sources.md` - references / meta-info, mostly English
+- Anything in `js/`, `css/`, `tools/`, `tests.html`, `feedback/`, `specifications/` - code, plans, and process docs; not learner-facing JA content (apart from short UI labels which are out of this review's scope)
 
 ---
 
@@ -156,7 +156,7 @@ Please return a single Markdown file (we will ingest it as a Pass-11 audit entry
 
 Two examples are given so the **HIGH** and **CRITICAL** severity thresholds can be calibrated.
 
-**Example 1 — HIGH severity (register clash, no factual error):**
+**Example 1 - HIGH severity (register clash, no factual error):**
 
 ```markdown
 ### F-12 (HIGH)
@@ -167,7 +167,7 @@ Two examples are given so the **HIGH** and **CRITICAL** severity thresholds can 
 **Why:** Within the speaker's in-group (uchi), one's own mother is referred to as 母 (no honorific) when speaking to outsiders; 先生 is the conversational form, 教師 is formal/written.
 ```
 
-**Example 2 — CRITICAL severity (two grammatically-valid options):**
+**Example 2 - CRITICAL severity (two grammatically-valid options):**
 
 ```markdown
 ### F-W2 (CRITICAL)
@@ -175,7 +175,7 @@ Two examples are given so the **HIGH** and **CRITICAL** severity thresholds can 
 **File:** `data/questions.json` → question `q-0042`
 **Issue:** Stem 「きょうは あつい（  ）まどを あけました」 with options 1.と 2.から 3.ので 4.が. Both から (option 2, marked correct) AND ので (option 3) are grammatically valid causal connectors. The question has two correct answers; auto-grading marks ので-pickers wrong on a defensible answer.
 **Suggested fix:** Replace ので with けど (concessive; structurally distinct from causal から). New options: 1.と 2.から 3.けど 4.が.
-**Why:** Multiple-choice auto-grading requires exactly one defensible answer. Two-correct-answer bugs teach learners that their correct reasoning is wrong, which is more harmful than any single content error — hence CRITICAL.
+**Why:** Multiple-choice auto-grading requires exactly one defensible answer. Two-correct-answer bugs teach learners that their correct reasoning is wrong, which is more harmful than any single content error - hence CRITICAL.
 ```
 
 ### Where to write your findings
@@ -197,10 +197,10 @@ When suggesting fixes, please honor these project-level rules:
    - **All Japanese place names** in passages: 東京, 大阪, 京都, 北海道, 富士山, 大学名 etc.
    - **All proper-noun person names** in passages
 
-   Anything outside this set in a passage is worth flagging. The exception applies to **passage prose only**, not to comprehension-question stems or correct-answer text — those still follow the strict N5 kanji rule.
+   Anything outside this set in a passage is worth flagging. The exception applies to **passage prose only**, not to comprehension-question stems or correct-answer text - those still follow the strict N5 kanji rule.
 5. **Furigana** is rendered as `<ruby><rt>` HTML in the runtime; you don't need to author furigana yourself, just flag if a reading is wrong.
 6. **Polite register** (です/ます) is the default everywhere except inside reading-passage dialogue and clearly-marked casual contexts.
-7. **Externally-sourced questions** in `KnowledgeBank/authentic_extracted_n5.md` are extracted from `learnjapaneseaz.com`, a third-party JLPT prep site. **They are NOT from JEES, the Japan Foundation, or any official JLPT past paper.** The file's "authentic" label has been retained for filename stability but the in-file header has been corrected to disclose the third-party provenance. If you flag one of these questions, please feel free to suggest a fix that diverges from the source — the project's bar is higher than the source's. (For Pass-12 we will consider re-sourcing this file from JEES jlpt.jp 公式サンプル問題.)
+7. **Externally-sourced questions** in `KnowledgeBank/authentic_extracted_n5.md` are extracted from `learnjapaneseaz.com`, a third-party JLPT prep site. **They are NOT from JEES, the Japan Foundation, or any official JLPT past paper.** The file's "authentic" label has been retained for filename stability but the in-file header has been corrected to disclose the third-party provenance. If you flag one of these questions, please feel free to suggest a fix that diverges from the source - the project's bar is higher than the source's. (For Pass-12 we will consider re-sourcing this file from JEES jlpt.jp 公式サンプル問題.)
 8. **Naturalness trumps policy.** If a stem or example follows every rule above but no Japanese speaker would actually produce it, flag it. The policies exist to serve naturalness, not the reverse.
 9. **Numeric representation.** 漢数字 (一, 二, 三, 五, 十, 百, 千) in narrative text (e.g., 三人, 五さい); ASCII digits (1, 2, 100, 1000) in prices, addresses, schedules, time tables (e.g., 100円, 9:00). This matches authentic JLPT papers. Flag deviations.
 
@@ -248,11 +248,11 @@ The project is on GitHub Pages at the URL above; the repository is at https://gi
 - You don't need to write code, run tests, or interact with Git.
 - You don't need to fix anything yourself - flagging is enough.
 - You don't need to read every example or every entry if your time is constrained; we'd rather get a thorough sample than a rushed full pass. **Tell us what you sampled** so we know what's still uncovered.
-- You don't need to triage your findings into "what we should do" — we'll do that based on severity. Just flag everything that doesn't read right.
+- You don't need to triage your findings into "what we should do" - we'll do that based on severity. Just flag everything that doesn't read right.
 
 ### 8.2.5 Language of findings
 
-**English is preferred for ingestion** into the project's audit log, but **Japanese-language findings are welcome** — the project will translate ingested findings into the audit log. If you prefer Japanese for nuance (especially for HIGH/CRITICAL findings about pragmatics, register, or collocation), please write in Japanese. Mixed bilingual format is also fine: English for the structured fields (File / Issue / Suggested fix), Japanese for the **Why:** rationale where it captures the native-speaker observation more precisely.
+**English is preferred for ingestion** into the project's audit log, but **Japanese-language findings are welcome** - the project will translate ingested findings into the audit log. If you prefer Japanese for nuance (especially for HIGH/CRITICAL findings about pragmatics, register, or collocation), please write in Japanese. Mixed bilingual format is also fine: English for the structured fields (File / Issue / Suggested fix), Japanese for the **Why:** rationale where it captures the native-speaker observation more precisely.
 
 ### 8.3 What is unique about this project
 
@@ -287,7 +287,7 @@ If the maintainer's interpretation of a finding diverges from your recommendatio
 
 - **CRITICAL findings are binding.** The release does not ship until the CRITICAL is either fixed as recommended or the recommendation is renegotiated with the reviewer in writing. The audit log records the resolution.
 - **HIGH / MEDIUM / LOW findings are advisory.** The project owner makes the final call, but disagreements are logged in `verification.md` so the audit history reflects both positions.
-- **Reviewer override:** if you believe a HIGH/MEDIUM finding is being incorrectly downgraded to LOW or dismissed, you may flag it as "reviewer-elevated" and the project will document the disagreement publicly. Your professional reputation is not at stake on advisory items, but on CRITICAL items it is — hence the binding rule.
+- **Reviewer override:** if you believe a HIGH/MEDIUM finding is being incorrectly downgraded to LOW or dismissed, you may flag it as "reviewer-elevated" and the project will document the disagreement publicly. Your professional reputation is not at stake on advisory items, but on CRITICAL items it is - hence the binding rule.
 
 ---
 
@@ -295,7 +295,7 @@ If the maintainer's interpretation of a finding diverges from your recommendatio
 
 The following automated and manual checks already cover certain areas, so you can deprioritize them in your review:
 
-- **`tests.html`** runs 37 browser-runnable engine tests (SM-2 SRS algorithm, storage round-trip, furigana renderer, grading). The SRS math and storage layer are independently verified — content findings can focus on the JA itself.
+- **`tests.html`** runs 37 browser-runnable engine tests (SM-2 SRS algorithm, storage round-trip, furigana renderer, grading). The SRS math and storage layer are independently verified - content findings can focus on the JA itself.
 - **`tools/check_content_integrity.py`** runs 18 invariants in CI: kanji catalog completeness, em-dash absence, ru-verb exception flags, primary-reading sanity, particle-set sanity, answer-key sanity, etc. CI gates the release on these. (Full list in `feedback/ui-testing-plan.md` §12.1.)
 - **Lighthouse CI** gates Performance, Accessibility, Best Practices, SEO scores per release.
 

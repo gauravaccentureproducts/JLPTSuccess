@@ -1,22 +1,22 @@
 """Stamp Done on the round-5 items shipped in v1.12.33.
 
 Done in this release (14):
-  ISSUE-035 — version.json invariants live count
-  ISSUE-036 — CONTRIBUTING.md
-  ISSUE-037 — Free pill in trust band (paired with IMP-058)
-  ISSUE-038 — robots.txt + sitemap.xml
-  ISSUE-039 — Mock + Missed in primary-nav (paired with IMP-061)
-  ISSUE-040 — LICENSE href fix (GitHub blob URL)
-  ISSUE-041 — _meta schema (paired with IMP-059)
-  ISSUE-044 — manifest-path trap doc note in SELF-HOST.md
-  ISSUE-046 — auto-locale toast i18n
-  ISSUE-047 — README docs links
-  IMP-058   — Free pill (paired)
-  IMP-059   — _meta schema (paired)
-  IMP-060   — Dependabot config
-  IMP-061   — primary-nav (paired)
-  IMP-062   — unified npm run build
-  IMP-063   — manifest share_target
+  ISSUE-035 - version.json invariants live count
+  ISSUE-036 - CONTRIBUTING.md
+  ISSUE-037 - Free pill in trust band (paired with IMP-058)
+  ISSUE-038 - robots.txt + sitemap.xml
+  ISSUE-039 - Mock + Missed in primary-nav (paired with IMP-061)
+  ISSUE-040 - LICENSE href fix (GitHub blob URL)
+  ISSUE-041 - _meta schema (paired with IMP-059)
+  ISSUE-044 - manifest-path trap doc note in SELF-HOST.md
+  ISSUE-046 - auto-locale toast i18n
+  ISSUE-047 - README docs links
+  IMP-058   - Free pill (paired)
+  IMP-059   - _meta schema (paired)
+  IMP-060   - Dependabot config
+  IMP-061   - primary-nav (paired)
+  IMP-062   - unified npm run build
+  IMP-063   - manifest share_target
 
 Skipped per user direction (1): IMP-057 (CODE_OF_CONDUCT)
 Skip-on-error (3): ISSUE-043, ISSUE-045, IMP-065, IMP-067

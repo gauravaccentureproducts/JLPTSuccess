@@ -1,7 +1,7 @@
 """IMP-005 (audit round-3): generate Hepburn romaji for every grammar
 example in data/grammar.json.
 
-Approach (62% of examples are pure-kana — trivial; the 38% with kanji
+Approach (62% of examples are pure-kana - trivial; the 38% with kanji
 need a reading lookup before romanization):
 
 1. Build a kanji-form -> kana-reading dictionary by walking
@@ -44,7 +44,7 @@ KANJI_RE = re.compile(r'[一-鿿々]')
 # ---------------------------------------------------------------------------
 
 ROMAJI = {
-    # hiragana — gojuon
+    # hiragana - gojuon
     'あ': 'a', 'い': 'i', 'う': 'u', 'え': 'e', 'お': 'o',
     'か': 'ka', 'き': 'ki', 'く': 'ku', 'け': 'ke', 'こ': 'ko',
     'さ': 'sa', 'し': 'shi', 'す': 'su', 'せ': 'se', 'そ': 'so',
@@ -67,7 +67,7 @@ ROMAJI = {
     'ゃ': 'ya', 'ゅ': 'yu', 'ょ': 'yo',
     'ゎ': 'wa',
     # symbols
-    'ー': '-',  # long-vowel mark — replaced by previous-vowel duplication below
+    'ー': '-',  # long-vowel mark - replaced by previous-vowel duplication below
 }
 
 # Two-char yoon combinations (small ゃ/ゅ/ょ).
@@ -132,7 +132,7 @@ def kana_to_romaji(s: str) -> str:
             out.append(YOON[s[i:i + 2]])
             i += 2
             continue
-        # small-tsu (っ/ッ) — double the next consonant
+        # small-tsu (っ/ッ) - double the next consonant
         if ch in ('っ', 'ッ') and i + 1 < n:
             nxt_pair = s[i + 1:i + 3]
             nxt_rom = YOON.get(nxt_pair) or ROMAJI.get(s[i + 1]) or KATA.get(s[i + 1]) or ''
@@ -144,7 +144,7 @@ def kana_to_romaji(s: str) -> str:
                     out.append(nxt_rom[0])
             i += 1
             continue
-        # long-vowel mark ー — repeat last vowel
+        # long-vowel mark ー - repeat last vowel
         if ch == 'ー' and out:
             last = out[-1]
             if last and last[-1] in 'aiueo':
@@ -239,7 +239,7 @@ def to_kana(text: str, lookup: dict[str, str]) -> str:
             out.append(matched[1])
             i += len(matched[0])
         else:
-            # Unknown kanji — pass through with a marker so the audit
+            # Unknown kanji - pass through with a marker so the audit
             # can spot it without breaking the romaji string.
             out.append(ch)
             i += 1
@@ -247,7 +247,7 @@ def to_kana(text: str, lookup: dict[str, str]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Particle adjustments — kana-to-romaji handles を→o uniformly, but は/へ
+# Particle adjustments - kana-to-romaji handles を→o uniformly, but は/へ
 # only become wa/e when used as standalone particles (i.e., flanked by
 # spaces/punctuation). Conservative regex pass.
 # ---------------------------------------------------------------------------
@@ -258,7 +258,7 @@ def adjust_particles_in_kana(s: str) -> str:
     (kana/kanji char, no space) and immediately followed by a clause
     boundary (space, punctuation, end-of-string) is the topic particle.
 
-    This is a conservative heuristic — false positives on は as part of
+    This is a conservative heuristic - false positives on は as part of
     a noun (e.g., はな "flower") are avoided by requiring the right-hand
     boundary. False negatives (e.g., a non-particle は at end of sentence)
     are accepted as the lesser evil; affected cases are rare in this

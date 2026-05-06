@@ -1,4 +1,4 @@
-// Feedback page (#/feedback) — added 2026-05-02 per user direction.
+// Feedback page (#/feedback) - added 2026-05-02 per user direction.
 //
 // Why this design:
 //   - The site is a static PWA, no backend, no third-party form services
@@ -21,7 +21,7 @@
 
 import { renderJa } from './furigana.js';
 
-// Closed taxonomy — must agree with the labels surfaced in the form.
+// Closed taxonomy - must agree with the labels surfaced in the form.
 // To add a new category later: add to this list AND add an <option> in
 // renderFeedback's HTML. The "value" goes into the email subject.
 const CATEGORIES = [
@@ -38,7 +38,7 @@ const CATEGORIES = [
  * string is constructed only when the user actually clicks Submit, not
  * at module-load time. Char codes:
  *   g g a a u r r a a v v @ g m a i l . c o m
- * No emoji or fancy encoding — base-10 ASCII codepoints.
+ * No emoji or fancy encoding - base-10 ASCII codepoints.
  */
 function buildRecipient() {
   const c = [
@@ -60,7 +60,7 @@ function getVersion() {
 }
 
 // Lightweight email-shape check for the user-supplied "from" field.
-// Doesn't try to validate every RFC-5322 corner case — just catches
+// Doesn't try to validate every RFC-5322 corner case - just catches
 // obvious typos so the recipient gets a usable Reply-To.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -72,7 +72,7 @@ export function renderFeedback(container) {
         <p class="feedback-intro">
           Found a bug, a wrong reading, or an idea for the site? Send a
           note. Submitting opens your email client with the message
-          pre-filled — nothing is sent through a third-party server,
+          pre-filled - nothing is sent through a third-party server,
           no account or tracker involved.
         </p>
       </header>
@@ -126,7 +126,7 @@ export function renderFeedback(container) {
 
       <div id="fb-confirmation" class="feedback-confirmation" hidden>
         <p>Your email client should have opened with the message pre-filled.
-           If it didn't, your browser may not have a default mail handler set —
+           If it didn't, your browser may not have a default mail handler set -
            in that case, copy the message above and send manually.</p>
         <a class="btn-action btn-action-secondary" href="#/home">Back to home</a>
       </div>

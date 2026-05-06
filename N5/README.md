@@ -15,13 +15,13 @@ ISSUE-047 (audit round-5): the docs live in this directory. Quick map:
 
 | Doc | Purpose |
 |---|---|
-| [`specifications/JLPT-N5-Current-Implementation-Spec.md`](specifications/JLPT-N5-Current-Implementation-Spec.md) | The authoritative living spec — what the app actually does today (v1.12.32+). |
+| [`specifications/JLPT-N5-Current-Implementation-Spec.md`](specifications/JLPT-N5-Current-Implementation-Spec.md) | The authoritative living spec - what the app actually does today (v1.12.32+). |
 | [`docs/SELF-HOST.md`](docs/SELF-HOST.md) | Fork → brand → deploy guide for institutional / school adopters (niche N3). |
-| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for Hindi (niche N1 — see CHANGELOG v1.12.40 for the en+hi narrowing). |
+| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for Hindi (niche N1 - see CHANGELOG v1.12.40 for the en+hi narrowing). |
 | [`docs/NATIVE-AUDIO-WORKFLOW.md`](docs/NATIVE-AUDIO-WORKFLOW.md) | How to swap synthetic gTTS audio for native-speaker recordings. |
 | [`prompts/N5Improvement.txt`](prompts/N5Improvement.txt) | The audit-only prompt that drives every "round" of audit findings. Read for canonical strategic positioning + anti-items list. |
 | [`feedback/n5-audit-2026-05-04.xlsx`](feedback/n5-audit-2026-05-04.xlsx) | Cumulative audit tracker (rounds 1-5). Source of truth for outstanding work. |
-| [`PRIVACY.md`](PRIVACY.md) | Privacy contract — no telemetry, no third-party scripts, no PII. |
+| [`PRIVACY.md`](PRIVACY.md) | Privacy contract - no telemetry, no third-party scripts, no PII. |
 | [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) | CC BY-SA 4.0 for the educational content corpus. |
 | [`NOTICES.md`](NOTICES.md) | Third-party content attributions (KanjiVG, Inter, Noto Sans JP). |
 | [`../LICENSE`](../LICENSE) | MIT for the source code. |
@@ -70,7 +70,7 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
   papers/{moji,goi,bunpou,dokkai}/paper-{1..7}.json
                                          per-section layout: 6 full papers of 15 questions
                                          + 1 short paper of 10 questions = 100 Q (102 for dokkai).
-                                         The short paper is intentional — it captures the residual
+                                         The short paper is intentional - it captures the residual
                                          items after the section's primary 6 papers are filled to
                                          15 each. Do not "rebalance" by redistributing.
 /audio/                                MP3 files (grammar examples, reading, listening)
@@ -129,14 +129,14 @@ The learner never runs any of these scripts - they are author-side only.
 
 The `data/n5_vocab_whitelist.json` lookup is the source of truth for "what counts as N5 vocabulary." Two classes of items are intentionally excluded from the whitelist:
 
-1. **Personal names** (e.g., マリア, ヤマダ, スズキ, たなか, アンナ) — universally exempted from textbook vocabulary lists. Names appear in passages and questions but never in the whitelist; CI does not flag this. If you add a new passage with a new personal name, do NOT add the name to the whitelist.
-2. **Place names with no compound logic** (e.g., スペイン, アメリカ, メキシコ) — country names already in the whitelist are fine. Compound forms like スペイン人 / アメリカ人 are tracked since they're useful learner vocabulary. Don't bulk-add every conceivable place name.
+1. **Personal names** (e.g., マリア, ヤマダ, スズキ, たなか, アンナ) - universally exempted from textbook vocabulary lists. Names appear in passages and questions but never in the whitelist; CI does not flag this. If you add a new passage with a new personal name, do NOT add the name to the whitelist.
+2. **Place names with no compound logic** (e.g., スペイン, アメリカ, メキシコ) - country names already in the whitelist are fine. Compound forms like スペイン人 / アメリカ人 are tracked since they're useful learner vocabulary. Don't bulk-add every conceivable place name.
 
 Where to add: append the new term to `data/n5_vocab_whitelist.json` (sorted alphabetically) and run `python tools/check_content_integrity.py` to confirm the JA-13 / JA-15 / JA-16 invariants still pass.
 
 ### Spacing policy in passages
 
-Insert a single space at every word boundary in `ja` text — particles, kanji compounds, demonstrative + noun, etc. The corpus is consistently spaced; new content must match.
+Insert a single space at every word boundary in `ja` text - particles, kanji compounds, demonstrative + noun, etc. The corpus is consistently spaced; new content must match.
 
 - ✓ `わたしは とうきょうの 大学で 日本語を べんきょうしています。`
 - ✗ `わたしは とうきょうの大学で 日本語を べんきょうしています。` (missing space before 大学)
@@ -147,14 +147,14 @@ Exceptions: spaces are NOT inserted within a single compound (e.g., `日本語` 
 
 N5 passages must use only N5 grammar markers. The two patterns most likely to slip through are:
 
-- **〜と conditional** (`Verb-dict + と + comma + result-clause`) — this is N4 (Genki II L18, Minna I L23). Use te-form imperative or split into two sentences instead.
-- **Potential form** (`Verb-stem + える/られる`) — this is N4 (Genki II L13). Use `Verb-dict + ことが できる` instead.
+- **〜と conditional** (`Verb-dict + と + comma + result-clause`) - this is N4 (Genki II L18, Minna I L23). Use te-form imperative or split into two sentences instead.
+- **Potential form** (`Verb-stem + える/られる`) - this is N4 (Genki II L13). Use `Verb-dict + ことが できる` instead.
 
 The `JA-21` content-integrity invariant catches both heuristically. Passages that intentionally include borderline late-N5 grammar should set `tier: "late_n5"` to opt out of the strict check.
 
 ### Kanji reading display convention
 
-`data/n5_kanji_readings.json` stores both `on` and `kun` readings as **hiragana** (e.g., 高 → on `["こう"]`, kun `["たか"]`). This is a deliberate choice — the traditional pedagogical convention is on-yomi in katakana / kun in hiragana, but uniform-hiragana is simpler to render, easier to compare for invariant checks (JA-22 dedup, JA-24 i-adj-primary-kun), and the on/kun distinction is already conveyed via the labelled fields. UI surfaces that want the typographic split can apply it at render time. Closes OPEN-4 from `feedback/MASTER-TASK-LIST.md`.
+`data/n5_kanji_readings.json` stores both `on` and `kun` readings as **hiragana** (e.g., 高 → on `["こう"]`, kun `["たか"]`). This is a deliberate choice - the traditional pedagogical convention is on-yomi in katakana / kun in hiragana, but uniform-hiragana is simpler to render, easier to compare for invariant checks (JA-22 dedup, JA-24 i-adj-primary-kun), and the on/kun distinction is already conveyed via the labelled fields. UI surfaces that want the typographic split can apply it at render time. Closes OPEN-4 from `feedback/MASTER-TASK-LIST.md`.
 
 ### Counter-numeral display convention
 
@@ -162,7 +162,7 @@ The corpus standardises on **arabic numeral + counter** with the counter as kanj
 
 ### Furigana mode
 
-The app exposes a binary on/off furigana toggle (Settings panel). The `feedback/jlpt-n5-tutor-ux-developer-brief2.md` §4.1 originally called for a 3-mode toggle (always / known-only-hide / never), but Pass-13 native-teacher review concluded that auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]) and the feature was dropped. In-scope kanji render plain; out-of-scope words are authored in kana. The 3-mode requirement is formally dropped — see `js/settings.js` line 119 + `verification.md` Pass 13. Closes OPEN-8 from `feedback/MASTER-TASK-LIST.md`.
+The app exposes a binary on/off furigana toggle (Settings panel). The `feedback/jlpt-n5-tutor-ux-developer-brief2.md` §4.1 originally called for a 3-mode toggle (always / known-only-hide / never), but Pass-13 native-teacher review concluded that auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]) and the feature was dropped. In-scope kanji render plain; out-of-scope words are authored in kana. The 3-mode requirement is formally dropped - see `js/settings.js` line 119 + `verification.md` Pass 13. Closes OPEN-8 from `feedback/MASTER-TASK-LIST.md`.
 
 ## Spec
 
@@ -180,4 +180,4 @@ All Phase 1 features implemented and verified end-to-end in a browser preview:
 - Furigana toggle with N5-kanji ruby annotation (pragmatic single-pick readings)
 - Service worker for offline capability
 
-Content (current as of v1.12.29): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in `grammar.json` · 1041 vocabulary entries in `vocab.json` · 106 N5 kanji in `kanji.json` (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 40 reading passages in `reading.json` · 40 listening items in `listening.json` · 290 mock-test questions in `questions.json` · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time — when in doubt, run `python tools/check_content_integrity.py` which derives them from the live data files. See `TASKS.md` for outstanding work.
+Content (current as of v1.12.29): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in `grammar.json` · 1041 vocabulary entries in `vocab.json` · 106 N5 kanji in `kanji.json` (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 40 reading passages in `reading.json` · 40 listening items in `listening.json` · 290 mock-test questions in `questions.json` · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time - when in doubt, run `python tools/check_content_integrity.py` which derives them from the live data files. See `TASKS.md` for outstanding work.

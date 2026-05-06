@@ -5,7 +5,7 @@ as a disambiguator for homographs.
 JA-31 (added 2026-05-02) detected 69 drift cases between the two
 files after the DEFER-5 PoS-injection pass. Root cause: the original
 injection script used `setdefault(form, pos)` which picked the FIRST
-JSON entry per form — wrong for homographs that appear in multiple
+JSON entry per form - wrong for homographs that appear in multiple
 thematic sections (はる as noun-spring vs verb-stretch, ふく as
 noun-clothes vs verb-blow, etc.).
 

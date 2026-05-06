@@ -1,4 +1,4 @@
-# JLPT N5 Tutor — Native-Reviewer Dossier
+# JLPT N5 Tutor - Native-Reviewer Dossier
 
 Generated: 2026-05-02
 Source revision: see git log on `data/` directory at this commit
@@ -8,7 +8,7 @@ Review channel: file findings into `review_log.csv` (template included)
 
 This pack is the single bundle a native-Japanese teacher needs to
 audit the live JLPT N5 corpus end-to-end. Every entry has a stable ID
-(e.g. `n5-001`, `n5.kanji.人`, `n5.read.001`) — the reviewer cites
+(e.g. `n5-001`, `n5.kanji.人`, `n5.read.001`) - the reviewer cites
 that ID in the log; we map the citation back to the source file
 without ambiguity.
 
@@ -29,22 +29,22 @@ without ambiguity.
 | CRITICAL | Factually wrong (false claim about Japanese grammar / wrong reading / etc). Must fix before next release. |
 | HIGH | Unnatural-but-not-wrong (a native speaker would phrase it differently). Should fix. |
 | MEDIUM | Polish / register / nuance. Fix when convenient. |
-| LOW | Style preference — e.g. "I'd use 〜じゃ instead of 〜では here." Optional. |
+| LOW | Style preference - e.g. "I'd use 〜じゃ instead of 〜では here." Optional. |
 
 ## Issue format
 
 In `review_log.csv`, one row per finding. Required fields:
 
-- `id` — the cited pattern/word/passage/script ID
-- `field` — which field has the issue (e.g. `meaning_en`, `examples[2].ja`, `notes`)
-- `severity` — CRITICAL / HIGH / MEDIUM / LOW
-- `finding` — what's wrong, in 1-2 sentences
-- `suggested_fix` — concrete replacement text (ideal) or "discuss" (if it needs a chat)
+- `id` - the cited pattern/word/passage/script ID
+- `field` - which field has the issue (e.g. `meaning_en`, `examples[2].ja`, `notes`)
+- `severity` - CRITICAL / HIGH / MEDIUM / LOW
+- `finding` - what's wrong, in 1-2 sentences
+- `suggested_fix` - concrete replacement text (ideal) or "discuss" (if it needs a chat)
 
 Optional:
 
-- `reviewer_initials` — for multi-reviewer setups
-- `confidence` — 1-5 (5 = certain; 1 = "I'd want to check with a colleague")
+- `reviewer_initials` - for multi-reviewer setups
+- `confidence` - 1-5 (5 = certain; 1 = "I'd want to check with a colleague")
 
 ## Kanji primary-reading precedence (file 03)
 
@@ -56,10 +56,10 @@ primary in this order:
    regardless of which list it came from.
 2. Otherwise: if the kanji has any kun readings, the **first kun**
    is primary (the standalone i-adjective / verb-stem form is what
-   N5 learners encounter first — see `高い`, `長い`, `安い`, `白い`).
+   N5 learners encounter first - see `高い`, `長い`, `安い`, `白い`).
 3. Otherwise: the **first on** is primary.
 
-Some kanji are genuinely tied (e.g. `新` — 新聞 しんぶん and 新しい
+Some kanji are genuinely tied (e.g. `新` - 新聞 しんぶん and 新しい
 あたらしい are both N5 contexts). For those, either reading is
 acceptable as primary; the listed one is fine unless you have a
 strong textbook-aligned reason to swap.
@@ -68,7 +68,7 @@ strong textbook-aligned reason to swap.
 
 Some grammar patterns have a `meaning_ja:` field that contains only
 the pattern itself in 「」 brackets (e.g., `「いつ・どこ まで」` for
-`まで`). This is intentional — those patterns are particles or
+`まで`). This is intentional - those patterns are particles or
 function words whose meaning is best explained in English at N5
 level; a Japanese gloss would be circular. **Skip these as
 "deliberately blank"** unless you can supply a learner-friendly

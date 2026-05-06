@@ -7,11 +7,11 @@ per category, and emits paper JSON files plus a manifest the runtime
 loads.
 
 Output:
-  data/papers/manifest.json          — index of all papers
-  data/papers/moji/paper-N.json      — moji papers (50 + 50 = 100 Qs → 7)
-  data/papers/goi/paper-N.json       — goi papers (~7)
-  data/papers/bunpou/paper-N.json    — bunpou papers (~7)
-  data/papers/dokkai/paper-N.json    — dokkai papers (~6, passage-grouped)
+  data/papers/manifest.json          - index of all papers
+  data/papers/moji/paper-N.json      - moji papers (50 + 50 = 100 Qs → 7)
+  data/papers/goi/paper-N.json       - goi papers (~7)
+  data/papers/bunpou/paper-N.json    - bunpou papers (~7)
+  data/papers/dokkai/paper-N.json    - dokkai papers (~6, passage-grouped)
 
 Format per paper:
   {
@@ -36,12 +36,12 @@ Format per paper:
   }
 
 Skipped files:
-  externally_sourced_n5.md — provenance disclosed in its header (third-
+  externally_sourced_n5.md - provenance disclosed in its header (third-
     party scraped, NOT JEES official). Excluded from v1 to avoid sourcing
     issues; can be added later under its own category if desired.
     (Renamed from authentic_extracted_n5.md on 2026-05-04 to match its
     H1 title; see CHANGELOG v1.12.5.)
-  grammar_n5.md / kanji_n5.md / vocabulary_n5.md — catalogs, not question
+  grammar_n5.md / kanji_n5.md / vocabulary_n5.md - catalogs, not question
     banks; already built by tools/build_data.py.
 
 Run:
@@ -121,7 +121,7 @@ def parse_mcq_question(body: str) -> dict | None:
     """
     # Strip leading prose / stems. Find the first numbered choice.
     choice_re = re.compile(r'(?m)^\s*(\d)\.\s*(.+?)\s*$')
-    answer_re = re.compile(r'\*\*Answer:\s*(\d)\*\*(?:\s*[-—]\s*(.+))?', re.S)
+    answer_re = re.compile(r'\*\*Answer:\s*(\d)\*\*(?:\s*[--]\s*(.+))?', re.S)
 
     choices_iter = list(choice_re.finditer(body))
     if len(choices_iter) < 4:

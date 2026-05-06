@@ -1,9 +1,9 @@
 """One-shot script: author 15 new questions for previously-uncovered grammar patterns.
 
-Triggered by DEFER-1 (multi-session content authoring) — chips at the
+Triggered by DEFER-1 (multi-session content authoring) - chips at the
 65 uncovered patterns. Run once 2026-05-02. Each question is single-correct,
 uses N5-only kanji, has 4 distinct distractors that are clearly wrong (no
-multi-correct grey zones — verified after run by tools/audit_multi_correct.py).
+multi-correct grey zones - verified after run by tools/audit_multi_correct.py).
 """
 import json
 import sys
@@ -49,7 +49,7 @@ NEW = [
         "question_ja": "いま なん（  ）ですか。",
         "choices": ["じ", "ふん", "にち", "がつ"],
         "correct": "じ",
-        "explanation": "ima nan-ji = what time/oclock now? — ji is the oclock counter. Distractors: fun (minutes), nichi (day), gatsu (month).",
+        "explanation": "ima nan-ji = what time/oclock now? - ji is the oclock counter. Distractors: fun (minutes), nichi (day), gatsu (month).",
         "difficulty": 1,
     },
     {
@@ -65,7 +65,7 @@ NEW = [
         "question_ja": "（  ）あさ ７じに おきます。",
         "choices": ["まいにち", "きのう", "こんばん", "あした"],
         "correct": "まいにち",
-        "explanation": "mainichi = every day. Pairs with habitual present. Distractors: kinou (yesterday), konban (tonight), ashita (tomorrow) — all single-day temporals, not recurrence.",
+        "explanation": "mainichi = every day. Pairs with habitual present. Distractors: kinou (yesterday), konban (tonight), ashita (tomorrow) - all single-day temporals, not recurrence.",
         "difficulty": 1,
     },
     {
@@ -73,7 +73,7 @@ NEW = [
         "question_ja": "「ごはんは（  ）たべましたか。」「はい、もう たべました。」",
         "choices": ["もう", "まだ", "いま", "すぐ"],
         "correct": "もう",
-        "explanation": "mou (already) pairs with the affirmative answer yes I already ate. Distractors: mada (yet/still — would pair with negative answer), ima (now — wrong tense), sugu (right away — wrong nuance).",
+        "explanation": "mou (already) pairs with the affirmative answer yes I already ate. Distractors: mada (yet/still - would pair with negative answer), ima (now - wrong tense), sugu (right away - wrong nuance).",
         "difficulty": 2,
     },
     {
@@ -97,7 +97,7 @@ NEW = [
         "question_ja": "「もう おそいですから、（  ）かえります。」",
         "choices": ["では", "でも", "けれど", "だから"],
         "correct": "では",
-        "explanation": "dewa (formal) / ja (casual) = well then — transitions from a stated reason to a follow-up action. Distractors: demo (but/however) introduces contrast, not transition; keredo (but) similar contrast; dakara (therefore) is causal explanation, not transition.",
+        "explanation": "dewa (formal) / ja (casual) = well then - transitions from a stated reason to a follow-up action. Distractors: demo (but/however) introduces contrast, not transition; keredo (but) similar contrast; dakara (therefore) is causal explanation, not transition.",
         "difficulty": 2,
     },
     {
@@ -105,7 +105,7 @@ NEW = [
         "question_ja": "にほんごは むずかしい（  ）、おもしろいです。",
         "choices": ["けれど", "から", "まで", "ので"],
         "correct": "けれど",
-        "explanation": "keredo (or kedo informal) = but / although — connects contrasting clauses. Distractors: kara/node are causal (because), made is endpoint.",
+        "explanation": "keredo (or kedo informal) = but / although - connects contrasting clauses. Distractors: kara/node are causal (because), made is endpoint.",
         "difficulty": 1,
     },
     {
@@ -113,7 +113,7 @@ NEW = [
         "question_ja": "「（  ）にほんへ きましたか。」「にほんごを べんきょうしたいですから。」",
         "choices": ["どうして", "いつ", "どこ", "だれ"],
         "correct": "どうして",
-        "explanation": "doushite = why — pairs with kara (because) in the answer. The B response gives a reason, so A asked why. Distractors: itsu (when), doko (where), dare (who) all expect different answer types.",
+        "explanation": "doushite = why - pairs with kara (because) in the answer. The B response gives a reason, so A asked why. Distractors: itsu (when), doko (where), dare (who) all expect different answer types.",
         "difficulty": 1,
     },
     {
@@ -129,7 +129,7 @@ NEW = [
         "question_ja": "きのう（  ）ひとは たなかさんです。",
         "choices": ["きた", "きます", "きました", "こない"],
         "correct": "きた",
-        "explanation": "Plain-form verb modifies a following noun (relative clause). kita hito = the person who came. Distractors: kimasu/kimashita are polite-form (cannot modify a noun directly in N5); konai would mean the person who doesnt come — wrong sense for past event.",
+        "explanation": "Plain-form verb modifies a following noun (relative clause). kita hito = the person who came. Distractors: kimasu/kimashita are polite-form (cannot modify a noun directly in N5); konai would mean the person who doesnt come - wrong sense for past event.",
         "difficulty": 2,
     },
     {
@@ -137,7 +137,7 @@ NEW = [
         "question_ja": "これは とても（  ）ほんです。",
         "choices": ["おもしろい", "おもしろく", "おもしろくて", "おもしろくない"],
         "correct": "おもしろい",
-        "explanation": "i-adjective in dictionary form modifies a following noun directly: omoshiroi hon = interesting book. Distractors: omoshiroku (adverb form), omoshirokute (te-form, conjunction), omoshirokunai (negative) — none modify a noun in this slot.",
+        "explanation": "i-adjective in dictionary form modifies a following noun directly: omoshiroi hon = interesting book. Distractors: omoshiroku (adverb form), omoshirokute (te-form, conjunction), omoshirokunai (negative) - none modify a noun in this slot.",
         "difficulty": 1,
     },
 ]

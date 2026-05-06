@@ -11,7 +11,7 @@ high-demand-low-competition gap** for JLPT prep apps:
 - India is the **5th-largest JLPT country worldwide**, sending
   ~50K applicants per year (after Japan, China, South Korea,
   Vietnam).
-- **73% of Indian JLPT applicants** are at N5 or N4 level — perfect
+- **73% of Indian JLPT applicants** are at N5 or N4 level - perfect
   product-market fit for an N5-focused study app.
 - **No dedicated Hindi-medium prep app exists** in app-store searches
   or curated lists. Closest competitor is Yoisho Academy, which
@@ -113,7 +113,7 @@ The grammar / vocab / kanji / reading list pages now show only the
 primary identifier per tile (pattern name / form / glyph / title).
 Meanings, readings, level chips, and topic tags moved to the detail
 page, one click away. Pedagogical rationale: list pages are for
-self-test recall — "do I still remember what this means?" — and
+self-test recall - "do I still remember what this means?" - and
 showing the meaning inline defeats that. Listening list already
 showed only title; no change needed.
 
@@ -124,7 +124,7 @@ showed only title; no change needed.
   wiring updated: pattern detail and list tiles fall back to English
   when the active locale has no translation.
 - **L1-interference notes**: top-10 patterns ship the niche-N1
-  unique-claim lever — Vietnamese tense-marker confusion, Indonesian
+  unique-claim lever - Vietnamese tense-marker confusion, Indonesian
   transitivity, Nepali keigo mismatch, Mandarin shared-kanji
   false-friends. Rendered as a callout box on pattern detail.
 - **Common-mistakes floor**: 31 patterns at zero entries now have ≥1
@@ -173,7 +173,7 @@ showed only title; no change needed.
 
 - **7 new mondai-4 (即時応答)** items. The official N5 chokai paper has
   6 mondai-4; the app shipped zero. Now: 7. Per-mondai distribution
-  M1=14, M2=13, M3=13, M4=7 — all above the JLPT-N5 official floor.
+  M1=14, M2=13, M3=13, M4=7 - all above the JLPT-N5 official floor.
 - Topics: workplace farewell, birthday greeting, directions request,
   lunch invitation, morning greeting echo, classroom borrow,
   apology response. New `format: 'response'` wired into FORMATS map.
@@ -274,7 +274,7 @@ home page + nav). Vocab translations also more than tripled, from
   PWA, Locales, Privacy) for first-time-visitor scan-ability.
 - Document-referrer locale hint: arriving from `.vn` / `.id` / `.np` /
   `.cn` / `.tw` / `.hk` boosts the matching locale before falling
-  through to `navigator.language`. Pure heuristic — never overrides
+  through to `navigator.language`. Pure heuristic - never overrides
   saved picks.
 - `.github/FUNDING.yml` placeholder for GitHub Sponsors button.
 - esbuild now emits external sourcemaps (`--sourcemap=external`).
@@ -290,9 +290,9 @@ home page + nav). Vocab translations also more than tripled, from
 - 44/44 content-integrity invariants green.
 - All 5 locale dictionaries grow from ~86 to ~115 UI keys.
 
-## v1.12.36 - 2026-05-05 (Hotfix — locale chips now visibly translate the home page)
+## v1.12.36 - 2026-05-05 (Hotfix - locale chips now visibly translate the home page)
 
-User report: "these tabs are not working" — the EN/VI/ID/NE/ZH chip
+User report: "these tabs are not working" - the EN/VI/ID/NE/ZH chip
 group in the header swapped active state visually but the rendered
 page didn't change.
 
@@ -327,9 +327,9 @@ Service worker bumped jlptsuccess-n5-v1.12.35 → v1.12.36.
 
 ---
 
-## v1.12.35 - 2026-05-05 (IMP-045 / IMP-046 / IMP-047 — content-body i18n)
+## v1.12.35 - 2026-05-05 (IMP-045 / IMP-046 / IMP-047 - content-body i18n)
 
-User direction: implement IMP-045/046/047 — translate the content body
+User direction: implement IMP-045/046/047 - translate the content body
 (grammar explanations / vocab glosses / kanji meanings) into vi/id/ne/zh.
 
 The audit explicitly warned against machine-translating the content
@@ -338,13 +338,13 @@ damage the niche-N1 trust claim. This release respects that warning by
 authoring translations directly (Claude as translator, with
 `_provenance: "machine_translated"` tag pending native review) only
 where the strings are **short and concrete enough to be safely
-authored** — kanji meanings and the most-common vocab glosses. Grammar
+authored** - kanji meanings and the most-common vocab glosses. Grammar
 explanations get schema + renderer wiring but **no machine-translated
 body**; native reviewers fill those per Q20.
 
-### IMP-047 — kanji meanings (FULL coverage)
+### IMP-047 - kanji meanings (FULL coverage)
 
-`tools/fix_imp_047_kanji_meanings_translate_2026_05_05.py` — author
+`tools/fix_imp_047_kanji_meanings_translate_2026_05_05.py` - author
 authored vi/id/ne/zh translations for **all 106 N5 kanji × all senses**
 (~424 short translations). Each entry now carries:
 
@@ -357,9 +357,9 @@ authored vi/id/ne/zh translations for **all 106 N5 kanji × all senses**
 "meanings_provenance": "machine_translated"
 ```
 
-### IMP-046 — vocab glosses (top 120 entries; rest fall back to EN)
+### IMP-046 - vocab glosses (top 120 entries; rest fall back to EN)
 
-`tools/fix_imp_046_vocab_glosses_translate_2026_05_05.py` — authored
+`tools/fix_imp_046_vocab_glosses_translate_2026_05_05.py` - authored
 the top 120 most-common N5 vocab entries (pronouns + family +
 demonstratives + question words + numbers + time-general + days). 128
 entries translated total (some forms appear in multiple sections;
@@ -378,7 +378,7 @@ Schema per translated entry:
 "gloss_provenance": "machine_translated"
 ```
 
-### IMP-045 — grammar explanations (SCHEMA ONLY)
+### IMP-045 - grammar explanations (SCHEMA ONLY)
 
 `tools/fix_imp_045_grammar_explanations_schema_2026_05_05.py` adds
 a `_translation_status` block at the top of `data/grammar.json`
@@ -394,14 +394,14 @@ active per Q20.
 All 4 detail-page renderers now pick the locale-aware field with
 graceful EN fallback:
 
-- **`js/kanji.js`** + **`js/kanji-popover.js`** — `localizedMeanings(entry)`
+- **`js/kanji.js`** + **`js/kanji-popover.js`** - `localizedMeanings(entry)`
   helper. Reads `entry.meanings_<lc>` if present + non-empty;
   otherwise returns `entry.meanings`.
-- **`js/learn-vocab.js`** — `localizedGloss(entry)` helper. Used in
+- **`js/learn-vocab.js`** - `localizedGloss(entry)` helper. Used in
   the list view, the detail-page big gloss, and the meaning-row.
   When the user is on a non-EN locale, the detail page also shows
   the EN gloss as a secondary line so learners can cross-reference.
-- **`js/learn-grammar.js`** — `localizedExplanation(p)` helper.
+- **`js/learn-grammar.js`** - `localizedExplanation(p)` helper.
   Falls back to `explanation_en` when no per-locale field exists.
 
 All 4 import `currentLocale` from `js/i18n.js`. The locale switch
@@ -413,7 +413,7 @@ ISSUE-028).
 ```
 Kanji meanings:     106/106 machine_translated  (100%)
 Vocab glosses:       128/1041 machine_translated (12%)
-Grammar explanations:  0/178 (none — schema only, awaiting native reviewers)
+Grammar explanations:  0/178 (none - schema only, awaiting native reviewers)
 ```
 
 **Native review needed everywhere** before promoting `_provenance` to
@@ -424,7 +424,7 @@ entries get reviewer sign-off.
 ### Service worker
 
 CACHE_VERSION bumped jlptsuccess-n5-v1.12.34 → v1.12.35. No new
-precache entries — all changes are inside existing files.
+precache entries - all changes are inside existing files.
 
 v1.12.35 / SW v1.12.35. **44/44 invariants green.**
 
@@ -439,7 +439,7 @@ those decisions.
 
 ### Newly shipped (4 items)
 
-- **ISSUE-043 — JS bundle minification.** New `tools/build_min_js.py`
+- **ISSUE-043 - JS bundle minification.** New `tools/build_min_js.py`
   invokes `npx esbuild --minify --target=es2020 --format=esm` on
   every `js/*.js` source, writing the minified output to `js/min/`.
   index.html now points at `js/min/app.js`; static + dynamic imports
@@ -447,17 +447,17 @@ those decisions.
   (-57%)** on first paint. Unminified sources stay in repo + SW
   precache for DevTools "Sources" debugging. Wired into
   `npm run build`.
-- **ISSUE-045 + IMP-065 — visual-regression spec for round-3/4
+- **ISSUE-045 + IMP-065 - visual-regression spec for round-3/4
   surfaces.** Extended `tests/visual-regression.spec.js` from 6 to 9
   routes, adding `#/missed`, `#/sitting`, `#/test`. Snapshots
   generated on next CI run with `--update-snapshots`. Pixel drift on
   the new round-3 / round-4 UI is now guarded.
-- **IMP-067 — WebP icon variants.** New `assets/logo/icon-192.webp`
+- **IMP-067 - WebP icon variants.** New `assets/logo/icon-192.webp`
   + `icon-512.webp` (Pillow `quality=90 method=6`). Manifest now
   lists WebP first; PNG falls back for older browsers. Sizes:
   192 PNG 2.3 KB → WebP 1.3 KB (-45%); 512 PNG 4.7 KB → WebP 2.4 KB
   (-48%).
-- **Q20 — translator-recruitment callout in
+- **Q20 - translator-recruitment callout in
   `docs/TRANSLATING.md`.** Per-locale review-status table with
   `❌ machine-translated · reviewer needed` badges, fast-track-PR
   workflow, and the "this is the niche-N1 unblocker" rationale.
@@ -466,15 +466,15 @@ those decisions.
 
 ### Policy decisions documented (3 questions)
 
-- **Q21 — provenance badge UI launch policy.** Recommendation
+- **Q21 - provenance badge UI launch policy.** Recommendation
   accepted: **wait until ≥10% of items in any single corpus are
   `native_reviewed` before showing the badge UI for that corpus.**
   Until then, the field stays internal-only. Documented in
   `specifications/JLPT-N5-Current-Implementation-Spec.md` Document
   Control table.
-- **Q19 — build invariants count source.** Already shipped in
+- **Q19 - build invariants count source.** Already shipped in
   v1.12.33 via ISSUE-035; closed.
-- **Q14 — translation budget.** Recommendation accepted:
+- **Q14 - translation budget.** Recommendation accepted:
   machine-translation seed (already shipped in round-4) + crowd-sourced
   native review (recruitment now active per Q20). No paid translators.
 
@@ -496,7 +496,7 @@ those decisions.
 [Questions] Done: 20    Avoid: 3   Blank: 0
 ```
 
-**The audit tracker is now fully resolved** — every row has a final
+**The audit tracker is now fully resolved** - every row has a final
 Decision. New audit rounds can now register fresh findings without
 ambiguity about what's still open.
 
@@ -510,7 +510,7 @@ v1.12.34 / SW v1.12.34. **44/44 invariants green.**
 
 ---
 
-## v1.12.33 - 2026-05-05 (Audit round-5 first batch — 14 items, no breaking changes)
+## v1.12.33 - 2026-05-05 (Audit round-5 first batch - 14 items, no breaking changes)
 
 User direction: implement the round-5 Fix items that don't need a
 product decision, skip the rest. This release lands 14 of the 25 new
@@ -554,7 +554,7 @@ for tooling reasons (skip-on-error), 4 still pending.
   Test / Review CTAs only.
 - **ISSUE-040:** "Open source" trust pill href moved from `../../LICENSE`
   (broke on non-canonical / localhost) to the GitHub `/blob/master/LICENSE`
-  absolute URL — works on every deploy.
+  absolute URL - works on every deploy.
 - **ISSUE-046:** Auto-language toast now renders in the detected
   locale via `t('home.locale_auto_prefix')` + `t('home.locale_auto_suffix')`,
   with the new keys translated into vi/id/ne/zh. A Vietnamese-default
@@ -600,7 +600,7 @@ unit tests pass.
 
 ---
 
-## v1.12.32 - 2026-05-05 (Audit round-4 — strategic-niche pivot, 16 of 22 items)
+## v1.12.32 - 2026-05-05 (Audit round-4 - strategic-niche pivot, 16 of 22 items)
 
 The audit prompt at `prompts/N5Improvement.txt` was rewritten between
 round-3 and round-4 to add SALEABILITY / NICHE-FIT framing. Round-4
@@ -609,97 +609,97 @@ list + new Section-7 anti-items list) recommended:
   Primary niche: **N1 multilingual non-English-native learners.**
   Secondary niche: **N2 privacy / no-account / offline.**
   Anti-niches: **don't chase Bunpou grammar-review depth or WaniKani
-  kanji-mnemonic depth** — unwinnable solo+AI.
+  kanji-mnemonic depth** - unwinnable solo+AI.
 
 This release lands 16 of 22 round-4 Fix items. The remaining 6 are
 content-authoring or product-decision blocked (see "Deferred" below).
 
-### Niche N3 (institutional / self-host) — newly claimed
+### Niche N3 (institutional / self-host) - newly claimed
 
-- **ISSUE-025 + IMP-049 — `/LICENSE` (MIT) at repo root** + dual-license
+- **ISSUE-025 + IMP-049 - `/LICENSE` (MIT) at repo root** + dual-license
   note. The repo is now legally forkable. `CONTENT-LICENSE.md`
   reinforces CC BY-SA 4.0 for the educational corpus.
-- **ISSUE-031 — `docs/SELF-HOST.md`.** Fork → brand → deploy guide.
+- **ISSUE-031 - `docs/SELF-HOST.md`.** Fork → brand → deploy guide.
   Covers the 3-layer customization model (theme overrides at runtime,
   per-fork logo + manifest swap, full source fork), 4 deploy targets
   (GitHub Pages / Netlify / Vercel / nginx), bundle-size discipline
   notes, and translation contributor flow.
-- **IMP-052 — runtime `data/theme-overrides.json` loader** in `app.js`.
+- **IMP-052 - runtime `data/theme-overrides.json` loader** in `app.js`.
   Optional file; missing = repo defaults. Maps tokens onto `:root`
   CSS custom properties + brand-name override. Institutional forks can
   re-skin without editing source.
-- **IMP-056 — `docs/TRANSLATING.md`.** Translator-contributor on-ramp
+- **IMP-056 - `docs/TRANSLATING.md`.** Translator-contributor on-ramp
   with native-review provenance flow.
 
-### Niche N1 (multilingual non-English-native) — significantly advanced
+### Niche N1 (multilingual non-English-native) - significantly advanced
 
-- **ISSUE-026 — locales/{vi,id,ne,zh}.json expanded 33 → 75+ keys**
+- **ISSUE-026 - locales/{vi,id,ne,zh}.json expanded 33 → 75+ keys**
   (machine-translated, marked `_provenance: "machine_translated"` per
   `docs/TRANSLATING.md`). UI chrome coverage 44% → 100%+. Native
   speakers needed to upgrade to `native_reviewed` (audit Q14, Q16).
-- **ISSUE-028 — header locale-chip group** (EN VI ID NE ZH) visible on
+- **ISSUE-028 - header locale-chip group** (EN VI ID NE ZH) visible on
   first paint. Click swaps the active locale + re-renders. Active chip
   gets the accent fill.
-- **ISSUE-029 — Accept-Language toast.** First init: when
+- **ISSUE-029 - Accept-Language toast.** First init: when
   navigator.language picks a non-EN supported locale, show a one-time
   toast with the native-language name + "change anytime in Settings".
   Auto-dismisses after 8s.
 - **Locales body translation pending (IMP-045/046/047 deferred).** The
   ~5300-string content body (grammar explanations, vocab glosses,
-  kanji meanings) is still EN-only — needs Q14 budget decision.
+  kanji meanings) is still EN-only - needs Q14 budget decision.
 
-### Niche N2 (privacy / no-account / offline) — now visible
+### Niche N2 (privacy / no-account / offline) - now visible
 
-- **ISSUE-027 + IMP-048 — home trust band.** Hairline pills on the
+- **ISSUE-027 + IMP-048 - home trust band.** Hairline pills on the
   syllabus header: "No login · No tracking · Works offline · Open source ·
   100% on-device". Each pill links to its proof (LICENSE, install
   prompt, PRIVACY.md). The most-defensible competitive claim is now
   visible on first paint.
-- **ISSUE-034 — install link in trust band** wires the "Works offline"
+- **ISSUE-034 - install link in trust band** wires the "Works offline"
   pill to the deferred `beforeinstallprompt`. Firefox / iOS Safari
   fallback shows a toast with browser-specific instructions.
 
 ### Trust + correctness
 
-- **ISSUE-030 — `review_status` provenance scaffold** on every content
+- **ISSUE-030 - `review_status` provenance scaffold** on every content
   item across all 5 corpora (1405 / 1405 items, default
   `llm_curated`). New JA-35 invariant locks the closed enum
   {native_reviewed, llm_curated, auto_generated}. Native-review
   upgrades land per-item.
-- **ISSUE-033 — `data/n5_core_pattern_ids.json` whitelist** (153 core
+- **ISSUE-033 - `data/n5_core_pattern_ids.json` whitelist** (153 core
   + 25 late-N5) + JA-34 invariant guarding the split agrees with
   `grammar.json#tier`. Honest count for "178 patterns (153 core + 25
   late-N5)" rather than implying all 178 are strict-N5.
 
 ### SEO / discoverability
 
-- **ISSUE-032 + IMP-051 — og: + twitter:card + JSON-LD** in
+- **ISSUE-032 + IMP-051 - og: + twitter:card + JSON-LD** in
   `index.html` head. Social-share previews on Facebook / LinkedIn /
   Discord / Slack / Twitter now render. JSON-LD `EducationalApplication`
   schema feeds Google structured-data.
 
 ### Tests
 
-- **IMP-055 — `tests/round3-features.spec.js`.** 9 Playwright scenarios
+- **IMP-055 - `tests/round3-features.spec.js`.** 9 Playwright scenarios
   covering `#/missed`, `#/sitting`, the trust band, locale chips,
   JSON-LD schema, og: tags, and the test-setup sitting CTA.
 
-### Deferred (6 of 22) — content-authoring or product-decision blocked
+### Deferred (6 of 22) - content-authoring or product-decision blocked
 
-- **IMP-045 — translate `grammar.json#explanation_en`** to vi/id/ne/zh
+- **IMP-045 - translate `grammar.json#explanation_en`** to vi/id/ne/zh
   (178 patterns × 4 locales = 712 strings). Blocked on Q14 (translation
   budget: native vs LLM-only).
-- **IMP-046 — translate `vocab.json#gloss`** to vi/id/ne/zh (1041 × 4
+- **IMP-046 - translate `vocab.json#gloss`** to vi/id/ne/zh (1041 × 4
   = 4164 strings). Same block.
-- **IMP-047 — translate `kanji.json#meanings`** to vi/id/ne/zh
+- **IMP-047 - translate `kanji.json#meanings`** to vi/id/ne/zh
   (~106 × 4 = ~424 strings). Same block.
-- **IMP-050 — kanji radical decomposition + mnemonics.** Needs
+- **IMP-050 - kanji radical decomposition + mnemonics.** Needs
   KanjiDic2 ingestion + curated mnemonic source. Not on the round-4
   cutting room.
-- **IMP-053 — RTL CSS via logical properties.** Defers until a real
-  RTL locale is being authored (Arabic / Hebrew / Urdu — none in
+- **IMP-053 - RTL CSS via logical properties.** Defers until a real
+  RTL locale is being authored (Arabic / Hebrew / Urdu - none in
   current SUPPORTED list).
-- **IMP-054 — Trusted Web Activity / Capacitor wrappers** for Play /
+- **IMP-054 - Trusted Web Activity / Capacitor wrappers** for Play /
   App Store distribution. Blocked on Q17 (distribution strategy).
 
 ### Service worker
@@ -713,16 +713,16 @@ JA-35). 12/12 footer-regex unit tests pass.
 
 ---
 
-## v1.12.31 - 2026-05-05 (Audit round-3 close-out — 20 deferred items resolved)
+## v1.12.31 - 2026-05-05 (Audit round-3 close-out - 20 deferred items resolved)
 
 User direction: implement everything that v1.12.30 marked deferred. This
-release lands every remaining round-3 Decision = Fix item — some as full
+release lands every remaining round-3 Decision = Fix item - some as full
 implementations, some as scaffolds with documented follow-up work. Final
 audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
 
-### Phase A — data (2 items)
+### Phase A - data (2 items)
 
-- **IMP-005 — romaji on every grammar example.** New
+- **IMP-005 - romaji on every grammar example.** New
   `tools/fix_imp_005_grammar_romaji_2026_05_05.py` generates Hepburn-style
   romaji and writes a `romaji` field onto all 631 examples in
   `data/grammar.json`. Approach: vocab.json + kanji.json kanji-form →
@@ -730,7 +730,7 @@ audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
   for kanji-mixed strings, then a rule-based kana → Hepburn mapper
   (handles yoon, small-tsu doubling, n-before-bilabial, particle は/へ
   rendered as wa/e when attached to a noun).
-- **ISSUE-013 — kanji `additional_readings` on every entry.** New
+- **ISSUE-013 - kanji `additional_readings` on every entry.** New
   `tools/fix_issue_013_kanji_additional_readings_2026_05_05.py` populates
   the field for all 106 N5 kanji from the Joyo / KanjiDic2-style
   catalogue (conservative: common alternates only, no archaic readings).
@@ -739,35 +739,35 @@ audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
   (numerals 一二三, days, etc.). Closes the producer-consumer drift the
   round-2 popover wiring exposed.
 
-### Phase B + C — storage + routes (8 items)
+### Phase B + C - storage + routes (8 items)
 
-- **IMP-008 / IMP-031 — wrong-answer rolling history.** New `js/missed.js`
+- **IMP-008 / IMP-031 - wrong-answer rolling history.** New `js/missed.js`
   + `#/missed` route renders the most-recent 200 misses grouped by
   date. New storage exports `getWrongHistory()`, `pushWrongAnswer()`,
   `clearWrongHistory()`. `recordTestResponses()` automatically appends
   every wrong test answer with `{qId, patternId, ts, type, wrongAnswer,
   correctAnswer, source}`. "Clear history" button wipes the log without
   touching FSRS schedule or test results.
-- **IMP-033 — vocab + kanji SRS (scaffold).** New `vocabHistory` +
+- **IMP-033 - vocab + kanji SRS (scaffold).** New `vocabHistory` +
   `kanjiHistory` storage maps mirror the pattern-history schema.
   `setKanjiKnown` / `setVocabKnown` now seed an entry treating the
   manual "I know this" toggle as graduation. New exports
   `getDueVocabIds()`, `getDueKanjiGlyphs()`. Full Test/Drill grading of
   vocab + kanji is left to a future release; the data plumbing is in
   place.
-- **IMP-036 — 7-day review forecast.** New `getReviewForecast(7)` in
+- **IMP-036 - 7-day review forecast.** New `getReviewForecast(7)` in
   `storage.js` aggregates FSRS-4 nextDue timestamps from grammar + vocab
   + kanji into per-day buckets. Renders on the home dashboard as a
   hairline bar chart between Progress and the action prompt.
-- **IMP-044 — first-run onboarding routing.** Fresh installs (no history,
+- **IMP-044 - first-run onboarding routing.** Fresh installs (no history,
   no results, no streak) now land on `#/diagnostic` at first touch.
   An `onboardingSeen` sentinel prevents the redirect on subsequent
   visits; `#/diagnostic` stays reachable directly from anywhere.
-- **IMP-037 — search index extended.** Header search now includes
+- **IMP-037 - search index extended.** Header search now includes
   `data/reading.json` passages and `data/listening.json` transcripts in
   addition to the original grammar / vocab / kanji indexes. Result list
   grows from 3 groups to 5 (+ Reading + Listening).
-- **ISSUE-020 / IMP-032 — full mock-paper sitting flow.** New
+- **ISSUE-020 / IMP-032 - full mock-paper sitting flow.** New
   `js/sitting.js` + `#/sitting` route chains 4 paper-N papers + a
   listening segment into the official JLPT N5 rhythm: Moji + Goi
   (25 min) → Bunpou + Dokkai (50 min) → Listening (30 min). Each
@@ -777,20 +777,20 @@ audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
   setup screen sprouts a third CTA linking to `#/sitting` alongside the
   existing `#/papers` shortcut.
 
-### Phase D — audio (3 items)
+### Phase D - audio (3 items)
 
-- **IMP-007 / IMP-010 / IMP-038 — custom audio-player skin.** New
+- **IMP-007 / IMP-010 / IMP-038 - custom audio-player skin.** New
   `js/audio-player.js` wraps every `<audio>` on the page with skip-
   back-5s, skip-forward-5s, and per-clip 0.75 / 1.0 / 1.25× rate
   buttons. Native `<audio>` stays in DOM (visually hidden) for keyboard
   accessibility. Wired via the global MutationObserver in `app.js` so
   every freshly-rendered audio element across listening / reading /
-  drill surfaces gets the same controls. Idempotent — already-enhanced
+  drill surfaces gets the same controls. Idempotent - already-enhanced
   nodes are no-ops.
 
-### Phase E — settings + a11y (2 items)
+### Phase E - settings + a11y (2 items)
 
-- **IMP-006 — opt-in auto-furigana toggle.** Settings → Practice →
+- **IMP-006 - opt-in auto-furigana toggle.** Settings → Practice →
   "Auto-furigana (experimental)" flips `storage.autoFurigana`. Off by
   default. Renderer applies ruby ONLY to a 19-kanji whitelist of safe
   single-reading characters (numerals, days, fixed compounds where a
@@ -798,30 +798,30 @@ audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
   auto-ruby that produced 大学 = だいがく vs 大[おお]+学[がく] errors
   stays disabled. Toggling broadcasts a `furigana-rerender` event so
   the active route refreshes immediately.
-- **IMP-012 — a11y sweep.** (a) Universal `:focus-visible` ring
+- **IMP-012 - a11y sweep.** (a) Universal `:focus-visible` ring
   fallback covers every focusable element without an explicit focus
   style (WCAG 2.4.7). (b) Active primary-nav link gets
   `aria-current="page"`. (c) Visual treatment thickens the active link
   text-decoration to 2px.
 
-### Phase F — content (2 items)
+### Phase F - content (2 items)
 
-- **IMP-019 — reading explanations EN.** Existing `explanation_en` on
+- **IMP-019 - reading explanations EN.** Existing `explanation_en` on
   84/84 dokkai questions retained; most are quoted-JA passage pointers
   rather than full English glosses. Marking Done with the caveat that
-  proper translations are content-authoring work for the next cycle —
+  proper translations are content-authoring work for the next cycle -
   the data scaffold is in place and the renderer already surfaces
   whatever is authored.
-- **IMP-042 — native-audio integration workflow.** New
+- **IMP-042 - native-audio integration workflow.** New
   `docs/NATIVE-AUDIO-WORKFLOW.md` documents the manifest schema's
   `voice="native"` support, file-layout conventions, the 5-step landing
   process, estimated USD$300-1500 cost range, and 2 cheaper
   alternatives. Pipeline is data-driven; no code changes are needed
   once recordings exist.
 
-### Phase G — i18n (3 items)
+### Phase G - i18n (3 items)
 
-- **ISSUE-022 / IMP-034 / IMP-041 — i18n key extraction scaffold.**
+- **ISSUE-022 / IMP-034 / IMP-041 - i18n key extraction scaffold.**
   `locales/en.json` extracted ~50 new UI literals into a structured key
   tree under `nav.*`, `test.*`, `settings.*`, `review.*`, `home.*`,
   `kanji.*`, `sitting.*`. The existing i18n.js fallback chain routes
@@ -834,13 +834,13 @@ audit-findings state: **67 Done, 12 Avoid, 0 Fix.**
 
 Three items are "Done with caveat" rather than fully implemented:
 
-- **IMP-019** — `explanation_en` field present on 100% of dokkai
+- **IMP-019** - `explanation_en` field present on 100% of dokkai
   questions but most are quoted JA. Full English authoring is a
   content pass.
-- **IMP-033** — vocab + kanji SRS data plumbing landed; full Test /
+- **IMP-033** - vocab + kanji SRS data plumbing landed; full Test /
   Drill grading flows for vocab + kanji items not wired (Q9 still
   open: should daily-due cap when vocab + kanji are added?).
-- **ISSUE-022 / IMP-041** — i18n key tree extracted in en.json; full
+- **ISSUE-022 / IMP-041** - i18n key tree extracted in en.json; full
   translation to vi/id/ne/zh deferred (Q8 still open: commit-to-
   localize vs remove the 4 stub locales?).
 
@@ -863,32 +863,32 @@ unit tests pass.
 The round-3 audit registered 27 new findings + 5 open questions. The
 user marked 38 items Decision = Fix (the 27 new + 11 round-1/round-2
 items revisited). This release lands 18 of those 38; the remaining 20
-are deferred with reason — see "Deferred" section below.
+are deferred with reason - see "Deferred" section below.
 
 ### Content + correctness (5 items)
 
-- **ISSUE-016 — listening items now carry mondai (1-4) + closed
+- **ISSUE-016 - listening items now carry mondai (1-4) + closed
   format_type enum.** Every listen.NNN item gets `mondai` ∈ {1,2,3,4}
   and `format_type` ∈ {task_understanding / point_understanding /
   utterance_expression / immediate_response}. Mapping derived from the
   existing `format` field: task→1, point→2, utterance→3 (corpus has no
   mondai-4 items as of this release). Tagged via
   `tools/fix_issue_016_listening_mondai_2026_05_05.py`.
-- **JA-33 (new invariant) — listening mondai/format_type taxonomy.**
+- **JA-33 (new invariant) - listening mondai/format_type taxonomy.**
   `tools/check_content_integrity.py` gains a 42nd invariant that locks
   the closed enum and the mondai/format_type consistency. Total:
   41 → 42 invariants, all green.
-- **ISSUE-018 — 3-choice listening items confirmed.** The 5/40 items
+- **ISSUE-018 - 3-choice listening items confirmed.** The 5/40 items
   with 3-choice arrays are all canonical mondai-3 (utterance_expression),
   not authoring drift. The 8 four-choice utterance items are documented
   as non-canonical extensions in the fix-script docstring.
-- **ISSUE-017 — goi/paper-1 + moji/paper-1 answer-position rebalance.**
-  Both papers had {0:2, 1:2, 2:3, 3:8} (spread 6 — choice-D heavy);
+- **ISSUE-017 - goi/paper-1 + moji/paper-1 answer-position rebalance.**
+  Both papers had {0:2, 1:2, 2:3, 3:8} (spread 6 - choice-D heavy);
   rebalanced to {0:4, 1:4, 2:3, 3:4} (spread 1, matching the corpus-
   wide ~25/25/25/25). Method: rotate 4 items per paper currently at
   correctIndex=3 by swapping their choice array entries with index 0
   or 1. Question semantics preserved; only visual ordering changes.
-- **ISSUE-021 — kanji popover + detail render "(none at N5)" for the
+- **ISSUE-021 - kanji popover + detail render "(none at N5)" for the
   15 kanji with intentionally empty kun arrays** (and 1 with empty on).
   Previously rendered blank, indistinguishable from "missing data".
   Now muted small text "(none at N5)" makes the intentional absence
@@ -896,64 +896,64 @@ are deferred with reason — see "Deferred" section below.
 
 ### Documentation (3 items)
 
-- **ISSUE-014 — README content-scale rewritten** to live counts:
+- **ISSUE-014 - README content-scale rewritten** to live counts:
   178 grammar / 1041 vocab / 106 kanji / 40 reading / 40 listening /
   290 questions / 28 audited papers / 402 paper Qs. Note added that
   counts drift; `tools/check_content_integrity.py` is the source of
   truth.
-- **ISSUE-015 — README GH-Pages URL** adds the canonical
+- **ISSUE-015 - README GH-Pages URL** adds the canonical
   `gauravaccentureproducts.github.io/JLPTSuccess/N5/` deploy path
   alongside the generic `<user>/<repo>/N5/` template. Old "/JLPT/N5/"
   pre-monorepo segment removed.
-- **ISSUE-023 — README per-paper layout note** explains that the
+- **ISSUE-023 - README per-paper layout note** explains that the
   6 full papers of 15 questions plus 1 short paper of 10 questions
   per section is intentional ("do not 'rebalance' by redistributing").
 
 ### UX (5 items)
 
-- **IMP-024 + IMP-039 — daily review goal.** New `dailyGoalReviews`
+- **IMP-024 + IMP-039 - daily review goal.** New `dailyGoalReviews`
   setting (default 20). Per-day `reviewsToday` counter incremented
   automatically by `recordTestResponses()` and `recordDrillResponse()`
   in storage.js, so test + drill grades both contribute. Home shows
   "Today: X / 20" with a hairline progress bar that links to #/review.
-- **IMP-026 — test results "By question type" breakdown.** Parallel
+- **IMP-026 - test results "By question type" breakdown.** Parallel
   to the existing "By grammar category" table; surfaces whether the
   learner is tripping over MCQ vs sentence_order vs text_input. Drives
   next-drill-mode choice. Renders only when the test mixes types.
-- **IMP-027 — home dashboard surfaces today's review queue
+- **IMP-027 - home dashboard surfaces today's review queue
   prominently.** "N reviews due" link with strong emphasis when due > 0;
   muted "No reviews due" when caught up. Both link to #/review.
-- **IMP-016 — Settings → Keyboard section** documents the in-app
+- **IMP-016 - Settings → Keyboard section** documents the in-app
   keyboard-shortcuts cheatsheet ("press ? on any page"). The cheatsheet
   itself was already wired in `js/shortcuts.js` since v1.5.0; the
-  round-3 audit flagged it as undocumented in-app — this closes that.
-- **IMP-040 — manifest.webmanifest gains 3 PWA app-shortcuts**:
+  round-3 audit flagged it as undocumented in-app - this closes that.
+- **IMP-040 - manifest.webmanifest gains 3 PWA app-shortcuts**:
   Reviews / Test / Kanji. Long-press the installed PWA icon to
   deep-link.
 
 ### Build / safety / tests (5 items)
 
-- **ISSUE-019 — js/test.js paper-count CTA** now reads
+- **ISSUE-019 - js/test.js paper-count CTA** now reads
   `m.totalPapers + m.totalQuestions` live from
   `data/papers/manifest.json`. Was hard-coded "25 papers"; actual is
   28. Defensive fallback if fetch fails.
-- **IMP-030 — `tests/footer-regex.test.js`** with 12 fixture cases
+- **IMP-030 - `tests/footer-regex.test.js`** with 12 fixture cases
   for the `^## (v\d+\.\d+\.\d+)/m` regex used by js/app.js to keep the
   footer in sync with CHANGELOG.md. Catches future drift like a
   non-version H2 landing above the version block, missing v-prefix,
   H3 vs H2, or CRLF line-ending issues. Runs as `node tests/footer-regex.test.js`
   or `npm run test:unit`.
-- **IMP-035 — `data/version.json` + `tools/build_version_json.py`.**
+- **IMP-035 - `data/version.json` + `tools/build_version_json.py`.**
   Single source of truth for build-stamp + corpus counts (version,
   builtAt, counts.{grammar/vocab/kanji/reading/listening/questions/
   papers/paperQuestions}, cacheVersion). Read by the footer fallback
   path; precached by sw.js for offline.
-- **ISSUE-024 — sw.js CACHE_VERSION auto-bumped** by
+- **ISSUE-024 - sw.js CACHE_VERSION auto-bumped** by
   `build_version_json.py` (literal regex-replace). Closes the same
   drift class round-1 ISSUE-001 closed for the displayed footer.
   Format changed from `jlptsuccess-n5-vN` integer to
   `jlptsuccess-n5-vX.Y.Z` per release.
-- **IMP-043 — font-size scaling** is already covered by the existing
+- **IMP-043 - font-size scaling** is already covered by the existing
   `fontSize` setting (S/M/L/XL = 14/15/17/19px). Round-3 audit asked
   for "90/100/115/130%" axis; the existing 4-step pixel scale satisfies
   the spirit of the WCAG-AA-recommended user-controlled scaling. High-
@@ -965,21 +965,21 @@ These items remain Decision=Fix in the audit xlsx; close-out scripts
 will pick them up in the next cycle:
 
 - **HIGH content-authoring effort:** ISSUE-013 (kanji additional_readings
-  for 105 entries — needs KanjiDic2 import), IMP-005 (romaji on 178×~5
+  for 105 entries - needs KanjiDic2 import), IMP-005 (romaji on 178×~5
   grammar examples), IMP-019 (reading explanations EN authoring),
-  IMP-042 (native-speaker audio recordings — Q11 budget decision).
+  IMP-042 (native-speaker audio recordings - Q11 budget decision).
 - **HIGH UX/system work:** ISSUE-020 + IMP-032 (chained full-paper
   sitting flow with per-section timer), IMP-008 + IMP-031 (wrong-answer
-  history — needs storage schema design), IMP-010 + IMP-038 (custom
-  audio player with segmented replay), IMP-033 (vocab+kanji SRS —
-  needs Q9 product decision), IMP-036 (7-day review forecast — depends
+  history - needs storage schema design), IMP-010 + IMP-038 (custom
+  audio player with segmented replay), IMP-033 (vocab+kanji SRS -
+  needs Q9 product decision), IMP-036 (7-day review forecast - depends
   on IMP-033), IMP-037 (extend search to passages/transcripts),
-  IMP-044 (first-run onboarding — design pass).
+  IMP-044 (first-run onboarding - design pass).
 - **Needs product decision:** ISSUE-022 + IMP-034 + IMP-041
-  (localization — Q8: commit-to-localize vs remove non-EN locales),
-  IMP-006 (auto-furigana toggle — Q5 risk acceptance).
+  (localization - Q8: commit-to-localize vs remove non-EN locales),
+  IMP-006 (auto-furigana toggle - Q5 risk acceptance).
 - **Lower priority / partial overlap:** IMP-007 (per-clip playback
-  speed — overlap with IMP-038), IMP-012 (full a11y sweep — partial
+  speed - overlap with IMP-038), IMP-012 (full a11y sweep - partial
   via IMP-043).
 
 ### Service worker
@@ -1000,28 +1000,28 @@ this release lands all 13. Four items marked Avoid stay accepted-with-rationale.
 
 ### Content + correctness (5 items)
 
-- **ISSUE-008 — kanji popover surfaces stroke count + non-N5 readings.** IMP-015
+- **ISSUE-008 - kanji popover surfaces stroke count + non-N5 readings.** IMP-015
   added `stroke_count` and `additional_readings` to every entry in
   `data/kanji.json`, but `js/kanji-popover.js` was reading neither. Producer-
   consumer drift fixed: the popover now shows a `画` chip for the stroke count
   and a collapsed `<details>` block titled "Other readings (not taught at N5)"
   carrying the on/kun-yomi the JLPT N5 syllabus omits.
-- **ISSUE-009 — backfill `difficulty` on 16 mock-test questions.** Audit found
+- **ISSUE-009 - backfill `difficulty` on 16 mock-test questions.** Audit found
   16 entries in `data/questions.json` with no `difficulty` field; the test
   ranker silently treated them as 0. Backfilled 1/2/3 by `pid` band so the
   ranker now sees a complete signal across the 240-question bank.
-- **ISSUE-010 — collapse double-spaces in 234 question fields.** Pass-12
+- **ISSUE-010 - collapse double-spaces in 234 question fields.** Pass-12
   rationale-cleanup left double spaces inside 234 entries across `prompt_ja`,
   `question_ja`, and `rationale_ja`. Single regex pass collapsed them; the
   invariant suite still passes byte-for-byte.
-- **IMP-018 — every kanji card now carries 1-2 example sentences.** New
+- **IMP-018 - every kanji card now carries 1-2 example sentences.** New
   "In a sentence" section on the 106 kanji detail pages, slotted between
   the compound-word table and the stroke-order diagram. Sentences are pulled
   in priority order from `data/grammar.json`, `data/reading.json`,
   `data/listening.json`, and the paper-JSONs; 8 isolated kanji (万/足/目/力/西/南/空/号)
   use hand-authored fallbacks because the N5 corpus simply doesn't weave
   them into prose. 100% coverage.
-- **IMP-023 — localStorage namespace migration helper.** `js/storage.js`
+- **IMP-023 - localStorage namespace migration helper.** `js/storage.js`
   now exports `migrate(oldNS, newNS)` with a sentinel-based one-time guarantee
   so a future namespace rename (e.g., for the multi-level expansion) doesn't
   silently drop user progress. Defensive: never overwrites existing keys in
@@ -1029,11 +1029,11 @@ this release lands all 13. Four items marked Avoid stay accepted-with-rationale.
 
 ### UX (3 items)
 
-- **IMP-025 — kanji index sort dropdown.** Added Sort: lesson / frequency /
+- **IMP-025 - kanji index sort dropdown.** Added Sort: lesson / frequency /
   strokes / glyph control to the kanji index, parity with the Filter chips
   shipped in IMP-003. Module-local state so a user's chosen sort persists
   while they navigate within the index.
-- **IMP-029 — search + tier chips on grammar TOC, search input on vocab list.**
+- **IMP-029 - search + tier chips on grammar TOC, search input on vocab list.**
   Mirrors the kanji-index UX. Auto-expands every accordion section while a
   filter is active so matches surface without a manual click. Tier chips on
   grammar (`All / Core N5 / Late N5`) gate the corpus by syllabus tier so a
@@ -1041,45 +1041,45 @@ this release lands all 13. Four items marked Avoid stay accepted-with-rationale.
 
 ### Build / tooling / safety (4 items)
 
-- **ISSUE-011 — relocate the test-runner harness off the root URL.** Moved
+- **ISSUE-011 - relocate the test-runner harness off the root URL.** Moved
   `/tests.html` to `/tools/test-runner/tests.html` so the prod-deployed root
   no longer ships a developer harness.
-- **ISSUE-012 — split CSP `style-src` into `-elem` (no inline) + `-attr`
+- **ISSUE-012 - split CSP `style-src` into `-elem` (no inline) + `-attr`
   (inline allowed).** Forbids inline `<style>` element injection (the high-
   risk vector) while still allowing the legitimate `style="width:N%"` attribute
   writes used by progress bars across test/drill/diagnostic/home/summary
   modules. Legacy `style-src 'self' 'unsafe-inline'` retained as fallback for
   CSP-Level-2 user agents that ignore the -elem/-attr directives.
-- **IMP-020 — split CHANGELOG.md** at the v1.10.0 boundary. Active backlog
+- **IMP-020 - split CHANGELOG.md** at the v1.10.0 boundary. Active backlog
   (v1.10.0 → v1.12.29) stays in `CHANGELOG.md`; pre-v1.10 history (v1.0.0 →
   v1.9.0) moved to `docs/CHANGELOG-archive.md`. Trims ~13 KB / ~330 lines
   off the main file without losing any content.
-- **IMP-021 — build-time CSS minification.** New `tools/build_min_css.py`
+- **IMP-021 - build-time CSS minification.** New `tools/build_min_css.py`
   produces `css/main.min.css` (108 KB, -34% from 164 KB source). The runtime
   references the .min.css; the unminified source stays in repo for editing
   + DevTools Sources-tab debugging. Wired as `npm run build:css`.
-- **IMP-022 — code-split `js/learn.js`** (37 KB → 6.6 KB dispatcher). Grammar
+- **IMP-022 - code-split `js/learn.js`** (37 KB → 6.6 KB dispatcher). Grammar
   half lives in `js/learn-grammar.js` (17.7 KB) and vocab half in
   `js/learn-vocab.js` (11.5 KB). The dispatcher dynamic-imports the relevant
   chunk on first navigation to a grammar or vocab route, so the hub repaint
   no longer pays for code paths the user hasn't asked for.
-- **IMP-028 — Playwright regression spec for v1.12.28 + v1.12.29 features.**
+- **IMP-028 - Playwright regression spec for v1.12.28 + v1.12.29 features.**
   New `tests/v1.12.28-features.spec.js` covering footer-version, exam-mode
   timer, pass-mark badge, kanji index filters, kanji "In a sentence" section,
   grammar/vocab search, and the kanji-popover stroke chip.
 
 ### Accepted-with-rationale (4 Avoid items)
 
-- **IMP-019 — keep CHANGELOG visible in nav.** The footer link is sufficient;
+- **IMP-019 - keep CHANGELOG visible in nav.** The footer link is sufficient;
   the audit suggestion to add a primary-nav entry would clutter the nav for
   the 99% of learners who never look at CHANGELOG.
-- **IMP-024 — keep listening 4-choice rebalance target accepted-by-constraint.**
+- **IMP-024 - keep listening 4-choice rebalance target accepted-by-constraint.**
   Round-1 "9/9/9/9" target (36 items) was unreachable: the corpus has 35 actual
   4-choice items and they use chronological/numeric ordering, not free
   permutation.
-- **IMP-026 — keep paper-5/6 per-paper bunpou skew.** Mondai-2 sentence-
+- **IMP-026 - keep paper-5/6 per-paper bunpou skew.** Mondai-2 sentence-
   rearrangement has non-permutable choice ordering by design.
-- **IMP-027 — keep `audioRate` setting key.** Audit script flagged the literal
+- **IMP-027 - keep `audioRate` setting key.** Audit script flagged the literal
   `audioRate` keyword as absent from `js/settings.js`; the actual export is
   `applyAudioRate` and the storage key is wired correctly. False positive.
 

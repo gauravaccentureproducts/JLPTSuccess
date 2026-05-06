@@ -6,7 +6,7 @@
 // (e.g., a "## Notes" section landing above the version block) fails
 // fast in CI rather than silently breaking the footer.
 //
-// Runs as a plain Node script — no test framework dependency:
+// Runs as a plain Node script - no test framework dependency:
 //     node tests/footer-regex.test.js
 // Exit 0 = pass, exit 1 = fail.
 
@@ -24,7 +24,7 @@ const cases = [
     'v1.12.29', true,
   ],
   [
-    'multiple version headings — picks the first',
+    'multiple version headings - picks the first',
     '## v1.12.29 - 2026-05-05\n\n## v1.12.28 - 2026-05-04\n',
     'v1.12.29', true,
   ],
@@ -44,7 +44,7 @@ const cases = [
     'v2.5.0', true,
   ],
   [
-    'leading whitespace in line — does NOT match (regex anchors to BOL)',
+    'leading whitespace in line - does NOT match (regex anchors to BOL)',
     '  ## v1.12.29 - 2026-05-05\n',
     null, false,
   ],
@@ -54,22 +54,22 @@ const cases = [
     null, false,
   ],
   [
-    'non-version H2 above version H2 — picks the version one',
+    'non-version H2 above version H2 - picks the version one',
     '## Migration notes\n\nbody.\n\n## v1.12.29 - 2026-05-05\n',
     'v1.12.29', true,
   ],
   [
-    'H3 v-prefix — does NOT match (only H2)',
+    'H3 v-prefix - does NOT match (only H2)',
     '### v1.12.29 - 2026-05-05\n',
     null, false,
   ],
   [
-    'no leading "v" — does NOT match',
+    'no leading "v" - does NOT match',
     '## 1.12.29 - 2026-05-05\n',
     null, false,
   ],
   [
-    'four-segment version (v1.0.0.0) — does NOT match (we want SemVer 3-part)',
+    'four-segment version (v1.0.0.0) - does NOT match (we want SemVer 3-part)',
     '## v1.0.0.0 - 2099-01-01\n',
     'v1.0.0', true,  // regex captures the first 3 segments and stops on dot
   ],
@@ -86,7 +86,7 @@ for (const [name, fixture, expected, shouldMatch] of cases) {
   try {
     if (shouldMatch) {
       assert(m !== null, `expected match for "${name}"`);
-      assert.equal(m[1], expected, `"${name}" — expected ${expected}, got ${m && m[1]}`);
+      assert.equal(m[1], expected, `"${name}" - expected ${expected}, got ${m && m[1]}`);
     } else {
       assert(m === null, `expected NO match for "${name}", got ${m && m[1]}`);
     }

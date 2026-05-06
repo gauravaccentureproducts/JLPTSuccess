@@ -4,9 +4,9 @@ This folder holds the functional and implementation specifications for the JLPT 
 
 ## Read this first
 
-**`JLPT-N5-Current-Implementation-Spec.md`** — the **authoritative living spec**. Describes what the app actually is today (v1.12.32, round-4 close-out, 2026-05-05). If you need ground truth for any decision or hand-off, start here.
+**`JLPT-N5-Current-Implementation-Spec.md`** - the **authoritative living spec**. Describes what the app actually is today (v1.12.32, round-4 close-out, 2026-05-05). If you need ground truth for any decision or hand-off, start here.
 
-**Strategic positioning (post-2026-05-06 narrowing):** primary niche is N1 (Hindi-medium JLPT prep — India is the 5th-largest JLPT country with ~50K applicants/year and no dedicated Hindi-native prep app); secondary niche is N2 (privacy / no-account / offline). The 5-locale shell (en/vi/id/ne/zh) was narrowed to en+hi on 2026-05-06 per the IMP-096 architectural decision; vi/id/ne/zh markets are saturated by established native-language competitors. The audit prompt at `../prompts/N5Improvement.txt` carries the canonical niche framing. Do NOT chase Bunpou grammar-review depth or WaniKani kanji-mnemonic depth — these are documented anti-niches per `Q13` in `../feedback/n5-audit-2026-05-04.xlsx`.
+**Strategic positioning (post-2026-05-06 narrowing):** primary niche is N1 (Hindi-medium JLPT prep - India is the 5th-largest JLPT country with ~50K applicants/year and no dedicated Hindi-native prep app); secondary niche is N2 (privacy / no-account / offline). The 5-locale shell (en/vi/id/ne/zh) was narrowed to en+hi on 2026-05-06 per the IMP-096 architectural decision; vi/id/ne/zh markets are saturated by established native-language competitors. The audit prompt at `../prompts/N5Improvement.txt` carries the canonical niche framing. Do NOT chase Bunpou grammar-review depth or WaniKani kanji-mnemonic depth - these are documented anti-niches per `Q13` in `../feedback/n5-audit-2026-05-04.xlsx`.
 
 ## Historical record
 
@@ -16,7 +16,7 @@ The remaining files are kept as point-in-time snapshots for traceability. **Do n
 |---|---|---|---|
 | `JLPT-N5-Current-Implementation-Spec.md` | **CURRENT** | 2026-05-05 | Source of truth |
 | `JLPT-N5-Functional-Spec-v3.1-supplement.md` | Historical | 2026-04-30 | Gap-fill addendum to v3 .docx; covered the drift between v3 and the live app at that point |
-| `JLPT N5 — Consolidated Spec.docx` | Historical | 2026-05-04 | v3-consolidated form — pre-migration |
+| `JLPT N5 - Consolidated Spec.docx` | Historical | 2026-05-04 | v3-consolidated form - pre-migration |
 | `JLPT N5 Grammar Tutor – Functional Spec.docx` | Historical | 2026-04-30 | v3 (informally amended); the original .docx spec |
 
 ## What changed between the historical record and the current spec

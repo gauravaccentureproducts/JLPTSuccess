@@ -6,21 +6,21 @@ for native-speaker recordings to replace the synthetic ones, since
 gTTS is recognisable as non-native and a learner trained on synthetic
 audio can struggle with real audio (NHK, JLPT recordings, etc.).
 
-This file documents the mechanical pipeline so a future content pass —
-once recordings are commissioned or recorded in-house — can land them
+This file documents the mechanical pipeline so a future content pass -
+once recordings are commissioned or recorded in-house - can land them
 without code changes.
 
 ## Scope (Q11 budget decision)
 
 Recommended priority order:
 
-1. **40 listening items** (`data/listening.json`) — first to land. Listening
+1. **40 listening items** (`data/listening.json`) - first to land. Listening
    is where synthetic prosody hurts most (the format mimics real exam
    audio). Estimated ~30-45 min of recorded material.
-2. **40 reading passages** (`data/reading.json`) — second. The synthetic
+2. **40 reading passages** (`data/reading.json`) - second. The synthetic
    versions are usable but a native voice elevates "read along" practice.
    Estimated ~25-35 min.
-3. **~890 grammar example sentences** (`data/grammar.json`) — last (or
+3. **~890 grammar example sentences** (`data/grammar.json`) - last (or
    not at all). Each clip is 2-5 seconds and the gTTS rendering is fine
    for the "hear how the pattern sounds" goal. Replace if budget allows.
 

@@ -8,7 +8,7 @@ instructor would catch on first reading:
   T-3  Register inconsistency inside one example/stem
        (desu/masu mixed with plain in the SAME sentence)
   T-4  Counter-reading errors (3本 → さんぼん not さんほん etc.)
-  T-5  EN-gloss faithfulness (very rough heuristic — flags obvious
+  T-5  EN-gloss faithfulness (very rough heuristic - flags obvious
        count/tense/negation mismatches between ja and translation_en)
   T-6  N4-leakage in grammar / examples (patterns formally outside
        N5 scope that still appear without late_n5 tier flag)
@@ -72,7 +72,7 @@ def stem_text(q: dict) -> str:
 #   を 行く / を 来る / を 帰る  (motion verbs take に or へ for destination,
 #                                を for path-traversal)
 #   で 住む / で いる            (location of existence takes に, not で)
-#   に 食べる / に 飲む           (NOT for direct object — consumption verbs
+#   に 食べる / に 飲む           (NOT for direct object - consumption verbs
 #                                take を, not に)
 
 # Caveat: we want to catch the ERRORS, but X を歩く / X を通る / X を出る
@@ -82,7 +82,7 @@ T1_BAD_PATTERNS = [
     (re.compile(r'を\s*行きます'),  'を + 行きます (motion destination needs に/へ)'),
     (re.compile(r'を\s*行く'),     'を + 行く (motion destination needs に/へ)'),
     (re.compile(r'を\s*来ます'),   'を + 来ます (destination needs に, not を)'),
-    (re.compile(r'を\s*帰ります'), 'を + 帰ります (帰る is intransitive — を marks path only)'),
+    (re.compile(r'を\s*帰ります'), 'を + 帰ります (帰る is intransitive - を marks path only)'),
     (re.compile(r'で\s*住みます'), 'で + 住みます (location of habitation takes に)'),
     (re.compile(r'で\s*住む'),    'で + 住む (location of habitation takes に)'),
     (re.compile(r'で\s*います'),  'で + います (existence-location takes に, で is for action)'),
@@ -94,7 +94,7 @@ def check_t1():
     findings = []
     for src, i, q in find_questions():
         # Only check the JA-side stem + correct answer assembly. Distractor
-        # mismatches are intentional — that's the whole point of distractors.
+        # mismatches are intentional - that's the whole point of distractors.
         # We only flag if the ASSEMBLED-correct sentence has a bad pair.
         stem = stem_text(q)
         correct = q.get('correctAnswer') or ''
@@ -117,14 +117,14 @@ def check_t1():
 
 # Patterns that are definitionally wrong conjugations.
 T2_BAD_PATTERNS = [
-    (re.compile(r'来って'),         '来って — wrong (来る te-form is 来て)'),
-    (re.compile(r'する って'),     'する って — should be して'),
-    (re.compile(r'行きった'),       '行きった — wrong (行く ta-form is 行った)'),
-    (re.compile(r'いきった'),       'いきった — wrong (行く ta-form is 行った/いった)'),
-    (re.compile(r'食べりて'),       '食べりて — wrong (食べる te-form is 食べて)'),
-    (re.compile(r'たべりて'),       'たべりて — wrong (食べる te-form is 食べて)'),
-    (re.compile(r'ありった'),       'ありった — wrong (ある ta-form is あった)'),
-    (re.compile(r'いるって'),       'いるって — wrong (いる te-form is いて)'),
+    (re.compile(r'来って'),         '来って - wrong (来る te-form is 来て)'),
+    (re.compile(r'する って'),     'する って - should be して'),
+    (re.compile(r'行きった'),       '行きった - wrong (行く ta-form is 行った)'),
+    (re.compile(r'いきった'),       'いきった - wrong (行く ta-form is 行った/いった)'),
+    (re.compile(r'食べりて'),       '食べりて - wrong (食べる te-form is 食べて)'),
+    (re.compile(r'たべりて'),       'たべりて - wrong (食べる te-form is 食べて)'),
+    (re.compile(r'ありった'),       'ありった - wrong (ある ta-form is あった)'),
+    (re.compile(r'いるって'),       'いるって - wrong (いる te-form is いて)'),
 ]
 
 def check_t2():
@@ -158,7 +158,7 @@ def check_t2():
 
 # Inside ONE sentence (no boundary 。), it's a teaching-time red flag if
 # we mix polite ます/です with plain dictionary form. (The exception is
-# embedded clauses like ～と思います、～と言いました — those are fine.
+# embedded clauses like ～と思います、～と言いました - those are fine.
 # We crudely exclude lines containing と思 or と言.)
 T3_PLAIN_VERB_END = re.compile(r'(?<![ぁ-ん])(行く|来る|食べる|飲む|見る|読む|書く|する|ある|いる|帰る)([、。]|\s|$)')
 T3_POLITE_END = re.compile(r'(ます|ました|ません|ませんでした|です|でした|ではありません)')
@@ -228,7 +228,7 @@ def check_t4():
 
 
 # ---------------------------------------------------------------------------
-# T-5: EN-gloss faithfulness — heuristic
+# T-5: EN-gloss faithfulness - heuristic
 # ---------------------------------------------------------------------------
 
 # A teacher catches obvious mismatches:
@@ -236,7 +236,7 @@ def check_t4():
 #   - JA past but EN present
 #   - Number mismatches (ひと-/ふた-/さん- prefix vs "two" / "three")
 #
-# This is a heuristic — false positives expected; goal is to surface for
+# This is a heuristic - false positives expected; goal is to surface for
 # manual review.
 
 # T-5 v3: catch real gloss errors, suppress idiomatic patterns that LOOK
@@ -256,7 +256,7 @@ NEG_EN_BROAD = re.compile(
 SUPPRESS_IDIOM = re.compile(
     # Phase-1 suppressors (already known false positives):
     r'(しか|だけ|ばかり|ませんか[。?？]?|ね[。?？]?$|でしょう|はじめて|'
-    # 2026-05-03: 24 more confirmed false positives — manual review
+    # 2026-05-03: 24 more confirmed false positives - manual review
     # showed all 24 are correct natural translations:
     #   - すみません (fixed apology, ません is non-verbal)
     #   - い-adj ending in ない (あぶない/きたない/つまらない etc.)
@@ -295,18 +295,18 @@ def check_t5():
 
 # Patterns that are STRICTLY N4 in most reference grammars but
 # sometimes leak into N5 banks. Genki/Minna defaults:
-#   ましょう / ましょうか     — squarely N5 (Lesson 6 / 4)
-#   てもいい / てはいけない    — squarely N5 (Lesson 6)
-#   ながら                    — squarely N5 (Lesson 28 in Minna; some
+#   ましょう / ましょうか     - squarely N5 (Lesson 6 / 4)
+#   てもいい / てはいけない    - squarely N5 (Lesson 6)
+#   ながら                    - squarely N5 (Lesson 28 in Minna; some
 #                                debate, but JEES official scope = N5)
-#   ～たり〜たりする         — N5 (Genki I L11 / Minna L19)
-#   ～なくちゃ / ～なきゃ      — N4 colloquial contractions of ～なければ
+#   ～たり〜たりする         - N5 (Genki I L11 / Minna L19)
+#   ～なくちゃ / ～なきゃ      - N4 colloquial contractions of ～なければ
 #                                (Genki II L17 plain-form). Should be
 #                                tagged late_n5 OR removed.
-#   ～なくてもいい            — N4 boundary; some N5 books (Genki I L17)
+#   ～なくてもいい            - N4 boundary; some N5 books (Genki I L17)
 #                                include it. Tag late_n5.
 N4_TRULY_LEAKED = [
-    'なきゃ', 'なくちゃ',  # colloquial — N4
+    'なきゃ', 'なくちゃ',  # colloquial - N4
     'なくてもいい',           # N4 boundary
 ]
 
@@ -326,7 +326,7 @@ def check_t6():
 
 
 # ---------------------------------------------------------------------------
-# T-7: Common-mistake coverage — gut check
+# T-7: Common-mistake coverage - gut check
 # ---------------------------------------------------------------------------
 
 def check_t7():
@@ -378,7 +378,7 @@ def check_t8():
 
 
 # ---------------------------------------------------------------------------
-# T-9: Stem-context anchor drift — ko-so-a-do specific
+# T-9: Stem-context anchor drift - ko-so-a-do specific
 # ---------------------------------------------------------------------------
 
 def check_t9():
@@ -388,7 +388,7 @@ def check_t9():
     findings = []
     # Distance-test means all 4 choices are the SAME form-type. When
     # choices mix pronoun (これ) + adnominal (この) + place (ここ) the
-    # question is testing FORM, not distance — and only one form fits
+    # question is testing FORM, not distance - and only one form fits
     # the syntactic slot anyway.
     PRONOUN = {'これ', 'それ', 'あれ', 'どれ'}
     ADNOMINAL = {'この', 'その', 'あの', 'どの'}
@@ -424,7 +424,7 @@ def check_t9():
             continue
         stem = stem_text(q)
         full = stem + ' ' + (q.get('rationale') or '')
-        # ANY parenthetical scene context counts as an anchor — by
+        # ANY parenthetical scene context counts as an anchor - by
         # convention the project uses (...) to set ko-so-a-do scenes,
         # so flag only stems WITHOUT both keyword anchors AND scene
         # parens.

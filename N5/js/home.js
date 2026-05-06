@@ -1,4 +1,4 @@
-// Home / landing screen — JLPT N5 syllabus dashboard.
+// Home / landing screen - JLPT N5 syllabus dashboard.
 //
 // Redesigned 2026-05-02 from the bare "study material." inventory hero into a
 // full syllabus control center. Sections, in order:
@@ -26,7 +26,7 @@ import { t, currentLocale } from './i18n.js';
 // Cache the corpus counts and pattern label map at module scope so we
 // fetch each data file once per session.
 let corpusCounts = null;
-let patternLabels = null;  // patternId → friendly label (e.g. "n5-001 — です/だ")
+let patternLabels = null;  // patternId → friendly label (e.g. "n5-001 - です/だ")
 async function loadCorpusCounts() {
   if (corpusCounts) return corpusCounts;
   const files = ['grammar', 'vocab', 'kanji', 'reading', 'listening'];
@@ -52,7 +52,7 @@ async function loadCorpusCounts() {
     listening: count(listening, 'items'),
   };
   // Build the pattern-id → friendly-label map so the resume strip can
-  // show "n5-001 — です/だ" instead of the bare ID. Falls back to the
+  // show "n5-001 - です/だ" instead of the bare ID. Falls back to the
   // bare ID if the pattern lookup fails for any reason.
   if (grammar && Array.isArray(grammar.patterns)) {
     patternLabels = {};
@@ -62,7 +62,7 @@ async function loadCorpusCounts() {
       // recognize, e.g. "〜は です"); fall back to 'name' or 'meaning_en'.
       const label = p.pattern || p.name || p.meaning_en || '';
       patternLabels[p.id] = label
-        ? `${p.id} — ${label}`
+        ? `${p.id} - ${label}`
         : p.id;
     }
   }
@@ -73,7 +73,7 @@ async function loadCorpusCounts() {
 // digits otherwise. Per spec §5.1 rule 4.
 const fmt = (n) => Intl.NumberFormat('en-US').format(n || 0);
 
-// Compute current progress per syllabus section. Reads localStorage —
+// Compute current progress per syllabus section. Reads localStorage -
 // completely cold (first-time visitors) returns zeros for every section.
 function computeProgress(counts) {
   const history = storage.getHistory();
@@ -175,7 +175,7 @@ function syllabusCards(counts) {
   ];
 }
 
-// 8 study-order steps per spec §5.1 — ordered, beginner-friendly, no
+// 8 study-order steps per spec §5.1 - ordered, beginner-friendly, no
 // promotional framing. Each step is a sentence, no period (matches list
 // register elsewhere on the site). Each step links to the most directly-
 // actionable surface (per user request 2026-05-02): grammar/vocab/kanji
@@ -260,9 +260,9 @@ export async function renderHome(container) {
   const forecast = storage.getReviewForecast ? storage.getReviewForecast(7) : [];
   const forecastMax = Math.max(1, ...forecast.map(f => f.count));
 
-  // Resume strip — single-line link above the syllabus title for returning
+  // Resume strip - single-line link above the syllabus title for returning
   // users. First-time visitors see no strip at all. Show the friendly
-  // pattern label ("n5-001 — です/だ") instead of just the ID when the
+  // pattern label ("n5-001 - です/だ") instead of just the ID when the
   // grammar lookup map is loaded.
   const resumeLabel = (patternLabels && patternLabels[lastViewed])
     || lastViewed;
@@ -370,7 +370,7 @@ export async function renderHome(container) {
         <!-- IMP-036 (audit round-3): 7-day review forecast.
              Aggregates FSRS-4 nextDue dates from grammar + vocab + kanji
              histories so the learner sees "tomorrow I'll have 8 reviews;
-             Wednesday I'll have 25 — better stay on top of it". -->
+             Wednesday I'll have 25 - better stay on top of it". -->
         <section class="syllabus-forecast" aria-label="Review forecast">
           <header class="section-label">
             <span class="section-label-text">${t('home.forecast_label')}</span>

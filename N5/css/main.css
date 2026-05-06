@@ -4,7 +4,7 @@
  * sparingly, hairlines not borders, no shadows / no gradients / no decorative
  * icons, weights 300/400/500 only. */
 
-/* === Self-hosted fonts (CSP 'self' — no third-party requests) ===
+/* === Self-hosted fonts (CSP 'self' - no third-party requests) ===
  * Inter: 3 weights (Light 300, Regular 400, Medium 500). The design's
  * Muji signature relies on Inter Light for hero headlines; system fonts
  * lack a true Light. Total Inter footprint: ~338KB.
@@ -62,7 +62,7 @@
   --color-text-faint:   #9A968C;
 
   /* === Brand accent (used sparingly: nav active, primary CTA, focus ring,
-   *     progress fill, accent line under wordmark — five places only) === */
+   *     progress fill, accent line under wordmark - five places only) === */
   --color-accent:       #1F4D2E;
   --color-accent-hover: #163924;
   --color-accent-tint:  #EDF1EE;
@@ -76,16 +76,16 @@
   --color-due-tint:     #F7EFE0;
 
   /* === Type scale (deliberately small; big type fights the design) === */
-  --text-2xs:  0.6875rem;   /* 11px — tiny labels */
-  --text-xs:   0.75rem;     /* 12px — footer */
-  --text-sm:   0.8125rem;   /* 13px — card body, helper */
-  --text-base: 0.9375rem;   /* 15px — body */
-  --text-md:   1.0625rem;   /* 17px — emphasised body, card titles */
-  --text-lg:   1.25rem;     /* 20px — section headings */
-  --text-xl:   1.625rem;    /* 26px — page titles */
-  --text-2xl:  2rem;        /* 32px — hero (one per page max) */
+  --text-2xs:  0.6875rem;   /* 11px - tiny labels */
+  --text-xs:   0.75rem;     /* 12px - footer */
+  --text-sm:   0.8125rem;   /* 13px - card body, helper */
+  --text-base: 0.9375rem;   /* 15px - body */
+  --text-md:   1.0625rem;   /* 17px - emphasised body, card titles */
+  --text-lg:   1.25rem;     /* 20px - section headings */
+  --text-xl:   1.625rem;    /* 26px - page titles */
+  --text-2xl:  2rem;        /* 32px - hero (one per page max) */
 
-  /* === Weight (300/400/500 only — never 600 or 700) === */
+  /* === Weight (300/400/500 only - never 600 or 700) === */
   --weight-light:  300;
   --weight-base:   400;
   --weight-medium: 500;
@@ -118,7 +118,7 @@
   --container-base:   880px;
   --container-wide:   1120px;
 
-  /* === Border radius (small, geometric — Muji is hard-edged) === */
+  /* === Border radius (small, geometric - Muji is hard-edged) === */
   --radius-sm:   2px;
   --radius-md:   4px;
   --radius-lg:   6px;
@@ -133,7 +133,7 @@
   /* === Font stacks === */
   /* Inter (woff2 added in Phase 4); falls through to system sans which
    * approximates 90%+ of the design at 400 / 500. Weight 300 (Light) lacks
-   * a true system equivalent — Phase 4 ships Inter-Light.woff2 to fix. */
+   * a true system equivalent - Phase 4 ships Inter-Light.woff2 to fix. */
   --font-en: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
              system-ui, sans-serif;
   --font-jp: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic UI",
@@ -237,7 +237,7 @@ html, body {
   font-size: var(--text-base);
   line-height: var(--leading-base);
   font-feature-settings: "ss01" 1, "cv11" 1;
-  /* Tabular numerals everywhere — stats, counters, timers, SRS intervals. */
+  /* Tabular numerals everywhere - stats, counters, timers, SRS intervals. */
   font-variant-numeric: tabular-nums;
   /* Smooth dark/light transition when the user toggles theme. */
   transition: background-color var(--motion-base) var(--easing),
@@ -252,7 +252,7 @@ html, body {
   letter-spacing: 0;
 }
 
-/* Settings panel — single column max-width 640px (spec §5.10) */
+/* Settings panel - single column max-width 640px (spec §5.10) */
 .settings-section {
   max-width: var(--container-narrow);
   margin: var(--space-8) auto;
@@ -302,11 +302,11 @@ html, body {
   margin-top: var(--space-4);
 }
 
-/* Danger zone — destructive actions (Reset progress) sit below the
+/* Danger zone - destructive actions (Reset progress) sit below the
  * regular settings, separated by space-8 + a thin top border in
  * --color-incorrect with a small "Danger zone" label. Spec §5.10.
  * The visual stop-sign sits ABOVE the typed-phrase confirmation gate
- * already wired in js/settings.js — belt + suspenders. */
+ * already wired in js/settings.js - belt + suspenders. */
 .settings-danger-zone {
   max-width: var(--container-narrow);
   margin: var(--space-8) auto 0;
@@ -351,7 +351,7 @@ html, body {
   letter-spacing: var(--tracking-wide);
 }
 
-/* Header — Zen Modern (sticky, 56px tall, hairline, brand mark + wordmark) */
+/* Header - Zen Modern (sticky, 56px tall, hairline, brand mark + wordmark) */
 .app-header {
   position: sticky; top: 0; z-index: 50;
   display: grid;
@@ -468,7 +468,7 @@ main {
 }
 /* The home syllabus dashboard needs the wider container (1120px) so three
  * syllabus cards fit side-by-side comfortably on desktop. The :has()
- * selector keeps the rule scoped to the home page only — every other
+ * selector keeps the rule scoped to the home page only - every other
  * route stays at the standard 880px reading column. */
 main:has(.home-syllabus) {
   max-width: var(--container-wide);
@@ -578,7 +578,7 @@ h2 + * + .section-label:first-of-type {
   right: 0; top: 50%;
   /* translateY(-50%) is required to vertically center against top:50%. The
    * v1.8.0 Phase-2 transform sweep accidentally stripped this; restored
-   * 2026-05-01. The transform is purely for centering — no hover lift. */
+   * 2026-05-01. The transform is purely for centering - no hover lift. */
   transform: translateY(-50%);
   font-size: 20px;
   color: var(--color-text-muted, var(--c-text-muted, #666));
@@ -629,7 +629,7 @@ h2 + * + .section-label:first-of-type {
 .pattern-detail .back-link {
   display: inline-block;
   margin-bottom: 12px;
-  /* Demoted to muted gray — was --c-primary which competed with the
+  /* Demoted to muted gray - was --c-primary which competed with the
    * green pattern-name h2 directly below. As secondary navigation it
    * should sit in the muted register. */
   color: var(--c-muted);
@@ -770,7 +770,7 @@ h2 + * + .section-label:first-of-type {
   text-align: left;
 }
 .pattern-usage-pos {
-  /* Reserve at least 60% of the table for the POS labels — they're
+  /* Reserve at least 60% of the table for the POS labels - they're
    * longer English phrases ("Verb stem (ます-base)", "な-adjective")
    * than the typical pattern form (3-15 char Japanese). Without a
    * floor, table-layout:auto starves this column on narrow viewports. */
@@ -876,7 +876,7 @@ h2 + * + .section-label:first-of-type {
 }
 .placeholder h2 { color: var(--c-primary); border: none; }
 
-/* Reading mock-test-mode toggle (DEFER-12). Hairline, no chrome — sits
+/* Reading mock-test-mode toggle (DEFER-12). Hairline, no chrome - sits
  * inline above the passage list, persists via storage settings. */
 .reading-mode-toggle {
   display: inline-flex;
@@ -895,7 +895,7 @@ h2 + * + .section-label:first-of-type {
 }
 .reading-mode-toggle:hover { color: var(--color-text); }
 
-/* Undo-grading toast (DEFER-14) — fixed-bottom, single-instance, 2s
+/* Undo-grading toast (DEFER-14) - fixed-bottom, single-instance, 2s
  * auto-dismiss. Sits above the bottom-nav on mobile (z-index > 900). */
 .undo-toast {
   position: fixed;
@@ -944,7 +944,7 @@ h2 + * + .section-label:first-of-type {
   border-color: var(--color-text-muted);
 }
 
-/* Footer — Zen Modern lean (hairline top, single muted row) */
+/* Footer - Zen Modern lean (hairline top, single muted row) */
 .app-footer {
   display: flex;
   flex-wrap: wrap;
@@ -1015,7 +1015,7 @@ ruby rt {
   outline-offset: 2px;
 }
 
-/* Primary — the action the page wants you to take. ONE per page max. */
+/* Primary - the action the page wants you to take. ONE per page max. */
 .btn-primary {
   background: var(--color-accent);
   color: #FFFFFF;
@@ -1024,7 +1024,7 @@ ruby rt {
 .btn-primary:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
 .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* Secondary — alternate-path action. */
+/* Secondary - alternate-path action. */
 .btn-secondary {
   background: var(--color-bg);
   color: var(--color-text);
@@ -1036,7 +1036,7 @@ ruby rt {
 }
 .btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* Ghost — tertiary actions, looks like styled link with breathing room. */
+/* Ghost - tertiary actions, looks like styled link with breathing room. */
 .btn-ghost {
   background: transparent;
   color: var(--color-text-muted);
@@ -1044,7 +1044,7 @@ ruby rt {
 }
 .btn-ghost:hover:not(:disabled) { color: var(--color-text); }
 
-/* Danger — destructive actions (Reset progress). Outline-only, red. */
+/* Danger - destructive actions (Reset progress). Outline-only, red. */
 .btn-danger {
   background: var(--color-bg);
   color: var(--color-incorrect);
@@ -1105,9 +1105,9 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 }
 .card-link:hover .card-action { text-decoration: underline; }
 
-/* Numbered indicator (spec §4.4 — the signature Muji affordance).
+/* Numbered indicator (spec §4.4 - the signature Muji affordance).
  * Uses --color-text-muted (4.5:1 contrast on surface) not --color-text-faint
- * (2.82:1 — fails WCAG AA on body-size text). Faint stays available for
+ * (2.82:1 - fails WCAG AA on body-size text). Faint stays available for
  * non-critical decorative text where contrast can be lower; the Muji-numbered
  * marker is small + medium-weight and below the "large text" threshold so
  * the strict 4.5:1 rule applies. axe-core 4.11 audits aria-hidden text too. */
@@ -1140,7 +1140,7 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 .pill-incorrect{background: var(--color-incorrect-tint);color: var(--color-incorrect);border-color: transparent; }
 .pill-due     { background: var(--color-due-tint);      color: var(--color-due);      border-color: transparent; }
 
-/* === Progress bar (spec §4.6 — 2px, present but barely there) === */
+/* === Progress bar (spec §4.6 - 2px, present but barely there) === */
 .progress {
   height: 2px;
   background: var(--color-line);
@@ -1153,7 +1153,7 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
   transition: width var(--motion-slow) var(--easing);
 }
 
-/* === Tables (spec §4.8 — no vertical borders, no striping, hairlines only) === */
+/* === Tables (spec §4.8 - no vertical borders, no striping, hairlines only) === */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -1177,7 +1177,7 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 .table tr:last-child td { border-bottom: none; }
 .table tr:hover td { background: var(--color-surface); }
 
-/* === Form controls (spec §4.7 — h-40, focus accent border) === */
+/* === Form controls (spec §4.7 - h-40, focus accent border) === */
 input[type="text"],
 input[type="search"],
 input[type="email"],
@@ -1218,7 +1218,7 @@ label {
 }
 
 /* Test setup card. Spec §5.8: test mode looks subtly different from
- * Practice — surface bg + slightly thicker top edge mark it as
+ * Practice - surface bg + slightly thicker top edge mark it as
  * authoritative. */
 .test-setup {
   background: var(--color-surface);
@@ -1271,7 +1271,7 @@ label {
 .question-card .prompt { color: var(--c-muted); font-size: 14px; margin: 0 0 8px; }
 .question-card .question { font-size: 22px; line-height: 1.5; margin: 0 0 24px; }
 
-/* Drill / test choices — Zen Modern (spec §5.6) */
+/* Drill / test choices - Zen Modern (spec §5.6) */
 .choice-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1656,7 +1656,7 @@ label {
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 24px;
-  /* Don't wrap at the parent level — long titles like
+  /* Don't wrap at the parent level - long titles like
    * "これ／それ／あれ／どれ" used to flex-wrap the Mark-as-known toggle
    * onto a new row, breaking position-consistency with shorter titles
    * (reported 2026-05-02). Instead, give the left side `flex: 1` +
@@ -1682,7 +1682,7 @@ label {
  * Why: the desktop fix (`flex: 1; min-width: 0` on the title cluster +
  * `flex-shrink: 0` on the toggle) lets the toggle hold its ~150px
  * width while the title cluster shrinks. On a 320px viewport (Galaxy
- * S9+) that leaves only ~45px for the title — and CJK Japanese
+ * S9+) that leaves only ~45px for the title - and CJK Japanese
  * characters break per-character, so a 7-character title like
  * 〜です／〜ます ended up 1 char per line, 7 lines tall (reported
  * with screenshot 2026-05-03).
@@ -1694,7 +1694,7 @@ label {
 @media (max-width: 600px) {
   /* Stacking moved up from 480px to 600px (2026-05-03 UI polish):
    * even at 430-500px, the side-by-side title + Mark-as-known toggle
-   * was cramped — title wrapped to 2-3 lines and the toggle button
+   * was cramped - title wrapped to 2-3 lines and the toggle button
    * collided with the title's right edge. Stacking earlier gives each
    * a full row. */
   .pattern-header {
@@ -1715,8 +1715,8 @@ label {
   /* Pattern usage table at narrow widths.
    *
    * The right cell (form display, e.g. 〜です／〜ます) was wrapping ONE
-   * CHARACTER PER LINE — a 7-char title became a 7-line vertical stack
-   * — because the cell was ~85px wide on a 320px viewport and CJK
+   * CHARACTER PER LINE - a 7-char title became a 7-line vertical stack
+   * - because the cell was ~85px wide on a 320px viewport and CJK
    * Japanese text has soft-wrap opportunities at every character.
    * `word-break: keep-all` alone wasn't enough: the wave dash 〜 (NS
    * class) and full-width solidus ／ (BA class) still allow breaks.
@@ -2327,7 +2327,7 @@ textarea:focus-visible,
 .reading-audio { margin: 10px 0; }
 .reading-audio audio { width: 100%; }
 
-/* Listening module — sections are collapsible <details>; same +/- pattern
+/* Listening module - sections are collapsible <details>; same +/- pattern
  * as the Grammar TOC supersections. */
 .listening-section {
   background: var(--c-surface);
@@ -2348,7 +2348,7 @@ textarea:focus-visible,
   content: "+";
   position: absolute;
   right: 0; top: 50%;
-  /* translateY(-50%) for vertical centering — see toc-category note above. */
+  /* translateY(-50%) for vertical centering - see toc-category note above. */
   transform: translateY(-50%);
   font-size: 20px;
   color: var(--color-text-muted, var(--c-text-muted, #666));
@@ -2425,7 +2425,7 @@ textarea:focus-visible,
     display: flex; justify-content: space-around;
     /* Reset desktop gap (var(--space-6) = 30px). With 5 mobile bottom-nav
      * items each at min-width: 44px, four 30px gaps would total 348px and
-     * overflow a 320px viewport (Galaxy S9+) — pushing the rightmost item
+     * overflow a 320px viewport (Galaxy S9+) - pushing the rightmost item
      * off-screen and triggering page-wide horizontal scroll. space-around
      * already distributes whitespace, so no explicit gap needed. */
     gap: 0;
@@ -2444,7 +2444,7 @@ textarea:focus-visible,
   .secondary-nav input[type="search"] {
     /* Let the search input claim the full available row width on mobile
      * (was capped at 200px and looked afterthought-ish next to the
-     * brand mark — UI polish 2026-05-03). The settings icon stays at
+     * brand mark - UI polish 2026-05-03). The settings icon stays at
      * its intrinsic 18px+padding via flex-shrink:0 on .icon-btn. */
     flex: 1 1 auto;
     min-width: 120px;
@@ -2572,7 +2572,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
  * coverage:
  *   good    = ≥50% translated
  *   partial = 1..49%
- *   none    = 0% (the most actionable for reviewers — "translate me!")
+ *   none    = 0% (the most actionable for reviewers - "translate me!")
  */
 .vocab-coverage-badge {
   display: inline-block;
@@ -2737,7 +2737,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 /* Vocab header reuses .pattern-header for layout (flex / justify-content
  * space-between / align-items / gap / margin-bottom). It only adds the
  * sectional chrome (border + padding-bottom). Do NOT override margin-bottom
- * here — the .pattern-header value (24px) is the canonical detail-header
+ * here - the .pattern-header value (24px) is the canonical detail-header
  * spacing per OPEN-10 Mark-as-known position consistency. */
 .vocab-header { padding-bottom: 12px; border-bottom: 1px solid var(--c-border); }
 .vocab-form-big { font-size: 48px; line-height: 1.1; margin: 6px 0; }
@@ -2810,7 +2810,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 }
 .hub-card p {
   margin: 0;
-  /* See .syllabus-card-desc — `flex: 1` mid-line-clipped the 3rd
+  /* See .syllabus-card-desc - `flex: 1` mid-line-clipped the 3rd
    * text line. Letting line-clamp + natural height align cleanly
    * is preferable. Empty space at card bottom (when text < 3 lines)
    * is acceptable for tile uniformity. */
@@ -2839,7 +2839,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   content: "+";
   position: absolute;
   right: 0; top: 50%;
-  /* translateY(-50%) for vertical centering — see toc-category note above. */
+  /* translateY(-50%) for vertical centering - see toc-category note above. */
   transform: translateY(-50%);
   font-size: 20px;
   color: var(--color-text-muted, var(--c-text-muted, #666));
@@ -2850,7 +2850,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .vocab-table th, .vocab-table td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--c-border); font-size: 14px; }
 .vocab-table th { font-weight: 500; background: var(--c-bg); }
 
-/* Home / landing screen — JLPT N5 syllabus dashboard.
+/* Home / landing screen - JLPT N5 syllabus dashboard.
  * Redesigned 2026-05-02 from a 2-card "Learn / Test" hero into a full
  * syllabus control center: title → 6 syllabus cards → study order →
  * progress overview → placement action block. Wider container
@@ -2861,7 +2861,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   margin: 0 auto;
 }
 
-/* Resume strip — same affordance as before (single-line link above the
+/* Resume strip - same affordance as before (single-line link above the
  * page title). Returning users only; first-time visitors don't see it. */
 .home-syllabus .resume-strip {
   display: block;
@@ -2881,16 +2881,16 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   border-color: var(--color-line-strong);
 }
 
-/* Page title block — compact, syllabus-focused, no marketing copy.
+/* Page title block - compact, syllabus-focused, no marketing copy.
  * The header is a positioning context for the 五 watermark behind the
- * title (DEFER-10 closure 2026-05-03 — restored watermark + pill-badge
+ * title (DEFER-10 closure 2026-05-03 - restored watermark + pill-badge
  * stats per UI-design §1.2 within the existing syllabus layout, not by
  * resurrecting the v1.7.1-removed full hero container). */
 .syllabus-header {
   position: relative;
   margin: var(--space-4) 0 var(--space-6);
 }
-/* Large translucent 五 ("five" — JLPT N5) glyph anchored to the right
+/* Large translucent 五 ("five" - JLPT N5) glyph anchored to the right
  * of the header. aria-hidden so screen readers don't announce it. The
  * size scales with viewport but caps so it never crowds the title.
  * Color uses the muted-text token at 8% opacity → visible enough to
@@ -2926,7 +2926,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   color: var(--color-text);
   margin: 0 0 var(--space-2);
 }
-/* Pill-badge stats row — compact summary of the corpus right under the
+/* Pill-badge stats row - compact summary of the corpus right under the
  * subtitle. Each pill is `<num> <label>` paired so the eye can scan
  * five numerals without clutter. Restores UI-design-brief §1.2 stat
  * pills in the syllabus header (rather than the v1.7.1-removed hero). */
@@ -2976,7 +2976,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   margin: 0;
   max-width: 680px;
 }
-/* Daily-status row — sits under the syllabus subtitle for returning
+/* Daily-status row - sits under the syllabus subtitle for returning
  * users only. Two parts: current streak + today's practice flag (✓ or
  * ○). Decoupled so a 5-day streak with "not yet practiced today" reads
  * unambiguously as "you've been consistent but haven't logged in yet
@@ -3246,7 +3246,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   border-color: var(--color-accent);
 }
 
-/* ISSUE-027 / IMP-048 (audit round-4): home trust band — surfaces the
+/* ISSUE-027 / IMP-048 (audit round-4): home trust band - surfaces the
  * niche-N2 (privacy / no-account / offline) claim on first paint.
  * Hairline pills, all on one line on desktop, wraps on mobile. */
 .syllabus-trust-band {
@@ -3318,7 +3318,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 }
 .locale-chip:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* ISSUE-029 (audit round-4): one-time auto-locale toast — surfaces the
+/* ISSUE-029 (audit round-4): one-time auto-locale toast - surfaces the
  * silent navigator.language detection so users know they can override. */
 .locale-auto-toast {
   position: fixed;
@@ -3349,13 +3349,13 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   color: var(--color-text-muted);
 }
 
-/* IMP-012 (audit round-3): a11y sweep — universal focus-visible ring
+/* IMP-012 (audit round-3): a11y sweep - universal focus-visible ring
  * fallback. Every focusable element that doesn't already declare a
  * focus-visible style gets a 2px accent ring with 2px offset, matching
  * the existing button focus treatment. WCAG 2.4.7 (Focus Visible).
  *
  * Scoped by `:focus-visible` (not `:focus`) so mouse clicks don't show
- * the ring — only keyboard / accessibility-tooling navigation does. */
+ * the ring - only keyboard / accessibility-tooling navigation does. */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -3380,7 +3380,7 @@ textarea:focus-visible,
   margin-top: var(--space-6);
 }
 
-/* Syllabus card grid — 3 cols on desktop, 2 on tablet, 1 on mobile.
+/* Syllabus card grid - 3 cols on desktop, 2 on tablet, 1 on mobile.
  * Cards are clickable links: the entire card surface is the hit target,
  * with a discrete in-card action label at the bottom. */
 .syllabus-grid {
@@ -3467,7 +3467,7 @@ textarea:focus-visible,
   color: var(--color-accent-hover);
 }
 
-/* Study-order list — numbered steps. Visually light: small index, thin
+/* Study-order list - numbered steps. Visually light: small index, thin
  * left rail, no boxes / no chips. */
 .study-order-list {
   list-style: none;
@@ -3486,7 +3486,7 @@ textarea:focus-visible,
 /* Each study-order step is now a clickable link to the most directly-
  * actionable surface for that step (per user 2026-05-02). The link
  * fills the entire row so the click target is the full width on every
- * viewport — index + text both clickable, no dead zone in the gap. */
+ * viewport - index + text both clickable, no dead zone in the gap. */
 .study-order-link {
   display: flex;
   align-items: baseline;
@@ -3520,7 +3520,7 @@ textarea:focus-visible,
 }
 .study-order-text { flex: 1; }
 
-/* Progress overview — compact horizontal bars per section. Width is
+/* Progress overview - compact horizontal bars per section. Width is
  * elastic on desktop; on narrow screens the value wraps below. */
 .progress-list {
   list-style: none;
@@ -3572,7 +3572,7 @@ textarea:focus-visible,
   white-space: nowrap;
 }
 
-/* Action block — "Not sure where to start?" with two action buttons. The
+/* Action block - "Not sure where to start?" with two action buttons. The
  * primary button uses the accent fill; secondary is hairline outline.
  * Quiet, not promotional. */
 .syllabus-action {
@@ -3702,7 +3702,7 @@ textarea:focus-visible,
 .changelog pre { background: var(--color-surface); padding: var(--space-3); border-radius: var(--radius-md); overflow-x: auto; }
 .changelog pre code { background: none; border: none; padding: 0; }
 
-/* === legacy home rules below — older pillars + recommender layouts; kept
+/* === legacy home rules below - older pillars + recommender layouts; kept
  * for non-homepage surfaces that still reference these classes. The new
  * homepage doesn't use .pillar-card or .home-cta. === */
 
@@ -3749,7 +3749,7 @@ textarea:focus-visible,
 .hub-card .card-index { color: var(--color-text-muted); }
 /* Color was --color-text-faint pre-2026-05-01; bumped to --color-text-muted
  * to satisfy axe-core color-contrast (WCAG AA 4.5:1). aria-hidden alone is
- * not sufficient — axe-core 4.11 still audits decorative text. */
+ * not sufficient - axe-core 4.11 still audits decorative text. */
 .pillar-arrow {
   position: absolute; right: var(--space-5); bottom: var(--space-5);
   color: var(--color-text-muted);
@@ -3784,7 +3784,7 @@ textarea:focus-visible,
 .heat-cell.studied { background: var(--color-accent, #1F4D2E); }
 .home-footnote { margin-top: 12px; }
 
-/* Secondary nav (search + settings icon) — sits inside .app-header
+/* Secondary nav (search + settings icon) - sits inside .app-header
  * grid as the right-side cluster, NOT a separate row. Spec §4.1. */
 .secondary-nav input[type="search"] {
   flex: 0 0 auto;
@@ -3933,7 +3933,7 @@ ruby[data-glyph] { cursor: pointer; }
 .kanji-grid-cell:hover { background: rgba(20, 69, 42, 0.08); }
 .kanji-detail { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 20px 24px; }
 /* Kanji glyph row reuses .pattern-header for layout. It does NOT override
- * gap / margin / flex-wrap any more — those used to be 24/16/wrap which
+ * gap / margin / flex-wrap any more - those used to be 24/16/wrap which
  * desynced the Mark-as-known toggle position vs grammar + vocab detail
  * pages. Per OPEN-10 (Mark-as-known position consistency, 2026-05-01)
  * the canonical detail-header layout is the .pattern-header rule (gap 16,
@@ -4003,7 +4003,7 @@ ruby[data-glyph] { cursor: pointer; }
  * Fit-screen layout for kanji detail (added 2026-05-02 per user direction).
  *
  * Goal: on screens wide AND tall enough, the entire kanji detail page
- * fits in the viewport with no vertical scrolling — glyph + readings on
+ * fits in the viewport with no vertical scrolling - glyph + readings on
  * the left, examples + nav in the middle, stroke order on the right.
  * Browser zoom (Ctrl++) is the user's tool if they want detail larger.
  * On narrow / short screens (mobile, etc.) the layout falls back to
@@ -4020,7 +4020,7 @@ ruby[data-glyph] { cursor: pointer; }
 @media (min-width: 1100px) and (min-height: 640px) {
   .kanji-detail {
     /* Header (~80px) + footer (~60px) + main top-margin (~64px) +
-     * article internal padding (~40px). Tuned, not guessed —
+     * article internal padding (~40px). Tuned, not guessed -
      * adjust if the chrome heights change. */
     height: calc(100vh - 240px);
     min-height: 480px;
@@ -4155,7 +4155,7 @@ ruby[data-glyph] { cursor: pointer; }
  * a placeholder explaining "content not yet available". Inside any
  * level (or its placeholder) the body carries `data-route="..."` so
  * the CSS can hide the in-level chrome (primary nav + search) on the
- * picker and on the placeholders — those routes have no use for them.
+ * picker and on the placeholders - those routes have no use for them.
  * ============================================================================ */
 
 /* Hide primary nav + search on the picker AND on N4-N1 placeholders.
@@ -4246,7 +4246,7 @@ body[data-route="n1"] #search-input {
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed, 1.55);
   margin: 0;
-  /* See .syllabus-card-desc — `flex: 1` was mid-line-clipping the
+  /* See .syllabus-card-desc - `flex: 1` was mid-line-clipping the
    * 4th line. Natural line-clamped height clips cleanly. */
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -4376,7 +4376,7 @@ body[data-route="n1"] #search-input {
 /* Skeleton placeholders (Brief 2 s3.1; refined Pass 14c per UI brief s8.1).
  * Lower-contrast shimmer matches the institutional voice (v1.6.1 copy audit);
  * gentler than the prior glassy gradient. New shapes added: tagline, btn,
- * pillar, grid-cell — they approximate the rendered home + kanji-index
+ * pillar, grid-cell - they approximate the rendered home + kanji-index
  * dimensions so the layout doesn't visibly shift when content swaps in. */
 .skeleton-wrap { display: flex; flex-direction: column; gap: 12px; padding: 8px 0; }
 .skeleton {
@@ -4418,7 +4418,7 @@ body[data-route="n1"] #search-input {
 }
 
 /* ---------------------------------------------------------------- */
-/* Mock-test Papers (#/papers/...) — added 2026-05-02 to surface the */
+/* Mock-test Papers (#/papers/...) - added 2026-05-02 to surface the */
 /* 360 audited KB questions from KnowledgeBank/{moji,goi,bunpou,     */
 /* dokkai}_questions_n5.md as study-sized 15-question papers.        */
 /* Zen Modern aesthetic: hairlines, no shadows, weights 300/400/500. */
@@ -4429,7 +4429,7 @@ body[data-route="n1"] #search-input {
 .papers-foot-note { color: var(--c-muted); font-size: 12px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--c-border); }
 .papers-foot-note code { font-size: 11px; background: var(--c-surface); padding: 2px 6px; border-radius: 3px; }
 
-/* Category index — 4 large cards in a 2x2 grid (1-col on mobile) */
+/* Category index - 4 large cards in a 2x2 grid (1-col on mobile) */
 .paper-cat-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
   margin: 24px 0;
@@ -4486,7 +4486,7 @@ body[data-route="n1"] #search-input {
 }
 .paper-stat-sep { opacity: 0.4; }
 
-/* Paper list — grid of paper cards within a category */
+/* Paper list - grid of paper cards within a category */
 .paper-list-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 12px;
@@ -4537,7 +4537,7 @@ body[data-route="n1"] #search-input {
   border: 1px solid var(--color-correct, #2E7D4F);
 }
 
-/* Attempting view — one question at a time */
+/* Attempting view - one question at a time */
 .paper-attempting {
   background: var(--c-bg);
   padding: 8px 0;
@@ -4676,7 +4676,7 @@ body[data-route="n1"] #search-input {
 }
 .paper-submit-hint strong { font-weight: 600; }
 /* Drill: visible hint above the (disabled) Check Answer button. Same
- * intent as the paper-submit-hint — explain WHY the button is grey. */
+ * intent as the paper-submit-hint - explain WHY the button is grey. */
 .check-answer-hint {
   margin: 8px 0 12px;
   font-size: 13px;
@@ -4684,7 +4684,7 @@ body[data-route="n1"] #search-input {
   text-align: center;
 }
 
-/* Settings "Saved" toast — brief on-screen confirmation when a setting
+/* Settings "Saved" toast - brief on-screen confirmation when a setting
  * with no immediate visible side-effect (e.g. daily-new-limit) saves.
  * Appears bottom-center, fades in/out. Avoids the "did my change
  * actually save?" uncertainty users hit on number-only settings. */
@@ -4844,7 +4844,7 @@ body[data-route="n1"] #search-input {
 
 /* === Content protection layer (2026-05-02) ====================
  * Goal: deter casual copying / sharing of question content. NOT
- * security — the data is still in the browser, anyone with devtools
+ * security - the data is still in the browser, anyone with devtools
  * can extract it. This raises friction for accidental Ctrl+C / right-
  * click / drag-select / OS screenshots while the page is interactive.
  *
@@ -4855,7 +4855,7 @@ body[data-route="n1"] #search-input {
 /* All rules below are gated by `html[data-protect="on"]`. The attribute
  * is set by js/content-protect.js at boot, but ONLY when its
  * CONTENT_PROTECT_ENABLED flag is true. When the flag is false (the
- * 2026-05-02 default — see the flag's WHY comment in content-protect.js)
+ * 2026-05-02 default - see the flag's WHY comment in content-protect.js)
  * none of these rules apply, normal browser behavior resumes, and
  * screenshots / Ctrl+C / right-click / printing all work. To re-enable
  * the full layer: flip CONTENT_PROTECT_ENABLED to true. */
@@ -4943,7 +4943,7 @@ html[data-protect="on"][data-blur="true"] body::before {
  * a grid), so uniform tile height isn't a concern there.
  * ============================================================================ */
 
-/* Reusable line-clamp helper — set the line count via inline style or
+/* Reusable line-clamp helper - set the line count via inline style or
  * a custom property on the parent (--clamp-lines). Default 2. */
 .line-clamp,
 .vocab-card .vocab-gloss,
@@ -4957,7 +4957,7 @@ html[data-protect="on"][data-blur="true"] body::before {
   text-overflow: ellipsis;
 }
 
-/* Vocab list — was variable-height; the long disambiguation glosses
+/* Vocab list - was variable-height; the long disambiguation glosses
  * (e.g. かい "number of times / occurrences (e.g., 3-かい = three times).
  * Same kana, different counter (different kanji); context disambiguates.")
  * blew up first-row height. Fixed at 96px; gloss clamped to 2 lines. */
@@ -4967,7 +4967,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 .vocab-card .vocab-gloss { -webkit-line-clamp: 2; }
 
-/* Kanji index — fairly uniform already (3-line layout: glyph + meaning
+/* Kanji index - fairly uniform already (3-line layout: glyph + meaning
  * + readings), but multi-meaning entries occasionally pushed past 2 lines. */
 .kanji-card {
   height: 76px;
@@ -4982,7 +4982,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 .grammar-card .grammar-gloss { -webkit-line-clamp: 2; }
 
-/* Learn hub — 5-card grid; descriptions vary 1-3 lines.
+/* Learn hub - 5-card grid; descriptions vary 1-3 lines.
  *
  * Height bumped 170 → 200 (2026-05-03) so 3-line descriptions
  * (Vocabulary + Kanji cards) render in full. At 170 the flex layout
@@ -5003,7 +5003,7 @@ html[data-protect="on"][data-blur="true"] body::before {
   max-height: 3lh;
 }
 
-/* Homepage syllabus dashboard — 6 cards already at min-height: 200px
+/* Homepage syllabus dashboard - 6 cards already at min-height: 200px
  * with flex layout, but description lengths vary (e.g., the kanji
  * card description is shorter than the vocab card description).
  * Fix at 220px so all 6 are exactly the same height. */
@@ -5020,7 +5020,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 
 /* ============================================================================
- * Feedback page (#/feedback) — added 2026-05-02 per user direction.
+ * Feedback page (#/feedback) - added 2026-05-02 per user direction.
  * A simple form that opens the user's email client via a mailto: URL
  * with the recipient address obfuscated in source. Uses the existing
  * .btn-action-* button styles for submit / cancel.
@@ -5139,7 +5139,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 /* ============================================================================
  * Mobile UI fixes (added 2026-05-03 per user direction).
  *
- * The 4 issues fixed in this block — all mobile-only, none of these
+ * The 4 issues fixed in this block - all mobile-only, none of these
  * rules touch desktop. Verified at 1280×800: layout is byte-identical
  * before/after. Verified at 375×812: each issue resolved.
  *
@@ -5152,14 +5152,14 @@ html[data-protect="on"][data-blur="true"] body::before {
  *
  *   2. Header secondary-nav wrapped to 2 rows on mobile (search on
  *      row 1, fullscreen + settings on row 2 → 84px tall chrome).
- *      Fix: hide the fullscreen toggle on mobile — fullscreen is a
+ *      Fix: hide the fullscreen toggle on mobile - fullscreen is a
  *      desktop affordance; mobile browsers collapse the address bar
  *      on scroll for the same effect, no manual toggle needed.
  *
  *   3. Home action block ("Not sure where to start?" + 2 buttons) had
  *      flex-direction: row on mobile; the buttons wrapped awkwardly
  *      with leftover space on the right. Fix: column layout with
- *      full-width buttons on mobile — cleaner stacked CTA pattern.
+ *      full-width buttons on mobile - cleaner stacked CTA pattern.
  *
  *   4. Levels page had 45px side margins on a 375px viewport (90px
  *      total wasted). Fix: tighter side padding on mobile so the
@@ -5208,13 +5208,13 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 
 /* ============================================================================
- * MOBILE UI HARDENING — applies ONLY at <=768px (phone + tablet portrait).
+ * MOBILE UI HARDENING - applies ONLY at <=768px (phone + tablet portrait).
  *
  * Surgical subset of the developer checklist (2026-05-03). The checklist
  * proposed several "* { max-width: 100% }" / "body { font-size: 16px }"
  * style universal rules; those would cascade into many existing-layout
  * regressions in this codebase, so we apply only the safe, high-value
- * items. Desktop (>=769px) is byte-identical — every rule is gated.
+ * items. Desktop (>=769px) is byte-identical - every rule is gated.
  * ============================================================================ */
 @media (max-width: 768px) {
 
@@ -5226,11 +5226,11 @@ html[data-protect="on"][data-blur="true"] body::before {
   /* Smooth in-page anchor jumps (e.g. "Back to top", route changes that
    * scroll the new view into the viewport). Desktop default `auto` is
    * fine; mobile benefits from the visible animation as a continuity cue
-   * — the OS-level page-snap already feels smooth, so this matches. */
+   * - the OS-level page-snap already feels smooth, so this matches. */
   html { scroll-behavior: smooth; }
 
   /* iOS Safari auto-zooms when a user taps any input whose computed
-   * font-size is < 16 px — pushing the input above the keyboard fold and
+   * font-size is < 16 px - pushing the input above the keyboard fold and
    * re-laying out the page. Forcing inputs to 16 px on mobile prevents
    * the zoom and keeps the form in place. This is the canonical iOS
    * mobile-form fix; doesn't affect desktop because desktop doesn't
@@ -5279,7 +5279,7 @@ html[data-protect="on"][data-blur="true"] body::before {
    * the surgical pass are applied here with appropriate scoping. -----*/
 
   /* Body type-floor at 16 px. `max()` respects the user's data-font
-   * knob — if they pick L/XL, that wins (~17/19 px); on default S/M
+   * knob - if they pick L/XL, that wins (~17/19 px); on default S/M
    * where var(--text-base) resolves to 13-14 px, this lifts body to
    * 16 px. Improves readability on phones AND reinforces the iOS
    * input-zoom prevention by making body text ineligible for the
@@ -5299,7 +5299,7 @@ html[data-protect="on"][data-blur="true"] body::before {
    * narrow phones get more usable text width; the 12 px radius reads
    * as more "modern card" on small screens than the 6 px hairline
    * (var(--radius-lg)) that suits desktop. Restricted to the THREE
-   * detail cards — tile cards (.pillar-card / .syllabus-card /
+   * detail cards - tile cards (.pillar-card / .syllabus-card /
    * .level-card / .grammar-card / .vocab-card / .kanji-card) keep
    * their tile-specific design tokens. */
   .pattern-detail,
@@ -5309,7 +5309,7 @@ html[data-protect="on"][data-blur="true"] body::before {
     border-radius: 12px;
   }
 
-  /* Selective max-width:100% — applies to elements that legitimately
+  /* Selective max-width:100% - applies to elements that legitimately
    * can overflow on a 320 px phone: <img>/<video>/<iframe> with raw
    * width attributes; <pre>/<code>/<table> with very-wide content.
    * NOT applied universally because `* { max-width: 100% }` constrains
@@ -5323,11 +5323,11 @@ html[data-protect="on"][data-blur="true"] body::before {
    * .primary-nav a, .secondary-nav-link, .choice-button { min-height: 44px })
    * covers primary navigation and main buttons; these are the
    * leftover small-hit-area surfaces the audit exposed at 320 px:
-   *   - .app-header .icon-btn  (settings cog)        — was 32×32
-   *   - .pattern-detail .pattern-nav a  (prev/next)  — was 19×29
+   *   - .app-header .icon-btn  (settings cog)        - was 32×32
+   *   - .pattern-detail .pattern-nav a  (prev/next)  - was 19×29
    *   - .pattern-detail/.vocab-detail/.kanji-detail .back-link
-   *                                                   — was 20×high
-   *   - .footer-nav a  (What's new / Privacy / etc.) — was 17×high
+   *                                                   - was 20×high
+   *   - .footer-nav a  (What's new / Privacy / etc.) - was 17×high
    * All four are now ≥ 44 px on the smallest dimension at ≤768 px. */
   .app-header .icon-btn {
     width: 44px;
@@ -5359,7 +5359,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 
 
 /* ============================================================================
- * Test mode — IMP-001 timer chip, IMP-002 pass badge, IMP-004 category table.
+ * Test mode - IMP-001 timer chip, IMP-002 pass badge, IMP-004 category table.
  * Added 2026-05-04 alongside the corresponding js/test.js changes.
  * ========================================================================== */
 
@@ -5468,7 +5468,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 
 /* ============================================================================
- * Kanji index filter — IMP-003.
+ * Kanji index filter - IMP-003.
  * ========================================================================== */
 
 .kanji-filters {
@@ -5536,7 +5536,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 
 /* ============================================================================
- * Kanji popover — ISSUE-008 (round-2 audit): stroke chip + additional readings
+ * Kanji popover - ISSUE-008 (round-2 audit): stroke chip + additional readings
  * ========================================================================== */
 .kanji-popover-header {
   display: flex;
@@ -5582,7 +5582,7 @@ html[data-protect="on"][data-blur="true"] body::before {
 .kanji-popover-additional dt { color: var(--color-text-muted); font-weight: 500; }
 .kanji-popover-additional dd { margin: 0; }
 
-/* Kanji sort dropdown — IMP-025 */
+/* Kanji sort dropdown - IMP-025 */
 .kanji-sort-row { gap: 8px; }
 .kanji-sort-select {
   padding: 6px 10px;

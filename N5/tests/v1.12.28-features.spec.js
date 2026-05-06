@@ -128,7 +128,7 @@ test.describe('v1.12.28+ feature regression', () => {
     await page.goto('/#/learn/grammar');
     // Click the first grammar-card to drill into a pattern detail.
     await page.locator('.grammar-card').first().click();
-    // Find a kanji glyph inside the rendered furigana — the renderer
+    // Find a kanji glyph inside the rendered furigana - the renderer
     // wraps each glyph in a clickable element.
     const glyph = page.locator('.kanji-clickable, .ruby-kanji, [data-kanji]').first();
     if (await glyph.count() === 0) {
@@ -140,7 +140,7 @@ test.describe('v1.12.28+ feature regression', () => {
     await expect(popover).toBeVisible();
     // Stroke-count chip (ISSUE-008) is optional per-entry but the locator
     // must at least exist as a class in the page when an entry has the
-    // stroke_count field — kanji.json carries it for every entry now.
+    // stroke_count field - kanji.json carries it for every entry now.
     await expect(popover.locator('.kanji-popover-strokes')).toBeVisible();
   });
 

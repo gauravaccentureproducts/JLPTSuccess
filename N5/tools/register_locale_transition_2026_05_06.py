@@ -27,7 +27,7 @@ ROW = (
     'HIGH',
     'Strategic positioning / locale architecture',
     'N5/locales/, N5/js/i18n.js, N5/data/*.json, N5/specifications/*, top-level brand surfaces',
-    'Strategic narrowing — 5-locale shell -> en+hi only',
+    'Strategic narrowing - 5-locale shell -> en+hi only',
     (
         'Transitioned on 2026-05-06 per market-research conversation '
         '2026-05-06. Hindi added (high-demand low-competition niche per '
@@ -55,7 +55,7 @@ ROW = (
         'shared advantage) on top-15 grammar patterns; Tier-2/3-city '
         'Indian learner UX research.'
     ),
-    'None — this row records the architectural decision; subsequent Hindi-content depth work depends on it but does not block this entry.',
+    'None - this row records the architectural decision; subsequent Hindi-content depth work depends on it but does not block this entry.',
     'Done',
     (
         'Backstory: 2026-05-06 deep market research found that '
@@ -77,13 +77,13 @@ ROW = (
         'locales from UI + i18n module + sw.js precache; Phase 4 strip '
         '2606 deprecated-locale keys from content data + seed 116 vocab '
         'gloss_hi + 106 kanji meanings_hi; Phase 5 rewrite docs / specs '
-        '/ brand surfaces; Phase 6 tighten CI invariants — JA-13 '
+        '/ brand surfaces; Phase 6 tighten CI invariants - JA-13 '
         'extended + new JA-39 locale-set guard; Phase 7 update Playwright '
         'specs from 5-chip to 2-chip; Phase 8 smoke test green; Phase 9 '
         'this registration row; Phase 10 push to origin/master). '
         'CI: 48/48 invariants PASS post-transition.'
     ),
-    'No further permission needed — user explicitly requested this transition on 2026-05-06.',
+    'No further permission needed - user explicitly requested this transition on 2026-05-06.',
 )
 
 
