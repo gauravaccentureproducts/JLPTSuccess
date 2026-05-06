@@ -55,7 +55,9 @@ function _counterKana(code) {
 
 // IMP-046 (audit round-5): pick locale-aware vocab gloss when present,
 // else fall back to English. The translated subset (~120 entries) carries
-// `gloss_vi/_id/_ne/_zh`; remaining entries fall through to `gloss`.
+// `gloss_hi`; remaining entries fall through to `gloss`. Phase 3 of
+// locale transition (2026-05-06) narrowed the set from {vi,id,ne,zh}
+// to {hi} only.
 function localizedGloss(entry) {
   const lc = currentLocale();
   if (lc && lc !== 'en') {
@@ -337,9 +339,11 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           if (entry.transitivity) {
             out.push(`<p><strong>Transitivity:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(pair: ${esc(entry.pair_id)})</span>` : ''}</p>`);
           }
-          if (entry.false_friends && entry.false_friends.zh && currentLocale() === 'zh') {
-            out.push(`<p class="vocab-false-friend"><strong>偽友 / false friend:</strong> ${esc(entry.false_friends.zh)}</p>`);
-          }
+          // Phase 3 of locale transition (2026-05-06): the false_friends.zh
+          // hook is removed alongside the zh locale — currentLocale() can
+          // no longer return 'zh'. The underlying data is stripped in
+          // Phase 4. If/when a Hindi false-friends list is authored, a
+          // false_friends.hi hook can replace this with the same shape.
           return out.join('');
         })()}
       </section>

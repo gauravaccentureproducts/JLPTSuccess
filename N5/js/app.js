@@ -184,16 +184,20 @@ function applyNavTranslations() {
   // Per-route override: Grammar + Vocabulary deserve their own locale keys
   // (currently nav.learn collides). Use ad-hoc strings sourced from
   // home/learn-hub keys when available; fall back to the existing label.
+  // Phase 3 of locale transition (2026-05-06): narrowed from 5 locales
+  // (en/vi/id/ne/zh) to 2 (en/hi). Existing-user safety: any visitor
+  // whose persisted locale is one of the four removed locales gets
+  // migrated to en by migrateLocaleSetting() before render.
   const PER_ROUTE = {
-    'learn/grammar': { en: 'Grammar', vi: 'Ngữ pháp', id: 'Tata bahasa', ne: 'व्याकरण', zh: '语法' },
-    'learn/vocab':   { en: 'Vocabulary', vi: 'Từ vựng', id: 'Kosakata',  ne: 'शब्दावली', zh: '词汇' },
-    'kanji':         { en: 'Kanji', vi: 'Kanji', id: 'Kanji', ne: 'कान्जी', zh: '汉字' },
-    'reading':       { en: 'Reading', vi: 'Đọc', id: 'Membaca', ne: 'पढाइ', zh: '阅读' },
-    'listening':     { en: 'Listening', vi: 'Nghe', id: 'Mendengar', ne: 'सुनाइ', zh: '听力' },
-    'test':          { en: 'Test', vi: 'Kiểm tra', id: 'Tes', ne: 'परीक्षण', zh: '测试' },
-    'sitting':       { en: 'Mock', vi: 'Thi thử', id: 'Simulasi', ne: 'मॉक', zh: '模拟' },
-    'missed':        { en: 'Missed', vi: 'Câu sai', id: 'Salah', ne: 'गल्ती', zh: '错题' },
-    'summary':       { en: 'Progress', vi: 'Tiến độ', id: 'Progres', ne: 'प्रगति', zh: '进度' },
+    'learn/grammar': { en: 'Grammar', hi: 'व्याकरण' },
+    'learn/vocab':   { en: 'Vocabulary', hi: 'शब्दावली' },
+    'kanji':         { en: 'Kanji', hi: 'कान्जी' },
+    'reading':       { en: 'Reading', hi: 'पठन' },
+    'listening':     { en: 'Listening', hi: 'श्रवण' },
+    'test':          { en: 'Test', hi: 'परीक्षा' },
+    'sitting':       { en: 'Mock', hi: 'मॉक' },
+    'missed':        { en: 'Missed', hi: 'छूटे प्रश्न' },
+    'summary':       { en: 'Progress', hi: 'प्रगति' },
   };
   const lc = currentLocale();
   document.querySelectorAll('.primary-nav a[data-route]').forEach(a => {

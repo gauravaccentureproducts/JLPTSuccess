@@ -12,9 +12,14 @@
 
 import * as storage from './storage.js';
 
-// Phase 1 of locale transition (2026-05-06): Hindi 'hi' added additively
-// alongside the existing 5 locales. Phase 3 prunes vi/id/ne/zh.
-const SUPPORTED = ['en', 'vi', 'id', 'ne', 'zh', 'hi'];
+// Phase 3 of locale transition (2026-05-06): the 5-locale shell
+// (en/vi/id/ne/zh) is narrowed to the 2-locale shell (en/hi). Strategic
+// rationale: Hindi is the unique high-demand-low-competition gap (top-5
+// JLPT country, ~50K applicants/year, no dedicated Hindi-medium prep
+// app); the other four sit in saturated competitive markets where the
+// 5-locale shell was diluting depth. Persisted vi/id/ne/zh preferences
+// are migrated to en by migrateLocaleSetting() below.
+const SUPPORTED = ['en', 'hi'];
 const DEFAULT_LOCALE = 'en';
 
 // Phase 2 of locale transition (2026-05-06): locales being removed in
@@ -104,17 +109,10 @@ async function loadDict() {
 // Chinese-domain referrer, weight that locale higher than the bare
 // navigator.language signal. The referrer is per-request and never
 // stored — same privacy posture as the rest of the app.
+// Phase 3 of locale transition (2026-05-06): only India hints survive.
+// The four deprecated-locale hints were removed alongside SUPPORTED.
 const REFERRER_DOMAIN_HINTS = {
-  '.vn':       'vi',
-  '.id':       'id',
-  '.np':       'ne',
-  '.cn':       'zh',
-  '.tw':       'zh',
-  '.hk':       'zh',
   '.in':       'hi',
-  '.com.vn':   'vi',
-  '.co.id':    'id',
-  '.com.np':   'ne',
   '.co.in':    'hi',
 };
 
@@ -187,10 +185,6 @@ export async function initI18n() {
 
 const NATIVE_NAMES = {
   en: 'English',
-  vi: 'Tiếng Việt',
-  id: 'Bahasa Indonesia',
-  ne: 'नेपाली',
-  zh: '中文',
   hi: 'हिन्दी',
 };
 

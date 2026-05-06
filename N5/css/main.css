@@ -3284,8 +3284,12 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   gap: 2px;
   padding: 2px;
   /* IMP-091 (audit round-7): bumped to a 1px accent-tinted border so the
-   * 5-locale switcher reads as an interactive element on first paint
-   * even on tall mobile viewports. Niche-N1 discoverability. */
+   * locale switcher reads as an interactive element on first paint even
+   * on tall mobile viewports. Niche-N1 discoverability.
+   *
+   * Phase 3 of locale transition (2026-05-06): the group now holds
+   * exactly 2 chips (EN | HI). No fixed widths; flex layout shrinks
+   * automatically. */
   border: 1px solid color-mix(in srgb, var(--color-accent, #1F4D2E) 35%, var(--color-line));
   border-radius: 999px;
   margin-right: var(--space-2);
