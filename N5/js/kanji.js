@@ -7,7 +7,8 @@ import * as storage from './storage.js';
 import { currentLocale } from './i18n.js';
 
 // IMP-047 (audit round-5): pick locale-aware meanings if available, else
-// fall back to English. Per-locale fields are `meanings_vi/_id/_ne/_zh`;
+// fall back to English. Per-locale field is `meanings_hi` (post-2026-05-06
+// IMP-096 narrowing — earlier en/vi/id/ne/zh shell collapsed to en+hi);
 // `meanings` is the canonical English source-of-truth.
 function localizedMeanings(entry) {
   const lc = currentLocale();

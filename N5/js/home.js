@@ -69,9 +69,14 @@ async function loadCorpusCounts() {
   return corpusCounts;
 }
 
-// Render a number with US-locale thousands separators (1003 → "1,003"). Bare
-// digits otherwise. Per spec §5.1 rule 4.
-const fmt = (n) => Intl.NumberFormat('en-US').format(n || 0);
+// Render a number using the active locale's grouping convention.
+// IMP-110 (round-8 audit, 2026-05-06): when locale=hi, use Indian
+// grouping ('hi-IN' → lakh boundary, e.g. 1,00,000); when locale=en,
+// use US grouping (1,003 → "1,003"). Falls back to en-US.
+const fmt = (n) => {
+  const tag = currentLocale() === 'hi' ? 'hi-IN' : 'en-US';
+  return Intl.NumberFormat(tag).format(n || 0);
+};
 
 // Compute current progress per syllabus section. Reads localStorage -
 // completely cold (first-time visitors) returns zeros for every section.

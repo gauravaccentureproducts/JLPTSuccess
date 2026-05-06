@@ -27,6 +27,16 @@ ISSUE-047 (audit round-5): the docs live in this directory. Quick map:
 | [`../LICENSE`](../LICENSE) | MIT for the source code. |
 | [`../CONTRIBUTING.md`](../CONTRIBUTING.md) | Contribution workflow + anti-features list. |
 
+## Storage (privacy)
+
+All learner state lives in browser **localStorage** under the namespace
+`jlpt-n5-tutor:*` (e.g. `jlpt-n5-tutor:settings`, `jlpt-n5-tutor:history`).
+No cookies, no IndexedDB, no third-party scripts, no remote API calls.
+The only writable storage is the user's own browser. To audit, open
+DevTools → Application → Storage → Local Storage. The CI invariant
+**JA-37** enforces that `js/storage.js` and `PRIVACY.md` agree on the
+namespace; doc-vs-code drift fails the release gate.
+
 ## Run locally
 
 Open `index.html` in a modern browser (Chrome, Edge, Firefox).

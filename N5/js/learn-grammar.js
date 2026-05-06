@@ -10,9 +10,10 @@ import { currentLocale } from './i18n.js';
 
 // IMP-045 (audit round-5): pick locale-aware grammar explanation when
 // present (native_reviewed only - see data/grammar.json
-// `_translation_status` policy), else fall back to English. Per-locale
-// fields are explanation_vi/_id/_ne/_zh; absence is the default state
-// until reviewers fill them via the docs/TRANSLATING.md workflow.
+// `_translation_status` policy), else fall back to English. The active
+// per-locale field is `explanation_hi` (post-2026-05-06 IMP-096
+// narrowing — earlier en/vi/id/ne/zh shell collapsed to en+hi); absence
+// is the default state until reviewers fill it via docs/TRANSLATING.md.
 function localizedExplanation(p) {
   const lc = currentLocale();
   if (lc && lc !== 'en') {
