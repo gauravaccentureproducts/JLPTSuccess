@@ -28,6 +28,15 @@ const ROUTES = [
   { path: '/#/missed',              slug: 'missed-empty' },
   { path: '/#/sitting',             slug: 'sitting-picker' },
   { path: '/#/test',                slug: 'test-setup' },
+  // ISSUE-072 (audit round-9): expanded coverage to highest-traffic
+  // surfaces previously uncovered. These three close out the
+  // "no visual-regression on home/settings/vocab list" finding.
+  { path: '/#/learn/vocab',         slug: 'vocab-list' },
+  { path: '/#/listening',           slug: 'listening-list' },
+  { path: '/#/papers',              slug: 'papers-list' },
+  { path: '/#/drill',               slug: 'drill-setup' },
+  { path: '/#/review',              slug: 'review-empty' },
+  { path: '/#/summary',             slug: 'summary' },
 ];
 
 const VIEWPORTS = [
@@ -57,6 +66,52 @@ test.describe('Visual regression - homepage + canonical routes', () => {
           // while still catching real layout regressions (e.g. a card
           // shifted 4px would blow past 0.1%).
           maxDiffPixelRatio: 0.001,
+          animations: 'disabled',
+        });
+      });
+    }
+  }
+});
+
+// ISSUE-072 (audit round-9) — Hindi locale visual regression coverage.
+// Catches Devanagari-rendering regressions (font-fallback, line-height,
+// reflow with Hindi glyphs which have a taller base box than Latin
+// fonts) on the highest-traffic surfaces. Localised UI strings ship
+// in N5/locales/hi.json; the actual Devanagari rendering depends on
+// the system font stack, so a baseline locks the rendered look.
+const HINDI_ROUTES = [
+  { path: '/',                      slug: 'home-hi' },
+  { path: '/#/learn',               slug: 'learn-hub-hi' },
+  { path: '/#/settings',            slug: 'settings-hi' },
+  { path: '/#/learn/vocab',         slug: 'vocab-list-hi' },
+];
+
+test.describe('Visual regression - Hindi locale (Devanagari)', () => {
+  for (const vp of VIEWPORTS) {
+    for (const route of HINDI_ROUTES) {
+      test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
+        await page.setViewportSize({ width: vp.width, height: vp.height });
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+        // Pre-set the locale before the first paint so the Hindi
+        // shell renders immediately. The localStorage key matches
+        // the JA-37 namespace invariant.
+        await page.goto('/');
+        await page.evaluate(() => {
+          localStorage.setItem(
+            'jlpt-n5-tutor:settings',
+            JSON.stringify({ locale: 'hi' })
+          );
+        });
+        await page.goto(route.path);
+        await page.waitForLoadState('networkidle');
+        const masks = route.slug === 'home-hi'
+          ? [page.locator('.syllabus-daily-status')]
+          : [];
+        await expect(page).toHaveScreenshot(`${route.slug}-${vp.name}.png`, {
+          fullPage: true,
+          mask: masks,
+          maxDiffPixelRatio: 0.002,  // slightly more tolerance for
+                                     // Devanagari font-rendering variation
           animations: 'disabled',
         });
       });
