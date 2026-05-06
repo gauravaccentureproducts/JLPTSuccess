@@ -810,6 +810,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-36", "Answer-position distribution per corpus within +/-10pp of even (2026-05-06)", lambda: _check_ja_36_answer_position_balance()),
     ("JA-37", "localStorage namespace in code matches PRIVACY.md verbatim (2026-05-06)", lambda: _check_ja_37_namespace_doc_parity()),
     ("JA-38", "Every grammar pattern has >=1 common_mistakes entry (2026-05-06)", lambda: _check_ja_38_common_mistakes_floor()),
+    ("JA-39", "Locale set in content data is exactly {en, hi} (2026-05-06)", lambda: _check_ja_39_locale_set_en_hi()),
 ]
 
 
@@ -838,16 +839,19 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
     # descended into the dict and the leaf's key became 'wrong'/'right'/'why',
     # not 'common_mistakes'. Subtree-skip closes that hole.
     #
-    # ISSUE-056 (round-7 2026-05-06): l1_notes is a dict { vi, id, ne, zh }
-    # whose values are translations into the learner's L1. These contain
-    # whatever script that language uses (incl. Hanzi for zh) and must
-    # not be subjected to the N5-kanji-only rule. Subtree-skip.
+    # ISSUE-056 (round-7 2026-05-06): l1_notes is a dict whose values are
+    # translations into the learner's L1. These contain whatever script
+    # that language uses (Devanagari for hi) and must not be subjected to
+    # the N5-kanji-only rule. Subtree-skip.
     SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations",
                            "l1_notes"}
-    # ISSUE-056: locale-suffixed translation fields. The values are
-    # translations into vi/id/ne/zh and contain whatever script that
-    # language uses. Pattern: <basename>_<locale> for locale ∈ {vi,id,ne,zh}.
-    LOCALE_SUFFIX_RE = re.compile(r"^(?:meaning|explanation|gloss|title|prompt|description|note)_(?:vi|id|ne|zh)$")
+    # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
+    # translation fields. The values are translations into hi (Hindi).
+    # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing
+    # locale set was {vi,id,ne,zh}; those keys are pruned from data, but
+    # the regex still allows them so historical fixtures or migration
+    # tooling running against pre-narrowing data don't false-trip.
+    LOCALE_SUFFIX_RE = re.compile(r"^(?:meaning|explanation|gloss|title|prompt|description|note|meanings)_(?:hi|vi|id|ne|zh)$")
 
     def walk(obj, key, path, hits):
         if key in SKIP_SUBTREE_FIELDS:
@@ -2153,6 +2157,96 @@ def _check_ja_38_common_mistakes_floor() -> list[str]:
             + ("..." if len(zero_patterns) > 10 else "")
         )
     return failures
+
+
+def _check_ja_39_locale_set_en_hi() -> list[str]:
+    """IMP-096 (locale transition 2026-05-06): the supported locale set
+    is exactly {en, hi}. The four deprecated locales (vi, id, ne, zh)
+    must not appear as translation-field suffixes anywhere in
+    grammar.json / vocab.json / kanji.json / reading.json /
+    listening.json / questions.json or in any paper-pack JSON. The
+    js/i18n.js SUPPORTED list must also be exactly the literal
+    ['en', 'hi'].
+
+    locales/ folder must contain exactly en.json + hi.json — no
+    additional files, no missing files.
+    """
+    failures: list[str] = []
+
+    # 1) locales/ folder check
+    loc_dir = ROOT / "locales"
+    if loc_dir.exists():
+        json_files = sorted(p.name for p in loc_dir.glob("*.json"))
+        expected = ["en.json", "hi.json"]
+        if json_files != expected:
+            failures.append(
+                f"JA-39: locales/ contains {json_files}; expected {expected}"
+            )
+
+    # 2) Content-data scan — no <basename>_<lc> for lc in deprecated
+    DEPRECATED = {"vi", "id", "ne", "zh"}
+    locale_field_re = re.compile(
+        r"^(?:meaning|meanings|explanation|gloss|title|prompt|description|note)_"
+        r"(?P<lc>[a-z]{2})$"
+    )
+
+    def walk_check(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                m = locale_field_re.match(k or "")
+                if m and m.group("lc") in DEPRECATED:
+                    failures.append(
+                        f"JA-39 deprecated-locale field at {path}.{k} "
+                        f"(post-IMP-096 narrowing requires en/hi only)"
+                    )
+                # l1_notes / false_friends container check
+                if k in {"l1_notes", "false_friends"} and isinstance(v, dict):
+                    for subk in v:
+                        if subk in DEPRECATED:
+                            failures.append(
+                                f"JA-39 deprecated-locale key at {path}.{k}.{subk}"
+                            )
+                walk_check(v, f"{path}.{k}")
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk_check(v, f"{path}[{i}]")
+
+    targets = [
+        "data/grammar.json", "data/vocab.json", "data/kanji.json",
+        "data/reading.json", "data/listening.json", "data/questions.json",
+    ]
+    for fname in targets:
+        p = ROOT / fname
+        if not p.exists():
+            continue
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            walk_check(d, fname)
+        except Exception as e:
+            failures.append(f"JA-39 parse error on {fname}: {e}")
+
+    # Papers
+    papers_dir = ROOT / "data" / "papers"
+    if papers_dir.exists():
+        for pf in papers_dir.rglob("*.json"):
+            try:
+                d = json.loads(pf.read_text(encoding="utf-8"))
+                walk_check(d, str(pf.relative_to(ROOT)).replace("\\", "/"))
+            except Exception as e:
+                failures.append(f"JA-39 parse error on {pf.name}: {e}")
+
+    # 3) js/i18n.js SUPPORTED list literal — best-effort regex match
+    i18n = ROOT / "js" / "i18n.js"
+    if i18n.exists():
+        src = i18n.read_text(encoding="utf-8")
+        m = re.search(r"const\s+SUPPORTED\s*=\s*\[([^\]]+)\]", src)
+        if m:
+            tokens = re.findall(r"'([^']+)'", m.group(1))
+            if sorted(tokens) != sorted(["en", "hi"]):
+                failures.append(
+                    f"JA-39 js/i18n.js SUPPORTED is {tokens}; expected ['en', 'hi']"
+                )
+    return failures[:30]  # cap noise
 
 
 def main(argv: list[str] | None = None) -> int:
