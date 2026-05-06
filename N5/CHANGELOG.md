@@ -2,6 +2,129 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.38 - 2026-05-06 (Audit round-7: depth across grammar / vocab / kanji + exam-fidelity + niche-N1 L1 notes)
+
+Round-7 audit closed 19 issues + 16 improvements + 6 open questions in
+a single pass. Coverage: every issue marked Fix in the tracker has a
+landing commit; the largest content lifts (kanji decomposition for all
+106 kanji, mondai backfill on 402 paper questions, mondai-4 listening
+items, grammar localization for top-30 patterns) all shipped.
+
+### Active-recall list tiles (user-driven UX change)
+
+The grammar / vocab / kanji / reading list pages now show only the
+primary identifier per tile (pattern name / form / glyph / title).
+Meanings, readings, level chips, and topic tags moved to the detail
+page, one click away. Pedagogical rationale: list pages are for
+self-test recall — "do I still remember what this means?" — and
+showing the meaning inline defeats that. Listening list already
+showed only title; no change needed.
+
+### Grammar (ISSUE-056, ISSUE-068, ISSUE-069, IMP-080)
+
+- **Localization batch-1**: top-30 patterns now carry meaning_{vi,id,ne,zh}
+  + explanation_{vi,id,ne,zh}. 216 new translation strings. Renderer
+  wiring updated: pattern detail and list tiles fall back to English
+  when the active locale has no translation.
+- **L1-interference notes**: top-10 patterns ship the niche-N1
+  unique-claim lever — Vietnamese tense-marker confusion, Indonesian
+  transitivity, Nepali keigo mismatch, Mandarin shared-kanji
+  false-friends. Rendered as a callout box on pattern detail.
+- **Common-mistakes floor**: 31 patterns at zero entries now have ≥1
+  specific common-mistake each. Generic "pay attention to conjugation"
+  is not acceptable; specific "beginners write 〜たまえに mirroring
+  'before I ate' which is ungrammatical" is.
+- **Sources arrays**: top-30 patterns reference Genki / Minna / Bunpro
+  / JLPT-Sensei / JLPT-jp-official provenance. Trust signal for
+  serious learners + niche-N3 institutional adopters.
+
+### Vocabulary (ISSUE-063, IMP-084, IMP-085, IMP-087, IMP-088)
+
+- **Pitch accent**: 44 highest-frequency entries carry NHK pitch_accent
+  ({mora, drop}). Rendered as a compact HL pattern over the reading.
+- **Counters**: 4 nouns with canonical counter pairings (本→さつ etc.)
+  display the counter on the detail page.
+- **Register**: 4 keigo-chain entries (お父さん, 召し上がる, etc.) carry
+  a humble/respectful tag.
+- **Transitivity pairs**: 22 vocab entries across the 12 canonical N5
+  pairs (開ける/開く etc.) carry pair_id + transitivity.
+- **Mandarin false-friends**: 18 entries with shared-glyph but
+  divergent meanings (大丈夫, 手紙, 勉強, 結構, 面白い, etc.) carry a
+  zh-locale warning. Pure niche-N1 unique-claim lever.
+
+### Kanji (ISSUE-064, IMP-082, IMP-083)
+
+- **All 106 kanji** now carry radical + radical_decomposition + mnemonic.
+  Authored from N5-syllabus knowledge with components in visual-spatial
+  order. Mnemonic ties components to meaning so the kanji becomes
+  memorable rather than rote. Niche-N4 lift toward WaniKani parity.
+- **Confusable_with cross-links** on 13 kanji across 8 visually-confusable
+  clusters (大/犬/太, 木/本/末/未, 人/入/八, 日/目/白, 千/干, 上/止/正,
+  古/占, 千/午). Rendered as a "Don't confuse with" card grid on the
+  kanji detail page.
+
+### Reading (ISSUE-058, ISSUE-067)
+
+- **Mondai backfill**: all 40 existing passages now carry
+  mondai ∈ {4, 5, 6} per length + format_type heuristic.
+- **5 new mondai-5 (250-300 char) passages** in the round-7 topic-
+  coverage gaps: restaurant, leisure, health, calendar, occupation.
+  Topic-coverage matrix now 18/19 (was 13/19).
+- Reading total: 40 → 45.
+
+### Listening (ISSUE-057)
+
+- **7 new mondai-4 (即時応答)** items. The official N5 chokai paper has
+  6 mondai-4; the app shipped zero. Now: 7. Per-mondai distribution
+  M1=14, M2=13, M3=13, M4=7 — all above the JLPT-N5 official floor.
+- Topics: workplace farewell, birthday greeting, directions request,
+  lunch invitation, morning greeting echo, classroom borrow,
+  apology response. New `format: 'response'` wired into FORMATS map.
+
+### Mock papers (ISSUE-059)
+
+- **402 paper questions** now carry the correct `mondai` field per the
+  KnowledgeBank source-file mapping:
+  - moji   M1 (kanji-reading 50) + M2 (orthography 50)
+  - goi    M3 (context 50) + M4 (paraphrase 50)
+  - bunpou M1 (sentence-grammar 60) + M2 (composition 30) + M3 (text 10)
+  - dokkai M4 (short 60) + M5 (medium 30) + M6 (info-search 12)
+- Phase 2 (chokai papers from listening.json) + phase 3 (per-section
+  paper builder reweighting) deferred.
+
+### CI invariants (ISSUE-061, ISSUE-065, ISSUE-068)
+
+Three new release-blocker invariants in tools/check_content_integrity.py:
+- **JA-36**: correct-answer position distribution must be within ±10pp
+  of even (25/25/25/25) per corpus. Pre-fix: questions.json
+  pos0=56.9% / pos1=30.8% / pos2=8.5% / pos3=3.8% (severe skew).
+  Post-fix: 24% / 25% / 25% / 25% via deterministic per-id rotation
+  of 189 of 260 4-choice questions.
+- **JA-37**: localStorage namespace in js/storage.js must appear
+  verbatim in PRIVACY.md. Niche-N2 doc-vs-code drift guard.
+- **JA-38**: every grammar pattern must carry ≥1 common_mistakes entry.
+  Pre-fix: 31 at zero. Post-fix: 0 at zero.
+
+JA-13 also extended (subtree-skip on common_mistakes + l1_notes; locale-
+suffix-pattern skip on meaning_{lc} / explanation_{lc} / etc.) so the
+new translation fields don't trip the N5-only kanji rule.
+
+### Wiring + UX (ISSUE-066, ISSUE-070, IMP-091)
+
+- **navigator.languages[]** consultation in i18n.js initI18n(). Users
+  with device locale en-US but Accept-Language=vi-VN,en-US now correctly
+  default to vi.
+- **Provenance badge wiring**: per-item badge from the round-6
+  scaffold now renders inside the vocab detail page. Stays invisible
+  until the corpus crosses 10% native_reviewed (Q21 launch policy)
+  AND the showProvenanceBadges flag is enabled.
+- **Locale chip prominence**: chip-group border 0.5px line → 1px
+  accent-tinted border; chip font-size --text-xs → --text-sm; min-height
+  24px → 28px. Niche-N1 first-paint discoverability on tall mobile
+  viewports.
+
+### Total invariants: 47/47 PASS.
+
 ## v1.12.37 - 2026-05-05 (Audit round-6: i18n completion + listening transcript scaffold + vocab translation push)
 
 Round-6 audit closed 12 items + 3 open questions in a single pass. The
