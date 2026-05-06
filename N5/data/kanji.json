@@ -31,6 +31,16 @@
           "form": "一月",
           "reading": "いちがつ",
           "gloss": "January"
+        },
+        {
+          "form": "一万",
+          "reading": "いちまん",
+          "gloss": "ten thousand"
+        },
+        {
+          "form": "一つ",
+          "reading": "ひとつ",
+          "gloss": "one (thing)"
         }
       ],
       "primary_reading": "いち",
@@ -57,7 +67,8 @@
       "mnemonic": "A single horizontal stroke = ONE.",
       "meanings_hi": [
         "एक"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.二",
@@ -89,6 +100,16 @@
           "form": "二十",
           "reading": "にじゅう",
           "gloss": "twenty"
+        },
+        {
+          "form": "二人",
+          "reading": "ふたり",
+          "gloss": "two people"
+        },
+        {
+          "form": "二日",
+          "reading": "ふつか",
+          "gloss": "2nd / two days"
         }
       ],
       "primary_reading": "に",
@@ -120,7 +141,8 @@
       "mnemonic": "Two horizontal strokes = TWO.",
       "meanings_hi": [
         "दो"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.三",
@@ -153,6 +175,11 @@
           "form": "三月",
           "reading": "さんがつ",
           "gloss": "March"
+        },
+        {
+          "form": "三日",
+          "reading": "みっか",
+          "gloss": "3rd / three days"
         }
       ],
       "primary_reading": "さん",
@@ -181,7 +208,8 @@
       "mnemonic": "Three horizontal strokes = THREE.",
       "meanings_hi": [
         "तीन"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.四",
@@ -215,6 +243,11 @@
           "form": "四月",
           "reading": "しがつ",
           "gloss": "April"
+        },
+        {
+          "form": "四日",
+          "reading": "よっか",
+          "gloss": "4th / four days"
         }
       ],
       "primary_reading": "よん",
@@ -246,7 +279,8 @@
       "mnemonic": "Four legs (儿) inside a box = FOUR.",
       "meanings_hi": [
         "चार"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.五",
@@ -278,6 +312,11 @@
           "form": "五つ",
           "reading": "いつつ",
           "gloss": "five"
+        },
+        {
+          "form": "五日",
+          "reading": "いつか",
+          "gloss": "5th / five days"
         }
       ],
       "primary_reading": "ご",
@@ -310,7 +349,8 @@
       "mnemonic": "Roman numeral V tilted between two horizontal lines = FIVE.",
       "meanings_hi": [
         "पाँच"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.六",
@@ -343,6 +383,11 @@
           "form": "六月",
           "reading": "ろくがつ",
           "gloss": "June"
+        },
+        {
+          "form": "六日",
+          "reading": "むいか",
+          "gloss": "6th / six days"
         }
       ],
       "primary_reading": "ろく",
@@ -370,7 +415,8 @@
       "mnemonic": "A lid (亠) over a split (八) = SIX.",
       "meanings_hi": [
         "छह"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.七",
@@ -403,6 +449,11 @@
           "form": "七つ",
           "reading": "ななつ",
           "gloss": "seven"
+        },
+        {
+          "form": "七日",
+          "reading": "なのか",
+          "gloss": "7th / seven days"
         }
       ],
       "primary_reading": "しち",
@@ -429,7 +480,8 @@
       "mnemonic": "A horizontal stroke crossed by a hook = SEVEN.",
       "meanings_hi": [
         "सात"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.八",
@@ -463,6 +515,11 @@
           "form": "八月",
           "reading": "はちがつ",
           "gloss": "August"
+        },
+        {
+          "form": "八日",
+          "reading": "ようか",
+          "gloss": "8th / eight days"
         }
       ],
       "primary_reading": "はち",
@@ -497,7 +554,8 @@
       "mnemonic": "Two strokes splitting outward like a fan = EIGHT.",
       "meanings_hi": [
         "आठ"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.九",
@@ -530,6 +588,11 @@
           "form": "九月",
           "reading": "くがつ",
           "gloss": "September"
+        },
+        {
+          "form": "九日",
+          "reading": "ここのか",
+          "gloss": "9th / nine days"
         }
       ],
       "primary_reading": "きゅう",
@@ -557,7 +620,9 @@
       "mnemonic": "A diagonal hook curling like the digit 9 = NINE.",
       "meanings_hi": [
         "नौ"
-      ]
+      ],
+      "recognition_priority": 1,
+      "stroke_order_mistakes": "左払い→曲線で下まで一筆。2画ではなく1画＋1画。"
     },
     {
       "id": "n5.kanji.十",
@@ -591,6 +656,16 @@
           "form": "十一",
           "reading": "じゅういち",
           "gloss": "eleven"
+        },
+        {
+          "form": "二十",
+          "reading": "にじゅう",
+          "gloss": "twenty"
+        },
+        {
+          "form": "十日",
+          "reading": "とおか",
+          "gloss": "10th / ten days"
         }
       ],
       "primary_reading": "じゅう",
@@ -617,7 +692,8 @@
       "mnemonic": "A plus sign - Roman numeral X rotated = TEN.",
       "meanings_hi": [
         "दस"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.百",
@@ -675,7 +751,8 @@
       "mnemonic": "One (一) over white (白) = a HUNDRED whitewashed walls.",
       "meanings_hi": [
         "सौ"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.千",
@@ -735,7 +812,8 @@
       "mnemonic": "A slash (丿) over ten (十) = a THOUSAND tally marks.",
       "meanings_hi": [
         "हज़ार"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.万",
@@ -789,7 +867,8 @@
       "mnemonic": "A swooping line tied off = TEN THOUSAND.",
       "meanings_hi": [
         "दस हज़ार"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.円",
@@ -847,7 +926,8 @@
       "mnemonic": "Inside the box (冂) is earth (土) = round YEN coin.",
       "meanings_hi": [
         "येन / गोल"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.日",
@@ -883,6 +963,16 @@
           "form": "日本",
           "reading": "にほん / にっぽん",
           "gloss": "Japan"
+        },
+        {
+          "form": "何曜日",
+          "reading": "なんようび",
+          "gloss": "what day of the week"
+        },
+        {
+          "form": "何日",
+          "reading": "なんにち",
+          "gloss": "what day"
         }
       ],
       "primary_reading": "にち",
@@ -905,7 +995,8 @@
       "meanings_provenance": "machine_translated",
       "confusable_with": [
         "目",
-        "白"
+        "白",
+        "口"
       ],
       "radical": {
         "glyph": "日",
@@ -917,7 +1008,8 @@
       "mnemonic": "A box with a stroke inside = the SUN, a DAY.",
       "meanings_hi": [
         "दिन / सूर्य"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.月",
@@ -946,6 +1038,21 @@
           "form": "五月",
           "reading": "ごがつ",
           "gloss": "May"
+        },
+        {
+          "form": "何月",
+          "reading": "なんがつ",
+          "gloss": "what month"
+        },
+        {
+          "form": "月曜日",
+          "reading": "げつようび",
+          "gloss": "Monday"
+        },
+        {
+          "form": "一月",
+          "reading": "いちがつ",
+          "gloss": "January"
         }
       ],
       "primary_reading": "がつ",
@@ -976,7 +1083,8 @@
       "mnemonic": "A crescent shape = the MOON, a MONTH.",
       "meanings_hi": [
         "महीना / चंद्रमा"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.火",
@@ -1032,7 +1140,11 @@
       "mnemonic": "Flames flickering upward = FIRE.",
       "meanings_hi": [
         "आग / मंगलवार"
-      ]
+      ],
+      "confusable_with": [
+        "水"
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.水",
@@ -1086,7 +1198,11 @@
       "mnemonic": "A central drop with splashes = WATER.",
       "meanings_hi": [
         "पानी / बुधवार"
-      ]
+      ],
+      "confusable_with": [
+        "火"
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.木",
@@ -1152,7 +1268,8 @@
       "mnemonic": "A trunk with branches and roots = TREE.",
       "meanings_hi": [
         "पेड़ / गुरुवार"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.金",
@@ -1213,7 +1330,8 @@
       "mnemonic": "A person (人) over a king (王) with two specks of gold = METAL/GOLD.",
       "meanings_hi": [
         "सोना / शुक्रवार"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.土",
@@ -1274,7 +1392,8 @@
       "mnemonic": "A cross stuck in the ground = EARTH.",
       "meanings_hi": [
         "मिट्टी / शनिवार"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.曜",
@@ -1304,6 +1423,16 @@
           "form": "日曜日",
           "reading": "にちようび",
           "gloss": "Sunday"
+        },
+        {
+          "form": "何曜日",
+          "reading": "なんようび",
+          "gloss": "what day of the week"
+        },
+        {
+          "form": "火曜日",
+          "reading": "かようび",
+          "gloss": "Tuesday"
         }
       ],
       "primary_reading": "よう",
@@ -1336,7 +1465,8 @@
       "mnemonic": "Sun (日) + feathers (羽) + bird (隹) - DAY OF THE WEEK named after a celestial body.",
       "meanings_hi": [
         "सप्ताह का दिन"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.年",
@@ -1368,6 +1498,11 @@
           "form": "来年",
           "reading": "らいねん",
           "gloss": "next year"
+        },
+        {
+          "form": "毎年",
+          "reading": "まいとし / まいねん",
+          "gloss": "every year (まいとし is more common in conversation; まいねん in formal/written contexts)"
         }
       ],
       "primary_reading": "ねん",
@@ -1400,7 +1535,8 @@
       "mnemonic": "A stalk grown over time = a YEAR.",
       "meanings_hi": [
         "वर्ष"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.時",
@@ -1464,7 +1600,9 @@
       "mnemonic": "Sun (日) + temple (寺, time-keeper) = TIME / hour.",
       "meanings_hi": [
         "समय / घंटा"
-      ]
+      ],
+      "recognition_priority": 1,
+      "stroke_order_mistakes": "日偏→寺（3画＋3画）。寺の最初は土ではなく上に１画。"
     },
     {
       "id": "n5.kanji.分",
@@ -1495,6 +1633,11 @@
           "form": "分かる",
           "reading": "わかる",
           "gloss": "to understand"
+        },
+        {
+          "form": "半分",
+          "reading": "はんぶん",
+          "gloss": "half"
         }
       ],
       "primary_reading": "ふん",
@@ -1534,7 +1677,8 @@
       "mnemonic": "Splitting (八) with a knife (刀) = MINUTE / divide.",
       "meanings_hi": [
         "मिनट / बाँटना"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.半",
@@ -1591,7 +1735,8 @@
       "mnemonic": "Mark cutting in two = HALF.",
       "meanings_hi": [
         "आधा"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.今",
@@ -1623,6 +1768,16 @@
           "form": "今週",
           "reading": "こんしゅう",
           "gloss": "this week"
+        },
+        {
+          "form": "今月",
+          "reading": "こんげつ",
+          "gloss": "this month"
+        },
+        {
+          "form": "今年",
+          "reading": "ことし",
+          "gloss": "this year"
         }
       ],
       "primary_reading": "いま",
@@ -1657,7 +1812,11 @@
       "mnemonic": "A person under a roof at this very instant = NOW.",
       "meanings_hi": [
         "अभी"
-      ]
+      ],
+      "confusable_with": [
+        "会"
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.毎",
@@ -1687,6 +1846,11 @@
           "form": "毎月",
           "reading": "まいつき",
           "gloss": "every month"
+        },
+        {
+          "form": "毎年",
+          "reading": "まいとし / まいねん",
+          "gloss": "every year (まいとし is more common in conversation; まいねん in formal/written contexts)"
         }
       ],
       "primary_reading": "まい",
@@ -1720,7 +1884,8 @@
       "mnemonic": "A person (人) over a mother (母) - every child has one = EVERY.",
       "meanings_hi": [
         "हरेक"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.週",
@@ -1750,6 +1915,16 @@
           "form": "今週",
           "reading": "こんしゅう",
           "gloss": "this week"
+        },
+        {
+          "form": "来週",
+          "reading": "らいしゅう",
+          "gloss": "next week"
+        },
+        {
+          "form": "毎週",
+          "reading": "まいしゅう",
+          "gloss": "every week"
         }
       ],
       "primary_reading": "しゅう",
@@ -1777,7 +1952,8 @@
       "mnemonic": "Walking (辶) around (周) the calendar = WEEK.",
       "meanings_hi": [
         "सप्ताह"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.午",
@@ -1836,7 +2012,8 @@
       "mnemonic": "A pestle pointing down at noon = NOON.",
       "meanings_hi": [
         "दोपहर"
-      ]
+      ],
+      "recognition_priority": 1
     },
     {
       "id": "n5.kanji.何",
@@ -1869,6 +2046,16 @@
           "form": "何時",
           "reading": "なんじ",
           "gloss": "what time"
+        },
+        {
+          "form": "何曜日",
+          "reading": "なんようび",
+          "gloss": "what day of the week"
+        },
+        {
+          "form": "何月",
+          "reading": "なんがつ",
+          "gloss": "what month"
         }
       ],
       "primary_reading": "なん",
@@ -1898,7 +2085,9 @@
       "mnemonic": "A person (亻) asking what is possible (可) = WHAT.",
       "meanings_hi": [
         "क्या"
-      ]
+      ],
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "人偏→可（口の上に丁）。可の中の口は最後でなく真ん中。"
     },
     {
       "id": "n5.kanji.人",
@@ -1931,6 +2120,16 @@
           "form": "大人",
           "reading": "おとな",
           "gloss": "adult"
+        },
+        {
+          "form": "外国人",
+          "reading": "がいこくじん",
+          "gloss": "foreigner"
+        },
+        {
+          "form": "一人",
+          "reading": "ひとり",
+          "gloss": "one person"
         }
       ],
       "primary_reading": "にん",
@@ -1967,7 +2166,8 @@
       "mnemonic": "Two legs walking = a PERSON.",
       "meanings_hi": [
         "व्यक्ति"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.男",
@@ -2029,7 +2229,8 @@
       "mnemonic": "Power (力) in the rice field (田) = MAN.",
       "meanings_hi": [
         "पुरुष"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.女",
@@ -2094,7 +2295,8 @@
       "mnemonic": "A figure with crossed legs sitting gracefully = WOMAN.",
       "meanings_hi": [
         "स्त्री"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.子",
@@ -2159,7 +2361,12 @@
       "mnemonic": "A baby with arms outstretched and swaddled = CHILD.",
       "meanings_hi": [
         "बच्चा"
-      ]
+      ],
+      "confusable_with": [
+        "学",
+        "字"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.父",
@@ -2216,7 +2423,8 @@
       "mnemonic": "Two crossing strokes - paternal authority figure = FATHER.",
       "meanings_hi": [
         "पिता"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.母",
@@ -2273,7 +2481,11 @@
       "mnemonic": "Two breasts inside a body = MOTHER.",
       "meanings_hi": [
         "माँ"
-      ]
+      ],
+      "confusable_with": [
+        "毋"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.友",
@@ -2331,7 +2543,11 @@
       "mnemonic": "Two hands clasped = FRIEND.",
       "meanings_hi": [
         "मित्र"
-      ]
+      ],
+      "confusable_with": [
+        "反"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.先",
@@ -2365,6 +2581,11 @@
           "form": "先月",
           "reading": "せんげつ",
           "gloss": "last month"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor"
         }
       ],
       "primary_reading": "せん",
@@ -2396,7 +2617,8 @@
       "mnemonic": "A person (儿) striding ahead = PREVIOUS / earlier.",
       "meanings_hi": [
         "पहले / पूर्व"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.生",
@@ -2430,6 +2652,11 @@
           "form": "生まれる",
           "reading": "うまれる",
           "gloss": "to be born"
+        },
+        {
+          "form": "高校生",
+          "reading": "こうこうせい",
+          "gloss": "high school student"
         }
       ],
       "primary_reading": "せい",
@@ -2470,7 +2697,8 @@
       "mnemonic": "A plant sprouting from the soil = LIFE / birth.",
       "meanings_hi": [
         "जीवन / जन्म"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.手",
@@ -2530,7 +2758,8 @@
       "mnemonic": "Five fingers spreading from a wrist = HAND.",
       "meanings_hi": [
         "हाथ"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.足",
@@ -2591,7 +2820,8 @@
       "mnemonic": "Mouth-shape (口) over stop (止) = FOOT (where you stop).",
       "meanings_hi": [
         "पैर"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.目",
@@ -2641,7 +2871,8 @@
       "meanings_provenance": "machine_translated",
       "confusable_with": [
         "日",
-        "白"
+        "白",
+        "口"
       ],
       "radical": {
         "glyph": "目",
@@ -2653,7 +2884,8 @@
       "mnemonic": "A vertical eye with pupil-bars = EYE.",
       "meanings_hi": [
         "आँख"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.口",
@@ -2713,7 +2945,12 @@
       "mnemonic": "A square opening = MOUTH.",
       "meanings_hi": [
         "मुँह"
-      ]
+      ],
+      "confusable_with": [
+        "目",
+        "日"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.力",
@@ -2770,7 +3007,9 @@
       "mnemonic": "A flexed arm muscle = POWER.",
       "meanings_hi": [
         "शक्ति"
-      ]
+      ],
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "左から右へ斜めに払い、その後下に折れる一筆。逆向きにすると違う字になる。"
     },
     {
       "id": "n5.kanji.学",
@@ -2837,7 +3076,12 @@
       "mnemonic": "A child (子) under a roof (冖) with knowledge crowning down = STUDY.",
       "meanings_hi": [
         "अध्ययन"
-      ]
+      ],
+      "confusable_with": [
+        "子",
+        "字"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.校",
@@ -2862,6 +3106,11 @@
           "form": "高校",
           "reading": "こうこう",
           "gloss": "high school"
+        },
+        {
+          "form": "高校生",
+          "reading": "こうこうせい",
+          "gloss": "high school student"
         }
       ],
       "primary_reading": "こう",
@@ -2893,7 +3142,8 @@
       "mnemonic": "Tree (木) where people meet (交) = SCHOOL.",
       "meanings_hi": [
         "विद्यालय"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.本",
@@ -2922,6 +3172,16 @@
           "form": "日本",
           "reading": "にほん / にっぽん",
           "gloss": "Japan"
+        },
+        {
+          "form": "日本語",
+          "reading": "にほんご",
+          "gloss": "Japanese (language)"
+        },
+        {
+          "form": "日本人",
+          "reading": "にほんじん",
+          "gloss": "Japanese (person)"
         }
       ],
       "primary_reading": "ほん",
@@ -2960,7 +3220,8 @@
       "mnemonic": "A line at the root of a tree (木) = ORIGIN / book.",
       "meanings_hi": [
         "किताब / मूल"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.語",
@@ -3024,7 +3285,12 @@
       "mnemonic": "Speech (言) of myself (吾) = LANGUAGE.",
       "meanings_hi": [
         "भाषा"
-      ]
+      ],
+      "confusable_with": [
+        "話",
+        "言"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.国",
@@ -3056,6 +3322,16 @@
           "form": "外国",
           "reading": "がいこく",
           "gloss": "foreign country"
+        },
+        {
+          "form": "外国人",
+          "reading": "がいこくじん",
+          "gloss": "foreigner"
+        },
+        {
+          "form": "中国語",
+          "reading": "ちゅうごくご",
+          "gloss": "Chinese (language)"
         }
       ],
       "primary_reading": "こく",
@@ -3083,7 +3359,8 @@
       "mnemonic": "A jewel (玉) inside borders (囗) = COUNTRY.",
       "meanings_hi": [
         "देश"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.会",
@@ -3146,7 +3423,11 @@
       "mnemonic": "People (人) gathering in clouds (云) = MEET.",
       "meanings_hi": [
         "मिलना"
-      ]
+      ],
+      "confusable_with": [
+        "今"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.社",
@@ -3202,7 +3483,8 @@
       "mnemonic": "Altar (礻) on the earth (土) where people gather = COMPANY / shrine.",
       "meanings_hi": [
         "कंपनी"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.員",
@@ -3260,7 +3542,8 @@
       "mnemonic": "Mouth (口) over shell-money (貝) - a paid speaker = MEMBER / employee.",
       "meanings_hi": [
         "सदस्य / कर्मचारी"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.大",
@@ -3295,6 +3578,11 @@
           "form": "大きい",
           "reading": "おおきい",
           "gloss": "big"
+        },
+        {
+          "form": "大きな",
+          "reading": "おおきな",
+          "gloss": "big (variant adjectival form of 大きい)"
         }
       ],
       "primary_reading": "おお",
@@ -3334,7 +3622,8 @@
       "mnemonic": "A person with arms stretched wide = BIG.",
       "meanings_hi": [
         "बड़ा"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.中",
@@ -3400,7 +3689,8 @@
       "mnemonic": "A line through the middle of a box = MIDDLE.",
       "meanings_hi": [
         "मध्य / भीतर"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.小",
@@ -3459,7 +3749,8 @@
       "mnemonic": "Three small specks scattered = SMALL.",
       "meanings_hi": [
         "छोटा"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.上",
@@ -3531,7 +3822,8 @@
       "mnemonic": "A mark above the baseline = UP.",
       "meanings_hi": [
         "ऊपर"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.下",
@@ -3598,7 +3890,8 @@
       "mnemonic": "A mark below the baseline = DOWN.",
       "meanings_hi": [
         "नीचे"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.左",
@@ -3654,7 +3947,9 @@
       "mnemonic": "A hand (ナ) holding a tool (工) - natural left-hand grip = LEFT.",
       "meanings_hi": [
         "बायाँ"
-      ]
+      ],
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "横→左払い（ノ）→工の順。「右」と書き順が異なる。"
     },
     {
       "id": "n5.kanji.右",
@@ -3711,7 +4006,9 @@
       "mnemonic": "A hand (ナ) over a mouth (口) - natural right-hand bite = RIGHT.",
       "meanings_hi": [
         "दायाँ"
-      ]
+      ],
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "左払い（ノ）→横→口の順。「左」と書き順が異なる（左は横→ノ→工）。"
     },
     {
       "id": "n5.kanji.前",
@@ -3739,6 +4036,11 @@
           "form": "午前",
           "reading": "ごぜん",
           "gloss": "A.M."
+        },
+        {
+          "form": "名前",
+          "reading": "なまえ",
+          "gloss": "name"
         }
       ],
       "primary_reading": "まえ",
@@ -3768,7 +4070,8 @@
       "mnemonic": "In FRONT, knife (刂) ready, sharing meat (月) with a smile (丷一).",
       "meanings_hi": [
         "आगे / पहले"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.後",
@@ -3804,6 +4107,11 @@
           "form": "後ろ",
           "reading": "うしろ",
           "gloss": "back, behind"
+        },
+        {
+          "form": "後",
+          "reading": "あと",
+          "gloss": "after / later (時間的に後で)"
         }
       ],
       "primary_reading": "あと",
@@ -3842,7 +4150,8 @@
       "mnemonic": "A traveler (彳) trailing behind = AFTER.",
       "meanings_hi": [
         "पीछे / बाद"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.外",
@@ -3874,6 +4183,11 @@
           "form": "外国人",
           "reading": "がいこくじん",
           "gloss": "foreigner"
+        },
+        {
+          "form": "外国語",
+          "reading": "がいこくご",
+          "gloss": "foreign language"
         }
       ],
       "primary_reading": "がい",
@@ -3911,7 +4225,8 @@
       "mnemonic": "Evening (夕) divination (卜) - done OUTSIDE the home.",
       "meanings_hi": [
         "बाहर"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.東",
@@ -3969,7 +4284,12 @@
       "mnemonic": "Sun (日) rising behind a tree (木) = EAST.",
       "meanings_hi": [
         "पूर्व"
-      ]
+      ],
+      "confusable_with": [
+        "束",
+        "車"
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.西",
@@ -4025,7 +4345,8 @@
       "mnemonic": "A bird returning to its nest at sunset = WEST.",
       "meanings_hi": [
         "पश्चिम"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.南",
@@ -4080,7 +4401,8 @@
       "mnemonic": "A bell-shape facing the warm sun direction = SOUTH.",
       "meanings_hi": [
         "दक्षिण"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.北",
@@ -4136,7 +4458,8 @@
       "mnemonic": "Two figures back-to-back facing away from the cold = NORTH.",
       "meanings_hi": [
         "उत्तर"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.間",
@@ -4198,7 +4521,9 @@
       "mnemonic": "Sun (日) shining through a gate (門) = INTERVAL / between.",
       "meanings_hi": [
         "बीच / अंतराल"
-      ]
+      ],
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "門（外枠）→日（中）。門は左の縦→上の横→右の縦の順。"
     },
     {
       "id": "n5.kanji.山",
@@ -4255,7 +4580,8 @@
       "mnemonic": "Three peaks of a MOUNTAIN range.",
       "meanings_hi": [
         "पहाड़"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.川",
@@ -4310,7 +4636,8 @@
       "mnemonic": "Three flowing lines of a RIVER.",
       "meanings_hi": [
         "नदी"
-      ]
+      ],
+      "recognition_priority": 2
     },
     {
       "id": "n5.kanji.田",
@@ -4365,7 +4692,9 @@
       "mnemonic": "A grid of irrigation channels = RICE PADDY.",
       "meanings_hi": [
         "धान का खेत"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "横→縦の順。外枠は最後ではなく1画目（縦）→2画目（横）→中の十字→最後に下の横線で閉じる。"
     },
     {
       "id": "n5.kanji.雨",
@@ -4426,7 +4755,8 @@
       "mnemonic": "Drops falling from a cloud-shaped roof = RAIN.",
       "meanings_hi": [
         "बारिश"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.天",
@@ -4485,7 +4815,8 @@
       "mnemonic": "The biggest thing (大) under the line (一) = HEAVEN / sky.",
       "meanings_hi": [
         "आकाश"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.気",
@@ -4540,7 +4871,8 @@
       "mnemonic": "Steam (气) rising = SPIRIT / mood / air.",
       "meanings_hi": [
         "भावना / हवा"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.花",
@@ -4594,7 +4926,8 @@
       "mnemonic": "Grass (艹) transforming (化) = FLOWER.",
       "meanings_hi": [
         "फूल"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.空",
@@ -4656,7 +4989,8 @@
       "mnemonic": "A cave (穴) of work (工) - empty above = SKY / empty.",
       "meanings_hi": [
         "आकाश / खाली"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.電",
@@ -4686,6 +5020,16 @@
           "form": "電車",
           "reading": "でんしゃ",
           "gloss": "train (electric)"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number"
+        },
+        {
+          "form": "電話する",
+          "reading": "でんわする",
+          "gloss": "to telephone"
         }
       ],
       "primary_reading": "でん",
@@ -4713,7 +5057,9 @@
       "mnemonic": "Rain (雨) hitting a paddy (田) - lightning = ELECTRICITY.",
       "meanings_hi": [
         "बिजली"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "雨（外）→田（中）の順。田の中の横は最後。"
     },
     {
       "id": "n5.kanji.車",
@@ -4767,7 +5113,12 @@
       "mnemonic": "A wheel with axle and bed = VEHICLE / car.",
       "meanings_hi": [
         "गाड़ी"
-      ]
+      ],
+      "confusable_with": [
+        "東",
+        "束"
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.道",
@@ -4823,7 +5174,8 @@
       "mnemonic": "Walking (辶) with one's head (首) up = ROAD / way.",
       "meanings_hi": [
         "रास्ता"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.店",
@@ -4884,7 +5236,8 @@
       "mnemonic": "Under a roof (广), claim a spot (占) = SHOP.",
       "meanings_hi": [
         "दुकान"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.駅",
@@ -4936,7 +5289,8 @@
       "mnemonic": "Horse (馬) measured (尺) - a relay STATION.",
       "meanings_hi": [
         "स्टेशन"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.食",
@@ -5000,7 +5354,8 @@
       "mnemonic": "A roof over good things to eat = EAT.",
       "meanings_hi": [
         "खाना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.飲",
@@ -5058,7 +5413,9 @@
       "mnemonic": "Food (飠) and a yawn (欠) - DRINK to wash it down.",
       "meanings_hi": [
         "पीना"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "食偏（9画、複雑）→欠（4画）。食偏の最後は払い。"
     },
     {
       "id": "n5.kanji.見",
@@ -5120,7 +5477,12 @@
       "mnemonic": "Eye (目) on legs (儿) - looking around = SEE.",
       "meanings_hi": [
         "देखना"
-      ]
+      ],
+      "confusable_with": [
+        "貝",
+        "具"
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.聞",
@@ -5150,6 +5512,11 @@
           "form": "聞く",
           "reading": "きく",
           "gloss": "to listen, to ask"
+        },
+        {
+          "form": "聞こえる",
+          "reading": "きこえる",
+          "gloss": "be audible / can be heard (intransitive of 聞く)"
         }
       ],
       "primary_reading": "き",
@@ -5181,7 +5548,8 @@
       "mnemonic": "Ear (耳) at the gate (門) = HEAR.",
       "meanings_hi": [
         "सुनना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.読",
@@ -5242,7 +5610,9 @@
       "mnemonic": "Speech (言) selling (売) ideas = READ.",
       "meanings_hi": [
         "पढ़ना"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "言偏→売の順。売は士＋冖＋儿。"
     },
     {
       "id": "n5.kanji.書",
@@ -5299,7 +5669,9 @@
       "mnemonic": "A brush over a writing surface in daylight = WRITE / book.",
       "meanings_hi": [
         "लिखना"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "聿（上半）→曰（下半）。横画の本数に注意。"
     },
     {
       "id": "n5.kanji.話",
@@ -5334,6 +5706,16 @@
           "form": "電話",
           "reading": "でんわ",
           "gloss": "telephone"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number"
+        },
+        {
+          "form": "電話する",
+          "reading": "でんわする",
+          "gloss": "to telephone"
         }
       ],
       "primary_reading": "はな",
@@ -5367,7 +5749,12 @@
       "mnemonic": "Speech (言) using the tongue (舌) = TALK / story.",
       "meanings_hi": [
         "बात / कहानी"
-      ]
+      ],
+      "confusable_with": [
+        "語",
+        "言"
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.来",
@@ -5400,6 +5787,11 @@
           "form": "来年",
           "reading": "らいねん",
           "gloss": "next year"
+        },
+        {
+          "form": "来月",
+          "reading": "らいげつ",
+          "gloss": "next month"
         }
       ],
       "primary_reading": "く",
@@ -5434,7 +5826,11 @@
       "mnemonic": "Like a tree growing toward you = COME.",
       "meanings_hi": [
         "आना"
-      ]
+      ],
+      "confusable_with": [
+        "米"
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.行",
@@ -5503,7 +5899,8 @@
       "mnemonic": "Two walking-man halves = GO.",
       "meanings_hi": [
         "जाना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.出",
@@ -5534,6 +5931,11 @@
           "form": "出かける",
           "reading": "でかける",
           "gloss": "to go out"
+        },
+        {
+          "form": "出口",
+          "reading": "でぐち",
+          "gloss": "exit"
         }
       ],
       "primary_reading": "で",
@@ -5569,7 +5971,9 @@
       "mnemonic": "Stacked containers - sticking OUT.",
       "meanings_hi": [
         "निकलना"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "中央の縦→左の山→右の山。重ねた山ではなく一気に。"
     },
     {
       "id": "n5.kanji.入",
@@ -5638,7 +6042,8 @@
       "mnemonic": "Two strokes meeting at a point - going INSIDE = ENTER.",
       "meanings_hi": [
         "घुसना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.立",
@@ -5700,7 +6105,8 @@
       "mnemonic": "A person planted on the ground = STAND.",
       "meanings_hi": [
         "खड़ा होना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.休",
@@ -5762,7 +6168,8 @@
       "mnemonic": "A person (亻) leaning on a tree (木) = REST.",
       "meanings_hi": [
         "आराम"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.言",
@@ -5826,7 +6233,12 @@
       "mnemonic": "Words (言) leaving the mouth = SAY.",
       "meanings_hi": [
         "कहना"
-      ]
+      ],
+      "confusable_with": [
+        "語",
+        "話"
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.買",
@@ -5884,7 +6296,8 @@
       "mnemonic": "Net (四) for shell-money (貝) = BUY.",
       "meanings_hi": [
         "ख़रीदना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.高",
@@ -5913,6 +6326,11 @@
           "form": "高い",
           "reading": "たかい",
           "gloss": "high, tall, expensive"
+        },
+        {
+          "form": "高校生",
+          "reading": "こうこうせい",
+          "gloss": "high school student"
         }
       ],
       "primary_reading": "たか",
@@ -5944,7 +6362,9 @@
       "mnemonic": "A tall pavilion silhouette = TALL / expensive.",
       "meanings_hi": [
         "ऊँचा / महँगा"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "亠→口→冂→口（4部分）。上から下へ。"
     },
     {
       "id": "n5.kanji.安",
@@ -6005,7 +6425,8 @@
       "mnemonic": "A woman (女) under a roof (宀) - peaceful and CHEAP.",
       "meanings_hi": [
         "सस्ता / शांत"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.新",
@@ -6069,7 +6490,9 @@
       "mnemonic": "A standing tree freshly cut by an axe = NEW.",
       "meanings_hi": [
         "नया"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "立→木→斤の順。斤は最後。"
     },
     {
       "id": "n5.kanji.古",
@@ -6128,7 +6551,8 @@
       "mnemonic": "Ten (十) generations of stories (口) = OLD.",
       "meanings_hi": [
         "पुराना"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.長",
@@ -6183,7 +6607,9 @@
       "mnemonic": "Long flowing hair on an elder = LONG.",
       "meanings_hi": [
         "लंबा"
-      ]
+      ],
+      "recognition_priority": 3,
+      "stroke_order_mistakes": "上3本の横→真ん中の縦→残り。8画で覚える。"
     },
     {
       "id": "n5.kanji.白",
@@ -6249,7 +6675,8 @@
       "mnemonic": "A ray (丿) shining on the sun (日) = WHITE.",
       "meanings_hi": [
         "सफ़ेद"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.名",
@@ -6301,7 +6728,8 @@
       "mnemonic": "In the evening (夕), call out (口) the NAME.",
       "meanings_hi": [
         "नाम"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.番",
@@ -6332,6 +6760,11 @@
           "form": "一番",
           "reading": "いちばん",
           "gloss": "most, number one"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number"
         }
       ],
       "primary_reading": "ばん",
@@ -6359,7 +6792,8 @@
       "mnemonic": "A claw (釆) ordering rice paddies (田) by NUMBER.",
       "meanings_hi": [
         "क्रम / नंबर"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.号",
@@ -6411,7 +6845,8 @@
       "mnemonic": "Mouth (口) shouting a NUMBER / call sign.",
       "meanings_hi": [
         "संख्या"
-      ]
+      ],
+      "recognition_priority": 3
     },
     {
       "id": "n5.kanji.私",
@@ -6469,7 +6904,8 @@
       "mnemonic": "My (厶) grain (禾) = PRIVATE / I.",
       "meanings_hi": [
         "मैं / निजी"
-      ]
+      ],
+      "recognition_priority": 3
     }
   ]
 }
