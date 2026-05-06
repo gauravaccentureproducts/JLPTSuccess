@@ -19,7 +19,7 @@ import"./furigana.js";import*as x from"./storage.js";let h=null;const $=new Map;
       <h2>Mock-test Papers</h2>
       <p class="page-lede">${e.totalQuestions} audited JLPT N5 questions across ${e.totalPapers} papers in 4 sections. Each paper is sized to a study-session (15 questions, ~10 minutes). Scores persist locally so you can track which papers you've completed.</p>
       <div class="paper-cat-grid">${t}</div>
-      <p class="papers-foot-note">Source: <code>KnowledgeBank/{moji,goi,bunpou,dokkai}_questions_n5.md</code> \u2014 curated and native-teacher-reviewed across Pass-9 through Pass-19.</p>
+      <p class="papers-foot-note">Source: <code>KnowledgeBank/{moji,goi,bunpou,dokkai}_questions_n5.md</code> - curated and native-teacher-reviewed across Pass-9 through Pass-19.</p>
     </article>
   `}function j(s){return`<span class="paper-cat-letter" lang="ja">${{moji:"\u5B57",goi:"\u8A9E",bunpou:"\u6CD5",dokkai:"\u8AAD"}[s]||"?"}</span>`}async function q(s,e){const a=(await b()).categories.find(r=>r.id===e);if(!a){s.innerHTML=`
       <article class="papers-index">

@@ -15,7 +15,7 @@ let i=null,c=null,l=null;async function d(){if(i)return i;const a=await fetch("d
       <a class="hub-card" href="#/learn/vocab">
         <p class="card-index" aria-hidden="true">02</p>
         <h3>Vocabulary</h3>
-        <p>${e} words grouped by topic \u2014 people, time, places, verbs, adjectives.</p>
+        <p>${e} words grouped by topic - people, time, places, verbs, adjectives.</p>
         <span class="hub-cta">Browse</span>
       </a>
       <a class="hub-card" href="#/kanji">

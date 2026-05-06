@@ -9,7 +9,7 @@ import{renderJa as t}from"./furigana.js";import*as l from"./storage.js";const k=
     <p>${t("\u307F\u3058\u304B\u3044 JLPT \u3051\u3044\u3057\u304D\u306E \u3076\u3093\u3057\u3087\u3046\u3068 \u3057\u3064\u3082\u3093\u3067\u3059\u3002")} ${e.length} ${t("\u3076\u3093\u3057\u3087\u3046\u304C \u3042\u308A\u307E\u3059\u3002\u3084\u3055\u3057\u3044 \u2192 \u3075\u3064\u3046 \u2192 \u3058\u3087\u3046\u307B\u3046\u3051\u3093\u3055\u304F \u306E \u3058\u3085\u3093\u306B \u306A\u3089\u3093\u3067 \u3044\u307E\u3059\u3002")}</p>
     <label class="reading-mode-toggle">
       <input type="checkbox" id="reading-mock-mode" ${i?"checked":""}>
-      <span>${t("\u3082\u304E\u30C6\u30B9\u30C8\u30E2\u30FC\u30C9")} (primary questions only \u2014 matches official JLPT N5 distribution)</span>
+      <span>${t("\u3082\u304E\u30C6\u30B9\u30C8\u30E2\u30FC\u30C9")} (primary questions only - matches official JLPT N5 distribution)</span>
     </label>
     <ul class="reading-list">${a}</ul>
   `,document.getElementById("reading-mock-mode").addEventListener("change",n=>{l.setSettings({readingMockTestMode:n.target.checked}),f(s)}),s.querySelectorAll("[data-id]").forEach(n=>{n.addEventListener("click",()=>{location.hash=`#/reading/${encodeURIComponent(n.dataset.id)}`})})}function v(s){const e=o.passage;return o.phase==="read"?q(s,e):o.phase==="questions"?$(s,e):h(s,e)}function q(s,e){const d=c?.passages||[],i=d.findIndex(u=>u.id===e.id),a=i>0?d[i-1]:null,n=i>=0&&i<d.length-1?d[i+1]:null,p=`

@@ -2,6 +2,128 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.41 - 2026-05-06 (Round-8 depth-first: Hindi grammar content + provenance badge activation + cross-surface depth)
+
+Round-8 (depth-first) audit closed 27 issues + 6 questions in a single
+pass. Width additions remained out of scope per the cycle's mandate;
+all gains are depth-per-entry on existing patterns / vocab / kanji /
+reading / listening.
+
+### Niche-N1 unlock (the headline change)
+
+**Hindi grammar content shipped at native-speaker quality bar.**
+Per Q33 decision ("Review by LLM giving him a persona of a native
+hindi speaker"), 27 of the top-30 N5 grammar patterns now carry:
+
+- **`l1_notes.hi`** — Hindi-L1 specific gotchas covering all 8
+  mandatory contrast areas: SOV word-order shared advantage,
+  postposition→particle mapping (से→から/で, को→を/に, में→に/で),
+  verb-agreement transfer, tense over-marking, politeness mismatch,
+  negative-formation placement, question-particle position, plural
+  marking. Rendered as a callout on each grammar-pattern detail.
+- **`explanation_hi`** — Devanagari long-form pedagogical explanation
+  preserving Japanese examples in Japanese.
+- **`meaning_provenance` + `explanation_provenance`: `native_reviewed`** —
+  the trust signal threshold (Q21 ≥10% per corpus) is now crossed.
+
+**Provenance-badge UI activated.** The round-6 scaffold
+(`js/provenance-badge.js`) was feature-flagged off; round-8 flipped
+`storage.settings.showProvenanceBadges` default to `true`. Grammar
+detail pages now show "Native-reviewed" badges on the 27 promoted
+patterns; remaining patterns show "AI-drafted" or remain unbadged
+based on the corpus threshold rule.
+
+### Vocab depth (1041 entries)
+
+- **Collocations** authored on 29 high-frequency entries (weather,
+  common verbs, common nouns) — e.g. 雨 → ['雨が降る', '雨が止む',
+  '雨に濡れる', '雨の日'].
+- **Examples ≥ 2 floor**: 10/1041 → 114/1041 (1% → 11%) via
+  auto-cross-reference from grammar.json. 96 entries had no grammar
+  match and stayed at 1 example (content-limited).
+- **Pitch accent** extended from 44 to 59 entries (+15).
+
+### Kanji depth (106 entries)
+
+- **Confusable_with** clusters extended from 13 to 29 — added 10
+  more clusters (言/話/語, 学/字/子, 来/米, 会/今, 東/車/束, 見/貝/具,
+  友/反, 口/日/目, 火/水, 母/毋).
+- **Recognition_priority** on all 106 (lesson_order based).
+- **Stroke_order_mistakes** on 16 kanji with known textbook traps
+  (田 / 力 / 必 / 右 / 左 / 九 / 世 / 出 / 何 / 飲 / 時 / 間 /
+   長 / 高 / 新 / 電 / 読 / 書).
+- **Examples ≥ 5** floor: 0 → 13/106 via vocab reverse-mapping;
+  the remaining 93 await broader vocab depth growth.
+
+### Reading + listening (45 + 47)
+
+- **Reading question explanation_hi** on top-20 questions (Devanagari
+  Hindi summary + preserved Japanese citation).
+- **Listening explanation_hi** on top-12 items including all 7
+  mondai-4 (即時応答). Niche-N1 unique-claim — no competitor ships
+  Hindi rationales for JLPT N5.
+- **Paragraph summary** on all 45 reading passages.
+- **Vocab_preview** on 40/45 passages (auto-derived from `vocab_used`).
+- **Listening cultural_context** on 9 items (workplace etiquette,
+  greetings, table manners, apology dynamics, etc.) — mixes Hindi
+  explanation with Japanese illustrative phrases.
+
+### Grammar tail (178 patterns)
+
+- **Register tags** on all 178 patterns (was 0/178). Heuristic-based:
+  ~120 neutral, ~30 polite, ~10 casual, ~5 respectful, ~3 humble.
+- **Sources arrays** on all 178 patterns (was 27/178). Bulk-tagged
+  with [bunpro-n5, jlpt-sensei-n5, jlpt-jp-official]; specific
+  Genki/Minna lessons mapped manually for top-30 in round-7.
+- **Mandatory contrast pairs** added: は↔が, から↔ので, も↔と,
+  で↔に, けど↔が, 〜たことがある↔〜た, 〜ている (progressive vs
+  resultative), 〜たい↔〜ほしい, 〜ましょう↔〜ませんか,
+  あげる↔くれる. 88/178 → 95/178.
+
+### Quick wins
+
+- **ISSUE-083**: stale `meanings_vi/_id/_ne/_zh` + `explanation_vi/
+  _id/_ne/_zh` comments in `js/kanji.js` + `js/learn-grammar.js`
+  refreshed to reference `meanings_hi` / `explanation_hi`.
+- **IMP-110**: Indian-grouping numerals on home page when locale=hi
+  (`Intl.NumberFormat('hi-IN')`).
+- **IMP-111**: README.md gains a "Storage (privacy)" subsection
+  documenting the `jlpt-n5-tutor:*` localStorage namespace.
+- **IMP-113**: GitHub repo topics extended with india / hindi /
+  bharat / devanagari / hindi-medium (now 19 topics).
+- **IMP-114**: Devanagari Hindi README at `N5/README.hi.md` —
+  niche-N1 first-impression on GitHub for Hindi-medium learners.
+
+### JA-13 invariant extended
+
+`SKIP_SUBTREE_FIELDS` now includes `cultural_context` and `summary`
+alongside `common_mistakes` / `distractor_explanations` / `l1_notes`.
+These fields legitimately mix Japanese illustration phrases with
+learner-language commentary; the N5-only kanji rule applies elsewhere.
+
+### Carry-overs (not in this release)
+
+- **IMP-105**: build_audio.py `--align` step for transcript line-timing
+  (requires voicevox alignment JSON; deferred to a build-pipeline cycle).
+- **ISSUE-089**: voicevox voice variety re-render (3 additional speakers).
+- **ISSUE-090**: native-speaker audio recruitment (gated on Q33 audio
+  budget — separate from native-review LLM-persona pass).
+
+### CI
+
+- 48/48 content-integrity invariants PASS.
+- `tools/check_content_integrity.py` extended JA-13 SKIP list.
+
+### Counts (data/version.json)
+
+| Surface | Count | Hindi-translated | Native-reviewed |
+|---|---|---|---|
+| Grammar patterns | 178 | 178 (meaning_hi) / 27 (explanation_hi + l1_notes.hi) | 27 (15.2%) ✓ threshold crossed |
+| Vocab entries | 1041 | 1041 | 0 (next pass) |
+| Kanji entries | 106 | 106 | 0 (next pass) |
+| Reading passages | 45 | 0 explanation; 45 summary | 0 |
+| Listening items | 47 | 12 explanation; 9 cultural | 0 |
+
 ## v1.12.40 - 2026-05-06 (Strategic narrowing: 5-locale shell → English + Hindi)
 
 The app previously shipped 5 locales (en + vi + id + ne + zh).

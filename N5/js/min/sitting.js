@@ -60,7 +60,7 @@ import"./storage.js";const m=[["mojigoi","Moji + Goi","\u6587\u5B57\u30FB\u8A9E\
     </article>
   `,p&&clearInterval(p),p=setInterval(()=>{u-=1;const r=document.getElementById("break-countdown");r&&(r.textContent=String(u)),u<=0&&(clearInterval(p),p=null,location.hash=`#/sitting/${s}/${a}`)},1e3)}function T(n,s){if(!o||!o.sectionResults||o.sectionResults.length<m.length){n.innerHTML='<p>No completed sitting in memory. <a href="#/sitting">Start again.</a></p>';return}let a=0,i=0;for(const r of o.sectionResults)a+=r.correct,i+=r.total;const d=i>0?Math.round(100*a/i):0,u=60;n.innerHTML=`
     <article class="sitting-result">
-      <h2>Sitting complete \u2014 Paper ${s}</h2>
+      <h2>Sitting complete - Paper ${s}</h2>
       <p class="page-lede">
         Score: <strong>${a} / ${i}</strong> (${d}%) \xB7
         ${d>=u?`<span class="pass-badge pass">Pass \xB7 \u2265 ${u}%</span>`:`<span class="pass-badge fail">Below pass \xB7 target ${u}%</span>`}

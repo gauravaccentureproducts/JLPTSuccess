@@ -151,7 +151,7 @@ import{t as H}from"./i18n.js";import{renderJa as v}from"./furigana.js";import{ma
             <tbody>${O}</tbody>
           </table>
           <p class="muted small">Types sorted by accuracy (weakest first). Useful for picking your next drill mode.</p>
-        `:'<p class="muted small">All questions in this test were the same type \u2014 type breakdown is only meaningful when the test mixes question formats.</p>'}
+        `:'<p class="muted small">All questions in this test were the same type - type breakdown is only meaningful when the test mixes question formats.</p>'}
       </section>
 
       <section class="answer-review">

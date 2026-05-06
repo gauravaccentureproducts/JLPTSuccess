@@ -3,7 +3,7 @@ import*as l from"./storage.js";let c=null;async function p(){if(c)return;const e
         <a class="back-link" href="#/review">\u2190 Back to Review</a>
         <h2>Wrong-answer history</h2>
         <div class="placeholder">
-          <p>You haven't missed anything recently \u2014 keep practising. Wrong answers from Test and Drill flow into this list automatically (most recent 200).</p>
+          <p>You haven't missed anything recently - keep practising. Wrong answers from Test and Drill flow into this list automatically (most recent 200).</p>
         </div>
       </article>
     `;return}const s=new Map;for(const a of t){const i=new Date(a.ts).toDateString();s.has(i)||s.set(i,[]),s.get(i).push(a)}let o="";for(const[a,i]of s){const g=i.map(n=>{const d=c?.get(n.patternId),u=d?d.pattern:n.patternId||"(unknown pattern)";return`

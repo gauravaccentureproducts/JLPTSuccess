@@ -5,7 +5,7 @@ import"./furigana.js";const p=[{value:"General feedback",label:"General feedback
         <p class="feedback-intro">
           Found a bug, a wrong reading, or an idea for the site? Send a
           note. Submitting opens your email client with the message
-          pre-filled \u2014 nothing is sent through a third-party server,
+          pre-filled - nothing is sent through a third-party server,
           no account or tracker involved.
         </p>
       </header>
@@ -59,7 +59,7 @@ import"./furigana.js";const p=[{value:"General feedback",label:"General feedback
 
       <div id="fb-confirmation" class="feedback-confirmation" hidden>
         <p>Your email client should have opened with the message pre-filled.
-           If it didn't, your browser may not have a default mail handler set \u2014
+           If it didn't, your browser may not have a default mail handler set -
            in that case, copy the message above and send manually.</p>
         <a class="btn-action btn-action-secondary" href="#/home">Back to home</a>
       </div>
