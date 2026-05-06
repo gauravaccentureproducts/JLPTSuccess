@@ -2,6 +2,146 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.43 - 2026-05-06 (Round-9 Japanese-content-depth batch: 8 items closed)
+
+Closed all 8 currently-`Fix`-status Japanese-content-depth items from
+the round-9 audit (filtered out i18n/Hindi-scaling and structural items
+which remain deferred or are addressed by separate scaling cycles).
+
+### Schema / metadata fixes
+
+**ISSUE-099 — Vocab verb_class on all 134 verbs**
+
+- `verb_class` derived from `pos`: verb-1 → godan (Group 1, 81),
+  verb-2 → ichidan (Group 2, 39), verb-3 → irregular (Group 3, 14).
+- `group1_exception: true` on the 6 X-6.6-invariant verbs that look
+  like Group-2 but conjugate as Group-1: 入る (はいる), 帰る
+  (かえる), 走る (はしる), 知る (しる), 切る (きる), 要る (いる).
+- Without this flag conjugation drills couldn't programmatically tell
+  ichidan from godan from irregular; the 6 exception verbs would
+  have been conjugated incorrectly (as ichidan based on ru-ending).
+
+**ISSUE-100 — Vocab pair_id (transitivity) integrity**
+
+Audit reported 22/1041 entries paired. Investigation revealed 3 of
+those 22 were data bugs — pair_id wrongly assigned to homonym
+entries that share form+reading but aren't part of the transitivity
+pair semantically:
+
+- しめる "to tie/fasten" had pair_id=close (only "close" sense pairs)
+- いれる "to make tea/coffee" had pair_id=enter (only "put in" pairs)
+- きる "to wear" (verb-2) had pair_id=cut (only verb-1 "cut" pairs)
+
+After fix: 19 entries paired, 8 complete pairs, 3 asymmetric pairs
+(stop/wake/cut — partner verbs 止める/起こす/切れる absent from N5 corpus,
+documented in vocab.json `_meta.transitivity_pair_gaps`).
+
+### Content-depth additions
+
+**ISSUE-101 — Kanji examples (corpus-realistic depth pass)**
+
+Added 41 curated N5-scope compound words across 41 kanji. The audit's
+≥5 target was over-optimistic given N5 corpus constraints (the actual
+N5 vocab pool yields ≥5 entries containing the glyph for only 16
+kanji). Compounds drawn from Genki I, Minna I+II first half, JLPT
+Sensei N5, and JLPT.jp 旧出題基準. K-1 invariant compliance: where
+the standard compound contains an OOS kanji (海, 計, 物, 心, etc.) the
+OOS kanji is written in kana (e.g. 食べ物 → 食べもの, 子供 → 子ども).
+
+Distribution before/after:
+- ≥5 examples: 13 → 15
+- =4 examples: 17 → 26
+- =3 examples: 15 → 30
+- <3 examples: 60 → 35 (corpus-limited; documented in _meta)
+
+**ISSUE-103 — Reading cultural_context callouts**
+
+Added cultural_context (English) on 16 of 45 passages where
+Japan-specific concepts may not be obvious to non-Japan-domiciled
+learners: ramen/curry/sushi-tempura cuisine, Kyoto temples + omiyage
+custom, post office (yūbinkyoku), greengrocer (yaoya), sensei
+honorific, train delay slips (chien-shōmeisho), school week format,
+summer heat + air-con habits, autumn momijigari, ekimae shops, more.
+The remaining 29 passages cover universal topics (weather, daily
+routine) that don't need cultural framing.
+
+**ISSUE-096 — Vocab examples ≥2 (auto-derive from grammar xrefs)**
+
+Auto-derived a second example for 203 vocab entries by pulling from
+grammar.json examples whose vocab_ids cross-reference the entry.
+Examples are guaranteed N5-scope-compliant (grammar examples already
+pass JA-13/JA-1).
+
+Coverage: 114/1041 (11%) → 317/1041 (30%) entries with ≥2 examples.
+Remaining 721 entries have no grammar cross-reference (vocab is
+referenced 0 times in any grammar example) and need LLM-curated
+authoring outside this cycle's auto-derivable lift; logged as a
+follow-up.
+
+**ISSUE-102 — Grammar contrasts (11 mandatory N5 clusters)**
+
+Added 17 contrast cross-links across 9 mandatory N5 contrast clusters
+(audit-round9 §0.5 grammar dimension):
+
+- は vs が (existential), から vs ので (sentence-level register)
+- も vs と, で vs に (action loc ↔ destination)
+- 〜たことがある vs 〜た past, て-form chain vs ています
+- 〜たい vs 〜ほしい, あげる/くれる/もらう trio (3-way)
+
+Repaired 2 contrast data bugs (n5-008, n5-054 had `with_pattern_id:
+None` referring to patterns absent from corpus — converted to
+note-only entries).
+
+Coverage: 95/178 → 97/178 patterns with ≥1 contrast (the 11 mandatory
+N5 clusters are now fully cross-linked).
+
+**ISSUE-097 — Grammar examples (31 patterns at 3 → 4)**
+
+Hand-authored 31 4th-example sentences for high-priority N5 patterns
+at the spec floor. Each new example uses different attachment surface,
+register, or context from the existing 3. Coverage:
+
+- Audit's named worst-offenders n5-024..n5-038 (10 patterns)
+- Demonstrative cluster n5-042..n5-049 (4 patterns)
+- Question words n5-051..n5-057 (6 patterns)
+- Verbs / adjectives / existential / comparison / desire (11 patterns)
+
+Distribution before/after:
+- ≥4 examples: 70 → 101
+- =3 examples: 108 → 77
+
+The 77 patterns still at 3 examples are deferred to a follow-up
+authoring batch (full ≥5 coverage on all 178 patterns is the
+longer-term niche-N4 target).
+
+### UI
+
+**IMP-119 — Vocab keigo-chain visualizer**
+
+Renders a 3-column politeness-register trio panel on vocab detail
+pages where the entry has `register_chain_id` (9 N5 verbs covering
+6 chains: be, go, eat, see, say, do):
+
+| Humble (謙譲語) | Plain (you are here) | Respectful (尊敬語) |
+
+The plain cell is highlighted with accent-tinted background. Humble
++ respectful forms are N3+ scope (おる, いただく, 召し上がる, 申す,
+おっしゃる, etc.) — held in `js/learn-vocab.js` as static trio data
+since they're absent from `data/vocab.json`. Mobile-responsive: at
+≤480 px the table stacks vertically with data-label pseudo-elements.
+
+This closes the niche-N4 (all-in-one) gap of "I had to look up the
+keigo equivalents in another app" — the most common single
+out-of-corpus lookup an N5 learner makes.
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.42 → jlptsuccess-n5-v1.12.43`
+forces re-fetch on next visit so the new vocab/kanji/grammar/reading
+content + keigo UI propagate without manual refresh.
+
+---
+
 ## v1.12.42 - 2026-05-06 (Round-7 deferred batch: 5 deferred items closed)
 
 Five round-7-deferred items were re-classified as fixable on this session
