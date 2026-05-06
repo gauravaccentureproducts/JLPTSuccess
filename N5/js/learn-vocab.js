@@ -53,6 +53,93 @@ function _counterKana(code) {
   return map[code] || code;
 }
 
+// IMP-119 (round-9, 2026-05-06): keigo-chain trio data.
+// 9 N5 vocab entries carry `register_chain_id` linking to a humble/plain/
+// respectful trio. The humble (謙譲語) and respectful (尊敬語) forms are
+// N3+ scope and not present in data/vocab.json, but surfacing them as a
+// "for-awareness" callout on the plain entry's detail page closes the
+// niche-N4 (all-in-one) gap of "I had to look this up in another app."
+//
+// Format: chain_id -> {humble, respectful, note_en}
+const _KEIGO_CHAINS = {
+  'be': {
+    humble:     { ja: 'おる',         reading: 'おる',         gloss: 'to exist (humble; said about self / in-group)' },
+    respectful: { ja: 'いらっしゃる', reading: 'いらっしゃる', gloss: 'to exist (respectful; said about social superiors)' },
+    note_en: 'いる has both humble (謙譲語: おる) and respectful (尊敬語: いらっしゃる) keigo forms. The respectful いらっしゃる also covers "go" and "come" (see chains go / come).',
+  },
+  'go': {
+    humble:     { ja: '参る',         reading: 'まいる',       gloss: 'to go / come (humble)' },
+    respectful: { ja: 'いらっしゃる', reading: 'いらっしゃる', gloss: 'to go / come / be (respectful)' },
+    note_en: '行く maps to humble 参る and respectful いらっしゃる. The respectful いらっしゃる is shared with "come" and "be" (one form, three meanings).',
+  },
+  'eat': {
+    humble:     { ja: 'いただく',     reading: 'いただく',     gloss: 'to eat / receive (humble; also said before meals as いただきます)' },
+    respectful: { ja: '召し上がる',   reading: 'めしあがる',   gloss: 'to eat (respectful; offered to the listener)' },
+    note_en: '食べる has the humble form いただく (also a courtesy expression before meals) and the respectful 召し上がる (used when offering food: お召し上がりください = "please eat").',
+  },
+  'see': {
+    humble:     { ja: '拝見する',     reading: 'はいけんする', gloss: 'to see / look at (humble)' },
+    respectful: { ja: 'ご覧になる',   reading: 'ごらんになる', gloss: 'to see / look at (respectful)' },
+    note_en: '見る\'s humble 拝見する is used when viewing something a superior gave/showed you (e.g. 写真を拝見しました). 御覧になる is offered to a superior (お写真を御覧になりますか).',
+  },
+  'say': {
+    humble:     { ja: '申す',         reading: 'もうす',       gloss: 'to say (humble; common in self-introductions)' },
+    respectful: { ja: 'おっしゃる',   reading: 'おっしゃる',   gloss: 'to say (respectful)' },
+    note_en: '言う\'s humble 申す appears in self-intros (鈴木と申します = "I am called Suzuki"). Respectful おっしゃる is used when quoting a superior\'s words (先生がおっしゃった).',
+  },
+  'do': {
+    humble:     { ja: 'いたす',       reading: 'いたす',       gloss: 'to do (humble)' },
+    respectful: { ja: 'なさる',       reading: 'なさる',       gloss: 'to do (respectful)' },
+    note_en: 'する maps to humble いたす and respectful なさる. Common in customer-service speech: お電話いたします (I will call) / 何になさいますか (what would you like).',
+  },
+};
+
+function _renderKeigoChain(entry) {
+  const chain = _KEIGO_CHAINS[entry.register_chain_id];
+  if (!chain) return '';
+  const plain = entry.form;
+  const plainReading = entry.reading || '';
+  const plainGloss = entry.gloss || '';
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+  return `
+    <div class="keigo-chain">
+      <p><strong>Keigo chain (${esc(entry.register_chain_id)}):</strong> this verb has humble (謙譲語) and respectful (尊敬語) forms used in formal Japanese.</p>
+      <table class="keigo-chain-table" aria-label="Politeness register trio">
+        <thead>
+          <tr>
+            <th>Humble (謙譲語)</th>
+            <th>Plain (you are here)</th>
+            <th>Respectful (尊敬語)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Humble (謙譲語)">
+              <span lang="ja" class="keigo-form">${esc(chain.humble.ja)}</span>
+              <span lang="ja" class="keigo-reading muted small">${esc(chain.humble.reading)}</span>
+              <span class="keigo-gloss">${esc(chain.humble.gloss)}</span>
+            </td>
+            <td data-label="Plain (you are here)" class="keigo-cell-current">
+              <span lang="ja" class="keigo-form">${esc(plain)}</span>
+              <span lang="ja" class="keigo-reading muted small">${esc(plainReading)}</span>
+              <span class="keigo-gloss">${esc(plainGloss)}</span>
+            </td>
+            <td data-label="Respectful (尊敬語)">
+              <span lang="ja" class="keigo-form">${esc(chain.respectful.ja)}</span>
+              <span lang="ja" class="keigo-reading muted small">${esc(chain.respectful.reading)}</span>
+              <span class="keigo-gloss">${esc(chain.respectful.gloss)}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted small">${esc(chain.note_en)}</p>
+      <p class="muted small">Humble + respectful forms are N3+ scope; shown here for awareness only — they are not yet drilled at N5.</p>
+    </div>
+  `;
+}
+
 // IMP-046 (audit round-5): pick locale-aware vocab gloss when present,
 // else fall back to English. The translated subset (~120 entries) carries
 // `gloss_hi`; remaining entries fall through to `gloss`. Phase 3 of
@@ -338,6 +425,17 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           }
           if (entry.transitivity) {
             out.push(`<p><strong>Transitivity:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(pair: ${esc(entry.pair_id)})</span>` : ''}</p>`);
+          }
+          // IMP-119 (round-9, 2026-05-06): keigo-chain visualizer.
+          // When the entry is part of a register chain (humble / plain /
+          // respectful trio), render an awareness panel showing all three
+          // forms side-by-side. Most humble/respectful forms (おる, いただく,
+          // 召し上がる, 申す, おっしゃる, etc.) are N3+ scope and absent
+          // from the N5 vocab corpus, so we hold the trio data in this
+          // module rather than data/vocab.json. The N5 learner sees it as
+          // "FYI: here is the keigo equivalent", not "drill this now".
+          if (entry.register_chain_id && _KEIGO_CHAINS[entry.register_chain_id]) {
+            out.push(_renderKeigoChain(entry));
           }
           // Phase 3 of locale transition (2026-05-06): the false_friends.zh
           // hook is removed alongside the zh locale - currentLocale() can

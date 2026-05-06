@@ -2632,6 +2632,78 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   border-radius: 0 6px 6px 0;
 }
 
+/* IMP-119 (round-9, 2026-05-06): keigo-chain trio visualizer.
+ * Renders the humble / plain / respectful keigo trio as a 3-column
+ * table on vocab detail pages where the entry has register_chain_id.
+ * Plain (current) cell highlighted with accent-tinted background to
+ * orient the learner. Humble + respectful forms are N3+ scope and
+ * shown for awareness only. */
+.keigo-chain {
+  margin: 16px 0;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 4%, transparent);
+  border-left: 3px solid var(--color-accent, #1F4D2E);
+  border-radius: 0 6px 6px 0;
+}
+.keigo-chain-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+.keigo-chain-table th,
+.keigo-chain-table td {
+  padding: 8px 10px;
+  border: 1px solid var(--c-border);
+  vertical-align: top;
+  text-align: left;
+}
+.keigo-chain-table th {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted, #555);
+  background: rgba(0, 0, 0, 0.02);
+}
+.keigo-chain-table .keigo-cell-current {
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 8%, transparent);
+}
+.keigo-chain-table .keigo-form {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.keigo-chain-table .keigo-reading {
+  display: block;
+  font-size: 12px;
+  margin: 2px 0 4px 0;
+}
+.keigo-chain-table .keigo-gloss {
+  display: block;
+  font-size: 13px;
+  color: var(--color-text);
+}
+@media (max-width: 480px) {
+  /* On narrow screens, stack the three keigo cells vertically rather
+   * than squeezing into 3 columns where readings + glosses become
+   * unreadable. The header row hides; each cell wears its own label
+   * via a CSS-pseudo-element. */
+  .keigo-chain-table thead { display: none; }
+  .keigo-chain-table, .keigo-chain-table tbody, .keigo-chain-table tr {
+    display: block;
+  }
+  .keigo-chain-table td {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .keigo-chain-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-muted, #555);
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+}
+
 /* ISSUE-064 + IMP-082 + IMP-083 (audit round-7): radical, decomposition,
  * mnemonic, and confusable-with surfaces on the kanji detail page.
  * Niche-N4 lift toward WaniKani parity. */
