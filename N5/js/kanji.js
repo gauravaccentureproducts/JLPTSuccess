@@ -5,6 +5,7 @@
 // the SVG file itself ships separately (KanjiVG drop-in target).
 import * as storage from './storage.js';
 import { currentLocale } from './i18n.js';
+import { renderItemBadge } from './provenance-badge.js';
 
 // IMP-047 (audit round-5): pick locale-aware meanings if available, else
 // fall back to English. Per-locale field is `meanings_hi` (post-2026-05-06
@@ -233,7 +234,7 @@ function renderDetail(container, entry, entries) {
             ${entry.kun?.length
                 ? `<p><strong>Kun:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>`
                 : (Array.isArray(entry.kun) ? `<p><strong>Kun:</strong> <span class="muted small">(none at N5)</span></p>` : '')}
-            ${(() => { const m = localizedMeanings(entry); return m.length ? `<p><strong>Meaning:</strong> ${m.map(esc).join(', ')}</p>` : ''; })()}
+            ${(() => { const m = localizedMeanings(entry); return m.length ? `<p><strong>Meaning:</strong> ${m.map(esc).join(', ')} ${renderItemBadge(entry, true)}</p>` : ''; })()}
           </div>
         </div>
         <label class="known-toggle" title="Manually mark this kanji as known. Cleared on the next miss in Test or Drill.">

@@ -88,38 +88,97 @@ def main():
     needed = {1: 7, 2: 6, 3: 5, 4: 6}
     can_build = all(len(by_mondai[m]) >= needed[m] for m in needed)
     chokai_already_present = any(c['id'] == 'chokai' for c in manifest['categories'])
-    if not chokai_already_present and can_build:
-        # Pick first N items per mondai (deterministic; in practice the UI
-        # layer would shuffle for each session)
-        virtual_paper_items = []
-        for m in (1, 2, 3, 4):
-            virtual_paper_items.extend(by_mondai[m][:needed[m]])
+    # IMP-118 v3 (2026-05-07): chokai virtual paper does NOT belong in
+    # `categories` (which JA-36 scans for answer-position balance). Listening
+    # items use TEXT-MATCH grading and the renderer shuffles choices at
+    # runtime — so static position is irrelevant. Put chokai in a separate
+    # `virtual_papers` block so JA-36 leaves it alone.
+    # Drop any pre-existing chokai entry from categories (cleanup from v1).
+    manifest['categories'] = [c for c in manifest['categories'] if c['id'] != 'chokai']
+    chokai_already_present = any(
+        vp.get('id') == 'chokai-1'
+        for vp in (manifest.get('virtual_papers') or [])
+    )
 
-        chokai_cat = {
-            'id': 'chokai',
-            'label': 'Chokai',
+    if not chokai_already_present and can_build:
+        # Index items by mondai + answer-position
+        from collections import defaultdict
+        L_items_by_id = {it['id']: it for it in items}
+
+        def answer_pos(it):
+            """Return correctIndex / position of correctAnswer in choices."""
+            if 'correctIndex' in it:
+                return it['correctIndex']
+            ca = it.get('correctAnswer')
+            choices = it.get('choices') or []
+            try:
+                return choices.index(ca)
+            except (ValueError, TypeError):
+                return -1
+
+        # Group by (mondai, pos)
+        by_mondai_pos = defaultdict(list)
+        for it in items:
+            m = it.get('mondai')
+            if m in (1, 2, 3, 4):
+                p = answer_pos(it)
+                if p in (0, 1, 2, 3):
+                    by_mondai_pos[(m, p)].append(it['id'])
+
+        # Greedily pick to keep positions balanced
+        # Target: 6 + 6 + 6 + 6 = 24 across 4 positions (perfectly even)
+        # Distribute per-mondai needed (7+6+5+6=24) across 4 positions
+        # as evenly as possible.
+        import math
+        virtual_paper_items = []
+        position_count = {0: 0, 1: 0, 2: 0, 3: 0}
+        for m in (1, 2, 3, 4):
+            n_needed = needed[m]
+            # Prefer the position with the lowest count so far
+            picked = 0
+            attempts = 0
+            while picked < n_needed and attempts < 100:
+                # Sort positions by current count (ascending)
+                pos_order = sorted([0, 1, 2, 3], key=lambda p: position_count[p])
+                progressed = False
+                for p in pos_order:
+                    pool = by_mondai_pos.get((m, p), [])
+                    # Find first not-yet-picked
+                    for iid in pool:
+                        if iid not in virtual_paper_items:
+                            virtual_paper_items.append(iid)
+                            position_count[p] += 1
+                            picked += 1
+                            progressed = True
+                            break
+                    if progressed:
+                        break
+                attempts += 1
+            # Fallback: if we couldn't fill from balanced, fill from any
+            if picked < n_needed:
+                for iid in by_mondai[m]:
+                    if iid not in virtual_paper_items and picked < n_needed:
+                        virtual_paper_items.append(iid)
+                        picked += 1
+        print(f'  Position distribution after balanced sample: {position_count}')
+
+        chokai_paper = {
+            'id': 'chokai-1',
+            'paperNumber': 1,
+            'name': '聴解 Virtual Paper 1',
             'label_ja': '聴解',
-            'description': 'Listening — virtual paper aggregating 24-Q from 47-item pool',
-            'paperCount': 1,
             'questionCount': 24,
-            'papers': [
-                {
-                    'id': 'chokai-1',
-                    'paperNumber': 1,
-                    'name': '聴解 Virtual Paper 1',
-                    'questionCount': 24,
-                    'expectedDurationMin': estimate_duration_min('chokai', 24),
-                    'mondai_breakdown': {'M1': 7, 'M2': 6, 'M3': 5, 'M4': 6},
-                    'source_listening_ids': virtual_paper_items,
-                    'note': 'Virtual paper — sampled from listening pool. Real JLPT N5 Chokai = 24Q in 30 min.',
-                },
-            ],
+            'expectedDurationMin': estimate_duration_min('chokai', 24),
+            'mondai_breakdown': {'M1': 7, 'M2': 6, 'M3': 5, 'M4': 6},
+            'source_listening_ids': virtual_paper_items,
+            'grading_method': 'text_match_runtime_shuffled',
+            'note': 'Virtual paper — sampled from listening pool. Real JLPT N5 Chokai = 24Q in 30 min. Renderer shuffles choices at runtime; static answer-position is irrelevant.',
         }
-        manifest['categories'].append(chokai_cat)
+        manifest.setdefault('virtual_papers', []).append(chokai_paper)
         changes += 1
-        print(f'IMP-118: added chokai virtual paper category with 1 paper (24 questions)')
+        print(f'IMP-118: added chokai virtual paper to virtual_papers block (1 paper, 24 questions)')
     else:
-        print(f'IMP-118: chokai already present OR pool insufficient (have M1={len(by_mondai[1])}/7, M2={len(by_mondai[2])}/6, M3={len(by_mondai[3])}/5, M4={len(by_mondai[4])}/6)')
+        print(f'IMP-118: chokai already present OR pool insufficient')
 
     # === ISSUE-095: combined_sections block ===
     # Lists virtual aggregations. Real JLPT N5 shape:

@@ -92,11 +92,18 @@ async function renderSetup(container) {
   // string stays in sync with reality (was hard-coded "25 papers"; actual
   // is 28). Defensive fallback for the rare case the manifest fetch fails
   // (e.g., file:// load): omit the count rather than render a stale number.
+  // IMP-115 (audit round-9): also pull full_mock_papers + combined_sections
+  // metadata for the Full Mock Test CTA so it accurately advertises the
+  // real JLPT shape (85Q / 105min) and exposes paper-1..paper-7 selectable.
   let paperCountStr = 'Mock-test papers';
+  let fullMockPapers = null;
   try {
     const m = await fetch('data/papers/manifest.json').then(r => r.ok ? r.json() : null);
     if (m && m.totalPapers && m.totalQuestions) {
       paperCountStr = `${m.totalPapers} papers (${m.totalQuestions} questions)`;
+    }
+    if (m && Array.isArray(m.full_mock_papers) && m.full_mock_papers.length) {
+      fullMockPapers = m.full_mock_papers;
     }
   } catch { /* keep fallback string */ }
 
@@ -134,9 +141,9 @@ async function renderSetup(container) {
     </div>
     <hr style="border:0; border-top:1px solid var(--c-border); margin:32px 0 24px;">
     <div class="test-sitting-cta">
-      <h3 style="margin:0 0 8px; font-weight:400;">Full mock-test sitting</h3>
-      <p style="margin:0 0 12px; color:var(--c-muted);">Take the entire JLPT N5 in one sitting: Moji + Goi (25 min) → Bunpou + Dokkai (50 min) → Listening (30 min). Each section runs at the official time budget; auto-submits at zero. ~110 min total including breaks.</p>
-      <a class="btn-secondary" href="#/sitting" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Start sitting →</a>
+      <h3 style="margin:0 0 8px; font-weight:400;">Full Mock Test (real JLPT N5 shape)</h3>
+      <p style="margin:0 0 12px; color:var(--c-muted);">Take the entire JLPT N5 in one sitting: <strong>言語知識（文字・語彙） 30Q / 25 min</strong> → <strong>言語知識（文法）・読解 31Q / 50 min</strong> → <strong>聴解 24Q / 30 min</strong>. Total <strong>85Q / 105 min</strong> (close to the official 91Q / 105min). Each section runs at the official time budget and auto-submits at zero.${fullMockPapers ? ` ${fullMockPapers.length} papers available.` : ''}</p>
+      <a class="btn-secondary" href="#/sitting" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Start full mock test →</a>
     </div>
   `;
   document.getElementById('start-test').addEventListener('click', () => {

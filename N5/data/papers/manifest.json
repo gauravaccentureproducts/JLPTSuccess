@@ -266,56 +266,6 @@
           "expectedDurationMin": 19
         }
       ]
-    },
-    {
-      "id": "chokai",
-      "label": "Chokai",
-      "label_ja": "聴解",
-      "description": "Listening — virtual paper aggregating 24-Q from 47-item pool",
-      "paperCount": 1,
-      "questionCount": 24,
-      "papers": [
-        {
-          "id": "chokai-1",
-          "paperNumber": 1,
-          "name": "聴解 Virtual Paper 1",
-          "questionCount": 24,
-          "expectedDurationMin": 30,
-          "mondai_breakdown": {
-            "M1": 7,
-            "M2": 6,
-            "M3": 5,
-            "M4": 6
-          },
-          "source_listening_ids": [
-            "n5.listen.001",
-            "n5.listen.002",
-            "n5.listen.003",
-            "n5.listen.004",
-            "n5.listen.013",
-            "n5.listen.014",
-            "n5.listen.015",
-            "n5.listen.005",
-            "n5.listen.006",
-            "n5.listen.007",
-            "n5.listen.008",
-            "n5.listen.019",
-            "n5.listen.020",
-            "n5.listen.009",
-            "n5.listen.010",
-            "n5.listen.011",
-            "n5.listen.012",
-            "n5.listen.025",
-            "n5.listen.041",
-            "n5.listen.042",
-            "n5.listen.043",
-            "n5.listen.044",
-            "n5.listen.045",
-            "n5.listen.046"
-          ],
-          "note": "Virtual paper — sampled from listening pool. Real JLPT N5 Chokai = 24Q in 30 min."
-        }
-      ]
     }
   ],
   "combined_sections": [
@@ -627,6 +577,50 @@
         "chokai-1-virtual"
       ],
       "note": "Real-exam-shape mock test. Real JLPT N5 = 85Q (35+32+24=91 actually, app ships 85 via 30+31+24)."
+    }
+  ],
+  "virtual_papers": [
+    {
+      "id": "chokai-1",
+      "paperNumber": 1,
+      "name": "聴解 Virtual Paper 1",
+      "label_ja": "聴解",
+      "questionCount": 24,
+      "expectedDurationMin": 30,
+      "mondai_breakdown": {
+        "M1": 7,
+        "M2": 6,
+        "M3": 5,
+        "M4": 6
+      },
+      "source_listening_ids": [
+        "n5.listen.033",
+        "n5.listen.003",
+        "n5.listen.016",
+        "n5.listen.001",
+        "n5.listen.031",
+        "n5.listen.017",
+        "n5.listen.002",
+        "n5.listen.019",
+        "n5.listen.021",
+        "n5.listen.036",
+        "n5.listen.007",
+        "n5.listen.005",
+        "n5.listen.022",
+        "n5.listen.011",
+        "n5.listen.012",
+        "n5.listen.009",
+        "n5.listen.029",
+        "n5.listen.027",
+        "n5.listen.041",
+        "n5.listen.042",
+        "n5.listen.043",
+        "n5.listen.044",
+        "n5.listen.045",
+        "n5.listen.046"
+      ],
+      "grading_method": "text_match_runtime_shuffled",
+      "note": "Virtual paper — sampled from listening pool. Real JLPT N5 Chokai = 24Q in 30 min. Renderer shuffles choices at runtime; static answer-position is irrelevant."
     }
   ]
 }
