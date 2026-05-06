@@ -2,6 +2,8 @@
 
 A multi-level JLPT (Japanese-Language Proficiency Test) study app covering N5 → N1.
 
+**No login · No tracking · Works offline · Open source · 100% on-device · Free, no ads, no paywall.**
+
 **Live site:** [gauravaccentureproducts.github.io/JLPTSuccess/](https://gauravaccentureproducts.github.io/JLPTSuccess/)
 
 ## Architecture

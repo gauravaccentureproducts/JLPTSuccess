@@ -7,6 +7,8 @@
 [![Locales: EN · HI](https://img.shields.io/badge/locales-EN%20%C2%B7%20HI-blueviolet.svg)](docs/TRANSLATING.md)
 [![Privacy: no telemetry](https://img.shields.io/badge/privacy-no%20telemetry-success.svg)](PRIVACY.md)
 
+> **No login · No tracking · Works offline · Open source · 100% on-device · Free, no ads, no paywall.**
+
 Browser-based static web app for studying JLPT N5: grammar, vocabulary, kanji, reading, and listening. **No server. No accounts. No third-party scripts.** Author-side build tools (Python) live under `/tools/`; the learner runs only the browser.
 
 ## Documentation

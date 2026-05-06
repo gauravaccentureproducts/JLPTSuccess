@@ -184,9 +184,21 @@ async function _renderInto(container, key) {
     return;
   }
   const html = renderMarkdown(md);
+  // Privacy gets a hero trust callout above the markdown body — surfaces
+  // the niche-N2 claim conspicuously at the page where users land when
+  // verifying it (round-9 follow-up "make trust pills not-so-inconspicuous"
+  // 2026-05-07). Notices doesn't get it (it's a third-party-attribution
+  // page, not a privacy claim).
+  const heroCallout = key === 'privacy' ? `
+    <aside class="trust-callout" aria-label="Privacy commitment">
+      <strong>No login · No tracking · 100% on-device · Open source</strong>
+      <p>This app does NOT collect, transmit, or store any personal data on a remote server. Verifiable in the open-source code on GitHub.</p>
+    </aside>
+  ` : '';
   container.innerHTML = `
     <article class="md-doc-page">
       <p class="muted small"><a href="#/home">← Back home</a></p>
+      ${heroCallout}
       ${html}
       <p class="muted small md-doc-source">Source: <code>${_esc(cfg.path)}</code> on GitHub.</p>
     </article>

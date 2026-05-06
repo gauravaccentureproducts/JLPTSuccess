@@ -84,8 +84,16 @@ function showInstallBanner() {
   banner.className = 'pwa-banner';
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Install this app');
+  // Trust-band promotion 2026-05-07: install pitch now leads with the
+  // niche-N2 differentiators (no login / no tracking / no ads / offline)
+  // — these are the precise reasons a learner installs vs sticks with
+  // a tab in their browser. Surfacing them on the install CTA itself
+  // raises install conversion on first paint.
   banner.innerHTML = `
-    <span>Install this app to use it offline from your home screen.</span>
+    <span class="pwa-banner-copy">
+      <strong>Install this app to use it offline from your home screen.</strong>
+      <small class="pwa-banner-trust">No login. No tracking. No ads. Free, forever.</small>
+    </span>
     <button id="pwa-install-yes" class="btn-primary">Install</button>
     <button id="pwa-install-no" class="btn-secondary">Not now</button>
   `;

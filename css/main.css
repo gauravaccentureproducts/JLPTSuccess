@@ -191,7 +191,88 @@ main { flex: 1; padding: 2rem 1rem; }
   margin: 2rem 0 0;
 }
 
+/* Trust band on the level-picker landing page (round-9 follow-up
+ * 2026-05-07: surfaces the niche-N2 differentiators on the top-level
+ * promotional surface, mirroring N5 home). */
+.levels-trust-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.25rem auto 0.5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  background: rgba(31, 77, 46, 0.05);
+  border: 1px solid rgba(31, 77, 46, 0.2);
+  border-radius: 8px;
+  max-width: 720px;
+}
+.levels-trust-band .trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(31, 77, 46, 0.35);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--card-bg);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.levels-trust-band .trust-pill[href]:hover {
+  border-color: var(--brand);
+}
+.levels-trust-band .trust-pill > span[aria-hidden="true"] {
+  color: var(--brand);
+  font-size: 0.625rem;
+  margin-right: 2px;
+}
+.footer-trust-strip {
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  text-align: center;
+  background: rgba(31, 77, 46, 0.04);
+  border-bottom: 1px solid rgba(31, 77, 46, 0.15);
+  color: var(--text);
+  font-weight: 500;
+}
+
 .app-footer {
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.app-footer .footer-trust-strip {
+  margin: 0;
+}
+.app-footer .footer-meta,
+.app-footer .footer-nav {
+  padding: 0.5rem 1.5rem;
+}
+.app-footer .footer-meta {
+  align-self: flex-start;
+}
+.app-footer .footer-nav {
+  align-self: flex-end;
+}
+@media (min-width: 769px) {
+  .app-footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .app-footer .footer-trust-strip {
+    flex-basis: 100%;
+    order: -1;
+  }
+}
+
+.app-footer-legacy {
   background: var(--card-bg);
   border-top: 1px solid var(--card-border);
   padding: 1rem 1.5rem;

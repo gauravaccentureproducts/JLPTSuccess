@@ -115,6 +115,16 @@ async function renderSetup(container) {
         <p><a href="#/learn">Continue learning →</a></p>
       </div>
     ` : ''}
+    <!-- Promotional trust callout (round-9 follow-up 2026-05-07): the
+         "your scores stay on this device" message is the strongest
+         niche-N2 reassurance precisely at the moment a learner is
+         about to submit results. Bunpro / Renshuu push results to
+         their server; the callout makes the privacy claim concrete
+         right where it matters most. -->
+    <aside class="trust-callout" aria-label="Privacy reassurance">
+      <strong>${t('trust.no_login')} · ${t('trust.no_tracking')} · ${t('trust.on_device')}</strong>
+      <p>${t('trust.test_callout')}</p>
+    </aside>
     <p>Configure and start a new auto-graded test. The Submit button stays disabled until every question has an answer.</p>
     <div class="test-setup">
       <label class="length-picker">

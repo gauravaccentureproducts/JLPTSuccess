@@ -2,6 +2,79 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.47 - 2026-05-07 (Trust-band promotion: niche-N2 messaging across all promotional surfaces)
+
+The home trust band ("No login · No tracking · Works offline · Open
+source · 100% on-device · Free, no ads, no paywall") was already the
+strongest single sales claim the app makes, but it was rendered as
+small hairline pills only on the N5 home page — invisible on every
+other surface a prospective user lands on. Promoted across all
+promotional surfaces:
+
+### Where it now appears
+
+**Top-level JLPTSuccess root (level picker)** — added the same 6-pill
+trust band under the subtitle. Self-contained CSS in `css/main.css`
+(the root has its own bundle separate from N5).
+
+**Footer trust strip on every page** — both root and N5 footers now
+carry a single-line `.footer-trust-strip` above the standard footer
+nav: visible the moment a user opens any route. Localized in N5 via
+`data-i18n-key="footer.trust_strip"` (translates Devanagari for Hindi
+locale).
+
+**N5 home band — promoted from hairline to readable** — same content,
+bigger pills (4×12 px padding instead of 2×10), thicker borders (1 px
+accent-tinted instead of 0.5 px line), centered band background tint,
+font-weight 500. The 6-pill row is now visually a focal point of the
+home header, not a footnote.
+
+**N5 Test page** — a `.trust-callout` aside renders before the test
+configuration, reading "Your scores stay on this device. No account.
+No leaderboard. No data leaves your browser." Surfaces the niche-N2
+reassurance precisely at the moment a learner is about to submit
+results (the most reassurance-relevant moment).
+
+**N5 Privacy page** — hero callout above the markdown body: "This app
+does NOT collect, transmit, or store any personal data on a remote
+server. Verifiable in the open-source code on GitHub." Shows up as
+the first content block on the page where users land when verifying
+trust claims.
+
+**N5 PWA install banner** — install pitch now leads with "No login.
+No tracking. No ads. Free, forever." sub-line under the existing
+"Install this app to use it offline" message. The trust messaging
+is what motivates an install vs sticking with a tab.
+
+**README.md (root + N5)** — both READMEs now have the trust line as
+a blockquote near the top, right under the title and live-site link.
+GitHub visitors / Show HN readers see the differentiators on first
+paint.
+
+### CSS additions / polish
+
+`.syllabus-trust-band` and `.levels-trust-band` share the bumped
+treatment (centered, accent-tinted, 8 px radius). New `.trust-callout`
+class for Test/Privacy callouts (left-border-accent, 6 px radius).
+New `.footer-trust-strip` class for the persistent footer strip.
+Mobile-responsive: pills wrap on narrow viewports.
+
+### Locale strings
+
+Added 5 new `trust.*` keys to en.json + hi.json: footer_strip,
+test_callout, privacy_hero, install_pitch, feedback_note. Plus
+`footer.trust_strip` for the i18n-walker. Hindi translations preserve
+the niche-N1 framing (किसी भी रिमोट सर्वर पर कोई व्यक्तिगत डेटा एकत्र,
+संचारित या संग्रहीत नहीं करता).
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.46 → jlptsuccess-n5-v1.12.47`
+forces re-fetch on next visit so the new CSS / locale strings / footer
+HTML propagate.
+
+---
+
 ## v1.12.46 - 2026-05-07 (UI test bug fixes: 5 dead-data renderers + Hindi locale polish)
 
 A live UI-smoke test against v1.12.45 surfaced 8 bugs. 7 were fixable
