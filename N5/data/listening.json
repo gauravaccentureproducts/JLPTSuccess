@@ -49,10 +49,18 @@
         }
       ],
       "voice_planned": {
-        "男": 11,
-        "女": 2
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned"
+      "voice_variety_status": "pass"
     },
     {
       "id": "n5.listen.002",
@@ -107,10 +115,18 @@
         }
       ],
       "voice_planned": {
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned"
+      "voice_variety_status": "pass"
     },
     {
       "id": "n5.listen.003",
@@ -157,10 +173,18 @@
         }
       ],
       "voice_planned": {
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned"
+      "voice_variety_status": "pass"
     },
     {
       "id": "n5.listen.004",
@@ -210,10 +234,18 @@
         }
       ],
       "voice_planned": {
-        "店員": 20,
-        "男": 11
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Japanese cafés default to hot drinks — staff will ask あつい (atsui, hot)? if you order a coffee/tea without specifying. Saying つめたい (cold) explicitly avoids ambiguity.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -266,10 +298,18 @@
         }
       ],
       "voice_planned": {
-        "先生": 20,
-        "学生": 11
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned"
+      "voice_variety_status": "pass"
     },
     {
       "id": "n5.listen.006",
@@ -318,10 +358,18 @@
         }
       ],
       "voice_planned": {
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Japanese librarians/clerks often gesture with あの たな (over there shelf) plus 上/下 (top/bottom). Confirming with question intonation (上ですか?) before reaching is polite.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -356,9 +404,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 20
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Seasonal preference is a common conversational icebreaker in Japan. あき (autumn) is widely loved for the moderate weather and 旬 seasonal foods (栗, 柿, さつまいも). Saying 〜が一番好きです is the standard preference structure.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -409,10 +466,18 @@
         }
       ],
       "voice_planned": {
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Birthday gift conversations: the asker often suggests likely gifts (本ですか? とけいですか?). The respondent gracefully redirects (いいえ, 新しい〜が ほしいです) without seeming demanding.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -442,9 +507,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 11
+        "primary": "ja-JP-NanamiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Asking strangers for the time: open with すみません (excuse me) before すみません, 今 何時ですか? Maintaining brief eye contact and a small bow on receipt is conventional.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -474,9 +543,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 2
+        "primary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-KeitaNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Train ticket purchase at まどぐち (window): standard pattern — destination + 大人 (adult) X枚, 子供 (child) Y枚. Card readers are everywhere; tourists often use IC cards (Suica/PASMO) instead.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -506,9 +579,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 12
+        "primary": "ja-JP-AoiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Refusing food politely: いいえ、けっこうです (no thank you) is the standard polite refusal. Adding もう おなかが いっぱいです (already full) softens the refusal further. Just いりません (don't need) is too direct.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -538,9 +615,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 3
+        "primary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-DaichiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Morning teacher greeting: おはようございます (good morning, polite) is the standard form for school/work; おはよう (casual) only with peers. A small bow accompanies it.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -584,9 +665,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 53
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Setting a meeting time: 何時に 会いますか? is the standard ask. Arriving 5 minutes early is normal in Japan; arriving on the dot is acceptable; even 1 minute late requires a brief すみません.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -630,9 +720,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 8
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Stations have multiple exits (出口). 北の出口 (north exit), 東口 (east exit), or specific 中央口 (central). Always confirming the specific exit avoids 30-min searches in major stations.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -676,9 +775,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 20
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Family shopping conversation pattern: parent asks 何を 買いますか?, child lists items with quantities and counters (りんごを 三つ, ぎゅうにゅうを 一本). Counters are mandatory in Japanese shopping speech.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -722,9 +830,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 14
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Schedule changes are normal: ですから (therefore) introduces the new plan. The pattern いそがしい (busy) → ですから 〜 (therefore X) is common.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -768,9 +885,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 11
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Late arrivals: たぶん (probably / maybe) softens the time prediction. 道が こんで います (the road is congested) is the most common reason given for delay; weather second.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -814,9 +940,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 2
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Travel verb 何で 行きますか? asks about transport mode (literally \"by what?\"). Standard answers: 電車で / バスで / 車で / 飛行機で (by train/bus/car/plane).",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -860,9 +995,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 12
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "School excuse pattern: a brief すみません (apology) opens; 〜が いたかった (was sick) is the most common reason; teachers often accept without further question for small lapses.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -906,9 +1050,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 3
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Price commentary: 高いですね (its expensive) is a common conversational acknowledgment, not a complaint. Even when expensive, でも、おもしろい (but its interesting) softens the cost into a justification.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -944,9 +1097,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 53
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Library hours change between weekdays and weekends — typical Japanese pattern: weekday 9-5, Saturday 1-4, Sunday closed. School libraries differ from public libraries.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -986,9 +1148,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 8
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Weather small talk: 〜の 天気は どうですか? is the standard ask. Tomorrow weather (あしたの 天気) is the most common topic, followed by この 週末 (this weekend).",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1032,9 +1203,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 20
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Homework due-dates: 火よう日 / 木よう日 (Tuesday / Thursday) — Japanese teachers often give M-W-F or T-Th cycles. ありますか? confirms whether a particular day has homework.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1074,9 +1254,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 14
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Hosting visitors: listing arrivals chronologically (父の 先生 + 母の 友だち + 父も). わかりました (understood) acknowledges the schedule.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1108,9 +1297,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 11
+        "primary": "ja-JP-NanamiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Morning school greeting: standard expected response is おはようございます (good morning, polite). A casual おはよう would be inappropriate to a teacher.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1142,9 +1335,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 2
+        "primary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-KeitaNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Café ordering: すみません (excuse me) opens, then [item]を ください (please give me X) or [item]を おねがいします (Id like X). Both work; おねがいします is slightly more polite.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1176,9 +1373,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 12
+        "primary": "ja-JP-AoiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Drink refusal politely: いいえ、けっこうです (no thank you, polite) or ありがとう、でも (thank you, but...) softens. Direct いりません (dont need) is too blunt.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1210,9 +1411,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 3
+        "primary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-DaichiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Entering someones home: おじゃまします (literally \"Im intruding/disturbing\") — said when entering. The host responds どうぞ (please, come in). Shoes go off at the entryway (げんかん).",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1244,9 +1449,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 53
+        "primary": "ja-JP-NanamiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Before eating: いただきます (mandatory in Japan; literally \"I humbly receive\"). Said with palms joined or hands together briefly. Skipping it is socially rude even in casual settings.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1278,9 +1487,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 8
+        "primary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-KeitaNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Asking directions: すみません (excuse me) → 〜へ 行きたいです (Id like to go to X) → 道が わかりません (I dont know the way). The askee will often gesture and walk you part of the way.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1327,10 +1540,18 @@
         }
       ],
       "voice_planned": {
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Gift selection conversation pattern: 何が いいですか? (whats good?) → 〜が いいと 思います (I think X is good). Department stores have dedicated gift floors with wrapping included.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1377,10 +1598,18 @@
         }
       ],
       "voice_planned": {
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Doctor visit: 一週間 (one week) of medication is a common prescription length. お大事に (take care / get well soon) is the standard parting from medical staff.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1427,11 +1656,18 @@
         }
       ],
       "voice_planned": {
-        "じょうけい": 20,
-        "女": 2,
-        "男": 11
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Class scheduling: 月よう日と 水よう日 (Monday and Wednesday) — Japanese university classes often run on alternating days. 〜時から 〜時まで (from X to Y) is the standard time-range pattern.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1474,10 +1710,18 @@
         }
       ],
       "voice_planned": {
-        "母": 2,
-        "子": 20
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Restaurant order checks: ぜんぶで 〜円 (X yen total) closes the bill. Tipping does not exist in Japan — paying the exact bill amount or with bills/coins is normal.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1512,9 +1756,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 12
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Birthday party invitation: いっしょに ケーキを 食べませんか? (wont you eat cake with us?) — the negative-question form (-ませんか) is the standard polite invitation.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1549,9 +1802,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 3
+        "primary": "ja-JP-AoiNeural",
+        "secondary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-AoiNeural",
+          "F": "ja-JP-AoiNeural",
+          "男": "ja-JP-DaichiNeural",
+          "M": "ja-JP-DaichiNeural",
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Lost-and-found at stations: えきいん (station staff) handle lost items. 落とし物 (lost item) is the formal term; 忘れ物 (forgotten thing) for things left on trains.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1586,9 +1848,18 @@
         }
       ],
       "voice_planned": {
-        "_narration": 53
+        "primary": "ja-JP-NanamiNeural",
+        "secondary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "女": "ja-JP-NanamiNeural",
+          "F": "ja-JP-NanamiNeural",
+          "男": "ja-JP-KeitaNeural",
+          "M": "ja-JP-KeitaNeural",
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Train delays: 電車が おくれて (the train is delayed) — train staff often issue a 遅延証明書 (delay certificate) so commuters can present it to teachers/employers.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1619,9 +1890,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 8
+        "primary": "ja-JP-AoiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Asking about hobbies: しゅみは 何ですか? is the standard small-talk question. Common N5-level answers: スポーツ, おんがく, りょこう, りょうり (cooking).",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1652,9 +1927,13 @@
         }
       ],
       "voice_planned": {
-        "じょうけい": 20
+        "primary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-DaichiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Apartment-search vocabulary: 駅から ちかい (close to the station), へやが 大きい (big rooms), 家ちんは X円 (rent is Y) — these are the standard housing-search criteria in Japanese.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1684,9 +1963,13 @@
         }
       ],
       "voice_planned": {
-        "_narration": 14
+        "primary": "ja-JP-NanamiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "cultural_context": "Gift exchange: もらう (receive) for things given to you, あげる (give) for things you give to others, くれる (give to me/us) for things others give to you. The trio is mandatory N5 vocabulary.",
       "cultural_context_provenance": "native_reviewed"
     },
@@ -1710,9 +1993,13 @@
       "cultural_context": "जापानी कार्यस्थल में \"お先に失礼します\" (पहले निकलने के लिए विनती) कहना अनिवार्य शिष्टाचार है — दूसरों को बता देना कि आप पहले जा रहे हैं। बिना यह कहे चले जाना अशिष्ट माना जाता है। साथी इसका उत्तर \"お疲れさまでした\" (आपने मेहनत की) से देते हैं।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 11
+        "primary": "ja-JP-NanamiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "おさきに しつれいします。",
@@ -1739,9 +2026,13 @@
       "explanation_hi": "जन्मदिन की बधाई पर मानक उत्तर \"ありがとうございます\" (धन्यवाद)। \"すみません\" क्षमा माँगना है, \"いただきます\" खाने से पहले बोलते हैं — ग़लत।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 2
+        "primary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-KeitaNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "たんじょうび、おめでとうございます。",
@@ -1768,9 +2059,13 @@
       "explanation_hi": "स्टेशन का रास्ता पूछने पर सीधा उत्तर दिशा-निर्देश है। दूरी या टिकट की संख्या बताना सवाल का जवाब नहीं।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 12
+        "primary": "ja-JP-AoiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "すみません、えきは どこですか。",
@@ -1798,9 +2093,13 @@
       "cultural_context": "जापान में लंच का साथ खाना सहकर्मी-संबंध बनाने का तरीक़ा है। निमंत्रण ठुकराने पर \"もう食べました\" (पहले ही खा लिया) कहना भी विनम्र है, पर साथ खाने से रिश्ते बेहतर होते हैं।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 3
+        "primary": "ja-JP-DaichiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-DaichiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "いっしょに ひるごはんを たべませんか。",
@@ -1828,9 +2127,13 @@
       "cultural_context": "日本में \"おはようございます\" (विनम्र) कार्यालय में लगभग 11 बजे तक प्रयोग होता है — हिंदी में जैसे दोपहर तक \"नमस्ते\" कह सकते हैं। दिन के बाद \"こんにちは\" शुरू होता है।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 53
+        "primary": "ja-JP-NanamiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-NanamiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "おはようございます。",
@@ -1858,9 +2161,13 @@
       "cultural_context": "\"どうぞ\" (कृपया, यहाँ है) — जापानी संस्कृति का बहुत महत्वपूर्ण शब्द। केवल वस्तु देते समय ही नहीं, अंदर आने के लिए, बैठने के लिए, खाने के लिए — हर मेहमानवाज़ी संकेत में प्रयोग होता है।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 8
+        "primary": "ja-JP-KeitaNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-KeitaNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "すみません、ペンを かして ください。",
@@ -1888,9 +2195,13 @@
       "cultural_context": "जापानी क्षमा-संस्कृति में \"いいえ\" (नहीं) से ज़्यादा महत्वपूर्ण है \"だいじょうぶ\" (ठीक है) जोड़ना। \"इसकी ज़रूरत नहीं थी\" का भाव — हिंदी \"कोई बात नहीं\" के समान।",
       "pacing_status": "no_audio",
       "voice_planned": {
-        "_narration": 20
+        "primary": "ja-JP-AoiNeural",
+        "engine": "edge-tts",
+        "speaker_role_map": {
+          "narrator": "ja-JP-AoiNeural"
+        }
       },
-      "voice_variety_status": "planned",
+      "voice_variety_status": "pass",
       "lines": [
         {
           "text_ja": "すみませんでした。",
@@ -1996,6 +2307,19 @@
         }
       }
     },
-    "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it)."
+    "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
+    "voice_variety_plan_2026_05_07": {
+      "engine": "edge-tts",
+      "voices_used": [
+        "ja-JP-AoiNeural",
+        "ja-JP-DaichiNeural",
+        "ja-JP-KeitaNeural",
+        "ja-JP-NanamiNeural"
+      ],
+      "voice_count": 4,
+      "plan_authored_by": "tools/fix_issue_062_voice_variety_2026_05_07.py",
+      "render_step": "Run python tools/build_audio_voicevox.py --provider edge-tts on a machine with network access to speech.platform.bing.com to render the MP3s per voice_planned. Idempotent — only re-renders items whose voice_planned changed.",
+      "render_status": "pending_user_machine_execution"
+    }
   }
 }
