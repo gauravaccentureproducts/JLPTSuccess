@@ -348,7 +348,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "बड़ा भाई (अपना)"
+      "gloss_hi": "बड़ा भाई (अपना)",
+      "register": "humble"
     },
     {
       "id": "n5.vocab.2-people-family.あね",
@@ -365,7 +366,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "बड़ी बहन (अपनी)"
+      "gloss_hi": "बड़ी बहन (अपनी)",
+      "register": "humble"
     },
     {
       "id": "n5.vocab.2-people-family.おとうと",
@@ -382,7 +384,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "छोटा भाई"
+      "gloss_hi": "छोटा भाई",
+      "register": "humble"
     },
     {
       "id": "n5.vocab.2-people-family.いもうと",
@@ -399,7 +402,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "छोटी बहन"
+      "gloss_hi": "छोटी बहन",
+      "register": "humble"
     },
     {
       "id": "n5.vocab.2-people-family.おにいさん",
@@ -416,7 +420,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "बड़ा भाई (आदर)"
+      "gloss_hi": "बड़ा भाई (आदर)",
+      "register": "respectful"
     },
     {
       "id": "n5.vocab.2-people-family.おねえさん",
@@ -433,7 +438,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "बड़ी बहन (आदर)"
+      "gloss_hi": "बड़ी बहन (आदर)",
+      "register": "respectful"
     },
     {
       "id": "n5.vocab.2-people-family.きょうだい",
@@ -499,7 +505,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "दादा (अपने)"
+      "gloss_hi": "दादा (अपने)",
+      "register": "humble"
     },
     {
       "id": "n5.vocab.2-people-family.そぼ",
@@ -516,7 +523,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "दादी (अपनी)"
+      "gloss_hi": "दादी (अपनी)",
+      "register": "humble"
     },
     {
       "id": "n5.vocab.2-people-family.おじいさん",
@@ -533,7 +541,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "दादा / बूढ़ा पुरुष"
+      "gloss_hi": "दादा / बूढ़ा पुरुष",
+      "register": "respectful"
     },
     {
       "id": "n5.vocab.2-people-family.おばあさん",
@@ -550,7 +559,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "दादी / बूढ़ी महिला"
+      "gloss_hi": "दादी / बूढ़ी महिला",
+      "register": "respectful"
     },
     {
       "id": "n5.vocab.2-people-family.おじさん",
@@ -567,7 +577,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "चाचा / अधेड़ पुरुष"
+      "gloss_hi": "चाचा / अधेड़ पुरुष",
+      "register": "respectful"
     },
     {
       "id": "n5.vocab.2-people-family.おばさん",
@@ -584,7 +595,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "चाची / अधेड़ महिला"
+      "gloss_hi": "चाची / अधेड़ महिला",
+      "register": "respectful"
     },
     {
       "id": "n5.vocab.2-people-family.子ども",
@@ -16586,7 +16598,8 @@
       "gloss_hi": "सुप्रभात",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register": "polite"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.こんにちは",
@@ -16683,7 +16696,8 @@
       "gloss_hi": "क्षमा कीजिए",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register": "polite"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.しつれいしました",
@@ -16742,7 +16756,8 @@
       "gloss_hi": "धन्यवाद",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register": "polite"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.どういたしまして",
@@ -16782,7 +16797,8 @@
         "drop": 0
       },
       "gloss_hi": "माफ़ कीजिए",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "register": "polite"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ごめんなさい",
@@ -16820,7 +16836,8 @@
       "gloss_hi": "कृपया",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register": "polite"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いただきます",

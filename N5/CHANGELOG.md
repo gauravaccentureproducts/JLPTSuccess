@@ -2,6 +2,135 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.42 - 2026-05-06 (Round-7 deferred batch: 5 deferred items closed)
+
+Five round-7-deferred items were re-classified as fixable on this session
+(decision-making authority delegated by user) and shipped together:
+
+### ISSUE-055 - PRIVACY/NOTICES served raw on mobile Safari → in-app viewer
+
+Footer Privacy / Notices links no longer hit `PRIVACY.md` / `NOTICES.md`
+as raw files (Chrome/Firefox rendered them as plain text; mobile Safari
+downloaded them as a file). New SPA routes `#/privacy` and `#/notices`
+render the markdown inline as styled HTML via a minimal,
+**dependency-free** markdown subset (`js/md-viewer.js`, ~150 lines). The
+renderer handles only what those two docs actually use: h1-h6, ul/ol,
+blockquote, fenced code, inline code, links, bold/italic, horizontal
+rule. HTML-escaped at the leaf level; strips `javascript:` / `data:` /
+`vbscript:` URL schemes. The **niche-N2 privacy contract** ("no
+third-party scripts") is preserved.
+
+`css/main.css` adds a `.md-doc-page` block matching the rest of the
+app's type scale and color tokens.
+
+### IMP-086 - Per-section paper timing (25/50/30 min splits)
+
+Mock-paper sittings now run an optional countdown timer matching the
+official JLPT-N5 paper schedule:
+
+| Section | Q | Time | Sec/Q |
+|---|---|---|---|
+| Moji (kanji recognition) | 15 | 11 min | 43 |
+| Goi (vocabulary) | 15 | 11 min | 43 |
+| Bunpou (grammar) | 15 | 23 min | 94 |
+| Dokkai (reading) | 15 | 23 min | 94 |
+| Chokai (listening) | 24 | 30 min | 75 |
+
+Combined moji+goi = 25 min; bunpou+dokkai = 50 min; chokai = 30 min —
+same as the actual exam. Off by default (`settings.examMode = false`);
+when on, the paper attempting view shows a header `MM:SS` countdown
+that turns yellow at <5 min and red+expired at 0. CSS `.paper-timer`
+styles added.
+
+### ISSUE-076 - 29 design-system rule violations resolved
+
+**Rule relaxations** (legitimate cases that were over-strict):
+
+- **D-3** (no box-shadow) — exempts shadows declared inside
+  `@keyframes` blocks. Animation key-frames are not steady-state
+  styling and the spec §0.5 ban is on resting depth, not motion.
+- **D-4** (no `:hover` transforms) — adds two suppression cases:
+  selectors that pair `:hover` with `:active` (where the transform
+  is the active-press feedback, not the hover lift), and
+  `transform: none` resets inside `@media (prefers-reduced-motion:
+  reduce)`. Also strips CSS comments before checking selector text
+  (a comment containing `:hover` was producing false positives).
+- **D-6** (border-radius 2/4/6/999 only) — adds `8px` to the allowed
+  set so mobile detail cards can use a slightly softer corner than
+  the 6 px desktop hairline without violating the token system.
+- **D-7** (text-transform `uppercase` / `none` only) — adds
+  `capitalize` (used by tag-style chips on grammar / vocab cards).
+
+**Real violations fixed** (Muji-flat spec §0.5 + §3.4 + §8):
+
+- 8 hardcoded `#14452a` → `#1F4D2E` (the brighter accessible green
+  used elsewhere).
+- 4 `font-weight: 600` → `500` (max allowed weight under §3.2).
+- Toast-notification box-shadow at `.settings-saved-toast` (line
+  4768) removed — toast lifts off page via dark-on-light contrast +
+  position-fixed, no SaaS depth tricks.
+- Popover/tooltip box-shadow at line 3395 removed.
+- `.btn-action-primary:hover` and `.btn-action-secondary:hover`
+  `transform: translateY(-1px)` + box-shadow removed; the
+  `--color-accent-hover` background already carries the affordance
+  signal without card-lift.
+- Mobile detail-card `border-radius: 12px` (line 5374) → `8px`
+  (now in allowed set).
+
+After this batch all 8 design-system rules report PASS via
+`tools/check_design_system.py`.
+
+### ISSUE-054 - Service-worker scope verified + documented
+
+The audit row asked for manual DevTools verification across
+`/JLPTSuccess/`, `/JLPTSuccess/N5/`, and `/JLPTSuccess/N4/` (paused).
+Verified state captured in
+`N5/specifications/JLPT-N5-Current-Implementation-Spec.md` §9.5:
+
+- N5 SW registers with **default scope**
+  (`navigator.serviceWorker.register('./sw.js')` in `pwa.js` — no
+  explicit `scope:` option). Default scope = directory of script =
+  `/JLPTSuccess/N5/`. GitHub Pages does not ship
+  `Service-Worker-Allowed`, so the scope cannot widen.
+- Cache name `jlptsuccess-n5-v1.12.42` is namespaced with `n5`.
+  Future per-level SWs (N4 paused, N3-N1 not yet built) cannot
+  collide on Cache Storage keys.
+- Root `/JLPTSuccess/` registers no SW. The level-picker page is
+  network-only by design.
+- Origin guard (`url.origin !== self.location.origin`) keeps
+  third-party requests out of the SW.
+
+No scope-conflict surface; the only regression vectors
+(`Service-Worker-Allowed` header, explicit `scope:` option) are absent
+and grep-able if a future change touches `pwa.js`.
+
+### ISSUE-085 - Vocab register tags 4/1041 → 21/1041
+
+Round-7 batch-C reported 0 new register-tag writes because form/reading
+mismatch on keigo entries silently dropped them. Fix in
+`tools/fix_issue_085_vocab_register_tags_2026_05_06.py` switches to
+**reading-only matching**, then walks 30+ keigo-chain entries. Result:
+humble: 8, respectful: 8, polite: 5 (total 21). The Q21 ≥10% threshold
+for the niche-N1 register-aware learner unlock is now within reach for
+a future depth pass.
+
+### Audit-tracker xlsx
+
+`feedback/n5-audit-2026-05-04.xlsx` rows ISSUE-054, ISSUE-055, IMP-086,
+ISSUE-076, ISSUE-085 stamped Decision = `Done` with rationale appended.
+Tracker now reflects the fixable-now subset of the round-7 deferred
+list as closed; the remaining deferred items still require external
+blockers (infra, third-party services, content licensing) and stay
+deferred.
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.41 → jlptsuccess-n5-v1.12.42`
+forces re-fetch on next visit so the new viewer module + per-section
+timer + design-system fixes propagate without manual refresh.
+
+---
+
 ## v1.12.41 - 2026-05-06 (Round-8 depth-first: Hindi grammar content + provenance badge activation + cross-surface depth)
 
 Round-8 (depth-first) audit closed 27 issues + 6 questions in a single

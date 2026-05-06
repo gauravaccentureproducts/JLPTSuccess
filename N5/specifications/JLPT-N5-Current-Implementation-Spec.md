@@ -343,7 +343,7 @@ Source: `sw.js`.
 
 ### 9.2 Cache version
 
-`CACHE_VERSION = 'jlptsuccess-n5-v1.12.30'` (mirrors `version.json:version` so a release auto-invalidates the SW cache).
+`CACHE_VERSION = 'jlptsuccess-n5-v1.12.41'` (mirrors `version.json:version` so a release auto-invalidates the SW cache). The string is **namespaced with `n5`** so a future per-level SW (N4 paused, N3-N1 not yet built) cannot collide on the same `Cache Storage` key — see §9.5.
 
 ### 9.3 Update flow
 
@@ -356,6 +356,35 @@ When the SW background-fetches a fresh shell file with a different content-lengt
 - App shortcuts (Today's reviews / Mock test / Browse kanji)
 - `display: standalone`
 - Theme color `#14452a` (the brand green)
+
+### 9.5 Scope & multi-level isolation
+
+**ISSUE-054 (audit round-7) verification.** The N5 app is deployed under
+`/JLPTSuccess/N5/` on the same origin as a sibling level-picker page at
+`/JLPTSuccess/` and a paused N4 build at `/JLPTSuccess/N4/`. Service-worker
+scope rules can produce surprising cross-level interception if not set up
+carefully. Verified state:
+
+| Concern | Behavior | How it's enforced |
+|---|---|---|
+| **N5 SW scope** | `/JLPTSuccess/N5/` (the SW's own directory). | `pwa.js` calls `navigator.serviceWorker.register('./sw.js')` with NO explicit `scope:` option, so the browser uses the default — the directory containing the script. The SW is physically located at `/JLPTSuccess/N5/sw.js`, so the default scope is `/JLPTSuccess/N5/`. |
+| **Cache key collision** | None. | `CACHE_VERSION = 'jlptsuccess-n5-vX.Y.Z'` is namespaced with `n5`. A future N4/N3 SW would use `jlptsuccess-n4-…` / `jlptsuccess-n3-…`. The activate handler also evicts only its own version's stale keys (`keys.filter(k => k !== CACHE_VERSION)`) — it never touches another level's caches. |
+| **Cross-origin requests** | Never intercepted. | The fetch handler short-circuits with `if (url.origin !== self.location.origin) return;` so third-party requests (e.g., to a CDN if a fork ever adds one) flow straight to the network without SW involvement. |
+| **Out-of-scope navigations** | Never intercepted. | A user navigating from `/JLPTSuccess/N5/` to the level-picker `/JLPTSuccess/` or the paused `/JLPTSuccess/N4/` triggers a full network request — the N5 SW does not see it because it's outside the SW's scope. The browser's HTTP cache may serve those responses, but no SW logic runs. |
+| **Root `/JLPTSuccess/` SW** | None registered. | The root `index.html` is a static level-picker; it does NOT call `navigator.serviceWorker.register`. Pages there are network-only. This is intentional: the page is ~1 KB, has no cached state, and lives outside any per-level SW scope. |
+| **Paused `/JLPTSuccess/N4/`** | Has its own SW, separate scope, separate cache namespace. | N4 is in migrated-state under the N4-paused governance rule (no further work). Its SW (if registered there) has scope `/JLPTSuccess/N4/` and cache prefix `jlptsuccess-n4-…`. Independent of N5. |
+
+**Manual DevTools verification** (Application → Service Workers, Cache Storage):
+
+1. From `/JLPTSuccess/N5/`, the active SW shows scope `/JLPTSuccess/N5/`. Cache Storage lists keys prefixed `jlptsuccess-n5-…` only.
+2. Navigating to `/JLPTSuccess/` (root level-picker) shows **no controlling SW** — `navigator.serviceWorker.controller` is `null` on that page. Network requests for `/JLPTSuccess/index.html`, the brand SVG, and `manifest.webmanifest` go straight to network (or HTTP cache).
+3. Navigating to `/JLPTSuccess/N4/` is governed by whatever SW (if any) the migrated N4 build registered. The N5 SW never sees those requests; its `fetch` handler is not invoked.
+
+**No scope-conflict surface.** The default-scope-by-script-location rule, combined with cache-key namespacing, gives each level a fully isolated SW with no shared state. A regression here would manifest as either:
+- An unexpected `Service-Worker-Allowed` HTTP header (we ship none — GitHub Pages doesn't).
+- An explicit `register('./sw.js', { scope: '/JLPTSuccess/' })` call in `pwa.js` (we have none — see the literal one-arg call above).
+
+Both checks are stable across releases via grep on `pwa.js` (CI-eligible if a future regression motivates it).
 
 ---
 

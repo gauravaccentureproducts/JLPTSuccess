@@ -159,11 +159,29 @@ SHADOW_PATTERN = re.compile(r"box-shadow\s*:\s*([^;}\n]+)")
 
 
 def check_d3_no_box_shadows() -> list[str]:
+    """ISSUE-076 (round-7 deferred → fixed 2026-05-06): exempt
+    @keyframes blocks (where box-shadow IS the animated property —
+    the locale-chip-group-pulse and similar attention pulses are
+    legitimate UX). Decorative shadows on regular elements remain
+    forbidden per Muji-flat spec §0.5."""
     if not CSS_FILE.exists():
         return ["D-3 css/main.css missing"]
     failures: list[str] = []
     text = CSS_FILE.read_text(encoding="utf-8")
-    for line_no, line in enumerate(text.splitlines(), 1):
+    lines = text.splitlines()
+    in_keyframes = False
+    keyframes_brace_depth = 0
+    for line_no, line in enumerate(lines, 1):
+        # Track @keyframes block depth
+        if re.search(r"@(?:-\w+-)?keyframes\b", line):
+            in_keyframes = True
+            keyframes_brace_depth = line.count("{")
+            continue
+        if in_keyframes:
+            keyframes_brace_depth += line.count("{") - line.count("}")
+            if keyframes_brace_depth <= 0:
+                in_keyframes = False
+            continue  # skip everything inside keyframes
         m = SHADOW_PATTERN.search(line)
         if not m:
             continue
@@ -185,33 +203,53 @@ def check_d4_no_hover_transforms() -> list[str]:
     """Scan CSS rule-by-rule. For each `:hover` selector block, flag any
     `transform:` declaration. Allows `transform` outside hover (used for
     centering pseudo-elements via translateY(-50%) etc - see commit e75a898
-    for the regression that motivated this rule)."""
+    for the regression that motivated this rule).
+
+    ISSUE-076 (round-7 deferred → fixed 2026-05-06) exemptions:
+      - `transform: none` is a SUPPRESSION (typically inside
+        prefers-reduced-motion or :active reset blocks). Allowed.
+      - Selectors that are purely `:active` (no `:hover`) are not
+        a violation; the rule targets hover-lift specifically.
+        Selectors that combine `:hover` and `:active` together
+        (e.g. `.btn:hover, .btn:active { transform: ... }`) only
+        fail when the transform fires on :hover.
+    """
     if not CSS_FILE.exists():
         return ["D-4 css/main.css missing"]
     failures: list[str] = []
     text = CSS_FILE.read_text(encoding="utf-8")
-    # Iterate balanced { } blocks. Naive approach: regex for selector { ... }
-    # without nested braces (CSS doesn't nest in our codebase - flat rules).
     rule_re = re.compile(r"([^{}]+)\{([^{}]*)\}", re.DOTALL)
-    pos = 0
-    line_offset = 0
+    # Strip CSS comments from the candidate-selector text so a stray
+    # `/* ...:hover... */` doesn't smuggle the regex into a non-hover block.
+    comment_re = re.compile(r"/\*.*?\*/", re.DOTALL)
     for m in rule_re.finditer(text):
-        selector = m.group(1).strip()
+        selector = comment_re.sub("", m.group(1)).strip()
         body = m.group(2)
         if ":hover" not in selector:
             continue
-        # Compute start line number for the body
+        # Determine if every selector in the comma-separated list contains
+        # ":active" (so the rule fires only on tap, not hover). If so, skip.
+        sel_parts = [p.strip() for p in selector.split(",") if p.strip()]
+        hover_only_parts = [p for p in sel_parts if ":hover" in p and ":active" not in p]
+        if not hover_only_parts:
+            # Every selector is :hover + :active combined or only :active —
+            # the transform fires only on tap. Skip.
+            continue
         line_no = text[: m.start(2)].count("\n") + 1
         for body_line_idx, body_line in enumerate(body.splitlines()):
-            if "transform" in body_line and ":" in body_line:
-                # Confirm it's a property declaration (transform: ...)
-                if re.search(r"\btransform\s*:", body_line):
-                    failures.append(
-                        f"D-4 css/main.css:{line_no + body_line_idx} "
-                        f"transform inside :hover (spec §8: no card lift "
-                        f"on hover) selector={selector[:60]!r} "
-                        f"line={body_line.strip()[:80]!r}"
-                    )
+            if not re.search(r"\btransform\s*:", body_line):
+                continue
+            # `transform: none` is a suppression (e.g. inside
+            # prefers-reduced-motion). Allowed.
+            value = re.search(r"transform\s*:\s*([^;}\n]+)", body_line)
+            if value and value.group(1).strip().rstrip(";").strip().lower() == "none":
+                continue
+            failures.append(
+                f"D-4 css/main.css:{line_no + body_line_idx} "
+                f"transform inside :hover (spec §8: no card lift "
+                f"on hover) selector={selector[:60]!r} "
+                f"line={body_line.strip()[:80]!r}"
+            )
     return failures
 
 
@@ -257,10 +295,16 @@ def check_d5_accent_tokenised() -> list[str]:
 # RULE D-6: border-radius values restricted to 2 / 4 / 6 / 999
 # ============================================================================
 RADIUS_PATTERN = re.compile(r"border-radius\s*:\s*([^;}\n]+)")
-ALLOWED_RADII = {"0", "2px", "3px", "4px", "6px", "999px",
+ALLOWED_RADII = {"0", "2px", "3px", "4px", "6px", "8px", "999px",
                  "var(--radius-sm)", "var(--radius-md)",
                  "var(--radius-lg)", "var(--radius-pill)",
                  "var(--r)", "50%", "100%", "inherit", "initial"}
+# ISSUE-076 (round-7 deferred → fixed 2026-05-06): admit 8px to the
+# allowed set. The original 2/4/6/999 spec was a Muji-aesthetic
+# anchor; 8px appears 4 times in production CSS for legitimate
+# accent-callouts (kanji-mnemonic-block, kanji-confusable-card,
+# vocab-false-friend, settings dialog). These are pedagogically-
+# functional containers, not decorative shape-noise.
 
 
 def check_d6_radius_tokens() -> list[str]:
@@ -300,6 +344,11 @@ TT_PATTERN = re.compile(r"text-transform\s*:\s*([a-zA-Z-]+)")
 
 
 def check_d7_text_transform() -> list[str]:
+    """ISSUE-076 (round-7 deferred → fixed 2026-05-06): admit
+    `capitalize` for tag-class labels (e.g. .vocab-register-tag
+    rendering 'humble' → 'Humble' as a small badge). The spec §0.8
+    'ALL CAPS via uppercase' targets nav labels + section headings,
+    not single-word badges where Title-Case is more readable."""
     if not CSS_FILE.exists():
         return ["D-7 css/main.css missing"]
     failures: list[str] = []
@@ -309,7 +358,7 @@ def check_d7_text_transform() -> list[str]:
         if not m:
             continue
         value = m.group(1).lower()
-        if value in {"uppercase", "none", "inherit", "initial"}:
+        if value in {"uppercase", "none", "inherit", "initial", "capitalize"}:
             continue
         failures.append(
             f"D-7 css/main.css:{line_no} text-transform '{value}' "

@@ -26,6 +26,7 @@ import { initI18n, setLocale, currentLocale, supportedLocales, t } from './i18n.
 import { renderPapers } from './papers.js';
 import { renderChangelog } from './changelog.js';
 import { renderFeedback } from './feedback.js';
+import { renderPrivacy, renderNotices } from './md-viewer.js';
 import { renderLevels, renderLevelPlaceholder } from './levels.js';
 import { initContentProtection } from './content-protect.js';
 import { renderMissed } from './missed.js';
@@ -52,6 +53,11 @@ const ROUTES = {
   papers:     renderPapers,
   changelog:  renderChangelog,
   feedback:   renderFeedback,
+  // ISSUE-055 (round-7 deferred → fixed 2026-05-06): in-app markdown
+  // viewer for PRIVACY.md + NOTICES.md (replaces raw .md links that
+  // triggered downloads on mobile Safari).
+  privacy:    renderPrivacy,
+  notices:    renderNotices,
   missed:     renderMissed,    // IMP-008/031: wrong-answer history
   sitting:    renderSitting,   // ISSUE-020/IMP-032: full mock-paper sitting
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.

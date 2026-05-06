@@ -738,7 +738,7 @@ h2 + * + .section-label:first-of-type {
 .pattern-usage-chip {
   display: inline-block;
   padding: 4px 10px;
-  background: var(--c-primary-dark, #14452a);
+  background: var(--c-primary-dark, #1F4D2E);
   color: #fff;
   border-radius: 4px;
   font-size: 14px;
@@ -788,7 +788,7 @@ h2 + * + .section-label:first-of-type {
   font-size: 18px;
   font-weight: 500;
   background: var(--c-bg, #fafafa);
-  color: var(--c-primary-dark, #14452a);
+  color: var(--c-primary-dark, #1F4D2E);
   /* 40% complement to the POS column's 60%. Centered short patterns
    * (〜だろう, は) sit comfortably with breathing room; longer ones
    * (〜です／〜ます) still fit on one line via white-space:nowrap. */
@@ -909,7 +909,9 @@ h2 + * + .section-label:first-of-type {
   background: var(--color-surface);
   border: 0.5px solid var(--color-line-strong);
   border-radius: var(--radius-md);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* ISSUE-076 (round-7 deferred → fixed 2026-05-06): box-shadow removed
+   * per Muji-flat spec §0.5; border + surface contrast carries the
+   * visual layering. */
   font-size: var(--text-sm);
   color: var(--color-text);
   z-index: 1000;
@@ -2719,6 +2721,69 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 /* ISSUE-050 (audit round-6): footer "Switch language" pulses the chip
  * group briefly when the link is clicked, so the picker is visually
  * obvious the first time a non-EN visitor finds it from the footer. */
+/* IMP-086 (round-7 deferred → fixed 2026-05-06): per-section timing on
+ * mock papers. JLPT-N5 official pace: moji/goi 11 min, bunpou/dokkai
+ * 23 min per 15-question paper (43 / 94 sec/q from real-exam ratios). */
+.paper-timer-wrap { font-variant-numeric: tabular-nums; }
+.paper-timer {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-weight: var(--weight-medium, 500);
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(20, 69, 42, 0.08);
+}
+.paper-timer.timer-low {
+  background: rgba(220, 100, 0, 0.15);
+  color: #c0530c;
+}
+.paper-timer.timer-expired {
+  background: #c0530c;
+  color: #fff;
+}
+
+/* ISSUE-055 (round-7 deferred → fixed 2026-05-06): in-app markdown
+ * viewer for PRIVACY.md + NOTICES.md. Wraps the rendered subset in
+ * a readable layout. Niche-N2 / niche-N3 trust-surface fix. */
+.md-doc-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 20px 40px;
+  line-height: 1.6;
+}
+.md-doc-page h1 { margin-top: 8px; font-size: 28px; }
+.md-doc-page h2 { margin-top: 28px; font-size: 22px; }
+.md-doc-page h3 { margin-top: 20px; font-size: 18px; }
+.md-doc-page p  { margin: 10px 0; }
+.md-doc-page ul, .md-doc-page ol { padding-left: 22px; margin: 10px 0; }
+.md-doc-page li { margin: 4px 0; }
+.md-doc-page blockquote {
+  border-left: 3px solid var(--color-accent, #1F4D2E);
+  padding: 4px 12px;
+  margin: 12px 0;
+  background: rgba(20, 69, 42, 0.04);
+}
+.md-doc-page pre {
+  background: rgba(0,0,0,0.04);
+  padding: 10px 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+.md-doc-page code {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.92em;
+  background: rgba(0,0,0,0.04);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.md-doc-page pre code { background: transparent; padding: 0; }
+.md-doc-page hr {
+  border: 0;
+  border-top: 1px solid var(--c-border, var(--color-line));
+  margin: 28px 0;
+}
+.md-doc-source { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--c-border, var(--color-line)); }
+
 @keyframes locale-chip-group-pulse {
   0%   { box-shadow: 0 0 0 0 rgba(20, 69, 42, 0.45); }
   60%  { box-shadow: 0 0 0 8px rgba(20, 69, 42, 0.0); }
@@ -3329,7 +3394,8 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   border: 0.5px solid var(--color-line);
   border-radius: 6px;
   padding: var(--space-2) var(--space-3);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  /* ISSUE-076 (round-7 deferred → fixed 2026-05-06): box-shadow removed
+   * per Muji-flat spec §0.5. */
   font-size: var(--text-sm);
   display: flex;
   align-items: center;
@@ -3624,14 +3690,15 @@ textarea:focus-visible,
   border-color: var(--color-accent);
 }
 .btn-action-primary:hover {
+  /* ISSUE-076 (round-7 deferred → fixed 2026-05-06): hover lift +
+   * shadow removed per Muji-flat spec §8 (no card-lift on hover) and
+   * §0.5 (no box-shadow). The accent-hover background carries the
+   * affordance signal without the SaaS-style depth tricks. */
   background: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 .btn-action-primary:active {
-  transform: translateY(0);
-  box-shadow: none;
+  /* :active suppression — no shadow, no transform (matches new :hover). */
 }
 .btn-action-secondary {
   background: transparent;
@@ -3639,14 +3706,12 @@ textarea:focus-visible,
   border-color: var(--color-line-strong);
 }
 .btn-action-secondary:hover {
+  /* ISSUE-076: hover lift + shadow removed per Muji-flat spec. */
   background: var(--color-surface-alt);
   border-color: var(--color-text-muted);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 .btn-action-secondary:active {
-  transform: translateY(0);
-  box-shadow: none;
+  /* :active suppression. */
 }
 @media (prefers-reduced-motion: reduce) {
   .btn-action-primary:hover,
@@ -4674,7 +4739,7 @@ body[data-route="n1"] #search-input {
   color: var(--c-warning, #b45309);
   text-align: right;
 }
-.paper-submit-hint strong { font-weight: 600; }
+.paper-submit-hint strong { font-weight: 500; }
 /* Drill: visible hint above the (disabled) Check Answer button. Same
  * intent as the paper-submit-hint - explain WHY the button is grey. */
 .check-answer-hint {
@@ -4689,18 +4754,24 @@ body[data-route="n1"] #search-input {
  * Appears bottom-center, fades in/out. Avoids the "did my change
  * actually save?" uncertainty users hit on number-only settings. */
 .settings-saved-toast {
+  /* ISSUE-076 (round-7 deferred → fixed 2026-05-06): box-shadow
+   * removed per Muji-flat spec §0.5 (no shadows). The toast lifts
+   * off the page via dark-on-light contrast (--c-primary-dark
+   * background with 4 % darker border) instead of SaaS-style depth.
+   * Position-fixed bottom-center already keeps it visually distinct;
+   * the affordance does not need shadow to be readable. */
   position: fixed;
   bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   z-index: 1200;
   padding: 10px 18px;
-  background: var(--c-primary-dark, #14452a);
+  background: var(--c-primary-dark, #1F4D2E);
   color: #fff;
   font-size: 13px;
   font-weight: 500;
   border-radius: var(--radius-md);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   pointer-events: none;
   opacity: 0;
   transition: opacity 180ms ease, transform 180ms ease;
@@ -5294,19 +5365,22 @@ html[data-protect="on"][data-blur="true"] body::before {
   main { padding-inline: 16px; }
   .app-footer { padding-inline: 16px; }
 
-  /* Detail-card surfaces: tighten to the checklist's 16/12 spec on
+  /* Detail-card surfaces: tighten to the checklist's 16/8 spec on
    * mobile. Saves ~16-32 px of inner padding (was 20-24 / 24-32) so
-   * narrow phones get more usable text width; the 12 px radius reads
-   * as more "modern card" on small screens than the 6 px hairline
-   * (var(--radius-lg)) that suits desktop. Restricted to the THREE
-   * detail cards - tile cards (.pillar-card / .syllabus-card /
+   * narrow phones get more usable text width; the 8 px radius reads
+   * as a slightly softer "modern card" on small screens than the
+   * 6 px hairline (var(--radius-lg)) that suits desktop, while
+   * staying within the design-system allowed-radius set
+   * (ISSUE-076 round-7 deferred → fixed 2026-05-06; spec §3.4 admits
+   * 2/4/6/8/999 only — 12 px was a violation). Restricted to the
+   * THREE detail cards - tile cards (.pillar-card / .syllabus-card /
    * .level-card / .grammar-card / .vocab-card / .kanji-card) keep
    * their tile-specific design tokens. */
   .pattern-detail,
   .vocab-detail,
   .kanji-detail {
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   /* Selective max-width:100% - applies to elements that legitimately
@@ -5381,7 +5455,7 @@ html[data-protect="on"][data-blur="true"] body::before {
   background: var(--color-surface-alt, #eef2ec);
   color: var(--color-text);
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
   line-height: 1;
   border: 1px solid var(--color-line, #d6d6d0);
@@ -5438,14 +5512,14 @@ html[data-protect="on"][data-blur="true"] body::before {
   padding: 8px 10px;
   background: var(--color-surface-alt, #eef2ec);
   border-bottom: 2px solid var(--color-line, #d6d6d0);
-  font-weight: 600;
+  font-weight: 500;
 }
 .category-table td {
   padding: 8px 10px;
   border-bottom: 1px solid var(--color-line-soft, #ebebe6);
   vertical-align: middle;
 }
-.category-table .cat-pct { font-variant-numeric: tabular-nums; font-weight: 600; }
+.category-table .cat-pct { font-variant-numeric: tabular-nums; font-weight: 500; }
 .category-table .cat-score { font-variant-numeric: tabular-nums; color: var(--color-text-muted); }
 .category-table tr.fail .cat-pct { color: #c8462b; }
 .category-table tr.pass .cat-pct { color: #2f6f29; }
@@ -5493,9 +5567,9 @@ html[data-protect="on"][data-blur="true"] body::before {
   box-sizing: border-box;
 }
 .kanji-filter-input:focus {
-  outline: 2px solid var(--color-accent, #14452a);
+  outline: 2px solid var(--color-accent, #1F4D2E);
   outline-offset: -1px;
-  border-color: var(--color-accent, #14452a);
+  border-color: var(--color-accent, #1F4D2E);
 }
 .kanji-filter-row {
   display: flex;
@@ -5524,9 +5598,9 @@ html[data-protect="on"][data-blur="true"] body::before {
   background: var(--color-surface-alt, #eef2ec);
 }
 .kanji-chip.active {
-  background: var(--color-accent, #14452a);
+  background: var(--color-accent, #1F4D2E);
   color: #fff;
-  border-color: var(--color-accent, #14452a);
+  border-color: var(--color-accent, #1F4D2E);
 }
 .kanji-filter-count {
   margin: 4px 0 0;
@@ -5595,7 +5669,7 @@ html[data-protect="on"][data-blur="true"] body::before {
   cursor: pointer;
 }
 .kanji-sort-select:focus {
-  outline: 2px solid var(--color-accent, #14452a);
+  outline: 2px solid var(--color-accent, #1F4D2E);
   outline-offset: -1px;
 }
 @media (max-width: 600px) {

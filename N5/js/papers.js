@@ -22,6 +22,24 @@ let session = null;             // active mock-test session
 let view = 'setup';              // 'setup' | 'attempting' | 'results'
 let lastResults = null;
 
+// IMP-086 (round-7 deferred → fixed 2026-05-06): per-section JLPT-N5
+// official-pace timing on mock papers. Real exam structure:
+//   言語知識（文字・語彙）   25 min    35 questions   →  43 sec/q
+//   言語知識（文法）・読解   50 min    32 questions   →  94 sec/q
+//   聴解                   30 min    24 questions   →  75 sec/q
+// Each app paper is 15 questions; these per-category budgets scale the
+// official pace to that length. Toggle via the existing examMode setting
+// from free-test (storage.settings.examMode); the paper attempting view
+// adds a countdown header when active and auto-submits at zero.
+const PAPER_TIMING_MIN = {
+  moji:    11,   // 15 q × 43 sec/q ≈ 11 min
+  goi:     11,
+  bunpou:  23,   // 15 q × 94 sec/q ≈ 23 min
+  dokkai:  23,
+};
+let timerInterval = null;
+let timerEndsAt = null;
+
 async function loadManifest() {
   if (manifest) return manifest;
   const res = await fetch('data/papers/manifest.json');
@@ -200,6 +218,11 @@ async function startPaper(container, categoryId, paperNumber) {
     return;
   }
   const paper = await loadPaper(categoryId, paperNumber);
+  // IMP-086: opt-in timer using the global examMode setting + per-section
+  // JLPT-N5 official-pace allocation. examMode off → no timer (existing
+  // behaviour); examMode on → countdown shown, auto-submits at zero.
+  const examMode = !!storage.getSettings().examMode;
+  const paperMins = PAPER_TIMING_MIN[categoryId] || 15;
   session = {
     paper,
     paperId: paper.id,
@@ -209,9 +232,39 @@ async function startPaper(container, categoryId, paperNumber) {
     answers: new Array(paper.questions.length).fill(null), // 0-based choice index per question, or null
     currentIdx: 0,
     submitted: false,
+    examMode,
+    durationSec: examMode ? paperMins * 60 : null,
   };
+  if (examMode) {
+    timerEndsAt = Date.now() + (paperMins * 60 * 1000);
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => _onTimerTick(container), 1000);
+  } else {
+    timerEndsAt = null;
+    if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  }
   view = 'attempting';
   return renderAttempting(container);
+}
+
+function _onTimerTick(container) {
+  if (!session || !timerEndsAt) return;
+  const ms = timerEndsAt - Date.now();
+  const el = document.getElementById('paper-timer');
+  if (!el) return;
+  if (ms <= 0) {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = null;
+    el.textContent = '00:00';
+    el.classList.add('timer-expired');
+    // auto-submit
+    submitPaper(container);
+    return;
+  }
+  const mm = Math.floor(ms / 60000);
+  const ss = Math.floor((ms % 60000) / 1000);
+  el.textContent = `${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
+  if (ms < 60000) el.classList.add('timer-low');
 }
 
 // ---------- View 4: attempting (one question at a time) ----------
@@ -247,6 +300,7 @@ function renderAttempting(container) {
           <span class="paper-progress-current">Q${s.currentIdx + 1}</span>
           <span class="paper-progress-of">of ${total}</span>
           <span class="paper-progress-answered">· ${answered} answered</span>
+          ${s.examMode ? `<span class="paper-timer-wrap">· <span id="paper-timer" class="paper-timer">${_formatRemaining(s.durationSec * 1000)}</span></span>` : ''}
         </div>
       </header>
       ${passageBlock}
@@ -288,6 +342,14 @@ function renderAttempting(container) {
   });
 }
 
+// IMP-086: format a millisecond budget as MM:SS for the countdown header.
+function _formatRemaining(ms) {
+  if (ms < 0) ms = 0;
+  const mm = Math.floor(ms / 60000);
+  const ss = Math.floor((ms % 60000) / 1000);
+  return `${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
+}
+
 // Render Japanese without crashing on the <u> tags or other inline HTML
 // the KB question stems contain. The KB intentionally uses <u>kanji</u>
 // underlines for Mondai-1 reading questions; we let those through.
@@ -302,6 +364,9 @@ function renderJaSafe(html) {
 
 function submitPaper(container) {
   const s = session;
+  // IMP-086: stop the countdown when submitting (manual or auto on timeout)
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  timerEndsAt = null;
   let correct = 0;
   const detail = s.questions.map((q, i) => {
     const chosen = s.answers[i];
