@@ -107,7 +107,9 @@
         "じゃ": "じゃ alone is incomplete; it needs ありません to form the polite negative."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "です संज्ञा के बाद विनम्र वर्तमान-सकारात्मक कोपुला (होना-क्रिया) है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0002",
@@ -130,7 +132,9 @@
         "ます": "ます attaches to verb stems, not nouns."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा के साथ です का भूत-काल = でした।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0003",
@@ -150,7 +154,9 @@
         "がくせいです"
       ],
       "explanation_en": "の links nouns: だいがくの がくせい = 'university's student'. Topic は comes first, then the noun phrase, then です.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "の दो संज्ञाओं को जोड़ता है (का/के): だいがくの がくせい = \"विश्वविद्यालय का छात्र\"। विषय は पहले।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0004",
@@ -173,7 +179,9 @@
         "に": "に marks time / location / recipient - none apply to the topic of a sentence."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "は आत्म-परिचय में विषय का सूचक। उच्चारण \"wa\" पर लिखावट かな は।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0005",
@@ -196,7 +204,9 @@
         "で": "で marks location of action or means - neither fits a topic."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "は विषय-सूचक — \"आज के बारे में, गरम है\"। समय-शब्द (आज/कल) अक्सर は लेते हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0006",
@@ -219,7 +229,9 @@
         "に": "に marks recipient / location / time. The asker wants to know who DID the action - that's the subject (が)."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "प्रश्न-शब्द (कौन/क्या) हमेशा が लेते हैं, は नहीं — क्योंकि नई जानकारी पूछ रहे हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0007",
@@ -243,7 +255,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "X が すき = \"X पसंद है\"। पसंद-वाली चीज़ हमेशा が से चिह्नित।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0008",
@@ -267,7 +281,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "を सकर्मक क्रिया का प्रत्यक्ष कर्म चिह्नित करता है। ほんを よみます = \"किताब पढ़ता हूँ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0009",
@@ -290,7 +306,9 @@
         "へ": "へ marks direction of movement - doesn't fit a direct object."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "を कर्म-सूचक। यहाँ なに खरीदी जाने वाली चीज़ — かう का कर्म।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0010",
@@ -313,7 +331,9 @@
         "と": "と means 'with' or 'and' - doesn't mark times."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "に विशिष्ट घड़ी/कैलेंडर समय (7時に, げつようびに, 4月に) चिह्नित करता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0011",
@@ -336,7 +356,9 @@
         "を": "を marks direct object - doesn't fit location."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "अस्तित्व-स्थान (ある/いる के साथ) に लेता है, で नहीं। बिल्ली कमरे में \"है\" — स्थैतिक — इसलिए に।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0012",
@@ -359,7 +381,9 @@
         "と": "と means 'with' or 'and' - doesn't mark destinations."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "へ गति-दिशा सूचक — गंतव्य की ओर। に भी सही है पर विकल्पों में へ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0013",
@@ -383,7 +407,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "へ गति-क्रिया (いく/行く) की दिशा। N5 में へ मानक दिशा-सूचक।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0014",
@@ -406,7 +432,9 @@
         "を": "を marks direct object or path - doesn't fit a location of action."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "で क्रिया-स्थान सूचक। べんきょうする एक क्रिया है, इसलिए पुस्तकालय で से।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0015",
@@ -429,7 +457,9 @@
         "と": "と means 'with' - would imply 'going with the bus' as a person, which isn't natural."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "で साधन सूचक। バスで = \"बस से\"। दूसरे: でんしゃで, ひこうきで, タクシーで।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0016",
@@ -453,7 +483,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "と साथी / सह-कर्ता सूचक। स्पष्ट गंतव्य (こうえんへ) के साथ ともだちと का अर्थ \"दोस्त के साथ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0017",
@@ -476,7 +508,9 @@
         "に": "に marks recipient / location - doesn't fit a quotation."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "と उद्धरण-सूचक — いう (कहना), おもう (सोचना) से पहले हमेशा と, を कभी नहीं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0018",
@@ -500,7 +534,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "から प्रारंभ-बिंदु (\"से\") सूचक। はじまる (\"शुरू होना\") के साथ \"9 बजे से शुरू\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0019",
@@ -523,7 +559,9 @@
         "に": "に marks time / location / recipient - doesn't introduce a reason."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "खंड के बाद から = \"क्योंकि\"। कारण पहले, परिणाम बाद। i-विशेषण सीधे から लेते हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0020",
@@ -547,7 +585,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "まで सीमा का अंत-बिंदु। から (से) के साथ X से Y तक। पिछले वाक्य में 9時から था।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0021",
@@ -570,7 +610,9 @@
         "と": "と means 'with' or 'and' - doesn't fit a path endpoint."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "まで रास्ते के अंत को भी चिह्नित — \"बिल्कुल घर तक\"। へ केवल दिशा।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0022",
@@ -594,7 +636,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "や आंशिक-सूची सूचक, など (इत्यादि) के साथ युग्म। と \"केवल ये\" का अर्थ देगा — विरोधी।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0023",
@@ -617,7 +661,9 @@
         "で": "で is location / means - wrong for listing."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "や आंशिक-सूची सूचक जब \"और भी\" अर्थित (यहाँ いろいろです से पुष्ट)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0024",
@@ -640,7 +686,9 @@
         "は": "Topic particle -  ungrammatical at sentence end after です."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "B का \"हाँ, छात्र हूँ\" उत्तर तभी, जब A ने हाँ/ना प्रश्न पूछा — इसलिए か (प्रश्न-सूचक)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0025",
@@ -663,7 +711,9 @@
         "は": "は marks topic - doesn't connect alternatives."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ = \"कॉफ़ी या चाय\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0026",
@@ -687,7 +737,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "も = \"भी\"। पिछला वाक्य X-छात्र बता रहा है; わたしも がくせいです = \"मैं भी छात्र हूँ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0027",
@@ -710,7 +762,9 @@
         "を": "を marks direct object - wrong here."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "प्रश्न-शब्द + も + नकारात्मक क्रिया = \"कोई नहीं/कुछ नहीं\"। だれも きませんでした = \"कोई नहीं आया\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0028",
@@ -733,7 +787,9 @@
         "どれ": "どれ asks 'which one (of these options)?'; this stem is a yes/no question about a specific book the speaker is showing, not a choice among multiple."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "これ वक्ता के पास/हाथ में चीज़ को संदर्भित। यहाँ मेरे हाथ में किताब = これ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0029",
@@ -756,7 +812,9 @@
         "あれ": "あれ is a STATEMENT pronoun ('that far'), not a question."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "どれ कई दिखाई देने वाले विकल्पों में से \"कौन सा?\" पूछता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0030",
@@ -779,7 +837,9 @@
         "これは": "これは ほんを よみました = 'as for this, I read a book' - grammatical but a different meaning."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "संज्ञा से सीधे पहले この का प्रयोग। これ अकेला सर्वनाम; この + संज्ञा = \"यह + संज्ञा\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0031",
@@ -802,7 +862,9 @@
         "あれは": "あれは くるまは = double topic, wrong. Use あの くるまは."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "ここ बोलने वाले की वर्तमान स्थिति। \"मेरा घर यहाँ है\" = ここ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0032",
@@ -825,7 +887,9 @@
         "それ": "それ refers to a thing near the listener; the stem is identifying a place you have arrived at, not a thing."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "こちら \"इस तरफ़\" — आदर-रूप, मेज़बान आगंतुक को बुलाते समय: こちらへ どうぞ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0033",
@@ -848,7 +912,9 @@
         "どれ": "どれ asks 'which one?' (from objects), not 'where?'."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "どんな + संज्ञा = \"किस प्रकार का X?\" — मनोरंजन-शैली पूछ रहे हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0034",
@@ -871,7 +937,9 @@
         "どこ": "どこ asks 'where?', not 'what?'."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "こう + क्रिया-तरीक़ा = \"इस तरह\"। こう つかいます = \"इस तरह उपयोग करते हैं\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0035",
@@ -894,7 +962,9 @@
         "だれ": "だれ asks 'who?', not 'what?'."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "なに/なん = \"क्या\"। आगे क्रिया से पहले なに; カウंटर से पहले なん।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0036",
@@ -917,7 +987,9 @@
         "いつ": "いつ asks 'when?'."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "だれ = \"कौन\" (अनौपचारिक)। どなた = आदर-रूप।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0037",
@@ -939,7 +1011,9 @@
         "ですか"
       ],
       "explanation_en": "Topic は first, then question word だれ, then の (possessive), then noun かばん, then ですか. The だれの NOUN structure parallels わたしの NOUN.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "いつ = \"कब\"। समय पूछने का सामान्य प्रश्न-शब्द।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0038",
@@ -962,7 +1036,9 @@
         "だれ": "だれ asks 'who?'."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "どこ = \"कहाँ\" — स्थान पूछता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0039",
@@ -985,7 +1061,9 @@
         "どれ": "どれまで is ungrammatical."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "どれ \"कौन सा\" — कई विकल्पों में से चुनाव।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0040",
@@ -1007,7 +1085,9 @@
         "読みます"
       ],
       "explanation_en": "Time word first (まいにち), then the noun phrase with の linking (にほんごの ほん), then the direct-object marker を, then the verb (べんきょうします).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "どう/いかが = \"कैसा है?\" — स्थिति/मत/प्रस्ताव पूछता है। いかが अधिक विनम्र।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0041",
@@ -1030,7 +1110,9 @@
         "を ... を": "を marks direct object - but すき takes が, not を, and contrast uses は."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "どうして / なぜ = \"क्यों\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0042",
@@ -1053,7 +1135,9 @@
         "に": "に marks recipient / location / time - wrong fit for the thing one can do."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "どうやって = \"कैसे/किस माध्यम से?\"",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0043",
@@ -1076,7 +1160,9 @@
         "へ": "へ marks direction-toward, not path-through."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "いくら = \"कितना\" (मूल्य पूछता है)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0044",
@@ -1100,7 +1186,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "いくつ = \"कितने\" (देसी カウंटर/उम्र)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0045",
@@ -1123,7 +1211,9 @@
         "と": "と means 'with' as a companion (a person), not 'with' as an instrument."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "なんじ = \"कितने बजे\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0046",
@@ -1143,7 +1233,9 @@
         "いいました"
       ],
       "explanation_en": "Recipient first (ともだちに), then quoted speech (「ありがとう」), then the quotation marker と, then いう (here past いいました).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "なんようび = \"कौन सा दिन\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0047",
@@ -1166,7 +1258,9 @@
         "は ... は": "は marks topics - wrong function entirely."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "なんがつなんにち = \"कौन सा महीना, कौन सी तारीख़\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0048",
@@ -1189,7 +1283,9 @@
         "はも": "Same as がも - も replaces は, never stacks. はも is ungrammatical."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "क्रिया + ます = विनम्र वर्तमान-सकारात्मक। 食べます = \"खाता हूँ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0049",
@@ -1212,7 +1308,9 @@
         "どれ": "どれ is a question word ('which one?'), not a statement pronoun."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "क्रिया + ません = विनम्र वर्तमान-नकारात्मक। 食べません = \"नहीं खाता\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0050",
@@ -1235,7 +1333,9 @@
         "どう": "どう asks 'how?' - wrong here."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "क्रिया + ました = विनम्र भूत-सकारात्मक। 食べました = \"खाया\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0051",
@@ -1258,7 +1358,9 @@
         "だれ": "だれから = 'from whom?' - about a giver, not time."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "क्रिया + ませんでした = विनम्र भूत-नकारात्मक।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0220",
@@ -1281,7 +1383,9 @@
         "たい": "たい marks desire/want; the stem describes a habit (\"every day\"), which calls for the present-affirmative ます."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-058 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0221",
@@ -1304,7 +1408,9 @@
         "ましょう": "ましょう = 'let's' (suggestion); not a simple statement."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-058 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0222",
@@ -1327,7 +1433,9 @@
         "ましょう": "ましょう is 'let's' (volitional)."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-059 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0223",
@@ -1350,7 +1458,9 @@
         "ましょうか": "ましょうか proposes / asks \"shall we?\"; the stem describes a past event, not a proposal."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-059 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0224",
@@ -1373,7 +1483,9 @@
         "ませんでした": "Past negative - would mean 'didn't watch'."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-060 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0225",
@@ -1396,7 +1508,9 @@
         "ましょう": "Let's - wrong tense and meaning."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-060 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0226",
@@ -1419,7 +1533,9 @@
         "ます": "Present affirmative."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-061 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0227",
@@ -1442,7 +1558,9 @@
         "ました": "Past affirmative - wrong polarity."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-061 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0228",
@@ -1465,7 +1583,9 @@
         "ません": "Negative - opposite of inviting."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-062 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0229",
@@ -1488,7 +1608,9 @@
         "ません": "Negative."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-062 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0230",
@@ -1511,7 +1633,9 @@
         "ましょう": "ましょう alone is firmer; ませんか is the softer invitation form."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-064 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0231",
@@ -1534,7 +1658,9 @@
         "ましょう": "Without か, it's a suggestion ('let's drink'), not offering to the listener."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-064 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0232",
@@ -1557,7 +1683,9 @@
         "のんで": "のんで is the te-form, used for sequential actions or requests; the stem requires a finite past or present, not a connector."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-065 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0233",
@@ -1580,7 +1708,9 @@
         "たべて": "たべて is the te-form, used for sequential actions or requests; the stem requires a finite past or present, not a connector."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-065 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0234",
@@ -1603,7 +1733,9 @@
         "のんだ": "Plain past."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-066 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0235",
@@ -1626,7 +1758,9 @@
         "きた": "Plain past affirmative."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-066 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0236",
@@ -1649,7 +1783,9 @@
         "よまない": "Plain negative non-past."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-067 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0237",
@@ -1672,7 +1808,9 @@
         "いきって": "Hybrid form: ます-stem いき + て-form ending って. No such conjugation exists. Common learner error from confusing the conjugation classes."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-067 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0238",
@@ -1695,7 +1833,9 @@
         "だ": "だ is the casual copula - never directly after い-adjectives."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0239",
@@ -1718,7 +1858,9 @@
         "く": "く is the negative-stem ending: さむくない (drop い, add くない)."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0240",
@@ -1741,7 +1883,9 @@
         "ない": "Just ない doesn't work - need くない."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-080 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0241",
@@ -1764,7 +1908,9 @@
         "おもしろな": "Wrong - おもしろい is い-adj, not な-adj."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-080 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0242",
@@ -1787,7 +1933,9 @@
         "い でした": "い-adj NEVER take でした. The past is built into the adjective itself."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-081 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0243",
@@ -1810,7 +1958,9 @@
         "むずかしくない": "Negative present, not past."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-081 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0244",
@@ -1833,7 +1983,9 @@
         "な": "な is for use BEFORE a noun, not at sentence end."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-085 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0245",
@@ -1856,7 +2008,9 @@
         "べんる": "Not a word."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-085 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0246",
@@ -1879,7 +2033,9 @@
         "な じゃ": "Drop な before じゃありません."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-086 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0247",
@@ -1902,7 +2058,9 @@
         "すきだ ありません": "Don't combine だ and ありません."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-086 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0248",
@@ -1925,7 +2083,9 @@
         "ます": "Bare ます - not a complete word."
       },
       "high_confusion": true,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-090 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0249",
@@ -1948,7 +2108,9 @@
         "いました": "Past of います - animate."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-090 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0250",
@@ -1971,7 +2133,9 @@
         "のまない": "Plain non-past negative."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-068 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0251",
@@ -1994,7 +2158,9 @@
         "たべない": "Plain non-past."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-068 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0252",
@@ -2017,7 +2183,9 @@
         "のむて": "Don't keep む."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-069 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0253",
@@ -2040,7 +2208,9 @@
         "行くて": "Don't keep く."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-069 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0254",
@@ -2063,7 +2233,9 @@
         "たべる": "Plain form, doesn't connect smoothly to next clause."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-070 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0255",
@@ -2086,7 +2258,9 @@
         "たべます": "Don't mix polite forms mid-chain."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-070 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0256",
@@ -2109,7 +2283,9 @@
         "まった": "That's the た-form, not て-form."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-071 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0257",
@@ -2132,7 +2308,9 @@
         "かいた": "た-form."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-071 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0258",
@@ -2155,7 +2333,9 @@
         "たべました": "Past tense."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-072 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0259",
@@ -2178,7 +2358,9 @@
         "しません": "Negative."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-072 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0260",
@@ -2201,7 +2383,9 @@
         "とった": "That's た-form."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-074 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0261",
@@ -2224,7 +2408,9 @@
         "みます": "Polite form."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-074 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0262",
@@ -2247,7 +2433,9 @@
         "はなしません": "Polite negative - wrong structure."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-075 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0263",
@@ -2270,7 +2458,9 @@
         "すいて": "Wrong stem-shift."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-075 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0264",
@@ -2293,7 +2483,9 @@
         "とります": "Polite affirmative."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-077 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0265",
@@ -2316,7 +2508,9 @@
         "わすれます": "Polite affirmative."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-077 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0266",
@@ -2339,7 +2533,9 @@
         "じゃなかった": "That's for nouns / な-adj."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-082 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0267",
@@ -2362,7 +2558,9 @@
         "くて": "te-form connector."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-082 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0268",
@@ -2385,7 +2583,9 @@
         "かった": "Past - wrong here."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "i-विशेषण te-रूप: い हटाओ + くて।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0269",
@@ -2408,7 +2608,9 @@
         "しかった": "Past."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "いそがしい → いそがしくて।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0270",
@@ -2431,7 +2633,9 @@
         "じゃ": "Negative starter."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "na-विशेषण भूत = + でした (संज्ञा की तरह)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0271",
@@ -2454,7 +2658,9 @@
         "かったです": "い-adj past."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "ゆうめい (na-विशेषण) भूत-प्रश्न = でしたか।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0272",
@@ -2477,7 +2683,9 @@
         "じゃありません": "Present negative."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "na-विशेषण भूत-नकारात्मक = + じゃありませんでした।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0273",
@@ -2500,7 +2708,9 @@
         "じゃありません": "Present, not past."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "かんたん na-विशेषण। भूत-नकारात्मक = じゃありませんでした।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0274",
@@ -2523,7 +2733,9 @@
         "な": "Used before nouns, not for connection."
       },
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "na-विशेषण te-रूप: केवल で।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0275",
@@ -2546,7 +2758,9 @@
         "な": "Goes before a noun."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "しんせつ (na-विशेषण) → しんせつで।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0276",
@@ -2569,7 +2783,9 @@
         "ません": "Bare ません - needs a verb stem."
       },
       "high_confusion": true,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "सजीव (बिल्ली, व्यक्ति) के लिए います।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0277",
@@ -2592,7 +2808,9 @@
         "ます": "Affirmative."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "सजीव अस्तित्व का नकार = いません।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0278",
@@ -2615,7 +2833,9 @@
         "行って": "te-form."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "行きます से ます हटाओ + たい + です = \"जाना चाहता हूँ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0279",
@@ -2638,7 +2858,9 @@
         "食べた": "Past."
       },
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "たい-रूप इच्छा व्यक्त करता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0285",
@@ -2656,7 +2878,9 @@
       "correctAnswer": "ね",
       "explanation_en": "ね at sentence-end seeks agreement or shared feeling - 'isn't it?', 'right?'. Used when the speaker assumes the listener has the same view.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "ね वाक्य-अंत में सहमति/साझा भावना माँगता है — \"है ना?\"। वक्ता मानता है कि श्रोता का भी यही मत है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0286",
@@ -2674,7 +2898,9 @@
       "correctAnswer": "よ",
       "explanation_en": "よ at sentence-end conveys new information to the listener or emphasizes a point. 'I'm telling you / you should know'.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "よ वाक्य-अंत में नई जानकारी देता है या ज़ोर देता है। \"मैं बता रहा हूँ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0287",
@@ -2692,7 +2918,9 @@
       "correctAnswer": "よね",
       "explanation_en": "よね is よ + ね: the speaker is fairly sure but checking. 'I think... right?'",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "よね = よ + ね: वक्ता काफ़ी निश्चित है पर पुष्टि माँग रहा है। \"...है ना?\"",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0293",
@@ -2716,7 +2944,9 @@
         "に": "に marks destinations, recipients, or specific times. It does not mark scope-limitation on a direct object before a transitive verb.",
         "や": "や means 'and (non-exhaustive)' BETWEEN two nouns. It needs a second noun after the blank -  there isn't one here."
       },
-      "auto": false
+      "auto": false,
+      "explanation_hi": "だけ = \"केवल\"। दूसरा वाक्य \"चाय/जूस नहीं पीता\" यह बहिष्कार पुष्ट करता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0296",
@@ -2734,7 +2964,9 @@
       "correctAnswer": "ごろ",
       "explanation_en": "ごろ attaches to a TIME POINT to mean 'around'. Use ごろ for time points; ぐらい for durations/quantities.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "ごろ समय-बिंदु से जुड़ता है (\"के आसपास\")। समय-बिंदु: ごろ; अवधि/मात्रा: ぐらい।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0297",
@@ -2752,7 +2984,9 @@
       "correctAnswer": "など",
       "explanation_en": "や〜などを is the canonical 'X, Y, etc.' non-exhaustive list pattern. Distractors: もの is a noun (doesn't compose with や), よ is a sentence-final particle, で is means/location.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "や〜などを = \"X, Y, इत्यादि\" आंशिक सूची का मानक पैटर्न।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0298",
@@ -2770,7 +3004,9 @@
       "correctAnswer": "ずつ",
       "explanation_en": "ずつ after a quantity means 'each' or 'per' - distributing a fixed amount.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "मात्रा के बाद ずつ = \"प्रत्येक\" / \"प्रति\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0313",
@@ -2788,7 +3024,9 @@
       "correctAnswer": "いくら",
       "explanation_en": "いくら asks the price.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "いくら मूल्य पूछता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0314",
@@ -2806,7 +3044,9 @@
       "correctAnswer": "いくつ",
       "explanation_en": "いくつ asks 'how many' using the native ひと-counter system. Also used to politely ask age (especially of children).",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "いくつ \"कितने\" (देसी カウंटर); उम्र पूछने में भी, ख़ास बच्चों की।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0315",
@@ -2824,7 +3064,9 @@
       "correctAnswer": "なんじ",
       "explanation_en": "Counter じ = 'o'clock'. なんじ asks 'what time?'. Pairs with から/まで for time ranges.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "カウंटर じ = \"बजे\"। なんじ = \"कितने बजे?\"",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0351",
@@ -2842,7 +3084,9 @@
       "correctAnswer": "そして",
       "explanation_en": "そして begins a new sentence to add another action or fact. Used in narration / lists.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "そして नया वाक्य शुरू कर एक और कार्य/तथ्य जोड़ता है। वर्णन/सूची में।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0352",
@@ -2860,7 +3104,9 @@
       "correctAnswer": "それから",
       "explanation_en": "それから begins a clause to mark sequence - 'after that, next'.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "それから खंड शुरू कर क्रम चिह्नित — \"उसके बाद, अगला\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0353",
@@ -2878,7 +3124,9 @@
       "correctAnswer": "でも",
       "explanation_en": "でも at the start of a new sentence introduces a contrast. Casual.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "でも नये वाक्य शुरू में विरोध परिचित कराता है। अनौपचारिक।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0354",
@@ -2896,7 +3144,9 @@
       "correctAnswer": "しかし",
       "explanation_en": "Formal/written form of でも. Same meaning, more formal register.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "しかし でも का औपचारिक/लिखित रूप।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0356",
@@ -2914,7 +3164,9 @@
       "correctAnswer": "が",
       "explanation_en": "が at end of a clause (after です/ます or plain) means 'but' as a softening connector. Often introduces a contrast or extends thought.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "खंड के अंत में が (です/ます या सादे के बाद) = \"लेकिन\" — नरम जोड़क।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0358",
@@ -2932,7 +3184,9 @@
       "correctAnswer": "から",
       "explanation_en": "から at end of a clause means 'because'. Reason comes first; result follows.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "खंड-अंत में から = \"क्योंकि\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0418",
@@ -2950,7 +3204,9 @@
       "correctAnswer": "です",
       "explanation_en": "Topic わたし + は + noun + です. Standard self-introduction.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "विषय わたし + は + संज्ञा + です। मानक आत्म-परिचय।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0419",
@@ -2974,7 +3230,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-022: और — आंशिक सूची।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0420",
@@ -2998,7 +3256,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-023: वाक्य-अंत प्रश्न-सूचक।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0421",
@@ -3022,7 +3282,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ (\"कॉफ़ी या चाय\")।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0422",
@@ -3046,7 +3308,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "पिछले संदर्भ में कई लोग समान-स्थिति बताए — も उस समूह में वक्ता को शामिल करता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0423",
@@ -3070,7 +3334,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-035: ぐらい/くらい — मात्राओं के साथ \"लगभग\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0424",
@@ -3094,7 +3360,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "वक्ता वस्तु पकड़े है तो これ (\"यह\" — वक्ता के पास)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0425",
@@ -3118,7 +3386,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "こちら (\"इस तरफ़\") — मेज़बान आमंत्रित करते हुए। こちらへ どうぞ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0426",
@@ -3142,7 +3412,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-043: こんな/そんな/あんな/どんな + संज्ञा — \"इस/उस प्रकार का\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0427",
@@ -3166,7 +3438,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-044: こう/そう/ああ/どう — \"इस/उस तरह/कैसे\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0428",
@@ -3190,7 +3464,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-045: क्या।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0429",
@@ -3214,7 +3490,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-046: कौन।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0430",
@@ -3238,7 +3516,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "पैटर्न n5-047: कब।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0431",
@@ -3262,7 +3542,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "वक्ता उस स्थान पर है तो ここ (\"यहाँ\")। そこ श्रोता के पास; あそこ दूर; どこ \"कहाँ?\"",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0432",
@@ -3286,7 +3568,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "कई विकल्पों में से \"कौन सा?\" = どれ। どれが चयन के लिए कर्ता-प्रश्न।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0433",
@@ -3310,7 +3594,9 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "auto": true
+      "auto": true,
+      "explanation_hi": "काम कैसा है? — どう (कैसा) सबसे प्राकृतिक प्रश्न-शब्द।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0434",
@@ -3328,7 +3614,9 @@
         "たなかです"
       ],
       "explanation_en": "Possessive わたしの + noun-phrase 名前 + topic は + predicate. The topic marker は attaches to 名前, not to わたし directly.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "स्वामित्व わたしの + संज्ञा-वाक्य 名前 + विषय は + विधेय। は 名前 से, わたし से नहीं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0435",
@@ -3348,7 +3636,9 @@
         "ですか"
       ],
       "explanation_en": "Demonstrative あの + noun + topic は + question word だれ + ですか. The question word slots into the position the answer would occupy.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "निर्देशक あの + संज्ञा + विषय は + प्रश्न-शब्द だれ + ですか।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0436",
@@ -3368,7 +3658,9 @@
         "あります"
       ],
       "explanation_en": "Location pattern: NOUN の 上に X が あります. Possessive の chains 上 to つくえ. The subject 本 takes が because it is new information.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "स्थान पैटर्न: संज्ञा の 上に X が あります। 本 नई जानकारी (が)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0437",
@@ -3386,7 +3678,9 @@
         "読みます"
       ],
       "explanation_en": "Location-of-action で comes before the object phrase. Standard order: location-で, object-を, verb.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "क्रिया-स्थान で कर्म-वाक्यांश से पहले। मानक क्रम: स्थान-で, कर्म-を, क्रिया।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0438",
@@ -3406,7 +3700,9 @@
         "食べます"
       ],
       "explanation_en": "Sequential te-form chain: TIME, Verb1-て、Object Verb2. The te-form おきて signals 'and then'. The first clause has no explicit object; the second has ごはんを 食べます.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "क्रमिक te-form: TIME, V1-て, कर्म V2। おきて = \"उठकर फिर\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0439",
@@ -3424,7 +3720,9 @@
         "ください"
       ],
       "explanation_en": "Adverb すこし comes before the verb. Verb-て + ください = polite request. Order: adverb + Verb-て + ください.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "क्रिया-विशेषण すこし क्रिया से पहले। V-て + ください = विनम्र अनुरोध।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0440",
@@ -3442,7 +3740,9 @@
         "かいました"
       ],
       "explanation_en": "Counter pattern: Object を Counter Verb. Quantity 三つ sits between the object marker を and the verb -  it does NOT take its own particle, and it is NOT placed before the noun.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "カウंटर पैटर्न: कर्म を カウंटर क्रिया। मात्रा 三つ क्रिया से पहले।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0441",
@@ -3462,7 +3762,9 @@
         "いいですか"
       ],
       "explanation_en": "Permission request: Place で + Object を + Verb-て + も + いいですか. The Verb-てもいい construction asks/grants permission; か turns it into a question.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "अनुमति: स्थान で + कर्म を + V-て + も + いいですか।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0442",
@@ -3480,7 +3782,9 @@
         "ちいさいです"
       ],
       "explanation_en": "Comparison pattern: A は B より [adj] です. Topic A first, then B より (the comparison reference), then the i-adjective predicate.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "तुलना: A は B より [विशेषण] です। विषय A पहले, फिर B より, फिर i-विशेषण।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0443",
@@ -3500,7 +3804,9 @@
         "ほしいです"
       ],
       "explanation_en": "Want pattern: Topic は + (adjective +) Noun が + ほしいです. The desired object is marked with が, not を.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "चाहत: विषय は + (विशेषण +) संज्ञा が + ほしいです। चाही गई वस्तु が से।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0444",
@@ -3518,7 +3824,9 @@
         "行きたいです"
       ],
       "explanation_en": "Verb-stem + たい: 'want to V'. Direction marker へ before the verb-tai phrase. たい conjugates as an i-adjective.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-तना + たい = \"करना चाहता हूँ\"। दिशा-सूचक へ क्रिया-तना से पहले।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0445",
@@ -3538,7 +3846,9 @@
         "いけません"
       ],
       "explanation_en": "Prohibition: Place で + Object を + Verb-て + は + いけません. The contrast ては + いけません = 'doing X is not allowed'.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "निषेध: स्थान で + कर्म を + V-て + は + いけません।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0446",
@@ -3555,7 +3865,9 @@
       "correctAnswer": "は",
       "explanation_en": "Topic marker は. わたし is the topic (already-known referent). Romaji 'wa' is the standard romanisation of the particle.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "विषय-सूचक は। わたし पहले से ज्ञात संदर्भ। उच्चारण \"wa\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0447",
@@ -3572,7 +3884,9 @@
       "correctAnswer": "を",
       "explanation_en": "Direct-object marker を. 本 is the thing being read. Romaji 'o' is the standard romanisation; 'wo' also accepted.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "प्रत्यक्ष-कर्म सूचक を। 本 = पढ़ने की चीज़। उच्चारण \"o\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0448",
@@ -3588,7 +3902,9 @@
       "correctAnswer": "に",
       "explanation_en": "Time particle に. Specific clock-times take に. Note: relative time words like きょう / あした do NOT take に; only specific times, dates, days do.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "समय-सूचक に — विशिष्ट घड़ी-समय। きょう/あした जैसे सापेक्ष शब्द に नहीं लेते।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0449",
@@ -3604,7 +3920,9 @@
       "correctAnswer": "で",
       "explanation_en": "Means/instrument で. バスで = 'by bus'. Compare: バスに 行きます would mean 'go TO the bus' (to board it).",
       "high_confusion": true,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "साधन/उपकरण で। バスで = \"बस से\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0450",
@@ -3620,7 +3938,9 @@
       "correctAnswer": "が",
       "explanation_en": "With すき/きらい/ほしい/わかる/できる, the object of the feeling or ability takes が, not を. Topic わたし takes は; thing-liked ねこ takes が.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "すき/きらい/ほしい/わかる/できる के साथ इच्छा/क्षमता का कर्म が लेता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0451",
@@ -3636,7 +3956,9 @@
       "correctAnswer": "たべて",
       "explanation_en": "たべる is a Group-2 (る-verb): drop る + add て = たべて. Group-2 conjugation is uniform.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "たべる समूह-2 क्रिया: る हटाओ + て = たべて।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0452",
@@ -3652,7 +3974,9 @@
       "correctAnswer": "いきました",
       "explanation_en": "いく is a Group-1 (う-verb). Polite past: stem いき + ました = いきました. Note: いく's te-form is 行って (irregular), but the ます-form is regular.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "いく समूह-1। विनम्र भूत: तना いき + ました = いきました।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0453",
@@ -3668,7 +3992,9 @@
       "correctAnswer": "しません",
       "explanation_en": "する is irregular. Negative polite: し + ません = しません. The stem mutates to し for all polite forms (します / しました / しません / しませんでした).",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "する अनियमित। नकारात्मक विनम्र: し + ません = しません।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0464",
@@ -3684,7 +4010,9 @@
       "correctAnswer": "いっかい",
       "explanation_en": "Counter 階 (floor): 1 takes the small っ rule → いっかい. The 1/6/8/10 cluster of counters with k-row often takes っ + double-consonant.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "カウंटर 階 1 के साथ: いっかい (छोटा っ नियम)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0465",
@@ -3700,7 +4028,9 @@
       "correctAnswer": "さんがい",
       "explanation_en": "Counter 階 with 3: rendaku (sequential voicing) k → g. さん + かい → さんがい. This is the famous rendaku rule for 階; 3階 is the highest-frequency exception learners must memorise.",
       "high_confusion": true,
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "カウंटर 階 3 के साथ: रेन्डाकु (अनुक्रमिक स्वर)। さんがい।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0466",
@@ -3716,7 +4046,9 @@
       "correctAnswer": "ろっぽん",
       "explanation_en": "Counter 本 with 6: ろく + ほん → ろっぽん. The 1/6/8/10 cluster of 本 takes ぽん (handakuten + small っ): いっぽん / ろっぽん / はっぽん / じゅっぽん.",
       "high_confusion": true,
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "カウंटर 本 6 के साथ: ろっぽん (handakuten + small っ)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0467",
@@ -3732,7 +4064,9 @@
       "correctAnswer": "いっぱい",
       "explanation_en": "Counter 杯 with 1: いち + はい → いっぱい. Same rule as 本 -  1/6/8/10 take ぱい (handakuten). Note: いっぱい also means 'full/plenty' as an adverb (homograph).",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "カウंटर 杯 1 के साथ: いっぱい।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0468",
@@ -3748,7 +4082,9 @@
       "correctAnswer": "はっぷん",
       "explanation_en": "Counter 分 with 8: はち + ふん → はっぷん. The 1/3/4/6/8/10 cluster of 分 takes ぷん (handakuten + small っ for 1/6/8/10): いっぷん / さんぷん / よんぷん / ろっぷん / はっぷん / じゅっぷん.",
       "high_confusion": true,
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "カウंटer 分 8 के साथ: はっぷん।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0469",
@@ -3770,7 +4106,9 @@
         "を / に": "を marks direct objects, not means or paths.",
         "に / で": "Reverses the rule: location-of-action is で, direction-of-motion is に. Here it's both means + destination.",
         "で / を": "を doesn't mark destinations of go-verbs; に or へ does."
-      }
+      },
+      "explanation_hi": "साधन + गंतव्य: バスで (बस से) + かいしゃに (कंपनी को)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0470",
@@ -3791,7 +4129,9 @@
       "distractor_explanations": {
         "に / に": "はたらく + に would suggest direction-of-motion ('going to work at'), not the routine activity.",
         "で / で": "つとめる + で is wrong; つとめる pairs with に because employment is a stative attachment."
-      }
+      },
+      "explanation_hi": "はたらく क्रिया-स्थान で लेता है। つとめる に लेता है (\"से जुड़ी अवस्था\")।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0471",
@@ -3808,7 +4148,9 @@
       "correctAnswer": "に / に",
       "explanation_en": "Specific clock-times take に: 七時に (at 7) + 八時に (at 8). Both clauses are time-anchored events; に is the only correct particle for specific time. The 'うちを 出る' (leave home) construction uses を for the source of the leave-action -  but the question only blanks the time particles.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "विशिष्ट घड़ी-समय に लेते हैं: 七時に + 八時に।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0472",
@@ -3825,7 +4167,9 @@
       "correctAnswer": "と / を / で / を",
       "explanation_en": "Companion と (with friend), object を (saw a movie), location-of-action で (at the cafe), object を (drank coffee). All four particles in a connected narrative: distinguishes companion-と from subject-が, location-で from time-に, and reinforces を for direct objects.",
       "high_confusion": true,
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "साथी と + कर्म を + क्रिया-स्थान で — एक जुड़े वर्णन में चार कण।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0473",
@@ -3843,7 +4187,9 @@
       "correctAnswer": "学校",
       "explanation_en": "がっこう = 学校 (school). The distractors swap 校 (school-building) with other N5 kanji: 生 (life/student), 行 (go), 日 (day). Forces precise recognition of 校.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "がっこう = 学校 (विद्यालय)। 校 (पाठशाला) पहचानना।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0474",
@@ -3861,7 +4207,9 @@
       "correctAnswer": "来月",
       "explanation_en": "らいげつ = 来月 (next month). 来 (come/next) + 月 (month). The distractors are all valid N5 time words with one element swapped: 今月 (this month), 今週 (this week), 来週 (next week). Tests both kanji-recognition and time-vocabulary precision.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "らいげつ = 来月 (अगला महीना)। 来 + 月।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0475",
@@ -3879,7 +4227,9 @@
       "correctAnswer": "高い",
       "explanation_en": "たかい = 高い (expensive / tall). All four are N5 i-adjectives with related meanings: 古い (old), 新しい (new), 安い (cheap, antonym of 高い). Tests precise kanji recognition within a tightly-related semantic field.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "たかい = 高い (महँगा/लंबा)। N5 i-विशेषण।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0476",
@@ -3897,7 +4247,9 @@
       "correctAnswer": "白い",
       "explanation_en": "しろい = 白い (white). Distractors use kanji visually similar to 白: 日 (day/sun), 百 (hundred), 目 (eye). The four characters form a tightly-clustered visual group -  small differences in stroke count / interior strokes distinguish them. Tests precise glyph discrimination.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "しろい = 白い (सफ़ेद)। 白 vs 日/百/目 की बारीक़ पहचान।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0477",
@@ -3915,7 +4267,9 @@
       "correctAnswer": "会社",
       "explanation_en": "かいしゃ = 会社 (company). 会 + 社. Distractors keep 会 and swap with other N5 kanji: 話 (talk), 見 (see), 国 (country).",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "かいしゃ = 会社 (कंपनी)। 会 + 社।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0478",
@@ -3933,7 +4287,9 @@
       "correctAnswer": "食べ",
       "explanation_en": "たべ = 食べ (the stem of 食べる, to eat). The distractors all use semantically-related action kanji: 飲 (drink) is the most common confusion since both 食べる and 飲む are eating/drinking verbs; 口 (mouth) and 見 (see) are visually-distinct but conceptually related. Tests verb-stem recognition against semantically-similar foils.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "たべ = 食べ (食べる का तना)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0454",
@@ -3951,7 +4307,9 @@
       "correctAnswer": "ふつかまえ がっこうを やすみました。",
       "explanation_en": "おととい = day before yesterday = 2 days ago = ふつかまえ. The native counter ふつか (2 days) + まえ (before) is the synonym chain.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-117 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0455",
@@ -3969,7 +4327,9 @@
       "correctAnswer": "あしたの つぎの ひに うちに かえります。",
       "explanation_en": "あさって = day after tomorrow = the day after tomorrow (あしたの つぎの ひ).",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-117 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0456",
@@ -3987,7 +4347,9 @@
       "correctAnswer": "りょうしんは げんきです。",
       "explanation_en": "ちち + はは (father + mother) = りょうしん (parents). Direct lexical equivalence.",
       "high_confusion": false,
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "पैटर्न n5-002 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0457",
@@ -4005,7 +4367,9 @@
       "correctAnswer": "この へやは あかるくないです。",
       "explanation_en": "くらい (dark) = あかるくない (not bright). Antonym-via-negation tests the i-adjective negative form + opposite-meaning pair.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0458",
@@ -4023,7 +4387,9 @@
       "correctAnswer": "この くるまは たかくないです。",
       "explanation_en": "やすい (cheap) = たかくない (not expensive). Common antonym pair; たかい also means 'tall' but in price context = expensive.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-080 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0459",
@@ -4041,7 +4407,9 @@
       "correctAnswer": "この もんだいは むずかしくないです。",
       "explanation_en": "やさしい (easy, 易しい) = むずかしくない (not difficult). Note: やさしい also has a 'kind' sense (優しい), but the easy sense is most common in N5.",
       "high_confusion": true,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-080 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0460",
@@ -4059,7 +4427,9 @@
       "correctAnswer": "プレゼントを いっぱい もらいました。",
       "explanation_en": "たくさん = いっぱい (a lot, plenty). Both adverbs of quantity meaning 'a large amount'.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-002 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0461",
@@ -4077,7 +4447,9 @@
       "correctAnswer": "ふくを あらいました。",
       "explanation_en": "せんたくする (to do laundry, 洗濯する) = あらう (to wash). Specific-to-general lexical equivalence; both target the same action.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-004 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0462",
@@ -4095,7 +4467,9 @@
       "correctAnswer": "もりさんは リーさんから ペンを かりました。",
       "explanation_en": "AがBにかす (A lends to B) = BがAからかりる (B borrows from A). Same event from the recipient's perspective. Note the particle change: にかす → からかりる.",
       "high_confusion": true,
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "पैटर्न n5-002 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0463",
@@ -4113,7 +4487,9 @@
       "correctAnswer": "この ケーキは おいしくないです。",
       "explanation_en": "まずい (bad-tasting) = おいしくない (not delicious). Antonym pair; まずい is the i-adjective directly opposite to おいしい.",
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
+      "explanation_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0479",
@@ -4137,7 +4513,9 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "あげる प्राप्तकर्ता को に से चिह्नित। पैटर्न: [देने वाला] は [प्राप्तकर्ता] に [वस्तु] を あげる।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0480",
@@ -4161,7 +4539,9 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "を जो दिया जा रहा है उस वस्तु को चिह्नित। पिता फूल माँ को देते हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0481",
@@ -4185,7 +4565,9 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "から स्रोत — जिस व्यक्ति से प्राप्त हुआ। पैटर्न: [प्राप्तकर्ता] は [स्रोत] から [वस्तु] を もらう।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0482",
@@ -4209,7 +4591,9 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "を जो प्राप्त हो रहा है। मैं उपहार बड़े भाई से प्राप्त करता हूँ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0483",
@@ -4233,7 +4617,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "ので = \"क्योंकि\" / \"इसलिए\"। から से नरम/अधिक विनम्र। सादा रूप से जुड़ता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0484",
@@ -4257,7 +4643,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "जब ので संज्ञा/na-विशेषण के बाद आता है, बीच में な आवश्यक: 雨 → 雨なので।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0485",
@@ -4281,7 +4669,9 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "V-तना + ながら दो साथ-साथ क्रियाएँ। एक ही कर्ता।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0486",
@@ -4305,7 +4695,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "ながら सीधे क्रिया-तना से जुड़ता है। \"कॉफ़ी पीते-पीते किताब पढ़ता हूँ\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0487",
@@ -4329,7 +4721,9 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "いつも = \"हमेशा\" (100%)। 毎日 के साथ कुल निरंतरता पर ज़ोर।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0488",
@@ -4353,7 +4747,9 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "महीने में एक बार = たまに (कभी-कभार)। आवृत्ति-पैमाना: いつも > たいてい > よく > ときどき > たまに।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0504",
@@ -4369,7 +4765,9 @@
       ],
       "correctAnswer": "から",
       "explanation_en": "から〜まで paired range. The Xから Yまで construction marks 'from X to Y'. The まで is already in place; から is the starting marker.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "から〜まで युग्मित दायरा।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0505",
@@ -4385,7 +4783,9 @@
       ],
       "correctAnswer": "から",
       "explanation_en": "から〜まで paired range marker -  'from Monday to Friday'. から marks the start point of a time range.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "から〜まで दायरा-सूचक — \"सोम से शुक्र तक\"। から प्रारंभ-बिंदु।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0506",
@@ -4401,7 +4801,9 @@
       ],
       "correctAnswer": "の",
       "explanation_en": "Possessive の links a possessor to a noun: わたしの ほん = my book. Direct N5 grammar.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "स्वामित्व の स्वामी को संज्ञा से जोड़ता है: わたしの ほん = \"मेरी किताब\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0507",
@@ -4417,7 +4819,9 @@
       ],
       "correctAnswer": "の",
       "explanation_en": "Nominaliser の turns the verb-clause 見る into a noun phrase 'watching movies'. もの and ところ form different noun phrases (thing-to-watch / place-to-watch) that don't fit the 'X が すきです' frame as cleanly. で is a particle, not a nominaliser. (Earlier this question listed こと in the choice set; こと is also a valid nominaliser here, so it was replaced with で to remove the multi-correct hazard. Native speakers freely use either の or こと for sensory verbs like 見る.)",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "नामकरण-の क्रिया-वाक्य 見る को संज्ञा-वाक्य \"देखना\" बनाता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0508",
@@ -4433,7 +4837,9 @@
       ],
       "correctAnswer": "しか",
       "explanation_en": "しか〜ない/ません construction = 'only X (and that's a limited amount)'. Always paired with a negative verb (ありません). Distractors fail because です is the copula (not a particle), まで is endpoint, から is start point.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "しか〜ない/ません = \"केवल X\"। हमेशा नकारात्मक क्रिया (ありません) के साथ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0509",
@@ -4449,7 +4855,9 @@
       ],
       "correctAnswer": "この",
       "explanation_en": "Adjectival demonstrative この (this + noun). この/その/あの always precede a noun. これ is the standalone pronoun form (これ ほん is ungrammatical).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "विशेषण निर्देशक この (यह + संज्ञा)। この/その/あの हमेशा संज्ञा से पहले।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0510",
@@ -4465,7 +4873,9 @@
       ],
       "correctAnswer": "どうして",
       "explanation_en": "どうして = why. The expected answer would be 'because of X'. なぜ is interchangeable.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "どうして = क्यों। उत्तर \"X की वजह से\"। なぜ अदला-बदली।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0511",
@@ -4481,7 +4891,9 @@
       ],
       "correctAnswer": "どうやって",
       "explanation_en": "どうやって = how / by what means. Expected answer is means: バスで, でんしゃで, etc.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "どうやって = कैसे/किस माध्यम से। अपेक्षित उत्तर: バスで, でんしゃで।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0512",
@@ -4498,7 +4910,9 @@
       "correctAnswer": "なんようび",
       "explanation_en": "なんようび = what day of the week. Expected answer: げつようび / かようび / etc.",
       "difficulty": 1,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "なんようび = सप्ताह का कौन सा दिन।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0513",
@@ -4515,7 +4929,9 @@
       "correctAnswer": "なんがつなんにち",
       "explanation_en": "なんがつなんにち = what month, what day. The standard Japanese way to ask for a date (vs なんようび which is day-of-week).",
       "difficulty": 2,
-      "auto": false
+      "auto": false,
+      "explanation_hi": "なんがつなんにち = कौन सा महीना, कौन सी तारीख़ (तारीख़ पूछना)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0489",
@@ -4531,7 +4947,9 @@
       ],
       "correctAnswer": "ましょう",
       "explanation_en": "Verb-ましょうか = 'shall I / shall we ~?' The か at the end + the offer-context make ましょう the only fit. ます would be a plain statement, not an offer.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-ましょうか = \"क्या मैं/हम ~ करूँ?\" प्रस्ताव-संदर्भ + अंत में か।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0490",
@@ -4547,7 +4965,9 @@
       ],
       "correctAnswer": "いません",
       "explanation_en": "Verb-ていません = 'not currently doing'. The progressive ています + negative ません. The context 'いま (now)' triggers progressive aspect.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-て いません = \"अभी नहीं कर रहा\"। प्रगतिशील ています + नकार ません।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0491",
@@ -4563,7 +4983,9 @@
       ],
       "correctAnswer": "てから",
       "explanation_en": "Verb-てから = 'after doing X'. Sequential meaning: first eat dinner, THEN watch TV. て alone would also work but てから makes the sequence explicit.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-て から = \"X करने के बाद\"। पहले रात का खाना खाओ, फिर टीवी।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0492",
@@ -4579,7 +5001,9 @@
       ],
       "correctAnswer": "あたらしい",
       "explanation_en": "i-Adjective directly before a noun: あたらしい くるま (new car). The dictionary form あたらしい is the noun-modifier form. -く is for connecting to verbs/adjectives.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "i-विशेषण सीधे संज्ञा से पहले: あたらしい くるま (नई कार)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0493",
@@ -4595,7 +5019,9 @@
       ],
       "correctAnswer": "きれいな",
       "explanation_en": "na-Adjective + な + Noun: きれいな へや. The な is mandatory before a noun. きれい (without な) is the standalone form used as a predicate, not as a modifier.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "na-विशेषण + な + संज्ञा: きれいな へや। な अनिवार्य।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0494",
@@ -4611,7 +5037,9 @@
       ],
       "correctAnswer": "に",
       "explanation_en": "Location of existence takes に: 'on the desk, there is a book'. The pattern is XにYが あります -  に for location, が for the existing thing.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "अस्तित्व-स्थान に लेता है: \"मेज़ पर किताब है\"। पैटर्न: XにYが あります।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0495",
@@ -4627,7 +5055,9 @@
       ],
       "correctAnswer": "に",
       "explanation_en": "XはYに あります = 'X is at Y' (already-known X first). Same locating particle に as the location-first variant. Topic は marks the already-known thing.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "XはYに あります = \"X Y में है\"। पहले से ज्ञात X विषय।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0496",
@@ -4643,7 +5073,9 @@
       ],
       "correctAnswer": "より",
       "explanation_en": "Yより Xの ほうが [adj] です = 'X is more [adj] than Y'. より marks the comparison reference. The のほうが construction emphasises the focused side.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "Yより Xの ほうが [विशेषण] です = \"Y से X अधिक [विशेषण]\"। より तुलना-संदर्भ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0497",
@@ -4659,7 +5091,9 @@
       ],
       "correctAnswer": "と / どちら",
       "explanation_en": "AとBと、どちらが ~ですか = '(among A and B,) which is more ~?'. と marks each item in the 2-way comparison; どちら is the 'which-of-two' question word.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "AとBと、どちらが ~ですか = \"A और B में, कौन सा ~?\"",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0498",
@@ -4675,7 +5109,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "~がじょうずです / ~がへたです takes が, not を. This is the same が-class as ~がすきです / ~がほしいです / ~がわかります / ~ができます -  with ability/feeling predicates, the object/skill takes が.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "~がじょうずです / ~がへたです が लेता है, を नहीं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0499",
@@ -4691,7 +5127,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "~がわかります = 'understand X'. が, not を. The understood-thing is grammatically the subject of the understanding-state, not the object.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "~がわかります = \"X समझता हूँ\"। が, を नहीं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0500",
@@ -4707,7 +5145,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "~ができます = 'can do X / be able to'. The ability-target takes が. Note: with a verb stem like およぎ, ~ことができます would also work (using こと as nominaliser); both are N5.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "~ができます = \"X कर सकता हूँ\"। क्षमता-लक्ष्य が से।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0501",
@@ -4723,7 +5163,9 @@
       ],
       "correctAnswer": "でかけたくない",
       "explanation_en": "Verb-stem + たくない = 'don't want to do'. Negative form of たい. The context 'rain today' makes 'don't want to go out' the natural fit.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-तना + たくない = \"नहीं करना चाहता\"। たい का नकारात्मक।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0502",
@@ -4739,7 +5181,9 @@
       ],
       "correctAnswer": "に",
       "explanation_en": "Verb-stem + に行く = 'go to do X'. Purposive に. かいもの is a verbal noun acting as the purpose. The destination へ + purpose に combination is the canonical 'go shopping' construction.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-तना + に行く = \"X करने जाना\"। उद्देश्य-に।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0503",
@@ -4755,7 +5199,9 @@
       ],
       "correctAnswer": "なんさつ",
       "explanation_en": "なん + counter is the standard 'how many [counter]?' form. For books, the counter is さつ (冊). いくら is for prices; いくつ is the general 'how many' for native counters.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "なん + カウंटर मानक \"कितने [カウंटर]?\"। किताबों का カウंटर さつ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0514",
@@ -4772,7 +5218,9 @@
       ],
       "correctAnswer": "の",
       "explanation_en": "Sentence-final no (rising intonation) marks an informal yes/no question. B-plain-negative reply confirms A asked a question. Distractors: yo (assertive), ne (confirmation-seeking), to (quote-marker, ungrammatical sentence-finally).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "अनौपचारिक प्रश्न-सूचक の (बढ़ते स्वर के साथ) — सादा-रूप-नकार उत्तर पुष्ट करता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0515",
@@ -4789,7 +5237,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "X ga arimasu is the canonical pattern for there is/have an event. Subject is marked by ga. Distractors: wo marks direct objects (arimasu is intransitive); ni marks location/time; de marks place of action.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "X が あります घटना/होना का मानक पैटर्न। कर्ता が से।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0516",
@@ -4806,7 +5256,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "hoshii takes ga to mark the object of desire (not wo). watashi wa X ga hoshii desu = I want X. Distractors: wo ungrammatical with hoshii; ni/to wrong category.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "ほしい इच्छित-वस्तु को が लेता है, を नहीं। わたしは X が ほしいです।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0517",
@@ -4823,7 +5275,9 @@
       ],
       "correctAnswer": "じ",
       "explanation_en": "ima nan-ji = what time/oclock now? -  ji is the oclock counter. Distractors: fun (minutes), nichi (day), gatsu (month).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "いま なんじ = \"अभी कितने बजे?\" — じ बजे का カウंटर।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0518",
@@ -4840,7 +5294,9 @@
       ],
       "correctAnswer": "はん",
       "explanation_en": "ji-han = half past. 8-ji-han = 8:30. Distractors: ban (evening), mae (before), ato (after).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "じはん = \"साढ़े\"। 8-じ-はん = 8:30।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0519",
@@ -4857,7 +5313,9 @@
       ],
       "correctAnswer": "まいにち",
       "explanation_en": "mainichi = every day. Pairs with habitual present. Distractors: kinou (yesterday), konban (tonight), ashita (tomorrow) -  all single-day temporals, not recurrence.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "まいにち = \"हर दिन\"। आदतन वर्तमान के साथ।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0520",
@@ -4874,7 +5332,9 @@
       ],
       "correctAnswer": "もう",
       "explanation_en": "mou (already) pairs with the affirmative answer yes I already ate. Distractors: mada (yet/still -  would pair with negative answer), ima (now -  wrong tense), sugu (right away -  wrong nuance).",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "もう (पहले से ही) सकारात्मक उत्तर \"हाँ, खा चुका\" से जुड़ता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0521",
@@ -4891,7 +5351,9 @@
       ],
       "correctAnswer": "まえ",
       "explanation_en": "Verb-dictionary-form + mae-ni = before doing. taberu mae ni te wo arau = wash hands before eating (canonical sequence). Distractors: ato needs past-form (tabeta ato de); ushiro/ue are spatial.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "V-शब्दकोश + まえに = \"करने से पहले\"। 食べる まえに 手を 洗う।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0522",
@@ -4908,7 +5370,9 @@
       ],
       "correctAnswer": "あと",
       "explanation_en": "Verb-past-form + ato-de = after doing. benkyou-shita ato de = after studying. Distractors: mae needs non-past-form (benkyou-suru mae ni); toki/uchi wrong nuance.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "V-た + あとで = \"करने के बाद\"। प्रबंधन: पढ़ा → फिर होमवर्क।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0523",
@@ -4925,7 +5389,9 @@
       ],
       "correctAnswer": "では",
       "explanation_en": "dewa (formal) / ja (casual) = well then -  transitions from a stated reason to a follow-up action. Distractors: demo (but/however) introduces contrast, not transition; keredo (but) similar contrast; dakara (therefore) is causal explanation, not transition.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "では (औपचारिक) / じゃ (अनौपचारिक) = \"तो फिर\" — कारण से अगली कार्रवाई।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0524",
@@ -4942,7 +5408,9 @@
       ],
       "correctAnswer": "けれど",
       "explanation_en": "keredo (or kedo informal) = but / although -  connects contrasting clauses. Distractors: kara/node are causal (because), made is endpoint.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "けれど (या けど अनौपचारिक) = \"लेकिन/यद्यपि\" — विरोधी खंड जोड़ता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0525",
@@ -4959,7 +5427,9 @@
       ],
       "correctAnswer": "どうして",
       "explanation_en": "doushite = why -  pairs with kara (because) in the answer. The B response gives a reason, so A asked why. Distractors: itsu (when), doko (where), dare (who) all expect different answer types.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "どうして = क्यों — उत्तर में から (क्योंकि) से युग्म।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0526",
@@ -4976,7 +5446,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "X ga (watashi ni) Y wo kureru = X gives Y (to me / in-group). The giver is marked with ga. Distractors: wo marks the gift, ni marks recipient, de is means/place.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "X が (मुझे) Y を くれる = \"X मुझे Y देता है\"। दाता が से।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0527",
@@ -4993,7 +5465,9 @@
       ],
       "correctAnswer": "きた",
       "explanation_en": "Plain-form verb modifies a following noun (relative clause). kita hito = the person who came. Distractors: kimasu/kimashita are polite-form (cannot modify a noun directly in N5); konai would mean the person who doesnt come -  wrong sense for past event.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "सादा-रूप क्रिया अगली संज्ञा को संशोधित (सापेक्ष खंड)। きた ひと = \"जो आया वह व्यक्ति\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0528",
@@ -5010,7 +5484,9 @@
       ],
       "correctAnswer": "おもしろい",
       "explanation_en": "i-adjective in dictionary form modifies a following noun directly: omoshiroi hon = interesting book. Distractors: omoshiroku (adverb form), omoshirokute (te-form, conjunction), omoshirokunai (negative) -  none modify a noun in this slot.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "i-विशेषण शब्दकोश रूप सीधे संज्ञा को संशोधित: おもしろい ほん।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0529",
@@ -5027,7 +5503,9 @@
       ],
       "correctAnswer": "から",
       "explanation_en": "X kara Y made = from X to Y. The blank pairs with まで in the second half, so から (start) is the only fit. Distractors: まで is already used; に is recipient/time-point (not range); へ is direction.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "X から Y まで = \"X से Y तक\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0530",
@@ -5044,7 +5522,9 @@
       ],
       "correctAnswer": "の",
       "explanation_en": "Noun の Noun = possessive/attributive linking. watashi no hon = my book. Distractors: は marks topic (would change meaning to topic-comment); が marks subject; を marks object.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा の संज्ञा = स्वामी/संशोधन जोड़।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0531",
@@ -5061,7 +5541,9 @@
       ],
       "correctAnswer": "に",
       "explanation_en": "X に します = decide on / choose X (e.g., when ordering at a restaurant). The choice marker is に. Distractors: を + する is generic 'do X'; が marks subject; で is means/place.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "X に します = \"X चुनना/तय करना\" (उदा. रेस्तरां में ऑर्डर)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0532",
@@ -5078,7 +5560,9 @@
       ],
       "correctAnswer": "なりました",
       "explanation_en": "i-adj-stem + ku + narimasu = becomes [adj]. aoku narimashita = became blue. Distractors: shimashita is 'did' (transitive change); arimasu / imasu are 'exist'.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "i-विशेषण-तना + く + なります = \"[विशेषण] बन जाता है\"। あおく なりました।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0533",
@@ -5095,7 +5579,9 @@
       ],
       "correctAnswer": "と",
       "explanation_en": "Plain-form sentence + と + omoimasu = I think that ~. と is the quote-marker linking the embedded clause to omoimasu. Distractors: を marks direct object (omou doesn't take a を for embedded thoughts); に/で wrong category.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "सादा-वाक्य + と + おもいます = \"मुझे लगता है कि~\"। と उद्धरण-सूचक।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0534",
@@ -5112,7 +5598,9 @@
       ],
       "correctAnswer": "と",
       "explanation_en": "Direct-quote + と + iimashita = said that ~. The brackets「」around the quoted speech force と as the quote-marker. Distractors: を/に/で don't function as quote-markers.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "सीधा उद्धरण + と + 言いました = \"कहा कि\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0535",
@@ -5129,7 +5617,9 @@
       ],
       "correctAnswer": "を",
       "explanation_en": "Noun + を + kudasai = please give me [noun]. The thing requested takes the object marker を. Distractors: に is recipient/time; が marks subject; の is possessive.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा + を + ください = \"कृपया मुझे [संज्ञा] दें\"। चीज़ を से।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0536",
@@ -5146,7 +5636,9 @@
       ],
       "correctAnswer": "を",
       "explanation_en": "Noun + を + onegaishimasu = I'd like [noun] please (more polite than wo kudasai). Same を-marks-the-thing pattern. Distractors: に/で/と don't fit this request frame.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा + を + おねがいします = \"मुझे [संज्ञा] चाहिए\" (くださいसे विनम्र)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0537",
@@ -5163,7 +5655,9 @@
       ],
       "correctAnswer": "は",
       "explanation_en": "Noun は ikaga desu ka = how about [noun]? (polite offer). は marks the noun as topic of the offer. Distractors: を/に/が don't fit the offer-introduction pattern.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा + は + いかがですか = \"[संज्ञा] कैसा रहेगा?\" (विनम्र प्रस्ताव)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0538",
@@ -5180,7 +5674,9 @@
       ],
       "correctAnswer": "まだ",
       "explanation_en": "mada + V-te imasen = not yet (action still pending). The negative answer 'no, I have not eaten yet' pins まだ. Distractors: もう would pair with the affirmative 'already ate'; いま (now) and すぐ (right away) don't fit the not-yet frame.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "まだ + V-て いません = \"अभी नहीं\" (कार्य लंबित)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0539",
@@ -5197,7 +5693,9 @@
       ],
       "correctAnswer": "もう",
       "explanation_en": "mou + V-mashita = already (action completed). The affirmative answer 'yes, already did' pins もう. Distractors: まだ would pair with negative; いま (now) doesn't match completed-past; あとで (later) is future.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "もう + V-ました = \"पहले से ही\" (कार्य पूर्ण)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0540",
@@ -5214,7 +5712,9 @@
       ],
       "correctAnswer": "が",
       "explanation_en": "Mid-sentence が = but (contrast connector). 'Tasty BUT a bit spicy.' Distractors: から/ので are causal (because); まで is endpoint.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "मध्य-वाक्य が = \"लेकिन\"। \"स्वादिष्ट लेकिन थोड़ा तीखा\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0541",
@@ -5231,7 +5731,9 @@
       ],
       "correctAnswer": "でしょう",
       "explanation_en": "deshou = probably / I expect (paired with tabun 'probably' in the stem for emphasis). Distractors: deshita (past copula), desu ka (question ending -  would change meaning), deshite (te-form, ungrammatical sentence-finally).",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "でしょう = \"शायद/अपेक्षित\"। たぶん के साथ अनुमान पर ज़ोर।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0542",
@@ -5248,7 +5750,9 @@
       ],
       "correctAnswer": "さん",
       "explanation_en": "san is the standard polite name suffix (Mr./Ms.) for adults in neutral contexts. Distractors: chan (young children / very close friends), kun (young men / juniors), sama (extremely formal -  overkill for everyday use).",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "さん वयस्कों के लिए मानक विनम्र नाम-प्रत्यय। ちゃん बच्चों के लिए, くん युवा पुरुषों के लिए।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0543",
@@ -5265,7 +5769,9 @@
       ],
       "correctAnswer": "お",
       "explanation_en": "o-cha = (honorific) tea. Native-Japanese-origin words usually take お (o-); Sino-Japanese words take ご (go-). Distractors: ご is for Sino-Japanese stems (gohan, gokazoku); の is possessive; を is object marker.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "お-चा = (आदर) चाय। मूल जापानी शब्द आमतौर पर お लेते हैं; चीनी-मूल ご लेते हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0544",
@@ -5282,7 +5788,9 @@
       ],
       "correctAnswer": "します",
       "explanation_en": "V-tari V-tari + suru = do A and B (among other things). The pattern needs the suru helper at the end to bind the listed activities. Distractors: arimasu/imasu are existence verbs; narimasu is 'become' -  none bind tari-listings.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-たり V-たり + する = \"X और Y (आदि) करना\"। する सहायक अंत में अनिवार्य।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0545",
@@ -5299,7 +5807,9 @@
       ],
       "correctAnswer": "こと",
       "explanation_en": "V-ta + koto + ga arimasu = have done [V] before (experiential). Only こと forms this experience-pattern. Distractors: もの is a physical thing; ところ is a place; とき is a time/occasion.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-た + こと + が あります = \"पहले X किया है\" (अनुभव)। केवल こと।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0546",
@@ -5316,7 +5826,9 @@
       ],
       "correctAnswer": "ほう",
       "explanation_en": "V-ta + hou + ga + ii = should do [V] (recommendation). Only ほう forms this recommendation pattern. Distractors: もの/こと/ところ don't fit this comparative-recommendation frame.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-た + ほう + が + いい = \"X करना चाहिए\"। केवल ほう।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0547",
@@ -5333,7 +5845,9 @@
       ],
       "correctAnswer": "すぎます",
       "explanation_en": "i-adj-stem (drop い) + sugimasu = too [adj]. omoi → omo + sugimasu = 'too heavy'. Distractors: sugiru (plain form, would need different polite-level context), sugite (te-form, conjunction not a sentence ender), suginai (negative -  would mean 'not too heavy' which contradicts the implied complaint).",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "i-विशेषण-तना (い हटाओ) + すぎます = \"बहुत [विशेषण]\"। おもい → おもすぎます।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0548",
@@ -5350,7 +5864,9 @@
       ],
       "correctAnswer": "つもり",
       "explanation_en": "V-plain + tsumori desu = intend to do [V]. Only つもり forms this intention pattern. Distractors: もの (physical thing), こと (matter/fact), とき (time/occasion) don't carry the future-intention sense.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-सादा + つもり です = \"X करने का इरादा\"। केवल つもり।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0549",
@@ -5367,7 +5883,9 @@
       ],
       "correctAnswer": "どこ",
       "explanation_en": "Asking for the location of something requires the question demonstrative どこ (where). Distractors: ここ/そこ are statements (here/there) -  declarative, not interrogative; なに asks WHAT, not WHERE.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "किसी चीज़ का स्थान पूछना = どこ (कहाँ?)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0550",
@@ -5384,7 +5902,9 @@
       ],
       "correctAnswer": "いちばん",
       "explanation_en": "いちばん = #1 / most / -est. Combined with an i-adjective it forms the superlative. Distractors: とても (very) is degree, not superlative; もっと (more) is comparative, not superlative; あまり needs a negative.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "いちばん = \"सर्वोच्च/सबसे\"। i-विशेषण के साथ श्रेष्ठतम बनाता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0551",
@@ -5401,7 +5921,9 @@
       ],
       "correctAnswer": "に",
       "explanation_en": "Specific clock-times take に. Distractors: で is means/place-of-action (七時で = ungrammatical for times); へ is destination direction (times don't take direction); を is object marker.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "विशिष्ट घड़ी-समय に लेते हैं।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0552",
@@ -5418,7 +5940,9 @@
       ],
       "correctAnswer": "から",
       "explanation_en": "Sentence + から = because + result. Rain → so I'm staying home. Distractors: けれど is contrast (but); まで is endpoint; より is comparison.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "वाक्य + から = \"क्योंकि\" + परिणाम।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0553",
@@ -5435,7 +5959,9 @@
       ],
       "correctAnswer": "いつも",
       "explanation_en": "毎日 (every day) anchors a habitual action; いつも (always) is the matching frequency adverb. Distractors: あまり and ぜんぜん require a negative verb (ません/ない); ときどき (sometimes) contradicts 毎日.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "毎日 (हर दिन) आदतन कार्य; いつも (हमेशा) मेल खाने वाला आवृत्ति-क्रिया-विशेषण।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0554",
@@ -5452,7 +5978,9 @@
       ],
       "correctAnswer": "どうぞ",
       "explanation_en": "どうぞ + V-て ください = please go ahead and [V] / please [V] (offering / inviting). Distractors: どうも is gratitude (thanks), すみません is apology, おねがい is requesting a favor (won't pair with V-て + ください).",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "どうぞ + V-て ください = \"कृपया ~ करें\" (आमंत्रण/प्रस्ताव)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0555",
@@ -5469,7 +5997,9 @@
       ],
       "correctAnswer": "ね",
       "explanation_en": "ね seeks confirmation/agreement; B's response 'ええ、ほんとうに...ですね' (yes, really hot) confirms agreement, which only pairs with ね from A. Distractors: よ is assertive (informing -  B wouldn't agree-back as enthusiastically), か would make A's line a question, の is informal-question.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "ね सहमति/पुष्टि माँगता है; B का \"हाँ, सच में...\" जवाब केवल ね से जुड़ता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0556",
@@ -5486,7 +6016,9 @@
       ],
       "correctAnswer": "だろう",
       "explanation_en": "Plain-form + だろう = probably / I expect (casual variant of でしょう). たぶん (probably) anchors the speculation. Distractors: だった is plain past, だ is plain affirmative (no speculation), じゃない is negation.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "सादा-रूप + だろう = \"शायद\" (でしょう का अनौपचारिक)। たぶん अनुमान पुष्ट।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0557",
@@ -5503,7 +6035,9 @@
       ],
       "correctAnswer": "ね",
       "explanation_en": "ね seeks confirmation; B's そうですね confirms agreement, which uniquely pairs with ね. Distractors: よ would assert; か would query; の is informal.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "ね पुष्टि माँगता है; そうですね सहमति देता है — विशिष्ट रूप से ね से जुड़ता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0558",
@@ -5520,7 +6054,9 @@
       ],
       "correctAnswer": "の",
       "explanation_en": "Noun の あとで = after [Noun]. The の is the genitive linking noun → temporal-noun (あと). Distractors: を/に/が don't link nouns to あと in this temporal pattern.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा の あとで = \"[संज्ञा] के बाद\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0559",
@@ -5537,7 +6073,9 @@
       ],
       "correctAnswer": "の",
       "explanation_en": "Noun の まえに = before [Noun]. Same genitive-link pattern as n5-160 with まえ. Distractors: を/に/で don't link nouns to まえ in this temporal pattern.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "संज्ञा の まえに = \"[संज्ञा] से पहले\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0560",
@@ -5554,7 +6092,9 @@
       ],
       "correctAnswer": "まえ",
       "explanation_en": "V-plain (non-past) + まえに = before [V]-ing. Sequence: brush teeth → go to bed. Distractors: あと would need V-past form (ねた あとで); とき is when; うち is while/within.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-सादा (वर्तमान) + まえに = \"करने से पहले\"। दाँत साफ़ करना → सोना।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0561",
@@ -5571,7 +6111,9 @@
       ],
       "correctAnswer": "あと",
       "explanation_en": "V-past (た-form) + あとで = after [V]-ing. Sequence: ate → then homework. Distractors: まえ would need non-past (たべる まえに); とき is when (different aspect); ところ is moment-of-action.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-भूत (た-रूप) + あとで = \"करने के बाद\"। खा लिया → फिर होमवर्क।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0562",
@@ -5588,7 +6130,9 @@
       ],
       "correctAnswer": "いただきます",
       "explanation_en": "いただきます is said BEFORE eating (literally 'I humbly receive'). Distractors: ごちそうさま is said AFTER eating; おはようございます is morning greeting; おやすみなさい is good-night.",
-      "difficulty": 1
+      "difficulty": 1,
+      "explanation_hi": "いただきます खाने से पहले कहा जाता है। ごちそうさま बाद में।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0563",
@@ -5605,7 +6149,9 @@
       ],
       "correctAnswer": "んです",
       "explanation_en": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense -  past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an i-adj, not a verb).",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "सादा + んです = व्याख्या-रूप (कारण/स्थिति देता है)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0564",
@@ -5622,7 +6168,9 @@
       ],
       "correctAnswer": "ない",
       "explanation_en": "V-ない + ほうが いい = shouldn't [V] (negative recommendation). The slot needs the negative-plain form ない. Distractors: ます is polite-affirmative; た is past affirmative; て is conjunction form -  none combine with ほうが いい to form 'shouldn't'.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-ない + ほうが いい = \"नहीं करना चाहिए\"। नकारात्मक सिफ़ारिश।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0565",
@@ -5639,7 +6187,9 @@
       ],
       "correctAnswer": "なくても",
       "explanation_en": "V-stem + なくても いい = don't have to [V] (permission-not-to). Distractors test the must-form siblings: なくては requires いけない (must), ないと requires いけない (must, casual), なくちゃ is the casual contraction (would need ません to follow, not いいです).",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "V-तना + なくても いい = \"करने की ज़रूरत नहीं\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0566",
@@ -5656,7 +6206,9 @@
       ],
       "correctAnswer": "なくては",
       "explanation_en": "V-stem + なくては + いけない = must [V] (obligation). The いけません ending forces なくては. Distractors: なくても goes with いい (don't have to); ないで is V-without-doing; なくて is conjunction without obligation.",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "V-तना + なくては + いけない = \"अवश्य करना होगा\" (दायित्व)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0567",
@@ -5673,7 +6225,9 @@
       ],
       "correctAnswer": "なくては",
       "explanation_en": "V-stem + なくては + ならない = must [V] (formal obligation, same as いけない). The なりません ending forces なくては. Distractors: なくても is permission-not-to (with いい); ないで is V-without-doing; なくて is bare conjunction.",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "V-तना + なくては + ならない = \"अवश्य करना होगा\" (औपचारिक)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0568",
@@ -5690,7 +6244,9 @@
       ],
       "correctAnswer": "ないと",
       "explanation_en": "V-ない + と + いけない = must [V] (common spoken variant of must). The いけません ending forces ないと. Distractors: なくて is bare conjunction; ないで is V-without-doing; なくちゃ doesn't pair with いけません (it's already a contraction containing いけない).",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "V-ない + と + いけない = \"अवश्य करना होगा\" (बोलचाल का सामान्य रूप)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0569",
@@ -5707,7 +6263,9 @@
       ],
       "correctAnswer": "なくちゃ",
       "explanation_en": "V-stem + なくちゃ = must [V] (casual contraction of なくては いけない; sentence-final by itself implies the いけない). The casual だ ending of the first sentence (もう ５じだ) anchors the casual register. Distractors: なくては/ないと would need a following いけない; なくても is permission-not-to.",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "V-तना + なくちゃ = \"करना ज़रूरी है\" (अनौपचारिक संक्षिप्त)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0570",
@@ -5724,7 +6282,9 @@
       ],
       "correctAnswer": "って",
       "explanation_en": "Plain + って + 言う / 言って いる = casual quote-marker (informal counterpart of と). Distractors: を marks direct objects (言う doesn't take a を for embedded quotes); が marks subject; に is recipient/time.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "सादा + って + 言う = अनौपचारिक उद्धरण-सूचक (と का बोलचाल समकक्ष)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0571",
@@ -5741,7 +6301,9 @@
       ],
       "correctAnswer": "かた",
       "explanation_en": "V-stem (drop ます) + かた = way of [V]-ing. tabe-kata = way of eating. Distractors: とき (time/when), ばしょ (place), ひと (person) -  none form 'way of' in this construction.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-तना (ます हटाओ) + かた = \"करने का तरीक़ा\"। tabe-kata = \"खाने का तरीक़ा\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0572",
@@ -5758,7 +6320,9 @@
       ],
       "correctAnswer": "なあ",
       "explanation_en": "なあ is a sentence-final exclamation expressing strong personal feeling ('really, isn't it?'). The 「うわあ」 opening interjection anchors strong emotional register, which only なあ matches. Distractors: ね seeks confirmation (less self-directed than なあ), よ asserts, か questions.",
-      "difficulty": 3
+      "difficulty": 3,
+      "explanation_hi": "なあ वाक्य-अंत में मज़बूत व्यक्तिगत भावना (\"सच में, है ना?\")।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0573",
@@ -5775,7 +6339,9 @@
       ],
       "correctAnswer": "な",
       "explanation_en": "V-plain (dictionary form) + な = strong/casual prohibition ('don't!'). The exclamatory あぶない！ context anchors the strong-register prohibition. Distractors: ね/よ are sentence-final tags but not prohibitions; の would form an informal question, not a command.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-सादा (शब्दकोश) + な = मज़बूत/बोलचाल निषेध (\"मत करो!\")।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0574",
@@ -5792,7 +6358,9 @@
       ],
       "correctAnswer": "か",
       "explanation_en": "なに + か = 'something' (positive existence). 'Want to eat something?' Distractors: なに + も + negative-verb = 'nothing' (would need ません), wo/ni don't form Q-word compounds.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "なに + か = \"कुछ\" (सकारात्मक अस्तित्व)। \"कुछ खाना चाहते हैं?\"",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0575",
@@ -5809,7 +6377,9 @@
       ],
       "correctAnswer": "も",
       "explanation_en": "なに + も + negative = nothing. The negative たべたく ありません forces も (not か, which would be positive 'something'). Distractors: か is positive existence; を/が don't form Q-word compounds.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "なに + も + नकार = \"कुछ नहीं\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0576",
@@ -5826,7 +6396,9 @@
       ],
       "correctAnswer": "も",
       "explanation_en": "だれ + も + negative-verb = no one. The negative いません forces も. Distractors: か is positive existence (would mean 'someone is there'); が/に don't form Q-word compounds.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "だれ + も + नकारात्मक क्रिया = \"कोई नहीं\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0577",
@@ -5843,7 +6415,9 @@
       ],
       "correctAnswer": "も",
       "explanation_en": "どこ + も + negative-verb = nowhere. The negative 行きません forces も. Distractors: か is positive 'somewhere'; へ/を don't form Q-word compounds (they're plain particles).",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "どこ + も + नकारात्मक क्रिया = \"कहीं नहीं\"।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0578",
@@ -5860,7 +6434,9 @@
       ],
       "correctAnswer": "も",
       "explanation_en": "いつ + も = always (positive existence; differs from なに/だれ/どこ which need a negative verb to form 'nothing/no-one/nowhere'). Distractors: いつ + か = 'sometime' (would need a non-habitual context); に/の don't form Q-word compounds.",
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "いつ + も = \"हमेशा\" (सकारात्मक अस्तित्व — なに/だれ/どこ से अलग)।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0579",
@@ -5883,7 +6459,9 @@
         "で": "で marks means/location; here the structure specifies a verb noun-clause that is \"doable\", which takes が."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "「ことができる」 こと-नामकरणक पर が लेता है। अंदर 話す सामान्य कर्म 日本語を रखता है।",
+      "explanation_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0580",
@@ -5906,7 +6484,9 @@
         "しません": "しません = \"do not do\" (volition / habit), not \"cannot do\". Loses the ability sense."
       },
       "high_confusion": false,
-      "difficulty": 2
+      "difficulty": 2,
+      "explanation_hi": "V-शब्दकोश + ことが できません = \"नहीं कर सकता\"। उत्पादक can-do का नकारात्मक।",
+      "explanation_hi_provenance": "llm_curated"
     }
   ]
 }
