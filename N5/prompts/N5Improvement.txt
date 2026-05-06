@@ -23,12 +23,22 @@ GENERIC PARITY.
 JLPTSuccess's plausible niches (validate or invalidate during the
 audit; do not assume any of these is already realized):
 
-  N1. **Multilingual non-English-native learners.** Vietnamese,
-      Indonesian, Filipino, Nepali, Hindi, Chinese-speaking JLPT
-      candidates are millions of learners under-served by English-
-      first apps. JLPTSuccess already ships en/vi/id/ne/zh locales
-      — but are they native-quality? Are explanations / rationales
-      / common-mistakes blurbs translated, not just UI chrome?
+  N1. **Native-Hindi-medium JLPT prep (the unique gap).** India is
+      the 5th-largest JLPT country worldwide (~50K applicants/year,
+      73% at N5/N4) but has NO dedicated Hindi-native prep app —
+      a verified competitive vacuum confirmed by the 2026-05-06
+      market-research scan. Vietnamese / Indonesian / Burmese /
+      Bengali / Sinhala / Brazilian-Portuguese / Filipino / Thai /
+      Chinese all already have established native-language JLPT
+      apps; competing there is futile. JLPTSuccess narrowed to
+      en + hi on 2026-05-06 (per IMP-096 architectural decision;
+      see feedback/n5-audit-2026-05-04.xlsx for the registry row).
+      The audit must answer: is the hi locale native-quality?
+      Are explanations / rationales / common-mistakes blurbs
+      translated to Devanagari Hindi, not just UI chrome?
+      Do L1-interference notes target Hindi speakers specifically
+      (postposition→particle mapping, verb-agreement transfer,
+      politeness-morphology mismatch)?
   N2. **No-account / offline / private / ad-free.** Bunpro requires
       account + subscription; WaniKani requires account; Renshuu has
       ads in the free tier; Duolingo gamifies + ads. JLPTSuccess
@@ -49,8 +59,11 @@ niche today? If not, what's the smallest set of changes that would
 let it credibly claim this niche?
 
 A "world-class generic JLPT app" is not a viable target for a solo
-+ AI build. "Best free multilingual privacy-respecting JLPT N5 app"
-IS a viable target. Audit accordingly.
++ AI build. **"The only privacy-first no-account offline JLPT N5
+app with English + native-Devanagari-Hindi pedagogy"** IS a viable
+target — the unique competitive vacuum confirmed by the 2026-05-06
+market research scan (50K Indian JLPT applicants/year; 73% at
+N5/N4; no dedicated Hindi-medium prep app). Audit accordingly.
 
 ## DEPTH-FIRST ENRICHMENT MANDATE (read this second — binding for this cycle)
 
@@ -73,9 +86,9 @@ must map to one or more of these dimensions:
 
 | Surface | Depth dimensions (the only legitimate gaps for this cycle) |
 |---|---|
-| **Grammar** | example count (floor 3, target 5-7); example diversity (different attachment surfaces / registers / topics, not paraphrases); register annotation; common-mistakes entry with specific wrong-vs-right + the why; contrasts cross-links to confusable patterns; L1-interference notes (Mandarin / Vietnamese / Indonesian / Nepali / Hindi); source citations (Genki / Minna / JLPT.jp / Bunpro / JLPT Sensei); audio per example; pitch accent on examples |
-| **Vocab** | example count per word (floor 2, target 3); `gloss_translations` for vi/id/ne/zh (currently the largest niche-N1 gap); pitch accent (Tokyo); collocations list; transitivity-pair cross-link; verb-class flag (godan/ichidan/irregular + Group-1-exception markers for 入る/帰る/走る/知る/切る/要る); register tag (casual/polite/humble/respectful); false-friend flags for L1; conjugation table for verbs; counter pairing for nouns that take counters; audio for all forms |
-| **Kanji** | mnemonic per kanji (largest UX gap vs WaniKani); `radical_decomposition`; stroke-order common-mistake notes; ≥5 compound vocab cross-links; ≥1 N5-scope example sentence; look-alike cluster cross-links (大/犬/太, 木/本/末/未, 人/入/八, 日/目/白, 千/干/王/玉, 上/止/正); `meanings_translations` for vi/id/ne/zh; audio for on/kun-yomi; `frequency_rank`; `recognition_priority` |
+| **Grammar** | example count (floor 3, target 5-7); example diversity (different attachment surfaces / registers / topics, not paraphrases); register annotation; common-mistakes entry with specific wrong-vs-right + the why; contrasts cross-links to confusable patterns; **L1-interference notes for Hindi speakers** (postposition→particle mapping से→から/で, को→を/に; verb-agreement transfer; tense over-marking; politeness-morphology mismatch; negative-placement; question-particle position; plural marking; counter-system overlap); source citations (Genki / Minna / JLPT.jp / Bunpro / JLPT Sensei); audio per example; pitch accent on examples |
+| **Vocab** | example count per word (floor 2, target 3); `gloss_translations.hi` (the dominant niche-N1 gap — currently 0% Hindi gloss coverage on 1041 entries); pitch accent (Tokyo); collocations list; transitivity-pair cross-link; verb-class flag (godan/ichidan/irregular + Group-1-exception markers for 入る/帰る/走る/知る/切る/要る); register tag (casual/polite/humble/respectful); false-friend flags (Hindi has no shared kanji so false-friend exposure is minimal — note any phonetic collisions with Hindi vocabulary if relevant); conjugation table for verbs; counter pairing for nouns that take counters; audio for all forms |
+| **Kanji** | mnemonic per kanji (largest UX gap vs WaniKani); `radical_decomposition`; stroke-order common-mistake notes; ≥5 compound vocab cross-links; ≥1 N5-scope example sentence; look-alike cluster cross-links (大/犬/太, 木/本/末/未, 人/入/八, 日/目/白, 千/干/王/玉, 上/止/正); `meanings_translations.hi` (Devanagari Hindi gloss for each kanji meaning); audio for on/kun-yomi; `frequency_rank`; `recognition_priority` |
 | **Reading** | sentence-by-sentence grammar footnote layer (inline pop-overs); pre-reading vocab preview; native-speaker audio (vs current TTS); paragraph-level summary; literal-vs-natural translation comparison; cultural-context callouts where Japan-specific assumptions appear; post-reading discussion / reflection prompts; `format_role` discipline (primary vs supplementary questions per JA invariants) |
 | **Listening** | timestamped transcript; vocab glossary per drill; slow-version audio variant; situational/cultural context note; discourse-feature annotations (filler words あの/えー/まあ, self-corrections, intonation cues); inference-question expansions (beyond literal retrieval); voice variety verification (≥4 voices across genders/ages); ambient-context layer for mondai 1-2; pre-listening prompt visibility |
 
@@ -105,7 +118,9 @@ with severity BLOCKER and tag it `[WIDTH-EXCEPTION-SCOPE]`.
   Test, Progress. Plus changelog, feedback, privacy.
 - Content scale (per README): 177 grammar patterns, 1003 vocab, 106
   kanji, 60 dokkai/listening drills.
-- Locales shipped: en, vi, id, ne, zh.
+- Locales shipped: en, hi (narrowed from en/vi/id/ne/zh on
+  2026-05-06; see IMP-096 in feedback/n5-audit-2026-05-04.xlsx).
+  UI labels for the chip switcher: EN | HI.
 - Existing tooling: tools/check_content_integrity.py and Playwright
   tests under N5/.
 - Privacy contract (PRIVACY.md): no accounts, no telemetry, no
@@ -128,13 +143,17 @@ exists but is shallow vs best-in-class counts. A surface that exists
 and is fine but doesn't differentiate — say so plainly.
 
 **STRATEGIC POSITIONING / SALEABILITY (highest weight in this audit)**
-- Niche N1 (multilingual): for each of vi/id/ne/zh locales, what
+- Niche N1 (Hindi-medium pedagogy): for the `hi` locale, what
   fraction of strings is translated? Just UI chrome, or also
   rationales, common-mistakes, kanji meanings, grammar explanations,
-  reading-passage glosses? Are translations native-quality or
-  machine-translated and unreviewed? Is the locale-switcher
-  discoverable on first paint? Does the app default to the browser's
-  Accept-Language?
+  reading-passage glosses, vocab `gloss_translations.hi`,
+  kanji `meanings_translations.hi`? Is the Hindi rendered in
+  Devanagari (correct) or Romanized (a quality red flag)? Are
+  translations native-Hindi-speaker-reviewed or LLM-curated and
+  unreviewed? Is the EN | HI switcher discoverable on first paint?
+  Does the app honor `Accept-Language: hi*` and default to Hindi
+  for an Indian visitor? Are L1-interference notes Hindi-specific
+  (not generic "non-English-native" platitudes)?
 - Niche N2 (privacy / no-account / offline): does the homepage / hero
   / install prompt SAY "no login, no tracking, works offline" visibly?
   Or does the user have to read PRIVACY.md to find out? Is there a
@@ -257,21 +276,61 @@ For each pattern, the audit must check:
 - **Pitch accent on examples.** Pitch accent isn't a JLPT scoring
   criterion but is a strong learner trust signal. Items that include
   it (or expose it via a kanji-popover) signal seriousness.
-- **L1-interference notes (niche-N1 unlock).** For each pattern,
-  flag mistakes specifically common to learners whose L1 is
-  Vietnamese / Indonesian / Nepali / Mandarin Chinese. Examples:
-  - **Mandarin L1**: literal kanji-meaning transfer (大丈夫 ≠ "big
-    husband"), の overgeneralization in noun-noun compounds,
-    omission of subject when topic is implicit (different rules
-    from Mandarin).
-  - **Vietnamese L1**: tense-marker confusion (〜た is not a Vietnamese
-    đã), particle omission patterns, は/が distinction.
-  - **Indonesian L1**: verb-class confusion (Indonesian has no
-    transitive/intransitive pair morphology like 開ける/開く).
-  - **Nepali L1**: SOV is shared so word order is easy, but
-    politeness levels don't map cleanly onto Japanese keigo.
+- **L1-interference notes — Hindi (niche-N1 unlock).** For each
+  pattern, flag mistakes specifically common to Hindi-L1 learners.
+  The 9 mandatory Hindi-specific contrast areas an audit must look
+  for evidence of:
+  - **SOV word-order shared advantage.** Both Hindi and Japanese
+    are subject-object-verb. Hindi speakers transfer this directly
+    and have a structural advantage over English-L1 learners. Note
+    this as a confidence-builder per pattern, not a pitfall.
+  - **Postposition vs particle mapping.** The single most important
+    Hindi L1 note across N5 grammar:
+    - Hindi से ("from" / "by means of") splits into Japanese から
+      (source) AND で (instrument). Hindi speakers often pick the
+      wrong one.
+    - Hindi को (direct + indirect object marker) splits into
+      Japanese を (direct) AND に (indirect / direction).
+    - Hindi में ("in") usually maps to Japanese に (existence
+      location) but can map to で (action location) — context-
+      dependent. Explicit に-vs-で teaching with the
+      existence-vs-action distinction is required.
+  - **Verb agreement (gender + number).** Hindi conjugates verbs
+    for person, number, AND gender. Japanese does not. Hindi
+    speakers may unconsciously look for an agreement marker that
+    doesn't exist; teaching point: "Japanese verbs don't change
+    for who."
+  - **Tense over-marking.** Hindi has more tense forms (perfect /
+    habitual / progressive / past habitual) than Japanese, which
+    uses present/non-past + past + a few aspect markers. Hindi
+    speakers may stack aspect markers; specifically 〜ている
+    covers BOTH "is doing" and "has been doing" contexts.
+  - **Politeness mismatch (3-tier Hindi vs morphological Japanese
+    keigo).** Hindi has 3-tier pronoun politeness (तू / तुम / आप)
+    but minimal verb morphology for politeness. Japanese has
+    2-tier basic (casual / です・ます) PLUS a separate full
+    morphological honorific system (謙譲語 / 尊敬語). Teaching
+    point: Japanese keigo is verb-morphology, not vocabulary swap.
+  - **Negative formation placement.** Hindi नहीं sits before the
+    verb; Japanese ない attaches to the verb stem. Placement
+    difference, not meaning — Hindi speakers may produce
+    "verb + nahi" calques.
+  - **Question particle placement.** Hindi क्या at sentence start
+    vs Japanese か at sentence end. Hindi speakers often initially
+    omit か because rising intonation alone (which works in some
+    Hindi questions) feels sufficient.
+  - **Plural marking.** Hindi marks plurals (लोग, बच्चे). Japanese
+    mostly doesn't. Hindi speakers initially over-pluralize using
+    〜たち / 〜ら beyond the limited cases where it's natural.
+  - **Counter-word system overlap with mismatch.** Both Hindi and
+    Japanese have classifier/counter words but the systems differ
+    significantly — Hindi has fewer counters and uses them less
+    obligatorily. Hindi speakers benefit from explicit counter-
+    word drilling because the concept is familiar but the
+    inventory is unfamiliar.
   These notes are the strongest single content lever for niche-N1
-  market positioning. If absent, that's a major finding.
+  market positioning under the Hindi-specific framing. Absent or
+  generic L1 notes is a major finding.
 
 **Vocabulary pedagogical depth (per-word audit)**
 
@@ -298,8 +357,11 @@ For each entry, the audit must check:
     - Counter class for nouns that take counters (本 takes さつ,
       cars take 台, etc.).
   - `gloss` — English meaning(s) ranked by frequency.
-  - `gloss_translations` — vi / id / ne / zh translations of the
-    same gloss. Currently absent? Major niche-N1 gap.
+  - `gloss_translations.hi` — Devanagari Hindi translation of the
+    English gloss. Currently absent on most/all entries? That is
+    THE primary niche-N1 gap and the largest single depth-deficit
+    in the corpus (1041 entries × 1 missing locale = 1041 deficit
+    rows). Expected coverage target: 100% en, ≥ 95% hi.
   - ≥2 example sentences per word, each using only N5 scope.
   - `collocations` — common companion words. E.g. for 雨 (rain):
     雨が降る、雨が止む、雨に濡れる、雨宿り.
@@ -325,16 +387,30 @@ For each entry, the audit must check:
   いる⇄いらっしゃる⇄おる, 食べる⇄召し上がる⇄いただく,
   見る⇄ご覧になる⇄拝見する, etc. These should be cross-linked
   in both directions.
-- **False-friend flags for L1 (niche-N1 unlock).** Words that LOOK
-  similar to a non-Japanese cognate but mean something different.
-  Examples:
-  - 勉強 (べんきょう, "study") looks like Mandarin 勉强 (miǎnqiǎng,
-    "reluctantly") — Mandarin learners must un-learn.
-  - 大丈夫 — Mandarin learners read as "big husband"; means "OK".
-  - 手紙 (てがみ, "letter") — Mandarin 手纸 means "toilet paper".
-  - 娘 (むすめ, "daughter") — Mandarin 娘 means "mother".
-  - For Vietnamese/Indonesian/Nepali, false friends are fewer (no
-    kanji shared) but tense and politeness mismatches are common.
+- **False-friend flags (Hindi-specific framing).** Hindi speakers
+  do NOT share kanji with Japanese, so the legacy
+  shared-script false-friend trap (the way Mandarin learners
+  conflate 勉強 with 勉强) is largely absent for the Hindi-L1
+  audience. The dominant false-friend risk for Hindi speakers
+  is structural / phonological, not lexical:
+  - Phonological collisions (a small set): Japanese サ-syllabary
+    words occasionally collide with Sanskrit-origin Hindi
+    vocabulary in surface phonology but not meaning. Audit
+    should flag any genuinely confusable pair if it emerges,
+    not invent ones.
+  - **Kanji-cognate notes for learners with prior Chinese
+    exposure** — keep these as cross-cutting English-language
+    pedagogical notes (helpful for Indian learners with prior
+    business-Chinese or anime-Chinese exposure, and for English-
+    L1 learners generally), NOT as Hindi-locale-specific
+    `gloss_translations.hi` content:
+    - 勉強 (study) ≠ Chinese 勉强 (reluctantly)
+    - 大丈夫 (OK) — literal kanji-only reading suggests "big
+      husband", which is wrong; the idiom means "OK / fine"
+    - 手紙 (letter) ≠ Chinese 手纸 (toilet paper)
+    - 娘 (daughter) ≠ Chinese 娘 (mother)
+  These appear in English-language explanatory notes; they are
+  NOT translated into Hindi as locale-specific content.
 
 **Kanji study surface (deep audit)**
 
@@ -351,8 +427,11 @@ coverage). For each kanji, the audit must check:
 - **Per-kanji metadata — completeness.** Each entry must have:
   - `glyph` — the kanji.
   - `meanings` — English glosses, ≥2.
-  - `meanings_translations` — vi / id / ne / zh translations
-    (niche-N1 unlock; currently absent is major).
+  - `meanings_translations.hi` — Devanagari Hindi translations
+    of every English meaning (niche-N1 unlock; currently absent
+    on most/all 106 entries is the second-largest depth-deficit
+    after vocab gloss-translations). Expected coverage target:
+    100% en, ≥ 95% hi.
   - `on_yomi` — all on-readings, frequency-ordered.
   - `kun_yomi` — all kun-readings, frequency-ordered, with
     okurigana cuts shown (e.g. 食(べる)).
@@ -599,48 +678,71 @@ questions). Audit:
   (178). A "ghost" item — present in catalog but never tested —
   is a coverage gap.
 
-**L1-interference and learner-language coverage (cross-cutting)**
+**L1-interference and learner-language coverage (Hindi-focused)**
 
 This dimension is the strongest single content lever for niche-N1
-(multilingual non-English-native learners).
+(native-Hindi-medium JLPT prep).
 
-For each of the four target L1s (Vietnamese, Indonesian, Nepali,
-Mandarin Chinese), audit:
+The single target L1 is **Hindi**. Audit:
 
 - **Locale completeness — content surfaces.** Beyond UI chrome,
-  what fraction of grammar `meaning_en`, vocab `gloss`, kanji
-  `meanings`, common-mistakes `wrong/right/why` blurbs, reading
-  `explanation_en`, listening `explanation_en` are translated to
-  the target L1? Today this is mostly 0% (UI chrome only). Moving
-  any of these to ≥80% is a major niche-N1 win.
-- **L1-interference content presence.** For each grammar pattern
-  and vocab false-friend list, is there an L1-specific note?
-  - Mandarin: shared-kanji false friends, omission rules,
-    counter-noun overlap with measure words.
-  - Vietnamese: tense system mismatch, classifier/counter overlap,
-    politeness-level mapping.
-  - Indonesian: lack of transitive/intransitive morphology,
-    honorific systems, lack of grammatical tense markers.
-  - Nepali: SOV shared so word order is easy; honorific levels
-    don't map cleanly; particle inventories diverge.
-- **Kanji-cognate awareness (Mandarin only).** For learners
-  reading Chinese, every shared-glyph kanji should carry a flag:
-  "shared with 中文 — same meaning" / "shared with 中文 — different
-  meaning" / "uniquely Japanese". Without this, Mandarin-L1 learners
-  silently apply wrong meanings.
+  what fraction of grammar `meaning_en`, vocab `gloss` →
+  `gloss_translations.hi`, kanji `meanings` →
+  `meanings_translations.hi`, common-mistakes `wrong/right/why`
+  blurbs, reading `explanation_en`, listening `explanation_en`
+  are translated to Devanagari Hindi? Today the post-transition
+  baseline is approximately 100% en + 0-X% hi (X depends on the
+  Phase 1 seed translation pass; verify by reading the actual
+  hi.json + per-entry `*_translations.hi` populations). Moving
+  hi coverage to ≥80% on every content surface is THE niche-N1
+  outcome.
+- **L1-interference content presence (Hindi-specific notes).**
+  For each grammar pattern, is there a Hindi-L1 note covering
+  the relevant subset of:
+  - Postposition→particle mapping (से→から/で, को→を/に, में→に/で)
+  - Verb-agreement transfer (Hindi gender/number → none in JP)
+  - Tense over-marking (Hindi multi-tense → JP non-past/past)
+  - Politeness mismatch (3-tier Hindi pronoun → JP morphological
+    keigo)
+  - Negative-formation placement (नहीं at start vs ない attached)
+  - Question-particle position (क्या first vs か last)
+  - Plural marking (Hindi marks vs JP usually doesn't)
+  - Counter-system overlap (familiar concept, unfamiliar inventory)
+  - SOV order shared advantage (note as confidence builder)
+  Patterns where these contrasts apply MUST carry the Hindi note.
+  Patterns where the contrast does not apply may omit. Generic
+  "non-English speakers benefit from..." text is a finding —
+  Hindi notes must be Hindi-specific.
+- **Kanji-cognate awareness (cross-cutting English-language note).**
+  Hindi has no shared script with kanji, so the Mandarin-style
+  shared-glyph cognate trap does not apply to a Hindi-L1 learner.
+  HOWEVER: a non-trivial fraction of the Indian learner audience
+  has prior Mandarin exposure (business Chinese, anime/manga
+  vocabulary picked up via Chinese fan-subs). For those learners,
+  the same false-friend warnings (勉強 ≠ 勉强, 大丈夫, 手紙 ≠ 手纸,
+  娘) apply — surface them as English-language pedagogical notes
+  on the kanji's English meaning panel, NOT as
+  `meanings_translations.hi` content.
 - **Romanization conventions.** When a vocab entry is shown to a
   learner who hasn't yet learned the kana for it, the fallback
-  romanization must use the convention typical for the L1's
-  Japanese-learning textbooks:
-  - English-L1: Hepburn (most common globally).
-  - Vietnamese / Indonesian / Nepali: usually Hepburn but with
-    different defaults around long-vowel marks.
+  romanization must be consistent across both en and hi locales:
+  - **Hepburn romanization** is the project standard. This is
+    the convention most Japanese-language textbooks worldwide
+    use, including Indian university Japanese-language courses
+    and Yoisho Academy.
+  - Devanagari transliteration of Japanese is NOT used. The
+    Hindi locale displays Hepburn romaji for the romanized
+    fallback, and Devanagari Hindi only for the gloss/meaning.
+    This keeps the audit invariant simple.
   Verify the convention is consistent across the app.
-- **Native-speaker review of L1 content.** Translations and
-  L1-interference notes should be reviewed by a native speaker
-  of that L1 (not just machine-translated). Currently 0% of L1
-  content has been native-reviewed; flag every locale entry as
-  `review_status: machine_translated` until that changes.
+- **Native-speaker review of Hindi content.** Hindi translations
+  and L1-interference notes should be reviewed by a native Hindi
+  speaker (not just LLM-curated). Today's post-Phase-1 baseline
+  of the locale transition is ~100% `review_status: llm_curated`
+  on Hindi content. Flag every Hindi-locale entry as
+  `review_status: llm_curated` until a native-review pass
+  completes. The native-review pipeline cost / sourcing /
+  schedule is an open question (see Section 6).
 
 **App correctness**
 - Bugs and broken behavior in any N5 surface.
@@ -709,17 +811,33 @@ Mandarin Chinese), audit:
   marketing voice on a privacy-respecting app?
 
 **Internationalization (highest weight for niche N1)**
-- Translation completeness per locale: ratio of translated strings to
-  English fallbacks.
-- Translation quality: machine-translated, post-edited, or native-
-  reviewed?
-- Coverage scope: UI chrome only, or also explanations / rationales /
-  common-mistakes / glosses / reading passages?
-- Locale-aware behavior: number formats, date formats, RTL support
-  if applicable.
-- Default locale resolution: does the app honor Accept-Language
-  on first visit?
-- Switcher discoverability: visible in header? Settings? Hidden?
+- The locale set is a closed two-element set: `{en, hi}`. Audit
+  must verify the codebase enforces this (no accidental fallback
+  to deprecated vi/id/ne/zh anywhere).
+- Translation completeness for `hi`: ratio of translated strings
+  to English fallbacks. Target ≥ 95% of UI chrome, ≥ 80% on
+  content surfaces (rationales, common-mistakes, glosses,
+  reading-passage summaries).
+- Translation quality for `hi`: LLM-curated, native-reviewed, or
+  user-contributed? Today's post-Phase-1 baseline is LLM-curated;
+  audit notes any entries that have advanced beyond that.
+- Coverage scope: UI chrome only, or also explanations /
+  rationales / common-mistakes / glosses / reading passages?
+- Devanagari script discipline: every user-visible Hindi string
+  is in Devanagari, not Romanized Hindi. Romanized Hindi in any
+  user-visible string is a finding.
+- Locale-aware behavior: number formats (Indian-grouping
+  १,२३,४५६ vs Western 123,456), date formats, RTL support if
+  ever needed (Hindi is LTR, but verify no RTL assumptions leak).
+- Default locale resolution: does the app honor `Accept-Language: hi*`
+  and default to Hindi on first visit for an Indian browser?
+- Switcher discoverability: EN | HI chip group visible in header?
+  In settings? Hidden? Trivially clickable on mobile?
+- Existing-user migration sanity: a localStorage state with a
+  deprecated locale (`vi`, `id`, `ne`, `zh`) loads cleanly with
+  fallback to `en`, no error, no flash of unstyled content. This
+  is regression-test territory, not a finding per se, but the
+  audit verifies the migration code is in place.
 
 **Documentation**
 - CHANGELOG currency.
@@ -729,7 +847,7 @@ Mandarin Chinese), audit:
   N4+ vocabulary in explanations.
 - KnowledgeBank internal consistency.
 - Self-host / fork guide for niche N3.
-- Per-locale README / privacy translations.
+- Per-locale README / privacy translations (en + hi only).
 
 **Tests**
 - check_content_integrity.py runs clean. Coverage gaps vs the
@@ -808,10 +926,15 @@ governs everything below. Include:
   on the recommended primary niche — referenced by ID in later
   sections.
 - Honest competitive table: 2 rows × 6 columns. Row 1: this app.
-  Row 2: best-in-niche competitor for the chosen primary niche.
-  Columns: content depth / native-review % / translation quality /
-  privacy posture / discoverability / install path. Mark each cell
-  ✅ / ⚠️ / ❌ from the learner's POV.
+  Row 2: closest competitor in the Hindi-medium-JLPT niche
+  (today: **Yoisho Academy** — yoisho.in — English-medium courses
+  with optional Hindi tutoring; not an app, not Hindi-native, but
+  the incumbent name in the Indian JLPT market). Columns: content
+  depth / native-Hindi-review % / translation quality / privacy
+  posture / discoverability / install path. Mark each cell
+  ✅ / ⚠️ / ❌ from the learner's POV. If a row's cell is "✅"
+  for this app, the supporting evidence (file path / commit /
+  invariant) must be cited inline.
 
 ### Section 0.5: Depth-Deficit Map (mandatory — extracts work-first list)
 
@@ -918,8 +1041,9 @@ Impact, then Effort.
 Statistical state of the app today. Read-only; do not modify
 anything to produce this.
 - Answer-position distribution per corpus.
-- Coverage counts: kanji covered / 106, vocab covered / 1003, grammar
-  covered / 177.
+- Coverage counts: kanji covered / 106, vocab covered / 1041,
+  grammar covered / 178, reading / 40, listening / 40
+  (frozen breadth per the DEPTH-FIRST ENRICHMENT MANDATE).
 - Per-corpus item counts vs target.
 - Test-suite pass status (read existing CI artifacts or run
   read-only).
@@ -927,12 +1051,24 @@ anything to produce this.
   PRIVACY).
 - Per-surface presence/absence checklist (Grammar, Vocabulary, Kanji,
   Reading, Listening, Test, Progress, Changelog, Feedback, Privacy).
-- **Locale completeness table: for each of en/vi/id/ne/zh, the count
-  of translated strings vs total, broken down by surface (UI chrome /
-  rationales / common-mistakes / glosses / reading passages).** This
-  is the most important number for niche-N1 viability.
-- **Native-reviewed vs LLM-curated count per surface.** Critical
-  trust signal.
+- **Locale completeness table: for each of `{en, hi}`, the count
+  of translated strings vs total, broken down by surface (UI chrome
+  / rationales / common-mistakes / glosses / reading passages /
+  vocab `gloss_translations.hi` / kanji `meanings_translations.hi`).**
+  This is the most important number for niche-N1 viability. Format
+  as a 2-row table: header row "Surface | en | hi"; one row per
+  surface; cell values "X / Y (Z%)".
+- **Deprecated-locale stragglers check.** Verify zero references
+  to `vi`/`id`/`ne`/`zh` anywhere in code, content data, docs,
+  or specs (excluding historical changelog entries and the
+  migration code that explicitly checks against these
+  deprecated values). Any straggler is a regression finding from
+  the en+hi narrowing transition (commit reference: IMP-096
+  architectural decision; tag pre-locale-transition).
+- **Native-reviewed vs LLM-curated count per surface, per
+  locale.** Critical trust signal. Hindi is expected to be ~100%
+  LLM-curated on the Phase-1-seeded baseline; movement above 0%
+  on `native_reviewed` is the depth-progress indicator.
 
 ### Section 5: Out-of-Scope Notes
 Items noticed but out of scope. Logged for later, not prioritized
@@ -944,14 +1080,29 @@ within the N5 work.
 
 ### Section 6: Open Questions
 Items where the audit can't decide without product-owner input.
-- Niche choice: does the product owner want to commit to niche N1
-  (multilingual non-English-native) as the primary positioning, or a
-  different niche?
-- Monetization stance: free forever, voluntary donations, paid tier
-  for institutional self-host, or sponsorship? Affects niche-N3 work.
-- Native-review budget: are we commissioning native teachers (cost),
-  or relying on community / volunteer review? Affects every Section-3
-  item tagged with native-review dependency.
+- Niche commitment depth (the locale transition to en+hi was
+  decided 2026-05-DD, but go-to-market commitment is open):
+  does the product owner want to double down on niche N1
+  (native-Hindi-medium JLPT prep) — committing to native-Hindi-
+  speaker review, India-targeted discoverability (Hindi YouTube
+  / Telegram / Quora), and Tier-2/3-city UX research — or
+  treat Hindi as a quality side-bet while leaning on niche N2
+  (privacy / no-account / offline) for global English-speaking
+  reach?
+- Native-Hindi-review budget: commissioning Hindi-speaking
+  Japanese-language teachers (cost), or community / volunteer
+  review through Indian university Japanese programs? Affects
+  every Section-3 item tagged with native-Hindi-review
+  dependency. Today's baseline: ~100% LLM-curated; credibility
+  ceiling without native review is bounded.
+- Indian discoverability strategy: GitHub Pages alone won't
+  reach Tier-2/3 Indian learners. Hindi YouTube? Telegram
+  groups? Indian Japanese-language teacher partnerships? Show HN
+  is unlikely to reach this audience. Which 1-2 channels does
+  the product owner invest in?
+- Monetization stance: free forever, voluntary donations, paid
+  tier for institutional self-host (Indian language schools,
+  vocational centers), or sponsorship? Affects niche-N3 work.
 - Ambiguous policy choices (corpus rules not documented).
 - Architecture decisions that affect multiple surfaces.
 
