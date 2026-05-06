@@ -846,8 +846,11 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
     # translations into the learner's L1. These contain whatever script
     # that language uses (Devanagari for hi) and must not be subjected to
     # the N5-kanji-only rule. Subtree-skip.
+    # Round-8 (2026-05-06): cultural_context + summary fields contain
+    # mixed Japanese (illustration phrases) + learner-language commentary.
+    # Like l1_notes, the whole subtree is exempt from N5-only kanji rule.
     SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations",
-                           "l1_notes"}
+                           "l1_notes", "cultural_context", "summary"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing

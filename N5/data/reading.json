@@ -19,7 +19,8 @@
           ],
           "correctAnswer": "アメリカ",
           "explanation_en": "'アメリカから 来ました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद में स्पष्ट उल्लेख: \"アメリカから 来ました\" (अमेरिका से आई)। अन्य विकल्प (जापान, टोक्यो, चीन) उल्लेखित हैं पर मूल देश नहीं।"
         },
         {
           "id": "n5.read.001.q2",
@@ -32,7 +33,8 @@
           ],
           "correctAnswer": "とうきょうの 大学",
           "explanation_en": "'今、とうきょうの 大学で 日本語を べんきょうしています'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद में: \"今、とうきょうの 大学で 日本語を べんきょうしています\" (अभी टोक्यो के विश्वविद्यालय में जापानी पढ़ रही हूँ)।"
         }
       ],
       "tier": "core_n5",
@@ -81,7 +83,15 @@
         "見る"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "じこしょうかい (self-introduction विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いし",
+        "いま",
+        "うし",
+        "え",
+        "えいが"
+      ]
     },
     {
       "id": "n5.read.002",
@@ -102,7 +112,8 @@
           ],
           "correctAnswer": "6時",
           "explanation_en": "'毎日 6時に おきます'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "दैनिक दिनचर्या में स्पष्ट: \"毎日 6時に おきます\" (हर दिन 6 बजे उठती हूँ)।"
         },
         {
           "id": "n5.read.002.q2",
@@ -115,7 +126,8 @@
           ],
           "correctAnswer": "9時から 5時まで",
           "explanation_en": "'しごとは 9時から 5時までです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "काम का समय अनुच्छेद में दिया गया: \"しごとは 9時から 5時までです\" (काम 9 से 5 तक है)।"
         },
         {
           "id": "n5.read.002.q3",
@@ -128,7 +140,8 @@
           ],
           "correctAnswer": "テレビを 見ます",
           "explanation_en": "'うちに かえってから、テレビを 見ます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "घर लौटने के बाद की क्रिया: \"うちに かえってから、テレビを 見ます\" (घर लौटकर टीवी देखती हूँ)।"
         }
       ],
       "tier": "core_n5",
@@ -161,7 +174,15 @@
         "毎日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "まいにちの せいかつ (daily routine विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "あさごはん",
+        "え",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.003",
@@ -182,7 +203,8 @@
           ],
           "correctAnswer": "ともだちと えいがを 見ます",
           "explanation_en": "'ともだちと えいがを 見に 行きます'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद से: \"ともだちと えいがを 見に 行きます\" (दोस्तों के साथ फ़िल्म देखने जाते हैं)।"
         },
         {
           "id": "n5.read.003.q2",
@@ -195,7 +217,8 @@
           ],
           "correctAnswer": "ばんごはんを 食べます",
           "explanation_en": "'えいがの あとで、レストランで ばんごはんを 食べます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "फ़िल्म के बाद की योजना: \"えいがの あとで、レストランで ばんごはんを 食べます\" (फ़िल्म के बाद रेस्टोरेंट में रात का खाना)।"
         }
       ],
       "tier": "core_n5",
@@ -226,7 +249,15 @@
         "レストラン"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "しゅうまつの よてい (weekend plan विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あし",
+        "あした",
+        "え",
+        "えいが",
+        "が"
+      ]
     },
     {
       "id": "n5.read.004",
@@ -247,7 +278,8 @@
           ],
           "correctAnswer": "パンと コーヒー",
           "explanation_en": "'パンと コーヒーを 買いました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "दुकान से ख़रीद का विवरण: \"パンと コーヒーを 買いました\" (रोटी और कॉफ़ी ख़रीदी)।"
         },
         {
           "id": "n5.read.004.q2",
@@ -260,7 +292,8 @@
           ],
           "correctAnswer": "350円",
           "explanation_en": "200 + 150 = 350.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "गणितीय जोड़: 200 + 150 = 350 येन।"
         }
       ],
       "tier": "core_n5",
@@ -285,7 +318,15 @@
         "円"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "コンビニで (shopping विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "か",
+        "きのう",
+        "ぜんぶ",
+        "で"
+      ]
     },
     {
       "id": "n5.read.005",
@@ -306,7 +347,8 @@
           ],
           "correctAnswer": "4人",
           "explanation_en": "'わたしの かぞくは 4人です'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "पारिवारिक संख्या स्पष्ट: \"わたしの かぞくは 4人です\" (मेरा परिवार 4 लोगों का है)।"
         },
         {
           "id": "n5.read.005.q2",
@@ -319,7 +361,8 @@
           ],
           "correctAnswer": "いしゃ",
           "explanation_en": "'母は いしゃです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "माँ का व्यवसाय: \"母は いしゃです\" (माँ डॉक्टर हैं)।"
         },
         {
           "id": "n5.read.005.q3",
@@ -332,7 +375,8 @@
           ],
           "correctAnswer": "こうこうせい",
           "explanation_en": "'わたしは こうこうせいです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "वक्ता का विद्यार्थी-स्तर: \"わたしは こうこうせいです\" (मैं हाई-स्कूल का छात्र हूँ)।"
         }
       ],
       "tier": "core_n5",
@@ -373,7 +417,15 @@
         "父"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの かぞく (family विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あに",
+        "いし",
+        "いしゃ",
+        "いま",
+        "か"
+      ]
     },
     {
       "id": "n5.read.006",
@@ -394,7 +446,8 @@
           ],
           "correctAnswer": "さむいです",
           "explanation_en": "'今日は とても さむいです'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "सप्ताहांत की पसंदीदा गतिविधि: \"公園で 本を 読みます\" (पार्क में किताब पढ़ती हूँ)।"
         },
         {
           "id": "n5.read.006.q2",
@@ -407,7 +460,8 @@
           ],
           "correctAnswer": "あめが ふっていました",
           "explanation_en": "'あさは あめが ふっていました'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "सुबह की दिनचर्या से: \"朝、コーヒーを 飲みます\" (सुबह कॉफ़ी पीती हूँ)।"
         }
       ],
       "tier": "core_n5",
@@ -440,7 +494,15 @@
         "日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "きょうの てんき (weather विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "あし",
+        "あした",
+        "あめ",
+        "いま"
+      ]
     },
     {
       "id": "n5.read.007",
@@ -508,7 +570,15 @@
         "週"
       ],
       "review_status": "llm_curated",
-      "mondai": 6
+      "mondai": 6,
+      "summary": "としょかんの おしらせ (schedule विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "か",
+        "かりる",
+        "が",
+        "こ",
+        "こと"
+      ]
     },
     {
       "id": "n5.read.008",
@@ -568,7 +638,15 @@
         "学校"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "学校へ (transport विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "ある",
+        "え",
+        "か",
+        "から",
+        "くらい"
+      ]
     },
     {
       "id": "n5.read.009",
@@ -636,7 +714,15 @@
         "毎日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの しゅみ (hobby विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "え",
+        "こ",
+        "こう",
+        "こうえん"
+      ]
     },
     {
       "id": "n5.read.010",
@@ -705,7 +791,15 @@
         "先生"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの きょうしつ (school विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いす",
+        "うし",
+        "え",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.011",
@@ -772,7 +866,15 @@
         "日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "きょうの ひるごはん (food विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いし",
+        "か",
+        "から",
+        "が",
+        "こ"
+      ]
     },
     {
       "id": "n5.read.012",
@@ -843,7 +945,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "本やで (shopping विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "え",
+        "か",
+        "から",
+        "が"
+      ]
     },
     {
       "id": "n5.read.013",
@@ -930,7 +1040,15 @@
         "古い"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "きょうとへの りょこう (travel विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "おかし",
+        "おてら",
+        "おみやげ",
+        "か"
+      ]
     },
     {
       "id": "n5.read.014",
@@ -997,7 +1115,15 @@
         "円"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "あたらしい ふく (shopping विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "か",
+        "が",
+        "きのう",
+        "きれい"
+      ]
     },
     {
       "id": "n5.read.015",
@@ -1066,7 +1192,15 @@
         "母"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "はる (weather विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "え",
+        "か",
+        "が",
+        "こ",
+        "こう"
+      ]
     },
     {
       "id": "n5.read.016",
@@ -1142,7 +1276,15 @@
         "日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "びょうきです (health विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あし",
+        "あした",
+        "あたま",
+        "いし",
+        "いしゃ"
+      ]
     },
     {
       "id": "n5.read.017",
@@ -1192,7 +1334,15 @@
         "円"
       ],
       "review_status": "llm_curated",
-      "mondai": 6
+      "mondai": 6,
+      "summary": "カフェの メニュー (schedule विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "おちゃ",
+        "ケーキ",
+        "コーヒー",
+        "サンドイッチ",
+        "円"
+      ]
     },
     {
       "id": "n5.read.018",
@@ -1270,7 +1420,15 @@
         "毎日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "日本語の べんきょう (study विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "うし",
+        "か",
+        "から",
+        "かんじ"
+      ]
     },
     {
       "id": "n5.read.019",
@@ -1338,7 +1496,15 @@
         "日曜日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "せんしゅうの 日よう日 (weekend विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "うみ",
+        "か",
+        "かな",
+        "さかな",
+        "しか"
+      ]
     },
     {
       "id": "n5.read.020",
@@ -1414,7 +1580,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの 先生 (school विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いつ",
+        "いつも",
+        "いま",
+        "おもしろい",
+        "か"
+      ]
     },
     {
       "id": "n5.read.021",
@@ -1482,7 +1656,15 @@
         "時間"
       ],
       "review_status": "llm_curated",
-      "mondai": 6
+      "mondai": 6,
+      "summary": "ひこうきの じかん (schedule विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "おと",
+        "おとな",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.022",
@@ -1550,7 +1732,15 @@
         "父"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "きのうの ばん (weekend विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あに",
+        "いし",
+        "いま",
+        "おいしい",
+        "か"
+      ]
     },
     {
       "id": "n5.read.023",
@@ -1619,7 +1809,15 @@
         "金曜日"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "バスていの おしらせ (transport विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "か",
+        "じ",
+        "ど",
+        "の",
+        "も"
+      ]
     },
     {
       "id": "n5.read.024",
@@ -1692,7 +1890,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの 友だち (people विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "うし",
+        "が",
+        "じ",
+        "じょうず"
+      ]
     },
     {
       "id": "n5.read.025",
@@ -1768,7 +1974,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "土よう日の あさ (daily routine विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "あさごはん",
+        "え",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.026",
@@ -1832,7 +2046,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "くだものを かいに (shopping विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "か",
+        "くだもの",
+        "ぜんぶ",
+        "て"
+      ]
     },
     {
       "id": "n5.read.027",
@@ -1900,7 +2122,15 @@
         "デパート"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "友だちからの メモ (request विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あし",
+        "あした",
+        "いっしょに",
+        "いま",
+        "え"
+      ]
     },
     {
       "id": "n5.read.028",
@@ -1974,7 +2204,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの へや (room विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あまり",
+        "いす",
+        "え",
+        "か",
+        "かな"
+      ]
     },
     {
       "id": "n5.read.029",
@@ -2040,7 +2278,15 @@
         "高い"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "なつ (weather विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あつい",
+        "うみ",
+        "て",
+        "で",
+        "と"
+      ]
     },
     {
       "id": "n5.read.030",
@@ -2116,7 +2362,15 @@
         "月"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "ゆうびんきょくへの 行きかた (directions विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "ある",
+        "いま",
+        "え",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.031",
@@ -2200,7 +2454,15 @@
         "白い"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの いぬ (animals विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "いす",
+        "いっしょに",
+        "いぬ",
+        "いま"
+      ]
     },
     {
       "id": "n5.read.032",
@@ -2296,7 +2558,15 @@
         "水"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "アルバイト (work विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "お金",
+        "か",
+        "から",
+        "かれ"
+      ]
     },
     {
       "id": "n5.read.033",
@@ -2375,7 +2645,15 @@
         "木"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "とうきょうの あき (weather विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あか",
+        "あき",
+        "いろ",
+        "え",
+        "か"
+      ]
     },
     {
       "id": "n5.read.034",
@@ -2458,7 +2736,15 @@
         "学校"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "友だちからの てがみ (family विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あし",
+        "あした",
+        "おげんきですか",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.035",
@@ -2556,7 +2842,15 @@
         "母"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "すきな たべもの (food विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いし",
+        "いす",
+        "いっしょに",
+        "か",
+        "が"
+      ]
     },
     {
       "id": "n5.read.036",
@@ -2640,7 +2934,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "学校の しゅくだい (school विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "おもしろい",
+        "か",
+        "から",
+        "が",
+        "こ"
+      ]
     },
     {
       "id": "n5.read.037",
@@ -2738,7 +3040,15 @@
         "電車"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "電車の おくれ (transport विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あし",
+        "あした",
+        "いま",
+        "え",
+        "おく"
+      ]
     },
     {
       "id": "n5.read.038",
@@ -2826,7 +3136,15 @@
         "週"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "わたしの しゅみ (hobby विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "いま",
+        "うし",
+        "か",
+        "かい",
+        "から"
+      ]
     },
     {
       "id": "n5.read.039",
@@ -2921,7 +3239,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 6
+      "mondai": 6,
+      "summary": "本やの セール (shopping विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "え",
+        "えいご",
+        "か",
+        "から"
+      ]
     },
     {
       "id": "n5.read.040",
@@ -3009,7 +3335,15 @@
         "本"
       ],
       "review_status": "llm_curated",
-      "mondai": 4
+      "mondai": 4,
+      "summary": "こうえんの さんぽ (nature विषय का छोटा अनुच्छेद)।",
+      "vocab_preview": [
+        "あさ",
+        "いま",
+        "うえ",
+        "え",
+        "えん"
+      ]
     },
     {
       "id": "n5.read.041",
@@ -3032,7 +3366,8 @@
           ],
           "correctAnswer": "カレー",
           "explanation_en": "Tanaka likes spicy food, so 'カレーを たのみました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "तानाका को मसालेदार खाना पसंद है, इसलिए \"カレーを たのみました\" (कारी मँगवाई)।"
         },
         {
           "id": "n5.read.041.q2",
@@ -3045,9 +3380,11 @@
           ],
           "correctAnswer": "しんせつ",
           "explanation_en": "'みせの ひとは しんせつでした'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद के अंत में: \"みせの ひとは しんせつでした\" (दुकान वाले मिलनसार थे)।"
         }
-      ]
+      ],
+      "summary": "レストランで (restaurant विषय का छोटा अनुच्छेद)।"
     },
     {
       "id": "n5.read.042",
@@ -3070,7 +3407,8 @@
           ],
           "correctAnswer": "おんがくと えを かくこと",
           "explanation_en": "'わたしの しゅみは おんがくを きくことと、えを かくことです'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद की पहली पंक्ति: \"わたしの しゅみは おんがくを きくことと、えを かくことです\" (मेरे शौक संगीत सुनना और चित्र बनाना)।"
         },
         {
           "id": "n5.read.042.q2",
@@ -3083,9 +3421,11 @@
           ],
           "correctAnswer": "びじゅつかん",
           "explanation_en": "'らいげつ、ともだちと いっしょに びじゅつかんへ いきます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अगले महीने की योजना: \"ともだちと いっしょに あたらしい びじゅつかんへ いきます\" (दोस्त के साथ नए कला-संग्रहालय जाएँगे)।"
         }
-      ]
+      ],
+      "summary": "しゅうまつの しゅみ (leisure विषय का छोटा अनुच्छेद)।"
     },
     {
       "id": "n5.read.043",
@@ -3108,7 +3448,8 @@
           ],
           "correctAnswer": "ごご 三時",
           "explanation_en": "'ごごの 三時に びょういんへ いきました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अस्पताल पहुँचने का समय: \"ごごの 三時に びょういんへ いきました\" (दोपहर 3 बजे)।"
         },
         {
           "id": "n5.read.043.q2",
@@ -3121,9 +3462,11 @@
           ],
           "correctAnswer": "げんきに なりました",
           "explanation_en": "'きょうは あたまの いたみが ありません。げんきに なりました'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "आज की स्थिति: \"きょうは あたまの いたみが ありません。げんきに なりました\" (आज सिर-दर्द नहीं, स्वस्थ हो गया)।"
         }
-      ]
+      ],
+      "summary": "びょういんへ いきました (health विषय का छोटा अनुच्छेद)।"
     },
     {
       "id": "n5.read.044",
@@ -3161,7 +3504,8 @@
           "explanation_en": "'土曜日に せんたくと そうじを します'.",
           "format_role": "extra"
         }
-      ]
+      ],
+      "summary": "らいしゅうの よてい (calendar विषय का छोटा अनुच्छेद)।"
     },
     {
       "id": "n5.read.045",
@@ -3199,7 +3543,8 @@
           "explanation_en": "'しごとは 九時から 六時までです'.",
           "format_role": "extra"
         }
-      ]
+      ],
+      "summary": "わたしの しごと (occupation विषय का छोटा अनुच्छेद)।"
     }
   ],
   "_meta": {

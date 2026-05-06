@@ -17,7 +17,9 @@
       ],
       "correctAnswer": "カフェの 前",
       "explanation_en": "Initially they planned to meet at the station, but the woman suggested the cafe instead, and the man agreed.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "explanation_hi": "पुरुष ने पहले स्टेशन के सामने मिलने का सुझाव दिया, पर महिला ने भीड़ का बहाना देकर कैफ़े के सामने का प्रस्ताव रखा — पुरुष ने मान लिया। उत्तर: कैफ़े के सामने।",
+      "cultural_context": "जापान में मिलने का स्थान बदलने का अनुरोध करना सामान्य; भीड़ या मौसम का हवाला देना विनम्र तरीक़ा है। मूल योजना पर ज़ोर देना थोड़ा अशिष्ट लगता है।"
     },
     {
       "id": "n5.listen.002",
@@ -36,7 +38,9 @@
       ],
       "correctAnswer": "パンと たまごと ぎゅうにゅう",
       "explanation_en": "The woman first asked for bread and eggs, then added milk.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "explanation_hi": "खाने के क्रम का सवाल। महिला ने \"पहले सलाद, फिर सूप\" कहा। उत्तर: सलाद → सूप क्रम।",
+      "cultural_context": "जापानी रेस्तराँ में सलाद/सूप का पारंपरिक क्रम पश्चिमी देशों से अलग हो सकता है। ग्राहक के अनुसार लचीलापन सामान्य।"
     },
     {
       "id": "n5.listen.003",
@@ -55,7 +59,9 @@
       ],
       "correctAnswer": "8時半",
       "explanation_en": "They agreed to leave at 8:30 to catch the 9 o'clock train.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "explanation_hi": "ट्रेन छूटने का समय। नौ बजे की ट्रेन छूटी, अगली 9:30 की है। उत्तर: 9:30।",
+      "cultural_context": "जापानी ट्रेनें मिनटों की सटीकता से चलती हैं — \"5 मिनट देर\" भी असामान्य घटना मानी जाती है। शेड्यूल पर भरोसा कर सकते हैं।"
     },
     {
       "id": "n5.listen.004",
@@ -74,7 +80,8 @@
       ],
       "correctAnswer": "つめたい コーヒー",
       "explanation_en": "The man clarified he wanted iced coffee, not hot.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "explanation_hi": "पुस्तक की क़ीमत: 3 खंड × 1500 येन = 4500 येन। उत्तर: 4500।"
     },
     {
       "id": "n5.listen.005",
@@ -97,7 +104,9 @@
         "n5-030"
       ],
       "_curriculum_note": "Choice 1 uses nominalizing の + が (n5-030). Sequence after n5-030 in any curriculum that uses prerequisites.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "explanation_hi": "मौसम की चर्चा। \"今日は 雨ですね\" — आज बारिश। कल धूप होगी। उत्तर: कल अच्छा मौसम।",
+      "cultural_context": "मौसम की बातचीत जापानी अभिवादन का अनिवार्य हिस्सा है — \"暑いですね\" / \"雨ですね\" आदि से बातचीत शुरू करना सामान्य।"
     },
     {
       "id": "n5.listen.006",
@@ -792,7 +801,9 @@
         "ごちそうさまでした。"
       ],
       "correctAnswer": "おつかれさまでした。",
-      "explanation_en": "When a colleague says 'お先に失礼します' (leaving work first), the standard reply is 'お疲れさまでした' (you've worked hard). 'はじめまして' is a first-meeting greeting; 'ごちそうさまでした' is for after meals."
+      "explanation_en": "When a colleague says 'お先に失礼します' (leaving work first), the standard reply is 'お疲れさまでした' (you've worked hard). 'はじめまして' is a first-meeting greeting; 'ごちそうさまでした' is for after meals.",
+      "explanation_hi": "कार्यालय छोड़ते समय \"お先に失礼します\" का जवाब \"お疲れさまでした\" — सहकर्मी की मेहनत की पहचान। अन्य विकल्प (पहली बार मिलना, खाने के बाद) ग़लत संदर्भ हैं।",
+      "cultural_context": "जापानी कार्यस्थल में \"お先に失礼します\" (पहले निकलने के लिए विनती) कहना अनिवार्य शिष्टाचार है — दूसरों को बता देना कि आप पहले जा रहे हैं। बिना यह कहे चले जाना अशिष्ट माना जाता है। साथी इसका उत्तर \"お疲れさまでした\" (आपने मेहनत की) से देते हैं।"
     },
     {
       "id": "n5.listen.042",
@@ -809,7 +820,8 @@
         "いただきます。"
       ],
       "correctAnswer": "ありがとうございます。",
-      "explanation_en": "Standard reply when someone congratulates you on your birthday: 'thank you'. 'すみません' apologises; 'いただきます' is said before eating."
+      "explanation_en": "Standard reply when someone congratulates you on your birthday: 'thank you'. 'すみません' apologises; 'いただきます' is said before eating.",
+      "explanation_hi": "जन्मदिन की बधाई पर मानक उत्तर \"ありがとうございます\" (धन्यवाद)। \"すみません\" क्षमा माँगना है, \"いただきます\" खाने से पहले बोलते हैं — ग़लत।"
     },
     {
       "id": "n5.listen.043",
@@ -826,7 +838,8 @@
         "きっぷは 二まいです。"
       ],
       "correctAnswer": "まっすぐ いって、みぎに まがって ください。",
-      "explanation_en": "When asked 'where is the station?' the natural reply is directions ('go straight then turn right'). The other options state distance or count tickets but don't answer 'where'."
+      "explanation_en": "When asked 'where is the station?' the natural reply is directions ('go straight then turn right'). The other options state distance or count tickets but don't answer 'where'.",
+      "explanation_hi": "स्टेशन का रास्ता पूछने पर सीधा उत्तर दिशा-निर्देश है। दूरी या टिकट की संख्या बताना सवाल का जवाब नहीं।"
     },
     {
       "id": "n5.listen.044",
@@ -843,7 +856,9 @@
         "いってきます。"
       ],
       "correctAnswer": "いいですね、たべましょう。",
-      "explanation_en": "When invited 'won't you eat lunch with me?', the warm acceptance is 'sounds good, let's eat'. 'もう食べました' (already ate) is technically a refusal but more abrupt; 'いってきます' (I'm off) is wrong context entirely."
+      "explanation_en": "When invited 'won't you eat lunch with me?', the warm acceptance is 'sounds good, let's eat'. 'もう食べました' (already ate) is technically a refusal but more abrupt; 'いってきます' (I'm off) is wrong context entirely.",
+      "explanation_hi": "दोपहर का भोजन साथ करने का निमंत्रण मिला है। गर्मजोशी से स्वीकार: \"いいですね、たべましょう\" (अच्छा, चलते हैं)। \"もう食べました\" अधिक रूखा होगा; \"いってきます\" बिलकुल अलग संदर्भ।",
+      "cultural_context": "जापान में लंच का साथ खाना सहकर्मी-संबंध बनाने का तरीक़ा है। निमंत्रण ठुकराने पर \"もう食べました\" (पहले ही खा लिया) कहना भी विनम्र है, पर साथ खाने से रिश्ते बेहतर होते हैं।"
     },
     {
       "id": "n5.listen.045",
@@ -860,7 +875,9 @@
         "さようなら。"
       ],
       "correctAnswer": "おはようございます。",
-      "explanation_en": "Greeting echoes greeting: 'good morning' is met with 'good morning'. 'おやすみなさい' is good-night; 'さようなら' is goodbye."
+      "explanation_en": "Greeting echoes greeting: 'good morning' is met with 'good morning'. 'おやすみなさい' is good-night; 'さようなら' is goodbye.",
+      "explanation_hi": "अभिवादन की प्रतिक्रिया अभिवादन ही है: \"おはよう\" → \"おはよう\"। शुभ-रात्रि या अलविदा संदर्भ-विरुद्ध।",
+      "cultural_context": "日本में \"おはようございます\" (विनम्र) कार्यालय में लगभग 11 बजे तक प्रयोग होता है — हिंदी में जैसे दोपहर तक \"नमस्ते\" कह सकते हैं। दिन के बाद \"こんにちは\" शुरू होता है।"
     },
     {
       "id": "n5.listen.046",
@@ -877,7 +894,9 @@
         "いいえ、けっこうです。"
       ],
       "correctAnswer": "はい、どうぞ。",
-      "explanation_en": "When asked to lend a pen, the natural reply is 'yes, here you go' ('どうぞ' = please take it). 'わかりました' (understood) doesn't fit a request for an object; 'いいえ、けっこうです' (no thank you) refuses."
+      "explanation_en": "When asked to lend a pen, the natural reply is 'yes, here you go' ('どうぞ' = please take it). 'わかりました' (understood) doesn't fit a request for an object; 'いいえ、けっこうです' (no thank you) refuses.",
+      "explanation_hi": "पेन उधार माँगने पर उत्तर: \"はい、どうぞ\" (हाँ, लीजिए)। \"わかりました\" वस्तु के अनुरोध पर फ़िट नहीं; \"けっこうです\" मना करना है।",
+      "cultural_context": "\"どうぞ\" (कृपया, यहाँ है) — जापानी संस्कृति का बहुत महत्वपूर्ण शब्द। केवल वस्तु देते समय ही नहीं, अंदर आने के लिए, बैठने के लिए, खाने के लिए — हर मेहमानवाज़ी संकेत में प्रयोग होता है।"
     },
     {
       "id": "n5.listen.047",
@@ -894,7 +913,9 @@
         "こちらこそ。"
       ],
       "correctAnswer": "いいえ、だいじょうぶです。",
-      "explanation_en": "When someone apologises 'sorry', the gracious reply is 'no, it's fine'. 'おねがいします' (please) is unrelated; 'こちらこそ' (likewise) fits 'thank you' contexts."
+      "explanation_en": "When someone apologises 'sorry', the gracious reply is 'no, it's fine'. 'おねがいします' (please) is unrelated; 'こちらこそ' (likewise) fits 'thank you' contexts.",
+      "explanation_hi": "क्षमा-निवेदन (\"すみませんでした\") का दयालु उत्तर: \"いいえ、だいじょうぶです\" (नहीं, ठीक है)। \"おねがいします\" अनुरोध है; \"こちらこそ\" धन्यवाद के संदर्भ में।",
+      "cultural_context": "जापानी क्षमा-संस्कृति में \"いいえ\" (नहीं) से ज़्यादा महत्वपूर्ण है \"だいじょうぶ\" (ठीक है) जोड़ना। \"इसकी ज़रूरत नहीं थी\" का भाव — हिंदी \"कोई बात नहीं\" के समान।"
     }
   ]
 }
