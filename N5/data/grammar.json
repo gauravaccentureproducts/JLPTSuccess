@@ -236,6 +236,10 @@
         {
           "with_pattern_id": "n5-003",
           "note": "は marks the topic (often known); が marks the subject (often new information or focus)."
+        },
+        {
+          "with_pattern_id": "n5-126",
+          "note": "は marks the topic of conversation; が marks subject (often the new/focused element). With existential verbs ある / いる, が marks what exists."
         }
       ],
       "notes": "は is the most-tested particle on JLPT N5. The は vs が distinction is the single most common source of N5 errors.",
@@ -728,6 +732,10 @@
         {
           "with_pattern_id": "n5-005",
           "note": "に covers destination + existence + time + recipient. へ is destination-only and slightly more formal. For movement verbs, both work; for everything else, use に."
+        },
+        {
+          "with_pattern_id": "n5-007",
+          "note": "で marks the location where an action takes place; に marks the destination/direction of movement. Pair this with the n5-005 contrast (に for existence location)."
         }
       ],
       "notes": "",
@@ -857,6 +865,10 @@
         {
           "with_pattern_id": "n5-005",
           "note": "Classic pair: に (existence) vs で (action). Memorize a stative verb list (ある／いる／すんでいる) - those take に. Everything else takes で."
+        },
+        {
+          "with_pattern_id": "n5-006",
+          "note": "で marks the location where an action takes place; に marks the destination/direction of movement. Pair this with the n5-005 contrast (に for existence location)."
         }
       ],
       "notes": "",
@@ -986,8 +998,11 @@
       ],
       "contrasts": [
         {
-          "with_pattern_id": null,
-          "note": "と (exhaustive: A and B, full stop) vs や (non-exhaustive: A, B, etc., among others). や is often paired with など."
+          "note": "と (exhaustive: A and B, full stop) vs や (non-exhaustive: A, B, etc., among others). や is often paired with など. Note: や does not have its own grammar entry in this corpus."
+        },
+        {
+          "with_pattern_id": "n5-013",
+          "note": "と pairs items exhaustively (A and B, full stop). も adds (A も B も = both A and B as well). Distinct functions even though both can join nouns."
         }
       ],
       "notes": "",
@@ -5140,8 +5155,7 @@
       ],
       "contrasts": [
         {
-          "with_pattern_id": null,
-          "note": "いくつ = 'how many' (native counter). For specific counters use なん + counter (なんにん, なんまい)."
+          "note": "いくつ = \"how many\" (native counter). For specific counters use なん + counter (なんにん, なんまい). Note: counter-specific patterns live in the counters section."
         }
       ],
       "notes": "",
@@ -6379,6 +6393,10 @@
         {
           "with_pattern_id": "n5-060",
           "note": "Polite ました = plain た. Same past-affirmative meaning, different register."
+        },
+        {
+          "with_pattern_id": "n5-169",
+          "note": "〜た is plain past (\"I did it\"). 〜たことがある is experiential (\"I have the experience of doing it\") — used for life experience, not specific time-marked actions. Adding \"yesterday\" to 〜たことがある is ungrammatical."
         }
       ],
       "notes": "",
@@ -6615,6 +6633,10 @@
         {
           "with_pattern_id": "n5-067",
           "note": "て-form rules mirror た-form: のんで / のんだ, かいて / かいた, etc. Memorize one, you know both."
+        },
+        {
+          "with_pattern_id": "n5-072",
+          "note": "Verb-て alone chains successive actions (\"did X and then Y\"). Verb-ています adds います to express progressive (\"doing X right now\") or resultative (\"X has been done; the state continues\")."
         }
       ],
       "notes": "",
@@ -6927,6 +6949,10 @@
         {
           "with_pattern_id": "n5-073",
           "note": "〜ている (progressive: ongoing now) vs 〜ている (resultative: state from a past completed action). Same form, two readings — context disambiguates."
+        },
+        {
+          "with_pattern_id": "n5-069",
+          "note": "Verb-て alone chains successive actions (\"did X and then Y\"). Verb-ています adds います to express progressive (\"doing X right now\") or resultative (\"X has been done; the state continues\")."
         }
       ],
       "notes": "しる is the famous exception: しっています (yes) vs しりません (no).",
@@ -10008,6 +10034,10 @@
         {
           "with_pattern_id": "n5-105",
           "note": "たい (positive) ↔ たくない (negative). Past たかった / たくなかった."
+        },
+        {
+          "with_pattern_id": "n5-101",
+          "note": "〜たい expresses the speaker's own desire to perform an action (\"I want to eat\"). 〜が ほしい expresses desire for an object/state (\"I want a book\"). Different parts of speech: たい attaches to verb stems; ほしい attaches to nouns + が."
         }
       ],
       "notes": "",
@@ -11873,6 +11903,10 @@
         {
           "with_pattern_id": "n5-009",
           "note": "Mid-sentence が = 'but'. Mid-sentence から = 'because'."
+        },
+        {
+          "with_pattern_id": "n5-002",
+          "note": "は marks the topic of conversation; が marks subject (often the new/focused element). With existential verbs ある / いる, が marks what exists."
         }
       ],
       "notes": "",
@@ -12117,6 +12151,14 @@
         {
           "with_pattern_id": "n5-085",
           "note": "〜たことがある (experience) vs 〜た (simple past). Experience does NOT take specific time-markers (yesterday etc.); simple past does."
+        },
+        {
+          "with_pattern_id": "n5-131",
+          "note": "あげる = \"give\" from in-group to out-group or speaker → others. もらう = \"receive\" — the reverse direction, marked with に or から for the giver. Use あげる when speaker/in-group gives, もらう when speaker/in-group receives."
+        },
+        {
+          "with_pattern_id": "n5-132",
+          "note": "あげる = \"give to others\" (out-group). くれる = \"give to me / my in-group\" — same action, different direction relative to the speaker. Choose based on who receives."
         }
       ],
       "notes": "",
@@ -12193,7 +12235,16 @@
           "why": "もらう has the receiver as the topic. To put the giver first, use くれる instead."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-130",
+          "note": "あげる = \"give\" from in-group to out-group or speaker → others. もらう = \"receive\" — the reverse direction, marked with に or から for the giver. Use あげる when speaker/in-group gives, もらう when speaker/in-group receives."
+        },
+        {
+          "with_pattern_id": "n5-132",
+          "note": "もらう = \"receive\" (passive POV from receiver). くれる = \"give to me\" (active POV from giver). Both describe the same transfer; the choice signals whose perspective the speaker takes."
+        }
+      ],
       "notes": "Both ～に and ～から are valid at N5: ～に is more typical for personal givers (友だちに, 母に); ～から for institutional / non-personal sources (学校から, ぎんこうから).",
       "review_status": "llm_curated",
       "meaning_hi": "पाना (X से) - に व्यक्तियों के लिए, から संस्थाओं के लिए",
@@ -12270,6 +12321,10 @@
         {
           "with_pattern_id": "n5-130",
           "note": "あげる = I give to others. くれる = others give to me. もらう = I receive from others (alternative perspective on くれる)."
+        },
+        {
+          "with_pattern_id": "n5-131",
+          "note": "もらう = \"receive\" (passive POV from receiver). くれる = \"give to me\" (active POV from giver). Both describe the same transfer; the choice signals whose perspective the speaker takes."
         }
       ],
       "notes": "",
@@ -12360,6 +12415,10 @@
         {
           "with_pattern_id": "n5-009",
           "note": "This is a duplicate entry - see the canonical pattern."
+        },
+        {
+          "with_pattern_id": "n5-134",
+          "note": "〜から (sentence-final causal) is direct / casual. 〜ので is softer / more polite — preferred when the reason is something the listener should sympathize with."
         }
       ],
       "notes": "",
@@ -12443,6 +12502,10 @@
         {
           "with_pattern_id": "n5-009",
           "note": "から = direct/personal; ので = softer/more polite. Often interchangeable."
+        },
+        {
+          "with_pattern_id": "n5-133",
+          "note": "〜から (sentence-final causal) is direct / casual. 〜ので is softer / more polite — preferred when the reason is something the listener should sympathize with."
         }
       ],
       "notes": "",
@@ -15029,7 +15092,12 @@
           "why": "Past experience requires the た-form before ことがある. Plain form 行く + ことがある means \"sometimes go (habit)\", a different meaning."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-067",
+          "note": "〜た is plain past (\"I did it\"). 〜たことがある is experiential (\"I have the experience of doing it\") — used for life experience, not specific time-marked actions. Adding \"yesterday\" to 〜たことがある is ungrammatical."
+        }
+      ],
       "notes": "Upper N5 / borderline.",
       "review_status": "llm_curated",
       "meaning_hi": "क्रिया-た + ことがある - पहले किया है (अनुभव)",
