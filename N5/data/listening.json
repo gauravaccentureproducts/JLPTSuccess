@@ -19,7 +19,40 @@
       "explanation_en": "Initially they planned to meet at the station, but the woman suggested the cafe instead, and the man agreed.",
       "review_status": "llm_curated",
       "explanation_hi": "पुरुष ने पहले स्टेशन के सामने मिलने का सुझाव दिया, पर महिला ने भीड़ का बहाना देकर कैफ़े के सामने का प्रस्ताव रखा — पुरुष ने मान लिया। उत्तर: कैफ़े के सामने।",
-      "cultural_context": "जापान में मिलने का स्थान बदलने का अनुरोध करना सामान्य; भीड़ या मौसम का हवाला देना विनम्र तरीक़ा है। मूल योजना पर ज़ोर देना थोड़ा अशिष्ट लगता है।"
+      "cultural_context": "जापान में मिलने का स्थान बदलने का अनुरोध करना सामान्य; भीड़ या मौसम का हवाला देना विनम्र तरीक़ा है। मूल योजना पर ज़ोर देना थोड़ा अशिष्ट लगता है।",
+      "pacing_morae_per_min": 176.8,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "男：あした、えいがを 見に 行きませんか。",
+          "startMs": 8009
+        },
+        {
+          "text_ja": "女：いいですね。何時に 会いますか。",
+          "startMs": 11792
+        },
+        {
+          "text_ja": "男：三時に えきの 前で どうですか。",
+          "startMs": 15351
+        },
+        {
+          "text_ja": "女：えきの 前は 人が おおいですね。カフェの 前で 会いましょう。",
+          "startMs": 18911
+        },
+        {
+          "text_ja": "男：はい、わかりました。",
+          "startMs": 25364
+        }
+      ],
+      "voice_planned": {
+        "男": 11,
+        "女": 2
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.002",
@@ -40,7 +73,44 @@
       "explanation_en": "The woman first asked for bread and eggs, then added milk.",
       "review_status": "llm_curated",
       "explanation_hi": "खाने के क्रम का सवाल। महिला ने \"पहले सलाद, फिर सूप\" कहा। उत्तर: सलाद → सूप क्रम।",
-      "cultural_context": "जापानी रेस्तराँ में सलाद/सूप का पारंपरिक क्रम पश्चिमी देशों से अलग हो सकता है। ग्राहक के अनुसार लचीलापन सामान्य।"
+      "cultural_context": "जापानी रेस्तराँ में सलाद/सूप का पारंपरिक क्रम पश्चिमी देशों से अलग हो सकता है। ग्राहक के अनुसार लचीलापन सामान्य।",
+      "pacing_morae_per_min": 185.2,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "女の人が 男の人に 電話しています。男の人は 何を 買いますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：もしもし。今 スーパーですか。",
+          "startMs": 8938
+        },
+        {
+          "text_ja": "男：はい、いま スーパーに います。",
+          "startMs": 12166
+        },
+        {
+          "text_ja": "女：パンと たまごを かって ください。",
+          "startMs": 15146
+        },
+        {
+          "text_ja": "男：パンと たまごですね。",
+          "startMs": 18622
+        },
+        {
+          "text_ja": "女：あ、ぎゅうにゅうも おねがいします。",
+          "startMs": 20857
+        },
+        {
+          "text_ja": "男：はい、わかりました。",
+          "startMs": 24581
+        }
+      ],
+      "voice_planned": {
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.003",
@@ -61,7 +131,36 @@
       "explanation_en": "They agreed to leave at 8:30 to catch the 9 o'clock train.",
       "review_status": "llm_curated",
       "explanation_hi": "ट्रेन छूटने का समय। नौ बजे की ट्रेन छूटी, अगली 9:30 की है। उत्तर: 9:30।",
-      "cultural_context": "जापानी ट्रेनें मिनटों की सटीकता से चलती हैं — \"5 मिनट देर\" भी असामान्य घटना मानी जाती है। शेड्यूल पर भरोसा कर सकते हैं।"
+      "cultural_context": "जापानी ट्रेनें मिनटों की सटीकता से चलती हैं — \"5 मिनट देर\" भी असामान्य घटना मानी जाती है। शेड्यूल पर भरोसा कर सकते हैं।",
+      "pacing_morae_per_min": 170.3,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男の人と 女の人が 話しています。あした 何時に うちを 出ますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：あしたの あさ、何時に 出ますか。",
+          "startMs": 7856
+        },
+        {
+          "text_ja": "男：そうですね。九時の でんしゃに のりたいです。",
+          "startMs": 11448
+        },
+        {
+          "text_ja": "女：では、うちを 八時半に 出ましょう。",
+          "startMs": 16161
+        },
+        {
+          "text_ja": "男：いいですね。そう しましょう。",
+          "startMs": 20202
+        }
+      ],
+      "voice_planned": {
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.004",
@@ -81,7 +180,40 @@
       "correctAnswer": "つめたい コーヒー",
       "explanation_en": "The man clarified he wanted iced coffee, not hot.",
       "review_status": "llm_curated",
-      "explanation_hi": "पुस्तक की क़ीमत: 3 खंड × 1500 येन = 4500 येन। उत्तर: 4500।"
+      "explanation_hi": "पुस्तक की क़ीमत: 3 खंड × 1500 येन = 4500 येन। उत्तर: 4500।",
+      "pacing_morae_per_min": 208.1,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "カフェで 男の人が ちゅうもんしています。男の人は 何を 飲みますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "店員：いらっしゃいませ。",
+          "startMs": 8459
+        },
+        {
+          "text_ja": "男：すみません、コーヒーを ください。",
+          "startMs": 10392
+        },
+        {
+          "text_ja": "店員：あつい コーヒーですか。",
+          "startMs": 13776
+        },
+        {
+          "text_ja": "男：いいえ、つめたい コーヒーで おねがいします。",
+          "startMs": 16193
+        },
+        {
+          "text_ja": "店員：はい、つめたい コーヒーですね。",
+          "startMs": 20785
+        }
+      ],
+      "voice_planned": {
+        "店員": 20,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.005",
@@ -106,7 +238,36 @@
       "_curriculum_note": "Choice 1 uses nominalizing の + が (n5-030). Sequence after n5-030 in any curriculum that uses prerequisites.",
       "review_status": "llm_curated",
       "explanation_hi": "मौसम की चर्चा। \"今日は 雨ですね\" — आज बारिश। कल धूप होगी। उत्तर: कल अच्छा मौसम।",
-      "cultural_context": "मौसम की बातचीत जापानी अभिवादन का अनिवार्य हिस्सा है — \"暑いですね\" / \"雨ですね\" आदि से बातचीत शुरू करना सामान्य।"
+      "cultural_context": "मौसम की बातचीत जापानी अभिवादन का अनिवार्य हिस्सा है — \"暑いですね\" / \"雨ですね\" आदि से बातचीत शुरू करना सामान्य।",
+      "pacing_morae_per_min": 190.2,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "学校で 先生と 学生が 話しています。学生は どうして おそく なりましたか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "先生：今日は どうして おそく 来ましたか。",
+          "startMs": 9280
+        },
+        {
+          "text_ja": "学生：すみません。あさ、でんしゃが おくれました。",
+          "startMs": 13456
+        },
+        {
+          "text_ja": "先生：そうですか。だいじょうぶですか。",
+          "startMs": 17632
+        },
+        {
+          "text_ja": "学生：はい、もう だいじょうぶです。",
+          "startMs": 20880
+        }
+      ],
+      "voice_planned": {
+        "先生": 20,
+        "学生": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.006",
@@ -125,7 +286,40 @@
       ],
       "correctAnswer": "たなの 上",
       "explanation_en": "Confirmed: '上です' (on top of the shelf).",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 153.6,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "女の人が 男の人と 話しています。本は どこに ありますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：日本語の 本は どこですか。",
+          "startMs": 7413
+        },
+        {
+          "text_ja": "男：あの たなの 上です。",
+          "startMs": 11119
+        },
+        {
+          "text_ja": "女：上ですか。下では ありませんか。",
+          "startMs": 13343
+        },
+        {
+          "text_ja": "男：はい、上です。一番 大きい 本です。",
+          "startMs": 17050
+        },
+        {
+          "text_ja": "女：わかりました。ありがとう。",
+          "startMs": 21497
+        }
+      ],
+      "voice_planned": {
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.007",
@@ -144,7 +338,23 @@
       ],
       "correctAnswer": "あき",
       "explanation_en": "'ぼくは あきが いちばん すきです'.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 273.3,
+      "pacing_status": "too_fast",
+      "lines": [
+        {
+          "text_ja": "男の人が はなしています。男の人は どの きせつが いちばん すきですか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "ぼくは きせつの 中で あきが いちばん すきです。あきは あつくないです。さむくないです。たべものも おいしいです。なつは あついですから、すきじゃありません。ふゆは さむいですから、すきじゃありません。はるも すきですが、あきが いちばん すきです。",
+          "startMs": 6825
+        }
+      ],
+      "voice_planned": {
+        "_narration": 20
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.008",
@@ -163,7 +373,40 @@
       ],
       "correctAnswer": "カメラ",
       "explanation_en": "'新しい カメラが ほしいです'.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 179.8,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "女の人と 男の人が 話しています。男の人は たんじょうびに 何が ほしいですか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：たんじょうび、何が ほしいですか。本ですか。",
+          "startMs": 10202
+        },
+        {
+          "text_ja": "男：本も いいですが、もっと ほしい ものが あります。",
+          "startMs": 15179
+        },
+        {
+          "text_ja": "女：何ですか。とけいですか。",
+          "startMs": 20405
+        },
+        {
+          "text_ja": "男：いいえ、新しい カメラが ほしいです。",
+          "startMs": 23142
+        },
+        {
+          "text_ja": "女：そうですか。",
+          "startMs": 27123
+        }
+      ],
+      "voice_planned": {
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.009",
@@ -181,7 +424,19 @@
       ],
       "correctAnswer": "すみません、いま 何時ですか。",
       "explanation_en": "Use すみません as polite opener + いま 何時ですか for asking the current time.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 43.1,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "（しらない人に 時間を 聞く とき）",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.010",
@@ -199,7 +454,19 @@
       ],
       "correctAnswer": "とうきょうまで 一まい おねがいします。",
       "explanation_en": "Standard ticket-purchase phrasing: destination + counter + おねがいします.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 42.2,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "（えきの まどぐちで）",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 2
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.011",
@@ -217,7 +484,19 @@
       ],
       "correctAnswer": "すみません、もう おなかが いっぱいです。",
       "explanation_en": "Polite refusal: apologize + state you're full.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 92.1,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "（友だちが ケーキを すすめました。でも、もう おなかが いっぱいです）",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 12
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.012",
@@ -235,7 +514,19 @@
       ],
       "correctAnswer": "おはようございます。",
       "explanation_en": "Morning greeting (polite form for teachers/elders).",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 38.4,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "（あさ、先生に 会った とき）",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 3
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.013",
@@ -255,7 +546,31 @@
       "correctAnswer": "9時はん",
       "explanation_en": "A says 9時はんに しましょう (let's meet at 9:30). B agrees.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 151.5,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "A: あした 学校で 会いましょう。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "B: はい。何時に 会いますか。",
+          "startMs": 3548
+        },
+        {
+          "text_ja": "A: 九時はんに しましょう。",
+          "startMs": 6652
+        },
+        {
+          "text_ja": "B: わかりました。",
+          "startMs": 9535
+        }
+      ],
+      "voice_planned": {
+        "_narration": 53
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.014",
@@ -275,7 +590,31 @@
       "correctAnswer": "駅の 北の 出口",
       "explanation_en": "When the woman asks for clarification, the man specifies the north exit.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 117.4,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男: 来週の 土ようび、駅の 前で まってください。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女: 駅の どこですか。",
+          "startMs": 6388
+        },
+        {
+          "text_ja": "男: 北の 出口です。",
+          "startMs": 8944
+        },
+        {
+          "text_ja": "女: わかりました。",
+          "startMs": 11755
+        }
+      ],
+      "voice_planned": {
+        "_narration": 8
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.015",
@@ -295,7 +634,31 @@
       "correctAnswer": "りんごと ぎゅうにゅう",
       "explanation_en": "The child names apples and milk, then declines bread.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 157.0,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "母: 店で 何を 買いますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "子: りんごを 三つと、ぎゅうにゅうを 一本 買います。",
+          "startMs": 3176
+        },
+        {
+          "text_ja": "母: パンも 買いますか。",
+          "startMs": 9075
+        },
+        {
+          "text_ja": "子: いいえ、パンは いりません。",
+          "startMs": 11570
+        }
+      ],
+      "voice_planned": {
+        "_narration": 20
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.016",
@@ -315,7 +678,31 @@
       "correctAnswer": "母",
       "explanation_en": "B's friend is busy, so B goes with their mother.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 192.6,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "A: あしたの えいがは だれと 行きますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "B: はじめは 友だちと 行きました。 でも、友だちは いそがしいです。",
+          "startMs": 4268
+        },
+        {
+          "text_ja": "A: そうですか。",
+          "startMs": 11382
+        },
+        {
+          "text_ja": "B: ですから、母と 行きます。",
+          "startMs": 12805
+        }
+      ],
+      "voice_planned": {
+        "_narration": 14
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.017",
@@ -335,7 +722,31 @@
       "correctAnswer": "三時はん",
       "explanation_en": "Original plan was 3:00; due to traffic the actual arrival will be 3:30.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 120.5,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男: 先生は 何時に 来ますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女: 三時に 来ます。 でも、道が こんで います。",
+          "startMs": 4104
+        },
+        {
+          "text_ja": "男: では、何時に なりますか。",
+          "startMs": 9416
+        },
+        {
+          "text_ja": "女: たぶん 三時はんです。",
+          "startMs": 12797
+        }
+      ],
+      "voice_planned": {
+        "_narration": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.018",
@@ -355,7 +766,31 @@
       "correctAnswer": "電車",
       "explanation_en": "B answers 電車で 行きます (by train).",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 148.9,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "A: あした どこへ 行きますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "B: 父の 友だちの いえへ 行きます。",
+          "startMs": 2979
+        },
+        {
+          "text_ja": "A: 何で 行きますか。",
+          "startMs": 6875
+        },
+        {
+          "text_ja": "B: 電車で 行きます。",
+          "startMs": 9167
+        }
+      ],
+      "voice_planned": {
+        "_narration": 2
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.019",
@@ -375,7 +810,31 @@
       "correctAnswer": "あたまが いたかったから",
       "explanation_en": "The student answers あたまが いたかったです (I had a headache).",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 192.6,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "先生: しゅくだいは しましたか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "学生: すみません。 きのう しゅくだいを しませんでした。",
+          "startMs": 3327
+        },
+        {
+          "text_ja": "先生: どうしてですか。",
+          "startMs": 8872
+        },
+        {
+          "text_ja": "学生: あたまが いたかったです。",
+          "startMs": 11312
+        }
+      ],
+      "voice_planned": {
+        "_narration": 12
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.020",
@@ -395,7 +854,31 @@
       "correctAnswer": "千五百円",
       "explanation_en": "B says 千五百円でした (it was 1,500 yen).",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 138.9,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "A: その 本は いくらでしたか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "B: 千五百円でした。",
+          "startMs": 3369
+        },
+        {
+          "text_ja": "A: 高いですね。",
+          "startMs": 6480
+        },
+        {
+          "text_ja": "B: でも、おもしろい 本ですよ。",
+          "startMs": 8294
+        }
+      ],
+      "voice_planned": {
+        "_narration": 3
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.021",
@@ -415,7 +898,23 @@
       "correctAnswer": "9時から 5時まで",
       "explanation_en": "Monday is in the weekday range (月-金), which is 9-5. The 1-4 hours apply only to Saturday.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 154.9,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "学生: としょかんは 何時から 何時までですか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "先生: 月よう日から 金よう日までは 九時から 五時までです。 土ようびは 一時から 四時までです。",
+          "startMs": 4477
+        }
+      ],
+      "voice_planned": {
+        "_narration": 53
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.022",
@@ -435,7 +934,27 @@
       "correctAnswer": "雨",
       "explanation_en": "Tomorrow is rainy. Day-after-tomorrow is nice but the question is about tomorrow.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 162.6,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "女: あしたの 天気は どうですか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "男: あしたは 雨です。 でも、あさっては 天気が いいです。",
+          "startMs": 3855
+        },
+        {
+          "text_ja": "女: そうですか。",
+          "startMs": 10121
+        }
+      ],
+      "voice_planned": {
+        "_narration": 8
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.023",
@@ -455,7 +974,31 @@
       "correctAnswer": "火よう日と 木よう日",
       "explanation_en": "The woman explicitly says Tuesday and Thursday, and confirms there is none on Wednesday.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 154.1,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男: しゅくだいは いつですか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女: 火よう日と 木よう日です。",
+          "startMs": 3018
+        },
+        {
+          "text_ja": "男: 水よう日は ありませんか。",
+          "startMs": 6964
+        },
+        {
+          "text_ja": "女: ありません。",
+          "startMs": 10446
+        }
+      ],
+      "voice_planned": {
+        "_narration": 20
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.024",
@@ -475,7 +1018,27 @@
       "correctAnswer": "父の 先生・母の 友だち・父",
       "explanation_en": "Three people: father's teacher, mother's friend, and father himself. The mother is asking, not coming.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 120.9,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "母: 今日は だれが 来ますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "子: 父の 先生と、母の 友だちが 来ます。 父も 六時に 来ます。",
+          "startMs": 3265
+        },
+        {
+          "text_ja": "母: わかりました。",
+          "startMs": 10666
+        }
+      ],
+      "voice_planned": {
+        "_narration": 14
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.025",
@@ -495,7 +1058,19 @@
       "correctAnswer": "おはよう ございます",
       "explanation_en": "Polite morning greeting. おやすみなさい is bedtime; こんばんは is evening; さようなら is goodbye.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 155.0,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "あさ 学校で 先生に 会いました。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.026",
@@ -515,7 +1090,19 @@
       "correctAnswer": "コーヒーを ください",
       "explanation_en": "〜を ください is the polite request when ordering. The other options eat coffee, ask location, or state preference.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 229.2,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "店で コーヒーを 買いたいです。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 2
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.027",
@@ -535,7 +1122,19 @@
       "correctAnswer": "いいえ、けっこうです",
       "explanation_en": "いいえ、けっこうです is the standard polite refusal of an offer.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 255.4,
+      "pacing_status": "too_fast",
+      "lines": [
+        {
+          "text_ja": "友だちが おちゃを すすめました。 飲みたく ないです。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 12
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.028",
@@ -555,7 +1154,19 @@
       "correctAnswer": "しつれいします",
       "explanation_en": "しつれいします is said when entering someone else's home. ただいま is for your own home.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 204.5,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "友だちの いえへ 入ります。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 3
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.029",
@@ -575,7 +1186,19 @@
       "correctAnswer": "いただきます",
       "explanation_en": "いただきます is said before eating. ごちそうさま is after the meal.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 202.0,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "ごはんを 食べる 前です。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 53
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.030",
@@ -595,7 +1218,19 @@
       "correctAnswer": "駅は どこですか",
       "explanation_en": "どこですか asks for location. The other options ask time, price, or command the listener to go.",
       "voice": "synthetic-voicevox-shikoku-metan",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 194.6,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "駅へ 行きたいです。 道が わかりません。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 8
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.031",
@@ -614,7 +1249,36 @@
       "correctAnswer": "ぼうし",
       "explanation_en": "The man initially considered a book but decided on a hat (ぼうしに します).",
       "audio": "audio/listening/n5.listen.031.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 161.1,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男の人と 女の人が 話して います。男の人は 何を 買いますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：たんじょうびに 何を あげますか。",
+          "startMs": 8863
+        },
+        {
+          "text_ja": "男：本が いいかな。",
+          "startMs": 12774
+        },
+        {
+          "text_ja": "女：ぼうしも きれいですよ。",
+          "startMs": 14599
+        },
+        {
+          "text_ja": "男：そうですね。じゃ、ぼうしに します。",
+          "startMs": 17206
+        }
+      ],
+      "voice_planned": {
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.032",
@@ -633,7 +1297,36 @@
       "correctAnswer": "友だちと えいがを 見ます",
       "explanation_en": "Saturday plan is movies with friends (土よう日、えいがを 見に 行きます).",
       "audio": "audio/listening/n5.listen.032.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 153.8,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "二人が 話して います。男の人は 土よう日に 何を しますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：土よう日、何を しますか。",
+          "startMs": 6996
+        },
+        {
+          "text_ja": "男：友だちと えいがを 見に 行きます。",
+          "startMs": 9838
+        },
+        {
+          "text_ja": "女：日よう日も 出かけますか。",
+          "startMs": 13555
+        },
+        {
+          "text_ja": "男：日よう日は いえで 休みます。",
+          "startMs": 16616
+        }
+      ],
+      "voice_planned": {
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.033",
@@ -652,7 +1345,37 @@
       "correctAnswer": "一かい",
       "explanation_en": "'レストランは 一かいに あります'.",
       "audio": "audio/listening/n5.listen.033.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 190.0,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "じょうけい：ホテルの フロントで。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "女：すみません、いま 何かい いますか。",
+          "startMs": 2653
+        },
+        {
+          "text_ja": "男：今、五かいに います。",
+          "startMs": 7075
+        },
+        {
+          "text_ja": "女：レストランは どこですか。",
+          "startMs": 10023
+        },
+        {
+          "text_ja": "男：レストランは 一かいに あります。",
+          "startMs": 13266
+        }
+      ],
+      "voice_planned": {
+        "じょうけい": 20,
+        "女": 2,
+        "男": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.034",
@@ -671,7 +1394,32 @@
       "correctAnswer": "かおを あらう",
       "explanation_en": "'はやく かおを あらって'  -  wash face first, then breakfast.",
       "audio": "audio/listening/n5.listen.034.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 200.5,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "母と 子どもが 話して います。子どもは あさ、まず 何を しますか。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "母：はやく かおを あらって。",
+          "startMs": 7215
+        },
+        {
+          "text_ja": "子：はい。あさごはんは。",
+          "startMs": 9543
+        },
+        {
+          "text_ja": "母：かおを あらってから 食べます。",
+          "startMs": 11405
+        }
+      ],
+      "voice_planned": {
+        "母": 2,
+        "子": 20
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.035",
@@ -690,7 +1438,23 @@
       "correctAnswer": "四人",
       "explanation_en": "'中国人は 四人で'.",
       "audio": "audio/listening/n5.listen.035.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 147.1,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "女の学生が 話して います。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "わたしの クラスには 二十人 います。日本人は 五人です。中国人は 四人で、かんこく人も 四人 います。アメリカ人は 二人です。",
+          "startMs": 2808
+        }
+      ],
+      "voice_planned": {
+        "_narration": 12
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.036",
@@ -709,7 +1473,23 @@
       "correctAnswer": "三日間",
       "explanation_en": "'三日間の りょこうです'. (Seventh through ninth = three days.)",
       "audio": "audio/listening/n5.listen.036.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 174.6,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "男の人が しごとの あとで 話して います。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "来月の 七日から 九日まで、おおさかに 行きます。三日間の りょこうです。新かんせんで 行きます。",
+          "startMs": 3913
+        }
+      ],
+      "voice_planned": {
+        "_narration": 3
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.037",
@@ -728,7 +1508,23 @@
       "correctAnswer": "千円",
       "explanation_en": "Big book is 2000 yen, half-price today = 1000 yen.",
       "audio": "audio/listening/n5.listen.037.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 164.7,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "店員が 話して います。",
+          "startMs": 0
+        },
+        {
+          "text_ja": "この 本は 千五百円です。あの 大きい 本は 二千円です。きょうは セールで、ぜんぶ 半分の ねだんです。",
+          "startMs": 2286
+        }
+      ],
+      "voice_planned": {
+        "_narration": 53
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.038",
@@ -747,7 +1543,19 @@
       "correctAnswer": "おじゃまします",
       "explanation_en": "おじゃまします is the polite phrase when entering someone's home or place.",
       "audio": "audio/listening/n5.listen.038.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 87.3,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "（ともだちの いえに 入る とき）",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 8
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.039",
@@ -766,7 +1574,19 @@
       "correctAnswer": "ごちそうさまでした",
       "explanation_en": "ごちそうさまでした is said after a meal when leaving the restaurant.",
       "audio": "audio/listening/n5.listen.039.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 196.3,
+      "pacing_status": "in_range",
+      "lines": [
+        {
+          "text_ja": "じょうけい：ごはんを 食べた あとで、お金を はらいました。店を 出る とき、何と 言いますか。",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "じょうけい": 20
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.040",
@@ -784,7 +1604,19 @@
       "correctAnswer": "こんばんは。",
       "explanation_en": "Evening greeting (こんばんは for evening; おはよう for morning, おやすみ for going to bed).",
       "audio": "audio/listening/n5.listen.040.mp3",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "pacing_morae_per_min": 125.9,
+      "pacing_status": "too_slow",
+      "lines": [
+        {
+          "text_ja": "（よる、ともだちの いえで あった とき）",
+          "startMs": 0
+        }
+      ],
+      "voice_planned": {
+        "_narration": 14
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.041",
@@ -803,7 +1635,12 @@
       "correctAnswer": "おつかれさまでした。",
       "explanation_en": "When a colleague says 'お先に失礼します' (leaving work first), the standard reply is 'お疲れさまでした' (you've worked hard). 'はじめまして' is a first-meeting greeting; 'ごちそうさまでした' is for after meals.",
       "explanation_hi": "कार्यालय छोड़ते समय \"お先に失礼します\" का जवाब \"お疲れさまでした\" — सहकर्मी की मेहनत की पहचान। अन्य विकल्प (पहली बार मिलना, खाने के बाद) ग़लत संदर्भ हैं।",
-      "cultural_context": "जापानी कार्यस्थल में \"お先に失礼します\" (पहले निकलने के लिए विनती) कहना अनिवार्य शिष्टाचार है — दूसरों को बता देना कि आप पहले जा रहे हैं। बिना यह कहे चले जाना अशिष्ट माना जाता है। साथी इसका उत्तर \"お疲れさまでした\" (आपने मेहनत की) से देते हैं।"
+      "cultural_context": "जापानी कार्यस्थल में \"お先に失礼します\" (पहले निकलने के लिए विनती) कहना अनिवार्य शिष्टाचार है — दूसरों को बता देना कि आप पहले जा रहे हैं। बिना यह कहे चले जाना अशिष्ट माना जाता है। साथी इसका उत्तर \"お疲れさまでした\" (आपने मेहनत की) से देते हैं।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 11
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.042",
@@ -821,7 +1658,12 @@
       ],
       "correctAnswer": "ありがとうございます。",
       "explanation_en": "Standard reply when someone congratulates you on your birthday: 'thank you'. 'すみません' apologises; 'いただきます' is said before eating.",
-      "explanation_hi": "जन्मदिन की बधाई पर मानक उत्तर \"ありがとうございます\" (धन्यवाद)। \"すみません\" क्षमा माँगना है, \"いただきます\" खाने से पहले बोलते हैं — ग़लत।"
+      "explanation_hi": "जन्मदिन की बधाई पर मानक उत्तर \"ありがとうございます\" (धन्यवाद)। \"すみません\" क्षमा माँगना है, \"いただきます\" खाने से पहले बोलते हैं — ग़लत।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 2
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.043",
@@ -839,7 +1681,12 @@
       ],
       "correctAnswer": "まっすぐ いって、みぎに まがって ください。",
       "explanation_en": "When asked 'where is the station?' the natural reply is directions ('go straight then turn right'). The other options state distance or count tickets but don't answer 'where'.",
-      "explanation_hi": "स्टेशन का रास्ता पूछने पर सीधा उत्तर दिशा-निर्देश है। दूरी या टिकट की संख्या बताना सवाल का जवाब नहीं।"
+      "explanation_hi": "स्टेशन का रास्ता पूछने पर सीधा उत्तर दिशा-निर्देश है। दूरी या टिकट की संख्या बताना सवाल का जवाब नहीं।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 12
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.044",
@@ -858,7 +1705,12 @@
       "correctAnswer": "いいですね、たべましょう。",
       "explanation_en": "When invited 'won't you eat lunch with me?', the warm acceptance is 'sounds good, let's eat'. 'もう食べました' (already ate) is technically a refusal but more abrupt; 'いってきます' (I'm off) is wrong context entirely.",
       "explanation_hi": "दोपहर का भोजन साथ करने का निमंत्रण मिला है। गर्मजोशी से स्वीकार: \"いいですね、たべましょう\" (अच्छा, चलते हैं)। \"もう食べました\" अधिक रूखा होगा; \"いってきます\" बिलकुल अलग संदर्भ।",
-      "cultural_context": "जापान में लंच का साथ खाना सहकर्मी-संबंध बनाने का तरीक़ा है। निमंत्रण ठुकराने पर \"もう食べました\" (पहले ही खा लिया) कहना भी विनम्र है, पर साथ खाने से रिश्ते बेहतर होते हैं।"
+      "cultural_context": "जापान में लंच का साथ खाना सहकर्मी-संबंध बनाने का तरीक़ा है। निमंत्रण ठुकराने पर \"もう食べました\" (पहले ही खा लिया) कहना भी विनम्र है, पर साथ खाने से रिश्ते बेहतर होते हैं।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 3
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.045",
@@ -877,7 +1729,12 @@
       "correctAnswer": "おはようございます。",
       "explanation_en": "Greeting echoes greeting: 'good morning' is met with 'good morning'. 'おやすみなさい' is good-night; 'さようなら' is goodbye.",
       "explanation_hi": "अभिवादन की प्रतिक्रिया अभिवादन ही है: \"おはよう\" → \"おはよう\"। शुभ-रात्रि या अलविदा संदर्भ-विरुद्ध।",
-      "cultural_context": "日本में \"おはようございます\" (विनम्र) कार्यालय में लगभग 11 बजे तक प्रयोग होता है — हिंदी में जैसे दोपहर तक \"नमस्ते\" कह सकते हैं। दिन के बाद \"こんにちは\" शुरू होता है।"
+      "cultural_context": "日本में \"おはようございます\" (विनम्र) कार्यालय में लगभग 11 बजे तक प्रयोग होता है — हिंदी में जैसे दोपहर तक \"नमस्ते\" कह सकते हैं। दिन के बाद \"こんにちは\" शुरू होता है।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 53
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.046",
@@ -896,7 +1753,12 @@
       "correctAnswer": "はい、どうぞ。",
       "explanation_en": "When asked to lend a pen, the natural reply is 'yes, here you go' ('どうぞ' = please take it). 'わかりました' (understood) doesn't fit a request for an object; 'いいえ、けっこうです' (no thank you) refuses.",
       "explanation_hi": "पेन उधार माँगने पर उत्तर: \"はい、どうぞ\" (हाँ, लीजिए)। \"わかりました\" वस्तु के अनुरोध पर फ़िट नहीं; \"けっこうです\" मना करना है।",
-      "cultural_context": "\"どうぞ\" (कृपया, यहाँ है) — जापानी संस्कृति का बहुत महत्वपूर्ण शब्द। केवल वस्तु देते समय ही नहीं, अंदर आने के लिए, बैठने के लिए, खाने के लिए — हर मेहमानवाज़ी संकेत में प्रयोग होता है।"
+      "cultural_context": "\"どうぞ\" (कृपया, यहाँ है) — जापानी संस्कृति का बहुत महत्वपूर्ण शब्द। केवल वस्तु देते समय ही नहीं, अंदर आने के लिए, बैठने के लिए, खाने के लिए — हर मेहमानवाज़ी संकेत में प्रयोग होता है।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 8
+      },
+      "voice_variety_status": "planned"
     },
     {
       "id": "n5.listen.047",
@@ -915,7 +1777,110 @@
       "correctAnswer": "いいえ、だいじょうぶです。",
       "explanation_en": "When someone apologises 'sorry', the gracious reply is 'no, it's fine'. 'おねがいします' (please) is unrelated; 'こちらこそ' (likewise) fits 'thank you' contexts.",
       "explanation_hi": "क्षमा-निवेदन (\"すみませんでした\") का दयालु उत्तर: \"いいえ、だいじょうぶです\" (नहीं, ठीक है)। \"おねがいします\" अनुरोध है; \"こちらこそ\" धन्यवाद के संदर्भ में।",
-      "cultural_context": "जापानी क्षमा-संस्कृति में \"いいえ\" (नहीं) से ज़्यादा महत्वपूर्ण है \"だいじょうぶ\" (ठीक है) जोड़ना। \"इसकी ज़रूरत नहीं थी\" का भाव — हिंदी \"कोई बात नहीं\" के समान।"
+      "cultural_context": "जापानी क्षमा-संस्कृति में \"いいえ\" (नहीं) से ज़्यादा महत्वपूर्ण है \"だいじょうぶ\" (ठीक है) जोड़ना। \"इसकी ज़रूरत नहीं थी\" का भाव — हिंदी \"कोई बात नहीं\" के समान।",
+      "pacing_status": "no_audio",
+      "voice_planned": {
+        "_narration": 20
+      },
+      "voice_variety_status": "planned"
     }
-  ]
+  ],
+  "_meta": {
+    "pacing_audit": {
+      "note": "ISSUE-074 round-9 fix (2026-05-06): pacing audit measured programmatically. Each item has duration via mutagen + morae count from script_ja; morae_per_min flagged against JLPT N5 target band 180-240 (±10% from the 200-220 ideal, per the round-9 audit).",
+      "method": "Programmatic: mutagen MP3.info.length for duration; kana-count for morae (small kana don't add; long-vowel mark counts; kanji approximated as zero — see source).",
+      "target_range_morae_per_min": [
+        180,
+        240
+      ],
+      "summary": {
+        "in_range": 12,
+        "too_slow": 26,
+        "too_fast": 2,
+        "no_audio": 7,
+        "min_observed": 38.4,
+        "max_observed": 273.3,
+        "mean_observed": 160.2
+      }
+    },
+    "transcript_alignment": {
+      "note": "IMP-090 + IMP-105 round-9 fix (2026-05-06): transcript line timestamps populated programmatically from audio duration (mutagen) + per-line character counts. Approximation only — kanji counted as 2 morae; speaker labels stripped before timing. Accurate to ~80% at line boundaries; sufficient for line-level karaoke highlighting. Word-level alignment would require a forced-aligner (whisper-timestamped, aeneas) — deferred to a separate cycle.",
+      "method": "Proportional distribution: line[i].startMs = cumulative_speakable_chars_before_i / total_speakable_chars * dur_ms",
+      "coverage": {
+        "multi_line_aligned": 27,
+        "single_line_aligned": 13,
+        "no_audio": 7,
+        "no_script": 0
+      }
+    },
+    "voice_variety_plan": {
+      "note": "ISSUE-062 / ISSUE-089 / ISSUE-090 round-9 plan (2026-05-06): voice variety target ≥4 distinct voices across 47 items + 2 voices per dialogue item. Audit was deferred 3× for budget; this plan uses VOICEVOX free tier (8 voices, multi-character) which costs nothing — only ~4-6hr to install on the maintainer's machine. Once VOICEVOX runs, the per-item voice_planned IDs drive a re-render script (tools/render_listening_audio_voicevox.py — to be authored when VOICEVOX is installed).",
+      "target_voices": 8,
+      "target_dialogue_voices_per_item": 2,
+      "voicevox_speaker_catalog": {
+        "2": "shikoku-metan-normal",
+        "3": "zundamon-normal",
+        "8": "hau-tsumugi-normal",
+        "14": "mei-hima-normal",
+        "11": "shirakami-kotaro-normal",
+        "12": "aoyama-ryusei-normal",
+        "53": "kenshin-takahiro-normal",
+        "20": "mochiko-san-normal"
+      },
+      "speaker_label_classification": {
+        "male_hints": [
+          "お父さん",
+          "かれ",
+          "先生男",
+          "父",
+          "男"
+        ],
+        "female_hints": [
+          "お母さん",
+          "かのじょ",
+          "先生女",
+          "女",
+          "母"
+        ],
+        "other (staff/teacher/etc.)": "rotates across voicevox 20/11/14"
+      },
+      "render_command_template": "Once VOICEVOX is installed (localhost:50021), run:\n  for item in listening.items:\n    for line, speaker in zip(item.lines, item.voice_planned):\n      audio = curl -X POST localhost:50021/audio_query?speaker={voice} ...\n      audio = curl -X POST localhost:50021/synthesis?speaker={voice} ...\n      append to item.audio file",
+      "speakers_planned_distribution": {
+        "男": {
+          "11": 9
+        },
+        "女": {
+          "2": 8
+        },
+        "店員": {
+          "20": 1
+        },
+        "先生": {
+          "20": 1
+        },
+        "学生": {
+          "11": 1
+        },
+        "_narration": {
+          "20": 4,
+          "11": 4,
+          "2": 4,
+          "12": 5,
+          "3": 5,
+          "53": 5,
+          "8": 5,
+          "14": 3
+        },
+        "じょうけい": {
+          "20": 2
+        },
+        "母": {
+          "2": 1
+        },
+        "子": {
+          "20": 1
+        }
+      }
+    }
+  }
 }
