@@ -70,6 +70,13 @@ const DEFAULT_SETTINGS = {
   lastDiagnosticDate: null,
   audioPlaybackRate: 1.0,           // Brief 2 §5: 0.75 / 1.0 / 1.25
   reduceMotion: null,               // null = follow prefers-reduced-motion; true/false override
+  // ISSUE-079 (round-8 2026-05-06): provenance-badge UI activation.
+  // The round-6 scaffold gated on this flag; round-8 promoted 27/178
+  // grammar patterns to review_status: native_reviewed (15% > Q21
+  // 10% launch threshold), so the badge can fire. Default true to
+  // surface the trust signal on every visit. Users can opt-out via
+  // the Settings panel.
+  showProvenanceBadges: true,
 };
 
 export function getSettings() {

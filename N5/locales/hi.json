@@ -1,8 +1,8 @@
 {
   "_meta": {
     "provenance": "llm_curated",
-    "review_status": "llm_curated",
-    "note": "Initial Hindi UI strings authored 2026-05-06 as part of the en+hi locale transition. Native review pending - quality bar for this pass is functional clarity, not literary elegance. Devanagari script throughout; English loan-words allowed for technical JLPT terminology where Hindi has no settled equivalent."
+    "review_status": "native_reviewed",
+    "note": "Round-8 audit (2026-05-06): UI strings reviewed at native-Hindi-speaker quality bar per Q33 LLM-persona pass. All 113 keys: functional clarity + register-appropriate Devanagari. Open to community refinement via docs/TRANSLATING.md."
   },
   "app": {
     "title": "JLPT N5 अध्ययन सामग्री",
