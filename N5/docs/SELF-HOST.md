@@ -156,9 +156,10 @@ shouldn't ship.
 
 ## Translations (multilingual deploys)
 
-5 locale files at `N5/locales/{en,vi,id,ne,zh}.json`. The runtime
-detects `navigator.language` on first visit and picks the closest
-match. To add a new locale:
+2 locale files at `N5/locales/{en,hi}.json` (narrowed from 5 on 2026-05-06
+per IMP-096; see CHANGELOG v1.12.40). The runtime detects
+`navigator.language` (and `navigator.languages[]`) on first visit and
+picks the closest match. To add a new locale for your fork:
 
 1. Copy `en.json` to `<lc>.json` where `<lc>` is the BCP-47 base
    (e.g., `pt`, `ar`, `hi`).

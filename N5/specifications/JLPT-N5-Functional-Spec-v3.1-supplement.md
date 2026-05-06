@@ -2,8 +2,10 @@
 
 **Companion to:** `specifications/JLPT N5 Grammar Tutor – Functional Spec.docx` (v3, amended 2026-04-30)
 **Status:** Gap-fill addendum. Content here is **additive** (new sections) plus **errata** (drift corrections to v3).
-**Date:** 2026-04-30
+**Date:** 2026-04-30 (locale-shell errata appended 2026-05-06)
 **Intended outcome:** When merged into the next .docx revision, the result is v4 — a complete, current functional specification.
+
+> **2026-05-06 errata — locale shell narrowed.** Every "5 locales (en/vi/id/ne/zh)" reference in this document predates the 2026-05-06 transition. Current state: 2 locales (en + hi). The original phrasing is preserved here for historical record; the live behavior is `js/i18n.js SUPPORTED = ['en', 'hi']`. See CHANGELOG v1.12.40 + IMP-096 in `feedback/n5-audit-2026-05-04.xlsx` for the rationale.
 
 ---
 

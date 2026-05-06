@@ -1,5 +1,7 @@
 # JLPT N5 Grammar Tutor - Tasks
 
+> **2026-05-06 transition note:** The 5-locale shell (en/vi/id/ne/zh) was narrowed to 2 locales (en + hi) per IMP-096 architectural decision. Historical task rows below mention the original 5-locale state and are preserved for record; the current state is en+hi only. See CHANGELOG v1.12.40 for the rationale.
+
 Last updated: 2026-05-02 (Content-protection layer — v1.10.1 / SW v90 / 38 invariants. Closes the JA-first language sweep + DEFER-1 backlog + content-deterrent layer in three releases on the same day: v1.9.0 (Japanese-first surface), v1.10.0 (syllabus dashboard + 100% grammar-pattern test coverage + multi-correct categories F/G/H + JA-29 subtype-taxonomy lock), v1.10.1 (content-protection layer + GitHub-link removal). Added invariants over the day: JA-26..JA-29. Content-protection layer raises friction against casual copying; honest limitations documented in `js/content-protect.js`. **39/39 CI invariants green**.)
 
 ## Live site

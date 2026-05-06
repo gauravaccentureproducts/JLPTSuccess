@@ -4,7 +4,7 @@
 [![Content: CC BY-SA 4.0](https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg)](CONTENT-LICENSE.md)
 [![JLPT Level: N5](https://img.shields.io/badge/JLPT-N5-14452a.svg)](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/)
 [![PWA](https://img.shields.io/badge/PWA-installable-brightgreen.svg)](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/)
-[![Locales: 5](https://img.shields.io/badge/locales-EN%20%C2%B7%20VI%20%C2%B7%20ID%20%C2%B7%20NE%20%C2%B7%20ZH-blueviolet.svg)](docs/TRANSLATING.md)
+[![Locales: EN · HI](https://img.shields.io/badge/locales-EN%20%C2%B7%20HI-blueviolet.svg)](docs/TRANSLATING.md)
 [![Privacy: no telemetry](https://img.shields.io/badge/privacy-no%20telemetry-success.svg)](PRIVACY.md)
 
 Browser-based static web app for studying JLPT N5: grammar, vocabulary, kanji, reading, and listening. **No server. No accounts. No third-party scripts.** Author-side build tools (Python) live under `/tools/`; the learner runs only the browser.
@@ -17,7 +17,7 @@ ISSUE-047 (audit round-5): the docs live in this directory. Quick map:
 |---|---|
 | [`specifications/JLPT-N5-Current-Implementation-Spec.md`](specifications/JLPT-N5-Current-Implementation-Spec.md) | The authoritative living spec — what the app actually does today (v1.12.32+). |
 | [`docs/SELF-HOST.md`](docs/SELF-HOST.md) | Fork → brand → deploy guide for institutional / school adopters (niche N3). |
-| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for vi/id/ne/zh and new locales (niche N1). |
+| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for Hindi (niche N1 — see CHANGELOG v1.12.40 for the en+hi narrowing). |
 | [`docs/NATIVE-AUDIO-WORKFLOW.md`](docs/NATIVE-AUDIO-WORKFLOW.md) | How to swap synthetic gTTS audio for native-speaker recordings. |
 | [`prompts/N5Improvement.txt`](prompts/N5Improvement.txt) | The audit-only prompt that drives every "round" of audit findings. Read for canonical strategic positioning + anti-items list. |
 | [`feedback/n5-audit-2026-05-04.xlsx`](feedback/n5-audit-2026-05-04.xlsx) | Cumulative audit tracker (rounds 1-5). Source of truth for outstanding work. |

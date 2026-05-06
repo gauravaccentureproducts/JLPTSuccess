@@ -42,7 +42,7 @@ Core values:
 - Correctness over polish. Wrong content shown to a beginner does damage.
 - Privacy by architecture, not by promise. The app cannot leak data because it has nowhere to send it.
 - Offline-first. Once installed, the app works without a network.
-- Multi-locale UI for non-English-native learners (5 locales shipped).
+- Multi-locale UI for non-English-native learners — 2 locales shipped (en + hi). Narrowed from 5 to 2 on 2026-05-06 per IMP-096 architectural decision; see CHANGELOG v1.12.40 for the rationale.
 
 ---
 
@@ -66,7 +66,7 @@ JLPTSuccess/
 │   ├── js/                           35 JS modules (see §6)
 │   ├── data/                         41 JSON data files (see §7)
 │   ├── KnowledgeBank/                9 markdown source-of-truth files
-│   ├── locales/                      5 i18n bundles (en/vi/id/ne/zh)
+│   ├── locales/                      2 i18n bundles (en/hi) — narrowed 2026-05-06 (IMP-096)
 │   ├── audio/                        711 MP3 files (grammar/reading/listening)
 │   ├── svg/kanji/                    106 stroke-order SVGs from KanjiVG
 │   ├── fonts/                        4 self-hosted woff2 files
@@ -415,7 +415,7 @@ CI gates on green: any failure blocks deploy.
 
 ## 12. Internationalization
 
-5 locales shipped: `en`, `vi` (Vietnamese), `id` (Indonesian), `ne` (Nepali), `zh` (Simplified Chinese).
+2 locales shipped: `en`, `hi` (Hindi). Narrowed from 5 (en/vi/id/ne/zh) to 2 (en/hi) on 2026-05-06 per the IMP-096 architectural decision; see CHANGELOG v1.12.40. Existing-user safety is provided by `migrateLocaleSetting()` in `js/i18n.js`, which silently maps persisted vi/id/ne/zh preferences to `en` on first load post-transition.
 
 Files: `locales/{en,vi,id,ne,zh}.json`. UI strings only (chrome) at this stage; per-item rationales / common-mistakes / glosses remain English-only. Bringing those translation surfaces to native quality is the highest-priority strategic-positioning gap (per the audit prompt).
 
@@ -592,7 +592,7 @@ Per multiple specifications and active design choice:
 Per the strategic positioning audit (see `prompts/N5Improvement.txt`):
 
 ### High priority
-- Native-quality translations for vi/id/ne/zh locales (current locales are UI chrome only — niche-N1 unlock).
+- Native-quality Hindi translations across all content surfaces (vocab gloss_hi, kanji meanings_hi, grammar meaning_hi/explanation_hi, reading + listening explanation_hi, L1-interference notes l1_notes.hi). Current state post-2026-05-06 narrowing: hi covers UI chrome (113 keys, llm_curated) + 116/1041 vocab + 106/106 kanji; remaining surfaces seeded by future authoring passes — niche-N1 unlock.
 - Native-teacher review of grammar examples + common-mistakes (raises trust signal — niche all).
 - Make the no-account / offline / private posture visibly messaged on the homepage (niche-N2 unlock).
 - LICENSE file + self-host guide (niche-N3 unlock).

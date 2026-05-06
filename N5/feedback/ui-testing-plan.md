@@ -1,5 +1,7 @@
 # JLPT N5 Tutor - UI-Level Testing Plan
 
+> **2026-05-06 transition note:** This plan was authored when the app shipped 5 locales (en/vi/id/ne/zh). On 2026-05-06 per IMP-096 the locale shell was narrowed to 2 locales (en + hi). Locale-count assertions below now expect 2 chips (EN | HI), not 5. Historical "5 locales" phrasing is preserved for record but does not match the current behaviour.
+
 **Site under test:** https://gauravaccentureproducts.github.io/jlpt-n5-tutor/
 **Local:** `index.html` served from project root (any static file server).
 **Last updated:** 2026-04-30 (synced to UX Brief 2 Phases 1-4 + Learn hub + per-vocab detail; SW `jlpt-n5-tutor-v18`)

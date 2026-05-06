@@ -6,7 +6,7 @@ This folder holds the functional and implementation specifications for the JLPT 
 
 **`JLPT-N5-Current-Implementation-Spec.md`** — the **authoritative living spec**. Describes what the app actually is today (v1.12.32, round-4 close-out, 2026-05-05). If you need ground truth for any decision or hand-off, start here.
 
-**Strategic positioning (round-4):** primary niche is N1 (multilingual non-English-native learners — vi/id/ne/zh learners under-served by EN-only Bunpou/WaniKani); secondary niche is N2 (privacy / no-account / offline). The audit prompt at `../prompts/N5Improvement.txt` carries the canonical niche framing. Do NOT chase Bunpou grammar-review depth or WaniKani kanji-mnemonic depth — these are documented anti-niches per `Q13` in `../feedback/n5-audit-2026-05-04.xlsx`.
+**Strategic positioning (post-2026-05-06 narrowing):** primary niche is N1 (Hindi-medium JLPT prep — India is the 5th-largest JLPT country with ~50K applicants/year and no dedicated Hindi-native prep app); secondary niche is N2 (privacy / no-account / offline). The 5-locale shell (en/vi/id/ne/zh) was narrowed to en+hi on 2026-05-06 per the IMP-096 architectural decision; vi/id/ne/zh markets are saturated by established native-language competitors. The audit prompt at `../prompts/N5Improvement.txt` carries the canonical niche framing. Do NOT chase Bunpou grammar-review depth or WaniKani kanji-mnemonic depth — these are documented anti-niches per `Q13` in `../feedback/n5-audit-2026-05-04.xlsx`.
 
 ## Historical record
 
@@ -27,7 +27,7 @@ The historical .docx + supplement reflected the app *before* the JLPTSuccess mon
 2. **Brand-link routes changed.** The brand-link now goes `../` (one level up to the JLPTSuccess level picker), not `#/levels` (an in-app placeholder route that no longer exists).
 3. **Service worker cache version reset.** Was `jlpt-n5-tutor-v138`; now `jlptsuccess-n5-v1.12.32` (mirrors `version.json:version`).
 4. **Logo deployed.** The five-bar ladder mark from `assets/logo/` (top-level shared) is now wired into the favicon + PWA icons.
-5. **Content scale grew.** Audio MP3 count now 711, locale files at 5 (75 keys each, en native; vi/id/ne/zh machine-translated round-4), integrity invariants at 44.
+5. **Content scale grew.** Audio MP3 count now 711, locale files at 2 (en + hi, narrowed from 5 on 2026-05-06 per IMP-096; ~113 keys per locale, hi llm_curated until native review), integrity invariants at 47 (round-7 added JA-36/37/38).
 6. **Other levels around it.** N4 is work-blocked; N3/N2/N1 placeholders exist.
 7. **New routes (round-3):** `#/missed` (wrong-answer history) + `#/sitting` (full mock-paper sitting flow).
 8. **New surfaces on home (round-4):** trust band (5 niche-N2 pills), 7-day review forecast, daily-goal progress ring.

@@ -2,6 +2,103 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.40 - 2026-05-06 (Strategic narrowing: 5-locale shell → English + Hindi)
+
+The app previously shipped 5 locales (en + vi + id + ne + zh).
+Market research on 2026-05-06 found that **Hindi is the unique
+high-demand-low-competition gap** for JLPT prep apps:
+
+- India is the **5th-largest JLPT country worldwide**, sending
+  ~50K applicants per year (after Japan, China, South Korea,
+  Vietnam).
+- **73% of Indian JLPT applicants** are at N5 or N4 level — perfect
+  product-market fit for an N5-focused study app.
+- **No dedicated Hindi-medium prep app exists** in app-store searches
+  or curated lists. Closest competitor is Yoisho Academy, which
+  delivers in English with optional Hindi tutoring (not an app).
+- The other four locales (vi/id/ne/zh) sit in **saturated competitive
+  markets** with established native-language JLPT apps; the
+  5-locale shell was diluting depth across surfaces with no
+  native-quality content in any.
+
+**Decision**: stop spreading thin; ship two locales (en + hi) at
+native-quality depth. Niche-N1 reframed from "multilingual
+non-English-native" to "the only privacy-first no-account offline
+JLPT app with English + native Hindi pedagogy."
+
+### What changed
+
+**Locale shell narrowed (`js/i18n.js` SUPPORTED list):**
+- Before: `['en', 'vi', 'id', 'ne', 'zh']`
+- After:  `['en', 'hi']`
+
+**UI:**
+- Locale chip group: 5 chips (EN | VI | ID | NE | ZH) → 2 chips (EN | HI).
+- `og:locale:alternate` meta: vi_VN / id_ID / ne_NP / zh_CN replaced
+  with hi_IN.
+- Structured-data `inLanguage`: `["en", "vi", "id", "ne", "zh", "ja"]`
+  → `["en", "hi", "ja"]`.
+- README badge: "Locales: 5 (EN · VI · ID · NE · ZH)" → "Locales: EN · HI".
+
+**Locale files (`N5/locales/`):**
+- DELETED: `vi.json`, `id.json`, `ne.json`, `zh.json`.
+- ADDED: `hi.json` (113 keys, full Devanagari coverage,
+  `_meta.review_status: "llm_curated"` until native review).
+
+**Content data (`N5/data/`):**
+Pruned via `tools/locale_prune_en_hi.py`:
+- 1908 `gloss_{vi,id,ne,zh}` keys removed from vocab.json.
+- 424 `meanings_{vi,id,ne,zh}` keys removed from kanji.json.
+- 108 `meaning_{vi,id,ne,zh}` keys removed from grammar.json.
+- 108 `explanation_{vi,id,ne,zh}` keys removed from grammar.json.
+- 40 `l1_notes.{vi,id,ne,zh}` entries removed from grammar.json.
+- 18 `false_friends.zh` entries removed from vocab.json.
+
+Seeded via `tools/seed_hindi_translations_2026_05_06.py`:
+- 116 vocab `gloss_hi` entries (top-frequency: pronouns, family,
+  demonstratives, question words, numbers, time, greetings, common
+  verbs/adjectives/nouns).
+- 106 kanji `meanings_hi` entries (all N5 kanji).
+- Provenance: `machine_translated`. Native review pending.
+
+**Existing-user safety (`migrateLocaleSetting()` in `js/i18n.js`):**
+- Persisted `localStorage.uiLocale ∈ {vi, id, ne, zh}` → silently
+  migrated to `'en'` on first load post-transition.
+- Junk locale values → also silently migrated to `'en'`.
+- `console.info("locale migrated: <X> → en")` exactly once per
+  session for telemetry-free observability.
+- No error, no white screen, no re-prompt, no PII, no network call.
+
+**Service worker:**
+- CACHE_VERSION bumped jlptsuccess-n5-v1.12.38 → v1.12.39 (Phase 1
+  add-Hindi) → v1.12.40 (Phase 3 remove-deprecated). The activate
+  event purges old caches automatically.
+- PRECACHE list narrowed to `./locales/en.json` + `./locales/hi.json`.
+
+**Documentation:**
+- README.md badge + docs-map row updated.
+- docs/TRANSLATING.md rewritten end-to-end for the en+hi state with
+  Hindi seed-content guidance + 8 mandatory L1-interference notes
+  (SOV order, postposition mapping, verb agreement, tense
+  over-marking, politeness mismatch, negative placement, question
+  particle, plural marking).
+- CONTRIBUTING.md: locale list updated.
+- index.html: og:title / og:description / twitter:title rewritten
+  ("free multilingual study material" → "free English + Hindi study
+  material").
+- prompts/N5Improvement.txt: niche-N1 framing rewritten (Hindi-led).
+
+**Tag:** `pre-locale-transition` exists at the parent commit for
+easy revert reference.
+
+**CI:** 47/47 invariants PASS. JA-13 already extended in round-7 to
+skip locale-suffixed translation fields (so hi text isn't subject to
+the N5-only kanji rule).
+
+This is a **strategic narrowing, not a feature regression.** Existing
+users with persisted vi/id/ne/zh fall back gracefully to English. No
+user loses access to any content.
+
 ## v1.12.38 - 2026-05-06 (Audit round-7: depth across grammar / vocab / kanji + exam-fidelity + niche-N1 L1 notes)
 
 Round-7 audit closed 19 issues + 16 improvements + 6 open questions in

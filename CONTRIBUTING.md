@@ -10,7 +10,7 @@ a feature.
 
 | What you want to do | Where to look |
 |---|---|
-| **Add a translation** for a non-EN locale (vi/id/ne/zh, or new) | [`N5/docs/TRANSLATING.md`](N5/docs/TRANSLATING.md) |
+| **Help translate UI / content** into Hindi (the only non-EN locale post-2026-05-06; see CHANGELOG v1.12.40) | [`N5/docs/TRANSLATING.md`](N5/docs/TRANSLATING.md) |
 | **Self-host or fork** for an institution / school | [`N5/docs/SELF-HOST.md`](N5/docs/SELF-HOST.md) |
 | **Recommend native audio recordings** | [`N5/docs/NATIVE-AUDIO-WORKFLOW.md`](N5/docs/NATIVE-AUDIO-WORKFLOW.md) |
 | **File a bug** | [GitHub issue templates](https://github.com/gauravaccentureproducts/JLPTSuccess/issues/new/choose) |
@@ -91,12 +91,14 @@ invariant, that's the bot telling you the schema needs adjusting too.
 See [`N5/docs/TRANSLATING.md`](N5/docs/TRANSLATING.md) for the full
 workflow. TL;DR:
 
-1. Pick a locale (vi/id/ne/zh today; new locales welcome).
-2. Edit `N5/locales/<lc>.json` to translate the 75 UI keys (the
-   non-EN locales currently ship machine-translated strings tagged
-   `_provenance: "machine_translated"` — your job is to upgrade them
-   to native-quality and remove the tag).
-3. PR titled `i18n(<lc>): native review of NN/75 keys`.
+1. The supported locales are **EN and HI** (Hindi). The 2026-05-06
+   transition narrowed the app from a 5-locale shell (en/vi/id/ne/zh)
+   to en+hi after market research found Hindi is the unique
+   high-demand-low-competition gap (top-5 JLPT country, ~50K
+   applicants/year, no dedicated Hindi-medium prep app).
+2. Edit `N5/locales/hi.json` to upgrade machine-translated strings
+   tagged `_meta.review_status: "llm_curated"` to native-quality.
+3. PR titled `i18n(hi): native review of NN/<total> keys`.
 
 ## Development
 

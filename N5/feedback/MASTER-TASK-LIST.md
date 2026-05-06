@@ -1,5 +1,7 @@
 # JLPT N5 Tutor — Master Task List
 
+> **2026-05-06 transition note:** Historical UNC-1 / verification rows below mention the 5-locale shell (en/vi/id/ne/zh). The shell was narrowed to 2 locales (en + hi) on 2026-05-06 per IMP-096 architectural decision. Rows are preserved for historical record — the current state is en+hi only. See CHANGELOG v1.12.40 for rationale.
+
 **Compiled:** 2026-05-01
 **Sources:** 15 feedback documents in `feedback/` cross-referenced against current shipped state
 **Current state baseline:** v1.8.5 / SW v72 / 223 questions / 33 content-integrity invariants green / 8 design-system rules green / Pass-1..15 audits applied
