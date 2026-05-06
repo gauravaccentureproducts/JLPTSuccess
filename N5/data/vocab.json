@@ -214,7 +214,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "सभी (आदर)"
+      "gloss_hi": "सभी (आदर)",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.だれ",
@@ -424,7 +425,8 @@
         "drop": 2
       },
       "register": "respectful",
-      "gloss_hi": "पिता (आदर)"
+      "gloss_hi": "पिता (आदर)",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.お母さん",
@@ -453,7 +455,8 @@
         "drop": 2
       },
       "register": "respectful",
-      "gloss_hi": "माँ (आदर)"
+      "gloss_hi": "माँ (आदर)",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.あに",
@@ -484,7 +487,8 @@
         "mora": 1,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.あね",
@@ -514,7 +518,8 @@
         "mora": 1,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.おとうと",
@@ -544,7 +549,8 @@
         "mora": 4,
         "drop": 4
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.いもうと",
@@ -574,7 +580,8 @@
         "mora": 4,
         "drop": 4
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.おにいさん",
@@ -870,7 +877,8 @@
         "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.男の子",
@@ -1012,7 +1020,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "वयस्क"
+      "gloss_hi": "वयस्क",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.2-people-family.ともだち",
@@ -1037,7 +1046,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "दोस्त"
+      "gloss_hi": "दोस्त",
+      "counter": "人"
     },
     {
       "id": "n5.vocab.3-people-roles.学生",
@@ -1063,7 +1073,8 @@
       "gloss_provenance": {
         "hi": "native_reviewed",
         "en": "native_reviewed"
-      }
+      },
+      "counter": "人"
     },
     {
       "id": "n5.vocab.3-people-roles.せいと",
@@ -3550,7 +3561,7 @@
         "mora": 2,
         "drop": 1
       },
-      "counter": "satsu",
+      "counter": "冊",
       "gloss_hi": "किताब",
       "gloss_provenance": {
         "en": "machine_translated",
@@ -6376,7 +6387,8 @@
         "mora": 2,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "部屋"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.だいどころ",
@@ -6813,7 +6825,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "दुकान"
+      "gloss_hi": "दुकान",
+      "counter": "軒"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.スーパー",
@@ -7576,7 +7589,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "पुल"
+      "gloss_hi": "पुल",
+      "counter": "本"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.まち",
@@ -9572,7 +9586,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "टिफ़िन"
+      "gloss_hi": "टिफ़िन",
+      "counter": "個"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.おかし",
@@ -9596,7 +9611,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "मिठाई / नाश्ता"
+      "gloss_hi": "मिठाई / नाश्ता",
+      "counter": "個"
     },
     {
       "id": "n5.vocab.17-food-items.パン",
@@ -9625,7 +9641,8 @@
         "mora": 1,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "counter": "個"
     },
     {
       "id": "n5.vocab.17-food-items.たまご",
@@ -10624,7 +10641,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "केक"
+      "gloss_hi": "केक",
+      "counter": "個"
     },
     {
       "id": "n5.vocab.17-food-items.アイスクリーム",
@@ -11779,7 +11797,7 @@
         "mora": 2,
         "drop": 1
       },
-      "counter": "mai",
+      "counter": "枚",
       "gloss_hi": "शर्ट"
     },
     {
@@ -12503,7 +12521,7 @@
         "mora": 3,
         "drop": 0
       },
-      "counter": "dai",
+      "counter": "台",
       "gloss_hi": "गाड़ी",
       "collocations": [
         "車に乗る",
@@ -12754,7 +12772,8 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "gloss_hi": "हवाई जहाज़"
+      "gloss_hi": "हवाई जहाज़",
+      "counter": "台"
     },
     {
       "id": "n5.vocab.23-transport.ふね",
@@ -13368,7 +13387,7 @@
         "mora": 2,
         "drop": 1
       },
-      "counter": "satsu",
+      "counter": "冊",
       "gloss_hi": "किताब",
       "gloss_provenance": {
         "en": "machine_translated",
@@ -13450,7 +13469,8 @@
       "gloss_provenance": {
         "hi": "native_reviewed",
         "en": "native_reviewed"
-      }
+      },
+      "counter": "冊"
     },
     {
       "id": "n5.vocab.24-school-and-study.新聞",
