@@ -26,23 +26,23 @@ test.describe('round-3 + round-4 surface regression', () => {
     await expect(pills.nth(4)).toContainText('100% on-device');
   });
 
-  test('header has 5 locale chips (EN / VI / ID / NE / ZH)', async ({ page }) => {
+  test('header has 2 locale chips (EN / HI) — narrowed 2026-05-06 per IMP-096', async ({ page }) => {
     await page.goto('/');
     const group = page.locator('#locale-chip-group');
     await expect(group).toBeVisible();
     const chips = group.locator('.locale-chip');
-    await expect(chips).toHaveCount(5);
+    await expect(chips).toHaveCount(2);
     const labels = await chips.allTextContents();
-    expect(labels).toEqual(['EN', 'VI', 'ID', 'NE', 'ZH']);
+    expect(labels).toEqual(['EN', 'HI']);
     // EN is active for an EN-default browser context.
     await expect(chips.nth(0)).toHaveClass(/is-active/);
   });
 
-  test('clicking a locale chip swaps the active locale', async ({ page }) => {
+  test('clicking the HI chip swaps the active locale to Hindi', async ({ page }) => {
     await page.goto('/');
-    await page.locator('#locale-chip-group .locale-chip[data-lc="vi"]').click();
-    // After click, VI chip should be active.
-    await expect(page.locator('.locale-chip[data-lc="vi"]')).toHaveClass(/is-active/);
+    await page.locator('#locale-chip-group .locale-chip[data-lc="hi"]').click();
+    // After click, HI chip should be active.
+    await expect(page.locator('.locale-chip[data-lc="hi"]')).toHaveClass(/is-active/);
     await expect(page.locator('.locale-chip[data-lc="en"]')).not.toHaveClass(/is-active/);
   });
 
