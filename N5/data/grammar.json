@@ -54,6 +54,7 @@
           "form": "negative",
           "translation_en": "I am not a student.",
           "vocab_ids": [
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.35-particles-functional-.は"
           ],
           "romaji": "watashi wa gakuseijaarimasen。"
@@ -213,6 +214,7 @@
           "vocab_ids": [
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.が"
@@ -322,6 +324,7 @@
           "form": "negative",
           "translation_en": "I don't like cats.",
           "vocab_ids": [
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.15-animals.ねこ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.35-particles-functional-.が"
@@ -591,6 +594,7 @@
           "translation_en": "I gave a book to my friend.",
           "vocab_ids": [
             "n5.vocab.2-people-family.ともだち",
+            "n5.vocab.30-verbs-existence-and-p.あげる",
             "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -819,11 +823,12 @@
         {
           "ja": "バスで 学校へ 行きます。",
           "vocab_ids": [
-            "n5.vocab.37-common-nouns-miscella.たばこ",
-            "n5.vocab.5-demonstratives.ここ",
-            "n5.vocab.27-verbs-group-1-verbs.すう",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.で"
+            "n5.vocab.13-locations-and-places-.学校",
+            "n5.vocab.40-misc-useful-items.学校",
+            "n5.vocab.23-transport.バス",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.で",
+            "n5.vocab.35-particles-functional-.へ"
           ],
           "translation_en": "I go to school by bus.",
           "romaji": "basude gakkou e ikimasu。"
@@ -831,9 +836,10 @@
         {
           "ja": "タクシーで うちへ かえりました。",
           "vocab_ids": [
-            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.23-transport.タクシー",
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
             "n5.vocab.35-particles-functional-.で",
-            "n5.vocab.35-particles-functional-.か"
+            "n5.vocab.35-particles-functional-.へ"
           ],
           "translation_en": "I went home by taxi.",
           "romaji": "takushiide uchi e kaerimashita。"
@@ -955,6 +961,7 @@
           "vocab_ids": [
             "n5.vocab.36-greetings-and-set-phr.こんにちは",
             "n5.vocab.27-verbs-group-1-verbs.言う",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.と"
           ],
@@ -1365,6 +1372,7 @@
             "n5.vocab.13-locations-and-places-.こうえん",
             "n5.vocab.13-locations-and-places-.ちかく",
             "n5.vocab.31-adjectives.ちかい",
+            "n5.vocab.13-locations-and-places-.カフェ",
             "n5.vocab.5-demonstratives.こう",
             "n5.vocab.30-verbs-existence-and-p.ある",
             "n5.vocab.35-particles-functional-.が",
@@ -1603,6 +1611,7 @@
           "form": "negative",
           "translation_en": "That (over there) is not a car.",
           "vocab_ids": [
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.5-demonstratives.あれ",
             "n5.vocab.35-particles-functional-.は"
           ],
@@ -1751,6 +1760,7 @@
           "translation_en": "Which car is good?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.どの",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か",
             "n5.vocab.35-particles-functional-.の"
@@ -1864,6 +1874,7 @@
             "n5.vocab.5-demonstratives.そこ",
             "n5.vocab.15-animals.ねこ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -2266,6 +2277,7 @@
           "vocab_ids": [
             "n5.vocab.6-question-words.いつ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.から",
             "n5.vocab.35-particles-functional-.に",
             "n5.vocab.35-particles-functional-.か"
@@ -2291,6 +2303,7 @@
           "vocab_ids": [
             "n5.vocab.6-question-words.いつ",
             "n5.vocab.34-conjunctions.でも",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.も"
           ],
           "romaji": "itsudemo iidesu。"
@@ -2475,6 +2488,7 @@
           "vocab_ids": [
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -2559,6 +2573,7 @@
           "vocab_ids": [
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -2589,6 +2604,20 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "ashitaka asatteni ikimasu。"
+        },
+        {
+          "form": "verb-clause か verb-clause",
+          "ja": "えいがを 見るか 本を 読むか、まだ きめていません。",
+          "translation_en": "I haven't decided yet whether to watch a movie or read a book.",
+          "vocab_ids": [
+            "n5.vocab.26-house-and-furniture.えいが",
+            "n5.vocab.12-time-frequency-sequen.まだ",
+            "n5.vocab.33-adverbs.まだ",
+            "n5.vocab.27-verbs-group-1-verbs.読む",
+            "n5.vocab.28-verbs-group-2-verbs.見る",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -2645,6 +2674,7 @@
           "form": "affirmative",
           "translation_en": "Nice weather, isn't it?",
           "vocab_ids": [
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.ね"
           ],
           "romaji": "ii tenkidesune。"
@@ -2868,10 +2898,25 @@
           "translation_en": "This is OK, right?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.これ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.で",
             "n5.vocab.35-particles-functional-.ね"
           ],
           "romaji": "korede iidesuyone。"
+        },
+        {
+          "form": "past",
+          "ja": "きのうの テストは むずかしかったですよね。",
+          "translation_en": "Yesterday's test was hard, wasn't it?",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.むずかしい",
+            "n5.vocab.10-time-general.きのう",
+            "n5.vocab.24-school-and-study.テスト",
+            "n5.vocab.35-particles-functional-.しか",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の",
+            "n5.vocab.35-particles-functional-.ね"
+          ]
         }
       ],
       "common_mistakes": [
@@ -2963,6 +3008,18 @@
             "n5.vocab.35-particles-functional-.の"
           ],
           "romaji": "are wa dareno kabandesuka。"
+        },
+        {
+          "form": "compound modifier",
+          "ja": "がっこうの となりの こうえんで あそびました。",
+          "translation_en": "I played in the park next to the school.",
+          "vocab_ids": [
+            "n5.vocab.13-locations-and-places-.こうえん",
+            "n5.vocab.13-locations-and-places-.となり",
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.35-particles-functional-.で",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3140,8 +3197,27 @@
           "ja": "にほんごを 話すのは むずかしいです。",
           "form": "affirmative",
           "translation_en": "Speaking Japanese is difficult.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.むずかしい",
+            "n5.vocab.27-verbs-group-1-verbs.話す",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "nihongo o hanasuno wa muzukashiidesu。"
+        },
+        {
+          "form": "negative",
+          "ja": "あさ はやく おきるのは たいへんです。",
+          "translation_en": "Waking up early in the morning is hard.",
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.たいへん",
+            "n5.vocab.28-verbs-group-2-verbs.おきる",
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.10-time-general.あさ",
+            "n5.vocab.27-verbs-group-1-verbs.きる",
+            "n5.vocab.28-verbs-group-2-verbs.きる",
+            "n5.vocab.35-particles-functional-.は"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3191,6 +3267,7 @@
           "translation_en": "Where are you going?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.どこ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.へ",
             "n5.vocab.35-particles-functional-.の"
           ],
@@ -3217,6 +3294,19 @@
           ],
           "explanation_en": "Plain non-past negative + sentence-final の as informal question marker. 食べる is a transparent Group-2 verb so the conjugation 食べない is unambiguous (compare 来ない / こない which requires irregular-verb knowledge).",
           "romaji": "gohan tabenaino？"
+        },
+        {
+          "form": "past-question",
+          "ja": "きのう どこに いたの？",
+          "translation_en": "Where were you yesterday?",
+          "vocab_ids": [
+            "n5.vocab.10-time-general.きのう",
+            "n5.vocab.5-demonstratives.どこ",
+            "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3377,6 +3467,7 @@
           "translation_en": "Only I am here.",
           "vocab_ids": [
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.しか",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -3386,8 +3477,26 @@
           "ja": "りんごは 一つしか ありません。",
           "form": "affirmative",
           "translation_en": "There is only one apple.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.17-food-items.りんご",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.しか",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "ringo wa hitotsushika arimasen。"
+        },
+        {
+          "form": "past-negative",
+          "ja": "パーティーには 三人しか 来ませんでした。",
+          "translation_en": "Only three people came to the party.",
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.パーティー",
+            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.35-particles-functional-.しか",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3444,6 +3553,7 @@
           "form": "past",
           "translation_en": "I waited about an hour.",
           "vocab_ids": [
+            "n5.vocab.35-particles-functional-.ぐらい",
             "n5.vocab.27-verbs-group-1-verbs.まつ"
           ],
           "romaji": "1jikangurai machimashita。"
@@ -3462,9 +3572,21 @@
           "form": "affirmative",
           "translation_en": "It takes about 10 minutes.",
           "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.かかる"
+            "n5.vocab.27-verbs-group-1-verbs.かかる",
+            "n5.vocab.35-particles-functional-.ぐらい"
           ],
           "romaji": "10fun / pungurai kakarimasu。"
+        },
+        {
+          "form": "noun-quantity",
+          "ja": "りんごを 五つぐらい 買いました。",
+          "translation_en": "I bought about five apples.",
+          "vocab_ids": [
+            "n5.vocab.17-food-items.りんご",
+            "n5.vocab.35-particles-functional-.ぐらい",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.を"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3548,6 +3670,16 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "itsugoro kumasuka。"
+        },
+        {
+          "form": "past",
+          "ja": "十時ごろに うちに かえりました。",
+          "translation_en": "I returned home around 10 o'clock.",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
+            "n5.vocab.35-particles-functional-.ごろ",
+            "n5.vocab.35-particles-functional-.に"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3640,6 +3772,21 @@
             "n5.vocab.35-particles-functional-.や"
           ],
           "romaji": "sofuboya tomodachinadoni aimashita。"
+        },
+        {
+          "form": "food-list",
+          "ja": "すしや てんぷらなどの 日本りょうりが すきです。",
+          "translation_en": "I like Japanese food such as sushi and tempura.",
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.りょうり",
+            "n5.vocab.5-demonstratives.どの",
+            "n5.vocab.17-food-items.すし",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.など",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.や",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3717,8 +3864,27 @@
           "ja": "子どもたちに あめを 二つずつ あげました。",
           "form": "affirmative",
           "translation_en": "I gave each child two candies.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.2-people-family.子ども",
+            "n5.vocab.30-verbs-existence-and-p.あげる",
+            "n5.vocab.17-food-items.あめ",
+            "n5.vocab.35-particles-functional-.ずつ",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "kodomotachini ame o futatsuzutsu agemashita。"
+        },
+        {
+          "form": "time-distribution",
+          "ja": "一週間に 三日ずつ 日本語を べんきょうします。",
+          "translation_en": "I study Japanese three days each week.",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.べんきょう",
+            "n5.vocab.25-languages-and-countri.日本語",
+            "n5.vocab.35-particles-functional-.ずつ",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.に"
+          ]
         }
       ],
       "common_mistakes": [
@@ -3789,6 +3955,7 @@
           "form": "negative",
           "translation_en": "That (over there) is not a car.",
           "vocab_ids": [
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.5-demonstratives.あれ",
             "n5.vocab.35-particles-functional-.は"
           ],
@@ -3910,6 +4077,7 @@
           "translation_en": "Which car is good?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.どの",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か",
             "n5.vocab.35-particles-functional-.の"
@@ -4001,6 +4169,7 @@
             "n5.vocab.5-demonstratives.そこ",
             "n5.vocab.15-animals.ねこ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -4121,10 +4290,22 @@
           "translation_en": "Which (of two) is good?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.どちら",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "dochiraga iidesuka。"
+        },
+        {
+          "form": "polite-question",
+          "ja": "おてあらいは どちらですか。",
+          "translation_en": "Where is the restroom? (polite)",
+          "vocab_ids": [
+            "n5.vocab.13-locations-and-places-.おてあらい",
+            "n5.vocab.5-demonstratives.どちら",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -4203,9 +4384,21 @@
             "n5.vocab.5-demonstratives.あんな",
             "n5.vocab.31-adjectives.大きい",
             "n5.vocab.27-verbs-group-1-verbs.すむ",
+            "n5.vocab.26-house-and-furniture.いえ",
             "n5.vocab.35-particles-functional-.に"
           ],
           "romaji": "anna ookii ieni sumitaidesu。"
+        },
+        {
+          "form": "question-with-noun",
+          "ja": "どんな 本を 読みたいですか。",
+          "translation_en": "What kind of book do you want to read?",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どんな",
+            "n5.vocab.27-verbs-group-1-verbs.読む",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -4284,6 +4477,21 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "dou ikimasuka。"
+        },
+        {
+          "form": "question-with-verb",
+          "ja": "この かんじは どう 読みますか。",
+          "translation_en": "How do you read this kanji?",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.かんじ",
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.33-adverbs.どう",
+            "n5.vocab.27-verbs-group-1-verbs.読む",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -4564,6 +4772,7 @@
             "n5.vocab.5-demonstratives.そこ",
             "n5.vocab.15-animals.ねこ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -4704,6 +4913,19 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "koohiito ochato、dochiraga sukidesuka。"
+        },
+        {
+          "form": "with-counter",
+          "ja": "どの くつが いいですか。",
+          "translation_en": "Which shoes are good?",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どの",
+            "n5.vocab.21-clothing-and-accessor.くつ",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -4800,6 +5022,7 @@
           "form": "question",
           "translation_en": "Would you like another cup?",
           "vocab_ids": [
+            "n5.vocab.33-adverbs.いっぱい",
             "n5.vocab.39-function-filler-expre.いかが",
             "n5.vocab.12-time-frequency-sequen.もう",
             "n5.vocab.33-adverbs.もう",
@@ -4898,6 +5121,22 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "doushite nihongo o benkyoushiteimasuka。"
+        },
+        {
+          "form": "casual-context",
+          "ja": "どうして きのう 学校を 休みましたか。",
+          "translation_en": "Why did you skip school yesterday?",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.どうして",
+            "n5.vocab.33-adverbs.どうして",
+            "n5.vocab.10-time-general.きのう",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.13-locations-and-places-.学校",
+            "n5.vocab.40-misc-useful-items.学校",
+            "n5.vocab.27-verbs-group-1-verbs.休む",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -4978,8 +5217,30 @@
           "ja": "この かんじは どうやって 書きますか。",
           "form": "affirmative",
           "translation_en": "How do you write this kanji?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.かんじ",
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.33-adverbs.どう",
+            "n5.vocab.27-verbs-group-1-verbs.書く",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "kono kanji wa douyatte kakimasuka。"
+        },
+        {
+          "form": "with-place",
+          "ja": "えきまで どうやって 行きますか。",
+          "translation_en": "How do you get to the station?",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.33-adverbs.どう",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.まで",
+            "n5.vocab.35-particles-functional-.で",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -5033,6 +5294,7 @@
           "vocab_ids": [
             "n5.vocab.6-question-words.いくら",
             "n5.vocab.5-demonstratives.これ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -5045,6 +5307,7 @@
           "vocab_ids": [
             "n5.vocab.6-question-words.いくら",
             "n5.vocab.33-adverbs.ぜんぶ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.で",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -5058,11 +5321,26 @@
             "n5.vocab.6-question-words.いくら",
             "n5.vocab.17-food-items.りんご",
             "n5.vocab.5-demonstratives.この",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.か",
             "n5.vocab.35-particles-functional-.の"
           ],
           "romaji": "kono ringo wa ikuradesuka。"
+        },
+        {
+          "form": "in-shopping",
+          "ja": "この シャツは いくらですか。",
+          "translation_en": "How much is this shirt?",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.いくら",
+            "n5.vocab.21-clothing-and-accessor.シャツ",
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -5122,6 +5400,7 @@
             "n5.vocab.6-question-words.いくつ",
             "n5.vocab.17-food-items.りんご",
             "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -5142,7 +5421,16 @@
           "ja": "かばんの 中に 本が いくつ ありますか。",
           "form": "affirmative",
           "translation_en": "How many books are in your bag?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.6-question-words.いくつ",
+            "n5.vocab.21-clothing-and-accessor.かばん",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "kabanno nakani honga ikutsu arimasuka。"
         }
       ],
@@ -5227,6 +5515,18 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "ashita nanjini aimashouka。"
+        },
+        {
+          "form": "in-question",
+          "ja": "来週の かいぎは なんじから ですか。",
+          "translation_en": "From what time is next week's meeting?",
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.来週",
+            "n5.vocab.35-particles-functional-.から",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -5298,8 +5598,24 @@
           "ja": "やすみは なんようびですか。",
           "form": "affirmative",
           "translation_en": "What day of the week is your day off?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.やすみ",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "yasumi wa nan'youbidesuka。"
+        },
+        {
+          "form": "in-question",
+          "ja": "あなたの たんじょうびは なんようびですか。",
+          "translation_en": "On what day of the week is your birthday?",
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.たんじょうび",
+            "n5.vocab.1-people-pronouns-and-se.あなた",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -5376,8 +5692,24 @@
           "ja": "なつ休みは なんがつからですか。",
           "form": "affirmative",
           "translation_en": "When (what month) does summer vacation start?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.から",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "natsuyasumi wa nangatsukaradesuka。"
+        },
+        {
+          "form": "date-question",
+          "ja": "日本に いつ 来ましたか。なんがつ なんにちですか。",
+          "translation_en": "When did you come to Japan? What month and date?",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.いつ",
+            "n5.vocab.25-languages-and-countri.日本",
+            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -6256,7 +6588,8 @@
           "translation_en": "A person who doesn't study.",
           "vocab_ids": [
             "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.1-people-pronouns-and-se.人"
+            "n5.vocab.1-people-pronouns-and-se.人",
+            "n5.vocab.9-counters-common.人"
           ],
           "romaji": "benkyoushinai nin。"
         }
@@ -6375,7 +6708,6 @@
           "vocab_ids": [
             "n5.vocab.5-demonstratives.こう",
             "n5.vocab.27-verbs-group-1-verbs.言う",
-            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.30-verbs-existence-and-p.いる.2",
             "n5.vocab.35-particles-functional-.へ"
           ],
@@ -7021,7 +7353,13 @@
           "ja": "しゅくだいを まだ していません。",
           "form": "negative",
           "translation_en": "I haven't done my homework yet.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.しゅくだい",
+            "n5.vocab.12-time-frequency-sequen.まだ",
+            "n5.vocab.33-adverbs.まだ",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "shukudai o mada shiteimasen。"
         }
       ],
@@ -7079,6 +7417,7 @@
             "n5.vocab.5-demonstratives.ここ",
             "n5.vocab.27-verbs-group-1-verbs.とる",
             "n5.vocab.27-verbs-group-1-verbs.とる.2",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.で",
             "n5.vocab.35-particles-functional-.か"
@@ -7092,7 +7431,8 @@
           "vocab_ids": [
             "n5.vocab.27-verbs-group-1-verbs.かえる",
             "n5.vocab.12-time-frequency-sequen.もう",
-            "n5.vocab.33-adverbs.もう"
+            "n5.vocab.33-adverbs.もう",
+            "n5.vocab.31-adjectives.いい"
           ],
           "romaji": "mou kaettemoiidesu。"
         },
@@ -7103,6 +7443,7 @@
           "vocab_ids": [
             "n5.vocab.26-house-and-furniture.テレビ",
             "n5.vocab.28-verbs-group-2-verbs.見る",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -7116,6 +7457,7 @@
             "n5.vocab.5-demonstratives.この",
             "n5.vocab.27-verbs-group-1-verbs.読む",
             "n5.vocab.34-conjunctions.でも",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.を"
           ],
           "romaji": "konohon o yondemoiidesu。"
@@ -7310,6 +7652,19 @@
             "n5.vocab.35-particles-functional-.を"
           ],
           "romaji": "shawaa o abitekara nemasu。"
+        },
+        {
+          "form": "morning-routine",
+          "ja": "はを みがいてから あさごはんを 食べます。",
+          "translation_en": "I brush my teeth and then eat breakfast.",
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.あさごはん",
+            "n5.vocab.16-food-and-drink-genera.ごはん",
+            "n5.vocab.27-verbs-group-1-verbs.みがく",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.35-particles-functional-.から",
+            "n5.vocab.35-particles-functional-.を"
+          ]
         }
       ],
       "common_mistakes": [
@@ -7488,6 +7843,15 @@
             "n5.vocab.35-particles-functional-.が"
           ],
           "romaji": "atsui koohiiga sukidesu。"
+        },
+        {
+          "form": "descriptive-context",
+          "ja": "たかい 山に のぼりました。",
+          "translation_en": "I climbed a high mountain.",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.のぼる",
+            "n5.vocab.35-particles-functional-.に"
+          ]
         }
       ],
       "common_mistakes": [
@@ -7664,6 +8028,7 @@
           "form": "negative",
           "translation_en": "It's not cold today.",
           "vocab_ids": [
+            "n5.vocab.14-nature-and-weather.さむい",
             "n5.vocab.31-adjectives.さむい",
             "n5.vocab.35-particles-functional-.は"
           ],
@@ -7755,6 +8120,7 @@
           "translation_en": "Yesterday was hot.",
           "vocab_ids": [
             "n5.vocab.10-time-general.きのう",
+            "n5.vocab.14-nature-and-weather.あつい",
             "n5.vocab.31-adjectives.あつい",
             "n5.vocab.31-adjectives.あつい.2",
             "n5.vocab.31-adjectives.あつい.3",
@@ -7869,6 +8235,7 @@
           "translation_en": "Yesterday wasn't cold.",
           "vocab_ids": [
             "n5.vocab.10-time-general.きのう",
+            "n5.vocab.14-nature-and-weather.さむい",
             "n5.vocab.31-adjectives.さむい",
             "n5.vocab.35-particles-functional-.は"
           ],
@@ -7967,6 +8334,7 @@
           "vocab_ids": [
             "n5.vocab.31-adjectives.おいしい",
             "n5.vocab.37-common-nouns-miscella.りょうり",
+            "n5.vocab.14-nature-and-weather.あつい",
             "n5.vocab.31-adjectives.あつい",
             "n5.vocab.31-adjectives.あつい.2",
             "n5.vocab.31-adjectives.あつい.3",
@@ -8101,6 +8469,17 @@
             "n5.vocab.35-particles-functional-.が"
           ],
           "romaji": "kireina hanaga sakimashita。"
+        },
+        {
+          "form": "descriptive-person",
+          "ja": "しんせつな 先生は すきです。",
+          "translation_en": "I like kind teachers.",
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.しんせつ",
+            "n5.vocab.3-people-roles.先生",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.は"
+          ]
         }
       ],
       "common_mistakes": [
@@ -8272,6 +8651,7 @@
           "translation_en": "This room isn't quiet.",
           "vocab_ids": [
             "n5.vocab.32-adjectives.しずか",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.5-demonstratives.この",
             "n5.vocab.13-locations-and-places-.へや",
             "n5.vocab.26-house-and-furniture.へや",
@@ -8299,6 +8679,7 @@
           "translation_en": "Isn't it convenient here?",
           "vocab_ids": [
             "n5.vocab.32-adjectives.べんり",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.5-demonstratives.ここ",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.か"
@@ -8311,6 +8692,7 @@
           "translation_en": "I don't like sports.",
           "vocab_ids": [
             "n5.vocab.37-common-nouns-miscella.スポーツ",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.が"
@@ -8372,6 +8754,7 @@
           "form": "past",
           "translation_en": "Yesterday's concert was lively.",
           "vocab_ids": [
+            "n5.vocab.40-misc-useful-items.コンサート",
             "n5.vocab.32-adjectives.にぎやか",
             "n5.vocab.10-time-general.きのう",
             "n5.vocab.35-particles-functional-.は",
@@ -8385,6 +8768,7 @@
           "translation_en": "It wasn't convenient in the past.",
           "vocab_ids": [
             "n5.vocab.32-adjectives.べんり",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.35-particles-functional-.は"
           ],
           "romaji": "mukashi wa benrijaarimasendeshita。"
@@ -8409,6 +8793,7 @@
           "translation_en": "Tokyo wasn't quiet.",
           "vocab_ids": [
             "n5.vocab.32-adjectives.しずか",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.35-particles-functional-.は"
           ],
           "romaji": "toukyou wa shizukajaarimasendeshita。"
@@ -8471,6 +8856,7 @@
             "n5.vocab.32-adjectives.かんたん",
             "n5.vocab.10-time-general.きのう",
             "n5.vocab.24-school-and-study.しけん",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.の"
           ],
@@ -8482,6 +8868,7 @@
           "translation_en": "That town wasn't quiet.",
           "vocab_ids": [
             "n5.vocab.32-adjectives.しずか",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.5-demonstratives.その",
             "n5.vocab.13-locations-and-places-.まち",
             "n5.vocab.35-particles-functional-.は",
@@ -8495,6 +8882,7 @@
           "translation_en": "Wasn't that person kind?",
           "vocab_ids": [
             "n5.vocab.32-adjectives.しんせつ",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.5-demonstratives.あの",
             "n5.vocab.39-function-filler-expre.あの",
             "n5.vocab.35-particles-functional-.は",
@@ -8509,6 +8897,7 @@
           "translation_en": "I didn't like the food.",
           "vocab_ids": [
             "n5.vocab.37-common-nouns-miscella.りょうり",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.35-particles-functional-.は"
           ],
@@ -8817,6 +9206,7 @@
             "n5.vocab.26-house-and-furniture.へや",
             "n5.vocab.15-animals.ねこ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -8829,6 +9219,7 @@
           "vocab_ids": [
             "n5.vocab.13-locations-and-places-.きょうしつ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -8842,6 +9233,7 @@
             "n5.vocab.9-counters-common.ひき",
             "n5.vocab.15-animals.いぬ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.が"
           ],
@@ -8854,6 +9246,7 @@
           "vocab_ids": [
             "n5.vocab.13-locations-and-places-.きょうしつ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -8866,6 +9259,7 @@
           "vocab_ids": [
             "n5.vocab.2-people-family.きょうだい",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -8954,6 +9348,7 @@
           "vocab_ids": [
             "n5.vocab.13-locations-and-places-.きょうしつ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -8982,6 +9377,7 @@
             "n5.vocab.2-people-family.子ども",
             "n5.vocab.5-demonstratives.こう",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に",
             "n5.vocab.35-particles-functional-.か"
@@ -9062,6 +9458,7 @@
             "n5.vocab.5-demonstratives.そこ",
             "n5.vocab.15-animals.ねこ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -9080,6 +9477,19 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "depaato wa dokoni arimasuka。"
+        },
+        {
+          "form": "with-location",
+          "ja": "ぎんこうは えきの まえに あります。",
+          "translation_en": "The bank is in front of the station.",
+          "vocab_ids": [
+            "n5.vocab.13-locations-and-places-.ぎんこう",
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -9179,6 +9589,17 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "nanika shitsumonga arimasuka。"
+        },
+        {
+          "form": "about-events",
+          "ja": "あした じゅぎょうが ありません。",
+          "translation_en": "Tomorrow there are no classes.",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.じゅぎょう",
+            "n5.vocab.10-time-general.あした",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.が"
+          ]
         }
       ],
       "common_mistakes": [
@@ -9259,6 +9680,17 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "konohon wa anohon'yori omoshiroidesuka。"
+        },
+        {
+          "form": "comparison-of-distance",
+          "ja": "バスは 電車より おそいです。",
+          "translation_en": "The bus is slower than the train.",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おそい",
+            "n5.vocab.23-transport.バス",
+            "n5.vocab.23-transport.電車",
+            "n5.vocab.35-particles-functional-.は"
+          ]
         }
       ],
       "common_mistakes": [
@@ -9336,8 +9768,27 @@
           "ja": "あにより わたしのほうが はやく おきます。",
           "form": "affirmative",
           "translation_en": "I get up earlier than my older brother.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.おきる",
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.2-people-family.あに",
+            "n5.vocab.27-verbs-group-1-verbs.おく",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "aniyori watashinohouga hayaku okimasu。"
+        },
+        {
+          "form": "food-preference",
+          "ja": "コーヒーより おちゃの ほうが すきです。",
+          "translation_en": "I like tea more than coffee.",
+          "vocab_ids": [
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.40-misc-useful-items.ほう",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -9417,6 +9868,7 @@
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.5-demonstratives.どちら",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.と",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.か"
@@ -9427,8 +9879,30 @@
           "ja": "なつと ふゆと、どちらが すきですか。",
           "form": "affirmative",
           "translation_en": "Which do you like better, summer or winter?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どちら",
+            "n5.vocab.14-nature-and-weather.なつ",
+            "n5.vocab.14-nature-and-weather.ふゆ",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.と",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "natsuto fuyuto、dochiraga sukidesuka。"
+        },
+        {
+          "form": "choice-question",
+          "ja": "日本語と えいごと、どちらが むずかしいですか。",
+          "translation_en": "Which is more difficult, Japanese or English?",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.むずかしい",
+            "n5.vocab.5-demonstratives.どちら",
+            "n5.vocab.25-languages-and-countri.日本語",
+            "n5.vocab.25-languages-and-countri.えいご",
+            "n5.vocab.35-particles-functional-.と",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -9593,6 +10067,20 @@
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "naniga sukidesuka。"
+        },
+        {
+          "form": "food-dislike",
+          "ja": "にくは すきですが、さかなは きらいです。",
+          "translation_en": "I like meat, but I dislike fish.",
+          "vocab_ids": [
+            "n5.vocab.15-animals.さかな",
+            "n5.vocab.17-food-items.さかな",
+            "n5.vocab.32-adjectives.きらい",
+            "n5.vocab.17-food-items.にく",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.が"
+          ]
         }
       ],
       "common_mistakes": [
@@ -9675,8 +10163,27 @@
           "ja": "母は かんじを 書くのが じょうずです。",
           "form": "affirmative",
           "translation_en": "My mother is good at writing.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.じょうず",
+            "n5.vocab.24-school-and-study.かんじ",
+            "n5.vocab.27-verbs-group-1-verbs.書く",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "haha wa kanji o kakunoga jouzudesu。"
+        },
+        {
+          "form": "skill-comparison",
+          "ja": "あには ピアノが じょうずです。",
+          "translation_en": "My older brother is good at piano.",
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.じょうず",
+            "n5.vocab.26-house-and-furniture.ピアノ",
+            "n5.vocab.2-people-family.あに",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.が"
+          ]
         }
       ],
       "common_mistakes": [
@@ -10104,8 +10611,23 @@
           "ja": "びょういんに 行きたくないです。",
           "form": "negative",
           "translation_en": "I don't want to go to the hospital.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.13-locations-and-places-.びょういん",
+            "n5.vocab.10-time-general.びょう",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "byouinni ikitakunaidesu。"
+        },
+        {
+          "form": "specific-don't-want",
+          "ja": "しゅくだいを したくないです。",
+          "translation_en": "I don't want to do homework.",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.しゅくだい",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.を"
+          ]
         }
       ],
       "common_mistakes": [
@@ -10188,7 +10710,10 @@
           "ja": "休みが ほしいです。",
           "form": "affirmative",
           "translation_en": "I want a day off.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.ほしい",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "yasumiga hoshiidesu。"
         }
       ],
@@ -10366,6 +10891,7 @@
           "vocab_ids": [
             "n5.vocab.3-people-roles.学生",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が"
           ],
           "romaji": "gakuseiga 5nin imasu。"
@@ -10446,6 +10972,7 @@
             "n5.vocab.6-question-words.いくつ",
             "n5.vocab.17-food-items.りんご",
             "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.か"
           ],
@@ -10466,7 +10993,15 @@
           "ja": "クラスに 学生は なんにん いますか。",
           "form": "affirmative",
           "translation_en": "How many students are in the class?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.クラス",
+            "n5.vocab.3-people-roles.学生",
+            "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "kurasuni gakusei wa nannin imasuka。"
         }
       ],
@@ -10549,7 +11084,11 @@
           "ja": "本を 三さつ 読みました。",
           "form": "affirmative",
           "translation_en": "I read three books.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.9-counters-common.さつ",
+            "n5.vocab.27-verbs-group-1-verbs.読む",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "hon o sansatsu yomimashita。"
         }
       ],
@@ -10694,7 +11233,12 @@
           "ja": "バスで 二十ぷん かかります。",
           "form": "affirmative",
           "translation_en": "It takes 20 minutes by bus.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かかる",
+            "n5.vocab.7-numbers.二十",
+            "n5.vocab.23-transport.バス",
+            "n5.vocab.35-particles-functional-.で"
+          ],
           "romaji": "basude nijuupun kakarimasu。"
         }
       ],
@@ -10765,7 +11309,12 @@
           "ja": "えいがは 七時はんに はじまります。",
           "form": "affirmative",
           "translation_en": "The movie starts at 7:30.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.はじまる",
+            "n5.vocab.26-house-and-furniture.えいが",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "eiga wa shichi / nanatokihanni hajimarimasu。"
         }
       ],
@@ -11042,7 +11591,11 @@
           "ja": "まいとし 友だちと たんじょうびを いわいます。",
           "form": "affirmative",
           "translation_en": "Every year I celebrate my birthday with friends.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.たんじょうび",
+            "n5.vocab.35-particles-functional-.と",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "maitoshi tomodachito tanjoubi o iwaimasu。"
         }
       ],
@@ -11227,6 +11780,7 @@
             "n5.vocab.12-time-frequency-sequen.まだ",
             "n5.vocab.33-adverbs.まだ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.に"
           ],
           "romaji": "mada kokoni imasu。"
@@ -11315,7 +11869,13 @@
           "ja": "テストの まえに よく べんきょうしました。",
           "form": "affirmative",
           "translation_en": "I studied well before the test.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.べんきょう",
+            "n5.vocab.24-school-and-study.テスト",
+            "n5.vocab.12-time-frequency-sequen.よく",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "tesutono maeni yoku benkyoushimashita。"
         }
       ],
@@ -11406,7 +11966,14 @@
           "ja": "えいがを 見た あとで コーヒーを 飲みました。",
           "form": "affirmative",
           "translation_en": "After watching the movie, I drank coffee.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.26-house-and-furniture.えいが",
+            "n5.vocab.27-verbs-group-1-verbs.飲む",
+            "n5.vocab.28-verbs-group-2-verbs.見る",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.で"
+          ],
           "romaji": "eiga o mita atode koohii o nomimashita。"
         }
       ],
@@ -11487,7 +12054,15 @@
           "ja": "スーパーに 行きました。そして、パンを かいました。",
           "form": "affirmative",
           "translation_en": "I went to the supermarket. And then I bought bread.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.13-locations-and-places-.スーパー",
+            "n5.vocab.34-conjunctions.そして",
+            "n5.vocab.17-food-items.パン",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "suupaani ikimashita。soshite、pan o kaimashita。"
         }
       ],
@@ -11574,7 +12149,14 @@
           "ja": "本を 読みました。それから、休みました。",
           "form": "affirmative",
           "translation_en": "I read a book. After that, I rested.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.34-conjunctions.それから",
+            "n5.vocab.5-demonstratives.それ",
+            "n5.vocab.27-verbs-group-1-verbs.休む",
+            "n5.vocab.27-verbs-group-1-verbs.読む",
+            "n5.vocab.35-particles-functional-.から",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "hon o yomimashita。sorekara、yasumimashita。"
         }
       ],
@@ -11629,6 +12211,7 @@
           "vocab_ids": [
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.34-conjunctions.でも",
             "n5.vocab.35-particles-functional-.は",
@@ -11643,6 +12226,7 @@
           "translation_en": "It was hot. But it was fun.",
           "vocab_ids": [
             "n5.vocab.31-adjectives.たのしい",
+            "n5.vocab.14-nature-and-weather.あつい",
             "n5.vocab.31-adjectives.あつい",
             "n5.vocab.31-adjectives.あつい.2",
             "n5.vocab.31-adjectives.あつい.3",
@@ -11656,7 +12240,11 @@
           "ja": "ねむかったです。でも、ねませんでした。",
           "form": "affirmative",
           "translation_en": "I was sleepy. But I did not sleep.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.ねる",
+            "n5.vocab.34-conjunctions.でも",
+            "n5.vocab.35-particles-functional-.も"
+          ],
           "romaji": "nemukattadesu。demo、nemasendeshita。"
         }
       ],
@@ -11727,14 +12315,27 @@
           "ja": "雨が ふっていました。しかし、出かけました。",
           "form": "affirmative",
           "translation_en": "It was raining. However, I went out.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.出かける",
+            "n5.vocab.34-conjunctions.しかし",
+            "n5.vocab.27-verbs-group-1-verbs.ふる",
+            "n5.vocab.35-particles-functional-.しか",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "amega futteimashita。shikashi、dekakemashita。"
         },
         {
           "ja": "日本語は むずかしいです。しかし、たのしいです。",
           "form": "affirmative",
           "translation_en": "Japanese is difficult. However, it is fun.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.むずかしい",
+            "n5.vocab.31-adjectives.たのしい",
+            "n5.vocab.25-languages-and-countri.日本語",
+            "n5.vocab.34-conjunctions.しかし",
+            "n5.vocab.35-particles-functional-.しか",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "nihongo wa muzukashiidesu。shikashi、tanoshiidesu。"
         }
       ],
@@ -11805,7 +12406,12 @@
           "ja": "では、しつもんは ありませんか。",
           "form": "affirmative",
           "translation_en": "Well then, are there any questions?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.しつもん",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "de wa、shitsumon wa arimasenka。"
         }
       ],
@@ -11860,6 +12466,7 @@
           "vocab_ids": [
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.が"
@@ -11971,7 +12578,14 @@
           "ja": "日本語は たのしいけど、かんじが むずかしい。",
           "form": "affirmative",
           "translation_en": "Japanese is fun, but kanji is hard.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.むずかしい",
+            "n5.vocab.31-adjectives.たのしい",
+            "n5.vocab.24-school-and-study.かんじ",
+            "n5.vocab.25-languages-and-countri.日本語",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "nihongo wa tanoshiikedo、kanjiga muzukashii。"
         }
       ],
@@ -12039,6 +12653,7 @@
             "n5.vocab.31-adjectives.いたい",
             "n5.vocab.5-demonstratives.どう",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.29-verbs-irregular-and-v.来る",
             "n5.vocab.34-conjunctions.から",
             "n5.vocab.35-particles-functional-.が",
@@ -12050,14 +12665,39 @@
           "ja": "どうして 行きませんでしたか。―ねつが あったからです。",
           "form": "affirmative",
           "translation_en": "Why didn't you go? - Because I had a fever.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.6-question-words.どうして",
+            "n5.vocab.33-adverbs.どうして",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.27-verbs-group-1-verbs.会う",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "doushite ikimasendeshitaka。―netsuga attakaradesu。"
         },
         {
           "ja": "どうして 学校を 休みましたか。―あたまが いたかったからです。",
           "form": "affirmative",
           "translation_en": "Why did you skip school? - Because I had a headache.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.6-question-words.どうして",
+            "n5.vocab.33-adverbs.どうして",
+            "n5.vocab.4-body-parts.あたま",
+            "n5.vocab.31-adjectives.いたい",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.13-locations-and-places-.学校",
+            "n5.vocab.40-misc-useful-items.学校",
+            "n5.vocab.27-verbs-group-1-verbs.休む",
+            "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "doushite gakkou o yasumimashitaka。―atamaga itakattakaradesu。"
         }
       ],
@@ -12116,6 +12756,7 @@
           "translation_en": "I gave a book to my friend.",
           "vocab_ids": [
             "n5.vocab.2-people-family.ともだち",
+            "n5.vocab.30-verbs-existence-and-p.あげる",
             "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -12126,6 +12767,7 @@
           "form": "affirmative",
           "translation_en": "I give flowers to my mother.",
           "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.あげる",
             "n5.vocab.4-body-parts.はな",
             "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.に"
@@ -12136,7 +12778,12 @@
           "ja": "先生に 花を あげました。",
           "form": "affirmative",
           "translation_en": "I gave flowers to the teacher.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.あげる",
+            "n5.vocab.3-people-roles.先生",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "senseini hana o agemashita。"
         }
       ],
@@ -12224,7 +12871,13 @@
           "ja": "父に とけいを もらいました。",
           "form": "affirmative",
           "translation_en": "I received a watch from my father.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.10-time-general.とけい",
+            "n5.vocab.21-clothing-and-accessor.とけい",
+            "n5.vocab.30-verbs-existence-and-p.もらう",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "chichini tokei o moraimashita。"
         }
       ],
@@ -12286,6 +12939,7 @@
           "form": "past",
           "translation_en": "A friend gave me a book.",
           "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.くれる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.を"
           ],
@@ -12297,6 +12951,7 @@
           "translation_en": "My father gave me a present.",
           "vocab_ids": [
             "n5.vocab.37-common-nouns-miscella.プレゼント",
+            "n5.vocab.30-verbs-existence-and-p.くれる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.を"
           ],
@@ -12306,7 +12961,12 @@
           "ja": "先生が 本を くれました。",
           "form": "affirmative",
           "translation_en": "The teacher gave me a book.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.くれる",
+            "n5.vocab.3-people-roles.先生",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "senseiga hon o kuremashita。"
         }
       ],
@@ -12395,7 +13055,15 @@
           "ja": "さむいから、まどを しめてください。",
           "form": "affirmative",
           "translation_en": "It's cold, so please close the window.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.14-nature-and-weather.さむい",
+            "n5.vocab.31-adjectives.さむい",
+            "n5.vocab.28-verbs-group-2-verbs.しめる",
+            "n5.vocab.28-verbs-group-2-verbs.しめる.2",
+            "n5.vocab.26-house-and-furniture.まど",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "samuikara、mado o shimetekudasai。"
         }
       ],
@@ -12466,6 +13134,7 @@
             "n5.vocab.31-adjectives.いたい",
             "n5.vocab.27-verbs-group-1-verbs.休む",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.で"
           ],
@@ -12487,7 +13156,12 @@
           "ja": "お金が ないので、買えません。",
           "form": "negative",
           "translation_en": "I have no money, so I can't buy it.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.22-money-and-shopping.お金",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.で"
+          ],
           "romaji": "okanega nainode、kaemasen。"
         }
       ],
@@ -12573,6 +13247,7 @@
           "vocab_ids": [
             "n5.vocab.27-verbs-group-1-verbs.おす",
             "n5.vocab.1-people-pronouns-and-se.人",
+            "n5.vocab.9-counters-common.人",
             "n5.vocab.35-particles-functional-.を"
           ],
           "romaji": "osushi o taberu nin"
@@ -12816,7 +13491,13 @@
           "ja": "のみものは おちゃに します。",
           "form": "affirmative",
           "translation_en": "I'll have tea for the drink.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.のみもの",
+            "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "nomimono wa ochani shimasu。"
         }
       ],
@@ -12902,6 +13583,7 @@
           "form": "past",
           "translation_en": "It became hot.",
           "vocab_ids": [
+            "n5.vocab.14-nature-and-weather.あつい",
             "n5.vocab.31-adjectives.あつい",
             "n5.vocab.31-adjectives.あつい.2",
             "n5.vocab.31-adjectives.あつい.3",
@@ -12980,7 +13662,12 @@
           "ja": "テレビを 見ながら ごはんを 食べます。",
           "form": "affirmative",
           "translation_en": "I eat while watching TV.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.ごはん",
+            "n5.vocab.26-house-and-furniture.テレビ",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "terebi o minagara gohan o tabemasu。"
         }
       ],
@@ -13049,6 +13736,7 @@
           "vocab_ids": [
             "n5.vocab.27-verbs-group-1-verbs.おもう",
             "n5.vocab.31-adjectives.おもい",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.と"
           ],
           "romaji": "iito omoimasu。"
@@ -13057,7 +13745,16 @@
           "ja": "この えいがは おもしろいと おもいます。",
           "form": "affirmative",
           "translation_en": "I think this movie is interesting.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おもしろい",
+            "n5.vocab.26-house-and-furniture.えいが",
+            "n5.vocab.27-verbs-group-1-verbs.おもう",
+            "n5.vocab.31-adjectives.おもい",
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.と",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "kono eiga wa omoshiroito omoimasu。"
         }
       ],
@@ -13134,7 +13831,12 @@
           "ja": "田中さんは 「行きません」と 言いました。",
           "form": "negative",
           "translation_en": "Tanaka-san said, \"I will not go.\"",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.言う",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.と"
+          ],
           "romaji": "tanakasan wa 「ikimasen」to iimashita。"
         }
       ],
@@ -13400,7 +14102,11 @@
           "ja": "すみません、メニューを ください。",
           "form": "affirmative",
           "translation_en": "Excuse me, please give me the menu.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.36-greetings-and-set-phr.すみません",
+            "n5.vocab.27-verbs-group-1-verbs.すむ",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "sumimasen、menyuu o kudasai。"
         }
       ],
@@ -13564,6 +14270,7 @@
           "form": "question",
           "translation_en": "Would you like another cup?",
           "vocab_ids": [
+            "n5.vocab.33-adverbs.いっぱい",
             "n5.vocab.39-function-filler-expre.いかが",
             "n5.vocab.12-time-frequency-sequen.もう",
             "n5.vocab.33-adverbs.もう",
@@ -13575,7 +14282,12 @@
           "ja": "コーヒーは いかがですか。",
           "form": "affirmative",
           "translation_en": "How about some coffee?",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.39-function-filler-expre.いかが",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "koohii wa ikagadesuka。"
         }
       ],
@@ -13753,7 +14465,14 @@
           "ja": "まだ ばんごはんを 食べていません。",
           "form": "negative",
           "translation_en": "I haven't eaten dinner yet.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.ばんごはん",
+            "n5.vocab.16-food-and-drink-genera.ごはん",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.12-time-frequency-sequen.まだ",
+            "n5.vocab.33-adverbs.まだ",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "mada bangohan o tabeteimasen。"
         }
       ],
@@ -13838,7 +14557,14 @@
           "ja": "もう 学校に 行きました。",
           "form": "affirmative",
           "translation_en": "I already went to school.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.12-time-frequency-sequen.もう",
+            "n5.vocab.33-adverbs.もう",
+            "n5.vocab.13-locations-and-places-.学校",
+            "n5.vocab.40-misc-useful-items.学校",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "mou gakkouni ikimashita。"
         }
       ],
@@ -13891,6 +14617,7 @@
           "vocab_ids": [
             "n5.vocab.18-drinks.コーヒー",
             "n5.vocab.18-drinks.おちゃ",
+            "n5.vocab.39-function-filler-expre.じゃあ",
             "n5.vocab.32-adjectives.すき",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.が"
@@ -13975,6 +14702,7 @@
           "form": "affirmative",
           "translation_en": "Nice weather, isn't it?",
           "vocab_ids": [
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.ね"
           ],
           "romaji": "ii tenkidesune。"
@@ -14091,7 +14819,11 @@
           "ja": "あした 友だちが 来るでしょう。",
           "form": "affirmative",
           "translation_en": "My friend will probably come tomorrow.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.10-time-general.あした",
+            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "ashita tomodachiga kurudeshou。"
         }
       ],
@@ -14159,7 +14891,11 @@
           "ja": "たぶん 田中さんは 学生だろう。",
           "form": "affirmative",
           "translation_en": "Tanaka-san is probably a student.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.33-adverbs.たぶん",
+            "n5.vocab.3-people-roles.学生",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "tabun tanakasan wa gakuseidarou。"
         }
       ],
@@ -14215,6 +14951,7 @@
           "form": "affirmative",
           "translation_en": "Nice weather, isn't it?",
           "vocab_ids": [
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.ね"
           ],
           "romaji": "ii tenkidesune。"
@@ -14334,7 +15071,15 @@
           "ja": "学校の あとで としょかんに 行きます。",
           "form": "affirmative",
           "translation_en": "After school I go to the library.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.13-locations-and-places-.としょかん",
+            "n5.vocab.13-locations-and-places-.学校",
+            "n5.vocab.40-misc-useful-items.学校",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.で",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "gakkouno atode toshokanni ikimasu。"
         }
       ],
@@ -14414,7 +15159,13 @@
           "ja": "ばんごはんの まえに 休みました。",
           "form": "affirmative",
           "translation_en": "I rested before dinner.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.ばんごはん",
+            "n5.vocab.16-food-and-drink-genera.ごはん",
+            "n5.vocab.27-verbs-group-1-verbs.休む",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "bangohanno maeni yasumimashita。"
         }
       ],
@@ -14468,11 +15219,11 @@
         {
           "ja": "出かける まえに、しんぶんを 読みます。",
           "vocab_ids": [
-            "n5.vocab.16-food-and-drink-genera.ごはん",
-            "n5.vocab.27-verbs-group-1-verbs.あらう",
+            "n5.vocab.28-verbs-group-2-verbs.出かける",
+            "n5.vocab.28-verbs-group-2-verbs.かける",
+            "n5.vocab.27-verbs-group-1-verbs.読む",
             "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.に",
-            "n5.vocab.35-particles-functional-.の"
+            "n5.vocab.35-particles-functional-.に"
           ],
           "translation_en": "Before going out, I read the newspaper.",
           "romaji": "dekakeru maeni、shimbun o yomimasu。"
@@ -14480,7 +15231,7 @@
         {
           "ja": "ねる まえに、はを みがきます。",
           "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.読む",
+            "n5.vocab.27-verbs-group-1-verbs.みがく",
             "n5.vocab.28-verbs-group-2-verbs.ねる",
             "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.に"
@@ -14492,7 +15243,14 @@
           "ja": "出かける まえに かさを もちます。",
           "form": "affirmative",
           "translation_en": "I take an umbrella before going out.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.出かける",
+            "n5.vocab.28-verbs-group-2-verbs.かける",
+            "n5.vocab.21-clothing-and-accessor.かさ",
+            "n5.vocab.27-verbs-group-1-verbs.もつ",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "dekakeru maeni kasa o mochimasu。"
         }
       ],
@@ -14546,12 +15304,13 @@
         {
           "ja": "しごとが おわった あとで、 のみに 行きました。",
           "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.おわる",
             "n5.vocab.37-common-nouns-miscella.しごと",
             "n5.vocab.40-misc-useful-items.しごと",
             "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に",
-            "n5.vocab.35-particles-functional-.で",
-            "n5.vocab.35-particles-functional-.の"
+            "n5.vocab.35-particles-functional-.で"
           ],
           "translation_en": "After work finished, I went out drinking.",
           "romaji": "shigotoga owatta atode、 nomini ikimashita。"
@@ -14575,7 +15334,14 @@
           "ja": "ごはんを 食べた あとで おさらを あらいます。",
           "form": "affirmative",
           "translation_en": "After eating, I wash the dishes.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.ごはん",
+            "n5.vocab.19-tableware-and-cooking.おさら",
+            "n5.vocab.27-verbs-group-1-verbs.あらう",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.で"
+          ],
           "romaji": "gohan o tabeta atode osara o araimasu。"
         }
       ],
@@ -14652,7 +15418,10 @@
           "ja": "すずきさんは わたしの 友だちです。",
           "form": "affirmative",
           "translation_en": "Suzuki-san is my friend.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "suzukisan wa watashino tomodachidesu。"
         }
       ],
@@ -14816,7 +15585,8 @@
           "translation_en": "Thanks for the food! (before eating)",
           "vocab_ids": [
             "n5.vocab.36-greetings-and-set-phr.いただきます",
-            "n5.vocab.28-verbs-group-2-verbs.いる"
+            "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる"
           ],
           "romaji": "itadakimasu！"
         },
@@ -14894,6 +15664,7 @@
             "n5.vocab.4-body-parts.あたま",
             "n5.vocab.31-adjectives.いたい",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.が"
           ],
           "romaji": "atamaga itaindesu。"
@@ -14996,14 +15767,24 @@
           "ja": "日曜日は そうじしたり、せんたくしたり します。",
           "form": "affirmative",
           "translation_en": "On Sundays I clean, do laundry, and so on.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.日曜日",
+            "n5.vocab.5-demonstratives.そう",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "nichiyoubi wa soujishitari、sentakushitari shimasu。"
         },
         {
           "ja": "パーティーで 食べたり 飲んだり しました。",
           "form": "past",
           "translation_en": "At the party we ate, drank, and so on.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.パーティー",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.で"
+          ],
           "romaji": "paateiide tabetari nondari shimashita。"
         }
       ],
@@ -15081,7 +15862,11 @@
           "ja": "きょうとに 行ったことが あります。",
           "form": "affirmative",
           "translation_en": "I have been to Kyoto.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "kyoutoni ittakotoga arimasu。"
         }
       ],
@@ -15145,6 +15930,7 @@
             "n5.vocab.12-time-frequency-sequen.もう",
             "n5.vocab.33-adverbs.もう",
             "n5.vocab.28-verbs-group-2-verbs.ねる",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.よ"
           ],
@@ -15157,6 +15943,7 @@
           "vocab_ids": [
             "n5.vocab.13-locations-and-places-.びょういん",
             "n5.vocab.10-time-general.びょう",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が",
             "n5.vocab.35-particles-functional-.に"
           ],
@@ -15166,7 +15953,12 @@
           "ja": "はやく ねたほうが いいです。",
           "form": "affirmative",
           "translation_en": "It's better to go to bed early.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.28-verbs-group-2-verbs.ねる",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "hayaku netahouga iidesu。"
         }
       ],
@@ -15221,6 +16013,7 @@
           "vocab_ids": [
             "n5.vocab.12-time-frequency-sequen.あまり",
             "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.が"
           ],
           "romaji": "amari tabenaihouga iidesu。"
@@ -15229,14 +16022,25 @@
           "ja": "おそく ねないほうが いいです。",
           "form": "negative",
           "translation_en": "It's better not to go to bed late.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おそい",
+            "n5.vocab.28-verbs-group-2-verbs.ねる",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が"
+          ],
           "romaji": "osoku nenaihouga iidesu。"
         },
         {
           "ja": "たくさん 飲まないほうが いいですよ。",
           "form": "negative",
           "translation_en": "You shouldn't drink too much.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.33-adverbs.たくさん",
+            "n5.vocab.27-verbs-group-1-verbs.飲む",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.よ"
+          ],
           "romaji": "takusan nomanaihouga iidesuyo。"
         }
       ],
@@ -15291,6 +16095,7 @@
           "vocab_ids": [
             "n5.vocab.10-time-general.あした",
             "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.31-adjectives.いい",
             "n5.vocab.35-particles-functional-.も"
           ],
           "romaji": "ashita kunakutemo iidesu。"
@@ -15299,14 +16104,30 @@
           "ja": "日曜日は 学校に 行かなくても いいです。",
           "form": "negative",
           "translation_en": "You don't have to go to school on Sundays.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.日曜日",
+            "n5.vocab.13-locations-and-places-.学校",
+            "n5.vocab.40-misc-useful-items.学校",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.も"
+          ],
           "romaji": "nichiyoubi wa gakkouni ikanakutemo iidesu。"
         },
         {
           "ja": "いそがなくても いいですよ。",
           "form": "negative",
           "translation_en": "You don't have to hurry.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.いそぐ",
+            "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.も",
+            "n5.vocab.35-particles-functional-.よ"
+          ],
           "romaji": "isoganakutemo iidesuyo。"
         }
       ],
@@ -15370,14 +16191,27 @@
           "ja": "はやく かえらなくては いけません。",
           "form": "affirmative",
           "translation_en": "I have to go home early.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "hayaku kaeranakute wa ikemasen。"
         },
         {
           "ja": "くすりを 飲まなくては いけない。",
           "form": "affirmative",
           "translation_en": "I must take the medicine.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.くすり",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.27-verbs-group-1-verbs.飲む",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "kusuri o nomanakute wa ikenai。"
         }
       ],
@@ -15439,14 +16273,23 @@
           "ja": "あした はやく おきなくては なりません。",
           "form": "affirmative",
           "translation_en": "I have to get up early tomorrow.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.10-time-general.あした",
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "ashita hayaku okinakute wa narimasen。"
         },
         {
           "ja": "まいにち べんきょうしなくては ならない。",
           "form": "affirmative",
           "translation_en": "I have to study every day.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.べんきょう",
+            "n5.vocab.27-verbs-group-1-verbs.なく",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "mainichi benkyoushinakute wa naranai。"
         }
       ],
@@ -15502,8 +16345,10 @@
           "form": "affirmative",
           "translation_en": "I must go home soon.",
           "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
             "n5.vocab.31-adjectives.はやい",
-            "n5.vocab.27-verbs-group-1-verbs.行く"
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.と"
           ],
           "romaji": "hayaku kaeranaito ikenai。"
         },
@@ -15511,14 +16356,25 @@
           "ja": "もう 行かないと いけません。",
           "form": "affirmative",
           "translation_en": "I have to go now.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.12-time-frequency-sequen.もう",
+            "n5.vocab.33-adverbs.もう",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.と"
+          ],
           "romaji": "mou ikanaito ikemasen。"
         },
         {
           "ja": "しゅくだいを しないと いけない。",
           "form": "affirmative",
           "translation_en": "I have to do my homework.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.しゅくだい",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.と",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "shukudai o shinaito ikenai。"
         }
       ],
@@ -15574,9 +16430,7 @@
           "vocab_ids": [
             "n5.vocab.12-time-frequency-sequen.もう",
             "n5.vocab.33-adverbs.もう",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.27-verbs-group-1-verbs.なく",
-            "n5.vocab.35-particles-functional-.は"
+            "n5.vocab.27-verbs-group-1-verbs.なく"
           ],
           "translation_en": "I have to go now.",
           "romaji": "mou ikanakucha。"
@@ -15585,14 +16439,20 @@
           "ja": "もう 行かなきゃ。",
           "form": "affirmative",
           "translation_en": "I gotta go now. (casual)",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.12-time-frequency-sequen.もう",
+            "n5.vocab.33-adverbs.もう"
+          ],
           "romaji": "mou ikanakya。"
         },
         {
           "ja": "はやく ねなくちゃ。",
           "form": "affirmative",
           "translation_en": "I gotta go to bed early. (casual)",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.27-verbs-group-1-verbs.なく"
+          ],
           "romaji": "hayaku nenakucha。"
         }
       ],
@@ -15670,7 +16530,12 @@
           "ja": "この くつは 大きすぎます。",
           "form": "affirmative",
           "translation_en": "These shoes are too big.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.21-clothing-and-accessor.くつ",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "kono kutsu wa ookisugimasu。"
         }
       ],
@@ -15732,14 +16597,22 @@
           "ja": "なつ休みに 国へ かえるつもりです。",
           "form": "affirmative",
           "translation_en": "I intend to go back home for summer break.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.へ"
+          ],
           "romaji": "natsuyasumini kuni e kaerutsumoridesu。"
         },
         {
           "ja": "たばこを やめるつもりです。",
           "form": "affirmative",
           "translation_en": "I intend to quit smoking.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.たばこ",
+            "n5.vocab.35-particles-functional-.を"
+          ],
           "romaji": "tabako o yamerutsumoridesu。"
         }
       ],
@@ -15802,14 +16675,22 @@
           "ja": "田中さんは 「行かない」って 言ってた。",
           "form": "negative",
           "translation_en": "Tanaka-san said he's not going. (casual)",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.言う",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "tanakasan wa 「ikanai」tte itteta。"
         },
         {
           "ja": "えいがは おもしろかったって。",
           "form": "past",
           "translation_en": "(They said) the movie was fun. (casual)",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おもしろい",
+            "n5.vocab.26-house-and-furniture.えいが",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "eiga wa omoshirokattatte。"
         }
       ],
@@ -15863,7 +16744,6 @@
           "translation_en": "How do you read this kanji?",
           "vocab_ids": [
             "n5.vocab.24-school-and-study.かんじ",
-            "n5.vocab.1-people-pronouns-and-se.かた",
             "n5.vocab.5-demonstratives.この",
             "n5.vocab.35-particles-functional-.は",
             "n5.vocab.35-particles-functional-.か",
@@ -15875,14 +16755,24 @@
           "ja": "日本語の 書きかたを おしえてください。",
           "form": "affirmative",
           "translation_en": "Please teach me how to write Japanese.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.おしえる",
+            "n5.vocab.25-languages-and-countri.日本語",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "nihongono kakikata o oshietekudasai。"
         },
         {
           "ja": "えきまでの 行きかたが わかりません。",
           "form": "affirmative",
           "translation_en": "I don't know how to get to the station.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.分かる",
+            "n5.vocab.35-particles-functional-.まで",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "ekimadeno ikikataga wakarimasen。"
         }
       ],
@@ -15948,14 +16838,24 @@
           "ja": "きょうは いい 天気だなあ。",
           "form": "affirmative",
           "translation_en": "What nice weather today!",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.14-nature-and-weather.天気",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.は"
+          ],
           "romaji": "kyou wa ii tenkidanaa。"
         },
         {
           "ja": "この ケーキは おいしいなあ。",
           "form": "affirmative",
           "translation_en": "This cake is really delicious!",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おいしい",
+            "n5.vocab.17-food-items.ケーキ",
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の"
+          ],
           "romaji": "kono keeki wa oishiinaa。"
         }
       ],
@@ -16016,14 +16916,21 @@
           "ja": "うるさい！しゃべるな！",
           "form": "prohibition",
           "translation_en": "Quiet! Stop talking! (rough)",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.うるさい",
+            "n5.vocab.27-verbs-group-1-verbs.うる"
+          ],
           "romaji": "urusai！shaberuna！"
         },
         {
           "ja": "ここに 入るな。",
           "form": "prohibition",
           "translation_en": "Do not enter here. (sign)",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.ここ",
+            "n5.vocab.27-verbs-group-1-verbs.入る",
+            "n5.vocab.35-particles-functional-.に"
+          ],
           "romaji": "kokoni hairuna。"
         }
       ],
@@ -16105,7 +17012,10 @@
           "ja": "だれか 手つだってください。",
           "form": "affirmative",
           "translation_en": "Someone please help me.",
-          "vocab_ids": [],
+          "vocab_ids": [
+            "n5.vocab.1-people-pronouns-and-se.だれ",
+            "n5.vocab.35-particles-functional-.か"
+          ],
           "romaji": "dareka tetsudattekudasai。"
         }
       ],
@@ -16241,6 +17151,7 @@
           "vocab_ids": [
             "n5.vocab.1-people-pronouns-and-se.だれ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "dareka imasuka。"
@@ -16254,6 +17165,7 @@
             "n5.vocab.13-locations-and-places-.へや",
             "n5.vocab.26-house-and-furniture.へや",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.に",
             "n5.vocab.35-particles-functional-.も"
           ],
@@ -16338,6 +17250,7 @@
           "vocab_ids": [
             "n5.vocab.5-demonstratives.どこ",
             "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる",
             "n5.vocab.35-particles-functional-.で",
             "n5.vocab.35-particles-functional-.も"
           ],
@@ -16517,8 +17430,11 @@
           "vocab_ids": [
             "n5.vocab.25-languages-and-countri.日本語",
             "n5.vocab.27-verbs-group-1-verbs.話す",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.が"
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.37-common-nouns-miscella.こと",
+            "n5.vocab.40-misc-useful-items.こと",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.を"
           ],
           "romaji": "nihongo o hanasu kotoga dekimasu。"
         },
@@ -16529,8 +17445,12 @@
           "vocab_ids": [
             "n5.vocab.26-house-and-furniture.ピアノ",
             "n5.vocab.27-verbs-group-1-verbs.ひく",
-            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.27-verbs-group-1-verbs.ひく.2",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.37-common-nouns-miscella.こと",
+            "n5.vocab.40-misc-useful-items.こと",
             "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.を",
             "n5.vocab.35-particles-functional-.か"
           ],
           "romaji": "piano o hiku kotoga dekimasuka。"
@@ -16542,6 +17462,9 @@
           "vocab_ids": [
             "n5.vocab.10-time-general.あした",
             "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.37-common-nouns-miscella.こと",
+            "n5.vocab.40-misc-useful-items.こと",
             "n5.vocab.35-particles-functional-.が"
           ],
           "romaji": "ashita iku kotoga dekimasen。"
