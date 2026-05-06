@@ -39,6 +39,128 @@ Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invar
 
 ---
 
+## Strategic value-adds (added 2026-05-06)
+
+> **Source:** post-locale-narrowing competitive analysis. Beyond Hindi support (niche-N1), these are the defensible moats vs Bunpro / WaniKani / Renshuu / Duolingo / Anki / Marugoto. Prioritised by defensibility (hard for incumbents to copy) + alignment with the no-account / no-cloud / free-forever-personal posture.
+>
+> **The moat thesis:**
+> "JLPTSuccess is the only JLPT prep app that respects you as an adult learner: no account, no cloud, no ads, no streak anxiety, native-Hindi-medium where you need it, English-medium where you don't, and you can self-host the whole thing for your school. Free forever for personal use."
+>
+> Every feature decision passes through that filter. Competitors will eventually copy Hindi support if the market becomes visible; they CANNOT copy the privacy posture without burning their business model — that is the durable moat.
+
+### SVA-priority next-3 (do these first)
+
+- [ ] **SVA-NEXT-1: Visible privacy badge + one-click DevTools verify panel.** Amplifies the strongest moat that is currently invisible. Add a footer privacy badge ("0 accounts, 0 cookies, 0 tracking - verify in DevTools Network tab"). Add a Settings panel "Verify privacy" that opens DevTools instructions. Add a homepage hero line: "Your study data never leaves your device. No login, no email, no credit card. Forever." Estimated effort: 1-2 days.
+- [ ] **SVA-NEXT-2: Exam-fidelity mock test mode polish.** Real-time countdown timer matching official sections (25 / 50 / 30 min). Per-section minimum-pass display (38 / 19 / 19 for N5). Listening play-once enforcement in test mode, replay-allowed in practice. Print-to-PDF mode for offline practice papers. Visual layout matching official 言語知識 / 文法・読解 / 聴解 paper. Estimated effort: 1 week. Targets the SSW-visa-applicant + university-applicant (deadline-driven) user.
+- [ ] **SVA-NEXT-3: Self-host institutional kit.** Productize the existing `docs/SELF-HOST.md` into a one-page "spin up JLPTSuccess for your school" guide. Add `data/branding.json` for logo/title/footer override without forking. Clear license messaging on README ("Schools and NGOs welcome - no GDPR overhead because we don't collect data"). Soft "Powered by JLPTSuccess" footer on self-hosted instances. Estimated effort: 3-5 days. Unlocks niche-N3 paid-institutional-tier later without breaking personal-free promise.
+
+### SVA-1: No-account / no-tracking / no-cloud — push it harder, not just claim it (priority *)
+
+> **Why it's a moat:** Bunpro / WaniKani / Renshuu CANNOT match this without rewriting their architecture. They depend on accounts for recurring revenue. JLPTSuccess does not.
+
+- [ ] **SVA-1.1 Privacy badge on every page footer.** Currently the privacy story is buried in PRIVACY.md. Surface a visible one-line badge.
+- [ ] **SVA-1.2 One-click "Verify privacy" panel in Settings** that opens DevTools / Network tab instructions. Bunpro CANNOT do this without exposing they phone home.
+- [ ] **SVA-1.3 Homepage marketing line:** "Your study data never leaves your device. No login, no email, no credit card. Forever."
+- [ ] **SVA-1.4 "Export your data" button** that produces a JSON of all localStorage. Proves the data IS yours.
+- [ ] **SVA-1.5 PRIVACY.md homepage card** linking to the public privacy promise + audit log.
+
+### SVA-2: Exam-fidelity mock paper mode (JLPT-specific) (priority *)
+
+> **Why it's a moat:** Bunpro doesn't do mock papers. WaniKani is kanji-only. Renshuu's mock mode is approximate. Anki has no exam mode. JLPTSuccess can be the only app where N5 / N4 mock test = official exam structure exactly.
+
+- [ ] **SVA-2.1 Real-time countdown timer** matching official sections (25 / 50 / 30 min).
+- [ ] **SVA-2.2 Per-section minimum-pass display** (38 / 19 / 19 for N5) — not just total score.
+- [ ] **SVA-2.3 Listening play-once enforcement** in test mode; replay-allowed in practice mode.
+- [ ] **SVA-2.4 Print-to-PDF mode** for practice papers - real paper, real pencil. NO competitor does this.
+- [ ] **SVA-2.5 Visual layout match** — official 言語知識 / 文法・読解 / 聴解 paper structure on screen.
+- [ ] **SVA-2.6 Per-mondai progress tracking** within the section (e.g., "M1 7/12, M2 4/8...").
+
+### SVA-3: Open source + self-hostable for institutions (priority *)
+
+> **Why it's a moat:** None of the competitors are open source. Indian Tier-2 / Tier-3 language coaching schools, NGOs, and SSW-prep training centres want tools they can deploy on a school's local network without sending student data to a US/Japan SaaS.
+
+- [ ] **SVA-3.1 SELF-HOST.md productized** — one-page deploy guide.
+- [ ] **SVA-3.2 `data/branding.json` override mechanism** — logo / title / footer / theme without forking.
+- [ ] **SVA-3.3 README license messaging** — "Schools and NGOs welcome. No GDPR overhead because we don't collect data."
+- [ ] **SVA-3.4 Soft attribution footer** — "Powered by JLPTSuccess" on self-hosted instances; drives discovery.
+- [ ] **SVA-3.5 Institutional support contract template** (paid tier candidate later, without breaking personal-free promise).
+
+### SVA-4: Provenance transparency badges (your unique trust signal)
+
+> **Why it's a moat:** JLPTSuccess already tracks `review_status: native_reviewed / llm_curated / auto_generated` per item. Bunpro and WaniKani treat content as a trust black-box. JLPTSuccess can show a per-item badge.
+
+- [ ] **SVA-4.1 Per-item provenance badge** on every content page (extend existing `js/provenance-badge.js` coverage to all surfaces).
+- [ ] **SVA-4.2 Filter mode**: "Show only native-reviewed content" — power-user lever no competitor offers.
+- [ ] **SVA-4.3 Aggregate stats on Progress dashboard**: "You've drilled 87% native-reviewed, 13% LLM-curated."
+- [ ] **SVA-4.4 Pricing-tier hook for later** — a future paid tier could fund native-review uplift on user-selected content.
+
+### SVA-5: Bandwidth-friendly bundle (Indian / SE-Asian markets)
+
+> **Why it's a moat:** Bunpro / WaniKani / Renshuu are SPA-heavy with constant network chatter. JLPTSuccess full N5 app is ~250KB minified. On a Jio 4G plan with monthly data caps, this matters enormously.
+
+- [ ] **SVA-5.1 Bundle-size badge on README** — "127KB JS, no tracking pixels, no ad networks, runs on a 5-year-old phone."
+- [ ] **SVA-5.2 Optional bulk audio download mode** — "Download all audio for offline use (130MB)" — one-time cost, then never reloads.
+- [ ] **SVA-5.3 Page-weight comparison table** in marketing copy: "JLPTSuccess: 250KB. Duolingo: 4.2MB. WaniKani: 1.8MB."
+- [ ] **SVA-5.4 Lighthouse score >95 on 3G** — measure, document, cite.
+
+### SVA-6: In-browser AI features (privacy-preserving) — emerging frontier
+
+> **Why it's a moat:** Frontier nobody owns yet. WebLLM / llama.cpp.wasm / Transformers.js can now run small models fully in the browser — no API call, no data leak. By 2026 this is viable for limited features. Bunpro / WaniKani have no incentive (their model = "you pay us, AI in cloud"). JLPTSuccess model = "you own your data, AI runs locally."
+
+- [ ] **SVA-6.1 Conversation practice** with a small in-browser model (1-3B params) — 5-minute Japanese conversation entirely on-device.
+- [ ] **SVA-6.2 Sentence diagnosis** — paste a sentence, in-browser model points out particle / conjugation errors.
+- [ ] **SVA-6.3 Personalized review-queue suggestions** based on local error patterns, computed in-browser.
+- [ ] **SVA-6.4 Bundle-size budget** — local model adds 200-500MB; gate behind opt-in download.
+
+> **Caveat:** 1-2 quarters of work. Worth it only if Hindi-medium + privacy-first is already validated.
+
+### SVA-7: Adult-learner / anti-gamification positioning
+
+> **Why it's a moat:** Duolingo's whole business is gamification. Bunpro has streaks. The adult learner — especially the SSW visa applicant who has 6 months until exam — does NOT want streak anxiety, push notifications, or social pressure. They want a quiet tool that works.
+
+- [ ] **SVA-7.1 Explicit messaging:** "No streaks, no XP, no leaderboards. Adult learners deserve quiet tools." (homepage + about page).
+- [ ] **SVA-7.2 No push notifications ever** — already the case; surface it as a feature.
+- [ ] **SVA-7.3 Optional minimal-streak in Settings, off-by-default** — some learners do want it; offering without forcing is the move.
+- [ ] **SVA-7.4 Progress dashboard reframed** — not "current streak: 47 days" but "152 grammar patterns mastered, 89 vocab to review tomorrow."
+
+### SVA-8: Accessibility (WCAG AA) — institutional adoption gate
+
+> **Why it's a moat:** Government schools, universities, and NGOs in any country require WCAG AA. Few JLPT apps clear this bar. JLPTSuccess already has skip-link, prefers-reduced-motion, semantic HTML, focus management.
+
+- [ ] **SVA-8.1 Public WCAG AA audit page** — list every guideline, document compliance.
+- [ ] **SVA-8.2 Color-contrast verification** — cite ratios per surface.
+- [ ] **SVA-8.3 Screen-reader walkthrough video** on YouTube — institutional procurement teams watch these.
+- [ ] **SVA-8.4 "Accessibility-tested by [partner]" stamp** when partner found (Indian disability-rights NGO partnership candidate).
+
+---
+
+### Quick-win features (not moats, but shippable)
+
+- [ ] **SVA-Q1 FSRS-4.5 SRS upgrade** (replace SM-2). Modern SRS; 30-40% fewer reviews for same retention. Effort: 2-3 days.
+- [ ] **SVA-Q2 Print-friendly practice paper PDF.** Real paper, real pencil; pre-exam ritual. Effort: 1 day.
+- [ ] **SVA-Q3 VOICEVOX listening rebuild** with multiple voices. Realistic chokai vs gtts. Effort: 3-5 days.
+- [ ] **SVA-Q4 Genki / Minna chapter mapping** on every grammar pattern. Cross-reference with textbooks the learner already owns. Effort: 2-3 days.
+- [ ] **SVA-Q5 Cultural-context callouts** in reading passages. Explain お正月 / クリスマス / 連休 for non-Japan-resident learners. Effort: 1-2 days.
+- [ ] **SVA-Q6 "Your weakest pattern" suggestion** on home page. Lightweight personalisation; no data leaves device. Effort: 1 day.
+- [ ] **SVA-Q7 Time-to-exam countdown widget** in Settings. Targets the deadline-driven user. Effort: 1 day.
+- [ ] **SVA-Q8 Localised number formatting** (१,२३,४५६ for hi locale). Small but India-specific polish. Effort: <1 day.
+
+---
+
+### Anti-moves (do NOT do these — they break the moat)
+
+> **Decision filter:** every proposed feature must pass: "does this preserve no-account / no-cloud / no-ads / adult-learner / free-forever-personal?" If no — it's an anti-move.
+
+- [ ] ~~**ANTI-1 User accounts for cloud sync**~~ — breaks N2. Once accounts exist, the privacy story is gone.
+- [ ] ~~**ANTI-2 Streaks / XP / leaderboards**~~ — breaks adult-learner positioning. Becomes Duolingo Lite.
+- [ ] ~~**ANTI-3 Cloud-based AI tutoring**~~ — breaks N2. Either fully local (SVA-6) or skip entirely.
+- [ ] ~~**ANTI-4 Premium tier with paywalled core JLPT prep**~~ — kills "free forever for personal use" — the core promise to Indian Tier-2 / Tier-3 learners. Institutional / school tier OK; personal tier no.
+- [ ] ~~**ANTI-5 In-app ads (even ethical ones)**~~ — trust collapse. Done.
+- [ ] ~~**ANTI-6 Social / community features**~~ — requires accounts; introduces moderation cost; breaks N2. Use external Discord / Telegram for community if needed.
+- [ ] ~~**ANTI-7 Tracking pixels / analytics (even Plausible / Umami)**~~ — privacy badge dies. Use server logs only.
+
+---
+
 ## Done - Phase 4 + 5
 
 ### Phase 4.1 Foundation
