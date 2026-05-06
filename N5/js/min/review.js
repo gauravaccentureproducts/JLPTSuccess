@@ -1,16 +1,30 @@
-import{renderJa as w}from"./furigana.js";import*as u from"./storage.js";import{t as $}from"./i18n.js";const D=10,S=50;let r=null,l="setup",p=null,g=null;async function L(){if(p&&g)return;const[s,t]=await Promise.all([fetch("data/grammar.json").then(a=>a.json()),fetch("data/questions.json").then(a=>a.json())]);p=new Map((s.patterns||[]).map(a=>[a.id,a])),g=new Map;for(const a of t.questions||[])g.has(a.grammarPatternId)||g.set(a.grammarPatternId,[]),g.get(a.grammarPatternId).push(a)}function I(s){const t=u.getHistory(),a=new Date,d=[];for(const[e,n]of Object.entries(t))n.isMastered||n.nextDue&&new Date(n.nextDue)<=a&&d.push({pid:e,entry:n,isNew:!1});return d.sort((e,n)=>new Date(e.entry.nextDue)-new Date(n.entry.nextDue)),d.slice(0,s)}function k(s,t){const a=u.getHistory(),d=new Set([...t.map(n=>n.pid),...Object.keys(a)]),e=[];for(const[n]of p)if(!d.has(n)){if(e.length>=s)break;e.push({pid:n,entry:null,isNew:!0})}return e}async function _(s){return await L(),l==="finished"&&(l="setup",r=null),l==="session"&&r?h(s):l==="finished"&&r?v(s):E(s)}function E(s){l="setup";const t=u.getSettings(),a=t.dailyNewLimit??D,d=t.dailyReviewCap??S,e=I(d),n=k(a,e);s.innerHTML=`
-    <h2>${$("page.review")}</h2>
+import{renderJa as D}from"./furigana.js";import*as g from"./storage.js";import{t as U}from"./i18n.js";const R=10,T=50;let l=null,f="setup",y=null,$=null,w=null,k=null,j=null;async function _(){if(y&&$&&w&&j)return;const[t,a,i,r]=await Promise.all([fetch("data/grammar.json").then(e=>e.json()),fetch("data/questions.json").then(e=>e.json()),fetch("data/vocab.json").then(e=>e.json()),fetch("data/kanji.json").then(e=>e.json())]);y=new Map((t.patterns||[]).map(e=>[e.id,e])),$=new Map;for(const e of a.questions||[])$.has(e.grammarPatternId)||$.set(e.grammarPatternId,[]),$.get(e.grammarPatternId).push(e);w=new Map,k=new Map;for(const e of i.entries||[])e.form&&w.set(e.form,e),e.id&&k.set(e.id,e);j=new Map((r.entries||[]).map(e=>[e.glyph,e]))}function A(t){const a=g.getHistory(),i=new Date,r=[];for(const[e,n]of Object.entries(a))n.isMastered||n.nextDue&&new Date(n.nextDue)<=i&&r.push({pid:e,entry:n,isNew:!1});return r.sort((e,n)=>new Date(e.entry.nextDue)-new Date(n.entry.nextDue)),r.slice(0,t)}function B(t,a){const i=g.getHistory(),r=new Set([...a.map(n=>n.pid),...Object.keys(i)]),e=[];for(const[n]of y)if(!r.has(n)){if(e.length>=t)break;e.push({pid:n,entry:null,isNew:!0})}return e}async function N(t){return await _(),f==="finished"&&(f="setup",l=null),f==="session"&&l?I(t):f==="finished"&&l?E(t):L(t)}function L(t){f="setup";const a=g.getSettings(),i=a.dailyNewLimit??R,r=a.dailyReviewCap??T,e=A(r),n=B(i,e),p=g.getDueCountsBySkill(),d=p.grammar+p.vocab+p.kanji;t.innerHTML=`
+    <h2>${U("page.review")}</h2>
     <p>Spaced-repetition session using the SM-2 algorithm. Items reappear at intervals that grow as you grade them correctly and shrink when you miss.</p>
+
+    ${d>0?`
+      <!-- IMP-092 Phase 2A: unified daily review aggregate -->
+      <section class="srs-unified-summary" aria-label="Today's reviews across all skills">
+        <h3 style="margin:0 0 8px; font-weight:500;">Today: <strong>${d}</strong> review${d===1?"":"s"} due across all skills</h3>
+        <p class="muted small" style="margin:0 0 12px;">
+          ${p.grammar} grammar \xB7 ${p.vocab} vocab \xB7 ${p.kanji} kanji
+          <span style="margin-left:8px;">(see <a href="#/summary">Progress dashboard</a> for forecast)</span>
+        </p>
+        <p class="muted small" style="margin:0;">
+          The session below covers <strong>grammar reviews only</strong> for now. Vocab and kanji reviews surface on their respective Learn pages until the unified card render ships (IMP-092 Phase 2B).
+        </p>
+      </section>
+    `:""}
 
     <section class="srs-stats">
       <div class="stat-card weak">
         <div class="stat-num">${e.length}</div>
-        <div class="stat-label">Due today</div>
+        <div class="stat-label">Grammar due</div>
         <div class="stat-hint">SRS scheduled</div>
       </div>
       <div class="stat-card neutral">
         <div class="stat-num">${n.length}</div>
-        <div class="stat-label">New</div>
+        <div class="stat-label">New grammar</div>
         <div class="stat-hint">never reviewed</div>
       </div>
       <div class="stat-card mastered">
@@ -23,7 +37,7 @@ import{renderJa as w}from"./furigana.js";import*as u from"./storage.js";import{t
 
     ${e.length+n.length>0?`
       <button id="srs-start" class="btn-primary">Start review session</button>
-    `:Object.keys(u.getHistory()).length===0?`
+    `:Object.keys(g.getHistory()).length===0?`
       <div class="empty-state">
         <p><strong>Reviews appear here after you finish your first lesson.</strong></p>
         <p class="muted small">SM-2 spaced repetition starts as soon as you've grade-rated a few patterns.</p>
@@ -35,22 +49,47 @@ import{renderJa as w}from"./furigana.js";import*as u from"./storage.js";import{t
         <p><a href="#/learn" class="btn-primary" style="text-decoration:none">Go to Learn</a></p>
       </div>
     `}
-  `,document.getElementById("srs-start")?.addEventListener("click",()=>{r={queue:[...e,...n],idx:0,grades:[],startedAt:new Date().toISOString()},l="session",h(s)})}function h(s){const t=r.queue[r.idx];if(!t)return v(s);const a=p.get(t.pid);if(!a){x(s,3);return}const e=(a.examples||[]).filter(o=>o.ja&&!o.ja.includes("(see "))[0],n=a.meaning_en||"",m=r.queue.length;s.innerHTML=`
+  `,document.getElementById("srs-start")?.addEventListener("click",()=>{const h=[...e,...n].map(m=>({skill:"grammar",id:m.pid,entry:m.entry,isNew:m.isNew})),c=(g.getUnifiedDueQueue?g.getUnifiedDueQueue():[]).filter(m=>m.skill!=="grammar"),v=[],b=[h,c];for(;b.some(m=>m.length>0);)for(const m of b)m.length>0&&v.push(m.shift());l={queue:v,idx:0,grades:[],startedAt:new Date().toISOString()},f="session",I(t)})}function I(t){const a=l.queue[l.idx];if(!a)return E(t);const i=a.skill||"grammar",r=a.id||a.pid,e=l.queue.length,n={grammar:{label:"\u6587",cls:"srs-skill-grammar",name:"Grammar"},vocab:{label:"\u8A9E",cls:"srs-skill-vocab",name:"Vocab"},kanji:{label:"\u6F22",cls:"srs-skill-kanji",name:"Kanji"}},p=n[i]||n.grammar;let d="",h=`#/learn/${encodeURIComponent(r)}`;if(i==="grammar"){const s=y.get(r);if(!s){x(t,3);return}const v=(s.examples||[]).filter(m=>m.ja&&!m.ja.includes("(see "))[0],b=s.meaning_en||"";d=`
+      <h3 class="pattern-name">${D(s.pattern)}</h3>
+      <p class="meaning-en">${o(b)}</p>
+      ${v?`
+        <div class="srs-example">
+          <p>${D(v.ja,v.furigana||[])}</p>
+          ${v.translation_en?`<p class="muted small">${o(v.translation_en)}</p>`:""}
+        </div>
+      `:""}
+      ${s.explanation_en?`<p class="srs-explanation">${o(s.explanation_en)}</p>`:""}
+    `}else if(i==="vocab"){const s=k&&k.get(r)||w&&w.get(r);if(!s){x(t,3);return}const c=s.examples&&s.examples[0]||null;d=`
+      <h3 class="pattern-name" lang="ja">${o(s.form||"")}</h3>
+      <p class="meaning-en"><span lang="ja" class="vocab-reading">${o(s.reading||"")}</span>
+        ${s.pos?`<span class="muted small" style="margin-left:8px;">${o(s.pos)}</span>`:""}</p>
+      <p class="meaning-en"><strong>${o(s.gloss||"")}</strong></p>
+      ${s.gloss_hi?`<p class="muted small" lang="hi">${o(s.gloss_hi)}</p>`:""}
+      ${c?`
+        <div class="srs-example">
+          <p lang="ja">${o(c.ja||c)}</p>
+          ${c.translation_en?`<p class="muted small">${o(c.translation_en)}</p>`:""}
+        </div>
+      `:""}
+      ${s.collocations&&s.collocations.length?`
+        <p class="muted small">Collocations: <span lang="ja">${s.collocations.slice(0,3).map(o).join(" \xB7 ")}</span></p>
+      `:""}
+    `,h=s.form?`#/learn/vocab/${encodeURIComponent(s.form)}`:"#/learn/vocab"}else if(i==="kanji"){const s=j&&j.get(r);if(!s){x(t,3);return}d=`
+      <h3 class="pattern-name kanji-glyph-big" lang="ja" style="font-size:5em; line-height:1;">${o(s.glyph)}</h3>
+      ${s.on?.length?`<p class="meaning-en"><strong>On:</strong> <span lang="ja">${s.on.map(o).join(" / ")}</span></p>`:""}
+      ${s.kun?.length?`<p class="meaning-en"><strong>Kun:</strong> <span lang="ja">${s.kun.map(o).join(" / ")}</span></p>`:""}
+      ${s.meanings?.length?`<p class="meaning-en"><strong>Meaning:</strong> ${s.meanings.map(o).join(", ")}</p>`:""}
+      ${s.meanings_hi?.length?`<p class="muted small" lang="hi">${s.meanings_hi.map(o).join(", ")}</p>`:""}
+      ${s.mnemonic?`<p class="srs-explanation">${o(s.mnemonic)}</p>`:""}
+    `,h=`#/kanji/${encodeURIComponent(s.glyph)}`}t.innerHTML=`
     <div class="srs-card">
       <div class="srs-progress">
-        <span>Review \xB7 Card <strong>${r.idx+1}</strong> of <strong>${m}</strong></span>
-        ${t.isNew?'<span class="srs-tag new">NEW</span>':""}
+        <span>Review \xB7 Card <strong>${l.idx+1}</strong> of <strong>${e}</strong></span>
+        <span class="srs-skill-badge ${p.cls}" title="${p.name}" lang="ja">${p.label}</span>
+        ${a.isNew?'<span class="srs-tag new">NEW</span>':""}
       </div>
       <article class="srs-content">
-        <h3 class="pattern-name">${w(a.pattern)}</h3>
-        <p class="meaning-en">${f(n)}</p>
-        ${e?`
-          <div class="srs-example">
-            <p>${w(e.ja,e.furigana||[])}</p>
-            ${e.translation_en?`<p class="muted small">${f(e.translation_en)}</p>`:""}
-          </div>
-        `:""}
-        ${a.explanation_en?`<p class="srs-explanation">${f(a.explanation_en)}</p>`:""}
+        ${d}
       </article>
 
       <div class="srs-grade-row">
@@ -77,27 +116,27 @@ import{renderJa as w}from"./furigana.js";import*as u from"./storage.js";import{t
 
       <div class="test-nav">
         <button id="srs-end">End session</button>
-        <a href="#/learn/${encodeURIComponent(t.pid)}" class="srs-link">View full lesson \u2192</a>
+        <a href="${h}" class="srs-link">View full lesson \u2192</a>
       </div>
     </div>
-  `,s.querySelectorAll("[data-grade]").forEach(o=>{o.addEventListener("click",()=>{const c=parseInt(o.dataset.grade,10),y=u.recordSrsResponse(t.pid,c);r.grades.push({pid:t.pid,grade:c,snapshot:y}),x(s,c,{lastGraded:{pid:t.pid,grade:c,snapshot:y}})})}),document.getElementById("srs-end")?.addEventListener("click",()=>{l="finished",v(s)})}function x(s,t,a={}){r.idx+=1,r.idx>=r.queue.length?(l="finished",v(s)):(h(s),a.lastGraded&&T(s,a.lastGraded))}let i=null;function T(s,t){const a=document.getElementById("undo-grade-toast");a&&a.remove(),i&&(clearTimeout(i),i=null);const e={1:"Again",3:"Hard",4:"Good",5:"Easy"}[t.grade]||`Grade ${t.grade}`,n=document.createElement("div");n.id="undo-grade-toast",n.className="undo-toast",n.setAttribute("role","status"),n.setAttribute("aria-live","polite"),n.innerHTML=`
+  `,t.querySelectorAll("[data-grade]").forEach(s=>{s.addEventListener("click",()=>{const c=parseInt(s.dataset.grade,10),v=a.skill&&g.recordUnifiedSrsResponse,b=v?g.recordUnifiedSrsResponse(i,r,c):g.recordSrsResponse(r,c);l.grades.push({skill:i,pid:r,grade:c,snapshot:b}),x(t,c,{lastGraded:{skill:i,pid:r,grade:c,snapshot:b,isUnified:v}})})}),document.getElementById("srs-end")?.addEventListener("click",()=>{f="finished",E(t)})}function x(t,a,i={}){l.idx+=1,l.idx>=l.queue.length?(f="finished",E(t)):(I(t),i.lastGraded&&M(t,i.lastGraded))}let u=null;function M(t,a){const i=document.getElementById("undo-grade-toast");i&&i.remove(),u&&(clearTimeout(u),u=null);const e={1:"Again",3:"Hard",4:"Good",5:"Easy"}[a.grade]||`Grade ${a.grade}`,n=document.createElement("div");n.id="undo-grade-toast",n.className="undo-toast",n.setAttribute("role","status"),n.setAttribute("aria-live","polite"),n.innerHTML=`
     <span class="undo-toast-text">Recorded: <strong>${e}</strong></span>
     <button type="button" class="undo-toast-btn" id="undo-grade-btn">\u21B6 Undo</button>
-  `,document.body.appendChild(n),document.getElementById("undo-grade-btn").addEventListener("click",()=>{if(u.undoSrsResponse(t.pid,t.snapshot)){const o=r.grades.findIndex(c=>c.pid===t.pid&&c.grade===t.grade);o>=0&&r.grades.splice(o,1)}b()}),n.addEventListener("mouseenter",()=>{i&&(clearTimeout(i),i=null)}),n.addEventListener("mouseleave",()=>{i||(i=setTimeout(b,2e3))}),i=setTimeout(b,2e3)}function b(){i&&(clearTimeout(i),i=null);const s=document.getElementById("undo-grade-toast");s&&s.remove()}function v(s){const t={1:0,3:0,4:0,5:0};for(const e of r.grades)t[e.grade]=(t[e.grade]||0)+1;const a=r.grades.length,d=r.grades.map(({pid:e,grade:n})=>{const m=p.get(e),o=u.getSrsState(e);return{label:m?.pattern||e,grade:n,nextDue:o?.nextDue,interval:o?.interval}});s.innerHTML=`
+  `,document.body.appendChild(n),document.getElementById("undo-grade-btn").addEventListener("click",()=>{if(a.isUnified&&g.undoUnifiedSrsResponse?g.undoUnifiedSrsResponse(a.skill,a.pid,a.snapshot):g.undoSrsResponse(a.pid,a.snapshot)){const d=l.grades.findIndex(h=>h.pid===a.pid&&h.grade===a.grade);d>=0&&l.grades.splice(d,1)}S()}),n.addEventListener("mouseenter",()=>{u&&(clearTimeout(u),u=null)}),n.addEventListener("mouseleave",()=>{u||(u=setTimeout(S,2e3))}),u=setTimeout(S,2e3)}function S(){u&&(clearTimeout(u),u=null);const t=document.getElementById("undo-grade-toast");t&&t.remove()}function E(t){const a={1:0,3:0,4:0,5:0};for(const e of l.grades)a[e.grade]=(a[e.grade]||0)+1;const i=l.grades.length,r=l.grades.map(({pid:e,grade:n})=>{const p=y.get(e),d=g.getSrsState(e);return{label:p?.pattern||e,grade:n,nextDue:d?.nextDue,interval:d?.interval}});t.innerHTML=`
     <div class="srs-finished">
       <h2>Review complete</h2>
       <section class="srs-summary-stats">
-        <div class="stat-card mastered"><div class="stat-num">${a}</div><div class="stat-label">Total cards</div></div>
-        <div class="stat-card weak"><div class="stat-num">${t[1]}</div><div class="stat-label">Again</div></div>
-        <div class="stat-card neutral"><div class="stat-num">${t[3]+t[4]}</div><div class="stat-label">Hard / Good</div></div>
-        <div class="stat-card mastered"><div class="stat-num">${t[5]}</div><div class="stat-label">Easy</div></div>
+        <div class="stat-card mastered"><div class="stat-num">${i}</div><div class="stat-label">Total cards</div></div>
+        <div class="stat-card weak"><div class="stat-num">${a[1]}</div><div class="stat-label">Again</div></div>
+        <div class="stat-card neutral"><div class="stat-num">${a[3]+a[4]}</div><div class="stat-label">Hard / Good</div></div>
+        <div class="stat-card mastered"><div class="stat-num">${a[5]}</div><div class="stat-label">Easy</div></div>
       </section>
 
       <h3>Schedule</h3>
       <ul class="srs-schedule">
-        ${d.map(e=>`
+        ${r.map(e=>`
           <li>
-            <span lang="ja"><strong>${f(e.label)}</strong></span>
+            <span lang="ja"><strong>${o(e.label)}</strong></span>
             <span class="muted small">grade ${e.grade}, next in ${e.interval}d (${e.nextDue?new Date(e.nextDue).toLocaleDateString():"-"})</span>
           </li>
         `).join("")}
@@ -108,4 +147,4 @@ import{renderJa as w}from"./furigana.js";import*as u from"./storage.js";import{t
         <button id="srs-back">Back to Learn</button>
       </div>
     </div>
-  `,document.getElementById("srs-restart")?.addEventListener("click",()=>{r=null,l="setup",E(s)}),document.getElementById("srs-back")?.addEventListener("click",()=>{location.hash="#/learn"})}function f(s){return String(s??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t])}export{_ as renderReview};
+  `,document.getElementById("srs-restart")?.addEventListener("click",()=>{l=null,f="setup",L(t)}),document.getElementById("srs-back")?.addEventListener("click",()=>{location.hash="#/learn"})}function o(t){return String(t??"").replace(/[&<>"']/g,a=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[a])}export{N as renderReview};

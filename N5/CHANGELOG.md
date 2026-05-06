@@ -2,6 +2,64 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.48 - 2026-05-07 (Q44 onboarding starter-set + tracker close-out: 3 questions Resolved)
+
+Q44 (Onboarding "your first 60 seconds" path) — Resolved with the
+**starter-set lane** (lowest-effort option from the original Q44
+proposal of tutorial-overlay vs starter-set vs curriculum-mode).
+
+### What landed
+
+`js/home.js` now renders a `.starter-pack` aside for first-time
+visitors (detected by empty `getHistory()`). Five curated foundational
+patterns chosen by frequency × didactic weight:
+
+| # | Pattern | Why |
+|---|---|---|
+| 1 | です／〜ます (n5-001) | How sentences end politely |
+| 2 | は (n5-002) | The topic marker |
+| 3 | Verb-ます (n5-058) | Polite verb form |
+| 4 | い-Adjectives (n5-077) | Describing things |
+| 5 | か (n5-024) | Asking questions |
+
+Each is ~5 minutes of reading; total 5-pattern path takes ~25 min.
+These 5 are the foundational grammatical machinery every other N5
+pattern builds on. Once the user opens any pattern, the starter-pack
+disappears (replaced by the existing `.resume-strip` "Last session"
+link).
+
+The CTA ends with a fallback link to the diagnostic for users who
+prefer "test me on what I know" over "show me what to learn".
+
+### CSS
+
+New `.starter-pack` container with accent-tinted background, 1 px
+border, 8 px radius. `.starter-pack-list` is an auto-fit grid
+(180 px min column width) of `.starter-pack-card` link cells, each
+with a numbered circle + pattern label + one-line "why".
+Mobile-responsive (collapses to 1-column grid on narrow viewports).
+
+### Tracker close-out
+
+Stamped 3 open questions Resolved in `feedback/n5-audit-2026-05-04.xlsx`:
+
+- **Q39** (Native-Hindi-review scaling) — closed in commit `e779c2e`:
+  all niche-N1 surfaces now at 100% Hindi coverage at LLM-persona
+  quality bar.
+- **Q41** (Vocab counter scope) — top-50 path chosen + executed in
+  commit `e779c2e`: 87/589 noun coverage (top-frequency subset).
+- **Q44** (this commit).
+
+Remaining open: **Q42** (listening voice variety budget) only —
+the binary maintainer decision between VOICEVOX local install (free,
+IMP-122 script ready) vs ElevenLabs vs native recording.
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.47 → jlptsuccess-n5-v1.12.48`
+
+---
+
 ## v1.12.47 - 2026-05-07 (Trust-band promotion: niche-N2 messaging across all promotional surfaces)
 
 The home trust band ("No login · No tracking · Works offline · Open
