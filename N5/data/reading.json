@@ -93,7 +93,35 @@
         "えいが"
       ],
       "cultural_context": "どうぞよろしくおねがいします (douzo yoroshiku onegai shimasu, \"please treat me well\") is the standard self-introduction closer in Japan. Used after stating your name, origin, and what you do. The expected response is こちらこそ、よろしくおねがいします (kochira koso, yoroshiku onegai shimasu — \"same here, pleased to meet you\"). Mandatory in formal first meetings: business, school, neighbours, parents-in-law. Skipping it reads as cold or rude.",
-      "cultural_context_provenance": "llm_curated"
+      "cultural_context_provenance": "llm_curated",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks \"as for me\" — the topic of the rest of the discourse."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (origin of motion / location). Pairs with 来ました."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-007",
+          "note": "で marks the location-of-action: \"study AT the Tokyo university\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous / habitual: \"is studying / studies\"."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-030",
+          "note": "見ること — verb-plain + こと turns \"see\" into the noun \"seeing / watching\", which is then connected with は as the subject of \"is my hobby\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.002",
@@ -184,7 +212,30 @@
         "え",
         "か",
         "から"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-115",
+          "note": "に marks the specific clock-time: \"wake up AT 6:00\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-076",
+          "note": "〜てから = \"after doing X\". Here: \"after eating breakfast, I go to work\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-021",
+          "note": "〜から〜まで = \"from X to Y\" (range). Here: \"9 to 5\"."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-076",
+          "note": "〜てから again — \"after returning home, I watch TV\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.003",
@@ -259,7 +310,30 @@
         "え",
         "えいが",
         "が"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with\" (companion). \"Going with friends\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-107",
+          "note": "Verb-stem + に行く = \"go to do X\". 見に 行く = \"go to see (a movie)\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-120",
+          "note": "〜のあとで = \"after X\". Here: \"after the movie\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-007",
+          "note": "で = location of action: \"eat AT the restaurant\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.004",
@@ -328,7 +402,35 @@
         "きのう",
         "ぜんぶ",
         "で"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-007",
+          "note": "で = location of action: \"buy AT the konbini\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-008",
+          "note": "と = \"and\" (exhaustive list): \"bread AND coffee\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "買いました = polite past affirmative (\"bought\")."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-089",
+          "note": "〜で = na-adjective te-form connector linking two clauses with the same subject — except here it is connecting two complete clauses with \"and\" sense."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-081",
+          "note": "やすかった = i-adjective past (\"was cheap\")."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.005",
@@ -429,7 +531,30 @@
         "か"
       ],
       "cultural_context": "Japanese family terms split between humble (own family) and respectful (someone else's). 父 (chichi) / 母 (haha) refer to ONE'S OWN parents in humble speech to outsiders. お父さん (otousan) / お母さん (okaasan) refer to someone else's parents — or to your own parents when you are addressing them directly at home. Same pattern: あに / あね (own older brother / sister) vs お兄さん / お姉さん. This own-vs-others split is core to Japanese in-group / out-group politeness (うち / そと).",
-      "cultural_context_provenance": "llm_curated"
+      "cultural_context_provenance": "llm_curated",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-028",
+          "note": "の = possessive: \"MY family\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-091",
+          "note": "います = exists (animate). Used because family members are people."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-089",
+          "note": "で = na/noun-copula te-form: \"father IS-a-teacher AND mother IS-a-doctor\"."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-085",
+          "note": "な-adjective + です: げんきです = \"are healthy / energetic\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.006",
@@ -506,7 +631,35 @@
         "あした",
         "あめ",
         "いま"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-079",
+          "note": "i-adjective + です: さむいです = \"is cold\" (polite)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-072",
+          "note": "〜ていました = past progressive: \"was raining\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-073",
+          "note": "〜ていません = present negative progressive: \"is not raining (now)\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-126",
+          "note": "が (mid-sentence) = \"but\" — links two contrasting clauses."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-145",
+          "note": "〜と おもいます = \"I think that ~\" — quotation-marker と + おもう."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.007",
@@ -652,7 +805,25 @@
         "か",
         "から",
         "くらい"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-021",
+          "note": "〜から〜まで = \"from X to Y\" range — house TO school."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-041",
+          "note": "まず = \"first of all\" (sequence adverb)."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-006",
+          "note": "に here = arrival point: \"arrive AT school\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.009",
@@ -728,7 +899,25 @@
         "こ",
         "こう",
         "こうえん"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-085",
+          "note": "na-adjective + です: スポーツです (here noun + です meaning \"is sports\")."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-007",
+          "note": "で = location of action: \"run AT the park\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-008",
+          "note": "と = \"with\" (companion)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.010",
@@ -805,7 +994,25 @@
         "え",
         "か",
         "から"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (inanimate). Used for desks because they are objects."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-013",
+          "note": "も = \"also\". \"Chairs ALSO have 25\"."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-007",
+          "note": "から in 〜から〜が見えます context = visible-from origin."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.011",
@@ -960,7 +1167,30 @@
         "か",
         "から",
         "が"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-007",
+          "note": "で = location of action: \"buy AT the bookstore\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-108",
+          "note": "2さつ = counter for books. The counter follows the noun + を."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-076",
+          "note": "〜てから = \"after returning home, I read\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-126",
+          "note": "が (mid-sentence) = \"but\" — \"was hard, BUT was interesting\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.013",
@@ -1133,7 +1363,25 @@
         "きれい"
       ],
       "cultural_context": "デパート (depaato) — Japanese department stores like Mitsukoshi, Takashimaya, Isetan, Daimaru — are upscale with formal customer service (gift-wrapping, doormen on opening). Each floor has a theme: B1F / basement = food hall (デパ地下), middle floors = fashion / cosmetics, top floors = restaurants. Sales (バーゲン) run twice a year — New Year and mid-summer. Prices are fixed; haggling is not a thing.",
-      "cultural_context_provenance": "llm_curated"
+      "cultural_context_provenance": "llm_curated",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-007",
+          "note": "で = location of action: \"buy AT the depaato\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-089",
+          "note": "で connects \"shirt was 3000 yen\" and \"pants were 5000 yen\" as one statement."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-126",
+          "note": "が (mid-sentence) = \"but\" — \"was a bit expensive, BUT very pretty\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.015",
@@ -1212,7 +1460,25 @@
         "こう"
       ],
       "cultural_context": "桜 (sakura, cherry blossom) blooms in late March to early April depending on latitude — Tokyo around the start of the new fiscal year and the school entrance ceremony (入学式). さくらを見に行く (\"going to see sakura\") is 花見 (hanami) — picnicking under the trees, often with food and beer. Weather services publish a cherry-blossom front (桜前線) tracking the bloom from Okinawa northward. Sakura is central to Japanese aesthetic identity.",
-      "cultural_context_provenance": "llm_curated"
+      "cultural_context_provenance": "llm_curated",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-143",
+          "note": "〜くなる = \"becoming X\" (i-adjective). あたたかくなりました = \"got warmer\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-090",
+          "note": "さくらが さきました = \"cherry blossoms have bloomed\" (intransitive verb)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-107",
+          "note": "verb-stem + に行く: 見に行きます = \"go to see\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.016",
@@ -1298,7 +1564,30 @@
         "いしゃ"
       ],
       "cultural_context": "病院 (byouin) in Japanese means both \"hospital\" and \"doctor's clinic\" — the same word covers a small neighbourhood clinic and a large hospital. For a cold or headache, you visit a small 内科 (naika, internal medicine clinic) and pay a 30% out-of-pocket fee under the National Health Insurance system; the rest is covered. Same-day walk-ins are standard at clinics. Pharmacies (薬局, yakkyoku) dispense prescriptions next door.",
-      "cultural_context_provenance": "llm_curated"
+      "cultural_context_provenance": "llm_curated",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-009",
+          "note": "から here = \"from\" (origin in time). きのうから = \"since yesterday\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-013",
+          "note": "も = \"also\". \"Cough ALSO comes out a little\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-069",
+          "note": "te-form chaining: 休んで...ねます = \"rest and sleep\"."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-104",
+          "note": "verb-stem + たい = \"want to\". なりたい = \"want to become\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.017",
@@ -1443,7 +1732,30 @@
         "か",
         "から",
         "かんじ"
-      ]
+      ],
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-072",
+          "note": "〜ています here = \"have been studying / am currently studying\" (continuing state)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-035",
+          "note": "くらい = \"about\". 30分くらい = \"about 30 minutes\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-126",
+          "note": "が (mid-sentence) = \"but\" — \"kanji is hard, BUT hiragana is easy\"."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-104",
+          "note": "行きたいです = \"want to go\". たい = i-adjective-style desiderative."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.019",
@@ -1521,7 +1833,25 @@
         "しか"
       ],
       "cultural_context": "うみに行く (going to the sea / beach) is a summer staple. Japan is an island nation, so most major cities are within 1-2 hours of a beach. Popular destinations from Tokyo: Enoshima, Zushi, Kamakura. From Osaka: Suma. Beach activities are swimming, sunbathing, and BBQ. Beach huts (海の家, umi-no-ie) operate seasonally July-August serving food and shaved ice (かき氷, kakigoori).",
-      "cultural_context_provenance": "llm_curated"
+      "cultural_context_provenance": "llm_curated",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-008",
+          "note": "と = \"with\" (companion)."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-006",
+          "note": "に = direction marker (movement target). うみに行く = \"go TO the sea\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-079",
+          "note": "i-adj + です: よかったです = \"was good\" (i-adj past polite)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated"
     },
     {
       "id": "n5.read.020",
