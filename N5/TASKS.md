@@ -157,7 +157,45 @@ Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invar
 - [ ] ~~**ANTI-4 Premium tier with paywalled core JLPT prep**~~ — kills "free forever for personal use" — the core promise to Indian Tier-2 / Tier-3 learners. Institutional / school tier OK; personal tier no.
 - [ ] ~~**ANTI-5 In-app ads (even ethical ones)**~~ — trust collapse. Done.
 - [ ] ~~**ANTI-6 Social / community features**~~ — requires accounts; introduces moderation cost; breaks N2. Use external Discord / Telegram for community if needed.
-- [ ] ~~**ANTI-7 Tracking pixels / analytics (even Plausible / Umami)**~~ — privacy badge dies. Use server logs only.
+- [ ] ~~**ANTI-7 Tracking pixels / analytics (even Plausible / Umami)**~~ - privacy badge dies. Use server logs only.
+
+---
+
+## Japanese content enrichment (depth-fill cycle, started 2026-05-06)
+
+> **Scope filter:** items here enrich the actual N5 Japanese content (grammar patterns, vocab, kanji, reading passages, listening drills, audio). Items relating to Hindi locale, app features, business model, privacy, distribution, or accessibility are NOT here - they are tracked in the SVA / locale / SVA-Q sections above.
+>
+> **Sequencing:** items will be tackled in ascending order of effort (smallest first). Each ID-tagged item is one commit minimum. Each item produces a build script under `tools/jce_*.py` (idempotent) so re-running is a no-op.
+
+### JCE-2: Kanji look-alike cluster cross-links (1-2 days)
+- [ ] **JCE-2** Author `look_alike` field on `data/kanji.json` for 8 confusable N5 clusters: 大/犬/太 (dot moves), 木/本/末/未 (line position), 人/入/八 (radical similarity), 日/目/白 (rectangle variations), 千/干/王/玉 (vertical bar), 上/止/正 (cross-bar position), 古/占 (stroke count), 千/午 (top stroke direction). Adds explicit cross-links so learners do not silently conflate them. Pure data authoring; no UI changes.
+
+### JCE-9: Cultural-context callouts on reading passages (1-2 days)
+- [ ] **JCE-9** Author `cultural_context` field on `data/reading.json` passages where Japan-specific cultural assumptions appear (お正月, クリスマス, 連休, 七五三, 入学式, 桜, 紅葉, etc.). Inline notes for non-Japan-resident learners; preserves passage as authentic Japanese text while scaffolding cultural references.
+
+### JCE-7: Stroke-order common-mistake notes per kanji (2-3 days)
+- [ ] **JCE-7** Author `stroke_order_mistakes` field on `data/kanji.json` for the small set of N5 kanji with textbook traps (田 horizontal-vs-vertical order, 力 stroke direction, 必 stroke order, 右 vs 左 first-stroke difference, etc.). Surface as warning callouts on the kanji detail page.
+
+### JCE-8: Genki / Minna chapter-mapping on grammar patterns (2-3 days)
+- [ ] **JCE-8** Populate `sources` array on `data/grammar.json` patterns - cross-reference Genki Lesson N, Minna no Nihongo Chapter X, JLPT.jp scope, Bunpro N5 deck, JLPT Sensei. Helps learners cross-reference with textbooks they already own. Schema field already specced in N5Improvement.txt prompt.
+
+### JCE-4: Vocab collocations list (3-5 days seed; native review later)
+- [ ] **JCE-4** Author `collocations` array on `data/vocab.json` - 3-5 common companion words per entry. E.g. 雨 (rain) -> 雨が降る, 雨が止む, 雨に濡れる, 雨宿り. LLM-curated baseline pass; mark `collocations_provenance: llm_curated`; native-review queued separately. 1041 entries x 3-5 collocations each = ~3500 collocations authored.
+
+### JCE-6: VOICEVOX listening voice variety (3-5 days)
+- [ ] **JCE-6** Replace single-voice gtts listening audio with VOICEVOX multi-voice rendering. Target: >=4 distinct voices across the 40 listening items (typically 2 female + 2 male, spanning >=2 age groups per the prompt). Run via `tools/build_audio_voicevox.py`. NOTE: requires VOICEVOX engine installed locally; if not available in working environment, surface as blocker.
+
+### JCE-10: Listening timestamped transcripts (3-5 days)
+- [ ] **JCE-10** Add timestamp metadata to `data/listening.json` transcripts - time-aligned sentence-level overlays for 40 listening drills. Enables transcript-follow-along during audio playback. Computed via existing audio durations + sentence-position estimation; refined per-item where audio is shorter than estimate.
+
+### JCE-3: Sentence-by-sentence grammar footnotes on reading passages (1 week)
+- [ ] **JCE-3** Author `grammar_footnotes` array on `data/reading.json` passages - map sentence-position to grammar-pattern-id (e.g., "sentence 2 demonstrates n5-072 Verb-ています"). Renders as inline pop-overs on the reading page. Largest authoring batch in this cycle: 40 passages x ~5 sentences each x ~1-2 footnotes = ~200-400 footnote entries.
+
+### JCE-1: Vocab pitch accent (Tokyo dialect) (1-2 weeks)
+- [ ] **JCE-1** Author `pitch_accent` field on `data/vocab.json` entries - Tokyo-dialect downstep position number (0 = heiban / flat-rising, 1 = atamadaka, 2..N = nakadaka with downstep at mora N, etc.). Reference: NHK Japanese Pronunciation Accent Dictionary entries + JMdict-derived sources. LLM-curated baseline; native-review later. 1041 entries.
+
+### JCE-5: Native-speaker audio for reading passages (BLOCKED)
+- [ ] ~~**JCE-5**~~ Replace TTS audio for the 40 reading passages with native-speaker recordings. **BLOCKED** by IMP-101 (no monetization plan; no budget for paid voice talent). Reopens if institutional sponsorship or paid tier emerges. Tracked here for completeness; do not action.
 
 ---
 
