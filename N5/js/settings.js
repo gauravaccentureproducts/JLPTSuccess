@@ -4,12 +4,15 @@ import * as storage from './storage.js';
 import { setLocale, currentLocale, supportedLocales, t } from './i18n.js';
 import { renderJa } from './furigana.js';
 
+// BUG-7 fix (UI test 2026-05-07): the `hi` entry was missing — the
+// switcher rendered the bare ISO code "hi" as the option label. Added
+// proper Devanagari label so a Hindi-reading user recognizes it. The
+// other 3 entries (vi/id/ne/zh) are dead since the 2026-05-06
+// locale-narrowing transition — kept only as historical reference for
+// possible future re-introduction.
 const LOCALE_NAMES = {
   en: 'English',
-  vi: 'Tiếng Việt',
-  id: 'Bahasa Indonesia',
-  ne: 'नेपाली',
-  zh: '中文',
+  hi: 'हिन्दी',
 };
 
 export async function renderSettings(container) {

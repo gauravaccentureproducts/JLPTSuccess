@@ -1,4 +1,4 @@
-import*as a from"./storage.js";import{setLocale as m,currentLocale as p,supportedLocales as v,t}from"./i18n.js";import"./furigana.js";const y={en:"English",vi:"Ti\u1EBFng Vi\u1EC7t",id:"Bahasa Indonesia",ne:"\u0928\u0947\u092A\u093E\u0932\u0940",zh:"\u4E2D\u6587"};async function L(o){const s=a.getSettings();o.innerHTML=`
+import*as a from"./storage.js";import{setLocale as m,currentLocale as p,supportedLocales as v,t}from"./i18n.js";import"./furigana.js";const y={en:"English",hi:"\u0939\u093F\u0928\u094D\u0926\u0940"};async function L(o){const s=a.getSettings();o.innerHTML=`
     <h2>${t("settings.title")}</h2>
     <p class="muted">${t("settings.subtitle")}</p>
 

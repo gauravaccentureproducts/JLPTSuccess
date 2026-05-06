@@ -2,6 +2,92 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.46 - 2026-05-07 (UI test bug fixes: 5 dead-data renderers + Hindi locale polish)
+
+A live UI-smoke test against v1.12.45 surfaced 8 bugs. 7 were fixable
+in this commit (the 8th — chokai paper data — turned out to have been
+correctly cleaned up by an earlier commit; UI surface had no bug
+remaining there).
+
+### Dead-data fixes — fields populated in v1.12.43-44 but invisible to learners
+
+**BUG-2 — Reading `cultural_context` callouts now render**
+
+ISSUE-103 added cultural_context (English) on 16 reading passages
+(Kyoto/omiyage culture, ramen origins, sensei honorific, train
+delay slips, etc.). The renderer never displayed the field. Now
+renders as a `<aside class="reading-cultural-context">` between
+the passage and the audio block, accent-tinted left border.
+File: `js/reading.js`, `css/main.css`.
+
+**BUG-3 — Vocab `verb_class` + `group1_exception` now render**
+
+ISSUE-099 populated `verb_class: godan|ichidan|irregular` on all 134
+verbs and `group1_exception: true` on the 6 X-6.6 verbs (入る, 帰る,
+走る, 知る, 切る, 要る). Vocab detail page now shows "Verb class:
+Godan (Group 1, u-verb)" + a "Group-1 exception" badge with a
+tooltip explanation when applicable.
+File: `js/learn-vocab.js`, `css/main.css`.
+
+**BUG-4 — Vocab examples fall back to `vocab.json` when no grammar xref**
+
+The 724 templated 2nd examples added in v1.12.44 (Phase-3 of ISSUE-096
+residual) were invisible — the renderer pulled examples ONLY from
+grammar.json via vocab_ids. Entries with no grammar xref (the entire
+target population) showed 0-1 examples even though their data file
+had 2. Added a fallback loop that ALSO pulls from `entry.examples[]`,
+tagged "Vocab catalog" so learners can distinguish the source.
+File: `js/learn-vocab.js`.
+
+### Hindi locale polish
+
+**BUG-7 — Hindi locale option label "hi" → "हिन्दी"**
+
+Settings → UI language showed "English" + bare ISO code "hi". A
+Devanagari-reading user couldn't recognize their own language in the
+switcher. Changed the LOCALE_NAMES map to `{en: 'English', hi: 'हिन्दी'}`.
+The 4 stale entries (vi/id/ne/zh) from before the locale-narrowing
+transition are removed (the locale set is closed at en+hi per JA-39).
+File: `js/settings.js`.
+
+**BUG-8 — `<html lang>` reactive on locale switch**
+
+After switching to Hindi, settings persisted, Devanagari text rendered
+correctly — but `document.documentElement.lang` stayed `"en"`. Broke
+screen-reader pronunciation, browser spell-check, and "translate this
+page" prompts. Now `setLocale()` writes the new lang attribute on the
+root element so all language-dependent UA features stay in sync.
+File: `js/i18n.js`.
+
+### Version stamp
+
+**BUG-6 — `version.json` synced with `manifest.json`**
+
+`version.json.counts.papers` was 28 / `paperQuestions` 402, but the
+manifest reads totalPapers=29 / totalQuestions=426 (chokai virtual
+paper). Updated to match. Also bumped CACHE_VERSION on sw.js.
+
+### Investigated and resolved without code change
+
+**BUG-1 (chokai paper data missing):** the v1.12.45 UI test surfaced
+a 404 on `#/papers/chokai/1`. Root-cause investigation found commit
+`31a064d` (earlier in 2026-05-07) had cleaned up the chokai entry —
+moved from `manifest.categories[]` to `virtual_papers[]` and removed
+the `data/papers/chokai/` directory. The chokai card no longer renders
+on `#/papers` after that cleanup, so direct nav to `chokai/1` is
+unreachable in normal flow. No additional fix needed.
+
+**BUG-5 ("4 sections" stale text):** with the chokai cleanup landing,
+`manifest.categories.length === 4` (moji/goi/bunpou/dokkai), so the
+existing "in 4 sections" text is now technically accurate again. Left
+as-is.
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.45 → jlptsuccess-n5-v1.12.46`
+
+---
+
 ## v1.12.45 - 2026-05-06 (Listening deferred batch: 3 items closed offline)
 
 7 listening items had been deferred 3+ rounds for "external blockers"

@@ -368,6 +368,18 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
     }
     if (examples.length >= 24) break;
   }
+  // BUG-4 fix (UI test 2026-05-07): fall back to vocab.json's own
+  // `examples` array for entries that have no grammar cross-reference.
+  // 724 entries got templated 2nd examples in v1.12.44 (ISSUE-096 + Phase-3
+  // residual) but were invisible until this fallback was wired up.
+  // Source-tagged "Vocab catalog" so the learner can distinguish.
+  for (const ex of (entry.examples || [])) {
+    if (!ex.ja) continue;
+    if (seen.has(ex.ja)) continue;
+    seen.add(ex.ja);
+    examples.push({ ja: ex.ja, en: ex.translation_en, source: 'Vocab catalog' });
+    if (examples.length >= 24) break;
+  }
   examples.sort((a, b) => (a.ja?.length || 0) - (b.ja?.length || 0));
   const top = examples.slice(0, 5);
 
@@ -425,6 +437,21 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           }
           if (entry.transitivity) {
             out.push(`<p><strong>Transitivity:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(pair: ${esc(entry.pair_id)})</span>` : ''}</p>`);
+          }
+          // BUG-3 fix (UI test 2026-05-07): surface verb_class +
+          // group1_exception. Populated on all 134 verbs in v1.12.43
+          // (ISSUE-099) but invisible until this render hook.
+          if (entry.verb_class) {
+            const classLabels = {
+              godan: 'Godan (Group 1, u-verb)',
+              ichidan: 'Ichidan (Group 2, ru-verb)',
+              irregular: 'Irregular (Group 3 — する / 来る)',
+            };
+            const label = classLabels[entry.verb_class] || entry.verb_class;
+            const g1exc = entry.group1_exception
+              ? ` <span class="vocab-g1-exception" title="Looks like Group 2 but conjugates as Group 1 (X-6.6)">Group-1 exception</span>`
+              : '';
+            out.push(`<p><strong>Verb class:</strong> ${esc(label)}${g1exc}</p>`);
           }
           // IMP-119 (round-9, 2026-05-06): keigo-chain visualizer.
           // When the entry is part of a register chain (humble / plain /

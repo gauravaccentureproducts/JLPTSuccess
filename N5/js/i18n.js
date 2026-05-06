@@ -82,6 +82,13 @@ export async function setLocale(lc) {
   if (!SUPPORTED.includes(lc)) lc = DEFAULT_LOCALE;
   locale = lc;
   storage.setSettings({ uiLocale: lc });
+  // BUG-8 fix (UI test 2026-05-07): keep <html lang> in sync with the
+  // current UI locale. Affects screen-reader pronunciation, browser
+  // spell-check, and "translate this page" prompts. Was always "en"
+  // even after switching to Hindi.
+  if (typeof document !== 'undefined' && document.documentElement) {
+    document.documentElement.lang = lc;
+  }
   await loadDict();
 }
 

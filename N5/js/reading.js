@@ -165,6 +165,11 @@ function renderRead(container, p) {
       <h2>${renderJa(p.title_ja)}</h2>
       <p class="muted small">レベル: ${renderJa(LEVEL_JA[p.level] || p.level)} ・ トピック: ${renderJa(TOPIC_JA[p.topic] || p.topic)}</p>
       <div class="passage-text">${renderJa(p.ja)}</div>
+      ${p.cultural_context ? `
+        <aside class="reading-cultural-context">
+          <p class="muted small"><strong>Cultural context:</strong> ${esc(p.cultural_context)}</p>
+        </aside>
+      ` : ''}
       ${p.audio ? `
         <div class="reading-audio">
           <p class="muted small">${renderJa('おんせい (ある とき):')}</p>
