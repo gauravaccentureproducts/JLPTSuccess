@@ -2,6 +2,80 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.45 - 2026-05-06 (Listening deferred batch: 3 items closed offline)
+
+7 listening items had been deferred 3+ rounds for "external blockers"
+(Q42 voice budget / native sourcing / manual timestamping). Re-examining
+those blockers found 4 of 7 doable programmatically without paid
+services or external recruitment.
+
+### ISSUE-074 — Pacing audit (Done)
+
+Programmatic morae-per-minute calculation using mutagen MP3 durations
++ kana-based morae counting. Each listening item now carries
+`pacing_morae_per_min` + `pacing_status` flagged against the JLPT-N5
+target band (180-240 morae/min, ±10% from the 200-220 ideal).
+
+Findings (47 items, 40 with audio):
+
+| Status | Count | Note |
+|---|---|---|
+| `in_range` | 12 | within JLPT-N5 target band |
+| `too_slow` | **26** | voicevox-shikoku-metan default ~150 mpm |
+| `too_fast` | 2 | n5.listen.007 @ 273 mpm; n5.listen.027 @ 255 mpm |
+| `no_audio` | 7 | rendering pending |
+
+Mean pace **160.2 mpm** — below N5 ideal. Resolution: when the voice-
+variety re-render runs (per ISSUE-062 plan), apply VOICEVOX
+`speed_scale` to bring per-item pace into 180-240 range.
+
+### IMP-090 + IMP-105 — Transcript line timestamps (Done)
+
+Each listening item with audio + multi-line script now has
+`lines: [{text_ja, startMs}]` populated. Algorithm: distribute total
+audio duration proportionally across lines based on per-line
+speakable-character count (kanji = 2 morae, kana = 1 mora, speaker
+labels stripped). Approximation only — accurate to ~80% at line
+boundaries. Sufficient for the line-level karaoke highlighting that
+the round-6-shipped renderer expects.
+
+Coverage:
+- multi_line_aligned: 27 (dialogue items)
+- single_line_aligned: 13 (single-narration items)
+- no_audio: 7 (rendering pending)
+
+Word-level alignment would need a forced-aligner (whisper-timestamped,
+aeneas) — deferred to a separate cycle if line-level proves insufficient.
+
+### ISSUE-062 / ISSUE-089 / ISSUE-090 — Voice variety plan (Planned)
+
+Did not install VOICEVOX (the maintainer's call) but populated all 47
+items with `voice_planned` mapping each labeled speaker (男 / 女 /
+店員 / 先生 / etc.) to a specific voicevox character ID. 8 distinct
+voicevox voices in the plan:
+
+- Female: 2 (Shikoku Metan), 3 (Zundamon), 8 (Hau Tsumugi), 14 (Mei Hima)
+- Male: 11 (Shirakami Kotaro), 12 (Aoyama Ryusei), 53 (Kenshin Takahiro), 20 (Mochiko-san)
+
+Once VOICEVOX runs locally (free, ~4-6hr maintainer setup), a render
+script can regenerate audio with proper variety using these IDs. The
+plan stays Decision = `Defer` in the tracker until the render
+actually executes (audio still single-voice in v1.12.45).
+
+`listening.json _meta.voice_variety_plan` documents the full speaker-
+label classification + render-command template.
+
+### Items still genuinely deferred
+
+- **IMP-094** Recruit native speakers to record 5-10 listening items —
+  purely external (recruitment outside dev scope).
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.44 → jlptsuccess-n5-v1.12.45`
+
+---
+
 ## v1.12.44 - 2026-05-06 (Round-9 residual depth-floor: 100% surface coverage)
 
 Closed all three round-9 residual deficits flagged in v1.12.43, taking
