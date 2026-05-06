@@ -109,7 +109,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "です संज्ञा के बाद विनम्र वर्तमान-सकारात्मक कोपुला (होना-क्रिया) है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "ます": "ます क्रिया-तना से जुड़ता है, संज्ञा से नहीं।",
+        "でした": "でした भूत-काल — \"मैं छात्र था\" अर्थ देगा।",
+        "じゃ": "じゃ अकेले अधूरा; ありません चाहिए विनम्र-नकार के लिए।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0002",
@@ -134,7 +140,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "संज्ञा के साथ です का भूत-काल = でした।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "です": "です वर्तमान — \"कल\" से मेल नहीं खाएगा।",
+        "じゃありません": "नकारात्मक रूप — \"छुट्टी थी\" के लिए ग़लत ध्रुवता।",
+        "ます": "ます क्रिया-तना से जुड़ता है, संज्ञा से नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0003",
@@ -181,7 +193,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "は आत्म-परिचय में विषय का सूचक। उच्चारण \"wa\" पर लिखावट かな は।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "が": "が कर्ता को नई जानकारी / \"कौन?\" उत्तर के रूप में चिह्नित। आत्म-परिचय में は।",
+        "を": "を प्रत्यक्ष-कर्म चिह्नक — पर わたし पर क्रिया नहीं हो रही।",
+        "に": "に समय/स्थान/प्राप्तकर्ता — विषय से कोई संबंध नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0005",
@@ -206,7 +224,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "は विषय-सूचक — \"आज के बारे में, गरम है\"। समय-शब्द (आज/कल) अक्सर は लेते हैं।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0006",
@@ -231,7 +255,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "प्रश्न-शब्द (कौन/क्या) हमेशा が लेते हैं, は नहीं — क्योंकि नई जानकारी पूछ रहे हैं।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "प्रश्न-शब्द (कौन/क्या) के लिए は कभी नहीं — हमेशा が।",
+        "を": "को प्रत्यक्ष-कर्म चिह्नक नहीं, कर्ता-प्रश्न-शब्द के साथ。",
+        "に": "न समय/स्थान — प्रश्न-शब्द के साथ ग़लत।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0007",
@@ -257,7 +287,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "X が すき = \"X पसंद है\"। पसंद-वाली चीज़ हमेशा が से चिह्नित।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "は विरोधी अर्थ देगा — \"बिल्ली के बारे में पसंद, पर...\" (N3+ बारीक़ी)।",
+        "を": "を सकर्मक-क्रिया कर्म; すき भावना है, क्रिया नहीं — を अनुपयुक्त।",
+        "に": "に प्राप्तकर्ता/समय; पसंद-वस्तु नहीं चिह्नित।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0008",
@@ -283,7 +319,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "を सकर्मक क्रिया का प्रत्यक्ष कर्म चिह्नित करता है। ほんを よみます = \"किताब पढ़ता हूँ\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "は विरोधी अर्थ (\"किताबों के बारे में पढ़ता हूँ, पर...\") — सादे कथन से मेल नहीं।",
+        "が": "が कर्ता-चिह्नक; \"पढ़ना\" का कर्म は नहीं が से चिह्नित नहीं होता।",
+        "に": "に प्राप्तकर्ता; पढ़ी-जा-रही-वस्तु में फिट नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0009",
@@ -308,7 +350,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "を कर्म-सूचक। यहाँ なに खरीदी जाने वाली चीज़ — かう का कर्म।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0010",
@@ -333,7 +381,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "に विशिष्ट घड़ी/कैलेंडर समय (7時に, げつようびに, 4月に) चिह्नित करता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "で क्रिया-स्थान/साधन — विशिष्ट समय के साथ नहीं।",
+        "へ": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
+        "と": "と साथी/उद्धरण — समय-बिंदु के साथ नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0011",
@@ -358,7 +412,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "अस्तित्व-स्थान (ある/いる के साथ) に लेता है, で नहीं। बिल्ली कमरे में \"है\" — स्थैतिक — इसलिए に।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0012",
@@ -383,7 +443,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "へ गति-दिशा सूचक — गंतव्य की ओर। に भी सही है पर विकल्पों में へ।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0013",
@@ -409,7 +475,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "へ गति-क्रिया (いく/行く) की दिशा। N5 में へ मानक दिशा-सूचक।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "から": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0014",
@@ -434,7 +506,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "で क्रिया-स्थान सूचक। べんきょうする एक क्रिया है, इसलिए पुस्तकालय で से।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "に": "に अस्तित्व-स्थान (ある/いる) के लिए; क्रिया-स्थान で।",
+        "へ": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
+        "を": "を कर्म; पुस्तकालय कर्म नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0015",
@@ -459,7 +537,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "で साधन सूचक। バスで = \"बस से\"। दूसरे: でんしゃで, ひこうきで, タクシーで।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "に": "に प्राप्तकर्ता/अस्तित्व-स्थान; साधन/उपकरण で।",
+        "へ": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
+        "と": "と साथी; बस साथी नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0016",
@@ -485,7 +569,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "と साथी / सह-कर्ता सूचक। स्पष्ट गंतव्य (こうえんへ) के साथ ともだちと का अर्थ \"दोस्त के साथ\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0017",
@@ -510,7 +600,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "と उद्धरण-सूचक — いう (कहना), おもう (सोचना) से पहले हमेशा と, を कभी नहीं।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
+        "を": "उद्धरण के लिए を कभी नहीं — हमेशा と।",
+        "に": "に प्राप्तकर्ता; उद्धरण नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0018",
@@ -536,7 +632,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "から प्रारंभ-बिंदु (\"से\") सूचक। はじまる (\"शुरू होना\") के साथ \"9 बजे से शुरू\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "まで": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0019",
@@ -561,7 +663,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "खंड के बाद から = \"क्योंकि\"। कारण पहले, परिणाम बाद। i-विशेषण सीधे から लेते हैं।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
+        "と": "と साथी; कारण-संबंधक नहीं।",
+        "に": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0020",
@@ -587,7 +695,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "まで सीमा का अंत-बिंदु। から (से) के साथ X से Y तक। पिछले वाक्य में 9時から था।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "から": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0021",
@@ -612,7 +726,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "まで रास्ते के अंत को भी चिह्नित — \"बिल्कुल घर तक\"। へ केवल दिशा।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0022",
@@ -638,7 +758,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "や आंशिक-सूची सूचक, など (इत्यादि) के साथ युग्म। と \"केवल ये\" का अर्थ देगा — विरोधी।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0023",
@@ -663,7 +789,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "や आंशिक-सूची सूचक जब \"और भी\" अर्थित (यहाँ いろいろです से पुष्ट)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0024",
@@ -688,7 +820,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "B का \"हाँ, छात्र हूँ\" उत्तर तभी, जब A ने हाँ/ना प्रश्न पूछा — इसलिए か (प्रश्न-सूचक)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "ね": "ね पुष्टि माँगता है, हाँ/ना नहीं।",
+        "よ": "よ कथन (दृढ़ता); हाँ/ना उत्तर नहीं माँगता।",
+        "は": "は विषय-कण; वाक्य-अंत में अव्याकरणिक।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0025",
@@ -713,7 +851,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ = \"कॉफ़ी या चाय\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "や": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0026",
@@ -739,7 +883,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "も = \"भी\"। पिछला वाक्य X-छात्र बता रहा है; わたしも がくせいです = \"मैं भी छात्र हूँ\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0027",
@@ -764,7 +914,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "प्रश्न-शब्द + も + नकारात्मक क्रिया = \"कोई नहीं/कुछ नहीं\"। だれも きませんでした = \"कोई नहीं आया\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "है विषय-कण; प्रश्न-शब्द के साथ \"कोई-नहीं\" का अर्थ नहीं देता।",
+        "が": "が कर्ता-कण; \"कोई-नहीं\" के लिए も + नकारात्मक चाहिए।",
+        "を": "を कर्म; \"कोई-नहीं\" अर्थ नहीं।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0028",
@@ -789,7 +945,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "これ वक्ता के पास/हाथ में चीज़ को संदर्भित। यहाँ मेरे हाथ में किताब = これ।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "それ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0029",
@@ -814,7 +976,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "どれ कई दिखाई देने वाले विकल्पों में से \"कौन सा?\" पूछता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "これ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "それ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0030",
@@ -839,7 +1007,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "संज्ञा से सीधे पहले この का प्रयोग। これ अकेला सर्वनाम; この + संज्ञा = \"यह + संज्ञा\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "これ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "これの": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "これは": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0031",
@@ -864,7 +1038,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "ここ बोलने वाले की वर्तमान स्थिति। \"मेरा घर यहाँ है\" = ここ।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "あれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれの": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれは": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0032",
@@ -889,7 +1069,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "こちら \"इस तरफ़\" — आदर-रूप, मेज़बान आगंतुक को बुलाते समय: こちらへ どうぞ।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "これ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "この": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "それ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0033",
@@ -914,7 +1100,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "どんな + संज्ञा = \"किस प्रकार का X?\" — मनोरंजन-शैली पूछ रहे हैं।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "これ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ここ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0034",
@@ -939,7 +1131,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "こう + क्रिया-तरीक़ा = \"इस तरह\"। こう つかいます = \"इस तरह उपयोग करते हैं\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なん": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0035",
@@ -964,7 +1162,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "なに/なん = \"क्या\"। आगे क्रिया से पहले なに; カウंटर से पहले なん।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0036",
@@ -989,7 +1193,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "だれ = \"कौन\" (अनौपचारिक)। どなた = आदर-रूप।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "いつ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0037",
@@ -1038,7 +1248,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "どこ = \"कहाँ\" — स्थान पूछता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "どこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0039",
@@ -1063,7 +1279,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "どれ \"कौन सा\" — कई विकल्पों में से चुनाव।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "どこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0040",
@@ -1112,7 +1334,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "どうして / なぜ = \"क्यों\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "が ... が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "は ... が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を ... を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0042",
@@ -1137,7 +1365,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "どうやって = \"कैसे/किस माध्यम से?\"",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0043",
@@ -1162,7 +1396,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "いくら = \"कितना\" (मूल्य पूछता है)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0044",
@@ -1188,7 +1428,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "いくつ = \"कितने\" (देसी カウंटर/उम्र)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0045",
@@ -1213,7 +1459,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "なんじ = \"कितने बजे\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0046",
@@ -1260,7 +1512,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "なんがつなんにち = \"कौन सा महीना, कौन सी तारीख़\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "まで ... から": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に ... に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "は ... は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0048",
@@ -1285,7 +1543,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "क्रिया + ます = विनम्र वर्तमान-सकारात्मक। 食べます = \"खाता हूँ\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "がも": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "もに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "はも": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0049",
@@ -1310,7 +1574,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "क्रिया + ません = विनम्र वर्तमान-नकारात्मक। 食べません = \"नहीं खाता\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "これ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0050",
@@ -1335,7 +1605,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "क्रिया + ました = विनम्र भूत-सकारात्मक। 食べました = \"खाया\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0051",
@@ -1360,7 +1636,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "क्रिया + ませんでした = विनम्र भूत-नकारात्मक।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "どこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0220",
@@ -1385,7 +1667,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-058 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たい": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0221",
@@ -1410,7 +1698,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-058 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ましょう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0222",
@@ -1435,7 +1729,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-059 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ましょう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0223",
@@ -1460,7 +1760,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-059 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ましょうか": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0224",
@@ -1485,7 +1791,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-060 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ませんでした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0225",
@@ -1510,7 +1822,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-060 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ましょう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0226",
@@ -1535,7 +1853,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-061 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0227",
@@ -1560,7 +1884,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-061 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0228",
@@ -1585,7 +1915,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-062 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0229",
@@ -1610,7 +1946,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-062 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0230",
@@ -1635,7 +1977,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-064 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ましょう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0231",
@@ -1660,7 +2008,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-064 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ましょう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0232",
@@ -1685,7 +2039,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-065 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "のんだ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のまない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のんで": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0233",
@@ -1710,7 +2070,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-065 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "たべた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0234",
@@ -1735,7 +2101,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-066 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "のむ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のみます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のんだ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0235",
@@ -1760,7 +2132,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-066 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "くる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "きます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "きた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0236",
@@ -1785,7 +2163,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-067 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "よむ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "よみました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "よまない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0237",
@@ -1810,7 +2194,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-067 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "いた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "いきた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "いきって": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0238",
@@ -1835,7 +2225,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "な": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "の": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0239",
@@ -1860,7 +2256,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "な": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "く": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0240",
@@ -1885,7 +2287,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-080 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "い": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0241",
@@ -1910,7 +2318,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-080 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "おもしろい": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "おもしろじゃない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "おもしろな": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0242",
@@ -1935,7 +2349,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-081 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "い": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "でした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "い でした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0243",
@@ -1960,7 +2380,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-081 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "むずかしい": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "むずかしいでした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "むずかしくない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0244",
@@ -1985,7 +2411,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-085 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "い": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だ い": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "な": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0245",
@@ -2010,7 +2442,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-085 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "べんりい": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "べんりな": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "べんる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0246",
@@ -2035,7 +2473,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-086 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "くない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "い じゃ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "な じゃ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0247",
@@ -2060,7 +2504,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-086 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "すき": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "すきくないです": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "すきだ ありません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0248",
@@ -2085,7 +2535,13 @@
       "high_confusion": true,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-090 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "います": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "です": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0249",
@@ -2110,7 +2566,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-090 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "あります": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "います": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "いました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0250",
@@ -2135,7 +2597,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-068 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "のんだ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のみました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のまない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0251",
@@ -2160,7 +2628,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-068 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "たべた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0252",
@@ -2185,7 +2659,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-069 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "のんだ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のみて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のむて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0253",
@@ -2210,7 +2690,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-069 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "いいて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "行きて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "行くて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0254",
@@ -2235,7 +2721,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-070 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "たべます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0255",
@@ -2260,7 +2752,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-070 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "たべる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0256",
@@ -2285,7 +2783,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-071 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "まつ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "まちて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "まった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0257",
@@ -2310,7 +2814,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-071 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "かく": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "かきて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "かいた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0258",
@@ -2335,7 +2845,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-072 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "たべます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべている": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "たべました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0259",
@@ -2360,7 +2876,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-072 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "します": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "しました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "しません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0260",
@@ -2385,7 +2907,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-074 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "とる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "とりて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "とった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0261",
@@ -2410,7 +2938,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "पैटर्न n5-074 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "みる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "みた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "みます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0262",
@@ -2435,7 +2969,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-075 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "はなす": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "はなした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "はなしません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0263",
@@ -2460,7 +3000,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-075 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "すう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "すうて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "すいて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0264",
@@ -2485,7 +3031,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-077 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "とる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "とって": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "とります": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0265",
@@ -2510,7 +3062,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-077 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "わすれる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "わすれて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "わすれます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0266",
@@ -2535,7 +3093,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-082 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "くない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃなかった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0267",
@@ -2560,7 +3124,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-082 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
-      "explanation_hi_provenance": "auto_generated"
+      "explanation_hi_provenance": "auto_generated",
+      "distractor_explanations_hi": {
+        "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "くない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "くて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0268",
@@ -2585,7 +3155,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "i-विशेषण te-रूप: い हटाओ + くて।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "い": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0269",
@@ -2610,7 +3186,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "いそがしい → いそがしくて।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "しい": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "しいで": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "しかった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0270",
@@ -2635,7 +3217,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "na-विशेषण भूत = + でした (संज्ञा की तरह)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0271",
@@ -2660,7 +3248,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "ゆうめい (na-विशेषण) भूत-प्रश्न = でしたか।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ですか": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "かったです": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0272",
@@ -2685,7 +3279,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "na-विशेषण भूत-नकारात्मक = + じゃありませんでした।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "くなかった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "でした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃありません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0273",
@@ -2710,7 +3310,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "かんたん na-विशेषण। भूत-नकारात्मक = じゃありませんでした।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "くなかったです": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "でした": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃありません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0274",
@@ -2735,7 +3341,13 @@
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "na-विशेषण te-रूप: केवल で।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "くて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "な": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0275",
@@ -2760,7 +3372,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "しんせつ (na-विशेषण) → しんせつで।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "くて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "な": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0276",
@@ -2785,7 +3403,13 @@
       "high_confusion": true,
       "difficulty": 1,
       "explanation_hi": "सजीव (बिल्ली, व्यक्ति) के लिए います।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "あります": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "です": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0277",
@@ -2810,7 +3434,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "सजीव अस्तित्व का नकार = いません।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "ありません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "じゃありません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ます": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0278",
@@ -2835,7 +3465,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "行きます से ます हटाओ + たい + です = \"जाना चाहता हूँ\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "行き": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "行く": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "行って": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0279",
@@ -2860,7 +3496,13 @@
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "たい-रूप इच्छा व्यक्त करता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "食べる": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "食べて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "食べた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0285",
@@ -2946,7 +3588,13 @@
       },
       "auto": false,
       "explanation_hi": "だけ = \"केवल\"। दूसरा वाक्य \"चाय/जूस नहीं पीता\" यह बहिष्कार पुष्ट करता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "など": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
+        "に": "に प्राप्तकर्ता/स्थान; \"केवल\" अर्थ नहीं।",
+        "や": "や आंशिक सूची; \"केवल\" से विरोधी।"
+      },
+      "distractor_explanations_hi_provenance": "llm_curated"
     },
     {
       "id": "q-0296",
@@ -3232,7 +3880,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-022: और — आंशिक सूची।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0420",
@@ -3258,7 +3912,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-023: वाक्य-अंत प्रश्न-सूचक।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0421",
@@ -3284,7 +3944,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ (\"कॉफ़ी या चाय\")।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0422",
@@ -3310,7 +3976,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "पिछले संदर्भ में कई लोग समान-स्थिति बताए — も उस समूह में वक्ता को शामिल करता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "は": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0423",
@@ -3336,7 +4008,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-035: ぐらい/くらい — मात्राओं के साथ \"लगभग\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "くらい": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ほど": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ばかり": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0424",
@@ -3362,7 +4040,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "वक्ता वस्तु पकड़े है तो これ (\"यह\" — वक्ता के पास)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "それ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0425",
@@ -3388,7 +4072,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "こちら (\"इस तरफ़\") — मेज़बान आमंत्रित करते हुए। こちらへ どうぞ।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "そちら": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あちら": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どちら": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0426",
@@ -3414,7 +4104,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-043: こんな/そんな/あんな/どんな + संज्ञा — \"इस/उस प्रकार का\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "こんな": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "そんな": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あんな": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0427",
@@ -3440,7 +4136,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-044: こう/そう/ああ/どう — \"इस/उस तरह/कैसे\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "そう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ああ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0428",
@@ -3466,7 +4168,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-045: क्या।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なん": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どなた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0429",
@@ -3492,7 +4200,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-046: कौन।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "なん": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どなた": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0430",
@@ -3518,7 +4232,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "पैटर्न n5-047: कब।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "なに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "なん": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0431",
@@ -3544,7 +4264,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "वक्ता उस स्थान पर है तो ここ (\"यहाँ\")। そこ श्रोता के पास; あそこ दूर; どこ \"कहाँ?\"",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "そこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あそこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "どこ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0432",
@@ -3570,7 +4296,13 @@
       "difficulty": 1,
       "auto": false,
       "explanation_hi": "कई विकल्पों में से \"कौन सा?\" = どれ। どれが चयन के लिए कर्ता-प्रश्न।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "これ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "それ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あれ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0433",
@@ -3596,7 +4328,13 @@
       "difficulty": 1,
       "auto": true,
       "explanation_hi": "काम कैसा है? — どう (कैसा) सबसे प्राकृतिक प्रश्न-शब्द।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "こう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "そう": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ああ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0434",
@@ -4108,7 +4846,13 @@
         "で / を": "を doesn't mark destinations of go-verbs; に or へ does."
       },
       "explanation_hi": "साधन + गंतव्य: バスで (बस से) + かいしゃに (कंपनी को)।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "を / に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に / で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で / を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0470",
@@ -4131,7 +4875,12 @@
         "で / で": "つとめる + で is wrong; つとめる pairs with に because employment is a stative attachment."
       },
       "explanation_hi": "はたらく क्रिया-स्थान で लेता है। つとめる に लेता है (\"से जुड़ी अवस्था\")।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "に / に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で / で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0471",
@@ -4515,7 +5264,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "あげる प्राप्तकर्ता को に से चिह्नित। पैटर्न: [देने वाला] は [प्राप्तकर्ता] に [वस्तु] を あげる।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "から": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0480",
@@ -4541,7 +5296,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "を जो दिया जा रहा है उस वस्तु को चिह्नित। पिता फूल माँ को देते हैं।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0481",
@@ -4567,7 +5328,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "から स्रोत — जिस व्यक्ति से प्राप्त हुआ। पैटर्न: [प्राप्तकर्ता] は [स्रोत] から [वस्तु] を もらう।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "と": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0482",
@@ -4593,7 +5360,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "を जो प्राप्त हो रहा है। मैं उपहार बड़े भाई से प्राप्त करता हूँ।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "が": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "へ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0483",
@@ -4619,7 +5392,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "ので = \"क्योंकि\" / \"इसलिए\"। から से नरम/अधिक विनम्र। सादा रूप से जुड़ता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "ながら": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ても": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "のに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0484",
@@ -4645,7 +5424,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "जब ので संज्ञा/na-विशेषण के बाद आता है, बीच में な आवश्यक: 雨 → 雨なので।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "の": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "だ": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0485",
@@ -4671,7 +5456,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "V-तना + ながら दो साथ-साथ क्रियाएँ। एक ही कर्ता।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "きいて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ききました": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "きかない": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0486",
@@ -4697,7 +5488,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "ながら सीधे क्रिया-तना से जुड़ता है। \"कॉफ़ी पीते-पीते किताब पढ़ता हूँ\"।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "ので": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "から": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "でも": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0487",
@@ -4723,7 +5520,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "いつも = \"हमेशा\" (100%)। 毎日 के साथ कुल निरंतरता पर ज़ोर।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "たまに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "あまり": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "ぜんぜん": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0488",
@@ -4749,7 +5552,13 @@
       "difficulty": 2,
       "auto": false,
       "explanation_hi": "महीने में एक बार = たまに (कभी-कभार)। आवृत्ति-पैमाना: いつも > たいてい > よく > ときどき > たまに।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "いつも": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "とても": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "すぐに": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0504",
@@ -6461,7 +7270,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "「ことができる」 こと-नामकरणक पर が लेता है। अंदर 話す सामान्य कर्म 日本語を रखता है।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "を": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "に": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "で": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     },
     {
       "id": "q-0580",
@@ -6486,7 +7301,13 @@
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "V-शब्दकोश + ことが できません = \"नहीं कर सकता\"। उत्पादक can-do का नकारात्मक।",
-      "explanation_hi_provenance": "llm_curated"
+      "explanation_hi_provenance": "llm_curated",
+      "distractor_explanations_hi": {
+        "ありません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "いません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
+        "しません": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)"
+      },
+      "distractor_explanations_hi_provenance": "auto_generated"
     }
   ]
 }
