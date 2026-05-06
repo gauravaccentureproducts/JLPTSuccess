@@ -10960,7 +10960,8 @@
       "gloss_hi": "मिलना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.言う",
@@ -10989,7 +10990,8 @@
         "drop": 0
       },
       "register_chain_id": "say",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.行く",
@@ -11012,7 +11014,8 @@
       "gloss_hi": "जाना",
       "gloss_provenance": "machine_translated",
       "register_chain_id": "go",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うたう",
@@ -11031,7 +11034,8 @@
       "gloss_hi": "गाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おもう",
@@ -11050,7 +11054,8 @@
       "gloss_hi": "सोचना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.買う",
@@ -11076,7 +11081,8 @@
         "本を買う",
         "パンを買う",
         "お土産を買う"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.書く",
@@ -11102,7 +11108,8 @@
         "名前を書く",
         "手紙を書く",
         "漢字を書く"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.聞く",
@@ -11128,7 +11135,8 @@
         "音楽を聞く",
         "話を聞く",
         "名前を聞く"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.きる",
@@ -11149,7 +11157,9 @@
       "gloss_hi": "काटना (समूह-1 अपवाद)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan",
+      "group1_exception": true
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つくる",
@@ -11168,7 +11178,8 @@
       "gloss_hi": "बनाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しる",
@@ -11187,7 +11198,9 @@
       "gloss_hi": "जानना (समूह-1 अपवाद)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan",
+      "group1_exception": true
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すむ",
@@ -11206,7 +11219,8 @@
       "gloss_hi": "रहना (निवास)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.立つ",
@@ -11227,7 +11241,8 @@
       "collocations": [
         "駅に立つ",
         "いすから立つ"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる",
@@ -11246,7 +11261,8 @@
       "gloss_hi": "लेना / उठाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる.2",
@@ -11265,7 +11281,8 @@
       "gloss_hi": "खींचना (फ़ोटो)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.なく",
@@ -11284,7 +11301,8 @@
       "gloss_hi": "रोना (जानवर)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.飲む",
@@ -11310,7 +11328,8 @@
         "水を飲む",
         "お茶を飲む",
         "薬を飲む"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.入る",
@@ -11336,7 +11355,9 @@
         "部屋に入る",
         "お風呂に入る",
         "大学に入る"
-      ]
+      ],
+      "verb_class": "godan",
+      "group1_exception": true
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はく",
@@ -11355,7 +11376,8 @@
       "gloss_hi": "पहनना (नीचे का)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.話す",
@@ -11381,7 +11403,8 @@
         "日本語を話す",
         "友達と話す",
         "電話で話す"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はしる",
@@ -11400,7 +11423,9 @@
       "gloss_hi": "दौड़ना (समूह-1 अपवाद)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan",
+      "group1_exception": true
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はたらく",
@@ -11423,7 +11448,8 @@
       "gloss_hi": "काम करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まつ",
@@ -11442,7 +11468,8 @@
       "gloss_hi": "इंतज़ार करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もつ",
@@ -11461,7 +11488,8 @@
       "gloss_hi": "पकड़ना / रखना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.休む",
@@ -11483,7 +11511,8 @@
         "会社を休む",
         "学校を休む",
         "一日休む"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.読む",
@@ -11509,7 +11538,8 @@
         "本を読む",
         "新聞を読む",
         "手紙を読む"
-      ]
+      ],
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたる",
@@ -11528,7 +11558,8 @@
       "gloss_hi": "पार करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.分かる",
@@ -11547,7 +11578,8 @@
       "gloss_hi": "समझना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おわる",
@@ -11570,7 +11602,8 @@
       "gloss_hi": "समाप्त होना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はじまる",
@@ -11591,7 +11624,8 @@
       "gloss_hi": "शुरू होना (अकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かえる",
@@ -11610,7 +11644,9 @@
       "gloss_hi": "घर लौटना (समूह-1 अपवाद)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan",
+      "group1_exception": true
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うる",
@@ -11629,7 +11665,8 @@
       "gloss_hi": "बेचना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おす",
@@ -11648,7 +11685,8 @@
       "gloss_hi": "धकेलना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
@@ -11667,7 +11705,8 @@
       "gloss_hi": "तैरना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく",
@@ -11686,7 +11725,8 @@
       "gloss_hi": "बजाना (वाद्य)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく.2",
@@ -11705,7 +11745,8 @@
       "gloss_hi": "खींचना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.よぶ",
@@ -11724,7 +11765,8 @@
       "gloss_hi": "बुलाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とぶ",
@@ -11743,7 +11785,8 @@
       "gloss_hi": "उड़ना / कूदना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.こまる",
@@ -11762,7 +11805,8 @@
       "gloss_hi": "परेशान होना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならぶ",
@@ -11781,7 +11825,8 @@
       "gloss_hi": "क़तार में लगना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のぼる",
@@ -11800,7 +11845,8 @@
       "gloss_hi": "चढ़ना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたす",
@@ -11819,7 +11865,8 @@
       "gloss_hi": "सौंपना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ぬぐ",
@@ -11838,7 +11885,8 @@
       "gloss_hi": "उतारना (कपड़े)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.あらう",
@@ -11857,7 +11905,8 @@
       "gloss_hi": "धोना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.いそぐ",
@@ -11876,7 +11925,8 @@
       "gloss_hi": "जल्दी करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しぬ",
@@ -11895,7 +11945,8 @@
       "gloss_hi": "मरना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すう",
@@ -11914,7 +11965,8 @@
       "gloss_hi": "साँस लेना / पीना (धूम्र.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ちがう",
@@ -11933,7 +11985,8 @@
       "gloss_hi": "भिन्न होना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つかう",
@@ -11952,7 +12005,8 @@
       "gloss_hi": "उपयोग करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つく",
@@ -11973,7 +12027,8 @@
       "gloss_hi": "पहुँचना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならう",
@@ -11992,7 +12047,8 @@
       "gloss_hi": "सीखना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はる",
@@ -12009,7 +12065,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "चिपकाना"
+      "gloss_hi": "चिपकाना",
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まがる",
@@ -12028,7 +12085,8 @@
       "gloss_hi": "मुड़ना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.みがく",
@@ -12047,7 +12105,8 @@
       "gloss_hi": "चमकाना / ब्रश करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もっていく",
@@ -12066,7 +12125,8 @@
       "gloss_hi": "ले जाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もってくる",
@@ -12085,7 +12145,8 @@
       "gloss_hi": "ले आना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.あく",
@@ -12106,7 +12167,8 @@
       "gloss_hi": "खुलना (अकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しまる",
@@ -12127,7 +12189,8 @@
       "gloss_hi": "बंद होना (अकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.だす",
@@ -12148,7 +12211,8 @@
       "gloss_hi": "निकालना (सकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おとす",
@@ -12169,7 +12233,8 @@
       "gloss_hi": "गिराना (सकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふく",
@@ -12186,7 +12251,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "बहना (हवा)"
+      "gloss_hi": "बहना (हवा)",
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふる",
@@ -12205,7 +12271,8 @@
       "gloss_hi": "बरसना (बारिश/बर्फ़)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.くもる",
@@ -12224,7 +12291,8 @@
       "gloss_hi": "बादल छाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.なくす",
@@ -12243,7 +12311,8 @@
       "gloss_hi": "खोना (कुछ)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のる",
@@ -12262,7 +12331,8 @@
       "gloss_hi": "सवारी करना (बस/ट्रेन)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すわる",
@@ -12281,7 +12351,8 @@
       "gloss_hi": "बैठना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.たのむ",
@@ -12300,7 +12371,8 @@
       "gloss_hi": "अनुरोध करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とまる",
@@ -12321,7 +12393,8 @@
       "gloss_hi": "रुकना (अकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おく",
@@ -12338,7 +12411,8 @@
       ],
       "review_status": "llm_curated",
       "gloss_provenance": "machine_translated",
-      "gloss_hi": "रखना"
+      "gloss_hi": "रखना",
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.さく",
@@ -12357,7 +12431,8 @@
       "gloss_hi": "खिलना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かかる",
@@ -12376,7 +12451,8 @@
       "gloss_hi": "लगना (समय/पैसा)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.さす",
@@ -12395,7 +12471,8 @@
       "gloss_hi": "उठाना (छाता)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.けす",
@@ -12416,7 +12493,8 @@
       "gloss_hi": "बंद करना / मिटाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いる",
@@ -12441,7 +12519,8 @@
         "hi": "llm_curated"
       },
       "register_chain_id": "be",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.食べる",
@@ -12469,7 +12548,8 @@
         "お寿司を食べる"
       ],
       "register_chain_id": "eat",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見る",
@@ -12497,7 +12577,8 @@
         "夢を見る"
       ],
       "register_chain_id": "see",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ねる",
@@ -12516,7 +12597,8 @@
       "gloss_hi": "सोना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おきる",
@@ -12537,7 +12619,8 @@
       "gloss_hi": "उठना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出る",
@@ -12562,7 +12645,8 @@
       "collocations": [
         "家を出る",
         "会社を出る"
-      ]
+      ],
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.入れる",
@@ -12583,7 +12667,8 @@
       "gloss_hi": "अंदर डालना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あける",
@@ -12608,7 +12693,8 @@
       "gloss_hi": "खोलना (सकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる",
@@ -12629,7 +12715,8 @@
       "gloss_hi": "बंद करना (सकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おしえる",
@@ -12648,7 +12735,8 @@
       "gloss_hi": "सिखाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おぼえる",
@@ -12667,7 +12755,8 @@
       "gloss_hi": "याद रखना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.わすれる",
@@ -12686,7 +12775,8 @@
       "gloss_hi": "भूलना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かりる",
@@ -12705,7 +12795,8 @@
       "gloss_hi": "उधार लेना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.こたえる",
@@ -12724,7 +12815,8 @@
       "gloss_hi": "जवाब देना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出かける",
@@ -12743,7 +12835,8 @@
       "gloss_hi": "बाहर जाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かける",
@@ -12762,7 +12855,8 @@
       "gloss_hi": "फ़ोन करना / पहनना (चश्मा)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.きる",
@@ -12783,7 +12877,8 @@
       "gloss_hi": "पहनना (ऊपरी)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つける",
@@ -12804,7 +12899,8 @@
       "gloss_hi": "चालू करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ならべる",
@@ -12823,7 +12919,8 @@
       "gloss_hi": "सजाना (सकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はじめる",
@@ -12844,7 +12941,8 @@
       "gloss_hi": "शुरू करना (सकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見せる",
@@ -12863,7 +12961,8 @@
       "gloss_hi": "दिखाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あびる",
@@ -12882,7 +12981,8 @@
       "gloss_hi": "नहाना (शॉवर)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いれる",
@@ -12903,7 +13003,8 @@
       "gloss_hi": "बनाना (चाय/कॉफ़ी)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あつめる",
@@ -12922,7 +13023,8 @@
       "gloss_hi": "इकट्ठा करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.きえる",
@@ -12943,7 +13045,8 @@
       "gloss_hi": "बुझना / गायब होना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おちる",
@@ -12964,7 +13067,8 @@
       "gloss_hi": "गिरना (अकर्म.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はれる",
@@ -12983,7 +13087,8 @@
       "gloss_hi": "धूप खिलना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つかれる",
@@ -13002,7 +13107,8 @@
       "gloss_hi": "थक जाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.生まれる",
@@ -13021,7 +13127,8 @@
       "gloss_hi": "जन्म लेना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おりる",
@@ -13040,7 +13147,8 @@
       "gloss_hi": "उतरना (बस/ट्रेन)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる.2",
@@ -13061,7 +13169,8 @@
       "gloss_hi": "बाँधना / कसना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つとめる",
@@ -13080,7 +13189,8 @@
       "gloss_hi": "काम करना (कंपनी में)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.する",
@@ -13103,7 +13213,8 @@
       "gloss_hi": "करना",
       "gloss_provenance": "machine_translated",
       "register_chain_id": "do",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.来る",
@@ -13130,7 +13241,8 @@
         "友達が来る"
       ],
       "register_chain_id": "go",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.べんきょうする",
@@ -13149,7 +13261,8 @@
       "gloss_hi": "पढ़ाई करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.けっこんする",
@@ -13168,7 +13281,8 @@
       "gloss_hi": "विवाह करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.さんぽする",
@@ -13187,7 +13301,8 @@
       "gloss_hi": "टहलना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.りょこうする",
@@ -13206,7 +13321,8 @@
       "gloss_hi": "यात्रा करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.れんしゅうする",
@@ -13225,7 +13341,8 @@
       "gloss_hi": "अभ्यास करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.しつもんする",
@@ -13244,7 +13361,8 @@
       "gloss_hi": "प्रश्न पूछना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.しごとする",
@@ -13263,7 +13381,8 @@
       "gloss_hi": "काम करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.電話する",
@@ -13282,7 +13401,8 @@
       "gloss_hi": "फ़ोन करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.コピーする",
@@ -13301,7 +13421,8 @@
       "gloss_hi": "फ़ोटोकॉपी करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.そうじする",
@@ -13320,7 +13441,8 @@
       "gloss_hi": "सफ़ाई करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.せんたくする",
@@ -13339,7 +13461,8 @@
       "gloss_hi": "कपड़े धोना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.かいものする",
@@ -13358,7 +13481,8 @@
       "gloss_hi": "खरीदारी करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "irregular"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.ある",
@@ -13377,7 +13501,8 @@
       "gloss_hi": "होना (निर्जीव)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる",
@@ -13402,7 +13527,8 @@
         "hi": "llm_curated"
       },
       "register_chain_id": "be",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる.2",
@@ -13427,7 +13553,9 @@
         "hi": "llm_curated"
       },
       "register_chain_id": "be",
-      "register_chain_role": "plain"
+      "register_chain_role": "plain",
+      "verb_class": "godan",
+      "group1_exception": true
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.やる",
@@ -13446,7 +13574,8 @@
       "gloss_hi": "देना (अनौ.)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.あげる",
@@ -13465,7 +13594,8 @@
       "gloss_hi": "देना (बाहर/समान)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.もらう",
@@ -13484,7 +13614,8 @@
       "gloss_hi": "पाना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.くれる",
@@ -13503,7 +13634,8 @@
       "gloss_hi": "देना (मुझे/हमें)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かす",
@@ -13522,7 +13654,8 @@
       "gloss_hi": "उधार देना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かりる",
@@ -13541,7 +13674,8 @@
       "gloss_hi": "उधार लेना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かえす",
@@ -13560,7 +13694,8 @@
       "gloss_hi": "लौटाना (वस्तु)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.31-adjectives.大きい",
@@ -19112,7 +19247,8 @@
       "gloss_hi": "देर होना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.24-school-and-study.おしらせ",
@@ -19302,7 +19438,8 @@
       "gloss_hi": "जमा करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.24-school-and-study.たんご",
@@ -19340,7 +19477,8 @@
       "gloss_hi": "भुगतान करना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.33-adverbs.べつべつ",
@@ -19606,7 +19744,8 @@
       "gloss_hi": "सुनाई देना",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "ichidan"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.週末",
@@ -19718,7 +19857,8 @@
       "gloss_hi": "होना (अति आदर)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "verb_class": "godan"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.じゃあ",
