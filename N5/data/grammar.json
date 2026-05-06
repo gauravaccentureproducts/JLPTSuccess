@@ -115,7 +115,8 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {},
+      "meaning_hi": "विनम्र क्रिया-समापन (です/ます)"
     },
     {
       "id": "n5-002",
@@ -244,7 +245,11 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {
+        "postposition_mapping": "विषय-सूचक は का सीधा हिंदी-अनुवाद नहीं है। हिंदी में विषय अक्सर बिना चिह्न के पहले आता है (\"मैं छात्र हूँ\")। जापानी में は लगाना ज़रूरी है: 私は学生です।",
+        "sov_advantage": "हिंदी और जापानी दोनों SOV हैं — विषय-कर्म-क्रिया का क्रम समान है। यह संरचनात्मक लाभ है।"
+      },
+      "meaning_hi": "विषय सूचक (पहले से ज्ञात बात के लिए)"
     },
     {
       "id": "n5-003",
@@ -369,7 +374,10 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {
+        "postposition_mapping": "कर्ता-सूचक が को हिंदी ने (कर्ता-कारक का chiyno) से न मिलाएँ — जापानी が \"नई जानकारी\" या \"स्थिति-क्रिया का कर्ता\" मार्क करता है, जबकि हिंदी ने केवल पूर्ण काल में सकर्मक क्रिया के साथ आता है। これは何ですか। — それが本です। में が \"वही चीज़ है\" वाला ज़ोर देता है।"
+      },
+      "meaning_hi": "कर्ता सूचक (नई जानकारी / स्थिति-क्रिया का कर्ता)"
     },
     {
       "id": "n5-004",
@@ -482,7 +490,10 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {
+        "postposition_mapping": "कर्म-सूचक を हिंदी को से सबसे क़रीब है, परंतु हिंदी को में अप्रत्यक्ष कर्ता और प्रत्यक्ष कर्म दोनों भूमिकाएँ हैं — जापानी में अप्रत्यक्ष कर्ता को に से चिह्नित करते हैं। 本を読む (किताब पढ़ना) पर 田中さんに本をあげる (田中 को किताब देना)।"
+      },
+      "meaning_hi": "कर्म सूचक (सकर्मक क्रिया का कर्म)"
     },
     {
       "id": "n5-005",
@@ -612,7 +623,10 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {
+        "postposition_mapping": "に के अनेक प्रयोग हिंदी में अलग-अलग पदसर्ग बनाते हैं: समय → -बजे / पर / को (3時に = 3 बजे), स्थान-अस्तित्व → में / पर (ここにある = यहाँ है), दिशा → की ओर / को (東京に行く = टोक्यो जाना), अप्रत्यक्ष कर्ता → को (彼にあげる = उसे देना)। हिंदी से (= \"से\") में से अधिकांश に से नहीं で या から होता है।"
+      },
+      "meaning_hi": "अनेक प्रयोग — स्थान, समय, दिशा, अप्रत्यक्ष कर्ता"
     },
     {
       "id": "n5-006",
@@ -710,7 +724,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "दिशा सूचक — की ओर (गति-क्रियाओं के साथ)"
     },
     {
       "id": "n5-007",
@@ -834,7 +849,10 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {
+        "postposition_mapping": "で की दो भूमिकाएँ हिंदी में अलग-अलग पदसर्ग हैं: क्रिया-स्थान → में / पर (図書館で勉強する = पुस्तकालय में पढ़ाई करना), साधन → से (ペンで書く = पेन से लिखना)। हिंदी से दोनों रूप व्यक्त करता है — जापानी में में-वाला से = で, से-वाला से = で (साधन)।"
+      },
+      "meaning_hi": "क्रिया-स्थान / साधन / माध्यम"
     },
     {
       "id": "n5-008",
@@ -958,7 +976,11 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "के साथ / और (पूर्ण सूची) / उद्धरण-सूचक",
+      "l1_notes": {
+        "postposition_mapping": "と के \"साथ\" प्रयोग के लिए हिंदी में के साथ — 友達と行く = \"दोस्त के साथ जाना\"। सूची-प्रयोग के लिए और। उद्धरण-प्रयोग के लिए कि — ~と思います = \"~कि मैं सोचता हूँ\"।"
+      }
     },
     {
       "id": "n5-009",
@@ -1083,7 +1105,10 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {
+        "postposition_mapping": "から के \"से\" प्रयोग के लिए हिंदी से — 9時から = \"9 बजे से\"। हिंदी से जापानी में से/से/के कारण के बीच फँसती है — स्रोत-から के लिए から; साधन-से के लिए で; कारण-क्योंकि के लिए から / ので अलग।"
+      },
+      "meaning_hi": "से (समय/स्थान का प्रारंभ) / क्योंकि (कारण)"
     },
     {
       "id": "n5-010",
@@ -1207,7 +1232,11 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "तक (समय/स्थान की अंतिम सीमा); अक्सर から के साथ",
+      "l1_notes": {
+        "postposition_mapping": "まで हिंदी तक के बराबर है — 5時まで = \"5 बजे तक\"। सीधा अनुवाद है, अधिकांश प्रयोगों में मेल खाता है।"
+      }
     },
     {
       "id": "n5-011",
@@ -1322,7 +1351,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "और — आंशिक सूची (ये सब और भी)"
     },
     {
       "id": "n5-013",
@@ -1439,7 +1469,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "भी / तक भी (नकार के साथ: कोई नहीं / कुछ नहीं)"
     },
     {
       "id": "n5-014",
@@ -1562,7 +1593,8 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {},
+      "meaning_hi": "सर्वनाम: यह / वह / वह दूर / कौन सा"
     },
     {
       "id": "n5-015",
@@ -1697,7 +1729,8 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {},
+      "meaning_hi": "विशेषण रूप: यह / वह / कौन सा + संज्ञा"
     },
     {
       "id": "n5-016",
@@ -1825,7 +1858,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "स्थान-शब्द: यहाँ / वहाँ / उधर / कहाँ"
     },
     {
       "id": "n5-017",
@@ -1943,7 +1977,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "क्या — आगे आने वाले शब्द से なに/なん उच्चारण"
     },
     {
       "id": "n5-018",
@@ -2069,7 +2104,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "कौन — だれ अनौ., どなた आदर"
     },
     {
       "id": "n5-019",
@@ -2193,7 +2229,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "कब — から/まで/ごろ के साथ समृद्ध समय-प्रश्न"
     },
     {
       "id": "n5-021",
@@ -2291,7 +2328,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "X से Y तक (युग्मित दायरा)"
     },
     {
       "id": "n5-023",
@@ -2390,7 +2428,11 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "वाक्य-अंत प्रश्न-सूचक",
+      "l1_notes": {
+        "question_particle": "जापानी か वाक्य-अंत में लगता है (これは何ですか। = \"यह क्या है?\")। हिंदी में क्या वाक्य के आरंभ में आता है (क्या यह किताब है?)। स्थान बिलकुल विपरीत है। याद रखें: जापानी प्रश्न-सूचक हमेशा वाक्य-अंत में।"
+      }
     },
     {
       "id": "n5-024",
@@ -2464,7 +2506,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "या (विकल्पों के बीच)"
     },
     {
       "id": "n5-025",
@@ -2557,7 +2600,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "वाक्य-अंत सहमति / पुष्टि-सूचक"
     },
     {
       "id": "n5-026",
@@ -2650,7 +2694,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "वाक्य-अंत दृढ़ता / नई जानकारी-सूचक"
     },
     {
       "id": "n5-027",
@@ -2729,7 +2774,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "दृढ़ता + सहमति माँगना (\"...है ना?\")"
     },
     {
       "id": "n5-028",
@@ -2815,7 +2861,8 @@
       ],
       "meaning_provenance": "machine_translated",
       "explanation_provenance": "machine_translated",
-      "l1_notes": {}
+      "l1_notes": {},
+      "meaning_hi": "~का (स्वामित्व / संज्ञा-संशोधक)"
     },
     {
       "id": "n5-029",
@@ -2906,7 +2953,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "स्वामित्व / संज्ञा-संशोधक"
     },
     {
       "id": "n5-030",
@@ -2982,7 +3030,8 @@
         "jlpt-jp-official"
       ],
       "meaning_provenance": "machine_translated",
-      "explanation_provenance": "machine_translated"
+      "explanation_provenance": "machine_translated",
+      "meaning_hi": "~का (नामकरण — क्रिया/विशेषण-वाक्य को संज्ञा बनाना)"
     },
     {
       "id": "n5-031",
@@ -3042,7 +3091,11 @@
       ],
       "contrasts": [],
       "notes": "Pairs with n5-012 (formal か). Use か in polite contexts; use の in casual ones.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "वाक्य-अंत の — अनौपचारिक प्रश्न-सूचक (सादा-रूप + の?)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-033",
@@ -3129,7 +3182,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "केवल / सिर्फ़ (सीमा-सूचक उपपद)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-034",
@@ -3198,7 +3255,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "केवल (नकारात्मक क्रिया के साथ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-035",
@@ -3265,7 +3326,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "लगभग, करीब (मात्राओं के साथ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-036",
@@ -3338,7 +3403,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "के आसपास (समय-बिंदु के साथ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-037",
@@ -3420,7 +3489,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "इत्यादि (और भी)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-038",
@@ -3484,7 +3557,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "प्रत्येक / प्रति (वितरणात्मक)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-039",
@@ -3575,7 +3652,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सर्वनाम: यह / वह / कौन सा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-040",
@@ -3683,7 +3764,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विशेषणीय निर्देशक + संज्ञा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-041",
@@ -3780,7 +3865,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "स्थान-शब्द (यहाँ/वहाँ/कहाँ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-042",
@@ -3850,7 +3939,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "आदर-दिशा / विकल्प (こちら-शृंखला)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-043",
@@ -3921,7 +4014,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "इस/उस/किस प्रकार का + संज्ञा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-044",
@@ -3989,7 +4086,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "इस तरह / उस तरह / कैसे",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-045",
@@ -4086,7 +4187,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्या",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-046",
@@ -4186,7 +4291,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कौन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-048",
@@ -4283,7 +4392,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कहाँ (ここ-शृंखला से व्याप्त)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-049",
@@ -4369,7 +4482,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कौन सा (विकल्पों में से चुनाव)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-050",
@@ -4461,7 +4578,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कैसे / कैसा है (स्थिति, मत, आदर-प्रस्ताव)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-051",
@@ -4543,7 +4664,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्यों",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-052",
@@ -4610,7 +4735,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कैसे / किस माध्यम से",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-053",
@@ -4683,7 +4812,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कितना (मूल्य)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-054",
@@ -4759,7 +4892,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कितने (सामान्य गणक / आयु)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-055",
@@ -4828,7 +4965,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कितने बजे",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-056",
@@ -4891,7 +5032,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सप्ताह का कौन सा दिन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-057",
@@ -4959,7 +5104,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कौन सा महीना / कौन सी तारीख़",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-058",
@@ -5059,7 +5208,14 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विनम्र वर्तमान-सकारात्मक क्रिया-समापन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "politeness_mismatch": "~ます जापानी विनम्र-रूप है — हर क्रिया का अलग रूप (食べる → 食べます). हिंदी में यह आदर मुख्यतः सर्वनाम (तू/तुम/आप) और मूल क्रिया-संयोजन से होता है, अलग-रूप से नहीं। याद रखें: \"विनम्र क्रिया\" = क्रिया का रूप बदलता है, पूरा शब्दकोश-रूप नहीं।"
+      }
     },
     {
       "id": "n5-059",
@@ -5146,7 +5302,14 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विनम्र वर्तमान-नकारात्मक क्रिया-समापन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "negative_placement": "जापानी ~ません क्रिया से जुड़ता है (食べません = \"नहीं खाता हूँ\")। हिंदी नहीं क्रिया से पहले आता है — \"नहीं खाता हूँ\"। स्थान भिन्न है। हिंदी-वक्ता को सावधान रहना चाहिए कि \"ません\" क्रिया-अंत में जुड़ता है, क्रिया से पहले नहीं।"
+      }
     },
     {
       "id": "n5-060",
@@ -5227,7 +5390,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विनम्र भूत-सकारात्मक क्रिया-समापन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-061",
@@ -5310,7 +5477,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विनम्र भूत-नकारात्मक क्रिया-समापन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-062",
@@ -5396,7 +5567,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "चलिए / क्या हम करें (इच्छा-सूचक / सुझाव)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-063",
@@ -5469,7 +5644,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्या मैं/हम करूँ (प्रस्ताव/सुझाव)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-064",
@@ -5562,7 +5741,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्या आप नहीं...? (विनम्र निमंत्रण)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-065",
@@ -5654,7 +5837,14 @@
         }
       ],
       "notes": "Plain form is the BASE for many other patterns: て-form, た-form, ない-form, conditional, etc.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सादा (शब्दकोश) रूप — वर्तमान सकारात्मक, अनौ./लिखित",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "verb_agreement": "जापानी में क्रिया का रूप कर्ता के लिंग/संख्या/व्यक्ति से नहीं बदलता — 私が食べる, 彼女が食べる, 学生たちが食べる सब में 食べる समान रहता है। हिंदी में मैं खाता हूँ / वह खाती है / छात्र खाते हैं अलग-अलग होता है। यह जापानी में सरलीकरण है।"
+      }
     },
     {
       "id": "n5-066",
@@ -5746,7 +5936,14 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सादा वर्तमान नकारात्मक",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "negative_placement": "~ない क्रिया-तना से जुड़ता है (食べない = \"नहीं खाता\")। हिंदी नहीं क्रिया से पहले आता है। याद रखें: जापानी में निषेध क्रिया-अंत में जुड़ता है।"
+      }
     },
     {
       "id": "n5-067",
@@ -5854,7 +6051,14 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सादा भूत सकारात्मक (た-रूप)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "tense_marking": "जापानी ~た सरल भूत-सूचक है — 食べた = \"खाया\"। हिंदी में अनेक भूत-काल हैं (पूर्ण: खाया, अपूर्ण: खाता था, सतत: खा रहा था) — जापानी ~た उन सब को व्याप्त करता है। हिंदी-वक्ता \"उपयुक्त भूत-काल चुनने\" की आदत से जापानी में अधिक तनाव-चिह्न लगाने का प्रलोभन रखें।"
+      }
     },
     {
       "id": "n5-068",
@@ -5939,7 +6143,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सादा भूत नकारात्मक (-なかった)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-069",
@@ -6067,7 +6275,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-て (te-रूप) — जोड़क / क्रम / अनुरोध-आधार",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-070",
@@ -6160,7 +6372,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रमिक / श्रृंखलाबद्ध क्रियाएँ",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-071",
@@ -6246,7 +6462,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कृपया करें (विनम्र अनुरोध / निर्देश)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-072",
@@ -6344,7 +6564,14 @@
       ],
       "contrasts": [],
       "notes": "しる is the famous exception: しっています (yes) vs しりません (no).",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "जारी क्रिया / वर्तमान स्थिति / अभ्यासिक",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "tense_marking": "जापानी ~ています के दो अर्थ हैं: (a) \"अभी कर रहा है\" (हिंदी कर रहा है) — 食べています = \"खा रहा है\", (b) \"किया हुआ है / स्थिति में है\" (हिंदी कर चुका है / है) — 結婚しています = \"विवाहित है\"। संदर्भ से तय करें।"
+      }
     },
     {
       "id": "n5-073",
@@ -6409,7 +6636,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अभी नहीं कर रहा / स्थिति में नहीं",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-074",
@@ -6500,7 +6731,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कर सकते हैं (अनुमति)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-075",
@@ -6590,7 +6825,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "नहीं करना चाहिए / निषिद्ध",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-076",
@@ -6666,7 +6905,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X करने के बाद",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-077",
@@ -6753,7 +6996,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कृपया मत करें",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-078",
@@ -6824,7 +7071,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "i-विशेषण + संज्ञा (सीधे जुड़ता है)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-079",
@@ -6919,7 +7170,14 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "i-विशेषण + です — विनम्र वर्तमान सकारात्मक",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "verb_agreement": "जापानी i-विशेषण (大きい, 暑い आदि) कर्ता के लिंग से नहीं बदलते। हिंदी में बड़ा / बड़ी / बड़े जैसे लिंग-संख्या-संयोजन होते हैं। जापानी में 大きい男, 大きい女, 大きい子供たち सब में 大きい समान। हिंदी-वक्ता को पुल्लिंग/स्त्रीलिंग चिह्न जोड़ने का प्रलोभन रोकना होगा।"
+      }
     },
     {
       "id": "n5-080",
@@ -7011,7 +7269,11 @@
       ],
       "contrasts": [],
       "notes": "Memorize the いい → よく irregular: いい / よくない / よかった / よくなかった.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "i-विशेषण नकारात्मक — वर्तमान विनम्र",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-081",
@@ -7115,7 +7377,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "i-विशेषण भूत — था [विशेषण]",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-082",
@@ -7207,7 +7473,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "i-विशेषण भूत नकारात्मक",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-083",
@@ -7303,7 +7573,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "i-विशेषण て-रूप (-くて) — जोड़क",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-084",
@@ -7379,7 +7653,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "na-विशेषण + な + संज्ञा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-085",
@@ -7480,7 +7758,14 @@
         }
       ],
       "notes": "Watch out for false friends: きれい / きらい / ゆうめい LOOK like い-adjectives but are な-adjectives.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "na-विशेषण + です — विनम्र वर्तमान सकारात्मक",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "verb_agreement": "जापानी na-विशेषण (きれい, 元気 आदि) भी लिंग-संख्या-निरपेक्ष हैं। जापानी में きれいな花, きれいな女性, きれいな部屋たち सब में きれいな समान। हिंदी सुंदर फूल / सुंदर महिला (हिंदी सुंदर पहले से लिंग-निरपेक्ष है — यहाँ हिंदी-वक्ता को कठिनाई कम।)"
+      }
     },
     {
       "id": "n5-086",
@@ -7571,7 +7856,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "na-विशेषण नकारात्मक — विनम्र वर्तमान",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-087",
@@ -7657,7 +7946,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "na-विशेषण भूत — था [विशेषण] (でした)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-088",
@@ -7743,7 +8036,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "na-विशेषण भूत नकारात्मक",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-089",
@@ -7844,7 +8141,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "na-विशेषण て-रूप (~で) — जोड़क",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-090",
@@ -7957,7 +8258,11 @@
         }
       ],
       "notes": "Plants are treated as inanimate (use あります). The dividing line is animacy - capacity for self-directed motion.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "है / मौजूद है (निर्जीव वस्तुएँ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-091",
@@ -8080,7 +8385,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "है / मौजूद है (सजीव — लोग, जानवर)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-092",
@@ -8182,7 +8491,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "Y में X है (स्थान-प्रथम अस्तित्व)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-093",
@@ -8270,7 +8583,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X Y में है (पहले से ज्ञात X)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-094",
@@ -8349,7 +8666,11 @@
       ],
       "contrasts": [],
       "notes": "For animate possessions (children, pets), use いる/います instead of ある/あります: 子どもが 二人 います ('I have two children'). 「子どもが あります」is non-standard in modern Japanese.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "है (घटनाएँ, कौशल, संपत्ति)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-095",
@@ -8424,7 +8745,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "A, B से अधिक [विशेषण] है",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-096",
@@ -8498,7 +8823,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X की तुलना में Y अधिक [विशेषण] है (Y पर ज़ोर)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-097",
@@ -8569,7 +8898,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "A और B में से कौन अधिक ~ है? (दो-तरफ़ा प्रश्न)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-098",
@@ -8640,7 +8973,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "पसंद/नापसंद का विरोधाभास (すき/きらい)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-099",
@@ -8713,7 +9050,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X पसंद / नापसंद",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-100",
@@ -8787,7 +9128,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X में कुशल / अकुशल",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-101",
@@ -8859,7 +9204,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X चाहिए (वस्तु)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-102",
@@ -8924,7 +9273,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X समझता / जानता हूँ",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-103",
@@ -8999,7 +9352,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X कर सकता हूँ / X की क्षमता है",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-104",
@@ -9092,7 +9449,14 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-तना + たいです — करना चाहता हूँ",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "verb_agreement": "~たい रूप विशेषण की तरह संयोजित होता है (食べたい = \"खाना चाहता हूँ\")। हिंदी चाहना क्रिया है (मैं खाना चाहता हूँ — चाहता क्रिया-संयोजित)। जापानी में たい-रूप कर्ता के लिंग से नहीं बदलता।"
+      }
     },
     {
       "id": "n5-105",
@@ -9165,7 +9529,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-तना + たくないです — नहीं करना चाहता",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-106",
@@ -9234,7 +9602,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "संज्ञा + が ほしいです (n5-101 का संज्ञा-केंद्रित रूप)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-107",
@@ -9307,7 +9679,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-तना + に जाना/आना/लौटना — X करने जाना/आना",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-108",
@@ -9405,7 +9781,14 @@
       ],
       "contrasts": [],
       "notes": "つ-counter (ひとつ to ここのつ + とお) works for almost anything when in doubt - safe fallback.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "संख्या + गणक — गिनती (人, まい, 本, さつ, つ आदि)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "counter_system": "हिंदी में भी गणक हैं (दो लोग, तीन किताबें), परंतु जापानी में अधिक विशिष्ट गणक हैं (人 = व्यक्ति, 冊 = किताब, 台 = मशीन, ひき = छोटे जानवर, 枚 = पतली वस्तुएँ)। हिंदी-वक्ता को संख्या-शब्द और सही गणक का संयोजन याद रखना होगा। अवधारणा परिचित है, सूची नई।"
+      }
     },
     {
       "id": "n5-109",
@@ -9479,7 +9862,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कितने / कितनी मात्रा (गणक-प्रश्न)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-110",
@@ -9542,7 +9929,11 @@
       ],
       "contrasts": [],
       "notes": "Counter readings often involve rendaku: 三本 reads さんぼん, 一本 reads いっぽん, 六本 reads ろっぽん. See the Counters reference module for full reading patterns.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कर्म + गणक + क्रिया — मात्रा क्रिया से पहले",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-111",
@@ -9606,7 +9997,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~बजे (समय-गणक)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-112",
@@ -9667,7 +10062,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~मिनट (समय-गणक)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-113",
@@ -9728,7 +10127,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~बजे आधा (~30 मिनट)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-114",
@@ -9815,7 +10218,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X से Y तक (युग्मित दायरा)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-115",
@@ -9912,7 +10319,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विशिष्ट घड़ी-समय के साथ कण に",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-116",
@@ -9975,7 +10386,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "हर दिन / सप्ताह / महीना / वर्ष",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-117",
@@ -10043,7 +10458,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "समय-शब्दावली: आज / कल / परसों आदि",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-118",
@@ -10146,7 +10565,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अब / तुरंत / अब तक / अभी नहीं",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-119",
@@ -10223,7 +10646,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "पहले",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-120",
@@ -10299,7 +10726,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "बाद",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-121",
@@ -10375,7 +10806,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "और / और फिर (वाक्य-जोड़क)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-122",
@@ -10447,7 +10882,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "और फिर / उसके बाद",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-123",
@@ -10524,7 +10963,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "लेकिन / पर (वाक्यारंभ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-124",
@@ -10587,7 +11030,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "परंतु / किंतु (औपचारिक विरोध)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-125",
@@ -10648,7 +11095,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "तो फिर / उस स्थिति में (संक्रमण)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-126",
@@ -10726,7 +11177,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "लेकिन / पर (वाक्य-मध्य जोड़क)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-127",
@@ -10795,7 +11250,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "लेकिन (अनौपचारिक विरोध)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-129",
@@ -10862,7 +11321,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्यों...? क्योंकि~ (प्रश्न-उत्तर कारण-पैटर्न)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-130",
@@ -10931,7 +11394,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "देना (दूसरों को) — あげる/あげます",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-131",
@@ -10996,7 +11463,11 @@
       ],
       "contrasts": [],
       "notes": "Both ～に and ～から are valid at N5: ～に is more typical for personal givers (友だちに, 母に); ～から for institutional / non-personal sources (学校から, ぎんこうから).",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "पाना (X से) — に व्यक्तियों के लिए, から संस्थाओं के लिए",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-132",
@@ -11064,7 +11535,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "देना (मुझे/अपनों को) — くれる/くれます",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-133",
@@ -11144,7 +11619,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्योंकि (वाक्य-जोड़क)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-134",
@@ -11217,7 +11696,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्योंकि — から से नरम",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-135",
@@ -11285,7 +11768,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया (सादा) + संज्ञा — मूल सापेक्ष-वाक्य",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-136",
@@ -11359,7 +11846,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विशेषण + संज्ञा (i-/na- द्वारा व्याप्त)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-137",
@@ -11433,7 +11924,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "संज्ञा の संज्ञा (~の द्वारा व्याप्त)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-142",
@@ -11497,7 +11992,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X निर्णय लेना / चुनना",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-143",
@@ -11577,7 +12076,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X बन जाना / X-कर हो जाना",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-144",
@@ -11641,7 +12144,11 @@
       ],
       "contrasts": [],
       "notes": "Borderline N5/N4.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-तना + ながら — X करते-करते (एक-साथ)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-145",
@@ -11708,7 +12215,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X सोचता हूँ",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-146",
@@ -11775,7 +12286,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "X कहा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-147",
@@ -11868,7 +12383,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "आवृत्ति-क्रिया-विशेषण: अक्सर / कभी-कभी / अधिक नहीं / बिलकुल नहीं",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-148",
@@ -11950,7 +12469,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "हमेशा / आमतौर पर / कभी-कभार",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-149",
@@ -12011,7 +12534,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कृपया मुझे ~ दीजिए",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-150",
@@ -12100,7 +12627,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "मुझे ~ चाहिए / कृपया दीजिए (くださいसे अधिक विनम्र)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-151",
@@ -12166,7 +12697,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~कैसा रहेगा? (विनम्र प्रस्ताव)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-152",
@@ -12255,7 +12790,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विनम्र वाक्यांश-समूह: どうぞ / どうも / すみません / おねがいします",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-153",
@@ -12329,7 +12868,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अभी तक नहीं (कार्य अभी शेष)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-154",
@@ -12399,7 +12942,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "पहले से ही (कार्य पूर्ण)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-155",
@@ -12475,7 +13022,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "वाक्य-मध्य が (लेकिन) — कण が को देखें",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-156",
@@ -12557,7 +13108,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "वाक्य-अंत ね / よ — संबंधित प्रविष्टि देखें",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-157",
@@ -12622,7 +13177,11 @@
       ],
       "contrasts": [],
       "notes": "Borderline N5.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "शायद / है ना?",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-158",
@@ -12685,7 +13244,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "でしょう का अनौपचारिक/सादा रूप",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-159",
@@ -12767,7 +13330,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "विनम्र ね / よ — संबंधित प्रविष्टि देखें",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-160",
@@ -12840,7 +13407,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "संज्ञा + के बाद",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-161",
@@ -12910,7 +13481,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "संज्ञा + से पहले",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-162",
@@ -12978,7 +13553,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-सादा + से पहले",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-163",
@@ -13051,7 +13630,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-た + के बाद",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-164",
@@ -13113,7 +13696,14 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~さん — नाम-प्रत्यय (जी / श्री / श्रीमती)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "plural_marking": "जापानी में बहुवचन-चिह्न (~たち / ~ら) सीमित प्रयोग में हैं। अधिकांश संज्ञाएँ अपरिवर्तित रहती हैं — 子供 = \"बच्चा\" या \"बच्चे\" संदर्भ से। हिंदी में बहुवचन हमेशा चिह्नित होता है (बच्चा/बच्चे)। हिंदी-वक्ता को \"हर संज्ञा का बहुवचन\" आदत से बाहर निकलना होगा।"
+      }
     },
     {
       "id": "n5-165",
@@ -13190,7 +13780,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "お~ / ご~ — सम्मानजनक / आदर-उपसर्ग",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-166",
@@ -13275,7 +13869,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "सेट अभिवादन: いただきます / ごちそうさま / おはようございます आदि",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-167",
@@ -13357,7 +13955,11 @@
         }
       ],
       "notes": "late_n5 tier: the form is N5 but the explanation/emphasis nuance crosses into N4 territory. The 3 examples here cover the most common N5-appropriate uses (giving a reason, asking for one, providing context). For deeper discussion of the contrast register-shift behavior or the assertive ～んだ casual form, see N4 sources. Pending native-teacher review of the framing per Pass-16 F-15.23 note (2026-05-01).",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~んです / ~のです — व्याख्या, ज़ोर, या व्याख्या-माँग",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-168",
@@ -13421,7 +14023,11 @@
       ],
       "contrasts": [],
       "notes": "Upper N5 / borderline.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~たり~たりする — A और B (अन्य चीज़ों के बीच) करना",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-169",
@@ -13489,7 +14095,14 @@
       ],
       "contrasts": [],
       "notes": "Upper N5 / borderline.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-た + ことがある — पहले किया है (अनुभव)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      },
+      "l1_notes": {
+        "tense_marking": "जापानी 食べたことがある = \"खाने का अनुभव है / पहले खाया है\"। हिंदी में मैंने खाया है (पूर्ण भूत) नहीं — अनुभव-व्यक्त के लिए \"मैंने पहले [कभी] खाया है\" या \"मुझे खाने का अनुभव है\"। यह विशिष्ट संरचना है।"
+      }
     },
     {
       "id": "n5-170",
@@ -13556,7 +14169,11 @@
       ],
       "contrasts": [],
       "notes": "Upper N5 / borderline.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-た + ほうがいい — करना चाहिए",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-171",
@@ -13616,7 +14233,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-ない + ほうがいい — नहीं करना चाहिए",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-172",
@@ -13676,7 +14297,11 @@
       ],
       "contrasts": [],
       "notes": "Upper N5 / borderline.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~नहीं करना भी ठीक है (~なくてもいい)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-173",
@@ -13737,7 +14362,11 @@
       ],
       "contrasts": [],
       "notes": "Upper N5 / borderline.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अवश्य करना चाहिए (~なくてはいけない)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-174",
@@ -13801,7 +14430,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अवश्य करना चाहिए (~なくてはならない — औपचारिक)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-175",
@@ -13863,7 +14496,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अवश्य करना (~ないといけない — सामान्य बोलचाल)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-176",
@@ -13927,7 +14564,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "अवश्य करना (~なくちゃ / ~なきゃ — अनौ. संक्षिप्त)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-177",
@@ -13990,7 +14631,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-तना / विशेषण-तना + すぎる — बहुत ज़्यादा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-178",
@@ -14049,7 +14694,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-सादा + つもりだ — करने का इरादा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-179",
@@ -14109,7 +14758,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~って — अनौ. उद्धरण-सूचक / विषय-परिचय",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-180",
@@ -14177,7 +14830,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-तना + ~कた — करने का तरीक़ा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-181",
@@ -14235,7 +14892,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "~なあ — वाक्य-अंत भावुक उद्गार (\"बहुत~ लगता है\")",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-182",
@@ -14293,7 +14954,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-सादा + な — दृढ़/अनौ. निषेध (\"मत करो!\")",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-183",
@@ -14365,7 +15030,11 @@
       ],
       "contrasts": [],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "प्रश्न-शब्द + か / も — कुछ / कोई संयोजन",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-184",
@@ -14438,7 +15107,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कुछ / कुछ नहीं",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-185",
@@ -14514,7 +15187,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कोई / कोई नहीं",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-186",
@@ -14592,7 +15269,11 @@
         }
       ],
       "notes": "Both どこへも and どこにも occur in negative sentences. どこへも emphasises motion ('not going anywhere'); どこにも emphasises location ('not present anywhere'). At N5, treat them as interchangeable for negative sentences.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कहीं / कहीं नहीं",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-187",
@@ -14677,7 +15358,11 @@
         }
       ],
       "notes": "",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "कभी / हमेशा",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     },
     {
       "id": "n5-188",
@@ -14758,7 +15443,11 @@
       ],
       "contrasts": [],
       "notes": "Pairs with n5-103 (noun + ～ができます): use n5-103 when the thing-you-can-do is a noun (skill / language / activity); use this pattern when it's a verb (action). Many textbooks introduce both in the same lesson.",
-      "review_status": "llm_curated"
+      "review_status": "llm_curated",
+      "meaning_hi": "क्रिया-शब्दकोश + ことができます — कर सकना (उत्पादक can-do रूप)",
+      "meaning_provenance": {
+        "hi": "llm_curated"
+      }
     }
   ],
   "_meta": {
@@ -14787,6 +15476,8 @@
     "translatedPerLocale": {
       "hi": 0
     },
-    "policy": "native_reviewed only; no machine-translation seed. Hindi seed pass during locale transition deferred to a depth-fill cycle (see N5/prompts/N5Improvement.txt depth-deficit map)."
+    "policy": "native_reviewed only; no machine-translation seed. Hindi seed pass during locale transition deferred to a depth-fill cycle (see N5/prompts/N5Improvement.txt depth-deficit map).",
+    "meaning_hi_seeded": 178,
+    "l1_notes_hindi_count": 21
   }
 }
