@@ -10975,7 +10975,9 @@
       "pitch_accent": {
         "mora": 2,
         "drop": 0
-      }
+      },
+      "register_chain_id": "say",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.行く",
@@ -10996,7 +10998,9 @@
         "drop": 0
       },
       "gloss_hi": "जाना",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "register_chain_id": "go",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うたう",
@@ -12423,7 +12427,9 @@
       "gloss_hi": "होना (सजीव)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register_chain_id": "be",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.食べる",
@@ -12449,7 +12455,9 @@
         "ごはんを食べる",
         "朝ごはんを食べる",
         "お寿司を食べる"
-      ]
+      ],
+      "register_chain_id": "eat",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見る",
@@ -12475,7 +12483,9 @@
         "映画を見る",
         "テレビを見る",
         "夢を見る"
-      ]
+      ],
+      "register_chain_id": "see",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ねる",
@@ -13079,7 +13089,9 @@
         "drop": 0
       },
       "gloss_hi": "करना",
-      "gloss_provenance": "machine_translated"
+      "gloss_provenance": "machine_translated",
+      "register_chain_id": "do",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.来る",
@@ -13104,7 +13116,9 @@
       "collocations": [
         "日本に来る",
         "友達が来る"
-      ]
+      ],
+      "register_chain_id": "go",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.べんきょうする",
@@ -13374,7 +13388,9 @@
       "gloss_hi": "होना (सजीव)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register_chain_id": "be",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる.2",
@@ -13397,7 +13413,9 @@
       "gloss_hi": "होना (सजीव)",
       "gloss_provenance": {
         "hi": "llm_curated"
-      }
+      },
+      "register_chain_id": "be",
+      "register_chain_role": "plain"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.やる",
