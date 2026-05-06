@@ -208,6 +208,60 @@ export function getDueKanjiGlyphs() {
     .map(([k]) => k);
 }
 
+// IMP-092 (audit round-9 + 2026-05-07 design brief): unified daily
+// review queue across grammar + vocab + kanji. Returns an interleaved
+// list of due items, round-robin per skill so the learner sees a
+// pedagogically-mixed queue rather than skill-blocked silos.
+//
+// Each entry shape: { skill: 'grammar' | 'vocab' | 'kanji', id: <key>,
+//   entry: <SRS entry>, isNew: false }.
+//
+// New-card admission is layered on top by the caller (review.js) per
+// the existing N-new-grammar-per-day setting, plus future M-vocab-new
+// + K-kanji-new settings (Phase 2 work). This helper covers due-only.
+//
+// See docs/UNIFIED-REVIEW-QUEUE-DESIGN.md for the architectural
+// decision and phased rollout.
+export function getUnifiedDueQueue() {
+  const now = Date.now();
+  const grammarDue = Object.entries(getHistory())
+    .filter(([, e]) => e.nextDue && new Date(e.nextDue).getTime() <= now)
+    .filter(([, e]) => !e.isMastered)
+    .map(([id, entry]) => ({ skill: 'grammar', id, entry, isNew: false }));
+  const vocabDue = Object.entries(getVocabHistory())
+    .filter(([, e]) => e.srsBox && e.srsBox !== 'graduated')
+    .filter(([, e]) => !e.nextDue || new Date(e.nextDue).getTime() <= now)
+    .map(([id, entry]) => ({ skill: 'vocab', id, entry, isNew: false }));
+  const kanjiDue = Object.entries(getKanjiHistory())
+    .filter(([, e]) => e.srsBox && e.srsBox !== 'graduated')
+    .filter(([, e]) => !e.nextDue || new Date(e.nextDue).getTime() <= now)
+    .map(([id, entry]) => ({ skill: 'kanji', id, entry, isNew: false }));
+
+  // Round-robin interleaving: pop from each skill's queue in turn.
+  // This produces a mixed sequence that matches the cognitive-science
+  // "interleaved practice > blocked practice" finding.
+  const queues = [grammarDue, vocabDue, kanjiDue];
+  const out = [];
+  while (queues.some(q => q.length > 0)) {
+    for (const q of queues) {
+      if (q.length > 0) out.push(q.shift());
+    }
+  }
+  return out;
+}
+
+// Per-skill due counts for the home page aggregate ("47 reviews due
+// today (12 grammar · 23 vocab · 12 kanji)").
+export function getDueCountsBySkill() {
+  return {
+    grammar: Object.values(getHistory()).filter(e =>
+      e.nextDue && new Date(e.nextDue).getTime() <= Date.now() && !e.isMastered
+    ).length,
+    vocab: getDueVocabIds().length,
+    kanji: getDueKanjiGlyphs().length,
+  };
+}
+
 // IMP-036 (audit round-3): aggregate FSRS-4 nextDue timestamps from
 // patterns + vocab + kanji into per-day buckets (today + 6 future days).
 // Returns [{date: 'YYYY-MM-DD', count: N, label: 'Today'|'Tomorrow'|'Wed'}].
