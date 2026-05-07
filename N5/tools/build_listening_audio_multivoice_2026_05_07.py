@@ -144,7 +144,7 @@ async def render_segment_edge_tts(text: str, voice: str, out_path: Path):
 
 
 async def render_segment_voicevox(text: str, speaker_id: int, out_path: Path):
-    """Fallback: render one segment via local VOICEVOX HTTP at :50021.
+    """Render one segment via local VOICEVOX HTTP at :50021.
 
     Auto-detects whether VOICEVOX is reachable. Maps the 4 edge-tts
     voices to VOICEVOX speaker IDs:
@@ -152,18 +152,54 @@ async def render_segment_voicevox(text: str, speaker_id: int, out_path: Path):
       ja-JP-KeitaNeural    -> speaker 11 (玄野武宏 male)
       ja-JP-AoiNeural      -> speaker 0  (四国めたん female-younger)
       ja-JP-DaichiNeural   -> speaker 13 (青山龍星 male-mature)
+
+    Mutates the audio_query JSON before synthesis to suppress
+    VOICEVOX's natural phrase-boundary pauses (user-reported choppy
+    audio bug round 2, 2026-05-08). VOICEVOX's defaults are tuned for
+    'natural Japanese' which inserts:
+
+      - prePhonemeLength=0.1 / postPhonemeLength=0.1 (100ms silence
+        bookending every render call)
+      - pause_mora at every 、 with vowel_length ≈ 0.36s
+      - pause_mora at sentence-internal 。 (similar duration)
+      - Phrase-boundary prosody (pitch reset between bunsetsu)
+
+    The user's reference is gTTS, which reads text more linearly with
+    almost no inter-bunsetsu pause. To approximate that on VOICEVOX:
+
+      - prePhonemeLength = 0.0
+      - postPhonemeLength = 0.0
+      - pauseLengthScale = 0.0 (kills 、 / 。 pauses)
+      - For each accent_phrase, pause_mora = None (kills bunsetsu pauses)
+
+    Net effect: audio flows continuously through punctuation, matching
+    the gTTS reference. Inter-speaker silence (between dialogue turns)
+    is still preserved by the multi-line concat path below — that
+    silence is appended in the script, not via VOICEVOX parameters.
     """
     import urllib.request
     import urllib.parse
+    import json as _json
+
     # 1. audio_query
     qurl = f'http://localhost:50021/audio_query?speaker={speaker_id}&text={urllib.parse.quote(text)}'
     qreq = urllib.request.Request(qurl, method='POST')
     with urllib.request.urlopen(qreq, timeout=15) as r:
-        query = r.read()
-    # 2. synthesis
+        query = _json.loads(r.read())
+
+    # 2. mutate the query to suppress phrase-boundary pauses
+    query['prePhonemeLength'] = 0.0
+    query['postPhonemeLength'] = 0.0
+    query['pauseLengthScale'] = 0.0
+    for ap in query.get('accent_phrases', []):
+        ap['pause_mora'] = None
+
+    # 3. synthesis
     surl = f'http://localhost:50021/synthesis?speaker={speaker_id}'
     sreq = urllib.request.Request(
-        surl, data=query, method='POST',
+        surl,
+        data=_json.dumps(query).encode('utf-8'),
+        method='POST',
         headers={'Content-Type': 'application/json', 'Accept': 'audio/wav'},
     )
     with urllib.request.urlopen(sreq, timeout=60) as r:
