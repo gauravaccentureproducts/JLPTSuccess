@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.12.51';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.52';
 
 const PRECACHE = [
   './',
@@ -55,6 +55,11 @@ const PRECACHE = [
   // precache the unminified copy too so devtools Sources resolves it.
   './js/pedagogy-recommender.js',
   './js/min/pedagogy-recommender.js',
+  // SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): print-to-PDF mock
+  // paper module. Static-imported by app.js. Precache both copies
+  // so the route resolves offline.
+  './js/print-paper.js',
+  './js/min/print-paper.js',
   // ISSUE-043 (audit round-5): minified JS bundle. index.html points
   // at js/min/app.js; static + dynamic imports cascade to the rest
   // of js/min/. The unminified js/<name>.js files stay precached

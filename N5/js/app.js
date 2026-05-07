@@ -31,6 +31,10 @@ import { renderLevels, renderLevelPlaceholder } from './levels.js';
 import { initContentProtection } from './content-protect.js';
 import { renderMissed } from './missed.js';
 import { renderSitting } from './sitting.js';
+// SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): print-to-PDF mock paper.
+// Routes #/print and #/print/<paperId>; renders a paper layout
+// designed for paper-and-pencil consumption. See js/print-paper.js.
+import { renderPrint } from './print-paper.js';
 
 const ROUTES = {
   home:       renderHome,
@@ -60,6 +64,7 @@ const ROUTES = {
   notices:    renderNotices,
   missed:     renderMissed,    // IMP-008/031: wrong-answer history
   sitting:    renderSitting,   // ISSUE-020/IMP-032: full mock-paper sitting
+  print:      renderPrint,     // SVA-NEXT-2.4: print-to-PDF mock paper
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
   // test, etc.) - clicking N5 on the picker navigates to #/home.

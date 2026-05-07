@@ -4827,9 +4827,41 @@ body[data-route="n1"] #search-input {
   gap: 12px;
   margin: 24px 0;
 }
+/* SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): per-paper print
+   link sits beside the main mock-test card. Two sibling <a>s in a
+   wrapper so HTML stays valid (no <a> inside <a>). */
+.paper-card-row {
+  position: relative;
+  display: flex;
+}
+.paper-card-row .paper-card { flex: 1; }
+.paper-card-print {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--c-muted);
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  background: var(--c-bg, #fff);
+  text-decoration: none;
+  transition: color 120ms ease, border-color 120ms ease;
+  min-height: 28px;
+  z-index: 1;
+}
+.paper-card-print:hover {
+  color: var(--color-accent, #1F4D2E);
+  border-color: var(--color-accent, #1F4D2E);
+}
+.paper-card-print-label { line-height: 1; }
 .paper-card {
   display: flex; flex-direction: column; gap: 8px;
-  padding: 16px 18px;
+  padding: 16px 18px 36px;  /* extra bottom padding so the print pill doesn't overlap content */
   background: var(--c-surface);
   border: 1px solid var(--c-border);
   border-radius: var(--r);
@@ -5253,10 +5285,15 @@ html[data-protect="on"][data-blur="true"] body::before {
   z-index: 99999;
   filter: none;
 }
-/* Print blank page (Ctrl+P workaround). The site is digital-only. */
+/* Print blank page (Ctrl+P workaround). The site is digital-only —
+   except on the print-paper route (#/print/<paperId>) where the
+   intent is explicit. SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07)
+   adds the data-route exception so a learner CAN print the
+   pencil-and-paper mock-paper layout. The protection still applies
+   to every other route. */
 @media print {
-  html[data-protect="on"] body * { visibility: hidden !important; }
-  html[data-protect="on"] body::before {
+  html[data-protect="on"] body:not([data-route="print"]) * { visibility: hidden !important; }
+  html[data-protect="on"] body:not([data-route="print"])::before {
     content: "Printing is disabled. The content of this site is digital-only.";
     visibility: visible !important;
     display: block;
@@ -5944,4 +5981,434 @@ html[data-protect="on"][data-blur="true"] body::before {
 }
 @media (max-width: 600px) {
   .kanji-sort-select { min-height: 44px; }
+}
+
+/* ============================================================================
+ * SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): print-to-PDF mock paper.
+ *
+ * On-screen styles for #/print/<paperId> + corresponding @media print
+ * rules so the same DOM looks like a real exam paper when printed.
+ *
+ * Architecture:
+ *   .print-paper-screen      - whole route container (on-screen wrapper)
+ *   .print-paper-toolbar     - back link + "+ Answer key" + Print button
+ *   .print-paper-root        - the actual document that gets printed.
+ *                              In @media print this is the only thing
+ *                              shown; everything outside is hidden.
+ *   .print-paper-cover       - cover page (title / name / date / instr)
+ *   .print-section           - one section (moji / goi / bunpou / etc.)
+ *   .print-mondai            - one mondai (problem cluster)
+ *   .print-q                 - one question
+ *   .print-q-choices         - 4-up answer-choice list with circle-num
+ *   .print-key               - optional answer-key page (?key=1)
+ *
+ * Page sizing is A4. International JLPT sites use A4 too; if a US
+ * learner prints to letter, the layout still fits — we don't have
+ * very wide rows.
+ * ============================================================================ */
+
+/* On-screen view (when the user is browsing the print route). */
+.print-paper-screen {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.print-paper-toolbar {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--color-surface, #f6f6f0);
+  border: 1px solid var(--color-line, #d6d6d0);
+  border-radius: var(--r);
+}
+.print-paper-toolbar-actions {
+  display: inline-flex; gap: 10px; flex-wrap: wrap;
+}
+.print-paper-toolbar .btn-primary,
+.print-paper-toolbar .btn-secondary {
+  padding: 8px 14px;
+  min-height: 36px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.print-paper-toolbar .btn-primary {
+  background: var(--color-accent, #1F4D2E);
+  color: #fff;
+  border: 1px solid var(--color-accent, #1F4D2E);
+}
+.print-paper-toolbar .btn-secondary {
+  background: var(--color-bg, #fff);
+  color: var(--color-text);
+  border: 1px solid var(--color-line, #d6d6d0);
+}
+
+/* The actual paper. In screen mode it's a centered "card"; in print
+   mode the same DOM fills the page. */
+.print-paper-root {
+  background: #fff;
+  color: #111;
+  font-family: 'Hiragino Mincho Pro', 'Yu Mincho', 'Noto Serif JP', 'Times New Roman', serif;
+  font-size: 12pt;
+  line-height: 1.6;
+  padding: 32px;
+  border: 1px solid var(--color-line, #d6d6d0);
+  border-radius: var(--r);
+  margin-bottom: 16px;
+}
+.print-paper-root h1, .print-paper-root h2, .print-paper-root h3 {
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+}
+.print-paper-cover {
+  text-align: center;
+  padding: 16px 0 24px;
+  border-bottom: 2px solid #111;
+  margin-bottom: 24px;
+}
+.print-paper-brand {
+  font-size: 11pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #555;
+  margin: 0 0 8px;
+}
+.print-paper-title {
+  font-size: 22pt;
+  margin: 0 0 4px;
+  letter-spacing: 0.04em;
+}
+.print-paper-title-en {
+  font-size: 11pt;
+  color: #555;
+  margin: 0 0 12px;
+  font-style: italic;
+}
+.print-paper-cover-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 14px;
+  max-width: 480px;
+  margin: 16px auto;
+  text-align: left;
+}
+.print-paper-cover-meta dt {
+  font-weight: 600;
+  text-align: right;
+  padding-right: 4px;
+}
+.print-paper-cover-meta dd {
+  margin: 0;
+}
+.print-paper-fillable {
+  letter-spacing: 0.1em;
+  font-family: 'Courier New', monospace;
+}
+.print-paper-instructions {
+  text-align: left;
+  max-width: 600px;
+  margin: 16px auto 0;
+  padding: 12px 16px;
+  background: #f9f9f4;
+  border: 1px solid #e0e0d6;
+  border-radius: 4px;
+  font-size: 11pt;
+}
+.print-paper-instructions h2 {
+  margin: 0 0 6px;
+  font-size: 12pt;
+  letter-spacing: 0.04em;
+}
+.print-paper-instructions ol {
+  padding-left: 24px;
+  margin: 4px 0;
+}
+
+.print-section {
+  margin-top: 32px;
+}
+.print-section-header {
+  border-bottom: 1px solid #111;
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+}
+.print-section-header h2 {
+  margin: 0;
+  font-size: 16pt;
+}
+.print-section-meta {
+  margin: 2px 0 0;
+  font-size: 10pt;
+  color: #555;
+}
+
+.print-mondai {
+  margin-top: 22px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.print-mondai-header {
+  margin-bottom: 12px;
+}
+.print-mondai-header h3 {
+  margin: 0;
+  font-size: 13pt;
+  border-left: 4px solid #111;
+  padding-left: 8px;
+}
+.print-mondai-instr {
+  margin: 4px 0 8px 12px;
+  font-size: 11pt;
+  color: #333;
+}
+
+.print-q-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: print-q;
+}
+.print-q {
+  counter-increment: print-q;
+  margin: 0 0 14px;
+  padding-left: 36px;
+  position: relative;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.print-q::before {
+  content: counter(print-q) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 600;
+  font-size: 12pt;
+  width: 30px;
+  text-align: right;
+  padding-right: 6px;
+}
+.print-q-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 9pt;
+  color: #777;
+  margin-bottom: 2px;
+}
+.print-q-stem {
+  margin: 2px 0 6px;
+  line-height: 1.7;
+}
+.print-q-choices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+.print-choice {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+.print-choice-num {
+  font-weight: 600;
+  font-size: 12pt;
+  width: 1.4em;
+  flex-shrink: 0;
+}
+.print-choice-text {
+  flex: 1;
+}
+
+.print-chokai-prompt {
+  margin: 4px 0 8px;
+  font-size: 12pt;
+}
+.print-chokai-script {
+  font-family: 'Hiragino Mincho Pro', 'Yu Mincho', 'Noto Serif JP', serif;
+  font-size: 11pt;
+  white-space: pre-wrap;
+  background: #f6f6f0;
+  border: 1px dashed #999;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 4px 0 10px;
+}
+
+.print-key {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px dashed #111;
+  break-before: page;
+  page-break-before: always;
+}
+.print-key h2 {
+  margin: 0 0 4px;
+}
+.print-key-section {
+  margin-top: 18px;
+}
+.print-key-section h3 {
+  margin: 0 0 8px;
+  font-size: 12pt;
+}
+.print-key-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.print-key-list li {
+  display: grid;
+  grid-template-columns: minmax(80px, max-content) 30px 1fr;
+  gap: 4px 10px;
+  align-items: baseline;
+  border-bottom: 1px dotted #ccc;
+  padding: 4px 0;
+}
+.print-key-id { font-family: 'Courier New', monospace; font-size: 10pt; color: #555; }
+.print-key-correct { font-weight: 600; }
+.print-key-text { }
+.print-key-why {
+  grid-column: 1 / -1;
+  margin: 2px 0 0 90px;
+  font-size: 10pt;
+}
+
+.print-paper-footer {
+  margin-top: 36px;
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  font-size: 9pt;
+  color: #777;
+}
+
+.print-paper-hint {
+  text-align: center;
+  margin: 16px 0;
+}
+
+/* Print-index list. */
+.print-paper-index { padding: 8px 0; }
+.print-paper-index .page-lede { max-width: 700px; }
+.print-paper-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.print-paper-card {
+  border: 1px solid var(--color-line, #d6d6d0);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  background: var(--color-bg, #fff);
+  transition: background 120ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.print-paper-card:hover { background: var(--color-surface, #f6f6f0); }
+.print-paper-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.print-paper-link strong { font-size: 14px; }
+.print-paper-actions {
+  display: inline-flex;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-text-muted, #555);
+}
+.print-paper-actions a {
+  text-decoration: none;
+  color: var(--color-accent, #1F4D2E);
+}
+.print-paper-actions a:hover { text-decoration: underline; }
+.print-paper-bad-id {
+  background: #fdf6e3;
+  border: 1px solid #e9d590;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 12px 0;
+}
+
+/* ----------------------------------------------------------------------
+ * Print-only rules.
+ *
+ * When the user hits Cmd+P / Ctrl+P on #/print/<paperId>:
+ *   - The body[data-route="print"] selector lets the existing
+ *     content-protect rule pass us through.
+ *   - All page chrome (nav, footer, our toolbar, Tip line) hidden.
+ *   - Only `.print-paper-root` renders.
+ *   - A4, 2cm margins, page-break per mondai cluster.
+ * ---------------------------------------------------------------------- */
+@media print {
+  body[data-route="print"] {
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body[data-route="print"] header.site-header,
+  body[data-route="print"] nav.primary-nav,
+  body[data-route="print"] footer.site-footer,
+  body[data-route="print"] .skip-link,
+  body[data-route="print"] .print-paper-toolbar,
+  body[data-route="print"] .print-paper-hint,
+  body[data-route="print"] .back-link,
+  body[data-route="print"] .home-up-link,
+  body[data-route="print"] #install-banner,
+  body[data-route="print"] #pwa-update-toast {
+    display: none !important;
+  }
+  body[data-route="print"] main { padding: 0 !important; }
+  body[data-route="print"] .print-paper-screen {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  body[data-route="print"] .print-paper-root {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+  }
+  /* Force page break before each top-level section + before the
+     answer key. Mondai clusters use break-inside:avoid to stay
+     together where possible. */
+  body[data-route="print"] .print-section { break-before: page; page-break-before: always; }
+  body[data-route="print"] .print-section:first-of-type { break-before: auto; page-break-before: auto; }
+  body[data-route="print"] .print-key { break-before: page; page-break-before: always; }
+
+  /* A4 page setup. 2cm margins. */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  body[data-route="print"] .print-q-stem,
+  body[data-route="print"] .print-q-choices,
+  body[data-route="print"] .print-mondai,
+  body[data-route="print"] .print-q {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  /* Don't underline links on paper. */
+  body[data-route="print"] a { color: #000; text-decoration: none; }
+
+  /* Furigana ruby is fine to print. */
+  body[data-route="print"] ruby { line-height: 1.9; }
+  body[data-route="print"] rt { font-size: 7pt; }
 }

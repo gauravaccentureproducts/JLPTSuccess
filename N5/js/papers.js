@@ -188,15 +188,24 @@ async function renderPaperList(container, categoryId) {
     const badge = attempted
       ? `<span class="paper-badge paper-badge-done">${best ? `${best.correct}/${best.total}` : 'Done'}</span>`
       : `<span class="paper-badge paper-badge-new">New</span>`;
+    // SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): per-card "Print"
+    // link sits beside the main "open mock-test" link. We use a wrapper
+    // div + two sibling <a>s so HTML stays valid (no <a> inside <a>).
     return `
-      <a class="paper-card" href="#/papers/${esc(cat.id)}/${p.paperNumber}">
-        <div class="paper-card-num">Paper ${p.paperNumber}</div>
-        <div class="paper-card-meta">
-          <span class="paper-q-count">${p.questionCount} questions</span>
-          <span class="paper-source-range muted">${esc(p.source_question_range)}</span>
-        </div>
-        ${badge}
-      </a>
+      <div class="paper-card-row">
+        <a class="paper-card" href="#/papers/${esc(cat.id)}/${p.paperNumber}">
+          <div class="paper-card-num">Paper ${p.paperNumber}</div>
+          <div class="paper-card-meta">
+            <span class="paper-q-count">${p.questionCount} questions</span>
+            <span class="paper-source-range muted">${esc(p.source_question_range)}</span>
+          </div>
+          ${badge}
+        </a>
+        <a class="paper-card-print" href="#/print/${esc(p.id)}" title="Open print-friendly view (Save as PDF or print to paper)" aria-label="Print Paper ${p.paperNumber}">
+          <span aria-hidden="true">🖨</span>
+          <span class="paper-card-print-label">Print</span>
+        </a>
+      </div>
     `;
   }).join('');
 
@@ -204,7 +213,7 @@ async function renderPaperList(container, categoryId) {
     <article class="papers-index">
       <a class="back-link" href="#/papers">← All sections</a>
       <h2>${esc(cat.label)} <span class="paper-cat-ja" lang="ja">${esc(cat.label_ja)}</span></h2>
-      <p class="page-lede">${esc(cat.description)} · ${cat.paperCount} papers · ${cat.questionCount} questions total.</p>
+      <p class="page-lede">${esc(cat.description)} · ${cat.paperCount} papers · ${cat.questionCount} questions total. <a class="muted small" href="#/print">Print any paper →</a></p>
       <div class="paper-list-grid">${cards}</div>
     </article>
   `;
