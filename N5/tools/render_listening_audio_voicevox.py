@@ -1,5 +1,23 @@
 """IMP-122 (TBD): Render the 47 listening items via VOICEVOX local server.
 
+============================================================================
+DEPRECATED 2026-05-07 — DATA-INCOMPATIBLE WITH CURRENT SCHEMA.
+
+This script expects `voice_planned` to be a flat dict of {speaker_label:
+int_speaker_id}. The current data/listening.json (post-2026-05-06 voice
+variety pass) instead uses {primary, secondary, engine, speaker_role_map}
+where the values are edge-tts voice-name strings (e.g. 'ja-JP-NanamiNeural'),
+not integer speaker IDs.
+
+Use tools/build_listening_audio_multivoice_2026_05_07.py instead. It:
+  - Reads the current schema correctly.
+  - Auto-detects VOICEVOX (preferred) or edge-tts at runtime.
+  - Maps edge-tts voice names to VOICEVOX speaker IDs internally.
+  - Closes ISSUE-062 + ISSUE-089 with a single command.
+
+Kept here for git-history clarity; do not run.
+============================================================================
+
 Closes ISSUE-062 (voice variety = 1) + ISSUE-074-residual (26 too-slow
 items) + ISSUE-090 data-side (TTS corpus) in a single execute pass,
 once VOICEVOX is installed locally. Reads the `voice_planned` field
