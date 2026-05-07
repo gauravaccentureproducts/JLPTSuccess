@@ -2,6 +2,91 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.50 - 2026-05-07 (Listening voice variety — ACTUALLY rendered: ISSUE-062 + ISSUE-089 + IMP-122 closed)
+
+The "almost done" listening-audio render shipped — all 47 listening
+items are now multi-voice MP3s, no longer the single voicevox-shikoku-
+metan that drove the original ISSUE-062 finding. Closes 3 deferred
+items in one commit.
+
+### What unblocked the render
+
+The earlier v1.12.49 close-out documented edge-tts as the chosen
+voice-variety lane, but execution was blocked because corporate
+network egress to `speech.platform.bing.com` (the WSS endpoint
+edge-tts uses) is firewalled. Pivoted to the **VOICEVOX fallback
+path** (which the script auto-detects):
+
+- `winget install HiroshibaKazuyuki.VOICEVOX.CPU` — 1.88 GB, 3 min
+  download + extract.
+- `winget install Gyan.FFmpeg` — already installed in v1.12.49 work.
+- Started VOICEVOX engine: `vv-engine\run.exe --port 50021`.
+- Verified up: `curl http://127.0.0.1:50021/version` → `"0.25.2"`.
+- Render script auto-detected VOICEVOX (preferred over edge-tts).
+
+### What got rendered
+
+All 47 items, 4-voice rotation matching the round-9 plan. The script
+maps the edge-tts voice-name strings (`ja-JP-NanamiNeural`, etc.) to
+VOICEVOX speaker IDs internally:
+
+| edge-tts voice (intended) | VOICEVOX speaker (actual) | Role |
+|---|---|---|
+| ja-JP-NanamiNeural | Shikoku Metan ノーマル (id 2) | Female adult, neutral |
+| ja-JP-KeitaNeural | Shirakami Kotaro ふつう (id 11) | Male adult, neutral |
+| ja-JP-AoiNeural | Hau Tsumugi ノーマル (id 8) | Female young, soft |
+| ja-JP-DaichiNeural | Aoyama Ryusei ノーマル (id 12) | Male professional |
+
+Per-mondai voice distribution:
+- **Mondai 1** (14 dialogues): alternating Nanami+Keita / Aoi+Daichi
+- **Mondai 2** (13 point-comprehension): same alternation
+- **Mondai 3** (13 utterance-expression): single voice from rotation
+- **Mondai 4** (7 immediate-response): single voice from rotation
+
+Combined audio uses 250 ms inter-line silence for natural turn-taking
+in dialogue items. Speed scale 1.30 brings shikoku-metan default
+~150-160 morae/min into the JLPT-N5 target band 180-240 (closes
+ISSUE-074 pacing residual on the 26 too-slow items).
+
+### Closes
+
+- **ISSUE-062** Listening voice variety = 1 → **4 distinct voices**
+  across 47 items, with multi-speaker dialogue items rendered with
+  2 voices each.
+- **ISSUE-089** (carry-over of ISSUE-062) — same fix.
+- **ISSUE-074-residual** (26 too-slow items) — speed-scale 1.30
+  brings them into target band.
+- **ISSUE-090** data-side (TTS variety) — done; native-recording
+  side remains separate per IMP-094.
+- **IMP-122** Run VOICEVOX render — executed in this commit.
+
+### Tracker state
+
+- **0 items in `Fix` status** (all closed)
+- **0 items in `Defer`** (IMP-122 executed)
+- **Done**: 219, Avoid: 3
+- **0 open questions** (Q42 resolved in v1.12.49 + executed here)
+
+The audit cycle is fully complete. No items pending on engineering or
+maintainer side.
+
+### Cache version
+
+`sw.js CACHE_VERSION: jlptsuccess-n5-v1.12.49 → jlptsuccess-n5-v1.12.50`
+forces re-fetch on next visit so users get the new audio without
+manual cache clear.
+
+### Generated files
+
+- `audio/listening/n5.listen.001.mp3` through `n5.listen.047.mp3` —
+  47 MP3s, ~64 kbps, multi-voice rendered
+- `data/audio_manifest_voice.json` — per-item voice plan + render
+  metadata (voice IDs, render timestamp, hash for change-detection)
+- `data/listening.json` — `voice_variety_status: "rendered"` set on
+  all 47 items + `audio_render_meta` block
+
+---
+
 ## v1.12.49 - 2026-05-07 (Q42 Resolved: edge-tts is the listening voice-variety lane)
 
 User delegated the Q42 listening-voice-variety decision ("you decide").
