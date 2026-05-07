@@ -4082,6 +4082,26 @@ textarea:focus-visible,
 .home-recommend .rec-prompt { color: var(--c-text-muted, #555); }
 .home-recommend .rec-link { font-weight: 500; text-decoration: none; }
 .home-recommend .rec-link:hover { text-decoration: underline; }
+/* EB-4 (round-9 close-out, 2026-05-07): pedagogy-recommender card.
+   Layered on top of the existing .home-recommend skin so the legacy
+   inline summary recommender keeps its appearance. The new card uses
+   stacked layout (title / action / why) instead of the legacy
+   inline (prompt / link) layout. */
+.home-recommend { flex-direction: column; align-items: stretch; }
+.home-recommend-title {
+  margin: 0; font-size: 13px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--c-text-muted, #555);
+}
+.home-recommend-action {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px;
+  text-decoration: none; color: inherit;
+  padding: 4px 0; min-height: 36px;
+}
+.home-recommend-action:hover .home-recommend-label strong { text-decoration: underline; }
+.home-recommend-label { font-size: 16px; }
+.home-recommend-meta { font-variant-numeric: tabular-nums; }
+.home-recommend-why { margin: 2px 0 0; line-height: 1.4; }
 .home-resume { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
 .resume-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 18px 20px; }
 .resume-card h3 { margin-top: 0; }

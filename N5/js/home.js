@@ -22,6 +22,12 @@
 // bare numerals + nouns. (Spec §5.1.1, mandatory.)
 import * as storage from './storage.js';
 import { t, currentLocale } from './i18n.js';
+// EB-4 (round-9 close-out, 2026-05-07): pedagogy-rule recommender.
+// Replaces the v2.0 ML-recommender ask with on-device expert rules.
+// See docs/RECOMMENDER-RULES.md for the rule catalogue + privacy
+// guarantees. The import is static so esbuild bundles it into
+// js/min/home.js; no runtime fetch.
+import { gatherSignal, recommend as recommendNext } from './pedagogy-recommender.js';
 
 // Cache the corpus counts and pattern label map at module scope so we
 // fetch each data file once per session.
@@ -300,6 +306,38 @@ export async function renderHome(container) {
     { id: 'n5-077', label: 'い-Adjectives', why: 'Describing things' },
     { id: 'n5-024', label: 'か',            why: 'Asking questions' },
   ];
+  // EB-4: pedagogy recommender. The recommender returns a structured
+  // suggestion (highest-priority rule that fires for current state).
+  // For new users this typically lands as R-05 starter-pack (already
+  // surfaced separately below as `starterStrip`), so we suppress the
+  // duplicate by gating recCard to returning users only. Pure +
+  // deterministic + on-device — see docs/RECOMMENDER-RULES.md.
+  let recCard = '';
+  try {
+    if (isReturning) {
+      const rec = recommendNext(gatherSignal({ corpusCounts: counts }));
+      if (rec) {
+        const loc = currentLocale();
+        const label = loc === 'hi' ? rec.label_hi : rec.label_en;
+        const why   = loc === 'hi' ? rec.why_hi   : rec.why_en;
+        recCard = `
+          <aside class="home-recommend" aria-labelledby="home-recommend-h">
+            <h3 id="home-recommend-h" class="home-recommend-title">${esc(t('home.recommend_title') || 'Recommended next')}</h3>
+            <a class="home-recommend-action" href="${esc(rec.href)}">
+              <span class="home-recommend-label"><strong>${esc(label)}</strong></span>
+              <span class="home-recommend-meta muted small">${esc(rec.duration)} · ${esc(rec.rule_id)}</span>
+            </a>
+            <p class="home-recommend-why muted small">${esc(why)}</p>
+          </aside>
+        `;
+      }
+    }
+  } catch (e) {
+    // Non-fatal: recommender is decorative. Surface in console for
+    // dev diagnosis, never break the home render.
+    if (typeof console !== 'undefined') console.warn('[recommender] suppressed:', e);
+  }
+
   const starterStrip = (!isReturning) ? `
     <aside class="starter-pack" aria-labelledby="starter-pack-h">
       <h3 id="starter-pack-h" class="starter-pack-title">New to JLPT N5? Start here.</h3>
@@ -375,6 +413,8 @@ export async function renderHome(container) {
           </div>
         ` : ''}
       </header>
+
+      ${recCard}
 
       <section class="syllabus-overview" aria-label="Syllabus overview">
         <header class="section-label">

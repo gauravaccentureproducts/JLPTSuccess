@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.12.50';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.51';
 
 const PRECACHE = [
   './',
@@ -50,6 +50,11 @@ const PRECACHE = [
   // Lazy-loaded by app.js on DOMContentLoaded so first paint isn't
   // delayed; precache so the dynamic import resolves offline.
   './js/audio-player.js',
+  // EB-4 (round-9 close-out, 2026-05-07): pedagogy-rule recommender.
+  // Static-imported by home.js so it bundles into js/min/home.js;
+  // precache the unminified copy too so devtools Sources resolves it.
+  './js/pedagogy-recommender.js',
+  './js/min/pedagogy-recommender.js',
   // ISSUE-043 (audit round-5): minified JS bundle. index.html points
   // at js/min/app.js; static + dynamic imports cascade to the rest
   // of js/min/. The unminified js/<name>.js files stay precached
