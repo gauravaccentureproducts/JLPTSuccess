@@ -153,29 +153,40 @@ async def render_segment_voicevox(text: str, speaker_id: int, out_path: Path):
       ja-JP-AoiNeural      -> speaker 0  (四国めたん female-younger)
       ja-JP-DaichiNeural   -> speaker 13 (青山龍星 male-mature)
 
-    Mutates the audio_query JSON before synthesis to suppress
-    VOICEVOX's natural phrase-boundary pauses (user-reported choppy
-    audio bug round 2, 2026-05-08). VOICEVOX's defaults are tuned for
-    'natural Japanese' which inserts:
+    Mutates the audio_query JSON before synthesis. Tuned through
+    user-feedback iteration:
 
-      - prePhonemeLength=0.1 / postPhonemeLength=0.1 (100ms silence
-        bookending every render call)
-      - pause_mora at every 、 with vowel_length ≈ 0.36s
-      - pause_mora at sentence-internal 。 (similar duration)
-      - Phrase-boundary prosody (pitch reset between bunsetsu)
+      iter 1 (5/8 morning): pauseLengthScale=0.0, pause_mora=None
+        → audio raced through, sentences ran together, "too fast even
+        for natural Japanese" + "no gap between sentences."
 
-    The user's reference is gTTS, which reads text more linearly with
-    almost no inter-bunsetsu pause. To approximate that on VOICEVOX:
+      iter 2 (5/8 afternoon, this version): retain natural inter-
+      sentence pauses (pause_mora left intact), restore audible
+      breathing at 、 and 。, slow speech to natural-Japanese pace.
 
-      - prePhonemeLength = 0.0
-      - postPhonemeLength = 0.0
-      - pauseLengthScale = 0.0 (kills 、 / 。 pauses)
-      - For each accent_phrase, pause_mora = None (kills bunsetsu pauses)
+    Final parameters (iter 2):
+      speedScale = 0.85          slow ~15% from VOICEVOX default;
+                                 brings the speakers in line with the
+                                 user's "normal spoken Japanese" target.
+      pauseLengthScale = 0.7     keep 70 % of natural comma/period
+                                 pauses — audible breath at sentence
+                                 breaks but not the 360ms-every-comma
+                                 robotic feel.
+      prePhonemeLength = 0.0     no padding before first phoneme
+                                 (the 100ms default contributed to
+                                 the original "gap every two words"
+                                 perception when each line had its
+                                 own pre-padding).
+      postPhonemeLength = 0.0    same, no trailing padding.
+      pause_mora kept as-is      LEGITIMATE pauses at 、/。 — these
+                                 are the inter-sentence breaths the
+                                 user wants restored.
 
-    Net effect: audio flows continuously through punctuation, matching
-    the gTTS reference. Inter-speaker silence (between dialogue turns)
-    is still preserved by the multi-line concat path below — that
-    silence is appended in the script, not via VOICEVOX parameters.
+    Net effect: speech flows at natural Japanese pace, with present-
+    but-gentle pauses at sentence/comma boundaries, no bunsetsu-level
+    micro-stutters. Inter-speaker silence (between dialogue turns) is
+    still appended by the multi-line concat path — separate from
+    these audio_query parameters.
     """
     import urllib.request
     import urllib.parse
@@ -187,12 +198,15 @@ async def render_segment_voicevox(text: str, speaker_id: int, out_path: Path):
     with urllib.request.urlopen(qreq, timeout=15) as r:
         query = _json.loads(r.read())
 
-    # 2. mutate the query to suppress phrase-boundary pauses
+    # 2. mutate the query for natural pacing + audible (but gentle)
+    # inter-sentence pauses.
+    query['speedScale'] = 0.85
     query['prePhonemeLength'] = 0.0
     query['postPhonemeLength'] = 0.0
-    query['pauseLengthScale'] = 0.0
-    for ap in query.get('accent_phrases', []):
-        ap['pause_mora'] = None
+    query['pauseLengthScale'] = 0.7
+    # NOTE: pause_mora left intact. VOICEVOX assigns these only at
+    # accent_phrases that end in 、 or 。 — they are the breath
+    # points the user explicitly wanted preserved.
 
     # 3. synthesis
     surl = f'http://localhost:50021/synthesis?speaker={speaker_id}'
