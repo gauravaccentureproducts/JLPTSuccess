@@ -96,6 +96,46 @@ def strip_speaker_prefix(line_text: str) -> str:
     return s
 
 
+def clean_text_for_tts(text: str) -> str:
+    """Strip JLPT-style learner spaces before sending text to a JA TTS engine.
+
+    Reported by user 2026-05-08 with screenshot of n5.listen.001:
+    audio had a "gap/break after every two words" because the build
+    script was sending JLPT-textbook-style spaced text directly to
+    VOICEVOX:
+
+      "あした、二人は どこで 会いますか。"
+
+    Every JA TTS engine — VOICEVOX, gTTS, edge-tts, Azure — treats
+    spaces as prosodic boundaries and inserts a micro-pause at each.
+    Natural Japanese has NO inter-bunsetsu spaces; the spaces in
+    our `text_ja` / `script_ja` fields are a learner-readability
+    affordance only. They must be stripped before TTS render.
+
+    What we strip:
+      - ASCII space (U+0020)
+      - Full-width space (U+3000, 　)
+      - Tab + newline (just in case multi-line text leaked through)
+
+    What we DO NOT strip:
+      - 、(U+3001 ideographic comma) — VOICEVOX handles it correctly
+        as a soft prosodic pause, which is what we want.
+      - 。(U+3002 ideographic period) — same: correct prosodic pause.
+      - Any kana/kanji obviously.
+
+    Idempotent — re-running on already-clean text is a no-op.
+    """
+    if not text:
+        return ''
+    return (
+        text
+        .replace(' ', '')
+        .replace('　', '')   # full-width / ideographic space
+        .replace('\t', '')
+        .replace('\n', '')
+    )
+
+
 async def render_segment_edge_tts(text: str, voice: str, out_path: Path):
     """Render one text segment with edge-tts to a single MP3."""
     import edge_tts
@@ -215,8 +255,11 @@ async def render_item(item: dict, args, manifest: dict, provider: str) -> tuple[
     role_map = vp.get('speaker_role_map') or {}
 
     if not lines or len(lines) <= 1:
-        # Single-segment render
-        await render_segment(script.strip(), primary, out_path, provider)
+        # Single-segment render. Clean the text before sending to the
+        # TTS engine — JLPT-style spaces would otherwise produce a
+        # micro-pause at every space (user-reported choppiness bug,
+        # 2026-05-08).
+        await render_segment(clean_text_for_tts(script), primary, out_path, provider)
     else:
         # Multi-line render — each line as a separate segment, then concat
         try:
@@ -229,7 +272,12 @@ async def render_item(item: dict, args, manifest: dict, provider: str) -> tuple[
         seg_paths = []
         try:
             for i, line in enumerate(lines):
-                text = strip_speaker_prefix(line.get('text_ja', ''))
+                # Strip both the speaker prefix AND the JLPT-style
+                # bunsetsu spaces. The cleaned text is what goes to
+                # VOICEVOX; the on-screen text retains the spaces for
+                # learner readability (separate render path).
+                raw = strip_speaker_prefix(line.get('text_ja', ''))
+                text = clean_text_for_tts(raw)
                 if not text:
                     continue
                 speaker = detect_speaker(line.get('text_ja', ''))
@@ -238,23 +286,34 @@ async def render_item(item: dict, args, manifest: dict, provider: str) -> tuple[
                 await render_segment(text, voice, seg_path, provider)
                 seg_paths.append(seg_path)
 
-            # Concatenate with 500ms silence between
-            silence = AudioSegment.silent(duration=500)
+            # Concatenate with 200ms silence between turns.
+            # Was 500ms — twice the JLPT-real-exam pacing, contributed
+            # to user-reported choppiness (2026-05-08). 200ms matches
+            # the actual JLPT N5 listening tape's between-turn rhythm
+            # closer; combined with the spaces fix above, audio flows
+            # naturally instead of stuttering at every clause boundary.
+            silence = AudioSegment.silent(duration=200)
             combined = AudioSegment.empty()
-            for sp in seg_paths:
+            for idx, sp in enumerate(seg_paths):
                 combined += AudioSegment.from_mp3(str(sp))
-                combined += silence
+                # No trailing silence after the very last segment —
+                # otherwise the in-app auto-advance fires too late.
+                if idx < len(seg_paths) - 1:
+                    combined += silence
             combined.export(str(out_path), format='mp3')
         finally:
             for sp in seg_paths:
                 if sp.exists():
                     sp.unlink()
 
-    # Update manifest
+    # Update manifest. rendered_at is the actual render date (not the
+    # original 2026-05-07 round-9 date — that hardcoded string was a
+    # bug; replaced 2026-05-08 with dynamic UTC date stamp).
+    from datetime import datetime, timezone
     manifest[iid] = {
         'hash': h,
         'voice_planned': vp,
-        'rendered_at': '2026-05-07',
+        'rendered_at': datetime.now(timezone.utc).strftime('%Y-%m-%d'),
     }
     return iid, f'rendered: {primary}{" + " + secondary if secondary != primary else ""}'
 

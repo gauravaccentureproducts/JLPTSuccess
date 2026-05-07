@@ -258,19 +258,43 @@ def _num_to_kanji(num: int) -> str:
 _DIGIT_RUN = re.compile(r'\d+')
 
 def normalize_for_tts(text: str) -> str:
-    """Pre-process Japanese text for TTS so digits read in Japanese, not English.
+    """Pre-process Japanese text for TTS.
 
-    gTTS pronounces ASCII digits in English when surrounded by Japanese
-    ('3' -> 'three' instead of 'sa-n'). This converts ASCII digit runs to
-    their kanji equivalents BEFORE rendering. The display text in the
-    JSON is unchanged - this only affects the TTS input.
+    Two normalizations, both 'send display-friendly text as natural-
+    speech-friendly text':
+
+    1. Digits ASCII -> kanji.
+       gTTS pronounces ASCII digits in English when surrounded by
+       Japanese ('3' -> 'three' instead of 'sa-n'). Convert digit
+       runs to kanji equivalents BEFORE rendering.
+
+    2. JLPT-style bunsetsu spaces stripped (added 2026-05-08 after
+       user-reported choppy audio bug).
+       Our text_ja / ja fields use JLPT-textbook spacing for learner
+       readability ('あした、二人は どこで 会いますか'). Every JA
+       TTS engine — gTTS, VOICEVOX, edge-tts, Azure JA — treats those
+       spaces as prosodic boundaries and inserts a micro-pause at
+       each, producing audio that sounds choppy. Strip them before
+       render. The display JSON is unchanged; this only affects the
+       TTS input.
+
+    The display text in the JSON is preserved as-is — these are
+    pure render-time normalisations.
     """
     def _sub(m):
         try:
             return _num_to_kanji(int(m.group()))
         except (ValueError, KeyError):
             return m.group()
-    return _DIGIT_RUN.sub(_sub, text)
+    out = _DIGIT_RUN.sub(_sub, text or '')
+    # Strip JLPT-style bunsetsu spaces (ASCII + full-width + tab).
+    # 、and 。are kept — they produce *correct* prosodic pauses.
+    return (
+        out
+        .replace(' ', '')
+        .replace('　', '')   # ideographic / full-width space
+        .replace('\t', '')
+    )
 
 
 def collect_jobs(force: bool, limit: int | None):

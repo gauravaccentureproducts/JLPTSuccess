@@ -12,6 +12,19 @@ session whenever budget or volunteer talent becomes available.
 The Japanese-language version of this brief, intended for the actor
 to read directly, is at [`RECORDING-BRIEF.ja.md`](RECORDING-BRIEF.ja.md).
 
+> **2026-05-08 — synthetic-render gotcha now documented.** A user-
+> reported "audio breaks every two words" bug on the round-9 VOICEVOX
+> render traced to two pipeline issues: (a) JLPT-style bunsetsu
+> spaces in `text_ja` were being sent verbatim to VOICEVOX, which
+> treats every space as a prosodic boundary and inserts a micro-pause;
+> (b) the inter-line silence was 500ms (twice the JLPT-real-exam pace).
+> Fixed in `tools/build_listening_audio_multivoice_2026_05_07.py` +
+> `tools/build_audio.py` (commit forthcoming). All 47 listening items
+> re-rendered. **For human voice actors this gotcha doesn't apply** —
+> a native speaker reads JLPT-spaced text with natural prosody. But
+> for any future synthetic re-render, the build script must strip
+> bunsetsu spaces before calling the engine. See § 9 below.
+
 ---
 
 ## 1. Voice profile (announcer-neutral, JLPT-fidelity)
@@ -417,5 +430,87 @@ quality lift relative to current synthetic baseline, smallest budget.
 
 ---
 
+## 9. Synthetic-render-only gotcha (engineering note, NOT for actors)
+
+> **This section does NOT apply to human voice actors.** A native
+> speaker reads JLPT-spaced text with natural prosody. The notes
+> below are for the build pipeline that does synthetic VOICEVOX /
+> gTTS / edge-tts rendering — i.e. the audio that ships *until* a
+> native-recording session lands.
+
+### The bug
+
+User-reported 2026-05-08: the round-9 synthetic render had audible
+"breaks every two words." Two pipeline issues, both fixed in commits
+referenced below:
+
+1. **Bunsetsu spaces sent to TTS unmodified.** The `text_ja` /
+   `script_ja` / `ja` fields use JLPT-textbook style spacing for
+   learner readability:
+   ```
+   あした、二人は どこで 会いますか。
+   ```
+   Every Japanese TTS engine — VOICEVOX, gTTS, edge-tts, Azure JA —
+   tokenizes on space and inserts a micro-pause at each. Natural
+   Japanese has no inter-bunsetsu spaces; the result was choppy
+   audio. **Fix:** strip ASCII space + full-width space (U+3000) +
+   tab + newline before sending to the engine. Keep `、` / `。` —
+   those produce *correct* prosodic pauses.
+
+2. **Inter-line silence was 500ms.** Real JLPT N5 listening tape is
+   ~200ms between turns. **Fix:** drop to 200ms; remove trailing
+   silence after the very last segment.
+
+### Where the fixes live
+
+- `tools/build_listening_audio_multivoice_2026_05_07.py` →
+  `clean_text_for_tts()` helper applied before every render call;
+  silence reduced to 200ms.
+- `tools/build_audio.py` → `normalize_for_tts()` extended to also
+  strip spaces (was digit-conversion only). Affects grammar +
+  reading audio render paths.
+
+### What synthesizers handle vs what they don't
+
+| Character | Treatment | Send to TTS? |
+|---|---|---|
+| `、` (ideographic comma) | Soft prosodic pause — correct for Japanese | YES |
+| `。` (ideographic period) | Strong prosodic pause + falling tone — correct | YES |
+| ` ` (ASCII space) | Hard pause — WRONG for natural JA | **STRIP** |
+| `　` (full-width space U+3000) | Hard pause — WRONG | **STRIP** |
+| `\t` / `\n` | Engine-dependent; usually pause | **STRIP** |
+| `「`/`」` (quotes) | Some engines pause; OK to leave | (case-by-case) |
+
+### How to verify a re-render is good
+
+```bash
+# Re-render listening (requires VOICEVOX engine on :50021):
+python tools/build_listening_audio_multivoice_2026_05_07.py --force-rerender
+
+# Re-render grammar + reading (requires gTTS network egress):
+python tools/build_audio.py --force
+
+# Both:
+python tools/audit_audio_coverage.py        # 100 % coverage
+python tools/fix_truncated_audio_2026_05_07.py  # 0 truncations
+```
+
+If you change the TTS pipeline in any way, re-render at least one
+multi-line listening item (`n5.listen.001` is canonical) and confirm
+the audio flows naturally end-to-end before merging. A spaced-text
+regression sounds like "robot reading every word separately."
+
+### Why the original brief (sections 1–8) didn't catch this
+
+This brief was written for a future *human* voice-actor session.
+Section 1 says "do NOT improvise commas or breath pauses, especially
+mid-clause" — that warns the actor. The synthetic engine was never
+going to read that document, so the warning didn't apply to it. The
+build-pipeline fix in `tools/` is the equivalent guardrail for the
+non-human path.
+
+---
+
 *Brief author: project's resident 日本語教師 persona. Reviewed
-2026-05-07.*
+2026-05-07. § 9 added 2026-05-08 after user-reported choppy-audio
+bug fix.*
