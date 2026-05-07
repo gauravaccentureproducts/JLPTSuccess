@@ -2802,6 +2802,78 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   line-height: 1.65;
   color: var(--color-text);
 }
+
+/* JCE-3 (round-9 follow-up, 2026-05-08): per-passage grammar
+   footnotes on the reading detail page. Collapsed by default so
+   first-read isn't cluttered; one click expands the full list. */
+.reading-grammar-footnotes {
+  margin: 16px 0;
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--color-accent, #1F4D2E) 3%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent, #1F4D2E) 12%, transparent);
+  border-radius: 6px;
+}
+.reading-grammar-footnotes summary {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 0;
+  color: var(--color-text);
+}
+.reading-grammar-footnotes summary:hover {
+  color: var(--color-accent, #1F4D2E);
+}
+.reading-footnote-groups {
+  list-style: none;
+  padding: 8px 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reading-footnote-group { margin: 0; padding: 0; }
+.reading-footnote-sentence {
+  margin: 0 0 4px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.reading-footnote-list {
+  list-style: none;
+  padding: 0 0 0 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 2px solid color-mix(in srgb, var(--color-accent, #1F4D2E) 25%, transparent);
+}
+.reading-footnote-item {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding-left: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.reading-footnote-pid {
+  flex-shrink: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: var(--color-bg, #fff);
+  border: 1px solid var(--color-line, #d6d6d0);
+  color: var(--color-accent, #1F4D2E);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.reading-footnote-pid:hover {
+  background: var(--color-accent, #1F4D2E);
+  color: #fff;
+}
+.reading-footnote-note {
+  flex: 1;
+  color: var(--color-text-muted, #555);
+}
 .kanji-confusable-block { margin-top: 16px; }
 .kanji-confusable-grid {
   display: flex; flex-wrap: wrap; gap: 8px;

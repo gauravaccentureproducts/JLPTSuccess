@@ -170,6 +170,7 @@ function renderRead(container, p) {
           <p class="muted small"><strong>Cultural context:</strong> ${esc(p.cultural_context)}</p>
         </aside>
       ` : ''}
+      ${renderGrammarFootnotes(p)}
       ${p.audio ? `
         <div class="reading-audio">
           <p class="muted small">${renderJa('おんせい (ある とき):')}</p>
@@ -281,4 +282,52 @@ function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
+}
+
+// JCE-3 (round-9 follow-up, 2026-05-08): grammar footnotes per
+// passage. The footnotes array on data/reading.json items maps
+// sentence indexes (0-based, splitting on 。) to one or two grammar
+// patterns the learner should notice in that sentence. We render
+// them as a collapsed <details> block below the passage so they
+// don't clutter first-read but are one click away.
+function renderGrammarFootnotes(p) {
+  const fns = Array.isArray(p.grammar_footnotes) ? p.grammar_footnotes : [];
+  if (fns.length === 0) return '';
+
+  // Group footnotes by sentence_index so each sentence's notes
+  // appear together. Build a sentence preview (first ~30 chars) so
+  // the learner can see which sentence the note is about without
+  // scrolling back up.
+  const sentences = (p.ja || '').split('。').filter(s => s.trim()).map(s => s.trim());
+  const grouped = new Map();
+  for (const fn of fns) {
+    const i = fn.sentence_index ?? 0;
+    if (!grouped.has(i)) grouped.set(i, []);
+    grouped.get(i).push(fn);
+  }
+  const groups = [...grouped.entries()].sort((a, b) => a[0] - b[0]).map(([idx, items]) => {
+    const sentencePreview = (sentences[idx] || '').slice(0, 50) +
+                            (sentences[idx] && sentences[idx].length > 50 ? '…' : '。');
+    const notes = items.map(it => `
+      <li class="reading-footnote-item">
+        <a class="reading-footnote-pid" href="#/learn/${esc(it.pattern_id)}" title="Open ${esc(it.pattern_id)} in Learn">${esc(it.pattern_id)}</a>
+        <span class="reading-footnote-note">${esc(it.note || '')}</span>
+      </li>
+    `).join('');
+    return `
+      <li class="reading-footnote-group">
+        <p class="reading-footnote-sentence" lang="ja">
+          <span class="muted small">Sentence ${idx + 1}:</span> ${esc(sentencePreview)}
+        </p>
+        <ul class="reading-footnote-list">${notes}</ul>
+      </li>
+    `;
+  }).join('');
+
+  return `
+    <details class="reading-grammar-footnotes">
+      <summary><strong>Grammar footnotes</strong> <span class="muted small">— ${fns.length} note${fns.length === 1 ? '' : 's'} across ${grouped.size} sentence${grouped.size === 1 ? '' : 's'}</span></summary>
+      <ol class="reading-footnote-groups">${groups}</ol>
+    </details>
+  `;
 }

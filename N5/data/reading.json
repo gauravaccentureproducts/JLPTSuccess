@@ -762,7 +762,20 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "info_search",
       "summary_hi": "पुस्तकालय के समय — सोम-शुक्र 9-21, शनिवार 10-18, रविवार बंद; पुस्तक 2 सप्ताह तक उधार।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-100",
+          "note": "〜ことができます = \"can do (verb)\" — ability. Pairs verb-plain + こと + が + できる."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.008",
@@ -1128,7 +1141,45 @@
       "cultural_context": "ラーメン (rāmen) is a Japanese noodle soup of Chinese origin, now considered a defining Japanese comfort food. Casual ramen shops serve it as a fast lunch — typically eaten in 10-15 minutes.",
       "format_role": "primary",
       "summary_hi": "दोपहर का खाना — दोस्त के साथ रामेन की दुकान; गरम सूप, नूडल्स, छोटे साइड डिश।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with (companion)\" or \"and (exhaustive listing)\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.012",
@@ -1333,7 +1384,45 @@
       "cultural_context": "Kyoto (京都) was the imperial capital of Japan from 794 to 1868 and is famous for its preserved temples (お寺), shrines, and traditional crafts. Buying お土産 (omiyage, souvenirs) for family/colleagues when traveling within Japan is a strong social custom — even short trips usually end with a souvenir purchase.",
       "format_role": "primary",
       "summary_hi": "क्योतो की यात्रा — पुराने मंदिर, परंपरागत हस्तशिल्प, स्मारिकाएँ ख़रीदीं।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-097",
+          "note": "Verb-plain + と (here) = \"when X happens, Y always happens\" — natural / automatic consequence."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.014",
@@ -2005,7 +2094,35 @@
       "cultural_context": "In Japan, addressing a teacher as \"先生\" (sensei) — both in speech and in writing — is mandatory. Using a teacher's family name without 先生 attached is rude. The honorific applies to doctors, lawyers, and authors as well.",
       "format_role": "primary",
       "summary_hi": "जापान में शिक्षक को \"先生\" से संबोधित करना अनिवार्य — परिवार-नाम अकेले अशिष्ट लगता है।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous OR habitual / ongoing state. Translate as \"is doing\" or \"regularly does\" depending on context."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.021",
@@ -2086,7 +2203,20 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "info_search",
       "summary_hi": "टोक्यो-ओसाका हवाई जहाज़ का समय-सारिणी — सुबह 3 उड़ानें, दोपहर 2, शाम 3; 1 घंटा; ₹25000।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.022",
@@ -2166,7 +2296,45 @@
       "cultural_context": "カレー (karē) in Japan is the Japanese-style curry: thicker, sweeter, and milder than Indian curry, served over white rice. It became popular via the Imperial Japanese Navy in the late 1800s and is now a standard home-cooked meal — most Japanese families have their own family-recipe curry.",
       "format_role": "primary",
       "summary_hi": "कल रात के खाने में जापानी कैरी — गाढ़ी, मीठी, चावल पर परोसी; भारतीय कैरी से अलग।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-094",
+          "note": "〜と + いう／おもう = quotation marker: \"say that...\" / \"think that...\". と is the boundary between the quoted clause and the verb."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.023",
@@ -2333,7 +2501,30 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "दोस्त मारिया स्पेन से — टोक्यो विश्वविद्यालय में पढ़ती है, जापानी बहुत अच्छा बोलती है।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous OR habitual / ongoing state. Translate as \"is doing\" or \"regularly does\" depending on context."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.025",
@@ -2422,7 +2613,45 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "शनिवार की सुबह — 7 बजे उठना, पार्क में टहलना, घर पर नाश्ता, मनपसंद किताब पढ़ना।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-009",
+          "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.026",
@@ -2498,7 +2727,40 @@
       "cultural_context": "八百屋 (yaoya, \"greengrocer\") is a small specialty shop selling fresh vegetables and fruit. Greengrocers are still common in older neighborhoods, alongside dedicated fish shops (魚屋), butchers (肉屋), and rice shops (米屋), even though supermarkets dominate today.",
       "format_role": "primary",
       "summary_hi": "फलवाला (やおや) — फल और सब्ज़ियों की छोटी विशेष दुकान, पुराने मोहल्लों में अब भी आम।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-097",
+          "note": "Verb-plain + と (here) = \"when X happens, Y always happens\" — natural / automatic consequence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-007",
+          "note": "で marks the location-of-action OR the means/instrument (depending on the verb)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.027",
@@ -2578,7 +2840,40 @@
       "cultural_context": "Casual notes left for friends or family — written in mixed kanji + hiragana — are a common way to plan meetups in Japan. 〜ましょう (\"let's do\") is the standard tone for proposing casual plans.",
       "format_role": "primary",
       "summary_hi": "दोस्त का कैज़ुअल पत्र-नोट — हाँ/ना के लिए \"〜ましょう\" प्रयोग; मिलने का प्रस्ताव।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-007",
+          "note": "で marks the location-of-action OR the means/instrument (depending on the verb)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-059",
+          "note": "〜ません = polite non-past negative verb ending."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-009",
+          "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.028",
@@ -2665,7 +2960,50 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "लेखक का छोटा कमरा — बिस्तर, मेज़, कुर्सी, किताबों की अलमारी; खिड़की से बगीचा दिखता है।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-080",
+          "note": "い-adjective negative: stem-く + ありません / ないです = \"is not (adj)\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.029",
@@ -2743,7 +3081,35 @@
       "cultural_context": "Japanese summers (なつ) are hot and humid, especially in cities like Tokyo where temperatures regularly exceed 30°C. Air conditioning (エアコン) is universal but switching it on overnight is a routine summer-survival habit. The summer break (なつ休み) for students typically runs from late July to late August.",
       "format_role": "primary",
       "summary_hi": "जापान की गर्मियाँ बहुत गरम और उमस-भरी — टोक्यो में 30°C आम; एयर कंडीशन सर्वव्यापी।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-064",
+          "note": "〜たい = \"want to (do verb)\" — the speaker's desire. Conjugates like an い-adjective."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.030",
@@ -2831,7 +3197,50 @@
       "cultural_context": "郵便局 (yūbinkyoku, post office) is a major neighborhood institution in Japan — they handle mail, packages, and basic banking (Japan Post Bank). Post offices are usually found near major train stations, often with the iconic 〒 mark on a red building.",
       "format_role": "primary",
       "summary_hi": "डाकघर तक रास्ता — मोहल्ले की महत्वपूर्ण संस्था; डाक + पैकेज + जापान पोस्ट बैंक की बुनियादी सेवा।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous OR habitual / ongoing state. Translate as \"is doing\" or \"regularly does\" depending on context."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.031",
@@ -2928,7 +3337,55 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "लेखक के पास सफ़ेद कुत्ता शिरो (5 साल का) — सुबह-शाम पार्क में टहलना, गेंद से खेलना।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-007",
+          "note": "で marks the location-of-action OR the means/instrument (depending on the verb)."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.032",
@@ -3037,7 +3494,55 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "कॉलेज छात्र होने का एक साइड-इफ़ेक्ट — सोम/बुध/शुक्र को कैफ़े में अंशकालिक काम (5-9 बजे)।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-064",
+          "note": "〜たい = \"want to (do verb)\" — the speaker's desire. Conjugates like an い-adjective."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.033",
@@ -3128,7 +3633,45 @@
       "cultural_context": "秋 (aki, autumn) in Japan is a celebrated season for 紅葉 (kōyō, autumn leaves). The cool weather and colorful foliage make autumn the most popular season for leisurely walks and park visits — a cultural habit known as 紅葉狩り (momijigari, \"autumn-leaf hunting\").",
       "format_role": "primary",
       "summary_hi": "टोक्यो की पतझड़ — कोयो (こうよう, लाल पत्ते) देखने का सबसे लोकप्रिय मौसम; ठंडक भरा।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.034",
@@ -3223,7 +3766,45 @@
       "cultural_context": "School parties (学校の パーティー) in Japan are usually small classroom social events, not large dances — typically organized by the homeroom teacher and bringing in light snacks. Inviting someone with a brief written note (this passage's style) is culturally appropriate.",
       "format_role": "primary",
       "summary_hi": "दोस्त के घर पार्टी (学校の パーティー) — जापान में स्कूल पार्टियाँ छोटी कक्षा-पार्टियाँ हैं।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-010",
+          "note": "まで = \"until / up to\" (a point in time or place); often paired with から."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-009",
+          "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.035",
@@ -3333,7 +3914,45 @@
       "cultural_context": "すし (sushi) and てんぷら (tempura) are the two most internationally-recognized Japanese cuisines, but Japanese people typically eat ramen, curry, and bento-box lunches far more often. Sushi is usually a dinner-out occasion or a treat, not an everyday meal.",
       "format_role": "primary",
       "summary_hi": "सुशी-तेम्पुरा अंतरराष्ट्रीय रूप से प्रसिद्ध, पर जापानी रोज़ रामेन/कैरी/बेन्तो ज़्यादा खाते हैं।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with (companion)\" or \"and (exhaustive listing)\"."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.036",
@@ -3429,7 +4048,60 @@
       "cultural_context": "Japanese school weeks run Monday-Friday with 6 class periods per day plus club activities (部活) after school. Daily homework (しゅくだい) in math + the school's primary language is the norm. Saturday classes were phased out in the early 2000s.",
       "format_role": "primary",
       "summary_hi": "जापानी स्कूल-सप्ताह — सोम-शुक्र, रोज़ 6 घंटे + क्लब-ऐक्टिविटी; गणित + अंग्रेज़ी का होमवर्क।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with (companion)\" or \"and (exhaustive listing)\"."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-009",
+          "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.037",
@@ -3539,7 +4211,60 @@
       "cultural_context": "Train delays (電車が おくれて) carry strong social weight in Japan — train companies issue formal \"delay certificates\" (遅延証明書) that students/workers present to teachers/employers as proof, since being late without explanation damages trust.",
       "format_role": "primary",
       "summary_hi": "जापान में ट्रेन-देरी का सामाजिक भार बड़ा — कंपनियाँ औपचारिक \"देरी-प्रमाणपत्र\" जारी करती हैं।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-094",
+          "note": "〜と + いう／おもう = quotation marker: \"say that...\" / \"think that...\". と is the boundary between the quoted clause and the verb."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-094",
+          "note": "〜と + いう／おもう = quotation marker: \"say that...\" / \"think that...\". と is the boundary between the quoted clause and the verb."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.038",
@@ -3640,7 +4365,50 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "लेखक का शौक़ पियानो — 5 साल की उम्र से सीख रही है; सप्ताह में 2 बार कक्षा; अगले महीने प्रदर्शन।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.039",
@@ -3747,7 +4515,30 @@
       "cultural_context": "セール (sale) at Japanese bookstores is rare — most shops keep fixed prices set by the publisher (定価販売). When sales do happen (e.g. 半分のねだん, \"half price\"), they're usually stock-clearing events at independent shops, advertised with おしらせ (notice) flyers.",
       "format_role": "info_search",
       "summary_hi": "जापानी पुस्तक-दुकानों पर सेल दुर्लभ — फ़िक्स्ड क़ीमतें (ていかはんばい) सामान्य हैं।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.040",
@@ -3848,7 +4639,55 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "primary",
       "summary_hi": "शनिवार सुबह पार्क का दृश्य — बच्चे गेंद से खेल रहे, बूढ़ा बेंच पर पढ़ रहा, पक्षियों की आवाज़।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-007",
+          "note": "で marks the location-of-action OR the means/instrument (depending on the verb)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.041",
@@ -3893,7 +4732,95 @@
       "cultural_context": "Restaurants near train stations (えきの ちかくの レストラン) are a defining feature of Japanese urban life. Ekimae (駅前, \"in front of the station\") restaurants cater to commuters meeting up after work — quick service, modest prices, and located within a 2-minute walk of the ticket gates.",
       "format_role": "narrative",
       "summary_hi": "स्टेशन के पास के रेस्तरां जापानी शहरी जीवन का प्रमुख हिस्सा — एकीमाए (駅前) रेस्तरां कमर्शियल।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with (companion)\" or \"and (exhaustive listing)\"."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-059",
+          "note": "〜ません = polite non-past negative verb ending."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with (companion)\" or \"and (exhaustive listing)\"."
+        },
+        {
+          "sentence_index": 8,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 9,
+          "pattern_id": "n5-064",
+          "note": "〜たい = \"want to (do verb)\" — the speaker's desire. Conjugates like an い-adjective."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.042",
@@ -3938,7 +4865,90 @@
       "format_role": "narrative",
       "summary_hi": "सप्ताहांत के शौक़ — संगीत सुनना और पार्क में चित्र बनाना; पार्क शांत, फूल खिले हुए।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Public 公園 (parks) double as informal art and music spaces — people sketching, playing instruments, or practicing voice are common, especially at larger parks like 上野公園 (Ueno) or 代々木公園 (Yoyogi). The combination of indoor music + outdoor sketching in this passage maps to a typical 日曜日 (Sunday) leisure rhythm."
+      "cultural_context": "Public 公園 (parks) double as informal art and music spaces — people sketching, playing instruments, or practicing voice are common, especially at larger parks like 上野公園 (Ueno) or 代々木公園 (Yoyogi). The combination of indoor music + outdoor sketching in this passage maps to a typical 日曜日 (Sunday) leisure rhythm.",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-030",
+          "note": "verb-plain + こと + です turns the verb into a noun: \"doing X is...\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-009",
+          "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous OR habitual / ongoing state. Translate as \"is doing\" or \"regularly does\" depending on context."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-059",
+          "note": "〜ません = polite non-past negative verb ending."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-064",
+          "note": "〜たい = \"want to (do verb)\" — the speaker's desire. Conjugates like an い-adjective."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-008",
+          "note": "と here = \"with (companion)\" or \"and (exhaustive listing)\"."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        },
+        {
+          "sentence_index": 8,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous OR habitual / ongoing state. Translate as \"is doing\" or \"regularly does\" depending on context."
+        },
+        {
+          "sentence_index": 8,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.043",
@@ -3984,7 +4994,110 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "narrative",
       "summary_hi": "कल सुबह से सिरदर्द-गला, शाम 3 बजे क्लीनिक गए; बुख़ार है, सर्दी, आराम 3-4 दिन।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-081",
+          "note": "い-adjective past: stem-かったです = \"was (adj)\"."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-009",
+          "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-061",
+          "note": "〜ませんでした = polite past negative verb ending."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-097",
+          "note": "Verb-plain + と (here) = \"when X happens, Y always happens\" — natural / automatic consequence."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 8,
+          "pattern_id": "n5-059",
+          "note": "〜ません = polite non-past negative verb ending."
+        },
+        {
+          "sentence_index": 8,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 9,
+          "pattern_id": "n5-060",
+          "note": "〜ました = polite past affirmative verb ending."
+        },
+        {
+          "sentence_index": 9,
+          "pattern_id": "n5-005",
+          "note": "に marks: location of existence / specific time / direction (depending on the verb)."
+        },
+        {
+          "sentence_index": 10,
+          "pattern_id": "n5-100",
+          "note": "〜ことができます = \"can do (verb)\" — ability. Pairs verb-plain + こと + が + できる."
+        },
+        {
+          "sentence_index": 10,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.044",
@@ -4028,7 +5141,85 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "narrative",
       "summary_hi": "अगला सप्ताह व्यस्त — सोम मीटिंग, मंगल/बुध दोस्तों, गुरु माँ का जन्मदिन (फूल + गिफ़्ट), शुक्र-शनि योजनाएँ।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-090",
+          "note": "あります = exists (for inanimate things). Pairs with location particle に."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-004",
+          "note": "を marks the direct object — what the verb is acting on."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-097",
+          "note": "Verb-plain + と (here) = \"when X happens, Y always happens\" — natural / automatic consequence."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-064",
+          "note": "〜たい = \"want to (do verb)\" — the speaker's desire. Conjugates like an い-adjective."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 8,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     },
     {
       "id": "n5.read.045",
@@ -4072,7 +5263,85 @@
       "cultural_context_provenance": "native_reviewed",
       "format_role": "narrative",
       "summary_hi": "टोक्यो के बैंक में लेखक का काम — रोज़ 8:30 घर से, ट्रेन 30 मिनट, 9-6 का काम, बजट के काग़ज़।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "grammar_footnotes": [
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-072",
+          "note": "〜ています = present continuous OR habitual / ongoing state. Translate as \"is doing\" or \"regularly does\" depending on context."
+        },
+        {
+          "sentence_index": 0,
+          "pattern_id": "n5-091",
+          "note": "います = exists (for animate things — people, animals)."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 1,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 2,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 3,
+          "pattern_id": "n5-009",
+          "note": "から here is \"from\" (starting point of motion or time)."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-097",
+          "note": "Verb-plain + と (here) = \"when X happens, Y always happens\" — natural / automatic consequence."
+        },
+        {
+          "sentence_index": 4,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 5,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 6,
+          "pattern_id": "n5-002",
+          "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-070",
+          "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
+        },
+        {
+          "sentence_index": 7,
+          "pattern_id": "n5-058",
+          "note": "〜ます = polite non-past verb form. Used for present and future actions."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
     }
   ],
   "_meta": {
