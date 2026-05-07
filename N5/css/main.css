@@ -6057,6 +6057,39 @@ html[data-protect="on"][data-blur="true"] body::before {
   border: 1px solid var(--color-line, #d6d6d0);
   border-radius: var(--r);
   margin-bottom: 16px;
+  position: relative;     /* anchors the absolute-positioned watermark */
+  overflow: hidden;       /* clip the watermark to the paper card on screen */
+  isolation: isolate;     /* fresh stacking context — keeps z-index local */
+}
+
+/* Tiled "JLPTSUCCESS.COM" watermark.
+   - On screen: fills the whole .print-paper-root (which is the entire
+     paper, scrolling with content). Repeats endlessly via the SVG
+     <pattern>.
+   - In @media print: switched to position:fixed at viewport size so
+     the same tiling appears on every printed page (modern browsers
+     repeat fixed elements on each print page). See override block in
+     the @media print section below.
+   Z-index is 0 so every content child (cover / sections / key /
+   footer) at z-index:1 renders on top of it. */
+.print-paper-watermark {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.print-paper-watermark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* Promote every direct content child of the paper above the watermark.
+   :not() guards against accidentally promoting the watermark itself. */
+.print-paper-root > *:not(.print-paper-watermark) {
+  position: relative;
+  z-index: 1;
 }
 .print-paper-root h1, .print-paper-root h2, .print-paper-root h3 {
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', 'Helvetica Neue', sans-serif;
@@ -6411,4 +6444,37 @@ html[data-protect="on"][data-blur="true"] body::before {
   /* Furigana ruby is fine to print. */
   body[data-route="print"] ruby { line-height: 1.9; }
   body[data-route="print"] rt { font-size: 7pt; }
+
+  /* Watermark: switch from absolute-within-paper (on screen) to
+     fixed-at-viewport (on print) so the same tiled JLPTSUCCESS.COM
+     appears on every printed page. Modern Chrome / Edge / Firefox /
+     Safari all repeat fixed-positioned elements on each printed
+     page in @media print mode.
+
+     We force print-color-adjust:exact on the inline SVG so the
+     watermark renders even if the user has not enabled
+     "Background graphics" in the print dialog (the SVG <text> is
+     foreground content, so this is mostly belt-and-suspenders).
+
+     Opacity is held to 0.06 in the SVG itself; we don't need to
+     dampen it further here. The clipping wrapper (.print-paper-root
+     overflow:hidden) is removed in print so the fixed watermark
+     can paint outside the paper card if browsers calculate the
+     viewport differently. */
+  body[data-route="print"] .print-paper-root { overflow: visible; }
+  body[data-route="print"] .print-paper-watermark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  body[data-route="print"] .print-paper-watermark svg {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
 }

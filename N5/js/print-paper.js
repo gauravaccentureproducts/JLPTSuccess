@@ -402,6 +402,7 @@ async function renderPrintShell(container, paperId, cover, sections, includeKey)
       </header>
 
       <article class="print-paper-root" lang="ja">
+        ${renderWatermark()}
         ${renderCover(cover)}
         ${renderedSections}
         ${keyHtml}
@@ -410,7 +411,7 @@ async function renderPrintShell(container, paperId, cover, sections, includeKey)
         </footer>
       </article>
 
-      <p class="muted small print-paper-hint">Tip: Browser <strong>Print</strong> dialog has a "Save as PDF" destination. Use that to keep an offline copy without using paper.</p>
+      <p class="muted small print-paper-hint">Tip: Browser <strong>Print</strong> dialog has a "Save as PDF" destination. Use that to keep an offline copy without using paper. Each printed page carries a faint <strong>JLPTSUCCESS.COM</strong> watermark — readability of the questions is unaffected; the watermark deters resale of printed copies.</p>
     </article>
   `;
 
@@ -426,6 +427,55 @@ async function renderPrintShell(container, paperId, cover, sections, includeKey)
 }
 
 // ---------- Render helpers ----------
+
+// Tiled "JLPTSUCCESS.COM" watermark behind every printed page.
+//
+// Why an inline SVG with <pattern>+<rect>:
+//   - Foreground SVG content prints reliably regardless of the user's
+//     "Background graphics" toggle in the print dialog. A CSS
+//     background-image would not — many browsers strip those by default.
+//   - The <pattern> repeats deterministically, so the same logo grid
+//     appears on every page when the wrapper is fixed-positioned in
+//     @media print.
+//   - rotate(-28) on the text plus letter-spacing gives the classic
+//     diagonal watermark look without needing a logo image asset.
+//
+// Readability protection:
+//   - fill-opacity 0.06 sits well below the contrast threshold for
+//     interfering with body text (which is full-black at 11pt).
+//   - The wrapper has pointer-events:none + user-select:none so the
+//     watermark can never block clicks or text selection on screen.
+//   - z-index management (CSS) puts every content child on z-index 1
+//     so the watermark stays strictly behind cover / questions / key.
+//
+// Tile geometry:
+//   280 x 160 px tile, one logo per tile, rotated -28deg from horizontal.
+//   At a typical A4 print canvas (~794x1123px @ 96dpi minus 2cm margins
+//   ≈ 670x973), that yields ~3 columns x ~6 rows = ~18 watermarks per
+//   page. Dense enough to be unmistakable, sparse enough that any 2cm
+//   patch of paper has only one watermark visible.
+function renderWatermark() {
+  return `
+    <div class="print-paper-watermark" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="jlpts-watermark" x="0" y="0" width="280" height="160" patternUnits="userSpaceOnUse">
+            <text x="140" y="86"
+                  font-family="Helvetica, Arial, sans-serif"
+                  font-size="16"
+                  font-weight="700"
+                  fill="#000"
+                  fill-opacity="0.06"
+                  letter-spacing="2"
+                  text-anchor="middle"
+                  transform="rotate(-28 140 86)">JLPTSUCCESS.COM</text>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#jlpts-watermark)" />
+      </svg>
+    </div>
+  `;
+}
 
 function renderCover(c) {
   return `
