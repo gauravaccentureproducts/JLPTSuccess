@@ -9,23 +9,24 @@
 > copyrightable. The actual question text is ours.
 
 This file documents the policy formally so the project stays
-defensible if ever questioned. Last updated: 2026-05-02.
+defensible if ever questioned. Last updated: 2026-05-07
+(round-9 close-out, v1.12.50 — counts refreshed).
 
 ---
 
 ## 1. What is original
 
-Every byte of the following is original work:
+Every byte of the following is original work (v1.12.50 counts):
 
 | File / directory | Item count | Authored by |
 |---|---|---|
-| `data/grammar.json` (177 patterns) | 177 patterns × ~3 examples each | Project authors, with a per-pattern `examples` array hand-written to illustrate the pattern in N5-scope vocabulary |
-| `data/questions.json` (288 MCQ + variants) | 288 stems + distractor sets | Project authors, with `tools/add_uncovered_questions*.py` documenting the conventions for adding more |
-| `data/papers/*/paper-*.json` (360 paper questions across moji / goi / bunpou / dokkai) | 25 papers × ~14 questions | Project authors, sourced from internal `KnowledgeBank/*_questions_n5.md` mock files (also authored by project - see provenance audit, §3) |
-| `data/reading.json` (30 passages) | 30 short passages + 60 comprehension Qs | Project authors, with stems written to N5 kanji whitelist + format alignment with JEES sample papers |
-| `data/listening.json` (30 drills) | 30 dialogue/monologue scripts + 30 questions | Project authors, with multi-voice F1/M1 tagging for VOICEVOX synthesis |
-| `data/vocab.json` (1003 entries) | 1003 form/reading/gloss/section/pos rows | Compiled by project authors from public N5-syllabus references (see §4) |
-| `data/kanji.json` (106 entries) | 106 glyphs × on/kun/meanings/examples | Compiled from public N5-syllabus + JOYO references; example sentences are original |
+| `data/grammar.json` (178 patterns) | 178 patterns × ≥4 examples each, all with `meaning_hi` + `explanation_hi` + `l1_notes.hi` | Project authors, with a per-pattern `examples` array hand-written to illustrate the pattern in N5-scope vocabulary |
+| `data/questions.json` (290 MCQ + variants) | 290 stems + distractor sets | Project authors, with `tools/add_uncovered_questions*.py` documenting the conventions for adding more |
+| `data/papers/*/paper-*.json` (29 papers × 426 paper questions across moji / goi / bunpou / dokkai + chokai virtual paper + full-mock 85-Q × 105-min papers) | 29 papers · 426 questions | Project authors, sourced from internal `KnowledgeBank/*_questions_n5.md` mock files (also authored by project - see provenance audit, §3) |
+| `data/reading.json` (45 passages) | 45 short passages + comprehension Qs, all with `summary_hi` + `cultural_context` where Japan-specific | Project authors, with stems written to N5 kanji whitelist + format alignment with JEES sample papers |
+| `data/listening.json` (47 drills) | 47 dialogue/monologue scripts + 47 questions, all with `explanation_hi` and multi-voice 男:/女: role tagging for VOICEVOX synthesis | Project authors |
+| `data/vocab.json` (1041 entries) | 1041 form/reading/gloss/section/pos rows, all with `gloss_hi`; 134 verbs with `verb_class` + 6 X-6.6 group-1 exception flags; 87 nouns with `counter`; pitch-accent + collocations on high-frequency entries | Compiled by project authors from public N5-syllabus references (see §4) |
+| `data/kanji.json` (106 entries) | 106 glyphs × on/kun/meanings_hi/radical-breakdown/mnemonics/look-alike clusters/≥3 examples | Compiled from public N5-syllabus + JOYO references; example sentences are original |
 
 ## 2. What is third-party (and properly licensed)
 
@@ -43,7 +44,8 @@ and `KnowledgeBank/` is original.
 for past-paper signatures: JEES citations, year-numbered question
 markers (`2018年7月本試験` etc.), past-paper terminology (`過去問` /
 `真題` / `本試験第N回`), and full-name JEES references. Last run
-2026-05-02: **0 hits across 648 audited questions**.
+2026-05-07 (round-9 close-out): **0 hits across 716 audited questions**
+(290 question-bank + 426 paper-bound).
 
 The intent: if a contributor ever paraphrases too closely from a real
 past paper, the audit catches it before commit.

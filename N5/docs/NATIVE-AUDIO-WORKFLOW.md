@@ -1,47 +1,74 @@
-# Native-speaker audio integration workflow (IMP-042)
+# Native-speaker audio integration workflow (IMP-042 / IMP-094)
 
-The N5 corpus currently ships with synthetic gTTS audio for every grammar
-example, reading passage, and listening item. The audit's IMP-042 asks
-for native-speaker recordings to replace the synthetic ones, since
-gTTS is recognisable as non-native and a learner trained on synthetic
-audio can struggle with real audio (NHK, JLPT recordings, etc.).
+## Current baseline (2026-05-07, v1.12.50)
 
-This file documents the mechanical pipeline so a future content pass -
-once recordings are commissioned or recorded in-house - can land them
-without code changes.
+The N5 corpus ships **synthetic audio for 100 % of declared items**:
 
-## Scope (Q11 budget decision)
+| Module    | Count | Provider               | Quality bar |
+|-----------|-------|------------------------|-------------|
+| Grammar   | 631   | gTTS                   | Acceptable for 2-5 s example clips |
+| Reading   | 40    | gTTS                   | Usable; native voice elevates "read along" |
+| Listening | 47    | **VOICEVOX 0.25.2** (4 voices, 1.30× pace) | **Native prosody**, multi-voice, JLPT-N5-paced |
 
-Recommended priority order:
+Round-9 (2026-05-07) replaced single-voice synthetic listening with
+**multi-voice VOICEVOX** at JLPT-N5 target pace (180–240 morae/min).
+This significantly narrows the gap between synthetic and native-recorded
+audio for the listening surface — it now sounds like a JLPT mock paper
+rather than a TTS reading.
 
-1. **40 listening items** (`data/listening.json`) - first to land. Listening
-   is where synthetic prosody hurts most (the format mimics real exam
-   audio). Estimated ~30-45 min of recorded material.
-2. **40 reading passages** (`data/reading.json`) - second. The synthetic
-   versions are usable but a native voice elevates "read along" practice.
-   Estimated ~25-35 min.
-3. **~890 grammar example sentences** (`data/grammar.json`) - last (or
-   not at all). Each clip is 2-5 seconds and the gTTS rendering is fine
-   for the "hear how the pattern sounds" goal. Replace if budget allows.
+The remaining IMP-042 / IMP-094 ask is: **commission native-speaker
+recordings to replace the synthetic ones**, prioritised by where
+synthesis still hurts comprehension most.
 
-## Schema support
+## Updated priority order (post round-9)
 
-The audio manifest at `data/audio_manifest.json` already supports per-item
-`voice` metadata:
+1. **40 reading passages** (`data/reading.json`) — **now top
+   priority**. Reading is the only surface still on single-voice gTTS;
+   a native voice meaningfully elevates "read along" practice and
+   prosody training. Estimated ~25–35 min of recorded material.
+2. **631 grammar example sentences** (`data/grammar.json`) — second.
+   Each clip is 2–5 s and the gTTS rendering is fine for the "hear how
+   the pattern sounds" goal, but a single recurring native voice would
+   make the grammar-listening surface coherent. Replace if budget
+   allows.
+3. **47 listening drills** (`data/listening.json`) — **deferred**.
+   VOICEVOX multi-voice at 1.30× already sounds plausibly close to JLPT
+   exam audio; the marginal improvement from native is smaller than
+   for reading or grammar. Revisit only if listener-comprehension
+   feedback flags specific items.
+
+This re-prioritisation is the round-9 outcome — the 2026-05-04
+version of this doc had listening as #1, before VOICEVOX shipped.
+
+## Schema support (unchanged from earlier rounds)
+
+The audio manifest at `data/audio_manifest.json` already supports
+per-item `voice` metadata:
 
 ```json
 {
   "voice_default": "synthetic-gtts",
   "items": [
-    { "id": "listen.001", "path": "audio/listening/n5.listen.001.mp3",
+    { "id": "n5.listen.001",
+      "path": "audio/listening/n5.listen.001.mp3",
+      "voice": "synthetic-voicevox-shikoku-metan" },
+    { "id": "n5.read.005",
+      "path": "audio/reading/n5.read.005.mp3",
       "voice": "native" }
   ]
 }
 ```
 
-`tools/build_audio.py` skips any item whose `voice` is set to `"native"`
-when re-running the gTTS pipeline, so existing synthetic files don't
-clobber a freshly-recorded native file.
+`tools/build_audio.py`, `tools/build_audio_voicevox.py`, and
+`tools/build_listening_audio_multivoice_2026_05_07.py` all skip any
+item whose `voice` is set to `"native"` when re-running their
+respective TTS pipelines, so existing synthetic files don't clobber a
+freshly-recorded native file.
+
+The round-9 multivoice manifest at `data/audio_manifest_voice.json`
+also captures the per-item engine and speaker plan; setting `voice:
+"native"` on an item in `data/listening.json` is sufficient — the
+build script skips it without further config.
 
 ## File layout
 
@@ -53,49 +80,79 @@ audio/reading/n5.read.NNN.mp3
 audio/grammar/n5-NNN.M.mp3
 ```
 
-Format: 128 kbps mono MP3, normalised to -16 LUFS. The existing gTTS
-files use this format; matching it keeps the manifest +
-`<audio src="...">` references unchanged.
+**Format:** 128 kbps mono MP3, normalised to -16 LUFS. The existing
+synthetic files use this format; matching it keeps the manifest +
+`<audio src="…">` references unchanged. (VOICEVOX renders to WAV
+first, ffmpeg transcodes to this same MP3 spec.)
 
 ## Steps to land a batch
 
 1. **Record / commission** native-speaker MP3s using a Japanese voice
    actor. The official JLPT voice is announcer-neutral (no regional
-   accent). Reading speed: ~250 mora per minute for listening,
-   somewhat slower for reading.
+   accent). Reading speed: ~250 mora/min for listening, ~180–200 for
+   reading passages.
 2. **Drop files** at the matching paths under `audio/` (overwriting
    synthetic where present).
-3. **Update manifest:** for each replaced item, set `voice: "native"`
-   in `data/audio_manifest.json`. The `voice_default: "synthetic-gtts"`
-   stays so non-replaced items continue to be regenerated by the
-   build pipeline.
+3. **Update manifest** — for each replaced item:
+   - Set `voice: "native"` in `data/audio_manifest.json` (legacy) and
+     `data/audio_manifest_voice.json` (round-9).
+   - On the `data/<module>.json` item, set `voice: "native"` if the
+     item carries that field.
+   - The `voice_default: "synthetic-gtts"` (or
+     `"synthetic-voicevox-…"`) stays so non-replaced items continue
+     to be regenerated by the build pipeline.
 4. **Bump version:** `python tools/build_version_json.py` to refresh
    `data/version.json` and `sw.js#CACHE_VERSION` so returning users
    pull the new audio bytes (not just the metadata).
-5. **Smoke test:** load `#/listening`, click play on a replaced item,
-   confirm native voice. Re-run `python tools/check_content_integrity.py`
-   to make sure the new files all resolve on disk (JA-15 invariant).
+5. **Smoke tests:**
+   - Load `#/listening` (or `#/reading`), click play on a replaced
+     item, confirm native voice.
+   - Re-run `python tools/check_content_integrity.py` — verifies the
+     48 invariants (incl. JA-15 file-resolves-on-disk).
+   - Re-run `python tools/audit_audio_coverage.py` — confirms the
+     manifest matches on-disk state.
 
-## Estimated cost
+## Estimated cost (revised, post round-9)
 
-- Voice talent: USD$50-150/hour for indie Japanese VO; USD$200-500
-  for studio-quality. Listening + reading combined ~70 minutes raw
-  audio = 2-4 studio hours including retakes.
-- Splicing / normalisation: ~4-6 hours of editor time.
-- **Total range: USD$300-1500** depending on voice tier + edit polish.
+- Voice talent: USD$50–150/hour for indie Japanese VO; USD$200–500
+  for studio-quality.
+- **Reading-only batch (40 passages, ~30 min raw):** ~1.5–3 studio
+  hours including retakes + ~3–4 hours edit polish.
+- **Total reading-only range: USD$200–800.**
+- Grammar batch (631 short clips, ~50 min raw): another USD$300–1000
+  on top, mostly edit time.
+- **Listening rebake (if ever pursued):** USD$200–600 — but skip
+  unless feedback specifically flags the VOICEVOX rendering.
 
 ## Alternative paths
 
-If the budget is constrained, two cheaper options:
+Two cheaper options if budget is constrained:
 
 1. **Forvo curated:** Forvo (forvo.com) hosts native pronunciations of
    single words. Not a replacement for full sentences, but cleaner
-   than gTTS for vocab-list audio if vocab gets its own audio surface.
-   License compatibility (CC BY-NC) means embed-only, not redistributable.
-2. **Single voice talent + AI assistance:** record a smaller subset
-   (say, all listening + the 30 reading passages) and keep gTTS for the
-   ~890 grammar example sentences. Halves the budget while delivering
-   the highest-impact content first.
+   than gTTS for the 1041-entry vocab list if vocab gets its own
+   audio surface in a future round. Licence (CC BY-NC) means
+   embed-only, not redistributable.
+2. **Single voice talent + AI assistance:** record reading-only,
+   keep VOICEVOX listening, keep gTTS grammar. Smallest budget, biggest
+   marginal-quality improvement.
 
-This document is content-only; no code changes are required to land
-native audio. The pipeline is data-driven.
+## What changed between 2026-05-04 and 2026-05-07
+
+- **Listening went from gTTS single-voice → VOICEVOX 4-voice
+  (round-9).** The native-recording urgency on listening dropped
+  accordingly.
+- **Coverage went from 96.9 % → 100 %.** All 718 declared audio items
+  now have a file on disk. Every gap was either rendered (round-9
+  multivoice) or fixed (round-9 truncation guard for 9 clipped clips).
+- **Truncation guard added:** `tools/fix_truncated_audio_2026_05_07.py`
+  protects against gTTS sentence-internal clipping. Wire into pre-commit
+  before commissioning native recordings to avoid mixing truncated
+  synthetic + native in the same item.
+
+This document is **content-only** — no code changes are required to
+land native audio. The pipeline is data-driven; the build scripts
+already honour the `voice: "native"` flag.
+
+See [`AUDIO.md`](../AUDIO.md) for the full multi-provider build
+pipeline details (VOICEVOX setup, edge-tts fallback, gTTS, ffmpeg).

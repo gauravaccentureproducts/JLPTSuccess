@@ -5,6 +5,14 @@ from your own infrastructure - for vocational schools, language
 schools, NGOs, or any institution wanting an offline-capable, no-
 account JLPT N5 prep tool branded for their context.
 
+**Current upstream baseline:** v1.12.50 (round-9 close-out,
+2026-05-07) · 178 grammar / 1041 vocab / 106 kanji / 45 reading / 47
+listening / 426 paper-bound mock-test questions across 29 papers ·
+**48 content-integrity invariants** + 8 design-system rules · 718
+audio MP3s (VOICEVOX-rendered listening + gTTS grammar/reading) ·
+locales `{en, hi}` · all surfaces 100 % Hindi-covered at LLM-persona
+Q33 quality bar.
+
 ## TL;DR
 
 ```bash
@@ -125,24 +133,41 @@ server {
 }
 ```
 
-Bundle size on first paint:
-- HTML + main.min.css + app.js = ~150 KB
-- Lazy-loaded JS chunks = ~250 KB
-- Lazy-loaded JSON corpora = ~700 KB
+Bundle size on first paint (v1.12.50):
+- HTML + main.min.css + app.js = ~155 KB
+- Lazy-loaded JS chunks = ~270 KB (md-viewer.js, provenance-badge.js,
+  audio-player.js, sitting.js, listening-transcript.js,
+  learn-grammar.js, learn-vocab.js, etc.)
+- Lazy-loaded JSON corpora = ~820 KB (grammar 178 / vocab 1041 / kanji
+  106 / reading 45 / listening 47 / questions + mock papers; all with
+  Hindi fields populated)
 - Self-hosted fonts (woff2) = ~503 KB
-- Audio MP3s lazy on demand = ~22 MB total (only what the user actually
-  plays gets cached)
+- Audio MP3s lazy on demand = ~24 MB total across 718 files (only
+  what the user actually plays gets cached). Listening rendered with
+  VOICEVOX 0.25.2 multi-voice; grammar / reading rendered with gTTS.
 
-Total cold start ~1 MB. Service worker precaches the shell so
-subsequent visits work fully offline.
+Total cold start ~1.3 MB. Service worker
+(`jlptsuccess-n5-v1.12.50`) precaches the shell so subsequent visits
+work fully offline.
 
 ## Data customization
 
 The 5 corpus files at `N5/data/{grammar,vocab,kanji,reading,listening}.json`
-are the editable content surface. Keep their schema intact (the runtime
-expects specific field names - see `N5/tools/check_content_integrity.py`
-for the 42 invariants), but the actual entries are CC BY-SA - translate,
+are the editable content surface, plus `data/questions.json` (290
+question-bank items) and `data/mock_papers.json` (29 papers / 426
+paper-bound questions). Keep their schemas intact (the runtime
+expects specific field names - see
+`N5/tools/check_content_integrity.py` for the **48 invariants**
+JA-1..JA-39 + X-6.x), but the actual entries are CC BY-SA - translate,
 adapt, or extend per your curriculum.
+
+**Audio re-render:** if you replace listening scripts or grammar
+example sentences, re-render the affected audio with the build
+pipeline documented in [`../AUDIO.md`](../AUDIO.md) — VOICEVOX 0.25.2
+locally (recommended) or gTTS as the lower-friction fallback. The
+truncation guard at
+`N5/tools/fix_truncated_audio_2026_05_07.py` should be wired into
+your release pre-commit before shipping.
 
 If you change item counts or add new fields, run:
 

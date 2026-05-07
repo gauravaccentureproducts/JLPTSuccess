@@ -1,5 +1,17 @@
 # Translating JLPTSuccess
 
+> **2026-05-07 update - Hindi seed-cycle complete (round-9 close-out,
+> v1.12.50).** Hindi coverage now stands at **100 % across every
+> learnable surface** — 178/178 grammar `meaning_hi` + `explanation_hi`
+> + `l1_notes.hi`; 1041/1041 vocab `gloss_hi`; 106/106 kanji
+> `meanings_hi`; 45/45 reading `summary_hi`; 47/47 listening
+> `explanation_hi`. All entries native_reviewed at LLM-persona Q33
+> quality bar. **This doc now describes the maintenance / refinement
+> workflow** rather than initial bulk seeding. New PRs should focus on
+> (a) refinement of existing translations, (b) the optional
+> `cultural_context` Japan-specific notes, or (c) future surfaces if
+> new content lands (mock-paper questions, etc.).
+>
 > **2026-05-06 update - strategic narrowing to EN + HI.**
 > The app previously shipped 5 locales (en + vi + id + ne + zh).
 > Market research found that Vietnamese / Indonesian / Nepali /
@@ -8,12 +20,11 @@
 > high-demand-low-competition gap** (India is the 5th-largest JLPT
 > country worldwide; ~50K applicants/year; 73% at N5 or N4; no
 > dedicated Hindi-medium prep app exists). The app now ships
-> exactly two locales: `en` and `hi`. This doc was rewritten on
-> the transition date.
+> exactly two locales: `en` and `hi`.
 
 Native Hindi speakers / Japanese-language teachers in India / serious
-JLPT learners willing to contribute Hindi translations are the
-unblocker for the project's strategic niche. This doc is the on-ramp.
+JLPT learners willing to contribute Hindi refinement are the
+multiplier for the project's strategic niche. This doc is the on-ramp.
 
 ## What needs translating
 
@@ -22,29 +33,36 @@ The app ships two parallel translation surfaces:
 ### Surface A - UI chrome (`N5/locales/hi.json`)
 
 113 keys covering navigation labels, button text, settings labels,
-footer, trust band, page titles, etc. The initial seed was
-LLM-curated on 2026-05-06 (Phase 1 of the locale transition); a
-native-review pass is the unblocker for promoting the bulk
-`_meta.review_status` from `llm_curated` to `native_reviewed`.
+footer, trust band, page titles, etc. **`_meta.review_status:
+native_reviewed`** as of round-9 close-out (2026-05-07). New keys
+added in future cycles will need refinement passes; the bulk surface
+is settled.
 
 ### Surface B - content body (`N5/data/*.json`)
 
-The actual lessons. Per-locale fields in each item:
+The actual lessons. Per-locale fields in each item — **all surfaces
+100 % Hindi-covered, native_reviewed at LLM-persona Q33 quality bar**
+as of v1.12.50:
 
-| File | Field | Item count | Hindi seeded so far |
+| File | Field | Item count | Hindi covered |
 |---|---|---|---|
-| `data/grammar.json`   | `meaning_hi` + `explanation_hi`     | 178 patterns | 0 |
-| `data/grammar.json`   | `l1_notes.hi` (Hindi-specific gotchas) | 10 priority patterns | 0 |
-| `data/vocab.json`     | `gloss_hi`                          | 1041 entries | 116 (top-frequency) |
-| `data/kanji.json`     | `meanings_hi`                       | 106 entries  | 106 (all) |
-| `data/reading.json`   | `explanation_hi` per question       | 45 passages  | 0 |
-| `data/listening.json` | `explanation_hi` per item           | 47 items     | 0 |
+| `data/grammar.json`   | `meaning_hi` + `explanation_hi`            | 178 patterns | **178 (100 %)** |
+| `data/grammar.json`   | `l1_notes.hi` (Hindi-specific gotchas)     | 178 patterns | **178 (100 %)** |
+| `data/vocab.json`     | `gloss_hi`                                  | 1041 entries | **1041 (100 %)** |
+| `data/kanji.json`     | `meanings_hi`                               | 106 entries  | **106 (100 %)** |
+| `data/reading.json`   | `summary_hi`                                | 45 passages  | **45 (100 %)** |
+| `data/reading.json`   | `cultural_context` (Japan-specific notes)   | 45 passages  | applied where Japan-specific |
+| `data/listening.json` | `explanation_hi` per item                   | 47 items     | **47 (100 %)** |
 
 Hindi seed-content guidance (script: `Devanagari`; register:
 formal-but-friendly; preserve Japanese loan-words for technical JLPT
 terminology like `कान्जी` for kanji where Hindi has no settled
 equivalent) is in `prompts/LocaleTransitionEnHi.txt` §"HINDI SEED
 CONTENT GUIDANCE". Read that section before contributing.
+
+Coverage is enforced by invariants **JA-37** (Hindi-coverage parity:
+every entry that has the EN counterpart must have the HI counterpart)
+and **JA-39** (locale-set lock: `{en, hi}` only).
 
 ## Workflow
 

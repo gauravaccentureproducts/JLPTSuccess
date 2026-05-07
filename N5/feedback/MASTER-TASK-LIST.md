@@ -1,10 +1,46 @@
 # JLPT N5 Tutor - Master Task List
 
-> **2026-05-06 transition note:** Historical UNC-1 / verification rows below mention the 5-locale shell (en/vi/id/ne/zh). The shell was narrowed to 2 locales (en + hi) on 2026-05-06 per IMP-096 architectural decision. Rows are preserved for historical record - the current state is en+hi only. See CHANGELOG v1.12.40 for rationale.
+> **2026-05-07 SUPERSEDED by round-9 close-out (v1.12.50).** This
+> document is preserved as a historical snapshot from **2026-05-01**
+> (when it was compiled) and **2026-05-03** (when it was updated to
+> the "🎉 125/125 done" state). It is **not** the current source of
+> truth.
+>
+> The live tracker is **`feedback/n5-audit-2026-05-04.xlsx`** (Items +
+> Questions sheets), which closed round-9 at **219 Done / 3 Avoid /
+> 0 Open / 0 Open Questions** at LLM-persona Q33 quality bar.
+>
+> Two specific reversals in this document worth flagging:
+> - **INFRA-2 / INFRA-3** (VOICEVOX backend / multi-voice dialogue)
+>   were marked CLOSED-BY-DECISION on 2026-05-03 ("user accepted
+>   current gTTS"). **Round-9 reversed that decision and shipped
+>   VOICEVOX 4-voice listening render** (Shikoku Metan / Shirakami
+>   Kotaro / Hau Tsumugi / Aoyama Ryusei at speed_scale 1.30).
+> - **INFRA-4 / INFRA-5** (Pass-11 native-teacher review) were marked
+>   CLOSED-BY-DECISION; rounds 4–9 then ran a deeper LLM-persona
+>   native-review pass (Q33 quality bar) across all 178 grammar / 1041
+>   vocab / 106 kanji / 45 reading / 47 listening surfaces, marking
+>   every item `native_reviewed`. The "future opportunistic reviewer"
+>   path remains open under IMP-094 but is no longer a release blocker.
+>
+> See **`specifications/JLPT-N5-Current-Implementation-Spec.md`** for
+> the v1.12.50 baseline + **`feedback/audit-round9-2026-05-06.md`** for
+> the round-9 narrative.
 
-**Compiled:** 2026-05-01
+> **2026-05-06 transition note:** Historical UNC-1 / verification rows
+> below mention the 5-locale shell (en/vi/id/ne/zh). The shell was
+> narrowed to 2 locales (en + hi) on 2026-05-06 per IMP-096
+> architectural decision. Rows are preserved for historical record -
+> the current state is **en+hi only, with all surfaces 100 % Hindi-
+> covered** at LLM-persona Q33 quality bar. See CHANGELOG v1.12.40
+> for rationale.
+
+**Compiled:** 2026-05-01 (this snapshot)
+**Last close-state edit:** 2026-05-03 (final 125/125 sweep)
+**Superseded by:** round-9 close-out, 2026-05-07 (v1.12.50)
 **Sources:** 15 feedback documents in `feedback/` cross-referenced against current shipped state
-**Current state baseline:** v1.8.5 / SW v72 / 223 questions / 33 content-integrity invariants green / 8 design-system rules green / Pass-1..15 audits applied
+**Snapshot baseline:** v1.8.5 / SW v72 / 223 questions / 33 content-integrity invariants green / 8 design-system rules green / Pass-1..15 audits applied
+**Current baseline (round-9):** v1.12.50 / SW `jlptsuccess-n5-v1.12.50` / 426 paper-bound questions across 29 papers (incl. chokai virtual + full-mock 85-Q × 105-min papers) / **48 content-integrity invariants** green / 8 design-system rules green / 9 audit rounds applied / xlsx tracker 219 Done / 3 Avoid / 0 Open / 0 Open Questions
 
 This is the consolidated successor to all individual audit / brief docs. It lists every distinct action item across all feedback, classified as:
 

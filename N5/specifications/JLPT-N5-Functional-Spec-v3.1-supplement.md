@@ -2,8 +2,19 @@
 
 **Companion to:** `specifications/JLPT N5 Grammar Tutor – Functional Spec.docx` (v3, amended 2026-04-30)
 **Status:** Gap-fill addendum. Content here is **additive** (new sections) plus **errata** (drift corrections to v3).
-**Date:** 2026-04-30 (locale-shell errata appended 2026-05-06)
+**Date:** 2026-04-30 (locale-shell errata appended 2026-05-06; round-9 close-out errata appended 2026-05-07)
 **Intended outcome:** When merged into the next .docx revision, the result is v4 - a complete, current functional specification.
+
+> **2026-05-07 errata - round-9 close-out (v1.12.50) supersedes most counts and audit-protocol references in this document.** This v3.1 supplement was generated against the v1.6.x baseline (~2026-04-30) and amended for the locale narrowing (2026-05-06). It is now significantly behind reality. Current shipped baseline at v1.12.50:
+>
+> - **Content scale:** 178 grammar / 1041 vocab / 106 kanji / 45 reading / 47 listening / 290 question-bank items + 426 paper-bound questions across 29 mock-test papers (incl. chokai virtual paper) + full-mock 85-Q × 105-min papers matching real JLPT N5 shape.
+> - **Hindi:** all surfaces 100 % covered (`meaning_hi` / `gloss_hi` / `meanings_hi` / `summary_hi` / `explanation_hi` / `l1_notes.hi`), native_reviewed at LLM-persona Q33 quality bar.
+> - **Audio:** 47 listening drills rendered with VOICEVOX 0.25.2 multi-voice (4 speakers, speed_scale 1.30 → JLPT-N5 target band 180–240 morae/min); grammar (631) + reading (40) on gTTS; truncation guard (`tools/fix_truncated_audio_2026_05_07.py`) shipped.
+> - **SRS:** FSRS-4.5 (replaced SM-2) unified across grammar + vocab + kanji.
+> - **Invariants:** **48** content-integrity (JA-1..JA-39 + X-6.x) + 8 design-system rules; previously 33–41 in this supplement's references.
+> - **Audit cycles:** **9 rounds** complete (Pass-1..Pass-15 + rounds 1–9), tracker at **`feedback/n5-audit-2026-05-04.xlsx`** closed at **219 Done / 3 Avoid / 0 Open / 0 Open Questions**.
+>
+> The live "what does the app do" doc is **`specifications/JLPT-N5-Current-Implementation-Spec.md`** (v1.12.50). Use that, not this supplement, for current state. Body of this file preserved verbatim for historical traceability of the v3 → v4 .docx merge.
 
 > **2026-05-06 errata - locale shell narrowed.** Every "5 locales (en/vi/id/ne/zh)" reference in this document predates the 2026-05-06 transition. Current state: 2 locales (en + hi). The original phrasing is preserved here for historical record; the live behavior is `js/i18n.js SUPPORTED = ['en', 'hi']`. See CHANGELOG v1.12.40 + IMP-096 in `feedback/n5-audit-2026-05-04.xlsx` for the rationale.
 

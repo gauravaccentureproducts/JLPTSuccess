@@ -17,15 +17,19 @@ ISSUE-047 (audit round-5): the docs live in this directory. Quick map:
 
 | Doc | Purpose |
 |---|---|
-| [`specifications/JLPT-N5-Current-Implementation-Spec.md`](specifications/JLPT-N5-Current-Implementation-Spec.md) | The authoritative living spec - what the app actually does today (v1.12.32+). |
-| [`docs/SELF-HOST.md`](docs/SELF-HOST.md) | Fork → brand → deploy guide for institutional / school adopters (niche N3). |
-| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for Hindi (niche N1 - see CHANGELOG v1.12.40 for the en+hi narrowing). |
-| [`docs/NATIVE-AUDIO-WORKFLOW.md`](docs/NATIVE-AUDIO-WORKFLOW.md) | How to swap synthetic gTTS audio for native-speaker recordings. |
-| [`prompts/N5Improvement.txt`](prompts/N5Improvement.txt) | The audit-only prompt that drives every "round" of audit findings. Read for canonical strategic positioning + anti-items list. |
-| [`feedback/n5-audit-2026-05-04.xlsx`](feedback/n5-audit-2026-05-04.xlsx) | Cumulative audit tracker (rounds 1-5). Source of truth for outstanding work. |
-| [`PRIVACY.md`](PRIVACY.md) | Privacy contract - no telemetry, no third-party scripts, no PII. |
+| [`specifications/JLPT-N5-Current-Implementation-Spec.md`](specifications/JLPT-N5-Current-Implementation-Spec.md) | The authoritative living spec — what the app actually does today (**v1.12.50**). |
+| [`CHANGELOG.md`](CHANGELOG.md) | User-visible release notes (currently at **v1.12.50**, post round-9). |
+| [`AUDIO.md`](AUDIO.md) | Audio pipeline (multi-provider auto-fallback: VOICEVOX → edge-tts → gtts). |
+| [`docs/SELF-HOST.md`](docs/SELF-HOST.md) / [`docs/SELF-HOST.hi.md`](docs/SELF-HOST.hi.md) | Fork → brand → deploy guide for institutional / school adopters (niche N3). |
+| [`docs/TRANSLATING.md`](docs/TRANSLATING.md) | Translator-contributor on-ramp for Hindi (niche N1; corpus-wide Hindi review **complete** at LLM-persona-Q33 quality bar — see CHANGELOG v1.12.40-50). |
+| [`docs/NATIVE-AUDIO-WORKFLOW.md`](docs/NATIVE-AUDIO-WORKFLOW.md) | How to swap synthesized audio for native-speaker recordings. |
+| [`docs/UNIFIED-REVIEW-QUEUE-DESIGN.md`](docs/UNIFIED-REVIEW-QUEUE-DESIGN.md) | Cross-skill FSRS-4.5 review queue design (round-9 IMP-092). |
+| [`prompts/N5Improvement.txt`](prompts/N5Improvement.txt) | Audit-only prompt that drives every audit round. Canonical strategic positioning + anti-items list. |
+| [`feedback/n5-audit-2026-05-04.xlsx`](feedback/n5-audit-2026-05-04.xlsx) | Cumulative audit tracker (rounds 1-9). **219 Done / 3 Avoid / 0 Open / 0 Open Questions.** |
+| [`feedback/audit-round9-2026-05-06.md`](feedback/audit-round9-2026-05-06.md) | Round-9 audit report (Sections 0-7, 27 findings registered). Historical snapshot. |
+| [`PRIVACY.md`](PRIVACY.md) | Privacy contract — no telemetry, no third-party scripts, no PII. |
 | [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) | CC BY-SA 4.0 for the educational content corpus. |
-| [`NOTICES.md`](NOTICES.md) | Third-party content attributions (KanjiVG, Inter, Noto Sans JP). |
+| [`NOTICES.md`](NOTICES.md) | Third-party content attributions (KanjiVG, Inter, Noto Sans JP, **VOICEVOX speakers**). |
 | [`../LICENSE`](../LICENSE) | MIT for the source code. |
 | [`../CONTRIBUTING.md`](../CONTRIBUTING.md) | Contribution workflow + anti-features list. |
 
@@ -78,22 +82,28 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
   vocab.json kanji.json reading.json listening.json
   n5_kanji_whitelist.json n5_vocab_whitelist.json n5_kanji_readings.json
   dokkai_kanji_exception.json audio_manifest.json
-  papers/manifest.json                   live counts: 28 papers, 402 questions
+  papers/manifest.json                   live counts: 29 papers, 426 questions
+                                         (4 per-section + chokai virtual aggregator)
+                                         + combined_sections + full_mock_papers
   papers/{moji,goi,bunpou,dokkai}/paper-{1..7}.json
                                          per-section layout: 6 full papers of 15 questions
                                          + 1 short paper of 10 questions = 100 Q (102 for dokkai).
                                          The short paper is intentional - it captures the residual
                                          items after the section's primary 6 papers are filled to
                                          15 each. Do not "rebalance" by redistributing.
+  audio_manifest.json                    711 grammar/reading audio (gtts)
+  audio_manifest_voice.json              47 listening audio (VOICEVOX multi-voice)
 /audio/                                MP3 files (grammar examples, reading, listening)
 /svg/kanji/                            stroke-order SVGs (one per N5 kanji)
-/locales/                              UI translations (en, vi, id, ne, zh)
+/locales/                              UI translations: en, hi (closed set per JA-39)
 /fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
-/tests/                                Playwright specs (p0-smoke, visual-regression)
+/tests/                                Playwright specs (p0-smoke, visual-regression with 76 baselines)
 /tools/                                Python scripts run by the content author only
-  check_content_integrity.py           41 release-blocker invariants
+  check_content_integrity.py           48 release-blocker invariants
+  check_design_system.py               8 D-rules (Muji-flat spec compliance)
   build_data.py check_coverage.py lint_content.py
   build_spec.py build_audio.py
+  build_listening_audio_multivoice_2026_05_07.py    multi-provider listening render
   fix_*.py                             versioned fixers (one per release)
 /KnowledgeBank/grammar_n5.md           canonical N5 pattern catalog (human source-of-truth)
 /KnowledgeBank/kanji_n5.md             N5 kanji catalog with on/kun readings
@@ -124,11 +134,17 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
    ```
    python tools/lint_content.py
    ```
-6. (Optional) Generate stub MCQ questions for any patterns missing one:
+6. Run integrity + design checks (release blockers):
    ```
-   python tools/generate_stub_questions.py
+   python tools/check_content_integrity.py     # 48 invariants
+   python tools/check_design_system.py         # 8 D-rules
    ```
-7. (Optional) Regenerate the spec docx:
+7. (Optional) Re-render listening audio with multi-voice VOICEVOX:
+   ```
+   # Prereq: VOICEVOX engine on :50021 + ffmpeg in PATH
+   python tools/build_listening_audio_multivoice_2026_05_07.py
+   ```
+8. (Optional) Regenerate the spec docx:
    ```
    python tools/build_spec.py
    ```

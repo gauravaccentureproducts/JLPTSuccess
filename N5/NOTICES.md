@@ -25,6 +25,48 @@ Per CC BY-SA 3.0:
 - The KanjiVG SVG files in `svg/kanji/` retain their original CC BY-SA 3.0
   license. The rest of the project is governed by its own LICENSE.
 
+## VOICEVOX (synthesized listening audio)
+
+- **What it is:** Japanese TTS engine + trained voice models used to
+  render the 47 listening-drill MP3s under `audio/listening/`.
+- **Source:** <https://voicevox.hiroshiba.jp/>
+- **Repository:** <https://github.com/VOICEVOX/voicevox_engine>
+- **Engine version used at v1.12.50 render:** 0.25.2
+- **Speakers used (4):**
+  - 四国めたん ノーマル (Shikoku Metan, normal style) — VOICEVOX speaker ID 2
+  - 春日部つむぎ ノーマル (Hau Tsumugi, normal style) — VOICEVOX speaker ID 8
+  - 白上虎太郎 ふつう (Shirakami Kotaro, futsu style) — VOICEVOX speaker ID 11
+  - 青山龍星 ノーマル (Aoyama Ryusei, normal style) — VOICEVOX speaker ID 13
+- **License (engine):** LGPL-3.0
+- **License (voice models):** each speaker model has its own
+  permissive licence — full terms at
+  <https://voicevox.hiroshiba.jp/term/>. Summary of the relevant
+  clauses for our use:
+  - **Free for commercial and non-commercial use** including in this
+    open-source app.
+  - **Per-speaker credit required.** Each speaker requires that you
+    credit the character name when distributing audio output (e.g.,
+    "Voice: 四国めたん"). This file satisfies that requirement; the
+    in-app `#/notices` viewer also surfaces it for end-users who play
+    listening audio.
+  - **No defamatory / R-rated / political-misuse contexts.** Every
+    listening item in `data/listening.json` is a plain JLPT-N5
+    practice prompt — none of those exclusions apply.
+  - **Output redistribution permitted** under the same conditions
+    (credit + non-misuse).
+- **Files:** `audio/listening/*.mp3` (47 files), each rendered with
+  one of the 4 speakers above; per-item speaker mapping captured in
+  `data/audio_manifest_voice.json` and the per-item
+  `audio_render_meta.voices_used` array in `data/listening.json`.
+- **Build pipeline:** [`AUDIO.md`](AUDIO.md) +
+  `tools/build_listening_audio_multivoice_2026_05_07.py`.
+
+The grammar (631 files) and reading (40 files) MP3s under
+`audio/grammar/` and `audio/reading/` are rendered with **gTTS**
+(Google Translate TTS, single voice). gTTS attribution is implicit in
+its open-source library; no per-file crediting is required by its
+licence.
+
 ## Question content / corpus
 
 The grammar patterns, vocabulary entries, kanji records, mock-test
@@ -44,4 +86,5 @@ either organization.
 
 ---
 
-*Last updated: 2026-05-02*
+*Last updated: 2026-05-07 (round-9 close-out, v1.12.50 — added
+VOICEVOX engine + 4-speaker attribution).*

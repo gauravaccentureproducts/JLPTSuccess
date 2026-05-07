@@ -12,13 +12,21 @@ Each level lives as a self-contained sub-app under its own subdirectory and URL 
 
 | Level | Path | Status |
 |---|---|---|
-| N5 (Beginner) | [`/N5/`](N5/) | Live |
-| N4 (Elementary) | [`/N4/`](N4/) | Live |
+| **N5 (Beginner)** | [`/N5/`](N5/) | **Live — actively maintained** (currently v1.12.50, post round-9 audit close-out) |
+| N4 (Elementary) | [`/N4/`](N4/) | Paused (migrated state preserved; legacy URL still serves; no further development) |
 | N3 (Intermediate) | `/N3/` | Coming soon |
 | N2 (Upper-intermediate) | `/N2/` | Coming soon |
 | N1 (Advanced) | `/N1/` | Coming soon |
 
-The top-level page (this repo's `index.html`) is just a level picker. Each level's app shell, data, audio, SVGs, build pipeline, and tests live under that level's subdirectory.
+The top-level page (this repo's `index.html`) is the level picker. Each level's app shell, data, audio, SVGs, build pipeline, and tests live under that level's subdirectory.
+
+### N5 surface highlights (v1.12.50)
+
+- **Content**: 178 grammar patterns, 1041 vocab, 106 kanji, 45 reading passages, 47 listening drills, 290 question bank items + 426 paper-bound questions across 29 mock-test papers (incl. chokai virtual paper) + full-mock papers (85 Q × 105 min) matching real JLPT N5 shape.
+- **Hindi (niche-N1)**: 100 % `meaning_hi` / `gloss_hi` / `meanings_hi` / `summary_hi` / `explanation_hi` / `l1_notes.hi` across all surfaces, native_reviewed at LLM-persona Q33 quality bar.
+- **Audio**: multi-voice VOICEVOX-rendered listening (4 distinct speakers, JLPT-N5-paced); gtts-synthesized grammar/reading examples; per-example audio player with speed controls + transcript-aligned timestamped lines.
+- **PWA**: installable, offline-first, FSRS-4.5 SRS unified across grammar + vocab + kanji.
+- **Privacy**: no login, no tracking, no third-party scripts, all state in `localStorage` namespaced `jlpt-n5-tutor:*`. CSP same-origin. Verified by 48 content-integrity invariants + 8 design-system rules.
 
 ## Running locally
 

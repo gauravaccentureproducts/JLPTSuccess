@@ -1,6 +1,105 @@
 # JLPT N5 Grammar Tutor - Tasks
 
-> **2026-05-06 transition note:** The 5-locale shell (en/vi/id/ne/zh) was narrowed to 2 locales (en + hi) per IMP-096 architectural decision. Historical task rows below mention the original 5-locale state and are preserved for record; the current state is en+hi only. See CHANGELOG v1.12.40 for the rationale.
+> **2026-05-07 round-9 close-out (v1.12.50):** The live source of truth for
+> open / closed work is now **`feedback/n5-audit-2026-05-04.xlsx`**
+> (Items + Questions sheets). Round-9 closed at **219 Done / 3 Avoid /
+> 0 Open / 0 Open Questions**, all native-reviewed at the LLM-persona
+> Q33 quality bar. The body of this file below is preserved as a
+> historical narrative through round-3 (v1.10.x) and is **not the
+> current state** — see the close-out banner immediately below for the
+> v1.12.50 baseline + which items in the historical body are now done.
+>
+> **2026-05-06 transition note:** The 5-locale shell (en/vi/id/ne/zh)
+> was narrowed to 2 locales (en + hi) per IMP-096 architectural
+> decision. Historical task rows below mention the original 5-locale
+> state and are preserved for record; the current state is **en+hi
+> only**, with all surfaces 100 % Hindi-covered. See CHANGELOG v1.12.40
+> for the rationale.
+
+## v1.12.50 close-out banner (2026-05-07)
+
+Last updated: **2026-05-07** (round-9 close-out · v1.12.50 · SW
+`jlptsuccess-n5-v1.12.50` · **48 content-integrity invariants** + 8
+design-system rules green · audit tracker 219 Done / 3 Avoid / 0 Open /
+0 Open Questions).
+
+**Baseline shipped at v1.12.50:**
+
+- **Content scale:** 178 grammar patterns / 1041 vocab / 106 kanji /
+  45 reading passages / 47 listening drills / 290 question-bank items /
+  29 mock-test papers (incl. chokai virtual paper) / 426 paper-bound
+  questions + full-mock papers (85 Q × 105 min) matching real JLPT N5
+  shape.
+- **Hindi (niche-N1):** 100 % `meaning_hi` / `gloss_hi` /
+  `meanings_hi` / `summary_hi` / `explanation_hi` / `l1_notes.hi`
+  across all surfaces, native_reviewed at LLM-persona Q33 quality bar.
+- **Audio (round-9):** 47 listening items rendered with **VOICEVOX
+  0.25.2 multi-voice** (4 distinct speakers: Shikoku Metan, Shirakami
+  Kotaro, Hau Tsumugi, Aoyama Ryusei), `speed_scale=1.30` putting
+  pace in JLPT-N5 target band 180–240 morae/min. Grammar (631) and
+  reading (40) on gTTS. Truncation guard
+  (`tools/fix_truncated_audio_2026_05_07.py`) closed 9 mid-sentence
+  clipped clips. **718 / 718 audio files on disk (100 %).**
+- **PWA / SRS:** Installable, offline-first, **FSRS-4.5** (replaced
+  SM-2) unified across grammar + vocab + kanji in a single daily
+  review queue.
+- **Privacy:** No login · no tracking · no third-party scripts; all
+  state in `localStorage` namespaced `jlpt-n5-tutor:*`. CSP
+  same-origin. Verified by 48 content-integrity invariants
+  (JA-1..JA-39 + X-6.x) + 8 design-system rules.
+
+### Historical items closed by round-9 (re-classify if reading the body)
+
+The body below mentions these items as open / deferred / blocked.
+Round-9 actually shipped them — re-read with these closures in mind:
+
+| Body ID | Body status | Round-9 actual status |
+|---|---|---|
+| **SVA-Q1** FSRS-4.5 SRS upgrade | open quick-win | **✅ Shipped (replaced SM-2; unified queue across grammar + vocab + kanji)** |
+| **SVA-Q3** VOICEVOX listening rebuild (multi-voice) | open quick-win | **✅ Shipped (VOICEVOX 0.25.2 · 4 voices · `tools/build_listening_audio_multivoice_2026_05_07.py`)** |
+| **SVA-Q5** Cultural-context callouts on reading | open quick-win | **✅ Shipped (`cultural_context` field on every Japan-specific reading passage)** |
+| **JCE-6** VOICEVOX listening voice variety (≥4 distinct voices) | open content | **✅ Shipped (round-9 multi-voice render)** |
+| **EB-1 / OQ-2** Listening corpus expansion 12 → 30+ (native voice required) | external-blocked | **✅ Shipped synthetic equivalent: 47 items rendered with VOICEVOX multi-voice at JLPT-N5 pace.** Native-recording swap path remains open under IMP-094 (see `docs/NATIVE-AUDIO-WORKFLOW.md`); priority re-ordered to reading-first since synthetic listening now sounds plausibly close to JLPT exam audio. |
+| **INFRA-2 / INFRA-3** (in MASTER-TASK-LIST.md): VOICEVOX backend + multi-voice dialogue | "closed-by-decision" 2026-05-03 | **Decision reversed and shipped in round-9.** The activation recipe at `feedback/voicevox-integration-notes.md` was followed. Outcome: round-9 baseline. |
+| Listening-drill count 30 → 47 | not in body | **✅ Round-7/8/9 added 17 more listening items, all rendered.** |
+| Reading passages 30 → 45 | not in body | **✅ Rounds 4–6 added 15 passages with `summary_hi` + `cultural_context`.** |
+| Vocab corpus 1003 → 1041 | not in body | **✅ Rounds 4–6 added 38 high-frequency entries with `gloss_hi` + verb_class + counter where applicable.** |
+| Kanji corpus stays at 106 (full N5) | not in body | **✅ Confirmed at round-9: 100 % `meanings_hi`, radical breakdown, mnemonics, look-alike clusters, ≥3 examples per kanji.** |
+| 187 → 178 grammar patterns | body says 187 | **✅ Round-2/3 retired 9 stub / duplicate / non-N5 patterns; net 178 final, all native_reviewed with `l1_notes.hi`.** |
+| 5-locale shell (en/vi/id/ne/zh) | body assumes 5 | **✅ Narrowed to en + hi on 2026-05-06 per IMP-096; JA-39 invariant locks the locale set; vi/id/ne/zh files moved to `locales/legacy/`.** |
+| Mock papers + 426 questions | not in body | **✅ Rounds 5–8: 29 papers including chokai virtual paper + full-mock 85-Q × 105-min papers matching real JLPT N5 shape.** |
+| 33 → 48 content-integrity invariants | body says 33 / 38 / 39 | **✅ Round-2..9 added JA-26..JA-39 (locale-coverage, provenance, voice-variety-status, dokkai upper bound, etc.).** |
+| Trust-band promotion + privacy badge | SVA-1.x open | **✅ 6-pill row promoted to home above the fold; in-app PRIVACY/NOTICES viewer at `#/privacy` and `#/notices`; provenance badges on every learnable surface.** |
+
+### Items intentionally NOT closed at round-9
+
+- **EB-3 OQ-6** Brief translation to Japanese → still deferred.
+- **EB-4 OQ-1 v2.0** ML-backed recommender → still deferred (no
+  privacy-clean data path).
+- **SVA-NEXT-2.4** Print-to-PDF mock paper → still open (next cycle).
+- **SVA-NEXT-3** Self-host institutional kit (`branding.json` override
+  layer) → partial: SELF-HOST.md productized, branding-override layer
+  still open.
+- **SVA-6.x** In-browser AI features → still future-frontier.
+- **JCE-5** Native-speaker reading audio → still blocked on
+  monetization / sponsorship.
+
+### Where to read instead of this file
+
+1. **`feedback/n5-audit-2026-05-04.xlsx`** — live tracker (Items +
+   Questions sheets · 219/3/0/0 at round-9 close).
+2. **`feedback/audit-round9-2026-05-06.md`** — round-9 narrative.
+3. **`specifications/JLPT-N5-Current-Implementation-Spec.md`** —
+   canonical "what the app does" (v1.12.50).
+4. **`CHANGELOG.md`** — release-by-release detail.
+5. **`README.md`** + **`README.hi.md`** — feature snapshot.
+
+The historical body below is preserved verbatim from 2026-05-02 — do
+**not** drive new work from it; use the xlsx + the docs listed above.
+
+---
+
+## Historical body (preserved through 2026-05-02)
 
 Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invariants. Closes the JA-first language sweep + DEFER-1 backlog + content-deterrent layer in three releases on the same day: v1.9.0 (Japanese-first surface), v1.10.0 (syllabus dashboard + 100% grammar-pattern test coverage + multi-correct categories F/G/H + JA-29 subtype-taxonomy lock), v1.10.1 (content-protection layer + GitHub-link removal). Added invariants over the day: JA-26..JA-29. Content-protection layer raises friction against casual copying; honest limitations documented in `js/content-protect.js`. **39/39 CI invariants green**.)
 
