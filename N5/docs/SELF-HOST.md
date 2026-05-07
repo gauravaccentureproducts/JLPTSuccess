@@ -44,31 +44,70 @@ any nginx/Apache).
 
 Three layers of customization, each more invasive than the last:
 
-### Layer 1 - runtime theme overrides (preferred)
+### Layer 1 - runtime branding overrides (preferred, SVA-NEXT-3)
 
-Drop a `data/theme-overrides.json` file (any branch / fork / forked
-deploy) with CSS-custom-property mappings. Loaded at app startup;
-overrides the design tokens defined in `css/main.css :root`.
+Drop a `data/branding.json` file with override values. Loaded by
+`js/branding.js` at app startup before first paint; missing file =
+upstream JLPTSuccess defaults.
 
-Example `data/theme-overrides.json`:
+The unified file covers **eight** override surfaces in one place:
+
+| Section | What it overrides |
+|---|---|
+| `brand.header_label` + `header_aria_label` | The `<h1><a>` label in the page header (default: `JLPT N5`). |
+| `brand.watermark_text` | The diagonal `JLPTSUCCESS.COM` watermark on every printed mock paper (`#/print/<paperId>`). |
+| `brand.home_glyph` | The big background glyph behind the home page (default: `五`). Pick a single CJK character to match your branding (e.g. `知`, `学`, `漢`). |
+| `brand.footer_attribution_html` + `footer_homepage_url` | An institutional "Powered by JLPTSuccess" line under the footer trust strip. Either supply raw HTML, or just a homepage URL and the loader will produce a default attribution line. |
+| `tokens` | Any CSS custom property defined on `:root` in `css/main.css`. Most useful: `--color-accent`, `--color-bg`, `--color-text`, `--color-text-muted`, `--color-line`, `--color-surface`. |
+| `meta` | `<title>`, `<meta name="description">`, OpenGraph, Twitter, canonical. |
+| `trust_strip.{en,hi}` | The 6-pill trust line under the page-header (default: "No login · No tracking · Works offline · …"). Per-locale; updates on locale switch. |
+
+Example `data/branding.json` for an institutional fork:
 
 ```json
 {
-  "tokens": {
-    "--color-accent": "#1e6091",
-    "--color-bg":     "#ffffff",
-    "--color-text":   "#212529"
-  },
   "brand": {
-    "name":      "Acme Language School",
-    "short_name": "Acme N5",
-    "logo_url":  "../assets/logo/acme-mark.svg"
+    "header_label":         "Acme N5",
+    "header_aria_label":    "Acme Language School N5 home",
+    "watermark_text":       "ACME-LANGUAGE-SCHOOL.EDU",
+    "home_glyph":           "知",
+    "footer_attribution_html": "<small>Hosted by <strong>Acme Language School</strong> · Powered by <a href=\"https://github.com/gauravaccentureproducts/JLPTSuccess\">JLPTSuccess</a></small>"
+  },
+  "tokens": {
+    "--color-accent": "#1E3A8A",
+    "--color-line":   "#CBD5E1"
+  },
+  "meta": {
+    "title":       "Acme N5 — JLPT N5 prep",
+    "description": "Free JLPT N5 study programme for Acme Language School students."
+  },
+  "trust_strip": {
+    "en": "Acme N5 · No login · Works offline · Powered by open-source JLPTSuccess.",
+    "hi": "एक्मे N5 · लॉगिन नहीं · ऑफ़लाइन · ओपन-सोर्स JLPTSuccess द्वारा संचालित।"
   }
 }
 ```
 
-App loader (`js/app.js`) reads this file at init; missing file = use
-defaults. No code changes needed for color / font / brand-name swaps.
+Two complete reference samples ship in-tree:
+
+- `data/branding-examples/acme-language-school.json` — language school
+  with a navy accent + custom watermark + soft "Powered by" attribution.
+- `data/branding-examples/indian-ngo.json` — NGO scenario with Hindi-
+  first trust strip + saffron accent + Devanagari header label.
+
+Copy either file to `data/branding.json` on your fork as a starting
+point.
+
+> **Legacy file:** the v1.7-era `data/theme-overrides.json` (tokens +
+> `brand.name` only) is still read as a fallback when `branding.json`
+> is absent, so existing forks with the old file keep working without
+> migration. New forks should use `branding.json`.
+
+> **What it deliberately does NOT override:** the localStorage namespace
+> (`jlpt-n5-tutor:`) — would orphan installed-PWA progress on every
+> fork update — and the privacy posture (no telemetry, no third-party
+> scripts). A fork that adds analytics MUST update `PRIVACY.md`
+> separately; the loader does not help with that.
 
 ### Layer 2 - per-fork logo + manifest swap
 

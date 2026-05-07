@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "doc": "Branding overrides for institutional self-hosting (SVA-NEXT-3, round-9 follow-up 2026-05-08). The runtime applies overrides at boot before first paint. Every key is optional — set only what you want overridden. See docs/SELF-HOST.md § Branding override layer for the full schema + examples.",
+    "schema_version": 1,
+    "see_also": ["docs/SELF-HOST.md", "data/branding-examples/"]
+  },
+
+  "brand": {
+    "name": "",
+    "short_name": "",
+    "header_label": "",
+    "header_aria_label": "",
+    "watermark_text": "",
+    "home_glyph": "",
+    "footer_attribution_html": "",
+    "footer_homepage_url": ""
+  },
+
+  "tokens": {
+  },
+
+  "meta": {
+    "title": "",
+    "description": "",
+    "og_title": "",
+    "og_description": "",
+    "og_url": "",
+    "twitter_title": "",
+    "canonical_url": ""
+  },
+
+  "trust_strip": {
+    "en": "",
+    "hi": ""
+  }
+}

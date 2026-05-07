@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "doc": "Example branding override for a fictional 'Acme Language School' fork. Drop this content into N5/data/branding.json on your fork (renaming as needed) and you'll get a navy accent, custom header label, custom watermark, and a soft 'Powered by JLPTSuccess' footer attribution.",
+    "schema_version": 1
+  },
+
+  "brand": {
+    "name": "Acme Language School",
+    "short_name": "Acme N5",
+    "header_label": "Acme N5",
+    "header_aria_label": "Acme Language School N5 home",
+    "watermark_text": "ACME-LANGUAGE-SCHOOL.EDU",
+    "home_glyph": "知",
+    "footer_attribution_html": "<small>Hosted by <strong>Acme Language School</strong> · Powered by <a href=\"https://github.com/gauravaccentureproducts/JLPTSuccess\" rel=\"noopener\" target=\"_blank\">JLPTSuccess</a></small>",
+    "footer_homepage_url": "https://github.com/gauravaccentureproducts/JLPTSuccess"
+  },
+
+  "tokens": {
+    "--color-accent":     "#1E3A8A",
+    "--color-text":       "#0F172A",
+    "--color-text-muted": "#475569",
+    "--color-line":       "#CBD5E1",
+    "--color-surface":    "#F1F5F9",
+    "--color-bg":         "#FFFFFF"
+  },
+
+  "meta": {
+    "title": "Acme N5 — JLPT N5 prep",
+    "description": "Acme Language School's offline-first JLPT N5 study programme — free for students, no login, works offline.",
+    "og_title": "Acme N5 — JLPT N5 prep for Acme Language School students",
+    "og_description": "Free, offline JLPT N5 study programme for Acme Language School. Powered by JLPTSuccess.",
+    "og_url": "https://acme-language-school.example/n5/"
+  },
+
+  "trust_strip": {
+    "en": "Acme Language School N5 · No login · No tracking · Works offline · Powered by open-source JLPTSuccess.",
+    "hi": "एक्मे लैंग्वेज स्कूल N5 · लॉगिन नहीं · ट्रैकिंग नहीं · ऑफ़लाइन काम करता है · ओपन-सोर्स JLPTSuccess द्वारा संचालित।"
+  }
+}

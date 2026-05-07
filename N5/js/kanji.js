@@ -309,6 +309,16 @@ function renderDetail(container, entry, entries) {
           <p class="muted small kanji-stroke-credit">Stroke data: <a href="https://kanjivg.tagaini.net/" rel="noopener noreferrer" target="_blank">KanjiVG</a> (CC BY-SA 3.0).</p>
         </section>
       ` : ''}
+      ${entry.stroke_order_mistakes ? `
+        <!-- JCE-7 (round-9 follow-up, 2026-05-08): classroom-trap notes
+             on stroke order, authored by the resident JA-teacher
+             persona. Surfaces below the SVG so a learner reading the
+             diagram has the trap context inline. -->
+        <section class="kanji-stroke-mistakes">
+          <h3>Common stroke-order traps</h3>
+          <p class="kanji-stroke-mistake-note" lang="ja">${esc(entry.stroke_order_mistakes)}</p>
+        </section>
+      ` : ''}
       <nav class="kanji-nav">
         ${prev ? `<a href="#/kanji/${encodeURIComponent(prev.glyph)}">← <span lang="ja">${esc(prev.glyph)}</span></a>` : '<span></span>'}
         ${next ? `<a href="#/kanji/${encodeURIComponent(next.glyph)}"><span lang="ja">${esc(next.glyph)}</span> →</a>` : '<span></span>'}

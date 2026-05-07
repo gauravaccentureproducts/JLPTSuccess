@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.12.53';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.55';
 
 const PRECACHE = [
   './',
@@ -60,6 +60,13 @@ const PRECACHE = [
   // so the route resolves offline.
   './js/print-paper.js',
   './js/min/print-paper.js',
+  // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override
+  // loader + the default-empty branding.json. Precaching the JSON
+  // means the loader's first-paint fetch resolves from cache offline,
+  // and forks that ship a populated branding.json get it cached too.
+  './js/branding.js',
+  './js/min/branding.js',
+  './data/branding.json',
   // ISSUE-043 (audit round-5): minified JS bundle. index.html points
   // at js/min/app.js; static + dynamic imports cascade to the rest
   // of js/min/. The unminified js/<name>.js files stay precached

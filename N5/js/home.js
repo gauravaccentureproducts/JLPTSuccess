@@ -28,6 +28,9 @@ import { t, currentLocale } from './i18n.js';
 // guarantees. The import is static so esbuild bundles it into
 // js/min/home.js; no runtime fetch.
 import { gatherSignal, recommend as recommendNext } from './pedagogy-recommender.js';
+// SVA-NEXT-3 (round-9 follow-up, 2026-05-08): override-able home
+// background glyph (五 by default).
+import { getBranding } from './branding.js';
 
 // Cache the corpus counts and pattern label map at module scope so we
 // fetch each data file once per session.
@@ -312,9 +315,14 @@ export async function renderHome(container) {
   // surfaced separately below as `starterStrip`), so we suppress the
   // duplicate by gating recCard to returning users only. Pure +
   // deterministic + on-device — see docs/RECOMMENDER-RULES.md.
+  // IMP-NEXT-1 (round-9 follow-up, 2026-05-08): Settings toggle to
+  // disable the card. Default-on; only suppressed when the user
+  // explicitly toggles it off. Setting lives at storage.settings
+  // .showRecommender; home.js reads it on every render.
+  const showRecommender = settings.showRecommender !== false;
   let recCard = '';
   try {
-    if (isReturning) {
+    if (isReturning && showRecommender) {
       const rec = recommendNext(gatherSignal({ corpusCounts: counts }));
       if (rec) {
         const loc = currentLocale();
@@ -368,7 +376,7 @@ export async function renderHome(container) {
       ${starterStrip}
 
       <header class="syllabus-header">
-        <span class="syllabus-watermark" aria-hidden="true">五</span>
+        <span class="syllabus-watermark" aria-hidden="true">${esc((getBranding()?.brand?.home_glyph) || '五')}</span>
         <h1 class="syllabus-title">${t('home.syllabus_title')}</h1>
         <p class="syllabus-subtitle">${t('home.syllabus_subtitle')}</p>
         <!-- ISSUE-027 / IMP-048 (audit round-4): privacy / niche-N2

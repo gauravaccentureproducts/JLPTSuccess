@@ -1428,7 +1428,8 @@
           "diff": "extra horizontal stroke at the TOP, longer than 末 = \"not yet\""
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "stroke_order_mistakes": "横→縦→左払い→右払い。横線を最後に書く誤りが多い。「本」も同じ4画＋下に一画追加。"
     },
     {
       "id": "n5.kanji.金",
@@ -2561,7 +2562,8 @@
       "meanings_hi": [
         "स्त्री"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "左下のく字（くノ一）→ノ→一の順。中国語の「女」と異なり、最後の横線は最後（先に書いてしまう誤り）。"
     },
     {
       "id": "n5.kanji.子",
@@ -2634,7 +2636,8 @@
         "学",
         "字"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "上のフックから縦に下りる→曲げ→最後に真ん中の横線（一）。3画。横線を2画目に書いてしまう誤りが多い。"
     },
     {
       "id": "n5.kanji.父",
@@ -2769,7 +2772,8 @@
       "confusable_with": [
         "毋"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "L字を上下逆さに（横→曲げ）→真ん中の縦曲げ→中の点2つ→最後に横線で閉じる。5画だが、点の位置が独特で最頻出の誤りは中の点を書き忘れる/間違う。"
     },
     {
       "id": "n5.kanji.友",
@@ -3462,7 +3466,8 @@
         "子",
         "字"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "上の3-stroke帽（点→点→ワ字）→冖（横棒）→子（3画）。子の前に冖を書く順序の誤りが多い。8画。"
     },
     {
       "id": "n5.kanji.校",
@@ -3626,7 +3631,8 @@
           "diff": "extra stroke is at TOP, longer = \"not yet\""
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "stroke_order_mistakes": "木と同じ4画（横→縦→左払い→右払い）→最後に下の横線「一」。下の横線を3画目に書く誤りが頻出。"
     },
     {
       "id": "n5.kanji.語",
@@ -3771,7 +3777,8 @@
       "meanings_hi": [
         "देश"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "stroke_order_mistakes": "外枠の最後の閉じる横線は本当に最後！中の「玉」を完全に書き終わってから外枠の下を閉じる。順序：左縦→上横→右縦→中の玉（4画）→下横。"
     },
     {
       "id": "n5.kanji.会",
@@ -6794,7 +6801,8 @@
           "diff": "two short separate strokes that do NOT touch at the top"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "stroke_order_mistakes": "ノ（左払い）→入（右払い）の順。「人」と紛らわしいが、「人」は左払い（ノ）→右払い（𝝣）と一見同じだが、入の右払いは下からスタートする一筆。"
     },
     {
       "id": "n5.kanji.立",

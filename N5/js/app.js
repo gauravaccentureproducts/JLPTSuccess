@@ -35,6 +35,12 @@ import { renderSitting } from './sitting.js';
 // Routes #/print and #/print/<paperId>; renders a paper layout
 // designed for paper-and-pencil consumption. See js/print-paper.js.
 import { renderPrint } from './print-paper.js';
+// SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
+// Reads data/branding.json (or legacy data/theme-overrides.json) at
+// boot and applies CSS tokens, brand strings, meta tags, footer
+// attribution, watermark text, etc. Missing file = upstream defaults.
+// See docs/SELF-HOST.md § Branding override layer.
+import { loadBranding } from './branding.js';
 
 const ROUTES = {
   home:       renderHome,
@@ -301,7 +307,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   initPwa();
   initFullscreenToggle();
   initLocaleChips();
-  initThemeOverrides();
+  // SVA-NEXT-3: superseded initThemeOverrides() — now reads data/branding.json
+  // (a unified file covering CSS tokens + brand strings + meta tags + footer
+  // attribution + watermark text). Falls back to data/theme-overrides.json
+  // for legacy forks. Awaited so overrides apply BEFORE first route render.
+  await loadBranding();
   // ISSUE-001: keep the footer version-stamp in sync with CHANGELOG.md so a
   // forgotten manual bump never re-introduces the v1.10.2 → v1.12.27 drift.
   // Cheap because CHANGELOG.md is precached by the SW; if the fetch fails
@@ -390,30 +400,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // "maximize" (4 corners) and "minimize" (inward arrows) shapes via CSS state.
 // The browser's own Esc key exits fullscreen too - we listen for the
 // fullscreenchange event so the button label reflects current state.
-// IMP-052 (audit round-4): runtime theme overrides for institutional
-// forks. Loads data/theme-overrides.json if present; missing file =
-// use the design tokens defined in css/main.css :root. Maps tokens
-// onto :root CSS custom properties; brand-name swap updates document
-// title + the brand-link aria-label.
-async function initThemeOverrides() {
-  try {
-    const r = await fetch('data/theme-overrides.json');
-    if (!r.ok) return;
-    const cfg = await r.json();
-    if (cfg && typeof cfg === 'object') {
-      const root = document.documentElement;
-      for (const [k, v] of Object.entries(cfg.tokens || {})) {
-        if (typeof k === 'string' && k.startsWith('--')) {
-          root.style.setProperty(k, String(v));
-        }
-      }
-      if (cfg.brand && typeof cfg.brand.name === 'string') {
-        const brand = document.querySelector('.brand-link');
-        if (brand) brand.textContent = cfg.brand.name;
-      }
-    }
-  } catch { /* missing file is the default - silently use repo tokens */ }
-}
+// IMP-052 (audit round-4) → SVA-NEXT-3 (round-9 follow-up, 2026-05-08):
+// the inline initThemeOverrides() function lived here for ~3 rounds and
+// only handled CSS tokens + brand.name. Superseded by js/branding.js,
+// which is a strict superset (tokens + brand strings + meta tags +
+// footer attribution + watermark text + per-locale trust strip), and
+// which reads BOTH `data/branding.json` (current) AND
+// `data/theme-overrides.json` (legacy fallback) so existing forks keep
+// working without migration. See docs/SELF-HOST.md § Branding override
+// layer for the unified schema.
 
 // ISSUE-028 (audit round-4): wire the header locale-chip group.
 // 5 chips swap the i18n locale on click + reload the active route.

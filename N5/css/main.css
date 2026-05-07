@@ -2778,6 +2778,30 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   margin: 8px 0 0;
   font-style: italic;
 }
+/* JCE-7 (round-9 follow-up, 2026-05-08): classroom-trap notes on
+   stroke order. Surfaces below the stroke-order SVG. Visually mirrors
+   the mnemonic-block tone (faint accent fill) but distinct enough that
+   a learner who has read one doesn't confuse it for the other. */
+.kanji-stroke-mistakes {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: color-mix(in srgb, #c26b30 5%, transparent);
+  border-left: 3px solid color-mix(in srgb, #c26b30 50%, transparent);
+  border-radius: 4px;
+}
+.kanji-stroke-mistakes h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #555);
+}
+.kanji-stroke-mistake-note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
 .kanji-confusable-block { margin-top: 16px; }
 .kanji-confusable-grid {
   display: flex; flex-wrap: wrap; gap: 8px;
@@ -5982,6 +6006,27 @@ html[data-protect="on"][data-blur="true"] body::before {
 @media (max-width: 600px) {
   .kanji-sort-select { min-height: 44px; }
 }
+
+/* ============================================================================
+ * SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
+ *
+ * Optional footer attribution line ("Powered by JLPTSuccess") inserted
+ * by js/branding.js when an institutional fork sets
+ * brand.footer_attribution_html or brand.footer_homepage_url. On
+ * upstream (no override) the line is absent and the footer looks
+ * identical to v1.12.53.
+ * ============================================================================ */
+.footer-attribution {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--color-text-muted, #555);
+  line-height: 1.5;
+}
+.footer-attribution a {
+  color: inherit;
+  text-decoration: underline;
+}
+.footer-attribution a:hover { color: var(--color-accent, #1F4D2E); }
 
 /* ============================================================================
  * SVA-NEXT-2.4 (round-9 follow-up, 2026-05-07): print-to-PDF mock paper.

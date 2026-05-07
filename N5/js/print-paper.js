@@ -42,6 +42,7 @@
 // is the only network-adjacent action; that's the OS, not us.
 
 import { renderJa } from './furigana.js';
+import { getBranding } from './branding.js';
 
 // ---------- Module-level cache (re-uses lifecycle of papers.js) ----------
 let manifest = null;
@@ -455,6 +456,15 @@ async function renderPrintShell(container, paperId, cover, sections, includeKey)
 //   page. Dense enough to be unmistakable, sparse enough that any 2cm
 //   patch of paper has only one watermark visible.
 function renderWatermark() {
+  // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): the watermark text is
+  // override-able via data/branding.json -> brand.watermark_text. A
+  // fork can stamp every printed page with their school / NGO domain
+  // instead of "JLPTSUCCESS.COM" without forking source. Falls back
+  // to the upstream string if branding.json is absent.
+  const b = (typeof getBranding === 'function') ? getBranding() : null;
+  const text = (b && b.brand && typeof b.brand.watermark_text === 'string' && b.brand.watermark_text)
+    ? b.brand.watermark_text
+    : 'JLPTSUCCESS.COM';
   return `
     <div class="print-paper-watermark" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
@@ -468,7 +478,7 @@ function renderWatermark() {
                   fill-opacity="0.06"
                   letter-spacing="2"
                   text-anchor="middle"
-                  transform="rotate(-28 140 86)">JLPTSUCCESS.COM</text>
+                  transform="rotate(-28 140 86)">${esc(text)}</text>
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#jlpts-watermark)" />

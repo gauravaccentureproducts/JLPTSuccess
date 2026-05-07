@@ -105,6 +105,21 @@ export async function renderSettings(container) {
         </span>
         <input type="checkbox" id="set-auto-furigana" ${s.autoFurigana ? 'checked' : ''}>
       </label>
+      <!-- IMP-NEXT-1 (round-9 follow-up, 2026-05-08): Settings toggle
+           for the EB-4 pedagogy recommender. Defaults ON; when off, the
+           "Recommended next" card on the home page is suppressed. The
+           setting is read by home.js at render time. The recommender
+           code itself stays loaded (it's a small module) so toggling
+           on/off is instant — no fetch, no re-init. -->
+      <label class="settings-row">
+        <span>
+          ${t('settings.show_recommender')}
+          <span class="setting-help muted small" style="display:block; margin-top:2px;">
+            ${t('settings.show_recommender_help')}
+          </span>
+        </span>
+        <input type="checkbox" id="set-show-recommender" ${s.showRecommender !== false ? 'checked' : ''}>
+      </label>
     </section>
 
     <section class="settings-section">
@@ -209,6 +224,11 @@ export async function renderSettings(container) {
     showSavedToast(`Auto-furigana = ${e.target.checked ? 'on' : 'off'}`);
     // Trigger a re-render so the change is visible immediately.
     document.dispatchEvent(new CustomEvent('furigana-rerender'));
+  });
+  // IMP-NEXT-1 (round-9 follow-up, 2026-05-08): recommender visibility toggle.
+  document.getElementById('set-show-recommender').addEventListener('change', (e) => {
+    storage.setSettings({ showRecommender: !!e.target.checked });
+    showSavedToast(`Recommended-next = ${e.target.checked ? 'on' : 'off'}`);
   });
   document.getElementById('set-audio-rate').addEventListener('change', (e) => {
     storage.setSettings({ audioPlaybackRate: parseFloat(e.target.value) });

@@ -74,6 +74,8 @@
     "reduce_on": "Always reduce",
     "reduce_off": "Never reduce",
     "auto_furigana_help": "Adds ruby readings on a small whitelist of single-reading kanji (counters, days, fixed compounds). Off by default.",
+    "show_recommender": "Show \"Recommended next\" on home",
+    "show_recommender_help": "When on (default), the home page shows a single suggested next action based on your current state (review queue, last viewed pattern, weak patterns, etc.). All recommendation logic runs on-device — no data leaves your browser.",
     "reset_label": "Reset all progress",
     "reset_help": "Clears study history, FSRS schedule, test results, streak, known-kanji flags, and settings. Cannot be undone.",
     "reset_btn": "Reset…",
