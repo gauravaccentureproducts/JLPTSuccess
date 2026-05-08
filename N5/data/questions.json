@@ -1906,8 +1906,8 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "ませんでした यहाँ विनम्र भूत-नकारात्मक रूप। 'मैं didn't खाना रात का खाना कल'।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "ませんでした विनम्र भूत-नकारात्मक रूप। \"मैंने कल रात का खाना नहीं खाया।\"",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "ません": "वर्तमान नकारात्मक - पर きのう है भूत।",
         "ました": "भूत-सकारात्मक रूप - होता मतलब 'किया खाना'।",
@@ -2002,8 +2002,8 @@
       },
       "high_confusion": false,
       "difficulty": 1,
-      "explanation_hi": "'चलिए rest थोड़ा' - ましょう के लिए अनौपचारिक सुझाव।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "\"थोड़ा आराम कर लें\" — ましょう अनौपचारिक सुझाव के लिए।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "ます": "कथन, नहीं सुझाव।",
         "ました": "भूत-काल।",
@@ -2034,8 +2034,8 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "ませんか = 'नहीं होगा आप' / 'shall we' - विनम्र आमंत्रण। नकारात्मक रूप यहाँ मानक विनम्र आमंत्रित करना।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "ませんか = \"क्या आप ... नहीं?\" / \"चलें?\" — विनम्र आमंत्रण। जापानी में नकारात्मक रूप ही मानक विनम्र निमंत्रण है।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "ます": "ますか पूछता है हाँ/नहीं fact ('do you watch?'), नहीं आमंत्रण।",
         "ました": "भूत-काल - ग़लत intent।",
@@ -2130,8 +2130,8 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "Group-2 शब्दकोश रूप है たべる (drop る for ます/ない/た)।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "समूह-2 का शब्दकोश-रूप たべる है (ます/ない/た के लिए る हटाएँ)।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "たべた": "सादा भूत।",
         "たべない": "सादा नकारात्मक रूप।",
@@ -2226,8 +2226,8 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "む-ending क्रियाएँ: む → んだ। よむ → よんだ।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "む से समाप्त होने वाली क्रियाएँ: む → んだ। よむ → よんだ।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "よむ": "सादा अभूत-सकारात्मक रूप।",
         "よみました": "विनम्र भूत रूप।",
@@ -2290,8 +2290,8 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "い-adjectives रखना their अंतिम い पहले です।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "い-विशेषण अपना अंतिम い です से पहले बनाए रखते हैं।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "な": "な है के लिए な-adjectives पहले संज्ञा, नहीं पहले です।",
         "の": "の links संज्ञाएँ, यहाँ फ़िट नहीं।",
@@ -2802,8 +2802,8 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "क्रमिक chain: मध्य क्रियाएँ प्रयोग て-रूप। अंतिम क्रिया 行きました धारण करता है काल।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "क्रमिक श्रृंखला: मध्यवर्ती क्रियाएँ て-रूप में होती हैं; अंतिम क्रिया 行きました काल धारण करती है।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "たべます": "नहीं प्रयोग विनम्र रूप mid-chain।",
         "たべました": "भूत, पर के लिए sequence प्रयोग て-रूप।",
@@ -2962,8 +2962,8 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "けっこんする है क्षणिक क्रिया - ています व्यक्त करता है परिणामस्वरूप STATE ('is married')।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "けっこんする क्षणिक क्रिया है — ています परिणामी अवस्था व्यक्त करती है (\"विवाहित है\")।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "します": "सादा वर्तमान साधन 'होगा marry'।",
         "しました": "भूत - 'पाया विवाहित' ( घटना)।",
@@ -3121,8 +3121,8 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "ないでください = please नहीं। प्रयोग सादा ない-रूप।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "ないでください = \"कृपया मत करें\"। सादा ない-रूप का प्रयोग करें।",
+      "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "とる": "सकारात्मक शब्दकोश रूप।",
         "とって": "जो's てください (please DO)।",
@@ -5207,8 +5207,8 @@
       "explanation_en": "おととい = day before yesterday = 2 days ago = ふつかまえ. The native counter ふつか (2 days) + まえ (before) is the synonym chain.",
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "おととい = दिन पहले कल = 2 दिन पहले = ふつかまえ। native काउंटर ふつか (2 days) + まえ (पहले) यहाँ पर्याय chain।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "おととい = परसों (बीता हुआ) = 2 दिन पहले = ふつかまえ। देसी काउंटर ふつか (2 दिन) + まえ (पहले) यह पर्याय-श्रृंखला बनाते हैं।",
+      "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5291,8 +5291,8 @@
       "explanation_en": "やすい (cheap) = たかくない (not expensive). Common antonym pair; たかい also means 'tall' but in price context = expensive.",
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "やすい (cheap) = たかくない (नहीं महँगा)। सामान्य विलोम जोड़ी; たかい भी साधन 'tall' पर में price संदर्भ = महँगा।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "やすい (सस्ता) = たかくない (महँगा नहीं)। आम विलोम-जोड़ी। たかい का अर्थ \"लम्बा\" भी होता है, पर क़ीमत के संदर्भ में \"महँगा\"।",
+      "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5312,8 +5312,8 @@
       "explanation_en": "やさしい (easy, 易しい) = むずかしくない (not difficult). Note: やさしい also has a 'kind' sense (優しい), but the easy sense is most common in N5.",
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "やさしい (easy, 易しい) = むずかしくない (नहीं कठिन)। नोट: やさしい भी के पास है 'दयालु' अर्थ (優しい), पर आसान अर्थ है most सामान्य में N5।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "やさしい (आसान, 易しい) = むずかしくない (कठिन नहीं)। ध्यान: やさしい का \"दयालु\" अर्थ भी होता है (優しい), पर N5 में \"आसान\" अर्थ अधिक प्रचलित है।",
+      "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5333,8 +5333,8 @@
       "explanation_en": "たくさん = いっぱい (a lot, plenty). Both adverbs of quantity meaning 'a large amount'.",
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "たくさん = いっぱい ( lot, plenty)। दोनों क्रियाविशेषण का मात्रा अर्थ ' large मात्रा'।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "たくさん = いっぱい (बहुत, ख़ूब)। दोनों मात्रा-सूचक क्रियाविशेषण हैं — \"बड़ी मात्रा\" का अर्थ देते हैं।",
+      "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5354,8 +5354,8 @@
       "explanation_en": "せんたくする (to do laundry, 洗濯する) = あらう (to wash). Specific-to-general lexical equivalence; both target the same action.",
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "せんたくする (to do laundry, 洗濯する) = あらう (to wash)। विशिष्ट-को-सामान्य lexical समानता; दोनों लक्ष्य समान क्रिया-कर्म।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "せんたくする (कपड़े धोना, 洗濯する) = あらう (धोना)। विशिष्ट-से-सामान्य की शाब्दिक समानता; दोनों एक ही क्रिया का संकेत देते हैं।",
+      "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5396,8 +5396,8 @@
       "explanation_en": "まずい (bad-tasting) = おいしくない (not delicious). Antonym pair; まずい is the い-adjective directly opposite to おいしい.",
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "まずい (bad-tasting) = おいしくない (नहीं स्वादिष्ट)। विलोम जोड़ी; まずい यहाँ い-विशेषण directly विपरीत को おいしい।",
-      "explanation_hi_provenance": "llm_curated",
+      "explanation_hi": "まずい (बेस्वाद) = おいしくない (स्वादिष्ट नहीं)। विलोम-जोड़ी; まずい सीधे おいしい का い-विशेषण विपरीत है।",
+      "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
