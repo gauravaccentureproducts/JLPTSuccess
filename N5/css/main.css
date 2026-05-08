@@ -680,6 +680,79 @@ h2 + * + .section-label:first-of-type {
 }
 .pattern-detail .pattern-nav-prev { text-align: left; }
 .pattern-detail .pattern-nav-next { margin-left: auto; text-align: right; }
+
+/* Listening detail prev/next nav (2026-05-08, matching grammar pattern
+   nav). Buttons rather than links because listening items don't have
+   their own URL — clicking re-renders the same #/listening route with
+   a new session.item. */
+.listening-item .listening-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-border);
+}
+.listening-item .listening-nav-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-height: 44px;
+  background: var(--c-bg, #fff);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  color: var(--c-text);
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color 120ms ease, background 120ms ease;
+  max-width: 48%;
+  min-width: 0;
+  overflow: hidden;
+}
+.listening-item .listening-nav-btn:hover {
+  border-color: var(--color-accent, #1F4D2E);
+  background: var(--c-surface);
+}
+.listening-item .listening-nav-arrow {
+  font-size: 18px;
+  color: var(--color-accent, #1F4D2E);
+  flex-shrink: 0;
+}
+.listening-item .listening-nav-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.listening-item .listening-nav-label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.listening-item .listening-nav-name {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.listening-item .listening-nav-prev .listening-nav-meta { text-align: left; }
+.listening-item .listening-nav-next {
+  margin-left: auto;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.listening-item .listening-nav-next .listening-nav-meta { text-align: right; }
+.listening-item .listening-nav-empty {
+  visibility: hidden;
+  flex: 1;
+  max-width: 48%;
+}
 .pattern-detail .pattern-name {
   font-size: 28px;
   margin: 0 0 4px;

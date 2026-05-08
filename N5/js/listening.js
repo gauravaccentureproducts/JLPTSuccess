@@ -108,6 +108,38 @@ function renderItem(container) {
     storage.setListeningCompleted(it.id);
   }
 
+  // 2026-05-08: prev/next item nav, matching the grammar/kanji detail
+  // pages. Order is the natural file order (n5.listen.001 → .047),
+  // grouped roughly by mondai. Clicking a button replaces `session.item`
+  // and re-renders. The "list" back-link at the top of the article still
+  // works for jumping out of sequential nav.
+  const items = (bank?.items) || [];
+  const idx = items.findIndex(x => x.id === it.id);
+  const prev = idx > 0 ? items[idx - 1] : null;
+  const next = idx >= 0 && idx < items.length - 1 ? items[idx + 1] : null;
+  const navHtml = (prev || next) ? `
+    <nav class="listening-nav" aria-label="${renderJa('もんだいかん')}">
+      ${prev
+        ? `<button type="button" class="listening-nav-btn listening-nav-prev" data-nav="prev" title="${esc(prev.title_ja || prev.id)}">
+             <span class="listening-nav-arrow" aria-hidden="true">&larr;</span>
+             <span class="listening-nav-meta">
+               <span class="listening-nav-label muted small">${renderJa('まえ')}</span>
+               <span class="listening-nav-name" lang="ja">${prev.title_ja ? renderJa(prev.title_ja) : esc(prev.id)}</span>
+             </span>
+           </button>`
+        : `<span class="listening-nav-btn listening-nav-empty" aria-hidden="true"></span>`}
+      ${next
+        ? `<button type="button" class="listening-nav-btn listening-nav-next" data-nav="next" title="${esc(next.title_ja || next.id)}">
+             <span class="listening-nav-meta">
+               <span class="listening-nav-label muted small">${renderJa('つぎ')}</span>
+               <span class="listening-nav-name" lang="ja">${next.title_ja ? renderJa(next.title_ja) : esc(next.id)}</span>
+             </span>
+             <span class="listening-nav-arrow" aria-hidden="true">&rarr;</span>
+           </button>`
+        : `<span class="listening-nav-btn listening-nav-empty" aria-hidden="true"></span>`}
+    </nav>
+  ` : '';
+
   container.innerHTML = `
     <article class="listening-item">
       <div class="srs-progress">
@@ -143,8 +175,17 @@ function renderItem(container) {
           <button id="listening-back-list" class="btn-primary">${renderJa('リストに もどる')}</button>
         </div>
       ` : ''}
+      ${navHtml}
     </article>
   `;
+  // Wire prev/next nav buttons. Each replaces session.item, re-renders,
+  // and scrolls back to the top so the new item's title is visible.
+  container.querySelector('[data-nav="prev"]')?.addEventListener('click', () => {
+    if (prev) { session = { item: prev, picked: null }; renderItem(container); window.scrollTo(0, 0); }
+  });
+  container.querySelector('[data-nav="next"]')?.addEventListener('click', () => {
+    if (next) { session = { item: next, picked: null }; renderItem(container); window.scrollTo(0, 0); }
+  });
   container.querySelectorAll('[data-pick]').forEach(btn => {
     btn.addEventListener('click', () => {
       session.picked = btn.dataset.pick;
