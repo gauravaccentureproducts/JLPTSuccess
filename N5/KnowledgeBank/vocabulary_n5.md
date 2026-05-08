@@ -511,7 +511,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 ## 18. Drinks
 
 - 水 (みず) - [n.] water
-- おゆ - [n.] hot water
 - おちゃ - [n.] tea, green tea (Japanese tea)
 - こうちゃ - [n.] black tea
 - コーヒー - [n.] coffee
@@ -859,8 +858,7 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 ## 30. Verbs - Existence and Possession
 
 - ある - [v1] to exist (inanimate)
-- いる - [v2] to exist (animate) (also in §28 - listed here for thematic completeness with other existence/possession verbs)
-- いる - [v1] to need (Group 1 exception - looks like Group 2; homophone of existence-いる which is Group 2)
+- 要る / いる - [v1] to need (Group 1 exception - looks like Group 2; homophone of existence-いる which is Group 2)
 - ござる / ございます - [v1] to be (very polite)
 - やる - [v1] to give (down / casual)
 - あげる - [v2] to give
@@ -1098,7 +1096,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - びょうき - [n.] illness
 - くすり - [n.] medicine
 - けが - [n.] injury
-- おゆ - [n.] hot water
 - シャワー - [n.] shower
 > **Legacy items note:** The items below tagged **[Cul]** (マッチ, フィルム, レコード, テープレコーダー, はいざら) are largely obsolete in modern Japan but appear in some older N5 study sources. Recognize them; do not prioritize.
 

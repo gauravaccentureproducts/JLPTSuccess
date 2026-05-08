@@ -9052,6 +9052,14 @@
         {
           "ja": "あれは おゆです。",
           "translation_en": "That is hot water."
+        },
+        {
+          "ja": "おゆを ください。",
+          "translation_en": "Hot water please."
+        },
+        {
+          "ja": "おゆを 見ました。",
+          "translation_en": "I saw hot water."
         }
       ],
       "review_status": "native_reviewed",
@@ -10758,30 +10766,6 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "मिठाई / गोली"
-    },
-    {
-      "id": "n5.vocab.18-drinks.おゆ",
-      "form": "おゆ",
-      "reading": "おゆ",
-      "gloss": "hot water",
-      "section": "18. Drinks",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "おゆを ください。",
-          "translation_en": "Hot water please."
-        },
-        {
-          "ja": "あれは おゆです。",
-          "translation_en": "That is hot water."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "गरम पानी"
     },
     {
       "id": "n5.vocab.18-drinks.おちゃ",
@@ -17759,6 +17743,14 @@
         {
           "ja": "そこに ねこが います。",
           "translation_en": "There is a cat there."
+        },
+        {
+          "ja": "家に いぬが います。",
+          "translation_en": "There's a dog at home."
+        },
+        {
+          "ja": "がっこうへ いった。",
+          "translation_en": "[I] went to school."
         }
       ],
       "review_status": "native_reviewed",
@@ -19344,48 +19336,6 @@
         "drop": 2
       },
       "pitch_accent_provenance": "llm_curated"
-    },
-    {
-      "id": "n5.vocab.30-verbs-existence-and-p.いる",
-      "form": "いる",
-      "reading": "いる",
-      "gloss": "to exist (animate) (also in §28 - listed here for thematic completeness with other existence/possession verbs)",
-      "section": "30. Verbs - Existence and Possession",
-      "pos": "verb-2",
-      "examples": [
-        {
-          "ja": "家に いぬが います。",
-          "translation_en": "There's a dog at home."
-        },
-        {
-          "ja": "がっこうへ いった。",
-          "translation_en": "[I] went to school."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "pitch_accent": {
-        "mora": 2,
-        "drop": 0
-      },
-      "gloss_hi": "होना (सजीव)",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "register_chain_id": "be",
-      "register_chain_role": "plain",
-      "verb_class": "ichidan",
-      "collocations": [
-        "犬がいる",
-        "友達がいる",
-        "家族がいる"
-      ],
-      "collocations_provenance": "llm_curated",
-      "honorific_chain": {
-        "plain": "いる",
-        "sonkei": "いらっしゃる",
-        "kenjou": "おる"
-      }
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる.2",
@@ -24709,30 +24659,6 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       }
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.おゆ",
-      "form": "おゆ",
-      "reading": "おゆ",
-      "gloss": "hot water",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "おゆを わかします。",
-          "translation_en": "I boil water."
-        },
-        {
-          "ja": "おゆを 見ました。",
-          "translation_en": "I saw hot water."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "गरम पानी"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.シャワー",
