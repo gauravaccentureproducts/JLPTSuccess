@@ -31,3 +31,7 @@ test-results/
 # it, `setup-node@v4 cache: 'npm'` in CI fails because the npm-cache step
 # requires a lock file, and the playwright-p0-smoke workflow could not run.
 audit_out.json
+
+# Tools-archive caches (regenerable from upstream URLs; not committed)
+not-required/tools-archive/_cache_*.txt
+not-required/tools-archive/_cache_*.json

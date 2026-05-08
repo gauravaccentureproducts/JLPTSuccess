@@ -67,6 +67,28 @@ The grammar (631 files) and reading (40 files) MP3s under
 its open-source library; no per-file crediting is required by its
 licence.
 
+## University of Leeds Japanese Internet Corpus (frequency_rank)
+
+- **What it is:** word-frequency ranks for ~700 of the 1000 vocab
+  entries, surfaced as `frequency_rank` + `frequency_rank_source:
+  "leeds_corpus_internet_jp"` in `data/vocab.json`.
+- **Source:** <http://corpus.leeds.ac.uk/frqc/internet-jp.num>
+  (mirrored / cleaned via <https://github.com/hingston/japanese>,
+  file `44492-japanese-words-latin-lines-removed.txt`).
+- **License:** Creative Commons Attribution 2.5 (CC BY 2.5).
+- **License text:** <https://creativecommons.org/licenses/by/2.5/>
+- **Attribution:** University of Leeds Centre for Translation
+  Studies (Serge Sharoff and contributors); cleanup by William
+  Hingston.
+- **Modifications:** the rank values are reused as-is. Only words
+  matching a vocab `form` or `reading` field were imported; no
+  text from the corpus is redistributed.
+- **Why a proxy:** the IMP-139 audit asked for BCCWJ ranks; this
+  internet-corpus rank is a freely-redistributable proxy. Each
+  imported entry is tagged with `frequency_rank_provenance:
+  "auto_extracted"` so a future BCCWJ swap can re-tag without
+  data migration.
+
 ## Question content / corpus
 
 The grammar patterns, vocabulary entries, kanji records, mock-test
@@ -86,5 +108,6 @@ either organization.
 
 ---
 
-*Last updated: 2026-05-07 (round-9 close-out, v1.12.50 — added
-VOICEVOX engine + 4-speaker attribution).*
+*Last updated: 2026-05-09 (richness-audit Tier-1 batch 3 — added
+University of Leeds JP Internet Corpus attribution for IMP-139
+frequency_rank import).*

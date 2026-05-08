@@ -364,8 +364,9 @@ Specific structural checks:
     始める/始まる, 止める/止まる, つける/つく, 消す/消える,
     起こす/起きる, 落とす/落ちる, 直す/直る, 切る/切れる
 - **Verb-class exception flags** (X-6.6) — Group-1 verbs that
-  LOOK Group-2 must each carry the `group_1_exception: true`
-  annotation: 入る (はいる), 帰る (かえる), 走る (はしる), 知る
+  LOOK Group-2 must each carry the `group1_exception: true`
+  annotation (project field name; no underscore between "group"
+  and "1"): 入る (はいる), 帰る (かえる), 走る (はしる), 知る
   (しる), 切る (きる), 要る (いる).
 - **Counter pairing** — nouns that take a specific counter list
   it: 本→冊, cars→台, animals→匹, flat objects→枚, people→人,
