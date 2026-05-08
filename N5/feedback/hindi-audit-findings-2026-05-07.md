@@ -243,6 +243,61 @@ invariant to lock the convention going forward.
 
 Diagnostic script: `tools/_hindi_kana_transliteration_scan.py`.
 
+#### ISSUE-HI-19 — Japanese-token romanization leakage in BOTH English and Hindi (143 hits)
+
+(Surfaced by reviewer follow-up question: "other than な, is there
+any other thing which should not be translated but is getting
+translated (in E and Hi both)".)
+
+The same anti-pattern as HI-18 (kana grammatical particles
+romanized to Latin) extends across multiple token classes AND
+across both English and Hindi explanation surfaces. Scan results:
+
+| Token type                                       | EN hits | HI hits |
+|--------------------------------------------------|--------:|--------:|
+| Form names (te/ta/masu/nai/tai/etc.)-form        |    43   |    9    |
+| Bare romaji forms (masu, desu, tai, nai)         |     7   |    0    |
+| Adjective types (na-adjective, i-adj)            |    30   |   48    |
+| Time/counter romanization (ji for 時 etc.)        |     1+  |    0    |
+| Full romaji example sentences                    |   found |    0    |
+| Hindi-text-romanized (e.g. "tha tha" for था था) |     -   |   found |
+
+Total: ~143 occurrences across data/grammar.json (mostly),
+data/questions.json (some), data/vocab.json (a couple).
+
+Worst-offender examples:
+
+1. EN full-romaji example sentence at `q-0225.explanation_en`:
+   `"hoshii takes ga to mark the object of desire (not wo).
+    watashi wa X ga hoshii desu = I want X. Distractors: wo
+    ungrammatical with hoshii; ni/to wrong category."`
+   Should use Japanese script throughout: ほしい / が / を / etc.
+
+2. EN form-name romanization at pattern n5-063 `meaning_en`:
+   `"Verb-て (te-form) - connector"` → `Verb-て (て-form)`.
+
+3. HI double-bug at pattern n5-061 `explanation_hi`:
+   `"समूह-1: ख़ास नियम (te-form की tha tha का त-रूप)"`
+   - `te-form` should be `て-form`.
+   - `tha tha` is Latin transliteration of Hindi `था था` (past-
+     tense marker) — should be `था-था` in Devanagari.
+
+The principle (now consistent across both locales):
+
+| Layer       | Convention                                            |
+|-------------|-------------------------------------------------------|
+| Japanese    | Always Japanese script (kana + kanji)                 |
+| English     | English prose; Japanese tokens stay in Japanese       |
+| Hindi       | Devanagari prose; Japanese tokens stay in Japanese;   |
+|             | Hindi tokens stay in Devanagari                       |
+
+Fix: walk all explanation/meaning/gloss/rationale fields in EN
+and HI; replace romanized Japanese tokens with their kana
+equivalent. Keep the surrounding language untouched. Add CI
+invariant covering both locales.
+
+Diagnostic: `not-required/tools-archive/_hindi_japanese_token_audit.py`.
+
 ### INFO / cross-cutting
 
 #### ISSUE-HI-16 — Provenance honesty violation
