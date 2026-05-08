@@ -2,6 +2,74 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.52 - 2026-05-08 (Native-teacher audit pass — 13 of 16 findings closed)
+
+Self-conducted audit of `data/` from a native Japanese JLPT teacher's
+perspective. Found 16 findings across CRITICAL/HIGH/MEDIUM/LOW tiers;
+13 fixed in this pass, 2 deferred (require TTS re-render or Hindi-
+native review), 1 dropped (audit error on re-reading). Full report
+in `feedback/native-teacher-audit-2026-05-08.md`.
+
+### Critical fixes (visible to learners)
+
+- **C-1**: Hindi explanations in listening items 002-005 described
+  entirely different content (groceries → "salad/soup", train delay
+  → "weather"). Rewrote 4 explanation_hi + 3 cultural_context blocks.
+- **C-2**: `vocab_used` arrays in reading.json contained random
+  hiragana fragments and phantom entries from substring-match noise.
+  Re-extracted via longest-match against vocab.json with kanji-form-
+  only lookup; 997 → 539 entries, mostly removing noise.
+- **C-3**: 18 vocab_id homophone cross-tags fixed in grammar.json:
+  あめ retagged from candy to 雨 in 6 rain-context examples; おく
+  removed from 6 wake-up examples (verb is おきる, not おく); おもい
+  removed from 6 think-context examples (verb is おもう, not heavy).
+
+### High-priority fixes
+
+- **H-2**: 7 visible English-translation bugs in vocab.json fixed
+  ("we is a student" → "We are students.", lowercase pronouns
+  capitalized, etc.); かた example replaced (was 読みかた=way, not
+  かた=polite-person).
+- **H-3**: Sokuon allophones (みっ/よっ/むっ/やっ) removed from kun
+  arrays of 三/四/六/八 in both n5_kanji_readings.json and kanji.json;
+  these are not separate readings, they are sokuon assimilation
+  before counter morphemes.
+- **H-4**: 393/631 grammar.json romaji examples patched — particle
+  separation ("darega" → "dare ga"), sentence-final か/ね/よ split,
+  time-digit transliteration ("7tokini" → "shichi-ji ni").
+
+### Medium-priority polish
+
+- **M-1**: 4 kinds of kanji.json polish: filled empty translations
+  for 四 sentences; dropped duplicate 女 sentence (particle-order
+  swap); deduped redundant `additional_readings` against main on/kun
+  for 24 kanji.
+- **M-2**: 母 mnemonic softened from "Two breasts inside a body =
+  MOTHER" to "A figure of a nursing mother — the two emphasized
+  dots originally depicted breasts, signaling 'mother' by the act
+  of nursing."
+- **M-4**: Time-format normalized — 時はん → 時半 across 9 fields in
+  2 listening items.
+- **M-5**: Legacy `voice: "synthetic-voicevox-shikoku-metan"` field
+  removed from 18 listening items; `voice_planned` is canonical.
+- **M-6**: 今 had `additional_readings.on: ["きん"]` removed (not a
+  real on-yomi of 今 in modern Japanese).
+
+### Deferred
+
+- **H-1** (listening pace): Mean 160 morae/min vs target 180–240.
+  Requires TTS re-render of all 47 items; out of scope for content-
+  data audit.
+- **H-5** (Hindi rationales Hinglish): Already tagged `llm_curated`
+  provenance in moji/goi/bunpou papers; volume too large for surgical
+  pass. Recommend dedicated Hindi-native review pass.
+
+### Verification
+
+- `tools/check_content_integrity.py`: 50/50 invariants green after
+  each phase commit.
+- 5 phased commits with surgical scope per phase.
+
 ## v1.12.51 - 2026-05-07 (Hindi quality+coverage audit cycle — HI-01..HI-19 closed + cycle 2 mechanical pass)
 
 The Hindi-content audit cycle 1 + cycle 2 mechanical pass completed.
