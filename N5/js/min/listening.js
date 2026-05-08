@@ -22,7 +22,7 @@ import{renderJa as n}from"./furigana.js";import*as f from"./storage.js";import{h
       </details>
     `).join("")}
   `;const l=t.querySelector(".toc-expand-all"),m=t.querySelector(".toc-collapse-all");l&&l.addEventListener("click",()=>{t.querySelectorAll("details.listening-section").forEach(i=>i.open=!0)}),m&&m.addEventListener("click",()=>{t.querySelectorAll("details.listening-section").forEach(i=>i.open=!1)}),t.querySelectorAll("[data-id]").forEach(i=>{i.addEventListener("click",()=>{location.hash=`#/listening/${encodeURIComponent(i.dataset.id)}`})})}function h(t){const e=u.item,d=u.picked,l=d!=null,m=d===e.correctAnswer;l&&f.setListeningCompleted(e.id);const i=c?.items||[],a=i.findIndex(o=>o.id===e.id),s=a>0?i[a-1]:null,p=a>=0&&a<i.length-1?i[a+1]:null,$=s||p?`
-    <nav class="listening-nav" aria-label="${n("\u3082\u3093\u3060\u3044\u304B\u3093")}">
+    <nav class="listening-nav" aria-label="Listening item navigation">
       ${s?`<button type="button" class="listening-nav-btn listening-nav-prev" data-nav="prev" title="${r(s.title_ja||s.id)}">
              <span class="listening-nav-arrow" aria-hidden="true">&larr;</span>
              <span class="listening-nav-meta">

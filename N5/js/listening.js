@@ -145,7 +145,7 @@ function renderItem(container) {
   const prev = idx > 0 ? items[idx - 1] : null;
   const next = idx >= 0 && idx < items.length - 1 ? items[idx + 1] : null;
   const navHtml = (prev || next) ? `
-    <nav class="listening-nav" aria-label="${renderJa('もんだいかん')}">
+    <nav class="listening-nav" aria-label="Listening item navigation">
       ${prev
         ? `<button type="button" class="listening-nav-btn listening-nav-prev" data-nav="prev" title="${esc(prev.title_ja || prev.id)}">
              <span class="listening-nav-arrow" aria-hidden="true">&larr;</span>
