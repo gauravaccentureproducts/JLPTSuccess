@@ -203,7 +203,7 @@ async def render_segment_voicevox(text: str, speaker_id: int, out_path: Path):
     query['speedScale'] = 0.85
     query['prePhonemeLength'] = 0.0
     query['postPhonemeLength'] = 0.0
-    query['pauseLengthScale'] = 0.7
+    query['pauseLengthScale'] = 0.85
     # NOTE: pause_mora left intact. VOICEVOX assigns these only at
     # accent_phrases that end in 、 or 。 — they are the breath
     # points the user explicitly wanted preserved.
