@@ -2,6 +2,78 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.51 - 2026-05-07 (Hindi quality+coverage audit cycle — HI-01..HI-19 closed + cycle 2 mechanical pass)
+
+The Hindi-content audit cycle 1 + cycle 2 mechanical pass completed.
+17 distinct issues catalogued (HI-01..HI-19) and remediated in 10
+phased commits. New CI invariant JA-41 locks the kana-prefix
+convention going forward.
+
+### Cycle 1 (commits c5b3c11 → a3de7e4, 8 phases)
+
+- Phase A (HI-18+19): 154 romanization substitutions across EN+HI
+  (`te-form` → `て-form`, `na-adjective` → `な-adjective`, etc.)
+- Phase B (HI-12-15): 4 UI string polish fixes in `locales/hi.json`
+  (graduated → महारत प्राप्त, missed-calque → ग़लती नहीं की,
+  numeral consistency, bunpō transliteration normalized)
+- Phase C (HI-07-11): 5 single-entry quality bug fixes (broken
+  Hindi grammar in n5-029, circular ref in n5-091, बक्ता→वक्ता
+  spelling × 11, wrong analogy in n5-165, kana-Devanagari hybrid
+  カウंटर → काउंटर)
+- Phase D (HI-06): 48 kanji.json arity-mismatched meanings_hi
+  rebuilt (e.g., 木 [tree, wood, Thursday] → [पेड़, लकड़ी, गुरुवार])
+- Phase E (HI-04+05): 160+ grammar.json code-mix substitutions
+  (nominalizer → नामकरण-कण, casual → अनौपचारिक, etc.)
+- Phase F (HI-02): 433 placeholder Hindi values in questions.json
+  translated from English source via 250-rule glossary; provenance
+  marked llm_curated (honest about mechanical translation)
+- Phase G (HI-01): 29 paper files / 0 Hindi keys → 28/402
+  rationale_hi added (covers moji/bunpou/dokkai/goi paper tests)
+- Phase H (HI-16): 11 native_reviewed-but-codemix entries
+  hand-fixed (probability → सम्भावना, suffix → प्रत्यय, etc.)
+
+### Cycle 2 (commits 874d4e9 → 24fea19, 3 phases)
+
+- Phase 1: 379 substitutions via 250-rule expanded glossary
+  (goes/asks/pattern/order/choice/recipient/giver/etc.)
+- Phase 2: JA-41 CI invariant locking the kana-prefix convention
+  + fixed 2 final Latin-side cases (`i-Adjective` / `na-Adjective`)
+- Phase 1b: 115 more substitutions (pronoun/train/distractor/
+  paraphrase/etc.)
+
+### Final state
+
+- Placeholder Hindi values:                       0
+- Provenance-honesty violations:                  0
+- Kanji arity mismatches:                         0
+- Paper files with no Hindi:                      0
+- Romanization anti-pattern (kana-prefix):        0
+- Code-mix in `native_reviewed` content:          0
+- `tools/check_content_integrity.py`:             50/50 green
+- New invariant: JA-41 (kana-prefix convention)
+
+### What's deferred to a future cycle
+
+- ~213 single-English-word residuals in `llm_curated` content.
+  These are the long tail; Phase 3 of the cycle-2 audit prompt
+  (per-surface native-speaker review) will polish them.
+- HI-17: English-content bug — `data/reading.json` `passages[].
+  summary` has code-mixed Hindi-English in the EN field. Out of
+  Hindi-audit scope; flagged for separate cycle.
+
+### Files
+
+Audit findings durable record:
+  `feedback/hindi-audit-findings-2026-05-07.md`
+
+Audit/fix scripts (re-runnable, idempotent):
+  `not-required/tools-archive/fix_hi*_2026_05_07.py` (10 scripts)
+  `not-required/tools-archive/_hindi_*.py` (8 diagnostics)
+
+Audit prompt for next cycle:
+  `prompts/LocaleTransitionEnHi.txt` (refreshed with cycle-1+2
+  learnings; serves as entry-point for cycle-3 polish)
+
 ## v1.12.50 - 2026-05-07 (Listening voice variety — ACTUALLY rendered: ISSUE-062 + ISSUE-089 + IMP-122 closed)
 
 The "almost done" listening-audio render shipped — all 47 listening
