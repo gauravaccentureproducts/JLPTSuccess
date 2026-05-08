@@ -383,11 +383,26 @@ document.addEventListener('furigana-rerender', () => { route(); });
 // replaced by a skinned wrapper with skip-back-5s, skip-forward-5s,
 // and per-clip 0.75/1.0/1.25× rate buttons. enhanceAudioPlayers is
 // idempotent - already-enhanced nodes are no-ops.
+//
+// 2026-05-08 BUG FIX: applyAudioRate() was being called inside the
+// MutationObserver, which fired on every textContent update (including
+// the audio player's own time-display updates from `timeupdate` /
+// `loadedmetadata` / `ratechange`). That created a feedback loop:
+//   1. user clicks 1.25× → audio.playbackRate = 1.25
+//   2. ratechange event → updateTime() → timeEl.textContent = "..."
+//   3. MutationObserver sees textContent change → applyAudioRate()
+//      resets every <audio>'s playbackRate to the global Settings
+//      value (1.0 by default) → per-clip override is clobbered.
+// The per-clip rate buttons appeared to do nothing (highlight changed,
+// playback rate didn't). Fix: drop applyAudioRate() from the
+// MutationObserver. The initial rate is already applied per-clip in
+// enhanceOne() (audio-player.js line 51-56) by reading the Settings
+// at the time the <audio> is wrapped — so the global Settings rate
+// still works as the *default*, but per-clip overrides stick.
 document.addEventListener('DOMContentLoaded', () => {
   import('./audio-player.js').then(({ enhanceAudioPlayers }) => {
     const root = document.getElementById('app') || document.body;
     const obs = new MutationObserver(() => {
-      applyAudioRate();
       enhanceAudioPlayers(root);
     });
     obs.observe(root, { childList: true, subtree: true });
