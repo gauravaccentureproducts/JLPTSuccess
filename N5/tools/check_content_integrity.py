@@ -815,6 +815,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-38", "Every grammar pattern has >=1 common_mistakes entry (2026-05-06)", lambda: _check_ja_38_common_mistakes_floor()),
     ("JA-39", "Locale set in content data is exactly {en, hi} (2026-05-06)", lambda: _check_ja_39_locale_set_en_hi()),
     ("JA-40", "moji/goi/bunpou paper distractors bounded by N5 + paper-distractor exception (2026-05-08)", lambda: _check_ja_40_paper_distractor_kanji_bounded()),
+    ("JA-41", "Hindi prose: Japanese grammatical particles attached to Hindi terms must be in kana (R-1.1, 2026-05-07)", lambda: _check_ja_41_kana_prefix_convention()),
 ]
 
 
@@ -2339,6 +2340,123 @@ def _check_ja_39_locale_set_en_hi() -> list[str]:
                 failures.append(
                     f"JA-39 js/i18n.js SUPPORTED is {tokens}; expected ['en', 'hi']"
                 )
+    return failures[:30]  # cap noise
+
+
+def _check_ja_41_kana_prefix_convention() -> list[str]:
+    """Cycle-2 Phase 2 (2026-05-07): Hindi prose must follow the kana-prefix
+    convention. Japanese grammatical particles attached to Hindi grammatical
+    terms must be in Japanese script (hiragana), NOT Latin romaji and NOT
+    Devanagari transliteration.
+
+    Wrong:   ना-विशेषण  (Devanagari な)
+    Wrong:   na-विशेषण  (Latin romaji)
+    Right:   な-विशेषण  (hiragana)
+
+    Same applies to い-/て-/た-/ない-/ます-/たい-/ば- prefixes.
+
+    The rule applies SYMMETRICALLY across English and Hindi explanation
+    fields - "te-form" in English should be "て-form" too.
+
+    Surfaced via reviewer follow-up during cycle-1 (2026-05-07). Documented
+    as audit-finding HI-18 + HI-19. Cycle-1 closed all 67 known instances;
+    this invariant locks the convention so future regressions fail CI.
+    """
+    failures: list[str] = []
+
+    # Hindi grammatical-term suffixes that signal a JLPT pedagogical context.
+    # When immediately preceded by a hyphen + a known kana-equivalent token
+    # (Latin romaji or Devanagari xliteration), it's a violation.
+    HINDI_TERMS = [
+        "विशेषण", "क्रिया", "रूप", "संज्ञा", "कण", "वाक्य", "पैटर्न",
+        "भूत", "नकार", "प्रश्न", "विधेय",
+    ]
+    EN_TERMS = ["adjective", "adj", "verb", "form", "particle", "predicate"]
+
+    # Latin-romaji + (Devanagari OR English) grammatical-term
+    LATIN_ROMAJI = ["na", "i", "te", "ta", "nai", "masu", "desu", "tai", "ba",
+                    "tara", "tari", "kute", "nakute", "ru", "u"]
+    latin_pat = re.compile(
+        r"\b(" + "|".join(LATIN_ROMAJI) + r")-(" +
+        "|".join(HINDI_TERMS + EN_TERMS) + r")\b",
+        re.IGNORECASE
+    )
+
+    # Devanagari syllable + Devanagari term (the original ना-विशेषण bug).
+    # Use negative lookbehind to require the syllable is NOT preceded by
+    # other Devanagari (which would mean it's part of a longer Hindi word
+    # like "रिश्ता" / "कर्ता" / "हिता" — false positives).
+    DEV_ROMAJI = ["ना", "ते", "ता", "नाई", "मासू", "देसू", "सूरू"]
+    dev_pat = re.compile(
+        r"(?<![ऀ-ॿ])(" + "|".join(re.escape(d) for d in DEV_ROMAJI) +
+        r")-(" + "|".join(HINDI_TERMS) + r")\b"
+    )
+
+    def has_devanagari(s: str) -> bool:
+        return any('ऀ' <= ch <= 'ॿ' for ch in s)
+
+    def scan_value(value, ctx: str):
+        if not isinstance(value, str):
+            return
+        # Latin-romaji checks: scan anywhere (EN or HI prose - the rule is
+        # symmetric)
+        for m in latin_pat.finditer(value):
+            failures.append(
+                f"JA-41: kana-prefix violation at {ctx}: '{m.group(0)}' "
+                f"should use kana (e.g., な-/い-/て-/た-/ない-/ます-/たい-)"
+            )
+        # Devanagari-xliteration: only flag inside Hindi prose (the
+        # value must contain Devanagari for this to be a Hindi field)
+        if has_devanagari(value):
+            for m in dev_pat.finditer(value):
+                failures.append(
+                    f"JA-41: kana-prefix Devanagari xliteration at {ctx}: "
+                    f"'{m.group(0)}' should use kana (e.g., '{m.group(0)}' "
+                    f"-> use hiragana equivalent)"
+                )
+
+    # Walk all *_hi and explanation_en / meaning_en fields
+    def walk(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                new_path = f"{path}.{k}" if path else k
+                if isinstance(k, str) and (
+                    k == "hi" or k.endswith("_hi") or k == "en"
+                    or k.endswith("_en") or k in {"meaning_en", "explanation_en",
+                    "rationale", "summary", "summary_en"}
+                ):
+                    scan_value(v, new_path)
+                walk(v, new_path)
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk(v, f"{path}[{i}]")
+
+    targets = [
+        "data/grammar.json", "data/vocab.json", "data/kanji.json",
+        "data/reading.json", "data/listening.json", "data/questions.json",
+    ]
+    for fname in targets:
+        p = ROOT / fname
+        if not p.exists():
+            continue
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            walk(d, fname)
+        except Exception as e:
+            failures.append(f"JA-41 parse error on {fname}: {e}")
+
+    # Papers
+    papers_dir = ROOT / "data" / "papers"
+    if papers_dir.exists():
+        for pf in papers_dir.rglob("*.json"):
+            if pf.name == "manifest.json":
+                continue
+            try:
+                d = json.loads(pf.read_text(encoding="utf-8"))
+                walk(d, str(pf.relative_to(ROOT)).replace("\\", "/"))
+            except Exception as e:
+                failures.append(f"JA-41 parse error on {pf.name}: {e}")
+
     return failures[:30]  # cap noise
 
 
