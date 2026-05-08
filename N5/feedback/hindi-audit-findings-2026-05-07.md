@@ -204,6 +204,45 @@ questions.json) was empirically falsified.
   the Japanese terms `"文法 + 読解"` directly (consistent with how
   the app shows Japanese vocab).
 
+### HIGH — added 2026-05-07 follow-up
+
+#### ISSUE-HI-18 — Three-way convention inconsistency for "kana + Hindi-term" tokens
+
+(Surfaced by reviewer follow-up question: "ना-विशेषण should be な-विशेषण.")
+
+The corpus uses three different conventions for tokens like
+"na-adjective" / "te-form" / "ta-form" etc. translated to Hindi:
+
+| Convention                  | Count | Status   | Example          |
+|-----------------------------|------:|----------|------------------|
+| Hiragana + Devanagari       | 8     | correct  | な-विशेषण        |
+| Latin romaji + Devanagari   | 57    | wrong    | na-विशेषण        |
+| Devanagari + Devanagari     | 2     | wrong    | ना-विशेषण        |
+
+Worst case: `grammar.json` pattern n5-078 has `meaning_hi:
+"na-विशेषण + な + संज्ञा"` — Latin "na-" sitting next to hiragana
+"な" in the same string.
+
+Principle (from the same R-1..R-7 rubric + the user's stated
+boundary "Japanese tokens stay in Japanese script"): Japanese
+grammatical particles attached to Hindi terms must be written in
+the **Japanese script** (hiragana な / い / て / た / ない / たい /
+ます etc.), not transliterated to Latin or Devanagari.
+
+This matches:
+- How the English content already does it (`な-adjective`).
+- The N5 pedagogical sequence (hiragana is taught before grammar
+  particles, so transliteration is unnecessary by the time the
+  learner reaches these patterns).
+- The 8 entries that already do it correctly.
+
+Fix: 57 Latin-romaji entries → kana form; 2 Devanagari entries →
+kana form. Mostly in `grammar.json` `meaning_hi` /
+`explanation_hi`, with a couple in `questions.json`. Add a CI
+invariant to lock the convention going forward.
+
+Diagnostic script: `tools/_hindi_kana_transliteration_scan.py`.
+
 ### INFO / cross-cutting
 
 #### ISSUE-HI-16 — Provenance honesty violation
