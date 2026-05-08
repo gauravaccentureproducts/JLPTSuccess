@@ -680,7 +680,7 @@
       },
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "खंड के बाद から = \"क्योंकि\"। कारण पहले, परिणाम बाद। i-विशेषण सीधे から लेते हैं।",
+      "explanation_hi": "खंड के बाद から = \"क्योंकि\"। कारण पहले, परिणाम बाद। い-विशेषण सीधे から लेते हैं।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "で": "इस विकल्प के विवरण के लिए अंग्रेज़ी संस्करण देखें (मूल समीक्षा लंबित)।",
@@ -2094,7 +2094,7 @@
       "distractor_explanations": {
         "のんだ": "Plain past, not non-past.",
         "のまない": "Plain negative.",
-        "のんで": "のんで is the te-form, used for sequential actions or requests; the stem requires a finite past or present, not a connector."
+        "のんで": "のんで is the て-form, used for sequential actions or requests; the stem requires a finite past or present, not a connector."
       },
       "high_confusion": true,
       "difficulty": 2,
@@ -2126,7 +2126,7 @@
       "distractor_explanations": {
         "たべた": "Plain past.",
         "たべない": "Plain negative.",
-        "たべて": "たべて is the te-form, used for sequential actions or requests; the stem requires a finite past or present, not a connector."
+        "たべて": "たべて is the て-form, used for sequential actions or requests; the stem requires a finite past or present, not a connector."
       },
       "high_confusion": false,
       "difficulty": 2,
@@ -2794,10 +2794,10 @@
         "たべる"
       ],
       "correctAnswer": "たべて",
-      "explanation_en": "Sequential chain: middle verbs use te-form. Final verb 行きました carries tense.",
+      "explanation_en": "Sequential chain: middle verbs use て-form. Final verb 行きました carries tense.",
       "distractor_explanations": {
         "たべます": "Don't use polite form mid-chain.",
-        "たべました": "Past, but for sequence use te-form.",
+        "たべました": "Past, but for sequence use て-form.",
         "たべる": "Plain form, doesn't connect smoothly to next clause."
       },
       "high_confusion": true,
@@ -2826,7 +2826,7 @@
         "たべて"
       ],
       "correctAnswer": "たべて",
-      "explanation_en": "Multiple sequential actions all use te-form except the final one.",
+      "explanation_en": "Multiple sequential actions all use て-form except the final one.",
       "distractor_explanations": {
         "たべる": "Plain form doesn't chain naturally.",
         "たべました": "Final verb 出かけました already carries the past tense.",
@@ -2860,7 +2860,7 @@
       "correctAnswer": "まって",
       "explanation_en": "まつ → まって (う/つ/る → って) + ください.",
       "distractor_explanations": {
-        "まつ": "Dictionary form - needs te-form before ください.",
+        "まつ": "Dictionary form - needs て-form before ください.",
         "まちて": "つ → って, not ちて.",
         "まった": "That's the た-form, not て-form."
       },
@@ -2988,7 +2988,7 @@
       "correctAnswer": "とって",
       "explanation_en": "とる → とって + もいいです (permission).",
       "distractor_explanations": {
-        "とる": "Need te-form.",
+        "とる": "Need て-form.",
         "とりて": "う/つ/る → って.",
         "とった": "That's た-form."
       },
@@ -3020,7 +3020,7 @@
       "correctAnswer": "みて",
       "explanation_en": "みる → みて (drop る + て).",
       "distractor_explanations": {
-        "みる": "Need te-form.",
+        "みる": "Need て-form.",
         "みた": "た-form.",
         "みます": "Polite form."
       },
@@ -3050,9 +3050,9 @@
         "はなしません"
       ],
       "correctAnswer": "はなして",
-      "explanation_en": "てはいけません = must not. Need te-form before は.",
+      "explanation_en": "てはいけません = must not. Need て-form before は.",
       "distractor_explanations": {
-        "はなす": "Need te-form.",
+        "はなす": "Need て-form.",
         "はなした": "た-form.",
         "はなしません": "Polite negative - wrong structure."
       },
@@ -3084,7 +3084,7 @@
       "correctAnswer": "すって",
       "explanation_en": "すう → すって (う → って).",
       "distractor_explanations": {
-        "すう": "Need te-form.",
+        "すう": "Need て-form.",
         "すうて": "う → って, not うて.",
         "すいて": "Wrong stem-shift."
       },
@@ -3212,7 +3212,7 @@
       "distractor_explanations": {
         "かった": "Past affirmative.",
         "くない": "Present negative.",
-        "くて": "te-form connector."
+        "くて": "て-form connector."
       },
       "high_confusion": false,
       "difficulty": 2,
@@ -3239,7 +3239,7 @@
         "かった"
       ],
       "correctAnswer": "くて",
-      "explanation_en": "い-adj te-form: drop い + くて.",
+      "explanation_en": "い-adj て-form: drop い + くて.",
       "distractor_explanations": {
         "い": "Affirmative ending - doesn't connect.",
         "で": "That's for な-adj / nouns.",
@@ -3247,7 +3247,7 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "i-विशेषण te-रूप: い हटाओ + くて।",
+      "explanation_hi": "い-विशेषण て-रूप: い हटाओ + くて।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "い": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3274,7 +3274,7 @@
       "explanation_en": "いそがしい → いそがしくて.",
       "distractor_explanations": {
         "しい": "Doesn't connect to the next clause.",
-        "しいで": "That's na-adj te-form.",
+        "しいで": "That's な-adj て-form.",
         "しかった": "Past."
       },
       "high_confusion": false,
@@ -3310,7 +3310,7 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "na-विशेषण भूत = + でした (संज्ञा की तरह)।",
+      "explanation_hi": "な-विशेषण भूत = + でした (संज्ञा की तरह)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3334,7 +3334,7 @@
         "でした"
       ],
       "correctAnswer": "でした",
-      "explanation_en": "ゆうめい (na-adj) past + question = でしたか.",
+      "explanation_en": "ゆうめい (な-adj) past + question = でしたか.",
       "distractor_explanations": {
         "かった": "い-adj form.",
         "ですか": "Present.",
@@ -3342,7 +3342,7 @@
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "ゆうめい (na-विशेषण) भूत-प्रश्न = でしたか।",
+      "explanation_hi": "ゆうめい (な-विशेषण) भूत-प्रश्न = でしたか।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "かった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3366,15 +3366,15 @@
         "じゃありません"
       ],
       "correctAnswer": "じゃありませんでした",
-      "explanation_en": "na-adj past negative = + じゃありませんでした.",
+      "explanation_en": "な-adj past negative = + じゃありませんでした.",
       "distractor_explanations": {
-        "くなかった": "i-adj form.",
+        "くなかった": "い-adj form.",
         "でした": "Past affirmative.",
         "じゃありません": "Present negative."
       },
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "na-विशेषण भूत-नकारात्मक = + じゃありませんでした।",
+      "explanation_hi": "な-विशेषण भूत-नकारात्मक = + じゃありませんでした।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "くなかった": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3398,15 +3398,15 @@
         "じゃありません"
       ],
       "correctAnswer": "じゃありませんでした",
-      "explanation_en": "かんたん (easy) is na-adj. Past negative = じゃありませんでした.",
+      "explanation_en": "かんたん (easy) is な-adj. Past negative = じゃありませんでした.",
       "distractor_explanations": {
-        "くなかったです": "i-adj form.",
+        "くなかったです": "い-adj form.",
         "でした": "Past affirmative - wrong polarity.",
         "じゃありません": "Present, not past."
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "かんたん na-विशेषण। भूत-नकारात्मक = じゃありませんでした।",
+      "explanation_hi": "かんたん な-विशेषण। भूत-नकारात्मक = じゃありませんでした।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "くなかったです": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3430,15 +3430,15 @@
         "な"
       ],
       "correctAnswer": "で",
-      "explanation_en": "na-adj te-form: just で.",
+      "explanation_en": "な-adj て-form: just で.",
       "distractor_explanations": {
-        "くて": "That's i-adj te-form.",
+        "くて": "That's い-adj て-form.",
         "だ": "Plain copula - doesn't connect like this.",
         "な": "Used before nouns, not for connection."
       },
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "na-विशेषण te-रूप: केवल で।",
+      "explanation_hi": "な-विशेषण て-रूप: केवल で।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "くて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3462,15 +3462,15 @@
         "で"
       ],
       "correctAnswer": "で",
-      "explanation_en": "しんせつ (kind, na-adj) → しんせつで.",
+      "explanation_en": "しんせつ (kind, な-adj) → しんせつで.",
       "distractor_explanations": {
-        "くて": "i-adj only.",
+        "くて": "い-adj only.",
         "だ": "Doesn't connect smoothly.",
         "な": "Goes before a noun."
       },
       "high_confusion": false,
       "difficulty": 2,
-      "explanation_hi": "しんせつ (na-विशेषण) → しんせつで।",
+      "explanation_hi": "しんせつ (な-विशेषण) → しんせつで।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "くて": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -3562,7 +3562,7 @@
       "distractor_explanations": {
         "行き": "Stem alone - incomplete.",
         "行く": "Plain dictionary form.",
-        "行って": "te-form."
+        "行って": "て-form."
       },
       "high_confusion": false,
       "difficulty": 1,
@@ -3593,7 +3593,7 @@
       "explanation_en": "たい-form for desires.",
       "distractor_explanations": {
         "食べる": "Plain - doesn't express desire.",
-        "食べて": "te-form.",
+        "食べて": "て-form.",
         "食べた": "Past."
       },
       "high_confusion": false,
@@ -4564,9 +4564,9 @@
         "ごはんを",
         "食べます"
       ],
-      "explanation_en": "Sequential te-form chain: TIME, Verb1-て、Object Verb2. The te-form おきて signals 'and then'. The first clause has no explicit object; the second has ごはんを 食べます.",
+      "explanation_en": "Sequential て-form chain: TIME, Verb1-て、Object Verb2. The て-form おきて signals 'and then'. The first clause has no explicit object; the second has ごはんを 食べます.",
       "difficulty": 2,
-      "explanation_hi": "क्रमिक te-form: TIME, V1-て, कर्म V2। おきて = \"उठकर फिर\"।",
+      "explanation_hi": "क्रमिक て-form: TIME, V1-て, कर्म V2। おきて = \"उठकर फिर\"।",
       "explanation_hi_provenance": "native_reviewed"
     },
     {
@@ -4646,9 +4646,9 @@
         "アメリカより",
         "ちいさいです"
       ],
-      "explanation_en": "Comparison pattern: A は B より [adj] です. Topic A first, then B より (the comparison reference), then the i-adjective predicate.",
+      "explanation_en": "Comparison pattern: A は B より [adj] です. Topic A first, then B より (the comparison reference), then the い-adjective predicate.",
       "difficulty": 2,
-      "explanation_hi": "तुलना: A は B より [विशेषण] です। विषय A पहले, फिर B より, फिर i-विशेषण।",
+      "explanation_hi": "तुलना: A は B より [विशेषण] です। विषय A पहले, फिर B より, फिर い-विशेषण।",
       "explanation_hi_provenance": "native_reviewed"
     },
     {
@@ -4688,7 +4688,7 @@
         "日本へ",
         "行きたいです"
       ],
-      "explanation_en": "Verb-stem + たい: 'want to V'. Direction marker へ before the verb-tai phrase. たい conjugates as an i-adjective.",
+      "explanation_en": "Verb-stem + たい: 'want to V'. Direction marker へ before the verb-tai phrase. たい conjugates as an い-adjective.",
       "difficulty": 2,
       "explanation_hi": "V-तना + たい = \"करना चाहता हूँ\"। दिशा-सूचक へ क्रिया-तना से पहले।",
       "explanation_hi_provenance": "native_reviewed"
@@ -4843,7 +4843,7 @@
         "ikimashita"
       ],
       "correctAnswer": "いきました",
-      "explanation_en": "いく is a Group-1 (う-verb). Polite past: stem いき + ました = いきました. Note: いく's te-form is 行って (irregular), but the ます-form is regular.",
+      "explanation_en": "いく is a Group-1 (う-verb). Polite past: stem いき + ました = いきました. Note: いく's て-form is 行って (irregular), but the ます-form is regular.",
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "いく समूह-1। विनम्र भूत: तना いき + ました = いきました।",
@@ -5123,7 +5123,7 @@
       "explanation_en": "たかい = 高い (expensive / tall). All four are N5 i-adjectives with related meanings: 古い (old), 新しい (new), 安い (cheap, antonym of 高い). Tests precise kanji recognition within a tightly-related semantic field.",
       "high_confusion": true,
       "difficulty": 2,
-      "explanation_hi": "たかい = 高い (महँगा/लंबा)। N5 i-विशेषण।",
+      "explanation_hi": "たかい = 高い (महँगा/लंबा)। N5 い-विशेषण।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -5267,7 +5267,7 @@
         "この へやは しずかです。"
       ],
       "correctAnswer": "この へやは あかるくないです。",
-      "explanation_en": "くらい (dark) = あかるくない (not bright). Antonym-via-negation tests the i-adjective negative form + opposite-meaning pair.",
+      "explanation_en": "くらい (dark) = あかるくない (not bright). Antonym-via-negation tests the い-adjective negative form + opposite-meaning pair.",
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
@@ -5393,7 +5393,7 @@
         "この ケーキは おいしくないです。"
       ],
       "correctAnswer": "この ケーキは おいしくないです。",
-      "explanation_en": "まずい (bad-tasting) = おいしくない (not delicious). Antonym pair; まずい is the i-adjective directly opposite to おいしい.",
+      "explanation_en": "まずい (bad-tasting) = おいしくない (not delicious). Antonym pair; まずい is the い-adjective directly opposite to おいしい.",
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "पैटर्न n5-079 का प्रश्न — विवरण के लिए संबंधित पैटर्न पृष्ठ देखें। (अस्थायी; मूल समीक्षा प्रतीक्षित।)",
@@ -5588,7 +5588,7 @@
       "high_confusion": true,
       "difficulty": 2,
       "auto": false,
-      "explanation_hi": "जब ので संज्ञा/na-विशेषण के बाद आता है, बीच में な आवश्यक: 雨 → 雨なので।",
+      "explanation_hi": "जब ので संज्ञा/な-विशेषण के बाद आता है, बीच में な आवश्यक: 雨 → 雨なので।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "の": "यह विकल्प यहाँ अनुपयुक्त है। (अस्थायी; पूर्ण Hindi विवरण की मूल समीक्षा लंबित।)",
@@ -5614,7 +5614,7 @@
       "correctAnswer": "ききながら",
       "explanation_en": "Verb-stem + ながら expresses two actions performed simultaneously by the same subject. きく (to listen) → stem きき + ながら = ききながら ('while listening'). Note: both actions must share the same subject.",
       "distractor_explanations": {
-        "きいて": "きいて (te-form) connects sequential actions: 'listen, then study'. It does not express simultaneous action.",
+        "きいて": "きいて (て-form) connects sequential actions: 'listen, then study'. It does not express simultaneous action.",
         "ききました": "ききました is past polite -  a complete sentence ending. It cannot connect two actions in the middle of one sentence.",
         "きかない": "きかない is the negative ('don't listen'), and gives the wrong meaning. It also doesn't form the simultaneous-action structure."
       },
@@ -5994,7 +5994,7 @@
       "correctAnswer": "あたらしい",
       "explanation_en": "i-Adjective directly before a noun: あたらしい くるま (new car). The dictionary form あたらしい is the noun-modifier form. -く is for connecting to verbs/adjectives.",
       "difficulty": 1,
-      "explanation_hi": "i-विशेषण सीधे संज्ञा से पहले: あたらしい くるま (नई कार)।",
+      "explanation_hi": "い-विशेषण सीधे संज्ञा से पहले: あたらしい くるま (नई कार)।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -6013,7 +6013,7 @@
       "correctAnswer": "きれいな",
       "explanation_en": "na-Adjective + な + Noun: きれいな へや. The な is mandatory before a noun. きれい (without な) is the standalone form used as a predicate, not as a modifier.",
       "difficulty": 2,
-      "explanation_hi": "na-विशेषण + な + संज्ञा: きれいな へや। な अनिवार्य।",
+      "explanation_hi": "な-विशेषण + な + संज्ञा: きれいな へや। な अनिवार्य।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -6501,9 +6501,9 @@
         "おもしろくない"
       ],
       "correctAnswer": "おもしろい",
-      "explanation_en": "i-adjective in dictionary form modifies a following noun directly: omoshiroi hon = interesting book. Distractors: omoshiroku (adverb form), omoshirokute (te-form, conjunction), omoshirokunai (negative) -  none modify a noun in this slot.",
+      "explanation_en": "い-adjective in dictionary form modifies a following noun directly: omoshiroi hon = interesting book. Distractors: omoshiroku (adverb form), omoshirokute (て-form, conjunction), omoshirokunai (negative) -  none modify a noun in this slot.",
       "difficulty": 1,
-      "explanation_hi": "i-विशेषण शब्दकोश रूप सीधे संज्ञा को संशोधित: おもしろい ほん।",
+      "explanation_hi": "い-विशेषण शब्दकोश रूप सीधे संज्ञा को संशोधित: おもしろい ほん।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -6581,9 +6581,9 @@
         "います"
       ],
       "correctAnswer": "なりました",
-      "explanation_en": "i-adj-stem + ku + narimasu = becomes [adj]. aoku narimashita = became blue. Distractors: shimashita is 'did' (transitive change); arimasu / imasu are 'exist'.",
+      "explanation_en": "い-adj-stem + ku + narimasu = becomes [adj]. aoku narimashita = became blue. Distractors: shimashita is 'did' (transitive change); arimasu / imasu are 'exist'.",
       "difficulty": 2,
-      "explanation_hi": "i-विशेषण-तना + く + なります = \"[विशेषण] बन जाता है\"। あおく なりました।",
+      "explanation_hi": "い-विशेषण-तना + く + なります = \"[विशेषण] बन जाता है\"। あおく なりました।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -6761,7 +6761,7 @@
         "でして"
       ],
       "correctAnswer": "でしょう",
-      "explanation_en": "deshou = probably / I expect (paired with tabun 'probably' in the stem for emphasis). Distractors: deshita (past copula), desu ka (question ending -  would change meaning), deshite (te-form, ungrammatical sentence-finally).",
+      "explanation_en": "deshou = probably / I expect (paired with tabun 'probably' in the stem for emphasis). Distractors: deshita (past copula), desu ka (question ending -  would change meaning), deshite (て-form, ungrammatical sentence-finally).",
       "difficulty": 2,
       "explanation_hi": "でしょう = \"शायद/अपेक्षित\"। たぶん के साथ अनुमान पर ज़ोर।",
       "explanation_hi_provenance": "native_reviewed",
@@ -6881,9 +6881,9 @@
         "すぎます"
       ],
       "correctAnswer": "すぎます",
-      "explanation_en": "i-adj-stem (drop い) + sugimasu = too [adj]. omoi → omo + sugimasu = 'too heavy'. Distractors: sugiru (plain form, would need different polite-level context), sugite (te-form, conjunction not a sentence ender), suginai (negative -  would mean 'not too heavy' which contradicts the implied complaint).",
+      "explanation_en": "い-adj-stem (drop い) + sugimasu = too [adj]. omoi → omo + sugimasu = 'too heavy'. Distractors: sugiru (plain form, would need different polite-level context), sugite (て-form, conjunction not a sentence ender), suginai (negative -  would mean 'not too heavy' which contradicts the implied complaint).",
       "difficulty": 3,
-      "explanation_hi": "i-विशेषण-तना (い हटाओ) + すぎます = \"बहुत [विशेषण]\"। おもい → おもすぎます।",
+      "explanation_hi": "い-विशेषण-तना (い हटाओ) + すぎます = \"बहुत [विशेषण]\"। おもい → おもすぎます।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -6941,9 +6941,9 @@
         "あまり"
       ],
       "correctAnswer": "いちばん",
-      "explanation_en": "いちばん = #1 / most / -est. Combined with an i-adjective it forms the superlative. Distractors: とても (very) is degree, not superlative; もっと (more) is comparative, not superlative; あまり needs a negative.",
+      "explanation_en": "いちばん = #1 / most / -est. Combined with an い-adjective it forms the superlative. Distractors: とても (very) is degree, not superlative; もっと (more) is comparative, not superlative; あまり needs a negative.",
       "difficulty": 2,
-      "explanation_hi": "いちばん = \"सर्वोच्च/सबसे\"। i-विशेषण के साथ श्रेष्ठतम बनाता है।",
+      "explanation_hi": "いちばん = \"सर्वोच्च/सबसे\"। い-विशेषण के साथ श्रेष्ठतम बनाता है।",
       "explanation_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
@@ -7201,7 +7201,7 @@
         "んです"
       ],
       "correctAnswer": "んです",
-      "explanation_en": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense -  past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an i-adj, not a verb).",
+      "explanation_en": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense -  past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an い-adj, not a verb).",
       "difficulty": 3,
       "explanation_hi": "सादा + んです = व्याख्या-रूप (कारण/स्थिति देता है)।",
       "explanation_hi_provenance": "native_reviewed",
