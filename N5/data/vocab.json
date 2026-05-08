@@ -2399,6 +2399,14 @@
           "ja": "こちらへ どうぞ。",
           "translation_en": "This way, please.",
           "source": "n5-042"
+        },
+        {
+          "ja": "日本の せいかつは どうですか。",
+          "translation_en": "How is life in Japan?"
+        },
+        {
+          "ja": "どう 行きますか。",
+          "translation_en": "How do we get there?"
         }
       ],
       "review_status": "native_reviewed",
@@ -2629,6 +2637,10 @@
           "ja": "なぜ そう おもいますか。",
           "translation_en": "Why do you think so?",
           "source": "n5-051"
+        },
+        {
+          "ja": "なぜ 来なかったのですか。",
+          "translation_en": "Why did you not come?"
         }
       ],
       "review_status": "native_reviewed",
@@ -2654,6 +2666,10 @@
           "ja": "どうして 来ませんでしたか。",
           "translation_en": "Why didn't you come?",
           "source": "n5-051"
+        },
+        {
+          "ja": "どうして 学校を 休みましたか。",
+          "translation_en": "Why did you skip school?"
         }
       ],
       "review_status": "native_reviewed",
@@ -3812,6 +3828,14 @@
           "ja": "ときどき えいがを 見ます。",
           "translation_en": "I sometimes watch movies.",
           "source": "n5-147"
+        },
+        {
+          "ja": "小さい とき、よく あそびました。",
+          "translation_en": "When I was little, I played a lot."
+        },
+        {
+          "ja": "あの ときは どこですか。",
+          "translation_en": "Where is that time?"
         }
       ],
       "review_status": "native_reviewed",
@@ -6166,6 +6190,10 @@
         {
           "ja": "まだ あさごはんを たべていません。",
           "translation_en": "I haven't eaten breakfast yet."
+        },
+        {
+          "ja": "まだ しゅくだいを して いません。",
+          "translation_en": "I haven't done my homework yet."
         }
       ],
       "review_status": "native_reviewed",
@@ -6368,6 +6396,10 @@
         {
           "ja": "へやに テレビが あります。",
           "translation_en": "There is a TV in the room."
+        },
+        {
+          "ja": "わたしの へやは 大きいです。",
+          "translation_en": "My room is big."
         }
       ],
       "review_status": "native_reviewed",
@@ -6476,6 +6508,10 @@
         {
           "ja": "あの おふろは どこですか。",
           "translation_en": "Where is that bath?"
+        },
+        {
+          "ja": "これは おふろです。",
+          "translation_en": "This is bath."
         }
       ],
       "review_status": "native_reviewed",
@@ -6500,6 +6536,10 @@
         {
           "ja": "これは げんかんです。",
           "translation_en": "This is entrance."
+        },
+        {
+          "ja": "あの げんかんは どこですか。",
+          "translation_en": "Where is that entrance?"
         }
       ],
       "review_status": "native_reviewed",
@@ -6548,6 +6588,14 @@
         {
           "ja": "学校を 見ました。",
           "translation_en": "I saw school."
+        },
+        {
+          "ja": "学校に かよって います。",
+          "translation_en": "I'm attending school."
+        },
+        {
+          "ja": "あれは 学校です。",
+          "translation_en": "That is school."
         }
       ],
       "review_status": "native_reviewed",
@@ -7236,6 +7284,14 @@
         {
           "ja": "あれは りょかんです。",
           "translation_en": "That is Japanese inn."
+        },
+        {
+          "ja": "りょかんに とまりました。",
+          "translation_en": "I stayed at a Japanese inn."
+        },
+        {
+          "ja": "あの りょかんは どこですか。",
+          "translation_en": "Where is that Japanese inn?"
         }
       ],
       "review_status": "native_reviewed",
@@ -8916,6 +8972,10 @@
         {
           "ja": "今日は とても あたたかいです。",
           "translation_en": "Today is very warm."
+        },
+        {
+          "ja": "この りんごは あたたかいです。",
+          "translation_en": "This apple is warm."
         }
       ],
       "review_status": "native_reviewed",
@@ -8964,6 +9024,10 @@
         {
           "ja": "水が あります。",
           "translation_en": "There is water."
+        },
+        {
+          "ja": "あれは 水です。",
+          "translation_en": "That is water."
         }
       ],
       "review_status": "native_reviewed",
@@ -9126,6 +9190,10 @@
         {
           "ja": "あの さかなは どこですか。",
           "translation_en": "Where is that fish?"
+        },
+        {
+          "ja": "さかなが あります。",
+          "translation_en": "There is fish."
         }
       ],
       "review_status": "native_reviewed",
@@ -9774,30 +9842,6 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "मुर्गी का मांस"
-    },
-    {
-      "id": "n5.vocab.17-food-items.さかな",
-      "form": "さかな",
-      "reading": "さかな",
-      "gloss": "fish",
-      "section": "17. Food - Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "さかなを 食べます。",
-          "translation_en": "I eat fish."
-        },
-        {
-          "ja": "さかなが あります。",
-          "translation_en": "There is fish."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "मछली"
     },
     {
       "id": "n5.vocab.17-food-items.やさい",
@@ -10716,30 +10760,6 @@
       "gloss_hi": "मिठाई / गोली"
     },
     {
-      "id": "n5.vocab.18-drinks.水",
-      "form": "水",
-      "reading": "みず",
-      "gloss": "water",
-      "section": "18. Drinks",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "水を 飲みます。",
-          "translation_en": "I drink water."
-        },
-        {
-          "ja": "あれは 水です。",
-          "translation_en": "That is water."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "पानी"
-    },
-    {
       "id": "n5.vocab.18-drinks.おゆ",
       "form": "おゆ",
       "reading": "おゆ",
@@ -11347,6 +11367,14 @@
         {
           "ja": "今日は とても 白いです。",
           "translation_en": "Today is very white."
+        },
+        {
+          "ja": "白い シャツを きます。",
+          "translation_en": "I wear a white shirt."
+        },
+        {
+          "ja": "この りんごは 白いです。",
+          "translation_en": "This apple is white."
         }
       ],
       "review_status": "native_reviewed",
@@ -11395,6 +11423,10 @@
         {
           "ja": "今日は とても くろいです。",
           "translation_en": "Today is very black."
+        },
+        {
+          "ja": "くろい かばんを 買いました。",
+          "translation_en": "I bought a black bag."
         }
       ],
       "review_status": "native_reviewed",
@@ -11443,6 +11475,10 @@
         {
           "ja": "えいがは あかいでした。",
           "translation_en": "The movie was red."
+        },
+        {
+          "ja": "あかい りんごを 食べます。",
+          "translation_en": "I eat a red apple."
         }
       ],
       "review_status": "native_reviewed",
@@ -11491,6 +11527,10 @@
         {
           "ja": "この りんごは あおいです。",
           "translation_en": "This apple is blue."
+        },
+        {
+          "ja": "あおい そらが きれいです。",
+          "translation_en": "The blue sky is beautiful."
         }
       ],
       "review_status": "native_reviewed",
@@ -11539,6 +11579,14 @@
         {
           "ja": "今日は とても きいろいです。",
           "translation_en": "Today is very yellow."
+        },
+        {
+          "ja": "きいろい 花が きれいです。",
+          "translation_en": "The yellow flowers are pretty."
+        },
+        {
+          "ja": "えいがは きいろいでした。",
+          "translation_en": "The movie was yellow."
         }
       ],
       "review_status": "native_reviewed",
@@ -12305,6 +12353,14 @@
         {
           "ja": "あの きっぷは どこですか。",
           "translation_en": "Where is that ticket?"
+        },
+        {
+          "ja": "きっぷを 買います。",
+          "translation_en": "I'll buy a ticket."
+        },
+        {
+          "ja": "きっぷが あります。",
+          "translation_en": "There is ticket."
         }
       ],
       "review_status": "native_reviewed",
@@ -12355,6 +12411,14 @@
         {
           "ja": "これは はがきです。",
           "translation_en": "This is postcard."
+        },
+        {
+          "ja": "はがきを 出します。",
+          "translation_en": "I'll send a postcard."
+        },
+        {
+          "ja": "はがきを 見ました。",
+          "translation_en": "I saw postcard."
         }
       ],
       "review_status": "native_reviewed",
@@ -12404,6 +12468,14 @@
         {
           "ja": "あの てがみは どこですか。",
           "translation_en": "Where is that letter?"
+        },
+        {
+          "ja": "母に てがみを 書きます。",
+          "translation_en": "I write a letter to my mother."
+        },
+        {
+          "ja": "てがみが あります。",
+          "translation_en": "There is letter."
         }
       ],
       "review_status": "native_reviewed",
@@ -12460,6 +12532,14 @@
         {
           "ja": "あれは おみやげです。",
           "translation_en": "That is souvenir."
+        },
+        {
+          "ja": "日本の おみやげを 買いました。",
+          "translation_en": "I bought Japanese souvenirs."
+        },
+        {
+          "ja": "あの おみやげは どこですか。",
+          "translation_en": "Where is that souvenir?"
         }
       ],
       "review_status": "native_reviewed",
@@ -13716,6 +13796,10 @@
         {
           "ja": "木の つくえです。",
           "translation_en": "It is a wooden desk. (noun-modifier の: links a material to an object)"
+        },
+        {
+          "ja": "つくえの 上に 本が あります。",
+          "translation_en": "There's a book on the desk."
         }
       ],
       "review_status": "native_reviewed",
@@ -13741,6 +13825,14 @@
         {
           "ja": "いすを 見ました。",
           "translation_en": "I saw chair."
+        },
+        {
+          "ja": "いすに すわって ください。",
+          "translation_en": "Please sit on the chair."
+        },
+        {
+          "ja": "いすが あります。",
+          "translation_en": "There is chair."
         }
       ],
       "review_status": "native_reviewed",
@@ -13815,6 +13907,10 @@
         {
           "ja": "ここで しゃしんを とってもいいですか。",
           "translation_en": "May I take a photo here?"
+        },
+        {
+          "ja": "しゃしんを とりましょう。",
+          "translation_en": "Let's take a photo."
         }
       ],
       "review_status": "native_reviewed",
@@ -13864,6 +13960,10 @@
         {
           "ja": "番号を 見ました。",
           "translation_en": "I saw number."
+        },
+        {
+          "ja": "電話番号を 教えて ください。",
+          "translation_en": "Please tell me your phone number."
         }
       ],
       "review_status": "native_reviewed",
@@ -14569,54 +14669,6 @@
       }
     },
     {
-      "id": "n5.vocab.26-house-and-furniture.へや",
-      "form": "へや",
-      "reading": "へや",
-      "gloss": "room",
-      "section": "26. House and Furniture",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "わたしの へやは 大きいです。",
-          "translation_en": "My room is big."
-        },
-        {
-          "ja": "へやに テレビが あります。",
-          "translation_en": "There is a TV in the room."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "कमरा"
-    },
-    {
-      "id": "n5.vocab.26-house-and-furniture.げんかん",
-      "form": "げんかん",
-      "reading": "げんかん",
-      "gloss": "entrance",
-      "section": "26. House and Furniture",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "げんかんで くつを ぬぎます。",
-          "translation_en": "I take off my shoes at the entrance."
-        },
-        {
-          "ja": "あの げんかんは どこですか。",
-          "translation_en": "Where is that entrance?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "प्रवेश-द्वार"
-    },
-    {
       "id": "n5.vocab.26-house-and-furniture.いま",
       "form": "いま",
       "reading": "いま",
@@ -14790,54 +14842,6 @@
         "en": "native_reviewed"
       },
       "counter": "台"
-    },
-    {
-      "id": "n5.vocab.26-house-and-furniture.つくえ",
-      "form": "つくえ",
-      "reading": "つくえ",
-      "gloss": "desk",
-      "section": "26. House and Furniture",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "つくえの 上に 本が あります。",
-          "translation_en": "There's a book on the desk."
-        },
-        {
-          "ja": "木の つくえです。",
-          "translation_en": "It is a wooden desk. (noun-modifier の: links a material to an object)"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "मेज़",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
-      "id": "n5.vocab.26-house-and-furniture.いす",
-      "form": "いす",
-      "reading": "いす",
-      "gloss": "chair",
-      "section": "26. House and Furniture",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "いすに すわって ください。",
-          "translation_en": "Please sit on the chair."
-        },
-        {
-          "ja": "いすが あります。",
-          "translation_en": "There is chair."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "कुर्सी",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
     },
     {
       "id": "n5.vocab.26-house-and-furniture.たな",
@@ -15047,6 +15051,14 @@
         {
           "ja": "テープを 見ました。",
           "translation_en": "I saw tape."
+        },
+        {
+          "ja": "テープに ろくおんします。",
+          "translation_en": "I'll record on the tape."
+        },
+        {
+          "ja": "テープが あります。",
+          "translation_en": "There is tape."
         }
       ],
       "review_status": "native_reviewed",
@@ -15232,6 +15244,10 @@
         {
           "ja": "あの うたは どこですか。",
           "translation_en": "Where is that song?"
+        },
+        {
+          "ja": "日本の うたが すきです。",
+          "translation_en": "I like Japanese songs."
         }
       ],
       "review_status": "native_reviewed",
@@ -18199,6 +18215,14 @@
         {
           "ja": "毎日 かりることが できます。",
           "translation_en": "I can to borrow every day."
+        },
+        {
+          "ja": "としょかんで 本を かりました。",
+          "translation_en": "I borrowed a book at the library."
+        },
+        {
+          "ja": "かりる人が います。",
+          "translation_en": "There is a person who to borrow."
         }
       ],
       "review_status": "native_reviewed",
@@ -19544,31 +19568,6 @@
       "collocations_provenance": "llm_curated"
     },
     {
-      "id": "n5.vocab.30-verbs-existence-and-p.かりる",
-      "form": "かりる",
-      "reading": "かりる",
-      "gloss": "to borrow",
-      "section": "30. Verbs - Existence and Possession",
-      "pos": "verb-2",
-      "examples": [
-        {
-          "ja": "としょかんで 本を かりました。",
-          "translation_en": "I borrowed a book at the library."
-        },
-        {
-          "ja": "かりる人が います。",
-          "translation_en": "There is a person who to borrow."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "उधार लेना",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "verb_class": "ichidan"
-    },
-    {
       "id": "n5.vocab.30-verbs-existence-and-p.かえす",
       "form": "かえす",
       "reading": "かえす",
@@ -19773,30 +19772,6 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "गरम (मौसम)"
-    },
-    {
-      "id": "n5.vocab.31-adjectives.さむい",
-      "form": "さむい",
-      "reading": "さむい",
-      "gloss": "cold (weather)",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "冬は さむいです。",
-          "translation_en": "Winter is cold."
-        },
-        {
-          "ja": "きょうは さむいです。",
-          "translation_en": "It's cold today."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "ठंडा (मौसम)"
     },
     {
       "id": "n5.vocab.31-adjectives.あつい.2",
@@ -20972,54 +20947,6 @@
       }
     },
     {
-      "id": "n5.vocab.31-adjectives.あたたかい",
-      "form": "あたたかい",
-      "reading": "あたたかい",
-      "gloss": "warm",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "はるは あたたかいです。",
-          "translation_en": "Spring is warm."
-        },
-        {
-          "ja": "この りんごは あたたかいです。",
-          "translation_en": "This apple is warm."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "गरम / गुनगुना"
-    },
-    {
-      "id": "n5.vocab.31-adjectives.すずしい",
-      "form": "すずしい",
-      "reading": "すずしい",
-      "gloss": "cool",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "あきは すずしいです。",
-          "translation_en": "Autumn is cool."
-        },
-        {
-          "ja": "今日は とても すずしいです。",
-          "translation_en": "Today is very cool."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "ठंडक भरा"
-    },
-    {
       "id": "n5.vocab.31-adjectives.まるい",
       "form": "まるい",
       "reading": "まるい",
@@ -21090,126 +21017,6 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       }
-    },
-    {
-      "id": "n5.vocab.31-adjectives.きいろい",
-      "form": "きいろい",
-      "reading": "きいろい",
-      "gloss": "yellow",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "きいろい 花が きれいです。",
-          "translation_en": "The yellow flowers are pretty."
-        },
-        {
-          "ja": "えいがは きいろいでした。",
-          "translation_en": "The movie was yellow."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "पीला"
-    },
-    {
-      "id": "n5.vocab.31-adjectives.あおい",
-      "form": "あおい",
-      "reading": "あおい",
-      "gloss": "blue",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "あおい そらが きれいです。",
-          "translation_en": "The blue sky is beautiful."
-        },
-        {
-          "ja": "この りんごは あおいです。",
-          "translation_en": "This apple is blue."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "नीला"
-    },
-    {
-      "id": "n5.vocab.31-adjectives.あかい",
-      "form": "あかい",
-      "reading": "あかい",
-      "gloss": "red",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "あかい りんごを 食べます。",
-          "translation_en": "I eat a red apple."
-        },
-        {
-          "ja": "えいがは あかいでした。",
-          "translation_en": "The movie was red."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "लाल"
-    },
-    {
-      "id": "n5.vocab.31-adjectives.くろい",
-      "form": "くろい",
-      "reading": "くろい",
-      "gloss": "black",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "くろい かばんを 買いました。",
-          "translation_en": "I bought a black bag."
-        },
-        {
-          "ja": "今日は とても くろいです。",
-          "translation_en": "Today is very black."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "काला"
-    },
-    {
-      "id": "n5.vocab.31-adjectives.白い",
-      "form": "白い",
-      "reading": "しろい",
-      "gloss": "white",
-      "section": "31. い-Adjectives",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "白い シャツを きます。",
-          "translation_en": "I wear a white shirt."
-        },
-        {
-          "ja": "この りんごは 白いです。",
-          "translation_en": "This apple is white."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "सफ़ेद"
     },
     {
       "id": "n5.vocab.31-adjectives.ちゃいろい",
@@ -22314,30 +22121,6 @@
       "gloss_hi": "पहले से ही"
     },
     {
-      "id": "n5.vocab.33-adverbs.まだ",
-      "form": "まだ",
-      "reading": "まだ",
-      "gloss": "still, not yet",
-      "section": "33. Adverbs",
-      "pos": "adverb",
-      "examples": [
-        {
-          "ja": "まだ しゅくだいを して いません。",
-          "translation_en": "I haven't done my homework yet."
-        },
-        {
-          "ja": "まだ あさごはんを たべていません。",
-          "translation_en": "I haven't eaten breakfast yet."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "अभी / अब तक नहीं"
-    },
-    {
       "id": "n5.vocab.33-adverbs.もうすこし",
       "form": "もうすこし",
       "reading": "もうすこし",
@@ -22689,6 +22472,10 @@
         {
           "ja": "こちらへ どうぞ。",
           "translation_en": "This way, please."
+        },
+        {
+          "ja": "どうぞ、おかけください。",
+          "translation_en": "Please, have a seat."
         }
       ],
       "review_status": "native_reviewed",
@@ -22745,78 +22532,6 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       }
-    },
-    {
-      "id": "n5.vocab.33-adverbs.どう",
-      "form": "どう",
-      "reading": "どう",
-      "gloss": "how",
-      "section": "33. Adverbs",
-      "pos": "adverb",
-      "examples": [
-        {
-          "ja": "日本の せいかつは どうですか。",
-          "translation_en": "How is life in Japan?"
-        },
-        {
-          "ja": "どう 行きますか。",
-          "translation_en": "How do we get there?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "कैसे"
-    },
-    {
-      "id": "n5.vocab.33-adverbs.なぜ",
-      "form": "なぜ",
-      "reading": "なぜ",
-      "gloss": "why",
-      "section": "33. Adverbs",
-      "pos": "adverb",
-      "examples": [
-        {
-          "ja": "なぜ 来なかったのですか。",
-          "translation_en": "Why did you not come?"
-        },
-        {
-          "ja": "なぜ そう おもいますか。",
-          "translation_en": "Why do you think so?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "क्यों"
-    },
-    {
-      "id": "n5.vocab.33-adverbs.どうして",
-      "form": "どうして",
-      "reading": "どうして",
-      "gloss": "why",
-      "section": "33. Adverbs",
-      "pos": "adverb",
-      "examples": [
-        {
-          "ja": "どうして 学校を 休みましたか。",
-          "translation_en": "Why did you skip school?"
-        },
-        {
-          "ja": "どうして 来ませんでしたか。",
-          "translation_en": "Why didn't you come?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "क्यों"
     },
     {
       "id": "n5.vocab.33-adverbs.まっすぐ",
@@ -22905,6 +22620,10 @@
         {
           "ja": "「もしもし」と 言いました。",
           "translation_en": "(I) said \"hello\"."
+        },
+        {
+          "ja": "もしもし、田中さんですか。",
+          "translation_en": "Hello, is this Tanaka-san?"
         }
       ],
       "review_status": "native_reviewed",
@@ -24285,30 +24004,6 @@
       }
     },
     {
-      "id": "n5.vocab.36-greetings-and-set-phr.どうぞ",
-      "form": "どうぞ",
-      "reading": "どうぞ",
-      "gloss": "please (offering)",
-      "section": "36. Greetings and Set Phrases",
-      "pos": "expression",
-      "examples": [
-        {
-          "ja": "どうぞ、おかけください。",
-          "translation_en": "Please, have a seat."
-        },
-        {
-          "ja": "こちらへ どうぞ。",
-          "translation_en": "This way, please."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "कृपया (देते हुए)",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
       "id": "n5.vocab.36-greetings-and-set-phr.どうも",
       "form": "どうも",
       "reading": "どうも",
@@ -24333,30 +24028,6 @@
       }
     },
     {
-      "id": "n5.vocab.36-greetings-and-set-phr.もしもし",
-      "form": "もしもし",
-      "reading": "もしもし",
-      "gloss": "hello (phone)",
-      "section": "36. Greetings and Set Phrases",
-      "pos": "expression",
-      "examples": [
-        {
-          "ja": "もしもし、田中さんですか。",
-          "translation_en": "Hello, is this Tanaka-san?"
-        },
-        {
-          "ja": "「もしもし」と 言いました。",
-          "translation_en": "(I) said \"hello\"."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "हैलो (फ़ोन)",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
       "id": "n5.vocab.37-common-nouns-miscella.もの",
       "form": "もの",
       "reading": "もの",
@@ -24371,6 +24042,14 @@
         {
           "ja": "あれは ものです。",
           "translation_en": "That is thing."
+        },
+        {
+          "ja": "大切な ものを なくしました。",
+          "translation_en": "I lost something important."
+        },
+        {
+          "ja": "これは ものです。",
+          "translation_en": "This is thing."
         }
       ],
       "review_status": "native_reviewed",
@@ -24395,6 +24074,14 @@
         {
           "ja": "あの ことは どこですか。",
           "translation_en": "Where is that thing?"
+        },
+        {
+          "ja": "話したい ことが あります。",
+          "translation_en": "There's something I want to talk about."
+        },
+        {
+          "ja": "ことを 見ました。",
+          "translation_en": "I saw thing."
         }
       ],
       "review_status": "native_reviewed",
@@ -24419,6 +24106,10 @@
         {
           "ja": "ここに 名前を 書いてください。",
           "translation_en": "Please write your name here."
+        },
+        {
+          "ja": "お名前を おねがいします。",
+          "translation_en": "Your name please."
         }
       ],
       "review_status": "native_reviewed",
@@ -24491,6 +24182,10 @@
         {
           "ja": "9時から しごとです。",
           "translation_en": "Work starts at 9."
+        },
+        {
+          "ja": "父の しごとは 先生です。",
+          "translation_en": "My father's job is teacher."
         }
       ],
       "review_status": "native_reviewed",
@@ -24601,6 +24296,14 @@
         {
           "ja": "これは しゅみです。",
           "translation_en": "This is hobby."
+        },
+        {
+          "ja": "しゅみは 音楽です。",
+          "translation_en": "My hobby is music."
+        },
+        {
+          "ja": "あの しゅみは どこですか。",
+          "translation_en": "Where is that hobby?"
         }
       ],
       "review_status": "native_reviewed",
@@ -24840,102 +24543,6 @@
       "gloss_hi": "डाक टिकट"
     },
     {
-      "id": "n5.vocab.37-common-nouns-miscella.はがき",
-      "form": "はがき",
-      "reading": "はがき",
-      "gloss": "postcard",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "はがきを 出します。",
-          "translation_en": "I'll send a postcard."
-        },
-        {
-          "ja": "はがきを 見ました。",
-          "translation_en": "I saw postcard."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "पोस्टकार्ड"
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.てがみ",
-      "form": "てがみ",
-      "reading": "てがみ",
-      "gloss": "letter",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "母に てがみを 書きます。",
-          "translation_en": "I write a letter to my mother."
-        },
-        {
-          "ja": "てがみが あります。",
-          "translation_en": "There is letter."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "पत्र"
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.きっぷ",
-      "form": "きっぷ",
-      "reading": "きっぷ",
-      "gloss": "ticket",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "きっぷを 買います。",
-          "translation_en": "I'll buy a ticket."
-        },
-        {
-          "ja": "きっぷが あります。",
-          "translation_en": "There is ticket."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "टिकट"
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.おみやげ",
-      "form": "おみやげ",
-      "reading": "おみやげ",
-      "gloss": "souvenir (also in §22 - listed here for thematic completeness)",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "日本の おみやげを 買いました。",
-          "translation_en": "I bought Japanese souvenirs."
-        },
-        {
-          "ja": "あの おみやげは どこですか。",
-          "translation_en": "Where is that souvenir?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "उपहार / स्मारिका"
-    },
-    {
       "id": "n5.vocab.37-common-nouns-miscella.プレゼント",
       "form": "プレゼント",
       "reading": "プレゼント",
@@ -25006,54 +24613,6 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       }
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.しゃしん",
-      "form": "しゃしん",
-      "reading": "しゃしん",
-      "gloss": "photograph",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "しゃしんを とりましょう。",
-          "translation_en": "Let's take a photo."
-        },
-        {
-          "ja": "ここで しゃしんを とってもいいですか。",
-          "translation_en": "May I take a photo here?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "फ़ोटो",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.りょかん",
-      "form": "りょかん",
-      "reading": "りょかん",
-      "gloss": "Japanese inn (also in §13)",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "りょかんに とまりました。",
-          "translation_en": "I stayed at a Japanese inn."
-        },
-        {
-          "ja": "あの りょかんは どこですか。",
-          "translation_en": "Where is that Japanese inn?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "जापानी सराय"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.かぜ",
@@ -25174,30 +24733,6 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "गरम पानी"
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.おふろ",
-      "form": "おふろ",
-      "reading": "おふろ",
-      "gloss": "bath (also in §13)",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "おふろに 入ります。",
-          "translation_en": "I take a bath."
-        },
-        {
-          "ja": "これは おふろです。",
-          "translation_en": "This is bath."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "स्नान"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.シャワー",
@@ -25386,30 +24921,6 @@
       ],
       "review_status": "native_reviewed",
       "gloss_hi": "रिकॉर्ड",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.テープ",
-      "form": "テープ",
-      "reading": "テープ",
-      "gloss": "tape (also in §26)",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "テープに ろくおんします。",
-          "translation_en": "I'll record on the tape."
-        },
-        {
-          "ja": "テープが あります。",
-          "translation_en": "There is tape."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "टेप",
       "gloss_provenance": {
         "hi": "native_reviewed",
         "en": "native_reviewed"
@@ -26259,30 +25770,6 @@
       }
     },
     {
-      "id": "n5.vocab.38-sounds-and-voice.うた",
-      "form": "うた",
-      "reading": "うた",
-      "gloss": "song",
-      "section": "38. Sounds and Voice",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "日本の うたが すきです。",
-          "translation_en": "I like Japanese songs."
-        },
-        {
-          "ja": "あの うたは どこですか。",
-          "translation_en": "Where is that song?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "गीत",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
       "id": "n5.vocab.39-function-filler-expre.えーと",
       "form": "えーと",
       "reading": "えーと",
@@ -26571,54 +26058,6 @@
       }
     },
     {
-      "id": "n5.vocab.40-misc-useful-items.もの",
-      "form": "もの",
-      "reading": "もの",
-      "gloss": "thing (physical) (also in §37)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "大切な ものを なくしました。",
-          "translation_en": "I lost something important."
-        },
-        {
-          "ja": "これは ものです。",
-          "translation_en": "This is thing."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "चीज़ (मूर्त)",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
-      "id": "n5.vocab.40-misc-useful-items.こと",
-      "form": "こと",
-      "reading": "こと",
-      "gloss": "thing (abstract) (also in §37)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "話したい ことが あります。",
-          "translation_en": "There's something I want to talk about."
-        },
-        {
-          "ja": "ことを 見ました。",
-          "translation_en": "I saw thing."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "बात (अमूर्त)",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
       "id": "n5.vocab.40-misc-useful-items.ばしょ",
       "form": "ばしょ",
       "reading": "ばしょ",
@@ -26691,54 +26130,6 @@
       }
     },
     {
-      "id": "n5.vocab.40-misc-useful-items.とき",
-      "form": "とき",
-      "reading": "とき",
-      "gloss": "time, occasion (also in §10)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "小さい とき、よく あそびました。",
-          "translation_en": "When I was little, I played a lot."
-        },
-        {
-          "ja": "あの ときは どこですか。",
-          "translation_en": "Where is that time?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "समय / जब"
-    },
-    {
-      "id": "n5.vocab.40-misc-useful-items.番号",
-      "form": "番号",
-      "reading": "ばんごう",
-      "gloss": "number (also in §24)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "電話番号を 教えて ください。",
-          "translation_en": "Please tell me your phone number."
-        },
-        {
-          "ja": "番号を 見ました。",
-          "translation_en": "I saw number."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "नंबर",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
       "id": "n5.vocab.40-misc-useful-items.じゅうしょ",
       "form": "じゅうしょ",
       "reading": "じゅうしょ",
@@ -26763,30 +26154,6 @@
       }
     },
     {
-      "id": "n5.vocab.40-misc-useful-items.名前",
-      "form": "名前",
-      "reading": "なまえ",
-      "gloss": "name (also in §37)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "お名前を おねがいします。",
-          "translation_en": "Your name please."
-        },
-        {
-          "ja": "ここに 名前を 書いてください。",
-          "translation_en": "Please write your name here."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "नाम",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
       "id": "n5.vocab.40-misc-useful-items.ねんれい",
       "form": "ねんれい",
       "reading": "ねんれい",
@@ -26805,86 +26172,6 @@
       ],
       "review_status": "native_reviewed",
       "gloss_hi": "उम्र",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
-      "id": "n5.vocab.40-misc-useful-items.しごと",
-      "form": "しごと",
-      "reading": "しごと",
-      "gloss": "job (also in §37)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "父の しごとは 先生です。",
-          "translation_en": "My father's job is teacher."
-        },
-        {
-          "ja": "9時から しごとです。",
-          "translation_en": "Work starts at 9."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "काम / नौकरी",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      }
-    },
-    {
-      "id": "n5.vocab.40-misc-useful-items.学校",
-      "form": "学校",
-      "reading": "がっこう",
-      "gloss": "school (also in §13)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "学校に かよって います。",
-          "translation_en": "I'm attending school."
-        },
-        {
-          "ja": "あれは 学校です。",
-          "translation_en": "That is school."
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "विद्यालय",
-      "collocations": [
-        "学校に行く",
-        "学校が休み"
-      ],
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 0
-      }
-    },
-    {
-      "id": "n5.vocab.40-misc-useful-items.しゅみ",
-      "form": "しゅみ",
-      "reading": "しゅみ",
-      "gloss": "hobby (also in §37)",
-      "section": "40. Misc Useful Items",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "しゅみは 音楽です。",
-          "translation_en": "My hobby is music."
-        },
-        {
-          "ja": "あの しゅみは どこですか。",
-          "translation_en": "Where is that hobby?"
-        }
-      ],
-      "review_status": "native_reviewed",
-      "gloss_hi": "शौक़",
       "gloss_provenance": {
         "hi": "native_reviewed",
         "en": "native_reviewed"

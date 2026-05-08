@@ -470,7 +470,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - ぎゅうにく - [n.] beef
 - ぶたにく - [n.] pork
 - とりにく - [n.] chicken (meat)
-- さかな - [n.] fish
 - やさい - [n.] vegetable
 - くだもの - [n.] fruit
 - りんご - [n.] apple
@@ -694,8 +693,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - かべ - [n.] wall
 - かいだん - [n.] stairs
 - エレベーター - [n.] elevator
-- へや - [n.] room
-- げんかん - [n.] entrance
 - いま - [n.] living room
 - しんしつ - [n.] bedroom
 - ベッド - [n.] bed
@@ -703,8 +700,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - もうふ - [n.] blanket
 - まくら - [n.] pillow
 - テーブル - [n.] table
-- つくえ - [n.] desk
-- いす - [n.] chair
 - たな - [n.] shelf
 - ほんだな - [n.] bookshelf
 - カーテン - [n.] curtain
@@ -872,7 +867,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - もらう - [v1] to receive
 - くれる - [v2] to give (to me / us)
 - かす - [v1] to lend
-- かりる - [v2] to borrow
 - かえす - [v1] to return (something)
 
 ## 31. い-Adjectives
@@ -884,7 +878,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - いい / よい - [i-adj] good
 - わるい - [i-adj] bad
 - あつい - [i-adj] hot (weather; separate adjective from the two below despite shared reading)
-- さむい - [i-adj] cold (weather)
 - あつい - [i-adj] hot (to the touch; separate adjective and separate kanji - homophone of the hot-weather one)
 - つめたい - [i-adj] cold (to touch)
 - 高い (たかい) - [i-adj] high, tall, expensive
@@ -928,15 +921,9 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - とおい - [i-adj] far
 - あかるい - [i-adj] bright
 - くらい - [i-adj] dark
-- あたたかい - [i-adj] warm
-- すずしい - [i-adj] cool
 - まるい - [i-adj] round
 - しかくい - [i-adj] square
 - わかい - [i-adj] young
-- きいろい - [i-adj] yellow
-- あおい - [i-adj] blue
-- あかい - [i-adj] red
-- くろい - [i-adj] black
 - 白い (しろい) - [i-adj] white
 - ちゃいろい - [i-adj] brown
 - あぶない - [i-adj] dangerous
@@ -986,7 +973,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - ぜんぶ - [adv.] all
 - みんな / みな - [n.] everyone
 - もう - [adv.] already
-- まだ - [adv.] still, not yet
 - もうすこし - [adv.] a little more
 - もっと - [adv.] more
 - 一番 (いちばん) - [adv.] most, number one
@@ -1004,9 +990,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - どうぞ - [exp.] please (offering)
 - どうも - [exp.] thanks, indeed
 - どうぞよろしく - [exp.] please treat me well
-- どう - [adv.] how
-- なぜ - [adv.] why
-- どうして - [adv.] why
 - まっすぐ - [adv.] straight ahead
 - もういちど - [adv.] once more
 - まず - [adv.] first of all
@@ -1084,9 +1067,7 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - おげんきですか - [exp.] how are you?
 - おかげさまで - [exp.] thanks to you **[Cul]**
 - いらっしゃいませ - [exp.] welcome (to a shop) **[Cul]**
-- どうぞ - [exp.] please (offering)
 - どうも - [exp.] thanks
-- もしもし - [exp.] hello (phone)
 - おじゃまします - [exp.] excuse me / I'm coming in (set phrase used when entering someone's home)
 
 ## 37. Common Nouns - Miscellaneous
@@ -1110,21 +1091,14 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - ニュース - [n.] news
 - パーティー - [n.] party
 - きって - [n.] stamp
-- はがき - [n.] postcard
-- てがみ - [n.] letter
-- きっぷ - [n.] ticket
-- おみやげ - [n.] souvenir (also in §22 - listed here for thematic completeness) **[Cul]**
 - プレゼント - [n.] present, gift
 - りゅうがく - [n.] study abroad **[Ext]**
 - けっこん - [n.] marriage
-- しゃしん - [n.] photograph
-- りょかん - [n.] Japanese inn (also in §13) **[Cul]**
 - かぜ - [n.] cold (illness)
 - びょうき - [n.] illness
 - くすり - [n.] medicine
 - けが - [n.] injury
 - おゆ - [n.] hot water
-- おふろ - [n.] bath (also in §13)
 - シャワー - [n.] shower
 > **Legacy items note:** The items below tagged **[Cul]** (マッチ, フィルム, レコード, テープレコーダー, はいざら) are largely obsolete in modern Japan but appear in some older N5 study sources. Recognize them; do not prioritize.
 
@@ -1135,7 +1109,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 - ティッシュ - [n.] tissue
 - フィルム - [n.] film **[Cul]**
 - レコード - [n.] record **[Cul]**
-- テープ - [n.] tape (also in §26)
 - よてい - [n.] plan, schedule
 - じかんわり - [n.] timetable
 - はこ - [n.] box
@@ -1177,7 +1150,6 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 
 - こえ - [n.] voice
 - おと - [n.] sound
-- うた - [n.] song
 
 ## 39. Function / Filler Expressions
 
@@ -1197,19 +1169,14 @@ When two forms exist (e.g., a Sino-Japanese term plus a katakana loan), the domi
 
 ## 40. Misc Useful Items
 
-- もの - [n.] thing (physical) (also in §37)
-- こと - [n.] thing (abstract) (also in §37)
 - ばしょ - [n.] place
 - ばあい - [n.] case, situation
 - ほう - [n.] direction, side
-- とき - [n.] time, occasion (also in §10)
 - 番号 (ばんごう) - [n.] number (also in §24)
 - じゅうしょ - [n.] address
 - 名前 (なまえ) - [n.] name (also in §37)
 - ねんれい - [n.] age
-- しごと - [n.] job (also in §37)
 - 学校 (がっこう) - [n.] school (also in §13)
-- しゅみ - [n.] hobby (also in §37)
 - しゅっしん - [n.] hometown / origin
 
 ---
