@@ -489,11 +489,11 @@
       "explanation_hi": "へ गति-क्रिया (いく/行く) की दिशा। N5 में へ मानक दिशा-सूचक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "で": "で सूचित करता है क्रिया का स्थान (e.g., こうえんで あそびます = play at park)। के लिए गति का गंतव्य, प्रयोग へ।",
-        "を": "を सूचित करता है रास्ता होते हुए traversed (e.g., こうえんを さんぽします = walk through park), या सीधा कर्म। के लिए गंतव्य का いきます, प्रयोग へ।",
-        "から": "から साधन 'से'। どこから いきますか होता पूछना प्रारंभ-बिंदु, नहीं गंतव्य। प्रयोग へ के लिए जहाँ एक है जा रहा है।"
+        "で": "で क्रिया का स्थान सूचित करता है (जैसे, こうえんで あそびます = पार्क में खेलते हैं)। गति का गंतव्य बताने के लिए へ का प्रयोग करें।",
+        "を": "を पार किए जाने वाले रास्ते (जैसे, こうえんを さんぽします = पार्क में टहलना) या सीधा कर्म सूचित करता है। いきます के गंतव्य के लिए へ चाहिए।",
+        "から": "から का अर्थ \"से\" है। どこから いきますか प्रारंभ-बिंदु पूछता, गंतव्य नहीं। \"कहाँ जा रहे हैं\" के लिए へ का प्रयोग करें।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -521,11 +521,11 @@
       "explanation_hi": "で क्रिया-स्थान सूचक। べんきょうする एक क्रिया है, इसलिए पुस्तकालय で से।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "に": "に अस्तित्व-स्थान (ある/いる) के लिए; क्रिया-स्थान で।",
-        "へ": "へ सूचित करता है गति का गंतव्य - यहाँ फ़िट नहीं 'studying में'।",
-        "を": "を कर्म; पुस्तकालय कर्म नहीं।"
+        "に": "सामान्य ग़लती। に अस्तित्व-स्थान (ある/いる के साथ) सूचित करता है। पढ़ाई जैसी क्रियाओं के लिए で लगता है।",
+        "へ": "へ गति का गंतव्य सूचित करता है — \"पुस्तकालय में पढ़ाई करना\" के लिए फिट नहीं।",
+        "を": "を सीधा कर्म या रास्ता सूचित करता है — क्रिया का स्थान बताने के लिए नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -586,11 +586,11 @@
       "explanation_hi": "と साथी / सह-कर्ता सूचक। स्पष्ट गंतव्य (こうえんへ) के साथ ともだちと का अर्थ \"दोस्त के साथ\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "に": "に होता सूचित करता है गंतव्य ('went to my friend'), पर गंतव्य स्थान है already भरा हुआ by こうえんへ। इसलिए ともだち__ यहाँ अवश्य सूचित करता है साथी, जो प्रयोग करता है と।",
-        "で": "で सूचित करता है क्रिया का स्थान या साधन/उपकरण। It यहाँ फ़िट नहीं व्यक्ति performing क्रिया-कर्म साथ के साथ वक्ता।",
-        "を": "を सूचित करता है सीधा कर्म (या रास्ता के साथ गति क्रियाएँ)। व्यक्ति कौन joins क्रिया-कर्म है नहीं सीधा कर्म - प्रयोग と।"
+        "に": "に गंतव्य सूचित करता (\"दोस्त के पास गए\"), पर गंतव्य-स्थान पहले से こうえんへ से भरा है। तो ともだち__ यहाँ साथी सूचित करना चाहिए — यह भूमिका と लेता है।",
+        "で": "で क्रिया का स्थान या साधन/उपकरण सूचित करता है। वक्ता के साथ क्रिया करने वाले व्यक्ति के लिए नहीं।",
+        "を": "を सीधा कर्म (या गति-क्रिया के साथ रास्ता) सूचित करता है। क्रिया में सम्मिलित व्यक्ति न तो कर्म है न रास्ता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -618,11 +618,11 @@
       "explanation_hi": "と उद्धरण-सूचक — いう (कहना), おもう (सोचना) से पहले हमेशा と, を कभी नहीं।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "は यहाँ विषय-सूचक - ग़लत के लिए quoted वाक्यांश।",
-        "を": "उद्धरण के लिए を कभी नहीं — हमेशा と।",
+        "は": "は विषय-सूचक है — दो संज्ञाओं को सूची में नहीं जोड़ता।",
+        "を": "を सीधा कर्म सूचित करता है — सूची-जोड़क नहीं।",
         "に": "に प्राप्तकर्ता; उद्धरण नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -651,11 +651,11 @@
       "explanation_hi": "から प्रारंभ-बिंदु (\"से\") सूचक। はじまる (\"शुरू होना\") के साथ \"9 बजे से शुरू\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "は यहाँ विषय-सूचक। It नहीं कर सकता सूचित करता है समय के रूप में start/अंत-बिंदु।",
-        "まで": "まで सूचित करता है अंत-बिंदु ('until')। के साथ はじまる ('start'), अंत-बिंदु सूचक यहाँ फ़िट नहीं - start-क्रियाएँ जोड़ी के साथ から।",
-        "に": "に सूचित करता है single विशिष्ट समय ('at 9'), नहीं start का श्रेणी। के साथ はじまる, प्रारंभ-बिंदु है क्या's होते हुए marked, इसलिए から यहाँ स्वाभाविक फ़िट।"
+        "は": "は विषय-सूचक है। समय को प्रारंभ/अंत-बिंदु के रूप में नहीं चिह्नित कर सकता।",
+        "まで": "まで अंत-बिंदु (\"तक\") सूचित करता है। はじまる (\"शुरू होना\") के साथ अंत-बिंदु फिट नहीं — प्रारंभ-क्रियाएँ から के साथ जुड़ती हैं।",
+        "に": "に विशिष्ट समय-बिंदु सूचित करता है (\"9 बजे\"), श्रेणी का प्रारंभ नहीं। はじまる के साथ प्रारंभ-बिंदु को सूचित करना है, इसलिए から स्वाभाविक है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -683,9 +683,9 @@
       "explanation_hi": "खंड के बाद から = \"क्योंकि\"। कारण पहले, परिणाम बाद। い-विशेषण सीधे から लेते हैं।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "で": "で सूचित करता है स्थान / साधन - नहीं जोड़ना कारण को परिणाम।",
+        "で": "で स्थान/साधन सूचित करता है — कारण को परिणाम से जोड़ने के लिए नहीं।",
         "と": "と साथी; कारण-संबंधक नहीं।",
-        "に": "に सूचित करता है समय / स्थान / प्राप्तकर्ता - नहीं प्रस्तुत कारण।"
+        "に": "に समय/स्थान/प्राप्तकर्ता सूचित करता है — कारण नहीं जोड़ता।"
       },
       "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
@@ -716,11 +716,11 @@
       "explanation_hi": "まで सीमा का अंत-बिंदु। から (से) के साथ X से Y तक। पिछले वाक्य में 9時から था।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "から": "から साधन 'से'। पूर्व वाक्य already स्थापित 9時から, इसलिए missing piece यहाँ अंत-बिंदु - まで।",
-        "に": "に सूचित करता है एकल बिंदु में समय (e.g., 5時に おきます = 'wake up at 5')। It करता है नहीं जोड़ी के साथ から को व्यक्त श्रेणी।",
+        "から": "पिछले वाक्य ने पहले से 9時から स्थापित किया है, इसलिए यहाँ अंत-बिंदु (まで) चाहिए, और एक から नहीं।",
+        "に": "に विशिष्ट समय-बिंदु सूचित करता है (जैसे, 5時に)। पर यहाँ श्रेणी का प्रारंभ-बिंदु चाहिए, एकल क्षण नहीं।",
         "で": "で सूचित करता है क्रिया का स्थान या साधन। It करता है नहीं सूचित करता है समय अंत-बिंदु।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -749,10 +749,10 @@
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "で": "で है क्रिया का स्थान - नहीं सूचित करता है रास्ता's end।",
-        "へ": "へ सूचित करता है दिशा (toward home), पर まで ज़ोर देता है 'सब तरीक़ा को'।",
+        "へ": "へ दिशा (\"की ओर\") सूचित करता है, पर まで \"पूरे रास्ते तक\" पर ज़ोर देता है।",
         "と": "と साधन 'के साथ' या 'और' - यहाँ फ़िट नहीं रास्ता endpoint।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -781,11 +781,11 @@
       "explanation_hi": "や आंशिक-सूची सूचक, など (इत्यादि) के साथ युग्म। と \"केवल ये\" का अर्थ देगा — विरोधी।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "と": "と है संपूर्ण ('केवल ये')। Pairing it के साथ など (etc.) है विरोधाभासी।",
-        "は": "は सूचित करता है विषय - नहीं list items।",
-        "で": "で सूचित करता है स्थान / साधन - नहीं के लिए listing संज्ञाएँ।"
+        "と": "と पूर्ण-सूची है (\"केवल ये\")। など (\"वग़ैरह\") के साथ इसका जोड़ विरोधाभासी है।",
+        "は": "は विषय सूचित करता है — सूची-जोड़क नहीं।",
+        "で": "で स्थान/साधन सूचित करता है — संज्ञाओं की सूची बनाने के लिए नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -813,11 +813,11 @@
       "explanation_hi": "や आंशिक-सूची सूचक जब \"और भी\" अर्थित (यहाँ いろいろです से पुष्ट)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "と": "と होता मतलब 'केवल pens और notebooks', विरोधाभासी いろいろです।",
-        "は": "は नहीं कर सकता जोड़ना दो संज्ञाएँ में list।",
-        "で": "で है स्थान / साधन - ग़लत के लिए listing।"
+        "と": "と \"केवल X और Y\" अर्थ देता है — いろいろです (\"विविध\") से विरोधाभास।",
+        "は": "は दो संज्ञाओं को सूची में नहीं जोड़ता।",
+        "で": "で स्थान/साधन है — सूची के लिए ग़लत।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -877,11 +877,11 @@
       "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ = \"कॉफ़ी या चाय\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "と": "と है 'और' (exhaustive), नहीं 'या'।",
-        "や": "や है 'और' (non-exhaustive), नहीं 'या'।",
-        "は": "は सूचित करता है विषय - नहीं जोड़ना alternatives।"
+        "と": "と \"और\" (पूर्ण) है, \"या\" नहीं।",
+        "や": "や \"और\" (आंशिक सूची) है, \"या\" नहीं।",
+        "は": "は विषय सूचित करता है — विकल्पों को नहीं जोड़ता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -910,11 +910,11 @@
       "explanation_hi": "も = \"भी\"। पिछला वाक्य X-छात्र बता रहा है; わたしも がくせいです = \"मैं भी छात्र हूँ\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "は होता विषय बनाना 'मैं' पर lose 'भी' अर्थ। से 田中さん के पास है already रहा कहा को होना छात्र, स्वाभाविक जोड़क है も ('me too')।",
-        "が": "が होता सूचित करता है वक्ता के रूप में केंद्रित / चयनित कर्ता ('it is I who am student'), जो के विपरीत है additive संदर्भ।",
-        "を": "を सूचित करता है सीधा कर्म का transitive क्रिया। がくせい है संज्ञा विधेय, नहीं कर्म - を यहाँ फ़िट नहीं।"
+        "は": "は \"मैं\" को विषय बना देगा पर \"भी\" का भाव खो जाएगा। 田中さん के पहले ही छात्र होने का उल्लेख है, इसलिए स्वाभाविक जोड़क も है (\"मैं भी\")।",
+        "が": "が वक्ता को केंद्रित/चयनित कर्ता बना देगा (\"मैं ही छात्र हूँ\") — जो योगात्मक संदर्भ के विपरीत है।",
+        "を": "を सकर्मक क्रिया का सीधा कर्म सूचित करता है। がくせい संज्ञा-विधेय है, कर्म नहीं — यहाँ を फिट नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -974,11 +974,11 @@
       "explanation_hi": "これ वक्ता के पास/हाथ में चीज़ को संदर्भित। यहाँ मेरे हाथ में किताब = これ।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "それ": "それ है के लिए वस्तुएँ नज़दीक श्रोता (in their hand)। किताब है में वक्ता's हाथ, नहीं श्रोता's।",
-        "あれ": "あれ है के लिए वस्तुएँ दूर से दोनों speakers। किताब है में वक्ता's own हाथ।",
-        "どれ": "どれ पूछता है 'जो एक (का ये विकल्प)?'; यह तना है हाँ/नहीं प्रश्न के बारे में विशिष्ट किताब वक्ता है दिखाते हुए, नहीं विकल्प के बीच कई।"
+        "それ": "それ श्रोता के पास की वस्तुओं के लिए है। किताब वक्ता के हाथ में है, श्रोता के नहीं।",
+        "あれ": "あれ दोनों वक्ताओं से दूर वस्तुओं के लिए है। किताब वक्ता के अपने हाथ में है।",
+        "どれ": "どれ \"इनमें से कौन सा?\" पूछता है। यह वाक्य एक विशिष्ट किताब के बारे में हाँ/नहीं प्रश्न है — कई विकल्पों में से चुनाव नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1038,11 +1038,11 @@
       "explanation_hi": "संज्ञा से सीधे पहले この का प्रयोग। これ अकेला सर्वनाम; この + संज्ञा = \"यह + संज्ञा\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "これ": "これ stands अकेला - कभी नहीं के बाद आया by संज्ञा।",
-        "これの": "これの ほん ग़लत है। 'का' relation है बना हुआ में こ-series: प्रयोग この directly।",
-        "これは": "これは ほんを よみました = 'के रूप में के लिए यह, मैं पढ़ना किताब' - व्याकरणिक पर अलग अर्थ।"
+        "これ": "これ अकेला खड़ा होता है — किसी संज्ञा से पहले नहीं आता।",
+        "これの": "これの ほん ग़लत है — \"का\" वाला संबंध この में पहले से समाहित है। सीधे この का प्रयोग करें।",
+        "これは": "これは ほんを よみました = \"इसके बारे में बात करें तो, मैंने किताब पढ़ी\" — व्याकरणिक है, पर अलग अर्थ।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1070,11 +1070,11 @@
       "explanation_hi": "ここ बोलने वाले की वर्तमान स्थिति। \"मेरा घर यहाँ है\" = ここ।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "あれ": "あれ stands अकेला - ज़रूरत है को होना replaced by あの जब के बाद आया by संज्ञा।",
-        "あれの": "あれの くるま है अव्याकरणिक - の relation है already बना हुआ में あの।",
-        "あれは": "あれは くるまは = double विषय, ग़लत। प्रयोग あの くるまは।"
+        "あれ": "あれ अकेला खड़ा होता है — संज्ञा से पहले あの से बदलना ज़रूरी है।",
+        "あれの": "あれの くるま अव्याकरणिक है — \"का\" संबंध あの में पहले से समाहित है।",
+        "あれは": "あれは くるまは = दोहरा विषय, ग़लत। あの くるまは का प्रयोग करें।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1102,11 +1102,11 @@
       "explanation_hi": "こちら \"इस तरफ़\" — आदर-रूप, मेज़बान आगंतुक को बुलाते समय: こちらへ どうぞ।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "これ": "これ refers को वस्तु/कर्म (e.g., これは本です = यह है किताब), नहीं जगह। तना पहचानता है कमरा के रूप में library, जो बुलाता है के लिए जगह सर्वनाम।",
-        "この": "この ज़रूरत है को होना के बाद आया by संज्ञा (この本, この人)। It नहीं कर सकता stand अकेला पहले は।",
-        "それ": "それ refers को वस्तु नज़दीक श्रोता; तना है identifying जगह आप के पास है arrived में, नहीं वस्तु।"
+        "これ": "これ वस्तु/कर्म को संदर्भित करता है (जैसे これは本です = यह किताब है), जगह को नहीं। वाक्य कमरे की पुस्तकालय के रूप में पहचान करता है — जगह-सर्वनाम चाहिए।",
+        "この": "この के बाद संज्ञा आना ज़रूरी है (この本, この人)। यह は से पहले अकेला नहीं रह सकता।",
+        "それ": "それ श्रोता के पास की वस्तु को संदर्भित करता है। वाक्य आपके आगमन-स्थल को बता रहा है, वस्तु को नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1166,11 +1166,11 @@
       "explanation_hi": "こう + क्रिया-तरीक़ा = \"इस तरह\"। こう つかいます = \"इस तरह उपयोग करते हैं\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "なん": "なん आता है पहले です/ですか/でしょう और काउंटर - कभी नहीं पहले を।",
-        "どれ": "どれ पूछता है 'जो (का ये विशिष्ट विकल्प)?'। なに यहाँ open 'क्या?'।",
-        "どこ": "どこ पूछता है 'जहाँ?', नहीं 'क्या?'।"
+        "なん": "なん です/ですか/でしょう और काउंटर से पहले आता है — を से पहले कभी नहीं।",
+        "どれ": "どれ \"इन विशिष्ट विकल्पों में से कौन सा?\" पूछता है। なに खुला \"क्या?\" है।",
+        "どこ": "どこ \"कहाँ?\" पूछता है, \"क्या?\" नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1198,11 +1198,11 @@
       "explanation_hi": "なに/なん = \"क्या\"। आगे क्रिया से पहले なに; काउंटर से पहले なん।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "なに": "なに पहले です ग़लत है। pronunciation हमेशा shifts को なん में यह position।",
-        "どれ": "どれ पूछता है 'जो एक?' - ज़रूरत है visible विकल्प।",
-        "だれ": "だれ पूछता है 'कौन?', नहीं 'क्या?'।"
+        "なに": "なに です से पहले ग़लत है। उच्चारण इस स्थिति में हमेशा なん में बदल जाता है।",
+        "どれ": "どれ \"कौन सा?\" पूछता है — दिख रहे विकल्प चाहिए।",
+        "だれ": "だれ \"कौन?\" पूछता है, \"क्या?\" नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1374,11 +1374,11 @@
       "explanation_hi": "どうして / なぜ = \"क्यों\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "が ... が": "が सूचित करता है कर्ता/नया जानकारी, नहीं contrast।",
-        "は ... が": "Mixing は और が breaks parallel - दोनों contrasted विषय प्रयोग は।",
-        "を ... を": "を सूचित करता है सीधा कर्म - पर すき लेता है が, नहीं を, और contrast प्रयोग करता है は।"
+        "が ... が": "が कर्ता/नई जानकारी सूचित करता है, विरोधाभास नहीं।",
+        "は ... が": "は और が मिलाने से समानांतरता टूट जाती है — दोनों विरोधाभासी विषय は लेते हैं।",
+        "を ... を": "を सीधा कर्म सूचित करता है, पर すき が लेता है, を नहीं — और विरोधाभास के लिए は का प्रयोग होता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1406,11 +1406,11 @@
       "explanation_hi": "どうやって = \"कैसे/किस माध्यम से?\"",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "は सकता आ सकता है के साथ नकारात्मक contrast ('English मैं नहीं कर सकता, पर...'), पर unmarked उत्तर के साथ できる है が।",
-        "を": "सामान्य ग़लती। स्थिर predicates (できる, わかる, すき) लेना が, कभी नहीं を, भी हालाँकि English प्रयोग करता है 'मैं सकता है करना X' के साथ X के रूप में कर्म।",
-        "に": "に सूचित करता है प्राप्तकर्ता / स्थान / समय - ग़लत फ़िट के लिए वस्तु एक सकता है करना।"
+        "は": "は नकारात्मक विरोधाभास के साथ आ सकता था (\"अंग्रेज़ी मुझे नहीं आती, पर...\"), पर できる के साथ अचिह्नित उत्तर が है।",
+        "を": "सामान्य ग़लती। स्थिर विधेय (できる, わかる, すき) が लेते हैं, を कभी नहीं — भले ही अंग्रेज़ी \"I can DO X\" में X को कर्म मानती है।",
+        "に": "に प्राप्तकर्ता/स्थान/समय सूचित करता है — \"जो काम कोई कर सकता है\" के लिए फिट नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1438,11 +1438,11 @@
       "explanation_hi": "いくら = \"कितना\" (मूल्य पूछता है)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "で": "で सूचित करता है क्रिया का स्थान - सम्भव यहाँ पर loses 'रास्ता-के माध्यम से' nuance।",
-        "に": "に सूचित करता है गंतव्य का arrival - यहाँ फ़िट नहीं continuous टहलना के माध्यम से।",
-        "へ": "へ सूचित करता है दिशा-toward, नहीं रास्ता-के माध्यम से।"
+        "で": "で क्रिया का स्थान सूचित करता है — यहाँ संभव है पर \"रास्ते से होकर\" की बारीकी खो जाती है।",
+        "に": "に पहुँचने का गंतव्य सूचित करता है — रास्ते भर के निरंतर टहलने के लिए फिट नहीं।",
+        "へ": "へ \"की ओर\" दिशा सूचित करता है, \"के माध्यम से\" नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1471,11 +1471,11 @@
       "explanation_hi": "いくつ = \"कितने\" (देसी काउंटर/उम्र)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "を": "を सूचित करता है सीधा कर्म - पर でんわを है already filling जो स्थान। प्राप्तकर्ता का かける लेता है separate कण (に)।",
-        "で": "で सूचित करता है क्रिया का स्थान या साधन/उपकरण। It नहीं कर सकता सूचित करता है प्राप्तकर्ता का phone call।",
-        "と": "と होता मतलब 'phoned के साथ (i.e., talked together)' - जो nuance pairs के साथ でんわを する, नहीं かける। से क्रिया है かけました ('made call'), प्राप्तकर्ता लेता है に।"
+        "を": "を सीधा कर्म सूचित करता है — पर でんわを पहले से उस स्थान को भर रहा है। かける का प्राप्तकर्ता अलग कण (に) लेता है।",
+        "で": "で क्रिया का स्थान या साधन/उपकरण सूचित करता है। फ़ोन कॉल के प्राप्तकर्ता को नहीं चिह्नित कर सकता।",
+        "と": "と \"के साथ (मिलकर बात की)\" अर्थ देता — यह बारीकी でんわを する के साथ जुड़ती है, かける के साथ नहीं। चूँकि क्रिया かけました (\"कॉल किया\") है, प्राप्तकर्ता に लेता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1503,11 +1503,11 @@
       "explanation_hi": "なんじ = \"कितने बजे\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "を": "を सूचित करता है सीधा कर्म। えんぴつ यहाँ यहाँ tool, नहीं वस्तु होते हुए लिखा गया।",
-        "に": "に सूचित करता है प्राप्तकर्ता / स्थान / समय - यहाँ फ़िट नहीं उपकरण।",
-        "と": "と साधन 'के साथ' के रूप में साथी ( व्यक्ति), नहीं 'के साथ' के रूप में उपकरण।"
+        "を": "を सीधा कर्म सूचित करता है। えんぴつ यहाँ साधन है, लिखी जा रही वस्तु नहीं।",
+        "に": "に प्राप्तकर्ता/स्थान/समय सूचित करता है — उपकरण के लिए फिट नहीं।",
+        "と": "と \"के साथ\" (साथी, व्यक्ति) अर्थ देता है — \"के साथ\" (उपकरण) के लिए नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1557,11 +1557,11 @@
       "explanation_hi": "なんがつなんにち = \"कौन सा महीना, कौन सी तारीख़\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "まで ... から": "Reversed - 'until 9, से 5' है incoherent।",
-        "に ... に": "に सूचित करता है विशिष्ट समय POINTS, नहीं श्रेणी endpoints।",
-        "は ... は": "は सूचित करता है विषय - ग़लत function entirely।"
+        "まで ... から": "उल्टा क्रम — \"9 तक, 5 से\" असंगत है।",
+        "に ... に": "に विशिष्ट समय-बिंदु सूचित करता है, श्रेणी के अंत-बिंदु नहीं।",
+        "は ... は": "は विषय सूचित करता है — यहाँ बिल्कुल ग़लत भूमिका।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1621,11 +1621,11 @@
       "explanation_hi": "क्रिया + ません = विनम्र वर्तमान-नकारात्मक। 食べません = \"नहीं खाता\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "これ": "これ है के लिए वस्तुएँ नज़दीक वक्ता - पर प्रश्न shifts को एक नज़दीक श्रोता।",
-        "あれ": "あれ है दूर से दोनों speakers - ग़लत distance।",
-        "どれ": "どれ है प्रश्न शब्द ('जो एक?'), नहीं कथन सर्वनाम।"
+        "これ": "これ वक्ता के पास की वस्तुओं के लिए है — पर प्रश्न श्रोता के पास की वस्तु पर बदलता है।",
+        "あれ": "あれ दोनों वक्ताओं से दूर — ग़लत दूरी।",
+        "どれ": "どれ प्रश्न-शब्द है (\"कौन सा?\"), कथन-सर्वनाम नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1653,11 +1653,11 @@
       "explanation_hi": "क्रिया + ました = विनम्र भूत-सकारात्मक। 食べました = \"खाया\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "なに": "なに पहले काउंटर ग़लत है - काउंटर हमेशा trigger なん (なんじ, नहीं なにじ)।",
-        "どれ": "どれ पूछता है 'जो एक?' - नहीं 'क्या समय?'।",
-        "どう": "どう पूछता है 'कैसे?' - ग़लत यहाँ।"
+        "なに": "काउंटर से पहले なに ग़लत है — काउंटर हमेशा なん को सक्रिय करते हैं (なんじ, なにじ नहीं)।",
+        "どれ": "どれ \"कौन सा?\" पूछता है — \"कितने बजे?\" नहीं।",
+        "どう": "どう \"कैसे?\" पूछता है — यहाँ ग़लत।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1685,11 +1685,11 @@
       "explanation_hi": "क्रिया + ませんでした = विनम्र भूत-नकारात्मक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "どこ": "どこから = 'से जहाँ?' - भौतिक मूल, नहीं समय।",
-        "なに": "なにから होता मतलब 'starting के साथ क्या?' - सम्भव पर अस्वाभाविक के लिए studies।",
-        "だれ": "だれから = 'से whom?' - के बारे में दाता, नहीं समय।"
+        "どこ": "どこから = \"कहाँ से?\" — भौतिक मूल, समय नहीं।",
+        "なに": "なにから \"किस से शुरू करके?\" अर्थ देगा — संभव पर पढ़ाई के लिए अस्वाभाविक।",
+        "だれ": "だれから = \"किसके पास से?\" — दाता के बारे में, समय के बारे में नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1717,11 +1717,11 @@
       "explanation_hi": "ます यहाँ विनम्र अभूत-सकारात्मक रूप। 'मैं पढ़ना किताबें हर दिन' प्रयोग करता है वर्तमान-काल सकारात्मक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ません": "ません है नकारात्मक। वाक्य है सकारात्मक ('I read')।",
-        "ました": "ました है भूत। まいにち (every day) implies अभ्यासगत वर्तमान, नहीं भूत।",
-        "たい": "たい सूचित करता है इच्छा/चाहना; तना वर्णित अभ्यास (\"every day\"), जो बुलाता है के लिए वर्तमान-सकारात्मक ます।"
+        "ません": "ません नकारात्मक है। वाक्य सकारात्मक है (\"पढ़ता हूँ\")।",
+        "ました": "ました भूत है। まいにち (हर दिन) अभ्यासगत वर्तमान का सूचक है, भूत का नहीं।",
+        "たい": "たい इच्छा सूचित करता है; पर वाक्य अभ्यास (\"हर दिन\") बता रहा है, जिसके लिए वर्तमान-सकारात्मक ます चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1749,11 +1749,11 @@
       "explanation_hi": "ます शामिल करता है दोनों अभ्यासगत वर्तमान और भविष्य। 'होगा पीना' कल प्रयोग करता है ます।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ません": "ません है नकारात्मक।",
-        "ました": "ました है भूत - incompatible के साथ あした (tomorrow)।",
-        "ましょう": "ましょう = 'चलिए' (suggestion); नहीं simple कथन।"
+        "ません": "ません नकारात्मक है।",
+        "ました": "ました भूत है — あした (कल) के साथ असंगत।",
+        "ましょう": "ましょう = \"चलिए\" (सुझाव); सादा कथन नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1813,11 +1813,11 @@
       "explanation_hi": "ません व्यक्त करता है 'होगा नहीं जाना'। ます होगा सकारात्मक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "सकारात्मक - साधन 'होगा जाना'।",
-        "ました": "भूत-काल - incompatible के साथ あした।",
-        "ましょうか": "ましょうか proposes / पूछता है \"shall we?\"; तना वर्णित भूत घटना, नहीं proposal।"
+        "ます": "सकारात्मक — \"जाऊँगा\" अर्थ देगा।",
+        "ました": "भूत-काल — あした के साथ असंगत।",
+        "ましょうか": "ましょうか प्रस्ताव/\"चलें?\" पूछता है; पर वाक्य भूत घटना का वर्णन कर रहा है, प्रस्ताव नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1845,11 +1845,11 @@
       "explanation_hi": "ました यहाँ विनम्र भूत-सकारात्मक रूप। きのう (yesterday) की आवश्यकता है भूत-काल।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "वर्तमान, नहीं भूत।",
-        "ません": "वर्तमान नकारात्मक।",
-        "ませんでした": "भूत-नकारात्मक रूप - होता मतलब 'didn't watch'।"
+        "ます": "वर्तमान, भूत नहीं।",
+        "ません": "वर्तमान-नकारात्मक रूप।",
+        "ませんでした": "भूत-नकारात्मक — \"नहीं देखा\" अर्थ देगा।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1877,11 +1877,11 @@
       "explanation_hi": "けさ (आज सुबह) भूत-काल का संदर्भ देता है — ました का प्रयोग करें।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "けさ implies क्रिया-कर्म already happened।",
-        "ません": "वर्तमान नकारात्मक।",
-        "ましょう": "चलिए - ग़लत काल और अर्थ।"
+        "ます": "けさ का अर्थ है क्रिया पहले हो चुकी।",
+        "ません": "वर्तमान-नकारात्मक।",
+        "ましょう": "चलिए — ग़लत काल और अर्थ।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1941,11 +1941,11 @@
       "explanation_hi": "せんしゅう (last week) + नकारात्मक = भूत-नकारात्मक रूप ませんでした। あります जाता है को ありませんでした।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ません": "वर्तमान नकारात्मक - ग़लत काल।",
-        "ます": "वर्तमान सकारात्मक।",
-        "ました": "भूत-सकारात्मक रूप - ग़लत polarity।"
+        "ません": "वर्तमान-नकारात्मक — ग़लत काल।",
+        "ます": "वर्तमान-सकारात्मक।",
+        "ました": "भूत-सकारात्मक — ग़लत ध्रुवता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -1973,11 +1973,11 @@
       "explanation_hi": "ましょう = 'चलिए' - सुझाव को करना कुछ साथ। いっしょに पुष्ट करता है यह।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "सादा कथन - नहीं convey 'चलिए'।",
-        "ました": "भूत-काल - ग़लत अर्थ।",
-        "ません": "नकारात्मक - विपरीत का आमंत्रित करते हुए।"
+        "ます": "सादा कथन — \"चलिए\" का भाव नहीं देता।",
+        "ました": "भूत-काल — ग़लत अर्थ।",
+        "ません": "नकारात्मक — आमंत्रण के विपरीत।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2037,11 +2037,11 @@
       "explanation_hi": "ませんか = \"क्या आप ... नहीं?\" / \"चलें?\" — विनम्र आमंत्रण। जापानी में नकारात्मक रूप ही मानक विनम्र निमंत्रण है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "ますか पूछता है हाँ/नहीं fact ('do you watch?'), नहीं आमंत्रण।",
-        "ました": "भूत-काल - ग़लत intent।",
-        "ましょう": "ましょう अकेला है firmer; ませんか यहाँ softer आमंत्रण रूप।"
+        "ます": "ますか हाँ/नहीं तथ्य पूछता है (\"क्या आप देखते हैं?\"), आमंत्रण नहीं।",
+        "ました": "भूत-काल — ग़लत आशय।",
+        "ましょう": "ましょう अकेला अधिक सख़्त है; ませんか अधिक मृदु आमंत्रण-रूप है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2069,11 +2069,11 @@
       "explanation_hi": "विनम्र प्रस्ताव / आमंत्रण प्रयोग करता है ませんか।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "पूछता है fact ('do you drink?'), नहीं प्रस्ताव।",
-        "ました": "भूत - ग़लत काल।",
-        "ましょう": "Without か, it's सुझाव ('let's drink'), नहीं offering को श्रोता।"
+        "ます": "तथ्य पूछता है (\"क्या आप पीते हैं?\"), प्रस्ताव नहीं।",
+        "ました": "भूत — ग़लत काल।",
+        "ましょう": "か के बिना यह सुझाव है (\"चलिए पीते हैं\"), श्रोता को प्रस्ताव नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2261,11 +2261,11 @@
       "explanation_hi": "行く यहाँ प्रसिद्ध अपवाद: いった (के साथ っ), नहीं いいた के समान अन्य -く क्रियाएँ। डायरी-प्रविष्टि संदर्भ मजबूर करता है सादा रूप (नहीं विनम्र いきました)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "いた": "भूत का いる (to exist), नहीं いく। 「がっこうへ いた」 होगा अव्याकरणिक (intransitive अस्तित्व क्रिया करता है नहीं लेना へ)।",
-        "いきた": "अति-नियमित। 行く करता है नहीं का पालन नियमित -く → -いた नियम (otherwise 書いた / 聞いた pattern); it लेता है अनियमित -った।",
-        "いきって": "Hybrid रूप: ます-तना いき + て-रूप ending って। नहीं such conjugation exists। सामान्य learner error से confusing conjugation classes।"
+        "いた": "いる (होना) का भूत-रूप, いく का नहीं। 「がっこうへ いた」 अव्याकरणिक होगा (अकर्मक अस्तित्व-क्रिया へ नहीं लेती)।",
+        "いきた": "अति-नियमितीकरण। 行く नियमित -く → -いた नियम का पालन नहीं करता (जैसे 書いた / 聞いた); यह अनियमित -った लेता है।",
+        "いきって": "मिश्रित रूप: ます-तना いき + て-रूप का अंत って। ऐसी कोई संयुग्मन नहीं होती। यह संयुग्मन-वर्गों को मिलाने से उत्पन्न आम सीखने वाली त्रुटि है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2293,11 +2293,11 @@
       "explanation_hi": "い-विशेषण अपना अंतिम い です से पहले बनाए रखते हैं।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "な": "な है के लिए な-adjectives पहले संज्ञा, नहीं पहले です।",
-        "の": "の links संज्ञाएँ, यहाँ फ़िट नहीं।",
-        "だ": "だ यहाँ अनौपचारिक copula - कभी नहीं directly बाद い-adjectives।"
+        "な": "な な-विशेषणों के लिए संज्ञा से पहले है, です से पहले नहीं।",
+        "の": "の संज्ञाओं को जोड़ता है — यहाँ फिट नहीं।",
+        "だ": "だ अनौपचारिक कोपुला है — い-विशेषणों के बाद सीधे कभी नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2325,11 +2325,11 @@
       "explanation_hi": "さむい + です - रखना い।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "な": "な है के लिए な-adj पहले संज्ञा।",
+        "な": "な な-विशेषण के लिए संज्ञा से पहले है।",
         "じゃ": "じゃ = じゃありません (नकारात्मक रूप)।",
-        "く": "く यहाँ नकारात्मक-तना ending: さむくない (drop い, add くない)।"
+        "く": "く नकारात्मक-तना का अंत है: さむくない (い हटाओ, くない जोड़ो)।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2357,11 +2357,11 @@
       "explanation_hi": "い-adj नकारात्मक: हटाना い + くない। あまい → あまくない।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "い": "い यहाँ सकारात्मक ending।",
-        "じゃない": "じゃない है के लिए संज्ञाएँ और な-adjectives, नहीं い-adj।",
-        "ない": "केवल ない नहीं काम - ज़रूरत くない।"
+        "い": "い सकारात्मक अंत है।",
+        "じゃない": "じゃない संज्ञाओं और な-विशेषणों के लिए है, い-विशेषण के लिए नहीं।",
+        "ない": "केवल ない से काम नहीं चलेगा — くない चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2389,11 +2389,11 @@
       "explanation_hi": "हटाना अंतिम い, जोड़ना くない।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "おもしろい": "सकारात्मक - ग़लत polarity।",
-        "おもしろじゃない": "じゃない है के लिए な-adj/संज्ञाएँ।",
-        "おもしろな": "ग़लत - おもしろい है い-adj, नहीं な-adj।"
+        "おもしろい": "सकारात्मक — ग़लत ध्रुवता।",
+        "おもしろじゃない": "じゃない な-विशेषण/संज्ञाओं के लिए है।",
+        "おもしろな": "ग़लत — おもしろい い-विशेषण है, な-विशेषण नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2421,11 +2421,11 @@
       "explanation_hi": "い-adj भूत: हटाना い, जोड़ना かった। あつい → あつかった + です।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "い": "वर्तमान-काल, नहीं भूत।",
-        "でした": "でした है के लिए संज्ञाएँ और な-adj, कभी नहीं い-adj।",
-        "い でした": "い-adj कभी नहीं लेना でした। भूत है बना हुआ में विशेषण itself।"
+        "い": "वर्तमान-काल, भूत नहीं।",
+        "でした": "でした संज्ञाओं और な-विशेषणों के लिए है, い-विशेषणों के साथ कभी नहीं।",
+        "い でした": "い-विशेषण でした कभी नहीं लेते। भूत स्वयं विशेषण में बना होता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2454,10 +2454,10 @@
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "むずかしい": "वर्तमान-काल।",
-        "むずかしいでした": "Stacking でした पर い ग़लत है - い-adj के पास है its own भूत रूप।",
-        "むずかしくない": "नकारात्मक वर्तमान, नहीं भूत।"
+        "むずかしいでした": "い के ऊपर でした लगाना ग़लत है — い-विशेषण का अपना भूत-रूप होता है।",
+        "むずかしくない": "नकारात्मक वर्तमान, भूत नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2485,11 +2485,11 @@
       "explanation_hi": "な-adj विधेयात्मक रूप से: केवल N + です। नहीं な, नहीं い।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "い": "Adding い को な-adj ग़लत है।",
-        "だ い": "नहीं बनाना अर्थ।",
-        "な": "な है के लिए प्रयोग पहले संज्ञा, नहीं में वाक्य end।"
+        "い": "な-विशेषण में い जोड़ना ग़लत है।",
+        "だ い": "अर्थपूर्ण नहीं।",
+        "な": "な संज्ञा से पहले प्रयोग होता है, वाक्य के अंत में नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2582,10 +2582,10 @@
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
         "すき": "सकारात्मक।",
-        "すきくないです": "くない है के लिए い-adj, नहीं な-adj। すき है な-adj।",
-        "すきだ ありません": "नहीं combine だ और ありません।"
+        "すきくないです": "くない い-विशेषण के लिए है, な-विशेषण के लिए नहीं। すき な-विशेषण है।",
+        "すきだ ありません": "だ और ありません को न मिलाएँ।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2613,11 +2613,11 @@
       "explanation_hi": "あります के लिए निर्जीव अस्तित्व। किताबें हैं निर्जीव।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "います": "います है के लिए सजीव वस्तुएँ (लोग, animals)।",
-        "です": "です नहीं व्यक्त अस्तित्व।",
-        "ます": "Bare ます - नहीं पूर्ण शब्द।"
+        "います": "います सजीव वस्तुओं (लोग, जानवर) के लिए है।",
+        "です": "です अस्तित्व व्यक्त नहीं करता।",
+        "ます": "अकेला ます — पूर्ण शब्द नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2645,11 +2645,11 @@
       "explanation_hi": "भूत-काल का あります है ありました। घटनाएँ प्रयोग あります।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "あります": "वर्तमान-काल - ग़लत काल।",
-        "います": "います है के लिए सजीव वस्तुएँ; exam है घटना/निर्जीव।",
-        "いました": "भूत का います - सजीव।"
+        "あります": "वर्तमान-काल — ग़लत काल।",
+        "います": "います सजीव वस्तुओं के लिए है; परीक्षा घटना/निर्जीव है।",
+        "いました": "います का भूत — सजीव।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2741,11 +2741,11 @@
       "explanation_hi": "む / ぬ / ぶ → んで। समान के रूप में た-रूप केवल के साथ て।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "のんだ": "जो's た-रूप (भूत)।",
-        "のみて": "Stems shift む → ん, नहीं み।",
-        "のむて": "नहीं रखना む।"
+        "のんだ": "वह た-रूप (भूत) है।",
+        "のみて": "तना む → ん में बदलता है, み में नहीं।",
+        "のむて": "む को रखें नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2773,11 +2773,11 @@
       "explanation_hi": "行く यहाँ प्रसिद्ध अपवाद - लेता है って नहीं いて।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "いいて": "जो's नियमित -く नियम (incorrect for 行く)।",
-        "行きて": "तना shifts く → って।",
-        "行くて": "नहीं रखना く।"
+        "いいて": "वह नियमित -く नियम है (行く के लिए ग़लत)।",
+        "行きて": "तना く → って में बदलता है।",
+        "行くて": "く को रखें नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2805,11 +2805,11 @@
       "explanation_hi": "क्रमिक श्रृंखला: मध्यवर्ती क्रियाएँ て-रूप में होती हैं; अंतिम क्रिया 行きました काल धारण करती है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "たべます": "नहीं प्रयोग विनम्र रूप mid-chain।",
-        "たべました": "भूत, पर के लिए sequence प्रयोग て-रूप।",
-        "たべる": "सादा रूप, नहीं जोड़ना सहजता से को अगला उपवाक्य।"
+        "たべます": "श्रृंखला के बीच में विनम्र रूप का प्रयोग न करें।",
+        "たべました": "भूत, पर अनुक्रम के लिए て-रूप चाहिए।",
+        "たべる": "सादा रूप अगले उपवाक्य से सहजता से नहीं जुड़ता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2837,11 +2837,11 @@
       "explanation_hi": "कई क्रमिक क्रियाएँ सब प्रयोग て-रूप के सिवाय अंतिम एक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "たべる": "सादा रूप नहीं chain naturally।",
-        "たべました": "अंतिम क्रिया 出かけました already धारण करता है भूत-काल।",
-        "たべます": "नहीं mix विनम्र forms mid-chain।"
+        "たべる": "सादा रूप स्वाभाविक रूप से जुड़ता नहीं।",
+        "たべました": "अंतिम क्रिया 出かけました पहले से ही भूत-काल धारण कर रही है।",
+        "たべます": "श्रृंखला के बीच में विनम्र रूप मिलाएँ नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -2965,11 +2965,11 @@
       "explanation_hi": "けっこんする क्षणिक क्रिया है — ています परिणामी अवस्था व्यक्त करती है (\"विवाहित है\")।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "します": "सादा वर्तमान साधन 'होगा marry'।",
-        "しました": "भूत - 'पाया विवाहित' ( घटना)।",
+        "します": "सादा वर्तमान का अर्थ \"शादी करेगा\"।",
+        "しました": "भूत — \"शादी हुई\" (घटना)।",
         "しません": "नकारात्मक।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3061,11 +3061,11 @@
       "explanation_hi": "てはいけません = अवश्य नहीं। ज़रूरत て-रूप पहले は।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "はなす": "ज़रूरत て-रूप।",
+        "はなす": "て-रूप चाहिए।",
         "はなした": "た-रूप।",
-        "はなしません": "विनम्र नकारात्मक रूप - ग़लत structure।"
+        "はなしません": "विनम्र नकारात्मक — ग़लत संरचना।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3093,11 +3093,11 @@
       "explanation_hi": "すう → すって (う → って)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "すう": "ज़रूरत て-रूप।",
-        "すうて": "う → って, नहीं うて।",
-        "すいて": "ग़लत तना-shift।"
+        "すう": "て-रूप चाहिए।",
+        "すうて": "う → って, उて नहीं।",
+        "すいて": "ग़लत तना-परिवर्तन।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated"
+      "distractor_explanations_hi_provenance": "native_reviewed"
     },
     {
       "id": "q-0264",
@@ -3156,11 +3156,11 @@
       "explanation_hi": "わすれない + でください।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "わすれる": "शब्दकोश रूप।",
-        "わすれて": "てください = please करना forget - विपरीत अर्थ।",
+        "わすれる": "शब्दकोश-रूप।",
+        "わすれて": "てください = कृपया भूल जाओ — विपरीत अर्थ।",
         "わすれます": "विनम्र सकारात्मक रूप।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated"
+      "distractor_explanations_hi_provenance": "native_reviewed"
     },
     {
       "id": "q-0266",
@@ -3250,11 +3250,11 @@
       "explanation_hi": "い-विशेषण て-रूप: い हटाओ + くて।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "い": "सकारात्मक ending - नहीं जोड़ना।",
-        "で": "जो's के लिए な-adj / संज्ञाएँ।",
-        "かった": "भूत - ग़लत यहाँ।"
+        "い": "सकारात्मक अंत — जोड़ता नहीं।",
+        "で": "वह な-विशेषण/संज्ञाओं के लिए है।",
+        "かった": "भूत — यहाँ ग़लत।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3313,11 +3313,11 @@
       "explanation_hi": "な-विशेषण भूत = + でした (संज्ञा की तरह)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "かった": "जो's के लिए い-adj।",
-        "だった": "सादा भूत, पर विनम्र रूप है でした।",
-        "じゃ": "नकारात्मक starter।"
+        "かった": "वह い-विशेषण के लिए है।",
+        "だった": "सादा भूत, पर विनम्र रूप でした है।",
+        "じゃ": "नकारात्मक की शुरुआत।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3409,11 +3409,11 @@
       "explanation_hi": "かんたん な-विशेषण। भूत-नकारात्मक = じゃありませんでした।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "くなかったです": "い-adj रूप।",
-        "でした": "भूत-सकारात्मक रूप - ग़लत polarity।",
-        "じゃありません": "वर्तमान, नहीं भूत।"
+        "くなかったです": "い-विशेषण रूप।",
+        "でした": "भूत-सकारात्मक — ग़लत ध्रुवता।",
+        "じゃありません": "वर्तमान, भूत नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3441,11 +3441,11 @@
       "explanation_hi": "な-विशेषण て-रूप: केवल で।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "くて": "जो's い-adj て-रूप।",
-        "だ": "सादा copula - नहीं जोड़ना के समान यह।",
-        "な": "प्रयोग किया गया पहले संज्ञाएँ, नहीं के लिए connection।"
+        "くて": "वह い-विशेषण का て-रूप है।",
+        "だ": "सादा कोपुला — इस तरह नहीं जोड़ता।",
+        "な": "संज्ञा से पहले प्रयोग होता है, जोड़ने के लिए नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3505,11 +3505,11 @@
       "explanation_hi": "सजीव (बिल्ली, व्यक्ति) के लिए います।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "あります": "あります है के लिए निर्जीव वस्तुएँ।",
-        "です": "です नहीं व्यक्त अस्तित्व।",
-        "ません": "Bare ません - ज़रूरत है क्रिया-तना।"
+        "あります": "あります निर्जीव वस्तुओं के लिए है।",
+        "です": "です अस्तित्व व्यक्त नहीं करता।",
+        "ません": "अकेला ません — क्रिया-तना चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3537,11 +3537,11 @@
       "explanation_hi": "सजीव अस्तित्व का नकार = いません।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ありません": "निर्जीव-केवल।",
-        "じゃありません": "Copula नकारात्मक - नहीं व्यक्त अस्तित्व।",
+        "ありません": "केवल निर्जीव।",
+        "じゃありません": "कोपुला नकारात्मक — अस्तित्व व्यक्त नहीं करता।",
         "ます": "सकारात्मक।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -3697,11 +3697,11 @@
       "explanation_hi": "だけ = \"केवल\"। दूसरा वाक्य \"चाय/जूस नहीं पीता\" यह बहिष्कार पुष्ट करता है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "など": "など साधन 'और अन्य / आदि.' - it implies अधिक से केवल कॉफ़ी। का पालन-up वाक्य ('मैं नहीं पीना चाय या जूस') के विपरीत है जो, इसलिए など ग़लत है यहाँ।",
-        "に": "に प्राप्तकर्ता/स्थान; \"केवल\" अर्थ नहीं।",
-        "や": "や आंशिक सूची; \"केवल\" से विरोधी।"
+        "など": "など \"और अन्य/आदि\" अर्थ देता है — केवल कॉफ़ी से अधिक का संकेत। अगला वाक्य (\"मैं चाय या जूस नहीं पीता\") इसका विरोध करता है, इसलिए यहाँ など ग़लत है।",
+        "に": "に गंतव्य, प्राप्तकर्ता, या विशिष्ट समय सूचित करता है। सकर्मक क्रिया से पहले सीधे कर्म पर सीमा-निर्धारण नहीं करता।",
+        "や": "や दो संज्ञाओं के बीच \"और (अंशिक)\" है। यह रिक्त-स्थान के बाद दूसरी संज्ञा माँगता है — यहाँ कोई दूसरी नहीं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4066,11 +4066,11 @@
       "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ (\"कॉफ़ी या चाय\")।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "は सूचित करता है विषय। के बीच दो संज्ञाएँ it करता है नहीं मतलब 'या'; it होता split वाक्य में विषय-comment relation जो यहाँ फ़िट नहीं यहाँ।",
-        "が": "が सूचित करता है कर्ता। It करता है नहीं जोड़ना दो alternative संज्ञाएँ। या-कण है か।",
-        "を": "を सूचित करता है सीधा कर्म। It करता है नहीं जोड़ना दो alternative संज्ञाएँ। या-कण है か।"
+        "は": "は विषय सूचित करता है। दो संज्ञाओं के बीच यह \"या\" का अर्थ नहीं देता; यह वाक्य को विषय-टिप्पणी संबंध में बाँट देगा जो यहाँ फिट नहीं।",
+        "が": "が कर्ता सूचित करता है। दो वैकल्पिक संज्ञाओं को जोड़ता नहीं। OR-कण か है।",
+        "を": "を सीधा कर्म सूचित करता है। दो वैकल्पिक संज्ञाओं को जोड़ता नहीं। OR-कण か है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4099,11 +4099,11 @@
       "explanation_hi": "पिछले संदर्भ में कई लोग समान-स्थिति बताए — も उस समूह में वक्ता को शामिल करता है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "は होता केवल विषय बनाना 'मैं' without 'भी' nuance। संदर्भ lists कई छात्र, इसलिए additive も है क्या natively जोड़ता है वक्ता को group।",
-        "が": "が होता single out वक्ता के रूप में केंद्रित कर्ता, जो clashes के साथ inclusive संदर्भ ( पूर्व वाक्य already names अन्य छात्र)।",
-        "を": "を सूचित करता है सीधा कर्म का transitive क्रिया। がくせい यहाँ संज्ञा विधेय का copula वाक्य - を है grammatically असम्भव यहाँ।"
+        "は": "は केवल \"मैं\" को विषय बनाएगा, \"भी\" की बारीकी के बिना। संदर्भ कई छात्रों की सूची दे रहा है, इसलिए वक्ता को समूह से जोड़ने वाला योगात्मक も स्वाभाविक है।",
+        "が": "が वक्ता को केंद्रित कर्ता बना देगा, जो समावेशी संदर्भ से टकराता है (पिछला वाक्य पहले से अन्य छात्रों के नाम लेता है)।",
+        "を": "を सकर्मक क्रिया का सीधा कर्म सूचित करता है। がくせい कोपुला-वाक्य का संज्ञा-विधेय है — यहाँ を व्याकरणिक रूप से असम्भव है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4164,11 +4164,11 @@
       "explanation_hi": "वक्ता वस्तु पकड़े है तो これ (\"यह\" — वक्ता के पास)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "それ": "それ है के लिए वस्तुएँ नज़दीक श्रोता। यहाँ वक्ता है holding किताब में their own हाथ, इसलिए これ (नज़दीक वक्ता) सही है।",
-        "あれ": "あれ है के लिए वस्तुएँ दूर से दोनों वक्ता और श्रोता। किताब है में वक्ता's own हाथ, इसलिए प्रयोग これ।",
-        "どれ": "どれ यहाँ प्रश्न शब्द 'जो एक?'। वक्ता है making कथन, नहीं पूछने।"
+        "それ": "それ श्रोता के पास की वस्तुओं के लिए है। यहाँ वक्ता अपने हाथ में किताब पकड़े है, इसलिए これ (वक्ता के पास) सही है।",
+        "あれ": "あれ दोनों — वक्ता और श्रोता — से दूर वस्तुओं के लिए है। किताब वक्ता के अपने हाथ में है, इसलिए これ का प्रयोग करें।",
+        "どれ": "どれ प्रश्न-शब्द \"कौन सा?\" है। वक्ता कथन कह रहा है, पूछ नहीं रहा।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4197,11 +4197,11 @@
       "explanation_hi": "こちら (\"इस तरफ़\") — मेज़बान आमंत्रित करते हुए। こちらへ どうぞ।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "そちら": "そちら points toward श्रोता's side। वक्ता है आमंत्रित करते हुए guest को themselves, नहीं directing them away।",
-        "あちら": "あちら points को जगह दूर से दोनों वक्ता और श्रोता। seat होते हुए प्रस्तुत किया है नज़दीक वक्ता।",
-        "どちら": "どちら यहाँ प्रश्न शब्द 'जो तरीक़ा?'। वक्ता है offering, नहीं पूछने।"
+        "そちら": "そちら श्रोता की ओर इशारा करता है। वक्ता मेहमान को अपनी ओर बुला रहा है, उन्हें दूर नहीं कर रहा।",
+        "あちら": "あちら वक्ता और श्रोता दोनों से दूर जगह को इंगित करता है। प्रस्तावित आसन वक्ता के पास है।",
+        "どちら": "どちら प्रश्न-शब्द \"कौन-सी ओर?\" है। वक्ता प्रस्ताव कर रहा है, पूछ नहीं रहा।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4390,11 +4390,11 @@
       "explanation_hi": "वक्ता उस स्थान पर है तो ここ (\"यहाँ\")। そこ श्रोता के पास; あそこ दूर; どこ \"कहाँ?\"",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "そこ": "そこ है के लिए places नज़दीक श्रोता। वक्ता है INSIDE library, इसलिए प्रयोग ここ।",
-        "あそこ": "あそこ है के लिए places दूर से दोनों वक्ता और श्रोता। वक्ता है सही there में library।",
-        "どこ": "どこ यहाँ प्रश्न शब्द 'जहाँ?'। वक्ता है making कथन, नहीं पूछने।"
+        "そこ": "そこ श्रोता के पास की जगहों के लिए है। वक्ता पुस्तकालय के अंदर है, इसलिए ここ चाहिए।",
+        "あそこ": "あそこ वक्ता और श्रोता दोनों से दूर जगहों के लिए है। वक्ता पुस्तकालय में मौजूद है।",
+        "どこ": "どこ प्रश्न-शब्द \"कहाँ?\" है। वक्ता कथन कह रहा है, पूछ नहीं रहा।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4423,11 +4423,11 @@
       "explanation_hi": "कई विकल्पों में से \"कौन सा?\" = どれ। どれが चयन के लिए कर्ता-प्रश्न।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "これ": "これは あなたのですか होगा हाँ/नहीं प्रश्न के बारे में एक विशिष्ट bag नज़दीक वक्ता। प्रश्न है पूछने श्रोता को pick एक out का कई।",
-        "それ": "それは あなたのですか होगा हाँ/नहीं प्रश्न के बारे में एक विशिष्ट bag नज़दीक श्रोता। प्रश्न है पूछने selection से group।",
-        "あれ": "あれは あなたのですか होगा हाँ/नहीं प्रश्न के बारे में एक विशिष्ट bag दूर away। प्रश्न है पूछने selection से group।"
+        "これ": "これは あなたのですか वक्ता के पास की एक विशिष्ट थैली के बारे में हाँ/नहीं प्रश्न होगा। यह प्रश्न श्रोता को कई में से एक चुनने को कह रहा है।",
+        "それ": "それは あなたのですか श्रोता के पास की एक विशिष्ट थैली के बारे में हाँ/नहीं प्रश्न होगा। यहाँ समूह से चुनाव माँगा जा रहा है।",
+        "あれ": "あれは あなたのですか दूर की एक विशिष्ट थैली के बारे में हाँ/नहीं प्रश्न होगा। यहाँ समूह से चुनाव माँगा जा रहा है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -4988,11 +4988,11 @@
       "explanation_hi": "साधन + गंतव्य: バスで (बस से) + かいしゃに (कंपनी को)।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "を / に": "を सूचित करता है सीधा कर्मs, नहीं साधन या paths।",
-        "に / で": "Reverses नियम: स्थान-का-क्रिया-कर्म है で, दिशा-का-गति है に। यहाँ it's दोनों साधन + गंतव्य।",
-        "で / を": "を नहीं सूचित करता है गंतव्य का जाना-क्रियाएँ; に या へ करता है।"
+        "を / に": "を सीधा कर्म सूचित करता है, साधन या रास्ता नहीं।",
+        "に / で": "नियम उल्टा कर देता है: क्रिया-स्थान で है, गति-दिशा に है। यहाँ साधन + गंतव्य दोनों चाहिए।",
+        "で / を": "を जाने वाली क्रियाओं के गंतव्य को नहीं सूचित करता; に या へ करते हैं।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5018,10 +5018,10 @@
       "explanation_hi": "はたらく क्रिया-स्थान で लेता है। つとめる に लेता है (\"से जुड़ी अवस्था\")।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "に / に": "はたらく + に होता suggest दिशा-का-गति ('going to work at'), नहीं routine activity।",
-        "で / で": "つとめる + で ग़लत है; つとめる pairs के साथ に क्योंकि employment है स्थिर attachment।"
+        "に / に": "はたらく + に गति-दिशा का सुझाव देगा (\"वहाँ काम करने जाना\"), नियमित गतिविधि नहीं।",
+        "で / で": "つとめる + で ग़लत है; つとめる に के साथ जुड़ता है क्योंकि नौकरी एक स्थिर संलग्नता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5426,11 +5426,11 @@
       "explanation_hi": "あげる प्राप्तकर्ता को に से चिह्नित। पैटर्न: [देने वाला] は [प्राप्तकर्ता] に [वस्तु] を あげる।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "を": "を already सूचित करता है プレゼント ( वस्तु होते हुए दिया गया)। あげる लेता है एक を के लिए कर्म, नहीं दो। प्राप्तकर्ता स्थान प्रयोग करता है に।",
-        "へ": "へ सूचित करता है गति का गंतव्य क्रियाएँ (e.g., がっこうへ いく)। के लिए प्राप्तकर्ता का giving / receiving क्रियाएँ, प्रयोग に।",
-        "から": "から सूचित करता है स्रोत का क्रिया-कर्म ('से')। 'दोस्त から' होता मतलब दोस्त दिया कुछ को मुझे - विपरीत दिशा का あげる। प्रयोग に के लिए 'को whom'।"
+        "を": "を पहले से ही プレゼント (दी जाने वाली वस्तु) सूचित कर रहा है। あげる एक を कर्म के लिए लेता है, दो नहीं। प्राप्तकर्ता-स्थान に लेता है।",
+        "へ": "へ गति-क्रियाओं का गंतव्य सूचित करता है (जैसे, がっこうへ いく)। देने/लेने की क्रियाओं के प्राप्तकर्ता के लिए に का प्रयोग करें।",
+        "から": "から क्रिया का स्रोत सूचित करता है (\"से\")। \"दोस्त から\" का अर्थ होगा कि दोस्त ने मुझे कुछ दिया — あげる के विपरीत दिशा। \"किसको\" के लिए に।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5459,11 +5459,11 @@
       "explanation_hi": "を जो दिया जा रहा है उस वस्तु को चिह्नित। पिता फूल माँ को देते हैं।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "が": "が सूचित करता है कर्ता। पिता है already विषय (父は); flowers हैं नहीं doer का क्रिया-कर्म।",
-        "に": "に सूचित करता है प्राप्तकर्ता (母に already takes に)। वस्तु दिया गया प्रयोग करता है を, नहीं に।",
-        "で": "で सूचित करता है उपकरण या क्रिया का स्थान। It करता है नहीं सूचित करता है कर्म जो है दिया गया।"
+        "が": "が कर्ता सूचित करता है। पिता पहले से विषय है (父は); फूल क्रिया के कर्ता नहीं हैं।",
+        "に": "に प्राप्तकर्ता सूचित करता है (母に पहले से に लेता है)। दी जा रही वस्तु को सूचित करने के लिए を, に नहीं।",
+        "で": "で उपकरण या क्रिया का स्थान सूचित करता है। दी गई वस्तु को नहीं सूचित कर सकता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5525,11 +5525,11 @@
       "explanation_hi": "を जो प्राप्त हो रहा है। मैं उपहार बड़े भाई से प्राप्त करता हूँ।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "が": "が सूचित करता है कर्ता। प्राप्तकर्ता (わたし) है already विषय; वर्तमान है नहीं doer का क्रिया-कर्म।",
-        "に": "に सकता सूचित करता है स्रोत (あにに もらいました), पर あにから already fills जो role। वस्तु होते हुए प्राप्त हुआ प्रयोग करता है を।",
-        "へ": "へ सूचित करता है गति गंतव्य। It नहीं कर सकता सूचित करता है सीधा कर्म।"
+        "が": "が कर्ता सूचित करता है। प्राप्तकर्ता (わたし) पहले से विषय है; उपहार क्रिया का कर्ता नहीं है।",
+        "に": "に स्रोत सूचित कर सकता है (あにに もらいました), पर あにから पहले से वह भूमिका भर रहा है। प्राप्त की जा रही वस्तु を लेती है।",
+        "へ": "へ गति-गंतव्य सूचित करता है। सीधे कर्म को नहीं सूचित कर सकता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5558,11 +5558,11 @@
       "explanation_hi": "ので = \"क्योंकि\" / \"इसलिए\"। から से नरम/अधिक विनम्र। सादा रूप से जुड़ता है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ながら": "ながら साधन 'जबकि doing'। It व्यक्त करता है simultaneous क्रियाएँ, नहीं cause-और-effect।",
-        "ても": "ても साधन 'भी अगर'। 'भी अगर मेरा सिर दर्द होता है, मैं'll होना अनुपस्थित' के विपरीत है स्वाभाविक कारणात्मक reading।",
-        "のに": "のに साधन 'यद्यपि' / 'के बावजूद'। 'यद्यपि मेरा सिर दर्द होता है, मैं'll होना अनुपस्थित' यहाँ विपरीत का intended 'क्योंकि' relationship।"
+        "ながら": "ながら का अर्थ \"करते हुए\" है। यह एक साथ होने वाली क्रियाएँ व्यक्त करता है, कारण-परिणाम नहीं।",
+        "ても": "ても का अर्थ \"भले ही\" है। \"भले ही मेरा सिर दर्द हो, मैं अनुपस्थित रहूँगा\" स्वाभाविक कारणात्मक अर्थ का विरोध करता है।",
+        "のに": "のに का अर्थ \"हालाँकि\" / \"के बावजूद\" है। \"हालाँकि सिर दर्द हो रहा है, मैं अनुपस्थित रहूँगा\" इच्छित \"क्योंकि\" संबंध के विपरीत है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5591,11 +5591,11 @@
       "explanation_hi": "जब ので संज्ञा/な-विशेषण के बाद आता है, बीच में な आवश्यक: 雨 → 雨なので।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "の": "雨のので है अव्याकरणिक। जोड़क के लिए संज्ञा + ので है な, नहीं の। (の यहाँ सम्बंधसूचक / possessive कण, प्रयोग किया गया differently.)",
-        "だ": "雨だので है ग़लत। सादा-रूप copula だ करता है नहीं survive में front का ので - it shifts को な इसके बजाय।",
-        "で": "雨でので doubles up で / な-रूप connectors और है अव्याकरणिक। fixed पैटर्न है संज्ञा + な + ので।"
+        "の": "雨のので अव्याकरणिक है। संज्ञा + ので के लिए जोड़क な है, の नहीं। (の सम्बंधसूचक/possessive कण है, अलग प्रयोग।)",
+        "だ": "雨だので ग़लत है। सादा-रूप कोपुला だ ので के सामने नहीं टिकता — यह な में बदल जाता है।",
+        "で": "雨でので で / な-रूप जोड़क दोहरा देता है और अव्याकरणिक है। निश्चित पैटर्न संज्ञा + な + ので है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5624,11 +5624,11 @@
       "explanation_hi": "V-तना + ながら दो साथ-साथ क्रियाएँ। एक ही कर्ता।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "きいて": "きいて (て-रूप) जोड़ता है क्रमिक क्रियाएँ: 'listen, फिर study'। It करता है नहीं व्यक्त simultaneous क्रिया-कर्म।",
-        "ききました": "ききました है भूत विनम्र - पूर्ण वाक्य ending। It नहीं कर सकता जोड़ना दो क्रियाएँ में मध्य का एक वाक्य।",
-        "きかない": "きかない यहाँ नकारात्मक ('नहीं listen'), और देता है ग़लत अर्थ। It भी नहीं रूप simultaneous-क्रिया-कर्म structure।"
+        "きいて": "きいて (て-रूप) क्रमिक क्रियाओं को जोड़ता है: \"सुनो, फिर पढ़ो\"। एक साथ होने वाली क्रिया व्यक्त नहीं करता।",
+        "ききました": "ききました विनम्र भूत है — पूर्ण वाक्य का अंत। एक वाक्य के बीच में दो क्रियाओं को नहीं जोड़ सकता।",
+        "きかない": "きかない नकारात्मक है (\"नहीं सुनता\"), जो ग़लत अर्थ देता है। यह simultaneous-action संरचना भी नहीं बनाता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5657,11 +5657,11 @@
       "explanation_hi": "ながら सीधे क्रिया-तना से जुड़ता है। \"कॉफ़ी पीते-पीते किताब पढ़ता हूँ\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ので": "ので जुड़ता है को सादा रूप (e.g., のむので), नहीं को क्रिया-तना। のみので है अव्याकरणिक।",
-        "から": "から (क्योंकि / से) करता है नहीं जोड़ना को bare क्रिया-तना। のみから है अव्याकरणिक में यह संदर्भ।",
-        "でも": "でも साधन 'भी / पर'। It करता है नहीं जोड़ना को bare क्रिया-तना यहाँ, और it करता है नहीं व्यक्त simultaneous क्रिया-कर्म।"
+        "ので": "ので सादा-रूप से जुड़ता है (जैसे, のむので), क्रिया-तना से नहीं। のみので अव्याकरणिक है।",
+        "から": "から (क्योंकि / से) bare क्रिया-तना से नहीं जुड़ता। のみから इस संदर्भ में अव्याकरणिक है।",
+        "でも": "でも का अर्थ \"भी / पर\" है। यह यहाँ bare क्रिया-तना से नहीं जुड़ता, और एक साथ होने वाली क्रिया भी व्यक्त नहीं करता।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -5690,11 +5690,11 @@
       "explanation_hi": "いつも = \"हमेशा\" (100%)। 毎日 के साथ कुल निरंतरता पर ज़ोर।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "たまに": "たまに साधन 'occasionally' (low frequency)। It के विपरीत है 毎日 ('every day')।",
-        "あまり": "あまり ('नहीं much') केवल काम करता है के साथ नकारात्मक क्रियाएँ (e.g., あまり 行きません)। के साथ positive 'おきます', it है अव्याकरणिक।",
-        "ぜんぜん": "ぜんぜん ('नहीं में सब') केवल काम करता है के साथ नकारात्मक क्रियाएँ और साधन पूर्ण अनुपस्थिति। It के विपरीत है positive 毎日।"
+        "たまに": "たまに का अर्थ \"कभी-कभी\" है (कम आवृत्ति)। 毎日 (\"हर दिन\") का विरोध करता है।",
+        "あまり": "あまり (\"बहुत नहीं\") केवल नकारात्मक क्रियाओं के साथ काम करता है (जैसे, あまり 行きません)। सकारात्मक 'おきます' के साथ अव्याकरणिक है।",
+        "ぜんぜん": "ぜんぜん (\"बिल्कुल नहीं\") केवल नकारात्मक क्रियाओं के साथ काम करता है और पूर्ण अनुपस्थिति का अर्थ देता है। सकारात्मक 毎日 का विरोध करता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -7532,11 +7532,11 @@
       "explanation_hi": "「ことができる」 こと-नामकरणक पर が लेता है। अंदर 話す सामान्य कर्म 日本語を रखता है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "を": "を सूचित करता है 日本語 ( कर्म का 話す) पर नहीं こと; こと यहाँ कर्ता का できる, जो लेता है が।",
-        "に": "に सूचित करता है प्राप्तकर्ता/गंतव्य, नहीं कर्ता का できる-frame।",
-        "で": "で सूचित करता है साधन/स्थान; यहाँ structure specifies क्रिया संज्ञा-उपवाक्य जो है \"doable\", जो लेता है が।"
+        "を": "を 日本語 (話す का कर्म) सूचित करता है, पर こと को नहीं; こと できる का कर्ता है, जो が लेता है।",
+        "に": "に प्राप्तकर्ता/गंतव्य सूचित करता है, できる-frame का कर्ता नहीं।",
+        "で": "で साधन/स्थान सूचित करता है; यहाँ संरचना एक क्रिया-संज्ञा-उपवाक्य निर्दिष्ट करती है जो \"कर सकने योग्य\" है, जो が लेता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     },
     {
@@ -7564,11 +7564,11 @@
       "explanation_hi": "V-शब्दकोश + ことが できません = \"नहीं कर सकता\"। उत्पादक सकता है-करना का नकारात्मक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ありません": "ありません negates अस्तित्व (ない)। Pairing it के साथ 「ことが」 yields 「ことが ありません」 = \"के पास है नहीं किया गया\", अलग N5 व्याकरण (experience)। यहाँ we चाहना capability नकार।",
-        "いません": "いません यहाँ नकारात्मक अस्तित्व के लिए सजीव subjects। यहाँ फ़िट नहीं こと frame।",
-        "しません": "しません = \"करना नहीं करना\" (volition / habit), नहीं \"नहीं कर सकता करना\"। Loses ability अर्थ।"
+        "ありません": "ありません अस्तित्व का नकारक (ない) है। 「ことが」 के साथ जोड़ने पर 「ことが ありません」 = \"नहीं किया है\" बनता है, जो अलग N5 व्याकरण (अनुभव) है। यहाँ क्षमता-नकार चाहिए।",
+        "いません": "いません सजीव कर्ताओं के लिए नकारात्मक अस्तित्व है। こと-frame से मेल नहीं खाता।",
+        "しません": "しません = \"नहीं करता\" (इच्छा/अभ्यास), \"नहीं कर सकता\" नहीं। क्षमता-भाव खो जाता है।"
       },
-      "distractor_explanations_hi_provenance": "llm_curated",
+      "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "native_reviewed"
     }
   ]
