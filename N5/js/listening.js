@@ -38,9 +38,34 @@ async function loadBank() {
   return bank;
 }
 
-export async function renderListening(container) {
+export async function renderListening(container, params) {
   await loadBank();
-  if (session) return renderItem(container);
+  // 2026-05-08: URL-based routing for listening detail. User reported
+  // refresh on a detail page bouncing back to the index — that was a
+  // symptom of the detail view being purely in-memory (`session`)
+  // with no URL representation. Now `#/listening/<id>` deep-links to
+  // a specific item; refresh preserves it; sharing the URL works.
+  const id = (params || '').trim();
+  if (id) {
+    const item = (bank.items || []).find(it => it.id === id);
+    if (!item) {
+      // Unknown id — redirect to index. The hashchange triggered by
+      // the assignment causes the router to re-fire renderListening
+      // with empty params, which falls into the index path below.
+      session = null;
+      location.hash = '#/listening';
+      return;
+    }
+    // Preserve `picked` only if we're already on the same item (e.g.
+    // a re-render after a click). Otherwise start fresh.
+    if (!session || session.item?.id !== item.id) {
+      session = { item, picked: null };
+    }
+    return renderItem(container);
+  }
+  // No params: index view. Drop any prior session so going back to
+  // an item via the index lands on a fresh question.
+  session = null;
   return renderIndex(container);
 }
 
@@ -89,9 +114,11 @@ function renderIndex(container) {
   });
   container.querySelectorAll('[data-id]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const item = items.find(x => x.id === btn.dataset.id);
-      session = { item, picked: null };
-      renderItem(container);
+      // Navigate via hashchange so the detail view has its own URL
+      // (refresh-survives, share-link-able). The router's hashchange
+      // listener in app.js calls renderListening(container, id),
+      // which loads the item and shows renderItem.
+      location.hash = `#/listening/${encodeURIComponent(btn.dataset.id)}`;
     });
   });
 }
@@ -178,28 +205,31 @@ function renderItem(container) {
       ${navHtml}
     </article>
   `;
-  // Wire prev/next nav buttons. Each replaces session.item, re-renders,
-  // and scrolls back to the top so the new item's title is visible.
+  // Wire prev/next nav buttons. Navigate via hashchange so the URL
+  // captures the active item — refresh-survives, share-link-able.
+  // Router's hashchange listener picks up the new id and re-renders.
   container.querySelector('[data-nav="prev"]')?.addEventListener('click', () => {
-    if (prev) { session = { item: prev, picked: null }; renderItem(container); window.scrollTo(0, 0); }
+    if (prev) { window.scrollTo(0, 0); location.hash = `#/listening/${encodeURIComponent(prev.id)}`; }
   });
   container.querySelector('[data-nav="next"]')?.addEventListener('click', () => {
-    if (next) { session = { item: next, picked: null }; renderItem(container); window.scrollTo(0, 0); }
+    if (next) { window.scrollTo(0, 0); location.hash = `#/listening/${encodeURIComponent(next.id)}`; }
   });
   container.querySelectorAll('[data-pick]').forEach(btn => {
     btn.addEventListener('click', () => {
+      // `picked` is in-memory only — refresh resets it. The URL still
+      // points at the same item, so refresh keeps the user on this
+      // page (no answer pre-selected after refresh; that's OK).
       session.picked = btn.dataset.pick;
       renderItem(container);
     });
   });
-  document.getElementById('listening-back')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    session = null;
-    renderIndex(container);
-  });
+  // "← リストに もどる" link at the top: keep its href="#/listening",
+  // remove the preventDefault so the browser actually navigates and
+  // the URL changes (was previously rendering index without updating
+  // the URL — a refresh would then jump back to the detail page).
+  // No JS handler needed — the anchor's href does the work.
   document.getElementById('listening-back-list')?.addEventListener('click', () => {
-    session = null;
-    renderIndex(container);
+    location.hash = '#/listening';
   });
   // IMP-070: wire transcript-line click-to-seek + auto-highlight when
   // the item ships with a `lines` array. No-op when absent.
