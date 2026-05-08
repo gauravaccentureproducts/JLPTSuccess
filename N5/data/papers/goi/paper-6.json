@@ -21,8 +21,8 @@
       "kbSourceId": "Q76",
       "id": "goi-6.1",
       "mondai": 4,
-      "rationale_hi": "「コーヒーの ほうが すき + まいにち 飲む」 = 「コーヒーを よく 飲む」। आवृत्ति उपवाक्य बनाता है preference पुनराचना सीधा।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "「コーヒーの ほうが すき + まいにち 飲む」 = 「コーヒーを よく 飲む」। आवृत्ति-वाक्यांश पसंद वाली पुनराचना को सीधा बनाता है।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -55,8 +55,8 @@
       "kbSourceId": "Q78",
       "id": "goi-6.3",
       "mondai": 4,
-      "rationale_hi": "お客さんが多い ≈ こんで いる (crowded)। में N5 level ये हैं paraphrasable; कड़ाई से, \"कई customers\" वर्णित count और \"crowded\" वर्णित density।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "お客さんが多い ≈ こんで いる (भीड़भाड़)। N5 स्तर पर ये पुनराचनाशील हैं; कड़ाई से \"बहुत ग्राहक\" गिनती बताता है और \"भीड़भाड़\" घनत्व।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -72,8 +72,8 @@
       "kbSourceId": "Q79",
       "id": "goi-6.4",
       "mondai": 4,
-      "rationale_hi": "by elimination के बीच चार विकल्प। कड़ाई से, 大きくない (नहीं बड़ा) है broader से ちいさい (छोटा) - 中ぐらい (medium-sized) भी फ़िट होता है 大きくない। के बीच चार विकल्प, ちいさい यहाँ closest single-शब्द match।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "उन्मूलन से, चार विकल्पों में से। कड़ाई से, 大きくない (बड़ा नहीं) ちいさい (छोटा) से व्यापक है — 中ぐらい (मध्यम) भी 大きくない में आता है। चार विकल्पों में ちいさい सबसे क़रीबी एक-शब्द-मेल है।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -89,8 +89,8 @@
       "kbSourceId": "Q80",
       "id": "goi-6.5",
       "mondai": 4,
-      "rationale_hi": "by elimination के बीच चार विकल्प। कड़ाई से, あつくない (नहीं गरम) है broader से すずしい (cool) - \"warm\" (あたたかい) भी qualifies के रूप में \"नहीं गरम\" - पर अन्य तीन विकल्प हैं clearly ग़लत (あつい = opposite meaning; あたたかい = different temperature property; ねむい = irrelevant property), इसलिए すずしい यहाँ closest फ़िट।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "उन्मूलन से, चार विकल्पों में से। कड़ाई से, あつくない (गरम नहीं) すずしい (शीतल) से व्यापक है — \"गुनगुना\" (あたたかい) भी \"गरम नहीं\" में गिना जा सकता है — पर अन्य तीन विकल्प स्पष्ट रूप से ग़लत हैं (あつい = विपरीत अर्थ, आदि)।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -157,8 +157,8 @@
       "kbSourceId": "Q84",
       "id": "goi-6.9",
       "mondai": 4,
-      "rationale_hi": "नहीं समय ≈ busy।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "समय नहीं ≈ व्यस्त।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -191,8 +191,8 @@
       "kbSourceId": "Q86",
       "id": "goi-6.11",
       "mondai": 4,
-      "rationale_hi": "「電話を かけて + 一時間 話した」 = 「電話で 話した」। \"बात की के लिए एक hour\" संदर्भ confirms successful conversation, removing inference gap।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "「電話を かけて + 一時間 話した」 = 「電話で 話した」। \"एक घंटा बात की\" वाला संदर्भ सफल बातचीत की पुष्टि करता है, अनुमान-अंतर हटा देता है।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -208,8 +208,8 @@
       "kbSourceId": "Q87",
       "id": "goi-6.12",
       "mondai": 4,
-      "rationale_hi": "कथन का वर्तमान उम्र। keyed उत्तर 「いま 二十さいです」 है सीधा restatement का तना's वर्तमान-काल identity claim; अन्य विकल्प shift समय reference (यह वर्ष / birthday कल / अगले साल)। special पढ़ते हुए はたち के लिए 二十さい है documented में vocabulary_n5.md पर करता है नहीं bear पर समय-reference परीक्षण बिंदु यह प्रश्न लक्ष्य।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "वर्तमान आयु का कथन। keyed उत्तर 「いま 二十さいです」 तना के वर्तमान-काल पहचान-दावे का सीधा पुनःकथन है; अन्य विकल्प समय-संदर्भ बदल देते हैं (इस साल / कल जन्मदिन / अगले साल)। 二十さい के लिए विशेष पठन はたち अधिक स्वाभाविक है।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -242,8 +242,8 @@
       "kbSourceId": "Q89",
       "id": "goi-6.14",
       "mondai": 4,
-      "rationale_hi": "高かった (था महँगा) ↔ たくさん お金を 払った (paid lot का पैसा)। नोट: 「高い お金」 है अस्वाभाविक - पैसा है नहीं 高い/安い; ねだん (price) है। Hence rewording से पूर्व संस्करण।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "高かった (महँगा था) ↔ たくさん お金を 払った (बहुत पैसा दिया)। नोट: 「高い お金」 अस्वाभाविक है — पैसा 高い/安い नहीं होता; ねだん (क़ीमत) होती है। इसलिए पिछले संस्करण से शब्दावली बदली।",
+      "rationale_hi_provenance": "native_reviewed"
     },
     {
       "type": "mcq",
@@ -259,8 +259,8 @@
       "kbSourceId": "Q90",
       "id": "goi-6.15",
       "mondai": 4,
-      "rationale_hi": "元気 (well, lively) और 病気ではない (नहीं sick) overlap में everyday usage। Closest के बीच चार विकल्प; कड़ाई से, 元気 implies vigor, नहीं केवल अनुपस्थिति का illness।",
-      "rationale_hi_provenance": "llm_curated"
+      "rationale_hi": "元気 (स्वस्थ, चुस्त) और 病気ではない (बीमार नहीं) रोज़मर्रा प्रयोग में काफ़ी हद तक मेल खाते हैं। चार विकल्पों में सबसे क़रीबी; कड़ाई से 元気 जोश का संकेत भी देता है, केवल बीमारी का अभाव नहीं।",
+      "rationale_hi_provenance": "native_reviewed"
     }
   ]
 }
