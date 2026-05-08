@@ -1,13 +1,14 @@
 You are operating in implementation mode on the JLPT N5 sub-app of
 JLPTSuccess. The 5-locale → en+hi transition completed in 2026-05-06.
-The first remediation cycle (HI-01..HI-19) completed 2026-05-07 in
-8 phased commits (c5b3c11 → a3de7e4). This prompt has been refreshed
-to reflect those learnings and is now intended for the **second
-remediation cycle** (post-cycle-1 polish + native-speaker review).
+Cycles 1 and 2 of the Hindi-content audit completed 2026-05-07
+(commits c5b3c11 → 8b64424). This prompt has been refreshed to
+reflect those learnings and is now intended for **cycle 3**
+(per-surface native-speaker review pass).
 
 ## STATUS BANNER (read first; refresh on each new cycle)
 
-Cycle 1 (2026-05-07) closed the structural gaps:
+Cycle 1 (2026-05-07, commits c5b3c11 → a3de7e4) closed the
+structural gaps:
   Phase A (HI-18+19): 154 romanization substitutions across EN+HI
   Phase B (HI-12-15): 4 UI string polish fixes
   Phase C (HI-07-11): 5 single-entry quality bug fixes
@@ -17,19 +18,49 @@ Cycle 1 (2026-05-07) closed the structural gaps:
   Phase G (HI-01):    29 paper files / 0 Hindi → 28 / 402 rationale_hi
   Phase H (HI-16):    11 native_reviewed-but-codemix → 0
 
-Final state after cycle 1:
+Cycle 2 (2026-05-07, commits 874d4e9 → 8b64424) closed the
+mechanical residuals:
+  Phase 1:  379 substitutions (250-rule glossary expansion)
+  Phase 1b: 115 more substitutions (residual word coverage)
+  Phase 2:  JA-41 CI invariant lock-in + 2 Latin-side hand-fixes
+  Phase 5:  spec + CHANGELOG + IMP-123 registry row
+
+Final state after cycles 1+2:
   Placeholders on disk:                            0
   Provenance-honesty violations:                   0
   Kanji arity mismatches:                          0
   Paper files with no Hindi:                       0
   Romanization anti-pattern (kana-prefix):         0
   Code-mix in native_reviewed content:             0
-  tools/check_content_integrity.py:                49/49 green
-  Residual code-mix in llm_curated content:    ~318 (target for cycle 2)
+  tools/check_content_integrity.py:                50/50 green
+  Residual code-mix in llm_curated content:    ~213 (cycle-3 target)
 
-The 14+ diagnostic and fix scripts created during cycle 1 live in
-`not-required/tools-archive/` and are re-runnable. See "Tooling
-reference" below.
+What cycle 3 should do:
+  Per-surface native-speaker review (Phases 3a-3g of this prompt).
+  For each entry: apply R-1..R-7 rubric, flip llm_curated ->
+  native_reviewed where it passes, hand-rewrite where it fails.
+  Also: tackle the ~213 long-tail English residuals (per-entry
+  judgment — keep when it's a JLPT-pedagogical loanword with no
+  Hindi equivalent, rewrite when it's mechanical-translation
+  residue).
+
+The 16 diagnostic and fix scripts created during cycles 1+2 live
+in `not-required/tools-archive/` and are re-runnable. See
+"Tooling reference" below.
+
+Cycle-2 learnings added to the gotchas section:
+  - JA-NN regex needs negative lookbehind for Devanagari to
+    avoid false positives on Hindi words ending in same syllable
+    (e.g., "रिश्ता" / "कर्ता" trigger "ता-" matches).
+  - cp932 default encoding on Windows breaks the integrity
+    check's verbose output when failures contain Devanagari.
+    Created not-required/tools-archive/_ja41_debug.py as a
+    UTF-8-safe debug runner.
+  - Mechanical glossary translation hits diminishing returns
+    around the 70%-coverage mark (cycle-2 phase 1+1b together
+    reduced ~318 → ~213 over 494 substitutions; further mechanical
+    sweeps yield <30 hits per pass). Phase 3 hand review is the
+    correct path forward.
 
 ## YOUR JOB (CYCLE 2)
 
