@@ -73,11 +73,21 @@ function enhanceOne(audio) {
   const timeEl  = wrap.querySelector('.audio-skin-time');
   const rateBtns = wrap.querySelectorAll('.audio-skin-rate');
 
+  // Render time as "0:08 / 0:18 (0.75×)" — the rate suffix lets the
+  // learner SEE the rate is applied (some users were unsure whether
+  // clicking the rate button actually slowed playback). Suffix is
+  // omitted when rate is exactly 1.0 to keep the display compact in
+  // the common case.
   const updateTime = () => {
-    timeEl.textContent = `${fmt(audio.currentTime)} / ${fmt(audio.duration)}`;
+    const r = audio.playbackRate;
+    const rateSuffix = Math.abs(r - 1.0) > 0.001 ? ` (${r}×)` : '';
+    timeEl.textContent = `${fmt(audio.currentTime)} / ${fmt(audio.duration)}${rateSuffix}`;
   };
   audio.addEventListener('timeupdate', updateTime);
   audio.addEventListener('loadedmetadata', updateTime);
+  // Also update on ratechange so the suffix appears immediately after
+  // a rate-button click — even if playback hasn't started yet.
+  audio.addEventListener('ratechange', updateTime);
   audio.addEventListener('ended', () => { playBtn.textContent = '▶'; });
   audio.addEventListener('play',  () => { playBtn.textContent = '❚❚'; });
   audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
