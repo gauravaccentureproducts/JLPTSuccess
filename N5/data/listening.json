@@ -67,7 +67,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.002",
@@ -140,7 +141,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.003",
@@ -205,7 +207,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.004",
@@ -275,7 +278,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.005",
@@ -344,7 +348,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.006",
@@ -414,7 +419,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.007",
@@ -468,7 +474,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.008",
@@ -538,7 +545,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.009",
@@ -582,7 +590,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.010",
@@ -626,7 +635,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.011",
@@ -670,7 +680,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.012",
@@ -714,7 +725,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.013",
@@ -723,17 +735,16 @@
       "format_type": "task_understanding",
       "title_ja": "何時に 会いますか",
       "audio": "audio/listening/n5.listen.013.mp3",
-      "script_ja": "A: あした 学校で 会いましょう。\nB: はい。何時に 会いますか。\nA: 九時はんに しましょう。\nB: わかりました。",
+      "script_ja": "A: あした 学校で 会いましょう。\nB: はい。何時に 会いますか。\nA: 九時半に しましょう。\nB: わかりました。",
       "prompt_ja": "あした 何時に 会いますか。",
       "choices": [
         "8時",
-        "8時はん",
+        "8時半",
         "9時",
-        "9時はん"
+        "9時半"
       ],
-      "correctAnswer": "9時はん",
+      "correctAnswer": "9時半",
       "explanation_en": "A says 9時はんに しましょう (let's meet at 9:30). B agrees.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 151.5,
       "pacing_status": "too_slow",
@@ -747,7 +758,7 @@
           "startMs": 3548
         },
         {
-          "text_ja": "A: 九時はんに しましょう。",
+          "text_ja": "A: 九時半に しましょう。",
           "startMs": 6652
         },
         {
@@ -777,7 +788,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.014",
@@ -796,7 +808,6 @@
       ],
       "correctAnswer": "駅の 北の 出口",
       "explanation_en": "When the woman asks for clarification, the man specifies the north exit.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 117.4,
       "pacing_status": "too_slow",
@@ -840,7 +851,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.015",
@@ -859,7 +871,6 @@
       ],
       "correctAnswer": "りんごと ぎゅうにゅう",
       "explanation_en": "The child names apples and milk, then declines bread.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 157.0,
       "pacing_status": "too_slow",
@@ -903,7 +914,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.016",
@@ -922,7 +934,6 @@
       ],
       "correctAnswer": "母",
       "explanation_en": "B's friend is busy, so B goes with their mother.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 192.6,
       "pacing_status": "in_range",
@@ -966,7 +977,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.017",
@@ -975,17 +987,16 @@
       "format_type": "task_understanding",
       "title_ja": "先生は いつ 来ますか",
       "audio": "audio/listening/n5.listen.017.mp3",
-      "script_ja": "男: 先生は 何時に 来ますか。\n女: 三時に 来ます。 でも、道が こんで います。\n男: では、何時に なりますか。\n女: たぶん 三時はんです。",
+      "script_ja": "男: 先生は 何時に 来ますか。\n女: 三時に 来ます。 でも、道が こんで います。\n男: では、何時に なりますか。\n女: たぶん 三時半です。",
       "prompt_ja": "先生は 何時に 来ますか。",
       "choices": [
         "二時",
         "三時",
-        "三時はん",
+        "三時半",
         "四時"
       ],
-      "correctAnswer": "三時はん",
+      "correctAnswer": "三時半",
       "explanation_en": "Original plan was 3:00; due to traffic the actual arrival will be 3:30.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 120.5,
       "pacing_status": "too_slow",
@@ -1003,7 +1014,7 @@
           "startMs": 9416
         },
         {
-          "text_ja": "女: たぶん 三時はんです。",
+          "text_ja": "女: たぶん 三時半です。",
           "startMs": 12797
         }
       ],
@@ -1029,7 +1040,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.018",
@@ -1048,7 +1060,6 @@
       ],
       "correctAnswer": "電車",
       "explanation_en": "B answers 電車で 行きます (by train).",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 148.9,
       "pacing_status": "too_slow",
@@ -1092,7 +1103,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.019",
@@ -1111,7 +1123,6 @@
       ],
       "correctAnswer": "あたまが いたかったから",
       "explanation_en": "The student answers あたまが いたかったです (I had a headache).",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 192.6,
       "pacing_status": "in_range",
@@ -1155,7 +1166,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.020",
@@ -1174,7 +1186,6 @@
       ],
       "correctAnswer": "千五百円",
       "explanation_en": "B says 千五百円でした (it was 1,500 yen).",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 138.9,
       "pacing_status": "too_slow",
@@ -1218,7 +1229,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.021",
@@ -1237,7 +1249,6 @@
       ],
       "correctAnswer": "9時から 5時まで",
       "explanation_en": "Monday is in the weekday range (月-金), which is 9-5. The 1-4 hours apply only to Saturday.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 154.9,
       "pacing_status": "too_slow",
@@ -1273,7 +1284,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.022",
@@ -1292,7 +1304,6 @@
       ],
       "correctAnswer": "雨",
       "explanation_en": "Tomorrow is rainy. Day-after-tomorrow is nice but the question is about tomorrow.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 162.6,
       "pacing_status": "too_slow",
@@ -1332,7 +1343,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.023",
@@ -1351,7 +1363,6 @@
       ],
       "correctAnswer": "火よう日と 木よう日",
       "explanation_en": "The woman explicitly says Tuesday and Thursday, and confirms there is none on Wednesday.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 154.1,
       "pacing_status": "too_slow",
@@ -1395,7 +1406,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.024",
@@ -1414,7 +1426,6 @@
       ],
       "correctAnswer": "父の 先生・母の 友だち・父",
       "explanation_en": "Three people: father's teacher, mother's friend, and father himself. The mother is asking, not coming.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 120.9,
       "pacing_status": "too_slow",
@@ -1454,7 +1465,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.025",
@@ -1473,7 +1485,6 @@
       ],
       "correctAnswer": "おはよう ございます",
       "explanation_en": "Polite morning greeting. おやすみなさい is bedtime; こんばんは is evening; さようなら is goodbye.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 155.0,
       "pacing_status": "too_slow",
@@ -1500,7 +1511,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.026",
@@ -1519,7 +1531,6 @@
       ],
       "correctAnswer": "コーヒーを ください",
       "explanation_en": "〜を ください is the polite request when ordering. The other options eat coffee, ask location, or state preference.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 229.2,
       "pacing_status": "in_range",
@@ -1546,7 +1557,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.027",
@@ -1565,7 +1577,6 @@
       ],
       "correctAnswer": "いいえ、けっこうです",
       "explanation_en": "いいえ、けっこうです is the standard polite refusal of an offer.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 255.4,
       "pacing_status": "too_fast",
@@ -1592,7 +1603,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.028",
@@ -1611,7 +1623,6 @@
       ],
       "correctAnswer": "しつれいします",
       "explanation_en": "しつれいします is said when entering someone else's home. ただいま is for your own home.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 204.5,
       "pacing_status": "in_range",
@@ -1638,7 +1649,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.029",
@@ -1657,7 +1669,6 @@
       ],
       "correctAnswer": "いただきます",
       "explanation_en": "いただきます is said before eating. ごちそうさま is after the meal.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 202.0,
       "pacing_status": "in_range",
@@ -1684,7 +1695,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.030",
@@ -1703,7 +1715,6 @@
       ],
       "correctAnswer": "駅は どこですか",
       "explanation_en": "どこですか asks for location. The other options ask time, price, or command the listener to go.",
-      "voice": "synthetic-voicevox-shikoku-metan",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 194.6,
       "pacing_status": "in_range",
@@ -1730,7 +1741,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.031",
@@ -1796,7 +1808,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.032",
@@ -1862,7 +1875,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.033",
@@ -1928,7 +1942,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.034",
@@ -1990,7 +2005,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.035",
@@ -2044,7 +2060,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.036",
@@ -2098,7 +2115,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.037",
@@ -2152,7 +2170,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.038",
@@ -2197,7 +2216,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.039",
@@ -2242,7 +2262,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.040",
@@ -2286,7 +2307,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.041",
@@ -2327,7 +2349,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.042",
@@ -2367,7 +2390,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.043",
@@ -2407,7 +2431,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.044",
@@ -2448,7 +2473,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.045",
@@ -2489,7 +2515,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.046",
@@ -2530,7 +2557,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     },
     {
       "id": "n5.listen.047",
@@ -2571,7 +2599,8 @@
         "voices_used": [],
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
-      }
+      },
+      "explanation_hi_provenance": "native_reviewed"
     }
   ],
   "_meta": {
