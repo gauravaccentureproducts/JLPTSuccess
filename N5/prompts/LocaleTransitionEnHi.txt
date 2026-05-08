@@ -1,845 +1,705 @@
 You are operating in implementation mode on the JLPT N5 sub-app of
-JLPTSuccess. Your single job in this run is to transition the app
-from a 5-locale shell (English / Vietnamese / Indonesian / Nepali /
-Chinese) to a 2-locale shell (English / Hindi) - completely,
-safely, and without regressions or side-effect bugs.
+JLPTSuccess. The 5-locale → en+hi transition completed in 2026-05-06
+(commit 253896c and predecessors). This prompt is no longer about
+transitioning; it is about **closing the Hindi-coverage gap that
+remains** and **upgrading the existing Hindi content to native-
+scholar quality**.
 
-You WILL implement this end-to-end: code, content data, docs,
-specs, tests, audit-prompt, CI invariants, top-level brand
-surfaces, and the canonical issue registry. You will work in
-phased commits so any phase can be reverted independently.
+Your job in this run, in two parallel tracks:
+
+  Track A: COVERAGE — find every spot where a Hindi field is absent,
+           empty, equal to its English source (passthrough), or
+           rendered in non-Devanagari script when Devanagari is
+           expected. Fill the gaps.
+
+  Track B: QUALITY — re-read every existing Hindi value through the
+           lens of a native Hindi scholar (मानक हिंदी native-speaker
+           background, with familiarity in JLPT pedagogy). Flag and
+           fix anything that is grammatically wrong, idiomatically
+           awkward, register-mismatched, calque-from-English,
+           Sanskrit-overformal where colloquial is expected, or
+           Urdu-leaning where मानक हिंदी is expected.
+
+You will work in phased commits so any phase can be reverted
+independently. Track A and Track B may be interleaved (one phase
+each per content surface) but every commit ships exactly one
+logical change.
 
 ## STRATEGIC CONTEXT (read this first)
 
-The 5-locale shell (en/vi/id/ne/zh) was originally shipped to
-support a "multilingual non-English-native learner" niche claim
-(niche-N1 in the audit prompt N5Improvement.txt). The 2026-05-06
-deep market research (see commit history + xlsx audit registry +
-the conversation that produced this prompt) found that:
+The strategic decision (made 2026-05-06) was: stop spreading thin
+across 5 mediocre locale shells; commit to 2 locales (English +
+Hindi) at native-quality depth. Hindi was chosen because India is
+the 5th-largest JLPT country worldwide; ~50K applicants/year; 73%
+at N5 or N4 level; no dedicated Hindi-native JLPT prep app exists.
 
-- Vietnamese, Indonesian, Burmese, Bengali, Sinhala, Brazilian
-  Portuguese, Filipino/Tagalog, Thai, and Chinese all have at
-  least one - usually several - established competing JLPT prep
-  apps in their native language. The "no competitor" framing for
-  niche-N1 was wrong for those locales.
-- Nepali is genuinely uncovered, but the absolute market is too
-  small (~2-5K JLPT/yr) to be the strategic primary.
-- **Hindi is the unique high-demand-low-competition gap.** India
-  is the 5th-largest JLPT country worldwide; ~50K applicants/year;
-  73% are at N5 or N4 level (perfect product-market fit). NO
-  dedicated Hindi-native JLPT prep app was found in app-store or
-  curated-list searches. Yoisho Academy delivers in English with
-  optional Hindi tutoring - closest competitor, but not an app
-  and not Hindi-medium pedagogy.
+The transition shipped Hindi seed content across UI + 6 main
+content files. The current state (per
+`tools/_hindi_field_inventory.py` snapshot taken 2026-05-07):
 
-The strategic decision is: **stop spreading thin across 5 mediocre
-locale shells; commit to 2 locales (English + Hindi) and ship
-those at native-quality depth.** Niche-N1 is reframed from
-"multilingual non-English-native" to "the only privacy-first
-no-account offline JLPT app with English + native Hindi pedagogy."
+  ┌─────────────────────────┬──────────────────────────────────┐
+  │ Surface                 │ Coverage state                   │
+  ├─────────────────────────┼──────────────────────────────────┤
+  │ locales/hi.json         │ 125 strings / 0 empty / 6 non-   │
+  │                         │ Devanagari (3 are _meta, 3 are   │
+  │                         │ font-size labels — all OK).      │
+  │                         │ Marked review_status: native_    │
+  │                         │ reviewed.                        │
+  │                         │                                  │
+  │ data/vocab.json         │ 1041/1041 entries have gloss_hi. │
+  │                         │ Provenance: native_reviewed.     │
+  │                         │                                  │
+  │ data/kanji.json         │ 106/106 entries have meanings_hi.│
+  │                         │ Provenance: native_reviewed.     │
+  │                         │                                  │
+  │ data/grammar.json       │ 178/178 patterns have meaning_hi │
+  │                         │ + explanation_hi. 481 l1_notes.hi│
+  │                         │ entries (many patterns).         │
+  │                         │                                  │
+  │ data/listening.json     │ 47/47 items have explanation_hi. │
+  │                         │                                  │
+  │ data/reading.json       │ 45 passages have summary_hi;     │
+  │                         │ 20 reading-questions have        │
+  │                         │ explanation_hi.                  │
+  │                         │                                  │
+  │ data/questions.json     │ 290 questions have explanation_hi│
+  │                         │ + 137 distractor_explanations_hi.│
+  │                         │                                  │
+  │ data/papers/**/*.json   │ 29 paper files / ZERO Hindi keys │
+  │                         │ (THIS IS THE COVERAGE GAP)       │
+  └─────────────────────────┴──────────────────────────────────┘
 
-This is a strategic narrowing, not a feature regression. Existing
-users with persisted vi/id/ne/zh locale settings will fall back
-gracefully to English. No user loses access to any content.
+The gap to close is explicitly the 29 paper files. The quality
+review target is everything else (≈4,200 Hindi-bearing slots).
 
-## GOAL - END STATE
+This is not a re-transition. The schema is already correct
+(JA-39 invariant locks the closed locale set to {en, hi}). The
+content corpus already passes JA-39. The work here is content
+quality, not architecture.
 
-After this transition completes, the app must satisfy ALL of:
+## /N4/ WORK-BLOCK (BINDING)
 
-1. `N5/locales/` contains exactly two files: `en.json` and `hi.json`.
-2. The locale switcher chip group renders exactly two chips: `EN | HI`.
-3. The `js/i18n.js` module supports exactly the closed set
-   `{en, hi}`. Any other persisted or requested locale falls back
-   to `en` cleanly.
-4. Existing users with `localStorage.locale ∈ {vi, id, ne, zh}`
-   load successfully; their persisted locale is migrated to `en`
-   on first load post-transition; no error, no white screen, no
-   re-prompt.
-5. All content data (`vocab.json`, `kanji.json`, `grammar.json`,
-   `reading.json`, `listening.json`, `questions.json`, every paper
-   under `data/papers/`) has `gloss_translations` /
-   `meanings_translations` / per-locale fields containing only
-   `en` and `hi` keys. All `vi`/`id`/`ne`/`zh` keys are removed.
-6. All documentation, specs, README, PRIVACY, MIGRATION, NOTICES,
-   CHANGELOG, TASKS, top-level `index.html` brand surfaces, and
-   the audit prompt `N5Improvement.txt` reflect the en+hi reality.
-   No references to the old 5-locale claim remain.
-7. The service worker has been bumped to a new cache version that
-   does NOT serve `vi.json` / `id.json` / `ne.json` / `zh.json`
-   from cache. Old caches are purged on activate.
-8. All Playwright tests pass. `tools/check_content_integrity.py`
-   passes. Visual-regression baselines have been regenerated for
-   the new chip count.
-9. The change is registered as an architectural-decision item in
-   `feedback/n5-audit-2026-05-04.xlsx` with a written rationale
-   and a back-link to the market-research conversation date
-   (2026-05-06).
-10. `/N4/` is COMPLETELY UNTOUCHED. The N4 sub-app is work-blocked
-    per `.claude/CLAUDE.md` Rule 1; do not edit any file under
-    `/N4/`. If a script accidentally globs into `/N4/`, fail loudly.
+Per project `.claude/CLAUDE.md` Rule 1, do NOT touch any file
+under `/N4/`. The inventory greps WILL surface N4 hits — those
+are expected. The git diff at the end MUST show ZERO file changes
+under `/N4/`. This audit is N5-only.
+
+## GOAL — END STATE
+
+After this audit completes, the app must satisfy ALL of:
+
+1. Every paper file under `N5/data/papers/**/*.json` either:
+   (a) carries explicit `rationale_hi` for each question (and
+       `summary_hi` for each dokkai passage), OR
+   (b) is verified to inherit Hindi explanations through ID
+       linkage to `data/questions.json` AND that linkage is
+       documented + tested.
+   The choice between (a) and (b) is determined empirically in
+   Phase 1 (see "Linkage discovery" below).
+
+2. Every existing Hindi value has been read by a native-Hindi-
+   scholar persona reviewer and either:
+   - kept as-is (passes the quality rubric below), OR
+   - rewritten to native-quality (logged with diff + rationale).
+
+3. Re-reviewed surfaces are re-marked `review_status:
+   native_reviewed` with the date `2026-05-DD` (today). Untouched-
+   but-verified surfaces keep their existing provenance with a
+   `last_verified` timestamp added.
+
+4. A new CI invariant (next free JA-NN) enforces that:
+   - Every `*_hi` text field is non-empty, OR
+   - Every Hindi text field passes a Devanagari-presence check
+     (script contains at least one character in Unicode block
+     U+0900–U+097F), and any exceptions are listed in a documented
+     allowlist (e.g., font-size labels "S/M/L/XL", proper nouns,
+     romanized JLPT vocabulary).
+   - The closed locale set check (JA-39) continues to pass.
+
+5. The audit decision is registered as the next free `IMP-NNN`
+   row in `feedback/n5-audit-2026-05-04.xlsx` with:
+   - Rationale for the gap-closure choice (a vs b above)
+   - Native-scholar quality-rubric reference
+   - Date 2026-05-DD
+   - Decision: Done
+
+6. `python tools/check_content_integrity.py` exits 0 with the
+   new invariant green.
+
+7. `npx playwright test` passes; visual-regression baselines
+   regenerated for any surface where Hindi text length changed
+   meaningfully (paper-question bottom sheets, primarily).
+
+8. `/N4/` is COMPLETELY UNTOUCHED. `git diff --stat` shows zero
+   `N4/` rows.
 
 ## SCOPE
 
 **In scope:**
-- `N5/locales/*` (the locale JSON files)
-- `N5/js/*.js` (i18n module, settings, app, storage, any module
-  consuming locale strings)
-- `N5/index.html` (locale switcher chip group, lang attribute,
-  any inline locale references)
-- `N5/css/main.css` (chip-group widths if they assumed 5 chips)
-- `N5/data/*.json` (content data with `*_translations` fields)
-- `N5/data/papers/**/*.json` (~28 paper files)
-- `N5/sw.js` (service worker cache version + locale fetch list)
-- `N5/tools/check_content_integrity.py` (any locale-completeness
-  invariants)
-- `N5/tools/build_min_js.py` (build pipeline if it iterates locales)
-- `N5/README.md`, `N5/CHANGELOG.md`, `N5/TASKS.md`, `N5/PRIVACY.md`,
-  `N5/NOTICES.md` (if present), `N5/docs/*.md`,
-  `N5/specifications/*.md`, `N5/feedback/MASTER-TASK-LIST.md`,
-  `N5/feedback/ui-testing-plan.md`
-- `N5/prompts/N5Improvement.txt` (niche-N1 reframing)
-- `N5/feedback/n5-audit-2026-05-04.xlsx` (registration of the
-  architectural decision)
-- Top-level: `index.html`, `README.md`, `PRIVACY.md`, `MIGRATION.md`,
-  `NOTICES.md` (only the multilingual-claim text - no other top-level
-  changes)
-- Top-level: `CONTRIBUTING.md` (if it lists supported locales)
-- `N5/tests/**/*.spec.js` and any Playwright spec asserting locale
-  chip count or labels
+- `N5/data/vocab.json` — 1041 `gloss_hi` quality review
+- `N5/data/kanji.json` — 106 `meanings_hi` quality review
+- `N5/data/grammar.json` — 178 `meaning_hi` + 178 `explanation_hi`
+  + 481 `l1_notes.hi` quality review
+- `N5/data/listening.json` — 47 `explanation_hi` quality review
+- `N5/data/reading.json` — 45 `summary_hi` + 20 `explanation_hi`
+  quality review
+- `N5/data/questions.json` — 290 `explanation_hi` + 137
+  `distractor_explanations_hi` quality review
+- `N5/data/papers/**/*.json` — gap closure (29 files)
+- `N5/data/papers/manifest.json` — touch only if the choice
+  resolves to (a) and manifest registers a new Hindi-coverage
+  field
+- `N5/locales/hi.json` — 125 UI strings final-check (the existing
+  6 non-Devanagari values are intentional; do not "fix" them)
+- `N5/tools/check_content_integrity.py` — add the new invariant
+- `N5/tools/_hindi_field_inventory.py` — re-run after each phase
+  for verification; do not modify the script itself unless it
+  has a real bug
+- `N5/feedback/n5-audit-2026-05-04.xlsx` — register the audit
+  decision (Phase 9-equivalent here)
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` —
+  bump version + note the Hindi quality pass
+- `N5/CHANGELOG.md` — top-of-file entry
+- `N5/prompts/N5Improvement.txt` — only if its Hindi-related
+  expectations are now stale
 
 **Out of scope (do NOT touch):**
-- `/N4/` anything (work-blocked per CLAUDE.md Rule 1). N4 has its
-  own `js/i18n.js` and TASKS.md and CHANGELOG.md that mention
-  5 locales - leave them alone. The N4 sub-app will be transitioned
-  in a separate cycle when the work-block lifts.
+- `/N4/` anything (work-blocked per CLAUDE.md Rule 1)
 - `/N3/`, `/N2/`, `/N1/` (do not exist yet)
-- Top-level repo settings beyond what's needed for the
-  multilingual-claim text update
-- Any unrelated content-correction work surfaced incidentally
+- The English source content — never modify English glosses /
+  meanings / explanations to make Hindi translation easier;
+  always translate the existing English faithfully
+- `N5/locales/en.json` — English UI strings are out of scope
+- The Knowledge-Bank `.md` source files — those are reference,
+  not runtime data. The runtime data is the JSON.
+- Top-level repo (no top-level edits in this audit pass)
+- Audio, SVGs, images
+- Service worker (no SW change required; content edits do not
+  invalidate caches because the cache version is keyed on the
+  spec version, not the content payload)
 
-## PRE-FLIGHT INVENTORY (Phase 0 - read-only)
+## THE NATIVE-HINDI-SCHOLAR QUALITY RUBRIC
 
-Before writing any code, build a complete inventory of what
-references the four locales being removed. This is the safety
-net against missed call sites. Do not skip this step.
+A native Hindi scholar reviewing a JLPT-pedagogical Hindi gloss
+applies these tests in order. Any failed test = flag for rewrite.
 
-1. **Locale files**: confirm `N5/locales/` contains exactly
-   `en.json`, `vi.json`, `id.json`, `ne.json`, `zh.json` and no
-   others.
+### R-1. Script integrity (mechanical)
 
-2. **Code references**: grep the entire N5 tree (excluding
-   `N5/js/min/` - those are generated and will rebuild) for the
-   following patterns and produce a verified hit list:
-   - `'vi'`, `'id'`, `'ne'`, `'zh'` (string literals)
-   - `"vi"`, `"id"`, `"ne"`, `"zh"`
-   - `vi.json`, `id.json`, `ne.json`, `zh.json`
-   - `locales/vi`, `locales/id`, `locales/ne`, `locales/zh`
-   - `gloss_translations`, `meanings_translations`,
-     `explanation_*` (any locale-suffixed field)
-   - `Vietnamese`, `Indonesian`, `Nepali`, `Chinese`, `Mandarin`
-     (English-name references)
-   - `Tiếng Việt`, `Bahasa Indonesia`, `नेपाली`, `中文` (native-
-     name labels in chip group)
+- The string contains at least one Devanagari character
+  (Unicode U+0900–U+097F) UNLESS the slot is documented allowlist
+  (font-size labels, proper nouns, ASCII JLPT terminology like
+  "JLPT" or "N5").
+- No mojibake, no replacement characters (U+FFFD), no zero-width
+  joiners where they don't belong.
+- Half-form / half-letter consonants render correctly: ज्ञ (j-ñ)
+  vs ज + ् + ञ etc. The visual presentation in the running app
+  is the test.
+- Nukta usage is correct: क़ / ख़ / ग़ / ज़ / फ़ / ड़ / ढ़ for the
+  six relevant consonants ONLY when the source phoneme demands
+  them. क़ान्जी "kanji" is wrong; कान्जी is right (Japanese
+  loanword, no Persian/Arabic origin).
 
-3. **Documentation references**: grep for `5 locales`, `5-locale`,
-   `five locale`, `five-locale`, `en/vi/id/ne/zh`, `vi/id/ne/zh`,
-   and produce a hit list. Be exhaustive.
+### R-2. Naturalness (the most important test)
 
-4. **Test references**: grep `tests/**/*.spec.js` and
-   `tests/**/*.spec.ts` for chip count assertions
-   (e.g., `getByRole('group', { name: /locale/ }).locator(...).count()`,
-   `to.have.length(5)`, etc.).
+- Read the Hindi sentence aloud. Would a native-Hindi-speaking
+  Indian Hindi-medium learner produce this sentence
+  spontaneously, or does it sound like a Google Translate output
+  /a calque from English?
+- Word order should be natural Hindi (SOV, postpositional). A
+  literal English-to-Hindi rendering with English word order is
+  a fail.
+- Idiomatic verb phrases > literal verb phrases. "to study" =
+  पढ़ाई करना or अध्ययन करना (context-dependent), not "अध्ययन
+  to-do" calque.
 
-5. **CI invariant references**: read
-   `tools/check_content_integrity.py` end-to-end and identify any
-   invariant (JA-NN, X-N.N) that:
-   - Iterates over a hard-coded locale list
-   - Asserts a key count per content item that depends on locale
-     count (e.g., "every vocab entry has 5 gloss translations")
+### R-3. Register match
 
-6. **N4 contamination check**: confirm that `/N4/` shows up in the
-   grep but is UNTOUCHED in your subsequent edits. The grep MUST
-   show N4 hits before you start. The diff at the end MUST show
-   ZERO N4 hits.
+- The English source for vocab gloss is typically dictionary-
+  short (1-3 words). The Hindi gloss MUST be similarly short.
+  Long, explanatory Hindi for a short English gloss is wrong.
+- Grammar `explanation_hi` is teaching prose: register should
+  match a Hindi-medium textbook (formal-but-accessible, second-
+  person तुम/आप-respectful tone). NOT casual तू / तेरा.
+- L1 notes (`l1_notes.hi`) are pedagogical comparisons. Tone
+  should be encouraging and concrete: "हिंदी की तरह ... जापानी
+  में भी ...". Avoid jargon (linguist-grade terminology like
+  "ergativity" / "perfective aspect") unless inline-explained.
 
-7. **Branch + tag**: create a new branch
-   `locale-transition-en-hi` from current `master`. Tag the parent
-   commit as `pre-locale-transition` for easy revert reference.
+### R-4. Vocabulary appropriateness for मानक हिंदी
 
-Produce the inventory as a markdown report saved to
-`N5/feedback/locale-transition-inventory.md`. Commit it as Phase 0
-("phase 0: locale transition pre-flight inventory"). Do not
-proceed to Phase 1 until this inventory is committed.
+- Prefer मानक हिंदी (Hindi medium of instruction) vocabulary.
+  - Persian/Arabic-origin words (वक़्त, मुश्किल, सच्चा) are fine
+    when they are colloquial defaults; avoid heavy Urdu-register
+    substitutions (मुलाक़ात-ए-दिल style).
+  - Sanskrit-origin words are fine for academic concepts (व्याकरण,
+    अध्ययन, पठन) but avoid शुद्ध हिंदी / Sanskritized over-formal
+    vocabulary for everyday concepts (e.g., do not use "मार्ग"
+    where "रास्ता" is the everyday word).
+- For loanwords from English with no settled Hindi equivalent,
+  use Devanagari transliteration of the English word: कंप्यूटर,
+  टेलीफ़ोन (note nukta on फ़), टैक्सी. This is standard मानक हिंदी
+  practice.
+
+### R-5. Grammatical accuracy
+
+- Gender agreement is correct on every adjective, every verb in
+  habitual / past forms.
+  - लड़का जाता है vs लड़की जाती है vs लड़के जाते हैं — the verb
+    AND adjective MUST agree.
+- Postposition placement is grammatical:
+  - ने (ergative) on past-perfective transitive subjects only.
+  - से for "from" (source) and "by means of" (instrument) — but
+    do not over-extend to where Hindi prefers other postpositions.
+  - को on direct-object animates / definite-direct-objects /
+    indirect-object datives.
+- Compound verbs (जाना, देना, लेना as light verbs) usage is
+  natural: खा लिया (consumed), खा गया (devoured), पढ़ रहा हूँ
+  (am reading) — the aspect choice should match what the English
+  source meant.
+- Number agreement: ये किताबें हैं (plural agreement, plural
+  postposition).
+
+### R-6. JLPT-pedagogical accuracy
+
+The Hindi explanation must be FAITHFUL to the Japanese it explains:
+
+- A Japanese verb conjugation explanation in Hindi must not
+  introduce errors about the Japanese form. The Hindi is the
+  vehicle; the Japanese facts are the cargo.
+- L1-interference notes must compare the *correct* Hindi form
+  to the *correct* Japanese form. Comparing wrong Hindi to right
+  Japanese, or right Hindi to wrong Japanese, is a hard fail —
+  worse than English-only would have been.
+- Any furigana / kana referenced in the Hindi explanation must
+  match what the English source uses.
+
+### R-7. Consistency across the corpus
+
+- The same Japanese vocabulary item must have the same Hindi
+  gloss across vocab.json, kanji.json (when relevant), and any
+  question explanation that quotes it.
+- The same grammar pattern must use the same Hindi name across
+  grammar.json, the questions that reference it, and any reading
+  /listening explanation that quotes it.
+- Pronoun choice (तुम vs आप) MUST be consistent within a single
+  surface (one passage, one explanation block) and SHOULD be
+  consistent across the whole product. Default: respectful आप
+  for teaching prose; second-person тुम for in-passage Japanese
+  dialogue translations where the dialogue is between peers.
 
 ## PHASED EXECUTION (each phase = exactly one commit)
 
-Each phase below produces exactly one commit. After each commit,
-run the test suite and verify clean. If a phase introduces a
-regression, fix-forward in a follow-up commit; do not amend.
+### Phase 0: Pre-flight inventory (read-only)
 
-### Phase 1: Add Hindi (`hi`) as a new locale - additive only
+1. Re-run `python tools/_hindi_field_inventory.py`. Capture the
+   output to `feedback/hindi-audit-inventory-2026-05-DD.md` with
+   today's date.
+2. Confirm the 29-paper-files-zero-Hindi-keys finding still
+   holds. If something has changed since 2026-05-07, document
+   it.
+3. Confirm `git status` is clean. Create branch
+   `hindi-quality-audit-2026-05-DD`. Tag `pre-hindi-audit` on
+   the parent commit.
+4. Commit message: `audit(hi): phase 0 — pre-flight Hindi
+   coverage + quality inventory`.
 
-Goal: ship `hi` alongside the existing 5 locales without removing
-anything. This is reversible; if anything breaks, the 5-locale
-fallback still works.
+### Phase 1: Linkage discovery (read-only)
 
-Tasks:
-- Create `N5/locales/hi.json`. Translate every key from
-  `en.json` into Devanagari Hindi (हिंदी). Mark UI strings as
-  `review_status: llm_curated` in any internal-tracking field;
-  the file itself follows the same flat schema as `en.json`.
-  Translation quality bar: **functional clarity over literary
-  elegance** for Phase 1 - a native-review pass will follow as
-  a separate cycle. Do NOT use Romanized Hindi for the UI; use
-  Devanagari script throughout.
-- Update `N5/js/i18n.js`:
-  - Add `'hi'` to the `SUPPORTED_LOCALES` (or equivalent
-    closed-set) array.
-  - Add `'hi'` to any locale-detection / Accept-Language
-    matching code so a browser sending `Accept-Language: hi-IN`
-    gets `hi` selected automatically.
-  - Add a label entry (`Hindi` in English, `हिन्दी` in native
-    script) for the chip switcher.
-- Update `N5/index.html`:
-  - Add a `<button data-locale="hi" class="locale-chip">HI</button>`
-    (or whatever the existing chip pattern is) to the
-    locale-switcher chip group.
-  - The chip-group container is briefly 6 chips wide. Verify
-    it doesn't overflow on the 320px-min-width viewport; if
-    it does, the CSS overflow strategy must hold (see Phase 5
-    CSS audit).
-- Update `N5/sw.js`:
-  - Add `'/locales/hi.json'` to the precache asset list.
-  - Bump the `CACHE_VERSION` to a new value
-    (e.g. `jlptsuccess-n5-vNN+1`). The version bump triggers
-    the activate-event purge.
-- Smoke test: load the app in a browser, switch to HI, navigate
-  through Home → Grammar → Vocab → Kanji → Reading → Listening →
-  Test → Progress. Every UI string must render in Devanagari.
-  Switching back to EN (or VI/ID/NE/ZH for the moment) must
-  still work.
-- Commit message: `feat(i18n): add Hindi (hi) locale - additive`.
-
-### Phase 2: Add migration code for existing users
-
-Goal: when a user with `localStorage.locale ∈ {vi, id, ne, zh}`
-loads the app post-Phase-3, they fall back to `en` cleanly. The
-migration code goes in BEFORE the removal so it ships ahead of
-the breakage and is testable.
+Decide between gap-closure option (a) — add `rationale_hi` to
+each paper question — vs option (b) — verify ID-linkage to
+questions.json delivers Hindi explanations to paper questions.
 
 Tasks:
-- Identify the exact storage key and module that persists locale.
-  Likely candidates: `js/storage.js` (with helper
-  `getSettings()` / `setSettings()`), `js/i18n.js` (with bootstrap
-  code), or `js/app.js` (with a one-time hydrate step).
-- Add a migration function `migrateLocaleSetting()` that:
-  1. Reads the persisted locale from localStorage.
-  2. If the value is in `{vi, id, ne, zh}`, sets it to `'en'`
-     and persists immediately.
-  3. If the value is anything not in `{en, hi}` (including null,
-     undefined, junk), defaults to `'en'`.
-  4. If the value is already in `{en, hi}`, no-op.
-  5. Logs a console.info exactly once per session for telemetry-
-     free observability: `"locale migrated: vi → en"` (or
-     equivalent). This is dev-only signal; no PII, no network.
-- Call `migrateLocaleSetting()` from app bootstrap, BEFORE any
-  i18n-dependent rendering code runs.
-- Add a unit test (or extend the existing tests.html harness)
-  that simulates each of the 4 deprecated locales in localStorage
-  and asserts the migration result is `'en'`.
-- Smoke test: in browser DevTools, set
-  `localStorage.setItem('jlpt-n5-tutor:settings', JSON.stringify({locale: 'vi', ...}))`,
-  reload, verify the app boots in English without any error in
-  the console.
-- Commit message: `feat(i18n): migrate deprecated locales (vi/id/ne/zh) to en`.
+- For 5 random paper questions across moji/bunpou/dokkai/goi
+  papers, look up the question ID in `data/questions.json`. Does
+  it exist? Does that questions.json entry have `explanation_hi`?
+- Read `js/test-runner.js` (or whichever module renders paper
+  questions in the Test / Mock screens) and trace the explanation
+  rendering logic. Does it pull from `paper.questions[].rationale`
+  only, or does it look up `questions.json[id].explanation_hi`
+  when the active locale is hi?
+- Repeat for dokkai passages: does the runtime render
+  `passage.text` with no explanation, or does it pull
+  `summary_hi` from somewhere?
 
-### Phase 3: Remove the four deprecated locales from UI + i18n module
+Deliverable: write `feedback/hindi-paper-linkage-finding-2026-05-DD.md`
+with:
+- The empirical answer (option a vs b)
+- The linkage code path (file + function + line)
+- The volume of work option (a) implies (29 files × N questions
+  per file ≈ 250-450 new Hindi explanations)
+- The verification work option (b) implies (test cases that
+  prove the linkage works for paper-served questions)
 
-Goal: stop offering vi/id/ne/zh as user-selectable; remove the
-locale files; the migration from Phase 2 catches anyone who had
-them persisted.
+Commit message: `audit(hi): phase 1 — paper-files Hindi linkage
+discovery`.
 
-Tasks:
-- Delete `N5/locales/vi.json`, `id.json`, `ne.json`, `zh.json`.
-- Remove the four chip buttons from `N5/index.html`. The chip
-  group should now contain exactly EN | HI.
-- Update `N5/js/i18n.js`:
-  - `SUPPORTED_LOCALES` becomes `['en', 'hi']`.
-  - Any switch/case mapping locale → label loses the four entries.
-  - Accept-Language detection considers only `en` and `hi`;
-    everything else falls back to `en`.
-- Update `N5/sw.js`:
-  - Remove `'/locales/vi.json'`, `'/locales/id.json'`,
-    `'/locales/ne.json'`, `'/locales/zh.json'` from the precache
-    list.
-  - Bump `CACHE_VERSION` again (the activate event purges old
-    caches automatically; the bump is what triggers it).
-- Update `N5/css/main.css`:
-  - If the chip-group has fixed widths or `grid-template-columns`
-    expecting 5 chips, narrow to 2.
-  - If selectors hardcoded `.locale-chip[data-locale="vi"]` etc.,
-    remove them.
-- Smoke test: load the app, verify only EN and HI chips render;
-  switch HI → EN → HI; confirm no 404 in the network panel for
-  any locale fetch; confirm a hard reload clears old caches and
-  loads only the v_NN+2 assets.
-- Commit message: `refactor(i18n): remove vi/id/ne/zh locales - strategic narrowing to en+hi`.
+### Phase 2: Close the paper-files coverage gap
 
-### Phase 4: Strip vi/id/ne/zh fields from content data
+Execute the option chosen in Phase 1.
 
-Goal: make the content corpus match the new locale set. Every
-`*_translations` object must contain only `en` and `hi` keys
-(or be a flat string when only English is intended).
+If option (a): for each paper file, walk every question; produce
+a `rationale_hi` field whose Hindi content faithfully translates
+the English `rationale` while applying R-1 through R-7 rubric.
+Mark `rationale_hi_provenance: 'native_reviewed'` (or whatever
+provenance enum the schema uses; mirror what `questions.json`
+does).
 
-Files to touch (per the Phase 0 inventory; verify the list):
-- `N5/data/grammar.json` - strip `gloss_translations.{vi,id,ne,zh}`,
-  `explanation_{vi,id,ne,zh}`, any `notes.l1_*` for
-  Vietnamese/Indonesian/Nepali/Mandarin learners.
-- `N5/data/vocab.json` - strip `gloss_translations.{vi,id,ne,zh}`.
-- `N5/data/kanji.json` - strip `meanings_translations.{vi,id,ne,zh}`.
-- `N5/data/reading.json` - strip any per-locale gloss / summary.
-- `N5/data/listening.json` - strip any per-locale transcript /
-  gloss.
-- `N5/data/questions.json` - strip any per-locale rationale / hint.
-- `N5/data/papers/**/*.json` (~28 files) - same pattern.
+For dokkai papers, ALSO add `summary_hi` to each `passages[]`
+entry. Use the existing `data/reading.json` `summary_hi` style
+as the model.
 
-Add Hindi placeholder fields where they don't exist yet:
-- `gloss_translations.hi` on every vocab entry - populate with an
-  LLM-curated Hindi gloss. Mark `review_status: llm_curated` in
-  the entry's metadata if the schema supports it.
-- `meanings_translations.hi` on every kanji entry.
-- L1-interference notes for Hindi (replacing the
-  Vietnamese/Indonesian/Nepali/Mandarin notes that just got
-  removed). See "Hindi seed content guidance" section below.
+If option (b): the linkage works → the work in Phase 2 is to add
+test coverage proving it. Add a Playwright (or unit) test that:
+- Sets locale = 'hi' in localStorage.
+- Navigates to a paper test, answers a question, opens the
+  bottom-sheet explanation.
+- Asserts the explanation contains Devanagari script.
+Repeat for one paper from each of moji / bunpou / dokkai / goi.
 
-Use a tooling script for the bulk transformation; do not edit
-21+ JSON files by hand:
-- Create `N5/tools/locale_prune_en_hi.py` that:
-  1. Reads each affected JSON file.
-  2. Walks the structure recursively; for every dict, if a key
-     is in `{'vi', 'id', 'ne', 'zh', 'mandarin', 'vietnamese',
-     'indonesian', 'nepali', 'chinese'}` (plus locale-suffixed
-     field names like `gloss_vi`, `notes_id`, etc.), remove it.
-  3. Adds `gloss_translations.hi` / `meanings_translations.hi`
-     stubs where the corresponding `.en` exists and the `.hi`
-     does not - populated via a separate translation pass (see
-     guidance below).
-  4. Writes the file back with consistent formatting (preserve
-     2-space indent, key order via `sort_keys=False`).
-  5. Reports per-file: keys removed, keys added.
-- Run the script. Spot-check 3 random files manually before
-  committing to confirm the transformation looks right.
-- Commit message: `data: prune vi/id/ne/zh from content; seed hi placeholders`.
+Either way: re-run `tools/_hindi_field_inventory.py` and confirm
+the paper-files row no longer reads "ZERO Hindi keys" or that
+the linkage is verified.
 
-### Phase 5: Documentation, specs, top-level brand surfaces
+Commit message:
+- (a): `data(hi): close paper-files coverage gap — add
+  rationale_hi to all paper questions`
+- (b): `test(hi): verify paper-files Hindi-linkage via
+  questions.json — add 4 Playwright assertions`
 
-Goal: every doc / spec / brand surface tells the en+hi story
-honestly. Lying about ourselves in marketing is a niche-N2
-(privacy / honesty) violation.
-
-Files to touch:
-- `N5/README.md` - multilingual section now says "English + native
-  Hindi" not "5 locales". Strategic positioning blurb (if any)
-  updated.
-- `N5/PRIVACY.md` - locale list updated (it likely names the 5).
-- `N5/CHANGELOG.md` - add a top-of-file entry for this transition;
-  do not delete the historical 5-locale changelog entries (they
-  are accurate at-the-time records).
-- `N5/NOTICES.md` (if present) - same.
-- `N5/docs/TRANSLATING.md` - rewrite for the en+hi state. Document
-  the Hindi UI-string review-status workflow. Remove
-  vi/id/ne/zh translation contributor instructions.
-- `N5/docs/CHANGELOG-archive.md` - leave historical entries; add
-  archive-pointer if needed.
-- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` -
-  v1.12.x bump; update §i18n / §locales / §multilingual-shell
-  sections; update niche-N1 framing.
-- `N5/specifications/JLPT-N5-Functional-Spec-v3.1-supplement.md`
-  - same.
-- `N5/specifications/README.md` - same.
-- `N5/TASKS.md` - add transition entry; do not edit historical
-  rows.
-- `N5/feedback/MASTER-TASK-LIST.md` - add a transition row;
-  historical rows untouched.
-- `N5/feedback/ui-testing-plan.md` - chip count expectation
-  updated.
-- `N5/prompts/N5Improvement.txt` - niche-N1 framing rewritten:
-  - Replace "multilingual non-English-native learners
-    (Vietnamese / Indonesian / Filipino / Nepali / Hindi /
-    Chinese-speaking)" with a Hindi-led wording.
-  - Update the locale-completeness invariant target from 5 to 2
-    (en, hi).
-  - Update the L1-interference notes section: keep Hindi only.
-  - Update Section 4 (Coverage Map) locale completeness table
-    expectation.
-- Top-level `JLPTSuccess/index.html` - N5 card description, hero
-  copy, og:* / twitter:* metadata if they mention multilingual.
-- Top-level `JLPTSuccess/README.md` - multilingual claim text.
-- Top-level `JLPTSuccess/PRIVACY.md` - same.
-- Top-level `JLPTSuccess/MIGRATION.md` - historical record;
-  add post-script noting the en+hi narrowing happened on
-  2026-05-DD with a link to the registry IMP-NNN.
-- Top-level `JLPTSuccess/NOTICES.md` - same.
-- `CONTRIBUTING.md` - if it lists locales, update.
-
-Commit message: `docs: rewrite multilingual claim - strategic narrowing to en+hi`.
-
-### Phase 6: CI invariants + tools
-
-Goal: the integrity check enforces the new locale set.
+### Phase 3: vocab.json quality review (1041 entries)
 
 Tasks:
-- `N5/tools/check_content_integrity.py`:
-  - Find any invariant that hard-codes the locale list (
-    `LOCALES = ['en', 'vi', 'id', 'ne', 'zh']` or similar).
-    Update to `['en', 'hi']`.
-  - If a locale-completeness invariant exists (per IMP-079
-    in the registry), update its expected key set.
-  - If no such invariant exists, add JA-NN (next free
-    JA invariant number - read the file to find it). The
-    invariant: every `*_translations` object on every
-    content entry has exactly the keys `{'en', 'hi'}`. Any
-    other key fails CI. Empty values fail CI for `en`;
-    empty values for `hi` are warnings (not failures) until
-    the seed-content cycle completes.
-- `N5/tools/build_min_js.py`:
-  - If it iterates a locale list for any precompile step,
-    update.
-- Run `python N5/tools/check_content_integrity.py` from N5/
-  root. Must exit 0.
-- Commit message: `ci(invariants): tighten locale set to {en, hi}`.
+- Process in chunks of 100 entries.
+- For each entry: read the `lemma`, `reading`, English `gloss`,
+  current `gloss_hi`. Apply R-1 through R-7. If the entry passes:
+  add a `gloss_hi_last_verified: '2026-05-DD'` field. If the entry
+  fails: rewrite `gloss_hi` and bump
+  `gloss_provenance.hi: 'native_reviewed'` with the same date
+  field.
+- Track per-chunk metrics: kept-as-is count vs rewritten count.
+  Log to a working file `feedback/hindi-quality-pass-vocab.md`.
+- Spot-check 20 random entries by re-reading the rewrite.
+- Commit per chunk OR commit per file with a summary message.
 
-### Phase 7: Tests + visual-regression baselines
+Commit message: `data(hi): vocab.json native-Hindi-scholar
+quality pass (1041 entries; N rewritten, M kept)`.
+
+### Phase 4: kanji.json quality review (106 entries)
+
+Same approach as Phase 3, applied to `meanings_hi` (a list
+field). Each meaning is a separate gloss; review independently.
+
+Commit message: `data(hi): kanji.json native-Hindi-scholar
+quality pass (106 entries; N rewritten, M kept)`.
+
+### Phase 5: grammar.json quality review (178 patterns + l1_notes)
+
+Three sub-passes:
+- 178 `meaning_hi` (pattern names; short)
+- 178 `explanation_hi` (teaching prose; longer)
+- 481 `l1_notes.hi` entries (Hindi-vs-Japanese contrasts; longest
+  + most-error-prone)
+
+The l1_notes pass is the highest-value review: errors here
+*actively mislead* learners. Apply R-6 with extra rigor — every
+postposition / particle comparison, every gender-agreement
+mention, every keigo-vs-Hindi-politeness contrast must be
+correct on BOTH sides.
+
+Commit message: `data(hi): grammar.json native-Hindi-scholar
+quality pass (178 meanings + 178 explanations + 481 l1_notes;
+N rewritten, M kept)`.
+
+### Phase 6: listening.json + reading.json quality review
+
+- 47 `explanation_hi` in listening (post-listen rationale prose)
+- 45 `summary_hi` in reading (passage summaries; relatively long)
+- 20 `explanation_hi` in reading (per-question rationale)
+
+Apply rubric. The summary_hi review specifically should ensure
+the Hindi summary captures the key facts a Hindi-medium learner
+needs without paraphrasing the Japanese into something the
+Japanese passage doesn't actually say.
+
+Commit message: `data(hi): listening + reading native-Hindi-
+scholar quality pass (112 entries; N rewritten, M kept)`.
+
+### Phase 7: questions.json quality review (290 + 137)
+
+The largest single-file pass:
+- 290 `explanation_hi` (per-question rationale prose)
+- 137 `distractor_explanations_hi` (why each wrong choice is
+  wrong; the most error-prone field because each distractor's
+  wrongness must be expressed correctly in Hindi)
+
+Apply R-6 with extra rigor on distractor explanations. A
+distractor explanation that incorrectly describes WHY the
+distractor is wrong is worse than no Hindi at all.
+
+Commit message: `data(hi): questions.json native-Hindi-scholar
+quality pass (290 explanations + 137 distractor explanations;
+N rewritten, M kept)`.
+
+### Phase 8: locales/hi.json final-check (125 strings)
 
 Tasks:
-- Find every Playwright spec that asserts on the locale chip
-  group (count, labels, click-to-switch). Update to expect 2
-  chips: EN and HI.
-- Update any spec that switches locale and asserts a localized
-  string. If the assertion was against a Vietnamese / Indonesian
-  / Nepali / Chinese string, replace with a Hindi assertion.
-- Regenerate visual-regression baselines via the existing
-  `playwright test --update-snapshots` flow for the affected
-  routes (Home + Settings, primarily, plus any route showing
-  the chip group).
-- Commit message: `test: update locale-chip + visual-regression baselines for en+hi`.
+- Read every UI string in context (where it renders in the app).
+- Apply R-1 through R-5 (R-6 not applicable; R-7 applicable
+  cross-string).
+- The 6 known non-Devanagari values (3 _meta provenance fields,
+  3 font-size labels) are correct as-is. Document them in the
+  commit message.
+- Pay particular attention to:
+  - Empty-state messages (often translated literally and lose
+    encouragement tone)
+  - Error messages (often too formal in Hindi; relax to
+    conversational)
+  - Number / counter formatting (Hindi uses Devanagari digits in
+    some contexts and Latin digits in others; pick a convention
+    and stick to it)
+  - Singular / plural agreement on dynamically-built strings
+    ("X items" templates)
 
-### Phase 8: Smoke test against live preview
+Commit message: `i18n(hi): UI strings native-Hindi-scholar final
+check (125 strings; N tweaked, M kept)`.
 
-Tasks:
-- Build minified JS via `N5/tools/build_min_js.py`.
-- Start local dev server, walk through the app:
-  - Home, Grammar, Vocab, Kanji, Reading, Listening, Test, Mock,
-    Missed, Progress, Settings, Changelog, Privacy, Notices,
-    Feedback.
-  - Each route in BOTH `en` and `hi`. Every visible string in
-    Devanagari when `hi` is active.
-  - Toggle EN ↔ HI five times; no flash of wrong locale, no
-    layout shift, no console error.
-  - Hard-refresh + Ctrl+Shift+R; SW cache picks up new version.
-- Open DevTools → Application → Storage. Verify:
-  - `localStorage` after a fresh load carries `locale: 'en'` or
-    `locale: 'hi'`. No deprecated value.
-  - Cache Storage shows ONLY the new SW cache version. Old
-    versions purged.
-  - Service Workers panel shows one active SW with the bumped
-    version, scope `/N5/`.
-- DevTools migration test: in DevTools, set
-  `localStorage.setItem('jlpt-n5-tutor:settings', JSON.stringify({locale: 'vi'}))`,
-  reload, verify the migration kicks in and the app renders in
-  English.
-- No commit unless a fix is needed; if a fix is needed, follow
-  the relevant phase's commit-message convention.
-
-### Phase 9: Register the architectural decision in the xlsx
+### Phase 9: New CI invariant + integrity check
 
 Tasks:
-- Read `N5/feedback/n5-audit-2026-05-04.xlsx` to find the next
-  free `IMP-NNN` ID.
-- Create `N5/tools/register_locale_transition_2026_05_DD.py`
-  modeled on
-  `tools/register_dev_issue_list_deferrals_2026_05_05.py`. The
-  script appends one row to the Items sheet:
-  - ID: next free IMP-NNN (likely IMP-080 or IMP-081 depending
-    on parallel work)
+- Add a new invariant to `tools/check_content_integrity.py`
+  (next free JA-NN; check the file for the highest-numbered
+  current invariant and increment).
+- Invariant name: `JA-NN  Hindi text fields are non-empty +
+  Devanagari-bearing (or in documented allowlist)`.
+- Implementation:
+  - Walk all `*_hi` fields across the in-scope JSON files.
+  - For each, assert: value is non-empty (string or non-empty
+    list), AND for string-valued fields, contains at least one
+    character in U+0900–U+097F, OR is in the allowlist (font-
+    size labels: "S", "M", "L", "XL"; technical tokens: "JLPT",
+    "N5", "N4", "OK").
+  - For list-valued fields (e.g., `meanings_hi` is a list of
+    strings), apply the same check to each element.
+  - Provenance fields like `gloss_provenance.hi: 'native_reviewed'`
+    are NOT subject to this check (they are ASCII enum values,
+    not Hindi prose).
+- Run `python tools/check_content_integrity.py`. Must exit 0.
+- Commit message: `ci(invariants): JA-NN — Hindi text fields
+  non-empty + Devanagari-bearing`.
+
+### Phase 10: Spec + changelog + audit registry
+
+Tasks:
+- Bump version in
+  `specifications/JLPT-N5-Current-Implementation-Spec.md` (next
+  patch). Add a §"Hindi Native-Scholar Quality Pass 2026-05-DD"
+  block summarizing the pass.
+- Add top-of-file entry to `N5/CHANGELOG.md`.
+- Read `feedback/n5-audit-2026-05-04.xlsx` to find the next free
+  IMP-NNN. Create
+  `tools/register_hindi_quality_audit_2026_05_DD.py` modeled on
+  the existing `register_*` tools. Append one Items-sheet row:
+  - ID: next free IMP-NNN
   - Type: Improvement
   - Severity: IMPROVEMENT
   - Priority: P1
   - Impact: HIGH
-  - Effort: HIGH (the work itself; this row records the decision)
-  - Category: Strategic positioning / locale architecture
-  - Location: N5/locales/, N5/js/i18n.js, N5/data/*.json,
-    N5/specifications/*, top-level brand surfaces
-  - Title: Strategic narrowing - 5-locale shell → en+hi only
-  - Current state: Transitioned on 2026-05-DD per market-
-    research conversation 2026-05-06. Hindi added (high-demand
-    low-competition niche per top-5 JLPT country with no
-    dedicated Hindi-medium prep app); vi/id/ne/zh removed
-    (saturated competitive markets per market research; 5-locale
-    shell was diluting depth across surfaces with no native-
-    quality content in any).
-  - Why-it-matters: Niche-N1 reframed from "multilingual non-
-    English-native" to "the only privacy-first no-account
-    offline JLPT app with English + native Hindi pedagogy."
-    Concentrates depth-first investment per the
-    N5Improvement.txt depth-first audit cycle.
-  - Suggested direction: (this is the implementation; row
-    records the decision) Future: native Hindi review pass; L1-
-    interference notes Hindi-tuned; Tier-2/3-city Indian
-    learner UX research.
-  - Dependencies: None (this row is the architectural decision;
-    blocks subsequent Hindi-content depth work)
-  - Decision: Done (since the row records the actual transition
-    on the date the script runs)
-  - Description: Backstory + market-research summary + locale
-    counts before/after. Reference the conversation date.
-  - Permission: No further permission needed - user explicitly
-    requested this transition on 2026-05-06.
-- Run the script. Verify the xlsx row count increased by 1.
-- Commit message: `audit(reg): register locale-transition architectural decision (IMP-NNN)`.
+  - Effort: HIGH
+  - Category: Content depth / Hindi pedagogy
+  - Location: N5/data/*.json + N5/locales/hi.json + paper files
+    (resolution mode (a) or (b))
+  - Title: Hindi native-scholar quality pass + paper-files
+    coverage closure
+  - Current state: Native-scholar persona reviewer (per project
+    user-authorization 2026-05-06) re-read all Hindi prose. N
+    rewrites / M kept-as-is across vocab/kanji/grammar/reading/
+    listening/questions/UI. Paper-files gap closed via {a|b}.
+  - Why-it-matters: The 2026-05-06 strategic narrowing relies
+    on Hindi being native-quality, not LLM-passable. This pass
+    produces the durable native-quality content corpus that
+    realizes the niche-N1 reframing.
+  - Decision: Done
+  - Description: Backstory + per-file rewrite counts + rubric
+    reference.
+  - Permission: No further permission needed (user authorized
+    native-scholar reviewer persona on 2026-05-06).
+- Run the registration script. xlsx row count +1.
+- Commit message: `audit(reg): IMP-NNN — Hindi native-scholar
+  quality pass + paper-files coverage closure`.
 
-### Phase 10: Final commit + push to origin/master
+### Phase 11: Test suite + push
 
 Tasks:
-- Run the FULL test suite one more time:
-  - `python tools/check_content_integrity.py` (from N5/) - exit 0
-  - `npx playwright test` - all green
-  - Open `tests.html` if present - all green
-- Verify the diff is clean:
-  - Diff vs `pre-locale-transition` tag should show:
-    - `N5/locales/` net delta: -4 files, +1 file
-    - `N5/data/` net delta: 0 files, modified content (vi/id/ne/zh
-      keys removed; hi keys added)
-    - `N5/js/i18n.js` modified
-    - `N5/index.html` modified
-    - `N5/sw.js` modified (cache version bumped)
-    - `N5/css/main.css` modified (chip-group)
-    - Docs / specs / prompts modified
-    - Top-level brand surfaces minimally modified
-    - One new tool: `N5/tools/locale_prune_en_hi.py`
-    - One new registration tool: `N5/tools/register_locale_transition_2026_05_DD.py`
-    - `N5/feedback/n5-audit-2026-05-04.xlsx` row count +1
-    - `N5/feedback/locale-transition-inventory.md` added (Phase 0)
-    - **ZERO** changes under `/N4/`
-- Push: `git push origin master` (the working branch was
-  `locale-transition-en-hi`, but per project convention all phase
-  commits land on master after verification - see existing
-  per-feature commits in the log).
-- Verify GitHub Pages deploy succeeds.
-- Live URL smoke test on https://gauravaccentureproducts.github.io/JLPTSuccess/N5/
-  (and the level picker at /JLPTSuccess/) - confirm chip group
-  renders EN | HI; switching works.
+- `python tools/check_content_integrity.py` (from `N5/`) → exit 0
+- `npx playwright test` → all green
+- Visual regressions: regenerate baselines if Hindi text-length
+  changed meaningfully
+- `git diff pre-hindi-audit..HEAD --stat | grep '^N4/'` → empty
+- Push: `git push origin master` (per project convention all
+  phase commits land on master after verification)
+- GitHub Pages deploy succeeds; live-URL smoke test confirms HI
+  switcher serves the new content.
+- Commit message (if any fix-forward needed): per the relevant
+  phase's convention.
 
-## HINDI SEED CONTENT GUIDANCE
+## REGRESSION CHECKS — MANDATORY
 
-The Phase 4 transformation creates the schema slots; this section
-specifies what content goes into them.
+Before Phase 10, every check below must pass.
 
-### UI strings (`N5/locales/hi.json`)
+1. **Coverage no-regression.** Re-run
+   `tools/_hindi_field_inventory.py`. Compared to the Phase-0
+   snapshot, every count is `>=` the original AND the
+   "29 paper files / ZERO Hindi keys" line is gone (or
+   replaced by a "linkage-verified" row, per Phase 1's choice).
 
-Translate from `N5/locales/en.json`. Use Devanagari script. Use
-formal-but-friendly register (similar to the existing English
-strings: respectful, not stiff). Avoid English loan-words for
-core nav (use हिंदी equivalents); allow loan-words for technical
-JLPT terminology where Hindi has no settled equivalent (e.g.,
-JLPT itself remains "JLPT").
+2. **Devanagari ratio.** For each `*_hi` text field, the
+   percentage of values containing at least one Devanagari
+   character is 100% (modulo allowlist). Run via the new
+   JA-NN invariant.
 
-Suggested core-nav translations (the executor may refine):
-- Home → मुख्य पृष्ठ (or होम)
-- Grammar → व्याकरण
-- Vocabulary → शब्दावली
-- Kanji → कान्जी
-- Reading → पठन
-- Listening → श्रवण
-- Test → परीक्षा
-- Mock → मॉक टेस्ट
-- Missed → छूटे हुए
-- Progress → प्रगति
-- Settings → सेटिंग्स
-- Privacy → गोपनीयता
+3. **No English passthrough.** No `*_hi` field is byte-equal
+   to the corresponding English source field on the same entry.
 
-These are seed examples, not authoritative. The translator should
-review every string in context.
+4. **Provenance hygiene.** Every entry that was rewritten in
+   Phases 3–8 has its provenance / review-status field updated
+   to `'native_reviewed'` with the audit date.
 
-### Vocabulary `gloss_translations.hi` (1041 entries)
+5. **Cross-surface vocabulary consistency.** Pick 10 random
+   Japanese vocabulary items and trace them through:
+   `vocab.json` → `questions.json` rationales (where they
+   appear) → `reading.json` summaries (where they appear). The
+   Hindi gloss is the same or the variation is justified by
+   register / grammatical context.
 
-For each vocab entry's English gloss, produce a Hindi equivalent.
-- Use Devanagari script.
-- For verbs, use the dictionary form (X करना / X होना) - match
-  the form used in the English gloss.
-- For nouns, use the most common Hindi equivalent. Avoid
-  Sanskritized academic terms when a colloquial Hindi word is
-  more natural.
-- For adjectives, use the form that pairs with होना ("to be") -
-  e.g., 大きい "big" → बड़ा (so it can take है: यह बड़ा है).
-- Keep glosses short (≤ 30 characters) to fit UI density.
-- Mark every entry's review-status as `llm_curated` in any
-  schema slot the project supports (or document the bulk-status
-  decision in the Phase 5 docs update).
+6. **Cross-surface pattern-name consistency.** Pick 10 random
+   N5 grammar patterns and verify the Hindi pattern name
+   `meaning_hi` in `grammar.json` matches what is used to
+   reference the pattern in `questions.json` explanations.
 
-### Kanji `meanings_translations.hi` (106 entries)
+7. **L1-notes accuracy spot-check.** Pick 20 random
+   `l1_notes.hi` entries. For each, verify the Hindi side and
+   the Japanese side are both correct AND the contrast is the
+   one stated. Particular focus on postposition / particle
+   mappings (most error-prone).
 
-Same pedagogical bar: native Hindi equivalents preferred over
-academic Sanskritized terms. ≤ 25 characters per meaning.
+8. **JLPT-pedagogical fidelity.** Pick 30 random
+   `questions.json` entries with non-trivial
+   `explanation_hi`. For each, verify the Hindi explanation
+   does not introduce errors about the Japanese.
 
-### Grammar L1-interference notes (Hindi-specific)
+9. **UI rendering.** Manual smoke test on Home / Settings /
+   Grammar / Vocab / Kanji / Reading / Listening / Test /
+   Progress in HI locale. Every visible string is in
+   Devanagari (modulo the documented 6-string allowlist). No
+   layout overflow at 320px viewport. No empty-state visible.
 
-Replace the existing
-Vietnamese / Indonesian / Nepali / Mandarin L1 notes (from
-N5Improvement.txt's grammar pedagogical-depth section) with
-Hindi-specific notes. Mandatory coverage:
+10. **Existing-user safety.** Set
+    `localStorage.setItem('jlpt-n5-tutor:settings',
+    JSON.stringify({locale: 'hi'}))`. Reload. App boots in
+    Hindi. No console error. No empty state. (This re-verifies
+    the migration path is unaffected; it was already
+    tested in 2026-05-06.)
 
-- **SOV word order shared advantage.** Hindi and Japanese are
-  both subject-object-verb. Hindi speakers transfer this directly
-  and have a structural advantage over English-L1 learners.
-  Note this as a confidence-builder, not a pitfall.
+11. **CI green.** `python tools/check_content_integrity.py` →
+    exit 0 with the new JA-NN invariant present and passing.
 
-- **Postposition vs particle mapping (the most important Hindi
-  L1 note).** Hindi has postpositions (ने/को/से/में/पर/के लिए);
-  Japanese has particles (が/を/から/に/で/へ/と/も). Mapping is
-  not 1:1 - common confusion:
-  - Hindi से ("from" / "by means of") splits into Japanese から
-    (source) AND で (instrument). Hindi speakers often pick the
-    wrong one.
-  - Hindi को (direct object marker + indirect object dative)
-    splits into Japanese を (direct object) AND に (indirect
-    object / direction). Same pitfall.
-  - Hindi में ("in") usually maps to Japanese に (existence
-    location) but can map to で (action location) - context-
-    dependent. Hindi speakers benefit from explicit に vs で
-    teaching with the existence-vs-action distinction.
+12. **N4 untouched.**
+    `git diff pre-hindi-audit..HEAD --stat | grep '^N4/'`
+    returns empty.
 
-- **Verb agreement (gender + number).** Hindi conjugates verbs
-  for person, number, AND gender. Japanese does not. Hindi
-  speakers may unconsciously look for an agreement marker that
-  doesn't exist; this is harmless but a teaching opportunity to
-  point out "Japanese verbs don't change for who".
-
-- **Tense over-marking.** Hindi has more tense forms (perfect,
-  habitual, progressive, past habitual) than Japanese, which
-  uses just present/non-past + past + a few aspect markers
-  (〜ている / 〜たことがある). Hindi speakers may try to
-  over-mark tense by stacking aspect markers. Note specifically
-  that 〜ている covers BOTH "is doing" and "has been doing"
-  contexts.
-
-- **Politeness mismatch (3-tier Hindi vs morphological Japanese
-  honorifics).** Hindi has a 3-tier pronoun politeness (तू / तुम
-  / आप) but minimal verb morphology for politeness - politeness
-  is mostly expressed lexically. Japanese has 2-tier basic
-  politeness (casual / です・ます) PLUS a separate full
-  morphological honorific system (謙譲語 / 尊敬語). Hindi
-  speakers benefit from explicit teaching that Japanese keigo
-  is a verb-morphology system, not a vocabulary swap.
-
-- **Negative formation placement.** Hindi नहीं sits before the
-  verb or main predicate; Japanese ない attaches to the verb
-  stem. This is a placement difference, not a meaning difference,
-  but Hindi speakers may produce "verb + nahi" calques in
-  Japanese.
-
-- **Question particle placement.** Hindi क्या at sentence start
-  vs Japanese か at sentence end. Hindi speakers often initially
-  omit か because the rising intonation alone (which works in
-  Hindi for some questions) feels sufficient.
-
-- **Plural marking.** Hindi marks plurals (लोग, बच्चे, etc.).
-  Japanese mostly doesn't (人 = "person" or "people" depending
-  on context). Hindi speakers initially over-pluralize using
-  〜たち / 〜ら beyond the (limited) cases where it's natural.
-
-- **Counter-word system overlap with mismatch.** Both Hindi and
-  Japanese have classifier/counter words but the systems differ
-  significantly. Hindi has fewer counters and uses them less
-  obligatorily than Japanese. Hindi speakers benefit from
-  counter-word drilling specifically because the concept is
-  familiar but the inventory is unfamiliar.
-
-These notes go into `N5/data/grammar.json` per-pattern
-`notes.l1_hindi` (or whatever schema field the data model uses;
-preserve the existing schema conventions). Each pattern that
-involves any of the above contrasts should carry the relevant
-note.
-
-## REGRESSION CHECKS - MANDATORY
-
-After Phase 8, before Phase 9, every check below must pass.
-Failure = stop, diagnose, fix-forward in a new commit; do not
-proceed to Phase 9 with any check red.
-
-1. **Existing-user migration.** Set
-   `localStorage.setItem('jlpt-n5-tutor:settings', '{"locale":"vi"}')`,
-   reload. App boots in English. Persisted `locale` becomes `en`.
-   Repeat for `id`, `ne`, `zh`. All four → graceful fallback.
-
-2. **Brand-new-user default.** `localStorage` cleared, browser
-   `Accept-Language: en-US`. App boots in English.
-
-3. **Hindi default.** `localStorage` cleared, browser
-   `Accept-Language: hi-IN`. App boots in Hindi (Devanagari).
-
-4. **Unknown-locale request.** `localStorage.locale = 'fr'`
-   (or any locale not in `{en, hi}`). App boots in English.
-   Persisted `locale` becomes `en`.
-
-5. **Locale chip render.** Home → Settings (or wherever the
-   chip group lives) → exactly 2 chips: EN, HI. No phantom
-   chips, no overflow on 320px viewport.
-
-6. **Locale switch round-trip.** EN → HI → EN → HI five times.
-   No memory leak (DevTools heap stable). No layout shift > 0px
-   (per the Visual Regression spec). Each switch fully renders
-   within 50ms.
-
-7. **No 404 on locale fetch.** DevTools Network tab during a
-   full app walkthrough shows zero requests to `vi.json`,
-   `id.json`, `ne.json`, `zh.json`.
-
-8. **SW cache hygiene.** DevTools Application → Cache Storage:
-   only the new cache version present. Old SW caches purged.
-
-9. **Content data integrity.** `python tools/check_content_integrity.py`
-   exit 0. The new locale-completeness invariant (or updated
-   existing) shows 100% `en` coverage and ≥ 95% `hi` coverage.
-
-10. **Playwright suite.** `npx playwright test` - full green.
-    Visual-regression deltas zero (after baseline regen).
-
-11. **Build pipeline.** `python tools/build_min_js.py` produces
-    minified output without warnings about missing locale assets.
-
-12. **Top-level homepage.** Visit `/JLPTSuccess/`. N5 card
-    description does not mention "5 locales" or any of
-    Vietnamese/Indonesian/Nepali/Chinese as supported. Hindi
-    appears as a supported locale. og:* / twitter:* metadata
-    consistent.
-
-13. **N4 untouched.** `git diff pre-locale-transition..HEAD --stat`
-    shows ZERO file changes under `/N4/`. (The N4 sub-app is
-    work-blocked per CLAUDE.md Rule 1.)
-
-14. **No string-literal stragglers.** Grep the post-transition
-    N5 tree (excluding `N5/js/min/` generated and
-    `N5/feedback/closed/` historical archives) for `'vi'`,
-    `'id'`, `'ne'`, `'zh'` as quoted strings. Allowed remaining
-    hits: only inside changelog entries, archived audit docs,
-    or the migration code that explicitly checks against these
-    deprecated values. Document and explain every remaining hit
-    in the Phase 10 commit message.
+13. **No SW cache change.** This audit edits content only;
+    `sw.js` should NOT need a cache bump. Verify
+    `git diff pre-hindi-audit..HEAD -- N5/sw.js` is empty.
+    (If a cache bump is required for an unrelated reason,
+    surface it in a separate commit, not silently in this
+    audit.)
 
 ## ROLLBACK PLAN
 
-Every phase produces exactly one commit, so rollback is per-phase
-revert.
+Per-phase revert, identical structure to the original transition
+prompt. Pre-Phase-3 state is fully recoverable via
+`git revert <phase-3-commit>` etc.; the
+`pre-hindi-audit` tag is the safety net for nuclear rollback
+(requires explicit user permission per CLAUDE.md global rules
+since `git reset --hard` is denied).
 
-- **Soft rollback (Phase 1-2 only)**: revert the additive Hindi
-  + migration commits. The 5-locale shell is intact; you've lost
-  Hindi.
-- **Mid rollback (after Phase 3)**: `git revert` Phase 3's
-  removal commit (re-introduces vi/id/ne/zh from the locale
-  files; the SW cache version stays bumped, so users get a fresh
-  fetch). Acceptable mid-transition fallback.
-- **Hard rollback (after any phase)**: `git reset --hard pre-locale-transition`
-  on the working branch, then a fresh transition cycle. Requires
-  user explicit permission per CLAUDE.md governance - do NOT
-  invoke `git reset --hard` autonomously.
-
-Pre-emptive safety: before Phase 3 (the first destructive step),
-verify the `pre-locale-transition` tag exists locally AND on
-origin. Push the tag explicitly:
-  `git push origin pre-locale-transition`.
+Push the tag before Phase 2 ships content edits:
+  `git push origin pre-hindi-audit`.
 
 ## GUARDRAILS
 
-- **N4 work-block.** Do NOT touch any file under `/N4/`. The
-  inventory grep WILL show N4 hits - that's expected (N4 has its
-  own i18n module that mentions 5 locales). The diff at the end
-  must show zero N4 file changes. The N4 transition is a separate
-  cycle.
-- **Top-level scope.** Top-level brand surfaces are touched ONLY
-  for multilingual-claim text. Do not refactor top-level
-  architecture, deploy config, or anything else.
-- **No accidental gh-cli writes.** Do not push to any branch
-  other than the working branch and `master`. Do not modify repo
-  settings (visibility, branch protection, etc.).
-- **No push --force.** Per CLAUDE.md global rules, force-push is
-  destructive and warrants explicit confirmation. Don't use it.
-- **No commit-amend.** Per CLAUDE.md global rules, prefer new
-  commits over amends.
-- **No skipping pre-commit hooks.** Per CLAUDE.md, never use
-  --no-verify.
-- **Hindi seed quality floor.** Do NOT ship `hi.json` with empty
-  values, English passthroughs, or romanized Hindi. The Phase 1
-  smoke test FAILS if any UI string renders as "Home" instead of
-  "मुख्य पृष्ठ" when `hi` is active.
-- **Existing-user safety.** No user with persisted state should
-  see an error, an empty page, or a re-prompt for any setting
-  after this transition. The migration code (Phase 2) is the
-  contract.
+- **N4 work-block.** Do NOT touch any file under `/N4/`. Diff
+  at end MUST show zero N4 file changes.
+- **English source is read-only.** Never modify English
+  glosses / meanings / explanations to make Hindi translation
+  easier. Always translate the existing English faithfully.
+- **No new dependencies.** Do not introduce new npm packages
+  or Python libraries. The repo is intentionally dependency-
+  light. The existing tooling (json, openpyxl, playwright,
+  ripgrep) is sufficient.
+- **No `git reset --hard`, no force-push, no commit-amend, no
+  `--no-verify`.** Per project CLAUDE.md global rules.
+- **Native-scholar persona.** The user has explicitly
+  authorized native-quality content reviewer persona work
+  (2026-05-06: "i plan to do everything by you not by any
+  native person"). Apply rigor; produce Hindi at the quality
+  bar a native scholar would accept.
+- **Provenance honesty.** Mark `'native_reviewed'` ONLY where
+  the rubric was actually applied. Do not bulk-mark for
+  convenience. If a rewrite is provisional, mark
+  `'llm_curated'` and document the gap in the commit message.
+- **Phase isolation.** One commit per phase. The rollback
+  plan depends on per-phase reversibility.
+- **Surface unanticipated findings.** If Phase 1 surfaces a
+  third option (neither (a) nor (b) — e.g., the linkage
+  partially works), STOP and surface to the user before
+  picking. Do not silently expand or contract scope.
 
 ## DEFINITION OF DONE
 
 All of the following are true:
 
-- [ ] All 14 regression checks pass.
-- [ ] Phase 0 inventory committed.
-- [ ] Phases 1-7 each committed individually with conventional
-      commit messages.
-- [ ] Phase 8 smoke test recorded (notes saved alongside the
-      Phase 0 inventory file or in a Phase 8 follow-up note).
-- [ ] Phase 9 registration row appended to
-      `feedback/n5-audit-2026-05-04.xlsx` with the new IMP-NNN ID.
-- [ ] Phase 10 push to origin/master succeeded; GitHub Pages
-      deploy succeeded; live-URL smoke test passed.
-- [ ] `pre-locale-transition` tag exists on origin.
-- [ ] Documentation, specs, and the audit prompt
-      `N5Improvement.txt` reflect en+hi reality. No stale
-      "5 locales" claim anywhere user-visible.
-- [ ] /N4/ untouched (verifiable via `git diff
-      pre-locale-transition..HEAD --stat | grep '^N4/'` returning
-      empty).
-- [ ] `N5/MEMORY.md` (if present) and any session-log files note
-      the transition date.
-
-## REGISTRATION (auto-execute as Phase 9)
-
-This prompt mandates that the executor REGISTERS the
-architectural decision in the canonical issue registry. See
-Phase 9 above for the exact row payload. The registration row
-serves as the durable record of this transition; without it,
-the change exists only in commit messages and is harder to
-trace in future audit rounds.
+- [ ] Phase 0 inventory committed; baseline snapshot saved.
+- [ ] Phase 1 linkage finding committed; option (a) or (b)
+      chosen with documented rationale.
+- [ ] Phase 2 paper-files gap closed (option a or b executed).
+- [ ] Phases 3–8 quality reviews committed individually with
+      per-file rewrite/kept counts in commit messages.
+- [ ] Phase 9 new CI invariant JA-NN added; exits green.
+- [ ] Phase 10 spec / changelog / audit-registry row landed.
+- [ ] Phase 11 push to origin/master succeeded; GitHub Pages
+      deploy succeeded; live HI smoke test passed.
+- [ ] All 13 regression checks pass.
+- [ ] `pre-hindi-audit` tag exists on origin.
+- [ ] `git diff pre-hindi-audit..HEAD --stat | grep '^N4/'`
+      returns empty.
+- [ ] `tools/_hindi_field_inventory.py` shows zero coverage
+      gaps (or coverage gaps are linkage-verified per Phase 1
+      option b).
+- [ ] Native-scholar review applied to ≥4,200 Hindi-bearing
+      slots; rewrite-vs-kept counts logged per surface.
 
 ## RULES
 
 - This is implementation mode. Edits, commits, pushes, registry
   writes, tag pushes, and (idempotent) tooling-script execution
-  are all in scope. No destructive ops without explicit user
-  permission (no `git reset --hard`, no force push, no branch
-  deletion).
-- Phased execution: one commit per phase. Do not batch phases
-  into a single commit; the rollback plan depends on per-phase
-  reversibility.
-- Test after every phase. A red test halts the chain; fix-forward
-  in a new commit; do not proceed.
-- Read-back every JSON file you transform; spot-check 3 random
-  paper files, 3 random vocab entries, 3 random kanji entries
-  before committing Phase 4.
-- Do not introduce new dependencies (no new npm package, no new
-  Python lib) without surfacing it explicitly in the commit
-  message and getting user nod. The repo is dependency-light
-  intentionally.
-- Surface every non-obvious decision in the commit message of
-  the relevant phase (e.g., "chose X for Hindi politeness register
-  because Y"). The commit log IS the documentation for translation
-  decisions.
-- Do not delete N4 references in shared/top-level files; the N4
-  sub-app exists and the multilingual-claim text in top-level
-  files must distinguish "N5 supports en+hi" from "N4 currently
-  paused, will support en+hi when unblocked". Be precise.
-- If a Phase 0 inventory hit exists in a place this prompt did
-  not anticipate (some tool, some legacy file), STOP and surface
-  it to the user before editing. Do not silently expand scope.
+  are all in scope.
+- Phased execution: one commit per phase.
+- Test after every phase. Red test = halt + fix-forward in new
+  commit.
+- For each rewrite, log a one-line rationale in the commit
+  message or in the working `feedback/hindi-quality-pass-*.md`
+  file. The commit log + working files together ARE the
+  documentation for translation decisions.
+- Read-back every JSON file you transform; spot-check 20
+  random entries before committing each phase's chunk.
+- Do not delete N4 references in shared/top-level files; the
+  N4 sub-app exists and any cross-cutting shared content keeps
+  N4 mentions verbatim. This audit is N5-only by scope.
+- If a Phase-N inventory hit exists in a place this prompt did
+  not anticipate, STOP and surface to the user before editing.
+  Do not silently expand scope.
 
 Begin with Phase 0. Do not skip the inventory. Do not begin
 Phase 1 until the inventory is committed.
