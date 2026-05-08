@@ -2,6 +2,62 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.53 - 2026-05-08 (Vocab.json structural dedup — closes 164-case grammar.json double-tag root cause)
+
+Follow-up to v1.12.52 native-teacher audit pass. Addresses the broader
+observation flagged in `feedback/native-teacher-audit-2026-05-08.md`:
+**vocab.json had duplicate kana entries** (e.g., `へや` listed in both
+§13-Locations and §26-House) which caused 164 same-reading double-tags
+in `grammar.json` examples.
+
+### Dedup applied (41 entries removed: 38 + 3 in two commits)
+
+**Pass 1 — 2-entry duplicate pairs (38 removed)**:
+- Cross-listings explicitly marked "(also in §X)" → kept canonical, removed copy.
+- Identical-gloss pairs without disambiguating parentheticals → kept lower-section-numbered entry.
+- 90 vocab_id references in grammar.json retargeted to canonical IDs.
+- Examples migrated from removed entry into canonical (no data loss).
+- Sample retargets:
+  - `どう` 33-Adverbs → 5-Demonstratives
+  - `へや` 26-House → 13-Locations
+  - `白い/くろい/あかい/あおい/きいろい` 31-Adjectives → 20-Colors
+  - `さむい/すずしい/あたたかい` 31-Adjectives → 14-Nature/Weather
+  - `きっぷ/はがき/てがみ/おみやげ` 37-Misc → 22-Money
+  - `つくえ/いす` 26-House → 24-School
+  - `もの/こと/名前/しごと/しゅみ` 40-Misc → 37-Common-Nouns
+
+**Pass 2 — 3+ entry groups (3 more removed)**:
+- `おゆ` (hot water) 3 entries → 1 canonical (§14-Nature).
+- `いる` (to exist) §30 cross-listing removed; §28.いる + §30.いる.2 (to need = 要る) preserved.
+
+### Polysemes preserved (legitimately distinct, NOT deduped)
+
+- `は`: tooth (歯) / leaf (葉) / topic-marker particle
+- `あつい`: weather (暑い) / touch (熱い) / thick (厚い)
+- `本`: counter for long-thin / book
+- `はし`: bridge (橋) / chopsticks (箸)
+- `おく`: hundred million (億) / to place (置く)
+- `かた`: polite person / way-of-doing
+- `きる/ひく/しめる`: each has 2+ disambiguating senses (.2)
+
+### Source-of-truth sync
+
+`KnowledgeBank/vocabulary_n5.md` updated in lockstep:
+- 33 + 4 lines removed corresponding to the deduped vocab.json entries.
+- 1 line restored for `要る / いる` "to need" (over-removed in pass-2; restored with explicit kanji form to keep the X-6.6 Group-1-exception count invariant green).
+
+### Net
+
+- vocab.json: 1041 → 1000 entries (4% reduction; mostly cross-listing redundancy).
+- grammar.json: 90+ vocab_id refs retargeted; vocab_ids arrays deduped.
+- 50/50 invariants green throughout.
+
+### Out of scope
+
+- vocab.json section misclassifications (e.g., えいが in §26-House) — requires section restructuring (would shift IDs); deferred.
+- Romaji deeper rewrite (mecab) — requires build dependency; deferred.
+- Listening pace (H-1) and Hindi rationales (H-5) — see v1.12.52 deferral notes.
+
 ## v1.12.52 - 2026-05-08 (Native-teacher audit pass — 13 of 16 findings closed)
 
 Self-conducted audit of `data/` from a native Japanese JLPT teacher's
