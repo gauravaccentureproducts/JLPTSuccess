@@ -21,7 +21,10 @@ from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
-ROOT = Path(__file__).resolve().parent.parent
+# Walk up until we find the N5 root (where data/ lives)
+ROOT = Path(__file__).resolve().parent
+while not (ROOT / 'data').exists() and ROOT != ROOT.parent:
+    ROOT = ROOT.parent
 random.seed(20260507)  # deterministic
 
 def line(): print('-' * 72)
