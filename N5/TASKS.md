@@ -1,5 +1,77 @@
 # JLPT N5 Grammar Tutor - Tasks
 
+## ▶ ACTIVE WORK — 2026-05-09 N5 Richness Audit (29 items)
+
+Current cycle: implement findings from
+`prompts/N5Improvement.txt` audit run, registered as
+ISSUE-105..110 + IMP-124..146 in
+`feedback/n5-audit-2026-05-04.xlsx`.
+
+Implementation order: **lower-effort first**, then medium,
+then high. Within each tier: P1 → P2 → P3 → P4 → P5 → impact
+descending.
+
+Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
+
+### TIER 1 — LOW EFFORT (mechanical, scriptable; ship together)
+
+| # | ID | P | Title | Status |
+|---|---|---|---|---|
+| 1 | ISSUE-109 | P2 | Vocab transitivity-pair links (12 canonical N5 pairs) | ✅ 8/12 in-corpus (4 need N4 vocab) |
+| 2 | ISSUE-105 | P3 | Kanji confusable cluster cross-links (8 clusters) | ✅ 13 kanji linked + 5 also-warns |
+| 3 | ISSUE-108 | P3 | Paper questions → grammarPatternId back-link | ✅ 294/402 (73%) auto-inferred |
+| 4 | ISSUE-110 | P3 | Vocab verb-class flag completion (~210 remaining verbs) | ⏳ |
+| 5 | IMP-130 | P2 | Genki/Minna lesson tags on grammar patterns | ⏳ |
+| 6 | IMP-131 | P2 | Kanji vocab cross-links auto-scan (≥5 each) | ✅ 10 kanji updated, 34 new links |
+| 7 | IMP-133 | P3 | Vocab counter pairing on remaining ~500 nouns | ✅ 49 noun-counter pairings |
+| 8 | IMP-134 | P3 | Honorific/humble register chains (5 chains) | ✅ 1 chain in-corpus (4 need N4) |
+| 9 | IMP-140 | P3 | Vocab frequency_rank from BCCWJ open data | ⏳ |
+| 10 | IMP-141 | P3 | Slow-version listening audio (0.7×) | ⏳ |
+| 11 | IMP-144 | P4 | Multi-skill drill mode toggle | ⏳ |
+
+### TIER 2 — MEDIUM EFFORT
+
+| # | ID | P | Title | Status |
+|---|---|---|---|---|
+| 12 | IMP-127 | P2 | Pitch accent from OJAD/JMdict-pitch (751 vocab remaining) | ⏳ |
+| 13 | IMP-128 | P2 | Collocations ≥5 per top-300 high-freq word | ⏳ |
+| 14 | IMP-129 | P2 | Listening timestamped transcripts (whisper.cpp) | ⏳ |
+| 15 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ⏳ |
+| 16 | ISSUE-106 | P3 | Kanji→reading-passage cross-references | ⏳ |
+| 17 | ISSUE-107 | P3 | Listening vocab_glossary inline | ⏳ |
+| 18 | IMP-135 | P3 | Reading paragraph summaries + lit/nat translation | ⏳ |
+| 19 | IMP-142 | P4 | SEO + structured-data per content page | ⏳ |
+| 20 | IMP-143 | P4 | PDF cheat sheet builder | ⏳ |
+
+### TIER 3 — HIGH EFFORT
+
+| # | ID | P | Title | Status |
+|---|---|---|---|---|
+| 21 | IMP-124 | P1 | Grammar examples → 7 per pattern (~400-600 new) | ⏳ |
+| 22 | IMP-125 | P1 | Kanji 3-mnemonic structure (212 mnemonics) | ⏳ |
+| 23 | IMP-126 | P1 | Authentic-content layer cross-surface | ⏳ |
+| 24 | IMP-136 | P3 | JP-keyboard typed-input reviews + 50% partial credit | ⏳ |
+| 25 | IMP-137 | P3 | Cloze-deletion drill question type | ⏳ |
+| 26 | IMP-138 | P3 | Tofugu-style essays on top-30 trickiest patterns | ⏳ |
+| 27 | IMP-139 | P3 | Production reviews (English → JP typing) | ⏳ |
+| 28 | IMP-145 | P5 | WaniKani-style SRS gating | ⏳ |
+| 29 | IMP-146 | P5 | Per-lesson PDF download | ⏳ |
+
+### EXECUTION RULES (this cycle)
+
+- **One git commit per batch** of related items.
+- **`tools/check_content_integrity.py` MUST stay 50/50 green** between commits.
+- **No /N4/ touches** (CLAUDE.md Rule 1).
+- **Before starting Tier 3 (HIGH effort)**: re-confirm with user
+  per CLAUDE.md Rule 2 (large-scope work).
+- **If a Tier-1 item turns out medium/high**: re-classify in
+  this table and defer.
+
+This active section will be deleted when all 29 items are
+complete. The historical body below is preserved for record.
+
+---
+
 > **2026-05-07 round-9 close-out (v1.12.50):** The live source of truth for
 > open / closed work is now **`feedback/n5-audit-2026-05-04.xlsx`**
 > (Items + Questions sheets). Round-9 closed at **219 Done / 3 Avoid /
