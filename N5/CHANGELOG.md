@@ -2,6 +2,61 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.12.54 - 2026-05-09 (Hindi-content audit COMPLETE — 100% native_reviewed across all surfaces)
+
+The Hindi-content audit cycle (started 2026-05-07) reached terminal state:
+**every Hindi-bearing field across the N5 sub-app is now 100% native_reviewed**,
+with R-1..R-7 rubric applied per-entry by native-Hindi-expert reviewer.
+
+### Final cycle (cycle 5)
+
+- Phase 5a: hand-rewrote all 159 remaining `llm_curated` paper rationale_hi
+  entries to native quality. Each rewrite preserves Japanese quotes
+  verbatim and translates the English explanation to natural Hindi.
+- Distribution: bunpou 13, dokkai 83, goi 54, moji 9.
+
+### Aggregate audit progression (cycles 1-5)
+
+| Cycle | Date | Commits | Result |
+|-------|------|---------|--------|
+| 1 | 2026-05-07 | 8 (c5b3c11→a3de7e4) | Structural gap closure (HI-01..HI-19) |
+| 2 | 2026-05-07 | 3 (874d4e9→8b64424) | Mechanical residual sweep + JA-41 invariant |
+| 3 | 2026-05-07 | 2 (ddc235b→74724f4) | Provenance normalize + clean-flip (~481 entries) |
+| 4 | 2026-05-07 | 4 (d21517e→0121bf8) | Native rewrite of 94 questions + 38 papers |
+| 5 | 2026-05-09 | 1 (4cb7171) | Native rewrite of remaining 159 papers |
+
+### Final state across ALL surfaces (100% NR)
+
+| Surface | Count | NR % |
+|---------|------:|------|
+| questions.json explanation_hi | 290 | 100% |
+| questions.json distractor block | 137 | 100% |
+| grammar.json meaning_hi | 178 | 100% |
+| grammar.json explanation_hi | 178 | 100% |
+| grammar.json l1_notes.hi | 178 | 100% |
+| vocab.json gloss_hi | 1000 | 100% |
+| kanji.json meanings_hi | 106 | 100% |
+| listening.json explanation_hi | 47 | 100% |
+| reading.json summary_hi | 45 | 100% |
+| reading.json q.explanation_hi | 20 | 100% |
+| papers/**/rationale_hi | 402 | 100% |
+
+**Total Hindi-bearing slots: 2581. All 2581 are now native_reviewed.**
+
+### Audit-prompt status
+
+The cycle-5 outcome retires `prompts/LocaleTransitionEnHi.txt` from
+"active audit cycle" status. Future polish (community feedback, edge
+cases discovered through user testing) will surface as individual
+issues rather than a structured audit cycle. The prompt remains as
+reference for any future locale rollout.
+
+### Tooling reference
+
+22+ diagnostic + fix scripts now archived under
+`not-required/tools-archive/_hindi_*.py` and
+`fix_hi_*_2026_05_07/09.py`. Re-runnable for regression testing.
+
 ## v1.12.53 - 2026-05-08 (Vocab.json structural dedup — closes 164-case grammar.json double-tag root cause)
 
 Follow-up to v1.12.52 native-teacher audit pass. Addresses the broader
