@@ -88,7 +88,9 @@
       "passage_text": "> わたしは 一か月 まえに インドから 日本に （　　）。 友だちの 家に いましたが、 きのう アパートに ひっこしました。 きょう プレゼントを もって となりの 人に あいさつに 行きました。 となりの 人が 「さいきん ひっこしの あいさつに 来る 人が すくなく なった」 と 言いました。",
       "passage_label": "Passage 1 (Q1, Q2)",
       "id": "dokkai-1.1",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "भूत-सकारात्मक रूप (आया एक month ago)।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -105,7 +107,9 @@
       "passage_text": "> わたしは 一か月 まえに インドから 日本に （　　）。 友だちの 家に いましたが、 きのう アパートに ひっこしました。 きょう プレゼントを もって となりの 人に あいさつに 行きました。 となりの 人が 「さいきん ひっこしの あいさつに 来る 人が すくなく なった」 と 言いました。",
       "passage_label": "Passage 1 (Q1, Q2)",
       "id": "dokkai-1.2",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "moved को apartment कल।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -122,7 +126,9 @@
       "passage_text": "> きのうは 母の 日だったので、 1,000えん もって 花や に 行きました。 きれいな 花が たくさん ありました。 一本 100えんの カーネーションを 三本 買ってから、 ケーキやで 120えんの ケーキを 四つ 買いました。 おかあさんは とても よろこびました。",
       "passage_label": "Passage 2 (Q3, Q4)",
       "id": "dokkai-1.3",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "1000 - (100×3) - (120×4) = 1000 - 300 - 480 = 220।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -139,7 +145,9 @@
       "passage_text": "> きのうは 母の 日だったので、 1,000えん もって 花や に 行きました。 きれいな 花が たくさん ありました。 一本 100えんの カーネーションを 三本 買ってから、 ケーキやで 120えんの ケーキを 四つ 買いました。 おかあさんは とても よろこびました。",
       "passage_label": "Passage 2 (Q3, Q4)",
       "id": "dokkai-1.4",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "\"Mother's Day\" + おかあさんがよろこんだ।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -156,7 +164,9 @@
       "passage_text": "> たなかさんへ\n>\n> こんにちは。 あした こうえんで パーティーが あります。 三時から はじまります。 たなかさんも 来て ください。 おかしと のみものは ありますから、 もって 来なくても いいです。 でも、 さむくなりましたから、 コートを もって 来て ください。\n>\n> やまだ",
       "passage_label": "Passage 3 (Q5, Q6)",
       "id": "dokkai-1.5",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "'コートを もって 来て ください' - explicitly asks के लिए coat। (Distractors सब single-संज्ञा के लिए length parity.)",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -173,7 +183,9 @@
       "passage_text": "> たなかさんへ\n>\n> こんにちは。 あした こうえんで パーティーが あります。 三時から はじまります。 たなかさんも 来て ください。 おかしと のみものは ありますから、 もって 来なくても いいです。 でも、 さむくなりましたから、 コートを もって 来て ください。\n>\n> やまだ",
       "passage_label": "Passage 3 (Q5, Q6)",
       "id": "dokkai-1.6",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "三時からはじまります।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -190,7 +202,9 @@
       "passage_text": "> 私の しゅみは 本を よむ ことです。 一しゅうかんに 三さつ よみます。 すきな 本は ぜんぶ 日本ごの 本です。 むずかしい 本も ありますが、 じしょを ひきながら ゆっくり よみます。 本やで 本を 買うのも すきですが、 図書館で かりる ことが おおいです。",
       "passage_label": "Passage 4 (Q7, Q8)",
       "id": "dokkai-1.7",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "一しゅうかんに 三さつ よみます।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -207,7 +221,9 @@
       "passage_text": "> 私の しゅみは 本を よむ ことです。 一しゅうかんに 三さつ よみます。 すきな 本は ぜんぶ 日本ごの 本です。 むずかしい 本も ありますが、 じしょを ひきながら ゆっくり よみます。 本やで 本を 買うのも すきですが、 図書館で かりる ことが おおいです。",
       "passage_label": "Passage 4 (Q7, Q8)",
       "id": "dokkai-1.8",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "図書館でかりることがおおい।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -224,7 +240,9 @@
       "passage_text": "> こんしゅう、 友だちが 日本に 来ます。 友だちは 日本ごが よく わかりません。 ですから わたしが 駅まで むかえに 行きます。 駅で あってから、 いっしょに ホテルに 行きます。 ばんごはんは いえで 食べる つもりです。 おすしを 作ります。",
       "passage_label": "Passage 5 (Q9, Q10)",
       "id": "dokkai-1.9",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "first क्रिया-कर्म है meeting में station।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -241,7 +259,9 @@
       "passage_text": "> こんしゅう、 友だちが 日本に 来ます。 友だちは 日本ごが よく わかりません。 ですから わたしが 駅まで むかえに 行きます。 駅で あってから、 いっしょに ホテルに 行きます。 ばんごはんは いえで 食べる つもりです。 おすしを 作ります。",
       "passage_label": "Passage 5 (Q9, Q10)",
       "id": "dokkai-1.10",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "いえで作るおすし।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -258,7 +278,9 @@
       "passage_text": "> やまださんへ\n>\n> きのう、 学校で しゅくだいの 紙を わすれて しまいました。 すみませんが、 あした わたしの 家に 来る まえに きょうしつから 紙を とって 来て くれませんか。 ロッカーの 中に あります。 ロッカーの ばんごうは 七です。\n>\n> たなか",
       "passage_label": "Passage 6 (Q11, Q12)",
       "id": "dokkai-1.11",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "asks やまださん को लाना homework paper से classroom locker।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -275,7 +297,9 @@
       "passage_text": "> やまださんへ\n>\n> きのう、 学校で しゅくだいの 紙を わすれて しまいました。 すみませんが、 あした わたしの 家に 来る まえに きょうしつから 紙を とって 来て くれませんか。 ロッカーの 中に あります。 ロッカーの ばんごうは 七です。\n>\n> たなか",
       "passage_label": "Passage 6 (Q11, Q12)",
       "id": "dokkai-1.12",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "ロッカーの ばんごうは 七です - locker संख्या है 7।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -292,7 +316,9 @@
       "passage_text": "> わたしは 毎あさ こうえんを さんぽします。 こうえんで いつも 同じ おじいさんに あいます。 おじいさんは いぬを つれて います。 いぬは 白くて、 とても 大きいです。 おじいさんは いつも 「おはよう」 と 言います。 わたしも 「おはようございます」 と こたえます。",
       "passage_label": "Passage 7 (Q13, Q14)",
       "id": "dokkai-1.13",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "こうえんを さんぽする - walks through पार्क हर morning।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -309,7 +335,9 @@
       "passage_text": "> わたしは 毎あさ こうえんを さんぽします。 こうえんで いつも 同じ おじいさんに あいます。 おじいさんは いぬを つれて います。 いぬは 白くて、 とても 大きいです。 おじいさんは いつも 「おはよう」 と 言います。 わたしも 「おはようございます」 と こたえます。",
       "passage_label": "Passage 7 (Q13, Q14)",
       "id": "dokkai-1.14",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "白くて、とても大きい।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -326,7 +354,9 @@
       "passage_text": "> あしたは 私の たんじょうびです。 友だちが パーティーを ひらいて くれます。 ともだちは みんな 八時に 来ます。 私は おかしと ジュースを 買いに 行きます。 ケーキは 友だちが 作って もって 来ます。 とても たのしみです。",
       "passage_label": "Passage 8 (Q15, Q16)",
       "id": "dokkai-1.15",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "ケーキは 友だちが 作って もって 来ます - friend बनाता है और brings cake।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -343,7 +373,9 @@
       "passage_text": "> あしたは 私の たんじょうびです。 友だちが パーティーを ひらいて くれます。 ともだちは みんな 八時に 来ます。 私は おかしと ジュースを 買いに 行きます。 ケーキは 友だちが 作って もって 来ます。 とても たのしみです。",
       "passage_label": "Passage 8 (Q15, Q16)",
       "id": "dokkai-1.16",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "ともだちは みんな 八時に 来ます - हर कोई arrives में 8 o'clock।",
+      "rationale_hi_provenance": "llm_curated"
     }
   ]
 }

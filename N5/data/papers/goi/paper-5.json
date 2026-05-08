@@ -20,7 +20,9 @@
       "rationale": "hungry → want to eat.",
       "kbSourceId": "Q61",
       "id": "goi-5.1",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "hungry → want को खाना।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -35,7 +37,9 @@
       "rationale": "inside the train while riding.",
       "kbSourceId": "Q62",
       "id": "goi-5.2",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "inside train जबकि riding।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -50,7 +54,9 @@
       "rationale": "とおくない ≈ ちかい (direct antonym pair).",
       "kbSourceId": "Q63",
       "id": "goi-5.3",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "とおくない ≈ ちかい (direct antonym pair)।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -65,7 +71,9 @@
       "rationale": "「じょうずに ひく」 = 「ひくのが じょうず」. Same skill, different syntactic frame (adverbial -> nominalized adjective predicate). Strict-N5: drops the previous keyed form 「よく ひけます」 (potential ひける = N4) per the same policy applied at Q97 in v1.12.13. This is the inverse direction of Q97's frame swap (Q97: nominalized -> adverbial; Q64: adverbial -> nominalized).",
       "kbSourceId": "Q64",
       "id": "goi-5.4",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "「じょうずに ひく」 = 「ひくのが じょうず」। Same skill, different syntactic frame (adverbial -> nominalized विशेषण predicate)। Strict-N5: drops previous keyed रूप 「よく ひけます」 (potential ひける = N4) per same policy applied में Q97 में v1.12.13। यह यहाँ inverse दिशा का Q97's frame swap (Q97: nominalized -> adverbial; Q64: adverbial -> nominalized)।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -80,7 +88,9 @@
       "rationale": "もう おそい ≈ じかんが おそい.",
       "kbSourceId": "Q65",
       "id": "goi-5.5",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "もう おそい ≈ じかんが おそい।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -95,7 +105,9 @@
       "rationale": "shop selling fruit = fruit shop.",
       "kbSourceId": "Q66",
       "id": "goi-5.6",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "shop selling fruit = fruit shop।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -110,7 +122,9 @@
       "rationale": "missed school = didn't go.",
       "kbSourceId": "Q67",
       "id": "goi-5.7",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "missed स्कूल = didn't जाना।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -125,7 +139,9 @@
       "rationale": "だれも (no one - universal over people) ↔ 人が いません (no people). Both negate the existence of any person, so the scope matches exactly.",
       "kbSourceId": "Q68",
       "id": "goi-5.8",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "だれも (नहीं एक - universal over लोग) ↔ 人が いません (नहीं लोग)। Both negate अस्तित्व का कोई व्यक्ति, इसलिए scope matches exactly।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -140,7 +156,9 @@
       "rationale": "not finished yet ≈ some remaining.",
       "kbSourceId": "Q69",
       "id": "goi-5.9",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "नहीं finished yet ≈ कुछ remaining।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -155,7 +173,9 @@
       "rationale": "「すき + まいにち する」 = 「よく する」. The frequency context makes this a direct paraphrase rather than an inference from liking alone.",
       "kbSourceId": "Q70",
       "id": "goi-5.10",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "「すき + まいにち する」 = 「よく する」। frequency context बनाता है यह direct paraphrase rather than inference से liking alone।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -170,7 +190,9 @@
       "rationale": "quiet = no sound.",
       "kbSourceId": "Q71",
       "id": "goi-5.11",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "quiet = नहीं sound।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -185,7 +207,9 @@
       "rationale": "試験 ≈ テスト.",
       "kbSourceId": "Q72",
       "id": "goi-5.12",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "試験 ≈ テスト।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -200,7 +224,9 @@
       "rationale": "「私が友だちに貸す」 = 「友だちが私から借りる」 (perspective inversion of かす ⇄ かりる).",
       "kbSourceId": "Q73",
       "id": "goi-5.13",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "「私が友だちに貸す」 = 「友だちが私から借りる」 (perspective inversion का かす ⇄ かりる)।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -215,7 +241,9 @@
       "rationale": "のって ≈ で.",
       "kbSourceId": "Q74",
       "id": "goi-5.14",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "のって ≈ で।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -230,7 +258,9 @@
       "rationale": "一月 (January) is the beginning of the year. The other options describe a different time (next year, last year, one year ago).",
       "kbSourceId": "Q75",
       "id": "goi-5.15",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "一月 (January) यहाँ beginning का year। other options describe different समय (next year, last year, एक year ago)।",
+      "rationale_hi_provenance": "llm_curated"
     }
   ]
 }

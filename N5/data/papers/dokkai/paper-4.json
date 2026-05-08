@@ -72,7 +72,9 @@
       "passage_text": "> 私の 父は 毎日 八時に 家を 出ます。 でんしゃで かいしゃに 行きます。 でんしゃは とても こんで います。 ですから 父は いつも 立って います。 かいしゃまで 一時間 ぐらい かかります。 父は 「つかれる」と 言います。",
       "passage_label": "Passage 25 (Q49, Q50)",
       "id": "dokkai-4.1",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "でんしゃで かいしゃに 行きます - commutes by train।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -89,7 +91,9 @@
       "passage_text": "> 私の 父は 毎日 八時に 家を 出ます。 でんしゃで かいしゃに 行きます。 でんしゃは とても こんで います。 ですから 父は いつも 立って います。 かいしゃまで 一時間 ぐらい かかります。 父は 「つかれる」と 言います。",
       "passage_label": "Passage 25 (Q49, Q50)",
       "id": "dokkai-4.2",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "でんしゃは とても こんで います。...父は いつも 立って います - packed train, के पास है को stand whole way।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -106,7 +110,9 @@
       "passage_text": "> 私の あには ピアノが じょうずです。 五さいから ピアノを ならって います。 こんしゅう、 大学の コンサートで ひきます。 家ぞくは みんな 見に 行きます。 私も 朝から 楽しみに して います。",
       "passage_label": "Passage 26 (Q51, Q52)",
       "id": "dokkai-4.3",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "passage कहता है 「五さいから ピアノを ならって います」।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -123,7 +129,9 @@
       "passage_text": "> 私の あには ピアノが じょうずです。 五さいから ピアノを ならって います。 こんしゅう、 大学の コンサートで ひきます。 家ぞくは みんな 見に 行きます。 私も 朝から 楽しみに して います。",
       "passage_label": "Passage 26 (Q51, Q52)",
       "id": "dokkai-4.4",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "大学の コンサートで ひきます - older brother plays में university concert यह week।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -140,7 +148,9 @@
       "passage_text": "> たなかさんは 朝ごはんを 食べる 時間が ありません。 まい朝、 でんしゃの 中で パンを 食べます。 でも きょうは でんしゃが こんで いて、 パンを 食べる ことが できませんでした。 きょうの ひるごはんは いつもより たくさん 食べました。",
       "passage_label": "Passage 27 (Q53, Q54)",
       "id": "dokkai-4.5",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "まい朝、 でんしゃの 中で パンを 食べます - आम तौर पर eats breakfast (bread) पर train।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -157,7 +167,9 @@
       "passage_text": "> たなかさんは 朝ごはんを 食べる 時間が ありません。 まい朝、 でんしゃの 中で パンを 食べます。 でも きょうは でんしゃが こんで いて、 パンを 食べる ことが できませんでした。 きょうの ひるごはんは いつもより たくさん 食べました。",
       "passage_label": "Passage 27 (Q53, Q54)",
       "id": "dokkai-4.6",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "でんしゃが こんで いて、 パンを 食べる ことが できませんでした - couldn't खाना breakfast पर crowded train, इसलिए खाया अधिक में lunch।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -174,7 +186,9 @@
       "passage_text": "> 私の 友だちの じょんさんは アメリカ人です。 でも 日本ごが とても じょうずです。 五年 まえに 日本に 来ました。 いま 日本の かいしゃで はたらいて います。 じょんさんと よく いっしょに 日本ごの 本を 読みます。",
       "passage_label": "Passage 28 (Q55, Q56)",
       "id": "dokkai-4.7",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "いま 日本の かいしゃで はたらいて います - currently काम करता है में Japanese company।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -191,7 +205,9 @@
       "passage_text": "> 私の 友だちの じょんさんは アメリカ人です。 でも 日本ごが とても じょうずです。 五年 まえに 日本に 来ました。 いま 日本の かいしゃで はたらいて います。 じょんさんと よく いっしょに 日本ごの 本を 読みます。",
       "passage_label": "Passage 28 (Q55, Q56)",
       "id": "dokkai-4.8",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "五年 まえに 日本に 来ました - आया को Japan 5 years ago।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -208,7 +224,9 @@
       "passage_text": "> 私は きのう、 駅の ちかくの あたらしい きっさてんに 行きました。 その みせは 三月に できました。 コーヒーが おいしくて、 ねだんも 安いです。 きっさてんは いつも こんで います。 こんどは 友だちと いっしょに 行きたいです。",
       "passage_label": "Passage 29 (Q57, Q58)",
       "id": "dokkai-4.9",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "その みせは 三月に できました - cafe opened में March।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -225,7 +243,9 @@
       "passage_text": "> 私は きのう、 駅の ちかくの あたらしい きっさてんに 行きました。 その みせは 三月に できました。 コーヒーが おいしくて、 ねだんも 安いです。 きっさてんは いつも こんで います。 こんどは 友だちと いっしょに 行きたいです。",
       "passage_label": "Passage 29 (Q57, Q58)",
       "id": "dokkai-4.10",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "'コーヒーが おいしくて、 ねだんも 安いです' - coffee है अच्छा और price है cheap।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -242,7 +262,9 @@
       "passage_text": "> やまださんは こんしゅうの 土曜日、 たなかさんと いっしょに ハイキングに 行く つもりでした。 でも、 木曜日から 雨が ふって います。 土曜日も 雨の よほうです。 ですから、 ハイキングは らいしゅうに します。 たなかさんも 「らいしゅうの ほうが いい」と 言いました。",
       "passage_label": "Passage 30 (Q59, Q60)",
       "id": "dokkai-4.11",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "こんしゅうの 土曜日、...ハイキングに 行く つもりでした - मूल plan था hiking यह Saturday।",
+      "rationale_hi_provenance": "llm_curated"
     },
     {
       "type": "mcq",
@@ -259,7 +281,9 @@
       "passage_text": "> やまださんは こんしゅうの 土曜日、 たなかさんと いっしょに ハイキングに 行く つもりでした。 でも、 木曜日から 雨が ふって います。 土曜日も 雨の よほうです。 ですから、 ハイキングは らいしゅうに します。 たなかさんも 「らいしゅうの ほうが いい」と 言いました。",
       "passage_label": "Passage 30 (Q59, Q60)",
       "id": "dokkai-4.12",
-      "mondai": 4
+      "mondai": 4,
+      "rationale_hi": "木曜日から 雨が ふって います。土曜日も 雨の よほうです - के पास है रहा raining since Thursday, Saturday's forecast है भी rain, इसलिए postponed को next week।",
+      "rationale_hi_provenance": "llm_curated"
     }
   ]
 }
