@@ -1,4 +1,23 @@
 {
+  "_meta": {
+    "doc": "Per-kanji on/kun reading lists + designated `primary` reading. The `primary` is the N5-context-most-common reading (e.g. 大→おお because 大きい dominates N5 vocab; 学→がく because 学校/学生 dominate). Fallback for the kanji popover when no explicit furigana ruby annotation is provided in source data.",
+    "schema_version": 1,
+    "lastUpdated": "2026-05-08",
+    "expected_count": 106,
+    "data_file": "data/n5_kanji_readings.json",
+    "primary_selection_rule": "For each kanji, the `primary` reading is whichever reading (on or kun) is encountered most frequently in N5 vocabulary words. Examples: 大 → おお (kun, because 大きい/大人 dominate over 大学 in N5 word frequency); 学 → がく (on, because 学校/学生/大学 dominate); 高 → たか (kun, 高い is the canonical N5 word). When tied, kun-yomi is preferred at N5 because learners typically meet the standalone-adjective form before compounds. Verified by X-6.9 invariant in tools/check_content_integrity.py against EXPECTED_PRIMARY_READING.",
+    "omitted_on_yomi_policy": "Some kanji have an empty `on: []` array (e.g. 私 has only kun: [\"わたし\"]). This is intentional — the on-yomi exists (e.g. 私 → シ) but is NOT taught at N5 because no N5 vocabulary word uses the on-reading. The full reading set is preserved separately in data/kanji.json under additional_readings.on for completeness.",
+    "consumers": [
+      "tools/check_content_integrity.py (X-6.9 — primary-reading regression guard)",
+      "tools/build_data.py (writes the file from KnowledgeBank/kanji_n5.md)",
+      "data/kanji.json — separate denormalized per-kanji record file used by the runtime kanji popover"
+    ],
+    "see_also": [
+      "data/n5_kanji_whitelist.meta.json",
+      "data/kanji.json",
+      "KnowledgeBank/kanji_n5.md"
+    ]
+  },
   "一": {
     "on": [
       "いち",

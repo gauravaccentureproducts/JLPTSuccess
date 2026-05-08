@@ -1,52 +1,944 @@
 {
-  "_doc": [
-    "Dokkai naturalness-exception kanji: non-N5 kanji whose KANA-only",
-    "form would damage reading-passage authenticity. Authentic JLPT N5",
-    "passages routinely include these in compound words.",
-    "",
-    "RULE (formalized 2026-05-02):",
-    "  - data/papers/dokkai/*.json passages MAY use these kanji.",
-    "  - bunpou / moji / goi paper content MUST stay strictly N5",
-    "    (catalog at KnowledgeBank/kanji_n5.md).",
-    "  - data/reading.json (older Reading-practice tab) STAYS strict N5",
-    "    (lighter passages; learners get authentic exposure via dokkai).",
-    "  - To add a new kanji here, document the passage that needs it",
-    "    AND update KnowledgeBank/dokkai_questions_n5.md header.",
-    "",
-    "Enforced by JA-28 in tools/check_content_integrity.py.",
-    "2026-05-03 (moji-and-source audit §2.2): added 向, 央, 付 with justifications - 向 for 〜向け target-audience compounds, 央 for 中央 proper nouns (parks/stations), 付 for 〜付き menu convention. All three appear in dokkai passage content multiple times; kana-substitution would reduce passage authenticity.",
-    "2026-05-04 (Mondai 5+6 deployment): added 売, 辛 with justifications - 売 for 売って いる commerce verb (Q66 piano-shop distractor; common N5 exposure for 店で 売って います), 辛 for ピリ辛い food-description (Q68 spicy-curry distractor; standard food-vocabulary kanji at N5 boundary). Both appear only in choice distractors; passage texts in Mondai 5+6 stay strict N5."
-  ],
+  "_meta": {
+    "doc": "Per-surface kanji exceptions: kanji NOT in n5_kanji_whitelist.json that ARE allowed to appear in specific surfaces of the corpus. Surfaces: 'dokkai-passage' (reading passages where authentic JLPT N5 texts use these), 'paper-distractor' (mock-paper question distractors where non-N5 kanji deliberately exercise recognition under exam-like conditions). Each entry tags its applicable surfaces; JA-28 enforces dokkai, JA-40 enforces paper distractors.",
+    "schema_version": 2,
+    "lastUpdated": "2026-05-08",
+    "previous_schema": "v1 was {exception_kanji: [<kanji>]} flat array. v2 is [{kanji, addedAt, reason, surfaces, paper_occurrences?}]. Migrated 2026-05-08 per ISSUE-007 + IMP-005.",
+    "rule_for_dokkai": "data/papers/dokkai/*.json passages MAY use kanji here with surfaces including \"dokkai-passage\". data/reading.json (older Reading-practice tab) STAYS strict N5.",
+    "rule_for_paper_distractor": "data/papers/{moji,goi,bunpou}/*.json questions MAY use kanji here with surfaces including \"paper-distractor\", but only as recognition-only distractors — never as the correct answer. JA-40 enforces both.",
+    "how_to_add": "When adding a new exception, include: kanji char, addedAt date, one-line reason, surfaces array. If the same kanji is allowed in multiple surfaces, list them all in the same entry. Re-run tools/check_content_integrity.py to confirm JA-28 + JA-40 still pass.",
+    "see_also": [
+      "tools/check_content_integrity.py (JA-28 dokkai enforcement, JA-40 paper-distractor enforcement)",
+      "data/n5_kanji_whitelist.json (the strict whitelist)",
+      "KnowledgeBank/dokkai_questions_n5.md (dokkai authoring source)"
+    ]
+  },
   "exception_kanji": [
-    "京",
-    "作",
-    "使",
-    "図",
-    "院",
-    "回",
-    "教",
-    "楽",
-    "病",
-    "終",
-    "自",
-    "阪",
-    "館",
-    "黒",
-    "犬",
-    "妹",
-    "家",
-    "弁",
-    "当",
-    "思",
-    "朝",
-    "近",
-    "紙",
-    "青",
-    "同",
-    "向",
-    "央",
-    "付",
-    "売",
-    "辛"
+    {
+      "kanji": "京",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "付",
+      "addedAt": "2026-05-03",
+      "reason": "moji-and-source audit §2.2: 〜付き menu convention in dokkai passages.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "作",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "使",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "同",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "向",
+      "addedAt": "2026-05-03",
+      "reason": "moji-and-source audit §2.2: 〜向け target-audience compounds in dokkai passage content.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "回",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "図",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "央",
+      "addedAt": "2026-05-03",
+      "reason": "moji-and-source audit §2.2: 中央 proper nouns (parks/stations) in dokkai passages.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "家",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "弁",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "当",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "思",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "教",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "朝",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "楽",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "犬",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "病",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "終",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "辛",
+      "addedAt": "2026-05-04",
+      "reason": "Mondai 5+6 deployment: ピリ辛い food-description (Q68 spicy-curry distractor); standard food-vocabulary kanji at N5 boundary.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "近",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "阪",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "院",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "青",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "館",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "黒",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage"
+      ]
+    },
+    {
+      "kanji": "云",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.4.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.4"
+      ]
+    },
+    {
+      "kanji": "交",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.8.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.8"
+      ]
+    },
+    {
+      "kanji": "体",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.3.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.3"
+      ]
+    },
+    {
+      "kanji": "供",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-5.json#moji-5.2.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-5.json#moji-5.2"
+      ]
+    },
+    {
+      "kanji": "元",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.7.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.7"
+      ]
+    },
+    {
+      "kanji": "兄",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.11.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.11"
+      ]
+    },
+    {
+      "kanji": "内",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-5.json#moji-5.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-5.json#moji-5.5"
+      ]
+    },
+    {
+      "kanji": "刀",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.9.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.9"
+      ]
+    },
+    {
+      "kanji": "切",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.13, moji/paper-7.json#moji-7.1.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.13",
+        "moji/paper-7.json#moji-7.1"
+      ]
+    },
+    {
+      "kanji": "利",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.9.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.9"
+      ]
+    },
+    {
+      "kanji": "効",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.9.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.9"
+      ]
+    },
+    {
+      "kanji": "区",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-5.json#moji-5.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-5.json#moji-5.5"
+      ]
+    },
+    {
+      "kanji": "占",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.5"
+      ]
+    },
+    {
+      "kanji": "喫",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.6.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.6"
+      ]
+    },
+    {
+      "kanji": "多",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.6.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.6"
+      ]
+    },
+    {
+      "kanji": "太",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.10.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.10"
+      ]
+    },
+    {
+      "kanji": "好",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-5.json#moji-5.1.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-5.json#moji-5.1"
+      ]
+    },
+    {
+      "kanji": "字",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.6, moji/paper-4.json#moji-4.8, moji/paper-5.json#moji-5.2.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.6",
+        "moji/paper-4.json#moji-4.8",
+        "moji/paper-5.json#moji-5.2"
+      ]
+    },
+    {
+      "kanji": "寄",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.3, moji/paper-7.json#moji-7.7.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.3",
+        "moji/paper-7.json#moji-7.7"
+      ]
+    },
+    {
+      "kanji": "少",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: goi/paper-5.json#goi-5.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "goi/paper-5.json#goi-5.5"
+      ]
+    },
+    {
+      "kanji": "居",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.5"
+      ]
+    },
+    {
+      "kanji": "帰",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.14.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.14"
+      ]
+    },
+    {
+      "kanji": "庄",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.5"
+      ]
+    },
+    {
+      "kanji": "建",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.2.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.2"
+      ]
+    },
+    {
+      "kanji": "強",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.8.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.8"
+      ]
+    },
+    {
+      "kanji": "成",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.7.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.7"
+      ]
+    },
+    {
+      "kanji": "掻",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.12.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.12"
+      ]
+    },
+    {
+      "kanji": "描",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.12.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.12"
+      ]
+    },
+    {
+      "kanji": "換",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.5"
+      ]
+    },
+    {
+      "kanji": "放",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.10.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.10"
+      ]
+    },
+    {
+      "kanji": "文",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.15.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.15"
+      ]
+    },
+    {
+      "kanji": "方",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.9.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.9"
+      ]
+    },
+    {
+      "kanji": "旧",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.9.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.9"
+      ]
+    },
+    {
+      "kanji": "易",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.7.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.7"
+      ]
+    },
+    {
+      "kanji": "替",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.5"
+      ]
+    },
+    {
+      "kanji": "正",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.7.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.7"
+      ]
+    },
+    {
+      "kanji": "毛",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.13.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.13"
+      ]
+    },
+    {
+      "kanji": "永",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.8.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.8"
+      ]
+    },
+    {
+      "kanji": "牛",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-4.json#moji-4.13, moji/paper-5.json#moji-5.13, moji/paper-5.json#moji-5.14.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.13",
+        "moji/paper-5.json#moji-5.13",
+        "moji/paper-5.json#moji-5.14"
+      ]
+    },
+    {
+      "kanji": "画",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.12.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.12"
+      ]
+    },
+    {
+      "kanji": "看",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.8.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.8"
+      ]
+    },
+    {
+      "kanji": "着",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.13.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.13"
+      ]
+    },
+    {
+      "kanji": "経",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.2.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.2"
+      ]
+    },
+    {
+      "kanji": "視",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.8.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.8"
+      ]
+    },
+    {
+      "kanji": "観",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.8.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.8"
+      ]
+    },
+    {
+      "kanji": "訊",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.9.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.9"
+      ]
+    },
+    {
+      "kanji": "訳",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.11, moji/paper-6.json#moji-6.4.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.11",
+        "moji/paper-6.json#moji-6.4"
+      ]
+    },
+    {
+      "kanji": "詠",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.11.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.11"
+      ]
+    },
+    {
+      "kanji": "諳",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.11.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.11"
+      ]
+    },
+    {
+      "kanji": "謂",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.4.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.4"
+      ]
+    },
+    {
+      "kanji": "講",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.10.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.10"
+      ]
+    },
+    {
+      "kanji": "議",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-7.json#moji-7.4.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.4"
+      ]
+    },
+    {
+      "kanji": "起",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.13, moji/paper-7.json#moji-7.2.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.13",
+        "moji/paper-7.json#moji-7.2"
+      ]
+    },
+    {
+      "kanji": "路",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.3.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.3"
+      ]
+    },
+    {
+      "kanji": "通",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.3.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.3"
+      ]
+    },
+    {
+      "kanji": "離",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.10.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.10"
+      ]
+    },
+    {
+      "kanji": "飯",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.6, moji/paper-6.json#moji-6.7.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.6",
+        "moji/paper-6.json#moji-6.7"
+      ]
+    },
+    {
+      "kanji": "飼",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.7, moji/paper-7.json#moji-7.5.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.7",
+        "moji/paper-7.json#moji-7.5"
+      ]
+    },
+    {
+      "kanji": "馬",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.4.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.4"
+      ]
+    },
+    {
+      "kanji": "駄",
+      "addedAt": "2026-05-08",
+      "reason": "Formalized 2026-05-08 from existing moji/goi/bunpou paper distractor usage. Original authoring noted '\nmoji-corpus kanji-scope exception' in question rationale prose; this entry makes the exception machine-checkable. Occurs in: moji/paper-6.json#moji-6.4.",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-6.json#moji-6.4"
+      ]
+    },
+    {
+      "kanji": "売",
+      "addedAt": "2026-05-04",
+      "reason": "Mondai 5+6 deployment: 売って いる commerce verb (Q66 piano-shop distractor); common N5 exposure for 店で 売って います.",
+      "surfaces": [
+        "dokkai-passage",
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "goi/paper-7.json#goi-7.10"
+      ]
+    },
+    {
+      "kanji": "妹",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage",
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-4.json#moji-4.12"
+      ]
+    },
+    {
+      "kanji": "紙",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage",
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "goi/paper-6.json#goi-6.11"
+      ]
+    },
+    {
+      "kanji": "自",
+      "addedAt": "<2026-05-02",
+      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "surfaces": [
+        "dokkai-passage",
+        "paper-distractor"
+      ],
+      "paper_occurrences": [
+        "moji/paper-7.json#moji-7.9"
+      ]
+    }
   ]
 }

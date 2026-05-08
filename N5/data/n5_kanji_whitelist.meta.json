@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "doc": "Sidecar metadata for data/n5_kanji_whitelist.json. The whitelist itself is a flat top-level JSON array of 106 single-kanji strings — that shape is intentional because furigana.js, audit_dokkai_kanji_scope.py, audit_teacher_review.py, and check_content_integrity.py all parse it as `set(json.loads(...))`. Adding inline metadata would break those callers, so docs live here.",
+    "schema_version": 1,
+    "lastUpdated": "2026-05-08",
+    "data_file": "data/n5_kanji_whitelist.json",
+    "expected_count": 106,
+    "source": "Curated from KnowledgeBank/kanji_n5.md by tools/build_data.py. The list mirrors the official JEES JLPT N5 kanji syllabus.",
+    "consumers": [
+      "js/furigana.js (kanji-popover + isKanji-in-scope check)",
+      "tools/check_content_integrity.py (JA-13 — out-of-scope-kanji enforcement)",
+      "tools/audit_dokkai_kanji_scope.py (passage-level scope audit)",
+      "tools/audit_teacher_review.py (teacher-review pre-filter)",
+      "tools/build_data.py (writes the file from KnowledgeBank/kanji_n5.md)"
+    ],
+    "ordering_convention": "Author-curated (roughly first-encountered-in-lesson-order, not strictly sorted by stroke count or Unicode). The order is stable across builds; new additions go at the end.",
+    "exceptions": "data/dokkai_kanji_exception.json lists kanji that may appear in dokkai passages and (since 2026-05-08) in moji/goi/bunpou paper distractors despite NOT being in the whitelist. JA-13 + JA-28 + JA-40 enforce the surface-specific rules.",
+    "see_also": [
+      "data/n5_kanji_readings.json (per-kanji on/kun/primary readings)",
+      "data/kanji.json (full per-kanji records with examples + stroke-order SVG paths)",
+      "data/dokkai_kanji_exception.json (passage-allowed non-N5 kanji)",
+      "KnowledgeBank/kanji_n5.md (source-of-truth markdown)"
+    ]
+  }
+}

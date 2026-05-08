@@ -814,6 +814,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-37", "localStorage namespace in code matches PRIVACY.md verbatim (2026-05-06)", lambda: _check_ja_37_namespace_doc_parity()),
     ("JA-38", "Every grammar pattern has >=1 common_mistakes entry (2026-05-06)", lambda: _check_ja_38_common_mistakes_floor()),
     ("JA-39", "Locale set in content data is exactly {en, hi} (2026-05-06)", lambda: _check_ja_39_locale_set_en_hi()),
+    ("JA-40", "moji/goi/bunpou paper distractors bounded by N5 + paper-distractor exception (2026-05-08)", lambda: _check_ja_40_paper_distractor_kanji_bounded()),
 ]
 
 
@@ -1488,15 +1489,42 @@ def _check_ja_27_no_english_in_japanese_modules() -> list[str]:
     return failures
 
 
+def _load_kanji_exceptions_by_surface(surface: str) -> tuple[set, str | None]:
+    """Read data/dokkai_kanji_exception.json (schema v2 as of 2026-05-08) and
+    return the set of kanji allowed on the given `surface` ('dokkai-passage'
+    or 'paper-distractor'). Returns (set, error-or-None).
+
+    Schema v2 (current):
+      {"_meta": {...}, "exception_kanji": [{"kanji": "x", "surfaces": [...]}, ...]}
+
+    Schema v1 (legacy, still tolerated for transitional reads):
+      {"_doc": [...], "exception_kanji": ["x", "y", ...]}  # all dokkai-only
+    """
+    try:
+        doc = json.loads((ROOT / "data" / "dokkai_kanji_exception.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return set(), f"could not load dokkai_kanji_exception.json: {e}"
+    raw = doc.get("exception_kanji", [])
+    if not raw:
+        return set(), None
+    # Schema v2: list of objects with `kanji` + `surfaces`
+    if isinstance(raw[0], dict):
+        return ({e["kanji"] for e in raw if surface in (e.get("surfaces") or [])}, None)
+    # Schema v1 fallback: flat list of strings, all treated as dokkai-passage
+    if surface == "dokkai-passage":
+        return (set(raw), None)
+    return (set(), None)
+
+
 def _check_ja_28_dokkai_kanji_bounded() -> list[str]:
     """data/papers/dokkai/*.json passages may contain non-N5 kanji ONLY
     if those kanji are explicitly documented in
-    data/dokkai_kanji_exception.json. This formalizes the dokkai
-    naturalness exception (KnowledgeBank/dokkai_questions_n5.md line 17)
-    so the runtime can't silently introduce a new non-N5 kanji.
+    data/dokkai_kanji_exception.json with surface 'dokkai-passage'. This
+    formalizes the dokkai naturalness exception so the runtime can't
+    silently introduce a new non-N5 kanji into reading passages.
 
-    Bunpou / moji / goi are NOT covered here; they stay strictly N5
-    via JA-13.
+    Bunpou / moji / goi were NOT covered here historically — those are
+    now enforced by JA-40 against the 'paper-distractor' surface.
     """
     failures: list[str] = []
     try:
@@ -1504,12 +1532,9 @@ def _check_ja_28_dokkai_kanji_bounded() -> list[str]:
             (ROOT / "data" / "n5_kanji_whitelist.json").read_text(encoding="utf-8")))
     except Exception as e:
         return [f"JA-28: could not load n5_kanji_whitelist.json: {e}"]
-    try:
-        exc_doc = json.loads(
-            (ROOT / "data" / "dokkai_kanji_exception.json").read_text(encoding="utf-8"))
-        exception_kanji = set(exc_doc.get("exception_kanji", []))
-    except Exception as e:
-        return [f"JA-28: could not load dokkai_kanji_exception.json: {e}"]
+    exception_kanji, err = _load_kanji_exceptions_by_surface("dokkai-passage")
+    if err:
+        return [f"JA-28: {err}"]
     allowed = whitelist | exception_kanji
     KANJI_RE = re.compile(r"[一-鿿]")
     dokkai_dir = ROOT / "data" / "papers" / "dokkai"
@@ -1537,10 +1562,72 @@ def _check_ja_28_dokkai_kanji_bounded() -> list[str]:
         s = samples[0]
         failures.append(
             f"JA-28: kanji '{ch}' is neither in N5 catalog nor in "
-            f"dokkai_kanji_exception.json. Either replace with kana, "
-            f"or add to data/dokkai_kanji_exception.json (with "
-            f"justification in KnowledgeBank/dokkai_questions_n5.md "
-            f"header). First seen: {s}")
+            f"dokkai_kanji_exception.json (surface 'dokkai-passage'). "
+            f"Either replace with kana, or add to "
+            f"data/dokkai_kanji_exception.json with surfaces=['dokkai-passage'] "
+            f"and a one-line reason. First seen: {s}")
+    return failures
+
+
+def _check_ja_40_paper_distractor_kanji_bounded() -> list[str]:
+    """data/papers/{moji,goi,bunpou}/*.json questions may contain non-N5
+    kanji ONLY if those kanji are documented in
+    data/dokkai_kanji_exception.json with surface 'paper-distractor'.
+    Closes the audit gap (ISSUE-007, 2026-05-08): historically the
+    'moji-corpus distractor exception' was only documented in question
+    rationales, with no automated enforcement. This invariant makes
+    every non-whitelist kanji used as a distractor explicit and
+    machine-checkable.
+
+    Note: this walks all four fields commonly carrying displayed text:
+    stem_html, choices, correctAnswer, prompt. Rationale prose
+    (`rationale`) is intentionally NOT walked — that's where the human
+    explanation lives and may freely use non-N5 kanji.
+    """
+    failures: list[str] = []
+    try:
+        whitelist = set(json.loads(
+            (ROOT / "data" / "n5_kanji_whitelist.json").read_text(encoding="utf-8")))
+    except Exception as e:
+        return [f"JA-40: could not load n5_kanji_whitelist.json: {e}"]
+    exception_kanji, err = _load_kanji_exceptions_by_surface("paper-distractor")
+    if err:
+        return [f"JA-40: {err}"]
+    allowed = whitelist | exception_kanji
+    KANJI_RE = re.compile(r"[一-鿿]")
+    LEARNER_FIELDS = ("stem_html", "choices", "correctAnswer", "prompt", "title_ja", "prompt_ja")
+    offenders: dict[str, list[str]] = {}  # kanji -> sample
+    for sub in ("moji", "goi", "bunpou"):
+        pdir = ROOT / "data" / "papers" / sub
+        if not pdir.exists():
+            continue
+        for p in sorted(pdir.glob("paper-*.json")):
+            try:
+                d = json.loads(p.read_text(encoding="utf-8"))
+            except Exception as e:
+                failures.append(f"JA-40: parse error on {sub}/{p.name}: {e}")
+                continue
+            for q in d.get("questions", []) or []:
+                qid = q.get("id", "?")
+                for field in LEARNER_FIELDS:
+                    val = q.get(field)
+                    if val is None:
+                        continue
+                    text = " ".join(val) if isinstance(val, list) else str(val)
+                    for ch in text:
+                        if KANJI_RE.match(ch) and ch not in allowed:
+                            offenders.setdefault(ch, []).append(
+                                f"{sub}/{p.name}#{qid}.{field}")
+    for ch, samples in sorted(offenders.items()):
+        # Show first 3 occurrences for context
+        sample_list = ", ".join(samples[:3]) + (f" (+{len(samples)-3} more)" if len(samples) > 3 else "")
+        failures.append(
+            f"JA-40: kanji '{ch}' is neither in N5 catalog nor in "
+            f"dokkai_kanji_exception.json (surface 'paper-distractor'). "
+            f"Either replace with kana, or add to "
+            f"data/dokkai_kanji_exception.json with "
+            f"surfaces=['paper-distractor'] and a one-line reason. "
+            f"Occurs in: {sample_list}")
     return failures
 
 

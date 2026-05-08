@@ -1,5 +1,12 @@
 {
-  "_note": "ISSUE-033 (audit round-4): explicit list of pattern IDs that are strictly within JLPT N5 scope (vs late_n5 / borderline N5/N4 patterns). Used by the home count + future filter UIs to honestly report \"178 patterns (core + late-N5)\" rather than implying all 178 are core N5.",
+  "_meta": {
+    "doc": "ISSUE-033 (audit round-4): explicit list of pattern IDs that are strictly within JLPT N5 scope (vs late_n5 / borderline N5/N4 patterns). Used by the home count + future filter UIs to honestly report '178 patterns (core + late-N5)' rather than implying all 178 are core N5.",
+    "schema_version": 1,
+    "lastUpdated": "2026-05-08",
+    "id_space_policy": "The grammar.json ID space is sparse — IDs n5-012, n5-020, n5-022, n5-032, n5-047, n5-128, n5-138, n5-139, n5-140, n5-141 are NOT in grammar.json (and therefore NOT in either core_n5 or late_n5 list). They are deliberately retired/unused slots from earlier authoring iterations. The lists are 100% in sync with grammar.json: total = 178 = 153 core + 25 late, no orphans either way. Verified by JA-34 invariant in tools/check_content_integrity.py.",
+    "see_also": ["data/grammar.json", "tools/check_content_integrity.py (JA-34)"]
+  },
+  "_note": "Superseded by _meta. Kept for backwards-compat with any tool reading the legacy field; use _meta.doc going forward.",
   "core_n5": [
     "n5-001",
     "n5-002",
