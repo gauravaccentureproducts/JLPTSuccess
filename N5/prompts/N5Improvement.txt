@@ -1,595 +1,479 @@
 You are operating in audit-only mode on the JLPT N5 sub-app of
-JLPTSuccess. Your one and only job in this run is to produce a
-prioritized list of every existing issue and every improvement idea
-needed to make this a SALEABLE, MARKET-RELEVANT N5 prep app - not a
-generic clone of Bunpro / WaniKani / Anki.
+JLPTSuccess. Your ONE job in this run is to produce a prioritized
+list of every content-depth improvement that would make the N5
+Japanese-content corpus DEMONSTRABLY RICHER than the incumbent
+best-in-class apps (Bunpro, WaniKani, Renshuu, Tofugu, Migaku,
+JapanesePod101).
 
-You will NOT fix anything. You will NOT implement anything. You will
-NOT modify any file, run any deploy, or make any commit. You will
-produce one ranked list and stop.
+You will NOT fix anything. You will NOT implement anything. You
+will NOT modify any file, run any deploy, or make any commit. You
+will produce one ranked list and stop.
+
+(Locale / Hindi-medium pedagogy is OUT OF SCOPE for this audit. A
+separate prompt handles the Hindi locale. This prompt is
+exclusively about Japanese-content richness on top of the
+existing en + hi locale set.)
 
 ## STRATEGIC FRAMING (read this first)
 
-The JLPT prep market is saturated. Bunpro owns grammar with native-
-reviewed content + community + 5,000+ example sentences. WaniKani owns
-kanji with mnemonics + community + lifetime users. Anki + shared decks
-own free SRS. Renshuu owns mobile-first multi-skill. JLPT Sensei owns
-free web reference. Marugoto owns Japan-Foundation-official.
+The JLPT prep market has well-funded incumbents. Each owns one
+core dimension:
 
-Trying to beat any of those at their core game is a losing audit
-direction. THE AUDIT MUST OPTIMIZE FOR DEFENSIBLE NICHES, NOT FOR
-GENERIC PARITY.
+  - **Bunpro** — native-reviewed grammar with 5-7 example
+    sentences per pattern, textbook-aligned grammar paths
+    (Genki I L1 → L2 → ...), self-grading reviews with JP-keyboard
+    input + 50% partial credit, ghost reviews (failed cards
+    reappear sooner).
+  - **WaniKani** — kanji with 3-mnemonic structure (radical-story
+    + visual + reading mnemonic), SRS gating (can't see vocab
+    until kanji is learned), lifetime users, paced 25-30 min/day
+    commitment.
+  - **Renshuu** — mobile-first multi-skill drills, custom lists,
+    community decks.
+  - **Tofugu** — pedagogical-depth essays per pattern (longer than
+    any textbook), free.
+  - **Migaku** — sentence-mining from authentic media, Chrome
+    extension, Anki deck export.
+  - **JapanesePod101** — story-based audio dialogues with native
+    voice talent, cultural notes per lesson.
+  - **Anki + shared decks** — free SRS.
+  - **JLPT Sensei** — free web reference; thin per-pattern
+    explanations + one example each.
 
-JLPTSuccess's plausible niches (validate or invalidate during the
-audit; do not assume any of these is already realized):
+Trying to beat these on their CORE game is a losing audit
+direction. THE AUDIT MUST OPTIMIZE FOR CONTENT-DEPTH DIMENSIONS
+WHERE THIS APP CAN CREDIBLY OUT-COMPETE THEM, plus dimensions
+where NONE of them deliver well.
 
-  N1. **Native-Hindi-medium JLPT prep (the unique gap).** India is
-      the 5th-largest JLPT country worldwide (~50K applicants/year,
-      73% at N5/N4) but has NO dedicated Hindi-native prep app -
-      a verified competitive vacuum confirmed by the 2026-05-06
-      market-research scan. Vietnamese / Indonesian / Burmese /
-      Bengali / Sinhala / Brazilian-Portuguese / Filipino / Thai /
-      Chinese all already have established native-language JLPT
-      apps; competing there is futile. JLPTSuccess narrowed to
-      en + hi on 2026-05-06 (per IMP-096 architectural decision;
-      see feedback/n5-audit-2026-05-04.xlsx for the registry row).
-      The audit must answer: is the hi locale native-quality?
-      Are explanations / rationales / common-mistakes blurbs
-      translated to Devanagari Hindi, not just UI chrome?
-      Do L1-interference notes target Hindi speakers specifically
-      (postposition→particle mapping, verb-agreement transfer,
-      politeness-morphology mismatch)?
-  N2. **No-account / offline / private / ad-free.** Bunpro requires
-      account + subscription; WaniKani requires account; Renshuu has
-      ads in the free tier; Duolingo gamifies + ads. JLPTSuccess
-      runs fully on-device, no login, no telemetry. Is this
-      MESSAGED visibly to a first-time visitor, or is it invisible?
-  N3. **Open content for institutional / self-hosted use.** Vocational
-      schools, language schools, NGOs in SE Asia could fork and self-
-      host. Is the project structured to make this viable (license,
-      docs, bundle size, no domain-locked assets)?
-  N4. **All-in-one (vs juggling Bunpro+WaniKani+Anki).** Single app
-      covering grammar+vocab+kanji+reading+listening+test mode. Is
-      every surface actually production-quality, or are some shallow
-      enough that a learner would still need a separate app for that
-      skill?
+JLPTSuccess's existing defensible niches:
 
-The audit must answer, for each niche: does the app credibly own this
-niche today? If not, what's the smallest set of changes that would
-let it credibly claim this niche?
+  N1. **Privacy / no-account / offline / ad-free.** Bunpro requires
+      account + subscription; WaniKani requires account; Renshuu
+      has ads in the free tier; Duolingo gamifies + ads.
+      JLPTSuccess runs fully on-device, no login, no telemetry.
+  N2. **Open content for institutional / self-hosted use.**
+      Vocational schools, language schools, NGOs could fork and
+      self-host. Is the project structured to make this viable?
+  N3. **All-in-one.** Single app for grammar + vocab + kanji +
+      reading + listening + test mode. Is every surface deep
+      enough that a learner doesn't have to leave for that skill?
 
-A "world-class generic JLPT app" is not a viable target for a solo
-+ AI build. **"The only privacy-first no-account offline JLPT N5
-app with English + native-Devanagari-Hindi pedagogy"** IS a viable
-target - the unique competitive vacuum confirmed by the 2026-05-06
-market research scan (50K Indian JLPT applicants/year; 73% at
-N5/N4; no dedicated Hindi-medium prep app). Audit accordingly.
+The audit's saleability target is: **"the only privacy-first,
+no-account, offline JLPT N5 app where every content surface is
+demonstrably richer than the dedicated incumbent on that
+surface."** That's a defensible niche. "World-class generic JLPT
+app" is not.
 
-## DEPTH-FIRST ENRICHMENT MANDATE (read this second - binding for this cycle)
+## RICHNESS-FIRST MANDATE (binding for this cycle)
 
-This audit cycle is **depth-first, not width-first**. The N5 corpus
-breadth is FROZEN at the current scale:
+This audit cycle is **richness-first**. The N5 corpus breadth is
+FROZEN at the current scale:
 
   - 178 grammar patterns (`data/grammar.json`)
-  - 1041 vocabulary entries (`data/vocab.json`)
+  - 1000 vocabulary entries (`data/vocab.json`, post-2026-05-08 dedup)
   - 106 kanji (`data/kanji.json`)
   - 40 reading passages (`data/reading.json`)
-  - 40 listening drills (`data/listening.json`)
+  - 47 listening items (`data/listening.json`, rendered with 4
+    VOICEVOX voices)
+  - 28 mock-test paper files (`data/papers/`, 402 paper-bound
+    questions)
+  - 290 grammar-pattern questions + 137 distractor blocks
+    (`data/questions.json`)
 
-You will NOT recommend adding more grammar patterns, vocab words,
-kanji, passages, or drills in this audit. "Add 30 more N5 vocab"
-is OUT OF SCOPE. The breadth is fixed; this cycle upgrades each
-existing entry toward best-in-class pedagogical depth.
+You will NOT recommend adding more grammar patterns, vocab,
+kanji, passages, drills, or paper files in this cycle. "Add 30
+more N5 vocab" is OUT OF SCOPE.
 
-What "depth" means per surface - every audit finding for content
-must map to one or more of these dimensions:
+The single exception: if a width-add is required for JLPT N5
+scope correctness (a canonically-required grammar pattern is
+genuinely missing per JLPT.jp official scope), file as a normal
+Section-3 issue with severity BLOCKER and tag
+`[WIDTH-EXCEPTION-SCOPE]`. Otherwise, every finding upgrades
+the depth or interconnection of an EXISTING entry toward
+best-in-incumbent or beyond.
 
-| Surface | Depth dimensions (the only legitimate gaps for this cycle) |
+## CURRENT STATE (verified 2026-05-09)
+
+| Field | State |
 |---|---|
-| **Grammar** | example count (floor 3, target 5-7); example diversity (different attachment surfaces / registers / topics, not paraphrases); register annotation; common-mistakes entry with specific wrong-vs-right + the why; contrasts cross-links to confusable patterns; **L1-interference notes for Hindi speakers** (postposition→particle mapping से→から/で, को→を/に; verb-agreement transfer; tense over-marking; politeness-morphology mismatch; negative-placement; question-particle position; plural marking; counter-system overlap); source citations (Genki / Minna / JLPT.jp / Bunpro / JLPT Sensei); audio per example; pitch accent on examples |
-| **Vocab** | example count per word (floor 2, target 3); `gloss_translations.hi` (the dominant niche-N1 gap - currently 0% Hindi gloss coverage on 1041 entries); pitch accent (Tokyo); collocations list; transitivity-pair cross-link; verb-class flag (godan/ichidan/irregular + Group-1-exception markers for 入る/帰る/走る/知る/切る/要る); register tag (casual/polite/humble/respectful); false-friend flags (Hindi has no shared kanji so false-friend exposure is minimal - note any phonetic collisions with Hindi vocabulary if relevant); conjugation table for verbs; counter pairing for nouns that take counters; audio for all forms |
-| **Kanji** | mnemonic per kanji (largest UX gap vs WaniKani); `radical_decomposition`; stroke-order common-mistake notes; ≥5 compound vocab cross-links; ≥1 N5-scope example sentence; look-alike cluster cross-links (大/犬/太, 木/本/末/未, 人/入/八, 日/目/白, 千/干/王/玉, 上/止/正); `meanings_translations.hi` (Devanagari Hindi gloss for each kanji meaning); audio for on/kun-yomi; `frequency_rank`; `recognition_priority` |
-| **Reading** | sentence-by-sentence grammar footnote layer (inline pop-overs); pre-reading vocab preview; native-speaker audio (vs current TTS); paragraph-level summary; literal-vs-natural translation comparison; cultural-context callouts where Japan-specific assumptions appear; post-reading discussion / reflection prompts; `format_role` discipline (primary vs supplementary questions per JA invariants) |
-| **Listening** | timestamped transcript; vocab glossary per drill; slow-version audio variant; situational/cultural context note; discourse-feature annotations (filler words あの/えー/まあ, self-corrections, intonation cues); inference-question expansions (beyond literal retrieval); voice variety verification (≥4 voices across genders/ages); ambient-context layer for mondai 1-2; pre-listening prompt visibility |
+| Repo | `gauravaccentureproducts/JLPTSuccess` |
+| Stack | Static PWA, vanilla HTML/CSS/JS, no build step |
+| Live URL | https://gauravaccentureproducts.github.io/JLPTSuccess/N5/ |
+| Locales | `{en, hi}` (closed set; JA-39 invariant) |
+| Hindi content | 100% native_reviewed across all 2581 Hindi-bearing slots (HI audit cycles 1-5 complete) |
+| CI invariants | 50 (release-blocker; X-6.x + JA-1..JA-41) |
+| Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — 222 rows, 221 Done / 1 Avoid |
+| Provenance enum | `{native_reviewed, llm_curated, auto_generated}` per item |
+| Audio infra | VOICEVOX (multi-voice), gtts (single-voice), edge-tts fallback; 758+ MP3s |
+| Tests | `tools/check_content_integrity.py` (50 invariants) + Playwright e2e + visual regression |
+| Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic |
 
-The audit must extract the **per-entry depth-deficit FIRST**, before
-any structural or feature improvement. A shallow grammar pattern
-(2 examples, no common-mistake, no contrast) is a higher-priority
-finding than a missing meta-feature, because depth is what
-defensible content competence looks like - and it's what a paying
-or institutional adopter inspects first.
+## SCOPE: N5 ONLY (Japanese content richness)
 
-Items that ADD width (new patterns, new words, new passages, new
-drills) MUST be filed under Section 7 (Anti-Items) for this cycle,
-even if they look attractive. They may return in a future width-
-cycle audit. The single exception: if a width-add is required for
-JLPT N5 scope correctness (e.g., a canonically-required grammar
-pattern is genuinely missing), file it as a normal Section-2 issue
-with severity BLOCKER and tag it `[WIDTH-EXCEPTION-SCOPE]`.
-
-## CONTEXT: WHAT THIS APP IS
-
-- Repo: gauravaccentureproducts/JLPTSuccess. Static PWA, no build step,
-  per-level isolation. N5 sub-app at /N5/, deployed to
-  gauravaccentureproducts.github.io/JLPTSuccess/N5/.
-- Tech: vanilla HTML/CSS/JS, service worker scoped to /N5/,
-  localStorage namespaced for N5 only, CSP same-origin.
-- Surfaces (home nav): Grammar, Vocabulary, Kanji, Reading, Listening,
-  Test, Progress. Plus changelog, feedback, privacy.
-- Content scale (per README): 177 grammar patterns, 1003 vocab, 106
-  kanji, 60 dokkai/listening drills.
-- Locales shipped: en, hi (narrowed from en/vi/id/ne/zh on
-  2026-05-06; see IMP-096 in feedback/n5-audit-2026-05-04.xlsx).
-  UI labels for the chip switcher: EN | HI.
-- Existing tooling: tools/check_content_integrity.py and Playwright
-  tests under N5/.
-- Privacy contract (PRIVACY.md): no accounts, no telemetry, no
-  third-party scripts, no remote API calls during normal use, all
-  state in localStorage. Hard contract.
-
-## SCOPE: N5 ONLY
-
-In: /N5/data/, KnowledgeBank/, app code, Test mode, Progress dashboard,
-PWA shell, service worker, manifest, CSP, /N5/tools/, all N5
+In: `/N5/data/`, `KnowledgeBank/`, app code (audio playback,
+furigana, popovers, cross-links), Test mode, Progress dashboard,
+PWA shell, service worker, manifest, CSP, `/N5/tools/`, all N5
 documentation surfaces (CHANGELOG, PRIVACY, README, in-app help).
 
-Out: /N4/ (work-blocked), /N3/, /N2/, /N1/, the top-level level picker
-beyond N5 discoverability.
+Out: /N4/ (work-blocked per CLAUDE.md Rule 1), /N3/, /N2/, /N1/,
+the top-level level picker beyond N5 discoverability, **the
+Hindi locale and all Hindi-content questions** (separate prompt),
+gameplay/SRS-engine deep tuning beyond what's content-shaped.
 
-## WHAT TO AUDIT
+## RICHNESS SCORECARDS — per-surface bar (quantitative)
 
-Examine every dimension below. Missing features count. A surface that
-exists but is shallow vs best-in-class counts. A surface that exists
-and is fine but doesn't differentiate - say so plainly.
+For each surface, the audit must produce a per-entry compliance
+table against the bar below. The bar is set to **match or exceed
+the named incumbent's free tier** unless otherwise noted.
 
-**STRATEGIC POSITIONING / SALEABILITY (highest weight in this audit)**
-- Niche N1 (Hindi-medium pedagogy): for the `hi` locale, what
-  fraction of strings is translated? Just UI chrome, or also
-  rationales, common-mistakes, kanji meanings, grammar explanations,
-  reading-passage glosses, vocab `gloss_translations.hi`,
-  kanji `meanings_translations.hi`? Is the Hindi rendered in
-  Devanagari (correct) or Romanized (a quality red flag)? Are
-  translations native-Hindi-speaker-reviewed or LLM-curated and
-  unreviewed? Is the EN | HI switcher discoverable on first paint?
-  Does the app honor `Accept-Language: hi*` and default to Hindi
-  for an Indian visitor? Are L1-interference notes Hindi-specific
-  (not generic "non-English-native" platitudes)?
-- Niche N2 (privacy / no-account / offline): does the homepage / hero
-  / install prompt SAY "no login, no tracking, works offline" visibly?
-  Or does the user have to read PRIVACY.md to find out? Is there a
-  visible "install offline" affordance via the PWA install prompt?
-  Is the install-to-homescreen experience polished or default?
-- Niche N3 (institutional / self-hosted): is there a LICENSE file? Is
-  the content licensed separately and clearly? Is there a "host this
-  yourself" guide? Is there a way to brand-customize for institutional
-  use without forking? Does the bundle size make this viable for
-  low-bandwidth deploys?
-- Niche N4 (all-in-one): for each surface, is it deep enough that a
-  learner doesn't have to leave the app for that skill? Specifically:
-  is the kanji surface as deep as a dedicated kanji app? The grammar
-  surface as deep as Bunpro's free tier? The listening surface usable
-  as a standalone listening tool? Or is each surface a "minimum
-  viable" version of itself?
-- Discoverability: how does a prospective user find this app today?
-  SEO meta tags, og:image, twitter:card, structured data, GitHub repo
-  README, Show HN candidacy, app-store-style listing pages.
-- Onboarding: does a brand-new user know what to do in the first 60
-  seconds? Is there a guided "your first 10 minutes" path?
-- Trust signals: native-teacher review badge per item, source citations
-  (Genki Lesson N, JLPT-Sensei link, etc.), changelog visibility,
-  bug-report path, contributor list.
-- Honest content labeling: is "seed-quality LLM-curated" content
-  visually distinguishable from "native-reviewed" content? If
-  everything looks the same to the learner but quality varies, that's
-  a trust-erosion vector.
+### Grammar (178 patterns) — bar set above Bunpro free tier
 
-**Content correctness (cross-skill foundations)**
-- Schema integrity per item - every required field present, no
-  null/empty in fields that are user-visible.
-- Keyed-answer correctness given the stem - including verb-class /
+| Dimension | Target per pattern | Why this bar | Incumbent reference |
+|---|---|---|---|
+| Example sentences | **7** | Bunpro ships 5 — beat by 2 | Bunpro: 5 |
+| Example diversity | each example uses a different attachment surface (verb-stem / verb-te / verb-nai / na-adj / i-adj / noun / clause) AND a different topic cluster (school/home/restaurant/transport/family/weather/feelings/work) | A learner sees the pattern in real range, not 5 paraphrases | Bunpro: implicit; Genki: 2-3 per pattern |
+| Common-mistakes entry | **≥1** with concrete wrong sentence + corrected form + the why | Bunpro standard | Bunpro: 1 per pattern |
+| Contrasts cross-links | **≥1** for any disambiguation-prone pattern; mandatory list: は/が, から/ので, も/と, で/に, けど/が, 〜たことがある/〜た, 〜ている (progressive vs resultative), 〜たい/〜ほしい, 〜ましょう/〜ませんか, あげる/くれる/もらう trio | Bunpro has 1-2; this app should match | Bunpro: 1-2 per pattern |
+| Register tag | **1** per pattern: casual / polite (です・ます) / humble (謙譲) / respectful (尊敬) | Tofugu marks inline; this app codes structurally | Tofugu: prose; Bunpro: tag |
+| Source citations | **≥2** per pattern — pick from {Genki Lesson N, Minna Chapter N, JLPT Sensei URL, JLPT.jp official, Bunpro free tier} | Trust signal for serious learners | Bunpro: textbook-lesson tag |
+| Audio per example | **All 7** have audio (one render per example) | No incumbent ships audio per grammar example — this is a leadership move | None |
+| Pitch-accent annotation | ≥1 example marked with Tokyo pitch | Strong learner signal at low cost | None at scale |
+| Cultural callout | ≥1 line where Japan-specific assumptions exist (e.g., いただきます ↔ ごちそうさま, 失礼します for entering rooms) | Tofugu has it as full essays; this app at the right granularity | Tofugu: full essays |
+| Real-world authentic example | **≥1** quote per pattern from anime/manga/J-drama/song lyric/news headline/signage where the pattern appears NATURALLY at N5 level | None of the incumbents ship this systematically. Largest leverage win. | None |
+| L1-interference notes for non-EN/non-HI L1s | ≥1 generic non-English-L1 caveat where applicable | Modest; Hindi-L1 is handled in the separate Hindi prompt | None |
+
+### Vocab (1000 entries) — bar set above Jisho
+
+| Dimension | Target per word | Why this bar | Incumbent reference |
+|---|---|---|---|
+| Example sentences | **3** each (1 casual, 1 polite, 1 demonstrating dominant collocation) | Jisho: 1-3 per word; this app standardizes | Jisho: 1-3 |
+| Pitch accent | Tokyo dialect pattern (LH / HL / HLH with downstep position) | OJAD has it but is not learner-facing; embed it here | OJAD |
+| Collocations list | **≥5** per word for high-frequency content words (≥2 for function/adverb/particle) | Migaku has them via sentence-mining; this app authors directly | Migaku: derived |
+| Transitivity-pair adjacency | every transitive verb cross-linked to its intransitive partner (or `null` if none) | Genki has 14 explicit pairs; verify all present | Genki: 14 pairs |
+| Verb-class flag with exception markers | godan/ichidan/irregular + Group-1-exception flag for 入る/帰る/走る/知る/切る/要る | X-6.6 invariant exists; verify exposed in UI | None expose this systematically |
+| Counter pairing for nouns | every counted noun lists its dominant counter (本→冊, 車→台, 紙→枚, 人→人, etc.) | None of the incumbents do this well at N5 | Q41-resolved (87/589 currently) |
+| Honorific/humble register chains | every humble-pair word cross-linked: いる⇄いらっしゃる⇄おる, 食べる⇄召し上がる⇄いただく | None do this; opportunity | None |
+| Audio for all forms (dictionary + masu + nai + ta + te) | for verbs, all five forms have audio | None ship full conjugation audio | None |
+| Conjugation table inline | for verbs, the 6-cell paradigm visible on hover | Jisho has it via popover | Jisho |
+| Frequency rank | overall Japanese-corpus rank (1 = most common) | None expose this for learner prioritization | None |
+| Real-world authentic example | ≥1 word/phrase usage citation from anime/J-drama/news/menu | Migaku does it via sentence-mining; this app curates | Migaku: derived |
+
+### Kanji (106 entries) — bar set above WaniKani free tier
+
+| Dimension | Target per kanji | Why this bar | Incumbent reference |
+|---|---|---|---|
+| Mnemonic structure (3 mnemonics) | **(a)** radical-decomposition story tying components to meaning, **(b)** visual mnemonic for the glyph shape, **(c)** reading mnemonic for dominant on-yomi | WaniKani's defining advantage; this is the single largest UX gap to close | WaniKani: all 3 |
+| Radical decomposition | named sub-components (e.g., 明 = 日 sun + 月 moon → "bright") | WaniKani has all; this app currently has none | WaniKani |
+| Stroke-order rendering | KanjiVG path, animatable | already shipping per spec; verify all 106 | App-internal |
+| Stroke-order common-mistakes | for kanji with traps (田 / 力 / 必 etc.) | None at this depth | None |
+| Look-alike cluster cross-links | every confusable cluster explicitly linked: 大/犬/太, 木/本/末/未, 人/入/八, 日/目/白, 千/干/王/玉, 上/止/正, 古/占, 千/午 | None do this systematically | None |
+| Vocab cross-links inbound | **≥5** vocab entries link in via examples | WaniKani: ~10 per kanji | WaniKani |
+| Example sentences with this kanji | **≥1** N5-scope sentence | basic | All ship 1-2 |
+| Frequency rank | overall corpus rank | None expose for learners | None |
+| Recognition priority | 1/2/3 lesson-order tag (which kanji to learn first within N5) | None do this | None |
+| Audio for on/kun-yomi | every reading has audio | None ship per-yomi audio | None |
+| Etymology / kun-yomi origin | optional 1-line note where the etymology is short and pedagogical | Tofugu has full essays; this app: 1 line | Tofugu: prose |
+| Real-world signage / context | ≥1 photo or text reference (駅, 電話, 入口, 出口) where the kanji appears in real Japan | None | None |
+
+### Reading / Dokkai (40 passages) — bar above Marugoto
+
+| Dimension | Target per passage | Why this bar | Incumbent reference |
+|---|---|---|---|
+| Sentence-by-sentence grammar footnote | every sentence has a click-reveal footnote tagging the grammar pattern(s) used + N5-scope vocab list | None of the incumbents ship this for free | None |
+| Pre-reading vocab preview | structured list of words above the passage with hover-readings | Marugoto has thinner version | Marugoto |
+| Native-speaker audio | one render per passage (currently TTS) | most apps use TTS at this level | Mostly TTS |
+| Paragraph-level summary | one Japanese sentence per paragraph | None | None |
+| Literal-vs-natural English translation | both versions, side-by-side toggle | None ship both | None |
+| Cultural-context callouts | where Japan-specific assumptions exist (school clubs, holidays beyond お正月, regional foods) | None at scale | None |
+| Post-reading reflection prompts | 1-2 open-ended questions per passage for self-study | None | None |
+| Topic-cluster tag | 1 from {自己紹介, 家族, 日常, 学校, 食べ物, 買い物, 交通, 天気, 趣味, 体・病気, 時間, 仕事} | Marugoto has tags | Marugoto |
+| `format_role` discipline | primary-vs-supplementary question tagging per JA-19 | App-internal | App-internal |
+
+### Listening / Chokai (47 items) — bar above JapanesePod101 free tier
+
+| Dimension | Target per item | Why this bar | Incumbent reference |
+|---|---|---|---|
+| Timestamped transcript | word-level timestamps clickable to seek | None ship at N5 level | None |
+| Vocab glossary inline | every N5+ vocab in transcript hover-shows reading + meaning | JapanesePod101 has it for paid tier | JP101 (paid) |
+| Slow-version audio variant | 0.7× speed render alongside normal | JapanesePod101 has it for paid tier | JP101 (paid) |
+| Voice variety | ≥4 distinct voices across genders/ages | currently shipping 4 (Nanami, Keita, Aoi, Daichi) — verify continued | App-internal |
+| Discourse markers tagged | filler words あの/えー/まあ, self-corrections, intonation cues | None | None |
+| Inference-question expansions | beyond literal retrieval | None | None |
+| Ambient-context layer | low-volume background ambience for mondai 1-2 | Real exam audio has this | Official JLPT |
+| Pre-listening prompt visibility | `prompt_ja` shown BEFORE audio play (real-exam fidelity) | JLPT-official | Official JLPT |
+| Repetition policy | "play once" default in test mode; replay allowed in study mode with counter | Real-exam fidelity | Official JLPT |
+| Real-world recorded example | ≥1 short clip of the dialogue type from real-Japan podcast/news/anime where appropriate | None | None |
+
+The richness-scorecard outputs feed Section 0.5 directly. Be
+quantitative. "Below bar on row X" must produce a count, not vibes.
+
+## COMPETITOR-FEATURE PARITY MATRIX (audit must explicitly check each)
+
+For each row below, the audit must claim **✅ have it / ⚠️ partial /
+❌ missing**. ❌ items become Section-3 improvements. ⚠️ items
+become Section-2 issues with a depth direction.
+
+| # | Competitor signature feature | Why it matters | Status |
+|---|---|---|---|
+| 1 | **Bunpro: self-grading reviews with JP-keyboard input + 50% partial credit** | Forces learner to type the answer, not just recognize | ? |
+| 2 | **Bunpro: textbook-aligned grammar paths** (Genki I L1 → L2 → ...) | Bunpro's biggest stickiness; pre-built paths for new learners | ? |
+| 3 | **Bunpro: ghost reviews** (failed cards reappear sooner) | Better than vanilla SM-2 for retention | ? |
+| 4 | **Bunpro: cloze-deletion drills with multiple acceptable answers** | Forces production, not recognition | ? |
+| 5 | **Bunpro: "review forecast"** (next-7-days projected load) | Predictability for daily-routine learners | ? |
+| 6 | **WaniKani: 3-mnemonic structure per kanji** | Largest UX gap | ? |
+| 7 | **WaniKani: SRS gating** (can't see vocab until kanji is learned) | Pacing pedagogy | ? |
+| 8 | **WaniKani: production reviews** (English → Japanese typing) | Pairs with recognition reviews | ? |
+| 9 | **Tofugu: pedagogical-depth essay per pattern** | Differentiation; N5 patterns deserve at least one essay-length explainer for the trickiest ones | ? |
+| 10 | **Migaku: Anki deck export** | Audience overlap with Anki users | ? |
+| 11 | **Migaku: sentence mining from authentic media** | Real Japanese exposure | ? |
+| 12 | **JapanesePod101: story-based audio dialogue** with cultural notes | Listening richness | ? |
+| 13 | **JapanesePod101: lesson notes PDF download** | Offline study artifact | ? |
+| 14 | **Renshuu: multi-skill drill in single session** | "do all 4 skills in 15 min" | ? |
+| 15 | **Renshuu: custom user-built lists** | Learner agency | ? |
+| 16 | **Jisho: "words containing this kanji"** interconnection | Linking density | ? |
+| 17 | **Anki: open-format export** | Long-term portability | ? |
+| 18 | **Genki workbook: paper-equivalent practice** | Print-friendly | ? |
+| 19 | **JLPT Sensei: free public reference** with deep linking | SEO + bookmark-ability | ? |
+| 20 | **All competitors: per-content "discuss" / community thread** | Crowdsourced quality. NOT recommended for this app (privacy posture) — file in Anti-Items | ⛔ deliberate non-feature |
+
+## INTERCONNECTION-DENSITY CHECK (a first-class richness dimension)
+
+Content richness = per-entry depth × cross-reference density. The
+audit must produce these numbers:
+
+```
+Density-1: every grammar pattern → how many vocab entries link IN via vocab_ids? (target: ≥10 average; ≥3 floor per pattern)
+Density-2: every vocab entry → how many grammar patterns reference it? (target: ≥2 average; ≥1 floor per word)
+Density-3: every kanji → how many vocab entries use this kanji? (target: ≥5 average; ≥2 floor per kanji)
+Density-4: every kanji → how many reading passages contain this kanji? (target: ≥3 average)
+Density-5: every reading passage → how many sentences have inline grammar-footnote links? (target: 100% of sentences)
+Density-6: every listening item → vocab in transcript clickable to vocab page? (target: 100%)
+Density-7: every paper question → does it cross-link to its grammar/vocab/kanji entry on review? (target: 100%)
+Density-8: every confusable kanji cluster → all members linked to all others? (target: 100%)
+
+Aggregate metric: total cross-references / sqrt(corpus size)
+This number is the single most underrated quality metric.
+A learner-facing app where every entry is a dead-end is "shallow"
+even if each entry is itself well-authored.
+```
+
+The audit must report each density number plus the aggregate. The
+priority of fixes follows from which density has the worst gap.
+
+## AUTHENTIC-CONTENT LAYER (the "richer than incumbents" lever)
+
+NONE of the incumbents systematically attach real-world Japanese
+exposure to their N5 content. This is the single largest leverage
+opportunity for "demonstrably richer." Audit the corpus for:
+
+- **Anime / J-drama / manga citation** per ~20% of grammar
+  patterns — "this exact pattern appears in [show] episode N at
+  timestamp" with a 5-10 word quote. N5 patterns appear constantly
+  in slice-of-life anime; verify any are referenced.
+- **Real-world signage** per kanji where applicable — 駅 / 電話 /
+  入口 / 出口 / 男 / 女 / 大 (大盛り) / 中 (中華) — at least 30 of
+  the 106 N5 kanji have unambiguous real-Japan signage uses.
+- **News headline examples** for late-N5 patterns where N5 grammar
+  shows up in real journalism — 〜と言いました, 〜が, 〜ので at
+  borderline. NHK Easy News is the canonical source.
+- **Music / song lyrics** at N5 level — beginner-friendly J-pop
+  songs using N5 grammar (Kiroro, AKB48 simpler songs).
+- **Restaurant menu / price-list examples** for vocab — 牛丼,
+  すし, 寿司, 麺, 餃子 etc. — actual menu items.
+- **Convention / etiquette bridges** — どうも, すみません,
+  お疲れさまです, 失礼します, いただきます, ごちそうさま usage in
+  real workplace / restaurant / school contexts.
+
+The audit must flag what fraction of patterns / vocab / kanji
+have ≥1 authentic-content reference and where the gap is largest.
+
+## CONTENT CORRECTNESS (cross-skill foundations)
+
+These are CORRECTNESS bars; failures are BLOCKER severity.
+
+- **Schema integrity per item** — every required field present;
+  no null/empty in user-visible fields. Verified by
+  `tools/check_content_integrity.py` JA-1 through JA-41.
+- **Keyed-answer correctness** given the stem — verb-class /
   particle / counter agreement; tense and aspect coherence with
-  temporal markers (今 / 昨日 / 来週 etc.).
-- Distractor quality - every distractor has a documented wrongness
-  reason; no accidental correctness; no homophone/synonym ambiguity;
-  no two-correct-answers (JA-6 invariant); no duplicate options
-  (JA-11 invariant).
-- Stem naturalness - collocations match attested native usage; no
-  literal English-to-Japanese transfer; no overly-textbook phrasing
-  ("これは ペンです" outside of explicit copula drills).
-- Rationale accuracy and labeling using the established taxonomy
-  (strict equivalence / context-anchored paraphrase / pragmatic
-  substitution / scope exception).
-- Provenance + review_status - every content item carries a
-  `review_status` from the closed enum {native_reviewed, llm_curated,
-  auto_generated}. Items shown as exam-grade in the UI must be
-  `native_reviewed`. Items still `llm_curated` must be visibly
-  distinguished (badge, tier label, or "Pending native review" tag).
-  No seed-template literals (JA-33).
-- Source citations - where applicable, items reference the textbook /
-  reference work they're sourced from (Genki Lesson N, Minna no
-  Nihongo Chapter X, JLPT Sensei URL, JLPT.jp official sample). Trust
-  signal for serious learners.
+  temporal markers (今 / 昨日 / 来週).
+- **Distractor quality** — every distractor has a documented
+  wrongness reason; no accidental correctness; no homophone /
+  synonym ambiguity; no two-correct-answers (JA-6); no duplicate
+  options (JA-11).
+- **Stem naturalness** — collocations match attested native usage;
+  no literal English-to-Japanese transfer; no overly textbook
+  phrasing where the pattern is not a copula drill.
+- **Rationale taxonomy** — strict equivalence / context-anchored
+  paraphrase / pragmatic substitution / scope exception. Per
+  JA-29 closed enum.
+- **Provenance + review_status** — `{native_reviewed,
+  llm_curated, auto_generated}` enum; the visual badge (per
+  IMP-116) gates UI exposure at the ≥10% native-reviewed
+  threshold per surface.
+- **Source citations** — items reference the textbook / reference
+  work they're sourced from. Trust signal.
 
----
-
-**Grammar pedagogical depth (per-pattern audit)**
+## GRAMMAR PEDAGOGICAL DEPTH (per-pattern audit)
 
 The benchmark for N5 grammar is the union of:
+
   - JLPT.jp official 旧出題基準 (1994/2002, ~80-90 patterns at "level 4")
   - Genki I (Lessons 1-12, ~120 patterns)
-  - Minna no Nihongo I + II first half (~150 patterns)
+  - Minna no Nihongo I + first half of II (~150 patterns)
   - JLPT Sensei N5 list (~135 patterns)
-  - Bunpro N5 deck (currently the de-facto reference at ~140 patterns)
+  - Bunpro N5 deck (currently de-facto reference at ~140 patterns)
 
-The app currently ships **178 patterns** (per `data/grammar.json`).
-For each pattern, the audit must check:
+The app currently ships **178 patterns** — already exceeds Bunpro
+on width. Depth audit per pattern:
 
-- **Coverage and tagging.** Does the pattern appear in the JLPT.jp
-  official scope, in Genki, in Minna, in Bunpro, in JLPT Sensei?
-  Each pattern should carry a `sources` array listing which canonical
-  references include it (to support content provenance and to flag
-  patterns that are over-extended into N4+).
-- **Tier classification.** `core_n5`, `late_n5`, `n4_borderline` -
-  is the tier correct? A pattern incorrectly tagged `core_n5` when
-  it's actually N4 misleads beginners.
-- **Form rules - depth.** Does `form_rules.attaches_to` cover ALL
-  legal attachment surfaces (verb-stem, verb-te, verb-nai, verb-ta,
-  verb-plain, verb-volitional, na-adj root, na-adj root + な,
-  i-adj root, i-adj-ku form, noun, noun + の, plain clause)?
-  Does `form_rules.conjugations` include the affirmative + negative +
-  past + past-negative paradigm where applicable?
-- **Examples - count, breadth, and authenticity.** ≥3 example
-  sentences per pattern is the floor; 5-7 is best-in-class (Bunpro
-  ships 5-7 per pattern). Each example must:
-  - Use only N5 vocab + kanji (verifiable per JA-13 / JA-1).
-  - Demonstrate a different attachment surface or register from
-    the others (i.e. not 5 paraphrases of the same sentence).
-  - Include a `vocab_ids` array (JA-17) so renderers can deep-link
-    to the per-word page.
-  - Cover the most common contexts a learner will actually meet
-    (school, home, food/restaurant, weather, transport, family).
-- **Common mistakes - must be present, must be specific.** For each
-  pattern, ≥1 `common_mistakes` entry showing a wrong sentence and
-  the corrected form, with the *why*. Generic "pay attention to
-  conjugation" is not acceptable. Specific "Beginners often write
-  〜ては instead of 〜ても when the meaning is concessive ('even
-  if')" is.
-- **Contrasts - adjacent pattern disambiguation.** For confusable
-  pairs, an explicit `contrasts.with_pattern_id` cross-link with a
-  one-paragraph "use X when ... use Y when ...". The mandatory
-  contrast set at N5:
-  - は vs が (topic vs subject)
-  - から vs ので (causal - register)
-  - も vs と (additive vs comitative)
-  - で vs に (location of action vs location of existence)
-  - けど / けれど vs が (conjunctional contrast - register)
-  - 〜たことがある vs 〜た (experience vs past - temporal-marker rule)
-  - 〜ている (progressive vs resultative)
-  - て-form vs て-form + います (chained vs continuous)
-  - 〜たい vs 〜ほしい (first-person desire vs third-person)
-  - 〜ましょう vs 〜ませんか (proposal vs invitation)
-  - あげる/くれる/もらう trio (giving direction)
-- **Register and politeness.** Each pattern must be tagged with the
-  register it belongs to: `casual`, `polite (です・ます)`, `humble
-  (謙譲)`, `respectful (尊敬)`. Mixing within one example without
-  pedagogical reason is a finding.
-- **Pitch accent on examples.** Pitch accent isn't a JLPT scoring
-  criterion but is a strong learner trust signal. Items that include
-  it (or expose it via a kanji-popover) signal seriousness.
-- **L1-interference notes - Hindi (niche-N1 unlock).** For each
-  pattern, flag mistakes specifically common to Hindi-L1 learners.
-  The 9 mandatory Hindi-specific contrast areas an audit must look
-  for evidence of:
-  - **SOV word-order shared advantage.** Both Hindi and Japanese
-    are subject-object-verb. Hindi speakers transfer this directly
-    and have a structural advantage over English-L1 learners. Note
-    this as a confidence-builder per pattern, not a pitfall.
-  - **Postposition vs particle mapping.** The single most important
-    Hindi L1 note across N5 grammar:
-    - Hindi से ("from" / "by means of") splits into Japanese から
-      (source) AND で (instrument). Hindi speakers often pick the
-      wrong one.
-    - Hindi को (direct + indirect object marker) splits into
-      Japanese を (direct) AND に (indirect / direction).
-    - Hindi में ("in") usually maps to Japanese に (existence
-      location) but can map to で (action location) - context-
-      dependent. Explicit に-vs-で teaching with the
-      existence-vs-action distinction is required.
-  - **Verb agreement (gender + number).** Hindi conjugates verbs
-    for person, number, AND gender. Japanese does not. Hindi
-    speakers may unconsciously look for an agreement marker that
-    doesn't exist; teaching point: "Japanese verbs don't change
-    for who."
-  - **Tense over-marking.** Hindi has more tense forms (perfect /
-    habitual / progressive / past habitual) than Japanese, which
-    uses present/non-past + past + a few aspect markers. Hindi
-    speakers may stack aspect markers; specifically 〜ている
-    covers BOTH "is doing" and "has been doing" contexts.
-  - **Politeness mismatch (3-tier Hindi vs morphological Japanese
-    keigo).** Hindi has 3-tier pronoun politeness (तू / तुम / आप)
-    but minimal verb morphology for politeness. Japanese has
-    2-tier basic (casual / です・ます) PLUS a separate full
-    morphological honorific system (謙譲語 / 尊敬語). Teaching
-    point: Japanese keigo is verb-morphology, not vocabulary swap.
-  - **Negative formation placement.** Hindi नहीं sits before the
-    verb; Japanese ない attaches to the verb stem. Placement
-    difference, not meaning - Hindi speakers may produce
-    "verb + nahi" calques.
-  - **Question particle placement.** Hindi क्या at sentence start
-    vs Japanese か at sentence end. Hindi speakers often initially
-    omit か because rising intonation alone (which works in some
-    Hindi questions) feels sufficient.
-  - **Plural marking.** Hindi marks plurals (लोग, बच्चे). Japanese
-    mostly doesn't. Hindi speakers initially over-pluralize using
-    〜たち / 〜ら beyond the limited cases where it's natural.
-  - **Counter-word system overlap with mismatch.** Both Hindi and
-    Japanese have classifier/counter words but the systems differ
-    significantly - Hindi has fewer counters and uses them less
-    obligatorily. Hindi speakers benefit from explicit counter-
-    word drilling because the concept is familiar but the
-    inventory is unfamiliar.
-  These notes are the strongest single content lever for niche-N1
-  market positioning under the Hindi-specific framing. Absent or
-  generic L1 notes is a major finding.
+- **Coverage tagging** — each pattern carries a `sources` array
+  listing canonical references. Use this to flag patterns
+  over-extended into N4+.
+- **Tier classification** — `core_n5 / late_n5 / n4_borderline`
+  correctness. Mistagged `core_n5` for an N4 pattern misleads
+  beginners.
+- **Form-rules depth** — `form_rules.attaches_to` covers ALL
+  legal attachment surfaces (verb-stem / verb-te / verb-nai /
+  verb-ta / verb-plain / verb-volitional / na-adj root /
+  na-adj root + な / i-adj root / i-adj-ku form / noun /
+  noun + の / plain clause). `form_rules.conjugations` covers
+  affirmative + negative + past + past-negative paradigm.
+- **Examples** — see Grammar scorecard above (7 examples,
+  topic-diverse, audio per example, vocab_ids per JA-17).
+- **Common mistakes** — see scorecard.
+- **Contrasts** — see scorecard.
+- **Register and politeness** — every pattern tagged casual /
+  polite (です・ます) / humble (謙譲) / respectful (尊敬). Mixing
+  within one example without pedagogical reason is a finding.
+- **Pitch accent on examples** — at least one example marked.
+- **Authentic-content citation** — see authentic-content layer
+  above.
 
-**Vocabulary pedagogical depth (per-word audit)**
+## VOCABULARY PEDAGOGICAL DEPTH (per-word audit)
 
-The benchmark for N5 vocabulary is ~700-900 entries depending on
-source (JLPT.jp official scope ~700; Genki I ~900; Minna I+II partial
-~1200; JLPT Sensei ~700). The app currently ships **1041 entries**.
-For each entry, the audit must check:
+The benchmark for N5 vocab is ~700-900 entries depending on source.
+The app ships **1000 entries** — already exceeds Genki / Minna /
+JLPT Sensei. Depth audit per entry — see Vocab scorecard above.
 
-- **Coverage and tagging.** Does the word appear in the JLPT.jp
-  official list? In Genki? In Minna? In Tanos? Each entry should
-  carry a `sources` array. Entries not in any canonical source are
-  candidates for either `[Cul]` (cultural - useful but not exam) or
-  `[Ext]` (extended - borderline N4) or removal.
-- **Per-word fields - depth.** A serious N5 entry has:
-  - `form` - the word as written (kanji + okurigana, or kana-only).
-  - `reading` - kana reading (essential).
-  - `pitch_accent` - Tokyo dialect pitch pattern (e.g. 「LH」 for
-    flat-rising, with downstep position). Currently absent? That's
-    a niche-N1 unlock for serious learners.
-  - `pos` - part of speech, sub-classified:
-    - Verbs: godan / ichidan / irregular (来る / する).
-    - i-adj vs na-adj (a frequent learner confusion).
-    - Transitivity: transitive (他動詞) / intransitive (自動詞).
-    - Counter class for nouns that take counters (本 takes さつ,
-      cars take 台, etc.).
-  - `gloss` - English meaning(s) ranked by frequency.
-  - `gloss_translations.hi` - Devanagari Hindi translation of the
-    English gloss. Currently absent on most/all entries? That is
-    THE primary niche-N1 gap and the largest single depth-deficit
-    in the corpus (1041 entries × 1 missing locale = 1041 deficit
-    rows). Expected coverage target: 100% en, ≥ 95% hi.
-  - ≥2 example sentences per word, each using only N5 scope.
-  - `collocations` - common companion words. E.g. for 雨 (rain):
-    雨が降る、雨が止む、雨に濡れる、雨宿り.
-  - `register` tag where applicable - humble (拝見), respectful
-    (ご覧になる), formal (本日 vs 今日), casual (〜じゃん).
-- **Transitivity pair adjacency.** Every transitive verb must be
-  cross-linked to its intransitive partner where one exists. The
-  audit must verify the canonical N5 pairs:
-  - 開ける / 開く, 閉める / 閉まる, 入れる / 入る, 出す / 出る,
-    始める / 始まる, 止める / 止まる, つける / つく, 消す / 消える,
-    起こす / 起きる, 落とす / 落ちる, 直す / 直る, 切る / 切れる.
-  Mirror-pair adjacency in the catalog and explicit "see also" links
-  in the per-word page.
-- **Verb-class flag exceptions.** The Group-1-exception verbs
-  (X-6.6 invariant) - verbs that LOOK like Group-2 but conjugate as
-  Group-1 - must each carry the explicit "Group 1 exception"
-  annotation:
-  - 入る (はいる), 帰る (かえる), 走る (はしる), 知る (しる),
-    切る (きる), 要る (いる).
-- **Counter-noun pairing.** Nouns that take a specific counter must
-  list it. 本 → 冊, cars → 台, animals → 匹, flat objects → 枚, etc.
-- **Honorific / humble register chains.** N5 has a small set:
-  いる⇄いらっしゃる⇄おる, 食べる⇄召し上がる⇄いただく,
-  見る⇄ご覧になる⇄拝見する, etc. These should be cross-linked
-  in both directions.
-- **False-friend flags (Hindi-specific framing).** Hindi speakers
-  do NOT share kanji with Japanese, so the legacy
-  shared-script false-friend trap (the way Mandarin learners
-  conflate 勉強 with 勉强) is largely absent for the Hindi-L1
-  audience. The dominant false-friend risk for Hindi speakers
-  is structural / phonological, not lexical:
-  - Phonological collisions (a small set): Japanese サ-syllabary
-    words occasionally collide with Sanskrit-origin Hindi
-    vocabulary in surface phonology but not meaning. Audit
-    should flag any genuinely confusable pair if it emerges,
-    not invent ones.
-  - **Kanji-cognate notes for learners with prior Chinese
-    exposure** - keep these as cross-cutting English-language
-    pedagogical notes (helpful for Indian learners with prior
-    business-Chinese or anime-Chinese exposure, and for English-
-    L1 learners generally), NOT as Hindi-locale-specific
-    `gloss_translations.hi` content:
-    - 勉強 (study) ≠ Chinese 勉强 (reluctantly)
-    - 大丈夫 (OK) - literal kanji-only reading suggests "big
-      husband", which is wrong; the idiom means "OK / fine"
-    - 手紙 (letter) ≠ Chinese 手纸 (toilet paper)
-    - 娘 (daughter) ≠ Chinese 娘 (mother)
-  These appear in English-language explanatory notes; they are
-  NOT translated into Hindi as locale-specific content.
+Specific structural checks:
 
-**Kanji study surface (deep audit)**
+- **Transitivity-pair adjacency** — every transitive verb
+  cross-linked to its intransitive partner; canonical N5 pairs:
+  - 開ける/開く, 閉める/閉まる, 入れる/入る, 出す/出る,
+    始める/始まる, 止める/止まる, つける/つく, 消す/消える,
+    起こす/起きる, 落とす/落ちる, 直す/直る, 切る/切れる
+- **Verb-class exception flags** (X-6.6) — Group-1 verbs that
+  LOOK Group-2 must each carry the `group_1_exception: true`
+  annotation: 入る (はいる), 帰る (かえる), 走る (はしる), 知る
+  (しる), 切る (きる), 要る (いる).
+- **Counter pairing** — nouns that take a specific counter list
+  it: 本→冊, cars→台, animals→匹, flat objects→枚, people→人,
+  pencils/long-thin→本, etc.
+- **Honorific / humble register chains** at N5: いる⇄いらっしゃる
+  ⇄おる, 食べる⇄召し上がる⇄いただく, 見る⇄ご覧になる⇄拝見する,
+  言う⇄おっしゃる⇄申す, 行く・来る⇄いらっしゃる⇄参る. Cross-link
+  bidirectionally.
+- **Kanji-cognate notes for learners with prior Chinese
+  exposure** — any L1 learner with prior business-Chinese,
+  travel-Chinese, or anime-Chinese exposure trips on these:
+  - 勉強 (study) ≠ Chinese 勉强 (reluctantly)
+  - 大丈夫 (OK) — literal kanji suggests "big husband"
+  - 手紙 (letter) ≠ Chinese 手纸 (toilet paper)
+  - 娘 (daughter) ≠ Chinese 娘 (mother)
+  Surface as English-language pedagogical notes on the kanji /
+  vocab page; not as locale-specific content.
 
-The benchmark for N5 kanji is the canonical 100-103 set per JLPT.jp
-旧出題基準. The app currently ships **106 kanji** (per
-`data/kanji.json` - slightly augmented per pragmatic textbook
-coverage). For each kanji, the audit must check:
+## KANJI PEDAGOGICAL DEPTH (per-kanji audit)
 
-- **Coverage.** Are all 100 official + the 6 pragmatic-extension
-  kanji (per `PRAGMATIC_N5_AUGMENTATION` in
-  `tools/check_content_integrity.py`) present? Are any non-N5 kanji
-  present in user-facing data outside documented exceptions
-  (JA-13)?
-- **Per-kanji metadata - completeness.** Each entry must have:
-  - `glyph` - the kanji.
-  - `meanings` - English glosses, ≥2.
-  - `meanings_translations.hi` - Devanagari Hindi translations
-    of every English meaning (niche-N1 unlock; currently absent
-    on most/all 106 entries is the second-largest depth-deficit
-    after vocab gloss-translations). Expected coverage target:
-    100% en, ≥ 95% hi.
-  - `on_yomi` - all on-readings, frequency-ordered.
-  - `kun_yomi` - all kun-readings, frequency-ordered, with
-    okurigana cuts shown (e.g. 食(べる)).
-  - `primary_reading` + `primary_kind` - which reading the learner
-    should learn first; for i-adjective kanji like 高 / 安 / 白
-    the primary should be the kun-yomi (JA-24 invariant).
-  - `stroke_count` - integer.
-  - `stroke_order_svg` - KanjiVG path, animatable.
-  - `radical` - the radical(s); essential for mnemonics.
-  - `radical_decomposition` - sub-component breakdown
-    (e.g. 明 = 日 + 月). Currently absent? Major UX gap vs
-    WaniKani.
-  - `frequency_rank` - overall Japanese-corpus frequency
-    (1 = most common; useful for learner prioritization).
-  - `recognition_priority` - 1/2/3 for which kanji to learn
-    first within N5 (lesson order or first-Genki-appearance).
-  - ≥2 example vocab linked back via `examples` array, each
-    referencing an actual `data/vocab.json` entry.
-  - ≥1 N5-scope example sentence demonstrating the kanji in
-    context.
-- **Mnemonic / radical decomposition.** WaniKani's defining
-  advantage is its radical-based mnemonics ("the eye 目 sees the
-  tree 木 - 相 'mutual'"). The app currently has none. This is the
-  single largest UX gap vs WaniKani for the kanji surface.
-  Even minimal radical decomposition (1-2 sentences per kanji) is
-  better than nothing. Could be sourced from KanjiVG decomposition
-  + LLM-curated, then native-reviewed.
-- **Confusable kanji clusters.** The audit must verify that
-  visually-confusable N5 kanji are explicitly linked to each other
-  with a "compare" callout:
-  - 大 / 犬 / 太 (the dot moves)
-  - 木 / 本 / 末 / 未 (line position)
-  - 人 / 入 / 八 (radical similarity)
-  - 日 / 目 / 白 (rectangle variations)
-  - 千 / 干 / 王 / 玉 (vertical bar)
-  - 上 / 止 / 正 (cross-bar position)
-  - 古 / 占 (stroke count)
-  - 千 / 午 (top stroke direction)
-  Without these explicit cross-links, learners conflate them.
-- **Stroke-order common mistakes.** A small set of N5 kanji have
-  textbook stroke-order traps (e.g. the order of horizontal vs
-  vertical strokes in 田, the direction in 力, the order in 必).
-  Surfacing these as warnings is a content-depth lever.
-- **Search / filter - power-user features.** By: reading
-  (kana-prefix and kana-substring), meaning (English-substring),
-  stroke count (range), radical, frequency rank, recognition
-  priority, presence in user's `knownKanji` set.
-- **Audio coverage consistency.** Each example sentence's audio
-  exists in `audio/...`. Each on/kun-yomi reading should also have
-  audio (or be derivable from the example audio).
+The benchmark is the canonical 100-103 set per JLPT.jp 旧出題基準.
+The app ships **106** (slightly augmented per
+`PRAGMATIC_N5_AUGMENTATION` in
+`tools/check_content_integrity.py`). Depth audit per kanji — see
+Kanji scorecard above.
 
----
+Specific structural checks:
 
-**Reading / Dokkai pedagogical depth (N5-specific)**
+- **Per-kanji metadata completeness** — every entry has glyph,
+  meanings, on_yomi, kun_yomi (with okurigana cuts), primary_reading
+  + primary_kind, stroke_count, stroke_order_svg, radical,
+  radical_decomposition, frequency_rank, recognition_priority,
+  ≥2 example vocab links, ≥1 example sentence.
+- **Mnemonic structure** — see WaniKani-style 3-mnemonic per
+  scorecard. Largest UX gap; highest leverage.
+- **Confusable clusters** — every cluster member linked to all
+  others (Density-8 above): 大/犬/太, 木/本/末/未, 人/入/八,
+  日/目/白, 千/干/王/玉, 上/止/正, 古/占, 千/午.
+- **Stroke-order common-mistakes** — for kanji with traps (田 /
+  力 / 必 horizontal-vs-vertical order), surface as warnings.
+- **Audio coverage** — each example sentence has audio; each
+  on/kun reading has audio (or is derivable from example audio).
 
-The official JLPT N5 dokkai paper is structured as:
+## READING / DOKKAI PEDAGOGICAL DEPTH (per-passage audit)
+
+The official JLPT N5 dokkai paper structure:
+
 - **Mondai 4 (内容理解 - 短文)**: 100-200-character passages,
   3 questions across 3 passages = 9 questions.
 - **Mondai 5 (内容理解 - 中文)**: 250-300-character passages,
   2 questions across 1-2 passages = 4 questions.
-- **Mondai 6 (情報検索)**: Information search - timetable, poster,
-  notice - 2 questions.
+- **Mondai 6 (情報検索)**: information search — timetable, poster,
+  notice — 2 questions.
 
-The app currently ships **40 reading passages**. For each, audit:
+The app ships **40 passages**. Depth audit per passage — see
+Reading scorecard above. Plus:
 
-- **Mondai-type tagging.** Each passage carries `mondai` ∈ {4, 5, 6}
-  and `format_type` from a closed enum (per JA-29). Imbalance -
-  e.g. 38 short passages and 2 mondai-6 - is a coverage gap.
-- **Length match.** Mondai-4 passages 100-200 chars (kana-counted);
-  mondai-5 passages 250-300 chars; mondai-6 passages structured as
-  schedule/poster/notice with the question testing locate-the-fact
-  rather than meaning.
-- **Scope discipline.** Every kanji in the passage either in the N5
-  whitelist (106 kanji) or in `data/dokkai_kanji_exception.json`
-  (which must list a *reason*, e.g. "place name 京都" or "common
-  signage 駅"). JA-28 enforces.
-- **Topic variety - mandatory matrix.** The N5 corpus must cover
-  the standard learner-life topic set:
-  - Self-introduction (自己紹介)
-  - Family / household (家族)
-  - Daily routine (日常)
-  - School / studying (学校・勉強)
-  - Food / restaurant (食べ物・レストラン)
-  - Shopping (買い物)
-  - Transport / travel (交通・旅行)
-  - Weather (天気)
-  - Hobbies / leisure (趣味)
-  - Health / body (体・病気)
-  - Time / calendar (時間・カレンダー)
-  - Work / occupation (仕事 - light at N5)
-  Coverage thinner than 30 of 40 across these is a finding.
-- **Question types - within passage.** For each passage, questions
-  must mix:
-  - Direct fact retrieval (passage explicitly states it).
-  - Inference (light - "what does the writer plan to do tomorrow?").
-  - Vocabulary-in-context (a word's meaning given context).
-- **Choices kanji subset of passage (JA-20).** Every kanji in the
-  4 choice options must appear somewhere in the passage. Otherwise
-  the distractor can be eliminated without comprehension.
-- **Cultural neutrality / avoidance.** Passages should avoid
-  Japan-only cultural assumptions for non-Japanese-domiciled
-  learners: no assumed familiarity with school clubs, regional
-  cuisines, holiday names beyond the most common (お正月, クリスマス).
-- **Accessibility of audio.** Every passage has a TTS audio file
-  for listening-while-reading practice (711 MP3s; verify coverage).
+- **Mondai-type tagging** (JA-29) — every passage carries
+  `mondai ∈ {4, 5, 6}` and `format_type` from a closed enum.
+  Imbalance (e.g., 38 short, 2 mondai-6) is a finding.
+- **Length match** — character counts within mondai-specific
+  ranges.
+- **Scope discipline** — every kanji either in N5 whitelist
+  (106) or in `data/dokkai_kanji_exception.json` with reason
+  field. JA-28.
+- **Topic variety matrix** — coverage across the standard 12
+  learner-life topic clusters (per Reading scorecard).
+- **Question-type variety per passage** — direct-fact retrieval +
+  light inference + vocabulary-in-context.
+- **Choices-kanji-subset constraint (JA-20)** — every kanji in
+  the 4 choices must appear somewhere in the passage.
+- **Cultural-neutrality** for non-Japan-domiciled learners.
+- **Audio coverage** — every passage has an audio render.
 
-**Listening / Chokai pedagogical depth (N5-specific)**
+## LISTENING / CHOKAI PEDAGOGICAL DEPTH (per-item audit)
 
-The official JLPT N5 chokai paper is structured as:
-- **Mondai 1 (課題理解)**: "What does the speaker do next?" - 7
-  items, ~30-40 sec each, conversation followed by "What will the
-  woman do?".
-- **Mondai 2 (ポイント理解)**: "What is the speaker's point?" - 6
-  items, longer setup, focus on the *reason* or the *one detail*.
-- **Mondai 3 (発話表現)**: Picture-based; given a picture, pick
-  what to *say* - 5 items.
-- **Mondai 4 (即時応答)**: One-line stimulus; pick the right
-  response - 6 items.
+The official JLPT N5 chokai paper structure:
 
-Total: 24 items, 30 minutes. The app currently ships **40 listening
-items**. Audit:
+- **Mondai 1 (課題理解)**: 7 items, ~30-40 sec each, "what does
+  the speaker do next?".
+- **Mondai 2 (ポイント理解)**: 6 items, longer setup, focus on
+  reason or one detail.
+- **Mondai 3 (発話表現)**: 5 items, picture-based.
+- **Mondai 4 (即時応答)**: 6 items, one-line stimulus.
 
-- **Mondai-type tagging.** Each item carries `mondai` ∈ {1,2,3,4}
-  and `format_type` from a closed enum. ISSUE-016 closed this in
-  v1.12.30. Verify every item has both fields and the enum is
-  closed (no `null`, no free-text).
-- **Per-mondai count.** Mondai 1: ≥7 items. Mondai 2: ≥6.
-  Mondai 3: ≥5. Mondai 4: ≥6. Items beyond the floor are bonus.
-  Imbalance is a finding (round-3 audit found mondai-4 = 0).
-- **Voice variety - gendered + age.** A 24-item exam exposes
-  learners to ≥4 distinct voices (typically 2 female + 2 male,
-  spanning at least 2 age groups). Single-voice gtts is a
-  major gap. VOICEVOX free tier (multiple speakers, fully offline-
-  generable at build time) is the upgrade path.
-- **Pacing match.** Official JLPT N5 chokai is roughly 200-220
-  morae/minute (slower than native conversation, faster than
-  beginner classroom). Audio rendered at gtts default may be
-  too fast or too even. Random sampling + native-listener review
-  required.
-- **Background ambience.** Real exam audio includes occasional
-  ambient context (train station hum, classroom murmur). Pure
-  TTS-only audio sounds artificial. Adding low-volume ambience
-  to mondai-1 and mondai-2 audio is a polish lever.
-- **Script naturalness.** Listening scripts often contain
-  fillers (あの、えー、まあ), self-corrections, false starts -
-  these mark a script as authentic. Pure-textbook scripts read
-  too clean.
-- **Pre-listening preview.** Each item should have a `prompt_ja`
-  shown *before* the audio (matching the official exam, where
-  the question is read aloud before the dialogue).
-- **Choices kanji subset constraint.** Same as dokkai (JA-20):
-  the four choices' kanji must be subset of the script's kanji.
-- **Repetition policy.** Real exam plays each audio once. The
-  app should default to "play once" but allow on-demand replay
-  in self-study mode (with a per-item replay counter for the
-  progress dashboard - reveals where the learner struggles).
+Total: 24 items, 30 minutes. The app ships **47 items**. Depth
+audit per item — see Listening scorecard above. Plus:
 
-**Mock test (full-paper) authenticity (N5-specific)**
+- **Mondai-type tagging** (JA-33) — every item has
+  `mondai ∈ {1,2,3,4}` and `format_type` from a closed enum.
+- **Per-mondai count** — Mondai 1: ≥7. Mondai 2: ≥6. Mondai 3:
+  ≥5. Mondai 4: ≥6.
+- **Voice variety** — ≥4 distinct voices across genders / ages.
+  Currently shipping 4 (Nanami / Keita / Aoi / Daichi) per
+  cycle-1 audit. Verify continued.
+- **Pacing match** — official JLPT N5 chokai is ~200-220
+  morae/min. Random sampling + native-listener review required
+  for any drift.
+- **Background ambience** for mondai 1-2 (real-exam fidelity).
+- **Script naturalness** — fillers (あの / えー / まあ),
+  self-corrections, false starts. Pure-textbook scripts read too
+  clean.
+- **Pre-listening preview** — `prompt_ja` shown before audio.
+- **Choices-kanji-subset constraint** — same as dokkai (JA-20).
+- **Repetition policy** — "play once" in test mode; replay in
+  study mode with counter.
+
+## MOCK-TEST AUTHENTICITY (per-paper audit)
 
 Real JLPT N5 paper structure:
 
@@ -599,541 +483,359 @@ Real JLPT N5 paper structure:
 | 言語知識（文法）・読解 | 50 min | 32 | M1 文の文法 1 (16) / M2 文の文法 2 (5) / M3 文章の文法 (5) / M4 短文 (3) / M5 中文 (2) / M6 情報検索 (1) |
 | 聴解 | 30 min | 24 | M1 課題理解 (7) / M2 ポイント (6) / M3 発話表現 (5) / M4 即時応答 (6) |
 
-Pass mark: 80/180 total, with per-section minimums (38 / 19 / 19).
+Pass mark: 80 / 180 total, with per-section minimums (38 / 19 / 19).
 
-The app currently ships **28 mock-test papers** (402 paper-bound
-questions). Audit:
+App ships **28 papers, 402 paper-bound questions, plus the cycle-9
+virtual aggregator (full_mock_papers + combined_sections)**. Audit:
 
-- **Per-paper structure match.** Does each paper replicate the
-  three-section, sub-mondai-tagged structure above? Or are papers
-  flat 15-question sets that don't mirror the real exam?
-- **Timing.** When the paper is launched in test mode, is the
-  timer set to the official 25 / 50 / 30-minute splits, or to a
-  generic single-timer?
-- **Per-section minimums.** Does the scoring engine surface the
-  per-section minimum-pass requirement (38/19/19), or only the
-  total?
-- **Score breakdown.** End-of-paper results should show: per-
-  mondai correct/total, weighted score per section, total /180,
-  pass/fail per section (not just total).
-- **Question-type weighting in paper-builder.** When
-  `tools/build_papers.py` slices questions into papers, does it
-  weight each mondai per the official distribution? Or are
-  questions distributed evenly?
-- **Distractor quality at exam standard.** Distractors that a
-  real JLPT N5 paper would NEVER use (e.g. obviously-wrong choices,
-  N1-level kanji as distractors, non-existent verb forms) downgrade
-  the paper's perceived authenticity.
-- **Audio handling in 聴解.** In test mode, listening items must
-  play exactly once with no replay control (real-exam fidelity);
-  practice mode allows replay. The engine must enforce this.
+- **Per-paper structure match** — does each paper replicate the
+  three-section sub-mondai-tagged structure? Or are papers flat
+  15-question sets?
+- **Timing** — test-mode timer set to official 25 / 50 / 30 splits?
+- **Per-section minimums surfaced** — scoring engine shows
+  38/19/19 minima, not just total?
+- **Score breakdown** — end-of-paper results show per-mondai
+  correct/total, weighted score per section, total/180,
+  pass/fail per section.
+- **Distractor quality at exam standard** — distractors a real
+  JLPT N5 paper would NEVER use (obviously-wrong choices, N1+
+  kanji as distractors, non-existent verb forms) downgrade
+  perceived authenticity.
+- **Audio handling in 聴解** — test mode plays exactly once with
+  no replay; practice mode allows replay.
 
----
+## N5 SCOPE DISCIPLINE (cross-skill enforcement)
 
-**N5 scope discipline (cross-skill enforcement)**
+- **Kanji-whitelist compliance** — stems and keyed answers use
+  only the 106-kanji whitelist. Distractor exception per JA-13.
+- **Vocabulary-list compliance** — keyed answers use only the
+  N5 vocab list.
+- **Grammar N5-only in stems** — flag N4+ leakage:
+  - Potential form 〜られる outside the borderline 〜ことができる
+    paraphrase
+  - ので outside late-N5 register-contrast pages
+  - 〜たことがある with specific time markers
+  - Te-form chains > 2 verbs
+  - Causative / passive / causative-passive
+  - Conditional 〜たら / 〜ば where 〜と is natural at N5
+- **Listening scope** — scripts use N5 vocab + grammar only;
+  pace matches official N5.
 
-- **Kanji whitelist compliance.** Stems and keyed answers use only
-  the 106-kanji whitelist. Distractor exception is documented (per
-  JA-13). All exceptions must appear in the augmented N5 set
-  (`PRAGMATIC_N5_AUGMENTATION` in
-  `tools/check_content_integrity.py`).
-- **Vocabulary list compliance.** Keyed answers use only the N5
-  vocab list. Slot-fill stems may use slightly extended vocab if
-  documented.
-- **Grammar N5-only in stems.** Flag any of these as N4+ leakage
-  in N5 stems (not just questions, but ALL learner-target text):
-  - Potential form (〜られる) outside the N5-borderline
-    `〜ことができる` paraphrase.
-  - ので outside specific late-N5 register-contrast pages.
-  - 〜たことがある with specific time markers ("yesterday I have
-    eaten" - ungrammatical).
-  - Te-form chains of more than 2 verbs.
-  - Causative (〜させる), passive (〜られる), causative-passive
-    (〜させられる).
-  - Conditional 〜たら / 〜ば in places where 〜と would be natural
-    at N5.
-- **Listening scope.** Scripts use N5 vocab + grammar only. Pace
-  matches official N5 (slower than native conversation).
-- **Reading scope.** Per JA-28 + the dokkai kanji exception list.
+## CORPUS STRUCTURAL PROPERTIES
 
-**Corpus structural properties**
-
-- **Answer-position distribution.** Per corpus, the correct-answer
-  position should be balanced 25/25/25/25 ±2 across positions 1-4.
-  Drift indicates either lazy authoring (always answer-3 syndrome)
-  or builder bias (papers slicing in fixed positions).
-- **Sub-section balance.** Within a corpus (e.g. moji), the
-  per-mondai sub-counts should match the JLPT-official ratios.
-- **Duplicate stems.** No stem (after stripping HTML / format /
-  punctuation) appears in more than one item (JA-7 invariant).
-- **Duplicate target words.** If 5 questions all test 食べる, the
+- **Answer-position distribution** — correct-answer position
+  balanced 25/25/25/25 ±2 across positions 1-4 (JA-36).
+- **Sub-section balance** — within a corpus, per-mondai sub-counts
+  match JLPT-official ratios.
+- **Duplicate stems** — no stem (after stripping HTML / format /
+  punctuation) appears in >1 item (JA-7).
+- **Duplicate target words** — if 5 questions all test 食べる,
   distinct-vocab coverage is poor.
-- **Near-identical choice sets.** Different stems with the same
-  4-option choice set is suspicious - usually a copy-paste bug.
-- **Mirror-pair adjacency.** Vocab pages for transitive/intransitive
-  pairs should sit adjacent. Same for honorific/plain pairs.
-- **Coverage breadth.** Every N5 kanji (106) appears in at least
-  one example sentence and at least one question. Same for
-  every vocab cluster (1041 entries) and every grammar pattern
-  (178). A "ghost" item - present in catalog but never tested -
-  is a coverage gap.
+- **Near-identical choice sets** — different stems with the same
+  4-option choice set (usually a copy-paste bug).
+- **Coverage breadth** — every N5 kanji (106), every vocab
+  cluster (1000), every grammar pattern (178) appears in ≥1
+  example sentence and ≥1 question. Ghost items (in catalog but
+  never tested) are coverage gaps.
 
-**L1-interference and learner-language coverage (Hindi-focused)**
+## APP CORRECTNESS
 
-This dimension is the strongest single content lever for niche-N1
-(native-Hindi-medium JLPT prep).
-
-The single target L1 is **Hindi**. Audit:
-
-- **Locale completeness - content surfaces.** Beyond UI chrome,
-  what fraction of grammar `meaning_en`, vocab `gloss` →
-  `gloss_translations.hi`, kanji `meanings` →
-  `meanings_translations.hi`, common-mistakes `wrong/right/why`
-  blurbs, reading `explanation_en`, listening `explanation_en`
-  are translated to Devanagari Hindi? Today the post-transition
-  baseline is approximately 100% en + 0-X% hi (X depends on the
-  Phase 1 seed translation pass; verify by reading the actual
-  hi.json + per-entry `*_translations.hi` populations). Moving
-  hi coverage to ≥80% on every content surface is THE niche-N1
-  outcome.
-- **L1-interference content presence (Hindi-specific notes).**
-  For each grammar pattern, is there a Hindi-L1 note covering
-  the relevant subset of:
-  - Postposition→particle mapping (से→から/で, को→を/に, में→に/で)
-  - Verb-agreement transfer (Hindi gender/number → none in JP)
-  - Tense over-marking (Hindi multi-tense → JP non-past/past)
-  - Politeness mismatch (3-tier Hindi pronoun → JP morphological
-    keigo)
-  - Negative-formation placement (नहीं at start vs ない attached)
-  - Question-particle position (क्या first vs か last)
-  - Plural marking (Hindi marks vs JP usually doesn't)
-  - Counter-system overlap (familiar concept, unfamiliar inventory)
-  - SOV order shared advantage (note as confidence builder)
-  Patterns where these contrasts apply MUST carry the Hindi note.
-  Patterns where the contrast does not apply may omit. Generic
-  "non-English speakers benefit from..." text is a finding -
-  Hindi notes must be Hindi-specific.
-- **Kanji-cognate awareness (cross-cutting English-language note).**
-  Hindi has no shared script with kanji, so the Mandarin-style
-  shared-glyph cognate trap does not apply to a Hindi-L1 learner.
-  HOWEVER: a non-trivial fraction of the Indian learner audience
-  has prior Mandarin exposure (business Chinese, anime/manga
-  vocabulary picked up via Chinese fan-subs). For those learners,
-  the same false-friend warnings (勉強 ≠ 勉强, 大丈夫, 手紙 ≠ 手纸,
-  娘) apply - surface them as English-language pedagogical notes
-  on the kanji's English meaning panel, NOT as
-  `meanings_translations.hi` content.
-- **Romanization conventions.** When a vocab entry is shown to a
-  learner who hasn't yet learned the kana for it, the fallback
-  romanization must be consistent across both en and hi locales:
-  - **Hepburn romanization** is the project standard. This is
-    the convention most Japanese-language textbooks worldwide
-    use, including Indian university Japanese-language courses
-    and Yoisho Academy.
-  - Devanagari transliteration of Japanese is NOT used. The
-    Hindi locale displays Hepburn romaji for the romanized
-    fallback, and Devanagari Hindi only for the gloss/meaning.
-    This keeps the audit invariant simple.
-  Verify the convention is consistent across the app.
-- **Native-speaker review of Hindi content.** Hindi translations
-  and L1-interference notes should be reviewed by a native Hindi
-  speaker (not just LLM-curated). Today's post-Phase-1 baseline
-  of the locale transition is ~100% `review_status: llm_curated`
-  on Hindi content. Flag every Hindi-locale entry as
-  `review_status: llm_curated` until a native-review pass
-  completes. The native-review pipeline cost / sourcing /
-  schedule is an open question (see Section 6).
-
-**App correctness**
 - Bugs and broken behavior in any N5 surface.
-- Answer-checking edge cases (whitespace, full vs half-width, kana
-  conversion, romaji input, accents).
+- Answer-checking edge cases (whitespace, full-width vs half-width,
+  kana conversion, romaji input).
 - Progress / scoring accuracy across reloads and offline.
-- Review-queue / SRS correctness if present (or absence as gap).
+- Review-queue / SRS correctness (or absence as a gap).
 - Test mode: full paper, timing, scoring matches official JLPT N5
   weighting, results breakdown, pass-mark display.
 
-**SRS / spaced repetition**
-- Algorithm: SM-2, Leitner, FSRS-4.5? Modern field has moved to
-  FSRS-4.5 (Anki, RemNote). Is the algorithm documented?
-- Daily-review queue: separate from "study new" flow?
-- Forgotten-item handling, lapse-grading, retention-target tuning.
-- Cross-skill review (one queue across grammar + vocab + kanji vs
-  per-skill silos).
+## SRS / SPACED REPETITION
 
-**Audio quality**
-- Voice provider (gtts synthesized vs higher-quality alternatives like
-  VOICEVOX free-tier, Coqui XTTS, Piper, ElevenLabs free, native
-  recordings).
+- Algorithm — SM-2, Leitner, FSRS-4.5? Modern field has moved to
+  FSRS-4.5 (Anki, RemNote). Is the algorithm documented?
+- Daily-review queue separate from "study new" flow?
+- Forgotten-item handling, lapse-grading, retention-target tuning.
+- Cross-skill review (one queue across grammar + vocab + kanji
+  vs per-skill silos).
+
+## AUDIO QUALITY
+
+- Voice provider (gtts vs VOICEVOX free tier vs Coqui XTTS vs
+  Piper vs ElevenLabs free vs native recordings).
 - Per-item playback controls (speed, replay, segment loop).
-- Listening passage variety (single voice vs dialogue, gendered
-  voices, regional accents).
+- Listening passage variety (single voice vs dialogue, gendered,
+  regional accents).
 - Naturalness vs JapanesePod101's professional voice talent.
 
-**PWA and infra**
-- Service worker scope and cache strategy (assets vs JSON,
-  invalidation).
+## PWA + INFRA
+
+- Service worker scope and cache strategy.
 - Update flow on new deploy without losing progress.
 - Offline behavior across all surfaces; audio caching.
-- manifest.webmanifest correctness, including shortcuts, share_target.
-- CSP same-origin enforcement; no new external dependencies.
-- localStorage namespace consistency (README says `n5.*`, PRIVACY
-  says `jlpt-n5-tutor:*` - known drift; verify and surface).
-- Privacy posture verification - Network tab shows only same-origin.
-- Install-to-homescreen UX: is the install prompt timed well? Does
-  the installed app launch full-screen?
-- Trusted Web Activity / Capacitor / Tauri viability for native-app-
-  store distribution without rewriting (relevant for niche N4).
+- `manifest.webmanifest` correctness (shortcuts, share_target).
+- CSP same-origin enforcement.
+- localStorage namespace consistency.
+- Privacy-posture verification — Network tab shows only same-origin.
+- Install-to-homescreen UX.
+- Trusted Web Activity / Capacitor / Tauri viability for
+  native-app-store distribution (relevant to N3 niche).
 
-**Performance**
-- Initial load and time to interactive on mid-tier mobile.
+## PERFORMANCE
+
+- Initial load + time to interactive on mid-tier mobile.
 - JSON corpus chunking / lazy loading.
 - Service worker cache size bounded.
 - Navigation smoothness, list rendering on long content.
 - Bundle weight on first-paint vs lazy loads.
 
-**UX**
-- Friction vs best-in-class N5 prep apps: review modes, wrong-answer
-  history, hints, post-submit explanations, undo/back, keyboard
-  shortcuts (desktop), tap targets (mobile).
+## UX
+
+- Friction vs best-in-class N5 prep apps: review modes,
+  wrong-answer history, hints, post-submit explanations,
+  undo/back, keyboard shortcuts (desktop), tap targets (mobile).
 - Furigana toggle present, working, persistent.
 - Audio controls: speed, replay, segment navigation.
-- Test mode realism vs official JLPT format.
-- Progress dashboard actionability - not raw counts; concrete next
-  actions, weak-area drills.
-- Accessibility: keyboard nav, screen reader labels, contrast, font
-  sizing, reduced-motion respect, skip-link, ARIA roles.
-- Mobile-first responsive layout, ≥44px tap targets, no horizontal
-  scroll, safe-area insets.
-- Dark mode parity.
-- Micro-copy: is the voice consistent? Encouraging without being
-  Duolingo-cute? No marketing fluff? No "We" / "Our" first-person
-  marketing voice on a privacy-respecting app?
+- Test-mode realism vs official JLPT format.
+- Progress dashboard actionability — concrete next actions,
+  weak-area drills, not raw counts.
+- Accessibility: keyboard nav, screen-reader labels, contrast,
+  font sizing, reduced-motion respect, skip-link, ARIA roles.
+- Mobile-first responsive layout, ≥44px tap targets, no
+  horizontal scroll, safe-area insets.
+- Dark-mode parity.
+- Micro-copy: voice consistency, no marketing fluff, no
+  Duolingo-cute, no first-person "We" / "Our" on a privacy app.
 
-**Internationalization (highest weight for niche N1)**
-- The locale set is a closed two-element set: `{en, hi}`. Audit
-  must verify the codebase enforces this (no accidental fallback
-  to deprecated vi/id/ne/zh anywhere).
-- Translation completeness for `hi`: ratio of translated strings
-  to English fallbacks. Target ≥ 95% of UI chrome, ≥ 80% on
-  content surfaces (rationales, common-mistakes, glosses,
-  reading-passage summaries).
-- Translation quality for `hi`: LLM-curated, native-reviewed, or
-  user-contributed? Today's post-Phase-1 baseline is LLM-curated;
-  audit notes any entries that have advanced beyond that.
-- Coverage scope: UI chrome only, or also explanations /
-  rationales / common-mistakes / glosses / reading passages?
-- Devanagari script discipline: every user-visible Hindi string
-  is in Devanagari, not Romanized Hindi. Romanized Hindi in any
-  user-visible string is a finding.
-- Locale-aware behavior: number formats (Indian-grouping
-  १,२३,४५६ vs Western 123,456), date formats, RTL support if
-  ever needed (Hindi is LTR, but verify no RTL assumptions leak).
-- Default locale resolution: does the app honor `Accept-Language: hi*`
-  and default to Hindi on first visit for an Indian browser?
-- Switcher discoverability: EN | HI chip group visible in header?
-  In settings? Hidden? Trivially clickable on mobile?
-- Existing-user migration sanity: a localStorage state with a
-  deprecated locale (`vi`, `id`, `ne`, `zh`) loads cleanly with
-  fallback to `en`, no error, no flash of unstyled content. This
-  is regression-test territory, not a finding per se, but the
-  audit verifies the migration code is in place.
+## DOCUMENTATION
 
-**Documentation**
 - CHANGELOG currency.
 - PRIVACY matches actual behavior.
 - README accuracy (counts, paths, commands).
-- In-app help / rationales use plain beginner language; no assumed
-  N4+ vocabulary in explanations.
+- In-app help / rationales use plain beginner language; no
+  assumed N4+ vocabulary in explanations.
 - KnowledgeBank internal consistency.
-- Self-host / fork guide for niche N3.
-- Per-locale README / privacy translations (en + hi only).
+- Self-host / fork guide for niche N2.
 
-**Tests**
-- check_content_integrity.py runs clean. Coverage gaps vs the
-  structural properties above.
+## TESTS
+
+- `tools/check_content_integrity.py` runs clean (currently 50
+  invariants). Coverage gaps vs the structural properties above.
 - Playwright runs clean. Automatable checks not yet covered.
-- Visual-regression coverage on the highest-traffic surfaces.
+- Visual-regression coverage on highest-traffic surfaces.
 
-**Market comparison - gaps AND wins**
-- Reference points: Genki, Minna no Nihongo, Try! N5, Nihongo So-matome
-  N5, official JLPT sample workbook at jlpt.jp, Bunpro, Jisho, JLPT
-  Sensei, Tofugu, Migaku, Marumori, WaniKani, Renshuu, Anki, Memrise,
-  Marugoto, JapanesePod101.
-- For each surface: what does best-in-class do that this app doesn't?
-  (the GAP question)
-- For each surface: what does THIS app do that best-in-class doesn't,
-  or can't, or won't? (the WIN question - equally important)
-- Where would a serious N5 self-study learner notice this app falling
-  short of the best free or under-$20 alternative?
-- Where would a non-English-native, privacy-conscious, no-credit-card
-  learner notice this app being CLEARLY BETTER than every alternative?
+## MARKET COMPARISON — WINS as well as gaps
+
+For each surface:
+
+- **WIN question**: what does THIS app do that best-in-class
+  doesn't, or can't, or won't? (privacy, no-account, offline,
+  free, complete-corpus, local-audio, no-tracking, structurally
+  defensible feature). List concrete ones.
+- **GAP question**: where would a serious N5 self-study learner
+  notice this app falling short of the best free or under-$20
+  alternative?
+- **CLEAR-LEAD question**: where would a privacy-conscious,
+  no-credit-card learner notice this app being CLEARLY BETTER
+  than every alternative? List concrete ones.
 
 ## PRIORITIZATION
 
-Every entry must carry both a SEVERITY and a PRIORITY.
+Every entry must carry SEVERITY and PRIORITY.
 
-**Severity** - what kind of thing is this:
-- BLOCKER: incorrect content shown to users, broken core feature,
-  privacy-contract violation, or factually wrong information that
+**Severity**:
+- BLOCKER: incorrect content shown to users; broken core feature;
+  privacy-contract violation; factually wrong information that
   damages learner trust.
-- MAJOR: gap from best-in-class OR from a defensible niche position
-  that meaningfully reduces the app's value or saleability.
-- MINOR: rough edge that's noticeable but doesn't block use or
-  meaningfully degrade outcomes.
-- IMPROVEMENT: not broken; would raise the ceiling toward best-in-niche.
+- MAJOR: gap from best-in-class OR from a defensible niche
+  position that meaningfully reduces value or saleability.
+- MINOR: rough edge that's noticeable but doesn't block use.
+- IMPROVEMENT: not broken; would raise the ceiling.
 
-**Priority** - what should be done first, on a 1–5 scale:
-- P1 (do first): high-impact AND ship-blocking AND inexpensive to
-  fix. Fixes obvious correctness or trust issues. No reason to defer.
-- P2 (do soon): high-impact, may be larger lift but clearly worth
-  doing in the current cycle. Closes major gaps from best-in-niche or
-  unlocks a niche claim.
-- P3 (do this cycle): meaningful improvement, lower urgency, may
-  depend on P1/P2 work landing first.
-- P4 (next cycle): nice-to-have; defer unless cheap to land alongside
-  related work.
-- P5 (someday/maybe): aspirational or low-impact; document but don't
-  schedule.
+**Priority** (1-5):
+- P1: high-impact, ship-blocking, inexpensive. No reason to
+  defer.
+- P2: high-impact, may be larger lift, clearly worth this cycle.
+  Closes major incumbent gaps or unlocks a niche claim.
+- P3: meaningful improvement, lower urgency, may depend on
+  P1/P2.
+- P4: nice-to-have; defer unless cheap alongside related work.
+- P5: aspirational or low-impact; document but don't schedule.
 
-Priority ≠ severity. A MINOR ID can be P1 if it's a one-line fix that
-removes user-visible drift (e.g., the localStorage namespace doc
-mismatch). A MAJOR can be P3 if it requires foundational work first.
-Do not collapse them into one number.
+Priority ≠ severity. A MINOR can be P1 if it's a one-line fix
+that removes user-visible drift. A MAJOR can be P3 if it
+requires foundational work first.
 
-For every entry also assign IMPACT (HIGH/MEDIUM/LOW) and EFFORT
-(HIGH/MEDIUM/LOW), and a NICHE-FIT tag (N1/N2/N3/N4/none) marking
-which niche claim the item supports (or "none" if it's pure
-correctness work). Priority should be defensible from
-severity + impact + effort + niche-fit + dependencies.
+For every entry assign IMPACT (HIGH/MEDIUM/LOW) and EFFORT
+(HIGH/MEDIUM/LOW), and a NICHE-FIT tag (N1/N2/N3/none) marking
+which niche claim the item supports.
 
-## OUTPUT FORMAT
+## OUTPUT FORMAT (richness-first reordering)
 
-Produce one report with this structure. No code changes, no
-implementation suggestions beyond a one-sentence direction.
+Produce ONE report with this structure. **TOP-5 actionable
+items lead — Section 0** so a reader skimming the audit lands
+on the answer first.
 
-### Section 0: Strategic Positioning Verdict
-A one-page strategic summary, written first because the niche claim
-governs everything below. Include:
-- For each niche (N1/N2/N3/N4): one paragraph stating
-  "today the app credibly claims / partially claims / does not claim
-  this niche, because <evidence>." Cite specific files, code paths,
-  or content artefacts.
-- Recommended primary niche to double down on, with a one-sentence
-  why-this-not-the-others.
-- Recommended secondary niche (if any).
-- The 3-5 changes that would move the app from "partial" to "credible"
-  on the recommended primary niche - referenced by ID in later
-  sections.
-- Honest competitive table: 2 rows × 6 columns. Row 1: this app.
-  Row 2: closest competitor in the Hindi-medium-JLPT niche
-  (today: **Yoisho Academy** - yoisho.in - English-medium courses
-  with optional Hindi tutoring; not an app, not Hindi-native, but
-  the incumbent name in the Indian JLPT market). Columns: content
-  depth / native-Hindi-review % / translation quality / privacy
-  posture / discoverability / install path. Mark each cell
-  ✅ / ⚠️ / ❌ from the learner's POV. If a row's cell is "✅"
-  for this app, the supporting evidence (file path / commit /
-  invariant) must be cited inline.
+### Section 0: TOP 5 actionable items (the "if I have one weekend" answer)
 
-### Section 0.5: Depth-Deficit Map (mandatory - extracts work-first list)
+The 5 highest-leverage items overall, ordered by
+(impact × richness-leverage / effort). Each as one paragraph:
+
+- **ID** + **TITLE**
+- **What's at stake** (one sentence)
+- **What it does for richness** (one sentence — does it match
+  Bunpro? beat WaniKani on kanji depth? unlock authentic-content
+  layer?)
+- **Why now** (dependency / no-blocker / cheap-to-ship)
+
+### Section 1: Strategic Positioning Verdict
+
+A one-page strategic summary. Include:
+
+- For each niche (N1 / N2 / N3): one paragraph stating "today
+  the app credibly claims / partially claims / does not claim
+  this niche, because <evidence>." Cite specific files / code
+  paths / content artifacts.
+- Recommended primary niche to double down on.
+- Recommended secondary niche.
+- 3-5 changes that would move the app from "partial" to
+  "credible" on the recommended primary niche, referenced by ID.
+- Honest competitor table: 6 columns (content depth / mnemonic
+  depth / authentic-content layer / interconnection density /
+  privacy posture / discoverability) × N rows (this app +
+  Bunpro + WaniKani + Renshuu + Tofugu + Migaku +
+  JapanesePod101). Mark each cell ✅ / ⚠️ / ❌ with file-path
+  evidence inline for ✅.
+
+### Section 2: Richness Scorecard Results
 
 For each of the five content surfaces (Grammar / Vocab / Kanji /
-Reading / Listening), produce a depth-deficit table. **This is the
-single most important section for this audit cycle** - it is the
-direct input to the implementation cycle that follows. Be quantitative.
+Reading / Listening), produce the per-dimension compliance table
+based on the Richness Scorecards above. Format:
 
-For each surface, produce a table with columns:
+```
+Surface: Grammar (178 patterns)
+| Dimension | Bar | Compliant | Below bar | % below | Worst-offender IDs (top 5) |
+| Examples-≥-7 | 7 | 32 | 146 | 82% | n5-003, n5-014, ... |
+| Common-mistake-present | 1 | 134 | 44 | 25% | n5-027, ... |
+| Authentic-content-citation | ≥1 | 0 | 178 | 100% | (all) |
+| ... | ... | ... | ... | ... | ... |
+```
 
-| Depth dimension | Entries meeting bar | Entries below bar | % below | Worst-offender IDs (top 5) |
+After the five tables:
 
-Use the dimensions listed in the DEPTH-FIRST ENRICHMENT MANDATE
-matrix. Examples of what a row looks like:
+- **Per-surface dominant deficit** — single sentence per surface
+  naming the dimension with the largest below-bar count.
+- **Cross-surface dominant deficit** — the one dimension that, if
+  filled, would move the most entries up the bar.
+- **Effort estimate per surface** — rough person-day estimate to
+  close the dominant deficit.
+- **Top-10 worst-offender entries cross-surface** — single ranked
+  list, weighted: Grammar 1.5, Kanji 1.3, Reading 1.2, Vocab 1.0,
+  Listening 1.0.
 
-  Grammar - common_mistakes present:    72 / 178   (106 below, 60% below)   n5-003, n5-014, n5-027, n5-058, n5-091
-  Vocab   - gloss_translations all 4:    312 / 1041 (729 below, 70% below)   全部, 始める, 後, 大事, 知る
-  Kanji   - radical_decomposition:       0 / 106   (106 below, 100% below)   日, 月, 木, 山, 川
+### Section 3: Competitor-Feature Parity Table
 
-After the five tables, write:
+For each of the 20 rows in the Competitor-Feature Parity Matrix
+above, mark ✅ / ⚠️ / ❌ with one-sentence evidence and link to
+the Section 4 / 5 ID where the gap is filed.
 
-- **The dominant deficit per surface** - one sentence each, naming
-  the single dimension with the largest entries-below count.
-- **The dominant deficit cross-surface** - the one dimension that, if
-  filled, would move the most entries up the depth bar across all
-  surfaces. This is the answer to "what should we do first."
-- **Effort estimate per surface** - rough person-day estimate to
-  close the dominant deficit, factoring in whether native review is
-  required or LLM-curated-with-spot-check is sufficient.
-- **The 10 worst-offender entries cross-surface** - single ranked
-  list, by (number of dimensions failed × surface weight). Surface
-  weight: Grammar 1.5, Vocab 1.0, Kanji 1.3, Reading 1.2, Listening
-  1.0 - grammar and kanji are the highest-leverage surfaces because
-  every reading/listening item depends on them.
+### Section 4: Interconnection-Density Report
 
-Section 0.5 must be produced before Section 1 and Section 1 must
-be derivable from it.
+The 8 density numbers above with target / actual / gap.
+Aggregate metric reported. The lowest-scoring density becomes a
+P1 or P2 in Section 5 / 6.
 
-### Section 1: Top-of-list - what to do first
-The 10 highest-priority items overall, mixed across issues and
-improvements, ordered P1 first then by impact. **In this depth-first
-audit cycle, DEPTH items must occupy at least 7 of the 10 slots.**
-META and (rare) WIDTH-EXCEPTION-SCOPE items may fill the remaining
-3. Each as a single line:
-`[ID] [SEVERITY] [PRIORITY] [NICHE-FIT] [DEPTH|META|WIDTH-EXCEPTION]
-short title - one-sentence why-now`. This is the only section where
-issues and improvements are mixed; it exists to answer "if I have
-one weekend, what do I do?"
+### Section 5: Existing Issues (prioritized)
 
-The DEPTH/META/WIDTH-EXCEPTION tag classifies the item:
-- **DEPTH**: enriches an existing entry (more examples, missing
-  fields filled, cross-links added, common-mistakes authored). The
-  default and dominant bucket for this cycle.
-- **META**: structural / tooling / governance / surface-level
-  improvement (CI invariants, build pipeline, search UI, etc.) that
-  doesn't directly touch content depth. Cap: 3 of 10.
-- **WIDTH-EXCEPTION**: an entry that must be ADDED for JLPT N5
-  scope correctness (rare). Justify in the title.
-
-Section 1 must trace cleanly back to Section 0.5: every depth item
-in Section 1 should map to a row in the Section 0.5 deficit tables.
-
-### Section 2: Existing Issues (prioritized)
 For each issue:
-- ID (ISSUE-001, ISSUE-002, ...)
+- ID (ISSUE-NNN, continuing from highest existing in registry)
 - Severity (BLOCKER / MAJOR / MINOR)
-- Priority (P1–P5)
+- Priority (P1-P5)
 - Impact (HIGH / MEDIUM / LOW)
 - Effort (HIGH / MEDIUM / LOW)
-- Niche-fit (N1 / N2 / N3 / N4 / none)
-- Category (from the audit dimensions)
-- Location (corpus, paper, item ID, file, function, route)
-- Current state (what's wrong, concretely)
-- Why this matters (one sentence; tie to niche fit if applicable)
-- Suggested fix direction (one sentence - do NOT implement)
-- Dependencies (other IDs that must land first, if any)
+- Niche-fit (N1 / N2 / N3 / none)
+- Category (from audit dimensions)
+- Location (corpus / paper / item ID / file / function / route)
+- Current state (concrete what's wrong)
+- Why this matters (one sentence; tie to niche fit)
+- Suggested fix direction (one sentence; do NOT implement)
+- Dependencies (other IDs)
 
-Within Section 2, order by Priority (P1 → P5), then Severity, then
-Impact. Group with section subheadings per priority level.
+Order by Priority → Severity → Impact. Subheadings per priority.
 
-### Section 3: Improvement Ideas (prioritized)
+### Section 6: Improvement Ideas (prioritized)
+
 For each idea:
-- ID (IMP-001, IMP-002, ...)
-- Severity (always IMPROVEMENT - by definition; included for format
-  consistency)
-- Priority (P1–P5)
-- Impact (HIGH / MEDIUM / LOW)
-- Effort (HIGH / MEDIUM / LOW)
-- Niche-fit (N1 / N2 / N3 / N4 / none)
-- Category
-- Location / surface affected
-- Current state
-- Best-in-class / best-in-niche comparison (which named product does
-  this better, and how - be specific. If no competitor does it but it
-  would unlock a niche, say so explicitly.)
-- Suggested direction (one sentence - do NOT implement)
-- Dependencies (other IDs that must land first, if any)
+- ID (IMP-NNN, continuing from highest existing)
+- Severity = IMPROVEMENT
+- Priority (P1-P5)
+- Impact / Effort / Niche-fit
+- Category / Location / Current state
+- **Best-in-class / best-in-niche comparison** — name the
+  competitor, name the feature, name the per-app-feature gap or
+  win. Be specific.
+- Suggested direction (one sentence; do NOT implement)
+- Dependencies
 
-Within Section 3, order by Priority (P1 → P5), then by Niche-fit
-(items that support the recommended primary niche first), then by
-Impact, then Effort.
+Order by Priority → Niche-fit (primary niche first) → Impact →
+Effort.
 
-### Section 4: Coverage Map (read-only snapshot)
-Statistical state of the app today. Read-only; do not modify
-anything to produce this.
+### Section 7: Coverage Map (read-only snapshot)
+
+Statistical state of the app today. Read-only.
+
 - Answer-position distribution per corpus.
-- Coverage counts: kanji covered / 106, vocab covered / 1041,
-  grammar covered / 178, reading / 40, listening / 40
-  (frozen breadth per the DEPTH-FIRST ENRICHMENT MANDATE).
+- Coverage counts: kanji / 106, vocab / 1000, grammar / 178,
+  reading / 40, listening / 47, paper / 28.
 - Per-corpus item counts vs target.
-- Test-suite pass status (read existing CI artifacts or run
-  read-only).
-- localStorage namespace currently in use vs documented (README,
-  PRIVACY).
-- Per-surface presence/absence checklist (Grammar, Vocabulary, Kanji,
-  Reading, Listening, Test, Progress, Changelog, Feedback, Privacy).
-- **Locale completeness table: for each of `{en, hi}`, the count
-  of translated strings vs total, broken down by surface (UI chrome
-  / rationales / common-mistakes / glosses / reading passages /
-  vocab `gloss_translations.hi` / kanji `meanings_translations.hi`).**
-  This is the most important number for niche-N1 viability. Format
-  as a 2-row table: header row "Surface | en | hi"; one row per
-  surface; cell values "X / Y (Z%)".
-- **Deprecated-locale stragglers check.** Verify zero references
-  to `vi`/`id`/`ne`/`zh` anywhere in code, content data, docs,
-  or specs (excluding historical changelog entries and the
-  migration code that explicitly checks against these
-  deprecated values). Any straggler is a regression finding from
-  the en+hi narrowing transition (commit reference: IMP-096
-  architectural decision; tag pre-locale-transition).
-- **Native-reviewed vs LLM-curated count per surface, per
-  locale.** Critical trust signal. Hindi is expected to be ~100%
-  LLM-curated on the Phase-1-seeded baseline; movement above 0%
-  on `native_reviewed` is the depth-progress indicator.
+- Test-suite pass status (read existing CI artifacts).
+- localStorage namespace currently in use vs documented.
+- Per-surface presence/absence checklist.
+- **native_reviewed vs llm_curated count per surface** — current
+  100% native_reviewed across all Hindi slots per cycle-5; any
+  drift is a regression finding.
 
-### Section 5: Out-of-Scope Notes
+### Section 8: Out-of-Scope Notes
+
 Items noticed but out of scope. Logged for later, not prioritized
-within the N5 work.
-- N4-relevant ideas (N4 is work-blocked; do not start work there).
-- Top-level (cross-level) improvements (level picker, JLPTSuccess
-  brand surfaces).
+within N5 work.
+- N4-relevant ideas (N4 work-blocked; do not start).
+- Top-level (cross-level) improvements (level picker, brand
+  surfaces).
 - Future-level considerations.
+- **Hindi-content / locale-pedagogy questions** — handled in the
+  separate Hindi prompt; flag here for visibility.
 
-### Section 6: Open Questions
+### Section 9: Open Questions
+
 Items where the audit can't decide without product-owner input.
-- Niche commitment depth (the locale transition to en+hi was
-  decided 2026-05-DD, but go-to-market commitment is open):
-  does the product owner want to double down on niche N1
-  (native-Hindi-medium JLPT prep) - committing to native-Hindi-
-  speaker review, India-targeted discoverability (Hindi YouTube
-  / Telegram / Quora), and Tier-2/3-city UX research - or
-  treat Hindi as a quality side-bet while leaning on niche N2
-  (privacy / no-account / offline) for global English-speaking
-  reach?
-- Native-Hindi-review budget: commissioning Hindi-speaking
-  Japanese-language teachers (cost), or community / volunteer
-  review through Indian university Japanese programs? Affects
-  every Section-3 item tagged with native-Hindi-review
-  dependency. Today's baseline: ~100% LLM-curated; credibility
-  ceiling without native review is bounded.
-- Indian discoverability strategy: GitHub Pages alone won't
-  reach Tier-2/3 Indian learners. Hindi YouTube? Telegram
-  groups? Indian Japanese-language teacher partnerships? Show HN
-  is unlikely to reach this audience. Which 1-2 channels does
-  the product owner invest in?
-- Monetization stance: free forever, voluntary donations, paid
-  tier for institutional self-host (Indian language schools,
-  vocational centers), or sponsorship? Affects niche-N3 work.
-- Ambiguous policy choices (corpus rules not documented).
-- Architecture decisions that affect multiple surfaces.
+Format `Q1, Q2, ...` with one paragraph context + specific
+decision needed.
 
-List each as `Q1, Q2, ...` with one paragraph context and the
-specific decision needed.
+### Section 10: Anti-Items (don't do these)
 
-### Section 7: Anti-Items (don't do these)
-A specific NEGATIVE list - work the audit considered and explicitly
-recommends AGAINST doing. This is a saleability discipline tool: it
-prevents future iterations from chasing parity with the wrong
-competitors.
-- Examples of what should appear here (audit may add or remove):
-  "Do NOT try to match Bunpro's native-review depth - out-of-scope
-  for solo+AI build; cite alternative niche claim instead."
-  "Do NOT add gamification (streaks, XP, leaderboards) - runs
-  counter to the privacy + adult-learner positioning."
-  "Do NOT add account / cloud sync - breaks niche N2."
-- **Mandatory entries for this depth-first cycle** (the audit MUST
-  include each of these unless it has a concrete reason not to):
-  "Do NOT add new grammar patterns in this cycle - the 178 patterns
-  already exceed Bunpro's N5 deck width; depth on existing patterns
-  is the higher-leverage move."
-  "Do NOT add new vocabulary entries - 1041 already exceeds the
-  ~700 official scope; depth on existing entries (translations,
-  examples, collocations) is the leverage."
-  "Do NOT add new kanji - 106 matches the canonical N5 set;
-  width-additions outside the documented PRAGMATIC_N5_AUGMENTATION
-  exceptions break JA-13 scope discipline."
-  "Do NOT add new reading passages or listening drills until depth
-  on the current 40+40 reaches the target bar (sentence-by-sentence
-  footnotes, native-speaker audio, transcript timestamps)."
+A specific NEGATIVE list — work the audit considered and
+explicitly recommends AGAINST. Saleability-discipline tool.
+
+Mandatory entries for this richness-first cycle:
+
+- "Do NOT add new grammar patterns — 178 already exceeds
+  Bunpro's N5 deck width; depth on existing patterns is the
+  higher-leverage move."
+- "Do NOT add new vocabulary entries — 1000 already exceeds the
+  ~700 official scope; depth on existing entries (collocations,
+  pitch-accent, examples, authentic-content) is the leverage."
+- "Do NOT add new kanji — 106 matches the canonical N5 set;
+  width-additions break JA-13 scope discipline."
+- "Do NOT add new reading passages or listening drills until
+  depth on the current 40+47 reaches the target bar (sentence-
+  by-sentence footnotes, transcript timestamps, ambient context)."
+- "Do NOT add gamification (streaks, XP, leaderboards) — runs
+  counter to privacy-respecting + adult-learner positioning."
+- "Do NOT add account / cloud sync — breaks niche N1."
+- "Do NOT add per-content discussion threads / community
+  comments — breaks privacy-no-tracking posture."
+
+Plus other audit-discovered "we considered and decided no" items.
 
 ## REGISTRATION (the one allowed write)
 
@@ -1144,14 +846,14 @@ registry at:
   N5/feedback/n5-audit-2026-05-04.xlsx
 
 This file is the single source of truth for open issues across
-all N5 audit rounds (currently 138 rows, IDs ISSUE-001..055 +
-IMP-001..079, with Decision values Done / Defer / Avoid). Findings
-that live only in the audit transcript are lost across sessions
-and have to be re-discovered next round - that is the failure mode
-this section exists to prevent.
+all N5 audit rounds (currently 222 rows, IDs ISSUE-001..104+ and
+IMP-001..123, with Decision values Done / Defer / Avoid).
+Findings that live only in the audit transcript are lost across
+sessions and have to be re-discovered next round — that is the
+failure mode this section exists to prevent.
 
-After producing Sections 0–7, you MUST register every Section-2
-issue and every Section-3 improvement into the xlsx Items sheet,
+After producing Sections 0-10, you MUST register every Section-5
+issue and every Section-6 improvement into the xlsx Items sheet,
 following the existing 16-column schema (header at row 4):
 
   Column 1  ID                 (ISSUE-NNN or IMP-NNN)
@@ -1160,7 +862,7 @@ following the existing 16-column schema (header at row 4):
   Column 4  Priority           (P1..P5)
   Column 5  Impact             (HIGH / MEDIUM / LOW)
   Column 6  Effort             (HIGH / MEDIUM / LOW)
-  Column 7  Category           (from the audit dimensions)
+  Column 7  Category           (from audit dimensions)
   Column 8  Location           (file/route/item ID)
   Column 9  Title              (short, one line)
   Column 10 Current state      (concrete description)
@@ -1172,115 +874,53 @@ following the existing 16-column schema (header at row 4):
   Column 16 Permission         (auto-action OK, or needs explicit user permission)
 
 ID assignment rules:
-- ISSUE IDs continue from the highest existing `ISSUE-NNN` in the
-  sheet. Inspect the sheet first; do NOT reuse IDs.
+- ISSUE IDs continue from the highest existing `ISSUE-NNN` in
+  the sheet. Inspect the sheet first; do NOT reuse IDs.
 - IMP IDs continue from the highest existing `IMP-NNN`.
-- The audit must perform a one-shot read of the xlsx to discover
-  the next free numbers. The pattern from
-  `tools/register_dev_issue_list_deferrals_2026_05_05.py` is the
-  reference implementation:
-    `wb = openpyxl.load_workbook(XLSX, read_only=True)`
-    iterate Items rows ≥ 5, collect existing IDs, take max(NNN)+1.
+- Reference implementation:
+  `tools/register_dev_issue_list_deferrals_2026_05_05.py`
+  pattern — `wb = openpyxl.load_workbook(XLSX, read_only=True)`,
+  iterate Items rows ≥ 5, collect existing IDs, take max(NNN)+1.
 
-Decision-field defaults for new findings:
-- **Fix** - action this cycle. Default for Section 2 P1/P2 issues
-  and Section 3 P1/P2 improvements where the work is unblocked.
-- **Defer** - has a precondition (N4 unblocked, native-review
-  budget approved, design decision pending). The Description field
-  must name the precondition.
-- **Avoid** - explicitly NOT doing (Section 7 anti-items that the
-  audit wants on the record so they don't resurface in future
-  rounds). Width-additions in this depth-first cycle go here.
+Decision-field defaults:
+- **Fix** — action this cycle. Default for Section 5 P1/P2
+  issues and Section 6 P1/P2 improvements where work is
+  unblocked.
+- **Defer** — has a precondition (N4 unblocked, design decision
+  pending). The Description field must name the precondition.
+- **Avoid** — explicitly NOT doing (Section 10 anti-items the
+  audit wants on the record so they don't resurface). Width
+  additions go here.
 
 Permission-field defaults:
-- "No permission required" - for content-depth fixes inside the
+- "No permission required" — for content-depth fixes inside the
   data files the maintainer already controls.
-- "Requires <X>" - name the gating decision concretely:
-  e.g. "Requires native-reviewer engagement" / "Requires N4
-  work-block lift" / "Requires monetization stance decision".
+- "Requires <X>" — name the gating decision concretely:
+  "Requires N4 unblock", "Requires native voice-talent budget",
+  "Requires Show HN authorization".
 
-Registration mechanics - produce one Python script:
+## CONSTRAINTS (binding)
 
-  N5/tools/register_audit_<YYYY_MM_DD>.py
+- Read-only inspection of code, content, configs, tests, build
+  artifacts. The registry write is the only state mutation.
+- No git commit / push / branch creation.
+- No deploy.
+- No new dependencies installed.
+- Network calls only to verify external references (textbook URLs,
+  competitor pages) — no API writes anywhere.
+- /N4/ untouched (per CLAUDE.md Rule 1). N4 file diffs MUST be
+  zero.
 
-modeled on `tools/register_dev_issue_list_deferrals_2026_05_05.py`.
-The script must:
+## TONE
 
-1. Load the workbook in read-write mode.
-2. Build a `set` of existing IDs from rows ≥ 5 of the Items sheet
-   (and Questions sheet for Q-NN entries).
-3. Iterate the in-script `NEW_ROWS` list of tuples.
-4. Skip-and-warn on any ID already in the sheet (idempotent re-run).
-5. Append the rest at `ws.max_row + 1`.
-6. Save the workbook.
-7. Print appended/skipped counts.
+- Be direct. No hedging on findings.
+- No marketing language. No first-person "we / our".
+- Cite files / line numbers / commit hashes for any factual claim.
+- Quantitative > qualitative. "Below bar" must produce a count.
+- Honest about wins as well as gaps. Section 1 explicitly lists
+  what THIS app already does better than incumbents.
+- Where an item is genuinely uncertain, say so. Don't manufacture
+  certainty.
 
-After running the script:
-- Verify the `Items` sheet row count increased by exactly the
-  number of new findings (138 baseline + N → 138+N).
-- Commit the script + the updated xlsx in a single audit-
-  registration commit with the message pattern:
-  `audit(round-N): register M findings from <date> depth-first audit`
-- Section 0 of the audit report MUST conclude with a verifiable
-  registration receipt:
-  `Registered M findings into n5-audit-2026-05-04.xlsx`
-  `(Items rows X..Y = M issues + K improvements; Questions rows P..Q = J questions).`
-
-Open Questions (Section 6) go into the sibling **Questions** sheet
-of the same xlsx. Same idempotency rule. Same script.
-
-If the audit produces zero registrable findings (improbable for a
-fresh audit, possible for a re-run), the script must still be
-created (with empty `NEW_ROWS`) and the registration receipt must
-read `Registered 0 findings (no new items detected)`.
-
-## RULES
-
-- This is **audit-and-register only**. Do NOT modify content data
-  (`grammar.json`, `vocab.json`, `kanji.json`, `reading.json`,
-  `listening.json`), do NOT modify app code (`js/`, `css/`,
-  `index.html`), do NOT implement fixes, do NOT propose code. The
-  "Suggested direction" field is one sentence; that's the ceiling.
-- The ONLY allowed write is the registration step described in the
-  REGISTRATION section: create
-  `N5/tools/register_audit_<YYYY_MM_DD>.py`, run it once to append
-  new findings to `N5/feedback/n5-audit-2026-05-04.xlsx`, and
-  commit script + xlsx together. No other writes anywhere.
-- Read-only inspection of files is fine. Running existing test
-  commands read-only is fine. Running the registration script is
-  fine. Any other mutation, deploy, or content commit is forbidden.
-- This audit cycle is **depth-first**. Width-additions (new
-  patterns / words / kanji / passages / drills) go to Section 7
-  (Anti-Items) with Decision = Avoid in the registry, unless the
-  add is a documented JLPT-N5 scope-correctness exception.
-- Be exhaustive. Missing features count. Shallow surfaces count.
-  An improvement idea is valid even if the app didn't claim to have
-  the feature.
-- Be specific. Every entry points to a concrete location. "UX could
-  be better" is not an entry; "Progress dashboard at #/summary shows
-  raw counts but no next-action recommendation, unlike Bunpro's daily
-  review queue" is.
-- Cite named competitors honestly. If a named product does X better,
-  say so by name. If this app is at parity or ahead, say that too.
-- Severity, priority, impact, effort, and niche-fit are all separate
-  axes. Do not collapse them. A correct prioritization needs all five.
-- One pass. Do not iterate. Do not loop. Produce the report and stop.
-- Do not ask clarifying questions before producing the report. Use
-  reasonable assumptions and surface them in Section 6.
-- Do not start N4 work. Do not modify /N4/. N4-relevant ideas go in
-  Section 5.
-- Be honest about competitive realities. If JLPTSuccess cannot
-  realistically beat WaniKani at kanji depth or Bunpro at grammar
-  review quality with current resources, SAY SO and recommend a niche
-  that bypasses the comparison. The audit's job is to make the app
-  saleable, not to enumerate every conceivable improvement.
-- Bias toward niche-fit. Two equally severe issues should be
-  prioritized differently if one supports the recommended primary
-  niche and the other doesn't.
-
-Begin the audit now. Sections 0 → 0.5 → 1 → 2..7 in that order.
-Section 0.5 (Depth-Deficit Map) is the work-priority extractor and
-is mandatory. After Section 7, perform the REGISTRATION step:
-create `N5/tools/register_audit_<YYYY_MM_DD>.py`, run it once,
-verify the xlsx row delta, commit script + updated xlsx in one
-commit. Then stop.
+Begin with Section 0 (TOP 5). Do not skip the richness scorecard
+in Section 2. Section 0 must be derivable from Section 2 + 3 + 4.
