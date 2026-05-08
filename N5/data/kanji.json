@@ -588,7 +588,25 @@
           "diff": "left stroke has an upward hook; 八 strokes are short and separate"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "人",
+        "入"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "radical similarity",
+          "members": [
+            "人",
+            "入"
+          ],
+          "in_corpus": [
+            "人",
+            "入"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.九",
@@ -889,7 +907,36 @@
           "diff": "top stroke is a 丿 (slash going LEFT); 千 top stroke goes RIGHT"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "午"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "vertical bar",
+          "members": [
+            "干",
+            "王",
+            "玉"
+          ],
+          "in_corpus": [],
+          "out_of_corpus": [
+            "干",
+            "王",
+            "玉"
+          ]
+        },
+        {
+          "note": "top stroke direction",
+          "members": [
+            "午"
+          ],
+          "in_corpus": [
+            "午"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.万",
@@ -1118,7 +1165,25 @@
           "diff": "has a 丿 (slash) on top of the box"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "白",
+        "目"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "rectangle variations",
+          "members": [
+            "目",
+            "白"
+          ],
+          "in_corpus": [
+            "目",
+            "白"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.月",
@@ -1427,7 +1492,27 @@
         }
       ],
       "look_alike_provenance": "llm_curated",
-      "stroke_order_mistakes": "横→縦→左払い→右払い。横線を最後に書く誤りが多い。「本」も同じ4画＋下に一画追加。"
+      "stroke_order_mistakes": "横→縦→左払い→右払い。横線を最後に書く誤りが多い。「本」も同じ4画＋下に一画追加。",
+      "lookalikes": [
+        "本"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "line position",
+          "members": [
+            "本",
+            "末",
+            "未"
+          ],
+          "in_corpus": [
+            "本"
+          ],
+          "out_of_corpus": [
+            "末",
+            "未"
+          ]
+        }
+      ]
     },
     {
       "id": "n5.kanji.金",
@@ -2242,7 +2327,22 @@
           "diff": "top stroke goes RIGHT (丿 sweep); 午 top stroke goes LEFT"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "千"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "top stroke direction",
+          "members": [
+            "千"
+          ],
+          "in_corpus": [
+            "千"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.何",
@@ -2413,7 +2513,25 @@
           "diff": "two short separate strokes that do NOT touch at the top"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "入",
+        "八"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "radical similarity",
+          "members": [
+            "入",
+            "八"
+          ],
+          "in_corpus": [
+            "入",
+            "八"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.男",
@@ -3234,7 +3352,25 @@
           "diff": "has a 丿 on top + ONE inside stroke"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "日",
+        "白"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "rectangle variations",
+          "members": [
+            "日",
+            "白"
+          ],
+          "in_corpus": [
+            "日",
+            "白"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.口",
@@ -3620,7 +3756,27 @@
         }
       ],
       "look_alike_provenance": "llm_curated",
-      "stroke_order_mistakes": "木と同じ4画（横→縦→左払い→右払い）→最後に下の横線「一」。下の横線を3画目に書く誤りが頻出。"
+      "stroke_order_mistakes": "木と同じ4画（横→縦→左払い→右払い）→最後に下の横線「一」。下の横線を3画目に書く誤りが頻出。",
+      "lookalikes": [
+        "木"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "line position",
+          "members": [
+            "木",
+            "末",
+            "未"
+          ],
+          "in_corpus": [
+            "木"
+          ],
+          "out_of_corpus": [
+            "末",
+            "未"
+          ]
+        }
+      ]
     },
     {
       "id": "n5.kanji.語",
@@ -4069,7 +4225,22 @@
           "diff": "点 (dot) inside the lower triangle = \"thick / fat\""
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [],
+      "lookalike_clusters": [
+        {
+          "note": "the dot moves",
+          "members": [
+            "犬",
+            "太"
+          ],
+          "in_corpus": [],
+          "out_of_corpus": [
+            "犬",
+            "太"
+          ]
+        }
+      ]
     },
     {
       "id": "n5.kanji.中",
@@ -4309,7 +4480,22 @@
           "diff": "has an extra horizontal stroke + 一 base = \"correct\""
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [],
+      "lookalike_clusters": [
+        {
+          "note": "cross-bar position",
+          "members": [
+            "止",
+            "正"
+          ],
+          "in_corpus": [],
+          "out_of_corpus": [
+            "止",
+            "正"
+          ]
+        }
+      ]
     },
     {
       "id": "n5.kanji.下",
@@ -6787,7 +6973,25 @@
         }
       ],
       "look_alike_provenance": "llm_curated",
-      "stroke_order_mistakes": "ノ（左払い）→入（右払い）の順。「人」と紛らわしいが、「人」は左払い（ノ）→右払い（𝝣）と一見同じだが、入の右払いは下からスタートする一筆。"
+      "stroke_order_mistakes": "ノ（左払い）→入（右払い）の順。「人」と紛らわしいが、「人」は左払い（ノ）→右払い（𝝣）と一見同じだが、入の右払いは下からスタートする一筆。",
+      "lookalikes": [
+        "人",
+        "八"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "radical similarity",
+          "members": [
+            "人",
+            "八"
+          ],
+          "in_corpus": [
+            "人",
+            "八"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.立",
@@ -7362,7 +7566,20 @@
           "diff": "top stroke is 卜 (vertical + dot); 古 top is 十 (cross). Different meaning entirely"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [],
+      "lookalike_clusters": [
+        {
+          "note": "stroke count",
+          "members": [
+            "占"
+          ],
+          "in_corpus": [],
+          "out_of_corpus": [
+            "占"
+          ]
+        }
+      ]
     },
     {
       "id": "n5.kanji.長",
@@ -7514,7 +7731,25 @@
           "diff": "no 丿 on top; TWO inside strokes"
         }
       ],
-      "look_alike_provenance": "llm_curated"
+      "look_alike_provenance": "llm_curated",
+      "lookalikes": [
+        "日",
+        "目"
+      ],
+      "lookalike_clusters": [
+        {
+          "note": "rectangle variations",
+          "members": [
+            "日",
+            "目"
+          ],
+          "in_corpus": [
+            "日",
+            "目"
+          ],
+          "out_of_corpus": []
+        }
+      ]
     },
     {
       "id": "n5.kanji.名",
