@@ -1,0 +1,163 @@
+﻿======================================================================
+GRAMMAR (178 patterns) — bar set above Bunpro free tier
+======================================================================
+Total patterns loaded: 178
+
+Dimension                          | met / total | %     | gap
+------------------------------------|-------------|-------|--------
+Examples ≥ 7 (target)              |   0 / 178 |   0% | 178
+Examples ≥ 5 (above Bunpro)        |  26 / 178 |  15% | 152
+Examples ≥ 3 (floor, JA-13)        | 178 / 178 | 100% | 0
+Common-mistakes ≥ 1                 | 178 / 178 | 100% | 0
+Contrasts cross-link present       |  97 / 178 |  54% | 81
+Register tag                        | 178 / 178 | 100% | 0
+Source citations ≥ 2                | 178 / 178 | 100% | 0
+vocab_ids on every example          | 178 / 178 | 100% | 0
+Audio per every example             |   0 / 178 |   0% | 178
+Pitch accent ≥ 1 example            |   0 / 178 |   0% | 178
+Cultural callout present            |   0 / 178 |   0% | 178
+Authentic-media reference           |   0 / 178 |   0% | 178
+
+Worst offenders (examples below 7):
+  n5-006: 4 examples
+  n5-011: 4 examples
+  n5-021: 4 examples
+  n5-024: 4 examples
+  n5-025: 4 examples
+  n5-026: 4 examples
+  n5-027: 4 examples
+  n5-028: 4 examples
+  n5-029: 4 examples
+  n5-030: 4 examples
+
+======================================================================
+VOCAB (1000 entries) — bar set above Jisho
+======================================================================
+Total vocab loaded: 1000
+
+Dimension                          | met / total | %     | gap
+------------------------------------|-------------|-------|--------
+Examples ≥ 3 (target)              |   38 / 1000 |   4% | 962
+Examples ≥ 2 (Jisho parity)         | 1000 / 1000 | 100% | 0
+Pitch accent (Tokyo)                |  249 / 1000 |  25% | 751
+Collocations ≥ 5                    |    0 / 1000 |   0% | 1000
+Collocations ≥ 1                    |  200 / 1000 |  20% | 800
+Transitivity-pair link              |   22 / 1000 |   2% | 978
+Verb-class flag (godan/ichidan etc) |  132 / 1000 |  13% | 868
+Counter pairing (nouns)             |   88 / 1000 |   9% | 912
+Register tag                        |   21 / 1000 |   2% | 979
+Source citations ≥ 2                |    0 / 1000 |   0% | 1000
+Frequency rank                      |    0 / 1000 |   0% | 1000
+Conjugation table inline            |    0 / 1000 |   0% | 1000
+Honorific chain link                |    9 / 1000 |   1% | 991
+Audio (any form)                    |    0 / 1000 |   0% | 1000
+Authentic-media reference           |    0 / 1000 |   0% | 1000
+
+======================================================================
+KANJI (106) — bar set above WaniKani free tier
+======================================================================
+Total kanji loaded: 106
+
+Dimension                          | met / total | %     | gap
+------------------------------------|-------------|-------|--------
+Mnemonic - radical/component story | 106 / 106 | 100% | 0
+Mnemonic - visual                  |   0 / 106 |   0% | 106
+Mnemonic - reading hint            |   0 / 106 |   0% | 106
+Radical decomposition              | 106 / 106 | 100% | 0
+Stroke-order SVG                   | 106 / 106 | 100% | 0
+Stroke-order mistakes annotated    |  25 / 106 |  24% | 81
+Lookalike-cluster cross-link       |  29 / 106 |  27% | 77
+Vocab cross-links ≥ 5              |  15 / 106 |  14% | 91
+Example sentence ≥ 1               |   0 / 106 |   0% | 106
+Frequency rank                     | 106 / 106 | 100% | 0
+Recognition priority (1/2/3)       | 106 / 106 | 100% | 0
+Audio for on/kun yomi              |   0 / 106 |   0% | 106
+Etymology / kun-yomi origin        |   0 / 106 |   0% | 106
+Real-world signage reference       |   0 / 106 |   0% | 106
+
+======================================================================
+READING (passages) — bar above Marugoto
+======================================================================
+Total passages loaded: 45
+
+Dimension                          | met / total | %     | gap
+------------------------------------|-------------|-------|--------
+Sentence-by-sentence grammar footnote|  43 / 45 |  96% | 2
+Pre-reading vocab preview          |  45 / 45 | 100% | 0
+Native-speaker audio               |   0 / 45 |   0% | 45
+Paragraph-level summary            |   0 / 45 |   0% | 45
+Literal-vs-natural translation     |   0 / 45 |   0% | 45
+Cultural-context callouts          |  45 / 45 | 100% | 0
+Reflection prompts                 |   0 / 45 |   0% | 45
+Topic-cluster tag                  |  45 / 45 | 100% | 0
+format_role discipline             |  45 / 45 | 100% | 0
+
+======================================================================
+LISTENING (items) — bar above JapanesePod101 free tier
+======================================================================
+Total listening items: 47
+
+Dimension                          | met / total | %     | gap
+------------------------------------|-------------|-------|--------
+Timestamped transcript             |   0 / 47 |   0% | 47
+Vocab glossary inline              |   0 / 47 |   0% | 47
+Slow-version audio                 |   0 / 47 |   0% | 47
+Distinct voices: 4 (target ≥ 4)
+Discourse markers tagged           |   0 / 47 |   0% | 47
+Inference-question expansion       |   0 / 47 |   0% | 47
+Ambient-context audio              |   0 / 47 |   0% | 47
+Pre-listening prompt_ja            |  47 / 47 | 100% | 0
+Real-world authentic clip          |   0 / 47 |   0% | 47
+
+======================================================================
+LINKING-DENSITY
+======================================================================
+
+Density-1: avg vocab in-links per pattern: 16.8 (target ≥ 10)
+Density-2: vocab with ≥1 grammar back-ref: 319/1000 (32%)
+Density-3: avg vocab per kanji (containment): 3.0 (target ≥ 5)
+Density-4: kanji appearing in ≥1 reading passage: 0/106 (0%)
+Density-5: reading-passage sentence footnote ratio: 0 / 45 (field absent)
+Density-6: listening with vocab-glossary linkability: 0/47 (0%)
+Density-7: paper questions with content link: 0/402 (0%)
+Density-8: confusable clusters all-linked: 4/8 (50%)
+
+AGGREGATE LINKING DENSITY = 6304 / sqrt(1778) = 149.5
+  Bunpro reference ~8 / WaniKani ~12 / Jisho ~15
+
+======================================================================
+AUTHENTIC-CONTENT LAYER (the largest leverage opportunity)
+======================================================================
+
+Grammar with authentic-media reference: 0/178 (0%)
+Vocab with authentic-media reference: 0/1000 (0%)
+Kanji with real-world signage:        0/106 (0%)
+Reading from authentic source:        0/45 (0%)
+Listening with real-world clip:       0/47 (0%)
+
+>>> AUTHENTIC-CONTENT LAYER IS THE SINGLE LARGEST GAP <<<
+
+======================================================================
+COMPETITOR-FEATURE PARITY (auto-checked items)
+======================================================================
+Bunpro JP-keyboard input:      ❌ missing
+Bunpro partial-credit (50%):   ❌ missing
+Bunpro ghost reviews:          ❌ missing
+Bunpro cloze-deletion drills:  ❌ missing
+Bunpro review forecast (7-day):✅
+Bunpro grammar-path tags:      ❌ missing (no genki_lesson tags)
+WaniKani 3-mnemonic per kanji: ❌ missing (0/106)
+WaniKani SRS gating:           ❌ missing
+WaniKani production reviews:   ❌ missing
+Tofugu pedagogical essays:     ❌ missing (explanation_en is short, not essay-length)
+Migaku Anki export:            ✅
+Migaku sentence-mining:        ❌ missing
+JapanesePod101 story dialogue: ⚠ partial (47 listening items are dialogues, but no "story mode")
+JP101 lesson-notes PDF:        ❌ missing
+Renshuu multi-skill drill:     ✅
+Renshuu custom user lists:     ⛔ deliberate-no (privacy posture)
+Jisho "words containing X kanji": ✅ (kanji.json examples array)
+Anki open-format export:       ✅
+Genki workbook print/PDF:      ❌ missing
+JLPT Sensei deep-linking:      ⚠ partial (per-item URLs exist, no SEO meta)
+Furigana toggle:               ✅
