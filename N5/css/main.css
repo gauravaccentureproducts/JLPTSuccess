@@ -69,6 +69,11 @@
   --color-accent-hover: #163924;
   --color-accent-tint:  #EDF1EE;
 
+  /* Tea-green header band — matches the JLPTSuccess landing page's
+   * --header-bg so the chrome-tint is byte-identical across surfaces.
+   * Brand forest-green logo on this = ~6.5:1 contrast (AA). */
+  --header-bg:          #cfd8b5;
+
   /* === Semantic (state only) === */
   --color-correct:      #2E7D4F;
   --color-correct-tint: #ECF4EE;
@@ -178,6 +183,9 @@
     --color-incorrect-tint:#3A2723;
     --color-due:           #D9A560;
     --color-due-tint:      #332B1E;
+    /* Dark-mode header band — deep moss tint, parallel to the
+     * landing page's dark-mode --header-bg. Sage logo on this = ~5:1. */
+    --header-bg:           #2a3a2c;
   }
 }
 
@@ -200,6 +208,7 @@
   --color-incorrect-tint:#3A2723;
   --color-due:           #D9A560;
   --color-due-tint:      #332B1E;
+  --header-bg:           #2a3a2c;
 }
 [data-theme="light"] {
   --color-bg:           #FFFFFF;
@@ -219,6 +228,7 @@
   --color-incorrect-tint:#F7EAE7;
   --color-due:          #A66A1F;
   --color-due-tint:     #F7EFE0;
+  --header-bg:          #cfd8b5;
 }
 
 /* User-controllable type-scale knob (settings panel). The base size shifts
@@ -353,7 +363,11 @@ html, body {
   letter-spacing: var(--tracking-wide);
 }
 
-/* Header - Zen Modern (sticky, 56px tall, hairline, brand mark + wordmark) */
+/* Header - Zen Modern (sticky, 56px tall, brand mark + wordmark).
+ * Background uses the tea-green tint (--header-bg) so the chrome-tint
+ * is identical across the JLPTSuccess landing page and the N5 app
+ * shell — same family. The color change itself delineates the band
+ * from main content; no hairline border needed. */
 .app-header {
   position: sticky; top: 0; z-index: 50;
   display: grid;
@@ -362,8 +376,7 @@ html, body {
   gap: var(--space-6);
   height: 56px;
   padding: 0 var(--space-5);
-  background: var(--color-bg);
-  border-bottom: 0.5px solid var(--color-line);
+  background: var(--header-bg);
   max-width: var(--container-wide);
   margin: 0 auto;
 }
