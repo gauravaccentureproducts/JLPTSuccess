@@ -49,7 +49,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
 | 22 | IMP-124 | P1 | Grammar examples → 7 per pattern (~400-600 new) | ⏳ |
-| 23 | IMP-125 | P1 | Kanji 3-mnemonic structure (212 mnemonics) | ⏳ |
+| 23 | IMP-125 | P1 | Kanji 3-mnemonic structure (visual + reading + meaning) | ✅ schema upgraded 106/106; auto-derived stubs flagged for review |
 | 24 | IMP-126 | P1 | Authentic-content layer cross-surface | ✅ starter corpus (30 items) + new #/authentic route + home CTA |
 | 25 | IMP-135 | P3 | JP-keyboard typed-input reviews + 50% partial credit | ✅ activated by IMP-136/138 work (typed input lives in drill flow) |
 | 26 | IMP-136 | P3 | Cloze-deletion drill question type | ✅ inline cloze + 14 existing text_input questions now functional |

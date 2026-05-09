@@ -256,7 +256,7 @@ function renderDetail(container, entry, entries) {
               <span class="kanji-decomposition" lang="ja">${entry.radical_decomposition.map(esc).join(' + ')}</span>
             </p>
           ` : ''}
-          ${entry.mnemonic ? `<p class="kanji-mnemonic">${esc(entry.mnemonic)}</p>` : ''}
+          ${renderMnemonicBlock(entry.mnemonic)}
         </section>
       ` : ''}
       ${entry.confusable_with?.length ? `
@@ -335,4 +335,42 @@ function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
+}
+
+// IMP-125 (richness audit, 2026-05-10): WaniKani-style 3-mnemonic
+// renderer. Backwards-compatible: accepts either the new
+// {summary, visual, reading, meaning, provenance} object or the
+// legacy flat string and renders accordingly.
+function renderMnemonicBlock(mn) {
+  if (!mn) return '';
+  if (typeof mn === 'string') {
+    // Legacy flat-string path; preserve previous render exactly.
+    return `<p class="kanji-mnemonic">${esc(mn)}</p>`;
+  }
+  if (typeof mn !== 'object') return '';
+
+  const summary = mn.summary || mn.meaning || '';
+  const visual = mn.visual || '';
+  const reading = mn.reading || '';
+  const prov = mn.provenance || {};
+
+  const provBadge = (key) => {
+    const p = prov[key];
+    if (p === 'auto_derived') {
+      return ' <span class="kanji-mnemonic-prov muted small" title="Auto-derived stub; pending native review.">auto</span>';
+    }
+    return '';
+  };
+
+  const lines = [];
+  if (summary) {
+    lines.push(`<p class="kanji-mnemonic kanji-mnemonic-summary"><strong>Meaning:</strong> ${esc(summary)}${provBadge('summary')}</p>`);
+  }
+  if (visual && visual !== summary) {
+    lines.push(`<p class="kanji-mnemonic kanji-mnemonic-visual"><strong>Visual:</strong> ${esc(visual)}${provBadge('visual')}</p>`);
+  }
+  if (reading) {
+    lines.push(`<p class="kanji-mnemonic kanji-mnemonic-reading"><strong>Reading:</strong> ${esc(reading)}${provBadge('reading')}</p>`);
+  }
+  return lines.join('\n          ');
 }

@@ -2702,6 +2702,32 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .is-printing-cheatsheet .placeholder { display: none !important; }
 }
 
+/* IMP-125 (richness audit, 2026-05-10): kanji 3-mnemonic structure.
+   Visual / Reading / Meaning paragraphs each get the same mnemonic
+   styling but a small leading label so the learner can scan quickly.
+   The "auto" provenance badge appears next to auto-derived stubs
+   (visual + reading) so users know native review is pending. */
+.kanji-mnemonic-summary { margin: 0 0 6px; }
+.kanji-mnemonic-visual,
+.kanji-mnemonic-reading {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.kanji-mnemonic-prov {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--c-fg, #6b7280) 8%, transparent);
+  color: var(--c-fg, #6b7280);
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
 /* IMP-126 (richness audit, 2026-05-09): authentic-content cards.
    Real-world JP signs / menus / transit / shop / notice. Each card
    shows: ja text (large), reading (when distinct from form), gloss
