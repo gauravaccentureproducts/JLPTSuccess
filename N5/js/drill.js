@@ -143,6 +143,14 @@ function renderDrilling(container) {
     answerHtml = renderChoices(q, answer);
   } else if (q.type === 'sentence_order') {
     answerHtml = renderSentenceOrder(q, answer);
+  } else if (q.type === 'text_input' || q.type === 'cloze' || q.type === 'production') {
+    // IMP-136 (cloze drill) + IMP-138 (production review): typed-input
+    // questions. The 14 existing text_input questions use a "（　）" blank
+    // marker in question_ja which we render inline-with-input. Cloze and
+    // production are aliases that share the same renderer; the question
+    // type differentiates pedagogically (cloze = fill-in-blank,
+    // production = full sentence translation).
+    answerHtml = renderTextInput(q, answer);
   }
 
   const feedbackHtml = showingFeedback ? renderFeedback(q, answer) : '';
@@ -196,6 +204,33 @@ function renderDrilling(container) {
     container.querySelectorAll('[data-tile-remove]').forEach(el => {
       el.addEventListener('click', () => removeTile(q, parseInt(el.dataset.tileRemove, 10), container));
     });
+    // IMP-136 + IMP-138: typed-input capture. We use 'input' (every
+    // keystroke) so the Check Answer button enables in real time as
+    // soon as the field is non-empty. Enter submits without needing
+    // mouse focus on the button.
+    const textInput = container.querySelector('[data-drill-text-input]');
+    if (textInput) {
+      textInput.addEventListener('input', () => {
+        q._draft = textInput.value;
+        const checkBtn = document.getElementById('check-answer');
+        if (checkBtn) {
+          checkBtn.disabled = !isAnswered(q, null);
+        }
+      });
+      textInput.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' && isAnswered(q, null)) {
+          ev.preventDefault();
+          checkAnswer(q, container);
+        }
+      });
+      // Auto-focus the input so the user can start typing immediately.
+      // Only on first render (not after feedback), and only if no answer
+      // yet locked.
+      if (!session.answers[q.id]) {
+        // microtask defer so DOM is mounted
+        Promise.resolve().then(() => textInput.focus());
+      }
+    }
     document.getElementById('check-answer')?.addEventListener('click', () => checkAnswer(q, container));
   } else {
     document.getElementById('next-drill')?.addEventListener('click', () => advance(container));
@@ -247,7 +282,61 @@ function isAnswered(q, answer) {
   if (q.type === 'sentence_order') {
     return Array.isArray(q._draft) && q._draft.length === (q.tiles?.length || 0);
   }
+  if (q.type === 'text_input' || q.type === 'cloze' || q.type === 'production') {
+    return typeof q._draft === 'string' && q._draft.trim().length > 0;
+  }
   return q._draft !== undefined && q._draft !== null && q._draft !== '';
+}
+
+// IMP-136 + IMP-138 (richness audit, 2026-05-09): typed-input renderer.
+// Three variants share the same DOM: text_input (legacy generic),
+// cloze (fill-in-the-blank — visually slot the input INTO the blank
+// in question_ja), production (English-prompt → JP typing — full
+// sentence box).
+function renderTextInput(q, answer) {
+  const draft = answer ? answer.answer : (q._draft || '');
+  const locked = !!answer;
+  const value = esc(draft);
+
+  // Cloze layout: if question_ja contains the （　） blank marker,
+  // split on it and render the input inline within the sentence.
+  const stem = q.question_ja || '';
+  const blankRe = /[\(（][\s　]*[\)）]/;
+  const isCloze = blankRe.test(stem);
+
+  // Per-variant CSS state on the input box for feedback colouring.
+  let inputCls = 'drill-text-input';
+  if (locked) {
+    inputCls += answer.isCorrect ? ' drill-text-input-correct' : ' drill-text-input-wrong';
+  }
+
+  const inputEl = `
+    <input type="text" data-drill-text-input
+           class="${inputCls}"
+           ${locked ? 'disabled' : ''}
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+           value="${value}"
+           placeholder="${q.type === 'production' ? 'Type the Japanese sentence' : 'Type your answer'}"
+           lang="ja">
+  `;
+
+  if (isCloze && q.type !== 'production') {
+    // Replace the （　） marker with the input element inline.
+    const parts = stem.split(blankRe);
+    const inlineCloze = parts.map(esc).join(`<span class="drill-cloze-blank">${inputEl}</span>`);
+    return `
+      <div class="drill-text-input-block">
+        <p class="drill-cloze-sentence" lang="ja">${inlineCloze}</p>
+      </div>
+    `;
+  }
+
+  // Plain text-input or production: input alone below the prompt.
+  return `
+    <div class="drill-text-input-block">
+      ${inputEl}
+    </div>
+  `;
 }
 
 function addTile(q, tile, container) {
@@ -269,6 +358,28 @@ function gradeQuestion(q, draft) {
     const correct = q.correctOrder || [];
     if (draft.length !== correct.length) return false;
     return draft.every((t, i) => t === correct[i]);
+  }
+  if (q.type === 'text_input' || q.type === 'cloze' || q.type === 'production') {
+    // IMP-136 + IMP-138: typed-input grading with normalization.
+    // Accept the typed answer if any of the following match (case-
+    // and whitespace-insensitive):
+    //   - acceptedAnswers list (curated full-sentence variants
+    //     incl. romaji + with/without spaces)
+    //   - correctAnswer (the canonical short answer)
+    // Whitespace, halfwidth/fullwidth space, end punctuation are
+    // all normalised away to match user-typed leniency.
+    if (typeof draft !== 'string') return false;
+    const norm = (s) => String(s || '')
+      .normalize('NFKC')
+      .replace(/[\s　]+/g, '')
+      .replace(/[。．.!?！？]+$/g, '')
+      .toLowerCase()
+      .trim();
+    const target = norm(draft);
+    if (!target) return false;
+    if (norm(q.correctAnswer) === target) return true;
+    const accepted = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers : [];
+    return accepted.some(a => norm(a) === target);
   }
   return draft === q.correctAnswer;
 }

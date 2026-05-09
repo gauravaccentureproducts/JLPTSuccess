@@ -2702,6 +2702,63 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .is-printing-cheatsheet .placeholder { display: none !important; }
 }
 
+/* IMP-136 + IMP-138 (richness audit, 2026-05-09): typed-input drill UI.
+   Three drill question variants share these styles:
+     - text_input  legacy generic free-form answer
+     - cloze       fill-in-the-blank inline with the sentence
+     - production  English prompt → JP full sentence typing
+   The cloze variant slots the input INTO the （　） blank in the
+   sentence, so visually the input is mid-sentence. The other two
+   variants render the input as a standalone box below the prompt. */
+.drill-text-input-block {
+  margin: 12px 0;
+}
+.drill-cloze-sentence {
+  font-size: 18px;
+  line-height: 2.1;
+  margin: 8px 0;
+}
+.drill-cloze-blank {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.drill-text-input {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 6px 10px;
+  border: 1.5px solid var(--c-border, #d1d5db);
+  border-radius: 6px;
+  background: var(--c-surface, #ffffff);
+  color: var(--c-fg, #1f2937);
+  min-height: 40px;
+  width: min(100%, 360px);
+  transition: border-color 120ms;
+}
+.drill-cloze-blank .drill-text-input {
+  width: 8em;
+  min-width: 6em;
+  text-align: center;
+  border-bottom: 2px solid var(--c-primary-dark, #14452a);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  padding: 2px 4px;
+  background: transparent;
+}
+.drill-text-input:focus {
+  border-color: var(--c-primary-dark, #14452a);
+  outline: 2px solid color-mix(in srgb, var(--c-primary-dark, #14452a) 25%, transparent);
+}
+.drill-text-input-correct {
+  border-color: var(--color-success, #16a34a) !important;
+  background: color-mix(in srgb, var(--color-success, #16a34a) 8%, transparent);
+}
+.drill-text-input-wrong {
+  border-color: var(--color-error, #dc2626) !important;
+  background: color-mix(in srgb, var(--color-error, #dc2626) 8%, transparent);
+}
+
 /* IMP-143 (richness audit, 2026-05-09): cheat-sheet hidden spans on
    each grammar card. Hidden on screen; revealed in print mode by the
    @media print rules below. Keeps the on-screen TOC clean (just the
