@@ -196,6 +196,12 @@ function syllabusCards(counts) {
 // land on the canonical learn TOCs; "Practice grammar questions" routes
 // to the daily Drill (the grammar-question practice loop, distinct from
 // the mock test); "Review weak areas" routes to the SRS Review queue.
+// IMP-144 (richness audit, 2026-05-09): the "Review" CTA points at the
+// SRS queue, which already round-robins grammar + vocab + kanji per
+// IMP-092 Phase 2B. Renaming it "Mixed drill (SRS)" surfaces that
+// multi-skill nature on the home study path so learners understand
+// they're getting one mixed 15-min session, not three separate review
+// loops.
 const STUDY_ORDER = [
   { text: 'Learn basic sentence structure and particles', href: '#/learn/grammar' },
   { text: 'Study core vocabulary',                         href: '#/learn/vocab' },
@@ -204,7 +210,7 @@ const STUDY_ORDER = [
   { text: 'Practice short reading passages',               href: '#/reading' },
   { text: 'Practice listening drills',                     href: '#/listening' },
   { text: 'Take the mock test',                            href: '#/test' },
-  { text: 'Review weak areas',                             href: '#/review' },
+  { text: 'Mixed drill: grammar + vocab + kanji SRS',      href: '#/review' },
 ];
 
 function renderSyllabusCard(card) {
@@ -401,7 +407,7 @@ export async function renderHome(container) {
         ${isReturning ? `
           <div class="syllabus-daily-status">
             <span class="syllabus-daily-streak">Streak: ${streak?.current ?? 0} ${(streak?.current ?? 0) === 1 ? 'day' : 'days'}</span>
-            <a class="syllabus-daily-progress" href="#/review" title="Open today's review queue">
+            <a class="syllabus-daily-progress" href="#/review" title="Open today's mixed-skill review queue (grammar + vocab + kanji SRS)">
               <span class="syllabus-daily-progress-label">${t('home.today_label')}: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
               <span class="syllabus-daily-progress-bar" aria-hidden="true">
                 <span class="syllabus-daily-progress-fill" style="width:${goalPct}%"></span>

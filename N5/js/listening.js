@@ -175,7 +175,29 @@ function renderItem(container) {
       <h2>${it.title_ja ? renderJa(it.title_ja) : esc(it.id)}</h2>
       <p class="muted small">${renderJa('けいしき')}: ${renderJa(FORMATS[it.format] || it.format)}</p>
       <div class="listening-audio">
-        ${it.audio ? `<audio controls preload="none" src="${esc(it.audio)}">Audio</audio>` : `<p class="muted small">${renderJa('おんせいファイルは まだ ありません。')}</p>`}
+        ${it.audio ? `
+          <audio id="listening-audio-${esc(it.id)}" controls preload="none" src="${esc(it.audio)}">Audio</audio>
+          ${it.audio_slow ? `
+            <!-- IMP-141 (richness audit, 2026-05-09): slow-version
+                 0.7x render. Toggle swaps the <audio> src + label
+                 so users can replay at beginner-friendly tempo
+                 without losing the original-speed reference. -->
+            <div class="listening-speed-toggle" role="group" aria-label="${esc(renderJa('さいせい そくど'))}">
+              <button type="button" class="listening-speed-btn is-active" data-listening-speed="normal"
+                      data-audio-target="listening-audio-${esc(it.id)}"
+                      data-audio-normal="${esc(it.audio)}"
+                      data-audio-slow="${esc(it.audio_slow)}">
+                ${renderJa('ふつう')} (1.0×)
+              </button>
+              <button type="button" class="listening-speed-btn" data-listening-speed="slow"
+                      data-audio-target="listening-audio-${esc(it.id)}"
+                      data-audio-normal="${esc(it.audio)}"
+                      data-audio-slow="${esc(it.audio_slow)}">
+                ${renderJa('ゆっくり')} (0.7×)
+              </button>
+            </div>
+          ` : ''}
+        ` : `<p class="muted small">${renderJa('おんせいファイルは まだ ありません。')}</p>`}
       </div>
       ${it.prompt_ja ? `<p>${renderJa(it.prompt_ja)}</p>` : ''}
       ${it.choices ? `
@@ -234,6 +256,31 @@ function renderItem(container) {
   // IMP-070: wire transcript-line click-to-seek + auto-highlight when
   // the item ships with a `lines` array. No-op when absent.
   wireTranscriptSync(container, it);
+  // IMP-141 (richness audit, 2026-05-09): slow-audio toggle.
+  // Swap the <audio> src to the slow render and resume playback at
+  // the same relative position. No-op when audio_slow is absent.
+  container.querySelectorAll('[data-listening-speed]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const speed = btn.dataset.listeningSpeed;
+      const audioId = btn.dataset.audioTarget;
+      const audio = document.getElementById(audioId);
+      if (!audio) return;
+      const newSrc = speed === 'slow' ? btn.dataset.audioSlow : btn.dataset.audioNormal;
+      // Preserve relative position so the toggle feels seamless.
+      const wasPlaying = !audio.paused;
+      const ratio = audio.duration ? audio.currentTime / audio.duration : 0;
+      audio.pause();
+      audio.src = newSrc;
+      audio.addEventListener('loadedmetadata', () => {
+        if (audio.duration && ratio > 0) audio.currentTime = audio.duration * ratio;
+        if (wasPlaying) audio.play().catch(() => {});
+      }, { once: true });
+      // Visual state on the toggle group
+      btn.parentElement?.querySelectorAll('[data-listening-speed]').forEach(b => {
+        b.classList.toggle('is-active', b === btn);
+      });
+    });
+  });
 }
 
 function esc(s) {

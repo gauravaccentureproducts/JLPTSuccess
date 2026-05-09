@@ -103,19 +103,16 @@ function renderSetup(container) {
   const unifiedDueTotal = dueBySkill.grammar + dueBySkill.vocab + dueBySkill.kanji;
 
   container.innerHTML = `
-    <h2>${t('page.review')}</h2>
-    <p>Spaced-repetition session using the SM-2 algorithm. Items reappear at intervals that grow as you grade them correctly and shrink when you miss.</p>
+    <h2>${t('page.review')} <span class="srs-mode-badge" aria-label="Mixed skill drill">Mixed drill</span></h2>
+    <p>Spaced-repetition session using the SM-2 algorithm. Items reappear at intervals that grow as you grade them correctly and shrink when you miss. <strong>Grammar, vocab and kanji items are interleaved round-robin in the same session</strong> so you get a single mixed 15-min drill instead of three separate loops (IMP-144).</p>
 
     ${unifiedDueTotal > 0 ? `
-      <!-- IMP-092 Phase 2A: unified daily review aggregate -->
+      <!-- IMP-092 Phase 2A + IMP-144 (2026-05-09): mixed-skill summary -->
       <section class="srs-unified-summary" aria-label="Today's reviews across all skills">
         <h3 style="margin:0 0 8px; font-weight:500;">Today: <strong>${unifiedDueTotal}</strong> review${unifiedDueTotal === 1 ? '' : 's'} due across all skills</h3>
         <p class="muted small" style="margin:0 0 12px;">
           ${dueBySkill.grammar} grammar · ${dueBySkill.vocab} vocab · ${dueBySkill.kanji} kanji
           <span style="margin-left:8px;">(see <a href="#/summary">Progress dashboard</a> for forecast)</span>
-        </p>
-        <p class="muted small" style="margin:0;">
-          The session below covers <strong>grammar reviews only</strong> for now. Vocab and kanji reviews surface on their respective Learn pages until the unified card render ships (IMP-092 Phase 2B).
         </p>
       </section>
     ` : ''}

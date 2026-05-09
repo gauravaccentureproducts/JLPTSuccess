@@ -26,8 +26,8 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 7 | IMP-133 | P3 | Vocab counter pairing on remaining ~500 nouns | ✅ 49 noun-counter pairings |
 | 8 | IMP-134 | P3 | Honorific/humble register chains (5 chains) | ✅ 1 chain in-corpus (4 need N4) |
 | 9 | IMP-139 | P3 | Vocab frequency_rank (Leeds JP corpus, CC-BY) | ✅ 705/1000 (70%) imported |
-| 10 | IMP-141 | P3 | Slow-version listening audio (0.7×) | ⏳ |
-| 11 | IMP-144 | P4 | Multi-skill mixed drill toggle | ⏳ |
+| 10 | IMP-141 | P3 | Slow-version listening audio (0.7×) | ✅ 40/47 rendered (7 lack source MP3) |
+| 11 | IMP-144 | P4 | Multi-skill mixed drill toggle | ✅ home + review headings updated |
 | 12 | IMP-146 | P5 | Lesson-notes PDF download | ⏳ |
 
 ### TIER 2 — MEDIUM EFFORT

@@ -2157,6 +2157,52 @@ label {
   background: color-mix(in srgb, #d97706 10%, transparent);
   color: #92400e;
 }
+/* IMP-144 (richness audit, 2026-05-09): "Mixed drill" badge on the
+   review setup-page heading. Surfaces that the SRS session round-
+   robins grammar + vocab + kanji in a single mixed drill, matching
+   competitor parity (Renshuu's "do all 4 skills mixed in one
+   15-min session"). */
+.srs-mode-badge {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 12%, transparent);
+  color: var(--c-primary-dark, #14452a);
+  border: 0.5px solid color-mix(in srgb, var(--c-primary-dark, #14452a) 30%, transparent);
+}
+/* IMP-141 (richness audit, 2026-05-09): listening-page speed toggle.
+   Sits below the audio element; two pill buttons — ふつう (1.0x) and
+   ゆっくり (0.7x). Active state uses the same primary-tinted fill as
+   the SRS skill badges for consistency. */
+.listening-speed-toggle {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.listening-speed-btn {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  background: transparent;
+  color: var(--c-fg, #1f2937);
+  border: 0.5px solid var(--c-border, #d1d5db);
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+}
+.listening-speed-btn:hover {
+  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 8%, transparent);
+}
+.listening-speed-btn.is-active {
+  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 18%, transparent);
+  color: var(--c-primary-dark, #14452a);
+  border-color: color-mix(in srgb, var(--c-primary-dark, #14452a) 35%, transparent);
+}
 .srs-content { padding: 16px 0; }
 .srs-content .pattern-name {
   font-size: 28px;
