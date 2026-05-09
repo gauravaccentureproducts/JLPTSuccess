@@ -35,12 +35,12 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
 | 13 | IMP-127 | P2 | Pitch accent from Kanjium (CC BY-SA, EDICT-derived) | ✅ 827/1000 (83%) — exceeds ≥80% target |
-| 14 | IMP-128 | P2 | Collocations ≥5 per top-300 high-freq word | ⚠ partial — 117/300 ≥1, 70 ≥3, 15 ≥5; corpus too thin |
+| 14 | IMP-128 | P2 | Collocations ≥5 per top-300 high-freq word | ✅ **300/300 (100%)** — 4 authoring rounds |
 | 15 | IMP-129 | P2 | Listening timestamped transcripts (line-level via mora-proportional) | ✅ 40/47 — line-level (whisper deferred) |
 | 16 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ✅ 739/739 (100%) — gTTS render |
 | 17 | ISSUE-106 | P3 | Kanji→reading-passage cross-references | ✅ 59/106 (56%) — covers all kanji used in passages |
 | 18 | ISSUE-107 | P3 | Listening vocab_glossary inline | ✅ 47/47 (100%), 322 refs, avg 6.9/item |
-| 19 | IMP-140 | P3 | Reading paragraph summary + lit/natural translation | ⚠ structural — paras + stubs (translations need authoring) |
+| 19 | IMP-140 | P3 | Reading paragraph summary + lit/natural translation | ✅ 45/45 paras + **45/45 translations authored**; opt-in UI toggle |
 | 20 | IMP-142 | P4 | SEO + structured-data per content page | ✅ Course + BreadcrumbList JSON-LD + hreflang + noscript |
 | 21 | IMP-143 | P4 | PDF cheat sheet builder | ✅ grammar TOC print → cheat-sheet PDF |
 
@@ -49,11 +49,11 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
 | 22 | IMP-124 | P1 | Grammar examples → 7 per pattern | ✅ **100%** at 7+ (was 0%); 160 hand-authored + 347 xref'd |
-| 23 | IMP-125 | P1 | Kanji 3-mnemonic structure (visual + reading + meaning) | ✅ schema upgraded 106/106; auto-derived stubs flagged for review |
+| 23 | IMP-125 | P1 | Kanji 3-mnemonic structure (visual + reading + meaning) | ✅ schema upgraded 106/106 + **all 212 visual+reading mnemonics authored** |
 | 24 | IMP-126 | P1 | Authentic-content layer cross-surface | ✅ starter corpus (30 items) + new #/authentic route + home CTA |
 | 25 | IMP-135 | P3 | JP-keyboard typed-input reviews + 50% partial credit | ✅ activated by IMP-136/138 work (typed input lives in drill flow) |
 | 26 | IMP-136 | P3 | Cloze-deletion drill question type | ✅ inline cloze + 14 existing text_input questions now functional |
-| 27 | IMP-137 | P3 | Tofugu-style essays on top-30 trickiest patterns | ✅ scaffolded 30/30 (stub) + new "Deep dive" UI block |
+| 27 | IMP-137 | P3 | Tofugu-style essays on top-30 trickiest patterns | ✅ **30/30 fully authored** (intro + why + pitfalls + contrasts + tip) |
 | 28 | IMP-138 | P3 | Production reviews (English → JP typing) | ✅ shares cloze renderer; production variant added |
 | 29 | IMP-145 | P5 | WaniKani-style SRS gating | ✅ opt-in setting + queue filter + storage helpers |
 
@@ -66,6 +66,24 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
   per CLAUDE.md Rule 2 (large-scope work).
 - **If a Tier-1 item turns out medium/high**: re-classify in
   this table and defer.
+
+### ALL CONTENT AUTHORED — 29/29 — 2026-05-10
+
+Final statistics across the corpus:
+- **Vocab**: 437 entries with collocations (top-300 = 100% ≥5);
+  828/1000 with pitch_accent (83%); 705/1000 with frequency_rank.
+- **Grammar**: 178/178 patterns at ≥7 examples (100%); 30/30
+  trickiest patterns with fully-authored Tofugu essays; 162/178
+  with Genki lesson tags.
+- **Kanji**: 106/106 with 3-mnemonic structure; all 212 visual +
+  reading mnemonics authored llm_curated.
+- **Reading**: 45/45 with paragraph segmentation + literal +
+  natural translations; opt-in UI toggle preserves JA-27.
+- **Listening**: 47/47 with vocab_glossary; 40/47 with line-level
+  timestamps; 40/47 with 0.7× slow audio.
+- **Authentic**: 30 starter items + new #/authentic route.
+
+All 26 batches pushed to origin/master; live at GitHub Pages.
 
 ### TIER 3 STATUS — COMPLETE (8/8, with caveats) — 2026-05-10
 
