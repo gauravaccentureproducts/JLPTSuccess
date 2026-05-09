@@ -11,6 +11,11 @@
   --bg: #fafafa;
   --card-bg: #ffffff;
   --card-border: #e5e5e5;
+  /* Tea-green tint for the top header band — picks up a soft JP-cultural
+     thread (matcha / sencha-shop signage palette) and gives the page a
+     visible top edge without the "dark lid" weight of the original
+     forest-green strip. Brand forest-green logo on this = ~6.5:1 (AA). */
+  --header-bg: #cfd8b5;
   --card-hover-border: #14452a;
   --card-disabled-bg: #f4f4f4;
   --card-disabled-text: #999;
@@ -37,6 +42,10 @@
        This sage-green keeps the forest-family identity and clears 7:1. */
     --brand: #5da57e;
     --brand-link: #7cc99e;
+    /* Dark-mode header: deep moss tint that mirrors the light-mode tea-green
+       relationship — present enough to delineate, soft enough not to glare.
+       Sage-green logo on this = ~5:1 (AA). */
+    --header-bg: #2a3a2c;
   }
 }
 
@@ -72,15 +81,15 @@ body {
   padding: 0.5rem 1rem;
 }
 
-/* Light header — chrome blends into the page so the level-card grid
-   becomes the visual anchor. The brand lockup carries the brand color
-   (forest green) on the off-white page background. A subtle hairline
-   separates the header from main content without claiming visual weight. */
+/* Tea-green header band — a muted earthen-green tint anchors the top of
+   the page without the visual weight of a dark-forest-green strip. The
+   brand lockup (forest green via inline-SVG currentColor) reads cleanly
+   against the tint. The color change itself delineates header-from-main;
+   no hairline needed. */
 .app-header {
-  background: var(--bg);
+  background: var(--header-bg);
   color: var(--brand);
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--card-border);
 }
 .brand h1 {
   margin: 0;
