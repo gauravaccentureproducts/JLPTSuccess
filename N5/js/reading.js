@@ -171,6 +171,31 @@ function renderRead(container, p) {
         </aside>
       ` : ''}
       ${renderGrammarFootnotes(p)}
+      ${p.translation_literal || p.translation_natural ? `
+        <!-- IMP-140 (richness audit, 2026-05-10): opt-in literal vs
+             natural translation toggle. The Japanese passage stays the
+             default render (preserving JA-27 "Japanese-first"). The
+             translations are collapsed by default; click to reveal as
+             a study aid. -->
+        <details class="reading-translations">
+          <summary class="muted small">Show English translation (study aid)</summary>
+          <div class="reading-translation-pair">
+            ${p.translation_literal ? `
+              <section class="reading-translation-block">
+                <h4 class="reading-translation-label">Literal</h4>
+                <p class="reading-translation-text">${esc(p.translation_literal)}</p>
+              </section>
+            ` : ''}
+            ${p.translation_natural ? `
+              <section class="reading-translation-block">
+                <h4 class="reading-translation-label">Natural</h4>
+                <p class="reading-translation-text">${esc(p.translation_natural)}</p>
+              </section>
+            ` : ''}
+            <p class="muted small">Translations are study aids, not the default render. Try the Japanese first; reveal English only when stuck.</p>
+          </div>
+        </details>
+      ` : ''}
       ${p.audio ? `
         <div class="reading-audio">
           <p class="muted small">${renderJa('おんせい (ある とき):')}</p>

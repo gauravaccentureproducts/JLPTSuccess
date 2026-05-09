@@ -2760,6 +2760,46 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   vertical-align: middle;
 }
 
+/* IMP-140 (richness audit, 2026-05-10): collapsed-by-default
+   translation pair on reading passages. Defends JA-27 ("Japanese-
+   first") by hiding English content behind a click; users opt in. */
+.reading-translations {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--c-border, #d1d5db);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c-fg, #6b7280) 3%, transparent);
+}
+.reading-translations[open] {
+  background: color-mix(in srgb, var(--c-fg, #6b7280) 5%, transparent);
+}
+.reading-translations summary {
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.reading-translation-pair {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reading-translation-block {
+  padding: 8px 0;
+}
+.reading-translation-label {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-primary-dark, #14452a);
+}
+.reading-translation-text {
+  margin: 0;
+  line-height: 1.6;
+}
+
 /* IMP-126 (richness audit, 2026-05-09): authentic-content cards.
    Real-world JP signs / menus / transit / shop / notice. Each card
    shows: ja text (large), reading (when distinct from form), gloss
