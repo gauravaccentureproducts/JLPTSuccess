@@ -120,6 +120,20 @@ export async function renderSettings(container) {
         </span>
         <input type="checkbox" id="set-show-recommender" ${s.showRecommender !== false ? 'checked' : ''}>
       </label>
+      <!-- IMP-145 (richness audit, 2026-05-09): WaniKani-style SRS gating.
+           When ON, vocab cards are hidden from the unified review queue
+           until ALL their prerequisite kanji are marked-known. Default
+           OFF so existing learners aren't surprised. -->
+      <label class="settings-row" style="margin-top:12px;">
+        <span>
+          WaniKani-style SRS gating
+          <span class="setting-help muted small" style="display:block; margin-top:2px;">
+            Hide vocab from review until every kanji in the word is marked-known.
+            Forces a kanji-first study order. Off by default.
+          </span>
+        </span>
+        <input type="checkbox" id="set-srs-gating" ${s.srsGatingEnabled ? 'checked' : ''}>
+      </label>
     </section>
 
     <section class="settings-section">
@@ -229,6 +243,11 @@ export async function renderSettings(container) {
   document.getElementById('set-show-recommender').addEventListener('change', (e) => {
     storage.setSettings({ showRecommender: !!e.target.checked });
     showSavedToast(`Recommended-next = ${e.target.checked ? 'on' : 'off'}`);
+  });
+  // IMP-145 (richness audit, 2026-05-09): SRS gating toggle.
+  document.getElementById('set-srs-gating')?.addEventListener('change', (e) => {
+    storage.setSettings({ srsGatingEnabled: !!e.target.checked });
+    showSavedToast(`SRS gating = ${e.target.checked ? 'on' : 'off'}`);
   });
   document.getElementById('set-audio-rate').addEventListener('change', (e) => {
     storage.setSettings({ audioPlaybackRate: parseFloat(e.target.value) });

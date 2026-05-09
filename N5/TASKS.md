@@ -55,7 +55,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 26 | IMP-136 | P3 | Cloze-deletion drill question type | ✅ inline cloze + 14 existing text_input questions now functional |
 | 27 | IMP-137 | P3 | Tofugu-style essays on top-30 trickiest patterns | ⏳ |
 | 28 | IMP-138 | P3 | Production reviews (English → JP typing) | ✅ shares cloze renderer; production variant added |
-| 29 | IMP-145 | P5 | WaniKani-style SRS gating | ⏳ |
+| 29 | IMP-145 | P5 | WaniKani-style SRS gating | ✅ opt-in setting + queue filter + storage helpers |
 
 ### EXECUTION RULES (this cycle)
 

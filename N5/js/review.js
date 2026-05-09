@@ -166,7 +166,27 @@ function renderSetup(container) {
     }));
     // Pull due vocab + kanji from the unified queue and merge round-robin
     const allUnified = storage.getUnifiedDueQueue ? storage.getUnifiedDueQueue() : [];
-    const nonGrammarUnified = allUnified.filter(it => it.skill !== 'grammar');
+    let nonGrammarUnified = allUnified.filter(it => it.skill !== 'grammar');
+
+    // IMP-145 (richness audit, 2026-05-09): WaniKani-style SRS gating.
+    // When the setting is enabled, hide vocab items whose prerequisite
+    // kanji haven't all been marked-known. Kanji items pass through
+    // unchanged so the learner can still graduate them. The gate is
+    // applied AFTER queue assembly so the count badge stays honest.
+    if (storage.isSrsGatingEnabled && storage.isSrsGatingEnabled()) {
+      const beforeCount = nonGrammarUnified.length;
+      nonGrammarUnified = nonGrammarUnified.filter(it => {
+        if (it.skill !== 'vocab') return true;
+        const v = (vocabByIdIndex && vocabByIdIndex.get(it.id))
+                  || (vocabIndex && vocabIndex.get(it.id));
+        if (!v) return true; // unknown vocab — let it through rather than swallow
+        return storage.vocabKanjiPrerequisitesMet(v.form || '');
+      });
+      const afterCount = nonGrammarUnified.length;
+      if (beforeCount !== afterCount) {
+        console.info(`[IMP-145] SRS gating filtered ${beforeCount - afterCount} kanji-locked vocab item(s) from queue.`);
+      }
+    }
     // Round-robin interleave grammar-with-news + non-grammar
     const queue = [];
     const buckets = [grammarItemsAsUnified, nonGrammarUnified];

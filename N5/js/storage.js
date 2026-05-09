@@ -77,6 +77,14 @@ const DEFAULT_SETTINGS = {
   // surface the trust signal on every visit. Users can opt-out via
   // the Settings panel.
   showProvenanceBadges: true,
+  // IMP-145 (richness audit, 2026-05-09): WaniKani-style SRS gating.
+  // When enabled, vocab cards are hidden from the unified review
+  // queue until ALL their prerequisite kanji are marked-known. This
+  // enforces "kanji first, vocab second" sequencing, which has
+  // pedagogical evidence behind it for kanji-heavy languages.
+  // Default OFF — opt-in only, since it can frustrate learners who
+  // already know kanji from outside this app.
+  srsGatingEnabled: false,
 };
 
 export function getSettings() {
@@ -321,6 +329,23 @@ export function recordStudyToday() {
 // Per-kanji "I know this" flags (Brief 2 §4.2).
 export function getKnownKanji() { return get('knownKanji', {}); }
 export function isKanjiKnown(glyph) { return !!getKnownKanji()[glyph]; }
+
+// IMP-145 (richness audit, 2026-05-09): WaniKani-style prerequisite
+// check. Returns true if ALL kanji in `form` are marked-known by the
+// learner (or if there are no kanji in the form). Used by the unified
+// review queue to lock vocab cards behind kanji mastery.
+export function vocabKanjiPrerequisitesMet(form) {
+  if (typeof form !== 'string') return true;
+  const known = getKnownKanji();
+  for (const c of form) {
+    // CJK ideograph range
+    if (c >= '一' && c <= '鿿' && !known[c]) return false;
+  }
+  return true;
+}
+export function isSrsGatingEnabled() {
+  return !!getSettings().srsGatingEnabled;
+}
 export function setKanjiKnown(glyph, known) {
   const m = getKnownKanji();
   if (known) m[glyph] = true; else delete m[glyph];
