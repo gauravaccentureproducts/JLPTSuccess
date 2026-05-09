@@ -431,53 +431,52 @@ document.addEventListener('DOMContentLoaded', () => {
 // working without migration. See docs/SELF-HOST.md § Branding override
 // layer for the unified schema.
 
-// ISSUE-028 (audit round-4): wire the header locale-chip group.
-// 5 chips swap the i18n locale on click + reload the active route.
-// `aria-pressed` reflects the current locale.
+// Header locale toggle: single icon-btn-shaped button that swaps between
+// EN and HI on click. The visible text reflects the CURRENT locale; the
+// aria-label tells the user what'll happen on click ("Switch to Hindi" /
+// "Switch to English"). Replaces the earlier 2-chip pill group per design
+// family alignment 2026-05-09.
 function initLocaleChips() {
-  const group = document.getElementById('locale-chip-group');
-  if (!group) return;
+  const btn = document.getElementById('locale-toggle');
+  if (!btn) return;
+  const label = btn.querySelector('[data-locale-label]');
+  // Two-locale rotation. If supportedLocales ever grows, this just cycles
+  // through whatever's available in declaration order.
+  const cycle = supportedLocales.length ? supportedLocales : ['en', 'hi'];
   const sync = () => {
     const cur = currentLocale();
-    group.querySelectorAll('.locale-chip').forEach(b => {
-      const isActive = b.dataset.lc === cur;
-      b.classList.toggle('is-active', isActive);
-      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
+    if (label) label.textContent = (cur || 'en').toUpperCase();
+    // Aria-label: announce the destination, not the current state.
+    const nextIdx = (cycle.indexOf(cur) + 1) % cycle.length;
+    const next = cycle[nextIdx];
+    const nextNice = ({ en: 'English', hi: 'Hindi' })[next] || next.toUpperCase();
+    btn.setAttribute('aria-label', 'Switch to ' + nextNice);
+    btn.setAttribute('title', 'Switch to ' + nextNice);
+    btn.setAttribute('lang', cur || 'en');
   };
-  group.querySelectorAll('.locale-chip').forEach(b => {
-    if (!supportedLocales.includes(b.dataset.lc)) {
-      b.disabled = true;
-      return;
-    }
-    b.addEventListener('click', async () => {
-      await setLocale(b.dataset.lc);
-      sync();
-      route();   // re-render the active route in the new locale
-    });
+  btn.addEventListener('click', async () => {
+    const cur = currentLocale();
+    const nextIdx = (cycle.indexOf(cur) + 1) % cycle.length;
+    const next = cycle[nextIdx];
+    if (!supportedLocales.includes(next)) return;
+    await setLocale(next);
+    sync();
+    route();   // re-render the active route in the new locale
   });
   sync();
   // Sync on locale-change event from Settings panel.
   document.addEventListener('locale-changed', sync);
 
-  // ISSUE-050 (audit round-6): footer "Switch language" link - scrolls
-  // the chip group into view + focuses the active chip so the user
-  // sees the picker the first time they reach the bottom of any page.
-  // Falls back to a no-op when the chip group isn't on this page (it
-  // always is - the header is global - but the guard keeps SSR clean).
+  // Footer "Switch language" link still works — scroll the toggle into
+  // view and pulse it so the user finds the picker.
   const switchLink = document.getElementById('footer-switch-lang');
   if (switchLink) {
     switchLink.addEventListener('click', (e) => {
       e.preventDefault();
-      group.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      const active = group.querySelector('.locale-chip.is-active') || group.querySelector('.locale-chip');
-      if (active) {
-        // Brief visual pulse so the user notices the chips even if they
-        // were already in view (no scrolling needed on tall viewports).
-        group.classList.add('locale-chip-group-pulse');
-        setTimeout(() => group.classList.remove('locale-chip-group-pulse'), 1200);
-        active.focus({ preventScroll: true });
-      }
+      btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      btn.classList.add('locale-toggle-pulse');
+      setTimeout(() => btn.classList.remove('locale-toggle-pulse'), 1200);
+      btn.focus({ preventScroll: true });
     });
   }
 }
