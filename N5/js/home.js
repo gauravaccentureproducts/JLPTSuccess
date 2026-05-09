@@ -211,6 +211,11 @@ const STUDY_ORDER = [
   { text: 'Practice listening drills',                     href: '#/listening' },
   { text: 'Take the mock test',                            href: '#/test' },
   { text: 'Mixed drill: grammar + vocab + kanji SRS',      href: '#/review' },
+  // IMP-126 (richness audit, 2026-05-09): authentic real-world JP
+  // (signs / menus / transit / shop / notice). The audit flagged 0%
+  // authentic content across every surface as the largest leverage
+  // gap; this is the starter corpus + study route.
+  { text: 'Real-world Japanese (signs, menus, transit)',   href: '#/authentic' },
 ];
 
 function renderSyllabusCard(card) {

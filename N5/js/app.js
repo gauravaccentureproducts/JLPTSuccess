@@ -35,6 +35,11 @@ import { renderSitting } from './sitting.js';
 // Routes #/print and #/print/<paperId>; renders a paper layout
 // designed for paper-and-pencil consumption. See js/print-paper.js.
 import { renderPrint } from './print-paper.js';
+// IMP-126 (richness audit, 2026-05-09): authentic-content layer.
+// Renders #/authentic — real-world JP signs / menus / transit / shop
+// / notice cards. The audit's "0% authentic content across every
+// surface" gap; this is the starter corpus.
+import { renderAuthentic } from './authentic.js';
 // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
 // Reads data/branding.json (or legacy data/theme-overrides.json) at
 // boot and applies CSS tokens, brand strings, meta tags, footer
@@ -71,6 +76,7 @@ const ROUTES = {
   missed:     renderMissed,    // IMP-008/031: wrong-answer history
   sitting:    renderSitting,   // ISSUE-020/IMP-032: full mock-paper sitting
   print:      renderPrint,     // SVA-NEXT-2.4: print-to-PDF mock paper
+  authentic:  renderAuthentic, // IMP-126: authentic real-world JP signs/menus/etc.
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
   // test, etc.) - clicking N5 on the picker navigates to #/home.

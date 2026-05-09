@@ -133,6 +133,11 @@ const PRECACHE = [
   './js/levels.js',
   './js/content-protect.js',
   './js/pwa.js',
+  // IMP-126 (richness audit, 2026-05-09): authentic-content layer.
+  // Static-imported by app.js. Precache both copies so #/authentic
+  // resolves offline.
+  './js/authentic.js',
+  './js/min/authentic.js',
   './CHANGELOG.md',
   './data/vocab.json',
   './data/kanji.json',
@@ -143,6 +148,10 @@ const PRECACHE = [
   './locales/hi.json',
   './data/grammar.json',
   './data/questions.json',
+  // IMP-126 (richness audit, 2026-05-09): authentic-content corpus.
+  // Real-world JP signs / menus / transit / shop / notice. Precache
+  // so #/authentic loads offline.
+  './data/authentic.json',
   // IMP-035 (audit round-3): build-stamp + corpus counts. Read by the
   // footer fallback path, the README-consistency check, and any future
   // SW logic that needs the cache key without rebuilding it from

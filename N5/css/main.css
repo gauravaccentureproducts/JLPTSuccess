@@ -2702,6 +2702,70 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .is-printing-cheatsheet .placeholder { display: none !important; }
 }
 
+/* IMP-126 (richness audit, 2026-05-09): authentic-content cards.
+   Real-world JP signs / menus / transit / shop / notice. Each card
+   shows: ja text (large), reading (when distinct from form), gloss
+   en + hi, context note, and a "Pronounce" button using the browser's
+   built-in SpeechSynthesis API. */
+.authentic-root { padding: 8px 0 32px; }
+.authentic-section { margin: 24px 0; }
+.authentic-cat-title {
+  font-size: 18px;
+  margin: 16px 0 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--c-border, #d1d5db);
+}
+.authentic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.authentic-card {
+  background: var(--c-surface, #ffffff);
+  border: 1px solid var(--c-border, #d1d5db);
+  border-radius: 8px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: box-shadow 120ms, border-color 120ms;
+}
+.authentic-card:hover {
+  border-color: var(--c-primary-dark, #14452a);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.authentic-card-ja {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--c-fg, #1f2937);
+}
+.authentic-card-reading {
+  font-size: 13px;
+}
+.authentic-card-gloss {
+  margin-top: 4px;
+  font-size: 14px;
+}
+.authentic-card-gloss-hi {
+  font-size: 13px;
+}
+.authentic-card-context {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.authentic-card-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+}
+.btn-tiny {
+  padding: 3px 10px;
+  font-size: 12px;
+  min-height: 28px;
+}
+
 /* IMP-136 + IMP-138 (richness audit, 2026-05-09): typed-input drill UI.
    Three drill question variants share these styles:
      - text_input  legacy generic free-form answer
