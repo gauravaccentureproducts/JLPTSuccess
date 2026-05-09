@@ -53,7 +53,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 24 | IMP-126 | P1 | Authentic-content layer cross-surface | ✅ starter corpus (30 items) + new #/authentic route + home CTA |
 | 25 | IMP-135 | P3 | JP-keyboard typed-input reviews + 50% partial credit | ✅ activated by IMP-136/138 work (typed input lives in drill flow) |
 | 26 | IMP-136 | P3 | Cloze-deletion drill question type | ✅ inline cloze + 14 existing text_input questions now functional |
-| 27 | IMP-137 | P3 | Tofugu-style essays on top-30 trickiest patterns | ⏳ |
+| 27 | IMP-137 | P3 | Tofugu-style essays on top-30 trickiest patterns | ✅ scaffolded 30/30 (stub) + new "Deep dive" UI block |
 | 28 | IMP-138 | P3 | Production reviews (English → JP typing) | ✅ shares cloze renderer; production variant added |
 | 29 | IMP-145 | P5 | WaniKani-style SRS gating | ✅ opt-in setting + queue filter + storage helpers |
 
@@ -66,6 +66,33 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
   per CLAUDE.md Rule 2 (large-scope work).
 - **If a Tier-1 item turns out medium/high**: re-classify in
   this table and defer.
+
+### TIER 3 STATUS — COMPLETE (8/8, with caveats) — 2026-05-10
+
+Tier-3 high-effort items shipped. Batches:
+12. IMP-135 + IMP-136 + IMP-138 — typed input drill (cloze + production),
+    activated 14 existing text_input questions
+13. IMP-126 — authentic-content layer starter corpus (30 items
+    across signs/menu/transit/shop/notice + new #/authentic route)
+14. IMP-145 — WaniKani-style SRS gating (opt-in setting)
+15. IMP-125 — kanji 3-mnemonic structure (visual + reading + meaning,
+    schema upgrade preserves existing native-reviewed strings)
+16. IMP-124 — grammar examples cross-referenced from vocab corpus
+    (0% → 64% at 7+ examples, 15% → 79% at 5+; 347 added)
+17. IMP-137 — Tofugu-style essay scaffolding for top-30 trickiest
+    patterns + new "Deep dive" UI block
+
+Caveats / follow-up authoring (separate native-review tracks):
+- Kanji visual + reading mnemonics (IMP-125): 106×2 = 212 stubs
+  flagged as `auto_derived` pending native review
+- Grammar deep-dive essays (IMP-137): 30 stubs flagged
+  `needs_native_review`; the 4 sub-fields per essay are pending
+  native authorship
+- Grammar examples (IMP-124): 42/178 patterns still <7 (no
+  matching trigger forms in vocab corpus); native authoring needed
+
+ALL 17 BATCHES PUSHED TO ORIGIN. Live website auto-redeploys via
+GitHub Pages on each push to master.
 
 ### TIER 2 STATUS — COMPLETE (9/9, with caveats) — 2026-05-09
 

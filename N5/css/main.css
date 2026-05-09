@@ -2702,6 +2702,38 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .is-printing-cheatsheet .placeholder { display: none !important; }
 }
 
+/* IMP-137 (richness audit, 2026-05-10): Tofugu-style pedagogical
+   essay block. Renders on the top-30 trickiest grammar patterns.
+   The "stub" badge appears when the essay is auto-scaffolded and
+   pending native author. */
+.pattern-essay {
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 4%, transparent);
+  border-left: 3px solid var(--c-primary-dark, #14452a);
+  border-radius: 0 8px 8px 0;
+}
+.pattern-essay p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+.pattern-essay strong {
+  color: var(--c-primary-dark, #14452a);
+}
+.essay-stub-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--c-fg, #6b7280) 10%, transparent);
+  color: var(--c-fg, #6b7280);
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
 /* IMP-125 (richness audit, 2026-05-10): kanji 3-mnemonic structure.
    Visual / Reading / Meaning paragraphs each get the same mnemonic
    styling but a small leading label so the learner can scan quickly.

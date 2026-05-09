@@ -488,6 +488,35 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
       </section>
 
       ${(() => {
+        // IMP-137 (richness audit, 2026-05-10): Tofugu-style pedagogical
+        // essay for the top-30 trickiest patterns. Renders when an essay
+        // object is present. Each section is a short pedagogical
+        // commentary block (intro, why_it_matters, common_pitfalls,
+        // contrasts, closing_practice_tip). Stubs (provenance =
+        // needs_native_review) render the intro + auto-extracted bits
+        // and show a "essay pending native review" hint for the
+        // empty fields.
+        const essay = p.essay;
+        if (!essay || typeof essay !== 'object') return '';
+        const stub = essay.provenance === 'needs_native_review';
+        const item = (label, text, fallback) => {
+          if (!text && !fallback) return '';
+          if (!text) return `<p><strong>${esc(label)}:</strong> <span class="muted small">${esc(fallback)}</span></p>`;
+          return `<p><strong>${esc(label)}:</strong> ${esc(text)}</p>`;
+        };
+        return `
+          <section class="pattern-essay">
+            <h3 class="section-title">Deep dive ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
+            ${item('At a glance', essay.intro)}
+            ${item('Why it matters', essay.why_it_matters, stub ? 'Pending native author.' : '')}
+            ${item('Common pitfalls', essay.common_pitfalls)}
+            ${item('Contrasts', essay.contrasts)}
+            ${item('Practice tip', essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
+          </section>
+        `;
+      })()}
+
+      ${(() => {
         // IMP-080 (audit round-7): L1-interference note for the active
         // locale, when authored. Niche-N1 unique-claim lever.
         const note = localizedL1Note(p);
