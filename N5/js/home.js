@@ -305,27 +305,10 @@ export async function renderHome(container) {
     ? `<a class="resume-strip" href="#/learn/${encodeURIComponent(lastViewed)}">Last session: ${esc(resumeLabel)}.</a>`
     : '';
 
-  // Q44 onboarding "first 60 seconds" path (lowest-effort lane: starter-set).
-  // For brand-new users who skipped or finished the diagnostic, surface a
-  // curated 5-pattern starter pack — the foundational grammatical machinery
-  // every N5 learner needs first. The 5 are chosen by frequency × didactic
-  // weight, not by lesson order: です (sentences), は (topic marker), Verb-ます
-  // (polite verbs), い-adjectives (sentence with [adj]), か (questions).
-  // Once the user opens any of them, they appear in `history` and this strip
-  // disappears (becomes the "Last session" resume strip instead).
-  const STARTER_PATTERNS = [
-    { id: 'n5-001', label: 'です／〜ます', why: 'How sentences end politely' },
-    { id: 'n5-002', label: 'は',            why: 'The topic marker' },
-    { id: 'n5-058', label: 'Verb-ます',    why: 'Polite verb form' },
-    { id: 'n5-077', label: 'い-Adjectives', why: 'Describing things' },
-    { id: 'n5-024', label: 'か',            why: 'Asking questions' },
-  ];
   // EB-4: pedagogy recommender. The recommender returns a structured
   // suggestion (highest-priority rule that fires for current state).
-  // For new users this typically lands as R-05 starter-pack (already
-  // surfaced separately below as `starterStrip`), so we suppress the
-  // duplicate by gating recCard to returning users only. Pure +
-  // deterministic + on-device — see docs/RECOMMENDER-RULES.md.
+  // Gated to returning users only — pure + deterministic + on-device.
+  // See docs/RECOMMENDER-RULES.md.
   // IMP-NEXT-1 (round-9 follow-up, 2026-05-08): Settings toggle to
   // disable the card. Default-on; only suppressed when the user
   // explicitly toggles it off. Setting lives at storage.settings
@@ -357,81 +340,35 @@ export async function renderHome(container) {
     if (typeof console !== 'undefined') console.warn('[recommender] suppressed:', e);
   }
 
-  const starterStrip = (!isReturning) ? `
-    <aside class="starter-pack" aria-labelledby="starter-pack-h">
-      <h3 id="starter-pack-h" class="starter-pack-title">New to JLPT N5? Start here.</h3>
-      <p class="starter-pack-lede muted small">These 5 patterns are the foundation — every other N5 grammar pattern builds on these. Tap any one to read the explanation, examples, and common mistakes. Roughly <strong>5 minutes per pattern</strong>.</p>
-      <ol class="starter-pack-list">
-        ${STARTER_PATTERNS.map((p, i) => `
-          <li>
-            <a href="#/learn/${encodeURIComponent(p.id)}" class="starter-pack-card">
-              <span class="starter-pack-num">${i + 1}</span>
-              <span class="starter-pack-meta">
-                <strong lang="ja">${esc(p.label)}</strong>
-                <small>${esc(p.why)}</small>
-              </span>
-            </a>
-          </li>
-        `).join('')}
-      </ol>
-      <p class="starter-pack-foot muted small">Or take the <a href="#/diagnostic">10-question diagnostic</a> to see what you already know.</p>
-    </aside>
-  ` : '';
-
   container.innerHTML = `
     <section class="home-syllabus">
       <p class="home-up-link">
         <a href="#/levels">← All JLPT levels</a>
       </p>
       ${resumeStrip}
-      ${starterStrip}
 
-      <header class="syllabus-header">
-        <span class="syllabus-watermark" aria-hidden="true">${esc((getBranding()?.brand?.home_glyph) || '五')}</span>
-        <h1 class="syllabus-title">${t('home.syllabus_title')}</h1>
-        <p class="syllabus-subtitle">${t('home.syllabus_subtitle')}</p>
-        <!-- ISSUE-027 / IMP-048 (audit round-4): privacy / niche-N2
-             trust band. Surfaces the most-defensible competitive claim
-             on first paint. 2026-05-05: trust pills now use t() so
-             they translate when the locale chip switches. -->
-        <p class="syllabus-trust-band" aria-label="Trust signals">
-          <span class="trust-pill"><span aria-hidden="true">●</span> ${t('trust.no_login')}</span>
-          <span class="trust-pill"><span aria-hidden="true">●</span> ${t('trust.no_tracking')}</span>
-          <a class="trust-pill" href="${'./' /* placeholder for install hook */}" data-trust-install title="Install for offline use"><span aria-hidden="true">●</span> ${t('trust.works_offline')}</a>
-          <a class="trust-pill" href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/LICENSE" target="_blank" rel="noopener" title="MIT licensed source · CC BY-SA content"><span aria-hidden="true">●</span> ${t('trust.open_source')}</a>
-          <a class="trust-pill" href="PRIVACY.md" target="_blank" rel="noopener" title="No data leaves your device"><span aria-hidden="true">●</span> ${t('trust.on_device')}</a>
-          <span class="trust-pill" title="Free, forever. No ads, no paywall, no upsell."><span aria-hidden="true">●</span> ${t('trust.free_no_paywall')}</span>
-        </p>
-        <ul class="syllabus-stat-pills" aria-label="Corpus size">
-          <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.grammar)}</span><span class="syllabus-stat-lbl">grammar patterns</span></li>
-          <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.vocab)}</span><span class="syllabus-stat-lbl">vocab words</span></li>
-          <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.kanji)}</span><span class="syllabus-stat-lbl">kanji</span></li>
-          <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.reading)}</span><span class="syllabus-stat-lbl">reading passages</span></li>
-          <li class="syllabus-stat-pill"><span class="syllabus-stat-num">${fmt(counts.listening)}</span><span class="syllabus-stat-lbl">listening drills</span></li>
-        </ul>
-        ${isReturning ? `
-          <div class="syllabus-daily-status">
-            <span class="syllabus-daily-streak">Streak: ${streak?.current ?? 0} ${(streak?.current ?? 0) === 1 ? 'day' : 'days'}</span>
-            <a class="syllabus-daily-progress" href="#/review" title="Open today's mixed-skill review queue (grammar + vocab + kanji SRS)">
-              <span class="syllabus-daily-progress-label">${t('home.today_label')}: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
-              <span class="syllabus-daily-progress-bar" aria-hidden="true">
-                <span class="syllabus-daily-progress-fill" style="width:${goalPct}%"></span>
-              </span>
-            </a>
-            ${dueCount > 0 ? `
-              <a class="syllabus-daily-due" href="#/review">
-                ${t('home.reviews_due', { n: `<strong>${dueCount}</strong>` })}${dueBreakdown}
-              </a>
-            ` : `
-              <span class="syllabus-daily-due is-empty">${t('home.no_reviews_due')}</span>
-            `}
-            <span class="syllabus-daily-today ${dailyGoalMet ? 'is-met' : 'is-pending'}">
-              <span class="syllabus-daily-mark" aria-hidden="true">${dailyGoalMet ? '✓' : '○'}</span>
-              <span class="syllabus-daily-text">${dailyGoalMet ? t('home.practiced_today') : t('home.not_yet_practiced')}</span>
+      ${isReturning ? `
+        <div class="syllabus-daily-status">
+          <span class="syllabus-daily-streak">Streak: ${streak?.current ?? 0} ${(streak?.current ?? 0) === 1 ? 'day' : 'days'}</span>
+          <a class="syllabus-daily-progress" href="#/review" title="Open today's mixed-skill review queue (grammar + vocab + kanji SRS)">
+            <span class="syllabus-daily-progress-label">${t('home.today_label')}: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
+            <span class="syllabus-daily-progress-bar" aria-hidden="true">
+              <span class="syllabus-daily-progress-fill" style="width:${goalPct}%"></span>
             </span>
-          </div>
-        ` : ''}
-      </header>
+          </a>
+          ${dueCount > 0 ? `
+            <a class="syllabus-daily-due" href="#/review">
+              ${t('home.reviews_due', { n: `<strong>${dueCount}</strong>` })}${dueBreakdown}
+            </a>
+          ` : `
+            <span class="syllabus-daily-due is-empty">${t('home.no_reviews_due')}</span>
+          `}
+          <span class="syllabus-daily-today ${dailyGoalMet ? 'is-met' : 'is-pending'}">
+            <span class="syllabus-daily-mark" aria-hidden="true">${dailyGoalMet ? '✓' : '○'}</span>
+            <span class="syllabus-daily-text">${dailyGoalMet ? t('home.practiced_today') : t('home.not_yet_practiced')}</span>
+          </span>
+        </div>
+      ` : ''}
 
       ${recCard}
 
