@@ -98,17 +98,6 @@ body {
 main { flex: 1; padding: 2rem 1rem; }
 
 .levels-page { max-width: 960px; margin: 0 auto; }
-.levels-header { margin: 1rem 0 2rem; text-align: center; }
-/* Hero mark on the level-picker landing - the same five-bar mark, centred
-   above the title. SVG fills with the brand green natively; no override. */
-.levels-hero-logo {
-  display: block;
-  margin: 0 auto 1rem;
-  height: 68px;
-  width: auto;
-}
-.levels-title { margin: 0 0 0.5rem; font-size: 2rem; color: var(--brand); }
-.levels-subtitle { margin: 0; color: var(--text-muted); font-size: 1.05rem; }
 
 .levels-grid {
   display: grid;
@@ -238,8 +227,6 @@ main { flex: 1; padding: 2rem 1rem; }
 @media (max-width: 768px) {
   main { padding: 1rem; }
   .brand-logo { height: 26px; }
-  .levels-hero-logo { height: 54px; }
-  .levels-title { font-size: 1.5rem; }
   .levels-grid { grid-template-columns: 1fr; }
   .level-card { min-height: 150px; padding: 1.25rem; }
   .level-card-code { font-size: 1.75rem; }
