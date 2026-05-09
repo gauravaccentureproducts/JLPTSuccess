@@ -37,7 +37,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 13 | IMP-127 | P2 | Pitch accent from Kanjium (CC BY-SA, EDICT-derived) | ✅ 827/1000 (83%) — exceeds ≥80% target |
 | 14 | IMP-128 | P2 | Collocations ≥5 per top-300 high-freq word | ⏳ |
 | 15 | IMP-129 | P2 | Listening timestamped transcripts (whisper.cpp) | ⏳ |
-| 16 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ⏳ |
+| 16 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ✅ 739/739 (100%) — gTTS render |
 | 17 | ISSUE-106 | P3 | Kanji→reading-passage cross-references | ⏳ |
 | 18 | ISSUE-107 | P3 | Listening vocab_glossary inline | ⏳ |
 | 19 | IMP-140 | P3 | Reading paragraph summary + lit/natural translation | ⏳ |
