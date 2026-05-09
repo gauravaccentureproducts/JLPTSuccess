@@ -25,11 +25,24 @@
   <a href="#app" class="skip-link">Skip to main content</a>
   <header class="app-header" role="banner">
     <div class="brand">
-      <!-- Brand lockup: 5-bar mark + JLPTSuccess wordmark, single SVG.
-           Uses currentColor so it inherits the header's white text color. -->
+      <!-- Brand lockup: 5-bar mark + JLPTSuccess wordmark, inline SVG so
+           currentColor inherits from the parent's CSS color (an <img src=...svg>
+           does NOT inherit currentColor — it resolves against the SVG's own
+           computed style, which defaults to black). -->
       <h1>
         <a href="./" class="brand-link" aria-label="JLPTSuccess home">
-          <img class="brand-logo" src="assets/logo/horizontal.svg" alt="JLPTSuccess" height="32">
+          <svg class="brand-logo" viewBox="0 0 380 60" role="img" aria-label="JLPTSuccess">
+            <g fill="currentColor">
+              <rect x="1" y="0" width="98" height="9" rx="4.5" />
+              <rect x="1" y="12" width="84" height="9" rx="4.5" />
+              <rect x="1" y="24" width="64" height="9" rx="4.5" />
+              <rect x="1" y="36" width="44" height="9" rx="4.5" />
+              <rect x="1" y="48" width="22" height="9" rx="4.5" />
+            </g>
+            <text x="120" y="44" fill="currentColor"
+                  font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif"
+                  font-size="42" font-weight="500" letter-spacing="-0.5">JLPTSuccess</text>
+          </svg>
         </a>
       </h1>
     </div>

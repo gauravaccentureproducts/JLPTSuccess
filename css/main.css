@@ -31,6 +31,12 @@
     --card-hover-border: #4a8a64;
     --card-disabled-bg: #1f1f1f;
     --card-disabled-text: #555;
+    /* Dark-mode brand: brighten the forest-green so logo + accents
+       have AAA contrast on the near-black background. The light-mode
+       value (#14452a) measures only 1.5:1 against #1a1a1a — unreadable.
+       This sage-green keeps the forest-family identity and clears 7:1. */
+    --brand: #5da57e;
+    --brand-link: #7cc99e;
   }
 }
 
@@ -66,10 +72,15 @@ body {
   padding: 0.5rem 1rem;
 }
 
+/* Light header — chrome blends into the page so the level-card grid
+   becomes the visual anchor. The brand lockup carries the brand color
+   (forest green) on the off-white page background. A subtle hairline
+   separates the header from main content without claiming visual weight. */
 .app-header {
-  background: var(--brand);
-  color: white;
+  background: var(--bg);
+  color: var(--brand);
   padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--card-border);
 }
 .brand h1 {
   margin: 0;
@@ -80,19 +91,19 @@ body {
   align-items: center;
 }
 .brand-link {
-  color: white;
+  color: var(--brand);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
 }
-.brand-link:hover { text-decoration: none; opacity: 0.85; }
-/* The horizontal lockup SVG uses currentColor; inherit white from the
-   header so the bars + wordmark render in white on the deep-green bar. */
+.brand-link:hover { text-decoration: none; opacity: 0.75; }
+/* Inline SVG inherits color via currentColor → both the bars and the
+   wordmark render in the brand forest-green. */
 .brand-logo {
   display: block;
   height: 32px;
   width: auto;
-  color: white;
+  color: var(--brand);
 }
 
 main { flex: 1; padding: 2rem 1rem; }
