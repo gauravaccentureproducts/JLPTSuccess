@@ -48,7 +48,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
-| 22 | IMP-124 | P1 | Grammar examples → 7 per pattern (auto-xref from vocab) | ✅ 64% at 7+, 79% at 5+ (was 0% / 15%); 347 added |
+| 22 | IMP-124 | P1 | Grammar examples → 7 per pattern | ✅ **100%** at 7+ (was 0%); 160 hand-authored + 347 xref'd |
 | 23 | IMP-125 | P1 | Kanji 3-mnemonic structure (visual + reading + meaning) | ✅ schema upgraded 106/106; auto-derived stubs flagged for review |
 | 24 | IMP-126 | P1 | Authentic-content layer cross-surface | ✅ starter corpus (30 items) + new #/authentic route + home CTA |
 | 25 | IMP-135 | P3 | JP-keyboard typed-input reviews + 50% partial credit | ✅ activated by IMP-136/138 work (typed input lives in drill flow) |
