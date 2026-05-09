@@ -3447,19 +3447,6 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 }
 .md-doc-source { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--c-border, var(--color-line)); }
 
-@keyframes locale-chip-group-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(20, 69, 42, 0.45); }
-  60%  { box-shadow: 0 0 0 8px rgba(20, 69, 42, 0.0); }
-  100% { box-shadow: 0 0 0 0 rgba(20, 69, 42, 0.0); }
-}
-.locale-chip-group-pulse {
-  border-radius: 999px;
-  animation: locale-chip-group-pulse 1.2s ease-out 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .locale-chip-group-pulse { animation: none; }
-}
-
 /* Vocab detail page */
 .vocab-detail { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r); padding: 20px 24px; }
 /* Vocab header reuses .pattern-header for layout (flex / justify-content
@@ -3919,48 +3906,6 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 }
 .trust-callout p { margin: 0; }
 
-/* ISSUE-028 (audit round-4): header locale-chip switcher. 5 small
- * chips (EN VI ID NE ZH) above the search input. The active chip
- * gets the accent fill; others are hairline. */
-.locale-chip-group {
-  display: inline-flex;
-  gap: 2px;
-  padding: 2px;
-  /* IMP-091 (audit round-7): bumped to a 1px accent-tinted border so the
-   * locale switcher reads as an interactive element on first paint even
-   * on tall mobile viewports. Niche-N1 discoverability.
-   *
-   * Phase 3 of locale transition (2026-05-06): the group now holds
-   * exactly 2 chips (EN | HI). No fixed widths; flex layout shrinks
-   * automatically. */
-  border: 1px solid color-mix(in srgb, var(--color-accent, #14452a) 35%, var(--color-line));
-  border-radius: 999px;
-  margin-right: var(--space-2);
-}
-.locale-chip {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  border-radius: 999px;
-  padding: 3px 10px;
-  /* IMP-091 (audit round-7): bumped from --text-xs to --text-sm so the
-   * 2-letter language codes are readable on small screens; min-height
-   * grows with it to maintain ≥44px tap target via the surrounding chip
-   * group's padding. */
-  font-size: var(--text-sm, 13px);
-  font-weight: var(--weight-medium, 500);
-  cursor: pointer;
-  color: var(--color-text-muted);
-  min-height: 28px;
-  font-variant-numeric: tabular-nums;
-}
-.locale-chip:hover { color: var(--color-text); }
-.locale-chip.is-active {
-  background: var(--color-accent);
-  color: var(--color-on-accent, #fff);
-}
-.locale-chip:disabled { opacity: 0.4; cursor: not-allowed; }
-
 /* ISSUE-029 (audit round-4): one-time auto-locale toast - surfaces the
  * silent navigator.language detection so users know they can override. */
 .locale-auto-toast {
@@ -4328,6 +4273,28 @@ textarea:focus-visible,
   outline-offset: 2px;
 }
 .app-header .icon-btn .icon { width: 18px; height: 18px; display: block; }
+/* Locale-toggle text-content variant of icon-btn: instead of an 18×18 SVG,
+ * the button shows 2 letters ("EN" / "HI") at a size that fits cleanly in
+ * the same 32×32 frame. Tabular-nums keeps the 2-letter glyphs equal-width
+ * so the button doesn't shift size between locales. */
+.app-header .icon-btn .icon-btn-text {
+  font-size: 12px;
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: inherit;
+}
+/* Locale-toggle pulse — used when footer "Switch language" link points at
+ * the toggle and we want the user's eye to find it. */
+@keyframes locale-toggle-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  50%      { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-accent, #14452a) 25%, transparent); }
+}
+.locale-toggle-pulse { animation: locale-toggle-pulse 1.2s ease-out 1; }
+@media (prefers-reduced-motion: reduce) {
+  .locale-toggle-pulse { animation: none; }
+}
 /* Fullscreen-on state: invert the SVG via filter so the "minimize" intent
  * reads visually. Optional flourish; the aria-label updates regardless. */
 #fullscreen-toggle.is-fullscreen { color: var(--color-accent); }
