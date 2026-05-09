@@ -1196,7 +1196,16 @@
         "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "大人に なる",
+        "大人の ひと",
+        "大人の きっぷ",
+        "大人の こえ",
+        "大人らしい",
+        "大人の せいかつ"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.2-people-family.ともだち",
@@ -1347,9 +1356,15 @@
         "か先生です",
         "たなか先生で",
         "たなか先生は",
-        "たなか先生が"
+        "たなか先生が",
+        "日本ごの 先生",
+        "先生に きく",
+        "先生の しごと",
+        "先生に あう",
+        "やさしい 先生",
+        "先生に なる"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.3-people-roles.いしゃ",
@@ -4672,9 +4687,15 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ときどき"
+        "ときどき",
+        "ねる とき",
+        "たべる とき",
+        "こどもの とき",
+        "おさない とき",
+        "いる とき",
+        "はじめての とき"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.時間",
@@ -4704,7 +4725,13 @@
       "collocations": [
         "じかんわりを",
         "じかんわりが",
-        "一時間ぐらい"
+        "一時間ぐらい",
+        "時間が ある",
+        "時間が ない",
+        "たくさんの 時間",
+        "時間を つかう",
+        "べんきょうの 時間",
+        "時間どおり"
       ],
       "frequency_rank": 111,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -4714,7 +4741,7 @@
         "drop": 0
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.とけい",
@@ -5082,7 +5109,16 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 784,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "よるの じかん",
+        "よる おそく",
+        "よる ふかく",
+        "まいよる",
+        "よるごはん",
+        "よるに ねる"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.ばん",
@@ -5237,7 +5273,16 @@
       "frequency_rank": 1179,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "午前 八時",
+        "午前の じゅぎょう",
+        "午前ちゅう",
+        "午前から ごご まで",
+        "午前に いく",
+        "午前 はやく"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.午後",
@@ -5269,7 +5314,16 @@
       "frequency_rank": 805,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "午後 二時",
+        "午後の じゅぎょう",
+        "午後から あめ",
+        "午後 はやく",
+        "午後の しごと",
+        "午後に なる"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.半",
@@ -6812,7 +6866,16 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 462,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "今年の なつ",
+        "今年の はじめ",
+        "今年は さむい",
+        "今年の おわり",
+        "今年も よろしく",
+        "今年の りょこう"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.来年",
@@ -7002,7 +7065,16 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 623,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "毎日 がんばる",
+        "毎日の しごと",
+        "毎日 いそがしい",
+        "毎日 はやく おきる",
+        "毎日の せいかつ",
+        "毎日 まなぶ"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.まいあさ",
@@ -7433,9 +7505,15 @@
       "collocations": [
         "やまださんの",
         "やまださんに",
-        "やまださんへ"
+        "やまださんへ",
+        "まだ いる",
+        "まだ ある",
+        "まだ おわらない",
+        "まだ さむい",
+        "まだ わからない",
+        "まだ おそく ない"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.はじめて",
@@ -7915,7 +7993,13 @@
       "gloss_hi": "विद्यालय",
       "collocations": [
         "学校から",
-        "学校まで"
+        "学校まで",
+        "学校へ いく",
+        "学校で べんきょう",
+        "学校の ともだち",
+        "学校の せんせい",
+        "学校が やすみ",
+        "学校から かえる"
       ],
       "pitch_accent": {
         "mora": 4,
@@ -7925,7 +8009,7 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.大学",
@@ -8000,9 +8084,15 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "高校生を"
+        "高校生を",
+        "高校せい",
+        "高校に いく",
+        "高校の せんせい",
+        "高校の ともだち",
+        "高校を 出る",
+        "高校の しけん"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.きょうしつ",
@@ -8185,7 +8275,13 @@
       "collocations": [
         "会社に行く",
         "会社で働く",
-        "大きな会社"
+        "大きな会社",
+        "会社に いく",
+        "会社で はたらく",
+        "会社の ともだち",
+        "会社の しごと",
+        "会社の パーティー",
+        "会社員"
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
@@ -8729,7 +8825,16 @@
       "gloss_hi": "होटल",
       "frequency_rank": 862,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "ホテルに とまる",
+        "ホテルの へや",
+        "いい ホテル",
+        "高い ホテル",
+        "やすい ホテル",
+        "ホテルから 出る"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.りょかん",
@@ -9125,7 +9230,16 @@
         "mora": 3,
         "drop": 3
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "この とおり",
+        "おなじ とおり",
+        "すきな とおり",
+        "とおりに する",
+        "いう とおり",
+        "たくさんの とおり"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.かど",
@@ -14872,7 +14986,16 @@
       "gloss_hi": "डॉलर",
       "frequency_rank": 736,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "いちドル",
+        "ひゃくドル",
+        "ドルを かう",
+        "ドルで はらう",
+        "ドルの けいさん",
+        "アメリカドル"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.ねだん",
@@ -15342,7 +15465,13 @@
       "collocations": [
         "バスに乗る",
         "バスを降りる",
-        "バスを待つ"
+        "バスを待つ",
+        "バスに のる",
+        "バスで いく",
+        "バスの じかん",
+        "バスていに 行く",
+        "はやい バス",
+        "バスから おりる"
       ],
       "collocations_provenance": "llm_curated",
       "counter": "台",
@@ -17033,7 +17162,13 @@
       "collocations": [
         "日本に住む",
         "日本に行く",
-        "日本語を勉強する"
+        "日本語を勉強する",
+        "日本へ いく",
+        "日本に すむ",
+        "日本の りょうり",
+        "日本の おちゃ",
+        "日本の おもしろい ところ",
+        "日本ご"
       ],
       "collocations_provenance": "llm_curated",
       "frequency_rank": 63,
@@ -17066,7 +17201,13 @@
       "collocations": [
         "日本語を話す",
         "日本語を勉強する",
-        "日本語が分かる"
+        "日本語が分かる",
+        "日本語を べんきょうする",
+        "日本語で はなす",
+        "日本語の せんせい",
+        "日本語が じょうず",
+        "日本語の しけん",
+        "日本語の 本"
       ],
       "collocations_provenance": "llm_curated",
       "frequency_rank": 661,
@@ -17150,9 +17291,15 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "アメリカから"
+        "アメリカから",
+        "アメリカへ いく",
+        "アメリカ人",
+        "アメリカに すむ",
+        "アメリカの えいが",
+        "アメリカの ぶんか",
+        "アメリカ から くる"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.えいご",
@@ -17222,9 +17369,15 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "中国語が"
+        "中国語が",
+        "中国へ いく",
+        "中国人",
+        "中国の りょうり",
+        "中国の しゅっしん",
+        "中国の ぶんか",
+        "中国ご"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.中国語",
@@ -17343,9 +17496,15 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "フランスごを"
+        "フランスごを",
+        "フランスへ いく",
+        "フランス人",
+        "フランスご",
+        "フランスの えいが",
+        "フランスの りょうり",
+        "フランスに すむ"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.フランスご",
@@ -17401,7 +17560,16 @@
       },
       "frequency_rank": 692,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "ドイツへ いく",
+        "ドイツ人",
+        "ドイツご",
+        "ドイツの くるま",
+        "ドイツの りょうり",
+        "ドイツに すむ"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.スペイン",
@@ -17460,7 +17628,16 @@
       },
       "frequency_rank": 1087,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "イギリスへ いく",
+        "イギリス人",
+        "イギリスの えいが",
+        "イギリスの ぶんか",
+        "イギリスに すむ",
+        "イギリスの くるま"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.外国",
@@ -17495,9 +17672,15 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "外国語を",
-        "外国語が"
+        "外国語が",
+        "外国へ いく",
+        "外国の ぶんか",
+        "外国の りょうり",
+        "外国人",
+        "外国ご",
+        "外国に すむ"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.外国語",
@@ -18330,7 +18513,16 @@
       "counter": "台",
       "frequency_rank": 478,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "テレビを みる",
+        "テレビの ばんぐみ",
+        "テレビが こわれた",
+        "テレビの まえ",
+        "テレビで みる",
+        "テレビを けす"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.ラジオ",
@@ -18906,14 +19098,20 @@
       },
       "collocations": [
         "たかくないです",
-        "しかくいでした"
+        "しかくいでした",
+        "えを 書く",
+        "てがみを 書く",
+        "なまえを 書く",
+        "にっきを 書く",
+        "すうじを 書く",
+        "べんきょうを 書く"
       ],
       "verb_class": "godan",
       "frequency_rank": 633,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.聞く",
@@ -18943,14 +19141,20 @@
         "hi": "native_reviewed"
       },
       "collocations": [
-        "大きくないです"
+        "大きくないです",
+        "おんがくを 聞く",
+        "先生に 聞く",
+        "はなしを 聞く",
+        "ニュースを 聞く",
+        "よく 聞く",
+        "こたえを 聞く"
       ],
       "verb_class": "godan",
       "frequency_rank": 1018,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.きる",
@@ -19250,7 +19454,13 @@
       "collocations": [
         "犬がなく",
         "赤ちゃんがなく",
-        "声をあげてなく"
+        "声をあげてなく",
+        "なくす",
+        "時間が なく なる",
+        "お金が なく なる",
+        "人が なく なる",
+        "なくなった",
+        "なく ても いい"
       ],
       "collocations_provenance": "llm_curated",
       "frequency_rank": 57,
@@ -19332,7 +19542,13 @@
       "collocations": [
         "部屋に入る",
         "お風呂に入る",
-        "大学に入る"
+        "大学に入る",
+        "へやに 入る",
+        "おふろに 入る",
+        "学校に 入る",
+        "お金が 入る",
+        "会社に 入る",
+        "入って ください"
       ],
       "verb_class": "godan",
       "group1_exception": true,
@@ -19347,7 +19563,8 @@
       },
       "frequency_rank": 876,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はく",
@@ -19650,13 +19867,20 @@
       "collocations": [
         "本を読む",
         "新聞を読む",
-        "手紙を読む"
+        "手紙を読む",
+        "本を 読む",
+        "しんぶんを 読む",
+        "こえに 出して 読む",
+        "よく 読む",
+        "まいにち 読む",
+        "ゆっくり 読む"
       ],
       "verb_class": "godan",
       "frequency_rank": 601,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたる",
@@ -21389,7 +21613,13 @@
       "collocations": [
         "時間がかかる",
         "お金がかかる",
-        "一時間かかる"
+        "一時間かかる",
+        "じかんが かかる",
+        "お金が かかる",
+        "いちじかん かかる",
+        "たくさん かかる",
+        "すこし かかる",
+        "おもいきり かかる"
       ],
       "collocations_provenance": "llm_curated",
       "frequency_rank": 1130,
@@ -21742,7 +21972,13 @@
       },
       "collocations": [
         "家を出る",
-        "会社を出る"
+        "会社を出る",
+        "いえを 出る",
+        "なみだが 出る",
+        "出かける",
+        "いえから 出る",
+        "もんだいが 出る",
+        "名前が 出る"
       ],
       "verb_class": "ichidan",
       "pitch_accent": {
@@ -21756,7 +21992,8 @@
       },
       "frequency_rank": 723,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.入れる",
@@ -22876,7 +23113,13 @@
         "くるまが",
         "くるまで",
         "もってくるつ",
-        "てくるつもりで"
+        "てくるつもりで",
+        "ともだちが 来る",
+        "まいにち 来る",
+        "はやく 来てください",
+        "いっしょに 来る",
+        "日本に 来る",
+        "電車が 来る"
       ],
       "register_chain_id": "go",
       "register_chain_role": "plain",
@@ -22897,7 +23140,7 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.べんきょうする",
@@ -23472,7 +23715,13 @@
       "collocations": [
         "プレゼントをもらう",
         "お金をもらう",
-        "手紙をもらう"
+        "手紙をもらう",
+        "プレゼントを もらう",
+        "お金を もらう",
+        "本を もらう",
+        "てがみを もらう",
+        "おしえて もらう",
+        "ともだちから もらう"
       ],
       "collocations_provenance": "llm_curated",
       "frequency_rank": 1112,
@@ -23518,9 +23767,15 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "くれる人が",
-        "おくれるつもりで"
+        "おくれるつもりで",
+        "ともだちが くれる",
+        "プレゼントを くれる",
+        "本を くれる",
+        "時間を くれる",
+        "おかしを くれる",
+        "おしえて くれる"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かす",
@@ -23631,7 +23886,16 @@
       "frequency_rank": 1015,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "大きい いえ",
+        "大きい くるま",
+        "大きい こえ",
+        "大きい き",
+        "大きい ゆめ",
+        "大きい もんだい"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.小さい",
@@ -23903,9 +24167,15 @@
       "collocations": [
         "あたたかいで",
         "たたかいです",
-        "たかいから"
+        "たかいから",
+        "高い やま",
+        "高い たてもの",
+        "高い ねだん",
+        "高い きおん",
+        "高い ところ",
+        "高い こえ"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.ひくい",
@@ -24002,7 +24272,16 @@
         "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "長い しごと",
+        "長い じかん",
+        "長い はなし",
+        "長い かみ",
+        "長い かわ",
+        "長い えいが"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.みじかい",
@@ -25220,9 +25499,15 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "円くらいです",
-        "分くらいです"
+        "分くらいです",
+        "五ふん くらい",
+        "いちじかん くらい",
+        "これ くらい",
+        "にじゅっぷん くらい",
+        "いっしゅうかん くらい",
+        "どれ くらい"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.まるい",
@@ -25402,7 +25687,16 @@
         "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "くるまが ほしい",
+        "時間が ほしい",
+        "本が ほしい",
+        "お金が ほしい",
+        "休みが ほしい",
+        "新しい ものが ほしい"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.ぬるい",
@@ -26375,7 +26669,16 @@
         "mora": 2,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "いやな こと",
+        "いやな ひと",
+        "いやな きもち",
+        "いやだ",
+        "いや、ちがいます",
+        "いやなん です"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.とても",
@@ -26553,7 +26856,16 @@
         "mora": 4,
         "drop": 3
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "たくさん ある",
+        "たくさん たべる",
+        "たくさんの ひと",
+        "たくさん べんきょう",
+        "たくさん いう",
+        "たくさんの 本"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.おおぜい",
@@ -27096,7 +27408,16 @@
         "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "きっと くる",
+        "きっと わかる",
+        "きっと できる",
+        "きっと だいじょうぶ",
+        "きっと おもしろい",
+        "きっと たかい"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.もちろん",
@@ -29535,7 +29856,13 @@
       "collocations": [
         "スポーツをする",
         "スポーツが好き",
-        "スポーツ観戦"
+        "スポーツ観戦",
+        "スポーツを する",
+        "スポーツの しあい",
+        "いろいろな スポーツ",
+        "スポーツが すき",
+        "スポーツの じかん",
+        "スポーツの どうぐ"
       ],
       "collocations_provenance": "llm_curated",
       "frequency_rank": 958,
@@ -29596,7 +29923,16 @@
       },
       "frequency_rank": 466,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "ニュースを みる",
+        "いい ニュース",
+        "わるい ニュース",
+        "あさの ニュース",
+        "ニュースの じかん",
+        "おもしろい ニュース"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.パーティー",
@@ -30324,7 +30660,16 @@
         "mora": 2,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "ほかの こと",
+        "ほかの ひと",
+        "ほかに ない",
+        "ほかに ある",
+        "ほかの くに",
+        "ほかの ところ"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.ほんとう",
@@ -30741,7 +31086,16 @@
         "mora": 4,
         "drop": 1
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "collocations": [
+        "大きな いえ",
+        "大きな こうえん",
+        "大きな ゆめ",
+        "大きな こえで",
+        "大きな じけん",
+        "大きな かわ"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.たて",
@@ -30984,9 +31338,15 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "二十ページを"
+        "二十ページを",
+        "ページを ひらく",
+        "つぎの ページ",
+        "いちページ",
+        "ページが ない",
+        "ページの すうじ",
+        "はじめの ページ"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.クラス",
@@ -31014,7 +31374,16 @@
       "counter": "コマ",
       "frequency_rank": 1177,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "クラスの ともだち",
+        "クラスの せんせい",
+        "おなじ クラス",
+        "いい クラス",
+        "クラスで はなす",
+        "クラスを とる"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.グラム",
@@ -32092,9 +32461,15 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "いただきます",
-        "ただいま"
+        "ただいま",
+        "ただ ねる",
+        "ただ まつ",
+        "ただ いま",
+        "ただの じょうだん",
+        "ただ おねがいします",
+        "ただ こたえる"
       ],
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ためる",
@@ -32683,7 +33058,13 @@
       "collocations": [
         "いい天気",
         "いい人",
-        "いい本"
+        "いい本",
+        "いい 天気",
+        "いい ひと",
+        "いい ところ",
+        "いい かんじ",
+        "いい アイディア",
+        "いい ともだち"
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
@@ -32878,7 +33259,16 @@
       },
       "frequency_rank": 486,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "collocations": [
+        "みんなで いく",
+        "みんな しっている",
+        "みんなの ともだち",
+        "みんなが すき",
+        "みんなに あう",
+        "クラスの みんな"
+      ],
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.やはり",
