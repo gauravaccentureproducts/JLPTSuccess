@@ -34,7 +34,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
-| 13 | IMP-127 | P2 | Pitch accent from OJAD/JMdict-pitch (751 vocab remaining) | ⏳ |
+| 13 | IMP-127 | P2 | Pitch accent from Kanjium (CC BY-SA, EDICT-derived) | ✅ 827/1000 (83%) — exceeds ≥80% target |
 | 14 | IMP-128 | P2 | Collocations ≥5 per top-300 high-freq word | ⏳ |
 | 15 | IMP-129 | P2 | Listening timestamped transcripts (whisper.cpp) | ⏳ |
 | 16 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ⏳ |

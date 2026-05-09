@@ -67,6 +67,32 @@ The grammar (631 files) and reading (40 files) MP3s under
 its open-source library; no per-file crediting is required by its
 licence.
 
+## Kanjium pitch-accent dictionary
+
+- **What it is:** Tokyo-standard pitch-accent drop positions for
+  ~635 vocab entries, surfaced as `pitch_accent: {mora, drop}` +
+  `pitch_accent_provenance: "kanjium_lookup"` in
+  `data/vocab.json`. Earlier-pass entries with provenance
+  `llm_curated` are preserved (~190 entries).
+- **Source:** <https://github.com/mifunetoshiro/kanjium>, file
+  `data/source_files/raw/accents.txt` (~3 MB TSV,
+  form/reading/drop).
+- **Upstream attribution:** the kanjium project credits the
+  Electronic Dictionary Research and Development Group (EDRDG,
+  led by James William Breen) — EDICT, KANJIDIC, KRADFILE — for
+  the bulk of its data.
+- **License:** Creative Commons Attribution-ShareAlike 4.0
+  International (CC BY-SA 4.0). Compatible with this project's
+  CC BY-SA 4.0 content license.
+- **License text:** <https://creativecommons.org/licenses/by-sa/4.0/>
+- **Modifications:** for entries with multiple drop options
+  (e.g. "0,2"), the first listed value is taken. Mora count is
+  computed locally from each vocab entry's reading using Tokyo-
+  standard rules (small ya/yu/yo + small a/i/u/e/o merge with
+  preceding char; sokuon っ and long mark ー each count as 1
+  mora). No text from accents.txt is redistributed; only the
+  numeric drop values are imported.
+
 ## University of Leeds Japanese Internet Corpus (frequency_rank)
 
 - **What it is:** word-frequency ranks for ~700 of the 1000 vocab
@@ -108,6 +134,5 @@ either organization.
 
 ---
 
-*Last updated: 2026-05-09 (richness-audit Tier-1 batch 3 — added
-University of Leeds JP Internet Corpus attribution for IMP-139
-frequency_rank import).*
+*Last updated: 2026-05-09 (richness-audit Tier-2 batch 6 — added
+Kanjium pitch-accent attribution for IMP-127).*
