@@ -22,6 +22,13 @@
   <meta name="color-scheme" content="light dark">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
+  <!-- IMP-142 (richness audit, 2026-05-09): hreflang alternates so
+       search engines surface the right locale (EN or HI) to each user.
+       Aligned with JA-39 invariant (locale set = {en, hi}). The HI
+       alternate uses the ?lc=hi URL parameter the runtime reads. -->
+  <link rel="alternate" hreflang="en" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
+  <link rel="alternate" hreflang="hi" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/?lc=hi">
+  <link rel="alternate" hreflang="x-default" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
   <!-- ISSUE-032 + IMP-051 (audit round-4): social-share preview metadata.
        og:image is shared for both Open Graph (Facebook/LinkedIn/Discord/Slack)
        and Twitter Cards. JSON-LD EducationalApplication schema feeds Google
@@ -55,6 +62,82 @@
     "educationalLevel": "JLPT N5",
     "teaches": "Japanese language (JLPT N5 syllabus): grammar, vocabulary, kanji, reading, listening",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <!-- IMP-142 (richness audit, 2026-05-09): Course schema for the N5
+       syllabus. Lets search engines understand the curriculum and
+       surface it as a learning-resource result. The five courseInstance
+       entries map to the five learning surfaces. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "JLPT N5 Complete Self-Study Course",
+    "description": "Complete JLPT N5 syllabus delivered as a free, on-device, privacy-preserving PWA. Covers 178 grammar patterns, 1000 vocab entries, 106 kanji, 45 reading passages, 47 listening drills, and 28 mock-test paper packs.",
+    "provider": {
+      "@type": "Organization",
+      "name": "JLPTSuccess",
+      "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/"
+    },
+    "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/",
+    "inLanguage": ["en", "hi", "ja"],
+    "isAccessibleForFree": true,
+    "educationalLevel": "JLPT N5",
+    "teaches": "Japanese language at JLPT N5 level",
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "name": "Grammar (178 N5 patterns)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/grammar"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Vocabulary (1000 entries)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/vocab"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Kanji (106 N5 glyphs)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/kanji"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Reading comprehension (45 passages)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/reading"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Listening drills (47 items)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/listening"
+      }
+    ]
+  }
+  </script>
+  <!-- IMP-142: BreadcrumbList for the N5 entry page. Tells crawlers
+       N5 is one level under the JLPTSuccess landing page. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "JLPTSuccess",
+        "item": "https://gauravaccentureproducts.github.io/JLPTSuccess/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "N5",
+        "item": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"
+      }
+    ]
   }
   </script>
   <!-- Brand favicon: the canonical JLPTSuccess five-bar mark, served from
@@ -144,6 +227,42 @@
         <div class="skeleton skeleton-pillar"></div>
       </div>
     </div>
+    <!-- IMP-142 (richness audit, 2026-05-09): noscript fallback content
+         for search-engine crawlers and JS-disabled visitors. Mirrors the
+         JSON-LD Course outline so the syllabus is indexable without
+         executing the SPA bundle. -->
+    <noscript>
+      <article style="max-width:680px;margin:24px auto;padding:0 16px;">
+        <h2>JLPT N5 — Free study material (English + Hindi)</h2>
+        <p>This site is a Progressive Web App and requires JavaScript to run the
+           interactive lessons. Below is a static outline of the N5 syllabus for
+           reference; enable JavaScript to use the full app.</p>
+        <ul>
+          <li><strong>Grammar:</strong> 178 N5 patterns covering particles, copulas,
+              verb conjugations, adjectival inflection, conditionals, and request /
+              permission forms.</li>
+          <li><strong>Vocabulary:</strong> 1000 entries with pitch-accent annotation,
+              pos tags, frequency rank, collocations, and curated example sentences.</li>
+          <li><strong>Kanji:</strong> all 106 N5 syllabus kanji with KanjiVG stroke-order
+              SVGs, on/kun readings, primary meanings, vocab examples, and confusable
+              cluster cross-references.</li>
+          <li><strong>Reading:</strong> 45 dokkai passages mapped to the N5 reading
+              syllabus, with vocab + grammar footnotes, paragraph segmentation, and
+              cultural context notes.</li>
+          <li><strong>Listening:</strong> 47 drill items with VOICEVOX-rendered audio
+              (40 with 0.7× slow-version variant), inline vocab glossary, and
+              line-level click-to-seek timestamps.</li>
+          <li><strong>Mock tests:</strong> 28 paper-style packs (moji, goi, bunpou,
+              dokkai × 7 each) plus full mock sittings.</li>
+          <li><strong>SRS Review:</strong> grammar + vocab + kanji round-robin
+              mixed-skill drill using the SM-2 spaced-repetition algorithm.</li>
+        </ul>
+        <p>Open source on
+          <a href="https://github.com/gauravaccentureproducts/JLPTSuccess">GitHub</a>.
+          MIT licensed code, CC BY-SA 4.0 content. No login, no tracking, works
+          offline.</p>
+      </article>
+    </noscript>
   </main>
 
   <footer class="app-footer">

@@ -2655,7 +2655,61 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
     background: #f0f0f0;
     border: 0.5pt solid #999;
   }
+
+  /* IMP-143 cheat-sheet print mode: dense grammar TOC -> printable
+     reference card. Active when JS adds .is-printing-cheatsheet to
+     <body>. Each card becomes a single row: pattern (ja) | meaning |
+     first example | Genki tag. */
+  .is-printing-cheatsheet .grammar-grid {
+    display: block;
+  }
+  .is-printing-cheatsheet .grammar-card {
+    display: grid;
+    grid-template-columns: 14ch 1.2fr 1.4fr 5ch;
+    column-gap: 8pt;
+    align-items: baseline;
+    padding: 3pt 0;
+    border-bottom: 0.25pt solid #ddd;
+    text-decoration: none;
+    color: black;
+    page-break-inside: avoid;
+  }
+  .is-printing-cheatsheet .grammar-pattern {
+    font-size: 11pt;
+    font-weight: 500;
+  }
+  .is-printing-cheatsheet .grammar-card-print-meaning,
+  .is-printing-cheatsheet .grammar-card-print-example,
+  .is-printing-cheatsheet .grammar-card-print-lesson {
+    display: block;
+    font-size: 9pt;
+    color: #333;
+  }
+  .is-printing-cheatsheet .grammar-card-print-lesson {
+    color: #666;
+    font-size: 8pt;
+    text-align: right;
+  }
+  .is-printing-cheatsheet .toc-category > summary h3 {
+    font-size: 12pt;
+    margin: 8pt 0 3pt;
+  }
+  /* Hide on-screen-only chrome on the TOC when printing the cheat sheet. */
+  .is-printing-cheatsheet .kanji-filters,
+  .is-printing-cheatsheet .toc-controls,
+  .is-printing-cheatsheet .back-link,
+  .is-printing-cheatsheet .cat-jump,
+  .is-printing-cheatsheet .placeholder { display: none !important; }
 }
+
+/* IMP-143 (richness audit, 2026-05-09): cheat-sheet hidden spans on
+   each grammar card. Hidden on screen; revealed in print mode by the
+   @media print rules below. Keeps the on-screen TOC clean (just the
+   pattern title in each card) while still making meaning + first
+   example available for the print render. */
+.grammar-card-print-meaning,
+.grammar-card-print-example,
+.grammar-card-print-lesson { display: none; }
 
 /* IMP-146: lesson-tag pill on pattern detail (Genki/Minna lesson tag) */
 .pattern-lesson-tag {

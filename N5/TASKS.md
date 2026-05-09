@@ -40,9 +40,9 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 16 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ✅ 739/739 (100%) — gTTS render |
 | 17 | ISSUE-106 | P3 | Kanji→reading-passage cross-references | ✅ 59/106 (56%) — covers all kanji used in passages |
 | 18 | ISSUE-107 | P3 | Listening vocab_glossary inline | ✅ 47/47 (100%), 322 refs, avg 6.9/item |
-| 19 | IMP-140 | P3 | Reading paragraph summary + lit/natural translation | ⏳ |
-| 20 | IMP-142 | P4 | SEO + structured-data per content page | ⏳ |
-| 21 | IMP-143 | P4 | PDF cheat sheet builder | ⏳ |
+| 19 | IMP-140 | P3 | Reading paragraph summary + lit/natural translation | ⚠ structural — paras + stubs (translations need authoring) |
+| 20 | IMP-142 | P4 | SEO + structured-data per content page | ✅ Course + BreadcrumbList JSON-LD + hreflang + noscript |
+| 21 | IMP-143 | P4 | PDF cheat sheet builder | ✅ grammar TOC print → cheat-sheet PDF |
 
 ### TIER 3 — HIGH EFFORT (requires user re-confirm per CLAUDE.md Rule 2)
 
@@ -66,6 +66,17 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
   per CLAUDE.md Rule 2 (large-scope work).
 - **If a Tier-1 item turns out medium/high**: re-classify in
   this table and defer.
+
+### TIER 2 STATUS — COMPLETE (9/9, with caveats) — 2026-05-09
+
+Tier-2 medium-effort items shipped. Batches:
+6. IMP-127 — pitch-accent backfill via Kanjium CC BY-SA (83% coverage)
+7. IMP-132 — grammar-example audio at 100% (113 new gTTS MP3s)
+8. ISSUE-106 + ISSUE-107 — kanji↔reading + listening glossary
+9. IMP-128 — collocations partial (corpus too thin for >=5 target)
+10. IMP-129 — line-level mora-proportional timestamps (whisper deferred)
+11. IMP-140 — paragraph segmentation + translation stubs (text needs human authoring)
+12. IMP-142 + IMP-143 — SEO Course/Breadcrumb JSON-LD + cheat-sheet print
 
 ### TIER 1 STATUS — COMPLETE (12/12) — 2026-05-09
 

@@ -106,7 +106,29 @@
       "grammar_footnotes_provenance": "llm_curated",
       "format_role": "self_intro",
       "summary_hi": "अमेरिका से आई एक छात्रा अन्ना अपना परिचय देती है — टोक्यो विश्वविद्यालय में जापानी पढ़ रही है, फ़िल्में देखना उसका शौक़ है।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしは アンナです。アメリカから 来ました。今、とうきょうの 大学で 日本語を べんきょうしています。しゅみは えいがを 見ることです。どうぞ よろしく おねがいします。",
+          "kanji_used": [
+            "来",
+            "今",
+            "大",
+            "学",
+            "日",
+            "本",
+            "語",
+            "見"
+          ],
+          "mora_approx": 68
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.002",
@@ -214,7 +236,27 @@
       "format_role": "primary",
       "summary_hi": "लेखक की दिनचर्या — सुबह 6 बजे उठना, नाश्ता, 9-5 की नौकरी, घर लौटकर टीवी, रात 10 बजे सोना।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "A 9-to-5 workday in Japan often stretches longer in practice (残業, zangyō, \"overtime\" is common in white-collar roles), but the polite default written form remains \"9 to 5\" because overtime is socially expected, not contractually scheduled. Reading \"wakes at 6, works 9-5\" maps to a typical urban commuting routine."
+      "cultural_context": "A 9-to-5 workday in Japan often stretches longer in practice (残業, zangyō, \"overtime\" is common in white-collar roles), but the polite default written form remains \"9 to 5\" because overtime is socially expected, not contractually scheduled. Reading \"wakes at 6, works 9-5\" maps to a typical urban commuting routine.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしは 毎日 6時に おきます。あさごはんを 食べてから、しごとに 行きます。しごとは 9時から 5時までです。うちに かえってから、テレビを 見ます。10時に ねます。",
+          "kanji_used": [
+            "毎",
+            "日",
+            "時",
+            "食",
+            "行",
+            "見"
+          ],
+          "mora_approx": 64
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.003",
@@ -305,7 +347,24 @@
       "format_role": "primary",
       "summary_hi": "कल दोस्त के साथ फ़िल्म देखने जाना है, फ़िल्म के बाद रेस्तरां में रात का खाना — लेखक उत्साहित है।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "えいが (movie) + ばんごはん (dinner) is the canonical Japanese casual outing pairing — equivalent to \"dinner and a movie\" in English-speaking countries. Movie tickets in Japan are ¥1,800-2,000 standard, with 1,200 yen \"Lady's Day\" discounts on Wednesdays still common at major chains."
+      "cultural_context": "えいが (movie) + ばんごはん (dinner) is the canonical Japanese casual outing pairing — equivalent to \"dinner and a movie\" in English-speaking countries. Movie tickets in Japan are ¥1,800-2,000 standard, with 1,200 yen \"Lady's Day\" discounts on Wednesdays still common at major chains.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "あした、ともだちと えいがを 見に 行きます。えいがの あとで、レストランで ばんごはんを 食べます。とても たのしみです。",
+          "kanji_used": [
+            "見",
+            "行",
+            "食"
+          ],
+          "mora_approx": 50
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.004",
@@ -401,7 +460,23 @@
       "format_role": "primary",
       "summary_hi": "कल कन्वीनिएंस स्टोर पर ब्रेड (200 येन) और कॉफ़ी (150 येन) ख़रीदी, कुल 350 येन — सस्ती ख़रीदारी थी।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "コンビニ (konbini, \"convenience store\" — 7-Eleven, FamilyMart, Lawson) are central to Japanese daily life: fresh bento, package pickup, ATM, copying, and bill payment, 24/7. A ¥350 breakfast (pan + coffee) is the standard pre-commute price point."
+      "cultural_context": "コンビニ (konbini, \"convenience store\" — 7-Eleven, FamilyMart, Lawson) are central to Japanese daily life: fresh bento, package pickup, ATM, copying, and bill payment, 24/7. A ¥350 breakfast (pan + coffee) is the standard pre-commute price point.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのう、コンビニで パンと コーヒーを 買いました。パンは 200円で、コーヒーは 150円でした。ぜんぶで 350円でした。やすかったです。",
+          "kanji_used": [
+            "買",
+            "円"
+          ],
+          "mora_approx": 50
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.005",
@@ -517,7 +592,28 @@
       "grammar_footnotes_provenance": "llm_curated",
       "format_role": "primary",
       "summary_hi": "चार लोगों का परिवार — पिता शिक्षक, माता डॉक्टर, बड़ा भाई कॉलेज छात्र, लेखक हाई स्कूल में, सब स्वस्थ।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの かぞくは 4人です。父と 母と あにが います。父は 先生で、母は いしゃです。あには 大学生です。わたしは こうこうせいです。みんな げんきです。",
+          "kanji_used": [
+            "人",
+            "父",
+            "母",
+            "先",
+            "生",
+            "大",
+            "学"
+          ],
+          "mora_approx": 60
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.006",
@@ -617,7 +713,23 @@
       "format_role": "primary",
       "summary_hi": "आज बहुत ठंडा — सुबह बारिश हो रही थी, अब नहीं हो रही पर ठंड है; कल बर्फ़बारी की आशंका।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Japan's climate varies sharply by latitude — Hokkaido and the Sea-of-Japan side get heavy snow (豪雪, gōsetsu), while Tokyo sees light snow only a few times a winter. The 「雪が ふる」 in this passage suggests the speaker lives in a snow-prone region or expects an unusual Tokyo flurry."
+      "cultural_context": "Japan's climate varies sharply by latitude — Hokkaido and the Sea-of-Japan side get heavy snow (豪雪, gōsetsu), while Tokyo sees light snow only a few times a winter. The 「雪が ふる」 in this passage suggests the speaker lives in a snow-prone region or expects an unusual Tokyo flurry.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "今日は とても さむいです。あさは あめが ふっていました。今は ふっていませんが、まだ さむいです。あした、ゆきが ふると おもいます。",
+          "kanji_used": [
+            "今",
+            "日"
+          ],
+          "mora_approx": 55
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.007",
@@ -700,7 +812,54 @@
           "note": "〜ます = polite non-past verb form. Used for present and future actions."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "としょかんの 時間",
+          "kanji_used": [
+            "時",
+            "間"
+          ],
+          "mora_approx": 7
+        },
+        {
+          "idx": 1,
+          "text_ja": "げつようび 〜 きんようび：9:00 〜 21:00",
+          "kanji_used": [],
+          "mora_approx": 10
+        },
+        {
+          "idx": 2,
+          "text_ja": "どようび：10:00 〜 18:00",
+          "kanji_used": [],
+          "mora_approx": 4
+        },
+        {
+          "idx": 3,
+          "text_ja": "にちようび：休み",
+          "kanji_used": [
+            "休"
+          ],
+          "mora_approx": 7
+        },
+        {
+          "idx": 4,
+          "text_ja": "本は 二週間まで かりる ことが できます。",
+          "kanji_used": [
+            "本",
+            "二",
+            "週",
+            "間"
+          ],
+          "mora_approx": 17
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.008",
@@ -783,7 +942,24 @@
       "format_role": "primary",
       "summary_hi": "घर से स्कूल तक 30 मिनट का सफ़र — पैदल 10 मिनट स्टेशन तक, फिर 20 मिनट ट्रेन।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Japanese commutes are dominated by trains: a typical urban worker walks ~10 min to the station, takes the train 20-30 min, walks again at the destination. Cars are rare for daily commutes in Tokyo / Osaka due to expensive parking and dense rail coverage. The 30-minute total in the passage is on the short side of normal."
+      "cultural_context": "Japanese commutes are dominated by trains: a typical urban worker walks ~10 min to the station, takes the train 20-30 min, walks again at the destination. Cars are rare for daily commutes in Tokyo / Osaka due to expensive parking and dense rail coverage. The 30-minute total in the passage is on the short side of normal.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの うちから 学校まで 30分くらい かかります。まず、うちから えきまで あるきます。10分くらいです。そして、でんしゃに のります。20分で 学校に つきます。",
+          "kanji_used": [
+            "学",
+            "校",
+            "分"
+          ],
+          "mora_approx": 62
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.009",
@@ -870,7 +1046,25 @@
       "format_role": "primary",
       "summary_hi": "लेखक का शौक़ खेल — रोज़ सुबह पार्क में दौड़, शनिवार दोस्तों के साथ फ़ुटबॉल।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Public 公園 (parks) in Japan are heavily used at dawn for jogging and ラジオ体操 (radio calisthenics — a national morning fitness ritual broadcast since 1928). Saturday soccer with friends is a common adult amateur pattern, often arranged via casual community 草サッカー (kusa-sakkā, \"grass-roots soccer\") groups."
+      "cultural_context": "Public 公園 (parks) in Japan are heavily used at dawn for jogging and ラジオ体操 (radio calisthenics — a national morning fitness ritual broadcast since 1928). Saturday soccer with friends is a common adult amateur pattern, often arranged via casual community 草サッカー (kusa-sakkā, \"grass-roots soccer\") groups.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの しゅみは スポーツです。毎日 あさ こうえんで はしります。土曜日は ともだちと サッカーを します。とても たのしいです。",
+          "kanji_used": [
+            "毎",
+            "日",
+            "土",
+            "曜"
+          ],
+          "mora_approx": 53
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.010",
@@ -954,7 +1148,24 @@
       "format_role": "primary",
       "summary_hi": "कक्षा में 25 मेज़-कुर्सियाँ; शिक्षक की मेज़ बड़ी; खिड़की से पार्क दिखता है — सुंदर कक्षा।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Japanese classrooms are typically arranged in 5-row × 5-column grids (≈25-40 students per class). The teacher's desk at the front + students facing forward is universal — group-work rearrangements happen but the default layout is rows. The 25-desk count in the passage is a small class by Japanese urban-school standards (40 is more common)."
+      "cultural_context": "Japanese classrooms are typically arranged in 5-row × 5-column grids (≈25-40 students per class). The teacher's desk at the front + students facing forward is universal — group-work rearrangements happen but the default layout is rows. The 25-desk count in the passage is a small class by Japanese urban-school standards (40 is more common).",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの きょうしつには つくえが 25こ あります。いすも 25こ あります。先生の つくえは おおきいです。まどから こうえんが 見えます。きれいな きょうしつです。",
+          "kanji_used": [
+            "先",
+            "生",
+            "見"
+          ],
+          "mora_approx": 63
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.011",
@@ -1058,7 +1269,24 @@
           "note": "〜ました = polite past affirmative verb ending."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "今日の おひるごはんは ラーメンと サラダでした。ラーメンは あつかったですが、おいしかったです。サラダは すこし からかったです。コーヒーも 飲みました。",
+          "kanji_used": [
+            "今",
+            "日",
+            "飲"
+          ],
+          "mora_approx": 66
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.012",
@@ -1150,7 +1378,26 @@
       "format_role": "primary",
       "summary_hi": "कल पुस्तक की दुकान से जापानी की 2 किताबें (1500 येन) ख़रीदीं — कठिन पर रोचक।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "本屋 (honya, bookstores) remain culturally important in Japan despite e-commerce — major chains like Kinokuniya and Maruzen serve as community spaces. Books in Japan are typically priced ¥600-1,500 (the ¥1,500 in the passage is a mid-range reference book or N5 study material). 立ち読み (tachiyomi, standing-and-reading) is socially tolerated as long as the shrink-wrap stays on."
+      "cultural_context": "本屋 (honya, bookstores) remain culturally important in Japan despite e-commerce — major chains like Kinokuniya and Maruzen serve as community spaces. Books in Japan are typically priced ¥600-1,500 (the ¥1,500 in the passage is a mid-range reference book or N5 study material). 立ち読み (tachiyomi, standing-and-reading) is socially tolerated as long as the shrink-wrap stays on.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのう ほんやで 日本語の 本を 2さつ 買いました。ぜんぶで 1,500円でした。うちに かえってから よみました。むずかしかったですが、おもしろかったです。",
+          "kanji_used": [
+            "日",
+            "本",
+            "語",
+            "買",
+            "円"
+          ],
+          "mora_approx": 61
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.013",
@@ -1271,7 +1518,24 @@
           "note": "を marks the direct object — what the verb is acting on."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "せんしゅう かぞくと きょうとに 行きました。きょうとは 古い まちです。きれいな おてらが たくさん あります。おみやげに おかしを 買いました。とても たのしい りょこうでした。",
+          "kanji_used": [
+            "行",
+            "古",
+            "買"
+          ],
+          "mora_approx": 70
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.014",
@@ -1358,7 +1622,23 @@
       "grammar_footnotes_provenance": "llm_curated",
       "format_role": "primary",
       "summary_hi": "डिपार्टमेंट स्टोर से नये कपड़े — शर्ट 3000 येन, पतलून 5000 येन, कुल 8000 — महँगे पर सुंदर।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのう デパートで あたらしい ふくを 買いました。シャツは 3,000円で、ズボンは 5,000円でした。ぜんぶで 8,000円でした。すこし たかかったですが、とても きれいです。",
+          "kanji_used": [
+            "買",
+            "円"
+          ],
+          "mora_approx": 61
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.015",
@@ -1446,7 +1726,29 @@
       "grammar_footnotes_provenance": "llm_curated",
       "format_role": "primary",
       "summary_hi": "अप्रैल में मौसम गुनगुना; पार्क में चेरी ब्लॉसम खिले; शनिवार माँ के साथ देखने जाना है।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "今は 4月です。だんだん あたたかく なりました。こうえんに さくらが さきました。土曜日に 母と さくらを 見に 行きます。",
+          "kanji_used": [
+            "今",
+            "月",
+            "土",
+            "曜",
+            "日",
+            "母",
+            "見",
+            "行"
+          ],
+          "mora_approx": 49
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.016",
@@ -1542,7 +1844,28 @@
       "grammar_footnotes_provenance": "llm_curated",
       "format_role": "primary",
       "summary_hi": "कल से सिरदर्द और हल्की खाँसी; आज स्कूल छोड़कर आराम; कल डॉक्टर के पास जाना है।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのうから あたまが いたいです。せきも すこし 出ます。今日は 学校を 休んで、うちで ねます。あした、いしゃに 行きます。はやく げんきに なりたいです。",
+          "kanji_used": [
+            "出",
+            "今",
+            "日",
+            "学",
+            "校",
+            "休",
+            "行"
+          ],
+          "mora_approx": 61
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.017",
@@ -1604,7 +1927,60 @@
       "cultural_context": "A \"set\" (セット) at a Japanese café is a discounted bundle — typically a hot drink + a sweet item — designed for the mid-afternoon coffee break. Set pricing is universal in Japanese kissaten / chain coffee shops (Doutor, Starbucks JP).",
       "format_role": "info_search",
       "summary_hi": "कैफ़े का दोपहर \"सेट\" — गरम पेय + मिठाई का छूट-समूह, दोपहर के ब्रेक के लिए लोकप्रिय।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "メニュー",
+          "kanji_used": [],
+          "mora_approx": 3
+        },
+        {
+          "idx": 1,
+          "text_ja": "コーヒー：300円",
+          "kanji_used": [
+            "円"
+          ],
+          "mora_approx": 5
+        },
+        {
+          "idx": 2,
+          "text_ja": "おちゃ：250円",
+          "kanji_used": [
+            "円"
+          ],
+          "mora_approx": 3
+        },
+        {
+          "idx": 3,
+          "text_ja": "ケーキ：500円",
+          "kanji_used": [
+            "円"
+          ],
+          "mora_approx": 4
+        },
+        {
+          "idx": 4,
+          "text_ja": "サンドイッチ：600円",
+          "kanji_used": [
+            "円"
+          ],
+          "mora_approx": 7
+        },
+        {
+          "idx": 5,
+          "text_ja": "セット (コーヒー＋ケーキ)：700円",
+          "kanji_used": [
+            "円"
+          ],
+          "mora_approx": 11
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.018",
@@ -1706,7 +2082,30 @@
       "format_role": "primary",
       "summary_hi": "एक साल से जापानी पढ़ाई; रोज़ 30 मिनट; कांजी कठिन, हिरागाना सरल; अगले साल जापान जाना है।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Foreign learners studying Japanese in Japan typically attend a 日本語学校 (Nihongo gakkō, language school) for 1-2 years before transitioning to university. A \"1-year-of-study, plans-to-go-to-Japan-next-year\" arc is the canonical N5 self-introduction story. Kanji difficulty + hiragana ease mirrors the JLPT level progression itself."
+      "cultural_context": "Foreign learners studying Japanese in Japan typically attend a 日本語学校 (Nihongo gakkō, language school) for 1-2 years before transitioning to university. A \"1-year-of-study, plans-to-go-to-Japan-next-year\" arc is the canonical N5 self-introduction story. Kanji difficulty + hiragana ease mirrors the JLPT level progression itself.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしは 1年前から 日本語を べんきょうしています。毎日 30分くらい べんきょうします。かんじは むずかしいですが、ひらがなは かんたんです。来年 日本に 行きたいです。",
+          "kanji_used": [
+            "年",
+            "前",
+            "日",
+            "本",
+            "語",
+            "毎",
+            "分",
+            "来",
+            "行"
+          ],
+          "mora_approx": 68
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.019",
@@ -1792,7 +2191,27 @@
       "grammar_footnotes_provenance": "llm_curated",
       "format_role": "primary",
       "summary_hi": "पिछले रविवार दोस्तों के साथ समुद्र पर — मौसम बहुत अच्छा, तैराकी की, मछलियाँ देखीं।",
-      "summary_hi_provenance": "native_reviewed"
+      "summary_hi_provenance": "native_reviewed",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "せんしゅうの 日曜日に、ともだちと うみに 行きました。天気は とても よかったです。およぎました。さかなも 見ました。とても たのしかったです。",
+          "kanji_used": [
+            "日",
+            "曜",
+            "行",
+            "天",
+            "気",
+            "見"
+          ],
+          "mora_approx": 59
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.020",
@@ -1890,7 +2309,26 @@
           "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの 日本語の 先生は たなか先生です。たなか先生は とても しんせつです。いつも にこにこ しています。じゅぎょうは おもしろいです。みんな たなか先生が すきです。",
+          "kanji_used": [
+            "日",
+            "本",
+            "語",
+            "先",
+            "生"
+          ],
+          "mora_approx": 69
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.021",
@@ -1973,7 +2411,70 @@
           "note": "〜ます = polite non-past verb form. Used for present and future actions."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "とうきょうから おおさかまで ひこうきが あります。",
+          "kanji_used": [],
+          "mora_approx": 21
+        },
+        {
+          "idx": 1,
+          "text_ja": "あさ：6時、7時、8時",
+          "kanji_used": [
+            "時"
+          ],
+          "mora_approx": 5
+        },
+        {
+          "idx": 2,
+          "text_ja": "ひる：12時、13時",
+          "kanji_used": [
+            "時"
+          ],
+          "mora_approx": 4
+        },
+        {
+          "idx": 3,
+          "text_ja": "よる：18時、19時、20時",
+          "kanji_used": [
+            "時"
+          ],
+          "mora_approx": 5
+        },
+        {
+          "idx": 4,
+          "text_ja": "時間：1時間",
+          "kanji_used": [
+            "時",
+            "間"
+          ],
+          "mora_approx": 4
+        },
+        {
+          "idx": 5,
+          "text_ja": "おとな：25,000円",
+          "kanji_used": [
+            "円"
+          ],
+          "mora_approx": 4
+        },
+        {
+          "idx": 6,
+          "text_ja": "子ども：12,500円",
+          "kanji_used": [
+            "子",
+            "円"
+          ],
+          "mora_approx": 4
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.022",
@@ -2081,7 +2582,24 @@
           "note": "〜ました = polite past affirmative verb ending."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのうの よる、うちで 母と りょうりを しました。カレーを つくりました。とても おいしかったです。父も あにも 「おいしい」と 言いました。",
+          "kanji_used": [
+            "母",
+            "父",
+            "言"
+          ],
+          "mora_approx": 55
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.023",
@@ -2154,7 +2672,62 @@
       "format_role": "primary",
       "summary_hi": "बस का समय-सारिणी — सोम-शुक्र दिन में 6 बार, शनिवार 3 बार, रविवार बंद; वयस्क 300, बच्चे 150।",
       "summary_hi_provenance": "native_reviewed",
-      "cultural_context": "Japanese bus services typically run different schedules on weekdays / Saturdays / Sundays-and-holidays — the three-tier split in this passage is universal. Service density is high on weekdays (every 1-2 hours in semi-rural areas) and thin on Sundays. Major holidays (お正月, お盆, GW) often suspend service entirely."
+      "cultural_context": "Japanese bus services typically run different schedules on weekdays / Saturdays / Sundays-and-holidays — the three-tier split in this passage is universal. Service density is high on weekdays (every 1-2 hours in semi-rural areas) and thin on Sundays. Major holidays (お正月, お盆, GW) often suspend service entirely.",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "バスの じかん",
+          "kanji_used": [],
+          "mora_approx": 6
+        },
+        {
+          "idx": 1,
+          "text_ja": "月曜日 〜 金曜日：8:00、10:00、12:00、14:00、16:00、18:00",
+          "kanji_used": [
+            "月",
+            "曜",
+            "日",
+            "金"
+          ],
+          "mora_approx": 6
+        },
+        {
+          "idx": 2,
+          "text_ja": "土曜日：9:00、12:00、15:00",
+          "kanji_used": [
+            "土",
+            "曜",
+            "日"
+          ],
+          "mora_approx": 3
+        },
+        {
+          "idx": 3,
+          "text_ja": "日曜日：休み",
+          "kanji_used": [
+            "日",
+            "曜",
+            "休"
+          ],
+          "mora_approx": 5
+        },
+        {
+          "idx": 4,
+          "text_ja": "大人：300円　子ども：150円",
+          "kanji_used": [
+            "大",
+            "人",
+            "円",
+            "子"
+          ],
+          "mora_approx": 7
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.024",
@@ -2248,7 +2821,28 @@
           "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの ともだちは マリアさんです。スペイン人です。今、とうきょうの 大学で べんきょうしています。マリアさんは 日本語が とても じょうずです。",
+          "kanji_used": [
+            "人",
+            "今",
+            "大",
+            "学",
+            "日",
+            "本",
+            "語"
+          ],
+          "mora_approx": 59
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.025",
@@ -2357,7 +2951,28 @@
           "note": "〜ます = polite non-past verb form. Used for present and future actions."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "土曜日の あさ、わたしは はやく おきます。7時に おきて、こうえんで さんぽします。それから、うちで あさごはんを 食べます。よみたい 本も よみます。土曜日が 大すきです。",
+          "kanji_used": [
+            "土",
+            "曜",
+            "日",
+            "時",
+            "食",
+            "本",
+            "大"
+          ],
+          "mora_approx": 69
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.026",
@@ -2457,7 +3072,24 @@
           "note": "い-adjective past: stem-かったです = \"was (adj)\"."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "やおやで くだものを 買いました。りんごを 3つと、バナナを 5本 買いました。ぜんぶで 700円でした。とても やすかったです。",
+          "kanji_used": [
+            "買",
+            "本",
+            "円"
+          ],
+          "mora_approx": 48
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.027",
@@ -2557,7 +3189,36 @@
           "note": "を marks the direct object — what the verb is acting on."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "ヤマダさんへ",
+          "kanji_used": [],
+          "mora_approx": 6
+        },
+        {
+          "idx": 1,
+          "text_ja": "あした 1時に えきの まえで 会いましょう。いっしょに カフェで おちゃを 飲みませんか。それから、デパートで かいものを しましょう。",
+          "kanji_used": [
+            "時",
+            "会",
+            "飲"
+          ],
+          "mora_approx": 50
+        },
+        {
+          "idx": 2,
+          "text_ja": "スズキより",
+          "kanji_used": [],
+          "mora_approx": 5
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.028",
@@ -2671,7 +3332,24 @@
           "note": "から here is \"from\" (starting point of motion or time)."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの へやは あまり 大きくないです。ベッドと つくえと いすが あります。本だなには たくさんの 本が あります。まどから にわが 見えます。とても しずかな へやです。",
+          "kanji_used": [
+            "大",
+            "本",
+            "見"
+          ],
+          "mora_approx": 70
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.029",
@@ -2766,7 +3444,26 @@
           "note": "に marks: location of existence / specific time / direction (depending on the verb)."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "なつは とても あついです。毎日 30どより 高いです。よる、エアコンを つけて ねます。なつ休みに うみに 行きたいです。",
+          "kanji_used": [
+            "毎",
+            "日",
+            "高",
+            "休",
+            "行"
+          ],
+          "mora_approx": 47
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.030",
@@ -2884,7 +3581,29 @@
           "note": "います = exists (for animate things — people, animals)."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "えきの 出口を 出て、まっすぐ 行きます。はじめの しんごうを 右に まがります。100メートルくらい あるいて ください。左に ゆうびんきょくが あります。あいています：月〜金の 9時から 17時まで。",
+          "kanji_used": [
+            "出",
+            "口",
+            "行",
+            "右",
+            "左",
+            "月",
+            "金",
+            "時"
+          ],
+          "mora_approx": 75
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.031",
@@ -3007,7 +3726,26 @@
           "note": "に marks: location of existence / specific time / direction (depending on the verb)."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの いえには 大きい 白い いぬが います。名前は シロです。シロは 五さいです。まいにち、あさと よる、こうえんで シロと さんぽします。シロは ボールが だいすきです。よく いっしょに あそびます。",
+          "kanji_used": [
+            "大",
+            "白",
+            "名",
+            "前",
+            "五"
+          ],
+          "mora_approx": 81
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.032",
@@ -3142,7 +3880,35 @@
           "note": "Verb-て、 sequences clauses: \"do X, do Y, do Z\" — chained actions."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしは 大学生です。月よう日と 水よう日と 金よう日に カフェで アルバイトを して います。じかんは 五時から 九時までです。しごとは たのしいですが、ときどき つかれます。お金を ためて、来年 日本に 行きたいです。",
+          "kanji_used": [
+            "大",
+            "学",
+            "生",
+            "月",
+            "日",
+            "水",
+            "金",
+            "五",
+            "時",
+            "九",
+            "来",
+            "年",
+            "本",
+            "行"
+          ],
+          "mora_approx": 89
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.033",
@@ -3249,7 +4015,23 @@
           "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "とうきょうの あきは とても きれいです。木の はが あかや きいろに なります。すずしくて、さんぽが たのしいです。ゆうがた、そらが あかく なります。とりの こえも 聞こえます。あきは わたしの すきな きせつです。",
+          "kanji_used": [
+            "木",
+            "聞"
+          ],
+          "mora_approx": 86
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.034",
@@ -3363,7 +4145,41 @@
           "note": "から here is \"because (X)\" — reason/cause clause. Sentence-final から always means reason."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "やまださんへ",
+          "kanji_used": [],
+          "mora_approx": 6
+        },
+        {
+          "idx": 1,
+          "text_ja": "おげんきですか。わたしは げんきです。あした 学校で パーティーが あります。三時から 五時までです。先生も 来ます。たのしいですから、来て ください。",
+          "kanji_used": [
+            "学",
+            "校",
+            "三",
+            "時",
+            "五",
+            "先",
+            "生",
+            "来"
+          ],
+          "mora_approx": 61
+        },
+        {
+          "idx": 2,
+          "text_ja": "たなか",
+          "kanji_used": [],
+          "mora_approx": 3
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.035",
@@ -3489,7 +4305,26 @@
           "note": "い-adjective past: stem-かったです = \"was (adj)\"."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしは 日本の りょうりが だいすきです。とくに、すしと てんぷらが すきです。日よう日に よく レストランへ 行きます。きのうは 母と いっしょに ラーメンを 食べました。とても おいしかったです。",
+          "kanji_used": [
+            "日",
+            "本",
+            "行",
+            "母",
+            "食"
+          ],
+          "mora_approx": 80
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.036",
@@ -3618,7 +4453,30 @@
           "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの 学校は 月よう日から 金よう日までです。まいにち しゅくだいが あります。しゅくだいは 日本語と すうがくです。日本語の しゅくだいは ながいですが、おもしろいです。すうがくは むずかしいです。土よう日と 日よう日は 学校が 休みですから、しゅくだいも すこしです。",
+          "kanji_used": [
+            "学",
+            "校",
+            "月",
+            "日",
+            "金",
+            "本",
+            "語",
+            "土",
+            "休"
+          ],
+          "mora_approx": 112
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.037",
@@ -3755,7 +4613,36 @@
           "note": "は marks the topic — \"as for X\". Often the first noun in the sentence."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "今日 わたしは 七時に いえを 出ました。でも、電車が おくれて、八時十分に 学校に つきました。先生に「すみません」と 言いました。先生は「だいじょうぶです」と 言いました。あしたは はやく 出ます。",
+          "kanji_used": [
+            "今",
+            "日",
+            "七",
+            "時",
+            "出",
+            "電",
+            "車",
+            "八",
+            "十",
+            "分",
+            "学",
+            "校",
+            "先",
+            "生",
+            "言"
+          ],
+          "mora_approx": 78
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.038",
@@ -3881,7 +4768,32 @@
           "note": "を marks the direct object — what the verb is acting on."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの しゅみは ピアノです。五さいから ピアノを ならって います。今は 一週間に 二かい、ピアノきょうしつに 行きます。先生は とても しんせつです。来月、コンサートで ピアノを ひきます。たのしみです。",
+          "kanji_used": [
+            "五",
+            "今",
+            "一",
+            "週",
+            "間",
+            "二",
+            "行",
+            "先",
+            "生",
+            "来",
+            "月"
+          ],
+          "mora_approx": 83
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.039",
@@ -3993,7 +4905,81 @@
           "note": "〜ます = polite non-past verb form. Used for present and future actions."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "本やの おしらせ",
+          "kanji_used": [
+            "本"
+          ],
+          "mora_approx": 7
+        },
+        {
+          "idx": 1,
+          "text_ja": "大セール！",
+          "kanji_used": [
+            "大"
+          ],
+          "mora_approx": 4
+        },
+        {
+          "idx": 2,
+          "text_ja": "日にち：八月一日から 八月七日まで",
+          "kanji_used": [
+            "日",
+            "八",
+            "月",
+            "一",
+            "七"
+          ],
+          "mora_approx": 15
+        },
+        {
+          "idx": 3,
+          "text_ja": "時間：あさ 十時から よる 八時まで",
+          "kanji_used": [
+            "時",
+            "間",
+            "十",
+            "八"
+          ],
+          "mora_approx": 14
+        },
+        {
+          "idx": 4,
+          "text_ja": "本は ぜんぶ 半分の ねだんです。",
+          "kanji_used": [
+            "本",
+            "半",
+            "分"
+          ],
+          "mora_approx": 13
+        },
+        {
+          "idx": 5,
+          "text_ja": "日本語の 本も えいごの 本も あります。",
+          "kanji_used": [
+            "日",
+            "本",
+            "語"
+          ],
+          "mora_approx": 16
+        },
+        {
+          "idx": 6,
+          "text_ja": "ぜひ 来て ください！",
+          "kanji_used": [
+            "来"
+          ],
+          "mora_approx": 8
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.040",
@@ -4120,7 +5106,30 @@
           "note": "〜ました = polite past affirmative verb ending."
         }
       ],
-      "grammar_footnotes_provenance": "llm_curated_2026_05_08"
+      "grammar_footnotes_provenance": "llm_curated_2026_05_08",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "土よう日の あさ、わたしは こうえんに 行きました。こうえんには 大きい 木が たくさん あります。子どもたちが ボールで あそんで いました。おじいさんは ベンチで 本を 読んで いました。とりの こえも 聞こえました。きれいな あさでした。",
+          "kanji_used": [
+            "土",
+            "日",
+            "行",
+            "大",
+            "木",
+            "子",
+            "本",
+            "読",
+            "聞"
+          ],
+          "mora_approx": 98
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.041",
@@ -4284,7 +5293,23 @@
         "n5.vocab.2-people-family.ともだち",
         "n5.vocab.26-house-and-furniture.たな",
         "n5.vocab.21-clothing-and-accessor.かさ"
-      ]
+      ],
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのうの 七時に、ともだちの たなかさんと えきの ちかくの レストランへ いきました。たなかさんは からい りょうりが すきです。それで、たなかさんは カレーを たのみました。わたしは からい りょうりが あまり すきじゃありません。それで、わたしは ハンバーグと サラダを たのみました。りょうりは とても おいしかったです。サラダの やさいは あたらしくて、おいしかったです。あとで、コーヒーと ケーキも のみました。みせの ひとは しんせつでした。また、らいしゅうも いきたいです。",
+          "kanji_used": [
+            "七",
+            "時"
+          ],
+          "mora_approx": 197
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.042",
@@ -4448,7 +5473,23 @@
         "n5.vocab.37-common-nouns-miscella.こと",
         "n5.vocab.11-time-days-weeks-month.しゅうまつ",
         "n5.vocab.12-time-frequency-sequen.いつも"
-      ]
+      ],
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしの しゅみは おんがくを きくことと、えを かくことです。しゅうまつは いつも うちで すきな おんがくを ききます。それから、こうえんへ いって、こうえんで えを かきます。こうえんは しずかで、いろいろな はなが きれいに さいています。えを かくのは たのしいですが、わたしは じょうずじゃありません。もっと れんしゅうしたいです。らいげつの 日曜日に、ともだちと いっしょに あたらしい びじゅつかんへ いきます。ゆうめいな がいこくの えが たくさん あるそうです。たのしみに しています。",
+          "kanji_used": [
+            "日",
+            "曜"
+          ],
+          "mora_approx": 201
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.043",
@@ -4630,7 +5671,23 @@
         "n5.vocab.34-conjunctions.から",
         "n5.vocab.4-body-parts.あたま",
         "n5.vocab.33-adverbs.とても"
-      ]
+      ],
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "きのうの あさから、あたまが とても いたかったです。のども いたくて、はやく ベッドから おきることが できませんでした。それで、ごごの 三時に いえの ちかくの びょういんへ いきました。おいしゃさんは 「ねつが ありますね。かぜですよ。きょうと あしたは ゆっくり やすんでください」と いいました。くすりを もらって、うちへ かえりました。あつい コーヒーを のんで、はやく ねました。きょうは あたまの いたみが ありません。げんきに なりました。あした、がっこうへ いくことが できます。",
+          "kanji_used": [
+            "三",
+            "時"
+          ],
+          "mora_approx": 198
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.044",
@@ -4789,7 +5846,29 @@
         "n5.vocab.31-adjectives.いそがしい",
         "n5.vocab.11-time-days-weeks-month.月曜日",
         "n5.vocab.10-time-general.あさ"
-      ]
+      ],
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "らいしゅうは とても いそがしいです。月曜日の あさは、しごとの たいせつな かいぎが あります。火曜日と 水曜日の ばんは、だいがくの ともだちと あいます。木曜日は おかあさんの たんじょうびです。デパートで プレゼントと はなを かいに いきます。金曜日は うちで コンピューターの しごとを します。土曜日と 日曜日は やすみですが、土曜日に せんたくと そうじを ぜんぶ します。日曜日は あさから よるまで うちで ゆっくり ほんを よみたいです。らいしゅうも がんばります。",
+          "kanji_used": [
+            "月",
+            "曜",
+            "日",
+            "火",
+            "水",
+            "木",
+            "金",
+            "土"
+          ],
+          "mora_approx": 195
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     },
     {
       "id": "n5.read.045",
@@ -4948,7 +6027,29 @@
         "n5.vocab.12-time-frequency-sequen.まいあさ",
         "n5.vocab.7-numbers.八",
         "n5.vocab.10-time-general.半"
-      ]
+      ],
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "わたしは とうきょうの ぎんこうで はたらいています。まいあさ 八時半に いえを 出て、九時に かいしゃへ いきます。いえから かいしゃまで でんしゃで 三十ぷん かかります。しごとは あさ 九時から ゆうがた 六時までです。ひるごはんは かいしゃの ちかくの しょくどうで どうりょうと たべます。しごとは いそがしいですが、おもしろくて、たのしいです。どうりょうの みなさんは とても しんせつです。しゅうまつは ともだちと あって、おちゃを のんで、いろいろな はなしを します。",
+          "kanji_used": [
+            "八",
+            "時",
+            "半",
+            "出",
+            "九",
+            "三",
+            "十",
+            "六"
+          ],
+          "mora_approx": 190
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "translation_literal": "",
+      "translation_literal_provenance": "needs_native_review",
+      "translation_natural": "",
+      "translation_natural_provenance": "needs_native_review"
     }
   ],
   "_meta": {

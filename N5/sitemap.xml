@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ISSUE-038 (audit round-5): static sitemap covering the N5 sub-app
-  routes. Hash-routed routes (#/...) are NOT separately listed because
-  search engines treat the fragment as ephemeral; the canonical URL
-  is the index.html itself. Anchored routes are mentioned in the
-  description meta + JSON-LD schema in index.html for crawlers that
-  parse hash routes (Googlebot does, since 2018).
-  Update lastmod when index.html or the data corpora change materially.
+  ISSUE-038 (audit round-5) + IMP-142 refresh (richness audit, 2026-05-09):
+  static sitemap covering the N5 sub-app routes. Hash-routed routes
+  (#/...) are NOT separately listed because search engines treat the
+  fragment as ephemeral; the canonical URL is the index.html itself.
+  Anchored routes are mentioned in the description meta + JSON-LD
+  schema in index.html for crawlers that parse hash routes (Googlebot
+  does, since 2018).
+
+  Locale alternates kept in sync with JA-39 invariant: locale set is
+  exactly {en, hi}. Previous draft listed vi/id/ne/zh which the
+  locale-narrowing pass (2026-05-06) made stale.
+
+  Update lastmod when index.html or the data corpora change
+  materially.
 -->
 <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
     <loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <!-- Locale alternates so search engines can serve the right
-         language on first hit. The runtime auto-detects via
-         navigator.language; these alternates are advisory. -->
-    <xhtml:link rel="alternate" hreflang="en" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
-    <xhtml:link rel="alternate" hreflang="ne" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
+    <!-- Locale alternates aligned with JA-39 (en + hi only). The
+         runtime auto-detects via navigator.language; these alternates
+         tell search engines which version to surface to which user. -->
+    <xhtml:link rel="alternate" hreflang="en"
+                href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
+    <xhtml:link rel="alternate" hreflang="hi"
+                href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/?lc=hi"/>
+    <xhtml:link rel="alternate" hreflang="x-default"
+                href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
   </url>
 
   <url>
     <loc>https://gauravaccentureproducts.github.io/JLPTSuccess/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

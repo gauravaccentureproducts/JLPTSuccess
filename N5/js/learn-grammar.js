@@ -197,6 +197,14 @@ export function renderGrammarTOC(container, data) {
     <div class="toc-controls">
       <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
       <button type="button" class="btn-secondary toc-collapse-all">Collapse all</button>
+      <!-- IMP-143 (richness audit, 2026-05-09): print-as-PDF cheat
+           sheet for the entire grammar list. Auto-expands all sections,
+           triggers window.print(), then restores prior state. The print
+           stylesheet reveals .grammar-card-print-* spans for a dense
+           one-row-per-pattern reference layout. -->
+      <button type="button" class="btn-secondary toc-print-cheatsheet">
+        🖨 Print cheat sheet
+      </button>
     </div>
   `;
   for (const [supercat, items] of bySuperCat) {
@@ -207,9 +215,23 @@ export function renderGrammarTOC(container, data) {
     html += `<summary><h3>${esc(supercat)} <span class="cat-count muted small">(${items.length})</span></h3></summary>`;
     html += `<div class="grammar-grid">`;
     for (const p of items) {
+      // IMP-143 (richness audit, 2026-05-09): inline meaning_en +
+      // first-example + Genki lesson tag in hidden print-only spans.
+      // The print stylesheet reveals them so the rendered list view
+      // becomes a printable cheat sheet (one row per pattern).
+      const firstExample = (() => {
+        const exs = (p.examples || []).filter(e => e && e.ja);
+        return exs[0] ? exs[0].ja : '';
+      })();
+      const lessonTag = p.genki_lesson
+        ? `G${p.genki_lesson.book}·L${p.genki_lesson.lesson}`
+        : '';
       html += `
         <a class="grammar-card" href="#/learn/${encodeURIComponent(p.id)}">
           <span class="grammar-pattern" lang="ja">${esc(p.pattern)}</span>
+          <span class="grammar-card-print-meaning">${esc(p.meaning_en || '')}</span>
+          <span class="grammar-card-print-example" lang="ja">${esc(firstExample)}</span>
+          ${lessonTag ? `<span class="grammar-card-print-lesson">${esc(lessonTag)}</span>` : ''}
         </a>
       `;
     }
@@ -222,6 +244,24 @@ export function renderGrammarTOC(container, data) {
   }
   container.innerHTML = html;
   wireExpandCollapseControls(container, 'details.toc-category');
+
+  // IMP-143: wire the cheat-sheet print button. Force-expand every
+  // <details> so the printed output shows all categories, then trigger
+  // window.print() and restore the prior open/closed state on
+  // afterprint so the on-screen TOC isn't disrupted.
+  container.querySelector('.toc-print-cheatsheet')?.addEventListener('click', () => {
+    const detailsEls = Array.from(container.querySelectorAll('details.toc-category'));
+    const priorOpen = detailsEls.map(d => d.open);
+    detailsEls.forEach(d => { d.open = true; });
+    document.body.classList.add('is-printing-cheatsheet');
+    const restore = () => {
+      detailsEls.forEach((d, i) => { d.open = priorOpen[i]; });
+      document.body.classList.remove('is-printing-cheatsheet');
+      window.removeEventListener('afterprint', restore);
+    };
+    window.addEventListener('afterprint', restore);
+    window.print();
+  });
 
   const inp = document.getElementById('grammar-filter-q');
   if (inp) {
