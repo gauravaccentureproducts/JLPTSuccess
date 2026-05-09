@@ -71,7 +71,101 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.001.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.001.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "あした",
+          "reading": "あした",
+          "gloss": "tomorrow",
+          "gloss_hi": "कल (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あした"
+        },
+        {
+          "form": "あし",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "gloss_hi": "पैर",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "二人",
+          "reading": "ふたり",
+          "gloss": "two people",
+          "gloss_hi": "दो व्यक्ति",
+          "vocab_id": "n5.vocab.9-counters-common.二人"
+        },
+        {
+          "form": "えいが",
+          "reading": "えいが",
+          "gloss": "movie",
+          "gloss_hi": "फ़िल्म",
+          "vocab_id": "n5.vocab.26-house-and-furniture.えいが"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        },
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "gloss_hi": "कितने बजे",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        },
+        {
+          "form": "駅",
+          "reading": "えき",
+          "gloss": "station",
+          "gloss_hi": "स्टेशन",
+          "vocab_id": "n5.vocab.13-locations-and-places-.駅"
+        },
+        {
+          "form": "どう",
+          "reading": "どう",
+          "gloss": "how",
+          "gloss_hi": "कैसे",
+          "vocab_id": "n5.vocab.5-demonstratives.どう"
+        },
+        {
+          "form": "おおい",
+          "reading": "おおい",
+          "gloss": "many",
+          "gloss_hi": "अधिक",
+          "vocab_id": "n5.vocab.31-adjectives.おおい"
+        },
+        {
+          "form": "カフェ",
+          "reading": "カフェ",
+          "gloss": "cafe",
+          "gloss_hi": "कैफ़े",
+          "vocab_id": "n5.vocab.13-locations-and-places-.カフェ"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.002",
@@ -148,7 +242,80 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.002.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.002.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "電話",
+          "reading": "でんわ",
+          "gloss": "telephone",
+          "gloss_hi": "टेलीफ़ोन",
+          "vocab_id": "n5.vocab.24-school-and-study.電話"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "もしもし",
+          "reading": "もしもし",
+          "gloss": "hello (telephone)",
+          "gloss_hi": "हैलो (फ़ोन)",
+          "vocab_id": "n5.vocab.33-adverbs.もしもし"
+        },
+        {
+          "form": "スーパー",
+          "reading": "スーパー",
+          "gloss": "supermarket",
+          "gloss_hi": "सुपरमार्केट",
+          "vocab_id": "n5.vocab.13-locations-and-places-.スーパー"
+        },
+        {
+          "form": "パン",
+          "reading": "パン",
+          "gloss": "bread",
+          "gloss_hi": "रोटी (पाव)",
+          "vocab_id": "n5.vocab.17-food-items.パン"
+        },
+        {
+          "form": "たまご",
+          "reading": "たまご",
+          "gloss": "egg",
+          "gloss_hi": "अंडा",
+          "vocab_id": "n5.vocab.17-food-items.たまご"
+        },
+        {
+          "form": "ぎゅうにゅう",
+          "reading": "ぎゅうにゅう",
+          "gloss": "milk (also commonly: ミルク)",
+          "gloss_hi": "दूध",
+          "vocab_id": "n5.vocab.18-drinks.ぎゅうにゅう"
+        },
+        {
+          "form": "おねがいします",
+          "reading": "おねがいします",
+          "gloss": "please",
+          "gloss_hi": "कृपया",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.おねがいします"
+        },
+        {
+          "form": "いし",
+          "reading": "いし",
+          "gloss": "stone",
+          "gloss_hi": "पत्थर",
+          "vocab_id": "n5.vocab.14-nature-and-weather.いし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.003",
@@ -217,7 +384,80 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.003.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.003.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "あした",
+          "reading": "あした",
+          "gloss": "tomorrow",
+          "gloss_hi": "कल (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あした"
+        },
+        {
+          "form": "あし",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "gloss_hi": "पैर",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "gloss_hi": "कितने बजे",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        },
+        {
+          "form": "あさ",
+          "reading": "あさ",
+          "gloss": "morning",
+          "gloss_hi": "सुबह",
+          "vocab_id": "n5.vocab.10-time-general.あさ"
+        },
+        {
+          "form": "そうですね",
+          "reading": "そうですね",
+          "gloss": "let me think / that's right",
+          "gloss_hi": "सही है / ठीक है",
+          "vocab_id": "n5.vocab.39-function-filler-expre.そうですね"
+        },
+        {
+          "form": "そう",
+          "reading": "そう",
+          "gloss": "like that",
+          "gloss_hi": "उस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.そう"
+        },
+        {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (electric)",
+          "gloss_hi": "ट्रेन (बिजली)",
+          "vocab_id": "n5.vocab.23-transport.電車"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.004",
@@ -291,7 +531,108 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.004.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.004.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "カフェ",
+          "reading": "カフェ",
+          "gloss": "cafe",
+          "gloss_hi": "कैफ़े",
+          "vocab_id": "n5.vocab.13-locations-and-places-.カフェ"
+        },
+        {
+          "form": "もん",
+          "reading": "もん",
+          "gloss": "gate",
+          "gloss_hi": "फाटक",
+          "vocab_id": "n5.vocab.26-house-and-furniture.もん"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "店員",
+          "reading": "てんいん",
+          "gloss": "shop clerk",
+          "gloss_hi": "दुकान सहायक",
+          "vocab_id": "n5.vocab.3-people-roles.店員"
+        },
+        {
+          "form": "いらっしゃいませ",
+          "reading": "いらっしゃいませ",
+          "gloss": "welcome (to a shop)",
+          "gloss_hi": "पधारिए (दुकान में)",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.いらっしゃいませ"
+        },
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "コーヒー",
+          "reading": "コーヒー",
+          "gloss": "coffee",
+          "gloss_hi": "कॉफ़ी",
+          "vocab_id": "n5.vocab.18-drinks.コーヒー"
+        },
+        {
+          "form": "あつい",
+          "reading": "あつい",
+          "gloss": "hot (weather)",
+          "gloss_hi": "गरम (मौसम)",
+          "vocab_id": "n5.vocab.14-nature-and-weather.あつい"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        },
+        {
+          "form": "つめたい",
+          "reading": "つめたい",
+          "gloss": "cold (to touch)",
+          "gloss_hi": "ठंडा (छूने में)",
+          "vocab_id": "n5.vocab.31-adjectives.つめたい"
+        },
+        {
+          "form": "おねがいします",
+          "reading": "おねがいします",
+          "gloss": "please",
+          "gloss_hi": "कृपया",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.おねがいします"
+        },
+        {
+          "form": "いし",
+          "reading": "いし",
+          "gloss": "stone",
+          "gloss_hi": "पत्थर",
+          "vocab_id": "n5.vocab.14-nature-and-weather.いし"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.005",
@@ -364,7 +705,157 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.005.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.005.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "学校",
+          "reading": "がっこう",
+          "gloss": "school",
+          "gloss_hi": "विद्यालय",
+          "vocab_id": "n5.vocab.13-locations-and-places-.学校"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student",
+          "gloss_hi": "विद्यार्थी",
+          "vocab_id": "n5.vocab.3-people-roles.学生"
+        },
+        {
+          "form": "どうして",
+          "reading": "どうして",
+          "gloss": "why",
+          "gloss_hi": "क्यों",
+          "vocab_id": "n5.vocab.6-question-words.どうして"
+        },
+        {
+          "form": "どう",
+          "reading": "どう",
+          "gloss": "how",
+          "gloss_hi": "कैसे",
+          "vocab_id": "n5.vocab.5-demonstratives.どう"
+        },
+        {
+          "form": "うし",
+          "reading": "うし",
+          "gloss": "cow",
+          "gloss_hi": "गाय",
+          "vocab_id": "n5.vocab.15-animals.うし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "今日",
+          "reading": "きょう",
+          "gloss": "today",
+          "gloss_hi": "आज",
+          "vocab_id": "n5.vocab.10-time-general.今日"
+        },
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "あさ",
+          "reading": "あさ",
+          "gloss": "morning",
+          "gloss_hi": "सुबह",
+          "vocab_id": "n5.vocab.10-time-general.あさ"
+        },
+        {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (electric)",
+          "gloss_hi": "ट्रेन (बिजली)",
+          "vocab_id": "n5.vocab.23-transport.電車"
+        },
+        {
+          "form": "おく",
+          "reading": "おく",
+          "gloss": "hundred million",
+          "gloss_hi": "दस करोड़",
+          "vocab_id": "n5.vocab.7-numbers.おく"
+        },
+        {
+          "form": "そうですか",
+          "reading": "そうですか",
+          "gloss": "is that so?",
+          "gloss_hi": "अच्छा? / सच?",
+          "vocab_id": "n5.vocab.39-function-filler-expre.そうですか"
+        },
+        {
+          "form": "そう",
+          "reading": "そう",
+          "gloss": "like that",
+          "gloss_hi": "उस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.そう"
+        },
+        {
+          "form": "だいじょうぶ",
+          "reading": "だいじょうぶ",
+          "gloss": "alright, OK",
+          "gloss_hi": "ठीक है",
+          "vocab_id": "n5.vocab.32-adjectives.だいじょうぶ"
+        },
+        {
+          "form": "だいじ",
+          "reading": "だいじ",
+          "gloss": "important",
+          "gloss_hi": "महत्वपूर्ण",
+          "vocab_id": "n5.vocab.32-adjectives.だいじ"
+        },
+        {
+          "form": "だい",
+          "reading": "だい",
+          "gloss": "counter for machines / vehicles",
+          "gloss_hi": "मशीन-गणक",
+          "vocab_id": "n5.vocab.9-counters-common.だい"
+        },
+        {
+          "form": "じょうぶ",
+          "reading": "じょうぶ",
+          "gloss": "sturdy",
+          "gloss_hi": "मज़बूत",
+          "vocab_id": "n5.vocab.32-adjectives.じょうぶ"
+        },
+        {
+          "form": "もう",
+          "reading": "もう",
+          "gloss": "already (with affirmative); anymore (with negative); more (as in もう一つ)",
+          "gloss_hi": "पहले से / अब (नकारात्मक) / और (もう一つ)",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.もう"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.006",
@@ -438,7 +929,73 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.006.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.006.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "日本語",
+          "reading": "にほんご",
+          "gloss": "Japanese (language)",
+          "gloss_hi": "जापानी (भाषा)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本語"
+        },
+        {
+          "form": "日本",
+          "reading": "にほん / にっぽん",
+          "gloss": "Japan",
+          "gloss_hi": "जापान",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本"
+        },
+        {
+          "form": "たな",
+          "reading": "たな",
+          "gloss": "shelf",
+          "gloss_hi": "अलमारी / शेल्फ़",
+          "vocab_id": "n5.vocab.26-house-and-furniture.たな"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "一番",
+          "reading": "いちばん",
+          "gloss": "most, number one",
+          "gloss_hi": "सबसे ज़्यादा",
+          "vocab_id": "n5.vocab.33-adverbs.一番"
+        },
+        {
+          "form": "大きい",
+          "reading": "おおきい",
+          "gloss": "big",
+          "gloss_hi": "बड़ा",
+          "vocab_id": "n5.vocab.31-adjectives.大きい"
+        },
+        {
+          "form": "ありがとう",
+          "reading": "ありがとう",
+          "gloss": "thanks",
+          "gloss_hi": "धन्यवाद",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.ありがとう"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.007",
@@ -496,7 +1053,157 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.007.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.007.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "話",
+          "reading": "はなし",
+          "gloss": "story, talk",
+          "gloss_hi": "बात / कथा",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.話"
+        },
+        {
+          "form": "はな",
+          "reading": "はな",
+          "gloss": "nose",
+          "gloss_hi": "नाक",
+          "vocab_id": "n5.vocab.4-body-parts.はな"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "一番",
+          "reading": "いちばん",
+          "gloss": "most, number one",
+          "gloss_hi": "सबसे ज़्यादा",
+          "vocab_id": "n5.vocab.33-adverbs.一番"
+        },
+        {
+          "form": "一",
+          "reading": "いち",
+          "gloss": "one",
+          "gloss_hi": "एक",
+          "vocab_id": "n5.vocab.7-numbers.一"
+        },
+        {
+          "form": "番",
+          "reading": "ばん",
+          "gloss": "number, ordinal",
+          "gloss_hi": "क्रम-संख्या",
+          "vocab_id": "n5.vocab.9-counters-common.番"
+        },
+        {
+          "form": "すき",
+          "reading": "すき",
+          "gloss": "liked",
+          "gloss_hi": "पसंद",
+          "vocab_id": "n5.vocab.32-adjectives.すき"
+        },
+        {
+          "form": "あき",
+          "reading": "あき",
+          "gloss": "autumn",
+          "gloss_hi": "पतझड़",
+          "vocab_id": "n5.vocab.14-nature-and-weather.あき"
+        },
+        {
+          "form": "つく",
+          "reading": "つく",
+          "gloss": "to arrive",
+          "gloss_hi": "पहुँचना",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.つく"
+        },
+        {
+          "form": "たべもの",
+          "reading": "たべもの",
+          "gloss": "food",
+          "gloss_hi": "भोजन",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.たべもの"
+        },
+        {
+          "form": "もの",
+          "reading": "もの",
+          "gloss": "thing",
+          "gloss_hi": "चीज़ (मूर्त)",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.もの"
+        },
+        {
+          "form": "おいしい",
+          "reading": "おいしい",
+          "gloss": "delicious",
+          "gloss_hi": "स्वादिष्ट",
+          "vocab_id": "n5.vocab.31-adjectives.おいしい"
+        },
+        {
+          "form": "いし",
+          "reading": "いし",
+          "gloss": "stone",
+          "gloss_hi": "पत्थर",
+          "vocab_id": "n5.vocab.14-nature-and-weather.いし"
+        },
+        {
+          "form": "なつ",
+          "reading": "なつ",
+          "gloss": "summer",
+          "gloss_hi": "गर्मी",
+          "vocab_id": "n5.vocab.14-nature-and-weather.なつ"
+        },
+        {
+          "form": "あつい",
+          "reading": "あつい",
+          "gloss": "hot (weather)",
+          "gloss_hi": "गरम (मौसम)",
+          "vocab_id": "n5.vocab.14-nature-and-weather.あつい"
+        },
+        {
+          "form": "ですから",
+          "reading": "ですから",
+          "gloss": "therefore (polite)",
+          "gloss_hi": "इसलिए (आदर)",
+          "vocab_id": "n5.vocab.34-conjunctions.ですから"
+        },
+        {
+          "form": "じゃあ",
+          "reading": "じゃあ / では / じゃ",
+          "gloss": "well then / so (じゃあ casual; では formal; じゃ very casual - discourse marker for transitioning)",
+          "gloss_hi": "तो / अच्छा",
+          "vocab_id": "n5.vocab.39-function-filler-expre.じゃあ"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "ふゆ",
+          "reading": "ふゆ",
+          "gloss": "winter",
+          "gloss_hi": "सर्दी",
+          "vocab_id": "n5.vocab.14-nature-and-weather.ふゆ"
+        },
+        {
+          "form": "さむい",
+          "reading": "さむい",
+          "gloss": "cold (weather)",
+          "gloss_hi": "ठंडा (मौसम)",
+          "vocab_id": "n5.vocab.14-nature-and-weather.さむい"
+        },
+        {
+          "form": "はる",
+          "reading": "はる",
+          "gloss": "spring",
+          "gloss_hi": "वसंत",
+          "vocab_id": "n5.vocab.14-nature-and-weather.はる"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.008",
@@ -570,7 +1277,108 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.008.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.008.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "たんじょうび",
+          "reading": "たんじょうび",
+          "gloss": "birthday",
+          "gloss_hi": "जन्मदिन",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.たんじょうび"
+        },
+        {
+          "form": "ほしい",
+          "reading": "ほしい",
+          "gloss": "want (something)",
+          "gloss_hi": "चाहिए",
+          "vocab_id": "n5.vocab.31-adjectives.ほしい"
+        },
+        {
+          "form": "ほし",
+          "reading": "ほし",
+          "gloss": "star",
+          "gloss_hi": "तारा",
+          "vocab_id": "n5.vocab.14-nature-and-weather.ほし"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        },
+        {
+          "form": "もっと",
+          "reading": "もっと",
+          "gloss": "more",
+          "gloss_hi": "और",
+          "vocab_id": "n5.vocab.33-adverbs.もっと"
+        },
+        {
+          "form": "もの",
+          "reading": "もの",
+          "gloss": "thing",
+          "gloss_hi": "चीज़ (मूर्त)",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.もの"
+        },
+        {
+          "form": "何で",
+          "reading": "なんで",
+          "gloss": "why, by what means",
+          "gloss_hi": "क्यों / किस से",
+          "vocab_id": "n5.vocab.6-question-words.何で"
+        },
+        {
+          "form": "とけい",
+          "reading": "とけい",
+          "gloss": "clock, watch",
+          "gloss_hi": "घड़ी",
+          "vocab_id": "n5.vocab.10-time-general.とけい"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        },
+        {
+          "form": "新しい",
+          "reading": "あたらしい",
+          "gloss": "new",
+          "gloss_hi": "नया",
+          "vocab_id": "n5.vocab.31-adjectives.新しい"
+        },
+        {
+          "form": "カメラ",
+          "reading": "カメラ",
+          "gloss": "camera",
+          "gloss_hi": "कैमरा",
+          "vocab_id": "n5.vocab.26-house-and-furniture.カメラ"
+        },
+        {
+          "form": "そうですか",
+          "reading": "そうですか",
+          "gloss": "is that so?",
+          "gloss_hi": "अच्छा? / सच?",
+          "vocab_id": "n5.vocab.39-function-filler-expre.そうですか"
+        },
+        {
+          "form": "そう",
+          "reading": "そう",
+          "gloss": "like that",
+          "gloss_hi": "उस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.そう"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.009",
@@ -618,7 +1426,31 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.009.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.009.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "時間",
+          "reading": "じかん",
+          "gloss": "time, hour",
+          "gloss_hi": "समय",
+          "vocab_id": "n5.vocab.10-time-general.時間"
+        },
+        {
+          "form": "聞く",
+          "reading": "きく",
+          "gloss": "to listen, to ask",
+          "gloss_hi": "सुनना",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.聞く"
+        },
+        {
+          "form": "とき",
+          "reading": "とき",
+          "gloss": "time, when",
+          "gloss_hi": "समय / जब",
+          "vocab_id": "n5.vocab.10-time-general.とき"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.010",
@@ -666,7 +1498,24 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.010.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.010.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "駅",
+          "reading": "えき",
+          "gloss": "station",
+          "gloss_hi": "स्टेशन",
+          "vocab_id": "n5.vocab.13-locations-and-places-.駅"
+        },
+        {
+          "form": "まど",
+          "reading": "まど",
+          "gloss": "window",
+          "gloss_hi": "खिड़की",
+          "vocab_id": "n5.vocab.26-house-and-furniture.まど"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.011",
@@ -714,7 +1563,59 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.011.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.011.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "ケーキ",
+          "reading": "ケーキ",
+          "gloss": "cake",
+          "gloss_hi": "केक",
+          "vocab_id": "n5.vocab.17-food-items.ケーキ"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "でも",
+          "reading": "でも",
+          "gloss": "but, however",
+          "gloss_hi": "लेकिन",
+          "vocab_id": "n5.vocab.34-conjunctions.でも"
+        },
+        {
+          "form": "もう",
+          "reading": "もう",
+          "gloss": "already (with affirmative); anymore (with negative); more (as in もう一つ)",
+          "gloss_hi": "पहले से / अब (नकारात्मक) / और (もう一つ)",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.もう"
+        },
+        {
+          "form": "おなか",
+          "reading": "おなか",
+          "gloss": "stomach, belly",
+          "gloss_hi": "पेट",
+          "vocab_id": "n5.vocab.4-body-parts.おなか"
+        },
+        {
+          "form": "中",
+          "reading": "なか",
+          "gloss": "inside, middle",
+          "gloss_hi": "अंदर / बीच",
+          "vocab_id": "n5.vocab.13-locations-and-places-.中"
+        },
+        {
+          "form": "いっぱい",
+          "reading": "いっぱい",
+          "gloss": "full / a lot",
+          "gloss_hi": "भरपूर / बहुत",
+          "vocab_id": "n5.vocab.33-adverbs.いっぱい"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.012",
@@ -762,7 +1663,31 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.012.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.012.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "あさ",
+          "reading": "あさ",
+          "gloss": "morning",
+          "gloss_hi": "सुबह",
+          "vocab_id": "n5.vocab.10-time-general.あさ"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "とき",
+          "reading": "とき",
+          "gloss": "time, when",
+          "gloss_hi": "समय / जब",
+          "vocab_id": "n5.vocab.10-time-general.とき"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.013",
@@ -828,7 +1753,52 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.013.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.013.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "あした",
+          "reading": "あした",
+          "gloss": "tomorrow",
+          "gloss_hi": "कल (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あした"
+        },
+        {
+          "form": "あし",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "gloss_hi": "पैर",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "学校",
+          "reading": "がっこう",
+          "gloss": "school",
+          "gloss_hi": "विद्यालय",
+          "vocab_id": "n5.vocab.13-locations-and-places-.学校"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "gloss_hi": "कितने बजे",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.014",
@@ -894,7 +1864,31 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.014.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.014.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "来週",
+          "reading": "らいしゅう",
+          "gloss": "next week",
+          "gloss_hi": "अगला सप्ताह",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来週"
+        },
+        {
+          "form": "出口",
+          "reading": "でぐち",
+          "gloss": "exit",
+          "gloss_hi": "निकास",
+          "vocab_id": "n5.vocab.13-locations-and-places-.出口"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.015",
@@ -960,7 +1954,66 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.015.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.015.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "りんご",
+          "reading": "りんご",
+          "gloss": "apple",
+          "gloss_hi": "सेब",
+          "vocab_id": "n5.vocab.17-food-items.りんご"
+        },
+        {
+          "form": "三つ",
+          "reading": "みっつ",
+          "gloss": "three",
+          "gloss_hi": "तीन",
+          "vocab_id": "n5.vocab.8-native-counters-series.三つ"
+        },
+        {
+          "form": "ぎゅうにゅう",
+          "reading": "ぎゅうにゅう",
+          "gloss": "milk (also commonly: ミルク)",
+          "gloss_hi": "दूध",
+          "vocab_id": "n5.vocab.18-drinks.ぎゅうにゅう"
+        },
+        {
+          "form": "パン",
+          "reading": "パン",
+          "gloss": "bread",
+          "gloss_hi": "रोटी (पाव)",
+          "vocab_id": "n5.vocab.17-food-items.パン"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.016",
@@ -1026,7 +2079,80 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.016.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.016.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "あした",
+          "reading": "あした",
+          "gloss": "tomorrow",
+          "gloss_hi": "कल (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あした"
+        },
+        {
+          "form": "あし",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "gloss_hi": "पैर",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "えいが",
+          "reading": "えいが",
+          "gloss": "movie",
+          "gloss_hi": "फ़िल्म",
+          "vocab_id": "n5.vocab.26-house-and-furniture.えいが"
+        },
+        {
+          "form": "だれ",
+          "reading": "だれ",
+          "gloss": "who",
+          "gloss_hi": "कौन",
+          "vocab_id": "n5.vocab.1-people-pronouns-and-se.だれ"
+        },
+        {
+          "form": "でも",
+          "reading": "でも",
+          "gloss": "but, however",
+          "gloss_hi": "लेकिन",
+          "vocab_id": "n5.vocab.34-conjunctions.でも"
+        },
+        {
+          "form": "いそがしい",
+          "reading": "いそがしい",
+          "gloss": "busy",
+          "gloss_hi": "व्यस्त",
+          "vocab_id": "n5.vocab.31-adjectives.いそがしい"
+        },
+        {
+          "form": "そうですか",
+          "reading": "そうですか",
+          "gloss": "is that so?",
+          "gloss_hi": "अच्छा? / सच?",
+          "vocab_id": "n5.vocab.39-function-filler-expre.そうですか"
+        },
+        {
+          "form": "そう",
+          "reading": "そう",
+          "gloss": "like that",
+          "gloss_hi": "उस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.そう"
+        },
+        {
+          "form": "ですから",
+          "reading": "ですから",
+          "gloss": "therefore (polite)",
+          "gloss_hi": "इसलिए (आदर)",
+          "vocab_id": "n5.vocab.34-conjunctions.ですから"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.017",
@@ -1092,7 +2218,52 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.017.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.017.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "gloss_hi": "कितने बजे",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        },
+        {
+          "form": "でも",
+          "reading": "でも",
+          "gloss": "but, however",
+          "gloss_hi": "लेकिन",
+          "vocab_id": "n5.vocab.34-conjunctions.でも"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "たぶん",
+          "reading": "たぶん",
+          "gloss": "probably",
+          "gloss_hi": "शायद",
+          "vocab_id": "n5.vocab.33-adverbs.たぶん"
+        },
+        {
+          "form": "ぶん",
+          "reading": "ぶん",
+          "gloss": "sentence",
+          "gloss_hi": "वाक्य",
+          "vocab_id": "n5.vocab.24-school-and-study.ぶん"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.018",
@@ -1158,7 +2329,52 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.018.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.018.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "あした",
+          "reading": "あした",
+          "gloss": "tomorrow",
+          "gloss_hi": "कल (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あした"
+        },
+        {
+          "form": "あし",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "gloss_hi": "पैर",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        },
+        {
+          "form": "何で",
+          "reading": "なんで",
+          "gloss": "why, by what means",
+          "gloss_hi": "क्यों / किस से",
+          "vocab_id": "n5.vocab.6-question-words.何で"
+        },
+        {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (electric)",
+          "gloss_hi": "ट्रेन (बिजली)",
+          "vocab_id": "n5.vocab.23-transport.電車"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.019",
@@ -1224,7 +2440,94 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.019.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.019.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "しゅくだい",
+          "reading": "しゅくだい",
+          "gloss": "homework",
+          "gloss_hi": "गृहकार्य",
+          "vocab_id": "n5.vocab.24-school-and-study.しゅくだい"
+        },
+        {
+          "form": "だい",
+          "reading": "だい",
+          "gloss": "counter for machines / vehicles",
+          "gloss_hi": "मशीन-गणक",
+          "vocab_id": "n5.vocab.9-counters-common.だい"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student",
+          "gloss_hi": "विद्यार्थी",
+          "vocab_id": "n5.vocab.3-people-roles.学生"
+        },
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "きのう",
+          "reading": "きのう",
+          "gloss": "yesterday",
+          "gloss_hi": "कल (बीता)",
+          "vocab_id": "n5.vocab.10-time-general.きのう"
+        },
+        {
+          "form": "どうして",
+          "reading": "どうして",
+          "gloss": "why",
+          "gloss_hi": "क्यों",
+          "vocab_id": "n5.vocab.6-question-words.どうして"
+        },
+        {
+          "form": "どう",
+          "reading": "どう",
+          "gloss": "how",
+          "gloss_hi": "कैसे",
+          "vocab_id": "n5.vocab.5-demonstratives.どう"
+        },
+        {
+          "form": "うし",
+          "reading": "うし",
+          "gloss": "cow",
+          "gloss_hi": "गाय",
+          "vocab_id": "n5.vocab.15-animals.うし"
+        },
+        {
+          "form": "あたま",
+          "reading": "あたま",
+          "gloss": "head",
+          "gloss_hi": "सिर",
+          "vocab_id": "n5.vocab.4-body-parts.あたま"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.020",
@@ -1290,7 +2593,66 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.020.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.020.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "いくら",
+          "reading": "いくら",
+          "gloss": "how much (price)",
+          "gloss_hi": "कितना",
+          "vocab_id": "n5.vocab.6-question-words.いくら"
+        },
+        {
+          "form": "行く",
+          "reading": "いく",
+          "gloss": "to go",
+          "gloss_hi": "जाना",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.行く"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "高い",
+          "reading": "たかい",
+          "gloss": "high, tall, expensive",
+          "gloss_hi": "ऊँचा / महँगा",
+          "vocab_id": "n5.vocab.31-adjectives.高い"
+        },
+        {
+          "form": "でも",
+          "reading": "でも",
+          "gloss": "but, however",
+          "gloss_hi": "लेकिन",
+          "vocab_id": "n5.vocab.34-conjunctions.でも"
+        },
+        {
+          "form": "おもしろい",
+          "reading": "おもしろい",
+          "gloss": "interesting, funny",
+          "gloss_hi": "दिलचस्प",
+          "vocab_id": "n5.vocab.31-adjectives.おもしろい"
+        },
+        {
+          "form": "白い",
+          "reading": "しろい",
+          "gloss": "white (adj)",
+          "gloss_hi": "सफ़ेद",
+          "vocab_id": "n5.vocab.20-colors.白い"
+        },
+        {
+          "form": "白",
+          "reading": "しろ",
+          "gloss": "white (noun)",
+          "gloss_hi": "सफ़ेद (संज्ञा)",
+          "vocab_id": "n5.vocab.20-colors.白"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.021",
@@ -1348,7 +2710,38 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.021.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.021.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student",
+          "gloss_hi": "विद्यार्थी",
+          "vocab_id": "n5.vocab.3-people-roles.学生"
+        },
+        {
+          "form": "としょかん",
+          "reading": "としょかん",
+          "gloss": "library",
+          "gloss_hi": "पुस्तकालय",
+          "vocab_id": "n5.vocab.13-locations-and-places-.としょかん"
+        },
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "gloss_hi": "कितने बजे",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.022",
@@ -1410,7 +2803,87 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.022.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.022.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "あした",
+          "reading": "あした",
+          "gloss": "tomorrow",
+          "gloss_hi": "कल (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あした"
+        },
+        {
+          "form": "あし",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "gloss_hi": "पैर",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "天気",
+          "reading": "てんき",
+          "gloss": "weather",
+          "gloss_hi": "मौसम",
+          "vocab_id": "n5.vocab.14-nature-and-weather.天気"
+        },
+        {
+          "form": "どう",
+          "reading": "どう",
+          "gloss": "how",
+          "gloss_hi": "कैसे",
+          "vocab_id": "n5.vocab.5-demonstratives.どう"
+        },
+        {
+          "form": "でも",
+          "reading": "でも",
+          "gloss": "but, however",
+          "gloss_hi": "लेकिन",
+          "vocab_id": "n5.vocab.34-conjunctions.でも"
+        },
+        {
+          "form": "あさって",
+          "reading": "あさって",
+          "gloss": "day after tomorrow",
+          "gloss_hi": "परसों (आगामी)",
+          "vocab_id": "n5.vocab.10-time-general.あさって"
+        },
+        {
+          "form": "あさ",
+          "reading": "あさ",
+          "gloss": "morning",
+          "gloss_hi": "सुबह",
+          "vocab_id": "n5.vocab.10-time-general.あさ"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        },
+        {
+          "form": "そうですか",
+          "reading": "そうですか",
+          "gloss": "is that so?",
+          "gloss_hi": "अच्छा? / सच?",
+          "vocab_id": "n5.vocab.39-function-filler-expre.そうですか"
+        },
+        {
+          "form": "そう",
+          "reading": "そう",
+          "gloss": "like that",
+          "gloss_hi": "उस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.そう"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.023",
@@ -1476,7 +2949,38 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.023.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.023.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "しゅくだい",
+          "reading": "しゅくだい",
+          "gloss": "homework",
+          "gloss_hi": "गृहकार्य",
+          "vocab_id": "n5.vocab.24-school-and-study.しゅくだい"
+        },
+        {
+          "form": "だい",
+          "reading": "だい",
+          "gloss": "counter for machines / vehicles",
+          "gloss_hi": "मशीन-गणक",
+          "vocab_id": "n5.vocab.9-counters-common.だい"
+        },
+        {
+          "form": "いつ",
+          "reading": "いつ",
+          "gloss": "when",
+          "gloss_hi": "कब",
+          "vocab_id": "n5.vocab.6-question-words.いつ"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.024",
@@ -1538,7 +3042,38 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.024.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.024.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今日",
+          "reading": "きょう",
+          "gloss": "today",
+          "gloss_hi": "आज",
+          "vocab_id": "n5.vocab.10-time-general.今日"
+        },
+        {
+          "form": "だれ",
+          "reading": "だれ",
+          "gloss": "who",
+          "gloss_hi": "कौन",
+          "vocab_id": "n5.vocab.1-people-pronouns-and-se.だれ"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.025",
@@ -1587,7 +3122,45 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.025.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.025.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "あさ",
+          "reading": "あさ",
+          "gloss": "morning",
+          "gloss_hi": "सुबह",
+          "vocab_id": "n5.vocab.10-time-general.あさ"
+        },
+        {
+          "form": "学校",
+          "reading": "がっこう",
+          "gloss": "school",
+          "gloss_hi": "विद्यालय",
+          "vocab_id": "n5.vocab.13-locations-and-places-.学校"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "gloss_hi": "शिक्षक / डॉक्टर",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.026",
@@ -1636,7 +3209,24 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.026.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.026.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "コーヒー",
+          "reading": "コーヒー",
+          "gloss": "coffee",
+          "gloss_hi": "कॉफ़ी",
+          "vocab_id": "n5.vocab.18-drinks.コーヒー"
+        },
+        {
+          "form": "いたい",
+          "reading": "いたい",
+          "gloss": "painful",
+          "gloss_hi": "दर्द भरा",
+          "vocab_id": "n5.vocab.31-adjectives.いたい"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.027",
@@ -1685,7 +3275,24 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.027.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.027.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "おちゃ",
+          "reading": "おちゃ",
+          "gloss": "tea, green tea (Japanese tea)",
+          "gloss_hi": "चाय / जापानी चाय",
+          "vocab_id": "n5.vocab.18-drinks.おちゃ"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.028",
@@ -1734,7 +3341,17 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.028.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.028.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.029",
@@ -1783,7 +3400,31 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.029.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.029.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "ごはん",
+          "reading": "ごはん",
+          "gloss": "rice, meal",
+          "gloss_hi": "भात / भोजन",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.ごはん"
+        },
+        {
+          "form": "半",
+          "reading": "はん",
+          "gloss": "half (past)",
+          "gloss_hi": "आधा",
+          "vocab_id": "n5.vocab.10-time-general.半"
+        },
+        {
+          "form": "食べる",
+          "reading": "たべる",
+          "gloss": "to eat",
+          "gloss_hi": "खाना",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.食べる"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.030",
@@ -1832,7 +3473,24 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.030.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.030.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "北",
+          "reading": "きた",
+          "gloss": "north",
+          "gloss_hi": "उत्तर",
+          "vocab_id": "n5.vocab.13-locations-and-places-.北"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.031",
@@ -1902,7 +3560,80 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.031.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.031.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "たんじょうび",
+          "reading": "たんじょうび",
+          "gloss": "birthday",
+          "gloss_hi": "जन्मदिन",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.たんじょうび"
+        },
+        {
+          "form": "いい",
+          "reading": "いい / よい",
+          "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
+          "gloss_hi": "अच्छा",
+          "vocab_id": "n5.vocab.31-adjectives.いい"
+        },
+        {
+          "form": "かな",
+          "reading": "かな",
+          "gloss": "kana",
+          "gloss_hi": "काना",
+          "vocab_id": "n5.vocab.24-school-and-study.かな"
+        },
+        {
+          "form": "ぼうし",
+          "reading": "ぼうし",
+          "gloss": "hat, cap",
+          "gloss_hi": "टोपी",
+          "vocab_id": "n5.vocab.21-clothing-and-accessor.ぼうし"
+        },
+        {
+          "form": "うし",
+          "reading": "うし",
+          "gloss": "cow",
+          "gloss_hi": "गाय",
+          "vocab_id": "n5.vocab.15-animals.うし"
+        },
+        {
+          "form": "きれい",
+          "reading": "きれい",
+          "gloss": "pretty, clean",
+          "gloss_hi": "सुंदर / साफ़",
+          "vocab_id": "n5.vocab.32-adjectives.きれい"
+        },
+        {
+          "form": "れい",
+          "reading": "れい",
+          "gloss": "example",
+          "gloss_hi": "उदाहरण",
+          "vocab_id": "n5.vocab.24-school-and-study.れい"
+        },
+        {
+          "form": "そうですね",
+          "reading": "そうですね",
+          "gloss": "let me think / that's right",
+          "gloss_hi": "सही है / ठीक है",
+          "vocab_id": "n5.vocab.39-function-filler-expre.そうですね"
+        },
+        {
+          "form": "そう",
+          "reading": "そう",
+          "gloss": "like that",
+          "gloss_hi": "उस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.そう"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.032",
@@ -1972,7 +3703,38 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.032.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.032.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "二人",
+          "reading": "ふたり",
+          "gloss": "two people",
+          "gloss_hi": "दो व्यक्ति",
+          "vocab_id": "n5.vocab.9-counters-common.二人"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "えいが",
+          "reading": "えいが",
+          "gloss": "movie",
+          "gloss_hi": "फ़िल्म",
+          "vocab_id": "n5.vocab.26-house-and-furniture.えいが"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.033",
@@ -2042,7 +3804,59 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.033.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.033.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "ホテル",
+          "reading": "ホテル",
+          "gloss": "hotel",
+          "gloss_hi": "होटल",
+          "vocab_id": "n5.vocab.13-locations-and-places-.ホテル"
+        },
+        {
+          "form": "フロント",
+          "reading": "フロント",
+          "gloss": "reception desk / front desk",
+          "gloss_hi": "फ़्रंट डेस्क",
+          "vocab_id": "n5.vocab.13-locations-and-places-.フロント"
+        },
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "かい",
+          "reading": "かい",
+          "gloss": "floor of a building (e.g., 3-かい = 3rd floor)",
+          "gloss_hi": "मंज़िल-गणक",
+          "vocab_id": "n5.vocab.9-counters-common.かい"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "レストラン",
+          "reading": "レストラン",
+          "gloss": "restaurant",
+          "gloss_hi": "रेस्तरां",
+          "vocab_id": "n5.vocab.13-locations-and-places-.レストラン"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.034",
@@ -2108,7 +3922,66 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.034.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.034.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "子ども",
+          "reading": "こども",
+          "gloss": "child (often written こども in everyday text)",
+          "gloss_hi": "बच्चा",
+          "vocab_id": "n5.vocab.2-people-family.子ども"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "あさ",
+          "reading": "あさ",
+          "gloss": "morning",
+          "gloss_hi": "सुबह",
+          "vocab_id": "n5.vocab.10-time-general.あさ"
+        },
+        {
+          "form": "まず",
+          "reading": "まず",
+          "gloss": "first of all",
+          "gloss_hi": "सबसे पहले",
+          "vocab_id": "n5.vocab.33-adverbs.まず"
+        },
+        {
+          "form": "かお",
+          "reading": "かお",
+          "gloss": "face",
+          "gloss_hi": "चेहरा",
+          "vocab_id": "n5.vocab.4-body-parts.かお"
+        },
+        {
+          "form": "あさごはん",
+          "reading": "あさごはん",
+          "gloss": "breakfast",
+          "gloss_hi": "नाश्ता",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.あさごはん"
+        },
+        {
+          "form": "ごはん",
+          "reading": "ごはん",
+          "gloss": "rice, meal",
+          "gloss_hi": "भात / भोजन",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.ごはん"
+        },
+        {
+          "form": "半",
+          "reading": "はん",
+          "gloss": "half (past)",
+          "gloss_hi": "आधा",
+          "vocab_id": "n5.vocab.10-time-general.半"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.035",
@@ -2166,7 +4039,80 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.035.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.035.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student",
+          "gloss_hi": "विद्यार्थी",
+          "vocab_id": "n5.vocab.3-people-roles.学生"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "クラス",
+          "reading": "クラス",
+          "gloss": "class",
+          "gloss_hi": "क्लास",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.クラス"
+        },
+        {
+          "form": "二十",
+          "reading": "にじゅう",
+          "gloss": "twenty",
+          "gloss_hi": "बीस",
+          "vocab_id": "n5.vocab.7-numbers.二十"
+        },
+        {
+          "form": "日本人",
+          "reading": "にほんじん",
+          "gloss": "Japanese (person)",
+          "gloss_hi": "जापानी (व्यक्ति)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本人"
+        },
+        {
+          "form": "日本",
+          "reading": "にほん / にっぽん",
+          "gloss": "Japan",
+          "gloss_hi": "जापान",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本"
+        },
+        {
+          "form": "中国",
+          "reading": "ちゅうごく",
+          "gloss": "China",
+          "gloss_hi": "चीन",
+          "vocab_id": "n5.vocab.25-languages-and-countri.中国"
+        },
+        {
+          "form": "かんこく",
+          "reading": "かんこく",
+          "gloss": "Korea",
+          "gloss_hi": "कोरिया",
+          "vocab_id": "n5.vocab.25-languages-and-countri.かんこく"
+        },
+        {
+          "form": "アメリカ",
+          "reading": "アメリカ",
+          "gloss": "America",
+          "gloss_hi": "अमेरिका",
+          "vocab_id": "n5.vocab.25-languages-and-countri.アメリカ"
+        },
+        {
+          "form": "二人",
+          "reading": "ふたり",
+          "gloss": "two people",
+          "gloss_hi": "दो व्यक्ति",
+          "vocab_id": "n5.vocab.9-counters-common.二人"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.036",
@@ -2224,7 +4170,87 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.036.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.036.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "しごと",
+          "reading": "しごと",
+          "gloss": "work, job",
+          "gloss_hi": "काम / नौकरी",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.しごと"
+        },
+        {
+          "form": "後で",
+          "reading": "あとで",
+          "gloss": "later",
+          "gloss_hi": "बाद में",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.後で"
+        },
+        {
+          "form": "後",
+          "reading": "あと",
+          "gloss": "after / later (時間的に後で)",
+          "gloss_hi": "बाद में",
+          "vocab_id": "n5.vocab.10-time-general.後"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "来月",
+          "reading": "らいげつ",
+          "gloss": "next month",
+          "gloss_hi": "अगला महीना",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来月"
+        },
+        {
+          "form": "七日",
+          "reading": "なのか",
+          "gloss": "7th / seven days",
+          "gloss_hi": "सातवीं / सात दिन",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.七日"
+        },
+        {
+          "form": "九日",
+          "reading": "ここのか",
+          "gloss": "9th / nine days",
+          "gloss_hi": "नौवीं / नौ दिन",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.九日"
+        },
+        {
+          "form": "三日",
+          "reading": "みっか",
+          "gloss": "3rd / three days",
+          "gloss_hi": "तीसरी तारीख़ / तीन दिन",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.三日"
+        },
+        {
+          "form": "りょこう",
+          "reading": "りょこう",
+          "gloss": "travel",
+          "gloss_hi": "यात्रा",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.りょこう"
+        },
+        {
+          "form": "こう",
+          "reading": "こう",
+          "gloss": "like this",
+          "gloss_hi": "इस तरह",
+          "vocab_id": "n5.vocab.5-demonstratives.こう"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.037",
@@ -2282,7 +4308,66 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.037.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.037.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "店員",
+          "reading": "てんいん",
+          "gloss": "shop clerk",
+          "gloss_hi": "दुकान सहायक",
+          "vocab_id": "n5.vocab.3-people-roles.店員"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "大きい",
+          "reading": "おおきい",
+          "gloss": "big",
+          "gloss_hi": "बड़ा",
+          "vocab_id": "n5.vocab.31-adjectives.大きい"
+        },
+        {
+          "form": "今日",
+          "reading": "きょう",
+          "gloss": "today",
+          "gloss_hi": "आज",
+          "vocab_id": "n5.vocab.10-time-general.今日"
+        },
+        {
+          "form": "セール",
+          "reading": "セール",
+          "gloss": "sale (price reduction)",
+          "gloss_hi": "सेल / छूट",
+          "vocab_id": "n5.vocab.22-money-and-shopping.セール"
+        },
+        {
+          "form": "ぜんぶ",
+          "reading": "ぜんぶ",
+          "gloss": "all",
+          "gloss_hi": "सब",
+          "vocab_id": "n5.vocab.33-adverbs.ぜんぶ"
+        },
+        {
+          "form": "半分",
+          "reading": "はんぶん",
+          "gloss": "half",
+          "gloss_hi": "आधा",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.はんぶん"
+        },
+        {
+          "form": "ねだん",
+          "reading": "ねだん",
+          "gloss": "price",
+          "gloss_hi": "क़ीमत",
+          "vocab_id": "n5.vocab.22-money-and-shopping.ねだん"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.038",
@@ -2331,7 +4416,38 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.038.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.038.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "ともだち",
+          "reading": "ともだち",
+          "gloss": "friend",
+          "gloss_hi": "दोस्त",
+          "vocab_id": "n5.vocab.2-people-family.ともだち"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        },
+        {
+          "form": "入る",
+          "reading": "はいる",
+          "gloss": "to enter (Group 1 exception - looks like Group 2)",
+          "gloss_hi": "अंदर जाना (समूह-1 अपवाद)",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.入る"
+        },
+        {
+          "form": "とき",
+          "reading": "とき",
+          "gloss": "time, when",
+          "gloss_hi": "समय / जब",
+          "vocab_id": "n5.vocab.10-time-general.とき"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.039",
@@ -2380,7 +4496,73 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.039.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.039.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "ごはん",
+          "reading": "ごはん",
+          "gloss": "rice, meal",
+          "gloss_hi": "भात / भोजन",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.ごはん"
+        },
+        {
+          "form": "半",
+          "reading": "はん",
+          "gloss": "half (past)",
+          "gloss_hi": "आधा",
+          "vocab_id": "n5.vocab.10-time-general.半"
+        },
+        {
+          "form": "後で",
+          "reading": "あとで",
+          "gloss": "later",
+          "gloss_hi": "बाद में",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.後で"
+        },
+        {
+          "form": "後",
+          "reading": "あと",
+          "gloss": "after / later (時間的に後で)",
+          "gloss_hi": "बाद में",
+          "vocab_id": "n5.vocab.10-time-general.後"
+        },
+        {
+          "form": "お金",
+          "reading": "おかね",
+          "gloss": "money",
+          "gloss_hi": "पैसा",
+          "vocab_id": "n5.vocab.22-money-and-shopping.お金"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        },
+        {
+          "form": "出る",
+          "reading": "でる",
+          "gloss": "to leave, to go out",
+          "gloss_hi": "बाहर निकलना",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.出る"
+        },
+        {
+          "form": "とき",
+          "reading": "とき",
+          "gloss": "time, when",
+          "gloss_hi": "समय / जब",
+          "vocab_id": "n5.vocab.10-time-general.とき"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.040",
@@ -2428,7 +4610,38 @@
         "slow_render_date": "2026-05-09"
       },
       "explanation_hi_provenance": "native_reviewed",
-      "audio_slow": "audio/listening/n5.listen.040.slow.mp3"
+      "audio_slow": "audio/listening/n5.listen.040.slow.mp3",
+      "vocab_glossary": [
+        {
+          "form": "よる",
+          "reading": "よる",
+          "gloss": "night",
+          "gloss_hi": "रात",
+          "vocab_id": "n5.vocab.10-time-general.よる"
+        },
+        {
+          "form": "ともだち",
+          "reading": "ともだち",
+          "gloss": "friend",
+          "gloss_hi": "दोस्त",
+          "vocab_id": "n5.vocab.2-people-family.ともだち"
+        },
+        {
+          "form": "いえ",
+          "reading": "いえ / うち",
+          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
+          "gloss_hi": "घर",
+          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
+        },
+        {
+          "form": "とき",
+          "reading": "とき",
+          "gloss": "time, when",
+          "gloss_hi": "समय / जब",
+          "vocab_id": "n5.vocab.10-time-general.とき"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.041",
@@ -2470,7 +4683,38 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "先",
+          "reading": "さき",
+          "gloss": "earlier, ahead, previous",
+          "gloss_hi": "पहले / आगे",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.先"
+        },
+        {
+          "form": "しつれいします",
+          "reading": "しつれいします",
+          "gloss": "excuse me / pardon me",
+          "gloss_hi": "क्षमा कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.しつれいします"
+        },
+        {
+          "form": "れい",
+          "reading": "れい",
+          "gloss": "example",
+          "gloss_hi": "उदाहरण",
+          "vocab_id": "n5.vocab.24-school-and-study.れい"
+        },
+        {
+          "form": "いし",
+          "reading": "いし",
+          "gloss": "stone",
+          "gloss_hi": "पत्थर",
+          "vocab_id": "n5.vocab.14-nature-and-weather.いし"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.042",
@@ -2511,7 +4755,24 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "たんじょうび",
+          "reading": "たんじょうび",
+          "gloss": "birthday",
+          "gloss_hi": "जन्मदिन",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.たんじょうび"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.043",
@@ -2552,7 +4813,31 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "駅",
+          "reading": "えき",
+          "gloss": "station",
+          "gloss_hi": "स्टेशन",
+          "vocab_id": "n5.vocab.13-locations-and-places-.駅"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.044",
@@ -2594,7 +4879,52 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "いっしょに",
+          "reading": "いっしょに",
+          "gloss": "together",
+          "gloss_hi": "साथ में",
+          "vocab_id": "n5.vocab.33-adverbs.いっしょに"
+        },
+        {
+          "form": "ひるごはん",
+          "reading": "ひるごはん",
+          "gloss": "lunch",
+          "gloss_hi": "दोपहर का खाना",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.ひるごはん"
+        },
+        {
+          "form": "ひる",
+          "reading": "ひる",
+          "gloss": "noon, daytime",
+          "gloss_hi": "दोपहर",
+          "vocab_id": "n5.vocab.10-time-general.ひる"
+        },
+        {
+          "form": "ごはん",
+          "reading": "ごはん",
+          "gloss": "rice, meal",
+          "gloss_hi": "भात / भोजन",
+          "vocab_id": "n5.vocab.16-food-and-drink-genera.ごはん"
+        },
+        {
+          "form": "半",
+          "reading": "はん",
+          "gloss": "half (past)",
+          "gloss_hi": "आधा",
+          "vocab_id": "n5.vocab.10-time-general.半"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.045",
@@ -2636,7 +4966,24 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "おはようございます",
+          "reading": "おはようございます",
+          "gloss": "good morning",
+          "gloss_hi": "सुप्रभात",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.おはようございます"
+        },
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "gloss_hi": "अभी",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.046",
@@ -2678,7 +5025,31 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "ペン",
+          "reading": "ペン",
+          "gloss": "pen",
+          "gloss_hi": "पेन",
+          "vocab_id": "n5.vocab.24-school-and-study.ペン"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.047",
@@ -2720,7 +5091,31 @@
         "speed_scale": 1.3,
         "rendered_at": "2026-05-07T01:01:51.388966+00:00"
       },
-      "explanation_hi_provenance": "native_reviewed"
+      "explanation_hi_provenance": "native_reviewed",
+      "vocab_glossary": [
+        {
+          "form": "すみません",
+          "reading": "すみません",
+          "gloss": "excuse me / sorry",
+          "gloss_hi": "माफ़ कीजिए",
+          "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません"
+        },
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "gloss_hi": "हज़ार",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        },
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "gloss_hi": "नीचे",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     }
   ],
   "_meta": {

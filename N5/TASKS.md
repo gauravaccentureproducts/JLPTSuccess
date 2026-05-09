@@ -38,8 +38,8 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 14 | IMP-128 | P2 | Collocations ≥5 per top-300 high-freq word | ⏳ |
 | 15 | IMP-129 | P2 | Listening timestamped transcripts (whisper.cpp) | ⏳ |
 | 16 | IMP-132 | P2 | Audio per grammar example (~700+ MP3s) | ✅ 739/739 (100%) — gTTS render |
-| 17 | ISSUE-106 | P3 | Kanji→reading-passage cross-references | ⏳ |
-| 18 | ISSUE-107 | P3 | Listening vocab_glossary inline | ⏳ |
+| 17 | ISSUE-106 | P3 | Kanji→reading-passage cross-references | ✅ 59/106 (56%) — covers all kanji used in passages |
+| 18 | ISSUE-107 | P3 | Listening vocab_glossary inline | ✅ 47/47 (100%), 322 refs, avg 6.9/item |
 | 19 | IMP-140 | P3 | Reading paragraph summary + lit/natural translation | ⏳ |
 | 20 | IMP-142 | P4 | SEO + structured-data per content page | ⏳ |
 | 21 | IMP-143 | P4 | PDF cheat sheet builder | ⏳ |

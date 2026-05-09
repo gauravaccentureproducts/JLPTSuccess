@@ -99,7 +99,20 @@
       "meanings_hi": [
         "एक"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.二",
@@ -197,7 +210,20 @@
       "meanings_hi": [
         "दो"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.007",
+          "title_ja": "としょかんの おしらせ",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.三",
@@ -266,7 +292,15 @@
       "meanings_hi": [
         "तीन"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.四",
@@ -412,7 +446,30 @@
       "meanings_hi": [
         "पाँच"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.031",
+          "title_ja": "わたしの いぬ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.六",
@@ -548,7 +605,20 @@
       "meanings_hi": [
         "सात"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.八",
@@ -655,7 +725,20 @@
           ],
           "out_of_corpus": []
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.九",
@@ -725,7 +808,15 @@
         "नौ"
       ],
       "recognition_priority": 1,
-      "stroke_order_mistakes": "左払い→曲線で下まで一筆。2画ではなく1画＋1画。"
+      "stroke_order_mistakes": "左払い→曲線で下まで一筆。2画ではなく1画＋1画。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.十",
@@ -827,7 +918,20 @@
       "meanings_hi": [
         "दस"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.百",
@@ -1143,7 +1247,45 @@
       "meanings_hi": [
         "येन / गोल"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.004",
+          "title_ja": "コンビニで",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.012",
+          "title_ja": "本やで",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.014",
+          "title_ja": "あたらしい ふく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.017",
+          "title_ja": "カフェの メニュー",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.021",
+          "title_ja": "ひこうきの じかん",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.026",
+          "title_ja": "くだものを かいに",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.日",
@@ -1309,7 +1451,115 @@
           ],
           "out_of_corpus": []
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.002",
+          "title_ja": "まいにちの せいかつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.006",
+          "title_ja": "きょうの てんき",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.009",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.011",
+          "title_ja": "きょうの ひるごはん",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.012",
+          "title_ja": "本やで",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.019",
+          "title_ja": "せんしゅうの 日よう日",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.020",
+          "title_ja": "わたしの 先生",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.029",
+          "title_ja": "なつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.035",
+          "title_ja": "すきな たべもの",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.月",
@@ -1423,7 +1673,45 @@
         "महीना",
         "चंद्रमा"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.火",
@@ -1559,7 +1847,15 @@
       "confusable_with": [
         "火"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.木",
@@ -1673,7 +1969,20 @@
             "未"
           ]
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.033",
+          "title_ja": "とうきょうの あき",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.金",
@@ -1743,7 +2052,30 @@
         "पैसा",
         "शुक्रवार"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.土",
@@ -1815,7 +2147,40 @@
         "मिट्टी",
         "शनिवार"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.009",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.曜",
@@ -1912,7 +2277,35 @@
       "meanings_hi": [
         "सप्ताह का दिन"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.009",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.019",
+          "title_ja": "せんしゅうの 日よう日",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.年",
@@ -1985,7 +2378,20 @@
       "meanings_hi": [
         "वर्ष"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.時",
@@ -2055,7 +2461,60 @@
         "घंटा"
       ],
       "recognition_priority": 1,
-      "stroke_order_mistakes": "日偏→寺（3画＋3画）。寺の最初は土ではなく上に１画。"
+      "stroke_order_mistakes": "日偏→寺（3画＋3画）。寺の最初は土ではなく上に１画。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.002",
+          "title_ja": "まいにちの せいかつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.007",
+          "title_ja": "としょかんの おしらせ",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.021",
+          "title_ja": "ひこうきの じかん",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.027",
+          "title_ja": "友だちからの メモ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.分",
@@ -2143,7 +2602,30 @@
         "भाग",
         "बाँटना"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.008",
+          "title_ja": "学校へ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.半",
@@ -2209,7 +2691,15 @@
       "meanings_hi": [
         "आधा"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.今",
@@ -2290,7 +2780,50 @@
       "confusable_with": [
         "会"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.006",
+          "title_ja": "きょうの てんき",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.011",
+          "title_ja": "きょうの ひるごはん",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.毎",
@@ -2362,7 +2895,30 @@
       "meanings_hi": [
         "हरेक"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.002",
+          "title_ja": "まいにちの せいかつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.009",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.029",
+          "title_ja": "なつ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.週",
@@ -2440,7 +2996,20 @@
       "meanings_hi": [
         "सप्ताह"
       ],
-      "recognition_priority": 1
+      "recognition_priority": 1,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.007",
+          "title_ja": "としょかんの おしらせ",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.午",
@@ -2755,7 +3324,25 @@
           ],
           "out_of_corpus": []
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.男",
@@ -2966,7 +3553,25 @@
         "字"
       ],
       "recognition_priority": 2,
-      "stroke_order_mistakes": "上のフックから縦に下りる→曲げ→最後に真ん中の横線（一）。3画。横線を2画目に書いてしまう誤りが多い。"
+      "stroke_order_mistakes": "上のフックから縦に下りる→曲げ→最後に真ん中の横線（一）。3画。横線を2画目に書いてしまう誤りが多い。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.021",
+          "title_ja": "ひこうきの じかん",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.父",
@@ -3032,7 +3637,20 @@
       "meanings_hi": [
         "पिता"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.022",
+          "title_ja": "きのうの ばん",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.母",
@@ -3102,7 +3720,30 @@
         "毋"
       ],
       "recognition_priority": 2,
-      "stroke_order_mistakes": "L字を上下逆さに（横→曲げ）→真ん中の縦曲げ→中の点2つ→最後に横線で閉じる。5画だが、点の位置が独特で最頻出の誤りは中の点を書き忘れる/間違う。"
+      "stroke_order_mistakes": "L字を上下逆さに（横→曲げ）→真ん中の縦曲げ→中の点2つ→最後に横線で閉じる。5画だが、点の位置が独特で最頻出の誤りは中の点を書き忘れる/間違う。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.022",
+          "title_ja": "きのうの ばん",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.035",
+          "title_ja": "すきな たべもの",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.友",
@@ -3253,7 +3894,40 @@
         "आगे",
         "सिरा"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.010",
+          "title_ja": "わたしの きょうしつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.020",
+          "title_ja": "わたしの 先生",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.生",
@@ -3339,7 +4013,45 @@
       ],
       "recognition_priority": 2,
       "stroke_order_mistakes": "Common mistake: writing the bottom-horizontal before the middle-horizontals. Correct: top to bottom, building the kanji like a stack — (1) upper short slash, (2) top horizontal, (3) middle slash going down, (4) middle horizontal, (5) bottom horizontal LAST. The bottom is written last.",
-      "stroke_order_mistakes_provenance": "llm_curated"
+      "stroke_order_mistakes_provenance": "llm_curated",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.010",
+          "title_ja": "わたしの きょうしつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.020",
+          "title_ja": "わたしの 先生",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.手",
@@ -3667,7 +4379,15 @@
         "目",
         "日"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.力",
@@ -3815,7 +4535,55 @@
         "字"
       ],
       "recognition_priority": 2,
-      "stroke_order_mistakes": "上の3-stroke帽（点→点→ワ字）→冖（横棒）→子（3画）。子の前に冖を書く順序の誤りが多い。8画。"
+      "stroke_order_mistakes": "上の3-stroke帽（点→点→ワ字）→冖（横棒）→子（3画）。子の前に冖を書く順序の誤りが多い。8画。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.008",
+          "title_ja": "学校へ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.校",
@@ -3880,7 +4648,35 @@
       "meanings_hi": [
         "विद्यालय"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.008",
+          "title_ja": "学校へ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.本",
@@ -4000,7 +4796,80 @@
             "未"
           ]
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.007",
+          "title_ja": "としょかんの おしらせ",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.012",
+          "title_ja": "本やで",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.020",
+          "title_ja": "わたしの 先生",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.026",
+          "title_ja": "くだものを かいに",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.028",
+          "title_ja": "わたしの へや",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.035",
+          "title_ja": "すきな たべもの",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.語",
@@ -4073,7 +4942,45 @@
         "話",
         "言"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.012",
+          "title_ja": "本やで",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.020",
+          "title_ja": "わたしの 先生",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.国",
@@ -4235,7 +5142,15 @@
       "confusable_with": [
         "今"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.027",
+          "title_ja": "友だちからの メモ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.社",
@@ -4478,7 +5393,60 @@
             "太"
           ]
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.005",
+          "title_ja": "わたしの かぞく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.024",
+          "title_ja": "わたしの 友だち",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.028",
+          "title_ja": "わたしの へや",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.031",
+          "title_ja": "わたしの いぬ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.中",
@@ -4872,7 +5840,15 @@
         "बायाँ"
       ],
       "recognition_priority": 2,
-      "stroke_order_mistakes": "横→左払い（ノ）→工の順。「右」と書き順が異なる。"
+      "stroke_order_mistakes": "横→左払い（ノ）→工の順。「右」と書き順が異なる。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.右",
@@ -4937,7 +5913,15 @@
         "दायाँ"
       ],
       "recognition_priority": 2,
-      "stroke_order_mistakes": "左払い（ノ）→横→口の順。「左」と書き順が異なる（左は横→ノ→工）。"
+      "stroke_order_mistakes": "左払い（ノ）→横→口の順。「左」と書き順が異なる（左は横→ノ→工）。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.前",
@@ -5004,7 +5988,20 @@
         "आगे",
         "पहले"
       ],
-      "recognition_priority": 2
+      "recognition_priority": 2,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.031",
+          "title_ja": "わたしの いぬ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.後",
@@ -5500,7 +6497,30 @@
         "स्थान"
       ],
       "recognition_priority": 2,
-      "stroke_order_mistakes": "門（外枠）→日（中）。門は左の縦→上の横→右の縦の順。"
+      "stroke_order_mistakes": "門（外枠）→日（中）。門は左の縦→上の横→右の縦の順。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.007",
+          "title_ja": "としょかんの おしらせ",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.021",
+          "title_ja": "ひこうきの じかん",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.山",
@@ -5827,7 +6847,15 @@
         "स्वर्ग",
         "आकाश"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.019",
+          "title_ja": "せんしゅうの 日よう日",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.気",
@@ -5893,7 +6921,15 @@
         "मनःस्थिति",
         "हवा"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.019",
+          "title_ja": "せんしゅうの 日よう日",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.花",
@@ -6099,7 +7135,15 @@
         "बिजली"
       ],
       "recognition_priority": 3,
-      "stroke_order_mistakes": "雨（外）→田（中）の順。田の中の横は最後。"
+      "stroke_order_mistakes": "雨（外）→田（中）の順。田の中の横は最後。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.車",
@@ -6167,7 +7211,15 @@
         "東",
         "束"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.道",
@@ -6444,7 +7496,30 @@
         "खाना",
         "भोजन"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.002",
+          "title_ja": "まいにちの せいかつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.003",
+          "title_ja": "しゅうまつの よてい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.025",
+          "title_ja": "土よう日の あさ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.035",
+          "title_ja": "すきな たべもの",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.飲",
@@ -6512,7 +7587,20 @@
         "पीना"
       ],
       "recognition_priority": 3,
-      "stroke_order_mistakes": "食偏（9画、複雑）→欠（4画）。食偏の最後は払い。"
+      "stroke_order_mistakes": "食偏（9画、複雑）→欠（4画）。食偏の最後は払い。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.011",
+          "title_ja": "きょうの ひるごはん",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.027",
+          "title_ja": "友だちからの メモ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.見",
@@ -6588,7 +7676,45 @@
         "貝",
         "具"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.002",
+          "title_ja": "まいにちの せいかつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.003",
+          "title_ja": "しゅうまつの よてい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.010",
+          "title_ja": "わたしの きょうしつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.019",
+          "title_ja": "せんしゅうの 日よう日",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.028",
+          "title_ja": "わたしの へや",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.聞",
@@ -6663,7 +7789,20 @@
         "ध्यान देना",
         "पूछना"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.033",
+          "title_ja": "とうきょうの あき",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.読",
@@ -6734,7 +7873,15 @@
         "पढ़ना"
       ],
       "recognition_priority": 3,
-      "stroke_order_mistakes": "言偏→売の順。売は士＋冖＋儿。"
+      "stroke_order_mistakes": "言偏→売の順。売は士＋冖＋儿。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.書",
@@ -6966,7 +8113,40 @@
       "confusable_with": [
         "米"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.001",
+          "title_ja": "じこしょうかい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.034",
+          "title_ja": "友だちからの てがみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.039",
+          "title_ja": "本やの セール",
+          "level": "info-search"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.行",
@@ -7042,7 +8222,75 @@
         "जाना",
         "करना"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.002",
+          "title_ja": "まいにちの せいかつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.003",
+          "title_ja": "しゅうまつの よてい",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.013",
+          "title_ja": "きょうとへの りょこう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.015",
+          "title_ja": "はる",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.018",
+          "title_ja": "日本語の べんきょう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.019",
+          "title_ja": "せんしゅうの 日よう日",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.029",
+          "title_ja": "なつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.032",
+          "title_ja": "アルバイト",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.035",
+          "title_ja": "すきな たべもの",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.038",
+          "title_ja": "わたしの しゅみ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.040",
+          "title_ja": "こうえんの さんぽ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.出",
@@ -7118,7 +8366,25 @@
         "निकालना"
       ],
       "recognition_priority": 3,
-      "stroke_order_mistakes": "中央の縦→左の山→右の山。重ねた山ではなく一気に。"
+      "stroke_order_mistakes": "中央の縦→左の山→右の山。重ねた山ではなく一気に。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.030",
+          "title_ja": "ゆうびんきょくへの 行きかた",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.入",
@@ -7370,7 +8636,35 @@
         "आराम",
         "छुट्टी"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.007",
+          "title_ja": "としょかんの おしらせ",
+          "level": "info-search"
+        },
+        {
+          "passage_id": "n5.read.016",
+          "title_ja": "びょうきです",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.023",
+          "title_ja": "バスていの おしらせ",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.029",
+          "title_ja": "なつ",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.036",
+          "title_ja": "学校の しゅくだい",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.言",
@@ -7444,7 +8738,20 @@
         "語",
         "話"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.022",
+          "title_ja": "きのうの ばん",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.037",
+          "title_ja": "電車の おくれ",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.買",
@@ -7511,7 +8818,35 @@
       "meanings_hi": [
         "ख़रीदना"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.004",
+          "title_ja": "コンビニで",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.012",
+          "title_ja": "本やで",
+          "level": "easy"
+        },
+        {
+          "passage_id": "n5.read.013",
+          "title_ja": "きょうとへの りょこう",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.014",
+          "title_ja": "あたらしい ふく",
+          "level": "medium"
+        },
+        {
+          "passage_id": "n5.read.026",
+          "title_ja": "くだものを かいに",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.高",
@@ -7582,7 +8917,15 @@
         "महँगा"
       ],
       "recognition_priority": 3,
-      "stroke_order_mistakes": "亠→口→冂→口（4部分）。上から下へ。"
+      "stroke_order_mistakes": "亠→口→冂→口（4部分）。上から下へ。",
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.029",
+          "title_ja": "なつ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.安",
@@ -7817,7 +9160,15 @@
             "占"
           ]
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.013",
+          "title_ja": "きょうとへの りょこう",
+          "level": "medium"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.長",
@@ -7987,7 +9338,15 @@
           ],
           "out_of_corpus": []
         }
-      ]
+      ],
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.031",
+          "title_ja": "わたしの いぬ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.名",
@@ -8051,7 +9410,15 @@
       "meanings_hi": [
         "नाम"
       ],
-      "recognition_priority": 3
+      "recognition_priority": 3,
+      "reading_passages": [
+        {
+          "passage_id": "n5.read.031",
+          "title_ja": "わたしの いぬ",
+          "level": "easy"
+        }
+      ],
+      "reading_passages_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.番",
