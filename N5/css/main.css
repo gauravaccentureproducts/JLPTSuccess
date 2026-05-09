@@ -2637,6 +2637,43 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   audio { display: none; }
   a[href]::after { content: ""; }
   .skeleton-wrap { display: none; }
+  /* IMP-146 (richness audit, 2026-05-09): hide route chrome that is
+     flagged with .no-print so the pattern-detail page renders as a
+     clean lesson-note when printed (or saved as PDF). */
+  .no-print { display: none !important; }
+  /* Pattern-detail page: stay readable on paper. */
+  .pattern-detail { padding: 0; }
+  .pattern-name { font-size: 22pt; margin: 0 0 6pt; }
+  .pattern-detail .meaning-en { font-size: 12pt; margin: 0 0 12pt; color: #333; }
+  .pattern-detail .section-title { font-size: 14pt; margin: 16pt 0 6pt; border-bottom: 0.5pt solid #999; padding-bottom: 2pt; }
+  .pattern-detail .example-list li,
+  .pattern-detail .mistakes-list li { margin: 6pt 0; page-break-inside: avoid; }
+  .pattern-detail section { page-break-inside: avoid; }
+  .pattern-lesson-tag {
+    font-size: 9pt;
+    color: #555;
+    background: #f0f0f0;
+    border: 0.5pt solid #999;
+  }
+}
+
+/* IMP-146: lesson-tag pill on pattern detail (Genki/Minna lesson tag) */
+.pattern-lesson-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 10%, transparent);
+  color: var(--c-primary-dark, #14452a);
+  border: 0.5px solid color-mix(in srgb, var(--c-primary-dark, #14452a) 25%, transparent);
+}
+.pattern-print-btn {
+  margin-left: auto;
+  font-size: 13px;
 }
 
 /* Grammar category jump menu (chip rail, sticky on desktop) */

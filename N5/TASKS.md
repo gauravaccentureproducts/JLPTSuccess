@@ -28,7 +28,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 | 9 | IMP-139 | P3 | Vocab frequency_rank (Leeds JP corpus, CC-BY) | ✅ 705/1000 (70%) imported |
 | 10 | IMP-141 | P3 | Slow-version listening audio (0.7×) | ✅ 40/47 rendered (7 lack source MP3) |
 | 11 | IMP-144 | P4 | Multi-skill mixed drill toggle | ✅ home + review headings updated |
-| 12 | IMP-146 | P5 | Lesson-notes PDF download | ⏳ |
+| 12 | IMP-146 | P5 | Lesson-notes PDF download | ✅ browser-native print → save-as-PDF |
 
 ### TIER 2 — MEDIUM EFFORT
 
@@ -67,8 +67,21 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred / blocked
 - **If a Tier-1 item turns out medium/high**: re-classify in
   this table and defer.
 
-This active section will be deleted when all 29 items are
-complete. The historical body below is preserved for record.
+### TIER 1 STATUS — COMPLETE (12/12) — 2026-05-09
+
+All Tier-1 LOW-effort items shipped. Batches:
+1. ISSUE-105/108/109 + IMP-133/134 — structural pairs + clusters
+2. IMP-131 + ISSUE-108 v2 — kanji-vocab links + paper grammar (73%)
+3. ISSUE-110 (closure) + IMP-130 + IMP-139 — lesson tags + freq ranks
+4. IMP-141 + IMP-144 — slow audio + mixed drill toggle
+5. IMP-146 — print → save-as-PDF for pattern-detail pages
+
+**Pause point per CLAUDE.md Rule 2:** Tier 2 (medium effort) and
+Tier 3 (high effort) each warrant explicit user re-confirm before
+starting.
+
+This active section will be deleted when the audit cycle is fully
+closed. The historical body below is preserved for record.
 
 ---
 

@@ -408,20 +408,36 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
       ? `<span class="status-badge weak">Needs practice</span>`
       : '';
 
+  // IMP-146 (richness audit, 2026-05-09): "Print / Save as PDF" button.
+  // Browser-native print → save-as-PDF flow. The companion @media print
+  // rules in css/main.css hide nav/chrome and format pattern-detail for
+  // paper. No PDF library, no network round-trip, no extra dependency.
+  // Effective lesson-notes export per the Genki lesson tag also added
+  // in IMP-130.
+  const lessonTag = (() => {
+    const g = p.genki_lesson;
+    if (!g) return '';
+    return `<span class="pattern-lesson-tag" title="Genki ${g.book} Lesson ${g.lesson}">G${g.book}·L${g.lesson}</span>`;
+  })();
+
   const html = `
     <article class="pattern-detail">
       ${navHtml}
-      <a class="back-link" href="#/learn/grammar">← Back to grammar list</a>
+      <a class="back-link no-print" href="#/learn/grammar">← Back to grammar list</a>
       <div class="pattern-header">
         <div>
-          <h2 class="pattern-name">${esc(p.pattern)}</h2>
+          <h2 class="pattern-name">${esc(p.pattern)} ${lessonTag}</h2>
           <p class="meaning-en">${esc(localizedMeaning(p))}</p>
         </div>
-        <label class="known-toggle" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
+        <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known" ${isKnown ? 'checked' : ''}>
           <span>Mark as known</span>
           ${statusBadge}
         </label>
+        <button type="button" id="pattern-print-btn" class="btn-secondary no-print pattern-print-btn"
+                title="Print this lesson note (use 'Save as PDF' in your browser's print dialog).">
+          🖨 Print / Save as PDF
+        </button>
       </div>
 
       ${renderHowToUseTable(p)}
@@ -469,5 +485,11 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
   document.getElementById('mark-known')?.addEventListener('change', (ev) => {
     storage.setManuallyKnown(p.id, ev.target.checked);
     renderGrammarPatternDetail(container, p, allPatterns);
+  });
+  // IMP-146: print → save-as-PDF. window.print() opens the browser
+  // print dialog where the user picks "Save as PDF" as the destination.
+  // No new dependency; @media print CSS hides the chrome.
+  document.getElementById('pattern-print-btn')?.addEventListener('click', () => {
+    window.print();
   });
 }
