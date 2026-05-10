@@ -1,24 +1,24 @@
 // Service worker - offline caching for the static app.
-// Strategy (Brief 2 §12.1):
+// Strategy (revised 2026-05-10 — was stale-while-revalidate for shell):
 //   * On install: pre-cache the SHELL only - HTML, CSS, JS modules, font
 //     subsets, the JSON catalogs (grammar / vocab / kanji / reading /
 //     listening / questions / whitelists), the i18n locales, and the 106
 //     kanji stroke-order SVGs. Total ~3 MB.
 //   * Audio MP3s (~22 MB across grammar/reading/listening) are NOT
 //     precached. They are cached lazily on first fetch via the cache-first
-//     branch of the fetch handler. This means a learner who never opens a
-//     listening drill never downloads its audio. (IMP-013 disposition,
-//     2026-05-04 audit: the prior assumption that 22 MB hit on first visit
-//     was wrong; audio is already on-demand.)
-//   * Shell (HTML / CSS / JS): stale-while-revalidate. Serve cache
-//     instantly, refresh in the background; post a SW_UPDATE_AVAILABLE
-//     message to clients when a new shell version is fetched so the page
-//     can show an "Update available - reload?" toast.
-//   * Content (data/locales/manifest/audio): cache-first.
+//     branch of the fetch handler.
+//   * HTML / navigation requests: NETWORK-FIRST. Updated HTML reaches the
+//     user on a simple reload — no stale-while-revalidate "second reload"
+//     surprise, no manual SW unregister required after each deploy. Cache
+//     is the OFFLINE fallback only.
+//   * CSS / JS / JSON / SVG / audio / fonts: CACHE-FIRST. CSS+JS are
+//     version-keyed via `?v=N` query strings in index.html, so cache hit
+//     ↔ correct version. New version = new URL = automatic cache miss =
+//     fresh fetch. Other content is effectively immutable per release.
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.12.61';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.12.62';
 
 const PRECACHE = [
   './',
@@ -227,18 +227,18 @@ self.addEventListener('activate', (event) => {
   })());
 });
 
-function isShellRequest(url) {
-  // The shell = HTML, CSS, JS modules. Treat these stale-while-revalidate
-  // so users always get instant navigation but a background fetch picks up
-  // newly-deployed code.
-  return /\.(html|css|js)$/.test(url.pathname) || url.pathname.endsWith('/');
-}
-
-async function broadcastUpdate() {
-  const clients = await self.clients.matchAll({ includeUncontrolled: true });
-  for (const client of clients) {
-    client.postMessage({ type: 'SW_UPDATE_AVAILABLE' });
-  }
+function isHTMLRequest(url, request) {
+  // HTML / navigation requests — bare paths, .html, or top-level navigation.
+  // CSS/JS are deliberately excluded here because they are version-keyed via
+  // `?v=N` query strings in index.html, which makes URL-keyed cache-first the
+  // correct strategy for them (cache hit ↔ correct version; new version =
+  // new URL = automatic cache miss).
+  if (request.mode === 'navigate') return true;
+  if (/\.html$/.test(url.pathname)) return true;
+  if (url.pathname.endsWith('/')) return true;
+  // Bare path with no extension (e.g. /N5, /privacy) — likely an HTML route.
+  if (!/\.[a-z0-9]{2,5}$/i.test(url.pathname)) return true;
+  return false;
 }
 
 self.addEventListener('fetch', (event) => {
@@ -248,31 +248,34 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
-  if (isShellRequest(url)) {
-    // stale-while-revalidate
+  if (isHTMLRequest(url, event.request)) {
+    // Network-first for HTML. Updated HTML always reaches the user on
+    // simple reload (no manual SW unregister, no stale-while-revalidate
+    // dance, no "second reload to see changes" surprise). Cache is the
+    // OFFLINE fallback only.
     event.respondWith((async () => {
-      const cache = await caches.open(CACHE_VERSION);
-      const cached = await cache.match(event.request);
-      const fetchPromise = fetch(event.request).then(async (fresh) => {
+      try {
+        const fresh = await fetch(event.request);
         if (fresh && fresh.ok) {
-          // Compare body length as a cheap "did it change?" signal.
-          if (cached) {
-            const oldLen = cached.headers.get('content-length');
-            const newLen = fresh.headers.get('content-length');
-            if (oldLen && newLen && oldLen !== newLen) {
-              broadcastUpdate();
-            }
-          }
+          const cache = await caches.open(CACHE_VERSION);
           cache.put(event.request, fresh.clone()).catch(() => {});
         }
         return fresh;
-      }).catch(() => null);
-      return cached || (await fetchPromise) || new Response('Offline and not cached.', { status: 503 });
+      } catch (err) {
+        const cache = await caches.open(CACHE_VERSION);
+        const cached = await cache.match(event.request);
+        return cached || new Response('Offline and not cached.', {
+          status: 503, statusText: 'Offline',
+          headers: { 'Content-Type': 'text/plain' },
+        });
+      }
     })());
     return;
   }
 
-  // Content: cache-first.
+  // Everything else (CSS, JS with ?v=, JSON, SVG, audio, fonts): cache-first.
+  // CSS/JS are version-keyed, so cache hit = correct version. Other content
+  // is effectively immutable per release.
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_VERSION);
     const cached = await cache.match(event.request);
