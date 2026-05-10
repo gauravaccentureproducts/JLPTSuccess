@@ -55,6 +55,10 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
+  /* Breathing space above the header band — the page bg shows through
+   * here so the tea-green header reads as a deliberate band, not as the
+   * very-first thing painted at the viewport top. */
+  padding-top: 16px;
   font: 400 var(--text-base)/1.55 var(--font-stack);
   font-size: max(16px, var(--text-base));  /* iOS auto-zoom prevention */
   color: var(--text);

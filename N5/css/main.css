@@ -255,6 +255,14 @@ html, body {
   transition: background-color var(--motion-base) var(--easing),
               color var(--motion-base) var(--easing);
 }
+/* Breathing space above the sticky tea-green header at initial render.
+ * On scroll, the sticky header pins to viewport top:0 (the padding only
+ * affects the document's first-paint position). Body bg (--color-bg)
+ * shows through this band as the visual gap between the page edge and
+ * the colored header. */
+body {
+  padding-top: 16px;
+}
 
 /* Japanese text never inherits latin font; it uses the JP stack and weight 400. */
 :lang(ja), .lang-ja, [lang="ja"] {
