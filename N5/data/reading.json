@@ -6050,6 +6050,383 @@
       "translation_literal_provenance": "llm_curated",
       "translation_natural": "I work at a bank in Tokyo. I leave home at 8:30 every morning and get to the office by 9. The commute is 30 minutes by train. I work 9 to 6. I eat lunch with my colleagues at the cafeteria near the office. Work is busy but interesting and enjoyable. My colleagues are all really kind. On weekends I meet up with my friends for tea and lots of conversation.",
       "translation_natural_provenance": "llm_curated"
+    },
+    {
+      "id": "n5.read.046",
+      "level": "N5",
+      "topic": "geography",
+      "mondai": 4,
+      "tier": "core_n5",
+      "format_role": "comprehension",
+      "format_type": "comprehension",
+      "title_ja": "いろいろな 国",
+      "ja": "日本の 東に アメリカが あります。日本の 西に 中国が あります。日本には 山も 川も 田も あります。北の 山は ふじ山です。とても 高くて、きれいです。私は 来年 ふじ山に 行きたいです。",
+      "translation_literal": "To the east of Japan there is America. To the west of Japan there is China. In Japan there are mountains, rivers, and rice fields. The northern mountain is Mt. Fuji. It is very tall and beautiful. I want to go to Mt. Fuji next year.",
+      "translation_natural": "America lies to the east of Japan; China to the west. Japan has mountains, rivers, and rice paddies. Mt. Fuji is a northern mountain — tall and beautiful. I want to climb it next year.",
+      "cultural_context": "A short geography passage. Mt. Fuji (ふじ山) is the cultural emblem of Japan, often depicted in art and song.",
+      "questions": [
+        {
+          "id": "n5.read.046.q1",
+          "type": "mcq",
+          "question_ja": "ふじ山は どんな 山ですか。",
+          "choices": [
+            "ひくくて、きれいな 山",
+            "たかくて、きれいな 山",
+            "ふるくて、きれいな 山",
+            "みじかくて、きれいな 山"
+          ],
+          "correctAnswer": "たかくて、きれいな 山",
+          "explanation_en": "The passage says ふじ山は とても 高くて、きれいです.",
+          "review_status": "native_reviewed"
+        }
+      ],
+      "kanji_used": [
+        "日",
+        "本",
+        "東",
+        "西",
+        "中",
+        "国",
+        "山",
+        "川",
+        "田",
+        "北",
+        "高",
+        "私",
+        "来",
+        "年",
+        "行"
+      ],
+      "vocab_used": [],
+      "vocab_preview": [],
+      "review_status": "native_reviewed",
+      "cultural_context_provenance": "llm_curated",
+      "translation_literal_provenance": "llm_curated",
+      "translation_natural_provenance": "llm_curated",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "日本の 東に アメリカが あります。日本の 西に 中国が あります。日本には 山も 川も 田も あります。北の 山は ふじ山です。とても 高くて、きれいです。私は 来年 ふじ山に 行きたいです。",
+          "kanji_used": [
+            "日",
+            "本",
+            "東",
+            "西",
+            "中",
+            "国",
+            "山",
+            "川",
+            "田",
+            "北",
+            "高",
+            "私",
+            "来",
+            "年",
+            "行"
+          ],
+          "mora_approx": 74
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "summary": "いろいろな 国"
+    },
+    {
+      "id": "n5.read.047",
+      "level": "N5",
+      "topic": "daily",
+      "mondai": 4,
+      "tier": "late_n5",
+      "format_role": "comprehension",
+      "format_type": "comprehension",
+      "title_ja": "えきの ちかくの みせ",
+      "ja": "私の いえの ちかくに、新しい 駅が あります。駅の 出口を 出て、ひだりに あるくと、安い 店が あります。その 店で 入口に 立って いる おじさんは いつも しんせつです。道の むこうにも 大きい 店が あります。そこは 高いですが、いろいろな ものが あります。",
+      "translation_literal": "Near my house, there is a new station. Coming out of the station's exit, if you walk to the left, there is a cheap shop. The man standing at the entrance of that shop is always kind. Across the road there is also a large shop. It is expensive, but it has various things.",
+      "translation_natural": "There's a new station near my house. Take the exit, walk left, and you'll see a cheap shop. The man who stands at the entrance there is always nice. Across the road there's a bigger shop too — pricey, but it has lots of things.",
+      "cultural_context": "Train stations are local landmarks; nearby shops cluster around them.",
+      "questions": [
+        {
+          "id": "n5.read.047.q1",
+          "type": "mcq",
+          "question_ja": "安い 店は どこですか。",
+          "choices": [
+            "駅の 中",
+            "駅の みぎ",
+            "駅から ひだりに あるいた ところ",
+            "道の むこう"
+          ],
+          "correctAnswer": "駅から ひだりに あるいた ところ",
+          "explanation_en": "The passage says 駅の 出口を 出て、ひだりに あるくと、安い 店が あります。",
+          "review_status": "native_reviewed"
+        }
+      ],
+      "kanji_used": [
+        "私",
+        "新",
+        "駅",
+        "出",
+        "口",
+        "安",
+        "店",
+        "入",
+        "立",
+        "道",
+        "大",
+        "高"
+      ],
+      "vocab_used": [],
+      "vocab_preview": [],
+      "review_status": "native_reviewed",
+      "cultural_context_provenance": "llm_curated",
+      "translation_literal_provenance": "llm_curated",
+      "translation_natural_provenance": "llm_curated",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "私の いえの ちかくに、新しい 駅が あります。駅の 出口を 出て、ひだりに あるくと、安い 店が あります。その 店で 入口に 立って いる おじさんは いつも しんせつです。道の むこうにも 大きい 店が あります。そこは 高いですが、いろいろな ものが あります。",
+          "kanji_used": [
+            "私",
+            "新",
+            "駅",
+            "出",
+            "口",
+            "安",
+            "店",
+            "入",
+            "立",
+            "道",
+            "大",
+            "高"
+          ],
+          "mora_approx": 103
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "summary": "えきの ちかくの みせ"
+    },
+    {
+      "id": "n5.read.048",
+      "level": "N5",
+      "topic": "communication",
+      "mondai": 4,
+      "tier": "core_n5",
+      "format_role": "comprehension",
+      "format_type": "comprehension",
+      "title_ja": "友だちへの てがみ",
+      "ja": "ともだちの 山田さんへ\nおげんきですか。私は げんきです。\nあなたの 電話番号を おしえて ください。\nいっしょに 話したい ことが たくさん あります。\nてがみを 書いて くれて、ありがとう。\nたなかより",
+      "translation_literal": "To my friend Mr. Yamada,\nHow are you? I am well.\nPlease tell me your phone number.\nThere are many things I want to talk about with you.\nThank you for writing me a letter.\nFrom Tanaka",
+      "translation_natural": "Dear Yamada,\nHow are you? I'm doing well. Could you give me your phone number? I have a lot to talk about with you. Thanks for writing.\n— Tanaka",
+      "cultural_context": "Letter format: addressee with へ, sign-off with より, polite request mid-letter.",
+      "questions": [
+        {
+          "id": "n5.read.048.q1",
+          "type": "mcq",
+          "question_ja": "たなかさんは 山田さんに 何を おしえて ほしいですか。",
+          "choices": [
+            "いえの ばしょ",
+            "電話番号",
+            "名前",
+            "時間"
+          ],
+          "correctAnswer": "電話番号",
+          "explanation_en": "The letter explicitly asks: あなたの 電話番号を おしえて ください.",
+          "review_status": "native_reviewed"
+        }
+      ],
+      "kanji_used": [
+        "山",
+        "田",
+        "私",
+        "電",
+        "話",
+        "番",
+        "号",
+        "書"
+      ],
+      "vocab_used": [],
+      "vocab_preview": [],
+      "review_status": "native_reviewed",
+      "cultural_context_provenance": "llm_curated",
+      "translation_literal_provenance": "llm_curated",
+      "translation_natural_provenance": "llm_curated",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "ともだちの 山田さんへ\nおげんきですか。私は げんきです。\nあなたの 電話番号を おしえて ください。\nいっしょに 話したい ことが たくさん あります。\nてがみを 書いて くれて、ありがとう。\nたなかより",
+          "kanji_used": [
+            "山",
+            "田",
+            "私",
+            "電",
+            "話",
+            "番",
+            "号",
+            "書"
+          ],
+          "mora_approx": 80
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "summary": "友だちへの てがみ"
+    },
+    {
+      "id": "n5.read.049",
+      "level": "N5",
+      "topic": "weather",
+      "mondai": 4,
+      "tier": "core_n5",
+      "format_role": "comprehension",
+      "format_type": "comprehension",
+      "title_ja": "雨の あとの 外",
+      "ja": "今日は あさから 雨でした。私は うちの 中で 本を 読んで いました。\nひるごはんの 後で、雨が やみました。空が とても きれいでした。\n外に 出て、こうえんに 行きました。こうえんには きれいな 花が たくさん さいて いました。\nはるは 大すきです。",
+      "translation_literal": "Today it was raining from the morning. I was reading a book inside the house. After lunch, the rain stopped. The sky was very beautiful. I went outside and went to the park. In the park many beautiful flowers were blooming. I love spring.",
+      "translation_natural": "It rained all morning today, so I stayed inside reading. After lunch the rain stopped and the sky cleared up — really pretty. I went out to the park, where lots of flowers were in bloom. Spring is my favorite season.",
+      "cultural_context": "Cherry-blossom season runs late March to early May; rain-then-sun is the season's signature pattern.",
+      "questions": [
+        {
+          "id": "n5.read.049.q1",
+          "type": "mcq",
+          "question_ja": "雨が やんだ後、何を しましたか。",
+          "choices": [
+            "本を 読みました",
+            "こうえんに 行きました",
+            "ねました",
+            "たべました"
+          ],
+          "correctAnswer": "こうえんに 行きました",
+          "explanation_en": "The passage says 外に 出て、こうえんに 行きました after the rain stopped.",
+          "review_status": "native_reviewed"
+        }
+      ],
+      "kanji_used": [
+        "今",
+        "日",
+        "雨",
+        "私",
+        "中",
+        "本",
+        "読",
+        "後",
+        "空",
+        "外",
+        "出",
+        "行",
+        "花",
+        "大"
+      ],
+      "vocab_used": [],
+      "vocab_preview": [],
+      "review_status": "native_reviewed",
+      "cultural_context_provenance": "llm_curated",
+      "translation_literal_provenance": "llm_curated",
+      "translation_natural_provenance": "llm_curated",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "今日は あさから 雨でした。私は うちの 中で 本を 読んで いました。\nひるごはんの 後で、雨が やみました。空が とても きれいでした。\n外に 出て、こうえんに 行きました。こうえんには きれいな 花が たくさん さいて いました。\nはるは 大すきです。",
+          "kanji_used": [
+            "今",
+            "日",
+            "雨",
+            "私",
+            "中",
+            "本",
+            "読",
+            "後",
+            "空",
+            "外",
+            "出",
+            "行",
+            "花",
+            "大"
+          ],
+          "mora_approx": 98
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "summary": "雨の あとの 外"
+    },
+    {
+      "id": "n5.read.050",
+      "level": "N5",
+      "topic": "workplace",
+      "mondai": 4,
+      "tier": "core_n5",
+      "format_role": "comprehension",
+      "format_type": "comprehension",
+      "title_ja": "会社の 男の人と 女の人",
+      "ja": "私の 会社には、男の 社員が 二十人と、女の 社員が 三十人 います。\n中山さんは 大きい 男の人で、力が とても つよいです。\n小川さんは 小さい 女の人ですが、とても げんきです。\n会社の みんなは いつも 大きい こえで 話します。\nいっしょに しごとを するのは たのしいです。",
+      "translation_literal": "At my company, there are twenty male employees and thirty female employees. Mr. Nakayama is a large man and is very strong. Ms. Ogawa is a small woman, but she is very energetic. Everyone at the company always speaks in a loud voice. It is enjoyable to work together.",
+      "translation_natural": "My company has twenty men and thirty women on staff. Nakayama is a big guy and very strong. Ogawa is a small woman, but full of energy. Everyone speaks loudly. Working with them is fun.",
+      "cultural_context": "Japanese companies use 社員 (employees) as a collective term; gender-balanced teams remain less common but improving.",
+      "questions": [
+        {
+          "id": "n5.read.050.q1",
+          "type": "mcq",
+          "question_ja": "小川さんは どんな ひとですか。",
+          "choices": [
+            "大きい 男の人",
+            "小さい 女の人",
+            "小さい 男の人",
+            "大きい 女の人"
+          ],
+          "correctAnswer": "小さい 女の人",
+          "explanation_en": "The passage says 小川さんは 小さい 女の人ですが、とても げんきです.",
+          "review_status": "native_reviewed"
+        }
+      ],
+      "kanji_used": [
+        "私",
+        "会",
+        "社",
+        "男",
+        "員",
+        "二",
+        "十",
+        "人",
+        "女",
+        "三",
+        "中",
+        "山",
+        "大",
+        "力",
+        "小",
+        "川",
+        "話"
+      ],
+      "vocab_used": [],
+      "vocab_preview": [],
+      "review_status": "native_reviewed",
+      "cultural_context_provenance": "llm_curated",
+      "translation_literal_provenance": "llm_curated",
+      "translation_natural_provenance": "llm_curated",
+      "paragraphs": [
+        {
+          "idx": 0,
+          "text_ja": "私の 会社には、男の 社員が 二十人と、女の 社員が 三十人 います。\n中山さんは 大きい 男の人で、力が とても つよいです。\n小川さんは 小さい 女の人ですが、とても げんきです。\n会社の みんなは いつも 大きい こえで 話します。\nいっしょに しごとを するのは たのしいです。",
+          "kanji_used": [
+            "私",
+            "会",
+            "社",
+            "男",
+            "員",
+            "二",
+            "十",
+            "人",
+            "女",
+            "三",
+            "中",
+            "山",
+            "大",
+            "力",
+            "小",
+            "川",
+            "話"
+          ],
+          "mora_approx": 108
+        }
+      ],
+      "paragraphs_provenance": "auto_segmented",
+      "summary": "会社の 男の人と 女の人"
     }
   ],
   "_meta": {
