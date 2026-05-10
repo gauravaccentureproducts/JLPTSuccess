@@ -592,7 +592,14 @@
           "context": "「サザエは ふじ田です」 self-intro"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "わたしゃ がくせいだ。 (very casual; わたしは contracted)",
+        "polite": "わたしは がくせい です。",
+        "humble": "わたくしは がくせい でございます。",
+        "respectful": "こちらは やまだ先生で いらっしゃいます。 (about other)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-003",
@@ -879,7 +886,14 @@
           "context": "Subject marker for new information"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "おれが いく。",
+        "polite": "わたしが いきます。",
+        "humble": "わたくしが まいります。",
+        "respectful": "やまだ先生が いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-004",
@@ -1167,7 +1181,14 @@
           "context": "を marks direct object"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "ごはん たべる。 (drop を in casual)",
+        "polite": "ごはんを たべます。",
+        "humble": "ごはんを いただきます。",
+        "respectful": "ごはんを めしあがります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-005",
@@ -1448,7 +1469,14 @@
           "context": "Multi-purpose に"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "がっこう いく。 (drop に casual)",
+        "polite": "がっこうに いきます。",
+        "humble": "がっこうに まいります。",
+        "respectful": "がっこうに いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-006",
@@ -2026,7 +2054,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "バスで いく。 (same as polite)",
+        "polite": "バスで いきます。",
+        "humble": "バスで まいります。",
+        "respectful": "バスで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-008",
@@ -2319,7 +2354,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ともだちと いく。",
+        "polite": "ともだちと いきます。",
+        "humble": "ともだちと まいります。",
+        "respectful": "おともだちと いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-009",
@@ -3487,7 +3529,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "おれも いく。",
+        "polite": "わたしも いきます。",
+        "humble": "わたくしも まいります。",
+        "respectful": "先生も いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-014",
@@ -7298,7 +7347,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "おれの ほん。",
+        "polite": "わたしの ほん です。",
+        "humble": "わたくしの ほん でございます。",
+        "respectful": "先生の ほんで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-030",
@@ -15198,7 +15254,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべない。",
+        "polite": "たべません。",
+        "humble": "いただきません。",
+        "respectful": "めしあがりません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-060",
@@ -15483,7 +15546,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべた。",
+        "polite": "たべました。",
+        "humble": "いただきました。",
+        "respectful": "めしあがりました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-061",
@@ -15782,7 +15852,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべなかった。",
+        "polite": "たべませんでした。",
+        "humble": "いただきませんでした。",
+        "respectful": "めしあがりませんでした。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-062",
@@ -16037,7 +16114,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべよう。",
+        "polite": "たべましょう。",
+        "humble": "いただきましょう。",
+        "respectful": "(rare; volitional uncommon for others) ごいっしょに めしあがりませんか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-063",
@@ -16267,7 +16351,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "もとうか。",
+        "polite": "もちましょうか。",
+        "humble": "おもちしましょうか。",
+        "respectful": "おもちに なりますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-064",
@@ -16562,7 +16653,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべない？",
+        "polite": "たべませんか。",
+        "humble": "(rare; invitations rarely use humble)",
+        "respectful": "めしあがりませんか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-065",
@@ -17452,7 +17550,14 @@
           "context": "「のびたが きた！」"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "いった。",
+        "polite": "いきました。",
+        "humble": "まいりました。",
+        "respectful": "いらっしゃいました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-068",
@@ -18199,7 +18304,14 @@
           "context": "「お父さん、ごごはんを 食べて、おふうろに 入って…」"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "たべて、ねた。",
+        "polite": "たべて、ねました。",
+        "humble": "いただいて、やすみました。",
+        "respectful": "めしあがって、おやすみに なりました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-070",
@@ -18760,7 +18872,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべて。",
+        "polite": "たべてください。",
+        "humble": "(self-not-applicable; humble for self-action)",
+        "respectful": "おたべください。 / めしあがって ください。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-072",
@@ -19083,7 +19202,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべてる。",
+        "polite": "たべています。",
+        "humble": "いただいて おります。",
+        "respectful": "めしあがって いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-073",
@@ -19376,7 +19502,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "まだ たべてない。",
+        "polite": "まだ たべていません。",
+        "humble": "まだ いただいて おりません。",
+        "respectful": "まだ めしあがって いらっしゃいません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-074",
@@ -20288,7 +20421,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべてから いく。",
+        "polite": "たべてから いきます。",
+        "humble": "いただいてから まいります。",
+        "respectful": "めしあがってから いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-077",
@@ -20543,7 +20683,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべないで。",
+        "polite": "たべないでください。",
+        "humble": "(self-not-applicable)",
+        "respectful": "おたべに ならないで ください。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-078",
@@ -21098,7 +21245,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかい。",
+        "polite": "たかい です。",
+        "humble": "たかい でございます。",
+        "respectful": "おたかい です。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-080",
@@ -21393,7 +21547,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかくない。",
+        "polite": "たかくない です。 / たかくありません。",
+        "humble": "たかく ございません。",
+        "respectful": "おたかく ありません。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-081",
@@ -21682,7 +21843,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかかった。",
+        "polite": "たかかった です。",
+        "humble": "たこう ございました。 (very formal)",
+        "respectful": "おたかかった です。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-082",
@@ -22885,7 +23053,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "しずかだ。",
+        "polite": "しずかです。",
+        "humble": "しずかで ございます。",
+        "respectful": "(rare for adjectives)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-086",
@@ -23196,7 +23371,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "しずかじゃない。",
+        "polite": "しずかじゃありません。 / しずかではありません。",
+        "humble": "しずかでは ございません。",
+        "respectful": "(rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-087",
@@ -23501,7 +23683,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "しずかだった。",
+        "polite": "しずかでした。",
+        "humble": "しずかで ございました。",
+        "respectful": "(rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-088",
@@ -27061,7 +27250,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "コーヒー すき。",
+        "polite": "コーヒーが すきです。",
+        "humble": "コーヒーを このんで おります。",
+        "respectful": "コーヒーを おすきで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-100",
@@ -27367,7 +27563,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にほんご うまい。",
+        "polite": "にほんごが じょうずです。",
+        "humble": "にほんごは あまり できません。 (modest)",
+        "respectful": "にほんごが おじょうずで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-101",
@@ -27648,7 +27851,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "くるま ほしい。",
+        "polite": "くるまが ほしいです。",
+        "humble": "くるまが ほしゅう ございます。 (literary)",
+        "respectful": "くるまを ほしがって いらっしゃいます。 (about others)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-102",
@@ -27891,7 +28101,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "わかった。 / わかる。",
+        "polite": "わかります。",
+        "humble": "しょうち しました。 / かしこまりました。",
+        "respectful": "おわかりに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-103",
@@ -28175,7 +28392,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "できる。",
+        "polite": "できます。",
+        "humble": "できかねます。 (formal negative for \"I cannot\")",
+        "respectful": "おできに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-104",
@@ -28449,7 +28673,14 @@
           "context": "「のびたは 食べたい！」"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "politeness_ladder": {
+        "casual": "たべたい。",
+        "polite": "たべたいです。",
+        "humble": "いただきたい です。",
+        "respectful": "めしあがりたいと おもって いらっしゃいます。 (about others)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-105",
@@ -29315,7 +29546,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべに いく。",
+        "polite": "たべに いきます。",
+        "humble": "いただきに まいります。",
+        "respectful": "めしあがりに いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-108",
@@ -31944,7 +32182,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "きょう いく。",
+        "polite": "きょう いきます。",
+        "humble": "ほんじつ まいります。",
+        "respectful": "ほんじつ いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-118",
@@ -33136,7 +33381,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜、そんで〜。 (very casual contraction)",
+        "polite": "〜。そして、〜。",
+        "humble": "〜。さらに、〜。 (more formal connector)",
+        "respectful": "〜。さらに、〜。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-122",
@@ -33456,7 +33708,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべた。それから ねた。",
+        "polite": "たべました。それから、ねました。",
+        "humble": "いただきました。そののち、やすみました。",
+        "respectful": "めしあがりました。そののち、おやすみに なりました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-123",
@@ -33769,7 +34028,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜。でも、〜。",
+        "polite": "〜です。でも、〜です。",
+        "humble": "〜でございます。しかし、〜でございます。",
+        "respectful": "〜でいらっしゃいます。しかし、〜でいらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-124",
@@ -34071,7 +34337,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜。けど、〜。 (but は contracted)",
+        "polite": "〜です。しかし、〜です。",
+        "humble": "〜でございます。しかしながら、〜でございます。",
+        "respectful": "〜でいらっしゃいます。しかしながら、〜でいらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-125",
@@ -34339,7 +34612,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "じゃ、また。",
+        "polite": "では、また。",
+        "humble": "それでは、しつれい いたします。",
+        "respectful": "(see humble — speakers self-humble in this register)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-126",
@@ -38672,7 +38952,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜と おもう。",
+        "polite": "〜と おもいます。",
+        "humble": "〜と ぞんじます。",
+        "respectful": "〜と おもって いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-146",
@@ -38961,7 +39248,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜って いってた。",
+        "polite": "〜と いいました。",
+        "humble": "〜と もうしました。",
+        "respectful": "〜と おっしゃいました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-147",
@@ -41000,7 +41294,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "まだ たべてない。",
+        "polite": "まだ たべていません。",
+        "humble": "まだ いただいて おりません。",
+        "respectful": "まだ めしあがって いらっしゃいません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-154",
@@ -41293,7 +41594,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "もう たべた。",
+        "polite": "もう たべました。",
+        "humble": "もう いただきました。",
+        "respectful": "もう めしあがいました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-155",
@@ -45559,7 +45867,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にほんに いったこと ある。",
+        "polite": "にほんに いったことが あります。",
+        "humble": "にほんに まいったことが ございます。",
+        "respectful": "にほんに いらしたことが いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-170",
@@ -45841,7 +46156,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべたほうが いい。",
+        "polite": "たべたほうが いいです。",
+        "humble": "(self-not-applicable)",
+        "respectful": "おたべに なった ほうが いいでしょう。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-171",
@@ -46128,7 +46450,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべないほうが いい。",
+        "polite": "たべないほうが いいです。",
+        "humble": "(self-not-applicable)",
+        "respectful": "おたべに ならない ほうが いいでしょう。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-172",
@@ -49514,7 +49843,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なんか たべた？",
+        "polite": "なにか たべましたか。",
+        "humble": "なにか いただきましたか。",
+        "respectful": "なにか めしあがいましたか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-185",
@@ -50676,7 +51012,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべられる。 / たべる ことが できる。",
+        "polite": "たべることが できます。",
+        "humble": "いただくことが できます。",
+        "respectful": "めしあがる ことが できます / おたべに なれます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     }
   ],
   "_meta": {
