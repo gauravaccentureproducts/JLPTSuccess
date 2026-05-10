@@ -175,7 +175,12 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "cafe",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "はい",
+        "おお"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.002",
@@ -336,7 +341,11 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "shop",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "はい"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.003",
@@ -487,10 +496,15 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "station",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false,
+      "aizuchi_present": true,
       "fillers_present": [
         "そうですね"
-      ]
+      ],
+      "aizuchi_tokens": [
+        "そうです",
+        "そうですね"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.004",
@@ -675,7 +689,12 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "cafe",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "はい",
+        "いいえ"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.005",
@@ -907,7 +926,19 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "classroom",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": true
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "はい",
+        "そうです"
+      ],
+      "phonological_target": [
+        {
+          "category": "sokuon",
+          "surface": "がっこう",
+          "note": "sokuon: gakkou (school) — small tsu before voiceless k"
+        }
+      ],
+      "phonological_target_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.006",
@@ -1057,10 +1088,42 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false,
+      "aizuchi_present": true,
       "fillers_present": [
         "あの"
-      ]
+      ],
+      "aizuchi_tokens": [
+        "はい"
+      ],
+      "aizuchi_present_provenance": "auto_derived",
+      "filler_tokens": [
+        "あの"
+      ],
+      "pitch_minimal_pair_focus": [
+        {
+          "surface": "にほん",
+          "pair": {
+            "a": {
+              "meaning": "Japan",
+              "kanji": "日本",
+              "pitch": {
+                "mora": 3,
+                "drop": 0
+              }
+            },
+            "b": {
+              "meaning": "two long objects (counter)",
+              "kanji": "二本",
+              "pitch": {
+                "mora": 3,
+                "drop": 1
+              }
+            }
+          },
+          "note": "にほん: pitch distinguishes Japan from two long objects (counter)."
+        }
+      ],
+      "pitch_minimal_pair_focus_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.007",
@@ -1459,7 +1522,11 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": true
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "そうです",
+        "いいえ"
+      ]
     },
     {
       "id": "n5.listen.009",
@@ -1711,7 +1778,15 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "cafe",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "phonological_target": [
+        {
+          "category": "sokuon",
+          "surface": "いっぱい",
+          "note": "sokuon: ippai (one cup / full) — small tsu doubles p"
+        }
+      ],
+      "phonological_target_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.012",
@@ -1907,7 +1982,19 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "classroom",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "はい"
+      ],
+      "aizuchi_present_provenance": "auto_derived",
+      "phonological_target": [
+        {
+          "category": "sokuon",
+          "surface": "がっこう",
+          "note": "sokuon: gakkou (school) — small tsu before voiceless k"
+        }
+      ],
+      "phonological_target_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.014",
@@ -2138,7 +2225,11 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "いいえ"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.016",
@@ -2285,7 +2376,10 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": true
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "そうです"
+      ]
     },
     {
       "id": "n5.listen.017",
@@ -2817,7 +2911,12 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "fillers_present": true,
+      "filler_tokens": [
+        "その"
+      ],
+      "fillers_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.021",
@@ -3061,7 +3160,10 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": true
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "そうです"
+      ]
     },
     {
       "id": "n5.listen.023",
@@ -3358,7 +3460,15 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "classroom",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "phonological_target": [
+        {
+          "category": "sokuon",
+          "surface": "がっこう",
+          "note": "sokuon: gakkou (school) — small tsu before voiceless k"
+        }
+      ],
+      "phonological_target_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.026",
@@ -3865,10 +3975,15 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false,
+      "aizuchi_present": true,
       "fillers_present": [
         "そうですね"
-      ]
+      ],
+      "aizuchi_tokens": [
+        "そうです",
+        "そうですね"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.032",
@@ -4242,7 +4357,20 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "はい",
+        "あら"
+      ],
+      "aizuchi_present_provenance": "auto_derived",
+      "phonological_target": [
+        {
+          "category": "sokuon",
+          "surface": "がっこう",
+          "note": "sokuon: gakkou (school) — small tsu before voiceless k"
+        }
+      ],
+      "phonological_target_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.035",
@@ -4379,7 +4507,32 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "pitch_minimal_pair_focus": [
+        {
+          "surface": "にほん",
+          "pair": {
+            "a": {
+              "meaning": "Japan",
+              "kanji": "日本",
+              "pitch": {
+                "mora": 3,
+                "drop": 0
+              }
+            },
+            "b": {
+              "meaning": "two long objects (counter)",
+              "kanji": "二本",
+              "pitch": {
+                "mora": 3,
+                "drop": 1
+              }
+            }
+          },
+          "note": "にほん: pitch distinguishes Japan from two long objects (counter)."
+        }
+      ],
+      "pitch_minimal_pair_focus_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.036",
@@ -4523,7 +4676,11 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "office",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": true,
+      "aizuchi_tokens": [
+        "おお"
+      ],
+      "aizuchi_present_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.037",
@@ -4648,6 +4805,9 @@
       "ambient_context_provenance": "auto_derived",
       "aizuchi_present": false,
       "fillers_present": [
+        "あの"
+      ],
+      "filler_tokens": [
         "あの"
       ]
     },
@@ -5552,7 +5712,21 @@
         "voice_provider": "gtts",
         "render_date": "2026-05-10",
         "voices_used": []
-      }
+      },
+      "aizuchi_tokens": [
+        "うん",
+        "へぇ",
+        "そうです",
+        "なるほど"
+      ],
+      "phonological_target": [
+        {
+          "category": "sokuon",
+          "surface": "がっこう",
+          "note": "sokuon: gakkou (school) — small tsu before voiceless k"
+        }
+      ],
+      "phonological_target_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.049",
@@ -5627,6 +5801,13 @@
         "あの",
         "えー",
         "えーと"
+      ],
+      "aizuchi_tokens": [
+        "はい"
+      ],
+      "filler_tokens": [
+        "えーと",
+        "あの"
       ]
     },
     {
@@ -5705,6 +5886,14 @@
         "voices_used": []
       },
       "fillers_present": [
+        "あの"
+      ],
+      "aizuchi_tokens": [
+        "はい",
+        "へぇ",
+        "そうです"
+      ],
+      "filler_tokens": [
         "あの"
       ]
     }
