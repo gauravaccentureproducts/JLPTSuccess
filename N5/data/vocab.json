@@ -324,7 +324,15 @@
         "n5-066",
         "n5-135"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ひ devoices before voiceless t",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.みなさん",
@@ -576,7 +584,16 @@
       "frequency_rank": 1279,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "devoiced_vowels": {
+        "positions": [
+          0,
+          1
+        ],
+        "note": "both ち's may devoice (ch+ch)",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.2-people-family.母",
@@ -4469,7 +4486,15 @@
         "一にん",
         "一ふん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "い marginally devoiced before voiceless ch",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.二",
@@ -4761,7 +4786,15 @@
         "八にん",
         "八ふん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "は often shortened/devoiced before voiceless ch",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.九",
@@ -5178,7 +5211,25 @@
         "一つにん",
         "一つふん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ひ devoices before voiceless t",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "counter_register": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "Generic counter 1-thing uses kun-stem ひと- (1-10: ひと/ふた/みっ/よっ/いつ/むっ/なな/やっ/ここの/とお)",
+        "register_pair": {
+          "casual_alt": "一個 (いっこ)",
+          "formal_same": "一品 (いっぴん — for goods)"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.8-native-counters-series.二つ",
@@ -5220,7 +5271,15 @@
         "二つにん",
         "二つふん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ふ devoices before voiceless t",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.8-native-counters-series.三つ",
@@ -5674,7 +5733,25 @@
         "一人にん",
         "一人ふん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ひ devoices before voiceless t",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "counter_register": {
+        "counter": "にん",
+        "irregular": true,
+        "note": "1-person uses irregular kun-reading ひとり (NOT いちにん). Standard for politeness.",
+        "register_pair": {
+          "casual_alt": "一人 (ひとり)",
+          "formal_same": "一名 (いちめい — very formal contexts only)"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.9-counters-common.二人",
@@ -5715,7 +5792,25 @@
         "二人にん",
         "二人ふん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ふ devoices before voiceless t",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "counter_register": {
+        "counter": "にん",
+        "irregular": true,
+        "note": "2-person uses irregular kun-reading ふたり (NOT ににん). Standard.",
+        "register_pair": {
+          "casual_alt": "二人 (ふたり)",
+          "formal_same": "二名 (にめい)"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.9-counters-common.まい",
@@ -8636,7 +8731,15 @@
         "七月に なる",
         "七月の あつい"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first し devoices before voiceless ち",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.八月",
@@ -9845,7 +9948,25 @@
         "n5-104",
         "n5-118"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "pragmatic_functions": [
+        {
+          "function": "already",
+          "gloss": "already",
+          "context": "もう食べました = already ate"
+        },
+        {
+          "function": "no-longer",
+          "gloss": "no longer (with negative)",
+          "context": "もう食べません = no longer eat"
+        },
+        {
+          "function": "one-more",
+          "gloss": "one more / another",
+          "context": "もう一杯 = one more cup"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もうすぐ",
@@ -9943,7 +10064,25 @@
         "n5-118",
         "n5-153"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "pragmatic_functions": [
+        {
+          "function": "still",
+          "gloss": "still (with positive)",
+          "context": "まだ食べています = still eating"
+        },
+        {
+          "function": "not-yet",
+          "gloss": "not yet (with ていません)",
+          "context": "まだ食べていません = haven't eaten yet"
+        },
+        {
+          "function": "only",
+          "gloss": "only / merely",
+          "context": "まだ子供だ = (he's) just a child"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.はじめて",
@@ -10234,7 +10373,25 @@
         "はたらく ところ",
         "たかい ところ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "place-noun",
+          "gloss": "place / spot",
+          "context": "いいところ = nice place"
+        },
+        {
+          "function": "about-to",
+          "gloss": "about to V",
+          "context": "Vる + ところ = about to do"
+        },
+        {
+          "function": "just-did",
+          "gloss": "just did V",
+          "context": "Vた + ところ = just finished"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.へや",
@@ -10612,7 +10769,13 @@
         "n5-093",
         "n5-094"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "sokuon-onset; voiceless geminate, no vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.大学",
@@ -12676,7 +12839,15 @@
         "近くの 下",
         "下の まえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first し devoices to sht' (s+t voiceless)",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.前",
@@ -12972,7 +13143,8 @@
         "positions": [
           0
         ],
-        "note": "ち often shortened"
+        "note": "ち often shortened/devoiced before voiceless k",
+        "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
       "frequent_patterns": [
@@ -13102,7 +13274,15 @@
         "近くの 北",
         "北の まえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "き devoices before voiceless t",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.南",
@@ -13609,7 +13789,15 @@
         "くさに なる",
         "くさの おと"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "く devoices before voiceless s",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.は",
@@ -14530,7 +14718,15 @@
         "すずしいに なる",
         "すずしいの おと"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first す devoices before voiceless す/ず onset",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.あたたかい",
@@ -16943,7 +17139,8 @@
         "positions": [
           0
         ],
-        "note": "first す often devoiced before し"
+        "note": "first す devoices before voiceless し",
+        "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
       "frequent_patterns": [
@@ -19044,7 +19241,15 @@
       "frequent_patterns": [
         "n5-078"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ふ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.21-clothing-and-accessor.ようふく",
@@ -19613,7 +19818,8 @@
         "positions": [
           0
         ],
-        "note": "く devoiced before voiceless つ"
+        "note": "く devoices before voiceless つ",
+        "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
       "frequent_patterns": [
@@ -20242,7 +20448,15 @@
         "たくさんの きっぷ",
         "きっぷを つかう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "き devoices before voiceless pp",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.きって",
@@ -20284,7 +20498,15 @@
         "たくさんの きって",
         "きってを つかう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "き devoices before voiceless tt",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.はがき",
@@ -20957,7 +21179,15 @@
         "はやい ちかてつ",
         "ちかてつを まつ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ち devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.ひこうき",
@@ -20999,7 +21229,15 @@
         "はやい ひこうき",
         "ひこうきを まつ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ひ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.ふね",
@@ -21268,7 +21506,15 @@
         "n5-058",
         "n5-067"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first しゅ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.24-school-and-study.しけん",
@@ -21318,7 +21564,15 @@
         "n5-117",
         "n5-159"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first し devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.24-school-and-study.テスト",
@@ -21418,7 +21672,15 @@
         "n5-094",
         "n5-125"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first し devoices before voiceless つ",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.24-school-and-study.こたえ",
@@ -22633,7 +22895,15 @@
         "n5-092",
         "n5-093"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "つ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.24-school-and-study.いす",
@@ -22770,7 +23040,15 @@
         "ちずを おしえる",
         "ちずの クラス"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ち devoices before voiceless す/ず onset",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.24-school-and-study.しゃしん",
@@ -25713,7 +25991,15 @@
         "n5-107",
         "n5-185"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "き devoices between voiceless k+k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.きる",
@@ -25816,7 +26102,15 @@
         "n5-052",
         "n5-135"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "つ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しる",
@@ -28173,7 +28467,15 @@
       "frequent_patterns": [
         "n5-078"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ふ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふる",
@@ -33306,7 +33608,15 @@
         "n5-011",
         "n5-137"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ち devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.とおい",
@@ -34404,7 +34714,8 @@
         "positions": [
           0
         ],
-        "note": "first す often devoiced to \"sk'\""
+        "note": "first す devoices before voiceless k",
+        "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
       "frequent_patterns": [
@@ -35089,7 +35400,15 @@
         "n5-102",
         "n5-124"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "first す devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.ちょっと",
@@ -35387,7 +35706,25 @@
         "n5-104",
         "n5-118"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "pragmatic_functions": [
+        {
+          "function": "already",
+          "gloss": "already",
+          "context": "もう食べました = already ate"
+        },
+        {
+          "function": "no-longer",
+          "gloss": "no longer (with negative)",
+          "context": "もう食べません = no longer eat"
+        },
+        {
+          "function": "one-more",
+          "gloss": "one more / another",
+          "context": "もう一杯 = one more cup"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.もうすこし",
@@ -36497,7 +36834,25 @@
         "でもの 中",
         "でもが すき"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "pragmatic_functions": [
+        {
+          "function": "sentence-conjunction",
+          "gloss": "but / however",
+          "context": "starts a contrasting sentence"
+        },
+        {
+          "function": "even",
+          "gloss": "even (X)",
+          "context": "子供でも わかる = even a child understands"
+        },
+        {
+          "function": "or-something",
+          "gloss": "or something / how about",
+          "context": "コーヒーでも飲みませんか = how about coffee?"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.しかし",
@@ -39580,7 +39935,15 @@
         "きっての 中",
         "きってが すき"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "auto_generated_template",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "き devoices before voiceless tt",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.プレゼント",
@@ -39844,7 +40207,15 @@
       "frequent_patterns": [
         "n5-173"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "く devoices before voiceless s",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.けが",
@@ -42573,7 +42944,17 @@
         "n5-050",
         "n5-151"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "counter_register": {
+        "counter": "はい",
+        "irregular": false,
+        "note": "1-cup. Sound-change: い+ぱい (rendaku-like geminate after い).",
+        "register_pair": {
+          "casual_alt": "いっぱい",
+          "formal_same": "一杯"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おくれる",
