@@ -1,6 +1,65 @@
 # JLPT N5 Grammar Tutor - Tasks
 
-## ▶ ACTIVE WORK — 2026-05-09 N5 Richness Audit (29 items)
+## ▶ ACTIVE WORK — 2026-05-10 Legal Vetting Audit (11 findings)
+
+Audit run: `prompts/LegalVetting.txt`.
+Report: `feedback/legal-vetting-audit-2026-05-10.md`.
+Persona: Japan-IP / education-publishing IP counsel (15-yr).
+Overall exposure: **MEDIUM**. No severe findings.
+
+Implementation order: **High-severity first** (F-1, F-2),
+then Medium-severity documentation backlog (F-3, F-4, F-5,
+F-6 light track), then Low-severity polish (F-8 thru F-11).
+
+Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred
+
+### TIER 1 — HIGH severity (resolve before partner / monetization pass)
+
+| # | ID | P | Title | Status |
+|---|---|---|---|---|
+| 1 | LEGAL-F-1 | P1 | Remove `feedback/closed/external-questions-learnjapaneseaz.md` + `feedback/closed/external-corpus/learnjapaneseaz-extract.json` from public repo (DMCA risk) | ⏳ pending |
+| 2 | LEGAL-F-2 | P1 | Disclose Claude-as-native-reviewer in CONTENT-LICENSE.md §9 + propagate `_meta.native_review_pass_2026_05_07` to grammar/vocab/kanji/papers/manifest data files | ⏳ pending |
+
+### TIER 2 — MEDIUM severity (documentation backlog)
+
+| # | ID | P | Title | Status |
+|---|---|---|---|---|
+| 3 | LEGAL-F-3 | P2 | Refresh CONTENT-LICENSE.md corpus counts to live values (1041 → 1000 vocab; verify all others); add JA-47 invariant to lock against drift | ⏳ pending |
+| 4 | LEGAL-F-4 | P2 | Add JLPT-trademark non-affiliation disclaimer to runtime footer (visible — not just in linked NOTICES.md / CONTENT-LICENSE.md) | ⏳ pending |
+| 5 | LEGAL-F-5 | P2 | Add Inter font + Noto Sans JP attribution sections to NOTICES.md (SIL OFL 1.1 — currently missing despite README claim) | ⏳ pending |
+| 6 | LEGAL-F-6 | P3 | Per-release manual spot-check: 10 random questions across `data/papers/*` — flag any potential competitor-corpus paraphrasing (lightweight track; heavyweight similarity-detection deferred) | ⏳ pending |
+| 7 | LEGAL-F-7 | P3 | No remediation needed — mock-paper format-resemblance is mitigated by CONTENT-LICENSE.md §5 + audit_provenance.py CI gate (0 hits across 716 questions). Maintain F-6 coverage. | ✅ already mitigated |
+
+### TIER 3 — LOW severity (backlog polish)
+
+| # | ID | P | Title | Status |
+|---|---|---|---|---|
+| 8 | LEGAL-F-8 | P4 | Spot-check 5 random `svg/kanji/*.svg` for byte-preserved KanjiVG copyright header; add JA-48 invariant if any are missing | ⏳ pending |
+| 9 | LEGAL-F-9 | P4 | Add GitHub-Pages server-side IP-logging note to PRIVACY.md (closes GDPR Art 13/14 information-obligation gap) | ⏳ pending |
+| 10 | LEGAL-F-10 | P4 | Surface VOICEVOX speaker name on the listening-item playback UI (e.g. "Voice: 四国めたん") — currently only in NOTICES.md + internal `audio_render_meta` | ⏳ pending |
+| 11 | LEGAL-F-11 | P5 | Run `python tools/check_content_integrity.py -v` to confirm 50/50 invariants stayed green during this legal-vetting audit pass (audit-process honesty) | ⏳ pending |
+
+### Open factual questions (F-1..F-11 follow-ups)
+
+These could not be resolved by repo inspection alone — surface to user before closing affected findings:
+
+- F-1: learnjapaneseaz.com terms-of-use posture (assumed "all rights reserved" by default).
+- F-8: actual SVG file headers — verify byte preservation.
+- F-3: whether the corpus-count refresh should happen on every release via a version-stamp script, or once per legal-vetting cycle.
+- Self-host forks (`docs/SELF-HOST.md`, `data/branding.json`): how do CONTENT-LICENSE.md claims propagate to forks? Out of scope today; revisit when first non-self fork ships.
+
+### Monetization blast-radius (locked-in items if monetization ever ships)
+
+Per `feedback/legal-vetting-audit-2026-05-10.md` § Monetization blast-radius:
+- F-1 must be cleanly resolved (commercial use raises bar for "research use" defenses).
+- VOICEVOX per-speaker terms re-verified (some characters in catalog forbid commercial use).
+- "100% on-device, no telemetry" claim becomes a JFTC false-advertising risk if any tracking added.
+- "JLPT" branding tolerance from JEES is stronger for non-commercial; reassess at commercial pivot.
+- CC BY-SA 4.0 content license forces any monetized fork / derivative to remain CC BY-SA.
+
+---
+
+## Earlier ACTIVE WORK — 2026-05-09 N5 Richness Audit (29 items)
 
 Current cycle: implement findings from
 `prompts/N5Improvement.txt` audit run, registered as
