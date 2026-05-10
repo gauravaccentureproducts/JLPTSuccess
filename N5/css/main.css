@@ -438,6 +438,13 @@ body {
   justify-content: center;
 }
 .primary-nav a {
+  /* inline-flex + align-items: center so the link text vertically
+   * centers within the 44px tap-target floor (defined globally for
+   * accessibility). Without this, the link defaults to display: inline
+   * and the text sits on the baseline (visually low, not centered)
+   * inside the 44px-tall click target. */
+  display: inline-flex;
+  align-items: center;
   position: relative;
   padding: var(--space-2) 0;
   font-size: var(--text-sm);
