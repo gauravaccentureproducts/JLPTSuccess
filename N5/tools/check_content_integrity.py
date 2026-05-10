@@ -851,8 +851,20 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
     # Round-8 (2026-05-06): cultural_context + summary fields contain
     # mixed Japanese (illustration phrases) + learner-language commentary.
     # Like l1_notes, the whole subtree is exempt from N5-only kanji rule.
+    # Round-9 (2026-05-11): authentic_citations is bibliographic metadata
+    # (source + context note). The context describes WHERE the pattern
+    # appears in standard textbooks (Genki/Minna/etc.) and uses normal
+    # Japanese vocabulary for that meta-commentary (図書館, 映画, 基本形 etc.).
+    # Not primary learner content — exempt from N5-only kanji rule, like
+    # cultural_context and summary which are similar pedagogical commentary.
+    # Also exempt wrong_corrected_pair (categorized common-learner mistakes —
+    # mirrors common_mistakes; whole purpose is showing native Japanese
+    # to illustrate error patterns) and politeness_ladder (4-tier register
+    # variation — humble/respectful forms use vocab beyond N5 by design).
     SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations",
-                           "l1_notes", "cultural_context", "summary"}
+                           "l1_notes", "cultural_context", "summary",
+                           "authentic_citations", "wrong_corrected_pair",
+                           "politeness_ladder"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing

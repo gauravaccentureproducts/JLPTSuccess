@@ -1955,7 +1955,19 @@
         "humble": "がっこうへ まいります。",
         "respectful": "がっこうへ いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Direction particle: 学校へ 行きます。 (interchangeable with に for destination).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.5",
+          "context": "行きます / 来ます / 帰ります + へ for direction.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-007",
@@ -2298,7 +2310,19 @@
         "humble": "バスで まいります。",
         "respectful": "バスで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Location of action: 図書館で 勉強します。",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.7",
+          "context": "Means/instrument: バスで 行きます。",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-008",
@@ -2635,7 +2659,19 @@
         "humble": "ともだちと まいります。",
         "respectful": "おともだちと いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Co-action: 友だちと 映画を 見ます。",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "Exhaustive list: A と B (vs や for non-exhaustive).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-009",
@@ -3658,7 +3694,19 @@
         "humble": "ノートや ペンを ちょうだいいたします。",
         "respectful": "ノートや ペンを おもとめになります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Minna I Ch.10",
+          "context": "Non-exhaustive list: AやB(など) — among others.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "や is partial enumeration; pair often with など for \"etc.\".",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-013",
@@ -3964,7 +4012,19 @@
         "humble": "わたくしも まいります。",
         "respectful": "先生も いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Inclusive marker: わたしも がくせいです。",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "AもB: replaces は/が — never stacks.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-014",
@@ -4264,6 +4324,18 @@
           "correct": "どれが いいですか。",
           "why": "Question word どれ takes が, never は. (は cannot topicalize unknown info.)",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Demonstrative pronouns: これ (near speaker) / それ (near listener) / あれ (far) / どれ (which).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.2",
+          "context": "コソアド system foundation: bare pronoun row.",
           "provenance": "llm_curated"
         }
       ]
@@ -4610,6 +4682,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Pre-nominal determiners: この本 / その人 etc.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.2",
+          "context": "コソアド: noun-modifying row (must attach to noun).",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -4934,6 +5018,18 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Location pronouns: ここ / そこ / あそこ / どこ.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.3",
+          "context": "コソアド: place row, often appears in は〜ですか questions.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -5218,6 +5314,18 @@
           "correct": "なにが すきですか。",
           "why": "Before bare が (no counter), use なに. Both readings exist; the rule is なん before counters / なに elsewhere.",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "〜は何ですか for asking what something is. なん before counter compounds.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "何を / 何ですか / 何時 — reading varies by following sound.",
           "provenance": "llm_curated"
         }
       ]
@@ -5533,6 +5641,18 @@
           "correct": "あの ひとは だれですか。",
           "why": "For \"who\", use だれ directly. だれの means \"whose\" (possessive).",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "だれ for \"who\"; どなた is the polite/formal alternative.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "Question word for person; respects register hierarchy.",
           "provenance": "llm_curated"
         }
       ]
@@ -5854,6 +5974,18 @@
           "correct": "いつごろから べんきょうしますか。 (already correct)",
           "why": "For \"approximate time\" use いつごろ; for exact use いつ. Different precision levels.",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "いつ asks \"when\"; takes no particle.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.5",
+          "context": "時間を聞く質問の基本形: いつ + V + か。",
           "provenance": "llm_curated"
         }
       ]
@@ -6186,7 +6318,19 @@
         "humble": "はちじから ろくじまで おります。",
         "respectful": "はちじから ろくじまで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "時間範囲 / 場所範囲: 9時から 5時まで / 東京から 大阪まで.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "Range pattern explicitly taught as a unit.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-023",
@@ -6471,6 +6615,18 @@
           "correct": "がくせいですか。",
           "why": "か already terminates the sentence; do not append だ or です after.",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Yes/no and wh-questions end in 〜ですか / 〜ますか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "Sentence-final か marks interrogative; written 「。」 follows.",
           "provenance": "llm_curated"
         }
       ]
@@ -6792,6 +6948,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Alternative か between options: A か B = \"A or B\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "コーヒーか こうちゃ — listed as Optional Choice.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -7077,6 +7245,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "ね seeks listener agreement: いい天気ですね。",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Confirmation particle; pragmatic softener seeking shared evaluation.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -7354,6 +7534,18 @@
           "correct": "たべますか。 / たべますよ。",
           "why": "Cannot stack よ + か. They serve different functions (assert vs question).",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "よ asserts new info or emphasizes: たかいですよ。",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Information-imparting particle, opposite of ね in seeking direction.",
           "provenance": "llm_curated"
         }
       ]
@@ -7661,6 +7853,18 @@
           "correct": "たべますよね。 / たべますか。",
           "why": "よね already a confirmation-question; do not stack か.",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Combined よ+ね for \"right? (assuming shared opinion)\" — confirmation-seeking assertion.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily conversation",
+          "context": "「おいしいですよね」: stating + checking listener.",
           "provenance": "llm_curated"
         }
       ]
@@ -7976,6 +8180,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Possessive/modifier: わたしの本 / にほんの食べもの.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "N + の + N basic linkage.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -8279,7 +8495,19 @@
         "humble": "わたくしの ほん でございます。",
         "respectful": "先生の ほんで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Same as n5-028; possessive use specifically: 山田さんの くるま.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "Possession marker — universally taught lesson 1.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-030",
@@ -8600,6 +8828,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "V (plain) + の + が好き/上手: nominalizing verb to use with feeling-adjectives.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "〜の は + Adj for \"doing X is Adj\".",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -8876,6 +9116,18 @@
           "correct": "あかいのを かいました。",
           "why": "Bare adjective + のを (drop です): あかい+の+を.",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "〜のを ください: pronominal \"one\" replacing repeated noun.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.2",
+          "context": "Pronoun-の to avoid repetition (e.g., あかいのを).",
           "provenance": "llm_curated"
         }
       ]
@@ -9178,6 +9430,18 @@
           "correct": "ほんだけ あります。",
           "why": "だけ replaces が/を for \"only\"; do not stack.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Restrictive: 1時間だけ ねました — \"only\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.11",
+          "context": "〜だけ; positive predicate context.",
           "provenance": "llm_curated"
         }
       ]
@@ -9514,6 +9778,18 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "しか + negative = \"only / nothing but\" with limitation nuance.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.11",
+          "context": "〜しか + 否定 — focused-restriction pattern.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -9801,6 +10077,18 @@
           "correct": "ひゃくえん くらい です。",
           "why": "です terminates; do not append ね だ or stack copulas.",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Approximate quantity: 1時間ぐらい / 100円くらい.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "時間・数量の概数 marker.",
           "provenance": "llm_curated"
         }
       ]
@@ -10101,6 +10389,18 @@
           "correct": "いちじかんぐらい べんきょうしました。",
           "why": "ごろ is for clock points; for duration use ぐらい/くらい.",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Approximate clock-time: 2時ごろ (no に needed).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.5",
+          "context": "ごろ vs ぐらい distinction: 時点 vs 期間.",
           "provenance": "llm_curated"
         }
       ]
@@ -10460,6 +10760,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Minna I Ch.10",
+          "context": "〜や〜などを + V for \"X, Y and the like\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Etcetera marker, pairs with や for partial enumeration.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -10779,6 +11091,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Minna I Ch.11",
+          "context": "〜ずつ: distribution per unit (1人 1個ずつ).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Distributive particle attached to counter.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -11077,6 +11401,18 @@
           "correct": "どれが いいですか。",
           "why": "どれ as question takes が, never は.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Same as n5-014 — bare pronoun row of コソアド.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.2",
+          "context": "指示代名詞 review.",
           "provenance": "llm_curated"
         }
       ]
@@ -11423,6 +11759,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Determiner + noun forms (この本 etc.).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.2",
+          "context": "コソアド: noun-modifying forms.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -11754,6 +12102,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Place pronouns row.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.3",
+          "context": "Spatial demonstratives.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -12048,6 +12408,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Polite direction/place pronouns; common in offering: こちらへ どうぞ.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.3",
+          "context": "Formal-register variant of ここ/そこ/あそこ.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -12337,6 +12709,18 @@
           "correct": "こんな くるまが すきです。",
           "why": "こんな + N (no の inserted).",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "〜な形 demonstratives for \"this kind of/that kind of\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "質的指示語 series.",
           "provenance": "llm_curated"
         }
       ]
@@ -12629,6 +13013,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Manner adverbs: こう/そう/ああ/どう.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.10",
+          "context": "How/in this way — adverbial row.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -12888,6 +13284,18 @@
           "correct": "どうやって にほんへ きましたか。",
           "why": "なんで is casual/multifunction (why? / by what means?); use どうやって for clear \"by what means\" in formal.",
           "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Reading variation: なん before counters, なに elsewhere.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "何 reading rule by following mora.",
           "provenance": "llm_curated"
         }
       ]
@@ -13199,6 +13607,18 @@
           "correct": "だれが いますか。",
           "why": "Q-word だれ takes が, never は.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Pair: plain だれ vs polite どなた.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "人の質問詞: 敬意の有無.",
           "provenance": "llm_curated"
         }
       ]
@@ -13530,6 +13950,18 @@
           "correct": "どこで あそびますか。",
           "why": "Action location takes で; に would mean motion-destination.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "場所の質問詞.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.3",
+          "context": "どこに/どこで for location-question.",
           "provenance": "llm_curated"
         }
       ]
@@ -13869,6 +14301,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Question demonstratives: pronoun-どれ / determiner-どの / binary-どちら.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.2",
+          "context": "コソアド系の質問詞.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -14194,6 +14638,18 @@
           "correct": "りょこうは どうでしたか。",
           "why": "Past form is どうでしたか (not どうかった — that is not a valid form).",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "どうですか — asking opinion/state.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "いかがですか as polite-offering variant.",
           "provenance": "llm_curated"
         }
       ]
@@ -14542,6 +14998,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "Reason questions: どうして vs なぜ (latter more formal).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.9",
+          "context": "〜どうしてですか + 〜からです pairs.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -14852,6 +15320,18 @@
           "correct": "どうやって いきますか。 (means) / どうして いきますか。 (reason)",
           "why": "なんで is ambiguous; for \"by what means\" use どうやって.",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Minna I Ch.10",
+          "context": "Means/manner question: \"how\" + method.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "どうやって vs どう (former asks method, latter asks state).",
           "provenance": "llm_curated"
         }
       ]
@@ -15187,6 +15667,18 @@
           "correct": "いくら ありますか。",
           "why": "いくら + ある directly (no extra particle).",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "値段の質問: これは いくらですか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.3",
+          "context": "〜いくらですか — pricing template.",
           "provenance": "llm_curated"
         }
       ]
@@ -15527,6 +16019,18 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Count question for general objects (tsu) / polite age (おいくつ).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.11",
+          "context": "量・年齢の質問詞.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -15841,6 +16345,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Clock-time question: 何時ですか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "時刻の質問テンプレート.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -16141,6 +16657,18 @@
           "correct": "なんようびに きますか。",
           "why": "Day-of-week as a time-when point takes に (specific calendar day).",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Day-of-week question: 何曜日ですか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "曜日の質問.",
           "provenance": "llm_curated"
         }
       ]
@@ -16458,6 +16986,18 @@
           "correct": "なんにちに きましたか。 (already correct)",
           "why": "Specific date takes に. なんにち = which day of month.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Calendar date question: 何月何日ですか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.5",
+          "context": "誕生日テンプレート: 何月何日ですか.",
           "provenance": "llm_curated"
         }
       ]
@@ -17159,7 +17699,19 @@
         "humble": "いただきません。",
         "respectful": "めしあがりません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Polite negative form: 〜ません.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "動詞ません — habitual/future negative.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-060",
@@ -17488,7 +18040,19 @@
         "humble": "いただきました。",
         "respectful": "めしあがりました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Polite past: 〜ました.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "動詞ました for completed action.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-061",
@@ -17827,7 +18391,19 @@
         "humble": "いただきませんでした。",
         "respectful": "めしあがりませんでした。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Polite past-negative: ませんでした.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "完了否定形.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-062",
@@ -18123,7 +18699,19 @@
         "humble": "いただきましょう。",
         "respectful": "(rare; volitional uncommon for others) ごいっしょに めしあがりませんか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Suggestion: 一緒に〜ましょう.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "〜ましょう — let's do.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-063",
@@ -18392,7 +18980,19 @@
         "humble": "おもちしましょうか。",
         "respectful": "おもちに なりますか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "Offering help/suggestion: 〜ましょうか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "提案・申し出のかたち.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-064",
@@ -18735,7 +19335,19 @@
         "humble": "(rare; invitations rarely use humble)",
         "respectful": "めしあがりませんか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "Polite invitation via negative-question: 〜ませんか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "お誘いの定型.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-065",
@@ -19067,6 +19679,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Dictionary form: foundation for ない/た/て forms.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "辞書形 — used as base for many constructions.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -19381,6 +20005,18 @@
           "correct": "こなかった。",
           "why": "こない is present-negative (\"does not come\"); past-negative is こなかった.",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Plain-negative ない form.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.17",
+          "context": "〜ない形 conjugation rules by group.",
           "provenance": "llm_curated"
         }
       ]
@@ -20064,7 +20700,19 @@
         "humble": "いただきませんでした。",
         "respectful": "めしあがりませんでした。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "Plain past-negative なかった.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.17",
+          "context": "否定過去 plain form.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-069",
@@ -20888,7 +21536,19 @@
         "humble": "いただいて、やすみました。",
         "respectful": "めしあがって、おやすみに なりました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "Te-form chain for sequential actions.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.16",
+          "context": "動作の継起: て-form sentence chaining.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-071",
@@ -21185,7 +21845,19 @@
         "humble": "(self-not-applicable; humble for self-action)",
         "respectful": "おたべください。 / めしあがって ください。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "Polite request: 〜てください.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.14",
+          "context": "依頼のかたち.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-072",
@@ -21890,7 +22562,19 @@
         "humble": "まだ いただいて おりません。",
         "respectful": "まだ めしあがって いらっしゃいません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "〜ていません: state-of-having-not-done-yet, paired with まだ.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.31",
+          "context": "まだ〜ていません template.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-074",
@@ -22933,7 +23617,19 @@
         "humble": "いただいてから まいります。",
         "respectful": "めしあがってから いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "〜てから: after V-ing, then.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.16",
+          "context": "動作の順序を強調.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-077",
@@ -23231,7 +23927,19 @@
         "humble": "(self-not-applicable)",
         "respectful": "おたべに ならないで ください。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Polite negative request: 〜ないでください.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.17",
+          "context": "禁止のお願い.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-078",
@@ -23538,6 +24246,18 @@
           "correct": "いい ひと。",
           "why": "い-Adj attaches directly; do not insert の.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "い-Adj attaches directly to noun.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 (い) + N.",
           "provenance": "llm_curated"
         }
       ]
@@ -23859,7 +24579,19 @@
         "humble": "たかい でございます。",
         "respectful": "おたかい です。 (rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "い-Adj + です: standard polite form.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 (い) です — copula attached for politeness.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-080",
@@ -24196,7 +24928,19 @@
         "humble": "たかく ございません。",
         "respectful": "おたかく ありません。 (rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "い→くない transformation.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 (い) 否定形.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-081",
@@ -24530,7 +25274,19 @@
         "humble": "たこう ございました。 (very formal)",
         "respectful": "おたかかった です。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "い→かった transformation; いい→よかった irregular.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "形容詞過去形.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-082",
@@ -24873,7 +25629,19 @@
         "humble": "たかく ございませんでした。",
         "respectful": "(rare for adjectives)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "い→くなかった / くありませんでした.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "形容詞過去否定.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-083",
@@ -25219,6 +25987,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "い→くて for adjective chain or causal use.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.16",
+          "context": "形容詞 (い) のて形 — Adj1くて Adj2.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -25552,6 +26332,18 @@
           "correct": "きれいな ひと。",
           "why": "Single な only. Doubling な is a typo.",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "na-Adj requires な linker before noun.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 (な) + N — visible な inserted.",
           "provenance": "llm_curated"
         }
       ]
@@ -25892,7 +26684,19 @@
         "humble": "しずかで ございます。",
         "respectful": "(rare for adjectives)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Bare na-Adj + です (no な before copula).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 (な) です.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-086",
@@ -26246,7 +27050,19 @@
         "humble": "しずかでは ございません。",
         "respectful": "(rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "na-Adj negative: じゃ(あり)ません.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 (な) 否定 — じゃありません.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-087",
@@ -26591,7 +27407,19 @@
         "humble": "しずかで ございました。",
         "respectful": "(rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "na-Adj past: でした.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "形容詞 (な) 過去 — でした.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-088",
@@ -26942,7 +27770,19 @@
         "humble": "しずかでは ございませんでした。",
         "respectful": "(rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "じゃありませんでした.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "形容詞 (な) 過去否定.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-089",
@@ -27287,6 +28127,18 @@
           "correct": "しずかで きれいです。",
           "why": "Single で. Double で is a typo.",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "na-Adj te-form: で (not くて).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.16",
+          "context": "形容詞 (な) のて形 — Adjで Adj.",
           "provenance": "llm_curated"
         }
       ]
@@ -27638,6 +28490,18 @@
           "correct": "いすに ほんが あります。",
           "why": "Books are inanimate → あります. います is for living things.",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Existence (inanimate): N が あります.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.10",
+          "context": "無生物のあります.",
           "provenance": "llm_curated"
         }
       ]
@@ -28000,6 +28864,18 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Existence (animate): N が います.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.10",
+          "context": "生物のいます.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -28349,6 +29225,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Location-of-existence: 〜に〜があります/います.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.10",
+          "context": "場所にXがあります/います.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -28696,6 +29584,18 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Topic-of-known + location: Xは〜にあります.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.10",
+          "context": "X はどこにありますか型.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -29031,6 +29931,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Possession via existence: 〜がある.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.10",
+          "context": "ある verb usage scope.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -29328,6 +30240,18 @@
           "correct": "アメリカは にほんより おおきいです。",
           "why": "Word order: TOPIC は STANDARD より ADJ です.",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L10",
+          "context": "Comparison: AはBより adj. (A is more adj than B).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "比較構文 (より).",
           "provenance": "llm_curated"
         }
       ]
@@ -29655,6 +30579,18 @@
           "correct": "こうちゃより コーヒーの ほうが すきです。",
           "why": "Comparison takes より, not から.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L10",
+          "context": "Preference structure: BよりAのほうがadj.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "ほうが with より for explicit comparison.",
           "provenance": "llm_curated"
         }
       ]
@@ -30002,6 +30938,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L10",
+          "context": "Binary-choice question: AとBと、どちらが〜.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.12",
+          "context": "二者選択疑問.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -30312,6 +31260,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Basic copula reinforcement: AはBです.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "名詞文の基本.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -30616,7 +31576,19 @@
         "humble": "コーヒーを このんで おります。",
         "respectful": "コーヒーを おすきで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Likes/dislikes (na-Adj of feeling): が+すきです.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.9",
+          "context": "感情形容詞: AはBが好きです.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-100",
@@ -30966,7 +31938,19 @@
         "humble": "にほんごは あまり できません。 (modest)",
         "respectful": "にほんごが おじょうずで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Skill descriptors (na-Adj): NがじょうずだXX.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.9",
+          "context": "能力形容詞.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-101",
@@ -31287,7 +32271,19 @@
         "humble": "くるまが ほしゅう ございます。 (literary)",
         "respectful": "くるまを ほしがって いらっしゃいます。 (about others)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Desire for nouns: NがほしいXX.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "希望表現 ほしい.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-102",
@@ -31570,7 +32566,19 @@
         "humble": "しょうち しました。 / かしこまりました。",
         "respectful": "おわかりに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Comprehension: NがわかりますXX.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.9",
+          "context": "わかる takes が, not を.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-103",
@@ -31894,7 +32902,19 @@
         "humble": "できかねます。 (formal negative for \"I cannot\")",
         "respectful": "おできに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Ability: Nができる.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "できる + N.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-104",
@@ -32528,7 +33548,19 @@
         "humble": "いただきたくない です。",
         "respectful": "めしあがりたくないと おもって いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "たい → たくない (negative).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "〜たい否定形.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-106",
@@ -32853,6 +33885,18 @@
           "correct": "ほしくないです。",
           "why": "い-Adj negative drops い: ほしい→ほしく+ない.",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Desire for noun: NがほしいXX (duplicate of 101).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "希望表現 — extended N5 coverage.",
           "provenance": "llm_curated"
         }
       ]
@@ -33185,7 +34229,19 @@
         "humble": "いただきに まいります。",
         "respectful": "めしあがりに いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Purpose of motion: V-stem + に + 行く/来る/帰る.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "〜に行きます (目的).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-108",
@@ -33502,6 +34558,18 @@
           "correct": "ねこが いっぴき います。",
           "why": "Counter typically follows the verb in stacking order: が + counter + Verb (not pre-noun).",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "Counter system overview: つ / 人 / ひき / まい.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.11",
+          "context": "数の表現 — counter taxonomy.",
           "provenance": "llm_curated"
         }
       ]
@@ -33847,6 +34915,18 @@
           "error_category": "counter",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "How-many questions: なんにん / なんさつ / なんびき.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.11",
+          "context": "数の質問詞.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -34150,6 +35230,18 @@
           "error_category": "counter",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Word order: object+を+counter+V.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.11",
+          "context": "助数詞の語順.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -34384,6 +35476,18 @@
           "correct": "ろくじごろ きます。",
           "why": "ごろ replaces に for approximate clock-time.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Hour counter じ; irregular 4=よ・7=しち・9=く.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "時刻 — じ counter.",
           "provenance": "llm_curated"
         }
       ]
@@ -34649,6 +35753,18 @@
           "correct": "にじ じゅっぷん。 / にじ じっぷん。",
           "why": "10 minutes is じゅっぷん (or じっぷん). Sokuon + p-row before ぷん.",
           "error_category": "counter",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Minute counter ふん/ぷん — sokuon by preceding number.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "時刻 — ふん/ぷん sound change.",
           "provenance": "llm_curated"
         }
       ]
@@ -34928,6 +36044,18 @@
           "correct": "よじはんから しちじはんまで。",
           "why": "No internal space in じはん compound.",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Half-past: じはん.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "時刻 — はん.",
           "provenance": "llm_curated"
         }
       ]
@@ -35263,6 +36391,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Range pattern from-to (duplicate of n5-021).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "Range marker pair.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -35519,7 +36659,19 @@
         "humble": "はちじに おきます。 (no humble shift for self-time)",
         "respectful": "はちじに おきに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Specific clock/date takes に; relative time-words do not.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "時に + V — point-in-time rule.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-116",
@@ -35830,6 +36982,18 @@
           "correct": "まいとし あに あいます。",
           "why": "Common reading is まいとし for \"every year\" (まいねん is also valid but less common in N5).",
           "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Frequency adverb まいにち/まいしゅう/まいつき/まいとし.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.5",
+          "context": "頻度副詞.",
           "provenance": "llm_curated"
         }
       ]
@@ -36152,7 +37316,19 @@
         "humble": "ほんじつ まいります。",
         "respectful": "ほんじつ いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Relative time-words — take NO particle.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.4",
+          "context": "相対時間.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-118",
@@ -36489,7 +37665,19 @@
         "humble": "ただいま まいります。",
         "respectful": "ただいま いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "Time-marker adverbs and pairing rules.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.31",
+          "context": "もう・まだ pairing with positive/negative.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-119",
@@ -36832,7 +38020,19 @@
         "humble": "いただくまえに おてあらいします。",
         "respectful": "めしあがるまえに あらいに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "V-plain + まえに for \"before V-ing\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "〜まえに pattern.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-120",
@@ -37168,7 +38368,19 @@
         "humble": "いただいたあとで やすみます。",
         "respectful": "めしあがった あとで おやすみに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "V-た + あとで for \"after V-ing\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.19",
+          "context": "〜あとで pattern.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-121",
@@ -37521,7 +38733,19 @@
         "humble": "〜。さらに、〜。 (more formal connector)",
         "respectful": "〜。さらに、〜。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L2",
+          "context": "Additive conjunction \"and then\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.5",
+          "context": "接続詞 そして.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-122",
@@ -37899,7 +39123,19 @@
         "humble": "いただきました。そののち、やすみました。",
         "respectful": "めしあがりました。そののち、おやすみに なりました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Sequential connector \"after that\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "接続詞 それから.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-123",
@@ -38258,7 +39494,19 @@
         "humble": "〜でございます。しかし、〜でございます。",
         "respectful": "〜でいらっしゃいます。しかし、〜でいらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Sentence-initial contrastive \"but / however\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "逆接接続詞.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-124",
@@ -38605,7 +39853,19 @@
         "humble": "〜でございます。しかしながら、〜でございます。",
         "respectful": "〜でいらっしゃいます。しかしながら、〜でいらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "Formal \"however\" — written register.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "逆接 (formal variant of でも).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-125",
@@ -38910,7 +40170,19 @@
         "humble": "それでは、しつれい いたします。",
         "respectful": "(see humble — speakers self-humble in this register)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Sentence-initial \"well then\": では (formal) / じゃ (casual).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "では transition phrase.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-126",
@@ -39242,6 +40514,18 @@
           "correct": "にほんごは むずかしいですが、たのしいです。",
           "why": "Tense agreement across が: keep both clauses in matching tense unless explicit time-shift.",
           "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "Mid-sentence contrastive: clause + が + clause.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "逆接の助詞 が.",
           "provenance": "llm_curated"
         }
       ]
@@ -39580,6 +40864,18 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "けれど (formal) / けど (casual) — same function as が.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "けれど・けど in casual conversation.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -39916,7 +41212,19 @@
         "humble": "なぜでございましょうか。 おそうございましたゆえ。",
         "respectful": "なぜでいらっしゃいますか。 おそかった ためで ございます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "Reason Q&A: どうして+question / 〜から+answer.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.9",
+          "context": "理由の質問と答え.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-130",
@@ -40578,6 +41886,18 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L14",
+          "context": "Receiving: AがBから/に〜をもらう.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.7",
+          "context": "やりもらい — もらう direction.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -40883,6 +42203,18 @@
           "correct": "ともだち が プレゼントを くれました。",
           "why": "The giver (subject of くれる) is marked with が (new info), not は.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L14",
+          "context": "Giving-to-self/in-group: AがBに〜をくれる.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.24",
+          "context": "やりもらい — くれる (in-group target).",
           "provenance": "llm_curated"
         }
       ]
@@ -41244,6 +42576,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L6",
+          "context": "〜から、 〜 — reason clause.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.9",
+          "context": "理由の接続助詞.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -41569,6 +42913,18 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki II L13",
+          "context": "〜ので — softer reason than から; objective.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna II Ch.39",
+          "context": "丁寧な理由の表現.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -41878,6 +43234,18 @@
           "correct": "きた ひとは わたしの ともだちです。",
           "why": "Single の per modifier; ともだち + です directly.",
           "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "Relative-clause introduction with plain-form verbs.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.22",
+          "context": "名詞修飾節 (基本).",
           "provenance": "llm_curated"
         }
       ]
@@ -42197,6 +43565,18 @@
           "correct": "いい ひと。",
           "why": "い-Adj attaches directly; do not insert の.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Both い- and na-Adj noun-modification patterns.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "形容詞 + N (combined).",
           "provenance": "llm_curated"
         }
       ]
@@ -42528,6 +43908,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "基本N+の+N linkage.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "所属・属性のの.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -42836,7 +44228,19 @@
         "humble": "コーヒーに いたします。",
         "respectful": "コーヒーに なさいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L15",
+          "context": "選択の決定: 〜にします.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.25",
+          "context": "選択を表す にします.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-143",
@@ -43138,7 +44542,19 @@
         "humble": "たこう なります。 (literary)",
         "respectful": "おたかく おなりに なります。 (rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L10",
+          "context": "Become: na-Adj+になる / い-Adj+くなる.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.19",
+          "context": "変化の表現 なる.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-144",
@@ -43452,7 +44868,19 @@
         "humble": "いただきながら はいけんします。",
         "respectful": "めしあがりながら ごらんに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki II L13",
+          "context": "V-stem + ながら — simultaneous actions.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna II Ch.28",
+          "context": "同時動作の ながら.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-145",
@@ -43805,7 +45233,19 @@
         "humble": "〜と ぞんじます。",
         "respectful": "〜と おもって いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Opinion expression: 〜と思う (with plain form).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.21",
+          "context": "意見の表現.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-146",
@@ -44139,7 +45579,19 @@
         "humble": "〜と もうしました。",
         "respectful": "〜と おっしゃいました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Direct/indirect quotation: 〜と言う.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.21",
+          "context": "引用文の作り方.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-147",
@@ -44477,7 +45929,19 @@
         "humble": "よく いただきます。",
         "respectful": "よく めしあがります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Frequency adverbs; negative-required for あまり/ぜんぜん.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "頻度副詞.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-148",
@@ -44819,7 +46283,19 @@
         "humble": "いつも テレビを はいけん いたします。",
         "respectful": "いつも テレビを ごらんに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Frequency adverbs at the high end.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "頻度副詞 — 全般.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-149",
@@ -45097,6 +46573,18 @@
           "correct": "みずを ください。",
           "why": "Object of ください is marked with を, not に.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L4",
+          "context": "Request for items: Nをください.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.3",
+          "context": "お願いの基本.",
           "provenance": "llm_curated"
         }
       ]
@@ -45421,6 +46909,18 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L5",
+          "context": "Polite ordering: Nをおねがいします.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.14",
+          "context": "お願いします (formal).",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -45737,7 +47237,19 @@
         "humble": "(self-not-applicable; いかが is for offering to others)",
         "respectful": "コーヒーは いかがで いらっしゃいますか。 (very formal)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Polite offering: 〜はいかがですか.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.7",
+          "context": "勧誘の丁寧形.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-152",
@@ -46086,6 +47598,18 @@
           "correct": "いいえ、けっこうです。",
           "why": "For polite refusal use いいえ + けっこう/だいじょうぶ; どうも is too short.",
           "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Set ritual phrases — taught from day 1.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I 挨拶集",
+          "context": "Conversational ritual phrases bundled in front-matter.",
           "provenance": "llm_curated"
         }
       ]
@@ -46443,7 +47967,19 @@
         "humble": "まだ いただいて おりません。",
         "respectful": "まだ めしあがって いらっしゃいません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "\"Not yet\" — pair まだ with Vていません.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.31",
+          "context": "まだ〜ていません.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-154",
@@ -46782,7 +48318,19 @@
         "humble": "もう いただきました。",
         "respectful": "もう めしあがいました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "\"Already\" — pair もう with past polite.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.7",
+          "context": "もう〜ました.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-155",
@@ -47115,7 +48663,19 @@
         "humble": "〜でございますが、〜でございます。",
         "respectful": "〜でいらっしゃいますが、〜でいらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "Mid-sentence contrastive marker.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.8",
+          "context": "〜が contrastive.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-156",
@@ -47710,7 +49270,19 @@
         "humble": "(rare; conjecture about self uncommon)",
         "respectful": "〜でいらっしゃるでしょう。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki II L12",
+          "context": "推量・確認: 〜でしょう.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.32",
+          "context": "推量の でしょう.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-158",
@@ -48019,7 +49591,19 @@
         "humble": "〜でございましょう。",
         "respectful": "〜でいらっしゃるだろう。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Plain conjecture — casual variant of でしょう.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily speech",
+          "context": "〜だろう in spoken casual register.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-159",
@@ -48310,6 +49894,18 @@
           "correct": "たかいですね。",
           "why": "Stand-alone ね is a complete utterance (rising tone seeks agreement).",
           "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L3",
+          "context": "Polite-form + sentence particle.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily conversation",
+          "context": "会話中の同意・伝達.",
           "provenance": "llm_curated"
         }
       ]
@@ -48659,7 +50255,19 @@
         "humble": "がっこうの のちで まいります。",
         "respectful": "がっこうの のちで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "名詞+のあとで for \"after N\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.19",
+          "context": "名詞 + のあとで pattern.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-161",
@@ -49001,7 +50609,19 @@
         "humble": "にじの まえに まいりました。",
         "respectful": "にじの まえに いらっしゃいました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "名詞+のまえに for \"before N\".",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "名詞 + のまえに pattern.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-162",
@@ -49323,6 +50943,18 @@
           "correct": "たべるまえに、 ねます。",
           "why": "Time-before takes に, not で.",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "V-plain + まえに (same content as n5-119).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "V + まえに alias.",
           "provenance": "llm_curated"
         }
       ]
@@ -49667,6 +51299,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L9",
+          "context": "V-た + あとで (same content as n5-120).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.19",
+          "context": "Vた + あとで alias.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -49979,7 +51623,19 @@
         "humble": "(N/A — さん is for others)",
         "respectful": "やまださま。 / やまだ先生。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L1",
+          "context": "Honorific suffix さん; not used about oneself.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.1",
+          "context": "敬称 さん の使い方.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-165",
@@ -50292,7 +51948,19 @@
         "humble": "お／ご- (for beautification, used by self)",
         "respectful": "おはな (when speaking to/about senior)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L7",
+          "context": "Honorific prefix お/ご for native vs Sino words.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.7",
+          "context": "美化語 お・ご.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-166",
@@ -51307,7 +52975,19 @@
         "humble": "いただいたり はいけんしたり いたします。",
         "respectful": "めしあがったり ごらんに なったり なさいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "V-た+り〜V-た+りする for representative listing.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.19",
+          "context": "〜たり〜たりする.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-169",
@@ -51621,7 +53301,19 @@
         "humble": "にほんに まいったことが ございます。",
         "respectful": "にほんに いらしたことが いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "Past experience: Vた+ことがある.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.19",
+          "context": "〜たことがあります.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-170",
@@ -51954,7 +53646,19 @@
         "humble": "(self-not-applicable)",
         "respectful": "おたべに なった ほうが いいでしょう。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki II L12",
+          "context": "Advice: Vた+ほうがいい.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.32",
+          "context": "〜たほうがいい (助言).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-171",
@@ -52290,7 +53994,19 @@
         "humble": "(self-not-applicable)",
         "respectful": "おたべに ならない ほうが いいでしょう。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki II L12",
+          "context": "Negative advice: Vない+ほうがいい.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.32",
+          "context": "〜ないほうがいい.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-172",
@@ -52624,7 +54340,19 @@
         "humble": "(self-not-applicable in this register)",
         "respectful": "おたべに ならなくても よろしい です。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Permission to omit: Vなくてもいい.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.17",
+          "context": "〜なくてもいい (許可).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-173",
@@ -52962,7 +54690,19 @@
         "humble": "いただかなくては いけません。",
         "respectful": "めしあがらなくては いけません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Obligation: Vなくてはいけない.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.17",
+          "context": "義務 〜なくてはいけない.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-174",
@@ -53296,7 +55036,19 @@
         "humble": "いただかなくては なりません。",
         "respectful": "めしあがらなくては なりません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "〜なくてはならない (formal obligation).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna II Ch.31",
+          "context": "Higher-register obligation variant.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-175",
@@ -53621,7 +55373,19 @@
         "humble": "いただかないと いけません。",
         "respectful": "めしあがらないと いけません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "〜ないといけない (informal obligation).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily speech",
+          "context": "Common spoken obligation in casual register.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-176",
@@ -53889,7 +55653,19 @@
         "humble": "いただかなくては なりません。",
         "respectful": "めしあがらなくては なりません。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Daily speech",
+          "context": "Casual contraction of なくては / なければ.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Spoken-register contractions of obligation forms.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-177",
@@ -54172,7 +55948,19 @@
         "humble": "いただきすぎました。",
         "respectful": "めしあがりすぎに なりました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki II L12",
+          "context": "V-stem / Adj-stem + すぎる: excessiveness.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.44",
+          "context": "〜すぎる pattern.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-178",
@@ -54494,7 +56282,19 @@
         "humble": "いただくつもりで ございます。",
         "respectful": "めしあがるつもりで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L11",
+          "context": "V-plain + つもり: intention.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.31",
+          "context": "〜つもりです (intent).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-179",
@@ -54786,6 +56586,18 @@
           "correct": "がくせいだそうですが、よくわかりません。",
           "why": "Hearsay in N5 written form is そうです; って is conversational.",
           "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Casual quotative — abbreviation of と.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily speech",
+          "context": "〜って in casual conversation.",
           "provenance": "llm_curated"
         }
       ]
@@ -55123,7 +56935,19 @@
         "humble": "いただきかたが わかりません。",
         "respectful": "めしあがり かたを ごぞんじですか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L13",
+          "context": "V-stem + かた: way of doing.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.14",
+          "context": "〜方 (manner of action).",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-181",
@@ -55410,6 +57234,18 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Exclamatory sentence-final particle.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily speech",
+          "context": "Emphatic / wistful emotional ending.",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -55673,6 +57509,18 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
+      ],
+      "authentic_citations": [
+        {
+          "source": "A Dictionary of Basic Japanese Grammar",
+          "context": "Prohibitive — abrupt command form.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Daily speech",
+          "context": "Curt prohibition (signage, parent-to-child).",
+          "provenance": "llm_curated"
+        }
       ]
     },
     {
@@ -55915,6 +57763,18 @@
           "correct": "だれか きましたか。",
           "why": "だれか takes no particle (subject of intransitive いる/くる-type verbs).",
           "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ],
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "Indefinite compounds: 何か/誰か/どこか and 何も/誰も/どこも.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "不定語の構造.",
           "provenance": "llm_curated"
         }
       ]
@@ -56161,7 +58021,19 @@
         "humble": "なにか いただきましたか。",
         "respectful": "なにか めしあがいましたか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "なにか (positive) / なにも + negative.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "不定詞 何か・何も.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-185",
@@ -56468,7 +58340,19 @@
         "humble": "どなたか おりますか。",
         "respectful": "どなたか いらっしゃいますか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "だれか (someone) / だれも + negative (nobody).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "不定詞 誰か・誰も.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-186",
@@ -56784,7 +58668,19 @@
         "humble": "どこかへ まいりますか。",
         "respectful": "どこかへ いらっしゃいますか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "どこか (somewhere) / どこも + negative (nowhere).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.13",
+          "context": "不定詞 どこか・どこも.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-187",
@@ -57133,7 +59029,19 @@
         "humble": "いつか まいりたい と ぞんじます。",
         "respectful": "いつか いらっしゃりたいと おもって いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L8",
+          "context": "いつか (someday) vs いつも (always — habit, not indefinite).",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.6",
+          "context": "時間の不定詞・頻度副詞.",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-188",
@@ -57496,7 +59404,19 @@
         "humble": "いただくことが できます。",
         "respectful": "めしあがる ことが できます / おたべに なれます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_citations": [
+        {
+          "source": "Genki I L13",
+          "context": "V-plain + ことができる: ability/possibility.",
+          "provenance": "llm_curated"
+        },
+        {
+          "source": "Minna I Ch.18",
+          "context": "〜ことができます (能力).",
+          "provenance": "llm_curated"
+        }
+      ]
     }
   ],
   "_meta": {
