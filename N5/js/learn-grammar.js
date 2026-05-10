@@ -179,34 +179,11 @@ export function renderGrammarTOC(container, data) {
     <a class="back-link" href="#/learn">← Back to Learn</a>
     <h2>Grammar</h2>
     <p class="page-lede">${data.patterns.length} patterns in ${bySuperCat.size} sections.</p>
-    <div class="kanji-filters" role="search" aria-label="Filter grammar patterns">
-      <input type="search" id="grammar-filter-q" class="kanji-filter-input"
-        placeholder="Search pattern, meaning, or example (e.g. て-form / wants to / です)"
-        value="${esc(_grammarFilterText)}" autocomplete="off"
-        aria-label="Search grammar patterns">
-      <div class="kanji-filter-row" aria-label="Tier filter">
-        <span class="kanji-filter-label">Tier:</span>
-        ${chip('tier', 'all', 'All', _grammarFilterTier === 'all')}
-        ${chip('tier', 'core_n5', 'Core N5', _grammarFilterTier === 'core_n5')}
-        ${chip('tier', 'late_n5', 'Late N5', _grammarFilterTier === 'late_n5')}
-      </div>
-      <p class="kanji-filter-count muted small" aria-live="polite">
-        Showing <strong>${filtered.length}</strong> of ${data.patterns.length}.
-      </p>
-    </div>
-    <div class="toc-controls">
-      <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
-      <button type="button" class="btn-secondary toc-collapse-all">Collapse all</button>
-      <!-- IMP-143 (richness audit, 2026-05-09): print-as-PDF cheat
-           sheet for the entire grammar list. Auto-expands all sections,
-           triggers window.print(), then restores prior state. The print
-           stylesheet reveals .grammar-card-print-* spans for a dense
-           one-row-per-pattern reference layout. -->
-      <button type="button" class="btn-secondary toc-print-cheatsheet">
-        🖨 Print cheat sheet
-      </button>
-    </div>
   `;
+  // Category sections (super-category accordions with grammar cards inside).
+  // Rendered FIRST so the table-of-contents is the primary surface; the
+  // search / tier filter / TOC controls block appears AFTER the categories
+  // as a secondary refinement tool (per UI direction 2026-05-10).
   for (const [supercat, items] of bySuperCat) {
     if (items.length === 0) continue;
     items.sort((a, b) => (a.patternOrder ?? 0) - (b.patternOrder ?? 0));
@@ -242,6 +219,38 @@ export function renderGrammarTOC(container, data) {
   } else if (data.patterns.length === 1) {
     html += `<div class="placeholder" style="margin-top:24px"><p>Scaffold currently has 1 example pattern. Add more to <code>data/grammar.json</code> as you author content.</p></div>`;
   }
+  // Search / filter / TOC-controls block — placed AFTER the categories
+  // so the category table-of-contents is the primary surface on first
+  // paint; the filter is a secondary refinement (UI direction 2026-05-10).
+  html += `
+    <div class="kanji-filters" role="search" aria-label="Filter grammar patterns">
+      <input type="search" id="grammar-filter-q" class="kanji-filter-input"
+        placeholder="Search pattern, meaning, or example (e.g. て-form / wants to / です)"
+        value="${esc(_grammarFilterText)}" autocomplete="off"
+        aria-label="Search grammar patterns">
+      <div class="kanji-filter-row" aria-label="Tier filter">
+        <span class="kanji-filter-label">Tier:</span>
+        ${chip('tier', 'all', 'All', _grammarFilterTier === 'all')}
+        ${chip('tier', 'core_n5', 'Core N5', _grammarFilterTier === 'core_n5')}
+        ${chip('tier', 'late_n5', 'Late N5', _grammarFilterTier === 'late_n5')}
+      </div>
+      <p class="kanji-filter-count muted small" aria-live="polite">
+        Showing <strong>${filtered.length}</strong> of ${data.patterns.length}.
+      </p>
+    </div>
+    <div class="toc-controls">
+      <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
+      <button type="button" class="btn-secondary toc-collapse-all">Collapse all</button>
+      <!-- IMP-143 (richness audit, 2026-05-09): print-as-PDF cheat
+           sheet for the entire grammar list. Auto-expands all sections,
+           triggers window.print(), then restores prior state. The print
+           stylesheet reveals .grammar-card-print-* spans for a dense
+           one-row-per-pattern reference layout. -->
+      <button type="button" class="btn-secondary toc-print-cheatsheet">
+        🖨 Print cheat sheet
+      </button>
+    </div>
+  `;
   container.innerHTML = html;
   wireExpandCollapseControls(container, 'details.toc-category');
 
