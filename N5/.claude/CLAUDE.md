@@ -26,6 +26,17 @@ These are listed in `.claude/settings.local.json`. The user has stated they don'
 - **`git reset --hard`, `rm -rf`** - explicitly denied in settings; if the user asks, propose a safer alternative first
 - **Any push to branches other than the user's working branch** - confirm target branch first
 
+## Backup policy (BINDING — set 2026-05-10)
+
+`git checkout -- <file>` and similar revert operations are now allowed without prompts. In exchange, the user has granted commit/upload rights but **NOT** file-replace/delete rights without explicit instruction. Concretely:
+
+1. **Never overwrite an existing backup file.** If a backup at the target path already exists (e.g. `data/grammar.json.bak`), create a new versioned name (`data/grammar.json.bak_2026_05_10_v2`, then `_v3`, etc.) — do NOT replace v1.
+2. **Never delete an older backup version.** Once written, backup files stay until the user explicitly says to clean them up. If you see `*.bak`, `*.bak_*`, `*.backup`, `*_backup_*` files, treat them as read-only.
+3. **Before any destructive op** (`git checkout -- <file>`, overwrite-via-Write, `mv` over an existing file), check for and create a versioned backup if one doesn't already exist for this revision.
+4. **Replacing or deleting any file the user did not ask you to touch** still requires asking first — even non-backup files. The blanket "don't replace/delete without telling me" rule applies broadly.
+
+Settings enforcement: `**/*.bak*`, `**/*.backup*`, `**/*_backup_*`, `**/backups/**` are denied for `Write`, `Edit`, `Bash(rm/mv/cp ...)` and `PowerShell(Remove-Item/Move-Item/Copy-Item ...)`. If a deny rule fires when you needed to act, explain the situation to the user and ask — don't try to work around the deny.
+
 ## Working notes
 
 - Repo backups have a known GH007 email-privacy block on `origin` for normal push; the project uses release-bundle workaround for backups (per MEMORY.md). Regular pushes to working branches are fine.
