@@ -33,14 +33,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "私は",
-        "私が",
-        "私も",
-        "私の",
-        "私に",
-        "私と"
+        "わたしの ともだち",
+        "わたしの なまえ",
+        "わたしは がくせい",
+        "わたしも いく",
+        "わたしを しる",
+        "わたしと あう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.私たち",
@@ -74,14 +74,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "私たちは",
-        "私たちが",
-        "私たちも",
-        "私たちの",
-        "私たちに",
-        "私たちと"
+        "わたしたちの ともだち",
+        "わたしたちの なまえ",
+        "わたしたちは がくせい",
+        "わたしたちも いく",
+        "わたしたちを しる",
+        "わたしたちと あう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.あなた",
@@ -116,14 +116,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "あなたは",
-        "あなたが",
-        "あなたも",
-        "あなたの",
-        "あなたに",
-        "あなたと"
+        "あなたの ともだち",
+        "あなたの なまえ",
+        "あなたは がくせい",
+        "あなたも いく",
+        "あなたを しる",
+        "あなたと あう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かれ",
@@ -161,14 +161,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "かれは",
-        "かれが",
-        "かれも",
-        "かれの",
-        "かれに",
-        "かれと"
+        "かれの ともだち",
+        "かれの なまえ",
+        "かれは がくせい",
+        "かれも いく",
+        "かれを しる",
+        "かれと あう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かのじょ",
@@ -206,14 +206,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "かのじょは",
-        "かのじょが",
-        "かのじょも",
-        "かのじょの",
-        "かのじょに",
-        "かのじょと"
+        "かのじょの ともだち",
+        "かのじょの なまえ",
+        "かのじょは がくせい",
+        "かのじょも いく",
+        "かのじょを しる",
+        "かのじょと あう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かた",
@@ -418,14 +418,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "だれは",
-        "だれが",
-        "だれも",
-        "だれの",
-        "だれに",
-        "だれと"
+        "だれですか",
+        "だれが いい",
+        "だれを しますか",
+        "だれに いきますか",
+        "だれと あいますか",
+        "だれの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.どなた",
@@ -459,14 +459,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "どなたは",
-        "どなたが",
-        "どなたも",
-        "どなたの",
-        "どなたに",
-        "どなたと"
+        "どなたですか",
+        "どなたが いい",
+        "どなたを しますか",
+        "どなたに いきますか",
+        "どなたと あいますか",
+        "どなたの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.じぶん",
@@ -500,14 +500,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "じぶんは",
-        "じぶんが",
-        "じぶんも",
-        "じぶんの",
-        "じぶんに",
-        "じぶんと"
+        "じぶんの ともだち",
+        "じぶんの なまえ",
+        "じぶんは がくせい",
+        "じぶんも いく",
+        "じぶんを しる",
+        "じぶんと あう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.2-people-family.かぞく",
@@ -897,7 +897,13 @@
       "frequent_patterns": [
         "n5-125"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "long vowel coda - う carries the elongation, no strong devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.2-people-family.いもうと",
@@ -2927,14 +2933,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "これが ある",
-        "これを 見る",
-        "これを つかう",
-        "大きい これ",
-        "これの 中",
-        "これが すき"
+        "これは なん",
+        "これを ください",
+        "これが すき",
+        "これは たかい",
+        "これは どこ",
+        "これも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.それ",
@@ -2969,14 +2975,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "それが ある",
-        "それを 見る",
-        "それを つかう",
-        "大きい それ",
-        "それの 中",
-        "それが すき"
+        "それは なん",
+        "それを ください",
+        "それが すき",
+        "それは たかい",
+        "それは どこ",
+        "それも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あれ",
@@ -3011,14 +3017,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "あれが ある",
-        "あれを 見る",
-        "あれを つかう",
-        "大きい あれ",
-        "あれの 中",
-        "あれが すき"
+        "あれは なん",
+        "あれを ください",
+        "あれが すき",
+        "あれは たかい",
+        "あれは どこ",
+        "あれも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どれ",
@@ -3053,14 +3059,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "どれが ある",
-        "どれを 見る",
-        "どれを つかう",
-        "大きい どれ",
-        "どれの 中",
-        "どれが すき"
+        "どれは なん",
+        "どれを ください",
+        "どれが すき",
+        "どれは たかい",
+        "どれは どこ",
+        "どれも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.この",
@@ -3095,14 +3101,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "このが ある",
-        "このを 見る",
-        "このを つかう",
-        "大きい この",
-        "このの 中",
-        "このが すき"
+        "このは なん",
+        "このを ください",
+        "このが すき",
+        "このは たかい",
+        "このは どこ",
+        "このも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.その",
@@ -3137,14 +3143,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "そのが ある",
-        "そのを 見る",
-        "そのを つかう",
-        "大きい その",
-        "そのの 中",
-        "そのが すき"
+        "そのは なん",
+        "そのを ください",
+        "そのが すき",
+        "そのは たかい",
+        "そのは どこ",
+        "そのも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あの",
@@ -3179,14 +3185,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "あのが ある",
-        "あのを 見る",
-        "あのを つかう",
-        "大きい あの",
-        "あのの 中",
-        "あのが すき"
+        "あのは なん",
+        "あのを ください",
+        "あのが すき",
+        "あのは たかい",
+        "あのは どこ",
+        "あのも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どの",
@@ -3221,14 +3227,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "どのが ある",
-        "どのを 見る",
-        "どのを つかう",
-        "大きい どの",
-        "どのの 中",
-        "どのが すき"
+        "どのは なん",
+        "どのを ください",
+        "どのが すき",
+        "どのは たかい",
+        "どのは どこ",
+        "どのも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.ここ",
@@ -3263,14 +3269,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "ここが ある",
-        "ここを 見る",
-        "ここを つかう",
-        "大きい ここ",
-        "ここの 中",
-        "ここが すき"
+        "ここは なん",
+        "ここを ください",
+        "ここが すき",
+        "ここは たかい",
+        "ここは どこ",
+        "ここも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.そこ",
@@ -3305,14 +3311,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "そこが ある",
-        "そこを 見る",
-        "そこを つかう",
-        "大きい そこ",
-        "そこの 中",
-        "そこが すき"
+        "そこは なん",
+        "そこを ください",
+        "そこが すき",
+        "そこは たかい",
+        "そこは どこ",
+        "そこも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あそこ",
@@ -3347,14 +3353,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "あそこが ある",
-        "あそこを 見る",
-        "あそこを つかう",
-        "大きい あそこ",
-        "あそこの 中",
-        "あそこが すき"
+        "あそこは なん",
+        "あそこを ください",
+        "あそこが すき",
+        "あそこは たかい",
+        "あそこは どこ",
+        "あそこも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どこ",
@@ -3389,14 +3395,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "どこが ある",
-        "どこを 見る",
-        "どこを つかう",
-        "大きい どこ",
-        "どこの 中",
-        "どこが すき"
+        "どこは なん",
+        "どこを ください",
+        "どこが すき",
+        "どこは たかい",
+        "どこは どこ",
+        "どこも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.こちら",
@@ -3431,14 +3437,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "こちらが ある",
-        "こちらを 見る",
-        "こちらを つかう",
-        "大きい こちら",
-        "こちらの 中",
-        "こちらが すき"
+        "こちらは なん",
+        "こちらを ください",
+        "こちらが すき",
+        "こちらは たかい",
+        "こちらは どこ",
+        "こちらも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.そちら",
@@ -3473,14 +3479,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "そちらが ある",
-        "そちらを 見る",
-        "そちらを つかう",
-        "大きい そちら",
-        "そちらの 中",
-        "そちらが すき"
+        "そちらは なん",
+        "そちらを ください",
+        "そちらが すき",
+        "そちらは たかい",
+        "そちらは どこ",
+        "そちらも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あちら",
@@ -3514,14 +3520,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "あちらが ある",
-        "あちらを 見る",
-        "あちらを つかう",
-        "大きい あちら",
-        "あちらの 中",
-        "あちらが すき"
+        "あちらは なん",
+        "あちらを ください",
+        "あちらが すき",
+        "あちらは たかい",
+        "あちらは どこ",
+        "あちらも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どちら",
@@ -3556,14 +3562,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "どちらが ある",
-        "どちらを 見る",
-        "どちらを つかう",
-        "大きい どちら",
-        "どちらの 中",
-        "どちらが すき"
+        "どちらは なん",
+        "どちらを ください",
+        "どちらが すき",
+        "どちらは たかい",
+        "どちらは どこ",
+        "どちらも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.こっち",
@@ -3597,14 +3603,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "こっちが ある",
-        "こっちを 見る",
-        "こっちを つかう",
-        "大きい こっち",
-        "こっちの 中",
-        "こっちが すき"
+        "こっちは なん",
+        "こっちを ください",
+        "こっちが すき",
+        "こっちは たかい",
+        "こっちは どこ",
+        "こっちも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.そっち",
@@ -3638,14 +3644,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "そっちが ある",
-        "そっちを 見る",
-        "そっちを つかう",
-        "大きい そっち",
-        "そっちの 中",
-        "そっちが すき"
+        "そっちは なん",
+        "そっちを ください",
+        "そっちが すき",
+        "そっちは たかい",
+        "そっちは どこ",
+        "そっちも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あっち",
@@ -3679,14 +3685,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "あっちが ある",
-        "あっちを 見る",
-        "あっちを つかう",
-        "大きい あっち",
-        "あっちの 中",
-        "あっちが すき"
+        "あっちは なん",
+        "あっちを ください",
+        "あっちが すき",
+        "あっちは たかい",
+        "あっちは どこ",
+        "あっちも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どっち",
@@ -3720,14 +3726,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "どっちが ある",
-        "どっちを 見る",
-        "どっちを つかう",
-        "大きい どっち",
-        "どっちの 中",
-        "どっちが すき"
+        "どっちは なん",
+        "どっちを ください",
+        "どっちが すき",
+        "どっちは たかい",
+        "どっちは どこ",
+        "どっちも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.こんな",
@@ -3762,14 +3768,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "こんなが ある",
-        "こんなを 見る",
-        "こんなを つかう",
-        "大きい こんな",
-        "こんなの 中",
-        "こんなが すき"
+        "こんなは なん",
+        "こんなを ください",
+        "こんなが すき",
+        "こんなは たかい",
+        "こんなは どこ",
+        "こんなも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.そんな",
@@ -3803,14 +3809,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "そんなが ある",
-        "そんなを 見る",
-        "そんなを つかう",
-        "大きい そんな",
-        "そんなの 中",
-        "そんなが すき"
+        "そんなは なん",
+        "そんなを ください",
+        "そんなが すき",
+        "そんなは たかい",
+        "そんなは どこ",
+        "そんなも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あんな",
@@ -3845,14 +3851,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "あんなが ある",
-        "あんなを 見る",
-        "あんなを つかう",
-        "大きい あんな",
-        "あんなの 中",
-        "あんなが すき"
+        "あんなは なん",
+        "あんなを ください",
+        "あんなが すき",
+        "あんなは たかい",
+        "あんなは どこ",
+        "あんなも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どんな",
@@ -3887,14 +3893,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "どんなが ある",
-        "どんなを 見る",
-        "どんなを つかう",
-        "大きい どんな",
-        "どんなの 中",
-        "どんなが すき"
+        "どんなは なん",
+        "どんなを ください",
+        "どんなが すき",
+        "どんなは たかい",
+        "どんなは どこ",
+        "どんなも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.こう",
@@ -3929,14 +3935,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "こうが ある",
-        "こうを 見る",
-        "こうを つかう",
-        "大きい こう",
-        "こうの 中",
-        "こうが すき"
+        "こうは なん",
+        "こうを ください",
+        "こうが すき",
+        "こうは たかい",
+        "こうは どこ",
+        "こうも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.そう",
@@ -3971,14 +3977,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "そうが ある",
-        "そうを 見る",
-        "そうを つかう",
-        "大きい そう",
-        "そうの 中",
-        "そうが すき"
+        "そうは なん",
+        "そうを ください",
+        "そうが すき",
+        "そうは たかい",
+        "そうは どこ",
+        "そうも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.ああ",
@@ -4012,14 +4018,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ああが ある",
-        "ああを 見る",
-        "ああを つかう",
-        "大きい ああ",
-        "ああの 中",
-        "ああが すき"
+        "ああは なん",
+        "ああを ください",
+        "ああが すき",
+        "ああは たかい",
+        "ああは どこ",
+        "ああも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どう",
@@ -4062,14 +4068,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "どうが ある",
-        "どうを 見る",
-        "どうを つかう",
-        "大きい どう",
-        "どうの 中",
-        "どうが すき"
+        "どうは なん",
+        "どうを ください",
+        "どうが すき",
+        "どうは たかい",
+        "どうは どこ",
+        "どうも かう"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何",
@@ -4104,14 +4110,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "何ですか",
-        "何が いいですか",
-        "何でしたか",
-        "何に 行きますか",
-        "何を 食べますか",
-        "何と 話しますか"
+        "なに / なんですか",
+        "なに / なんが いい",
+        "なに / なんを しますか",
+        "なに / なんに いきますか",
+        "なに / なんと あいますか",
+        "なに / なんの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.いつ",
@@ -4147,13 +4153,13 @@
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
         "いつですか",
-        "いつが いいですか",
-        "いつでしたか",
-        "いつに 行きますか",
-        "いつを 食べますか",
-        "いつと 話しますか"
+        "いつが いい",
+        "いつを しますか",
+        "いつに いきますか",
+        "いつと あいますか",
+        "いつの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "devoiced_vowels": {
         "positions": [
           0
@@ -4197,13 +4203,13 @@
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
         "いくらですか",
-        "いくらが いいですか",
-        "いくらでしたか",
-        "いくらに 行きますか",
-        "いくらを 食べますか",
-        "いくらと 話しますか"
+        "いくらが いい",
+        "いくらを しますか",
+        "いくらに いきますか",
+        "いくらと あいますか",
+        "いくらの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.いくつ",
@@ -4239,13 +4245,13 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "いくつですか",
-        "いくつが いいですか",
-        "いくつでしたか",
-        "いくつに 行きますか",
-        "いくつを 食べますか",
-        "いくつと 話しますか"
+        "いくつが いい",
+        "いくつを しますか",
+        "いくつに いきますか",
+        "いくつと あいますか",
+        "いくつの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何時",
@@ -4280,14 +4286,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "何時ですか",
-        "何時が いいですか",
-        "何時でしたか",
-        "何時に 行きますか",
-        "何時を 食べますか",
-        "何時と 話しますか"
+        "なんじですか",
+        "なんじが いい",
+        "なんじを しますか",
+        "なんじに いきますか",
+        "なんじと あいますか",
+        "なんじの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何曜日",
@@ -4322,14 +4328,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "何曜日ですか",
-        "何曜日が いいですか",
-        "何曜日でしたか",
-        "何曜日に 行きますか",
-        "何曜日を 食べますか",
-        "何曜日と 話しますか"
+        "なんようびですか",
+        "なんようびが いい",
+        "なんようびを しますか",
+        "なんようびに いきますか",
+        "なんようびと あいますか",
+        "なんようびの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何月",
@@ -4364,14 +4370,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "何月ですか",
-        "何月が いいですか",
-        "何月でしたか",
-        "何月に 行きますか",
-        "何月を 食べますか",
-        "何月と 話しますか"
+        "なんがつですか",
+        "なんがつが いい",
+        "なんがつを しますか",
+        "なんがつに いきますか",
+        "なんがつと あいますか",
+        "なんがつの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何日",
@@ -4406,14 +4412,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "何日ですか",
-        "何日が いいですか",
-        "何日でしたか",
-        "何日に 行きますか",
-        "何日を 食べますか",
-        "何日と 話しますか"
+        "なんにちですか",
+        "なんにちが いい",
+        "なんにちを しますか",
+        "なんにちに いきますか",
+        "なんにちと あいますか",
+        "なんにちの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.なぜ",
@@ -4453,13 +4459,13 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "なぜですか",
-        "なぜが いいですか",
-        "なぜでしたか",
-        "なぜに 行きますか",
-        "なぜを 食べますか",
-        "なぜと 話しますか"
+        "なぜが いい",
+        "なぜを しますか",
+        "なぜに いきますか",
+        "なぜと あいますか",
+        "なぜの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.どうして",
@@ -4499,13 +4505,13 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
         "どうしてですか",
-        "どうしてが いいですか",
-        "どうしてでしたか",
-        "どうしてに 行きますか",
-        "どうしてを 食べますか",
-        "どうしてと 話しますか"
+        "どうしてが いい",
+        "どうしてを しますか",
+        "どうしてに いきますか",
+        "どうしてと あいますか",
+        "どうしての なまえ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何で",
@@ -4540,14 +4546,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "何でですか",
-        "何でが いいですか",
-        "何ででしたか",
-        "何でに 行きますか",
-        "何でを 食べますか",
-        "何でと 話しますか"
+        "なんでですか",
+        "なんでが いい",
+        "なんでを しますか",
+        "なんでに いきますか",
+        "なんでと あいますか",
+        "なんでの なまえ"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "why-casual",
@@ -4595,14 +4601,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "一つ",
-        "一かい",
-        "一ばん",
-        "一じ",
-        "一にん",
-        "一ふん"
+        "いちじ",
+        "いちねん",
+        "いちにん",
+        "いちまい",
+        "いちこ",
+        "いちほん"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "devoiced_vowels": {
         "positions": [
           0
@@ -4645,14 +4651,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "二つ",
-        "二かい",
-        "二ばん",
-        "二じ",
-        "二にん",
-        "二ふん"
+        "にじ",
+        "にねん",
+        "ににん",
+        "にまい",
+        "にこ",
+        "にほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.三",
@@ -4687,14 +4693,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "三つ",
-        "三かい",
-        "三ばん",
-        "三じ",
-        "三にん",
-        "三ふん"
+        "さんじ",
+        "さんねん",
+        "さんにん",
+        "さんまい",
+        "さんこ",
+        "さんほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.四",
@@ -4728,14 +4734,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "四つ",
-        "四かい",
-        "四ばん",
-        "四じ",
-        "四にん",
-        "四ふん"
+        "し / よんじ",
+        "し / よんねん",
+        "し / よんにん",
+        "し / よんまい",
+        "し / よんこ",
+        "し / よんほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.五",
@@ -4770,14 +4776,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "五つ",
-        "五かい",
-        "五ばん",
-        "五じ",
-        "五にん",
-        "五ふん"
+        "ごじ",
+        "ごねん",
+        "ごにん",
+        "ごまい",
+        "ごこ",
+        "ごほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.六",
@@ -4812,14 +4818,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "六つ",
-        "六かい",
-        "六ばん",
-        "六じ",
-        "六にん",
-        "六ふん"
+        "ろくじ",
+        "ろくねん",
+        "ろくにん",
+        "ろくまい",
+        "ろくこ",
+        "ろくほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.七",
@@ -4854,14 +4860,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "七つ",
-        "七かい",
-        "七ばん",
-        "七じ",
-        "七にん",
-        "七ふん"
+        "しち / ななじ",
+        "しち / ななねん",
+        "しち / ななにん",
+        "しち / ななまい",
+        "しち / ななこ",
+        "しち / ななほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.八",
@@ -4895,14 +4901,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "八つ",
-        "八かい",
-        "八ばん",
-        "八じ",
-        "八にん",
-        "八ふん"
+        "はちじ",
+        "はちねん",
+        "はちにん",
+        "はちまい",
+        "はちこ",
+        "はちほん"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "devoiced_vowels": {
         "positions": [
           0
@@ -4944,14 +4950,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "九つ",
-        "九かい",
-        "九ばん",
-        "九じ",
-        "九にん",
-        "九ふん"
+        "きゅう / くじ",
+        "きゅう / くねん",
+        "きゅう / くにん",
+        "きゅう / くまい",
+        "きゅう / くこ",
+        "きゅう / くほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.十",
@@ -4986,14 +4992,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "十つ",
-        "十かい",
-        "十ばん",
-        "十じ",
-        "十にん",
-        "十ふん"
+        "じゅうじ",
+        "じゅうねん",
+        "じゅうにん",
+        "じゅうまい",
+        "じゅうこ",
+        "じゅうほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.十一",
@@ -5027,14 +5033,14 @@
       "frequency_rank_source": "leeds_corpus_substring_proxy",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "十一つ",
-        "十一かい",
-        "十一ばん",
-        "十一じ",
-        "十一にん",
-        "十一ふん"
+        "じゅういちじ",
+        "じゅういちねん",
+        "じゅういちにん",
+        "じゅういちまい",
+        "じゅういちこ",
+        "じゅういちほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.二十",
@@ -5069,14 +5075,14 @@
       "frequency_rank_source": "leeds_corpus_substring_proxy",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "二十つ",
-        "二十かい",
-        "二十ばん",
-        "二十じ",
-        "二十にん",
-        "二十ふん"
+        "にじゅうじ",
+        "にじゅうねん",
+        "にじゅうにん",
+        "にじゅうまい",
+        "にじゅうこ",
+        "にじゅうほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.百",
@@ -5110,14 +5116,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "百つ",
-        "百かい",
-        "百ばん",
-        "百じ",
-        "百にん",
-        "百ふん"
+        "ひゃくじ",
+        "ひゃくねん",
+        "ひゃくにん",
+        "ひゃくまい",
+        "ひゃくこ",
+        "ひゃくほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.千",
@@ -5152,14 +5158,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "千つ",
-        "千かい",
-        "千ばん",
-        "千じ",
-        "千にん",
-        "千ふん"
+        "せんじ",
+        "せんねん",
+        "せんにん",
+        "せんまい",
+        "せんこ",
+        "せんほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.万",
@@ -5193,14 +5199,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "万つ",
-        "万かい",
-        "万ばん",
-        "万じ",
-        "万にん",
-        "万ふん"
+        "まんじ",
+        "まんねん",
+        "まんにん",
+        "まんまい",
+        "まんこ",
+        "まんほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.一万",
@@ -5234,14 +5240,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "一万つ",
-        "一万かい",
-        "一万ばん",
-        "一万じ",
-        "一万にん",
-        "一万ふん"
+        "いちまんじ",
+        "いちまんねん",
+        "いちまんにん",
+        "いちまんまい",
+        "いちまんこ",
+        "いちまんほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.7-numbers.おく",
@@ -5285,7 +5291,12 @@
         "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "いれる",
+        "すてる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.8-native-counters-series.一つ",
@@ -6492,7 +6503,12 @@
         "たくさんの 番",
         "ひとり 番"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "よる",
+        "ゆうがた"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.9-counters-common.ど",
@@ -7148,7 +7164,11 @@
         "ゆうがたを まつ",
         "ゆうがたが おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "ばん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.よる",
@@ -7238,7 +7258,12 @@
         "ばんを まつ",
         "ばんが おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "よる",
+        "ゆうがた"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.けさ",
@@ -7728,7 +7753,17 @@
         "一日を まつ",
         "一日が おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "counter_register": {
+        "counter": "にち",
+        "irregular": false,
+        "note": "1-day. Calendar usage: ついたち for 1st of month.",
+        "register_pair": {
+          "casual_alt": "いちにち",
+          "formal_same": "一日"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.二日",
@@ -7771,7 +7806,17 @@
         "二日を まつ",
         "二日が おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "counter_register": {
+        "counter": "にち",
+        "irregular": true,
+        "note": "2 days / 2nd of month. Irregular kun reading.",
+        "register_pair": {
+          "casual_alt": "ふつか",
+          "formal_same": "二日"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.三日",
@@ -7820,7 +7865,23 @@
         "n5-161",
         "n5-162"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "counter_register": {
+        "counter": "にち",
+        "irregular": true,
+        "note": "3 days / 3rd of month. Irregular kun.",
+        "register_pair": {
+          "casual_alt": "みっか",
+          "formal_same": "三日"
+        }
+      },
+      "counter_register_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "sokuon present; no vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.四日",
@@ -7863,7 +7924,17 @@
         "四日を まつ",
         "四日が おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "counter_register": {
+        "counter": "にち",
+        "irregular": true,
+        "note": "4 days / 4th of month. Irregular kun.",
+        "register_pair": {
+          "casual_alt": "よっか",
+          "formal_same": "四日"
+        }
+      },
+      "counter_register_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.五日",
@@ -9824,7 +9895,13 @@
         "毎日の せいかつ",
         "毎日 まなぶ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no standard devoicing here",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.まいあさ",
@@ -10112,7 +10189,13 @@
         "いつも",
         "よく"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.あまり",
@@ -10253,7 +10336,13 @@
       "frequent_patterns": [
         "n5-070"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - voiced g",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もう",
@@ -10820,7 +10909,11 @@
         "n5-090",
         "n5-091"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "いえ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.だいどころ",
@@ -11243,7 +11336,13 @@
         "高校を 出る",
         "高校の しけん"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "long-vowel pair; no devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.きょうしつ",
@@ -12070,7 +12169,11 @@
         "駅まで あるく",
         "駅に つく"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "くうこう"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.くうこう",
@@ -12113,7 +12216,11 @@
         "くうこうまで あるく",
         "くうこうに つく"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "えき"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.こうえん",
@@ -16113,7 +16220,11 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 3000,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "false_friends": [
+        "りょうり"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.のみもの",
@@ -17649,7 +17760,15 @@
         "しおを みる",
         "やすい しお"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "し devoices before voiceless contexts (rare here, depends)",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.17-food-items.さとう",
@@ -18698,7 +18817,13 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 4500,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "long-vowel sequence; no devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.18-drinks.ジュース",
@@ -20149,7 +20274,11 @@
         "ようふくを みる",
         "やすい ようふく"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "きもの"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.21-clothing-and-accessor.きもの",
@@ -20196,7 +20325,11 @@
         "きものを みる",
         "やすい きもの"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "ようふく"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.21-clothing-and-accessor.うわぎ",
@@ -20846,7 +20979,11 @@
         "n5-137",
         "n5-167"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "にもつ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.21-clothing-and-accessor.さいふ",
@@ -20889,7 +21026,11 @@
         "さいふを みる",
         "やすい さいふ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "おかね"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.21-clothing-and-accessor.めがね",
@@ -21165,7 +21306,11 @@
         "n5-134",
         "n5-175"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "さいふ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.円",
@@ -21503,7 +21648,13 @@
         "ふうとうを みる",
         "やすい ふうとう"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "long-vowel sequence; no strong devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.てがみ",
@@ -21607,7 +21758,11 @@
         "にもつを みる",
         "やすい にもつ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "かばん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.おみやげ",
@@ -21723,7 +21878,9 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "false_friends": {},
+      "false_friends": [
+        "でんしゃ"
+      ],
       "pitch_accent": {
         "mora": 3,
         "drop": 0
@@ -21739,7 +21896,8 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived"
+      "collocations_provenance": "auto_derived",
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.じどうしゃ",
@@ -21919,7 +22077,12 @@
         "n5-095",
         "n5-112"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "でんしゃ",
+        "タクシー"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.タクシー",
@@ -21974,7 +22137,11 @@
         "n5-075",
         "n5-080"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "バス"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.電車",
@@ -22022,7 +22189,12 @@
         "n5-095",
         "n5-121"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "くるま",
+        "バス"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.きしゃ",
@@ -22169,7 +22341,11 @@
         "note": "ひ devoices before voiceless k",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "ふね"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.ふね",
@@ -22212,7 +22388,17 @@
         "ふねを みる",
         "やすい ふね"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no standard devoicing - voiced n",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "ひこうき"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.23-transport.道",
@@ -24068,7 +24254,11 @@
         "note": "ち devoices before voiceless す/ず onset",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "ほん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.24-school-and-study.しゃしん",
@@ -26968,7 +27158,11 @@
         "respectful": "おおもいになる (rare)",
         "note": "Think — humble 存じる (formal writing)."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "かんがえる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.買う",
@@ -27209,7 +27403,15 @@
       "frequent_patterns": [
         "n5-030"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "きる",
+        "polite": "きます",
+        "humble": "(varies)",
+        "respectful": "おきになる",
+        "note": "Wear — uses regular o-stem form."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つくる",
@@ -27264,7 +27466,15 @@
         "note": "つ devoices before voiceless k",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "つくる",
+        "polite": "つくります",
+        "humble": "おつくりする",
+        "respectful": "おつくりになる",
+        "note": "Make."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しる",
@@ -27371,7 +27581,15 @@
         "n5-155",
         "n5-165"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "すむ",
+        "polite": "すんでいます",
+        "humble": "おる",
+        "respectful": "おすまいになる",
+        "note": "Live — respectful uses 住まい-based form."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.立つ",
@@ -27415,7 +27633,15 @@
         "drop": 1
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "たつ",
+        "polite": "たちます",
+        "humble": "おたちする",
+        "respectful": "おたちになる",
+        "note": "Stand."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる",
@@ -27731,7 +27957,15 @@
         "mora": 2,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "honorific_chain": {
+        "plain": "はく",
+        "polite": "はきます",
+        "humble": "(N/A)",
+        "respectful": "おはきになる",
+        "note": "Wear (lower body / shoes)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.話す",
@@ -27845,7 +28079,15 @@
       "frequent_patterns": [
         "n5-182"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "はしる",
+        "polite": "はしります",
+        "humble": "おはしりする",
+        "respectful": "おはしりになる",
+        "note": "Run."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はたらく",
@@ -28012,7 +28254,19 @@
         "note": "final つ devoices",
         "rule": "final_after_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "もらう"
+      ],
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "もつ",
+        "polite": "もちます",
+        "humble": "おもちする",
+        "respectful": "おもちになる",
+        "note": "Hold / have — humble お持ちする for carrying for others."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.休む",
@@ -28060,7 +28314,15 @@
         "n5-134",
         "n5-161"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "やすむ",
+        "polite": "やすみます",
+        "humble": "おやすみする",
+        "respectful": "おやすみになる",
+        "note": "Rest / sleep — respectful お休みになる is very polite for \"sleep\"."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.読む",
@@ -28385,7 +28647,15 @@
         "いく",
         "くる"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "かえる",
+        "polite": "かえります",
+        "humble": "もどる / おかえりする",
+        "respectful": "おかえりになる",
+        "note": "Return — respectful お帰りになる."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うる",
@@ -28485,7 +28755,15 @@
       "frequent_patterns": [
         "n5-135"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "おす",
+        "polite": "おします",
+        "humble": "おおしする",
+        "respectful": "おおしになる",
+        "note": "Push."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
@@ -28849,7 +29127,12 @@
       "frequent_patterns": [
         "n5-078"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "あがる",
+        "おりる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたす",
@@ -29221,7 +29504,15 @@
         "note": "つ devoices before voiceless k",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "つかう",
+        "polite": "つかいます",
+        "humble": "つかわせていただく",
+        "respectful": "おつかいになる",
+        "note": "Use."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つく",
@@ -29280,7 +29571,15 @@
         "n5-135",
         "n5-143"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "つ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならう",
@@ -29322,7 +29621,11 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2269,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "false_friends": [
+        "おしえる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はる",
@@ -29703,7 +30006,11 @@
         "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "いれる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おとす",
@@ -30188,7 +30495,12 @@
         "n5-092",
         "n5-093"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "いれる",
+        "すてる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.さく",
@@ -30382,7 +30694,15 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3807,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "honorific_chain": {
+        "plain": "けす",
+        "polite": "けします",
+        "humble": "おけしする",
+        "respectful": "おけしになる",
+        "note": "Turn off / erase."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いる",
@@ -30452,7 +30772,11 @@
         "n5-059",
         "n5-061"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "いれる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.食べる",
@@ -30818,7 +31142,12 @@
       "frequent_patterns": [
         "n5-132"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "だす",
+        "おく"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あける",
@@ -30983,7 +31312,11 @@
         "respectful": "おしえになる",
         "note": "Teach — informal humble."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "ならう"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おぼえる",
@@ -31164,7 +31497,15 @@
         "mora": 4,
         "drop": 3
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "honorific_chain": {
+        "plain": "こたえる",
+        "polite": "こたえます",
+        "humble": "おこたえする",
+        "respectful": "おこたえになる",
+        "note": "Answer."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出かける",
@@ -31309,7 +31650,15 @@
       "frequent_patterns": [
         "n5-030"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "きる",
+        "polite": "きます",
+        "humble": "(varies)",
+        "respectful": "おきになる",
+        "note": "Wear — uses regular o-stem form."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つける",
@@ -31360,7 +31709,13 @@
         "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no standard devoicing here",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ならべる",
@@ -31461,7 +31816,15 @@
         "はじまる",
         "おわる"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "はじめる",
+        "polite": "はじめます",
+        "humble": "はじめさせていただく",
+        "respectful": "おはじめになる",
+        "note": "Begin (transitive)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見せる",
@@ -31594,7 +31957,12 @@
         "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "だす",
+        "おく"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あつめる",
@@ -31732,7 +32100,12 @@
         "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "さがる",
+        "おりる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はれる",
@@ -31820,7 +32193,15 @@
       "frequent_patterns": [
         "n5-134"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "つ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.生まれる",
@@ -31908,7 +32289,15 @@
       "false_friends": [
         "のる"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "おりる",
+        "polite": "おります",
+        "humble": "おりる",
+        "respectful": "おおりになる",
+        "note": "Get off / alight."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる.2",
@@ -32063,7 +32452,12 @@
         "n5-021",
         "n5-044"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "なる",
+        "やる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.来る",
@@ -32695,7 +33089,12 @@
         "n5-034",
         "n5-054"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "いる",
+        "なる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる.2",
@@ -32756,7 +33155,11 @@
         "n5-059",
         "n5-061"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "いれる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.やる",
@@ -32806,7 +33209,12 @@
         "respectful": "(use なさる)",
         "note": "Do (casual) — usually replaced by する/なさる in formal."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "する",
+        "あげる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.あげる",
@@ -33891,7 +34299,11 @@
         "n5-051",
         "n5-145"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "おもう"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.かるい",
@@ -34375,7 +34787,12 @@
         "n5-127",
         "n5-155"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "つまらない",
+        "おもしろい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.うれしい",
@@ -34736,7 +35153,11 @@
         "n5-134",
         "n5-187"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "ひま"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.やさしい",
@@ -34783,7 +35204,12 @@
       "frequent_patterns": [
         "n5-136"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "むずかしい",
+        "やすい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.むずかしい",
@@ -34837,7 +35263,18 @@
         "n5-097",
         "n5-104"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no standard high-vowel devoicing - z, k voiced/voiceless mix",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "やさしい",
+        "やすい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.おもしろい",
@@ -34857,7 +35294,9 @@
         }
       ],
       "review_status": "native_reviewed",
-      "false_friends": {},
+      "false_friends": [
+        "つまらない"
+      ],
       "gloss_hi": "दिलचस्प",
       "gloss_provenance": {
         "hi": "native_reviewed",
@@ -34892,7 +35331,8 @@
         "n5-081",
         "n5-082"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.つまらない",
@@ -34939,7 +35379,11 @@
       "frequent_patterns": [
         "n5-174"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "おもしろい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.おいしい",
@@ -35034,7 +35478,13 @@
         "まずく ない",
         "まずい あじ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing - z is voiced",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.あまい",
@@ -35870,7 +36320,11 @@
         "n5-030",
         "n5-165"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "つかれた"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.しずか",
@@ -35924,7 +36378,11 @@
         "n5-087",
         "n5-088"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "きれい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.にぎやか",
@@ -35973,7 +36431,11 @@
         "n5-087",
         "n5-089"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "しずか"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.きれい",
@@ -36024,7 +36486,11 @@
         "n5-089",
         "n5-181"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "しずか"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.しんせつ",
@@ -36120,7 +36586,11 @@
         "ひまに なる",
         "ひまが すき"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "いそがしい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.たいへん",
@@ -36165,7 +36635,11 @@
       "frequent_patterns": [
         "n5-030"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "ふべん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.だいじょうぶ",
@@ -36259,7 +36733,11 @@
         "n5-087",
         "n5-089"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "ふべん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.ふべん",
@@ -36302,7 +36780,17 @@
         "ふべんに なる",
         "ふべんが すき"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - voiced b",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "たいへん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.ゆうめい",
@@ -36449,7 +36937,11 @@
       "frequent_patterns": [
         "n5-100"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "にがて"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.すき",
@@ -36781,7 +37273,13 @@
         "りっぱに なる",
         "りっぱが すき"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "sokuon present; no vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.かんたん",
@@ -37346,7 +37844,13 @@
       "false_friends": [
         "すこし"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing in this form",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.おおぜい",
@@ -37380,14 +37884,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "おおぜい 食べる",
-        "おおぜい 行く",
-        "おおぜい 見る",
-        "おおぜい わかる",
-        "おおぜい 思う",
-        "おおぜい 来る"
+        "おおぜい する",
+        "おおぜい たべる",
+        "おおぜい のむ",
+        "おおぜい いきます",
+        "おおぜい あります",
+        "おおぜい います"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "false_friends": [
         "すこし",
         "たくさん"
@@ -37471,14 +37975,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ぜんぶ 食べる",
-        "ぜんぶ 行く",
-        "ぜんぶ 見る",
-        "ぜんぶ わかる",
-        "ぜんぶ 思う",
-        "ぜんぶ 来る"
+        "ぜんぶ する",
+        "ぜんぶ たべる",
+        "ぜんぶ のむ",
+        "ぜんぶ いきます",
+        "ぜんぶ あります",
+        "ぜんぶ います"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-053"
       ],
@@ -37596,14 +38100,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "もうすこし 食べる",
-        "もうすこし 行く",
-        "もうすこし 見る",
-        "もうすこし わかる",
-        "もうすこし 思う",
-        "もうすこし 来る"
+        "もうすこし する",
+        "もうすこし たべる",
+        "もうすこし のむ",
+        "もうすこし いきます",
+        "もうすこし あります",
+        "もうすこし います"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.もっと",
@@ -37767,14 +38271,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "ほんとうに 食べる",
-        "ほんとうに 行く",
-        "ほんとうに 見る",
-        "ほんとうに わかる",
-        "ほんとうに 思う",
-        "ほんとうに 来る"
+        "ほんとうに する",
+        "ほんとうに たべる",
+        "ほんとうに のむ",
+        "ほんとうに いきます",
+        "ほんとうに あります",
+        "ほんとうに います"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.ゆっくり",
@@ -37860,7 +38364,13 @@
       "frequent_patterns": [
         "n5-070"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - voiced g",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.たぶん",
@@ -37939,14 +38449,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "いっしょに 食べる",
-        "いっしょに 行く",
-        "いっしょに 見る",
-        "いっしょに わかる",
-        "いっしょに 思う",
-        "いっしょに 来る"
+        "いっしょに する",
+        "いっしょに たべる",
+        "いっしょに のむ",
+        "いっしょに いきます",
+        "いっしょに あります",
+        "いっしょに います"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-062",
         "n5-063",
@@ -37956,7 +38466,13 @@
         "n5-185",
         "n5-187"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "sokuon onset; no vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.一人で",
@@ -37990,14 +38506,14 @@
       "frequency_rank_source": "leeds_corpus_substring_proxy",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "一人で 食べる",
-        "一人で 行く",
-        "一人で 見る",
-        "一人で わかる",
-        "一人で 思う",
-        "一人で 来る"
+        "ひとりで する",
+        "ひとりで たべる",
+        "ひとりで のむ",
+        "ひとりで いきます",
+        "ひとりで あります",
+        "ひとりで います"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.じぶんで",
@@ -38031,14 +38547,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "じぶんで 食べる",
-        "じぶんで 行く",
-        "じぶんで 見る",
-        "じぶんで わかる",
-        "じぶんで 思う",
-        "じぶんで 来る"
+        "じぶんで する",
+        "じぶんで たべる",
+        "じぶんで のむ",
+        "じぶんで いきます",
+        "じぶんで あります",
+        "じぶんで います"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-004",
         "n5-005",
@@ -38083,14 +38599,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "かならず 食べる",
-        "かならず 行く",
-        "かならず 見る",
-        "かならず わかる",
-        "かならず 思う",
-        "かならず 来る"
+        "かならず する",
+        "かならず たべる",
+        "かならず のむ",
+        "かならず いきます",
+        "かならず あります",
+        "かならず います"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.きっと",
@@ -38210,14 +38726,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "どうぞが ある",
-        "どうぞを 見る",
+        "どうぞと いいます",
+        "どうぞと おもいます",
+        "どうぞ、 ね",
+        "どうぞ、 よ",
         "どうぞを つかう",
-        "大きい どうぞ",
-        "どうぞの 中",
-        "どうぞが すき"
+        "「どうぞ」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "offering",
@@ -38269,14 +38785,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "どうもが ある",
-        "どうもを 見る",
+        "どうもと いいます",
+        "どうもと おもいます",
+        "どうも、 ね",
+        "どうも、 よ",
         "どうもを つかう",
-        "大きい どうも",
-        "どうもの 中",
-        "どうもが すき"
+        "「どうも」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "thanks-shortened",
@@ -38333,14 +38849,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "どうぞよろしくが ある",
-        "どうぞよろしくを 見る",
+        "どうぞよろしくと いいます",
+        "どうぞよろしくと おもいます",
+        "どうぞよろしく、 ね",
+        "どうぞよろしく、 よ",
         "どうぞよろしくを つかう",
-        "大きい どうぞよろしく",
-        "どうぞよろしくの 中",
-        "どうぞよろしくが すき"
+        "「どうぞよろしく」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.まっすぐ",
@@ -38415,14 +38931,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "もういちど 食べる",
-        "もういちど 行く",
-        "もういちど 見る",
-        "もういちど わかる",
-        "もういちど 思う",
-        "もういちど 来る"
+        "もういちど する",
+        "もういちど たべる",
+        "もういちど のむ",
+        "もういちど いきます",
+        "もういちど あります",
+        "もういちど います"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.まず",
@@ -38501,14 +39017,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "もしもしが ある",
-        "もしもしを 見る",
+        "もしもしと いいます",
+        "もしもしと おもいます",
+        "もしもし、 ね",
+        "もしもし、 よ",
         "もしもしを つかう",
-        "大きい もしもし",
-        "もしもしの 中",
-        "もしもしが すき"
+        "「もしもし」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "phone-greeting",
@@ -38555,14 +39071,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "そしてが ある",
-        "そしてを 見る",
-        "そしてを つかう",
-        "大きい そして",
-        "そしての 中",
-        "そしてが すき"
+        "AはBです。そして、CはDです。",
+        "おいしい。そして、 たかい。",
+        "たべました。そして、 ねます。",
+        "そして、 いきましょう。",
+        "そして、 おわります。",
+        "いきます。そして、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.それから",
@@ -38596,14 +39112,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "それからが ある",
-        "それからを 見る",
-        "それからを つかう",
-        "大きい それから",
-        "それからの 中",
-        "それからが すき"
+        "AはBです。それから、CはDです。",
+        "おいしい。それから、 たかい。",
+        "たべました。それから、 ねます。",
+        "それから、 いきましょう。",
+        "それから、 おわります。",
+        "いきます。それから、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.それで",
@@ -38637,14 +39153,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "それでが ある",
-        "それでを 見る",
-        "それでを つかう",
-        "大きい それで",
-        "それでの 中",
-        "それでが すき"
+        "AはBです。それで、CはDです。",
+        "おいしい。それで、 たかい。",
+        "たべました。それで、 ねます。",
+        "それで、 いきましょう。",
+        "それで、 おわります。",
+        "いきます。それで、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.でも",
@@ -38678,14 +39194,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "でもが ある",
-        "でもを 見る",
-        "でもを つかう",
-        "大きい でも",
-        "でもの 中",
-        "でもが すき"
+        "AはBです。でも、CはDです。",
+        "おいしい。でも、 たかい。",
+        "たべました。でも、 ねます。",
+        "でも、 いきましょう。",
+        "でも、 おわります。",
+        "いきます。でも、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "sentence-conjunction",
@@ -38737,14 +39253,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "しかしが ある",
-        "しかしを 見る",
-        "しかしを つかう",
-        "大きい しかし",
-        "しかしの 中",
-        "しかしが すき"
+        "AはBです。しかし、CはDです。",
+        "おいしい。しかし、 たかい。",
+        "たべました。しかし、 ねます。",
+        "しかし、 いきましょう。",
+        "しかし、 おわります。",
+        "いきます。しかし、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.が",
@@ -38778,14 +39294,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "がが ある",
-        "がを 見る",
-        "がを つかう",
-        "大きい が",
-        "がの 中",
-        "がが すき"
+        "AはBです。が、CはDです。",
+        "おいしい。が、 たかい。",
+        "たべました。が、 ねます。",
+        "が、 いきましょう。",
+        "が、 おわります。",
+        "いきます。が、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.から",
@@ -38819,14 +39335,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "からが ある",
-        "からを 見る",
-        "からを つかう",
-        "大きい から",
-        "からの 中",
-        "からが すき"
+        "AはBです。から、CはDです。",
+        "おいしい。から、 たかい。",
+        "たべました。から、 ねます。",
+        "から、 いきましょう。",
+        "から、 おわります。",
+        "いきます。から、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.だから",
@@ -38860,14 +39376,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "だからが ある",
-        "だからを 見る",
-        "だからを つかう",
-        "大きい だから",
-        "だからの 中",
-        "だからが すき"
+        "AはBです。だから、CはDです。",
+        "おいしい。だから、 たかい。",
+        "たべました。だから、 ねます。",
+        "だから、 いきましょう。",
+        "だから、 おわります。",
+        "いきます。だから、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.ですから",
@@ -38901,14 +39417,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ですからが ある",
-        "ですからを 見る",
-        "ですからを つかう",
-        "大きい ですから",
-        "ですからの 中",
-        "ですからが すき"
+        "AはBです。ですから、CはDです。",
+        "おいしい。ですから、 たかい。",
+        "たべました。ですから、 ねます。",
+        "ですから、 いきましょう。",
+        "ですから、 おわります。",
+        "いきます。ですから、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.それに",
@@ -38942,14 +39458,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "それにが ある",
-        "それにを 見る",
-        "それにを つかう",
-        "大きい それに",
-        "それにの 中",
-        "それにが すき"
+        "AはBです。それに、CはDです。",
+        "おいしい。それに、 たかい。",
+        "たべました。それに、 ねます。",
+        "それに、 いきましょう。",
+        "それに、 おわります。",
+        "いきます。それに、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.ところで",
@@ -38983,14 +39499,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ところでが ある",
-        "ところでを 見る",
-        "ところでを つかう",
-        "大きい ところで",
-        "ところでの 中",
-        "ところでが すき"
+        "AはBです。ところで、CはDです。",
+        "おいしい。ところで、 たかい。",
+        "たべました。ところで、 ねます。",
+        "ところで、 いきましょう。",
+        "ところで、 おわります。",
+        "いきます。ところで、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.または",
@@ -39024,14 +39540,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "またはが ある",
-        "またはを 見る",
-        "またはを つかう",
-        "大きい または",
-        "またはの 中",
-        "またはが すき"
+        "AはBです。または、CはDです。",
+        "おいしい。または、 たかい。",
+        "たべました。または、 ねます。",
+        "または、 いきましょう。",
+        "または、 おわります。",
+        "いきます。または、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.は",
@@ -39065,14 +39581,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "はが ある",
-        "はを 見る",
-        "はを つかう",
-        "大きい は",
-        "はの 中",
-        "はが すき"
+        "は がくせいです",
+        "は すきです",
+        "は ありません",
+        "これは",
+        "なんは",
+        "いつは"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.が",
@@ -39106,14 +39622,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "がが ある",
-        "がを 見る",
-        "がを つかう",
-        "大きい が",
-        "がの 中",
-        "がが すき"
+        "が がくせいです",
+        "が すきです",
+        "が ありません",
+        "これが",
+        "なんが",
+        "いつが"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.を",
@@ -39147,14 +39663,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "をが ある",
-        "をを 見る",
-        "をを つかう",
-        "大きい を",
-        "をの 中",
-        "をが すき"
+        "を がくせいです",
+        "を すきです",
+        "を ありません",
+        "これを",
+        "なんを",
+        "いつを"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.に",
@@ -39188,14 +39704,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "にが ある",
-        "にを 見る",
-        "にを つかう",
-        "大きい に",
-        "にの 中",
-        "にが すき"
+        "に がくせいです",
+        "に すきです",
+        "に ありません",
+        "これに",
+        "なんに",
+        "いつに"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.で",
@@ -39229,14 +39745,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "でが ある",
-        "でを 見る",
-        "でを つかう",
-        "大きい で",
-        "での 中",
-        "でが すき"
+        "で がくせいです",
+        "で すきです",
+        "で ありません",
+        "これで",
+        "なんで",
+        "いつで"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.へ",
@@ -39270,14 +39786,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "へが ある",
-        "へを 見る",
-        "へを つかう",
-        "大きい へ",
-        "への 中",
-        "へが すき"
+        "へ がくせいです",
+        "へ すきです",
+        "へ ありません",
+        "これへ",
+        "なんへ",
+        "いつへ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.と",
@@ -39311,14 +39827,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "とが ある",
-        "とを 見る",
-        "とを つかう",
-        "大きい と",
-        "との 中",
-        "とが すき"
+        "と がくせいです",
+        "と すきです",
+        "と ありません",
+        "これと",
+        "なんと",
+        "いつと"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.か",
@@ -39352,14 +39868,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "かが ある",
-        "かを 見る",
-        "かを つかう",
-        "大きい か",
-        "かの 中",
-        "かが すき"
+        "か がくせいです",
+        "か すきです",
+        "か ありません",
+        "これか",
+        "なんか",
+        "いつか"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.も",
@@ -39393,14 +39909,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "もが ある",
-        "もを 見る",
-        "もを つかう",
-        "大きい も",
-        "もの 中",
-        "もが すき"
+        "も がくせいです",
+        "も すきです",
+        "も ありません",
+        "これも",
+        "なんも",
+        "いつも"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.や",
@@ -39434,14 +39950,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "やが ある",
-        "やを 見る",
-        "やを つかう",
-        "大きい や",
-        "やの 中",
-        "やが すき"
+        "や がくせいです",
+        "や すきです",
+        "や ありません",
+        "これや",
+        "なんや",
+        "いつや"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.の",
@@ -39475,14 +39991,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "のが ある",
-        "のを 見る",
-        "のを つかう",
-        "大きい の",
-        "のの 中",
-        "のが すき"
+        "の がくせいです",
+        "の すきです",
+        "の ありません",
+        "これの",
+        "なんの",
+        "いつの"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.から",
@@ -39516,14 +40032,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "からが ある",
-        "からを 見る",
-        "からを つかう",
-        "大きい から",
-        "からの 中",
-        "からが すき"
+        "から がくせいです",
+        "から すきです",
+        "から ありません",
+        "これから",
+        "なんから",
+        "いつから"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.まで",
@@ -39557,14 +40073,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "までが ある",
-        "までを 見る",
-        "までを つかう",
-        "大きい まで",
-        "までの 中",
-        "までが すき"
+        "まで がくせいです",
+        "まで すきです",
+        "まで ありません",
+        "これまで",
+        "なんまで",
+        "いつまで"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.ね",
@@ -39598,14 +40114,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ねが ある",
-        "ねを 見る",
-        "ねを つかう",
-        "大きい ね",
-        "ねの 中",
-        "ねが すき"
+        "ね がくせいです",
+        "ね すきです",
+        "ね ありません",
+        "これね",
+        "なんね",
+        "いつね"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "agreement-seeking",
@@ -39652,14 +40168,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "よが ある",
-        "よを 見る",
-        "よを つかう",
-        "大きい よ",
-        "よの 中",
-        "よが すき"
+        "よ がくせいです",
+        "よ すきです",
+        "よ ありません",
+        "これよ",
+        "なんよ",
+        "いつよ"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "assertion-marker",
@@ -39706,14 +40222,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "だけが ある",
-        "だけを 見る",
-        "だけを つかう",
-        "大きい だけ",
-        "だけの 中",
-        "だけが すき"
+        "だけ がくせいです",
+        "だけ すきです",
+        "だけ ありません",
+        "これだけ",
+        "なんだけ",
+        "いつだけ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.しか",
@@ -39747,14 +40263,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "しかが ある",
-        "しかを 見る",
-        "しかを つかう",
-        "大きい しか",
-        "しかの 中",
-        "しかが すき"
+        "しか がくせいです",
+        "しか すきです",
+        "しか ありません",
+        "これしか",
+        "なんしか",
+        "いつしか"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "devoiced_vowels": {
         "positions": [
           0
@@ -39796,14 +40312,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ごろが ある",
-        "ごろを 見る",
-        "ごろを つかう",
-        "大きい ごろ",
-        "ごろの 中",
-        "ごろが すき"
+        "ごろ がくせいです",
+        "ごろ すきです",
+        "ごろ ありません",
+        "これごろ",
+        "なんごろ",
+        "いつごろ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.ずつ",
@@ -39837,14 +40353,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ずつが ある",
-        "ずつを 見る",
-        "ずつを つかう",
-        "大きい ずつ",
-        "ずつの 中",
-        "ずつが すき"
+        "ずつ がくせいです",
+        "ずつ すきです",
+        "ずつ ありません",
+        "これずつ",
+        "なんずつ",
+        "いつずつ"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.35-particles-functional-.など",
@@ -39878,14 +40394,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "などが ある",
-        "などを 見る",
-        "などを つかう",
-        "大きい など",
-        "などの 中",
-        "などが すき"
+        "など がくせいです",
+        "など すきです",
+        "など ありません",
+        "これなど",
+        "なんなど",
+        "いつなど"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.おはようございます",
@@ -39920,14 +40436,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "おはようございます",
-        "はい、おはようございます",
-        "どうも、おはようございます",
-        "えっ、おはようございます",
-        "では、おはようございます",
-        "あ、おはようございます"
+        "おはようございますと いいます",
+        "おはようございますと おもいます",
+        "おはようございます、 ね",
+        "おはようございます、 よ",
+        "おはようございますを つかう",
+        "「おはようございます」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.こんにちは",
@@ -39961,14 +40477,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "こんにちは",
-        "はい、こんにちは",
-        "どうも、こんにちは",
-        "えっ、こんにちは",
-        "では、こんにちは",
-        "あ、こんにちは"
+        "こんにちはと いいます",
+        "こんにちはと おもいます",
+        "こんにちは、 ね",
+        "こんにちは、 よ",
+        "こんにちはを つかう",
+        "「こんにちは」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "day-greeting",
@@ -40015,14 +40531,14 @@
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "こんばんは",
-        "はい、こんばんは",
-        "どうも、こんばんは",
-        "えっ、こんばんは",
-        "では、こんばんは",
-        "あ、こんばんは"
+        "こんばんはと いいます",
+        "こんばんはと おもいます",
+        "こんばんは、 ね",
+        "こんばんは、 よ",
+        "こんばんはを つかう",
+        "「こんばんは」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "evening-greeting",
@@ -40064,14 +40580,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "おやすみなさい",
-        "はい、おやすみなさい",
-        "どうも、おやすみなさい",
-        "えっ、おやすみなさい",
-        "では、おやすみなさい",
-        "あ、おやすみなさい"
+        "おやすみなさいと いいます",
+        "おやすみなさいと おもいます",
+        "おやすみなさい、 ね",
+        "おやすみなさい、 よ",
+        "おやすみなさいを つかう",
+        "「おやすみなさい」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.さようなら",
@@ -40105,14 +40621,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "さようなら",
-        "はい、さようなら",
-        "どうも、さようなら",
-        "えっ、さようなら",
-        "では、さようなら",
-        "あ、さようなら"
+        "さようならと いいます",
+        "さようならと おもいます",
+        "さようなら、 ね",
+        "さようなら、 よ",
+        "さようならを つかう",
+        "「さようなら」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "formal-farewell",
@@ -40160,14 +40676,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "しつれいします",
-        "はい、しつれいします",
-        "どうも、しつれいします",
-        "えっ、しつれいします",
-        "では、しつれいします",
-        "あ、しつれいします"
+        "しつれいしますと いいます",
+        "しつれいしますと おもいます",
+        "しつれいします、 ね",
+        "しつれいします、 よ",
+        "しつれいしますを つかう",
+        "「しつれいします」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.しつれいしました",
@@ -40201,14 +40717,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "しつれいしました",
-        "はい、しつれいしました",
-        "どうも、しつれいしました",
-        "えっ、しつれいしました",
-        "では、しつれいしました",
-        "あ、しつれいしました"
+        "しつれいしましたと いいます",
+        "しつれいしましたと おもいます",
+        "しつれいしました、 ね",
+        "しつれいしました、 よ",
+        "しつれいしましたを つかう",
+        "「しつれいしました」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ありがとう",
@@ -40242,14 +40758,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ありがとう",
-        "はい、ありがとう",
-        "どうも、ありがとう",
-        "えっ、ありがとう",
-        "では、ありがとう",
-        "あ、ありがとう"
+        "ありがとうと いいます",
+        "ありがとうと おもいます",
+        "ありがとう、 ね",
+        "ありがとう、 よ",
+        "ありがとうを つかう",
+        "「ありがとう」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ありがとうございます",
@@ -40284,14 +40800,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "ありがとうございます",
-        "はい、ありがとうございます",
-        "どうも、ありがとうございます",
-        "えっ、ありがとうございます",
-        "では、ありがとうございます",
-        "あ、ありがとうございます"
+        "ありがとうございますと いいます",
+        "ありがとうございますと おもいます",
+        "ありがとうございます、 ね",
+        "ありがとうございます、 よ",
+        "ありがとうございますを つかう",
+        "「ありがとうございます」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.どういたしまして",
@@ -40325,14 +40841,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "どういたしまして",
-        "はい、どういたしまして",
-        "どうも、どういたしまして",
-        "えっ、どういたしまして",
-        "では、どういたしまして",
-        "あ、どういたしまして"
+        "どういたしましてと いいます",
+        "どういたしましてと おもいます",
+        "どういたしまして、 ね",
+        "どういたしまして、 よ",
+        "どういたしましてを つかう",
+        "「どういたしまして」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.すみません",
@@ -40367,14 +40883,14 @@
       "frequency_rank_provenance": "auto_extracted",
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "すみません",
-        "はい、すみません",
-        "どうも、すみません",
-        "えっ、すみません",
-        "では、すみません",
-        "あ、すみません"
+        "すみませんと いいます",
+        "すみませんと おもいます",
+        "すみません、 ね",
+        "すみません、 よ",
+        "すみませんを つかう",
+        "「すみません」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "apology",
@@ -40426,14 +40942,27 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ごめんなさい",
-        "はい、ごめんなさい",
-        "どうも、ごめんなさい",
-        "えっ、ごめんなさい",
-        "では、ごめんなさい",
-        "あ、ごめんなさい"
+        "ごめんなさいと いいます",
+        "ごめんなさいと おもいます",
+        "ごめんなさい、 ね",
+        "ごめんなさい、 よ",
+        "ごめんなさいを つかう",
+        "「ごめんなさい」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "apology",
+          "gloss": "sorry",
+          "context": "sincere apology"
+        },
+        {
+          "function": "mild-apology",
+          "gloss": "pardon me",
+          "context": "minor mistake"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.おねがいします",
@@ -40468,14 +40997,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "おねがいします",
-        "はい、おねがいします",
-        "どうも、おねがいします",
-        "えっ、おねがいします",
-        "では、おねがいします",
-        "あ、おねがいします"
+        "おねがいしますと いいます",
+        "おねがいしますと おもいます",
+        "おねがいします、 ね",
+        "おねがいします、 よ",
+        "おねがいしますを つかう",
+        "「おねがいします」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いただきます",
@@ -40509,14 +41038,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "いただきます",
-        "はい、いただきます",
-        "どうも、いただきます",
-        "えっ、いただきます",
-        "では、いただきます",
-        "あ、いただきます"
+        "いただきますと いいます",
+        "いただきますと おもいます",
+        "いただきます、 ね",
+        "いただきます、 よ",
+        "いただきますを つかう",
+        "「いただきます」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "pre-meal-ritual",
@@ -40563,14 +41092,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "ごちそうさまでした",
-        "はい、ごちそうさまでした",
-        "どうも、ごちそうさまでした",
-        "えっ、ごちそうさまでした",
-        "では、ごちそうさまでした",
-        "あ、ごちそうさまでした"
+        "ごちそうさまでしたと いいます",
+        "ごちそうさまでしたと おもいます",
+        "ごちそうさまでした、 ね",
+        "ごちそうさまでした、 よ",
+        "ごちそうさまでしたを つかう",
+        "「ごちそうさまでした」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いってきます",
@@ -40604,14 +41133,22 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "いってきます",
-        "はい、いってきます",
-        "どうも、いってきます",
-        "えっ、いってきます",
-        "では、いってきます",
-        "あ、いってきます"
+        "いってきますと いいます",
+        "いってきますと おもいます",
+        "いってきます、 ね",
+        "いってきます、 よ",
+        "いってきますを つかう",
+        "「いってきます」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "leaving-home",
+          "gloss": "I'm off / see you",
+          "context": "said when leaving home"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いってらっしゃい",
@@ -40645,14 +41182,22 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "いってらっしゃい",
-        "はい、いってらっしゃい",
-        "どうも、いってらっしゃい",
-        "えっ、いってらっしゃい",
-        "では、いってらっしゃい",
-        "あ、いってらっしゃい"
+        "いってらっしゃいと いいます",
+        "いってらっしゃいと おもいます",
+        "いってらっしゃい、 ね",
+        "いってらっしゃい、 よ",
+        "いってらっしゃいを つかう",
+        "「いってらっしゃい」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "sending-off",
+          "gloss": "have a good day / be careful",
+          "context": "said TO the person leaving home"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ただいま",
@@ -40686,14 +41231,27 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "ただいま",
-        "はい、ただいま",
-        "どうも、ただいま",
-        "えっ、ただいま",
-        "では、ただいま",
-        "あ、ただいま"
+        "ただいまと いいます",
+        "ただいまと おもいます",
+        "ただいま、 ね",
+        "ただいま、 よ",
+        "ただいまを つかう",
+        "「ただいま」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "returning-home",
+          "gloss": "I'm home / I'm back",
+          "context": "said when arriving home"
+        },
+        {
+          "function": "just-now",
+          "gloss": "just now / a moment ago",
+          "context": "adverbial: ただいま 来ました"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.おかえりなさい",
@@ -40727,14 +41285,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "おかえりなさい",
-        "はい、おかえりなさい",
-        "どうも、おかえりなさい",
-        "えっ、おかえりなさい",
-        "では、おかえりなさい",
-        "あ、おかえりなさい"
+        "おかえりなさいと いいます",
+        "おかえりなさいと おもいます",
+        "おかえりなさい、 ね",
+        "おかえりなさい、 よ",
+        "おかえりなさいを つかう",
+        "「おかえりなさい」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.はじめまして",
@@ -40768,14 +41326,22 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "はじめまして",
-        "はい、はじめまして",
-        "どうも、はじめまして",
-        "えっ、はじめまして",
-        "では、はじめまして",
-        "あ、はじめまして"
+        "はじめましてと いいます",
+        "はじめましてと おもいます",
+        "はじめまして、 ね",
+        "はじめまして、 よ",
+        "はじめましてを つかう",
+        "「はじめまして」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "first-meeting",
+          "gloss": "nice to meet you",
+          "context": "used only at first introduction"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.どうぞよろしく",
@@ -40809,14 +41375,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "どうぞよろしく",
-        "はい、どうぞよろしく",
-        "どうも、どうぞよろしく",
-        "えっ、どうぞよろしく",
-        "では、どうぞよろしく",
-        "あ、どうぞよろしく"
+        "どうぞよろしくと いいます",
+        "どうぞよろしくと おもいます",
+        "どうぞよろしく、 ね",
+        "どうぞよろしく、 よ",
+        "どうぞよろしくを つかう",
+        "「どうぞよろしく」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.おげんきですか",
@@ -40850,14 +41416,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "おげんきですか",
-        "はい、おげんきですか",
-        "どうも、おげんきですか",
-        "えっ、おげんきですか",
-        "では、おげんきですか",
-        "あ、おげんきですか"
+        "おげんきですかと いいます",
+        "おげんきですかと おもいます",
+        "おげんきですか、 ね",
+        "おげんきですか、 よ",
+        "おげんきですかを つかう",
+        "「おげんきですか」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.おかげさまで",
@@ -40891,14 +41457,22 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "おかげさまで",
-        "はい、おかげさまで",
-        "どうも、おかげさまで",
-        "えっ、おかげさまで",
-        "では、おかげさまで",
-        "あ、おかげさまで"
+        "おかげさまでと いいます",
+        "おかげさまでと おもいます",
+        "おかげさまで、 ね",
+        "おかげさまで、 よ",
+        "おかげさまでを つかう",
+        "「おかげさまで」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "modest-thanks",
+          "gloss": "thanks to (your kindness), I'm doing well",
+          "context": "standard reply to genki-desu-ka"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いらっしゃいませ",
@@ -40932,14 +41506,22 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "いらっしゃいませ",
-        "はい、いらっしゃいませ",
-        "どうも、いらっしゃいませ",
-        "えっ、いらっしゃいませ",
-        "では、いらっしゃいませ",
-        "あ、いらっしゃいませ"
+        "いらっしゃいませと いいます",
+        "いらっしゃいませと おもいます",
+        "いらっしゃいませ、 ね",
+        "いらっしゃいませ、 よ",
+        "いらっしゃいませを つかう",
+        "「いらっしゃいませ」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "shop-welcome",
+          "gloss": "welcome (to the shop)",
+          "context": "staff greeting customers"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.どうも",
@@ -40973,14 +41555,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "どうも",
-        "はい、どうも",
-        "どうも、どうも",
-        "えっ、どうも",
-        "では、どうも",
-        "あ、どうも"
+        "どうもと いいます",
+        "どうもと おもいます",
+        "どうも、 ね",
+        "どうも、 よ",
+        "どうもを つかう",
+        "「どうも」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "thanks-shortened",
@@ -41164,7 +41746,11 @@
         "n5-071",
         "n5-137"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "みょうじ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.ことば",
@@ -43090,7 +43676,11 @@
         "n5-100",
         "n5-103"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "たべもの"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.ペット",
@@ -43538,7 +44128,13 @@
       "frequent_patterns": [
         "n5-040"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "a-row vowels do not devoice",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.ゆうべ",
@@ -44185,14 +44781,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "えーとが ある",
-        "えーとを 見る",
+        "えーとと いいます",
+        "えーとと おもいます",
+        "えーと、 ね",
+        "えーと、 よ",
         "えーとを つかう",
-        "大きい えーと",
-        "えーとの 中",
-        "えーとが すき"
+        "「えーと」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.あの",
@@ -44226,14 +44822,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "あのが ある",
-        "あのを 見る",
+        "あのと いいます",
+        "あのと おもいます",
+        "あの、 ね",
+        "あの、 よ",
         "あのを つかう",
-        "大きい あの",
-        "あのの 中",
-        "あのが すき"
+        "「あの」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.そうですね",
@@ -44267,14 +44863,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "そうですねが ある",
-        "そうですねを 見る",
+        "そうですねと いいます",
+        "そうですねと おもいます",
+        "そうですね、 ね",
+        "そうですね、 よ",
         "そうですねを つかう",
-        "大きい そうですね",
-        "そうですねの 中",
-        "そうですねが すき"
+        "「そうですね」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.そうですか",
@@ -44308,14 +44904,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "そうですかが ある",
-        "そうですかを 見る",
+        "そうですかと いいます",
+        "そうですかと おもいます",
+        "そうですか、 ね",
+        "そうですか、 よ",
         "そうですかを つかう",
-        "大きい そうですか",
-        "そうですかの 中",
-        "そうですかが すき"
+        "「そうですか」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.いいえ",
@@ -44349,14 +44945,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "いいえが ある",
-        "いいえを 見る",
+        "いいえと いいます",
+        "いいえと おもいます",
+        "いいえ、 ね",
+        "いいえ、 よ",
         "いいえを つかう",
-        "大きい いいえ",
-        "いいえの 中",
-        "いいえが すき"
+        "「いいえ」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "negative",
@@ -44403,14 +44999,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "はいが ある",
-        "はいを 見る",
+        "はいと いいます",
+        "はいと おもいます",
+        "はい、 ね",
+        "はい、 よ",
         "はいを つかう",
-        "大きい はい",
-        "はいの 中",
-        "はいが すき"
+        "「はい」"
       ],
-      "collocations_provenance": "auto_generated_template",
+      "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
           "function": "affirmative",
@@ -44467,14 +45063,32 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ええが ある",
-        "ええを 見る",
+        "ええと いいます",
+        "ええと おもいます",
+        "ええ、 ね",
+        "ええ、 よ",
         "ええを つかう",
-        "大きい ええ",
-        "ええの 中",
-        "ええが すき"
+        "「ええ」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "mild-affirmative",
+          "gloss": "yes / yeah",
+          "context": "softer than はい"
+        },
+        {
+          "function": "aizuchi",
+          "gloss": "I see",
+          "context": "back-channel"
+        },
+        {
+          "function": "surprise-marker",
+          "gloss": "what?! / huh?",
+          "context": "reacting in surprise (rising tone)"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.うん",
@@ -44508,14 +45122,27 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "うんが ある",
-        "うんを 見る",
+        "うんと いいます",
+        "うんと おもいます",
+        "うん、 ね",
+        "うん、 よ",
         "うんを つかう",
-        "大きい うん",
-        "うんの 中",
-        "うんが すき"
+        "「うん」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "casual-affirmative",
+          "gloss": "yeah / yes",
+          "context": "casual yes"
+        },
+        {
+          "function": "aizuchi-casual",
+          "gloss": "mhm",
+          "context": "casual back-channel"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.ううん",
@@ -44549,14 +45176,22 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ううんが ある",
-        "ううんを 見る",
+        "ううんと いいます",
+        "ううんと おもいます",
+        "ううん、 ね",
+        "ううん、 よ",
         "ううんを つかう",
-        "大きい ううん",
-        "ううんの 中",
-        "ううんが すき"
+        "「ううん」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "casual-negative",
+          "gloss": "no / nuh-uh",
+          "context": "casual no"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.さあ",
@@ -44590,14 +45225,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "さあが ある",
-        "さあを 見る",
+        "さあと いいます",
+        "さあと おもいます",
+        "さあ、 ね",
+        "さあ、 よ",
         "さあを つかう",
-        "大きい さあ",
-        "さあの 中",
-        "さあが すき"
+        "「さあ」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.いかが",
@@ -44631,14 +45266,14 @@
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
-        "いかがが ある",
-        "いかがを 見る",
+        "いかがと いいます",
+        "いかがと おもいます",
+        "いかが、 ね",
+        "いかが、 よ",
         "いかがを つかう",
-        "大きい いかが",
-        "いかがの 中",
-        "いかがが すき"
+        "「いかが」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.それでは",
@@ -44672,14 +45307,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "それではが ある",
-        "それではを 見る",
+        "それではと いいます",
+        "それではと おもいます",
+        "それでは、 ね",
+        "それでは、 よ",
         "それではを つかう",
-        "大きい それでは",
-        "それではの 中",
-        "それではが すき"
+        "「それでは」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.40-misc-useful-items.ばしょ",
@@ -45128,14 +45763,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "おじゃまします",
-        "はい、おじゃまします",
-        "どうも、おじゃまします",
-        "えっ、おじゃまします",
-        "では、おじゃまします",
-        "あ、おじゃまします"
+        "おじゃましますと いいます",
+        "おじゃましますと おもいます",
+        "おじゃまします、 ね",
+        "おじゃまします、 よ",
+        "おじゃましますを つかう",
+        "「おじゃまします」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.おてら",
@@ -45595,14 +46230,14 @@
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
       "collocations": [
-        "べつべつ 食べる",
-        "べつべつ 行く",
-        "べつべつ 見る",
-        "べつべつ わかる",
-        "べつべつ 思う",
-        "べつべつ 来る"
+        "べつべつ する",
+        "べつべつ たべる",
+        "べつべつ のむ",
+        "べつべつ いきます",
+        "べつべつ あります",
+        "べつべつ います"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.アルバイト",
@@ -46377,14 +47012,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ぐらいが ある",
-        "ぐらいを 見る",
-        "ぐらいを つかう",
-        "大きい ぐらい",
-        "ぐらいの 中",
-        "ぐらいが すき"
+        "ぐらい / くらい がくせいです",
+        "ぐらい / くらい すきです",
+        "ぐらい / くらい ありません",
+        "これぐらい / くらい",
+        "なんぐらい / くらい",
+        "いつぐらい / くらい"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.けれど",
@@ -46418,14 +47053,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "けれどが ある",
-        "けれどを 見る",
-        "けれどを つかう",
-        "大きい けれど",
-        "けれどの 中",
-        "けれどが すき"
+        "AはBです。けれど / けれども / けど、CはDです。",
+        "おいしい。けれど / けれども / けど、 たかい。",
+        "たべました。けれど / けれども / けど、 ねます。",
+        "けれど / けれども / けど、 いきましょう。",
+        "けれど / けれども / けど、 おわります。",
+        "いきます。けれど / けれども / けど、 かえります。"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.ござる",
@@ -46501,14 +47136,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "じゃあが ある",
-        "じゃあを 見る",
-        "じゃあを つかう",
-        "大きい じゃあ",
-        "じゃあの 中",
-        "じゃあが すき"
+        "じゃあ / では / じゃと いいます",
+        "じゃあ / では / じゃと おもいます",
+        "じゃあ / では / じゃ、 ね",
+        "じゃあ / では / じゃ、 よ",
+        "じゃあ / では / じゃを つかう",
+        "「じゃあ / では / じゃ」"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.みんな",
@@ -46628,14 +47263,14 @@
       },
       "pitch_accent_provenance": "llm_curated",
       "collocations": [
-        "ゼロつ",
-        "ゼロかい",
-        "ゼロばん",
-        "ゼロじ",
-        "ゼロにん",
-        "ゼロふん"
+        "ゼロ / れいじ",
+        "ゼロ / れいねん",
+        "ゼロ / れいにん",
+        "ゼロ / れいまい",
+        "ゼロ / れいこ",
+        "ゼロ / れいほん"
       ],
-      "collocations_provenance": "auto_generated_template"
+      "collocations_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ぺこぺこ",
