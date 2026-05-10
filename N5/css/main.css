@@ -396,26 +396,28 @@ html, body {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: inherit;
+  color: var(--color-accent);
   text-decoration: none;
 }
-.brand-link::before {
-  /* Brand mark: 五 (= "5") in a 24px hairline-bordered square. Anchors the
-   * wordmark with cultural specificity per spec §4.1. */
-  content: "五";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px; height: 24px;
-  font-family: var(--font-jp);
-  font-size: 14px;
-  font-weight: var(--weight-base);
-  color: var(--color-text);
-  border: 0.5px solid var(--color-line);
-  border-radius: var(--radius-sm);
+/* 5-bar mark — same SVG geometry as the JLPTSuccess landing page;
+ * currentColor inherits the brand-green from .brand-link so the
+ * mark and wordmark render in the same color on the tea-green band. */
+.brand-mark {
+  display: block;
+  width: 24px;
+  height: auto;
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
-.brand-link:hover { text-decoration: none; }
-.brand-link:hover::before { border-color: var(--color-line-strong); }
+.brand-wordmark {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: var(--tracking-tight, -0.01em);
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.brand-link:hover { text-decoration: none; opacity: 0.75; }
 .brand-link:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
