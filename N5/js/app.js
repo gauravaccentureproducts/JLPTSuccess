@@ -445,14 +445,18 @@ function initLocaleChips() {
   const cycle = supportedLocales.length ? supportedLocales : ['en', 'hi'];
   const sync = () => {
     const cur = currentLocale();
-    if (label) label.textContent = (cur || 'en').toUpperCase();
-    // Aria-label: announce the destination, not the current state.
+    // Visible label is the DESTINATION locale (the one click will
+    // switch TO), not the current locale. So when the page is in
+    // English, the button shows "HI" — i.e. "click here to go to
+    // Hindi." This matches the affordance pattern users expect from
+    // single-button language switchers.
     const nextIdx = (cycle.indexOf(cur) + 1) % cycle.length;
     const next = cycle[nextIdx];
+    if (label) label.textContent = (next || 'en').toUpperCase();
     const nextNice = ({ en: 'English', hi: 'Hindi' })[next] || next.toUpperCase();
     btn.setAttribute('aria-label', 'Switch to ' + nextNice);
     btn.setAttribute('title', 'Switch to ' + nextNice);
-    btn.setAttribute('lang', cur || 'en');
+    btn.setAttribute('lang', next || 'en');
   };
   btn.addEventListener('click', async () => {
     const cur = currentLocale();
