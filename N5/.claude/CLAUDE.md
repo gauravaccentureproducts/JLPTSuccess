@@ -37,6 +37,19 @@ These are listed in `.claude/settings.local.json`. The user has stated they don'
 
 Settings enforcement: `**/*.bak*`, `**/*.backup*`, `**/*_backup_*`, `**/backups/**` are denied for `Write`, `Edit`, `Bash(rm/mv/cp ...)` and `PowerShell(Remove-Item/Move-Item/Copy-Item ...)`. If a deny rule fires when you needed to act, explain the situation to the user and ask — don't try to work around the deny.
 
+## Commit workflow (BINDING — set 2026-05-11)
+
+**Never** use inline heredoc commit messages (`git commit -m "$(cat <<'EOF' ... EOF)"`). Claude Code Desktop's permission gating treats those as new prompts every time even with matching glob rules and `defaultMode: "bypassPermissions"` — this has blocked overnight runs and is non-negotiable.
+
+**Always** use the file-based commit pattern:
+
+1. `Write` tool → `N5/.commit_msg.tmp` (multiline message OK; file is gitignored via `.commit_msg.tmp` line in `.gitignore` or created/removed transactionally)
+2. `cd "<repo path>" && git add <files> && git commit -F .commit_msg.tmp && rm -f .commit_msg.tmp && git push origin master`
+
+That single-line shape matches the existing allow rules in `settings.local.json` (line 30 explicit, plus `Bash(cd * && git * && git * && git * && git *)` covers it broadly). Empirically validated on Batches J/K/L/M/N — zero prompts, zero blocks.
+
+If you find yourself reaching for `"$(cat <<'EOF'...` STOP. Use the file pattern.
+
 ## Working notes
 
 - Repo backups have a known GH007 email-privacy block on `origin` for normal push; the project uses release-bundle workaround for backups (per MEMORY.md). Regular pushes to working branches are fine.
