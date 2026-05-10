@@ -433,6 +433,7 @@ body {
 }
 .primary-nav {
   display: flex;
+  align-items: center;
   gap: var(--space-6);
   justify-content: center;
 }
