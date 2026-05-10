@@ -3533,6 +3533,46 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "りんごや みかんを かいました。",
+          "form": "list-fruit",
+          "translation_en": "I bought apples, oranges, etc.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.17-food-items.りんご",
+            "n5.vocab.17-food-items.みかん",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.や"
+          ]
+        },
+        {
+          "ja": "ねこや いぬが すきです。",
+          "form": "list-animals",
+          "translation_en": "I like cats and dogs (among others).",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.15-animals.いぬ",
+            "n5.vocab.15-animals.ねこ",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.や"
+          ]
+        },
+        {
+          "ja": "ノートや えんぴつなどを かいました。",
+          "form": "list-with-など",
+          "translation_en": "I bought notebooks, pencils, etc.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.えんぴつ",
+            "n5.vocab.24-school-and-study.ノート",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.など",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.や"
+          ]
         }
       ],
       "common_mistakes": [
@@ -6328,6 +6368,37 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "これは ペンですか。",
+          "form": "yn-question",
+          "translation_en": "Is this a pen?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.これ",
+            "n5.vocab.24-school-and-study.ペン",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "たべましたか。",
+          "form": "past-question",
+          "translation_en": "Did you eat?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "なんじですか。",
+          "form": "wh-question-with-か",
+          "translation_en": "What time is it?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -6867,6 +6938,35 @@
               "drop": 1
             }
           ]
+        },
+        {
+          "ja": "いい てんきですね。",
+          "form": "weather-agreement",
+          "translation_en": "Nice weather, isn't it?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.ね"
+          ]
+        },
+        {
+          "ja": "たかいですね。",
+          "form": "observation-agreement",
+          "translation_en": "It's expensive, isn't it?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.ね"
+          ]
+        },
+        {
+          "ja": "おいしいですね。",
+          "form": "taste-agreement",
+          "translation_en": "It's delicious, isn't it?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おいしい",
+            "n5.vocab.35-particles-functional-.ね"
+          ]
         }
       ],
       "common_mistakes": [
@@ -7110,6 +7210,41 @@
               "mora": 2,
               "drop": 1
             }
+          ]
+        },
+        {
+          "ja": "これは おいしいですよ。",
+          "form": "assertion-recommend",
+          "translation_en": "This is tasty (you should know).",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おいしい",
+            "n5.vocab.5-demonstratives.これ",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.よ"
+          ]
+        },
+        {
+          "ja": "もう おそいですよ。",
+          "form": "warning",
+          "translation_en": "It's already late (you should know).",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おそい",
+            "n5.vocab.12-time-frequency-sequen.もう",
+            "n5.vocab.33-adverbs.もう",
+            "n5.vocab.35-particles-functional-.よ"
+          ]
+        },
+        {
+          "ja": "やまださんは げんきですよ。",
+          "form": "informing",
+          "translation_en": "Yamada-san is well (you should know).",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.げんき",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.よ"
           ]
         }
       ],
@@ -7671,6 +7806,41 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "にほんの たべものが すきです。",
+          "form": "origin-mod",
+          "translation_en": "I like Japanese food.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.たべもの",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "やまださんの くるまは あれです。",
+          "form": "possession-mod",
+          "translation_en": "Yamada-san's car is that one.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.あれ",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "がっこうの まえに あいましょう。",
+          "form": "place-mod",
+          "translation_en": "Let's meet in front of the school.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.27-verbs-group-1-verbs.会う",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.の"
           ]
         }
       ],
@@ -8499,6 +8669,39 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "あかいのを ください。",
+          "form": "pronoun-color",
+          "translation_en": "Please give me the red one.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.20-colors.あかい",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "おおきいのが すきです。",
+          "form": "pronoun-size",
+          "translation_en": "I like big ones.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.が"
+          ]
+        },
+        {
+          "ja": "もっと やすいのは ありますか。",
+          "form": "pronoun-price",
+          "translation_en": "Do you have a cheaper one?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.33-adverbs.もっと",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.と",
+            "n5.vocab.35-particles-functional-.か"
           ]
         }
       ],
@@ -9687,6 +9890,39 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "にじごろ あいましょう。",
+          "form": "time-approx-meet",
+          "translation_en": "Let's meet around 2.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.会う",
+            "n5.vocab.35-particles-functional-.ごろ"
+          ]
+        },
+        {
+          "ja": "しちじごろ おきます。",
+          "form": "time-approx-wake",
+          "translation_en": "I get up around 7.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.おきる",
+            "n5.vocab.27-verbs-group-1-verbs.おく",
+            "n5.vocab.35-particles-functional-.ごろ"
+          ]
+        },
+        {
+          "ja": "いつごろ かえりますか。",
+          "form": "time-approx-question",
+          "translation_en": "Around when will you return?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
+            "n5.vocab.6-question-words.いつ",
+            "n5.vocab.35-particles-functional-.ごろ",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -10004,6 +10240,46 @@
               "drop": 1
             }
           ]
+        },
+        {
+          "ja": "ノートや ペンなどを かいました。",
+          "form": "list-with-など",
+          "translation_en": "I bought things like notebooks and pens.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.ノート",
+            "n5.vocab.24-school-and-study.ペン",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.など",
+            "n5.vocab.35-particles-functional-.を",
+            "n5.vocab.35-particles-functional-.や"
+          ]
+        },
+        {
+          "ja": "えいがや ほんなどが すきです。",
+          "form": "preference-list",
+          "translation_en": "I like things like movies and books.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.26-house-and-furniture.えいが",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.など",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.や"
+          ]
+        },
+        {
+          "ja": "バスや でんしゃなどで いきます。",
+          "form": "transport-list",
+          "translation_en": "I go by bus, train, etc.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.23-transport.バス",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.など",
+            "n5.vocab.35-particles-functional-.で",
+            "n5.vocab.35-particles-functional-.や"
+          ]
         }
       ],
       "common_mistakes": [
@@ -10297,6 +10573,36 @@
               "mora": 3,
               "drop": 2
             }
+          ]
+        },
+        {
+          "ja": "ひとり いっこずつ ください。",
+          "form": "distributive",
+          "translation_en": "One each per person, please.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.ずつ"
+          ]
+        },
+        {
+          "ja": "まいにち すこしずつ べんきょうします。",
+          "form": "daily-incremental",
+          "translation_en": "I study a little each day.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.べんきょう",
+            "n5.vocab.33-adverbs.すこし",
+            "n5.vocab.35-particles-functional-.ずつ"
+          ]
+        },
+        {
+          "ja": "ふたつずつ かいました。",
+          "form": "two-each",
+          "translation_en": "I bought two of each.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.35-particles-functional-.ずつ"
           ]
         }
       ],
@@ -10858,6 +11164,43 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "この まちは ちいさいです。",
+          "form": "near-town",
+          "translation_en": "This town is small.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.この",
+            "n5.vocab.13-locations-and-places-.まち",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "その くるまは あたらしいです。",
+          "form": "near-listener-car",
+          "translation_en": "That car (near you) is new.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.その",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "あの ひとは だれですか。",
+          "form": "far-who",
+          "translation_en": "Who is that person?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.1-people-pronouns-and-se.だれ",
+            "n5.vocab.5-demonstratives.あの",
+            "n5.vocab.39-function-filler-expre.あの",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
           ]
         }
       ],
@@ -11422,6 +11765,40 @@
               "drop": 3
             }
           ]
+        },
+        {
+          "ja": "こちらへ どうぞ。",
+          "form": "this-way-please",
+          "translation_en": "This way, please.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.こちら",
+            "n5.vocab.33-adverbs.どうぞ",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.35-particles-functional-.へ"
+          ]
+        },
+        {
+          "ja": "どちらが いいですか。",
+          "form": "which-binary",
+          "translation_en": "Which is good?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どちら",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "やまださんは あちらです。",
+          "form": "far-person-polite",
+          "translation_en": "Yamada-san is over there.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.あちら",
+            "n5.vocab.35-particles-functional-.は"
+          ]
         }
       ],
       "common_mistakes": [
@@ -11933,6 +12310,38 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "こう しましょう。",
+          "form": "this-way-manner",
+          "translation_en": "Let's do it this way.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.29-verbs-irregular-and-v.する"
+          ]
+        },
+        {
+          "ja": "どう しましたか。",
+          "form": "what-happened",
+          "translation_en": "What happened?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "そう おもいます。",
+          "form": "agreement-opinion",
+          "translation_en": "I think so.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.おもう",
+            "n5.vocab.31-adjectives.おもい",
+            "n5.vocab.5-demonstratives.そう"
           ]
         }
       ],
@@ -13029,6 +13438,43 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "どれが すきですか。",
+          "form": "which-pronoun",
+          "translation_en": "Which one do you like?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どれ",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "どの ほんが いいですか。",
+          "form": "which-with-noun",
+          "translation_en": "Which book is good?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どの",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "どちらが はやいですか。",
+          "form": "binary-faster",
+          "translation_en": "Which is faster?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.どちら",
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
           ]
         }
       ],
@@ -14538,6 +14984,42 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "りんごは いくつ ありますか。",
+          "form": "count-objects",
+          "translation_en": "How many apples are there?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.いくつ",
+            "n5.vocab.17-food-items.りんご",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "なん さいですか。 / おいくつですか。",
+          "form": "age-polite",
+          "translation_en": "How old are you?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.いくつ",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "いくつ かいましたか。",
+          "form": "count-bought",
+          "translation_en": "How many did you buy?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.いくつ",
+            "n5.vocab.27-verbs-group-1-verbs.買う",
+            "n5.vocab.31-adjectives.いい",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -15126,6 +15608,38 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "きょうは なんようびですか。",
+          "form": "today-day",
+          "translation_en": "What day is today?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "やすみは なんようびですか。",
+          "form": "holiday-day",
+          "translation_en": "What day is the holiday?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.やすみ",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "なんようびに あいましょうか。",
+          "form": "meeting-day",
+          "translation_en": "What day shall we meet?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.会う",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.か"
+          ]
         }
       ],
       "common_mistakes": [
@@ -15410,6 +15924,38 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "たんじょうびは なんがつ なんにちですか。",
+          "form": "birthday-date",
+          "translation_en": "What date is your birthday?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.たんじょうび",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "きょうは なんにちですか。",
+          "form": "today-date",
+          "translation_en": "What's today's date?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "なんがつに きましたか。",
+          "form": "arrival-month",
+          "translation_en": "What month did you arrive?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.か"
           ]
         }
       ],
@@ -28520,6 +29066,47 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "コーヒーより こうちゃの ほうが すきです。",
+          "form": "preference-comparison",
+          "translation_en": "I like tea more than coffee.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.18-drinks.こうちゃ",
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.40-misc-useful-items.ほう",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "バスより でんしゃの ほうが はやいです。",
+          "form": "speed-comparison",
+          "translation_en": "Trains are faster than buses.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.23-transport.バス",
+            "n5.vocab.40-misc-useful-items.ほう",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.の"
+          ]
+        },
+        {
+          "ja": "にほんごより えいごの ほうが やさしいです。",
+          "form": "difficulty-comparison",
+          "translation_en": "English is easier than Japanese.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.やさしい",
+            "n5.vocab.25-languages-and-countri.えいご",
+            "n5.vocab.40-misc-useful-items.ほう",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.の"
+          ]
         }
       ],
       "common_mistakes": [
@@ -33366,6 +33953,34 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "にじゅっぷん かかります。",
+          "form": "duration-minutes",
+          "translation_en": "It takes 20 minutes.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かかる"
+          ]
+        },
+        {
+          "ja": "ごじはん から いちじかん べんきょうしました。",
+          "form": "half-past-duration",
+          "translation_en": "I studied for an hour from 5:30.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.べんきょう",
+            "n5.vocab.35-particles-functional-.から"
+          ]
+        },
+        {
+          "ja": "よんじゅっぷん あるきました。",
+          "form": "walked-minutes",
+          "translation_en": "I walked for 40 minutes.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.ある"
+          ]
         }
       ],
       "common_mistakes": [
@@ -33614,6 +34229,36 @@
               "mora": 2,
               "drop": 2
             }
+          ]
+        },
+        {
+          "ja": "いま、にじはんです。",
+          "form": "current-half-past",
+          "translation_en": "It's 2:30 now.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.26-house-and-furniture.いま"
+          ]
+        },
+        {
+          "ja": "よじはんに あいましょう。",
+          "form": "half-past-meet",
+          "translation_en": "Let's meet at 4:30.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.会う",
+            "n5.vocab.35-particles-functional-.に"
+          ]
+        },
+        {
+          "ja": "がっこうは くじはんから です。",
+          "form": "school-half-past",
+          "translation_en": "School starts at 9:30.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.35-particles-functional-.から",
+            "n5.vocab.35-particles-functional-.は"
           ]
         }
       ],
@@ -34484,6 +35129,38 @@
               "mora": 4,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "まいにち コーヒーを のみます。",
+          "form": "daily-drink",
+          "translation_en": "I drink coffee every day.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.27-verbs-group-1-verbs.飲む",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "まいしゅう、 ともだちに あいます。",
+          "form": "weekly-meet",
+          "translation_en": "I meet my friend every week.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.2-people-family.ともだち",
+            "n5.vocab.27-verbs-group-1-verbs.会う",
+            "n5.vocab.35-particles-functional-.に"
+          ]
+        },
+        {
+          "ja": "まいとし、 にほんに いきます。",
+          "form": "yearly-travel",
+          "translation_en": "I go to Japan every year.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.に"
           ]
         }
       ],
@@ -37485,6 +38162,36 @@
               "drop": 2
             }
           ]
+        },
+        {
+          "ja": "では、また あした。",
+          "form": "farewell-formal",
+          "translation_en": "Well then, see you tomorrow.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.10-time-general.あした",
+            "n5.vocab.35-particles-functional-.は"
+          ]
+        },
+        {
+          "ja": "じゃ、また。",
+          "form": "farewell-casual",
+          "translation_en": "See you.",
+          "provenance": "llm_curated",
+          "vocab_ids": []
+        },
+        {
+          "ja": "それでは、 はじめましょう。",
+          "form": "transition-start",
+          "translation_en": "Well then, let's begin.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.はじめる",
+            "n5.vocab.39-function-filler-expre.それでは",
+            "n5.vocab.34-conjunctions.それで",
+            "n5.vocab.5-demonstratives.それ",
+            "n5.vocab.35-particles-functional-.は"
+          ]
         }
       ],
       "common_mistakes": [
@@ -38114,6 +38821,39 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "たかいけど、 おいしい。",
+          "form": "casual-but",
+          "translation_en": "It's expensive, but tasty.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.おいしい"
+          ]
+        },
+        {
+          "ja": "がっこうは とおいけど、 たのしい。",
+          "form": "distance-fun",
+          "translation_en": "School is far, but fun.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.たのしい",
+            "n5.vocab.31-adjectives.とおい",
+            "n5.vocab.5-demonstratives.こう",
+            "n5.vocab.35-particles-functional-.は"
+          ]
+        },
+        {
+          "ja": "にほんごは むずかしいけれど、 おもしろい。",
+          "form": "literary-but",
+          "translation_en": "Japanese is difficult, but interesting.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.むずかしい",
+            "n5.vocab.31-adjectives.おもしろい",
+            "n5.vocab.34-conjunctions.けれど",
+            "n5.vocab.35-particles-functional-.は"
+          ]
         }
       ],
       "common_mistakes": [
@@ -38415,6 +39155,48 @@
               "mora": 5,
               "drop": 3
             }
+          ]
+        },
+        {
+          "ja": "どうして きませんでしたか。 あめでしたから。",
+          "form": "why-rain",
+          "translation_en": "Why didn't you come? Because it was raining.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.どうして",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.17-food-items.あめ",
+            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "どうして すきですか。 おいしいからです。",
+          "form": "why-tasty",
+          "translation_en": "Why do you like it? Because it's tasty.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.どうして",
+            "n5.vocab.31-adjectives.おいしい",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.32-adjectives.すき",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "どうして いそぎますか。 おそいからです。",
+          "form": "why-late",
+          "translation_en": "Why are you hurrying? Because I'm late.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.6-question-words.どうして",
+            "n5.vocab.27-verbs-group-1-verbs.いそぐ",
+            "n5.vocab.31-adjectives.おそい",
+            "n5.vocab.5-demonstratives.どう",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.か"
           ]
         }
       ],
@@ -39690,6 +40472,47 @@
               "drop": 1
             }
           ]
+        },
+        {
+          "ja": "さむいから、 コートを きます。",
+          "form": "cold-coat",
+          "translation_en": "Because it's cold, I'll wear a coat.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.14-nature-and-weather.さむい",
+            "n5.vocab.21-clothing-and-accessor.コート",
+            "n5.vocab.28-verbs-group-2-verbs.きる",
+            "n5.vocab.29-verbs-irregular-and-v.来る",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "あした しごとが あるから、 はやく ねます。",
+          "form": "work-sleep",
+          "translation_en": "Because I have work tomorrow, I'll sleep early.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.10-time-general.あした",
+            "n5.vocab.31-adjectives.はやい",
+            "n5.vocab.37-common-nouns-miscella.しごと",
+            "n5.vocab.28-verbs-group-2-verbs.ねる",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.から",
+            "n5.vocab.35-particles-functional-.が"
+          ]
+        },
+        {
+          "ja": "おなかが すいたから、 たべます。",
+          "form": "hungry-eat",
+          "translation_en": "Because I'm hungry, I'll eat.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.4-body-parts.おなか",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.34-conjunctions.から",
+            "n5.vocab.35-particles-functional-.が"
+          ]
         }
       ],
       "common_mistakes": [
@@ -39984,6 +40807,41 @@
               "mora": 4,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "あめが ふっているので、 でかけません。",
+          "form": "rain-stay",
+          "translation_en": "Since it's raining, I won't go out.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.出かける",
+            "n5.vocab.17-food-items.あめ",
+            "n5.vocab.27-verbs-group-1-verbs.ふる",
+            "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.30-verbs-existence-and-p.いる.2",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.で"
+          ]
+        },
+        {
+          "ja": "いそがしいので、 いけません。",
+          "form": "busy-cant-go",
+          "translation_en": "Since I'm busy, I can't go.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.31-adjectives.いそがしい",
+            "n5.vocab.27-verbs-group-1-verbs.行く",
+            "n5.vocab.35-particles-functional-.で"
+          ]
+        },
+        {
+          "ja": "がくせいなので、 やすいです。",
+          "form": "student-cheap",
+          "translation_en": "Since I'm a student, it's cheap.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.で"
           ]
         }
       ],
@@ -41128,6 +41986,39 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "コーヒーに します。",
+          "form": "order-choice",
+          "translation_en": "I'll have coffee.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.に"
+          ]
+        },
+        {
+          "ja": "なにに しますか。",
+          "form": "choice-question",
+          "translation_en": "What will you have?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.に",
+            "n5.vocab.35-particles-functional-.か"
+          ]
+        },
+        {
+          "ja": "これに します。",
+          "form": "pick-this",
+          "translation_en": "I'll choose this one.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.これ",
+            "n5.vocab.29-verbs-irregular-and-v.する",
+            "n5.vocab.35-particles-functional-.に"
+          ]
         }
       ],
       "common_mistakes": [
@@ -41399,6 +42290,36 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "さむく なりました。",
+          "form": "become-cold",
+          "translation_en": "It's gotten cold.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.14-nature-and-weather.さむい"
+          ]
+        },
+        {
+          "ja": "にほんごが じょうずに なりたいです。",
+          "form": "aspire-skilled",
+          "translation_en": "I want to become good at Japanese.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.32-adjectives.じょうず",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.に"
+          ]
+        },
+        {
+          "ja": "おとなに なりました。",
+          "form": "became-adult",
+          "translation_en": "I've become an adult.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.38-sounds-and-voice.おと",
+            "n5.vocab.35-particles-functional-.に"
           ]
         }
       ],
@@ -41679,6 +42600,40 @@
               "mora": 2,
               "drop": 2
             }
+          ]
+        },
+        {
+          "ja": "おんがくを ききながら べんきょうします。",
+          "form": "study-music",
+          "translation_en": "I study while listening to music.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.べんきょう",
+            "n5.vocab.26-house-and-furniture.おんがく",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "テレビを みながら ごはんを たべました。",
+          "form": "eat-tv",
+          "translation_en": "I ate while watching TV.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.16-food-and-drink-genera.ごはん",
+            "n5.vocab.26-house-and-furniture.テレビ",
+            "n5.vocab.28-verbs-group-2-verbs.食べる",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "コーヒーを のみながら はなしました。",
+          "form": "talk-drink",
+          "translation_en": "We talked while drinking coffee.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.27-verbs-group-1-verbs.話す",
+            "n5.vocab.35-particles-functional-.を"
           ]
         }
       ],
@@ -43193,6 +44148,34 @@
               "drop": 0
             }
           ]
+        },
+        {
+          "ja": "みずを ください。",
+          "form": "water-request",
+          "translation_en": "Please give me water.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "メニューを ください。",
+          "form": "menu-request",
+          "translation_en": "Please give me the menu.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "これを ください。",
+          "form": "this-request",
+          "translation_en": "I'll have this, please.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.5-demonstratives.これ",
+            "n5.vocab.35-particles-functional-.を"
+          ]
         }
       ],
       "common_mistakes": [
@@ -43482,6 +44465,38 @@
               "mora": 2,
               "drop": 0
             }
+          ]
+        },
+        {
+          "ja": "コーヒーを おねがいします。",
+          "form": "order-coffee",
+          "translation_en": "Coffee, please.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.36-greetings-and-set-phr.おねがいします",
+            "n5.vocab.18-drinks.コーヒー",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "メニューを おねがいします。",
+          "form": "menu-please",
+          "translation_en": "The menu, please.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.36-greetings-and-set-phr.おねがいします",
+            "n5.vocab.35-particles-functional-.を"
+          ]
+        },
+        {
+          "ja": "タクシーを おねがいします。",
+          "form": "taxi-please",
+          "translation_en": "A taxi, please.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.36-greetings-and-set-phr.おねがいします",
+            "n5.vocab.23-transport.タクシー",
+            "n5.vocab.35-particles-functional-.を"
           ]
         }
       ],
