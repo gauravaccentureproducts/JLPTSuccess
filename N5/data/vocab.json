@@ -3402,7 +3402,11 @@
         "どこは どこ",
         "どこも かう"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "どちら"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.こちら",
@@ -3444,7 +3448,18 @@
         "こちらは どこ",
         "こちらも かう"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing pattern here",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "そちら",
+        "あちら"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.そちら",
@@ -3486,7 +3501,12 @@
         "そちらは どこ",
         "そちらも かう"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "こちら",
+        "あちら"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.あちら",
@@ -3527,7 +3547,12 @@
         "あちらは どこ",
         "あちらも かう"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "こちら",
+        "そちら"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.どちら",
@@ -3569,7 +3594,11 @@
         "どちらは どこ",
         "どちらも かう"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "どこ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.5-demonstratives.こっち",
@@ -4167,7 +4196,11 @@
         "note": "い devoices before voiceless ts",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "なんじ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.いくら",
@@ -4209,7 +4242,11 @@
         "いくらと あいますか",
         "いくらの なまえ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "いくつ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.いくつ",
@@ -4251,7 +4288,11 @@
         "いくつと あいますか",
         "いくつの なまえ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "いくら"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.6-question-words.何時",
@@ -5879,7 +5920,11 @@
         "たくさんの いくつ",
         "ひとり いくつ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "いくら"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.9-counters-common.人",
@@ -6708,7 +6753,13 @@
         "n5-110",
         "n5-118"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.今",
@@ -7121,7 +7172,13 @@
         "よる",
         "あさ"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing - r voiced",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.10-time-general.ゆうがた",
@@ -7976,7 +8033,15 @@
         "五日 いる",
         "五日の おわり"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "someday",
+          "gloss": "someday",
+          "context": "indefinite future"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.六日",
@@ -8841,7 +8906,13 @@
         "月を まつ",
         "月が おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing — voiced k initial",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.一月",
@@ -10038,7 +10109,15 @@
         "たまに",
         "ときどき"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "always",
+          "gloss": "always",
+          "context": "habitual"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.よく",
@@ -10291,7 +10370,12 @@
       "frequent_patterns": [
         "n5-147"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "すこし",
+        "あまり"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.すぐ",
@@ -10342,7 +10426,12 @@
         "note": "no devoicing - voiced g",
         "rule": "no_devoicing"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "いま",
+        "もうすぐ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もう",
@@ -10458,7 +10547,12 @@
         "mora": 4,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "false_friends": [
+        "すぐ",
+        "もう"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.まだ",
@@ -10578,7 +10672,12 @@
       "frequent_patterns": [
         "n5-043"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "さいしょ",
+        "すこし"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.さいしょ",
@@ -10621,7 +10720,12 @@
         "さいしょを みる",
         "やすい さいしょ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "はじめて",
+        "さいご"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.さいご",
@@ -10664,7 +10768,12 @@
         "さいごを みる",
         "やすい さいご"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "false_friends": [
+        "さいしょ",
+        "おわり"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.つぎ",
@@ -11492,7 +11601,13 @@
         "n5-105",
         "n5-170"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - voiced consonants",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.ぎんこう",
@@ -11854,7 +11969,13 @@
         "きっさてんまで あるく",
         "きっさてんに つく"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "sokuon onset; no vowel devoicing in first syllable",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.レストラン",
@@ -13127,7 +13248,13 @@
         "partner": "はし (chopsticks)",
         "distinguished_by": "pitch",
         "note": "橋 odaka (LH-down-after-particle); 箸 atamadaka (HL)."
-      }
+      },
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - h is voiceless but a is non-high",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.まち",
@@ -13567,7 +13694,13 @@
         "左を みる",
         "やすい 左"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.右",
@@ -14022,7 +14155,13 @@
         "西を みる",
         "やすい 西"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no standard devoicing - voiced n",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.山",
@@ -14751,7 +14890,13 @@
         "月を まつ",
         "月が おわる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing — voiced k initial",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.ほし",
@@ -14979,7 +15124,13 @@
       "frequent_patterns": [
         "n5-181"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - n is voiced",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.はれ",
@@ -15122,7 +15273,21 @@
         "あき",
         "ふゆ"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "はる",
+        "polite": "はります",
+        "humble": "おはりする",
+        "respectful": "おはりになる",
+        "note": "Stick / attach."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.なつ",
@@ -19237,7 +19402,13 @@
         "partner": "はし (bridge)",
         "distinguished_by": "pitch",
         "note": "箸 atamadaka (HL); 橋 odaka."
-      }
+      },
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - h is voiceless but a is non-high",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.19-tableware-and-cooking.スプーン",
@@ -21127,7 +21298,13 @@
         "n5-110",
         "n5-118"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.21-clothing-and-accessor.ボタン",
@@ -21715,7 +21892,13 @@
         "n5-132"
       ],
       "frequent_patterns_provenance": "auto_derived",
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing — voiced consonants",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.にもつ",
@@ -27411,7 +27594,12 @@
         "respectful": "おきになる",
         "note": "Wear — uses regular o-stem form."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "きれる",
+        "きせる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つくる",
@@ -27641,7 +27829,11 @@
         "respectful": "おたちになる",
         "note": "Stand."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "たてる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる",
@@ -27965,7 +28157,11 @@
         "respectful": "おはきになる",
         "note": "Wear (lower body / shoes)."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "はける"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.話す",
@@ -28322,7 +28518,11 @@
         "respectful": "おやすみになる",
         "note": "Rest / sleep — respectful お休みになる is very polite for \"sleep\"."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "やすめる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.読む",
@@ -28383,7 +28583,11 @@
         "respectful": "およみになる",
         "note": "Read — humble shares with 見る (拝見)."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "ようむ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたる",
@@ -28584,7 +28788,15 @@
         "おわる",
         "はじめる"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "はじまる",
+        "polite": "はじまります",
+        "humble": "はじまる",
+        "respectful": "おはじまりになる",
+        "note": "Begin (intransitive)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かえる",
@@ -28809,7 +29021,15 @@
       "frequent_patterns": [
         "n5-103"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "およぐ",
+        "polite": "およぎます",
+        "humble": "およぐ",
+        "respectful": "おおよぎになる",
+        "note": "Swim."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく",
@@ -28855,7 +29075,23 @@
       "frequent_patterns": [
         "n5-188"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ひ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "ひく",
+        "polite": "ひきます",
+        "humble": "おひきする",
+        "respectful": "おひきになる",
+        "note": "Pull / play (instrument)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく.2",
@@ -28901,7 +29137,23 @@
       "frequent_patterns": [
         "n5-188"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "ひ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "ひく",
+        "polite": "ひきます",
+        "humble": "おひきする",
+        "respectful": "おひきになる",
+        "note": "Pull / play (instrument)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.よぶ",
@@ -29132,7 +29384,15 @@
         "あがる",
         "おりる"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "のぼる",
+        "polite": "のぼります",
+        "humble": "のぼる",
+        "respectful": "おのぼりになる",
+        "note": "Climb."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたす",
@@ -29174,7 +29434,15 @@
         "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "honorific_chain": {
+        "plain": "わたす",
+        "polite": "わたします",
+        "humble": "おわたしする",
+        "respectful": "おわたしになる",
+        "note": "Hand over."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ぬぐ",
@@ -29361,7 +29629,11 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2076,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "false_friends": [
+        "ころす"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すう",
@@ -29408,7 +29680,15 @@
         "n5-075",
         "n5-182"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "すう",
+        "polite": "すいます",
+        "humble": "(N/A)",
+        "respectful": "おすいになる",
+        "note": "Smoke / suck."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ちがう",
@@ -29579,7 +29859,11 @@
         "note": "つ devoices before voiceless k",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "つける"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならう",
@@ -29677,7 +29961,21 @@
         "あき",
         "ふゆ"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "はる",
+        "polite": "はります",
+        "humble": "おはりする",
+        "respectful": "おはりになる",
+        "note": "Stick / attach."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まがる",
@@ -29910,7 +30208,19 @@
         "n5-133",
         "n5-149"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "あける"
+      ],
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "あく",
+        "polite": "あきます",
+        "humble": "あく",
+        "respectful": "おあきになる",
+        "note": "Open (intransitive). Limited honorific use; respectful via o-stem."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しまる",
@@ -29958,7 +30268,11 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3230,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "false_friends": [
+        "しめる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.だす",
@@ -30165,7 +30479,15 @@
         "n5-134",
         "n5-145"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "ふる",
+        "polite": "ふります",
+        "humble": "ふる",
+        "respectful": "おふりになる",
+        "note": "Fall (rain)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.くもる",
@@ -30249,7 +30571,15 @@
         "mora": 3,
         "drop": 3
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "honorific_chain": {
+        "plain": "なくす",
+        "polite": "なくします",
+        "humble": "なくす",
+        "respectful": "おなくしになる",
+        "note": "Lose."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のる",
@@ -30350,7 +30680,11 @@
         "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "すわらせる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.たのむ",
@@ -30392,7 +30726,15 @@
         "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "honorific_chain": {
+        "plain": "たのむ",
+        "polite": "たのみます",
+        "humble": "おねがいする",
+        "respectful": "おたのみになる",
+        "note": "Request — humble usually おねがいする."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とまる",
@@ -30702,7 +31044,11 @@
         "respectful": "おけしになる",
         "note": "Turn off / erase."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "きえる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いる",
@@ -31206,7 +31552,19 @@
         "n5-133",
         "n5-149"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "あく"
+      ],
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "あける",
+        "polite": "あけます",
+        "humble": "おあけする",
+        "respectful": "おあけになる",
+        "note": "Open (transitive)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる",
@@ -31258,7 +31616,19 @@
       "frequent_patterns": [
         "n5-133"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "しまる"
+      ],
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "しめる",
+        "polite": "しめます",
+        "humble": "おしめする",
+        "respectful": "おしめになる",
+        "note": "Close."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おしえる",
@@ -31405,7 +31775,15 @@
         "n5-077",
         "n5-127"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "honorific_chain": {
+        "plain": "わすれる",
+        "polite": "わすれます",
+        "humble": "わすれる",
+        "respectful": "おわすれになる",
+        "note": "Forget."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かりる",
@@ -31658,7 +32036,12 @@
         "respectful": "おきになる",
         "note": "Wear — uses regular o-stem form."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "false_friends": [
+        "きれる",
+        "きせる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つける",
@@ -31715,7 +32098,11 @@
         "note": "no standard devoicing here",
         "rule": "no_devoicing"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "つく"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ならべる",
@@ -31866,7 +32253,12 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 3598,
       "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "false_friends": [
+        "みる",
+        "みえる"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あびる",
@@ -32052,7 +32444,11 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3666,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "false_friends": [
+        "けす"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おちる",
@@ -32201,7 +32597,15 @@
         "note": "つ devoices before voiceless k",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "つかれる",
+        "polite": "つかれます",
+        "humble": "つかれる",
+        "respectful": "おつかれになる",
+        "note": "Get tired."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.生まれる",
@@ -32243,7 +32647,11 @@
         "mora": 4,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "うむ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おりる",
@@ -32348,7 +32756,19 @@
       "frequent_patterns": [
         "n5-133"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "false_friends": [
+        "しまる"
+      ],
+      "false_friends_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "しめる",
+        "polite": "しめます",
+        "humble": "おしめする",
+        "respectful": "おしめになる",
+        "note": "Close."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つとめる",
@@ -32620,7 +33040,15 @@
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 2000,
       "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "honorific_chain": {
+        "plain": "けっこんする",
+        "polite": "けっこんします",
+        "humble": "けっこんいたす",
+        "respectful": "けっこんなさる",
+        "note": "Marry."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.さんぽする",
@@ -33449,7 +33877,23 @@
         "n5-127",
         "n5-177"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          1
+        ],
+        "note": "final す devoices",
+        "rule": "final_after_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated",
+      "honorific_chain": {
+        "plain": "かす",
+        "polite": "かします",
+        "humble": "おかしする",
+        "respectful": "おかしになる",
+        "note": "Lend."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かえす",
@@ -33495,7 +33939,15 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 42369,
       "frequency_rank_source": "leeds_corpus_substring_proxy",
-      "frequency_rank_provenance": "auto_extracted"
+      "frequency_rank_provenance": "auto_extracted",
+      "honorific_chain": {
+        "plain": "かえす",
+        "polite": "かえします",
+        "humble": "おかえしする",
+        "respectful": "おかえしになる",
+        "note": "Return (something)."
+      },
+      "honorific_chain_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.大きい",
@@ -34736,7 +35188,13 @@
       "false_friends": [
         "はやい"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no high-vowel devoicing",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.たのしい",
@@ -35059,7 +35517,15 @@
         "うつくしくて べんりだ",
         "うつくしく なる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [
+          1
+        ],
+        "note": "つ devoices before voiceless k",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.31-adjectives.きたない",
@@ -36639,7 +37105,13 @@
       "false_friends": [
         "ふべん"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [],
+        "note": "no devoicing - h voiceless but no high vowel adjacent",
+        "rule": "no_devoicing"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.32-adjectives.だいじょうぶ",
@@ -38370,7 +38842,12 @@
         "note": "no devoicing - voiced g",
         "rule": "no_devoicing"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "false_friends": [
+        "いま",
+        "もうすぐ"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.たぶん",
@@ -38415,7 +38892,20 @@
       "frequent_patterns": [
         "n5-158"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "pragmatic_functions": [
+        {
+          "function": "maybe",
+          "gloss": "maybe / probably",
+          "context": "softens assertion"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated",
+      "false_friends": [
+        "きっと",
+        "もちろん"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.いっしょに",
@@ -38647,7 +39137,20 @@
         "きっと おもしろい",
         "きっと たかい"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "surely",
+          "gloss": "surely / definitely",
+          "context": "strong conjecture"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated",
+      "false_friends": [
+        "たぶん",
+        "ぜったい"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.もちろん",
@@ -38688,7 +39191,20 @@
         "もちろん いいです",
         "もちろん すきです"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "of-course",
+          "gloss": "of course",
+          "context": "emphatic affirmative"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated",
+      "false_friends": [
+        "たぶん",
+        "きっと"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.33-adverbs.どうぞ",
@@ -39260,7 +39776,16 @@
         "しかし、 おわります。",
         "いきます。しかし、 かえります。"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [
+          0,
+          2
+        ],
+        "note": "し devoices in both positions (between voiceless k/voiceless ends)",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.34-conjunctions.が",
@@ -40443,7 +40968,15 @@
         "おはようございますを つかう",
         "「おはようございます」"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "polite-morning-greeting",
+          "gloss": "good morning (formal)",
+          "context": "workplace / customer"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.こんにちは",
@@ -40587,7 +41120,15 @@
         "おやすみなさいを つかう",
         "「おやすみなさい」"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "polite-bedtime",
+          "gloss": "good night (formal)",
+          "context": "evening farewell"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.さようなら",
@@ -40765,7 +41306,20 @@
         "ありがとうを つかう",
         "「ありがとう」"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "thanks",
+          "gloss": "thank you",
+          "context": "casual gratitude"
+        },
+        {
+          "function": "closing-phone",
+          "gloss": "thanks (call closer)",
+          "context": "ending phone"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ありがとうございます",
@@ -40807,7 +41361,15 @@
         "ありがとうございますを つかう",
         "「ありがとうございます」"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "polite-thanks",
+          "gloss": "thank you very much",
+          "context": "formal gratitude"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.どういたしまして",
@@ -41004,7 +41566,20 @@
         "おねがいしますを つかう",
         "「おねがいします」"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "pragmatic_functions": [
+        {
+          "function": "polite-request",
+          "gloss": "please / I'd like",
+          "context": "ordering / asking favor"
+        },
+        {
+          "function": "closing-greeting",
+          "gloss": "thanks in advance",
+          "context": "「よろしく お願いします」"
+        }
+      ],
+      "pragmatic_functions_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いただきます",
@@ -41896,7 +42471,15 @@
         "n5-070",
         "n5-076"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "し devoices marginally (g is voiced)",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.やくそく",
@@ -44263,7 +44846,15 @@
         "さくぶんを みる",
         "やすい さくぶん"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "devoiced_vowels": {
+        "positions": [
+          0
+        ],
+        "note": "さく — く marginally devoices",
+        "rule": "between_voiceless"
+      },
+      "devoiced_vowels_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.じびき",
@@ -46805,7 +47396,11 @@
         "mora": 4,
         "drop": 0
       },
-      "pitch_accent_provenance": "kanjium_lookup"
+      "pitch_accent_provenance": "kanjium_lookup",
+      "false_friends": [
+        "きく"
+      ],
+      "false_friends_provenance": "llm_curated"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.週末",
