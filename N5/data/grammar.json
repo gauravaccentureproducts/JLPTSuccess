@@ -4258,12 +4258,12 @@
     {
       "id": "n5-017",
       "tier": "core_n5",
-      "pattern": "なに／なん",
+      "pattern": "何（なに／なん）",
       "category": "Question Words",
       "categoryOrder": 4,
       "patternOrder": 1,
       "meaning_en": "What - pronounced なに or なん depending on what follows",
-      "meaning_ja": "「なに」「なん」",
+      "meaning_ja": "「何（なに／なん）」は しつもんを する ことば。「なに」と「なん」は どちらも おなじ「何」を つかう。「なに」は ものや ことに ついて(なにを たべますか)、「なん」は すうじ・じかん・「です」の まえで(なんですか・なんじですか) つかう。",
       "form_rules": {
         "attaches_to": [
           "question_word"
@@ -4304,7 +4304,7 @@
           ]
         },
         {
-          "ja": "これは なんですか。",
+          "ja": "これは 何ですか。",
           "form": "question",
           "translation_en": "What is this?",
           "vocab_ids": [
@@ -4364,7 +4364,7 @@
           ]
         },
         {
-          "ja": "なんで きましたか。",
+          "ja": "何（なに）で 来ましたか。",
           "form": "question",
           "translation_en": "How (by what means) did you come?",
           "vocab_ids": [
