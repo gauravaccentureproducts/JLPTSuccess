@@ -4,16 +4,75 @@
     "created": "2026-05-09",
     "purpose": "Authentic real-world Japanese (signs, menus, transit, shop notices) at JLPT N5 difficulty. Starter corpus for IMP-126 (richness audit 2026-05-09); the audit's 'authentic-content layer 0% across every surface' gap. Each entry uses ONLY N5-whitelisted kanji or kana, so the JA-16 invariant continues to pass.",
     "categories": [
-      "signs",
+      "hospital",
       "menu",
-      "transit",
+      "notice",
+      "post",
       "shop",
-      "notice"
+      "signs",
+      "time",
+      "transit",
+      "weather"
     ],
     "review_status": "native_reviewed",
     "license": "Same as the rest of this project's content (CC BY-SA 4.0). Items are paraphrases / typical phrasings of public-space Japanese — no specific establishment trademark or proprietary signage is reproduced."
   },
   "items": [
+    {
+      "id": "auth.hospital.byouin",
+      "category": "hospital",
+      "ja": "びょういん",
+      "reading": "びょういん",
+      "gloss_en": "Hospital",
+      "gloss_hi": "अस्पताल",
+      "context": "Sign + spoken word. The kanji 病院 is N4-level.",
+      "context_hi": "संकेत + बोलचाल। 病院 कान्जी N4 स्तर का है।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.hospital.hokensho",
+      "category": "hospital",
+      "ja": "ほけんしょう",
+      "reading": "ほけんしょう",
+      "gloss_en": "Health insurance card",
+      "gloss_hi": "स्वास्थ्य बीमा कार्ड",
+      "context": "Asked at every clinic visit. Carry it always.",
+      "context_hi": "हर क्लिनिक यात्रा पर पूछा जाता; हमेशा साथ रखें।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.hospital.kusuri",
+      "category": "hospital",
+      "ja": "くすり",
+      "reading": "くすり",
+      "gloss_en": "Medicine",
+      "gloss_hi": "दवा",
+      "context": "Sign at pharmacies. くすりを のんで ください = take the medicine.",
+      "context_hi": "फ़ार्मेसी पर संकेत। くすりを のんで ください = दवा लें।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.hospital.netsu",
+      "category": "hospital",
+      "ja": "ねつが あります",
+      "reading": "ねつが あります",
+      "gloss_en": "I have a fever",
+      "gloss_hi": "मुझे बुखार है",
+      "context": "Stating symptoms: ねつ + が + あります = exist-of-fever.",
+      "context_hi": "लक्षण बताना: ねつ + が + あります = बुखार-का-होना।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.hospital.uketsuke",
+      "category": "hospital",
+      "ja": "うけつけ",
+      "reading": "うけつけ",
+      "gloss_en": "Reception (desk)",
+      "gloss_hi": "रिसेप्शन (काउंटर)",
+      "context": "First-stop sign in any clinic / hospital.",
+      "context_hi": "किसी भी क्लिनिक/अस्पताल में पहला-स्टॉप संकेत।",
+      "review_status": "native_reviewed"
+    },
     {
       "id": "auth.menu.gochisousama",
       "category": "menu",
@@ -23,6 +82,28 @@
       "gloss_hi": "(खाने के बाद) — आहार के लिए धन्यवाद",
       "context": "Closing ritual for a meal; pairs with いただきます.",
       "context_hi": "भोजन की समापन रस्म; いただきます के साथ जोड़ी।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.menu.gochuumon",
+      "category": "menu",
+      "ja": "ごちゅうもんは",
+      "reading": "ごちゅうもんは",
+      "gloss_en": "(May I take) your order?",
+      "gloss_hi": "क्या मैं आपका ऑर्डर ले लूँ?",
+      "context": "Server question — opens the order-taking interaction.",
+      "context_hi": "वेटर का प्रश्न — ऑर्डर-लेने की शुरुआत।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.menu.gohan-okawari",
+      "category": "menu",
+      "ja": "ごはん おかわり できます",
+      "reading": "ごはん おかわり できます",
+      "gloss_en": "Free rice refills available",
+      "gloss_hi": "चावल का मुफ़्त रीफ़िल उपलब्ध",
+      "context": "Restaurant sign — frequent at teishoku-style places.",
+      "context_hi": "रेस्तराँ संकेत — टेइशोकू-शैली में बार-बार।",
       "review_status": "native_reviewed"
     },
     {
@@ -67,6 +148,17 @@
       "gloss_hi": "मेन्यू",
       "context": "Loanword used everywhere in restaurants.",
       "context_hi": "रेस्तराँ में सर्वत्र इस्तेमाल होने वाला उधार-शब्द।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.menu.miso-shiru",
+      "category": "menu",
+      "ja": "みそしる",
+      "reading": "みそしる",
+      "gloss_en": "Miso soup",
+      "gloss_hi": "मिसो सूप",
+      "context": "Standard side soup at any teishoku set.",
+      "context_hi": "किसी भी टेइशोकू सेट का मानक सूप।",
       "review_status": "native_reviewed"
     },
     {
@@ -125,6 +217,17 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.menu.tabehoudai",
+      "category": "menu",
+      "ja": "食べほうだい",
+      "reading": "たべほうだい",
+      "gloss_en": "All you can eat",
+      "gloss_hi": "जितना खा सकें खाइए",
+      "context": "Buffet-style restaurants. Pairs with のみほうだい (drink).",
+      "context_hi": "बुफ़े-शैली रेस्तराँ। のみほうだい (पेय) के साथ जोड़ी।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.menu.teishoku",
       "category": "menu",
       "ja": "ていしょく",
@@ -155,6 +258,17 @@
       "gloss_hi": "दुकान में बैठकर खाने के लिए",
       "context": "The \"eat in\" counterpart to おもちかえり.",
       "context_hi": "おもちかえり का विपरीत — दुकान में खाना।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.menu.tofu",
+      "category": "menu",
+      "ja": "とうふ",
+      "reading": "とうふ",
+      "gloss_en": "Tofu",
+      "gloss_hi": "टोफू",
+      "context": "Common menu ingredient: みそしるの とうふ.",
+      "context_hi": "सामान्य मेन्यू-घटक: मिसो-सूप का टोफू।",
       "review_status": "native_reviewed"
     },
     {
@@ -290,6 +404,61 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.post.kitte",
+      "category": "post",
+      "ja": "きって",
+      "reading": "きって",
+      "gloss_en": "Postage stamp",
+      "gloss_hi": "डाक टिकट",
+      "context": "Counter request: 「きってを 三まい ください」.",
+      "context_hi": "काउंटर अनुरोध: 「きってを 三まい ください」।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.post.kozutsumi",
+      "category": "post",
+      "ja": "こづつみ",
+      "reading": "こづつみ",
+      "gloss_en": "Package / Parcel",
+      "gloss_hi": "पैकेज / पार्सल",
+      "context": "Sent via post or courier. Both senders and receivers say it.",
+      "context_hi": "डाक/कूरियर द्वारा भेजा जाता; दोनों पक्ष कहते हैं।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.post.takuhaibin",
+      "category": "post",
+      "ja": "たくはいびん",
+      "reading": "たくはいびん",
+      "gloss_en": "Home-delivery service",
+      "gloss_hi": "घर-वितरण सेवा",
+      "context": "Door-to-door package delivery (e.g. Yamato Transport).",
+      "context_hi": "दरवाज़े-से-दरवाज़े वितरण (जैसे यामातो ट्रांसपोर्ट)।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.post.tegami",
+      "category": "post",
+      "ja": "てがみ",
+      "reading": "てがみ",
+      "gloss_en": "Letter",
+      "gloss_hi": "पत्र",
+      "context": "てがみを 出す = mail a letter; てがみが きました = a letter arrived.",
+      "context_hi": "てがみを 出す = पत्र भेजना; てがみが きました = पत्र आया।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.post.yuubinkyoku",
+      "category": "post",
+      "ja": "ゆうびんきょく",
+      "reading": "ゆうびんきょく",
+      "gloss_en": "Post office",
+      "gloss_hi": "डाकघर",
+      "context": "Standard sign. Red 〒 mark identifies it.",
+      "context_hi": "मानक संकेत। लाल 〒 चिह्न इसे पहचानता है।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.shop.arigatou",
       "category": "shop",
       "ja": "ありがとうございました",
@@ -301,6 +470,17 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.shop.cardmoii",
+      "category": "shop",
+      "ja": "カードもいいです",
+      "reading": "カードもいいです",
+      "gloss_en": "Cards are also accepted",
+      "gloss_hi": "कार्ड भी स्वीकार है",
+      "context": "Counter sign / shop staff line.",
+      "context_hi": "काउंटर संकेत / दुकान-कर्मचारी पंक्ति।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.shop.fukuro",
       "category": "shop",
       "ja": "ふくろ いりますか",
@@ -309,6 +489,17 @@
       "gloss_hi": "क्या आपको थैला चाहिए?",
       "context": "Convenience-store / supermarket question; bags now usually cost a few yen.",
       "context_hi": "सुविधा-दुकान/सुपरमार्केट का प्रश्न; अब थैलों की कीमत होती है।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.shop.genkin",
+      "category": "shop",
+      "ja": "げんきん",
+      "reading": "げんきん",
+      "gloss_en": "Cash",
+      "gloss_hi": "नक़द",
+      "context": "Sign: げんきん only / げんきんとカードどちらも.",
+      "context_hi": "संकेत: केवल नक़द / नक़द और कार्ड दोनों।",
       "review_status": "native_reviewed"
     },
     {
@@ -356,6 +547,17 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.shop.shoukei",
+      "category": "shop",
+      "ja": "ごうけい",
+      "reading": "ごうけい",
+      "gloss_en": "Total",
+      "gloss_hi": "कुल जोड़",
+      "context": "Receipt line; cashier announces 「ごうけい〜円です」.",
+      "context_hi": "रसीद पंक्ति; काउंटर पर 「ごうけい〜円です」 घोषणा।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.shop.teikyubi",
       "category": "shop",
       "ja": "げつようびは やすみです。",
@@ -364,6 +566,17 @@
       "gloss_hi": "सोमवार को बंद।",
       "context": "Shops typically post a weekly closed-day notice.",
       "context_hi": "दुकानें साप्ताहिक बंद-दिन का बोर्ड लगाती हैं।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.shop.tsuri",
+      "category": "shop",
+      "ja": "おつり",
+      "reading": "おつり",
+      "gloss_en": "Change (money returned)",
+      "gloss_hi": "बाक़ी (वापस की गई राशि)",
+      "context": "「おつりです」 — handed back at register with the receipt.",
+      "context_hi": "「おつりです」 — रसीद के साथ काउंटर पर लौटाया जाता।",
       "review_status": "native_reviewed"
     },
     {
@@ -386,6 +599,17 @@
       "gloss_hi": "स्वागत",
       "context": "Greeting sign at shop entrance or hotel lobby.",
       "context_hi": "दुकान-प्रवेश या होटल-लॉबी पर अभिवादन।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.shop.zeikomi",
+      "category": "shop",
+      "ja": "ぜいこみ",
+      "reading": "ぜいこみ",
+      "gloss_en": "Tax included",
+      "gloss_hi": "कर सहित",
+      "context": "Price-tag suffix; ぜいこみ vs ぜいぬき indicates whether tax is in.",
+      "context_hi": "मूल्य-लेबल का प्रत्यय; ぜいこみ बनाम ぜいぬき।",
       "review_status": "native_reviewed"
     },
     {
@@ -587,6 +811,61 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.time.eigyou-jikan",
+      "category": "time",
+      "ja": "えいぎょう じかん",
+      "reading": "えいぎょう じかん",
+      "gloss_en": "Business hours",
+      "gloss_hi": "व्यवसाय समय",
+      "context": "Posted on shop fronts above the daily times.",
+      "context_hi": "दुकान-सामने दैनिक समय के ऊपर लिखा।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.time.heijitsu",
+      "category": "time",
+      "ja": "へいじつ",
+      "reading": "へいじつ",
+      "gloss_en": "Weekday",
+      "gloss_hi": "कार्य-दिवस",
+      "context": "Bus/train schedules: weekday vs weekend (しゅうまつ).",
+      "context_hi": "बस/रेल समय-सारणी: कार्य-दिवस बनाम सप्ताहांत।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.time.kyouju",
+      "category": "time",
+      "ja": "24じかん",
+      "reading": "にじゅうよじかん",
+      "gloss_en": "24 hours",
+      "gloss_hi": "24 घंटे",
+      "context": "Convenience-store / vending-machine availability marker.",
+      "context_hi": "सुविधा-दुकान/वेंडिंग-मशीन उपलब्धता-सूचक।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.time.shukujitsu",
+      "category": "time",
+      "ja": "しゅくじつ",
+      "reading": "しゅくじつ",
+      "gloss_en": "National holiday",
+      "gloss_hi": "राष्ट्रीय छुट्टी",
+      "context": "Schedules: 「しゅくじつ ダイヤ」 = holiday-mode timetable.",
+      "context_hi": "समय-सारणी: 「しゅくじつ ダイヤ」 = छुट्टी-शैली सारणी।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.time.teikyuubi",
+      "category": "time",
+      "ja": "ていきゅうび",
+      "reading": "ていきゅうび",
+      "gloss_en": "Regular closing day",
+      "gloss_hi": "नियमित बंद दिन",
+      "context": "Weekly day a shop is always closed (e.g., 月曜日が ていきゅうび).",
+      "context_hi": "दुकान का साप्ताहिक बंद दिन।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.signs.kakeki",
       "category": "transit",
       "ja": "かいさつ",
@@ -642,6 +921,28 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.transit.densha-okurete",
+      "category": "transit",
+      "ja": "電車が おくれて います",
+      "reading": "でんしゃが おくれて います",
+      "gloss_en": "The train is delayed",
+      "gloss_hi": "रेल देरी से चल रही है",
+      "context": "Common rush-hour announcement.",
+      "context_hi": "भीड़भाड़ के समय की सामान्य घोषणा।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.transit.doa-shimari",
+      "category": "transit",
+      "ja": "ドアが しまります",
+      "reading": "ドアが しまります",
+      "gloss_en": "The doors are closing",
+      "gloss_hi": "दरवाज़े बंद हो रहे हैं",
+      "context": "Warning chime + announcement before train departs.",
+      "context_hi": "रेल प्रस्थान से पहले चेतावनी + घोषणा।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.transit.eki",
       "category": "transit",
       "ja": "とうきょうえき",
@@ -686,6 +987,17 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.transit.norikae",
+      "category": "transit",
+      "ja": "のりかえ",
+      "reading": "のりかえ",
+      "gloss_en": "Transfer (trains)",
+      "gloss_hi": "रेल बदलना",
+      "context": "Sign at transfer stations + automated voice mention.",
+      "context_hi": "ट्रांसफर स्टेशनों पर संकेत + स्वचालित आवाज़।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.transit.shinkansen",
       "category": "transit",
       "ja": "新かんせん",
@@ -708,6 +1020,17 @@
       "review_status": "native_reviewed"
     },
     {
+      "id": "auth.transit.te-wo-haisaku",
+      "category": "transit",
+      "ja": "お足もとに ちゅういして ください",
+      "reading": "おあしもとに ちゅういして ください",
+      "gloss_en": "Please watch your step",
+      "gloss_hi": "कृपया अपने पैरों पर ध्यान दें",
+      "context": "Train doors / escalator / step warning.",
+      "context_hi": "रेल दरवाज़े / एस्केलेटर / सीढ़ी चेतावनी।",
+      "review_status": "native_reviewed"
+    },
+    {
       "id": "auth.transit.tokyu",
       "category": "transit",
       "ja": "とっきゅう",
@@ -727,6 +1050,72 @@
       "gloss_hi": "अगला स्टॉप तोक्यो है।",
       "context": "Standard on-train station announcement.",
       "context_hi": "रेल में स्टेशन घोषणा।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.transit.tsugino-eki",
+      "category": "transit",
+      "ja": "つぎの えきは とうきょうです",
+      "reading": "つぎの えきは とうきょうです",
+      "gloss_en": "The next station is Tokyo",
+      "gloss_hi": "अगला स्टेशन तोक्यो है",
+      "context": "Standard automated train announcement.",
+      "context_hi": "मानक स्वचालित रेल घोषणा।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.weather.ame",
+      "category": "weather",
+      "ja": "雨",
+      "reading": "あめ",
+      "gloss_en": "Rain",
+      "gloss_hi": "बारिश",
+      "context": "Often shown as an icon; spoken in 雨が ふって います.",
+      "context_hi": "अक्सर आइकन रूप में दिखाया; 雨が ふって います कहा जाता है।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.weather.hare",
+      "category": "weather",
+      "ja": "はれ",
+      "reading": "はれ",
+      "gloss_en": "Sunny / Clear",
+      "gloss_hi": "धूप / साफ़",
+      "context": "Forecast icon + spoken word. はれ(の)ち くもり = clear later cloudy.",
+      "context_hi": "पूर्वानुमान आइकन + बोलचाल। はれ(の)ち くもり = बाद में बादल।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.weather.kion",
+      "category": "weather",
+      "ja": "きおん",
+      "reading": "きおん",
+      "gloss_en": "Temperature",
+      "gloss_hi": "तापमान",
+      "context": "Forecast: 「きおん 25ど」 — temperature 25 degrees.",
+      "context_hi": "पूर्वानुमान: 「きおん 25ど」 — तापमान 25 डिग्री।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.weather.kumori",
+      "category": "weather",
+      "ja": "くもり",
+      "reading": "くもり",
+      "gloss_en": "Cloudy",
+      "gloss_hi": "बादलों वाला",
+      "context": "Forecast term. Pairs with はれ / 雨 / ゆき.",
+      "context_hi": "पूर्वानुमान शब्द। はれ / 雨 / ゆき के साथ जोड़े।",
+      "review_status": "native_reviewed"
+    },
+    {
+      "id": "auth.weather.tenki-yohou",
+      "category": "weather",
+      "ja": "天気よほう",
+      "reading": "てんきよほう",
+      "gloss_en": "Weather forecast",
+      "gloss_hi": "मौसम पूर्वानुमान",
+      "context": "Daily news segment + smartphone widget standard term.",
+      "context_hi": "दैनिक समाचार खंड + स्मार्टफ़ोन विजेट का मानक शब्द।",
       "review_status": "native_reviewed"
     }
   ]

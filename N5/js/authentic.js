@@ -16,14 +16,20 @@ async function loadData() {
 }
 
 const CATEGORY_LABEL = {
-  signs:   { en: 'Signs',                ja: 'かんばん' },
-  menu:    { en: 'Menu / dining',        ja: 'メニュー' },
-  transit: { en: 'Transit / station',    ja: 'えき' },
-  shop:    { en: 'Shop / business hours', ja: 'みせ' },
-  notice:  { en: 'Notices / warnings',   ja: 'おしらせ' },
+  signs:    { en: 'Signs',                  ja: 'かんばん' },
+  menu:     { en: 'Menu / dining',          ja: 'メニュー' },
+  transit:  { en: 'Transit / station',      ja: 'えき' },
+  shop:     { en: 'Shop / business hours',  ja: 'みせ' },
+  notice:   { en: 'Notices / warnings',     ja: 'おしらせ' },
+  // Added in IMP-126 round-3 (2026-05-10):
+  weather:  { en: 'Weather forecast',       ja: 'てんき' },
+  hospital: { en: 'Hospital / health',      ja: 'びょういん' },
+  post:     { en: 'Post office / parcels',  ja: 'ゆうびんきょく' },
+  time:     { en: 'Time / business hours',  ja: 'じかん' },
 };
 
-const CATEGORY_ORDER = ['signs', 'menu', 'transit', 'shop', 'notice'];
+const CATEGORY_ORDER = ['signs', 'menu', 'transit', 'shop', 'notice',
+                        'weather', 'hospital', 'post', 'time'];
 
 export async function renderAuthentic(container) {
   const data = await loadData();
