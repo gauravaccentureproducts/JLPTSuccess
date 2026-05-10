@@ -133,7 +133,18 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "三",
+        "二"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 一: Numbers usually take on-yomi: 一 (いち), 一月 (いちがつ, January). Kun ひと appears in 一つ (ひとつ, one thing).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "一:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.二",
@@ -265,7 +276,18 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "一",
+        "三"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 二: standalone use of kun (ふた); compounds use on (に).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "二:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.三",
@@ -368,7 +390,18 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "一",
+        "二"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 三: standalone use of kun (み); compounds use on (さん).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "三:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.四",
@@ -460,7 +493,17 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "西"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 四: standalone use of kun (よ); compounds use on (し).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "四:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.五",
@@ -567,7 +610,13 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 五: standalone use of kun (いつ); compounds use on (ご).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "五:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.六",
@@ -654,7 +703,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 六: standalone use of kun (む); compounds use on (ろく).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "六:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.七",
@@ -751,7 +806,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 七: standalone use of kun (なな); compounds use on (しち).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "七:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.八",
@@ -887,7 +948,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 八: standalone use of kun (や); compounds use on (はち).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "八:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.九",
@@ -981,7 +1048,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 九: standalone use of kun (ここの); compounds use on (きゅう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "九:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.十",
@@ -1117,7 +1190,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 十: standalone use of kun (とお); compounds use on (じゅう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.百",
@@ -1203,7 +1278,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 百: only on-readings (ひゃく); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.千",
@@ -1341,7 +1418,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 千: standalone use of kun (ち); compounds use on (せん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.万",
@@ -1423,7 +1502,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 万: only on-readings (まん); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.円",
@@ -1549,7 +1630,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 円: only on-readings (えん); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.日",
@@ -1710,6 +1793,8 @@
       ],
       "look_alike_provenance": "llm_curated",
       "lookalikes": [
+        "口",
+        "月",
         "白",
         "目"
       ],
@@ -1859,7 +1944,10 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 日: 日 (ひ, kun, \"day\") — standalone. 日本 (にほん, on+on, \"Japan\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.月",
@@ -2032,7 +2120,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "日"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 月: 月 (つき, kun, \"moon\") — standalone. 月曜日 (げつようび, on, \"Monday\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.火",
@@ -2120,7 +2214,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "水"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 火: 火 (ひ, kun, \"fire\") — standalone. 火曜日 (かようび, on, \"Tuesday\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.水",
@@ -2211,7 +2311,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "火"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 水: 水 (みず, kun, \"water\") — standalone. 水曜日 (すいようび, on, \"Wednesday\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.木",
@@ -2354,7 +2460,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 木: 木 (き, kun, \"tree\") — standalone. 木曜日 (もくようび, on, \"Thursday\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.金",
@@ -2463,7 +2571,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 金: 金 (かね, kun, \"money\") — standalone. 金曜日 (きんようび, on, \"Friday\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.土",
@@ -2584,7 +2694,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 土: 土 (つち, kun, \"earth\") — standalone. 土曜日 (どようび, on, \"Saturday\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.曜",
@@ -2730,7 +2842,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 曜: only on-readings (よう); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.年",
@@ -2832,7 +2946,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 年: standalone use of kun (とし); compounds use on (ねん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.時",
@@ -2986,7 +3102,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 時: 時 (とき, kun, \"time, occasion\") — standalone. 時間 (じかん, on, \"time-duration\") — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.分",
@@ -3108,7 +3226,13 @@
           "level": "info-search"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 分: standalone use of kun (わ); compounds use on (ぶん).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "分:かる"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.半",
@@ -3198,7 +3322,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 半: standalone use of kun (なか); compounds use on (はん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.今",
@@ -3338,7 +3464,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 今: standalone use of kun (いま); compounds use on (こん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.毎",
@@ -3444,7 +3572,9 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 毎: only on-readings (まい); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.週",
@@ -3546,7 +3676,9 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 週: only on-readings (しゅう); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.午",
@@ -3656,7 +3788,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 午: only on-readings (ご); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.何",
@@ -3757,7 +3891,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 何: 何 (なに/なん) — both kun. なに alone (何ですか), なん before counters (何時, なんじ).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.人",
@@ -3933,7 +4069,10 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 人: 人 (ひと, kun, \"person\") — standalone. 日本人 (にほんじん, on, \"Japanese person\") — compound suffix.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.男",
@@ -4022,7 +4161,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "女",
+        "子"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 男: standalone use of kun (おとこ); compounds use on (だん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.女",
@@ -4110,7 +4256,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "子",
+        "男"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 女: standalone use of kun (おんな); compounds use on (じょ).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.子",
@@ -4211,7 +4364,18 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "女",
+        "男"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 子: standalone use of kun (こ); compounds use on (し).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "子:ども"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.父",
@@ -4301,7 +4465,13 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "母"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 父: 父 (ちち, kun, humble \"my father\") — standalone. お父さん (おとうさん, kun-based polite) — used about others.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.母",
@@ -4405,7 +4575,13 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "父"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 母: 母 (はは, kun, humble) — standalone. お母さん (おかあさん, kun-based polite) — about others.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.友",
@@ -4499,7 +4675,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 友: standalone use of kun (とも); compounds use on (ゆう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "友:だち"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.先",
@@ -4619,7 +4801,9 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 先: standalone use of kun (さき); compounds use on (せん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.生",
@@ -4754,7 +4938,13 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 生: 生 (い-きる/うまれる, kun) — standalone verbs. 学生 (がくせい, on, \"student\") — compound.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "生:まれる"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.手",
@@ -4847,7 +5037,17 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "足"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 手: standalone use of kun (て); compounds use on (しゅ).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "手:がみ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.足",
@@ -4940,7 +5140,17 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "手"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 足: standalone use of kun (あし); compounds use on (そく).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "足:あと"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.目",
@@ -5042,6 +5252,7 @@
       ],
       "look_alike_provenance": "llm_curated",
       "lookalikes": [
+        "口",
         "日",
         "白"
       ],
@@ -5066,7 +5277,10 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 目: standalone use of kun (め); compounds use on (もく).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.口",
@@ -5163,7 +5377,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "日",
+        "白",
+        "目"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 口: standalone use of kun (くち); compounds use on (こう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.力",
@@ -5253,7 +5475,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 力: standalone use of kun (ちから); compounds use on (りょく).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "力:もち"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.学",
@@ -5394,7 +5622,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 学: 学 (まな-ぶ, kun, \"to learn\") — verb. 学校 (がっこう, on, \"school\") — compound noun.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.校",
@@ -5503,7 +5733,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 校: 校 (こう, on) — appears in compounds: 学校, 高校 — rarely standalone.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.本",
@@ -5722,7 +5954,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 本: 本 (ほん, on, \"book\") — standalone (irregular: uses on even alone). 日本 (にほん, on) — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.語",
@@ -5844,7 +6078,9 @@
           "level": "info-search"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 語: standalone use of kun (かた); compounds use on (ご).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.国",
@@ -5951,7 +6187,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 国: standalone use of kun (くに); compounds use on (こく).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.会",
@@ -6049,7 +6287,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 会: standalone use of kun (あ); compounds use on (かい).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "会:う"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.社",
@@ -6133,7 +6377,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 社: only on-readings (しゃ); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.員",
@@ -6220,7 +6466,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 員: only on-readings (いん); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.大",
@@ -6409,7 +6657,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 大: standalone use of kun (おお); compounds use on (だい).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "大:きい",
+        "大:きな"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.中",
@@ -6514,7 +6769,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 中: standalone use of kun (なか); compounds use on (ちゅう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.小",
@@ -6602,7 +6859,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 小: standalone use of kun (ちい); compounds use on (しょう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "小:さい"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.上",
@@ -6731,7 +6994,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 上: standalone use of kun (うえ); compounds use on (じょう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.下",
@@ -6825,7 +7090,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 下: standalone use of kun (した); compounds use on (か).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.左",
@@ -6908,7 +7175,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 左: standalone use of kun (ひだり); compounds use on (さ).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.右",
@@ -6992,7 +7261,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 右: standalone use of kun (みぎ); compounds use on (う).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.前",
@@ -7088,7 +7359,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 前: standalone use of kun (まえ); compounds use on (ぜん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.後",
@@ -7188,7 +7461,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 後: standalone use of kun (うし); compounds use on (ご).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "後:で",
+        "後:ろ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.外",
@@ -7285,7 +7565,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 外: standalone use of kun (そと); compounds use on (がい).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.東",
@@ -7375,7 +7657,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "北",
+        "南",
+        "西"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 東: standalone use of kun (ひがし); compounds use on (とう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.西",
@@ -7457,7 +7747,16 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "北",
+        "南",
+        "四",
+        "東"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 西: standalone use of kun (にし); compounds use on (せい).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.南",
@@ -7540,7 +7839,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "北",
+        "東",
+        "西"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 南: standalone use of kun (みなみ); compounds use on (なん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.北",
@@ -7624,7 +7931,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes": [
+        "南",
+        "東",
+        "西"
+      ],
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 北: standalone use of kun (きた); compounds use on (ほく).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.間",
@@ -7737,7 +8052,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 間: 間 (あいだ, kun, \"between\"). 時間 (じかん, on) — compound.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.山",
@@ -7832,7 +8149,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 山: standalone use of kun (やま); compounds use on (さん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.川",
@@ -7918,7 +8237,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 川: standalone use of kun (かわ); compounds use on (せん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.田",
@@ -8005,7 +8326,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 田: standalone use of kun (た); compounds use on (でん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.雨",
@@ -8092,7 +8415,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 雨: standalone use of kun (あめ); compounds use on (う).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.天",
@@ -8179,7 +8504,13 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 天: standalone use of kun (あめ); compounds use on (てん).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "天:ぷら"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.気",
@@ -8264,7 +8595,13 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 気: only on-readings (き, け); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "気:もち"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.花",
@@ -8346,7 +8683,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 花: standalone use of kun (はな); compounds use on (か).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.空",
@@ -8436,7 +8775,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 空: standalone use of kun (そら); compounds use on (くう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.電",
@@ -8532,7 +8873,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 電: only on-readings (でん); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.車",
@@ -8619,7 +8962,9 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 車: standalone use of kun (くるま); compounds use on (しゃ).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.道",
@@ -8709,7 +9054,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 道: standalone use of kun (みち); compounds use on (どう).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.店",
@@ -8799,7 +9146,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 店: standalone use of kun (みせ); compounds use on (てん).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.駅",
@@ -8879,7 +9228,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 駅: only on-readings (えき); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.食",
@@ -8987,7 +9338,14 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 食: 食 (た-べる, kun, \"to eat\") — verb. 食事 (しょくじ, on, \"meal\") — compound.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "食:べもの",
+        "食:べる"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.飲",
@@ -9079,7 +9437,14 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 飲: 飲 (の-む, kun, \"to drink\") — verb. 飲料 (いんりょう, on) — compound (N4+).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "飲:みもの",
+        "飲:む"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.見",
@@ -9209,7 +9574,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 見: 見 (み-る, kun, \"to see\") — verb. 意見 (いけん, on, \"opinion\") — compound.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "見:おくる",
+        "見:せる",
+        "見:る"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.聞",
@@ -9308,7 +9681,14 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 聞: 聞 (き-く, kun, \"to listen/ask\") — verb. 新聞 (しんぶん, on, \"newspaper\") — compound.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "聞:く",
+        "聞:こえる"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.読",
@@ -9403,7 +9783,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 読: standalone use of kun (よ); compounds use on (どく).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "読:みかた",
+        "読:みもの",
+        "読:む"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.書",
@@ -9489,7 +9877,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 書: standalone use of kun (か); compounds use on (しょ).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "書:きかた",
+        "書:く"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.話",
@@ -9599,7 +9994,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 話: standalone use of kun (はな); compounds use on (わ).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "話:す"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.来",
@@ -9732,7 +10133,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 来: 来 (く-る, kun, \"to come\") — verb. 来年 (らいねん, on, \"next year\") — compound.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "来:る"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.行",
@@ -9902,7 +10309,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 行: 行 (い-く, kun, \"to go\") — verb. 銀行 (ぎんこう, on, \"bank\") — compound.",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "行:きかた",
+        "行:く"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.出",
@@ -10022,7 +10436,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 出: standalone use of kun (で); compounds use on (しゅつ).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "出:かける",
+        "出:る"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.入",
@@ -10152,7 +10573,15 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 入: standalone use of kun (はい); compounds use on (にゅう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "入:る",
+        "入:れる"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.立",
@@ -10240,7 +10669,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 立: standalone use of kun (た); compounds use on (りつ).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "立:つ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.休",
@@ -10356,7 +10791,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 休: standalone use of kun (やす); compounds use on (きゅう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "休:み",
+        "休:む"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.言",
@@ -10454,7 +10896,14 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 言: standalone use of kun (い); compounds use on (げん).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "言:いかた",
+        "言:う"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.買",
@@ -10565,7 +11014,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 買: standalone use of kun (か); compounds use on (ばい).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "買:いもの",
+        "買:う"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.高",
@@ -10665,7 +11121,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 高: standalone use of kun (たか); compounds use on (こう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "高:い"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.安",
@@ -10756,7 +11218,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 安: standalone use of kun (やす); compounds use on (あん).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "安:い",
+        "安:く"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.新",
@@ -10849,7 +11318,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 新: standalone use of kun (あたら); compounds use on (しん).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "新:しい"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.古",
@@ -10957,7 +11432,13 @@
           "level": "medium"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 古: standalone use of kun (ふる); compounds use on (こ).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "古:い"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.長",
@@ -11047,7 +11528,14 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 長: standalone use of kun (なが); compounds use on (ちょう).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "長:い",
+        "長:さ"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.白",
@@ -11146,6 +11634,7 @@
       ],
       "look_alike_provenance": "llm_curated",
       "lookalikes": [
+        "口",
         "日",
         "目"
       ],
@@ -11170,7 +11659,14 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "lookalikes_provenance": "llm_curated",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 白: standalone use of kun (しろ); compounds use on (はく).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "白:い"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.名",
@@ -11253,7 +11749,9 @@
           "level": "easy"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 名: standalone use of kun (な); compounds use on (めい).",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.番",
@@ -11340,7 +11838,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 番: only on-readings (ばん); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.号",
@@ -11420,7 +11920,9 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 号: only on-readings (ごう); appears mostly in compounds.",
+      "reading_rule_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.私",
@@ -11547,7 +12049,13 @@
           "level": "N5"
         }
       ],
-      "reading_passages_provenance": "auto_derived"
+      "reading_passages_provenance": "auto_derived",
+      "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 私: 私 (わたし/わたくし, kun, \"I\") — standalone. 私生活 (しせいかつ, on, \"private life\") — compound (N4+).",
+      "reading_rule_provenance": "llm_curated",
+      "okurigana_cuts": [
+        "私:たち"
+      ],
+      "okurigana_cuts_provenance": "auto_derived"
     }
   ],
   "_meta": {
