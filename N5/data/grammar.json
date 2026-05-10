@@ -4338,7 +4338,14 @@
           "context": "コソアド system foundation: bare pronoun row.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "これ、なに？",
+        "polite": "これは なんですか。",
+        "humble": "こちらは なんでございましょうか。",
+        "respectful": "こちらは なにでいらっしゃいますか。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-015",
@@ -4694,7 +4701,14 @@
           "context": "コソアド: noun-modifying row (must attach to noun).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "この ほん、おもしろい。",
+        "polite": "この ほんは おもしろいです。",
+        "humble": "こちらの ほんは おもしろうございます。",
+        "respectful": "こちらの ほんを ごらんに なって ください。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-016",
@@ -5030,7 +5044,14 @@
           "context": "コソアド: place row, often appears in は〜ですか questions.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ここ、いい ね。",
+        "polite": "ここは いいですね。",
+        "humble": "こちらは いいところで ございますね。",
+        "respectful": "こちらは いい ところで いらっしゃいますね。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-017",
@@ -5328,7 +5349,14 @@
           "context": "何を / 何ですか / 何時 — reading varies by following sound.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なに、これ？",
+        "polite": "これは なんですか。",
+        "humble": "これは なんでございましょうか。",
+        "respectful": "こちらは なんで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-018",
@@ -5988,7 +6016,14 @@
           "context": "時間を聞く質問の基本形: いつ + V + か。",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いつ いく？",
+        "polite": "いつ いきますか。",
+        "humble": "いつ まいりますか。",
+        "respectful": "いつ いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-021",
@@ -6629,7 +6664,14 @@
           "context": "Sentence-final か marks interrogative; written 「。」 follows.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いく？ (intonation only)",
+        "polite": "いきますか。",
+        "humble": "まいりますか。",
+        "respectful": "いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-024",
@@ -6960,7 +7002,14 @@
           "context": "コーヒーか こうちゃ — listed as Optional Choice.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "コーヒーか こうちゃ？",
+        "polite": "コーヒーか こうちゃ、 どちらに しますか。",
+        "humble": "コーヒーか こうちゃ、 どちらに いたしましょうか。",
+        "respectful": "コーヒーか こうちゃ、 いかがで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-025",
@@ -7257,7 +7306,14 @@
           "context": "Confirmation particle; pragmatic softener seeking shared evaluation.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いいね。",
+        "polite": "いいですね。",
+        "humble": "いいで ございますね。",
+        "respectful": "いいで いらっしゃいますね。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-026",
@@ -7548,7 +7604,14 @@
           "context": "Information-imparting particle, opposite of ね in seeking direction.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いいよ。",
+        "polite": "いいですよ。",
+        "humble": "いいで ございますよ。",
+        "respectful": "(よ rarely used in highest respectful register; sounds too assertive)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-027",
@@ -7867,7 +7930,14 @@
           "context": "「おいしいですよね」: stating + checking listener.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "おいしいよね。",
+        "polite": "おいしいですよね。",
+        "humble": "おいしゅう ございますよね。",
+        "respectful": "(よね rarely used at highest register)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-028",
@@ -8192,7 +8262,14 @@
           "context": "N + の + N basic linkage.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "おれの ほん。",
+        "polite": "わたしの ほんです。",
+        "humble": "わたくしの ほんで ございます。",
+        "respectful": "先生の ほんで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-029",
@@ -8840,7 +8917,14 @@
           "context": "〜の は + Adj for \"doing X is Adj\".",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "よむのが すき。",
+        "polite": "よむのが すきです。",
+        "humble": "よむのが すきで ございます。",
+        "respectful": "よむのが おすきで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-031",
@@ -9130,7 +9214,14 @@
           "context": "Pronoun-の to avoid repetition (e.g., あかいのを).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "あかいの ちょうだい。",
+        "polite": "あかいのを ください。",
+        "humble": "あかいのを いただけませんか。",
+        "respectful": "あかいのを おもとめに なりますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-033",
@@ -9444,7 +9535,14 @@
           "context": "〜だけ; positive predicate context.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ひとりだけ きた。",
+        "polite": "ひとりだけ きました。",
+        "humble": "ひとりだけ まいりました。",
+        "respectful": "ひとりだけ いらっしゃいました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-034",
@@ -9790,7 +9888,14 @@
           "context": "〜しか + 否定 — focused-restriction pattern.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ひゃくえんしか ない。",
+        "polite": "ひゃくえんしか ありません。",
+        "humble": "ひゃくえんしか ございません。",
+        "respectful": "(highest register would reframe; しか + neg too curt)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-035",
@@ -10091,7 +10196,14 @@
           "context": "時間・数量の概数 marker.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いちじかんぐらい かかる。",
+        "polite": "いちじかんぐらい かかります。",
+        "humble": "いちじかんぐらい かかります。 (humble for self-time uncommon)",
+        "respectful": "いちじかんぐらい おかかりに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-036",
@@ -10403,7 +10515,14 @@
           "context": "ごろ vs ぐらい distinction: 時点 vs 期間.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にじごろ いく。",
+        "polite": "にじごろ いきます。",
+        "humble": "にじごろ まいります。",
+        "respectful": "にじごろ いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-037",
@@ -10772,7 +10891,14 @@
           "context": "Etcetera marker, pairs with や for partial enumeration.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "りんごやみかんなど かう。",
+        "polite": "りんごや みかんなどを かいます。",
+        "humble": "りんごや みかんなどを ちょうだい いたします。",
+        "respectful": "りんごや みかんなどを おもとめに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-038",
@@ -11103,7 +11229,14 @@
           "context": "Distributive particle attached to counter.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いっこずつ あげる。",
+        "polite": "いっこずつ あげます。",
+        "humble": "いっこずつ さしあげます。",
+        "respectful": "いっこずつ おもらいに なります。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-039",
@@ -11415,7 +11548,14 @@
           "context": "指示代名詞 review.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "これ、なに？",
+        "polite": "これは なんですか。",
+        "humble": "こちらは なんでございましょうか。",
+        "respectful": "こちらは なんで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-040",
@@ -11771,7 +11911,14 @@
           "context": "コソアド: noun-modifying forms.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "この ほん、おもしろい。",
+        "polite": "この ほんは おもしろいです。",
+        "humble": "こちらの ほんは おもしろうございます。",
+        "respectful": "こちらの ほんを ごらんに なって ください。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-041",
@@ -12114,7 +12261,14 @@
           "context": "Spatial demonstratives.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ここ、いい。",
+        "polite": "ここは いいです。",
+        "humble": "こちらは いいで ございます。",
+        "respectful": "こちらは いいところで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-042",
@@ -12420,7 +12574,14 @@
           "context": "Formal-register variant of ここ/そこ/あそこ.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "こっち。 / そっち。",
+        "polite": "こちらです。 / そちらです。",
+        "humble": "こちらで ございます。",
+        "respectful": "こちらで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-043",
@@ -12723,7 +12884,14 @@
           "context": "質的指示語 series.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "こんな ほん、すき。",
+        "polite": "こんな ほんが すきです。",
+        "humble": "こんな ほんが すきで ございます。",
+        "respectful": "こんな ほんを おすきで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-044",
@@ -13025,7 +13193,14 @@
           "context": "How/in this way — adverbial row.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "こう する。",
+        "polite": "こう します。",
+        "humble": "こう いたします。",
+        "respectful": "こう なさいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-045",
@@ -13298,7 +13473,14 @@
           "context": "何 reading rule by following mora.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なに する？",
+        "polite": "なにを しますか。",
+        "humble": "なにを いたしましょうか。",
+        "respectful": "なにを なさいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-046",
@@ -13964,7 +14146,14 @@
           "context": "どこに/どこで for location-question.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "どこ いく？",
+        "polite": "どこに いきますか。",
+        "humble": "どこに まいりましょうか。",
+        "respectful": "どこに いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-049",
@@ -14313,7 +14502,14 @@
           "context": "コソアド系の質問詞.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "どれ？",
+        "polite": "どれですか。",
+        "humble": "どれでございましょうか。",
+        "respectful": "どちらで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-050",
@@ -15334,7 +15530,14 @@
           "context": "どうやって vs どう (former asks method, latter asks state).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "どうやって いく？",
+        "polite": "どうやって いきますか。",
+        "humble": "どうやって まいりましょうか。",
+        "respectful": "どうやって いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-053",
@@ -15681,7 +15884,14 @@
           "context": "〜いくらですか — pricing template.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いくら？",
+        "polite": "いくらですか。",
+        "humble": "いくらでございましょうか。",
+        "respectful": "いくらで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-054",
@@ -16031,7 +16241,14 @@
           "context": "量・年齢の質問詞.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いくつ？",
+        "polite": "いくつですか。",
+        "humble": "おいくつで ございますか。",
+        "respectful": "おいくつで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-055",
@@ -16357,7 +16574,14 @@
           "context": "時刻の質問テンプレート.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なんじ？",
+        "polite": "なんじですか。",
+        "humble": "なんじでございましょうか。",
+        "respectful": "(time-asking rarely escalates to highest register)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-056",
@@ -16671,7 +16895,14 @@
           "context": "曜日の質問.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なんようび？",
+        "polite": "なんようびですか。",
+        "humble": "なんようびでございましょうか。",
+        "respectful": "(rare highest register for day-asking)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-057",
@@ -17000,7 +17231,14 @@
           "context": "誕生日テンプレート: 何月何日ですか.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なんにち？",
+        "polite": "なんがつ なんにちですか。",
+        "humble": "なんがつ なんにちでございましょうか。",
+        "respectful": "(rare highest register)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-058",
@@ -19691,7 +19929,14 @@
           "context": "辞書形 — used as base for many constructions.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべる。 / いく。",
+        "polite": "たべます。 / いきます。",
+        "humble": "いただきます。 / まいります。",
+        "respectful": "めしあがります。 / いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-066",
@@ -24260,7 +24505,14 @@
           "context": "形容詞 (い) + N.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかい ほん。",
+        "polite": "たかい ほんです。",
+        "humble": "おたかい ほんで ございます。",
+        "respectful": "おたかい ほんで いらっしゃいます。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-079",
@@ -25999,7 +26251,14 @@
           "context": "形容詞 (い) のて形 — Adj1くて Adj2.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "おいしくて やすい。",
+        "polite": "おいしくて やすいです。",
+        "humble": "おいしゅう ございまして やすうございます。",
+        "respectful": "(literary humble form rarely used in conversation)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-084",
@@ -26346,7 +26605,14 @@
           "context": "形容詞 (な) + N — visible な inserted.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "しずかな まち。",
+        "polite": "しずかな まちです。",
+        "humble": "しずかな まちで ございます。",
+        "respectful": "しずかな まちで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-085",
@@ -28141,7 +28407,14 @@
           "context": "形容詞 (な) のて形 — Adjで Adj.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "しずかで きれい。",
+        "polite": "しずかで きれいです。",
+        "humble": "しずかで きれいで ございます。",
+        "respectful": "(rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-090",
@@ -29237,7 +29510,14 @@
           "context": "場所にXがあります/います.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "つくえに ほんが ある。",
+        "polite": "つくえに ほんが あります。",
+        "humble": "つくえに ほんが ございます。",
+        "respectful": "つくえに ほんが いらっしゃいます。 (rare, only for people)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-093",
@@ -29596,7 +29876,14 @@
           "context": "X はどこにありますか型.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ほんは つくえに ある。",
+        "polite": "ほんは つくえに あります。",
+        "humble": "ほんは つくえに ございます。",
+        "respectful": "(rare for inanimate)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-094",
@@ -29943,7 +30230,14 @@
           "context": "ある verb usage scope.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "おかねが ある。",
+        "polite": "おかねが あります。",
+        "humble": "おかねが ございます。",
+        "respectful": "(possession rarely at highest respectful)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-095",
@@ -30254,7 +30548,14 @@
           "context": "比較構文 (より).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にほんは アメリカより ちいさい。",
+        "polite": "にほんは アメリカより ちいさいです。",
+        "humble": "にほんは アメリカより ちいそう ございます。",
+        "respectful": "(comparison rarely at highest register)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-096",
@@ -30593,7 +30894,14 @@
           "context": "ほうが with より for explicit comparison.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "コーヒーより こうちゃの ほうが すき。",
+        "polite": "コーヒーより こうちゃの ほうが すきです。",
+        "humble": "コーヒーより こうちゃの ほうが すきで ございます。",
+        "respectful": "コーヒーより こうちゃの ほうが おすきで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-097",
@@ -30950,7 +31258,14 @@
           "context": "二者選択疑問.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "コーヒーと こうちゃと、 どっちが すき？",
+        "polite": "コーヒーと こうちゃと、 どちらが すきですか。",
+        "humble": "コーヒーと こうちゃと、 どちらが すきで ございましょうか。",
+        "respectful": "コーヒーと こうちゃと、 どちらが おすきで いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-098",
@@ -31272,7 +31587,14 @@
           "context": "名詞文の基本.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "これ、 すき。",
+        "polite": "これが すきです。",
+        "humble": "これが すきで ございます。",
+        "respectful": "これが おすきで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-099",
@@ -33899,7 +34221,14 @@
           "context": "希望表現 — extended N5 coverage.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "くるま ほしい。",
+        "polite": "くるまが ほしいです。",
+        "humble": "くるまが ほしゅう ございます。",
+        "respectful": "くるまを ほしがって いらっしゃいます。 (about other)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-107",
@@ -34572,7 +34901,14 @@
           "context": "数の表現 — counter taxonomy.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "みっつ ある。",
+        "polite": "みっつ あります。",
+        "humble": "みっつ ございます。",
+        "respectful": "(rare highest register for counting)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-109",
@@ -34927,7 +35263,14 @@
           "context": "数の質問詞.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なんにん？",
+        "polite": "なんにんですか。",
+        "humble": "なんにんで ございますか。",
+        "respectful": "なんにんで いらっしゃいますか。 (about a group)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-110",
@@ -35242,7 +35585,14 @@
           "context": "助数詞の語順.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ふたつ かった。",
+        "polite": "ふたつ かいました。",
+        "humble": "ふたつ ちょうだい いたしました。",
+        "respectful": "ふたつ おもとめに なりました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-111",
@@ -35490,7 +35840,14 @@
           "context": "時刻 — じ counter.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にじ。",
+        "polite": "にじです。",
+        "humble": "にじでございます。",
+        "respectful": "(rare highest register for time)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-112",
@@ -35767,7 +36124,14 @@
           "context": "時刻 — ふん/ぷん sound change.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にじゅっぷん。",
+        "polite": "にじゅっぷんです。",
+        "humble": "にじゅっぷんでございます。",
+        "respectful": "(rare highest register)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-113",
@@ -36058,7 +36422,14 @@
           "context": "時刻 — はん.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にじはん。",
+        "polite": "にじはんです。",
+        "humble": "にじはんでございます。",
+        "respectful": "(rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-114",
@@ -36403,7 +36774,14 @@
           "context": "Range marker pair.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "8じから 5じまで はたらく。",
+        "polite": "8じから 5じまで はたらきます。",
+        "humble": "8じから 5じまで はたらいて おります。",
+        "respectful": "8じから 5じまで はたらいて いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-115",
@@ -36996,7 +37374,14 @@
           "context": "頻度副詞.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "まいにち コーヒー のむ。",
+        "polite": "まいにち コーヒーを のみます。",
+        "humble": "まいにち コーヒーを いただきます。",
+        "respectful": "まいにち コーヒーを めしあがります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-117",
@@ -43248,7 +43633,14 @@
           "context": "名詞修飾節 (基本).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "よむ ほんが ない。",
+        "polite": "よむ ほんが ありません。",
+        "humble": "よむ ほんが ございません。",
+        "respectful": "(rare for inanimate possession)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-136",
@@ -43579,7 +43971,14 @@
           "context": "形容詞 + N (combined).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかい ほん。",
+        "polite": "たかい ほんです。",
+        "humble": "おたかい ほんで ございます。",
+        "respectful": "おたかい ほんで いらっしゃいます。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-137",
@@ -43920,7 +44319,14 @@
           "context": "所属・属性のの.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "わたしの ほん。",
+        "polite": "わたしの ほんです。",
+        "humble": "わたくしの ほんで ございます。",
+        "respectful": "先生の ほんで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-142",
@@ -50957,7 +51363,14 @@
           "context": "V + まえに alias.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべるまえに、 てを あらう。",
+        "polite": "たべるまえに、 てを あらいます。",
+        "humble": "いただくまえに、 てを あらいます。",
+        "respectful": "めしあがるまえに、 てを おあらいに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-163",
@@ -51311,7 +51724,14 @@
           "context": "Vた + あとで alias.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべた あとで ねる。",
+        "polite": "たべた あとで ねます。",
+        "humble": "いただいた あとで やすみます。",
+        "respectful": "めしあがった あとで、 おやすみに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-164",
@@ -57246,7 +57666,14 @@
           "context": "Emphatic / wistful emotional ending.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかいなあ。",
+        "polite": "たかいですなあ。 (rare, sounds old-fashioned)",
+        "humble": "たかうございますね。",
+        "respectful": "(exclamatory なあ is casual by nature)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-182",
@@ -57521,7 +57948,14 @@
           "context": "Curt prohibition (signage, parent-to-child).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべるな。",
+        "polite": "たべないで ください。",
+        "humble": "おたべに ならないで ください。",
+        "respectful": "おたべに なりませんように。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-183",
@@ -57777,7 +58211,14 @@
           "context": "不定語の構造.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なにか たべた？ / なにも たべない。",
+        "polite": "なにか たべましたか。 / なにも たべません。",
+        "humble": "なにか いただきましたか。 / なにも いただきません。",
+        "respectful": "なにか めしあがいましたか。 / なにも めしあがりません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-184",
