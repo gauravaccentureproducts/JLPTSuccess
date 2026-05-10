@@ -265,7 +265,34 @@ export function renderGrammarTOC(container, data) {
 
   const inp = document.getElementById('grammar-filter-q');
   if (inp) {
+    // IME composition guard. When a Japanese IME is active, every key
+    // press fires an `input` event with the partial composition string
+    // (e.g., typing "ita" emits い → ｔ → あ → い across multiple
+    // input events before the IME commits "いたい" via compositionend).
+    // Re-rendering the TOC on each event destroys the input element
+    // mid-composition; the IME loses state and the partial latin
+    // characters leak into the value (visible as いｔあい instead of
+    // いたい). Solution: track composition state and skip re-render
+    // until compositionend fires. Also handles Korean / Chinese IMEs
+    // and dead-key sequences on European layouts.
+    let isComposing = false;
+    inp.addEventListener('compositionstart', () => {
+      isComposing = true;
+    });
+    inp.addEventListener('compositionend', () => {
+      isComposing = false;
+      // Re-render once with the committed value.
+      _grammarFilterText = inp.value;
+      renderGrammarTOC(container, data);
+      const re = document.getElementById('grammar-filter-q');
+      if (re) {
+        re.focus();
+        const v = re.value;
+        re.setSelectionRange(v.length, v.length);
+      }
+    });
     inp.addEventListener('input', () => {
+      if (isComposing) return;   // wait for compositionend
       _grammarFilterText = inp.value;
       renderGrammarTOC(container, data);
       const re = document.getElementById('grammar-filter-q');

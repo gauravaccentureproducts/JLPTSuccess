@@ -312,7 +312,12 @@ export function renderVocabularyList(container, data) {
 
   const inp = document.getElementById('vocab-filter-q');
   if (inp) {
-    inp.addEventListener('input', () => {
+    // IME composition guard — see learn-grammar.js for the rationale.
+    // tl;dr: re-rendering on every `input` event destroys the input
+    // mid-IME-composition; partial latin chars (ｔ etc.) leak into
+    // the value. Skip until compositionend fires.
+    let isComposing = false;
+    const reapply = () => {
       _vocabFilterText = inp.value;
       renderVocabularyList(container, data);
       const re = document.getElementById('vocab-filter-q');
@@ -321,6 +326,12 @@ export function renderVocabularyList(container, data) {
         const v = re.value;
         re.setSelectionRange(v.length, v.length);
       }
+    };
+    inp.addEventListener('compositionstart', () => { isComposing = true; });
+    inp.addEventListener('compositionend',   () => { isComposing = false; reapply(); });
+    inp.addEventListener('input', () => {
+      if (isComposing) return;
+      reapply();
     });
   }
 }

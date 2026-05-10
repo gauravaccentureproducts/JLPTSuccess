@@ -177,7 +177,9 @@ function renderIndex(container, entries) {
 
   const input = document.getElementById('kanji-filter-q');
   if (input) {
-    input.addEventListener('input', () => {
+    // IME composition guard — see learn-grammar.js for the rationale.
+    let isComposing = false;
+    const reapply = () => {
       _filterText = input.value;
       renderIndex(container, entries);
       // Re-focus the input after re-render and restore caret.
@@ -187,6 +189,12 @@ function renderIndex(container, entries) {
         const v = newInput.value;
         newInput.setSelectionRange(v.length, v.length);
       }
+    };
+    input.addEventListener('compositionstart', () => { isComposing = true; });
+    input.addEventListener('compositionend',   () => { isComposing = false; reapply(); });
+    input.addEventListener('input', () => {
+      if (isComposing) return;
+      reapply();
     });
   }
 
