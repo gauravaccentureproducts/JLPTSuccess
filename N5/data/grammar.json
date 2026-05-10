@@ -1756,7 +1756,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "がっこう いく。 (drop へ in casual)",
+        "polite": "がっこうへ いきます。",
+        "humble": "がっこうへ まいります。",
+        "respectful": "がっこうへ いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-007",
@@ -2953,7 +2960,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にじまで いる。",
+        "polite": "にじまで います。",
+        "humble": "にじまで おります。",
+        "respectful": "にじまで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-011",
@@ -3261,7 +3275,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "ノートやペンや なんか かう。",
+        "polite": "ノートや ペンを かいます。",
+        "humble": "ノートや ペンを ちょうだいいたします。",
+        "respectful": "ノートや ペンを おもとめになります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-013",
@@ -5491,7 +5512,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "はちじから ろくじまで いる。",
+        "polite": "はちじから ろくじまで います。",
+        "humble": "はちじから ろくじまで おります。",
+        "respectful": "はちじから ろくじまで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-023",
@@ -17844,7 +17872,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべなかった。",
+        "polite": "たべませんでした。",
+        "humble": "いただきませんでした。",
+        "respectful": "めしあがりませんでした。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-069",
@@ -18611,7 +18646,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべて、ねた。",
+        "polite": "たべて、ねました。",
+        "humble": "いただいて、やすみました。",
+        "respectful": "めしあがって、おやすみに なりました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-071",
@@ -22148,7 +22190,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかくなかった。",
+        "polite": "たかくなかった です。 / たかくありませんでした。",
+        "humble": "たかく ございませんでした。",
+        "respectful": "(rare for adjectives)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-083",
@@ -23996,7 +24045,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "しずかじゃ なかった。",
+        "polite": "しずかじゃ ありませんでした。",
+        "humble": "しずかでは ございませんでした。",
+        "respectful": "(rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-089",
@@ -28962,7 +29018,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべたくない。",
+        "polite": "たべたくないです。",
+        "humble": "いただきたくない です。",
+        "respectful": "めしあがりたくないと おもって いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-106",
@@ -31625,7 +31688,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "はちじに おきる。",
+        "polite": "はちじに おきます。",
+        "humble": "はちじに おきます。 (no humble shift for self-time)",
+        "respectful": "はちじに おきに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-116",
@@ -32484,7 +32554,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いま いく。",
+        "polite": "いま いきます。",
+        "humble": "ただいま まいります。",
+        "respectful": "ただいま いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-119",
@@ -32782,7 +32859,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべるまえに あらう。",
+        "polite": "たべるまえに あらいます。",
+        "humble": "いただくまえに おてあらいします。",
+        "respectful": "めしあがるまえに あらいに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-120",
@@ -33076,7 +33160,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべたあとで ねる。",
+        "polite": "たべたあとで ねます。",
+        "humble": "いただいたあとで やすみます。",
+        "respectful": "めしあがった あとで おやすみに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-121",
@@ -35510,7 +35601,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "なんで？ おそかったから。",
+        "polite": "どうしてですか。 おそかったからです。",
+        "humble": "なぜでございましょうか。 おそうございましたゆえ。",
+        "respectful": "なぜでいらっしゃいますか。 おそかった ためで ございます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-130",
@@ -38108,7 +38206,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "コーヒーに する。",
+        "polite": "コーヒーに します。",
+        "humble": "コーヒーに いたします。",
+        "respectful": "コーヒーに なさいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-143",
@@ -38373,7 +38478,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たかく なる。",
+        "polite": "たかく なります。",
+        "humble": "たこう なります。 (literary)",
+        "respectful": "おたかく おなりに なります。 (rare)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-144",
@@ -38646,7 +38758,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべながら みる。",
+        "polite": "たべながら みます。",
+        "humble": "いただきながら はいけんします。",
+        "respectful": "めしあがりながら ごらんに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-145",
@@ -39553,7 +39672,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "よく たべる。",
+        "polite": "よく たべます。",
+        "humble": "よく いただきます。",
+        "respectful": "よく めしあがります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-148",
@@ -39852,7 +39978,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いつも テレビを みる。",
+        "polite": "いつも テレビを みます。",
+        "humble": "いつも テレビを はいけん いたします。",
+        "respectful": "いつも テレビを ごらんに なります。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-149",
@@ -40668,7 +40801,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "コーヒー どう？",
+        "polite": "コーヒーは いかがですか。",
+        "humble": "(self-not-applicable; いかが is for offering to others)",
+        "respectful": "コーヒーは いかがで いらっしゃいますか。 (very formal)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-152",
@@ -41894,7 +42034,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜けど、〜。",
+        "polite": "〜ですが、〜です。",
+        "humble": "〜でございますが、〜でございます。",
+        "respectful": "〜でいらっしゃいますが、〜でいらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-156",
@@ -42419,7 +42566,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜だろう。",
+        "polite": "〜でしょう。",
+        "humble": "(rare; conjecture about self uncommon)",
+        "respectful": "〜でいらっしゃるでしょう。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-158",
@@ -42685,7 +42839,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "〜だろう。",
+        "polite": "〜でしょう。",
+        "humble": "〜でございましょう。",
+        "respectful": "〜でいらっしゃるだろう。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-159",
@@ -43244,7 +43405,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "がっこうの あとで いく。",
+        "polite": "がっこうの あとで いきます。",
+        "humble": "がっこうの のちで まいります。",
+        "respectful": "がっこうの のちで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-161",
@@ -43541,7 +43709,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "にじの まえに きた。",
+        "polite": "にじの まえに きました。",
+        "humble": "にじの まえに まいりました。",
+        "respectful": "にじの まえに いらっしゃいました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-162",
@@ -44416,7 +44591,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "やまだ。 (no honorific)",
+        "polite": "やまださん。",
+        "humble": "(N/A — さん is for others)",
+        "respectful": "やまださま。 / やまだ先生。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-165",
@@ -44688,7 +44870,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "はな。",
+        "polite": "おはな。",
+        "humble": "お／ご- (for beautification, used by self)",
+        "respectful": "おはな (when speaking to/about senior)"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-166",
@@ -45599,7 +45788,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべたり よんだり する。",
+        "polite": "たべたり よんだり します。",
+        "humble": "いただいたり はいけんしたり いたします。",
+        "respectful": "めしあがったり ごらんに なったり なさいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-169",
@@ -46746,7 +46942,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべなくても いい。",
+        "polite": "たべなくても いいです。",
+        "humble": "(self-not-applicable in this register)",
+        "respectful": "おたべに ならなくても よろしい です。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-173",
@@ -47039,7 +47242,14 @@
           "error_category": "register",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべなくちゃ。 (contracted)",
+        "polite": "たべなくては いけません。",
+        "humble": "いただかなくては いけません。",
+        "respectful": "めしあがらなくては いけません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-174",
@@ -47329,7 +47539,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべなくちゃ なんない。",
+        "polite": "たべなくては なりません。",
+        "humble": "いただかなくては なりません。",
+        "respectful": "めしあがらなくては なりません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-175",
@@ -47610,7 +47827,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべないと いけない。",
+        "polite": "たべないと いけません。",
+        "humble": "いただかないと いけません。",
+        "respectful": "めしあがらないと いけません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-176",
@@ -47841,7 +48065,14 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべなくちゃ。 / たべなきゃ。",
+        "polite": "たべなくては いけません。 / たべなければ なりません。",
+        "humble": "いただかなくては なりません。",
+        "respectful": "めしあがらなくては なりません。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-177",
@@ -48094,7 +48325,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべすぎた。",
+        "polite": "たべすぎました。",
+        "humble": "いただきすぎました。",
+        "respectful": "めしあがりすぎに なりました。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-178",
@@ -48371,7 +48609,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべるつもり。",
+        "polite": "たべるつもりです。",
+        "humble": "いただくつもりで ございます。",
+        "respectful": "めしあがるつもりで いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-179",
@@ -48929,7 +49174,14 @@
           "error_category": "lexicon",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "たべかたが わからない。",
+        "polite": "たべかたが わかりません。",
+        "humble": "いただきかたが わかりません。",
+        "respectful": "めしあがり かたを ごぞんじですか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-181",
@@ -50114,7 +50366,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "だれか いる？",
+        "polite": "だれか いますか。",
+        "humble": "どなたか おりますか。",
+        "respectful": "どなたか いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-186",
@@ -50386,7 +50645,14 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "どこか いく？",
+        "polite": "どこかへ いきますか。",
+        "humble": "どこかへ まいりますか。",
+        "respectful": "どこかへ いらっしゃいますか。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-187",
@@ -50691,7 +50957,14 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "politeness_ladder": {
+        "casual": "いつか いきたい。",
+        "polite": "いつか いきたい です。",
+        "humble": "いつか まいりたい と ぞんじます。",
+        "respectful": "いつか いらっしゃりたいと おもって いらっしゃいます。"
+      },
+      "politeness_ladder_provenance": "llm_curated"
     },
     {
       "id": "n5-188",
