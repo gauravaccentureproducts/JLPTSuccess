@@ -143,13 +143,16 @@ export function buildOrderedPatternList(allPatterns) {
 }
 
 // IMP-029 (audit round 2): grammar list filter state. Module-local so the
-// search query and tier persist while the user navigates within the index
-// but reset on a fresh page load.
+// search query persists while the user navigates within the index but
+// resets on a fresh page load.
+//
+// Tier filter (All / Core N5 / Late N5) removed 2026-05-10 per user
+// direction — the chips were redundant for an N5-only app where 153/178
+// patterns are core_n5 and 25 are late_n5; the binary distinction
+// didn't drive enough learner action to justify the chrome.
 let _grammarFilterText = '';
-let _grammarFilterTier = 'all';   // 'all' | 'core_n5' | 'late_n5'
 
-function _matchGrammar(p, q, tier) {
-  if (tier !== 'all' && (p.tier || 'core_n5') !== tier) return false;
+function _matchGrammar(p, q) {
   if (!q) return true;
   const hay = [
     p.pattern, p.meaning_en, p.meaning_ja || '',
@@ -164,16 +167,13 @@ export function renderGrammarTOC(container, data) {
   for (const [supercat] of GRAMMAR_SUPERCATS) bySuperCat.set(supercat, []);
 
   const q = _grammarFilterText.trim().toLowerCase();
-  const filtered = data.patterns.filter(p => _matchGrammar(p, q, _grammarFilterTier));
+  const filtered = data.patterns.filter(p => _matchGrammar(p, q));
   for (const p of filtered) {
     const sc = superCategoryFor(p);
     bySuperCat.get(sc).push(p);
   }
 
   const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  const chip = (group, value, label, active) =>
-    `<button type="button" class="kanji-chip ${active ? 'active' : ''}"
-       data-grammar-filter-group="${group}" data-grammar-filter-value="${value}">${esc(label)}</button>`;
 
   let html = `
     <a class="back-link" href="#/learn">← Back to Learn</a>
@@ -187,7 +187,7 @@ export function renderGrammarTOC(container, data) {
   for (const [supercat, items] of bySuperCat) {
     if (items.length === 0) continue;
     items.sort((a, b) => (a.patternOrder ?? 0) - (b.patternOrder ?? 0));
-    const isFiltered = q || _grammarFilterTier !== 'all';
+    const isFiltered = !!q;
     html += `<details class="toc-category" id="cat-${slugify(supercat)}"${isFiltered ? ' open' : ''}>`;
     html += `<summary><h3>${esc(supercat)} <span class="cat-count muted small">(${items.length})</span></h3></summary>`;
     html += `<div class="grammar-grid">`;
@@ -228,15 +228,6 @@ export function renderGrammarTOC(container, data) {
         placeholder="Search pattern, meaning, or example (e.g. て-form / wants to / です)"
         value="${esc(_grammarFilterText)}" autocomplete="off"
         aria-label="Search grammar patterns">
-      <div class="kanji-filter-row" aria-label="Tier filter">
-        <span class="kanji-filter-label">Tier:</span>
-        ${chip('tier', 'all', 'All', _grammarFilterTier === 'all')}
-        ${chip('tier', 'core_n5', 'Core N5', _grammarFilterTier === 'core_n5')}
-        ${chip('tier', 'late_n5', 'Late N5', _grammarFilterTier === 'late_n5')}
-      </div>
-      <p class="kanji-filter-count muted small" aria-live="polite">
-        Showing <strong>${filtered.length}</strong> of ${data.patterns.length}.
-      </p>
     </div>
     <div class="toc-controls">
       <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
@@ -285,14 +276,6 @@ export function renderGrammarTOC(container, data) {
       }
     });
   }
-  container.querySelectorAll('[data-grammar-filter-group]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const g = btn.dataset.grammarFilterGroup;
-      const v = btn.dataset.grammarFilterValue;
-      if (g === 'tier') _grammarFilterTier = v;
-      renderGrammarTOC(container, data);
-    });
-  });
 }
 
 // Friendly labels for the raw `form_rules.attaches_to` category strings.
