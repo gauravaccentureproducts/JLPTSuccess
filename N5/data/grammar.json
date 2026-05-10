@@ -6735,7 +6735,30 @@
         "contrasts": "vs ね alone (n5-025): pure agreement. vs よ alone (n5-026): pure assertion. よね combines both.",
         "closing_practice_tip": "Build 3 sentences where you share an observation and seek agreement: さむいですよね, おいしいですよね.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たかい です よ ね。 (asserting + agreement separately)",
+          "correct": "たかい ですよね。",
+          "why": "よね attaches without internal spaces; it is one combined ending.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がくせい です よね。 (about your own status)",
+          "correct": "がくせい です。",
+          "why": "よね assumes shared knowledge; for facts only you know, drop it.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべます よね か。",
+          "correct": "たべますよね。 / たべますか。",
+          "why": "よね already a confirmation-question; do not stack か.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-028",
@@ -6990,7 +7013,30 @@
         "contrasts": "vs ~んです (n5-167): explanatory ending. vs sentence-final の (n5-031): question marker.",
         "closing_practice_tip": "Build 5 'X's Y' relationships: 私の 本, ともだちの くるま, 日本の 食べもの.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "これは わたしの です ほん。",
+          "correct": "これは わたしの ほんです。",
+          "why": "Word order: possessive の + N + です. Cannot split.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "にほんごの ほんの です。",
+          "correct": "にほんごの ほんです。",
+          "why": "Single の per modifier; do not double.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "わたし ほん。 (no の)",
+          "correct": "わたしの ほん。",
+          "why": "Possessive linkage requires の: A + の + B = \"A's B\".",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-029",
@@ -7514,7 +7560,30 @@
         "contrasts": "vs こと (also nominalizer): こと is more abstract; の is more concrete.",
         "closing_practice_tip": "Nominalize 5 verbs: 食べる の が すき, 行く の が 大すき. Notice how the clause becomes the subject.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "にほんごを はなすの すきです。",
+          "correct": "にほんごを はなすのが すきです。",
+          "why": "Nominalized verb takes が (object of すき). Drop が is wrong.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべるは すきです。",
+          "correct": "たべるのは すきです。",
+          "why": "Bare Vる cannot directly take は; nominalize with の first.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "はしりますの は たのしいです。",
+          "correct": "はしるのは たのしいです。",
+          "why": "Nominalizer の attaches to PLAIN form, not polite ます-form.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-031",
@@ -7736,7 +7805,30 @@
         "contrasts": "vs か (n5-023): formal question marker. vs ~んです (n5-167): explanatory rather than purely question.",
         "closing_practice_tip": "Take 5 polite questions and re-cast each as casual の-questions: 行きますか → 行く の?",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "これは あかい くるまです。 (intent: this is the red one)",
+          "correct": "これは あかいのです。",
+          "why": "For pronominal \"the red one\" use のです (の as pronoun + copula).",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たかいの は です。",
+          "correct": "たかいのは これです。",
+          "why": "のは links to a copula; need an explicit subject after は.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "あかいですのを かいました。",
+          "correct": "あかいのを かいました。",
+          "why": "Bare adjective + のを (drop です): あかい+の+を.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-033",
@@ -9682,7 +9774,30 @@
         "contrasts": "vs この/その/あの/どの (n5-040): determiners attach to nouns; pronouns stand alone.",
         "closing_practice_tip": "Stand at one spot. Point at 3 objects at different distances. Say each one as a stand-alone pronoun (これ・それ・あれ). Then point at one and say a full sentence (これは ペンです). Cement which form needs a noun.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "これ ほん。",
+          "correct": "これは ほんです。",
+          "why": "Pronoun これ requires は + complete sentence with です.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "これ ほんは わたしの。",
+          "correct": "この ほんは わたしの です。",
+          "why": "Before noun use この (determiner); これ is standalone pronoun.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どれは いいですか。",
+          "correct": "どれが いいですか。",
+          "why": "どれ as question takes が, never は.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-040",
@@ -9966,7 +10081,30 @@
         "contrasts": "vs ?: This is a duplicate entry - see the canonical pattern.",
         "closing_practice_tip": "Write 5 sentences where you replace English \"this/that\" with この/その/あの + noun. Then replace each with これ/それ/あれ alone — notice which sentences sound complete and which sound like fragments.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "このは ほんです。",
+          "correct": "これは ほんです。 / この ほんは ...",
+          "why": "この MUST take a noun directly. For pronoun use これ.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "その なほん。",
+          "correct": "その ほん。",
+          "why": "Determiner + noun directly. Do not insert な (this is for na-Adj only).",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どの ほんは いいですか。",
+          "correct": "どの ほんが いいですか。",
+          "why": "Question with どの takes が on the resulting NP.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-041",
@@ -10473,7 +10611,30 @@
         "contrasts": "vs これ/それ/あれ/どれ (n5-039): casual versions.",
         "closing_practice_tip": "Practice 3 introductions using こちら: こちらは 田中さんです, こちらは わたしの ともだちです. The polite pivot is the muscle.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "こちらは どこ ですか。 (asking where you are, casually)",
+          "correct": "ここは どこ ですか。",
+          "why": "こちら is polite/direction; for plain spatial use ここ.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どちらは ペンですか。 (asking \"which is the pen\")",
+          "correct": "どちらが ペンですか。",
+          "why": "Question word どちら takes が, never は.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "こちらに、どうぞ。 (offering a seat to a guest)",
+          "correct": "こちらへ どうぞ。",
+          "why": "Direction toward listener uses へ; に would imply destination as a fixed point.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-043",
@@ -10704,7 +10865,30 @@
         "contrasts": "vs この/その/あの/どの (n5-040): kind/category vs specific instance.",
         "closing_practice_tip": "Build 3 kind-of sentences: こんな 本が すきです. Then 3 specific-instance: この 本が すきです. Notice the category vs item shift.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "どんなな ひとですか。",
+          "correct": "どんな ひとですか。",
+          "why": "どんな ends in な; do not double な.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どんなは ひとですか。",
+          "correct": "どんな ひとですか。",
+          "why": "どんな is a determiner — attaches to noun directly, no は.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "こんなの くるまが すきです。",
+          "correct": "こんな くるまが すきです。",
+          "why": "こんな + N (no の inserted).",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-044",
@@ -12210,7 +12394,30 @@
         "casual": "どう",
         "polite": "いかが"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "wrong_corrected_pair": [
+        {
+          "wrong": "コーヒー どう ですか。 (in formal context to client)",
+          "correct": "コーヒー、いかがですか。",
+          "why": "いかが is the polite form of どう; use it with seniors/clients.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どうは いいですか。",
+          "correct": "どうですか。",
+          "why": "どう takes no particle (adverb-like). Just どう + ですか.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "りょこうは どうかった ですか。",
+          "correct": "りょこうは どうでしたか。",
+          "why": "Past form is どうでしたか (not どうかった — that is not a valid form).",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-051",
@@ -12496,7 +12703,30 @@
         "casual": "どうして",
         "formal_written": "なぜ"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "wrong_corrected_pair": [
+        {
+          "wrong": "どうしてに きましたか。",
+          "correct": "どうして きましたか。",
+          "why": "どうして takes no particle. Just どうして + Q.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "なぜか ですか。 (intent: why)",
+          "correct": "なぜですか。 / どうしてですか。",
+          "why": "なぜ alone is \"why\"; なぜか means \"for some reason\" (different meaning).",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どうして きません。 おそかったから。",
+          "correct": "どうして きませんでしたか。 おそかったからです。",
+          "why": "Past Q needs past tense + か; reason + です for completeness.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-052",
@@ -13324,7 +13554,30 @@
         "contrasts": "vs 何 + counter (n5-109): specific counter for the noun's shape. vs いくら (price-only).",
         "closing_practice_tip": "Build 3 'how many' questions for general items: りんごは いくつ ありますか. Then 3 with specific counters: 何人いますか, 何まい ありますか. Notice when you can use the universal いくつ vs the shape-specific.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "いくつ ですか。 (asking price)",
+          "correct": "いくらですか。",
+          "why": "いくつ for count of items / age; いくら for price.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "りんごは いくつに ありますか。",
+          "correct": "りんごは いくつ ありますか。",
+          "why": "いくつ takes no particle.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "おとうさんは いくつ ですか。 (asking parent's age in formal context)",
+          "correct": "おとうさんは おいくつですか。",
+          "why": "For polite age-asking add お (oikutsu).",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-055",
@@ -13852,7 +14105,30 @@
         "contrasts": "vs なんがつ/なんにち (n5-057): different time-units.",
         "closing_practice_tip": "Ask 3 day-related questions: 今日は なんようび?, あしたは なんようび?",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "いつ ようびですか。",
+          "correct": "なんようびですか。",
+          "why": "For day-of-week question use なんようび. いつ asks general time.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "きょうは なに ようび ですか。",
+          "correct": "きょうは なんようびですか。",
+          "why": "Before counter-like ようび, 何 reads なん. なに breaks the compound.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "なんようび きますか。",
+          "correct": "なんようびに きますか。",
+          "why": "Day-of-week as a time-when point takes に (specific calendar day).",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-057",
@@ -14114,7 +14390,30 @@
         "contrasts": "vs なんじ (clock time, n5-055): clock-precise vs date.",
         "closing_practice_tip": "Build 3 date-questions using 何月 and 何日.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "なに がつ なに にち ですか。",
+          "correct": "なんがつ なんにち ですか。",
+          "why": "Before counters がつ/にち, 何 reads なん.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "よにち。 (intent: 4th of month)",
+          "correct": "よっか。",
+          "why": "4th of month is よっか (irregular reading).",
+          "error_category": "counter",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "なんにちに きました か。 (asking which day-of-month)",
+          "correct": "なんにちに きましたか。 (already correct)",
+          "why": "Specific date takes に. なんにち = which day of month.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-058",
@@ -28544,7 +28843,30 @@
         "contrasts": "vs ~たいです (n5-104): ほしい wants a NOUN; たい wants to perform an ACTION. 食べたい (want to eat) vs ごはんが ほしい (want food).",
         "closing_practice_tip": "Build 5 sentences with concrete nouns: お金が ほしい, 時間が ほしい, 新しい くるまが ほしい, etc. Then do 5 with ~たい (food + たべたい, sleep + ねたい). The が vs を split is the lesson.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "くるまを ほしいです。",
+          "correct": "くるまが ほしいです。",
+          "why": "ほしい takes が. (Like other feeling adjectives.)",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "ともだちは くるまが ほしいです。",
+          "correct": "ともだちは くるまを ほしがっています。",
+          "why": "ほしい works for 1st person; 3rd-person needs ほしがる (observable wanting).",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "ほしいくないです。",
+          "correct": "ほしくないです。",
+          "why": "い-Adj negative drops い: ほしい→ほしく+ない.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-107",
@@ -29404,7 +29726,30 @@
         "contrasts": "vs ?: This is a duplicate entry - see the canonical pattern.",
         "closing_practice_tip": "Walk through your room and count 5 different categories: 本(さつ), えんぴつ(本), かみ(まい), りんご(こ), 人(人). Speak each count aloud: 本が3さつあります. The counter+noun pairing is what cements the shape system.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "なんにん ひと きました か。",
+          "correct": "なんにん きましたか。",
+          "why": "Counter なんにん is itself \"how many people\"; do not add ひと again.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "ほんを なんまい ありますか。",
+          "correct": "ほんは なんさつ ありますか。",
+          "why": "Books use counter さつ (なんさつ); まい is for flat thin items (paper, plates).",
+          "error_category": "counter",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "いくつ ねこが いますか。",
+          "correct": "なんびき ねこが いますか。",
+          "why": "For animals use ひき/ぴき; いくつ is for objects (counter つ).",
+          "error_category": "counter",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-110",
@@ -30342,7 +30687,30 @@
         "contrasts": "vs ~時 + ~分: more precise; ~時はん is the lazy 'half-past' reading.",
         "closing_practice_tip": "Read 3 half-past times: 7時はん, 10時はん, 12時はん.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "にじ はん ぐらいに きました。",
+          "correct": "にじはんごろ きました。",
+          "why": "はん attaches to じ directly; for \"about\" use ごろ on clock-time.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "にじはん ぐらい です ね。",
+          "correct": "にじはん ぐらい です。",
+          "why": "Confirming time to listener can use ね; depends on shared context.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "よじ はんから しちじ はんまで。",
+          "correct": "よじはんから しちじはんまで。",
+          "why": "No internal space in じはん compound.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-114",
@@ -31116,7 +31484,30 @@
         "contrasts": "Pairs with frequency adverbs (n5-147): まいにち = literal 'every day'; よく = 'often'.",
         "closing_practice_tip": "Build 4 routines using each time-prefix: まいにち, まいしゅう, まいつき, まいとし.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "まいにちに しごとに いきます。",
+          "correct": "まいにち しごとに いきます。",
+          "why": "Frequency adverbs (まい〜) take no particle.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "まいにち、 まいにち、 べんきょうしました。",
+          "correct": "まいにち べんきょうしました。",
+          "why": "Repeating まいにち is unnecessary for emphasis; redundant.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "まいねんに あに あいます。",
+          "correct": "まいとし あに あいます。",
+          "why": "Common reading is まいとし for \"every year\" (まいねん is also valid but less common in N5).",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-117",
@@ -31962,7 +32353,30 @@
         "contrasts": "vs あと (n5-120): opposite time direction. Same templates, mirror meaning.",
         "closing_practice_tip": "Build 3 time-ago sentences: 三日 まえ・三年 まえ・しゅうかん まえ. Then 3 before-doing: ねる まえに・しごと の まえに. Notice the に goes with verb-form, not bare-time.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべますまえに、 てを あらいます。",
+          "correct": "たべるまえに、 てを あらいます。",
+          "why": "まえに takes plain dictionary form, not polite ます.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべるまえで、 てを あらいます。",
+          "correct": "たべるまえに、 てを あらいます。",
+          "why": "まえに (time before) — particle is に, not で.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "にじまえに きます。",
+          "correct": "にじのまえに きます。",
+          "why": "For \"before 2 o'clock\" use にじのまえに (with の), or にじまえに with hyphenation context.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-120",
@@ -32233,7 +32647,30 @@
         "contrasts": "vs まえ (n5-119): opposite time direction.",
         "closing_practice_tip": "Build 3 'after' sentences: ねた あとで, ごはんを 食べた あとで.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべるあとで、 ねます。",
+          "correct": "たべたあとで、 ねます。",
+          "why": "あと takes PAST plain form (Vた + あとで).",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべたあとに、 ねます。",
+          "correct": "たべたあとで、 ねます。",
+          "why": "Standard particle for あと is で (in this construction).",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がっこうあとで、 いきます。",
+          "correct": "がっこうのあとで、 いきます。",
+          "why": "After noun + あと: noun + の + あと + で.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-121",
@@ -36893,7 +37330,30 @@
         "contrasts": "vs Adjective + Noun (n5-136): adjectives modify nouns directly (大きい 本); the の-bridge is for noun-noun.",
         "closing_practice_tip": "Identify 5 N1-of-N2 relationships in your room: 友だちの くるま, 私の つくえ. Build a sentence for each. The の-glue is the muscle.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "にほん ほん。",
+          "correct": "にほんの ほん。",
+          "why": "Noun-noun linkage requires の.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "にほんの の ほん。",
+          "correct": "にほんの ほん。",
+          "why": "Single の; double is a typo.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がっこうな ほん。",
+          "correct": "がっこうの ほん。",
+          "why": "Noun + noun uses の (not な; な is for na-Adj).",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-142",
@@ -37138,7 +37598,30 @@
         "contrasts": "vs ~になります (n5-143): なる is automatic/passive becoming. する is active choice.",
         "closing_practice_tip": "Order 5 things at a restaurant: コーヒーに します, ラーメンに します.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "コーヒーを します。",
+          "correct": "コーヒーに します。",
+          "why": "Choice/decision pattern is N + に + する. を marks general object.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "にします か コーヒーを。",
+          "correct": "コーヒーに しますか。",
+          "why": "SOV order: object first, then にします.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "コーヒーで します。 (intent: I will choose coffee)",
+          "correct": "コーヒーに します。",
+          "why": "Decision particle is に, not で.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-143",
@@ -37380,7 +37863,30 @@
         "contrasts": "vs ~にします (n5-142): する is active choice; なる is passive becoming.",
         "closing_practice_tip": "Build 3 change-of-state: 大きくなりました, きれいに なりました, 学生に なりました.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たかいに なります。",
+          "correct": "たかくなります。",
+          "why": "い-Adj uses くなる (drop い, add く+なる). Only na-Adj/N use になる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "しずかくなります。",
+          "correct": "しずかになります。",
+          "why": "na-Adj (しずか) uses になる, not くなる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "いいくなります。",
+          "correct": "よくなります。",
+          "why": "いい uses irregular stem よ: よくなる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-144",
@@ -38523,7 +39029,30 @@
         "contrasts": "Frequency goes from よく (often) → ときどき (sometimes) → あまり (rarely) → ぜんぜん (never). Native frequency-vocabulary.",
         "closing_practice_tip": "For 5 hobbies/habits, pick the right frequency: よく 食べます / ときどき 行きます / あまり 見ません / ぜんぜん しません.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "あまり たべます。 (intent: I do not eat much)",
+          "correct": "あまり たべません。",
+          "why": "あまり requires NEGATIVE predicate (\"not much / not very\").",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "ぜんぜん たべました。 (intent: I did not eat at all)",
+          "correct": "ぜんぜん たべませんでした。",
+          "why": "ぜんぜん (in standard usage) requires negative.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "よく あまり たべます。",
+          "correct": "よく たべます。 / あまり たべません。",
+          "why": "Frequency adverbs are mutually exclusive in this construction.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-148",
@@ -38799,7 +39328,30 @@
         "contrasts": "Frequency: いつも (always) > たいてい (usually) > たまに (occasionally) > あまり~ない (rarely) > ぜんぜん~ない (never).",
         "closing_practice_tip": "Describe a habit using each: いつも 7時に おきます, たいてい コーヒーを 飲みます, たまに えいがを 見ます.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "いつも たまに テレビを みます。",
+          "correct": "たまに テレビを みます。",
+          "why": "いつも (always) and たまに (sometimes) contradict; use one.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たいてい テレビを みません。 (intent: I usually do watch)",
+          "correct": "たいてい テレビを みます。",
+          "why": "たいてい = \"usually\" — pairs with positive predicate.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "いつもに テレビを みます。",
+          "correct": "いつも テレビを みます。",
+          "why": "いつも takes no particle.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-149",
@@ -39592,7 +40144,30 @@
         "contrasts": "vs どう ですか (n5-050): casual version.",
         "closing_practice_tip": "Offer 3 things politely: コーヒーは いかがですか, ケーキは いかがですか.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "コーヒーは いかがですか だ。",
+          "correct": "コーヒーは いかがですか。",
+          "why": "です + か already terminates; do not append だ.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "コーヒーは どう ですか。 (in formal context to senior)",
+          "correct": "コーヒーは いかがですか。",
+          "why": "いかが is polite version of どう; use with seniors.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "コーヒーが いかがですか。",
+          "correct": "コーヒーは いかがですか。",
+          "why": "Topic of offering is は (introducing the topic), not が.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-152",
@@ -39886,7 +40461,30 @@
         "polite": "ありがとうございます / すみません / おねがいします",
         "most_formal": "ありがとうございます / もうしわけございません"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "wrong_corrected_pair": [
+        {
+          "wrong": "どうもありがとう。 (intent: a casual thanks to friend)",
+          "correct": "ありがとう。 / どうも。",
+          "why": "どうもありがとう is mid-formality; pure casual is どうも or ありがとう.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "すみません どうも おねがいします どうぞ。",
+          "correct": "すみません、おねがいします。",
+          "why": "Stacking polite phrases is unnecessary; one fits the context.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "どうも、いいです。 (declining offer politely)",
+          "correct": "いいえ、けっこうです。",
+          "why": "For polite refusal use いいえ + けっこう/だいじょうぶ; どうも is too short.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-153",
@@ -40758,7 +41356,30 @@
         "contrasts": "vs けれど/けど (n5-127): casual variants of the same connector. が is more formal/written.",
         "closing_practice_tip": "Build 5 'X but Y' sentences. Try each in formal (が) and casual (けど) form. The register shift is the lesson.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たかいです がやすいです。 (no comma)",
+          "correct": "たかい ですが、やすい くないです。",
+          "why": "In standard punctuation, comma after が; also avoid contradictory adjective pair.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たかいです、しかしが、おいしいです。",
+          "correct": "たかいですが、おいしいです。",
+          "why": "が and しかし are alternative contrast markers; do not stack.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たかいですがが、おいしいです。",
+          "correct": "たかいですが、おいしいです。",
+          "why": "Single が only.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-156",
@@ -41237,7 +41858,30 @@
         "contrasts": "vs だろう (n5-158): casual variant. vs ~んです (n5-167): explanatory.",
         "closing_practice_tip": "Make 3 future predictions politely: あした さむい でしょう, ともだちが 来る でしょう.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "あめが ふるでしょう だ。",
+          "correct": "あめが ふるでしょう。",
+          "why": "でしょう terminates; do not append だ/です.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たかいですでしょう。",
+          "correct": "たかい でしょう。",
+          "why": "でしょう attaches to PLAIN form (drop です first): たかい+でしょう.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がくせいでしょう ですか。",
+          "correct": "がくせいでしょう。",
+          "why": "でしょう can be a question on its own (rising tone); do not add ですか.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-158",
@@ -41993,7 +42637,30 @@
         "contrasts": "vs Verb-た + あとで (n5-163): for actions, use た-form; for nouns, use の.",
         "closing_practice_tip": "Build pairs: noun-version (しごと の あとで), verb-version (しごとを した あとで). Notice when の vs た is the connector.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "がっこうあとで、 いきます。",
+          "correct": "がっこうのあとで、 いきます。",
+          "why": "Noun + あとで needs の: N + の + あとで.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がっこうのあと いきます。",
+          "correct": "がっこうのあとで いきます。",
+          "why": "あと needs で in this construction (after-of).",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がっこうのあとに いきます。",
+          "correct": "がっこうのあとで いきます。",
+          "why": "Standard particle is で (sometimes に is used in narrative; で is more common in N5).",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-161",
@@ -42267,7 +42934,30 @@
         "contrasts": "vs Noun + の + あとで (n5-160): まえに = before; あとで = after. Same template, opposite time direction.",
         "closing_practice_tip": "Build 3 sentence pairs using まえに / あとで for the same noun: 食こと (before/after the meal), しごと (before/after work), じゅぎょう (before/after class). Mirror the time direction.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "がっこうまえに、 たべます。",
+          "correct": "がっこうのまえに、 たべます。",
+          "why": "Noun + まえに needs の.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がっこうのまえで、 たべます。 (intent: before going to school)",
+          "correct": "がっこうのまえに、 たべます。",
+          "why": "まえに for \"before (time)\"; まえで is a different meaning (\"in front of\").",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "にじのまえで、 きました。 (time intent)",
+          "correct": "にじのまえに、 きました。",
+          "why": "Time-before takes に, not で.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-162",
@@ -43073,7 +43763,30 @@
         "contrasts": "vs ~ちゃん (cute/small): different register. vs ~くん (junior male): age/gender-specific.",
         "closing_practice_tip": "Address 3 people with the right suffix: 田中さん (general), たろうくん (junior male friend), さくらちゃん (cute/small).",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "わたしさんは がくせいです。 (about yourself)",
+          "correct": "わたしは がくせいです。",
+          "why": "Never add さん to your own name. さん is for OTHERS.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "やまださまさん。",
+          "correct": "やまださま。 / やまださん。",
+          "why": "Do not stack honorifics さま + さん; choose one (さま is more formal).",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "せんせいさん。",
+          "correct": "せんせい。",
+          "why": "せんせい already a title; do not add さん.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-165",
@@ -43322,7 +44035,30 @@
         "contrasts": "Different prefix for different word origins. お for native (おこめ); ご for Sino (ごかぞく).",
         "closing_practice_tip": "Build 5 sentences using お/ご prefixes appropriately: お水を ください, ごかぞくは おげんきですか.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "おビール。",
+          "correct": "ビール。",
+          "why": "お/ご prefix is for native Japanese words; foreign loan-words (ビール) do not take it.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "お がっこう。",
+          "correct": "がっこう。",
+          "why": "お prefix on がっこう is unnecessary; only specific words take お (おちゃ, おみず, おかね etc.).",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "ごおちゃ。",
+          "correct": "おちゃ。",
+          "why": "おちゃ takes お (kun-yomi); ご is for on-yomi compounds (ごはん exception).",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-166",
@@ -43599,7 +44335,30 @@
           "context": "Greeting set"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "wrong_corrected_pair": [
+        {
+          "wrong": "いただく ます。",
+          "correct": "いただきます。",
+          "why": "Set phrase いただきます; not separated.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "ごちそうさまだ。",
+          "correct": "ごちそうさま。 / ごちそうさまでした。",
+          "why": "Set phrase; standard polite form is ごちそうさまでした (after meal).",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "おはよう ございます。 (between intimates, casual time)",
+          "correct": "おはよう。",
+          "why": "おはようございます is polite; おはよう alone for casual.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-167",
@@ -44187,7 +44946,30 @@
         "contrasts": "vs Verb-て chain (n5-070): chain is sequential ('then this'). ~たり is unordered representative actions.",
         "closing_practice_tip": "Describe a weekend routine using 3 ~たり verbs: 本を 読んだり、コーヒーを のんだり、ねたり します.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべる ね、よむり する。",
+          "correct": "たべたり よんだり する。",
+          "why": "たり attaches to PAST plain form: 食べた→食べたり, 読んだ→読んだり.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべたり する。 (single item)",
+          "correct": "たべたり よんだり する。",
+          "why": "たり〜たり is a list; needs at least 2 items (or follow with など).",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべたり よんだり します ます。",
+          "correct": "たべたり よんだり します。",
+          "why": "する becomes polite します at end; do not double ます.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-169",
@@ -45001,7 +45783,30 @@
         "contrasts": "vs ~たほうが いい (n5-170): positive advice.",
         "closing_practice_tip": "Build 3 negative-advice: たばこを すわないほうが いい, おそく ねないほうが いい.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべない ほうが いいですね。 (commanding tone)",
+          "correct": "たべない ほうが いいですよ。",
+          "why": "Advice typically uses よ (informing); ね (agreement-seeking) sounds odd here.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべないて ほうがいい。",
+          "correct": "たべない ほうがいい。",
+          "why": "Vない directly + ほうがいい (no て-form).",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべない ほうが いい です だ。",
+          "correct": "たべない ほうが いいです。",
+          "why": "いい + です terminates; do not add だ.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-172",
@@ -45267,7 +46072,30 @@
         "contrasts": "vs ~なくては いけない (n5-173): must do. ~なくてもいい = don't have to.",
         "closing_practice_tip": "Build 3 permission-to-not sentences: 行かなくても いいです, 食べなくても いいです.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべないで もいいです。",
+          "correct": "たべなくても いいです。",
+          "why": "Optional negative: Vなくてもいい (drop い, use なくて+も). Vないで is for \"without doing\".",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべなくてもよくないです。",
+          "correct": "たべなくてもいいです。 / たべなくちゃいけない。",
+          "why": "Negate the optional form by reframing — double-negation is confusing.",
+          "error_category": "lexicon",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべない も いいです。",
+          "correct": "たべなくてもいいです。",
+          "why": "Need full なくて + も + いいです construction.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-173",
@@ -46500,7 +47328,30 @@
         "contrasts": "vs ~とても (very): just intensification. すぎる = excessive (negative).",
         "closing_practice_tip": "Build 3 'too X' sentences: 高すぎる, さむすぎる, 食べすぎた.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべるすぎる。",
+          "correct": "たべすぎる。",
+          "why": "すぎる attaches to V-stem (drop る from G2): 食べる→食べ+すぎる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たかいすぎる。",
+          "correct": "たかすぎる。",
+          "why": "い-Adj drops い before すぎる: 高い→高+すぎる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "しずかいすぎる。",
+          "correct": "しずかすぎる。",
+          "why": "na-Adj uses bare stem + すぎる (no な, no い). しずか→しずか+すぎる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-178",
@@ -46994,7 +47845,30 @@
         "casual": "〜って",
         "polite_written": "〜と"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たなかさんは くるって いいました。",
+          "correct": "たなかさんは くるって。 / たなかさんが くると いいました。",
+          "why": "って is casual quotative (\"said\"); often standalone. Stacking with といいました mixes registers.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たなかさんですって? (in formal context)",
+          "correct": "たなかさんですか。",
+          "why": "〜って? as a question is casual; in formal context use か.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "がくせいだって、しかし わかりません。 (intent: I hear he's a student but I don't know)",
+          "correct": "がくせいだそうですが、よくわかりません。",
+          "why": "Hearsay in N5 written form is そうです; って is conversational.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        }
+      ]
     },
     {
       "id": "n5-180",
@@ -49181,7 +50055,30 @@
         "contrasts": "vs Verb-potential (e-form, N4): 行ける = can go (compact). 行くことができる = same meaning, more formal. Native speakers prefer the e-form for everyday verbs.",
         "closing_practice_tip": "For 5 verbs you use daily, build both: e-form (食べられる) and ことができる (食べることができる). Speak each aloud. Notice the slight register shift — both correct, contextually different.",
         "provenance": "llm_curated"
-      }
+      },
+      "wrong_corrected_pair": [
+        {
+          "wrong": "たべるが できます。",
+          "correct": "たべることが できます。",
+          "why": "Need ことが to nominalize the verb. Bare Vる + が cannot take できる.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべることを できます。",
+          "correct": "たべることが できます。",
+          "why": "Object of できる takes が, not を.",
+          "error_category": "particle",
+          "provenance": "llm_curated"
+        },
+        {
+          "wrong": "たべますことが できます。",
+          "correct": "たべることが できます。",
+          "why": "こと attaches to PLAIN form (Vる), not polite ます.",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        }
+      ]
     }
   ],
   "_meta": {
