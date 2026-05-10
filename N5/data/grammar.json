@@ -3244,7 +3244,15 @@
         "book": 1,
         "chapter": 14
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Paired range. NOUN1 から NOUN2 まで. Standard time/place/quantity range form. 9時から 5時まで = from 9 to 5.",
+        "why_it_matters": "Same as n5-114 but simpler entry. The paired form is mandatory — leaving off まで sounds incomplete.",
+        "common_pitfalls": "Using just から without まで. Confusing with sentence-final から (causation).",
+        "contrasts": "vs sentence-final から (n5-009): different function. The paired まで is the cue.",
+        "closing_practice_tip": "Build 3 ranges: 月曜日から 金曜日まで, 1時から 3時まで, 100円から 500円まで.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-023",
@@ -4444,7 +4452,15 @@
         "book": 1,
         "chapter": 20
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Nominalizer: VERB/ADJ-clause + の. Turns the clause into a noun. 食べる の = the act of eating; 高い の = the expensive one.",
+        "why_it_matters": "Universal nominalisation. Learn this and you can turn any verb/adj into a noun on the fly. Replaces こと in casual contexts.",
+        "common_pitfalls": "Forgetting the の. Confusing with possessive の (n5-029).",
+        "contrasts": "vs こと (also nominalizer): こと is more abstract; の is more concrete.",
+        "closing_practice_tip": "Nominalize 5 verbs: 食べる の が すき, 行く の が 大すき. Notice how the clause becomes the subject.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-031",
@@ -6340,7 +6356,15 @@
         "book": 1,
         "chapter": 3
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Adjectival demonstrative + Noun: こんな/そんな/あんな/どんな + N. 'This/that kind of N.' こんな 本 = this kind of book.",
+        "why_it_matters": "Different from この/その/あの (specific instance). こんな is the QUALITY/KIND. こんな 人 (this kind of person, as a category).",
+        "common_pitfalls": "Confusing with この (which is specific instance). Forgetting どんな is the question form ('what kind of').",
+        "contrasts": "vs この/その/あの/どの (n5-040): kind/category vs specific instance.",
+        "closing_practice_tip": "Build 3 kind-of sentences: こんな 本が すきです. Then 3 specific-instance: この 本が すきです. Notice the category vs item shift.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-044",
@@ -6491,7 +6515,15 @@
         "book": 1,
         "chapter": 3
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Manner-kosoado: こう (this way), そう (that way), ああ (that-far way), どう (how). Adverbial — describe MANNER of doing.",
+        "why_it_matters": "Native manner-vocabulary. これ/それ/あれ/どれ are objects; ここ/そこ/あそこ/どこ are places; こう/そう/ああ/どう are MANNERS.",
+        "common_pitfalls": "Confusing with これ/それ (objects). Mixing with どうして (different meaning, 'why').",
+        "contrasts": "vs これ etc. (object): kosoado for objects. vs ここ etc. (place): kosoado for places. Same kosoado split, different category.",
+        "closing_practice_tip": "Demonstrate something. Say 「こう やります」 (do it this way). Then ask 「どう やりますか?」 (how do you do it?).",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-045",
@@ -7313,7 +7345,15 @@
         "book": 1,
         "chapter": 8
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "'How / how about?' どう (casual) / いかが (formal). コーヒーは どう ですか? = how about coffee? Used to ask state, opinion, or to offer.",
+        "why_it_matters": "Daily-conversation vocabulary. The casual/formal split mirrors だれ/どなた and どうして/なぜ. Native interaction relies on these.",
+        "common_pitfalls": "Using いかが in casual speech (sounds stiff). Confusing with どうして (which asks 'why,' not 'how').",
+        "contrasts": "vs どう (casual): same word, different register.",
+        "closing_practice_tip": "Build 3 questions in both: コーヒーは どう?(casual) / コーヒーは いかが?(formal). The register flick is the lesson.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-051",
@@ -8123,7 +8163,15 @@
         "book": 1,
         "chapter": 4
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Clock-precise time question: 何時 (なんじ — what time?). Asks the hour. なんじですか? = what time is it?",
+        "why_it_matters": "Daily-life essential. Master once and you can ask the time anywhere.",
+        "common_pitfalls": "Using なに (×なにじ → なんじ). Confusing with 何月 (なんがつ).",
+        "contrasts": "vs いつ (n5-019): broader time question (year/month/era). なんじ is narrow (HH:MM).",
+        "closing_practice_tip": "Ask a friend: 「今、なんじですか?」 Then for an event: 「えいがは なんじから ですか?」.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-056",
@@ -8424,7 +8472,15 @@
         "book": 1,
         "chapter": 5
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Time questions: 何月 (なんがつ — what month) / 何日 (なんにち — what day). Combine 何 with the time-counter.",
+        "why_it_matters": "Daily date-asking vocabulary. The 何 + counter pattern is universal; learning it once for time unlocks all date questions.",
+        "common_pitfalls": "Using なに instead of なん (×なにがつ → なんがつ). Confusing with なんようび (day of week).",
+        "contrasts": "vs なんじ (clock time, n5-055): clock-precise vs date.",
+        "closing_practice_tip": "Build 3 date-questions using 何月 and 何日.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-058",
@@ -11603,7 +11659,15 @@
         "book": 1,
         "chapter": 16
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Sequential 'after doing X.' Verb-て + から. 食べてから 行きます = after eating, I go. The てから is more emphatic than just て.",
+        "why_it_matters": "Common sequencer. ~てから specifically asserts 'first X, then Y' more explicitly than just ~て chain.",
+        "common_pitfalls": "Confusing with ~てから (causation, which uses から alone after a clause). The てから is a single unit.",
+        "contrasts": "vs Verb-た + あとで (n5-163): after-completion. ~てから emphasizes the sequence.",
+        "closing_practice_tip": "Build 3 sequences: 食べてから 行きます, かおを あらってから ねます.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-077",
@@ -11908,7 +11972,15 @@
         "book": 1,
         "chapter": 8
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Direct attachment: い-Adjective + Noun. 大きい いえ = big house. No な, no の — just adjective immediately before noun.",
+        "why_it_matters": "Foundational i-adj + noun pattern. Without な or の, just direct attachment. The simplest noun-modifier rule.",
+        "common_pitfalls": "Adding な (the い-adj keeps its い form). Using past form unnecessarily.",
+        "contrasts": "vs な-Adj + な + N (n5-084): different morphology. vs Noun + の + N (n5-137): noun-noun bridge.",
+        "closing_practice_tip": "Build 5 i-adj noun phrases: 大きい いえ, 小さい こども, 高い 山, あつい コーヒー, 安い 本.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-079",
@@ -13610,7 +13682,15 @@
         "book": 1,
         "chapter": 12
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "な-Adj past-negative: ADJ + じゃ + ありませんでした. しずかじゃ ありませんでした = wasn't quiet.",
+        "why_it_matters": "Completes the na-adj cycle: present, past, negative, past-negative. Mirrors noun-conjugation.",
+        "common_pitfalls": "Using くなかった (i-adj rule wrong). Adding な (×しずかなじゃ).",
+        "contrasts": "vs ~くなかったです (n5-082): i-adj past-neg.",
+        "closing_practice_tip": "Conjugate 5 na-adjectives through past-neg cycle: しずか, きれい, しんせつ.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-089",
@@ -15164,7 +15244,15 @@
         "book": 1,
         "chapter": 12
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "2-way comparison: A と B と、どちらが [adj] ですか? = 'A or B, which is [adj]?' The pair is mandatory; the question word is どちら.",
+        "why_it_matters": "Daily comparative-question. Different from 3+ option (which uses どれ). The 2-way limit makes どちら-form unique.",
+        "common_pitfalls": "Using どれ (which is for 3+). Forgetting the second と.",
+        "contrasts": "vs どれが (3+ options): different question word.",
+        "closing_practice_tip": "Build 3 2-way questions: コーヒーと おちゃと、どちらが すきですか? Each forces a binary answer.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-098",
@@ -15941,7 +16029,15 @@
         "book": 1,
         "chapter": 9
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Understanding: NOUN + が + わかります. 日本ごが わかります = I understand Japanese. The が-marker is mandatory.",
+        "why_it_matters": "Daily-conversation vocabulary. Like すき/きらい/じょうず, わかる takes が because the comprehended thing is grammatically the SUBJECT of the understanding-state.",
+        "common_pitfalls": "Using を (×日本ごを わかります). Confusing わかる with しる (n5-145 conceptual differences).",
+        "contrasts": "vs しっている (knowing as fact): わかる = comprehending; しっている = factual knowledge.",
+        "closing_practice_tip": "Build 5 'I understand X' sentences using が: ___が わかります.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-103",
@@ -16104,7 +16200,7 @@
         "why_it_matters": "Common ability-statement form. Pairs with the verb-based ことができる (n5-188); the noun version is more compact when you have a -する verb already in noun form.",
         "common_pitfalls": "Using を instead of が. Mixing with the verb potential form (when noun is available, prefer this).",
         "contrasts": "vs ~ことができます (n5-188): verb-version. Same ability meaning, different grammatical anchor.",
-        "closing_practice_tip": "Build 5 ability statements with nouns: すいえい / りょうり / 日本語 / ピアノ / うんてん が できます. The が-marker sticks.",
+        "closing_practice_tip": "Build 5 ability statements with nouns: すいえい / りょうり / 日本ご / ピアノ / うんてん が できます. The が-marker sticks.",
         "provenance": "llm_curated"
       }
     },
@@ -16766,7 +16862,15 @@
         "book": 1,
         "chapter": 13
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Movement-with-purpose: Verb-stem + に + 行きます/来ます/かえります. 食べに 行きます = go to eat. The に marks the purpose.",
+        "why_it_matters": "Daily-life movement vocabulary. Without this, you have to chain two verbs awkwardly. The compact 'go-to-do-X' form is core spoken JP.",
+        "common_pitfalls": "Using で instead of に (×食べで 行きます). Forgetting to use Verb-stem (not dictionary form).",
+        "contrasts": "vs ~に + 行きます (n5-005): same に-marker, but here it's verb-stem (action), not noun (location).",
+        "closing_practice_tip": "Build 5 'go to do X' sentences: 買いものに 行きます, あいに 行きます, 食べに きました.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-108",
@@ -17532,7 +17636,15 @@
         "book": 1,
         "chapter": 4
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Minute counter: NUMBER + ふん/ぷん. The reading shifts based on the number: 一ぷん (ippun), 二ふん (nifun), 三ぷん (sanpun), 四ふん (yonpun), 五ふん (gofun).",
+        "why_it_matters": "Daily time-precision vocabulary. The reading shifts are systematic but require memorising — voiced ぷ after sokuon.",
+        "common_pitfalls": "Using one reading uniformly (must shift by number). Forgetting voiced/unvoiced patterns.",
+        "contrasts": "vs 時間 (hour, n5-111): different counter.",
+        "closing_practice_tip": "Read 5 different minute numbers aloud: 5ふん, 7ふん, 10ぷん, 15ふん, 30ぷん. Notice how the reading varies.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-113",
@@ -18780,7 +18892,15 @@
         "book": 1,
         "chapter": 19
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Time-marker 'after.' Used after nouns (の あとで) or verbs (た あとで). Mirror of まえ.",
+        "why_it_matters": "Time-axis essential vocabulary. Get まえ/あと as a pair and you have past-future fluency.",
+        "common_pitfalls": "Confusing with あと alone (just 'remaining'). Using dictionary form before あとで (must be た-form).",
+        "contrasts": "vs まえ (n5-119): opposite time direction.",
+        "closing_practice_tip": "Build 3 'after' sentences: ねた あとで, ごはんを 食べた あとで.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-121",
@@ -19601,7 +19721,15 @@
         "book": 1,
         "chapter": 8
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Transitional phrase: 'well then / in that case.' では (formal) / じゃ (casual). では、はじめましょう = well, let's begin.",
+        "why_it_matters": "Conversation-pivot marker. Use to transition between topics or to wind down/start something. Universal in spoken JP.",
+        "common_pitfalls": "Using では in casual speech (use じゃ). Confusing with the negative-suffix では (different particle).",
+        "contrasts": "vs それでは (more formal version): same meaning, slightly more formal.",
+        "closing_practice_tip": "Construct a conversation that pivots: 「では、行きましょう」 vs 「じゃ、行こう」. The register flick is the lesson.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-126",
@@ -20091,7 +20219,15 @@
         "book": 1,
         "chapter": 9
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Q-and-A reason pattern: どうして〜か。〜から。 'Why? Because.' Sets up a question-answer rhythm.",
+        "why_it_matters": "Standard Q&A grammar. The どうして・なぜ asks why; the answer-clause uses から (or です). Learn the question-answer pair as a unit.",
+        "common_pitfalls": "Forgetting から in the answer. Using でも instead of から (でも contrasts; から explains).",
+        "contrasts": "vs Sentence + から (n5-133): from-the-answer side. n5-129 is the full Q&A unit.",
+        "closing_practice_tip": "Construct 3 Q&A pairs: どうして 来ましたか? — 田中さんに 会いたかったから.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-130",
@@ -21095,7 +21231,15 @@
         "book": 1,
         "chapter": 22
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Relative clauses: VERB-PLAIN + NOUN. きのう 食べた りょうり = 'the food I ate yesterday.' The verb directly modifies the noun without any 'that/which.'",
+        "why_it_matters": "JP relative clauses are huge in literature and dialogue. The compactness ('the food I ate' = three syllables in JP) is what makes JP feel so concise. No relative pronoun needed.",
+        "common_pitfalls": "Adding な/の between verb and noun (×食べたな りょうり). Using polite form (×食べました りょうり → 食べた りょうり).",
+        "contrasts": "vs Adj + Noun (n5-136): adjective modifies noun. Verb-plain + Noun is the action-modifier counterpart.",
+        "closing_practice_tip": "Build 5 relative clauses: きのう 食べた もの, よく 行く みせ, 私が 買った 本. The verb-direct-attachment is the muscle.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-136",
@@ -22010,7 +22154,15 @@
         "book": 2,
         "lesson": 13
       },
-      "genki_lesson_provenance": "llm_curated"
+      "genki_lesson_provenance": "llm_curated",
+      "essay": {
+        "intro": "'I think (that).' CLAUSE-plain + と + おもいます. たかいと おもいます = I think it's expensive. The と is the quotation marker for thoughts.",
+        "why_it_matters": "Universal 'I think' for opinions. Different from しっている (factual knowledge). Learn to express opinion vs fact.",
+        "common_pitfalls": "Using polite form before と (×たかいですと → たかいと). Confusing with knowing (use しっている for factual knowledge).",
+        "contrasts": "vs ~と言いました (n5-146): said vs thought. Same と-marker, different verb.",
+        "closing_practice_tip": "Build 5 opinion statements: ___ と おもいます. Stop using です/ます before と.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-146",
@@ -22329,7 +22481,15 @@
         "book": 1,
         "chapter": 8
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Frequency adverbs cluster: よく (often), ときどき (sometimes), あまり~ない (not often), ぜんぜん~ない (not at all). The first two are positive; the last two need negative verb.",
+        "why_it_matters": "Daily frequency-talk. Mastering these 4 covers the entire frequency spectrum. The negation-pairing for あまり/ぜんぜん is grammatical.",
+        "common_pitfalls": "Using あまり with positive (must be negative). Forgetting ぜんぜん requires negative.",
+        "contrasts": "Frequency goes from よく (often) → ときどき (sometimes) → あまり (rarely) → ぜんぜん (never). Native frequency-vocabulary.",
+        "closing_practice_tip": "For 5 hobbies/habits, pick the right frequency: よく 食べます / ときどき 行きます / あまり 見ません / ぜんぜん しません.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-148",
@@ -23105,7 +23265,15 @@
         "book": 1,
         "chapter": 1
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Polite-phrase cluster: どうぞ (please/here you go), どうも (thank you, briefly), すみません (excuse me / sorry), おねがいします (please / I beg of you).",
+        "why_it_matters": "Service-Japanese essentials. Each maps to a specific social moment. Master the cluster and you cover most polite interactions.",
+        "common_pitfalls": "Using どうも as 'thank you' in formal contexts (use ありがとうございます). Confusing どうぞ (giving) with どうも (thanking).",
+        "contrasts": "Each phrase has a specific role — どうぞ (offering), どうも (acknowledging), すみません (apologizing/excusing), おねがいします (requesting).",
+        "closing_practice_tip": "Run through 4 social moments and say the right phrase: receiving something (どうも), offering food (どうぞ), bumping someone (すみません), making a request (おねがいします).",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-153",
@@ -23431,7 +23599,15 @@
         "book": 1,
         "chapter": 19
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "'Already did X.' もう + Verb-ました. もう 食べました = already ate. The もう shifts the past tense to 'completed-already.'",
+        "why_it_matters": "Common past-completion vocabulary. Pairs with まだ + ~ていません ('not yet'). Learn as a pair.",
+        "common_pitfalls": "Using with non-past forms (must be ました). Confusing with もう as 'more' / 'no more.'",
+        "contrasts": "vs まだ + ~ていません (n5-153): opposite (not yet).",
+        "closing_practice_tip": "Build 3 already-done statements: もう 食べました. Then 3 not-yet: まだ 食べていません.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-155",
@@ -23896,7 +24072,15 @@
         "book": 2,
         "lesson": 18
       },
-      "genki_lesson_provenance": "llm_curated"
+      "genki_lesson_provenance": "llm_curated",
+      "essay": {
+        "intro": "Probability marker. CLAUSE-plain + でしょう. あした 雨 でしょう = it'll probably rain tomorrow. Polite version of だろう.",
+        "why_it_matters": "Daily forecast / opinion vocabulary. The polite probability form. Used in news weather forecasts and polite conversation.",
+        "common_pitfalls": "Using だ before でしょう (×だ でしょう → just でしょう). Confusing with definite statement.",
+        "contrasts": "vs だろう (n5-158): casual variant. vs ~んです (n5-167): explanatory.",
+        "closing_practice_tip": "Make 3 future predictions politely: あした さむい でしょう, ともだちが 来る でしょう.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-158",
@@ -24993,7 +25177,15 @@
         "book": 1,
         "chapter": 1
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Name suffix: ~さん. The Mr./Ms. equivalent. Use after surnames or full names: 田中さん. Universal politeness marker.",
+        "why_it_matters": "Used in EVERY formal interaction. Forgetting さん when addressing someone is rude. Adding it shows basic social competence.",
+        "common_pitfalls": "Using on your own name (sounds arrogant — use just your name to others). Forgetting ~ちゃん (small/cute) and ~くん (junior male) variants.",
+        "contrasts": "vs ~ちゃん (cute/small): different register. vs ~くん (junior male): age/gender-specific.",
+        "closing_practice_tip": "Address 3 people with the right suffix: 田中さん (general), たろうくん (junior male friend), さくらちゃん (cute/small).",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-165",
@@ -25314,7 +25506,15 @@
         "book": 1,
         "chapter": 1
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Set greetings cluster: いただきます (before eating), ごちそうさま (after eating), おはようございます (good morning), and the related rituals.",
+        "why_it_matters": "Cultural backbone of Japanese daily life. These aren't optional — say them at the right moments and you signal cultural competence.",
+        "common_pitfalls": "Saying just いただき or おはよう alone in formal context. Forgetting the closing rituals.",
+        "contrasts": "Each greeting has a paired moment: いただきます ↔ ごちそうさま; おはよう ↔ いってらっしゃい. Pairs.",
+        "closing_practice_tip": "Run through a daily flow: morning greeting → meal opening → meal closing → goodbye. Practice each in correct context.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-167",
@@ -25637,7 +25837,15 @@
         "book": 1,
         "chapter": 19
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "List of representative actions: ~たり~たりする. 本を 読んだり、テレビを 見たり します = (I do things like) read books and watch TV. Implies 'among other things.'",
+        "why_it_matters": "Universal way to describe routines. The ~たり~たり pattern signals 'these are examples of what I do, not the complete list.' Native conversation common.",
+        "common_pitfalls": "Forgetting する at the end. Using only one ~たり without the second (the pair is essential).",
+        "contrasts": "vs Verb-て chain (n5-070): chain is sequential ('then this'). ~たり is unordered representative actions.",
+        "closing_practice_tip": "Describe a weekend routine using 3 ~たり verbs: 本を 読んだり、コーヒーを のんだり、ねたり します.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-169",
@@ -25956,7 +26164,15 @@
         "book": 2,
         "lesson": 14
       },
-      "genki_lesson_provenance": "llm_curated"
+      "genki_lesson_provenance": "llm_curated",
+      "essay": {
+        "intro": "Advice / recommendation: 'should do.' Verb-た + ほうが いい. ねた ほうが いい = should sleep. Past form is mandatory; the た marks completed-state-as-recommendation.",
+        "why_it_matters": "Daily-advice vocabulary. The た-form-before-ほうがいい is the lock; using dictionary form changes meaning.",
+        "common_pitfalls": "Using dictionary form (×ねる ほうがいい — different meaning). Mixing with ~たほうが (the kanji is N5; the kana is the same here).",
+        "contrasts": "vs ~ないほうが いい (n5-171): negative advice (shouldn't do).",
+        "closing_practice_tip": "Build 3 advice sentences: ねた ほうがいい, べんきょうした ほうがいい, はやく おきた ほうがいい.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-171",
@@ -26424,7 +26640,15 @@
         "book": 1,
         "chapter": 17
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "'Must do.' Verb-NEG-て + は + いけない (or なりません). 行かなくては いけない = must go. The double-negative ('not-going-doesn't-work') logic.",
+        "why_it_matters": "Common formal must-do form. The いけない vs ならない is subtle: いけない = generally required; ならない = morally/socially required. Both work.",
+        "common_pitfalls": "Casual register confusion (use なくちゃ for casual). Mixing いけない with いけません (the latter is just polite form).",
+        "contrasts": "vs ~なくちゃ (n5-176): casual contraction. vs ~ないといけない (n5-175): variant.",
+        "closing_practice_tip": "Build 3 must-do sentences: べんきょうしなくては いけません. Then re-cast each in casual なくちゃ form.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-174",
@@ -27717,7 +27941,15 @@
         "book": 2,
         "lesson": 20
       },
-      "genki_lesson_provenance": "llm_curated"
+      "genki_lesson_provenance": "llm_curated",
+      "essay": {
+        "intro": "Strong / casual prohibition. Verb-plain + な = 'don't!' 行くな = don't go! Used in commanding tones — among friends, in coaching, signs.",
+        "why_it_matters": "Recognizing this in real speech is core listening skill. Subtitles/manga use this constantly. Distinguish from な (don't!) and な (sentence-final).",
+        "common_pitfalls": "Confusing with sentence-final な. Using in polite contexts (sounds rude or curt).",
+        "contrasts": "vs ~ないでください (n5-077): polite negative request. vs ~てはいけません (n5-075): more formal prohibition.",
+        "closing_practice_tip": "Build 3 strong-prohibition sentences: 来るな, 食べるな, ねるな. Notice the abrupt commanding tone.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-183",
@@ -27862,7 +28094,15 @@
         "book": 1,
         "chapter": 10
       },
-      "minna_chapter_provenance": "auto_extracted"
+      "minna_chapter_provenance": "auto_extracted",
+      "essay": {
+        "intro": "Question word + か/も compound: なにか/なにも, だれか/だれも, どこか/どこも, いつか/いつも. The か introduces existence; the も + neg = nothing.",
+        "why_it_matters": "Closed-system pattern that maps cleanly onto English 'something/someone/somewhere/sometime' and 'nothing/no one/nowhere'. Master the pattern once for all 4 question words.",
+        "common_pitfalls": "Mismatching polarity (か needs positive, も needs negative for nothing-meaning). Forgetting どこも + positive = 'everywhere.'",
+        "contrasts": "vs each individual entry (n5-184/185/186/187): same template, applied to specific question words.",
+        "closing_practice_tip": "Build a yes/no minipair for each: なにか 食べた? — はい / いいえ、なにも 食べていない. Repeat for だれ/どこ/いつ.",
+        "provenance": "llm_curated"
+      }
     },
     {
       "id": "n5-184",
