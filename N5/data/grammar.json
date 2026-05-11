@@ -21785,7 +21785,16 @@
           "why": "When chaining sequential actions in one sentence, use て-form for the non-final verbs. The final verb carries tense."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-168",
+          "note": "Both chain actions. n5-070 (Verb-て、Verb-て…) lists actions IN ORDER (\"did X, then Y, then Z\"). n5-168 (〜たり〜たりする) lists actions AS SAMPLES from a larger set, in no particular order (\"we did things like X and Y\")."
+        },
+        {
+          "with_pattern_id": "n5-144",
+          "note": "Both link two actions. n5-070 (Verb-て、Verb-て) is sequential: \"did X, THEN Y\". n5-144 (Verb-stem + ながら) is simultaneous: \"X WHILE Y\" (both happen at the same time)."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रमिक / श्रृंखलाबद्ध क्रियाएँ",
@@ -25194,7 +25203,16 @@
           "why": "いい (good) is irregular: its negative is よくない, not いくない. Same for past よかった."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-082",
+          "note": "Same negative form, different tense. n5-080 is i-adj NEGATIVE PRESENT (たかくないです / たかくありません). n5-082 is i-adj NEGATIVE PAST (たかくなかったです / たかくありませんでした). Both derive from くない + tense marker."
+        },
+        {
+          "with_pattern_id": "n5-079",
+          "note": "Opposite polarity. n5-079 is i-adj AFFIRMATIVE PRESENT (たかいです). n5-080 is i-adj NEGATIVE PRESENT (たかくないです). The negative form drops final い and adds くない."
+        }
+      ],
       "notes": "Memorize the いい → よく irregular: いい / よくない / よかった / よくなかった.",
       "review_status": "native_reviewed",
       "meaning_hi": "い-विशेषण नकारात्मक - वर्तमान विनम्र",
@@ -25895,7 +25913,16 @@
           "why": "いい (good) is irregular: past-negative is よくなかった."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-080",
+          "note": "Same negative form, different tense. n5-082 is i-adj NEGATIVE PAST. n5-080 is i-adj NEGATIVE PRESENT. Mind the suffix: なかった (past) vs ない (non-past)."
+        },
+        {
+          "with_pattern_id": "n5-081",
+          "note": "Opposite polarity. n5-081 is i-adj AFFIRMATIVE PAST (たかかったです). n5-082 is i-adj NEGATIVE PAST (たかくなかったです). Both share the i-adj い→かった transformation; the negative inserts く+ない before the past marker."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "い-विशेषण भूत नकारात्मक",
@@ -28050,7 +28077,12 @@
           "why": "くなかった is for い-adj only."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-087",
+          "note": "Opposite polarity. n5-087 is na-adj PAST AFFIRMATIVE (きれいでした). n5-088 is na-adj PAST NEGATIVE (きれいじゃありませんでした / きれいではありませんでした). Mind the でした vs じゃ/ではありませんでした."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "な-विशेषण भूत नकारात्मक",
@@ -31267,7 +31299,12 @@
           "why": "For \"which of A or B?\", use と...と to list, then どちら. か...か is grammatical but と...と is the standard frame for comparison questions."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-098",
+          "note": "Both compare two items. n5-097 (AとBと、どちらが ～ですか) asks the comparison question. n5-098 (likes/dislikes) is the standard answer template using より."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "और B में से कौन अधिक ~ है? (दो-तरफ़ा प्रश्न)",
@@ -31595,6 +31632,10 @@
         {
           "with_pattern_id": "n5-099",
           "note": "This is a duplicate entry - see the canonical pattern."
+        },
+        {
+          "with_pattern_id": "n5-097",
+          "note": "Both involve comparison between two items. n5-098 (likes/dislikes contrast) is the assertion frame; n5-097 (AとBと、どちらが) is the question frame that elicits this kind of answer."
         }
       ],
       "notes": "",
@@ -35594,7 +35635,12 @@
           "why": "More natural to put quantity AFTER the noun, with no の. The 'の-form' is unusual at N5."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-109",
+          "note": "Q-and-A counter pair. n5-109 is the question (なんまい / いくつ / 何人 etc.). n5-110 is the answer pattern: Object + counter-with-number + Verb (\"I bought three books\"). Same counter inventory, opposite speech acts."
+        }
+      ],
       "notes": "Counter readings often involve rendaku: 三本 reads さんぼん, 一本 reads いっぽん, 六本 reads ろっぽん. See the Counters reference module for full reading patterns.",
       "review_status": "native_reviewed",
       "meaning_hi": "कर्म + गणक + क्रिया - मात्रा क्रिया से पहले",
@@ -40575,7 +40621,12 @@
           "why": "じゃ is the colloquial contraction of では; in formal contexts (meetings, speeches), prefer では."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-126",
+          "note": "Both are transitional connectives. n5-125 (では / じゃ) is a topic-shift adverb at sentence start (\"Well then, …\"). n5-126 (が clause-but) is an adversative clause-connector inside a sentence (\"X, but Y\"). Different syntactic position; different function."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "तो फिर / उस स्थिति में (संक्रमण)",
@@ -40922,6 +40973,10 @@
         {
           "with_pattern_id": "n5-002",
           "note": "は marks the topic of conversation; が marks subject (often the new/focused element). With existential verbs ある / いる, が marks what exists."
+        },
+        {
+          "with_pattern_id": "n5-125",
+          "note": "Both are transitional. n5-126 (が clause-but) is adversative (\"X, but Y\"). n5-125 (では / じゃ) is a topic-shift adverb sentence-initially (\"well then…\"). Position determines function."
         }
       ],
       "notes": "",
@@ -45304,7 +45359,12 @@
           "why": "ながら requires the SAME subject. For two actors, use other connectors."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-070",
+          "note": "Both link two actions. n5-144 (Verb-stem + ながら) is simultaneous (\"X while Y, both at once\"). n5-070 (Verb-て chain) is sequential (\"X, then Y\"). Mind the form: stem+ながら vs te-form chain."
+        }
+      ],
       "notes": "Borderline N5/N4.",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-तना + ながら - X करते-करते (एक-साथ)",
@@ -53425,7 +53485,12 @@
           "why": "～たり requires BOTH (or all) verbs to end in たり, plus する at the end. Beginners apply たり to one verb and use plain past on the other. The correct form is 'V-たり、V-たり (... する)'."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-070",
+          "note": "Both list multiple actions. n5-168 (〜たり〜たり) presents the actions as REPRESENTATIVE SAMPLES, order-irrelevant. n5-070 (Verb-て、Verb-て) chains them in TEMPORAL SEQUENCE (\"first X, then Y\")."
+        }
+      ],
       "notes": "Upper N5 / borderline.",
       "review_status": "native_reviewed",
       "meaning_hi": "~たり~たりする - और B (अन्य चीज़ों के बीच) करना",
