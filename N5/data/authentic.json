@@ -68,7 +68,12 @@
       "gloss_hi": "मुझे बुखार है",
       "context": "Stating symptoms: ねつ + が + あります = exist-of-fever.",
       "context_hi": "लक्षण बताना: ねつ + が + あります = बुखार-का-होना।",
-      "review_status": "native_reviewed"
+      "review_status": "native_reviewed",
+      "grammar_refs": [
+        "n5-003",
+        "n5-090"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.hospital.uketsuke",
@@ -120,7 +125,11 @@
       "vocab_refs": [
         "n5.vocab.16-food-and-drink-genera.ごはん"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-188"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.menu.honjitsu",
@@ -131,7 +140,11 @@
       "gloss_hi": "आज का विशेष व्यंजन / सेवा",
       "context": "Daily-changing special, often a discounted set.",
       "context_hi": "रोज़ बदलने वाला विशेष व्यंजन, अक्सर छूट वाला सेट।",
-      "review_status": "native_reviewed"
+      "review_status": "native_reviewed",
+      "grammar_refs": [
+        "n5-028"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.menu.itadakimasu",
@@ -202,7 +215,11 @@
       "vocab_refs": [
         "n5.vocab.14-nature-and-weather.水"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-071"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.menu.ocha",
@@ -413,7 +430,11 @@
       "vocab_refs": [
         "n5.vocab.24-school-and-study.しゃしん"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-077"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.notice.shiyouchu",
@@ -550,7 +571,11 @@
       "gloss_hi": "कार्ड भी स्वीकार है",
       "context": "Counter sign / shop staff line.",
       "context_hi": "काउंटर संकेत / दुकान-कर्मचारी पंक्ति।",
-      "review_status": "native_reviewed"
+      "review_status": "native_reviewed",
+      "grammar_refs": [
+        "n5-079"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.shop.fukuro",
@@ -561,7 +586,11 @@
       "gloss_hi": "क्या आपको थैला चाहिए?",
       "context": "Convenience-store / supermarket question; bags now usually cost a few yen.",
       "context_hi": "सुविधा-दुकान/सुपरमार्केट का प्रश्न; अब थैलों की कीमत होती है।",
-      "review_status": "native_reviewed"
+      "review_status": "native_reviewed",
+      "grammar_refs": [
+        "n5-023"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.shop.genkin",
@@ -602,7 +631,11 @@
       "kanji_refs": [
         "n5.kanji.時"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-021"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.shop.poin-to",
@@ -650,7 +683,12 @@
       "vocab_refs": [
         "n5.vocab.11-time-days-weeks-month.月曜日"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-001",
+        "n5-002"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.shop.tsuri",
@@ -1122,7 +1160,11 @@
         "n5.kanji.電",
         "n5.kanji.車"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-072"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.transit.doa-shimari",
@@ -1137,7 +1179,11 @@
       "vocab_refs": [
         "n5.vocab.26-house-and-furniture.ドア"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-003"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.transit.eki",
@@ -1233,7 +1279,11 @@
       "kanji_refs": [
         "n5.kanji.足"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-071"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.transit.tokyu",
@@ -1259,7 +1309,12 @@
       "vocab_refs": [
         "n5.vocab.12-time-frequency-sequen.つぎ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-001",
+        "n5-002"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.transit.tsugino-eki",
@@ -1275,7 +1330,12 @@
         "n5.vocab.12-time-frequency-sequen.つぎ",
         "n5.vocab.13-locations-and-places-.駅"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "grammar_refs": [
+        "n5-028",
+        "n5-002"
+      ],
+      "grammar_refs_provenance": "llm_curated"
     },
     {
       "id": "auth.weather.ame",

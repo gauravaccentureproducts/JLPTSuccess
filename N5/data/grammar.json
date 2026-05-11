@@ -326,7 +326,12 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "authentic_refs": [
+        "auth.shop.teikyubi",
+        "auth.transit.tsugi"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-002",
@@ -663,7 +668,13 @@
         "humble": "わたくしは がくせい でございます。",
         "respectful": "こちらは やまだ先生で いらっしゃいます。 (about other)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.shop.teikyubi",
+        "auth.transit.tsugi",
+        "auth.transit.tsugino-eki"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-003",
@@ -990,7 +1001,12 @@
         "respectful": "やまだ先生が いらっしゃいます。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_homonym_of": "n5-126"
+      "_homonym_of": "n5-126",
+      "authentic_refs": [
+        "auth.hospital.netsu",
+        "auth.transit.doa-shimari"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-004",
@@ -6377,7 +6393,11 @@
           "provenance": "llm_curated"
         }
       ],
-      "_alias_of": "n5-114"
+      "_alias_of": "n5-114",
+      "authentic_refs": [
+        "auth.shop.jikan"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-023",
@@ -6689,7 +6709,11 @@
         "respectful": "いらっしゃいますか。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_homonym_of": "n5-024"
+      "_homonym_of": "n5-024",
+      "authentic_refs": [
+        "auth.shop.fukuro"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-024",
@@ -8310,7 +8334,12 @@
         "humble": "わたくしの ほんで ございます。",
         "respectful": "先生の ほんで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.honjitsu",
+        "auth.transit.tsugino-eki"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-029",
@@ -22186,7 +22215,12 @@
           "context": "依頼のかたち.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "authentic_refs": [
+        "auth.menu.mizu",
+        "auth.transit.te-wo-haisaku"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-072",
@@ -22554,7 +22588,11 @@
         "humble": "いただいて おります。",
         "respectful": "めしあがって いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.densha-okurete"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-073",
@@ -24278,7 +24316,11 @@
           "context": "禁止のお願い.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "authentic_refs": [
+        "auth.notice.shashin-kinshi"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-078",
@@ -24937,7 +24979,11 @@
           "context": "形容詞 (い) です — copula attached for politeness.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "authentic_refs": [
+        "auth.shop.cardmoii"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-080",
@@ -28894,7 +28940,11 @@
           "context": "無生物のあります.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "authentic_refs": [
+        "auth.hospital.netsu"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     },
     {
       "id": "n5-091",
@@ -60033,7 +60083,11 @@
           "context": "〜ことができます (能力).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "authentic_refs": [
+        "auth.menu.gohan-okawari"
+      ],
+      "authentic_refs_provenance": "llm_curated"
     }
   ],
   "_meta": {

@@ -113,6 +113,11 @@ function renderItemCard(it) {
           Study kanji: ${it.kanji_refs.map(kid => `<a href="#/kanji/${encodeURIComponent(vidLabel(kid))}" lang="ja">${esc(vidLabel(kid))}</a>`).join(' ')}
         </p>
       ` : ''}
+      ${it.grammar_refs?.length ? `
+        <p class="authentic-card-grammar-refs muted small">
+          Study grammar: ${it.grammar_refs.map(pid => `<a href="#/learn/${encodeURIComponent(pid)}">${esc(pid)}</a>`).join(', ')}
+        </p>
+      ` : ''}
       <div class="authentic-card-actions">
         <button type="button" class="btn-secondary btn-tiny" data-auth-speak="${esc(ja)}"
                 title="Read aloud (uses your device's voice — no network call)">

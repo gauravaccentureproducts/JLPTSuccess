@@ -719,6 +719,24 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       </section>
 
       ${p.notes ? `<section><h3 class="section-title">${esc(t('grammar_detail.notes'))}</h3><p>${esc(p.notes)}</p></section>` : ''}
+
+      ${p.authentic_refs?.length ? `
+        <!-- IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): authentic-content
+             cross-link. Real-world cards where this grammar pattern
+             appears (signs, menus, transit announcements, etc.). -->
+        <section class="grammar-authentic-refs">
+          <h3 class="section-title">Seen in the real world</h3>
+          <p class="muted small">
+            This pattern shows up on these authentic Japanese cards. Click to see real-world usage in context.
+          </p>
+          <ul class="authentic-ref-list">
+            ${p.authentic_refs.map(cid => {
+              const cat = (cid.split('.')[1] || 'authentic');
+              return `<li><a href="#/authentic">${esc(cid)}</a> <span class="muted small">(${esc(cat)})</span></li>`;
+            }).join('')}
+          </ul>
+        </section>
+      ` : ''}
     </article>
   `;
   container.innerHTML = html;
