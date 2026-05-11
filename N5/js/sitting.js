@@ -29,6 +29,11 @@ import { loadPacing, renderPacingChip } from './mondai-pacing.js';
 // 2-section JLPT N5 0-180 scale via a linear approximation, then
 // looks up the diagnostic band (fail/weak/borderline/pass/strong).
 import { estimate as estimateScore } from './score-estimator.js';
+// IMP-WAVE-P4-T3 (UI audit fix, 2026-05-11): contextual strategy
+// modal. A button in the section header opens a focus-trapped
+// modal listing techniques + trap patterns scoped to the current
+// section (mojigoi/bunpoudok/choukai).
+import { openStrategyModal } from './strategy-modal.js';
 
 const SECTIONS = [
   // [section-id, label, ja-label, [paper-categories], duration-minutes]
@@ -204,6 +209,16 @@ async function renderSection(container, paperNumber, sectionIdx) {
         <span class="sitting-section-label" lang="ja">${esc(jaLabel)}</span>
         <h2>${esc(label)} <span class="muted small">(Paper ${paperNumber}, ${total} questions)</span></h2>
         <p class="sitting-timer-chip" id="sitting-timer" aria-live="polite">${fmtTime(durationMin * 60)}</p>
+        <!-- IMP-WAVE-P4-T3 (UI audit fix, 2026-05-11): per-section
+             strategy button. Opens a modal listing techniques + trap
+             patterns scoped to this section. data-section is the
+             internal id; data-label is the human-readable label
+             passed to openStrategyModal as the modal title. -->
+        <button type="button" class="sitting-strategy-btn" id="sitting-strategy-btn"
+                data-section="${esc(SECTIONS[sectionIdx][0])}" data-label="${esc(label)}"
+                aria-label="View strategies for this section">
+          📋 Strategies
+        </button>
       </header>
       <form id="sitting-form" class="sitting-form">
         ${questions.map((q, i) => `
@@ -229,6 +244,16 @@ async function renderSection(container, paperNumber, sectionIdx) {
       </form>
     </article>
   `;
+
+  // IMP-WAVE-P4-T3: wire the per-section strategy button.
+  const strategyBtn = document.getElementById('sitting-strategy-btn');
+  if (strategyBtn) {
+    strategyBtn.addEventListener('click', () => {
+      const sectionKey = strategyBtn.dataset.section;
+      const sectionLbl = strategyBtn.dataset.label;
+      openStrategyModal(sectionKey, sectionLbl);
+    });
+  }
 
   document.getElementById('sitting-form').addEventListener('submit', (ev) => {
     ev.preventDefault();
