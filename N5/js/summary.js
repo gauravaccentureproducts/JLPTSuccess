@@ -29,9 +29,9 @@ export async function renderSummary(container) {
     container.innerHTML = `
       <h2>${t('page.summary')}</h2>
       <div class="empty-state">
-        <p><strong>Stats appear here once you've studied.</strong></p>
-        <p class="muted">Mastered, Need-practice, and Untested counts appear after a Test or completed lessons.</p>
-        <p><a href="#/learn" class="btn-primary" style="text-decoration:none">Start a lesson</a></p>
+        <p><strong>${t('meta.progress_empty')}</strong></p>
+        <p class="muted">${t('meta.progress_empty_help')}</p>
+        <p><a href="#/learn" class="btn-primary" style="text-decoration:none">${t('meta.start_lesson')}</a></p>
       </div>
     `;
     return;
@@ -43,22 +43,22 @@ export async function renderSummary(container) {
     <section class="summary-stats">
       <div class="stat-card mastered">
         <div class="stat-num">${masteredIds.length}</div>
-        <div class="stat-label">Mastered</div>
+        <div class="stat-label">${t('meta.mastered')}</div>
         <div class="stat-hint">≥ 4 consecutive correct</div>
       </div>
       <div class="stat-card weak">
         <div class="stat-num">${weakIds.length}</div>
-        <div class="stat-label">Need practice</div>
+        <div class="stat-label">${t('meta.need_practice')}</div>
         <div class="stat-hint">≥ 50% error, ≥ 2 attempts</div>
       </div>
       <div class="stat-card untested">
         <div class="stat-num">${untestedIds.length}</div>
         <div class="stat-label">Untested</div>
-        <div class="stat-hint">Not seen in any test</div>
+        <div class="stat-hint">${t('meta.untested')}</div>
       </div>
       <div class="stat-card neutral">
         <div class="stat-num">${totalTests}</div>
-        <div class="stat-label">Tests taken</div>
+        <div class="stat-label">${t('meta.tests_taken')}</div>
         ${lastTest ? `<div class="stat-hint">Last: ${formatDate(lastTest.timestamp)}</div>` : '<div class="stat-hint">None yet</div>'}
       </div>
     </section>

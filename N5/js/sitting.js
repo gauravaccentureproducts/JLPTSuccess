@@ -16,6 +16,7 @@
 // (matching the 0-180 official conversion is out of scope; we report
 // raw correct/total per section + an overall percentage).
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 const SECTIONS = [
   // [section-id, label, ja-label, [paper-categories], duration-minutes]
@@ -80,13 +81,13 @@ export async function renderSitting(container, params) {
   if (parts.length === 0) return renderPicker(container);
   const paperNumber = parseInt(parts[0], 10);
   if (!Number.isFinite(paperNumber) || paperNumber < 1 || paperNumber > 7) {
-    container.innerHTML = `<p>Bad paper number. <a href="#/sitting">Pick again.</a></p>`;
+    container.innerHTML = `<p>${esc(t('meta.bad_paper'))} <a href="#/sitting">${esc(t('meta.pick_again'))}</a></p>`;
     return;
   }
   if (parts[1] === 'result') return renderResult(container, paperNumber);
   const sectionIdx = parts[1] ? parseInt(parts[1], 10) : 0;
   if (!Number.isFinite(sectionIdx) || sectionIdx < 0 || sectionIdx >= SECTIONS.length) {
-    container.innerHTML = `<p>Bad section. <a href="#/sitting">Restart.</a></p>`;
+    container.innerHTML = `<p>${esc(t('meta.bad_section'))} <a href="#/sitting">${esc(t('meta.pick_again'))}</a></p>`;
     return;
   }
   return renderSection(container, paperNumber, sectionIdx);
@@ -95,21 +96,15 @@ export async function renderSitting(container, params) {
 function renderPicker(container) {
   container.innerHTML = `
     <article class="sitting-picker">
-      <a class="back-link" href="#/test">← Back to Test</a>
-      <h2>Full mock-test sitting</h2>
-      <p class="page-lede">
-        Take the entire JLPT N5 in one sitting: <strong>Moji + Goi (25 min)</strong>
-        → break → <strong>Bunpou + Dokkai (50 min)</strong> → break →
-        <strong>Listening (30 min)</strong>. Total ~110 minutes
-        including breaks. Each section runs at the official time budget;
-        unanswered questions auto-submit at zero.
-      </p>
-      <p class="muted">Pick a paper number. All 4 sections from that paper number combine into one sitting.</p>
+      <a class="back-link" href="#/test">← ${esc(t('meta.back_to_test'))}</a>
+      <h2>${esc(t('meta.sitting_title'))}</h2>
+      <p class="page-lede">${esc(t('meta.sitting_intro'))}</p>
+      <p class="muted">${esc(t('meta.pick_paper_intro'))}</p>
       <div class="sitting-paper-grid">
         ${[1, 2, 3, 4, 5, 6, 7].map(n => `
           <a class="sitting-paper-card" href="#/sitting/${n}/0">
             <span class="card-index" aria-hidden="true">${String(n).padStart(2, '0')}</span>
-            <h3>Paper ${n}</h3>
+            <h3>${esc(t('meta.paper_n').replace('${n}', n))}</h3>
             <p class="muted small">moji-${n} · goi-${n} · bunpou-${n} · dokkai-${n} · listening</p>
           </a>
         `).join('')}

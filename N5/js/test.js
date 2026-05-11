@@ -95,7 +95,7 @@ async function renderSetup(container) {
   // IMP-115 (audit round-9): also pull full_mock_papers + combined_sections
   // metadata for the Full Mock Test CTA so it accurately advertises the
   // real JLPT shape (85Q / 105min) and exposes paper-1..paper-7 selectable.
-  let paperCountStr = 'Mock-test papers';
+  let paperCountStr = t('meta.mock_papers');
   let fullMockPapers = null;
   try {
     const m = await fetch('data/papers/manifest.json').then(r => r.ok ? r.json() : null);
@@ -111,8 +111,8 @@ async function renderSetup(container) {
     <h2>${t('page.test')}</h2>
     ${noPriorTests ? `
       <div class="empty-state-banner">
-        <p><strong>Take your first mock test when you've covered at least lessons 1-10.</strong> If you're new, study a few patterns first - missed items will flow into Review and Daily Drill automatically.</p>
-        <p><a href="#/learn">Continue learning →</a></p>
+        <p><strong>${esc(t('meta.first_mock_hint'))}</strong></p>
+        <p><a href="#/learn">${esc(t('meta.continue_learning'))} →</a></p>
       </div>
     ` : ''}
     <!-- Promotional trust callout (round-9 follow-up 2026-05-07): the
@@ -125,27 +125,27 @@ async function renderSetup(container) {
       <strong>${t('trust.no_login')} · ${t('trust.no_tracking')} · ${t('trust.on_device')}</strong>
       <p>${t('trust.test_callout')}</p>
     </aside>
-    <p>Configure and start a new auto-graded test. The Submit button stays disabled until every question has an answer.</p>
+    <p>${esc(t('meta.test_setup_intro'))}</p>
     <div class="test-setup">
       <label class="length-picker">
-        <span>Test length</span>
+        <span>${esc(t('meta.test_length'))}</span>
         <select id="test-length">
-          <option value="20" ${lastLen===20?'selected':''}>20 questions</option>
-          <option value="30" ${lastLen===30?'selected':''}>30 questions</option>
-          <option value="50" ${lastLen===50?'selected':''}>50 questions</option>
+          <option value="20" ${lastLen===20?'selected':''}>20 ${esc(t('meta.questions_unit'))}</option>
+          <option value="30" ${lastLen===30?'selected':''}>30 ${esc(t('meta.questions_unit'))}</option>
+          <option value="50" ${lastLen===50?'selected':''}>50 ${esc(t('meta.questions_unit'))}</option>
         </select>
       </label>
       <label class="exam-mode-toggle" title="Adds a countdown timer at JLPT pace (~60 seconds per question). Auto-submits at zero.">
         <input type="checkbox" id="exam-mode" ${lastExamMode ? 'checked' : ''}>
-        <span>Exam mode (timer)</span>
+        <span>${esc(t('test.exam_mode'))}</span>
       </label>
-      <button id="start-test" class="btn-primary">Start Test</button>
+      <button id="start-test" class="btn-primary">${esc(t('meta.start_test'))}</button>
       <p class="bank-note">Question bank: <strong>${bank.length}</strong> available. Test length is capped at the bank size.</p>
-      <p class="bank-note muted small">Pass mark: <strong>${PASS_PERCENT}%</strong> (JLPT N5 study target).</p>
+      <p class="bank-note muted small">${esc(t('test.pass_mark'))}: <strong>${PASS_PERCENT}%</strong> (JLPT N5 study target).</p>
     </div>
     <hr style="border:0; border-top:1px solid var(--c-border); margin:32px 0 24px;">
     <div class="test-papers-cta">
-      <h3 style="margin:0 0 8px; font-weight:400;">Mock-test papers</h3>
+      <h3 style="margin:0 0 8px; font-weight:400;">${esc(t('meta.mock_papers'))}</h3>
       <p style="margin:0 0 12px; color:var(--c-muted);">Take a focused paper from a specific JLPT section (Moji / Goi / Bunpou / Dokkai). ${paperCountStr} across 4 sections, drawn from the audited <code>KnowledgeBank</code> question files.</p>
       <a class="btn-secondary" href="#/papers" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Browse papers →</a>
     </div>

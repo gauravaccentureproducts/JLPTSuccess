@@ -8,6 +8,7 @@
 // FSRS-4 schedule or test results - only the browsable trail). Same
 // interaction model as Anki's Browser view filtered by "again".
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 let grammarIndex = null;
 
@@ -31,7 +32,7 @@ function fmtDate(iso) {
   const yest = new Date();
   yest.setDate(yest.getDate() - 1);
   if (d.toDateString() === yest.toDateString()) {
-    return 'Yesterday ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return t('meta.yesterday') + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
   return d.toLocaleDateString();
 }
@@ -55,10 +56,10 @@ export async function renderMissed(container) {
   if (!items.length) {
     container.innerHTML = `
       <article class="missed-page">
-        <a class="back-link" href="#/review">← Back to Review</a>
-        <h2>Wrong-answer history</h2>
+        <a class="back-link" href="#/review">← ${esc(t('meta.back_to_review'))}</a>
+        <h2>${esc(t('meta.wrong_answer_history'))}</h2>
         <div class="placeholder">
-          <p>You haven't missed anything recently - keep practising. Wrong answers from Test and Drill flow into this list automatically (most recent 200).</p>
+          <p>${esc(t('meta.no_misses'))}</p>
         </div>
       </article>
     `;
@@ -88,8 +89,8 @@ export async function renderMissed(container) {
             <a href="#/learn/${encodeURIComponent(r.patternId || '')}" lang="ja">${esc(label)}</a>
           </div>
           <div class="missed-row-answers">
-            <p><strong class="muted small">You:</strong> <span class="missed-wrong" lang="ja">${fmtAnswer(r.wrongAnswer)}</span></p>
-            <p><strong class="muted small">Correct:</strong> <span class="missed-right" lang="ja">${fmtAnswer(r.correctAnswer)}</span></p>
+            <p><strong class="muted small">${esc(t('meta.you_label'))}:</strong> <span class="missed-wrong" lang="ja">${fmtAnswer(r.wrongAnswer)}</span></p>
+            <p><strong class="muted small">${esc(t('meta.correct_label'))}:</strong> <span class="missed-right" lang="ja">${fmtAnswer(r.correctAnswer)}</span></p>
           </div>
         </li>
       `;
@@ -107,20 +108,19 @@ export async function renderMissed(container) {
 
   container.innerHTML = `
     <article class="missed-page">
-      <a class="back-link" href="#/review">← Back to Review</a>
-      <h2>Wrong-answer history</h2>
+      <a class="back-link" href="#/review">← ${esc(t('meta.back_to_review'))}</a>
+      <h2>${esc(t('meta.wrong_answer_history'))}</h2>
       <p class="page-lede">
-        Most recent ${items.length} miss${items.length === 1 ? '' : 'es'}
-        from Test and Drill (capped at 200). Newest first.
+        ${esc(t('meta.most_recent_misses').replace('${n}', items.length))}
       </p>
       ${groupsHtml}
       <div class="missed-actions">
-        <button id="missed-clear" class="btn-danger">Clear history</button>
+        <button id="missed-clear" class="btn-danger">${esc(t('meta.clear_history'))}</button>
       </div>
     </article>
   `;
   document.getElementById('missed-clear')?.addEventListener('click', () => {
-    if (!confirm('Clear the wrong-answer history? FSRS schedule and test results stay intact.')) return;
+    if (!confirm(t('meta.clear_confirm'))) return;
     storage.clearWrongHistory();
     renderMissed(container);
   });

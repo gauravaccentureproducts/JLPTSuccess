@@ -1,44 +1,127 @@
-import*as l from"./storage.js";let c=null;async function p(){if(c)return;const e=await fetch("data/grammar.json");if(!e.ok)return;const t=await e.json();c=new Map((t.patterns||[]).map(s=>[s.id,s]))}function w(e){if(!e)return"";const t=new Date(e);if(isNaN(t.getTime()))return"";const s=new Date;if(t.toDateString()===s.toDateString())return t.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});const a=new Date;return a.setDate(a.getDate()-1),t.toDateString()===a.toDateString()?"Yesterday "+t.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):t.toLocaleDateString()}function m(e){return e==null?'<em class="muted">(no answer)</em>':Array.isArray(e)?r(e.join(" / ")):r(String(e))}function r(e){return String(e??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t])}async function f(e){await p();const t=l.getWrongHistory?l.getWrongHistory():[];if(!t.length){e.innerHTML=`
+// IMP-008 / IMP-031 (audit round-3): wrong-answer history view.
+//
+// Renders the most-recent 200 wrong answers from storage.getWrongHistory()
+// at #/missed. Each row shows: timestamp · pattern label · user's wrong
+// answer · the correct answer · link back to the pattern detail page.
+//
+// "Clear history" button wipes the rolling log (it does NOT touch
+// FSRS-4 schedule or test results - only the browsable trail). Same
+// interaction model as Anki's Browser view filtered by "again".
+import * as storage from './storage.js';
+import { t } from './i18n.js';
+
+let grammarIndex = null;
+
+async function loadGrammar() {
+  if (grammarIndex) return;
+  const r = await fetch('data/grammar.json');
+  if (!r.ok) return;
+  const d = await r.json();
+  grammarIndex = new Map((d.patterns || []).map(p => [p.id, p]));
+}
+
+function fmtDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return '';
+  const today = new Date();
+  const sameDay = d.toDateString() === today.toDateString();
+  if (sameDay) {
+    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  const yest = new Date();
+  yest.setDate(yest.getDate() - 1);
+  if (d.toDateString() === yest.toDateString()) {
+    return t('meta.yesterday') + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  return d.toLocaleDateString();
+}
+
+function fmtAnswer(v) {
+  if (v == null) return '<em class="muted">(no answer)</em>';
+  if (Array.isArray(v)) return esc(v.join(' / '));
+  return esc(String(v));
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+export async function renderMissed(container) {
+  await loadGrammar();
+  const items = storage.getWrongHistory ? storage.getWrongHistory() : [];
+
+  if (!items.length) {
+    container.innerHTML = `
       <article class="missed-page">
-        <a class="back-link" href="#/review">\u2190 Back to Review</a>
-        <h2>Wrong-answer history</h2>
+        <a class="back-link" href="#/review">← ${esc(t('meta.back_to_review'))}</a>
+        <h2>${esc(t('meta.wrong_answer_history'))}</h2>
         <div class="placeholder">
-          <p>You haven't missed anything recently - keep practising. Wrong answers from Test and Drill flow into this list automatically (most recent 200).</p>
+          <p>${esc(t('meta.no_misses'))}</p>
         </div>
       </article>
-    `;return}const s=new Map;for(const a of t){const i=new Date(a.ts).toDateString();s.has(i)||s.set(i,[]),s.get(i).push(a)}let o="";for(const[a,i]of s){const g=i.map(n=>{const d=c?.get(n.patternId),u=d?d.pattern:n.patternId||"(unknown pattern)";return`
+    `;
+    return;
+  }
+
+  // Group by date for skim-ability.
+  const byDate = new Map();
+  for (const r of items) {
+    const day = (new Date(r.ts)).toDateString();
+    if (!byDate.has(day)) byDate.set(day, []);
+    byDate.get(day).push(r);
+  }
+
+  let groupsHtml = '';
+  for (const [day, rows] of byDate) {
+    const rowsHtml = rows.map(r => {
+      const p = grammarIndex?.get(r.patternId);
+      const label = p ? p.pattern : (r.patternId || '(unknown pattern)');
+      return `
         <li class="missed-row">
           <div class="missed-row-meta">
-            <span class="missed-row-time muted small">${r(w(n.ts))}</span>
-            <span class="missed-row-source muted small">${r(n.source||"test")}</span>
+            <span class="missed-row-time muted small">${esc(fmtDate(r.ts))}</span>
+            <span class="missed-row-source muted small">${esc(r.source || 'test')}</span>
           </div>
           <div class="missed-row-pattern">
-            <a href="#/learn/${encodeURIComponent(n.patternId||"")}" lang="ja">${r(u)}</a>
+            <a href="#/learn/${encodeURIComponent(r.patternId || '')}" lang="ja">${esc(label)}</a>
           </div>
           <div class="missed-row-answers">
-            <p><strong class="muted small">You:</strong> <span class="missed-wrong" lang="ja">${m(n.wrongAnswer)}</span></p>
-            <p><strong class="muted small">Correct:</strong> <span class="missed-right" lang="ja">${m(n.correctAnswer)}</span></p>
+            <p><strong class="muted small">${esc(t('meta.you_label'))}:</strong> <span class="missed-wrong" lang="ja">${fmtAnswer(r.wrongAnswer)}</span></p>
+            <p><strong class="muted small">${esc(t('meta.correct_label'))}:</strong> <span class="missed-right" lang="ja">${fmtAnswer(r.correctAnswer)}</span></p>
           </div>
         </li>
-      `}).join("");o+=`
+      `;
+    }).join('');
+    groupsHtml += `
       <section class="missed-day-group">
         <header class="section-label">
-          <span class="section-label-text">${r(a)}</span>
+          <span class="section-label-text">${esc(day)}</span>
           <span class="section-label-rule" aria-hidden="true"></span>
         </header>
-        <ul class="missed-list">${g}</ul>
+        <ul class="missed-list">${rowsHtml}</ul>
       </section>
-    `}e.innerHTML=`
+    `;
+  }
+
+  container.innerHTML = `
     <article class="missed-page">
-      <a class="back-link" href="#/review">\u2190 Back to Review</a>
-      <h2>Wrong-answer history</h2>
+      <a class="back-link" href="#/review">← ${esc(t('meta.back_to_review'))}</a>
+      <h2>${esc(t('meta.wrong_answer_history'))}</h2>
       <p class="page-lede">
-        Most recent ${t.length} miss${t.length===1?"":"es"}
-        from Test and Drill (capped at 200). Newest first.
+        ${esc(t('meta.most_recent_misses').replace('${n}', items.length))}
       </p>
-      ${o}
+      ${groupsHtml}
       <div class="missed-actions">
-        <button id="missed-clear" class="btn-danger">Clear history</button>
+        <button id="missed-clear" class="btn-danger">${esc(t('meta.clear_history'))}</button>
       </div>
     </article>
-  `,document.getElementById("missed-clear")?.addEventListener("click",()=>{confirm("Clear the wrong-answer history? FSRS schedule and test results stay intact.")&&(l.clearWrongHistory(),f(e))})}export{f as renderMissed};
+  `;
+  document.getElementById('missed-clear')?.addEventListener('click', () => {
+    if (!confirm(t('meta.clear_confirm'))) return;
+    storage.clearWrongHistory();
+    renderMissed(container);
+  });
+}
