@@ -315,6 +315,32 @@ function renderItem(container) {
           ${it.authentic_categories.map(c => `<a href="#/authentic" class="authentic-cat-chip">${esc(c)}</a>`).join(' ')}
         </aside>
       ` : ''}
+      ${it.timestamped_transcript && Array.isArray(it.timestamped_transcript.lines) && it.timestamped_transcript.lines.length ? `
+        <!-- IMP-WAVE-P3-17 (UI audit fix, 2026-05-11): estimated
+             line-level timestamps from mora-proportional
+             distribution. The estimated:true flag signals these
+             aren't from waveform alignment. -->
+        <aside class="listening-timestamps">
+          <details>
+            <summary class="muted small">
+              <strong>Timestamped transcript</strong>
+              ${it.timestamped_transcript.estimated ? '<span class="muted small">(estimated, ~' + it.timestamped_transcript.total_seconds + 's)</span>' : ''}
+            </summary>
+            <table class="listening-timestamp-table">
+              <thead><tr><th>Time</th><th>Speaker</th><th lang="ja">セリフ</th></tr></thead>
+              <tbody>
+                ${it.timestamped_transcript.lines.map(ln => `
+                  <tr>
+                    <td class="muted small">${esc(ln.start_s.toFixed(1))}–${esc(ln.end_s.toFixed(1))}s</td>
+                    <td class="muted small">${esc(ln.speaker || '-')}</td>
+                    <td lang="ja">${esc(ln.text || '')}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </details>
+        </aside>
+      ` : ''}
       ${it.inference_question_expansion && Array.isArray(it.inference_question_expansion.prompts) && it.inference_question_expansion.prompts.length ? `
         <!-- IMP-WAVE-P2-14 (UI audit fix, 2026-05-11): post-item
              inference questions that go beyond literal comprehension.

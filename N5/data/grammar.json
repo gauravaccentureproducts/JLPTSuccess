@@ -40823,7 +40823,8 @@
           "form": "farewell-casual",
           "translation_en": "See you.",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [],
+          "vocab_ids_provenance": "llm_curated"
         },
         {
           "ja": "それでは、 はじめましょう。",
@@ -52387,7 +52388,10 @@
           "form": "greeting-name",
           "translation_en": "Good morning, Suzuki-san.",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [
+            "n5.vocab.36-greetings-and-set-phr.おはようございます"
+          ],
+          "vocab_ids_provenance": "llm_curated"
         },
         {
           "ja": "たなかさんに あいました。",
@@ -53052,7 +53056,10 @@
           "form": "morning-greeting",
           "translation_en": "Good morning.",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [
+            "n5.vocab.36-greetings-and-set-phr.おはようございます"
+          ],
+          "vocab_ids_provenance": "llm_curated"
         }
       ],
       "common_mistakes": [
@@ -53389,7 +53396,8 @@
           "form": "identity-explanation",
           "translation_en": "(It's because) I'm a student.",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [],
+          "vocab_ids_provenance": "llm_curated"
         }
       ],
       "common_mistakes": [
@@ -56747,14 +56755,20 @@
           "form": "ate-too-much",
           "translation_en": "I ate too much.",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.食べる"
+          ],
+          "vocab_ids_provenance": "llm_curated"
         },
         {
           "ja": "のみすぎました。",
           "form": "drank-too-much",
           "translation_en": "I drank too much.",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.飲む"
+          ],
+          "vocab_ids_provenance": "llm_curated"
         },
         {
           "ja": "たかすぎます。",
@@ -58044,7 +58058,8 @@
           "form": "exclamation-expensive",
           "translation_en": "Wow, it's expensive!",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [],
+          "vocab_ids_provenance": "llm_curated"
         },
         {
           "ja": "きれいだなあ。",
@@ -58344,7 +58359,10 @@
           "form": "prohibition-eat",
           "translation_en": "Don't eat (it).",
           "provenance": "llm_curated",
-          "vocab_ids": []
+          "vocab_ids": [
+            "n5.vocab.28-verbs-group-2-verbs.食べる"
+          ],
+          "vocab_ids_provenance": "llm_curated"
         }
       ],
       "common_mistakes": [
