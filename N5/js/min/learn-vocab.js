@@ -1,621 +1,188 @@
-// Vocabulary half of Chapter 1 - Learn (split out from learn.js per IMP-022,
-// audit 2026-05-04 round 2). Owns the vocab list page and the per-word
-// detail page. Loaded lazily by `renderLearn` in learn.js when the user
-// navigates to a vocab route.
-import { renderJa } from './furigana.js';
-import * as storage from './storage.js';
-import { esc, wireExpandCollapseControls } from './learn.js';
-import { currentLocale, t } from './i18n.js';
-import { renderItemBadge } from './provenance-badge.js';
-
-// ISSUE-063 + IMP-087 (audit round-7): render NHK pitch-accent {mora,
-// drop} as a compact Tokyo-dialect HL pattern over the reading.
-// drop = 0 -> 平板 (flat-rising LHHHH); drop = 1 -> 頭高 (HLLLL);
-// drop = N -> 中高 (LHHH...drop position then L). N5-suitable concise
-// view; an SVG visualizer can replace this later.
-function _pitchPattern(pa, reading) {
-  if (!pa || !Number.isFinite(pa.mora)) return '';
-  const m = pa.mora;
-  const drop = pa.drop;
-  let pattern = '';
-  for (let i = 1; i <= m; i++) {
-    if (drop === 0) {
-      pattern += i === 1 ? 'L' : 'H';
-    } else if (drop === 1) {
-      pattern += i === 1 ? 'H' : 'L';
-    } else {
-      pattern += i === 1 ? 'L' : (i <= drop ? 'H' : 'L');
-    }
-  }
-  return pattern;
-}
-
-// IMP-088 (audit round-7): map counter codes to their canonical kana
-// readings for display (e.g. 'satsu' -> さつ).
-function _counterKana(code) {
-  const map = {
-    'satsu': 'さつ',
-    'dai': 'だい',
-    'hiki': 'ひき',
-    'wa': 'わ',
-    'mai': 'まい',
-    'ken': 'けん',
-    'hon': 'ほん',
-    'soku': 'そく',
-    'ko': 'こ',
-    'nin': 'にん',
-    'tsu': 'つ',
-    'kai': 'かい',
-    'do': 'ど',
-    'fun': 'ふん',
-    'ji': 'じ',
-  };
-  return map[code] || code;
-}
-
-// IMP-119 (round-9, 2026-05-06): keigo-chain trio data.
-// 9 N5 vocab entries carry `register_chain_id` linking to a humble/plain/
-// respectful trio. The humble (謙譲語) and respectful (尊敬語) forms are
-// N3+ scope and not present in data/vocab.json, but surfacing them as a
-// "for-awareness" callout on the plain entry's detail page closes the
-// niche-N4 (all-in-one) gap of "I had to look this up in another app."
-//
-// Format: chain_id -> {humble, respectful, note_en}
-const _KEIGO_CHAINS = {
-  'be': {
-    humble:     { ja: 'おる',         reading: 'おる',         gloss: 'to exist (humble; said about self / in-group)' },
-    respectful: { ja: 'いらっしゃる', reading: 'いらっしゃる', gloss: 'to exist (respectful; said about social superiors)' },
-    note_en: 'いる has both humble (謙譲語: おる) and respectful (尊敬語: いらっしゃる) keigo forms. The respectful いらっしゃる also covers "go" and "come" (see chains go / come).',
-  },
-  'go': {
-    humble:     { ja: '参る',         reading: 'まいる',       gloss: 'to go / come (humble)' },
-    respectful: { ja: 'いらっしゃる', reading: 'いらっしゃる', gloss: 'to go / come / be (respectful)' },
-    note_en: '行く maps to humble 参る and respectful いらっしゃる. The respectful いらっしゃる is shared with "come" and "be" (one form, three meanings).',
-  },
-  'eat': {
-    humble:     { ja: 'いただく',     reading: 'いただく',     gloss: 'to eat / receive (humble; also said before meals as いただきます)' },
-    respectful: { ja: '召し上がる',   reading: 'めしあがる',   gloss: 'to eat (respectful; offered to the listener)' },
-    note_en: '食べる has the humble form いただく (also a courtesy expression before meals) and the respectful 召し上がる (used when offering food: お召し上がりください = "please eat").',
-  },
-  'see': {
-    humble:     { ja: '拝見する',     reading: 'はいけんする', gloss: 'to see / look at (humble)' },
-    respectful: { ja: 'ご覧になる',   reading: 'ごらんになる', gloss: 'to see / look at (respectful)' },
-    note_en: '見る\'s humble 拝見する is used when viewing something a superior gave/showed you (e.g. 写真を拝見しました). 御覧になる is offered to a superior (お写真を御覧になりますか).',
-  },
-  'say': {
-    humble:     { ja: '申す',         reading: 'もうす',       gloss: 'to say (humble; common in self-introductions)' },
-    respectful: { ja: 'おっしゃる',   reading: 'おっしゃる',   gloss: 'to say (respectful)' },
-    note_en: '言う\'s humble 申す appears in self-intros (鈴木と申します = "I am called Suzuki"). Respectful おっしゃる is used when quoting a superior\'s words (先生がおっしゃった).',
-  },
-  'do': {
-    humble:     { ja: 'いたす',       reading: 'いたす',       gloss: 'to do (humble)' },
-    respectful: { ja: 'なさる',       reading: 'なさる',       gloss: 'to do (respectful)' },
-    note_en: 'する maps to humble いたす and respectful なさる. Common in customer-service speech: お電話いたします (I will call) / 何になさいますか (what would you like).',
-  },
-};
-
-function _renderKeigoChain(entry) {
-  const chain = _KEIGO_CHAINS[entry.register_chain_id];
-  if (!chain) return '';
-  const plain = entry.form;
-  const plainReading = entry.reading || '';
-  const plainGloss = entry.gloss || '';
-  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => (
-    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
-  ));
-  return `
+import{renderJa as A}from"./furigana.js";import*as C from"./storage.js";import{esc as a,wireExpandCollapseControls as N}from"./learn.js";import{currentLocale as _,t as o}from"./i18n.js";import{renderItemBadge as T}from"./provenance-badge.js";function P(t,r){if(!t||!Number.isFinite(t.mora))return"";const i=t.mora,l=t.drop;let c="";for(let s=1;s<=i;s++)l===0?c+=s===1?"L":"H":l===1?c+=s===1?"H":"L":c+=s===1?"L":s<=l?"H":"L";return c}function V(t){return{satsu:"\u3055\u3064",dai:"\u3060\u3044",hiki:"\u3072\u304D",wa:"\u308F",mai:"\u307E\u3044",ken:"\u3051\u3093",hon:"\u307B\u3093",soku:"\u305D\u304F",ko:"\u3053",nin:"\u306B\u3093",tsu:"\u3064",kai:"\u304B\u3044",do:"\u3069",fun:"\u3075\u3093",ji:"\u3058"}[t]||t}const L={be:{humble:{ja:"\u304A\u308B",reading:"\u304A\u308B",gloss:"to exist (humble; said about self / in-group)"},respectful:{ja:"\u3044\u3089\u3063\u3057\u3083\u308B",reading:"\u3044\u3089\u3063\u3057\u3083\u308B",gloss:"to exist (respectful; said about social superiors)"},note_en:'\u3044\u308B has both humble (\u8B19\u8B72\u8A9E: \u304A\u308B) and respectful (\u5C0A\u656C\u8A9E: \u3044\u3089\u3063\u3057\u3083\u308B) keigo forms. The respectful \u3044\u3089\u3063\u3057\u3083\u308B also covers "go" and "come" (see chains go / come).'},go:{humble:{ja:"\u53C2\u308B",reading:"\u307E\u3044\u308B",gloss:"to go / come (humble)"},respectful:{ja:"\u3044\u3089\u3063\u3057\u3083\u308B",reading:"\u3044\u3089\u3063\u3057\u3083\u308B",gloss:"to go / come / be (respectful)"},note_en:'\u884C\u304F maps to humble \u53C2\u308B and respectful \u3044\u3089\u3063\u3057\u3083\u308B. The respectful \u3044\u3089\u3063\u3057\u3083\u308B is shared with "come" and "be" (one form, three meanings).'},eat:{humble:{ja:"\u3044\u305F\u3060\u304F",reading:"\u3044\u305F\u3060\u304F",gloss:"to eat / receive (humble; also said before meals as \u3044\u305F\u3060\u304D\u307E\u3059)"},respectful:{ja:"\u53EC\u3057\u4E0A\u304C\u308B",reading:"\u3081\u3057\u3042\u304C\u308B",gloss:"to eat (respectful; offered to the listener)"},note_en:'\u98DF\u3079\u308B has the humble form \u3044\u305F\u3060\u304F (also a courtesy expression before meals) and the respectful \u53EC\u3057\u4E0A\u304C\u308B (used when offering food: \u304A\u53EC\u3057\u4E0A\u304C\u308A\u304F\u3060\u3055\u3044 = "please eat").'},see:{humble:{ja:"\u62DD\u898B\u3059\u308B",reading:"\u306F\u3044\u3051\u3093\u3059\u308B",gloss:"to see / look at (humble)"},respectful:{ja:"\u3054\u89A7\u306B\u306A\u308B",reading:"\u3054\u3089\u3093\u306B\u306A\u308B",gloss:"to see / look at (respectful)"},note_en:"\u898B\u308B's humble \u62DD\u898B\u3059\u308B is used when viewing something a superior gave/showed you (e.g. \u5199\u771F\u3092\u62DD\u898B\u3057\u307E\u3057\u305F). \u5FA1\u89A7\u306B\u306A\u308B is offered to a superior (\u304A\u5199\u771F\u3092\u5FA1\u89A7\u306B\u306A\u308A\u307E\u3059\u304B)."},say:{humble:{ja:"\u7533\u3059",reading:"\u3082\u3046\u3059",gloss:"to say (humble; common in self-introductions)"},respectful:{ja:"\u304A\u3063\u3057\u3083\u308B",reading:"\u304A\u3063\u3057\u3083\u308B",gloss:"to say (respectful)"},note_en:`\u8A00\u3046's humble \u7533\u3059 appears in self-intros (\u9234\u6728\u3068\u7533\u3057\u307E\u3059 = "I am called Suzuki"). Respectful \u304A\u3063\u3057\u3083\u308B is used when quoting a superior's words (\u5148\u751F\u304C\u304A\u3063\u3057\u3083\u3063\u305F).`},do:{humble:{ja:"\u3044\u305F\u3059",reading:"\u3044\u305F\u3059",gloss:"to do (humble)"},respectful:{ja:"\u306A\u3055\u308B",reading:"\u306A\u3055\u308B",gloss:"to do (respectful)"},note_en:"\u3059\u308B maps to humble \u3044\u305F\u3059 and respectful \u306A\u3055\u308B. Common in customer-service speech: \u304A\u96FB\u8A71\u3044\u305F\u3057\u307E\u3059 (I will call) / \u4F55\u306B\u306A\u3055\u3044\u307E\u3059\u304B (what would you like)."}};function E(t){const r=L[t.register_chain_id];if(!r)return"";const i=t.form,l=t.reading||"",c=t.gloss||"",s=u=>String(u??"").replace(/[&<>"']/g,d=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[d]);return`
     <div class="keigo-chain">
-      <p><strong>Keigo chain (${esc(entry.register_chain_id)}):</strong> this verb has humble (謙譲語) and respectful (尊敬語) forms used in formal Japanese.</p>
+      <p><strong>Keigo chain (${s(t.register_chain_id)}):</strong> this verb has humble (\u8B19\u8B72\u8A9E) and respectful (\u5C0A\u656C\u8A9E) forms used in formal Japanese.</p>
       <table class="keigo-chain-table" aria-label="Politeness register trio">
         <thead>
           <tr>
-            <th>Humble (謙譲語)</th>
+            <th>Humble (\u8B19\u8B72\u8A9E)</th>
             <th>Plain (you are here)</th>
-            <th>Respectful (尊敬語)</th>
+            <th>Respectful (\u5C0A\u656C\u8A9E)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td data-label="Humble (謙譲語)">
-              <span lang="ja" class="keigo-form">${esc(chain.humble.ja)}</span>
-              <span lang="ja" class="keigo-reading muted small">${esc(chain.humble.reading)}</span>
-              <span class="keigo-gloss">${esc(chain.humble.gloss)}</span>
+            <td data-label="Humble (\u8B19\u8B72\u8A9E)">
+              <span lang="ja" class="keigo-form">${s(r.humble.ja)}</span>
+              <span lang="ja" class="keigo-reading muted small">${s(r.humble.reading)}</span>
+              <span class="keigo-gloss">${s(r.humble.gloss)}</span>
             </td>
             <td data-label="Plain (you are here)" class="keigo-cell-current">
-              <span lang="ja" class="keigo-form">${esc(plain)}</span>
-              <span lang="ja" class="keigo-reading muted small">${esc(plainReading)}</span>
-              <span class="keigo-gloss">${esc(plainGloss)}</span>
+              <span lang="ja" class="keigo-form">${s(i)}</span>
+              <span lang="ja" class="keigo-reading muted small">${s(l)}</span>
+              <span class="keigo-gloss">${s(c)}</span>
             </td>
-            <td data-label="Respectful (尊敬語)">
-              <span lang="ja" class="keigo-form">${esc(chain.respectful.ja)}</span>
-              <span lang="ja" class="keigo-reading muted small">${esc(chain.respectful.reading)}</span>
-              <span class="keigo-gloss">${esc(chain.respectful.gloss)}</span>
+            <td data-label="Respectful (\u5C0A\u656C\u8A9E)">
+              <span lang="ja" class="keigo-form">${s(r.respectful.ja)}</span>
+              <span lang="ja" class="keigo-reading muted small">${s(r.respectful.reading)}</span>
+              <span class="keigo-gloss">${s(r.respectful.gloss)}</span>
             </td>
           </tr>
         </tbody>
       </table>
-      <p class="muted small">${esc(chain.note_en)}</p>
-      <p class="muted small">Humble + respectful forms are N3+ scope; shown here for awareness only — they are not yet drilled at N5.</p>
+      <p class="muted small">${s(r.note_en)}</p>
+      <p class="muted small">Humble + respectful forms are N3+ scope; shown here for awareness only \u2014 they are not yet drilled at N5.</p>
     </div>
-  `;
-}
-
-// IMP-046 (audit round-5): pick locale-aware vocab gloss when present,
-// else fall back to English. The translated subset (~120 entries) carries
-// `gloss_hi`; remaining entries fall through to `gloss`. Phase 3 of
-// locale transition (2026-05-06) narrowed the set from {vi,id,ne,zh}
-// to {hi} only.
-function localizedGloss(entry) {
-  const lc = currentLocale();
-  if (lc && lc !== 'en') {
-    const localized = entry[`gloss_${lc}`];
-    if (typeof localized === 'string' && localized.trim()) return localized;
-  }
-  return entry.gloss || '';
-}
-
-// Render-time mapping: 40 fine-grained vocab sections -> 6 super-sections.
-// Same pattern as GRAMMAR_SUPERCATS in learn-grammar.js. Data file unchanged.
-const VOCAB_SUPERSECTS = [
-  ['People and Body', [
-    '1. People - Pronouns and Self', '2. People - Family',
-    '3. People - Roles', '4. Body Parts',
-  ]],
-  ['Demonstratives, Questions, Numbers, Time', [
-    '5. Demonstratives', '6. Question Words', '7. Numbers',
-    '8. Native Counters (つ-series)', '9. Counters (Common)',
-    '10. Time - General', '11. Time - Days, Weeks, Months, Years',
-    '12. Time - Frequency / Sequence',
-  ]],
-  ['Places and Things', [
-    '13. Locations and Places (general)', '14. Nature and Weather',
-    '15. Animals', '16. Food and Drink - General', '17. Food - Items',
-    '18. Drinks', '19. Tableware and Cooking', '20. Colors',
-    '21. Clothing and Accessories', '22. Money and Shopping',
-    '23. Transport', '24. School and Study',
-    '25. Languages and Countries', '26. House and Furniture',
-  ]],
-  ['Verbs', [
-    '27. Verbs - Group 1 (う-verbs)', '28. Verbs - Group 2 (る-verbs)',
-    '29. Verbs - Irregular and する-verbs', '30. Verbs - Existence and Possession',
-  ]],
-  ['Adjectives and Function Words', [
-    '31. い-Adjectives', '32. な-Adjectives', '33. Adverbs',
-    '34. Conjunctions', '35. Particles (functional vocabulary)',
-    '36. Greetings and Set Phrases',
-  ]],
-  ['Misc', [
-    '37. Common Nouns - Miscellaneous', '38. Sounds and Voice',
-    '39. Function / Filler Expressions', '40. Misc Useful Items',
-  ]],
-];
-
-function vocabSuperSectionFor(section) {
-  for (const [supersect, members] of VOCAB_SUPERSECTS) {
-    if (members.includes(section)) return supersect;
-  }
-  return 'Misc';  // safe fallback
-}
-
-// Flatten the vocab corpus into the same order the list page presents it:
-//   super-section declaration order, then ascending section-number,
-//   then form-alphabetical within each section.
-// Used by BOTH renderVocabularyList (to render) and renderVocabularyDetail
-// (to compute prev/next) so the detail-page ←/→ navigation matches the
-// order the user sees on the list page. Without this shared source of
-// truth the two pages disagree at section boundaries.
-function buildOrderedVocabList(entries) {
-  const bySuper = new Map();
-  for (const [s] of VOCAB_SUPERSECTS) bySuper.set(s, []);
-  for (const e of entries) {
-    const sup = vocabSuperSectionFor(e.section || 'Other');
-    bySuper.get(sup).push(e);
-  }
-  const flat = [];
-  for (const [, items] of bySuper.entries()) {
-    items.sort((a, b) => {
-      const na = parseInt(a.section || '', 10);
-      const nb = parseInt(b.section || '', 10);
-      if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
-      return (a.form || '').localeCompare(b.form || '');
-    });
-    flat.push(...items);
-  }
-  return flat;
-}
-
-// IMP-029 (audit round 2): vocab list filter state.
-let _vocabFilterText = '';
-
-function _matchVocab(v, q) {
-  if (!q) return true;
-  const hay = [
-    v.form || '', v.reading || '', v.gloss || '', v.section || '',
-  ].join(' ').toLowerCase();
-  return hay.includes(q);
-}
-
-export function renderVocabularyList(container, data) {
-  const entries = data.entries || [];
-  const q = _vocabFilterText.trim().toLowerCase();
-  const ordered = buildOrderedVocabList(entries);
-  const filtered = ordered.filter(e => _matchVocab(e, q));
-  const bySuper = new Map();
-  for (const [s] of VOCAB_SUPERSECTS) bySuper.set(s, []);
-  for (const e of filtered) {
-    const sup = vocabSuperSectionFor(e.section || 'Other');
-    bySuper.get(sup).push(e);
-  }
-  const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-
-  const isFiltered = q.length > 0;
-  // IMP-071 (audit round-6): per-section translation-coverage badge
-  // when on a non-EN locale. Counts how many of the section's items
-  // have a populated `gloss_<lc>` field. Helps reviewers focus their
-  // translation effort + signals to learners which sections are
-  // covered. Hidden on EN (no translation concept).
-  const lc = currentLocale();
-  const showCoverage = (lc && lc !== 'en');
-  const coverageOf = (items) => {
-    if (!showCoverage) return '';
-    const total = items.length;
-    if (total === 0) return '';
-    const covered = items.filter(v =>
-      typeof v[`gloss_${lc}`] === 'string' && v[`gloss_${lc}`].trim()
-    ).length;
-    const pct = Math.round(100 * covered / total);
-    const tone = pct >= 50 ? 'good' : pct > 0 ? 'partial' : 'none';
-    return `<span class="vocab-coverage-badge tone-${tone}" title="${covered}/${total} translated">${pct}%</span>`;
-  };
-  const sections = [...bySuper.entries()]
-    .filter(([, items]) => items.length > 0)
-    .map(([sup, items]) => {
-      // 2026-05-06 (user request): list-tile pages show only the entry's
-      // primary form for active-recall practice. Reading + gloss appear
-      // on the detail page after click-through. This lets learners
-      // self-assess "do I remember what this means?" before revealing.
-      const cards = items.map(v => `
-        <a class="vocab-card" href="#/learn/vocab/${encodeURIComponent(v.form || '')}">
-          <span class="vocab-form" lang="ja">${esc(v.form || '')}</span>
+  `}function y(t){const r=_();if(r&&r!=="en"){const i=t[`gloss_${r}`];if(typeof i=="string"&&i.trim())return i}return t.gloss||""}const j=[["People and Body",["1. People - Pronouns and Self","2. People - Family","3. People - Roles","4. Body Parts"]],["Demonstratives, Questions, Numbers, Time",["5. Demonstratives","6. Question Words","7. Numbers","8. Native Counters (\u3064-series)","9. Counters (Common)","10. Time - General","11. Time - Days, Weeks, Months, Years","12. Time - Frequency / Sequence"]],["Places and Things",["13. Locations and Places (general)","14. Nature and Weather","15. Animals","16. Food and Drink - General","17. Food - Items","18. Drinks","19. Tableware and Cooking","20. Colors","21. Clothing and Accessories","22. Money and Shopping","23. Transport","24. School and Study","25. Languages and Countries","26. House and Furniture"]],["Verbs",["27. Verbs - Group 1 (\u3046-verbs)","28. Verbs - Group 2 (\u308B-verbs)","29. Verbs - Irregular and \u3059\u308B-verbs","30. Verbs - Existence and Possession"]],["Adjectives and Function Words",["31. \u3044-Adjectives","32. \u306A-Adjectives","33. Adverbs","34. Conjunctions","35. Particles (functional vocabulary)","36. Greetings and Set Phrases"]],["Misc",["37. Common Nouns - Miscellaneous","38. Sounds and Voice","39. Function / Filler Expressions","40. Misc Useful Items"]]];function S(t){for(const[r,i]of j)if(i.includes(t))return r;return"Misc"}function I(t){const r=new Map;for(const[l]of j)r.set(l,[]);for(const l of t){const c=S(l.section||"Other");r.get(c).push(l)}const i=[];for(const[,l]of r.entries())l.sort((c,s)=>{const u=parseInt(c.section||"",10),d=parseInt(s.section||"",10);return!isNaN(u)&&!isNaN(d)&&u!==d?u-d:(c.form||"").localeCompare(s.form||"")}),i.push(...l);return i}let k="";function G(t,r){return r?[t.form||"",t.reading||"",t.gloss||"",t.section||""].join(" ").toLowerCase().includes(r):!0}function F(t,r){const i=r.entries||[],l=k.trim().toLowerCase(),s=I(i).filter(e=>G(e,l)),u=new Map;for(const[e]of j)u.set(e,[]);for(const e of s){const n=S(e.section||"Other");u.get(n).push(e)}const d=e=>e.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),b=l.length>0,m=_(),f=m&&m!=="en",v=e=>{if(!f)return"";const n=e.length;if(n===0)return"";const p=e.filter(x=>typeof x[`gloss_${m}`]=="string"&&x[`gloss_${m}`].trim()).length,g=Math.round(100*p/n);return`<span class="vocab-coverage-badge tone-${g>=50?"good":g>0?"partial":"none"}" title="${p}/${n} translated">${g}%</span>`},$=[...u.entries()].filter(([,e])=>e.length>0).map(([e,n])=>{const p=n.map(g=>`
+        <a class="vocab-card" href="#/learn/vocab/${encodeURIComponent(g.form||"")}">
+          <span class="vocab-form" lang="ja">${a(g.form||"")}</span>
         </a>
-      `).join('');
-      return `
-        <details class="vocab-section" id="vocab-${slugify(sup)}"${isFiltered ? ' open' : ''}>
-          <summary><strong>${esc(sup)}</strong> <span class="muted small">(${items.length})</span> ${coverageOf(items)}</summary>
-          <div class="vocab-grid">${cards}</div>
+      `).join("");return`
+        <details class="vocab-section" id="vocab-${d(e)}"${b?" open":""}>
+          <summary><strong>${a(e)}</strong> <span class="muted small">(${n.length})</span> ${v(n)}</summary>
+          <div class="vocab-grid">${p}</div>
         </details>
-      `;
-    }).join('');
-
-  container.innerHTML = `
+      `}).join("");t.innerHTML=`
     <article class="vocab-toc">
-      <a class="back-link" href="#/learn">← Back to Learn</a>
+      <a class="back-link" href="#/learn">\u2190 Back to Learn</a>
       <h2>Vocabulary</h2>
-      <p class="page-lede">${entries.length} N5 words in ${VOCAB_SUPERSECTS.length} sections.</p>
+      <p class="page-lede">${i.length} N5 words in ${j.length} sections.</p>
       <div class="kanji-filters" role="search" aria-label="Filter vocabulary">
         <input type="search" id="vocab-filter-q" class="kanji-filter-input"
-          placeholder="Search form, reading, or English (e.g. たべる / eat / 飲む)"
-          value="${esc(_vocabFilterText)}" autocomplete="off" lang="ja"
+          placeholder="Search form, reading, or English (e.g. \u305F\u3079\u308B / eat / \u98F2\u3080)"
+          value="${a(k)}" autocomplete="off" lang="ja"
           aria-label="Search vocabulary">
         <p class="kanji-filter-count muted small" aria-live="polite">
-          Showing <strong>${filtered.length}</strong> of ${entries.length}.
+          Showing <strong>${s.length}</strong> of ${i.length}.
         </p>
       </div>
       <div class="toc-controls">
         <button type="button" class="btn-secondary toc-expand-all">Expand all</button>
         <button type="button" class="btn-secondary toc-collapse-all">Collapse all</button>
       </div>
-      ${sections || '<div class="placeholder"><p>No words match the current filter.</p></div>'}
+      ${$||'<div class="placeholder"><p>No words match the current filter.</p></div>'}
     </article>
-  `;
-  wireExpandCollapseControls(container, 'details.vocab-section');
-
-  const inp = document.getElementById('vocab-filter-q');
-  if (inp) {
-    // IME composition guard — see learn-grammar.js for the rationale.
-    // tl;dr: re-rendering on every `input` event destroys the input
-    // mid-IME-composition; partial latin chars (ｔ etc.) leak into
-    // the value. Skip until compositionend fires.
-    let isComposing = false;
-    const reapply = () => {
-      _vocabFilterText = inp.value;
-      renderVocabularyList(container, data);
-      const re = document.getElementById('vocab-filter-q');
-      if (re) {
-        re.focus();
-        const v = re.value;
-        re.setSelectionRange(v.length, v.length);
-      }
-    };
-    inp.addEventListener('compositionstart', () => { isComposing = true; });
-    inp.addEventListener('compositionend',   () => { isComposing = false; reapply(); });
-    inp.addEventListener('input', () => {
-      if (isComposing) return;
-      reapply();
-    });
-  }
-}
-
-export function renderVocabularyDetail(container, vocabData, grammarData, form) {
-  const entries = vocabData.entries || [];
-  // IMP-P3.33 (UI audit polish, 2026-05-11): accept either form or full
-  // vocab id (e.g. "n5.vocab.10-verbs-of-motion-and-pre.食べる") so
-  // direct-link sharing from a vocab item works regardless of which
-  // identifier the URL carries.
-  let entry = entries.find(e => e.form === form);
-  if (!entry) {
-    entry = entries.find(e => e.id === form);
-  }
-  if (!entry && form && form.includes('.')) {
-    // Try matching the trailing segment of an id as a form
-    const tail = form.split('.').pop();
-    entry = entries.find(e => e.form === tail);
-  }
-  if (!entry) {
-    container.innerHTML = `
+  `,N(t,"details.vocab-section");const h=document.getElementById("vocab-filter-q");if(h){let e=!1;const n=()=>{k=h.value,F(t,r);const p=document.getElementById("vocab-filter-q");if(p){p.focus();const g=p.value;p.setSelectionRange(g.length,g.length)}};h.addEventListener("compositionstart",()=>{e=!0}),h.addEventListener("compositionend",()=>{e=!1,n()}),h.addEventListener("input",()=>{e||n()})}}function q(t,r,i,l){const c=r.entries||[];let s=c.find(e=>e.form===l);if(s||(s=c.find(e=>e.id===l)),!s&&l&&l.includes(".")){const e=l.split(".").pop();s=c.find(n=>n.form===e)}if(!s){t.innerHTML=`
       <article class="vocab-detail">
-        <a class="back-link" href="#/learn/vocab">← ${esc(t('vocab_detail.back_to_vocabulary'))}</a>
+        <a class="back-link" href="#/learn/vocab">\u2190 ${a(o("vocab_detail.back_to_vocabulary"))}</a>
         <h2>Word not found</h2>
-        <p>No vocab entry matches <strong lang="ja">${esc(form)}</strong>. The word may live under a different form.</p>
+        <p>No vocab entry matches <strong lang="ja">${a(l)}</strong>. The word may live under a different form.</p>
       </article>
-    `;
-    return;
-  }
-  // Pull example sentences from grammar.json. Each example carries a
-  // `vocab_ids: [...]` field (populated by tools/link_grammar_examples_to_vocab.py)
-  // listing exactly which vocab entries it demonstrates. We filter by ID
-  // - not by substring on the form field - so homographs (e.g., かた "person"
-  // vs かた "way of doing") never cross-contaminate. See JA-17 invariant.
-  //
-  // Backward-compat fallback: if an example has no vocab_ids field (older
-  // data, or auto-tagger hasn't run), fall back to substring match.
-  const seen = new Set();
-  const examples = [];
-  for (const p of (grammarData.patterns || [])) {
-    for (const ex of (p.examples || [])) {
-      if (!ex.ja || ex.ja.includes('(see ')) continue;
-      if (seen.has(ex.ja)) continue;
-      let matches = false;
-      if (Array.isArray(ex.vocab_ids)) {
-        matches = ex.vocab_ids.includes(entry.id);
-      } else {
-        const needles = [form];
-        if (entry.reading && entry.reading !== form) needles.push(entry.reading);
-        matches = needles.some(n => ex.ja.includes(n));
-      }
-      if (matches) {
-        seen.add(ex.ja);
-        examples.push({ ja: ex.ja, en: ex.translation_en, source: p.pattern });
-        if (examples.length >= 24) break;
-      }
-    }
-    if (examples.length >= 24) break;
-  }
-  // BUG-4 fix (UI test 2026-05-07): fall back to vocab.json's own
-  // `examples` array for entries that have no grammar cross-reference.
-  // 724 entries got templated 2nd examples in v1.12.44 (ISSUE-096 + Phase-3
-  // residual) but were invisible until this fallback was wired up.
-  // Source-tagged "Vocab catalog" so the learner can distinguish.
-  for (const ex of (entry.examples || [])) {
-    if (!ex.ja) continue;
-    if (seen.has(ex.ja)) continue;
-    seen.add(ex.ja);
-    examples.push({ ja: ex.ja, en: ex.translation_en, source: 'Vocab catalog' });
-    if (examples.length >= 24) break;
-  }
-  examples.sort((a, b) => (a.ja?.length || 0) - (b.ja?.length || 0));
-  const top = examples.slice(0, 5);
-
-  // prev / next: walk the SAME canonical order the list page uses
-  // (super-section → section-number → form-alpha) via the shared
-  // buildOrderedVocabList helper. This guarantees the list page and
-  // the detail page agree on what comes after each entry. Match by
-  // `id` (unique per entry) so homographs like きる v1/v2 or はい
-  // counter/expression don't collide.
-  const ordered = buildOrderedVocabList(entries);
-  const idx = ordered.findIndex(e => e.id === entry.id);
-  const prev = idx > 0 ? ordered[idx - 1] : null;
-  const next = idx >= 0 && idx < ordered.length - 1 ? ordered[idx + 1] : null;
-
-  // Mark-as-known parity (OPEN-10): vocab detail gets the same toggle
-  // affordance as grammar pattern detail, in the same header-right position.
-  const isVocabKnown = storage.isVocabKnown(entry.form);
-  container.innerHTML = `
+    `;return}const u=new Set,d=[];for(const e of i.patterns||[]){for(const n of e.examples||[]){if(!n.ja||n.ja.includes("(see ")||u.has(n.ja))continue;let p=!1;if(Array.isArray(n.vocab_ids))p=n.vocab_ids.includes(s.id);else{const g=[l];s.reading&&s.reading!==l&&g.push(s.reading),p=g.some(w=>n.ja.includes(w))}if(p&&(u.add(n.ja),d.push({ja:n.ja,en:n.translation_en,source:e.pattern}),d.length>=24))break}if(d.length>=24)break}for(const e of s.examples||[])if(e.ja&&!u.has(e.ja)&&(u.add(e.ja),d.push({ja:e.ja,en:e.translation_en,source:"Vocab catalog"}),d.length>=24))break;d.sort((e,n)=>(e.ja?.length||0)-(n.ja?.length||0));const b=d.slice(0,5),m=I(c),f=m.findIndex(e=>e.id===s.id),v=f>0?m[f-1]:null,$=f>=0&&f<m.length-1?m[f+1]:null,h=C.isVocabKnown(s.form);t.innerHTML=`
     <article class="vocab-detail">
-      <a class="back-link" href="#/learn/vocab">← ${esc(t('vocab_detail.back_to_vocabulary'))}</a>
+      <a class="back-link" href="#/learn/vocab">\u2190 ${a(o("vocab_detail.back_to_vocabulary"))}</a>
       <header class="vocab-header pattern-header">
         <div>
-          <p class="muted small">${esc(entry.section || '')}</p>
-          <h2 class="vocab-form-big" lang="ja">${esc(entry.form)}</h2>
-          ${entry.reading ? `<p class="vocab-reading-big" lang="ja">${esc(entry.reading)}</p>` : ''}
-          <p class="vocab-gloss-big">${esc(localizedGloss(entry))} ${renderItemBadge(entry, true)}</p>
+          <p class="muted small">${a(s.section||"")}</p>
+          <h2 class="vocab-form-big" lang="ja">${a(s.form)}</h2>
+          ${s.reading?`<p class="vocab-reading-big" lang="ja">${a(s.reading)}</p>`:""}
+          <p class="vocab-gloss-big">${a(y(s))} ${T(s,!0)}</p>
         </div>
         <label class="known-toggle" title="Manually mark this word as known. Cleared on the next miss in Test or Drill.">
-          <input type="checkbox" id="mark-known-vocab" ${isVocabKnown ? 'checked' : ''}>
-          <span>${esc(t('vocab_detail.mark_as_known'))}</span>
+          <input type="checkbox" id="mark-known-vocab" ${h?"checked":""}>
+          <span>${a(o("vocab_detail.mark_as_known"))}</span>
         </label>
       </header>
 
       <section>
-        <h3 class="section-title">${esc(t('vocab_detail.meaning'))}</h3>
-        <p><strong>${currentLocale() === 'en' ? esc(t('vocab_detail.english')) : esc(t('vocab_detail.meaning'))}:</strong> ${esc(localizedGloss(entry) || '-')}</p>
-        ${currentLocale() !== 'en' && entry.gloss && localizedGloss(entry) !== entry.gloss
-            ? `<p><strong>${esc(t('vocab_detail.english'))}:</strong> ${esc(entry.gloss)}</p>`
-            : ''}
-        ${entry.reading ? `<p><strong>${esc(t('vocab_detail.japanese_reading'))}:</strong> <span lang="ja">${esc(entry.reading)}</span></p>` : ''}
-        ${(() => {
-          // ISSUE-063 + IMP-087 + IMP-088 (audit round-7): surface vocab
-          // depth fields when present. Pitch shown as Tokyo-dialect HL
-          // pattern derived from {mora, drop}; counter shown as the
-          // canonical reading; register chain badge for keigo entries.
-          const out = [];
-          if (entry.pitch_accent && Number.isFinite(entry.pitch_accent.mora)) {
-            out.push(`<p><strong>${esc(t('vocab_detail.pitch_accent'))}:</strong> <span class="vocab-pitch" lang="ja">${esc(_pitchPattern(entry.pitch_accent, entry.reading))}</span> <span class="muted small">(drop: ${entry.pitch_accent.drop})</span></p>`);
-          }
-          if (entry.counter) {
-            out.push(`<p><strong>${esc(t('vocab_detail.counter'))}:</strong> <span lang="ja">〜${esc(_counterKana(entry.counter))}</span></p>`);
-          }
-          if (entry.register) {
-            out.push(`<p><strong>${esc(t('vocab_detail.register'))}:</strong> <span class="vocab-register-tag">${esc(entry.register)}</span></p>`);
-          }
-          if (entry.transitivity) {
-            out.push(`<p><strong>${esc(t('vocab_detail.transitivity'))}:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(${esc(t('vocab_detail.pair'))}: ${esc(entry.pair_id)})</span>` : ''}</p>`);
-          }
-          // BUG-3 fix (UI test 2026-05-07): surface verb_class +
-          // group1_exception. Populated on all 134 verbs in v1.12.43
-          // (ISSUE-099) but invisible until this render hook.
-          if (entry.verb_class) {
-            const classLabels = {
-              godan: 'Godan (Group 1, u-verb)',
-              ichidan: 'Ichidan (Group 2, ru-verb)',
-              irregular: 'Irregular (Group 3 — する / 来る)',
-            };
-            const label = classLabels[entry.verb_class] || entry.verb_class;
-            const g1exc = entry.group1_exception
-              ? ` <span class="vocab-g1-exception" title="Looks like Group 2 but conjugates as Group 1 (X-6.6)">Group-1 exception</span>`
-              : '';
-            out.push(`<p><strong>${esc(t('vocab_detail.verb_class'))}:</strong> ${esc(label)}${g1exc}</p>`);
-          }
-          // IMP-119 (round-9, 2026-05-06): keigo-chain visualizer.
-          // When the entry is part of a register chain (humble / plain /
-          // respectful trio), render an awareness panel showing all three
-          // forms side-by-side. Most humble/respectful forms (おる, いただく,
-          // 召し上がる, 申す, おっしゃる, etc.) are N3+ scope and absent
-          // from the N5 vocab corpus, so we hold the trio data in this
-          // module rather than data/vocab.json. The N5 learner sees it as
-          // "FYI: here is the keigo equivalent", not "drill this now".
-          if (entry.register_chain_id && _KEIGO_CHAINS[entry.register_chain_id]) {
-            out.push(_renderKeigoChain(entry));
-          }
-          // Phase 3 of locale transition (2026-05-06): the false_friends.zh
-          // hook is removed alongside the zh locale - currentLocale() can
-          // no longer return 'zh'. The underlying data is stripped in
-          // Phase 4. If/when a Hindi false-friends list is authored, a
-          // false_friends.hi hook can replace this with the same shape.
-          return out.join('');
-        })()}
+        <h3 class="section-title">${a(o("vocab_detail.meaning"))}</h3>
+        <p><strong>${_()==="en"?a(o("vocab_detail.english")):a(o("vocab_detail.meaning"))}:</strong> ${a(y(s)||"-")}</p>
+        ${_()!=="en"&&s.gloss&&y(s)!==s.gloss?`<p><strong>${a(o("vocab_detail.english"))}:</strong> ${a(s.gloss)}</p>`:""}
+        ${s.reading?`<p><strong>${a(o("vocab_detail.japanese_reading"))}:</strong> <span lang="ja">${a(s.reading)}</span></p>`:""}
+        ${(()=>{const e=[];if(s.pitch_accent&&Number.isFinite(s.pitch_accent.mora)&&e.push(`<p><strong>${a(o("vocab_detail.pitch_accent"))}:</strong> <span class="vocab-pitch" lang="ja">${a(P(s.pitch_accent,s.reading))}</span> <span class="muted small">(drop: ${s.pitch_accent.drop})</span></p>`),s.counter&&e.push(`<p><strong>${a(o("vocab_detail.counter"))}:</strong> <span lang="ja">\u301C${a(V(s.counter))}</span></p>`),s.register&&e.push(`<p><strong>${a(o("vocab_detail.register"))}:</strong> <span class="vocab-register-tag">${a(s.register)}</span></p>`),s.transitivity&&e.push(`<p><strong>${a(o("vocab_detail.transitivity"))}:</strong> ${a(s.transitivity)}${s.pair_id?` <span class="muted small">(${a(o("vocab_detail.pair"))}: ${a(s.pair_id)})</span>`:""}</p>`),s.verb_class){const p={godan:"Godan (Group 1, u-verb)",ichidan:"Ichidan (Group 2, ru-verb)",irregular:"Irregular (Group 3 \u2014 \u3059\u308B / \u6765\u308B)"}[s.verb_class]||s.verb_class,g=s.group1_exception?' <span class="vocab-g1-exception" title="Looks like Group 2 but conjugates as Group 1 (X-6.6)">Group-1 exception</span>':"";e.push(`<p><strong>${a(o("vocab_detail.verb_class"))}:</strong> ${a(p)}${g}</p>`)}return s.register_chain_id&&L[s.register_chain_id]&&e.push(E(s)),e.join("")})()}
       </section>
 
       <section>
-        <h3 class="section-title">${esc(t('vocab_detail.example_sentences'))} ${top.length ? `(${top.length})` : ''}</h3>
-        ${top.length ? `
+        <h3 class="section-title">${a(o("vocab_detail.example_sentences"))} ${b.length?`(${b.length})`:""}</h3>
+        ${b.length?`
           <ol class="example-list">
-            ${top.map(ex => `
+            ${b.map(e=>`
               <li>
-                <p lang="ja" class="example-ja">${renderJa(ex.ja)}</p>
-                ${ex.en ? `<p class="translation">${esc(ex.en)}</p>` : ''}
-                ${ex.source ? `<p class="muted small">${esc(t('vocab_detail.from_pattern'))}: <span lang="ja">${esc(ex.source)}</span></p>` : ''}
+                <p lang="ja" class="example-ja">${A(e.ja)}</p>
+                ${e.en?`<p class="translation">${a(e.en)}</p>`:""}
+                ${e.source?`<p class="muted small">${a(o("vocab_detail.from_pattern"))}: <span lang="ja">${a(e.source)}</span></p>`:""}
               </li>
-            `).join('')}
+            `).join("")}
           </ol>
-        ` : `
-          <p class="muted">${esc(t('vocab_detail.no_examples'))}</p>
+        `:`
+          <p class="muted">${a(o("vocab_detail.no_examples"))}</p>
         `}
       </section>
 
-      ${(() => {
-        // IMP-WAVE4 (UI audit fix, 2026-05-11): collocations.
-        // 988/1009 entries have curated collocations. Render as a flex-list of
-        // chips. Format: array of strings, each one a real Japanese phrase
-        // (e.g., "コーヒーを のむ", "あつい コーヒー").
-        const colls = Array.isArray(entry.collocations) ? entry.collocations.filter(c => typeof c === 'string' && c.trim()) : [];
-        if (!colls.length) return '';
-        return `
+      ${(()=>{const e=Array.isArray(s.collocations)?s.collocations.filter(n=>typeof n=="string"&&n.trim()):[];return e.length?`
           <section class="vocab-collocations">
-            <h3 class="section-title">${esc(t('vocab_detail.collocations'))} (${colls.length})</h3>
+            <h3 class="section-title">${a(o("vocab_detail.collocations"))} (${e.length})</h3>
             <ul class="collocation-list">
-              ${colls.map(c => `<li class="collocation-chip" lang="ja">${esc(c)}</li>`).join('')}
+              ${e.map(n=>`<li class="collocation-chip" lang="ja">${a(n)}</li>`).join("")}
             </ul>
           </section>
-        `;
-      })()}
+        `:""})()}
 
-      ${(() => {
-        // IMP-WAVE4: false_friends — easily confused words.
-        // Field is an array of forms (strings) that learners commonly confuse
-        // with this entry. Render as inline cross-references to those vocab pages.
-        const ff = Array.isArray(entry.false_friends) ? entry.false_friends : [];
-        if (!ff.length) return '';
-        return `
+      ${(()=>{const e=Array.isArray(s.authentic_refs)?s.authentic_refs:[];return e.length?`
+          <section class="vocab-authentic-refs">
+            <h3 class="section-title">Seen in the real world</h3>
+            <p class="muted small">
+              This word appears on these authentic Japanese cards. Click to see the original sign / menu / notice in context.
+            </p>
+            <ul class="authentic-ref-list">
+              ${e.map(n=>{const p=n.split(".")[1]||"authentic";return`<li><a href="#/authentic" data-auth-jump="${a(n)}">${a(n)}</a> <span class="muted small">(${a(p)})</span></li>`}).join("")}
+            </ul>
+          </section>
+        `:""})()}
+
+      ${(()=>{const e=Array.isArray(s.false_friends)?s.false_friends:[];return e.length?`
           <section class="vocab-false-friends">
-            <h3 class="section-title">${esc(t('vocab_detail.false_friends'))}</h3>
+            <h3 class="section-title">${a(o("vocab_detail.false_friends"))}</h3>
             <div class="false-friend-grid">
-              ${ff.map(form => `
-                <a class="false-friend-card" href="#/learn/vocab/${encodeURIComponent(form)}">
-                  <span lang="ja">${esc(form)}</span>
+              ${e.map(n=>`
+                <a class="false-friend-card" href="#/learn/vocab/${encodeURIComponent(n)}">
+                  <span lang="ja">${a(n)}</span>
                 </a>
-              `).join('')}
+              `).join("")}
             </div>
           </section>
-        `;
-      })()}
+        `:""})()}
 
-      ${(() => {
-        // IMP-WAVE4: pragmatic_functions — multi-function word disambiguation.
-        // Schema: array of {function, gloss, context} objects.
-        const pf = Array.isArray(entry.pragmatic_functions) ? entry.pragmatic_functions : [];
-        if (!pf.length) return '';
-        return `
+      ${(()=>{const e=Array.isArray(s.pragmatic_functions)?s.pragmatic_functions:[];return e.length?`
           <section class="vocab-pragmatic">
-            <h3 class="section-title">${esc(t('vocab_detail.pragmatic'))}</h3>
+            <h3 class="section-title">${a(o("vocab_detail.pragmatic"))}</h3>
             <ul class="pragmatic-list">
-              ${pf.map(p => `
+              ${e.map(n=>`
                 <li>
-                  <strong class="pragmatic-function">${esc(p.function || '')}</strong>
-                  ${p.gloss ? ` — <span class="pragmatic-gloss">${esc(p.gloss)}</span>` : ''}
-                  ${p.context ? `<p class="muted small pragmatic-context">${esc(p.context)}</p>` : ''}
+                  <strong class="pragmatic-function">${a(n.function||"")}</strong>
+                  ${n.gloss?` \u2014 <span class="pragmatic-gloss">${a(n.gloss)}</span>`:""}
+                  ${n.context?`<p class="muted small pragmatic-context">${a(n.context)}</p>`:""}
                 </li>
-              `).join('')}
+              `).join("")}
             </ul>
           </section>
-        `;
-      })()}
+        `:""})()}
 
-      ${(() => {
-        // IMP-WAVE4: devoiced_vowels — Tokyo-standard phonological marker.
-        // Schema: {positions: int[], note: string, rule: string}.
-        const dv = entry.devoiced_vowels;
-        if (!dv || typeof dv !== 'object') return '';
-        return `
+      ${(()=>{const e=s.devoiced_vowels;return!e||typeof e!="object"?"":`
           <section class="vocab-devoicing">
-            <h3 class="section-title">${esc(t('vocab_detail.devoiced_vowels'))}</h3>
-            ${Array.isArray(dv.positions) && dv.positions.length
-              ? `<p><strong>${esc(t('vocab_detail.devoiced_position'))}:</strong> mora ${dv.positions.join(', ')} (0-indexed)</p>`
-              : `<p class="muted small">${esc(t('vocab_detail.devoiced_no_dev'))}</p>`}
-            ${dv.note ? `<p class="muted small">${esc(dv.note)}</p>` : ''}
-            ${dv.rule ? `<p class="muted small"><em>${esc(t('vocab_detail.devoiced_rule'))}:</em> ${esc(dv.rule)}</p>` : ''}
+            <h3 class="section-title">${a(o("vocab_detail.devoiced_vowels"))}</h3>
+            ${Array.isArray(e.positions)&&e.positions.length?`<p><strong>${a(o("vocab_detail.devoiced_position"))}:</strong> mora ${e.positions.join(", ")} (0-indexed)</p>`:`<p class="muted small">${a(o("vocab_detail.devoiced_no_dev"))}</p>`}
+            ${e.note?`<p class="muted small">${a(e.note)}</p>`:""}
+            ${e.rule?`<p class="muted small"><em>${a(o("vocab_detail.devoiced_rule"))}:</em> ${a(e.rule)}</p>`:""}
           </section>
-        `;
-      })()}
+        `})()}
 
-      ${(() => {
-        // IMP-WAVE4: counter_register — casual/formal counter pair.
-        // Schema: {counter, irregular, note, register_pair: {casual_alt, formal_same}}.
-        const cr = entry.counter_register;
-        if (!cr || typeof cr !== 'object') return '';
-        return `
+      ${(()=>{const e=s.counter_register;return!e||typeof e!="object"?"":`
           <section class="vocab-counter-register">
-            <h3 class="section-title">${esc(t('vocab_detail.counter_register'))}</h3>
-            ${cr.counter ? `<p><strong>${esc(t('vocab_detail.counter_root'))}:</strong> <span lang="ja">〜${esc(cr.counter)}</span> ${cr.irregular ? `<span class="vocab-g1-exception" title="Irregular kun-yomi form">${esc(t('vocab_detail.irregular'))}</span>` : ''}</p>` : ''}
-            ${cr.note ? `<p>${esc(cr.note)}</p>` : ''}
-            ${cr.register_pair ? `
+            <h3 class="section-title">${a(o("vocab_detail.counter_register"))}</h3>
+            ${e.counter?`<p><strong>${a(o("vocab_detail.counter_root"))}:</strong> <span lang="ja">\u301C${a(e.counter)}</span> ${e.irregular?`<span class="vocab-g1-exception" title="Irregular kun-yomi form">${a(o("vocab_detail.irregular"))}</span>`:""}</p>`:""}
+            ${e.note?`<p>${a(e.note)}</p>`:""}
+            ${e.register_pair?`
               <div class="register-pair-grid">
-                ${cr.register_pair.casual_alt ? `<div><span class="muted small">${esc(t('vocab_detail.casual'))}:</span> <span lang="ja">${esc(cr.register_pair.casual_alt)}</span></div>` : ''}
-                ${cr.register_pair.formal_same ? `<div><span class="muted small">${esc(t('vocab_detail.formal'))}:</span> <span lang="ja">${esc(cr.register_pair.formal_same)}</span></div>` : ''}
+                ${e.register_pair.casual_alt?`<div><span class="muted small">${a(o("vocab_detail.casual"))}:</span> <span lang="ja">${a(e.register_pair.casual_alt)}</span></div>`:""}
+                ${e.register_pair.formal_same?`<div><span class="muted small">${a(o("vocab_detail.formal"))}:</span> <span lang="ja">${a(e.register_pair.formal_same)}</span></div>`:""}
               </div>
-            ` : ''}
+            `:""}
           </section>
-        `;
-      })()}
+        `})()}
 
       <nav class="vocab-nav">
-        ${prev ? `<a href="#/learn/vocab/${encodeURIComponent(prev.form)}">← <span lang="ja">${esc(prev.form)}</span></a>` : '<span></span>'}
-        ${next ? `<a href="#/learn/vocab/${encodeURIComponent(next.form)}"><span lang="ja">${esc(next.form)}</span> →</a>` : '<span></span>'}
+        ${v?`<a href="#/learn/vocab/${encodeURIComponent(v.form)}">\u2190 <span lang="ja">${a(v.form)}</span></a>`:"<span></span>"}
+        ${$?`<a href="#/learn/vocab/${encodeURIComponent($.form)}"><span lang="ja">${a($.form)}</span> \u2192</a>`:"<span></span>"}
       </nav>
     </article>
-  `;
-
-  document.getElementById('mark-known-vocab')?.addEventListener('change', (ev) => {
-    storage.setVocabKnown(entry.form, ev.target.checked);
-  });
-}
+  `,document.getElementById("mark-known-vocab")?.addEventListener("change",e=>{C.setVocabKnown(s.form,e.target.checked)})}export{q as renderVocabularyDetail,F as renderVocabularyList};

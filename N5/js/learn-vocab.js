@@ -531,6 +531,32 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       })()}
 
       ${(() => {
+        // IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): authentic-content
+        // back-links — surface real-world places this vocab item
+        // appears (signs, menus, transit, hospital, etc.). The
+        // /authentic page hosts 100 cards across 9 categories;
+        // authentic_refs is the array of card ids this vocab item
+        // is cross-linked to. Each link jumps to #/authentic and
+        // scrolls to the relevant category.
+        const arefs = Array.isArray(entry.authentic_refs) ? entry.authentic_refs : [];
+        if (!arefs.length) return '';
+        return `
+          <section class="vocab-authentic-refs">
+            <h3 class="section-title">Seen in the real world</h3>
+            <p class="muted small">
+              This word appears on these authentic Japanese cards. Click to see the original sign / menu / notice in context.
+            </p>
+            <ul class="authentic-ref-list">
+              ${arefs.map(cid => {
+                const cat = (cid.split('.')[1] || 'authentic');
+                return `<li><a href="#/authentic" data-auth-jump="${esc(cid)}">${esc(cid)}</a> <span class="muted small">(${esc(cat)})</span></li>`;
+              }).join('')}
+            </ul>
+          </section>
+        `;
+      })()}
+
+      ${(() => {
         // IMP-WAVE4: false_friends — easily confused words.
         // Field is an array of forms (strings) that learners commonly confuse
         // with this entry. Render as inline cross-references to those vocab pages.

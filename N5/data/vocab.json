@@ -1633,7 +1633,11 @@
         "男が いる",
         "男は やさしい"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.toire-otoko"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.2-people-family.女",
@@ -1677,7 +1681,11 @@
         "女が いる",
         "女は やさしい"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.toire-onna"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.2-people-family.大人",
@@ -6698,7 +6706,11 @@
         "n5-101",
         "n5-127"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.time.eigyou-jikan"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.10-time-general.とけい",
@@ -8557,7 +8569,11 @@
         "月曜日は しごと",
         "月曜日に はじまる"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.shop.teikyubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.火曜日",
@@ -10816,7 +10832,12 @@
         "つぎを みる",
         "やすい つぎ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.tsugi",
+        "auth.transit.tsugino-eki"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.後で",
@@ -11157,7 +11178,11 @@
       "frequent_patterns": [
         "n5-042"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.toire"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.おふろ",
@@ -11607,7 +11632,11 @@
         "note": "no devoicing - voiced consonants",
         "rule": "no_devoicing"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.hospital.byouin"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.ぎんこう",
@@ -11698,7 +11727,11 @@
         "ゆうびんきょくまで あるく",
         "ゆうびんきょくに つく"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.post.yuubinkyoku"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.会社",
@@ -12294,7 +12327,11 @@
       "false_friends": [
         "くうこう"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.tsugino-eki"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.くうこう",
@@ -12830,7 +12867,11 @@
         "いりぐちまで あるく",
         "いりぐちに つく"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.iriguchi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.しょくどう",
@@ -13700,7 +13741,11 @@
         "note": "no high-vowel devoicing",
         "rule": "no_devoicing"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kakeki-hidari"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.右",
@@ -13743,7 +13788,11 @@
         "右を みる",
         "やすい 右"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kakeki-michi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.となり",
@@ -14983,7 +15032,11 @@
         "partner": "飴 (あめ) candy",
         "distinguished_by": "pitch",
         "note": "雨 (rain) is atamadaka (HL); 飴 (candy) is heiban (LH)."
-      }
+      },
+      "authentic_refs": [
+        "auth.weather.ame"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.ゆき",
@@ -15173,7 +15226,11 @@
         "はれを ひらく",
         "はれが きれい"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.weather.hare"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.くもり",
@@ -15220,7 +15277,11 @@
       "frequent_patterns": [
         "n5-178"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.weather.kumori"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.はる",
@@ -15764,7 +15825,11 @@
       "false_friends": [
         "おゆ"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.mizu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.おゆ",
@@ -16684,7 +16749,11 @@
         "n5-068",
         "n5-069"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.menu.gohan-okawari"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.しょくじ",
@@ -18842,7 +18911,11 @@
         "n5-097",
         "n5-101"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.menu.ocha"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.18-drinks.こうちゃ",
@@ -18939,7 +19012,11 @@
         "n5-058",
         "n5-062"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.menu.koohii"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.18-drinks.ぎゅうにゅう",
@@ -21674,7 +21751,11 @@
         "note": "き devoices before voiceless pp",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kippu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.きって",
@@ -21726,7 +21807,11 @@
         "note": "き devoices before voiceless tt",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.post.kitte"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.はがき",
@@ -21898,7 +21983,11 @@
         "note": "no devoicing — voiced consonants",
         "rule": "no_devoicing"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.post.tegami"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.にもつ",
@@ -22377,7 +22466,11 @@
         "くるま",
         "バス"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.densha-okurete"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.23-transport.きしゃ",
@@ -24495,7 +24588,12 @@
         "n5-075",
         "n5-077"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.notice.shashin-kinshi",
+        "auth.signs.shashin-kinshi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.24-school-and-study.え",
@@ -25549,7 +25647,11 @@
         "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.doa-shimari"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.と",
@@ -28975,7 +29077,11 @@
         "respectful": "おおしになる",
         "note": "Push."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.osu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
@@ -29091,7 +29197,11 @@
         "respectful": "おひきになる",
         "note": "Pull / play (instrument)."
       },
-      "honorific_chain_provenance": "llm_curated"
+      "honorific_chain_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.hiku"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく.2",
@@ -36848,7 +36958,11 @@
       "false_friends": [
         "きれい"
       ],
-      "false_friends_provenance": "llm_curated"
+      "false_friends_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shizuka-ni"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.32-adjectives.にぎやか",
@@ -38791,7 +38905,11 @@
         "mora": 4,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated"
+      "pitch_accent_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.yukkuri"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.33-adverbs.すぐ",
@@ -39267,7 +39385,11 @@
           "context": "granting permission"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated"
+      "pragmatic_functions_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.notice.gojiyu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.33-adverbs.どうも",
@@ -41633,7 +41755,11 @@
           "context": "when given a gift"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated"
+      "pragmatic_functions_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.itadakimasu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ごちそうさまでした",
@@ -41674,7 +41800,11 @@
         "ごちそうさまでしたを つかう",
         "「ごちそうさまでした」"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.gochisousama"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.いってきます",
@@ -42096,7 +42226,11 @@
           "context": "staff greeting customers"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated"
+      "pragmatic_functions_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.shop.irasshaimase"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.どうも",
@@ -43363,7 +43497,11 @@
         "note": "く devoices before voiceless s",
         "rule": "between_voiceless"
       },
-      "devoiced_vowels_provenance": "llm_curated"
+      "devoiced_vowels_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.hospital.kusuri"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.けが",
@@ -43545,7 +43683,12 @@
         "n5-178",
         "n5-182"
       ],
-      "frequent_patterns_provenance": "auto_derived"
+      "frequent_patterns_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.notice.tabako",
+        "auth.signs.tabako-kinshi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.はいざら",
@@ -44304,7 +44447,11 @@
         "ペットの しゃしん",
         "ペットと あそぶ"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.peto-kinshi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.カレンダー",
@@ -47268,7 +47415,11 @@
         "出口を さがす",
         "えきの 出口"
       ],
-      "collocations_provenance": "llm_curated"
+      "collocations_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.deguchi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.国籍",

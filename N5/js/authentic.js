@@ -103,6 +103,11 @@ function renderItemCard(it) {
       <div class="authentic-card-gloss"><strong>${esc(it.gloss_en || '')}</strong></div>
       ${it.gloss_hi ? `<div class="authentic-card-gloss-hi muted small" lang="hi">${esc(it.gloss_hi)}</div>` : ''}
       ${it.context ? `<p class="authentic-card-context muted small">${esc(it.context)}</p>` : ''}
+      ${it.vocab_refs?.length ? `
+        <p class="authentic-card-vocab-refs muted small">
+          Study: ${it.vocab_refs.map(vid => `<a href="#/learn/${encodeURIComponent(vid)}">${esc(vidLabel(vid))}</a>`).join(', ')}
+        </p>
+      ` : ''}
       <div class="authentic-card-actions">
         <button type="button" class="btn-secondary btn-tiny" data-auth-speak="${esc(ja)}"
                 title="Read aloud (uses your device's voice — no network call)">
@@ -117,4 +122,15 @@ function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
+}
+
+// IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): pull the trailing
+// dot-delimited segment out of a vocab id like
+// "n5.vocab.13-locations-and-places-.びょういん" — that's the
+// human-readable surface form. Falls back to the full id if
+// the parse fails.
+function vidLabel(vid) {
+  if (typeof vid !== 'string') return String(vid);
+  const idx = vid.lastIndexOf('.');
+  return idx >= 0 ? vid.slice(idx + 1) : vid;
 }
