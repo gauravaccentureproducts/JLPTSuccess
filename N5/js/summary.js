@@ -80,6 +80,15 @@ export async function renderSummary(container) {
       ${suggestNextStep(masteredIds, weakIds, untestedIds, totalTests)}
     </section>
 
+    <!-- IMP-WAVE-P4-T5 (UI audit, 2026-05-11): cross-history weak-area
+         diagnostic. Maps your actual answers onto the 9 diagnostic
+         areas authored in test_strategy.json, surfaces the gaps. -->
+    <section class="weak-areas-cta" style="margin:24px 0; padding:16px; border:1px solid var(--surface-border); border-radius:var(--radius-md); background:var(--surface-soft, transparent);">
+      <h3 style="margin-top:0">Weak-area diagnostic</h3>
+      <p class="muted small">See which of the 9 N5 diagnostic areas you're weakest on, with drill recommendations for each gap.</p>
+      <p><a href="#/weakareas" class="btn-secondary" style="text-decoration:none">Open weak-area diagnostic →</a></p>
+    </section>
+
     <section class="reset">
       <button id="retake-diagnostic">Re-take Diagnostic</button>
       <button id="reset-progress" class="btn-danger">Reset all progress</button>

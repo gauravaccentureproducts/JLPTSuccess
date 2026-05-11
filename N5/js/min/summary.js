@@ -1,4 +1,4 @@
-import*as g from"./storage.js";import{t as h}from"./i18n.js";let f=null;async function k(){return f||(f=await(await fetch("data/grammar.json")).json(),f)}async function E(c){const r=await k(),i=(r.patterns||[]).map(p=>p.id),a=new Map((r.patterns||[]).map(p=>[p.id,p])),o=g.getMasteredPatternIds(),e=g.getWeakPatternIds(),t=g.getSeenPatternIds(),s=i.filter(p=>!t.includes(p)),n=g.getResults(),l=n.length,m=n[n.length-1];if(l===0&&t.length===0){c.innerHTML=`
+import*as g from"./storage.js";import{t as h}from"./i18n.js";let $=null;async function k(){return $||($=await(await fetch("data/grammar.json")).json(),$)}async function T(c){const r=await k(),i=(r.patterns||[]).map(p=>p.id),a=new Map((r.patterns||[]).map(p=>[p.id,p])),o=g.getMasteredPatternIds(),e=g.getWeakPatternIds(),t=g.getSeenPatternIds(),s=i.filter(p=>!t.includes(p)),n=g.getResults(),l=n.length,m=n[n.length-1];if(l===0&&t.length===0){c.innerHTML=`
       <h2>${h("page.summary")}</h2>
       <div class="empty-state">
         <p><strong>${h("meta.progress_empty")}</strong></p>
@@ -27,11 +27,11 @@ import*as g from"./storage.js";import{t as h}from"./i18n.js";let f=null;async fu
       <div class="stat-card neutral">
         <div class="stat-num">${l}</div>
         <div class="stat-label">${h("meta.tests_taken")}</div>
-        ${m?`<div class="stat-hint">Last: ${L(m.timestamp)}</div>`:'<div class="stat-hint">None yet</div>'}
+        ${m?`<div class="stat-hint">Last: ${x(m.timestamp)}</div>`:'<div class="stat-hint">None yet</div>'}
       </div>
     </section>
 
-    ${R(r.patterns||[],new Set(o),new Set(e),new Set(t))}
+    ${M(r.patterns||[],new Set(o),new Set(e),new Set(t))}
 
     ${I(n,a)}
 
@@ -45,7 +45,16 @@ import*as g from"./storage.js";import{t as h}from"./i18n.js";let f=null;async fu
 
     <section class="next-steps">
       <h3>Suggested next step</h3>
-      ${M(o,e,s,l)}
+      ${R(o,e,s,l)}
+    </section>
+
+    <!-- IMP-WAVE-P4-T5 (UI audit, 2026-05-11): cross-history weak-area
+         diagnostic. Maps your actual answers onto the 9 diagnostic
+         areas authored in test_strategy.json, surfaces the gaps. -->
+    <section class="weak-areas-cta" style="margin:24px 0; padding:16px; border:1px solid var(--surface-border); border-radius:var(--radius-md); background:var(--surface-soft, transparent);">
+      <h3 style="margin-top:0">Weak-area diagnostic</h3>
+      <p class="muted small">See which of the 9 N5 diagnostic areas you're weakest on, with drill recommendations for each gap.</p>
+      <p><a href="#/weakareas" class="btn-secondary" style="text-decoration:none">Open weak-area diagnostic \u2192</a></p>
     </section>
 
     <section class="reset">
@@ -83,8 +92,8 @@ import*as g from"./storage.js";import{t as h}from"./i18n.js";let f=null;async fu
         <tbody>${i}</tbody>
       </table>
     </section>
-  `}function R(c,r,i,a){const o=new Map;for(const s of c){const n=s.category||"Other";o.has(n)||o.set(n,{order:s.categoryOrder??99,patterns:[]}),o.get(n).patterns.push(s)}const e=[...o.entries()].sort((s,n)=>s[1].order-n[1].order),t=e.map(([s,{patterns:n}])=>{const l=n.length,m=n.filter(u=>r.has(u.id)).length,p=n.filter(u=>i.has(u.id)).length,w=n.filter(u=>a.has(u.id)).length;let v="untested",$=`${l} pattern${l===1?"":"s"} - none seen yet`;p>0?(v="weak",$=`${p} weak / ${l} total. Review needed.`):m===l&&l>0?(v="mastered",$=`All ${l} mastered.`):w>0&&(v="in-progress",$=`${m} mastered / ${w} seen / ${l} total.`);const b=l>0?Math.round(m/l*100):0;return`
-      <div class="heat-cell heat-${v}" title="${d($)}" data-cat="${d(s)}">
+  `}function M(c,r,i,a){const o=new Map;for(const s of c){const n=s.category||"Other";o.has(n)||o.set(n,{order:s.categoryOrder??99,patterns:[]}),o.get(n).patterns.push(s)}const e=[...o.entries()].sort((s,n)=>s[1].order-n[1].order),t=e.map(([s,{patterns:n}])=>{const l=n.length,m=n.filter(u=>r.has(u.id)).length,p=n.filter(u=>i.has(u.id)).length,w=n.filter(u=>a.has(u.id)).length;let v="untested",f=`${l} pattern${l===1?"":"s"} - none seen yet`;p>0?(v="weak",f=`${p} weak / ${l} total. Review needed.`):m===l&&l>0?(v="mastered",f=`All ${l} mastered.`):w>0&&(v="in-progress",f=`${m} mastered / ${w} seen / ${l} total.`);const b=l>0?Math.round(m/l*100):0;return`
+      <div class="heat-cell heat-${v}" title="${d(f)}" data-cat="${d(s)}">
         <div class="heat-cat">${d(s)}</div>
         <div class="heat-meta">
           <span class="heat-count">${m}/${l}</span>
@@ -104,4 +113,4 @@ import*as g from"./storage.js";import{t as h}from"./i18n.js";let f=null;async fu
         <span><span class="legend-swatch heat-untested"></span>Untested</span>
       </div>
     </section>
-  `}function y(c,r,i,a){if(r.length===0)return`<section class="pattern-section"><h3>${d(c)} (0)</h3><p class="muted">${d(a)}</p></section>`;const o=r.map(e=>{const t=i.get(e),s=t?`${t.pattern} - ${t.meaning_en}`:e;return`<li><a href="#/learn/${encodeURIComponent(e)}">${d(s)}</a></li>`}).join("");return`<section class="pattern-section"><h3>${d(c)} (${r.length})</h3><ul>${o}</ul></section>`}function M(c,r,i,a){return a===0?'<p>Take your first test in <a href="#/test">Chapter 2</a>. The system will identify weak patterns automatically and queue them for re-teaching.</p>':r.length>0?`<p><strong>${r.length}</strong> pattern(s) need practice. Open <a href="#/review">Chapter 3 - Review</a> to study them with form rules, common mistakes, and per-distractor explanations.</p>`:i.length>0?`<p>You haven't seen <strong>${i.length}</strong> pattern(s) in any test. Take another test in <a href="#/test">Chapter 2</a> for broader coverage.</p>`:"<p>Strong work - you've covered every authored pattern with no current weaknesses. Keep practicing to graduate them all to mastered.</p>"}function L(c){try{return new Date(c).toLocaleDateString()}catch{return c}}function d(c){return String(c??"").replace(/[&<>"']/g,r=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[r])}export{E as renderSummary};
+  `}function y(c,r,i,a){if(r.length===0)return`<section class="pattern-section"><h3>${d(c)} (0)</h3><p class="muted">${d(a)}</p></section>`;const o=r.map(e=>{const t=i.get(e),s=t?`${t.pattern} - ${t.meaning_en}`:e;return`<li><a href="#/learn/${encodeURIComponent(e)}">${d(s)}</a></li>`}).join("");return`<section class="pattern-section"><h3>${d(c)} (${r.length})</h3><ul>${o}</ul></section>`}function R(c,r,i,a){return a===0?'<p>Take your first test in <a href="#/test">Chapter 2</a>. The system will identify weak patterns automatically and queue them for re-teaching.</p>':r.length>0?`<p><strong>${r.length}</strong> pattern(s) need practice. Open <a href="#/review">Chapter 3 - Review</a> to study them with form rules, common mistakes, and per-distractor explanations.</p>`:i.length>0?`<p>You haven't seen <strong>${i.length}</strong> pattern(s) in any test. Take another test in <a href="#/test">Chapter 2</a> for broader coverage.</p>`:"<p>Strong work - you've covered every authored pattern with no current weaknesses. Keep practicing to graduate them all to mastered.</p>"}function x(c){try{return new Date(c).toLocaleDateString()}catch{return c}}function d(c){return String(c??"").replace(/[&<>"']/g,r=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[r])}export{T as renderSummary};

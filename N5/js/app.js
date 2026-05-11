@@ -43,6 +43,10 @@ import { renderAuthentic } from './authentic.js';
 // IMP-WAVE1 (UI audit fix, 2026-05-11): test-strategy page that
 // consumes data/test_strategy.json (T1-T6 fully authored). Route /strategy.
 import { renderStrategy } from './strategy.js';
+// IMP-WAVE-P4-T5 (UI audit fix, 2026-05-11): weak-area diagnostic
+// dashboard that cross-references test history with the 9 diagnostic
+// areas in test_strategy.json. Route #/weakareas. See js/weak-areas.js.
+import { renderWeakAreas } from './weak-areas.js';
 // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
 // Reads data/branding.json (or legacy data/theme-overrides.json) at
 // boot and applies CSS tokens, brand strings, meta tags, footer
@@ -81,6 +85,7 @@ const ROUTES = {
   print:      renderPrint,     // SVA-NEXT-2.4: print-to-PDF mock paper
   authentic:  renderAuthentic, // IMP-126: authentic real-world JP signs/menus/etc.
   strategy:   renderStrategy,  // IMP-WAVE1: T1-T6 test-strategy page (data/test_strategy.json)
+  weakareas:  renderWeakAreas, // IMP-WAVE-P4-T5: cross-history weak-area diagnostic dashboard
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
   // test, etc.) - clicking N5 on the picker navigates to #/home.
