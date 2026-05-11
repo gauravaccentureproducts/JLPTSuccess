@@ -17,6 +17,12 @@
 // raw correct/total per section + an overall percentage).
 import * as storage from './storage.js';
 import { t } from './i18n.js';
+// IMP-WAVE-P4-T1 (UI audit fix, 2026-05-11): per-mondai pacing chip
+// using section_timing data from data/test_strategy.json. The chip
+// surfaces the JLPT-official recommended seconds/q + technique hint
+// next to each question, so users build time discipline without the
+// section timer changing.
+import { loadPacing, renderPacingChip } from './mondai-pacing.js';
 
 const SECTIONS = [
   // [section-id, label, ja-label, [paper-categories], duration-minutes]
@@ -141,6 +147,10 @@ async function renderSection(container, paperNumber, sectionIdx) {
       choices: it.choices || [],
       correctIndex: (it.choices || []).findIndex(c => c === it.correctAnswer),
       kind: 'listening',
+      // IMP-WAVE-P4-T1: carry mondai (1..4 = task / point / utterance
+      // / immediate_response) so renderPacingChip can look up the
+      // chokai section_timing entry for this item.
+      mondai: it.mondai,
     }));
   } else {
     for (const cat of categories) {
@@ -155,6 +165,11 @@ async function renderSection(container, paperNumber, sectionIdx) {
     container.innerHTML = `<p>No questions for section ${sectionIdx}. <a href="#/sitting">Restart.</a></p>`;
     return;
   }
+
+  // IMP-WAVE-P4-T1: prime the pacing cache so renderPacingChip()
+  // returns chips synchronously inside the template literal below.
+  // Best-effort — if the fetch fails, chips simply render as ''.
+  await loadPacing();
 
   const submit = () => {
     // Grade.
@@ -187,7 +202,7 @@ async function renderSection(container, paperNumber, sectionIdx) {
       <form id="sitting-form" class="sitting-form">
         ${questions.map((q, i) => `
           <fieldset class="sitting-question" id="sq-${esc(q.id)}">
-            <legend>Q${i + 1}</legend>
+            <legend>Q${i + 1} ${renderPacingChip(q.kind, q.mondai)}</legend>
             ${q.audio ? `<audio class="example-audio" controls preload="metadata" src="${esc(q.audio)}"></audio>` : ''}
             ${q.stem_html ? `<p class="sitting-stem" lang="ja">${q.stem_html}</p>` : ''}
             ${q.prompt_ja ? `<p class="sitting-prompt" lang="ja">${esc(q.prompt_ja)}</p>` : ''}

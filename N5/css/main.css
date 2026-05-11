@@ -3849,6 +3849,22 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   font-size: var(--text-sm);
 }
 .sitting-timer-chip.danger { color: var(--color-incorrect, #b3261e); border-color: currentColor; }
+/* IMP-WAVE-P4-T1 (UI audit fix, 2026-05-11): per-mondai pacing chip
+   rendered inside each <legend>. Shows the JLPT-official recommended
+   seconds/q. Tooltip (title attr) carries the technique hint. */
+.mondai-pace-chip {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  background: var(--color-surface-soft, transparent);
+  cursor: help;
+  vertical-align: baseline;
+}
 .sitting-form { display: grid; gap: var(--space-4); }
 .sitting-question {
   border: 0.5px solid var(--color-line);
