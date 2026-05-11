@@ -171,6 +171,16 @@ function renderRead(container, p) {
           <p class="muted small"><strong>${esc(t('dokkai_detail.cultural_context'))}:</strong> ${esc(p.cultural_context)}</p>
         </aside>
       ` : ''}
+      ${p.authentic_categories?.length ? `
+        <!-- IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): thematic
+             cross-link to /authentic content. Passage topic
+             maps to authentic categories; renderer surfaces
+             a "Related real-world content" chip. -->
+        <aside class="reading-authentic-link muted small">
+          <strong>Related real-world content:</strong>
+          ${p.authentic_categories.map(c => `<a href="#/authentic" class="authentic-cat-chip">${esc(c)}</a>`).join(' ')}
+        </aside>
+      ` : ''}
       ${renderGrammarFootnotes(p)}
       ${(() => {
         // IMP-WAVE4 (UI audit fix, 2026-05-11): time-budget panel — per-
