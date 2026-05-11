@@ -215,6 +215,96 @@ function renderItem(container) {
         </p>`;
       })() : ''}
       ${it.prompt_ja ? `<p>${renderJa(it.prompt_ja)}</p>` : ''}
+      ${(() => {
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): listening_strategy_hints —
+        // mondai-format-keyed strategic guidance (4 hints per item).
+        const hints = Array.isArray(it.listening_strategy_hints) ? it.listening_strategy_hints : [];
+        if (!hints.length) return '';
+        return `
+          <aside class="listening-strategy-hints">
+            <details>
+              <summary><strong>Strategy hints (${hints.length})</strong></summary>
+              <ul>
+                ${hints.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
+              </ul>
+            </details>
+          </aside>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: speech_rate_classification — pacing vs N5 standard.
+        const sr = it.speech_rate_classification;
+        if (!sr || typeof sr !== 'object' || !sr.category) return '';
+        return `
+          <p class="muted small listening-speech-rate">
+            <strong>Speech rate:</strong> ${esc(sr.category)}
+            ${sr.morae_per_min ? ` <span class="muted">(${esc(sr.morae_per_min)} mora/min)</span>` : ''}
+            ${sr.note ? `<br><span class="muted small">${esc(sr.note)}</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: register_signal_l — auto-detected register for listening.
+        const rs = it.register_signal_l;
+        if (!rs || typeof rs !== 'object' || !rs.register) return '';
+        return `
+          <p class="muted small listening-register-signal">
+            <strong>Register:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} confidence)</span>` : ''}
+            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">Signals: ${rs.signals.map(esc).join('; ')}</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: speaker_demographics — auto-extracted speaker roles.
+        const sd = it.speaker_demographics;
+        if (!sd || typeof sd !== 'object' || !Array.isArray(sd.roles_detected) || !sd.roles_detected.length) return '';
+        return `
+          <p class="muted small listening-speakers">
+            <strong>Speakers detected (${sd.n_speakers_inferred || sd.roles_detected.length}):</strong>
+            ${sd.roles_detected.map(r => `<span class="speaker-role-chip" lang="ja">${esc(r.tag || r.role || '?')}</span>`).join(' ')}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: prosody_hints — intonation cues from punctuation.
+        const ph = Array.isArray(it.prosody_hints) ? it.prosody_hints : [];
+        if (!ph.length) return '';
+        return `
+          <aside class="listening-prosody">
+            <details>
+              <summary class="muted small"><strong>Prosody / intonation cues</strong></summary>
+              <ul>
+                ${ph.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
+              </ul>
+            </details>
+          </aside>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: time_target_seconds — JLPT N5 per-item time budget.
+        const tt = it.time_target_seconds;
+        if (!tt || typeof tt !== 'object') return '';
+        return `
+          <p class="muted small listening-time-target">
+            <strong>Target time:</strong> ~${esc(tt.estimated_total_seconds || tt.jlpt_target_seconds_per_question || '?')}s
+            ${tt.audio_seconds_estimated ? `<span class="muted"> (audio ~${esc(tt.audio_seconds_estimated)}s)</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: distractor_pattern_hint — what trap the wrong answers represent.
+        const dp = it.distractor_pattern_hint;
+        if (!dp || typeof dp !== 'object' || !dp.pattern) return '';
+        return `
+          <aside class="listening-distractor-pattern">
+            <details>
+              <summary class="muted small"><strong>Distractor pattern:</strong> ${esc(dp.pattern)}</summary>
+              ${dp.note ? `<p class="muted small">${esc(dp.note)}</p>` : ''}
+              ${dp.mentioned_count != null ? `<p class="muted small">Mentioned-but-rejected count: ${esc(dp.mentioned_count)}</p>` : ''}
+            </details>
+          </aside>
+        `;
+      })()}
       ${it.choices ? `
         <div class="choice-grid">
           ${it.choices.map(c => {

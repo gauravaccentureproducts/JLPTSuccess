@@ -501,6 +501,101 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         `}
       </section>
 
+      ${(() => {
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): collocations.
+        // 988/1009 entries have curated collocations. Render as a flex-list of
+        // chips. Format: array of strings, each one a real Japanese phrase
+        // (e.g., "コーヒーを のむ", "あつい コーヒー").
+        const colls = Array.isArray(entry.collocations) ? entry.collocations.filter(c => typeof c === 'string' && c.trim()) : [];
+        if (!colls.length) return '';
+        return `
+          <section class="vocab-collocations">
+            <h3 class="section-title">Collocations (${colls.length})</h3>
+            <ul class="collocation-list">
+              ${colls.map(c => `<li class="collocation-chip" lang="ja">${esc(c)}</li>`).join('')}
+            </ul>
+          </section>
+        `;
+      })()}
+
+      ${(() => {
+        // IMP-WAVE4: false_friends — easily confused words.
+        // Field is an array of forms (strings) that learners commonly confuse
+        // with this entry. Render as inline cross-references to those vocab pages.
+        const ff = Array.isArray(entry.false_friends) ? entry.false_friends : [];
+        if (!ff.length) return '';
+        return `
+          <section class="vocab-false-friends">
+            <h3 class="section-title">Don't confuse with</h3>
+            <div class="false-friend-grid">
+              ${ff.map(form => `
+                <a class="false-friend-card" href="#/learn/vocab/${encodeURIComponent(form)}">
+                  <span lang="ja">${esc(form)}</span>
+                </a>
+              `).join('')}
+            </div>
+          </section>
+        `;
+      })()}
+
+      ${(() => {
+        // IMP-WAVE4: pragmatic_functions — multi-function word disambiguation.
+        // Schema: array of {function, gloss, context} objects.
+        const pf = Array.isArray(entry.pragmatic_functions) ? entry.pragmatic_functions : [];
+        if (!pf.length) return '';
+        return `
+          <section class="vocab-pragmatic">
+            <h3 class="section-title">Multiple uses (pragmatic)</h3>
+            <ul class="pragmatic-list">
+              ${pf.map(p => `
+                <li>
+                  <strong class="pragmatic-function">${esc(p.function || '')}</strong>
+                  ${p.gloss ? ` — <span class="pragmatic-gloss">${esc(p.gloss)}</span>` : ''}
+                  ${p.context ? `<p class="muted small pragmatic-context">${esc(p.context)}</p>` : ''}
+                </li>
+              `).join('')}
+            </ul>
+          </section>
+        `;
+      })()}
+
+      ${(() => {
+        // IMP-WAVE4: devoiced_vowels — Tokyo-standard phonological marker.
+        // Schema: {positions: int[], note: string, rule: string}.
+        const dv = entry.devoiced_vowels;
+        if (!dv || typeof dv !== 'object') return '';
+        return `
+          <section class="vocab-devoicing">
+            <h3 class="section-title">Pronunciation: devoiced vowels</h3>
+            ${Array.isArray(dv.positions) && dv.positions.length
+              ? `<p><strong>Position(s):</strong> mora ${dv.positions.join(', ')} (0-indexed)</p>`
+              : '<p class="muted small">No devoicing in standard Tokyo speech for this form.</p>'}
+            ${dv.note ? `<p class="muted small">${esc(dv.note)}</p>` : ''}
+            ${dv.rule ? `<p class="muted small"><em>Rule:</em> ${esc(dv.rule)}</p>` : ''}
+          </section>
+        `;
+      })()}
+
+      ${(() => {
+        // IMP-WAVE4: counter_register — casual/formal counter pair.
+        // Schema: {counter, irregular, note, register_pair: {casual_alt, formal_same}}.
+        const cr = entry.counter_register;
+        if (!cr || typeof cr !== 'object') return '';
+        return `
+          <section class="vocab-counter-register">
+            <h3 class="section-title">Counter register</h3>
+            ${cr.counter ? `<p><strong>Counter root:</strong> <span lang="ja">〜${esc(cr.counter)}</span> ${cr.irregular ? '<span class="vocab-g1-exception" title="Irregular kun-yomi form">irregular</span>' : ''}</p>` : ''}
+            ${cr.note ? `<p>${esc(cr.note)}</p>` : ''}
+            ${cr.register_pair ? `
+              <div class="register-pair-grid">
+                ${cr.register_pair.casual_alt ? `<div><span class="muted small">casual:</span> <span lang="ja">${esc(cr.register_pair.casual_alt)}</span></div>` : ''}
+                ${cr.register_pair.formal_same ? `<div><span class="muted small">formal:</span> <span lang="ja">${esc(cr.register_pair.formal_same)}</span></div>` : ''}
+              </div>
+            ` : ''}
+          </section>
+        `;
+      })()}
+
       <nav class="vocab-nav">
         ${prev ? `<a href="#/learn/vocab/${encodeURIComponent(prev.form)}">← <span lang="ja">${esc(prev.form)}</span></a>` : '<span></span>'}
         ${next ? `<a href="#/learn/vocab/${encodeURIComponent(next.form)}"><span lang="ja">${esc(next.form)}</span> →</a>` : '<span></span>'}

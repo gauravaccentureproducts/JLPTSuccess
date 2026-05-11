@@ -1,37 +1,240 @@
-import{renderJa as a}from"./furigana.js";import*as p from"./storage.js";const y={easy:"\u3084\u3055\u3057\u3044",medium:"\u3075\u3064\u3046","info-search":"\u3058\u3087\u3046\u307B\u3046\u3051\u3093\u3055\u304F"},k={"self-introduction":"\u3058\u3053\u3057\u3087\u3046\u304B\u3044","daily routine":"\u307E\u3044\u306B\u3061\u306E \u305B\u3044\u304B\u3064","weekend plan":"\u3057\u3085\u3046\u307E\u3064\u306E \u3088\u3066\u3044",weekend:"\u3057\u3085\u3046\u307E\u3064",shopping:"\u304B\u3044\u3082\u306E",family:"\u304B\u305E\u304F",weather:"\u3066\u3093\u304D",schedule:"\u3088\u3066\u3044",transport:"\u3053\u3046\u3064\u3046",hobby:"\u3057\u3085\u307F",school:"\u5B66\u6821",food:"\u305F\u3079\u3082\u306E",travel:"\u308A\u3087\u3053\u3046",health:"\u3051\u3093\u3053\u3046",study:"\u3079\u3093\u304D\u3087\u3046",people:"\u3072\u3068",request:"\u304A\u306D\u304C\u3044",room:"\u3078\u3084",directions:"\u307F\u3061\u3042\u3093\u306A\u3044"};let m=null,o=null;async function b(){return m||(m=await(await fetch("data/reading.json")).json(),m)}function _(t){o={passage:!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode?{...t,questions:(t.questions||[]).filter(n=>n.format_role==="primary"||!n.format_role)}:t,phase:"read",answers:{},idx:0}}async function E(t,e){await b();const r=e?decodeURIComponent(e):"";if(r){const n=(m.passages||[]).find(s=>s.id===r);if(n)return(!o||o.passage?.id!==n.id)&&_(n),h(t)}return o?h(t):$(t)}function $(t){const e=m.passages||[],i=!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode,n=e.map(s=>`
+// Reading passages module (Brief §3.2)
+// Each session: pick a passage, show it, then run comprehension questions.
+import { renderJa } from './furigana.js';
+import * as storage from './storage.js';
+
+// Display labels for level / topic taxonomy. Data values stay English
+// (stable code keys for lookup); we localize at render time so the
+// learner-facing surface is Japanese (per 2026-05-02 user direction).
+const LEVEL_JA = {
+  'easy':        'やさしい',
+  'medium':      'ふつう',
+  'info-search': 'じょうほうけんさく',
+};
+const TOPIC_JA = {
+  'self-introduction': 'じこしょうかい',
+  'daily routine':     'まいにちの せいかつ',
+  'weekend plan':      'しゅうまつの よてい',
+  'weekend':           'しゅうまつ',
+  'shopping':          'かいもの',
+  'family':            'かぞく',
+  'weather':           'てんき',
+  'schedule':          'よてい',
+  'transport':         'こうつう',
+  'hobby':             'しゅみ',
+  'school':            '学校',
+  'food':              'たべもの',
+  'travel':            'りょこう',
+  'health':            'けんこう',
+  'study':             'べんきょう',
+  'people':            'ひと',
+  'request':           'おねがい',
+  'room':              'へや',
+  'directions':        'みちあんない',
+};
+
+let bank = null;
+let session = null;
+
+async function loadBank() {
+  if (bank) return bank;
+  const res = await fetch('data/reading.json');
+  bank = await res.json();
+  return bank;
+}
+
+// 2026-05-05: per-passage deep links via #/reading/<id>. Mirrors how
+// kanji (#/kanji/<glyph>), grammar (#/learn/<id>), and vocab
+// (#/learn/vocab/<form>) detail pages route, so prev/next navigation
+// in renderRead can use plain <a href> links without bespoke session
+// manipulation. Empty params still falls through to the index, and
+// session continuity is preserved when the user navigates to
+// `#/reading` mid-flow (back-link only).
+function _setUpSessionFor(passage) {
+  const settings = (typeof storage !== 'undefined' && storage.getSettings)
+    ? storage.getSettings() : {};
+  const mockTestMode = !!settings.readingMockTestMode;
+  const filtered = mockTestMode
+    ? { ...passage, questions: (passage.questions || []).filter(
+          q => q.format_role === 'primary' || !q.format_role) }
+    : passage;
+  session = { passage: filtered, phase: 'read', answers: {}, idx: 0 };
+}
+
+export async function renderReading(container, params) {
+  await loadBank();
+  const slug = params ? decodeURIComponent(params) : '';
+  if (slug) {
+    const passages = bank.passages || [];
+    const found = passages.find(p => p.id === slug);
+    if (found) {
+      // Always set up a fresh session for the targeted passage. Prev/next
+      // nav clicks land here and overwrite any in-progress session for a
+      // different passage (the back-link is the way to abandon).
+      if (!session || session.passage?.id !== found.id) {
+        _setUpSessionFor(found);
+      }
+      return renderSession(container);
+    }
+  }
+  if (session) return renderSession(container);
+  return renderIndex(container);
+}
+
+function renderIndex(container) {
+  const passages = bank.passages || [];
+  // Mock-test mode (DEFER-12): when on, filters each passage's questions
+  // down to those tagged `format_role: "primary"` so the per-passage
+  // question count matches the official JLPT-N5 distribution. Persists
+  // across navigation via the same settings store as everything else.
+  const settings = (typeof storage !== 'undefined' && storage.getSettings)
+    ? storage.getSettings() : {};
+  const mockTestMode = !!settings.readingMockTestMode;
+
+  // 2026-05-06 (user request): list-tile pages show only the passage
+  // title for active-recall practice. Topic, level, and question count
+  // appear inside the passage view - keeping the index uncluttered lets
+  // learners self-assess "do I remember what this passage was about?"
+  // before clicking through.
+  const items = passages.map(p => {
+    return `
       <li>
-        <button class="reading-pick" data-id="${l(s.id)}">
-          <span class="reading-title"><strong>${a(s.title_ja)}</strong></span>
+        <button class="reading-pick" data-id="${esc(p.id)}">
+          <span class="reading-title"><strong>${renderJa(p.title_ja)}</strong></span>
         </button>
       </li>
-    `).join("");t.innerHTML=`
-    <h2>${a("\u3069\u3063\u304B\u3044 \u308C\u3093\u3057\u3085\u3046")}</h2>
-    <p>${a("\u307F\u3058\u304B\u3044 JLPT \u3051\u3044\u3057\u304D\u306E \u3076\u3093\u3057\u3087\u3046\u3068 \u3057\u3064\u3082\u3093\u3067\u3059\u3002")} ${e.length} ${a("\u3076\u3093\u3057\u3087\u3046\u304C \u3042\u308A\u307E\u3059\u3002\u3084\u3055\u3057\u3044 \u2192 \u3075\u3064\u3046 \u2192 \u3058\u3087\u3046\u307B\u3046\u3051\u3093\u3055\u304F \u306E \u3058\u3085\u3093\u306B \u306A\u3089\u3093\u3067 \u3044\u307E\u3059\u3002")}</p>
+    `;
+  }).join('');
+  container.innerHTML = `
+    <h2>${renderJa('どっかい れんしゅう')}</h2>
+    <p>${renderJa('みじかい JLPT けいしきの ぶんしょうと しつもんです。')} ${passages.length} ${renderJa('ぶんしょうが あります。やさしい → ふつう → じょうほうけんさく の じゅんに ならんで います。')}</p>
     <label class="reading-mode-toggle">
-      <input type="checkbox" id="reading-mock-mode" ${i?"checked":""}>
-      <span>${a("\u3082\u304E\u30C6\u30B9\u30C8\u30E2\u30FC\u30C9")} (primary questions only - matches official JLPT N5 distribution)</span>
+      <input type="checkbox" id="reading-mock-mode" ${mockTestMode ? 'checked' : ''}>
+      <span>${renderJa('もぎテストモード')} (primary questions only - matches official JLPT N5 distribution)</span>
     </label>
-    <ul class="reading-list">${n}</ul>
-  `,document.getElementById("reading-mock-mode").addEventListener("change",s=>{p.setSettings({readingMockTestMode:s.target.checked}),$(t)}),t.querySelectorAll("[data-id]").forEach(s=>{s.addEventListener("click",()=>{location.hash=`#/reading/${encodeURIComponent(s.dataset.id)}`})})}function h(t){const e=o.passage;return o.phase==="read"?j(t,e):o.phase==="questions"?f(t,e):v(t,e)}function j(t,e){const r=m?.passages||[],i=r.findIndex(g=>g.id===e.id),n=i>0?r[i-1]:null,s=i>=0&&i<r.length-1?r[i+1]:null,d=`
+    <ul class="reading-list">${items}</ul>
+  `;
+  document.getElementById('reading-mock-mode').addEventListener('change', (e) => {
+    storage.setSettings({ readingMockTestMode: e.target.checked });
+    renderIndex(container);
+  });
+  container.querySelectorAll('[data-id]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 2026-05-05: navigate via hash so the URL is shareable + the
+      // prev/next nav in renderRead can use the same routing.
+      // Session setup happens inside renderReading() when it receives
+      // the params; mock-test filtering preserved there.
+      location.hash = `#/reading/${encodeURIComponent(btn.dataset.id)}`;
+    });
+  });
+}
+
+function renderSession(container) {
+  const p = session.passage;
+  if (session.phase === 'read') return renderRead(container, p);
+  if (session.phase === 'questions') return renderQuestions(container, p);
+  return renderResults(container, p);
+}
+
+function renderRead(container, p) {
+  // Prev / next passage nav (2026-05-05). Walks bank.passages in their
+  // declared order - same source the index page uses (easy → medium →
+  // info-search). Mirrors the .kanji-nav / .vocab-nav patterns:
+  // compact link with the destination's title; empty <span> placeholder
+  // so the flex layout stays balanced when prev or next is missing.
+  const passages = bank?.passages || [];
+  const idx = passages.findIndex(x => x.id === p.id);
+  const prev = idx > 0 ? passages[idx - 1] : null;
+  const next = idx >= 0 && idx < passages.length - 1 ? passages[idx + 1] : null;
+  const navHtml = `
     <nav class="reading-nav" aria-label="Passage navigation">
-      ${n?`<a href="#/reading/${encodeURIComponent(n.id)}" title="${l(n.title_ja||n.id)}">\u2190 <span lang="ja">${a(n.title_ja||n.id)}</span></a>`:"<span></span>"}
-      ${s?`<a href="#/reading/${encodeURIComponent(s.id)}" title="${l(s.title_ja||s.id)}"><span lang="ja">${a(s.title_ja||s.id)}</span> \u2192</a>`:"<span></span>"}
+      ${prev
+        ? `<a href="#/reading/${encodeURIComponent(prev.id)}" title="${esc(prev.title_ja || prev.id)}">← <span lang="ja">${renderJa(prev.title_ja || prev.id)}</span></a>`
+        : '<span></span>'}
+      ${next
+        ? `<a href="#/reading/${encodeURIComponent(next.id)}" title="${esc(next.title_ja || next.id)}"><span lang="ja">${renderJa(next.title_ja || next.id)}</span> →</a>`
+        : '<span></span>'}
     </nav>
-  `;t.innerHTML=`
+  `;
+
+  container.innerHTML = `
     <article class="reading-passage">
       <div class="srs-progress">
-        <span><a href="#/reading" id="reading-back">\u2190 ${a("\u3082\u3069\u308B")}</a> \u30FB ${a("\u3076\u3093\u3057\u3087\u3046\u3092 \u8AAD\u3093\u3067\u3001\u3057\u3064\u3082\u3093\u3092 \u306F\u3058\u3081\u3066 \u304F\u3060\u3055\u3044\u3002")}</span>
+        <span><a href="#/reading" id="reading-back">← ${renderJa('もどる')}</a> ・ ${renderJa('ぶんしょうを 読んで、しつもんを はじめて ください。')}</span>
       </div>
-      <h2>${a(e.title_ja)}</h2>
-      <p class="muted small">\u30EC\u30D9\u30EB: ${a(y[e.level]||e.level)} \u30FB \u30C8\u30D4\u30C3\u30AF: ${a(k[e.topic]||e.topic)}</p>
-      <div class="passage-text">${a(e.ja)}</div>
-      ${e.cultural_context?`
+      <h2>${renderJa(p.title_ja)}</h2>
+      <p class="muted small">レベル: ${renderJa(LEVEL_JA[p.level] || p.level)} ・ トピック: ${renderJa(TOPIC_JA[p.topic] || p.topic)}</p>
+      <div class="passage-text">${renderJa(p.ja)}</div>
+      ${p.cultural_context ? `
         <aside class="reading-cultural-context">
-          <p class="muted small"><strong>Cultural context:</strong> ${l(e.cultural_context)}</p>
+          <p class="muted small"><strong>Cultural context:</strong> ${esc(p.cultural_context)}</p>
         </aside>
-      `:""}
-      ${w(e)}
-      ${e.translation_literal||e.translation_natural?`
+      ` : ''}
+      ${renderGrammarFootnotes(p)}
+      ${(() => {
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): time-budget panel — per-
+        // passage reading-time targets derived from N5 reading rate
+        // (~2.5 chars/sec) + question-count buffer.
+        const tt = p.time_target_seconds;
+        if (!tt || typeof tt !== 'object') return '';
+        return `
+          <aside class="reading-time-target muted small">
+            <strong>Target time:</strong> ${esc(tt.total_seconds || '?')}s total
+            ${tt.reading_seconds ? ` (read: ${esc(tt.reading_seconds)}s` : ''}${tt.comprehension_seconds ? ` + comprehend: ${esc(tt.comprehension_seconds)}s)` : tt.reading_seconds ? ')' : ''}
+            ${tt.note ? `<br><span class="muted small">${esc(tt.note)}</span>` : ''}
+          </aside>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: comprehension_strategy_hints — format-role-keyed
+        // strategic guidance (3 actionable hints per passage).
+        const hints = Array.isArray(p.comprehension_strategy_hints) ? p.comprehension_strategy_hints : [];
+        if (!hints.length) return '';
+        return `
+          <aside class="reading-strategy-hints">
+            <details>
+              <summary><strong>Strategy hints (${hints.length})</strong></summary>
+              <ul>
+                ${hints.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
+              </ul>
+            </details>
+          </aside>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: register_signal — auto-detected register classification.
+        const rs = p.register_signal;
+        if (!rs || typeof rs !== 'object' || !rs.register) return '';
+        return `
+          <p class="muted small reading-register-signal">
+            <strong>Register:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} confidence)</span>` : ''}
+            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">Signals: ${rs.signals.map(esc).join('; ')}</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: target_reading_age — native-equivalent reader age band.
+        const ta = p.target_reading_age;
+        if (!ta || typeof ta !== 'object') return '';
+        return `
+          <p class="muted small reading-target-age">
+            <strong>Native-equivalent reading level:</strong> age ${esc(ta.native_equivalent_age_years || '?')}
+            ${ta.kanji_ratio != null ? ` <span class="muted">(${(ta.kanji_ratio * 100).toFixed(1)}% kanji, ${esc(ta.char_count || '?')} chars)</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: discourse_markers_used — auto-extracted connectors.
+        const dm = Array.isArray(p.discourse_markers_used) ? p.discourse_markers_used : [];
+        if (!dm.length) return '';
+        return `
+          <p class="muted small reading-discourse-markers">
+            <strong>Discourse markers in this passage:</strong>
+            ${dm.map(m => `<span class="discourse-marker-chip" lang="ja">${esc(m)}</span>`).join(' ')}
+          </p>
+        `;
+      })()}
+      ${p.translation_literal || p.translation_natural ? `
         <!-- IMP-140 (richness audit, 2026-05-10): opt-in literal vs
              natural translation toggle. The Japanese passage stays the
              default render (preserving JA-27 "Japanese-first"). The
@@ -40,80 +243,179 @@ import{renderJa as a}from"./furigana.js";import*as p from"./storage.js";const y=
         <details class="reading-translations">
           <summary class="muted small">Show English translation (study aid)</summary>
           <div class="reading-translation-pair">
-            ${e.translation_literal?`
+            ${p.translation_literal ? `
               <section class="reading-translation-block">
                 <h4 class="reading-translation-label">Literal</h4>
-                <p class="reading-translation-text">${l(e.translation_literal)}</p>
+                <p class="reading-translation-text">${esc(p.translation_literal)}</p>
               </section>
-            `:""}
-            ${e.translation_natural?`
+            ` : ''}
+            ${p.translation_natural ? `
               <section class="reading-translation-block">
                 <h4 class="reading-translation-label">Natural</h4>
-                <p class="reading-translation-text">${l(e.translation_natural)}</p>
+                <p class="reading-translation-text">${esc(p.translation_natural)}</p>
               </section>
-            `:""}
+            ` : ''}
             <p class="muted small">Translations are study aids, not the default render. Try the Japanese first; reveal English only when stuck.</p>
           </div>
         </details>
-      `:""}
-      ${e.audio?`
+      ` : ''}
+      ${p.audio ? `
         <div class="reading-audio">
-          <p class="muted small">${a("\u304A\u3093\u305B\u3044 (\u3042\u308B \u3068\u304D):")}</p>
-          <audio controls preload="none" src="${l(e.audio)}">Your browser does not support audio.</audio>
+          <p class="muted small">${renderJa('おんせい (ある とき):')}</p>
+          <audio controls preload="none" src="${esc(p.audio)}">Your browser does not support audio.</audio>
         </div>
-      `:""}
-      <button id="reading-start-q" class="btn-primary">${a("\u3057\u3064\u3082\u3093\u3092 \u306F\u3058\u3081\u308B")} (${e.questions.length})</button>
-      ${d}
+      ` : ''}
+      <button id="reading-start-q" class="btn-primary">${renderJa('しつもんを はじめる')} (${p.questions.length})</button>
+      ${navHtml}
     </article>
-  `,document.getElementById("reading-back").addEventListener("click",g=>{g.preventDefault(),o=null,location.hash="#/reading"}),document.getElementById("reading-start-q").addEventListener("click",()=>{o.phase="questions",f(t,e)})}function f(t,e){const r=e.questions.length,i=o.idx,n=e.questions[i],s=o.answers[n.id],d=s!=null,g=s===n.correctAnswer;t.innerHTML=`
+  `;
+  document.getElementById('reading-back').addEventListener('click', (e) => {
+    e.preventDefault();
+    session = null;
+    location.hash = '#/reading';
+  });
+  document.getElementById('reading-start-q').addEventListener('click', () => {
+    session.phase = 'questions';
+    renderQuestions(container, p);
+  });
+}
+
+function renderQuestions(container, p) {
+  const total = p.questions.length;
+  const idx = session.idx;
+  const q = p.questions[idx];
+  const picked = session.answers[q.id];
+  const feedback = picked != null;
+  const correct = picked === q.correctAnswer;
+
+  container.innerHTML = `
     <article class="reading-passage">
       <div class="srs-progress">
-        <span>${a(e.title_ja)} \u30FB ${a("\u3082\u3093\u3060\u3044")} ${i+1} / ${r}</span>
+        <span>${renderJa(p.title_ja)} ・ ${renderJa('もんだい')} ${idx + 1} / ${total}</span>
       </div>
       <details class="passage-recap">
-        <summary>${a("\u3076\u3093\u3057\u3087\u3046\u3092 \u898B\u308B")}</summary>
-        <div class="passage-text">${a(e.ja)}</div>
+        <summary>${renderJa('ぶんしょうを 見る')}</summary>
+        <div class="passage-text">${renderJa(p.ja)}</div>
       </details>
       <div class="question-card">
-        <p class="question">${a(n.prompt_ja)}</p>
+        <p class="question">${renderJa(q.prompt_ja)}</p>
         <div class="choice-grid">
-          ${n.choices.map(c=>{let u="choice-button";return d?c===n.correctAnswer?u+=" correct-choice":c===s&&(u+=" wrong-choice"):s===c&&(u+=" selected"),`<button data-pick="${l(c)}" class="${u}" ${d?"disabled":""}>${a(c)}</button>`}).join("")}
+          ${q.choices.map(c => {
+            let cls = 'choice-button';
+            if (feedback) {
+              if (c === q.correctAnswer) cls += ' correct-choice';
+              else if (c === picked) cls += ' wrong-choice';
+            } else if (picked === c) {
+              cls += ' selected';
+            }
+            return `<button data-pick="${esc(c)}" class="${cls}" ${feedback ? 'disabled' : ''}>${renderJa(c)}</button>`;
+          }).join('')}
         </div>
-        ${d?`
-          <div class="drill-feedback ${g?"correct":"incorrect"}">
-            <div class="feedback-headline">${g?a("\u305B\u3044\u304B\u3044"):a("\u3056\u3093\u306D\u3093")}</div>
-            ${n.explanation_en?`<p class="muted small">${l(n.explanation_en)}</p>`:""}
-            <button id="reading-next" class="btn-primary">${i===r-1?a("\u304A\u308F\u308A"):a("\u3064\u304E\u306E \u3057\u3064\u3082\u3093")}</button>
+        ${feedback ? `
+          <div class="drill-feedback ${correct ? 'correct' : 'incorrect'}">
+            <div class="feedback-headline">${correct ? renderJa('せいかい') : renderJa('ざんねん')}</div>
+            ${q.explanation_en ? `<p class="muted small">${esc(q.explanation_en)}</p>` : ''}
+            <button id="reading-next" class="btn-primary">${idx === total - 1 ? renderJa('おわり') : renderJa('つぎの しつもん')}</button>
           </div>
-        `:""}
+        ` : ''}
       </div>
     </article>
-  `,t.querySelectorAll("[data-pick]").forEach(c=>{c.addEventListener("click",()=>{o.answers[n.id]=c.dataset.pick,f(t,e)})}),document.getElementById("reading-next")?.addEventListener("click",()=>{i===r-1?(o.phase="results",v(t,e)):(o.idx+=1,f(t,e))})}function v(t,e){const r=e.questions.length,i=e.questions.filter(s=>o.answers[s.id]===s.correctAnswer).length,n=Math.round(i/r*100);i>0&&p.setReadingCompleted(e.id),t.innerHTML=`
+  `;
+  container.querySelectorAll('[data-pick]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      session.answers[q.id] = btn.dataset.pick;
+      renderQuestions(container, p);
+    });
+  });
+  document.getElementById('reading-next')?.addEventListener('click', () => {
+    if (idx === total - 1) {
+      session.phase = 'results';
+      renderResults(container, p);
+    } else {
+      session.idx += 1;
+      renderQuestions(container, p);
+    }
+  });
+}
+
+function renderResults(container, p) {
+  const total = p.questions.length;
+  const score = p.questions.filter(q => session.answers[q.id] === q.correctAnswer).length;
+  const pct = Math.round((score / total) * 100);
+  // Mark this passage as completed the first time the user reaches the
+  // results screen with at least one correct answer. Powers the homepage
+  // Progress section's Reading row.
+  if (score > 0) {
+    storage.setReadingCompleted(p.id);
+  }
+  container.innerHTML = `
     <div class="reading-results">
-      <h2>${a(e.title_ja)} \u30FB ${a("\u3051\u3063\u304B")}</h2>
+      <h2>${renderJa(p.title_ja)} ・ ${renderJa('けっか')}</h2>
       <section class="srs-summary-stats">
-        <div class="stat-card mastered"><div class="stat-num">${i}/${r}</div><div class="stat-label">${a("\u30B9\u30B3\u30A2")}</div></div>
-        <div class="stat-card ${n>=70?"mastered":"weak"}"><div class="stat-num">${n}%</div><div class="stat-label">${a("\u305B\u3044\u304B\u3044\u308A\u3064")}</div></div>
+        <div class="stat-card mastered"><div class="stat-num">${score}/${total}</div><div class="stat-label">${renderJa('スコア')}</div></div>
+        <div class="stat-card ${pct >= 70 ? 'mastered' : 'weak'}"><div class="stat-num">${pct}%</div><div class="stat-label">${renderJa('せいかいりつ')}</div></div>
       </section>
       <div class="test-nav">
-        <button id="reading-back-list" class="btn-primary">${a("\u307B\u304B\u306E \u3076\u3093\u3057\u3087\u3046\u3092 \u3048\u3089\u3076")}</button>
+        <button id="reading-back-list" class="btn-primary">${renderJa('ほかの ぶんしょうを えらぶ')}</button>
       </div>
     </div>
-  `,document.getElementById("reading-back-list").addEventListener("click",()=>{o=null,$(t)})}function l(t){return String(t??"").replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}function w(t){const e=Array.isArray(t.grammar_footnotes)?t.grammar_footnotes:[];if(e.length===0)return"";const r=(t.ja||"").split("\u3002").filter(s=>s.trim()).map(s=>s.trim()),i=new Map;for(const s of e){const d=s.sentence_index??0;i.has(d)||i.set(d,[]),i.get(d).push(s)}const n=[...i.entries()].sort((s,d)=>s[0]-d[0]).map(([s,d])=>{const g=(r[s]||"").slice(0,50)+(r[s]&&r[s].length>50?"\u2026":"\u3002"),c=d.map(u=>`
+  `;
+  document.getElementById('reading-back-list').addEventListener('click', () => {
+    session = null;
+    renderIndex(container);
+  });
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+// JCE-3 (round-9 follow-up, 2026-05-08): grammar footnotes per
+// passage. The footnotes array on data/reading.json items maps
+// sentence indexes (0-based, splitting on 。) to one or two grammar
+// patterns the learner should notice in that sentence. We render
+// them as a collapsed <details> block below the passage so they
+// don't clutter first-read but are one click away.
+function renderGrammarFootnotes(p) {
+  const fns = Array.isArray(p.grammar_footnotes) ? p.grammar_footnotes : [];
+  if (fns.length === 0) return '';
+
+  // Group footnotes by sentence_index so each sentence's notes
+  // appear together. Build a sentence preview (first ~30 chars) so
+  // the learner can see which sentence the note is about without
+  // scrolling back up.
+  const sentences = (p.ja || '').split('。').filter(s => s.trim()).map(s => s.trim());
+  const grouped = new Map();
+  for (const fn of fns) {
+    const i = fn.sentence_index ?? 0;
+    if (!grouped.has(i)) grouped.set(i, []);
+    grouped.get(i).push(fn);
+  }
+  const groups = [...grouped.entries()].sort((a, b) => a[0] - b[0]).map(([idx, items]) => {
+    const sentencePreview = (sentences[idx] || '').slice(0, 50) +
+                            (sentences[idx] && sentences[idx].length > 50 ? '…' : '。');
+    const notes = items.map(it => `
       <li class="reading-footnote-item">
-        <a class="reading-footnote-pid" href="#/learn/${l(u.pattern_id)}" title="Open ${l(u.pattern_id)} in Learn">${l(u.pattern_id)}</a>
-        <span class="reading-footnote-note">${l(u.note||"")}</span>
+        <a class="reading-footnote-pid" href="#/learn/${esc(it.pattern_id)}" title="Open ${esc(it.pattern_id)} in Learn">${esc(it.pattern_id)}</a>
+        <span class="reading-footnote-note">${esc(it.note || '')}</span>
       </li>
-    `).join("");return`
+    `).join('');
+    return `
       <li class="reading-footnote-group">
         <p class="reading-footnote-sentence" lang="ja">
-          <span class="muted small">Sentence ${s+1}:</span> ${l(g)}
+          <span class="muted small">Sentence ${idx + 1}:</span> ${esc(sentencePreview)}
         </p>
-        <ul class="reading-footnote-list">${c}</ul>
+        <ul class="reading-footnote-list">${notes}</ul>
       </li>
-    `}).join("");return`
+    `;
+  }).join('');
+
+  return `
     <details class="reading-grammar-footnotes">
-      <summary><strong>Grammar footnotes</strong> <span class="muted small">\u2014 ${e.length} note${e.length===1?"":"s"} across ${i.size} sentence${i.size===1?"":"s"}</span></summary>
-      <ol class="reading-footnote-groups">${n}</ol>
+      <summary><strong>Grammar footnotes</strong> <span class="muted small">— ${fns.length} note${fns.length === 1 ? '' : 's'} across ${grouped.size} sentence${grouped.size === 1 ? '' : 's'}</span></summary>
+      <ol class="reading-footnote-groups">${groups}</ol>
     </details>
-  `}export{E as renderReading};
+  `;
+}

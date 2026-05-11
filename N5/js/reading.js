@@ -171,6 +171,69 @@ function renderRead(container, p) {
         </aside>
       ` : ''}
       ${renderGrammarFootnotes(p)}
+      ${(() => {
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): time-budget panel — per-
+        // passage reading-time targets derived from N5 reading rate
+        // (~2.5 chars/sec) + question-count buffer.
+        const tt = p.time_target_seconds;
+        if (!tt || typeof tt !== 'object') return '';
+        return `
+          <aside class="reading-time-target muted small">
+            <strong>Target time:</strong> ${esc(tt.total_seconds || '?')}s total
+            ${tt.reading_seconds ? ` (read: ${esc(tt.reading_seconds)}s` : ''}${tt.comprehension_seconds ? ` + comprehend: ${esc(tt.comprehension_seconds)}s)` : tt.reading_seconds ? ')' : ''}
+            ${tt.note ? `<br><span class="muted small">${esc(tt.note)}</span>` : ''}
+          </aside>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: comprehension_strategy_hints — format-role-keyed
+        // strategic guidance (3 actionable hints per passage).
+        const hints = Array.isArray(p.comprehension_strategy_hints) ? p.comprehension_strategy_hints : [];
+        if (!hints.length) return '';
+        return `
+          <aside class="reading-strategy-hints">
+            <details>
+              <summary><strong>Strategy hints (${hints.length})</strong></summary>
+              <ul>
+                ${hints.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
+              </ul>
+            </details>
+          </aside>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: register_signal — auto-detected register classification.
+        const rs = p.register_signal;
+        if (!rs || typeof rs !== 'object' || !rs.register) return '';
+        return `
+          <p class="muted small reading-register-signal">
+            <strong>Register:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} confidence)</span>` : ''}
+            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">Signals: ${rs.signals.map(esc).join('; ')}</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: target_reading_age — native-equivalent reader age band.
+        const ta = p.target_reading_age;
+        if (!ta || typeof ta !== 'object') return '';
+        return `
+          <p class="muted small reading-target-age">
+            <strong>Native-equivalent reading level:</strong> age ${esc(ta.native_equivalent_age_years || '?')}
+            ${ta.kanji_ratio != null ? ` <span class="muted">(${(ta.kanji_ratio * 100).toFixed(1)}% kanji, ${esc(ta.char_count || '?')} chars)</span>` : ''}
+          </p>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE4: discourse_markers_used — auto-extracted connectors.
+        const dm = Array.isArray(p.discourse_markers_used) ? p.discourse_markers_used : [];
+        if (!dm.length) return '';
+        return `
+          <p class="muted small reading-discourse-markers">
+            <strong>Discourse markers in this passage:</strong>
+            ${dm.map(m => `<span class="discourse-marker-chip" lang="ja">${esc(m)}</span>`).join(' ')}
+          </p>
+        `;
+      })()}
       ${p.translation_literal || p.translation_natural ? `
         <!-- IMP-140 (richness audit, 2026-05-10): opt-in literal vs
              natural translation toggle. The Japanese passage stays the

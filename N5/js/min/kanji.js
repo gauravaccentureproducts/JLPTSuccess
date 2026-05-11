@@ -387,6 +387,33 @@ function renderDetail(container, entry, entries) {
           <p class="muted small">${esc(entry.reading_rule)}</p>
         </section>
       ` : ''}
+      ${(() => {
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): okurigana_cuts.
+        // Derived list of "kanji:okurigana" pairs showing where the
+        // verb/adjective stem ends and the suffix begins (e.g., "食:べる",
+        // "新:しい"). Pedagogically useful for understanding inflection
+        // boundaries. 44/106 kanji have entries; render only when present.
+        const oc = Array.isArray(entry.okurigana_cuts) ? entry.okurigana_cuts : [];
+        if (!oc.length) return '';
+        return `
+          <section class="kanji-okurigana-cuts">
+            <h3>Okurigana boundary</h3>
+            <p class="muted small">Where the kanji stem ends and the okurigana (kana suffix) begins:</p>
+            <ul class="okurigana-cuts-list">
+              ${oc.map(cut => {
+                // cut format: "<kanji>:<okurigana>" e.g. "食:べる"
+                const parts = String(cut).split(':');
+                if (parts.length !== 2) {
+                  return `<li><span lang="ja">${esc(cut)}</span></li>`;
+                }
+                return `<li>
+                  <span class="okurigana-kanji" lang="ja">${esc(parts[0])}</span><span class="okurigana-cut" aria-hidden="true">︱</span><span class="okurigana-suffix" lang="ja">${esc(parts[1])}</span>
+                </li>`;
+              }).join('')}
+            </ul>
+          </section>
+        `;
+      })()}
       <nav class="kanji-nav">
         ${prev ? `<a href="#/kanji/${encodeURIComponent(prev.glyph)}">← <span lang="ja">${esc(prev.glyph)}</span></a>` : '<span></span>'}
         ${next ? `<a href="#/kanji/${encodeURIComponent(next.glyph)}"><span lang="ja">${esc(next.glyph)}</span> →</a>` : '<span></span>'}
