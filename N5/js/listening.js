@@ -315,6 +315,27 @@ function renderItem(container) {
           ${it.authentic_categories.map(c => `<a href="#/authentic" class="authentic-cat-chip">${esc(c)}</a>`).join(' ')}
         </aside>
       ` : ''}
+      ${it.inference_question_expansion && Array.isArray(it.inference_question_expansion.prompts) && it.inference_question_expansion.prompts.length ? `
+        <!-- IMP-WAVE-P2-14 (UI audit fix, 2026-05-11): post-item
+             inference questions that go beyond literal comprehension.
+             Types: next_utterance / speaker_intent / implication /
+             relationship. -->
+        <aside class="listening-inference-prompts">
+          <details>
+            <summary class="muted small"><strong>Going deeper</strong> — inference questions</summary>
+            <ul>
+              ${it.inference_question_expansion.prompts.map(q => `
+                <li>
+                  <span class="inference-type-chip muted small">${esc(q.type || 'inference')}</span>
+                  <span lang="ja">${esc(q.prompt_ja || '')}</span>
+                  ${q.prompt_en ? `<br><span class="muted small">${esc(q.prompt_en)}</span>` : ''}
+                  ${q.hint ? `<br><em class="muted small">Hint: ${esc(q.hint)}</em>` : ''}
+                </li>
+              `).join('')}
+            </ul>
+          </details>
+        </aside>
+      ` : ''}
       ${it.choices ? `
         <div class="choice-grid">
           ${it.choices.map(c => {

@@ -254,7 +254,23 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "二人は どんな かんけいですか。",
+            "prompt_en": "What relationship do the two people have?",
+            "hint": "Listen for register and politeness markers.",
+            "type": "relationship"
+          },
+          {
+            "prompt_ja": "なぜ えきの 前で 会わないですか。",
+            "prompt_en": "Why don't they meet in front of the station?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.002",
@@ -493,7 +509,23 @@
           "count": 2
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "男の人は どこに いますか。",
+            "prompt_en": "Where is the man right now?",
+            "type": "speaker_intent"
+          },
+          {
+            "prompt_ja": "女の人は うちで 何を つくりますか。",
+            "prompt_en": "What might the woman be making at home?",
+            "hint": "Pan + eggs + milk suggests a specific dish.",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.003",
@@ -740,7 +772,18 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "二人は あした どこに 行きますか。",
+            "prompt_en": "Where might the two people be going tomorrow?",
+            "hint": "They're catching a 9 AM train.",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.004",
@@ -1004,7 +1047,22 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "男の人は つぎに 何を 言いますか。",
+            "prompt_en": "What would the man say next after the order is confirmed?",
+            "type": "next_utterance"
+          },
+          {
+            "prompt_ja": "お店は あついですか、つめたいですか。",
+            "prompt_en": "Is the cafe likely warm or cool inside? Why might the customer want cold coffee?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.005",
@@ -1327,7 +1385,22 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "先生は つぎに 何を 言いますか。",
+            "prompt_en": "What might the teacher say next?",
+            "type": "next_utterance"
+          },
+          {
+            "prompt_ja": "この 学生は ふつう ちこくしますか。",
+            "prompt_en": "Is this student typically late, based on the teacher's tone?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.006",
@@ -1596,7 +1669,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "女の人は つぎに 何を しますか。",
+            "prompt_en": "What does the woman do next, after receiving the location?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.007",
@@ -1870,7 +1953,23 @@
           "count": 2
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "この 人は どの きせつが いちばん きらいですか。",
+            "prompt_en": "Which season does this person dislike the most?",
+            "hint": "They mention reasons for disliking summer and winter — compare.",
+            "type": "implication"
+          },
+          {
+            "prompt_ja": "はるは すきですか、すきじゃないですか。",
+            "prompt_en": "Does the speaker like spring? What's the qualifier?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.008",
@@ -2127,7 +2226,22 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "女の人は カメラを かいますか。",
+            "prompt_en": "Will the woman buy the camera as a gift, based on this conversation?",
+            "type": "implication"
+          },
+          {
+            "prompt_ja": "男の人は ふだん どんな しゅみが ありますか。",
+            "prompt_en": "What hobbies might the man have, given he wants a camera?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.009",
@@ -2249,7 +2363,17 @@
         "estimated_total_seconds": 16,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~8s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "しらない人は どう こたえますか。",
+            "prompt_en": "How would a stranger typically respond to your question?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.010",
@@ -2368,7 +2492,22 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "まどぐちの 人は どう こたえますか。",
+            "prompt_en": "How does the ticket-counter staff typically respond?",
+            "type": "next_utterance"
+          },
+          {
+            "prompt_ja": "おわかれの あいさつは 何ですか。",
+            "prompt_en": "What is the standard closing phrase you would add after paying?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.011",
@@ -2538,7 +2677,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "ともだちは どう こたえますか。",
+            "prompt_en": "How does the friend likely respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.012",
@@ -2665,7 +2814,17 @@
         "estimated_total_seconds": 15,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "先生は どう こたえますか。",
+            "prompt_en": "How does the teacher likely greet back?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.013",
@@ -2865,7 +3024,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "二人は どんな かんけいですか。",
+            "prompt_en": "What relationship do A and B have (classmates / friends / colleagues)?",
+            "type": "relationship"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.014",
@@ -3031,7 +3200,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "なぜ 男の人は 北の 出口を えらびましたか。",
+            "prompt_en": "Why might the man specifically choose the north exit?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.015",
@@ -3224,7 +3403,22 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "母は つぎに 何を 言いますか。",
+            "prompt_en": "What does the mother say next?",
+            "type": "next_utterance"
+          },
+          {
+            "prompt_ja": "なぜ パンは いりませんか。",
+            "prompt_en": "Why doesn't the child want bread? What might they have at home?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.016",

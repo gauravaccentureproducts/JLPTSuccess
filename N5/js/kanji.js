@@ -265,6 +265,20 @@ function renderDetail(container, entry, entries) {
             </p>
           ` : ''}
           ${renderMnemonicBlock(entry.mnemonic)}
+          ${entry.etymology ? `
+            <!-- IMP-WAVE-P2-13 (UI audit fix, 2026-05-11): historical /
+                 pictographic origin of the kanji. Schema:
+                 {origin_type, story, related_modern}. -->
+            <div class="kanji-etymology">
+              <p><strong>Etymology:</strong>
+                <span class="kanji-etymology-type muted small">(${esc(entry.etymology.origin_type || 'origin')})</span>
+                ${esc(entry.etymology.story || '')}
+              </p>
+              ${entry.etymology.related_modern ? `
+                <p class="muted small">${esc(entry.etymology.related_modern)}</p>
+              ` : ''}
+            </div>
+          ` : ''}
         </section>
       ` : ''}
       ${entry.confusable_with?.length ? `

@@ -181,6 +181,28 @@ function renderRead(container, p) {
           ${p.authentic_categories.map(c => `<a href="#/authentic" class="authentic-cat-chip">${esc(c)}</a>`).join(' ')}
         </aside>
       ` : ''}
+      ${Array.isArray(p.paragraphs) && p.paragraphs.some(par => par.summary_en) ? `
+        <!-- IMP-WAVE-P2-7 (UI audit fix, 2026-05-11): per-
+             paragraph English summaries for multi-paragraph
+             passages. Anchor each paragraph to its gist. -->
+        <details class="reading-paragraph-summaries">
+          <summary class="muted small">Paragraph-by-paragraph summary</summary>
+          <ol>
+            ${p.paragraphs.map(par => par.summary_en ? `<li class="muted small">${esc(par.summary_en)}</li>` : '').join('')}
+          </ol>
+        </details>
+      ` : ''}
+      ${Array.isArray(p.reflection_prompts) && p.reflection_prompts.length ? `
+        <!-- IMP-WAVE-P2-8 (UI audit fix, 2026-05-11): post-passage
+             critical-thinking questions. Types: comprehension /
+             application / inference / personal. -->
+        <aside class="reading-reflection-prompts">
+          <h4 class="section-title">Reflection</h4>
+          <ul>
+            ${p.reflection_prompts.map(q => `<li><span class="reflection-type-chip muted small">${esc(q.type || 'reflect')}</span> ${esc(q.prompt_en || q.prompt_ja || '')}</li>`).join('')}
+          </ul>
+        </aside>
+      ` : ''}
       ${renderGrammarFootnotes(p)}
       ${(() => {
         // IMP-WAVE4 (UI audit fix, 2026-05-11): time-budget panel — per-

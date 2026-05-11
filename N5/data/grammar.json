@@ -331,7 +331,17 @@
         "auth.shop.teikyubi",
         "auth.transit.tsugi"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "です/ます (polite affirmative) is the DEFAULT register in business, classrooms, customer-facing situations, and any first encounter. Switching to plain だ/だ.ない is reserved for close friends, family, internal thoughts, or written casual contexts. Mismatching the register is the single most common foreigner mistake.",
+        "contexts": [
+          "formal_business",
+          "classroom",
+          "customer_service",
+          "first_meeting"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-002",
@@ -674,7 +684,15 @@
         "auth.transit.tsugi",
         "auth.transit.tsugino-eki"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "は (topic) is overused by learners as a generic \"subject\" marker. Native speakers DROP は when the topic is obvious from context (most natural in casual speech: \"コーヒー、好き？\" instead of \"コーヒーは好きですか？\"). Over-use of は signals foreign-learner speech.",
+        "contexts": [
+          "casual_conversation",
+          "classroom"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-003",
@@ -1006,7 +1024,15 @@
         "auth.hospital.netsu",
         "auth.transit.doa-shimari"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "が (subject) marks NEW information or contrast. Native ear distinguishes \"山田さんは行きます\" (topic-known) vs \"山田さんが行きます\" (it's Yamada — emphasizing identity) instinctively. Over-using は where が is needed signals foreign speech.",
+        "contexts": [
+          "narrative",
+          "introducing_new_info"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-004",
@@ -4363,7 +4389,15 @@
         "respectful": "こちらは なにでいらっしゃいますか。 (rare)"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-039"
+      "_alias_of": "n5-039",
+      "cultural_callout": {
+        "note": "これ/それ/あれ (this one / that one / over there) — same proximity rule as この/その/あの but standalone (no noun follows). あれ also indicates \"the one we both remember\" in conversation (\"あの映画、覚えてる？\").",
+        "contexts": [
+          "pointing",
+          "shared_memory"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-015",
@@ -5705,7 +5739,16 @@
           "provenance": "llm_curated"
         }
       ],
-      "_alias_of": "n5-046"
+      "_alias_of": "n5-046",
+      "cultural_callout": {
+        "note": "だれ/どなた (who) — どなた is POLITE and used in business/customer service (\"どなた様ですか？\"). だれ in formal contexts sounds rude. Reception desks and phone-greeting scripts default to どなた.",
+        "contexts": [
+          "business",
+          "reception",
+          "phone"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-019",
@@ -6397,7 +6440,16 @@
       "authentic_refs": [
         "auth.shop.jikan"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "〜から〜まで (range) is THE go-to pattern for opening hours signs (9:00から5:00まで). Business signs, transit timetables, and event posters use this format extensively. Master the noun form before the more flexible particle uses.",
+        "contexts": [
+          "signs",
+          "schedules",
+          "business_hours"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-023",
@@ -6713,7 +6765,14 @@
       "authentic_refs": [
         "auth.shop.fukuro"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "か (sentence-final question marker) is dropped in casual speech, where rising intonation alone signals a question (\"コーヒー飲む？\" instead of \"コーヒー飲みますか？\"). Including か with rising intonation in casual speech can sound stiff or interrogating.",
+        "contexts": [
+          "casual_conversation"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-024",
@@ -8339,7 +8398,15 @@
         "auth.menu.honjitsu",
         "auth.transit.tsugino-eki"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "の (attributive) is the most-used particle in Japanese, appearing every ~7 morphemes. Concatenated chains like 私の友だちの本 (\"my friend's book\") feel verbose to learners but are completely natural in Japanese. Avoid over-pruning.",
+        "contexts": [
+          "all_speech",
+          "writing"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-029",
@@ -11990,7 +12057,15 @@
         "respectful": "こちらの ほんを ごらんに なって ください。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-015"
+      "_alias_of": "n5-015",
+      "cultural_callout": {
+        "note": "この/その/あの (this / that / over-there) is determined by physical/conversational PROXIMITY: この (near speaker), その (near listener / just mentioned), あの (far from both or shared memory). Misuse marks foreign speech immediately.",
+        "contexts": [
+          "describing_objects",
+          "conversation"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-041",
@@ -14598,7 +14673,15 @@
         "humble": "どれでございましょうか。",
         "respectful": "どちらで いらっしゃいますか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "どれ/どの/どちら (which) — どちら is the POLITE version, common in restaurants (\"どちらにしますか？\" = \"which will you have?\"). どれ is neutral/casual. Both restrict to selection from a known set, unlike 何 (open question).",
+        "contexts": [
+          "service",
+          "choice_questions"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-050",
@@ -14942,7 +15025,15 @@
           "context": "いかがですか as polite-offering variant.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "どう/いかが (how) — いかが is the POLITE form. Service workers default to \"いかがですか？\" / \"いかがでしょうか？\"; friends use \"どう？\". Mismatching makes you sound condescending or stiff. いかが is also a polite OFFER (\"お茶はいかがですか？\" = \"would you like tea?\").",
+        "contexts": [
+          "service",
+          "offers"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-051",
@@ -18389,7 +18480,16 @@
           "context": "動詞ました for completed action.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜ました (polite past) is the workhorse in business reports, email, customer interactions, and lesson narration. Even between close friends, formal events (graduations, business announcements) revert to 〜ました.",
+        "contexts": [
+          "business",
+          "email",
+          "narration"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-061",
@@ -19053,7 +19153,15 @@
           "context": "〜ましょう — let's do.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜ましょう (let's) is mostly used for INVITING others (\"行きましょう\" = \"let's go\"). When suggesting your OWN action, casual speakers often use 〜よう/〜ようと思う instead. Volitional is also a polite refusal softener (\"そうしましょう\" = \"let's do that, then\").",
+        "contexts": [
+          "invitations",
+          "group_planning"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-063",
@@ -22220,7 +22328,16 @@
         "auth.menu.mizu",
         "auth.transit.te-wo-haisaku"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "Verb-てください (please do) sounds DIRECT — equivalent to \"please do X\" in English. In service contexts (clerk to customer), even softer forms (お+stem+ください / 〜ていただけませんか) are preferred. Use てください with peers/subordinates; soften upward.",
+        "contexts": [
+          "service",
+          "instructions",
+          "requests"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-072",
@@ -22592,7 +22709,15 @@
       "authentic_refs": [
         "auth.transit.densha-okurete"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "〜ています has THREE distinct meanings: ongoing action (\"読んでいます\" = is reading), resulting state (\"結婚しています\" = is married), habitual (\"毎日走っています\" = run every day). Context disambiguates; learners often default to \"ongoing\" and miss the resulting-state reading.",
+        "contexts": [
+          "descriptions",
+          "narrative"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-073",
@@ -23284,7 +23409,15 @@
           "error_category": "particle",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜てもいいです (permission) is grammatically polite but can sound presumptuous if used to GRANT permission upward (\"先生、トイレに行ってもいいです\" sounds like you're permitting the teacher!). Use 〜てもいいですか (asking) when seeking permission from someone of higher status.",
+        "contexts": [
+          "permission",
+          "classroom"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-075",
@@ -23648,7 +23781,16 @@
           "error_category": "conjugation",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜てはいけません (must not / forbidden) carries STRONG prohibitive force — used on official signs (写真をとってはいけません), in parent-to-child / teacher-to-student instruction. Adult peers use softer forms (〜ないでください). Reading: tobacco/photo/parking prohibitions on Japanese signs follow this pattern.",
+        "contexts": [
+          "prohibitions",
+          "signs",
+          "rules"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-076",
@@ -24320,7 +24462,16 @@
       "authentic_refs": [
         "auth.notice.shashin-kinshi"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "〜ないでください (please don't) is softer than 〜てはいけません. Common on customer-facing signs (\"写真をとらないでください\") and in polite refusals (\"心配しないでください\" = please don't worry). The negative request is more face-saving than the affirmative てください.",
+        "contexts": [
+          "polite_refusal",
+          "signs",
+          "reassurance"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-078",
@@ -28944,7 +29095,15 @@
       "authentic_refs": [
         "auth.hospital.netsu"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "あります (inanimate existence) vs います (animate existence) is a classic learner trap. Plants are inanimate (あります). Pets, fish, insects use います. Vehicles and ghosts vary by context. The 100% rule: if it moves on its own volition → います; otherwise あります.",
+        "contexts": [
+          "descriptions",
+          "questions"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-091",
@@ -32781,7 +32940,15 @@
           "context": "希望表現 ほしい.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜が ほしい (want object) is restricted to FIRST-person speaker desire (\"私は車がほしいです\"). Saying \"彼は車がほしい\" sounds wrong — for third-person, use 〜たがる/〜と言っている. This is a key learner error point.",
+        "contexts": [
+          "first_person_desire",
+          "shopping"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-102",
@@ -33725,7 +33892,15 @@
         "humble": "いただきたい です。",
         "respectful": "めしあがりたいと おもって いらっしゃいます。 (about others)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "〜たい (want to do) has the same first-person restriction as ほしい — \"彼は行きたい\" sounds wrong; use 〜たがる. Also, たい conjugates as an i-adjective: たいです / たくない / たかった. Many learners over-conjugate it as a verb.",
+        "contexts": [
+          "first_person_desire",
+          "planning"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-105",
@@ -41815,7 +41990,16 @@
           "context": "理由の質問と答え.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "どうして〜か。〜から。 is the canonical reason Q-A frame. In casual speech, how/why questions often drop どうして and use 〜の？/〜なの？ pattern instead. Formal speech (business, classroom) prefers どうしてですか.",
+        "contexts": [
+          "classroom",
+          "business",
+          "curiosity"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-130",
@@ -43516,7 +43700,16 @@
           "context": "丁寧な理由の表現.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜ので (softer because) sounds more polite than 〜から. Business writing, formal apologies, and customer-facing scripts strongly prefer ので over から. Switching unconsciously to から in formal contexts marks foreign-learner speech.",
+        "contexts": [
+          "business",
+          "apologies",
+          "formal_writing"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-135",
@@ -48229,7 +48422,16 @@
           "context": "Conversational ritual phrases bundled in front-matter.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "Set phrases (いらっしゃいませ, ありがとうございました, すみません) are SITUATIONAL: いらっしゃいませ is store-clerk-only (never use to greet a friend); すみません blurs \"sorry\" + \"excuse me\" + \"thanks\" — context decides meaning. Mastering set phrases is mastering Japanese register.",
+        "contexts": [
+          "service",
+          "apologies",
+          "greetings"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-153",
@@ -48596,7 +48798,15 @@
           "context": "まだ〜ていません.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "と (with / and) for accompanying agent: \"友だちと行きます\" = \"I go with a friend.\" NOT used for \"with a tool/instrument\" — that's で. Common error: \"ペンと書きました\" (wrong) vs \"ペンで書きました\" (correct, \"wrote with a pen\").",
+        "contexts": [
+          "descriptions",
+          "tools_vs_companions"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-154",
@@ -49584,7 +49794,15 @@
           "error_category": "word_order",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜ね/〜よ are sentence-final particles that CHANGE conversational tone. ね seeks agreement (\"いいですね\" = \"isn't it nice?\"). よ adds informational punch (\"行きますよ\" = \"I'm going, FYI\"). Mixing them up creates rude or distant impressions. Native ears are very tuned to these.",
+        "contexts": [
+          "conversation",
+          "rapport"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-157",
@@ -49899,7 +50117,15 @@
           "context": "推量の でしょう.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜でしょう (probably / right?) is the polite hedge — a forecast on TV (\"明日は雨でしょう\") or a soft confirmation seeker. Casual equivalent is でしょ / だろう. Tone of voice changes meaning: rising でしょう？ = \"isn't it?\"; flat でしょう = \"probably.\"",
+        "contexts": [
+          "forecasting",
+          "soft_confirmation"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-158",
@@ -53623,7 +53849,15 @@
           "context": "〜たり〜たりする.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜たり〜たり is the \"for-example\" list, NEVER a complete list. Saying \"週末は本を読んだり、走ったりします\" means \"I do things like read and run\" — leaving room for more. Listing everything with 〜て chain sounds exhaustive; たり is the natural conversational choice.",
+        "contexts": [
+          "conversation",
+          "casual_descriptions"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-169",
@@ -54299,7 +54533,15 @@
           "context": "〜たほうがいい (助言).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜た+ほうがいい (should do) is a strong RECOMMENDATION, not a casual suggestion. Used by parents/teachers/doctors giving advice. Among equals, soften further with 〜たほうがいいかもしれません (\"might be better\").",
+        "contexts": [
+          "advice",
+          "instruction"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-171",
@@ -54652,7 +54894,15 @@
           "context": "〜ないほうがいい.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "〜ない+ほうがいい (shouldn't do) has STRONG implications when delivered directly. Doctors prescribing (\"お酒を飲まないほうがいいです\"), parents warning. To deliver gently to peers, add ね or qualifications (\"〜ないほうがいいと思いますけど\").",
+        "contexts": [
+          "warning",
+          "health_advice"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-172",
@@ -60087,7 +60337,16 @@
       "authentic_refs": [
         "auth.menu.gohan-okawari"
       ],
-      "authentic_refs_provenance": "llm_curated"
+      "authentic_refs_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "V+ことができます is the \"formal/written\" potential. Spoken Japanese strongly prefers the inflected potential form (食べられる) instead. Use ことができます in resumes, formal letters, and on capability-statement signs.",
+        "contexts": [
+          "resumes",
+          "formal_writing",
+          "signs"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     }
   ],
   "_meta": {

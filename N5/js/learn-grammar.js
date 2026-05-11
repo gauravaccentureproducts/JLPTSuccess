@@ -720,6 +720,21 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
 
       ${p.notes ? `<section><h3 class="section-title">${esc(t('grammar_detail.notes'))}</h3><p>${esc(p.notes)}</p></section>` : ''}
 
+      ${p.cultural_callout ? `
+        <!-- IMP-WAVE-P2-12 (UI audit fix, 2026-05-11): usage-culture
+             callout — when/why a learner picks this pattern in real
+             Japanese situations (business / classroom / casual / etc.). -->
+        <section class="grammar-cultural-callout">
+          <h3 class="section-title">Cultural usage note</h3>
+          <p>${esc(p.cultural_callout.note || '')}</p>
+          ${Array.isArray(p.cultural_callout.contexts) && p.cultural_callout.contexts.length ? `
+            <p class="muted small">
+              Contexts: ${p.cultural_callout.contexts.map(c => `<span class="cultural-context-chip">${esc(c)}</span>`).join(' ')}
+            </p>
+          ` : ''}
+        </section>
+      ` : ''}
+
       ${p.authentic_refs?.length ? `
         <!-- IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): authentic-content
              cross-link. Real-world cards where this grammar pattern

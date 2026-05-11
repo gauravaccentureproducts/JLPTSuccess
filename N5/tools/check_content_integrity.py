@@ -867,7 +867,20 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
     SKIP_SUBTREE_FIELDS = {"common_mistakes", "distractor_explanations",
                            "l1_notes", "cultural_context", "summary",
                            "authentic_citations", "wrong_corrected_pair",
-                           "politeness_ladder"}
+                           "politeness_ladder",
+                           # P2-12 (2026-05-11): cultural_callout is
+                           # flowing-prose pedagogical commentary on
+                           # pattern usage (business etiquette, age
+                           # cohort, register risk). Like cultural_context,
+                           # the value needs to read as natural Japanese
+                           # commentary and may reference N4+ vocabulary
+                           # by necessity ("商業", "業務", "警告" etc.).
+                           "cultural_callout",
+                           # P2-13 (2026-05-11): etymology stories
+                           # reference historical Chinese / OBI script
+                           # names that go well beyond N5 (e.g., 圓,
+                           # 萬, 翟). Same rationale.
+                           "etymology"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing

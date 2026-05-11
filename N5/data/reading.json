@@ -196,7 +196,22 @@
         "char_count": 86,
         "note": "Estimated native-equivalent age band based on 9.3% kanji density and 86-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What does Anna study in Tokyo?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Where is Anna from, and how does the passage tell us that?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is Anna's hobby, and how might she practice it?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.002",
@@ -398,7 +413,22 @@
         "signs",
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "List the speaker's daily activities in order from morning to night.",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Which activity is the most time-consuming based on the passage?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "How does your own daily routine compare to the one described?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.003",
@@ -572,7 +602,22 @@
         "char_count": 62,
         "note": "Estimated native-equivalent age band based on 4.8% kanji density and 62-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "How many people are in the family described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What does each family member do?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Why might the speaker mention occupations specifically?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.004",
@@ -730,7 +775,22 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What did the person buy, and how much was the total?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Where did the shopping take place?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Was the shopping considered a good value? How can you tell?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.005",
@@ -921,7 +981,22 @@
         "char_count": 79,
         "note": "Estimated native-equivalent age band based on 12.7% kanji density and 79-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What sport does the writer play, and when?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Why might they have chosen that particular day of the week?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "Do you have a similar weekly habit? Describe it briefly.",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.006",
@@ -1097,7 +1172,18 @@
       "authentic_categories": [
         "weather"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the weather like in the passage?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does the weather affect the speaker's plans?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.007",
@@ -1189,19 +1275,22 @@
             "時",
             "間"
           ],
-          "mora_approx": 7
+          "mora_approx": 7,
+          "summary_en": "Heading: Library hours"
         },
         {
           "idx": 1,
           "text_ja": "げつようび 〜 きんようび：9:00 〜 21:00",
           "kanji_used": [],
-          "mora_approx": 10
+          "mora_approx": 10,
+          "summary_en": "Weekday hours (Mon–Fri): 9:00–21:00"
         },
         {
           "idx": 2,
           "text_ja": "どようび：10:00 〜 18:00",
           "kanji_used": [],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Saturday hours: 10:00–18:00"
         },
         {
           "idx": 3,
@@ -1209,7 +1298,8 @@
           "kanji_used": [
             "休"
           ],
-          "mora_approx": 7
+          "mora_approx": 7,
+          "summary_en": "Sunday: closed"
         },
         {
           "idx": 4,
@@ -1220,7 +1310,8 @@
             "週",
             "間"
           ],
-          "mora_approx": 17
+          "mora_approx": 17,
+          "summary_en": "Lending rule: books can be borrowed for up to 2 weeks"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -1273,7 +1364,23 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What hours is the library open on weekends?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How long can books be borrowed for?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "If you needed to return a book on Sunday, when could you do it?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.008",
@@ -1441,7 +1548,18 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What mode of transport is described, and how long does the trip take?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "When does the speaker arrive?",
+          "type": "comprehension"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.009",
@@ -1600,7 +1718,22 @@
         "char_count": 67,
         "note": "Estimated native-equivalent age band based on 7.5% kanji density and 67-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What food does the speaker like, and what doesn't they like?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Where does the speaker usually eat?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "What is your favorite food, and how often do you eat it?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.010",
@@ -1751,7 +1884,18 @@
         "char_count": 85,
         "note": "Estimated native-equivalent age band based on 3.5% kanji density and 85-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "Who does the speaker live with?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What does each member do for work or study?",
+          "type": "comprehension"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.011",
@@ -1933,7 +2077,18 @@
       "authentic_categories": [
         "menu"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the speaker eating, and at what time?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Is this a typical meal time in Japan?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.012",
@@ -2100,7 +2255,18 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What items did the shopper buy, and at what prices?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is the total bill?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.013",
@@ -2296,7 +2462,18 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "Where is the speaker traveling to, and how?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What time of year is implied by the travel context?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.014",
@@ -2453,7 +2630,18 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What was the shopping outcome (success / failure / partial)?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "Where did the trip take place?",
+          "type": "comprehension"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.015",
@@ -2621,7 +2809,18 @@
       "authentic_categories": [
         "weather"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the weather forecast for tomorrow?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What activity is the speaker planning, and how does weather affect it?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.016",
@@ -2793,7 +2992,22 @@
       "authentic_categories": [
         "hospital"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What health issue is described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What advice is given or implied?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "When was the last time you experienced a similar symptom?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.017",
@@ -2861,7 +3075,8 @@
           "idx": 0,
           "text_ja": "メニュー",
           "kanji_used": [],
-          "mora_approx": 3
+          "mora_approx": 3,
+          "summary_en": "Heading: Menu"
         },
         {
           "idx": 1,
@@ -2869,7 +3084,8 @@
           "kanji_used": [
             "円"
           ],
-          "mora_approx": 5
+          "mora_approx": 5,
+          "summary_en": "Coffee: 300 yen"
         },
         {
           "idx": 2,
@@ -2877,7 +3093,8 @@
           "kanji_used": [
             "円"
           ],
-          "mora_approx": 3
+          "mora_approx": 3,
+          "summary_en": "Tea (green): 250 yen"
         },
         {
           "idx": 3,
@@ -2885,7 +3102,8 @@
           "kanji_used": [
             "円"
           ],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Cake: 500 yen"
         },
         {
           "idx": 4,
@@ -2893,7 +3111,8 @@
           "kanji_used": [
             "円"
           ],
-          "mora_approx": 7
+          "mora_approx": 7,
+          "summary_en": "Sandwich: 600 yen"
         },
         {
           "idx": 5,
@@ -2901,7 +3120,8 @@
           "kanji_used": [
             "円"
           ],
-          "mora_approx": 11
+          "mora_approx": 11,
+          "summary_en": "Set deal (coffee + cake): 700 yen"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -2961,7 +3181,23 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "How much does a coffee-and-cake set cost?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Is the set deal cheaper than buying the items separately?",
+          "type": "application"
+        },
+        {
+          "prompt_en": "Which item would you order, and why?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.018",
@@ -3143,7 +3379,18 @@
         "char_count": 87,
         "note": "Estimated native-equivalent age band based on 14.9% kanji density and 87-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the speaker's daily morning routine?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How might this routine differ on weekends?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.019",
@@ -3304,7 +3551,18 @@
         "char_count": 73,
         "note": "Estimated native-equivalent age band based on 9.6% kanji density and 73-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the appointment time, and where?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Why might the speaker be sharing this information?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.020",
@@ -3475,7 +3733,22 @@
         "char_count": 86,
         "note": "Estimated native-equivalent age band based on 12.8% kanji density and 86-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the speaker's morning schedule?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What does the speaker do on weekends?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Compare this schedule to your own typical day.",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.021",
@@ -3564,7 +3837,8 @@
           "idx": 0,
           "text_ja": "とうきょうから おおさかまで ひこうきが あります。",
           "kanji_used": [],
-          "mora_approx": 21
+          "mora_approx": 21,
+          "summary_en": "Flight info: Tokyo to Osaka"
         },
         {
           "idx": 1,
@@ -3572,7 +3846,8 @@
           "kanji_used": [
             "時"
           ],
-          "mora_approx": 5
+          "mora_approx": 5,
+          "summary_en": "Morning departures: 6, 7, 8 AM"
         },
         {
           "idx": 2,
@@ -3580,7 +3855,8 @@
           "kanji_used": [
             "時"
           ],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Midday departures: 12 noon, 1 PM"
         },
         {
           "idx": 3,
@@ -3588,7 +3864,8 @@
           "kanji_used": [
             "時"
           ],
-          "mora_approx": 5
+          "mora_approx": 5,
+          "summary_en": "Evening departures: 6, 7, 8 PM"
         },
         {
           "idx": 4,
@@ -3597,7 +3874,8 @@
             "時",
             "間"
           ],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Flight duration: 1 hour"
         },
         {
           "idx": 5,
@@ -3605,7 +3883,8 @@
           "kanji_used": [
             "円"
           ],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Adult fare: 25,000 yen"
         },
         {
           "idx": 6,
@@ -3614,7 +3893,8 @@
             "子",
             "円"
           ],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Child fare: 12,500 yen"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -3669,7 +3949,8 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated"
     },
     {
       "id": "n5.read.022",
@@ -3928,7 +4209,8 @@
           "idx": 0,
           "text_ja": "バスの じかん",
           "kanji_used": [],
-          "mora_approx": 6
+          "mora_approx": 6,
+          "summary_en": "Heading: Bus schedule"
         },
         {
           "idx": 1,
@@ -3939,7 +4221,8 @@
             "日",
             "金"
           ],
-          "mora_approx": 6
+          "mora_approx": 6,
+          "summary_en": "Weekday service (Mon–Fri): hourly, 8:00–18:00 even hours"
         },
         {
           "idx": 2,
@@ -3949,7 +4232,8 @@
             "曜",
             "日"
           ],
-          "mora_approx": 3
+          "mora_approx": 3,
+          "summary_en": "Saturday service: 9:00 / 12:00 / 15:00"
         },
         {
           "idx": 3,
@@ -3959,7 +4243,8 @@
             "曜",
             "休"
           ],
-          "mora_approx": 5
+          "mora_approx": 5,
+          "summary_en": "Sunday: no service"
         },
         {
           "idx": 4,
@@ -3970,7 +4255,8 @@
             "円",
             "子"
           ],
-          "mora_approx": 7
+          "mora_approx": 7,
+          "summary_en": "Fares: 300 yen adult / 150 yen child"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4036,7 +4322,8 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated"
     },
     {
       "id": "n5.read.024",
@@ -4685,7 +4972,8 @@
           "idx": 0,
           "text_ja": "ヤマダさんへ",
           "kanji_used": [],
-          "mora_approx": 6
+          "mora_approx": 6,
+          "summary_en": "Salutation: To Yamada"
         },
         {
           "idx": 1,
@@ -4695,13 +4983,15 @@
             "会",
             "飲"
           ],
-          "mora_approx": 50
+          "mora_approx": 50,
+          "summary_en": "Plan: meet at the station 1 PM tomorrow, have tea at a cafe, then shop at the department store"
         },
         {
           "idx": 2,
           "text_ja": "スズキより",
           "kanji_used": [],
-          "mora_approx": 5
+          "mora_approx": 5,
+          "summary_en": "Sign-off: From Suzuki"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4765,7 +5055,8 @@
         "shop",
         "menu"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated"
     },
     {
       "id": "n5.read.028",
@@ -6048,7 +6339,8 @@
           "idx": 0,
           "text_ja": "やまださんへ",
           "kanji_used": [],
-          "mora_approx": 6
+          "mora_approx": 6,
+          "summary_en": "Salutation: To Yamada-san"
         },
         {
           "idx": 1,
@@ -6063,13 +6355,15 @@
             "生",
             "来"
           ],
-          "mora_approx": 61
+          "mora_approx": 61,
+          "summary_en": "Body: invitation to a school party tomorrow, 3–5 PM, with the teacher attending"
         },
         {
           "idx": 2,
           "text_ja": "たなか",
           "kanji_used": [],
-          "mora_approx": 3
+          "mora_approx": 3,
+          "summary_en": "Sign-off: Tanaka"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -6138,7 +6432,8 @@
         "char_count": 87,
         "note": "Estimated native-equivalent age band based on 11.5% kanji density and 87-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated"
     },
     {
       "id": "n5.read.035",
@@ -7111,7 +7406,8 @@
           "kanji_used": [
             "本"
           ],
-          "mora_approx": 7
+          "mora_approx": 7,
+          "summary_en": "Heading: Bookstore notice"
         },
         {
           "idx": 1,
@@ -7119,7 +7415,8 @@
           "kanji_used": [
             "大"
           ],
-          "mora_approx": 4
+          "mora_approx": 4,
+          "summary_en": "Tagline: BIG SALE!"
         },
         {
           "idx": 2,
@@ -7131,7 +7428,8 @@
             "一",
             "七"
           ],
-          "mora_approx": 15
+          "mora_approx": 15,
+          "summary_en": "Sale dates: 1–7 August"
         },
         {
           "idx": 3,
@@ -7142,7 +7440,8 @@
             "十",
             "八"
           ],
-          "mora_approx": 14
+          "mora_approx": 14,
+          "summary_en": "Sale hours: 10 AM – 8 PM daily"
         },
         {
           "idx": 4,
@@ -7152,7 +7451,8 @@
             "半",
             "分"
           ],
-          "mora_approx": 13
+          "mora_approx": 13,
+          "summary_en": "Discount: 50% off all books"
         },
         {
           "idx": 5,
@@ -7162,7 +7462,8 @@
             "本",
             "語"
           ],
-          "mora_approx": 16
+          "mora_approx": 16,
+          "summary_en": "Inventory: Japanese books AND English books"
         },
         {
           "idx": 6,
@@ -7170,7 +7471,8 @@
           "kanji_used": [
             "来"
           ],
-          "mora_approx": 8
+          "mora_approx": 8,
+          "summary_en": "Call to action: come visit!"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -7232,7 +7534,8 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "paragraph_summary_provenance": "llm_curated"
     },
     {
       "id": "n5.read.040",
