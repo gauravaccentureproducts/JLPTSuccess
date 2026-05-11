@@ -3950,7 +3950,22 @@
         "time"
       ],
       "authentic_categories_provenance": "auto_derived",
-      "paragraph_summary_provenance": "llm_curated"
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What time options are available for the Tokyo–Osaka flight?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "If you wanted to arrive in Osaka by 2 PM, which flight would you take?",
+          "type": "application"
+        },
+        {
+          "prompt_en": "Why might morning flights be more popular than evening ones?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.022",
@@ -4130,7 +4145,22 @@
         "char_count": 72,
         "note": "Estimated native-equivalent age band based on 4.2% kanji density and 72-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What activity does the writer do on weekends?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Who joins the writer for this activity?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What does this say about the writer's social life?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.023",
@@ -4323,7 +4353,22 @@
         "transit"
       ],
       "authentic_categories_provenance": "auto_derived",
-      "paragraph_summary_provenance": "llm_curated"
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "On which days does the bus not run?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is the adult-vs-child fare difference?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "If your shift ended at 7 PM on a Friday, would you catch the bus home?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.024",
@@ -4498,7 +4543,18 @@
         "char_count": 74,
         "note": "Estimated native-equivalent age band based on 9.5% kanji density and 74-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What part-time job does the writer have?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does it interact with their studies?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.025",
@@ -4697,7 +4753,18 @@
         "signs",
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "Describe the writer's daily routine in 3 bullets.",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does this routine compare to your own?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.026",
@@ -4866,7 +4933,18 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What did the writer buy on this shopping trip?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Was the trip described as successful or disappointing?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.027",
@@ -5056,7 +5134,22 @@
         "menu"
       ],
       "authentic_categories_provenance": "auto_derived",
-      "paragraph_summary_provenance": "llm_curated"
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the plan being proposed?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Who is the sender, who is the recipient?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How would you politely accept or decline this invitation in Japanese?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.028",
@@ -5237,7 +5330,18 @@
         "char_count": 88,
         "note": "Estimated native-equivalent age band based on 4.5% kanji density and 88-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What hobby is described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How often does the writer practice it?",
+          "type": "comprehension"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.029",
@@ -5416,7 +5520,18 @@
       "authentic_categories": [
         "weather"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the weather forecast?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What clothing or item should one carry given the forecast?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.030",
@@ -5610,7 +5725,18 @@
       "authentic_categories": [
         "signs"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "How do you get from the station to the writer's house?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "If you missed the directions, what landmarks would help you find the way?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.031",
@@ -5795,7 +5921,22 @@
         "char_count": 104,
         "note": "Estimated native-equivalent age band based on 4.8% kanji density and 104-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What pet does the writer have?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does the writer feel about it?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "Do you have a pet, and how would you describe its routine?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.032",
@@ -6026,7 +6167,18 @@
       "authentic_categories": [
         "notice"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the writer's job?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is the work schedule?",
+          "type": "comprehension"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.033",
@@ -6219,7 +6371,18 @@
       "authentic_categories": [
         "weather"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the weather like in the passage?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does the weather affect the writer's mood or plans?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.034",
@@ -6433,7 +6596,22 @@
         "note": "Estimated native-equivalent age band based on 11.5% kanji density and 87-char length."
       },
       "target_reading_age_provenance": "auto_derived",
-      "paragraph_summary_provenance": "llm_curated"
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is being invited and when?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Who is the sender, who is the recipient?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How would you accept this invitation in polite Japanese?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.035",
@@ -6643,7 +6821,18 @@
       "authentic_categories": [
         "menu"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What food is the writer describing or recommending?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What does the writer like about it?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.036",
@@ -6847,7 +7036,18 @@
         "char_count": 138,
         "note": "Estimated native-equivalent age band based on 13.8% kanji density and 138-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is the writer's travel plan?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Why might they have chosen that destination?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.037",
@@ -7073,7 +7273,18 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What transport mode is described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What was the travel duration and cost?",
+          "type": "comprehension"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.038",
@@ -7286,7 +7497,22 @@
         "char_count": 105,
         "note": "Estimated native-equivalent age band based on 10.5% kanji density and 105-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What study habit is the writer describing?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is the writer's motivation for studying?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "How does your own study approach compare?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.039",
@@ -7535,7 +7761,22 @@
         "shop"
       ],
       "authentic_categories_provenance": "auto_derived",
-      "paragraph_summary_provenance": "llm_curated"
+      "paragraph_summary_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "When is the sale, and what discount is offered?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What categories of books are on sale?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "If you wanted to attend, which day/time would you go?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.040",
@@ -7732,7 +7973,22 @@
       "authentic_categories": [
         "weather"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What flower / plant / natural feature is described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "In which season does it bloom?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Is there a similar seasonal landmark in your culture?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.041",

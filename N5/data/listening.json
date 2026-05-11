@@ -4137,7 +4137,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "なぜ さいしょの 友だちと 行きませんか。",
+            "prompt_en": "Why isn't B going with their original friend?",
+            "type": "implication"
+          },
+          {
+            "prompt_ja": "B さんと 母は どんな かんけいですか。",
+            "prompt_en": "What does this tell us about B's relationship with their mother?",
+            "type": "relationship"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.017",
@@ -4365,7 +4380,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "先生は どうして おくれますか。",
+            "prompt_en": "Why is the teacher running late?",
+            "type": "speaker_intent"
+          },
+          {
+            "prompt_ja": "三時半に なったら、つぎに 何が おこりますか。",
+            "prompt_en": "What probably happens when the teacher arrives at 3:30?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.018",
@@ -4571,7 +4601,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "B さんは 自分の 父と 行きますか。",
+            "prompt_en": "Is B going with their own father, or to their father's friend's house?",
+            "type": "implication"
+          },
+          {
+            "prompt_ja": "なぜ くるまで 行かないですか。",
+            "prompt_en": "Why might they choose train over driving?",
+            "type": "inference"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.019",
@@ -4837,7 +4882,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "先生は 学生を しかりますか、ゆるしますか。",
+            "prompt_en": "Will the teacher scold the student or accept the excuse?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.020",
@@ -5068,7 +5123,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "B さんは その 本を きにいって いますか。",
+            "prompt_en": "Does B think the book is worth the price?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.021",
@@ -5262,7 +5327,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "にちようびに 行きたいです。 行けますか。",
+            "prompt_en": "If you wanted to go on Sunday, could you? (Listen for what days are mentioned.)",
+            "type": "application"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.022",
@@ -5512,7 +5587,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "あさっての 計画を 立てる ほうが いいですか、あしたの 計画ですか。",
+            "prompt_en": "Which day would be better for an outdoor plan based on the forecast?",
+            "type": "application"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.023",
@@ -5722,7 +5807,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "水よう日は 学校が ありますか。",
+            "prompt_en": "Does the speaker have school on Wednesday?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.024",
@@ -5916,7 +6011,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "こん夜は どんな パーティーに なりますか。",
+            "prompt_en": "What kind of gathering does this sound like — formal or casual?",
+            "type": "inference"
+          },
+          {
+            "prompt_ja": "なぜ 父は おそく 来ますか。",
+            "prompt_en": "Why might the father arrive later than the others?",
+            "type": "inference"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.025",
@@ -6066,7 +6176,17 @@
         "estimated_total_seconds": 9,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~1s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "先生は どう こたえますか。",
+            "prompt_en": "How does the teacher typically greet back?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.026",
@@ -6186,7 +6306,17 @@
       "authentic_categories": [
         "menu"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "店員は つぎに 何を 言いますか。",
+            "prompt_en": "What does the cafe staff typically say next?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.027",
@@ -6302,7 +6432,17 @@
         "estimated_total_seconds": 8,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "友だちは どう 反応しますか。",
+            "prompt_en": "How might the friend respond to a polite refusal?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.028",
@@ -6415,7 +6555,17 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "いえの 人は つぎに 何を 言いますか。",
+            "prompt_en": "What does the host typically say in reply?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.029",
@@ -6538,7 +6688,17 @@
         "estimated_total_seconds": 8,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "いっしょに 食べる 人は どう こたえますか。",
+            "prompt_en": "What is the typical response from the others at the table?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.030",
@@ -6668,7 +6828,22 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "しらない 人は どう こたえますか。",
+            "prompt_en": "How does a stranger typically respond to a polite direction-asking phrase?",
+            "type": "next_utterance"
+          },
+          {
+            "prompt_ja": "どんな 答えを よういして おく べきですか。",
+            "prompt_en": "What follow-up phrase should you prepare?",
+            "type": "application"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.031",

@@ -880,7 +880,20 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
                            # reference historical Chinese / OBI script
                            # names that go well beyond N5 (e.g., 圓,
                            # 萬, 翟). Same rationale.
-                           "etymology"}
+                           "etymology",
+                           # P2-8 (2026-05-12): reflection_prompts are
+                           # post-passage critical-thinking questions
+                           # authored in English (so the prompt_en
+                           # field is fine), but the prompt_ja variants
+                           # may include analytical vocabulary (反応 /
+                           # 関係 / 計画 / 自分 etc.) that goes beyond
+                           # the N5 kanji whitelist. Same rationale.
+                           "reflection_prompts",
+                           # P2-14 (2026-05-12): inference_question_expansion
+                           # mirrors reflection_prompts — open-ended
+                           # follow-up questions whose Japanese phrasing
+                           # naturally uses analytical N4+ vocabulary.
+                           "inference_question_expansion"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing

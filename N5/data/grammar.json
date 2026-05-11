@@ -1359,7 +1359,15 @@
         "humble": "ごはんを いただきます。",
         "respectful": "ごはんを めしあがります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "を (direct object) is often dropped in casual speech (\"ごはん食べる？\" instead of \"ごはんを食べる？\"). Foreign learners cling to it; native casual speech is more elliptical. Keep を in formal/written contexts and when ambiguity threatens.",
+        "contexts": [
+          "casual_drop",
+          "formal_keep"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-005",
@@ -1680,7 +1688,14 @@
         "humble": "がっこうに まいります。",
         "respectful": "がっこうに いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "に has at least 5 uses — target / time / existence-location / agent (passive) / purpose. Memorize the use, not the particle in isolation. The \"wrong に\" is one of the top-3 foreigner errors throughout N5-N4.",
+        "contexts": [
+          "everywhere"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-006",
@@ -2010,7 +2025,15 @@
           "context": "行きます / 来ます / 帰ります + へ for direction.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "へ (direction) overlaps heavily with に in modern speech. Pedagogically, へ emphasizes the trajectory (\"toward Tokyo\") while に emphasizes the endpoint (\"arrive at Tokyo\"). Native speakers use them almost interchangeably for simple movement.",
+        "contexts": [
+          "movement_direction",
+          "formal_writing"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-007",
@@ -2365,7 +2388,15 @@
           "context": "Means/instrument: バスで 行きます。",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "で is the workhorse: location-of-action (\"学校で勉強する\"), means/instrument (\"ペンで書く\"), and many idiomatic uses. Don't confuse with に (location-of-existence). Mnemonic: で = where ACTIVE things happen; に = where things ARE.",
+        "contexts": [
+          "action_context",
+          "tool_use"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-008",
@@ -2714,7 +2745,15 @@
           "context": "Exhaustive list: A と B (vs や for non-exhaustive).",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "と has 3 distinct functions — accompanying agent (\"友だちと\"), exhaustive list (\"AとB\"), quotation (\"Aと言う\"). Most learner errors come from using と for instruments (use で instead: \"ペンで書く\" not \"ペンと書く\").",
+        "contexts": [
+          "conversation",
+          "narrative"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-009",
@@ -3049,7 +3088,15 @@
           "context": "From-time marker"
         }
       ],
-      "authentic_citations_provenance": "llm_curated"
+      "authentic_citations_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "から as \"from\" (location/time) is straightforward; から as \"because\" requires the speaker to take a position. ので is softer for the same meaning — use ので in business / apologies / formal writing.",
+        "contexts": [
+          "reason_giving",
+          "time_range"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-010",
@@ -3382,7 +3429,16 @@
         "humble": "にじまで おります。",
         "respectful": "にじまで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "まで as \"until\" marks an endpoint (\"5時まで待つ\"); often paired with から as a range (\"9時から5時まで\"). Reading menus and timetables, the まで-bound is the LAST point INCLUDED, not the first point EXCLUDED.",
+        "contexts": [
+          "signs",
+          "timetables",
+          "schedules"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-011",
@@ -3749,7 +3805,14 @@
           "context": "や is partial enumeration; pair often with など for \"etc.\".",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "や (non-exhaustive list) is the conversational equivalent of \"...and that kind of thing\". \"本や雑誌があります\" implies more than just books and magazines. The exhaustive と is when you want to be explicit. Native speakers default to や.",
+        "contexts": [
+          "casual_description"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-013",
@@ -4067,7 +4130,15 @@
           "context": "AもB: replaces は/が — never stacks.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "も (also/too) attaches to a noun and replaces other particles (\"私もです\" not \"私はもです\"). With negation, \"誰も〜ない\" / \"何も〜ない\" / \"どこも〜ない\" form total-negation idioms (\"no one\", \"nothing\", \"nowhere\") — these are textbook drill points.",
+        "contexts": [
+          "similar_to_previous",
+          "total_negation"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-014",
@@ -4761,7 +4832,15 @@
         "respectful": "こちらの ほんを ごらんに なって ください。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-040"
+      "_alias_of": "n5-040",
+      "cultural_callout": {
+        "note": "この/その/あの/どの (demonstrative determiners) attach DIRECTLY before a noun and never carry a particle: \"この本\" not \"このの本\". Most learners over-apply の after possessives and instinctively insert it here too. Skip the の.",
+        "contexts": [
+          "describing_objects",
+          "pointing"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-016",
@@ -5105,7 +5184,15 @@
         "respectful": "こちらは いい ところで いらっしゃいますね。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-041"
+      "_alias_of": "n5-041",
+      "cultural_callout": {
+        "note": "ここ/そこ/あそこ/どこ (place pronouns) use the same proximity rule as これ/それ/あれ. あそこ (\"over there\") is most idiomatic when both speaker and listener can see the place — if it's only known to one of you, それ vs こちら applies depending on register.",
+        "contexts": [
+          "directions",
+          "meeting_points"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-017",
@@ -5411,7 +5498,15 @@
         "respectful": "こちらは なんで いらっしゃいますか。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-045"
+      "_alias_of": "n5-045",
+      "cultural_callout": {
+        "note": "何 reading varies by next-word context: 何月 = なんがつ (counter follows); 何ですか = なんですか (です follows); 何を食べる = なにをたべる (object particle follows). Mistake: reading 何 as なに in counter contexts. Rule of thumb: counter/desu → なん; particle → なに.",
+        "contexts": [
+          "questions",
+          "reading_aloud"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-018",
@@ -6088,7 +6183,15 @@
         "humble": "いつ まいりますか。",
         "respectful": "いつ いらっしゃいますか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "いつ (\"when\") is open-ended (\"when will you come?\"); for specific time questions, use the more precise question words 何時 / 何曜日 / 何月. Asking \"いつ会いますか\" in formal contexts can sound vague — prefer the specific 何曜日 / 何時.",
+        "contexts": [
+          "scheduling",
+          "business_planning"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-021",
@@ -7116,7 +7219,15 @@
         "respectful": "コーヒーか こうちゃ、 いかがで いらっしゃいますか。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_homonym_of": "n5-023"
+      "_homonym_of": "n5-023",
+      "cultural_callout": {
+        "note": "か (choice \"A or B\") is COMPLETE (\"コーヒーかおちゃ?\" = \"coffee or tea — pick one\"). や (non-exhaustive) is \"and-others\" listing. Wrong choice common: using や for a binary either/or sounds wrong.",
+        "contexts": [
+          "restaurant_orders",
+          "binary_choice"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-025",
@@ -7424,7 +7535,15 @@
         "humble": "いいで ございますね。",
         "respectful": "いいで いらっしゃいますね。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "ね expects agreement from the listener (\"いい天気ですね\") — like English \"isn't it?\". Used too often by foreign learners trying to sound friendly; natives drop it in declarative statements about themselves (\"私は学生ですね\" sounds wrong unless you're explaining what you are TO the listener).",
+        "contexts": [
+          "rapport",
+          "agreement_seeking"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-026",
@@ -7726,7 +7845,15 @@
         "humble": "いいで ございますよ。",
         "respectful": "(よ rarely used in highest respectful register; sounds too assertive)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "よ informs the listener of something they didn't know (\"行きますよ\" = \"I'm going, FYI\"). Using it where the listener already knows (\"今日は日曜日ですよ\" said to someone who clearly knows it's Sunday) sounds condescending — like English \"you know\".",
+        "contexts": [
+          "informing",
+          "gentle_reminder"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-027",
@@ -8061,7 +8188,14 @@
         "humble": "おいしゅう ございますよね。",
         "respectful": "(よね rarely used at highest register)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "よね = よ (assertion) + ね (agreement-seeking). Used to confirm shared knowledge: \"あの店、いいよね？\" = \"that shop is good, right?\". More committed than ね alone (assumes the listener already agrees). Don't over-use; some speakers find it pushy.",
+        "contexts": [
+          "confirming_shared_knowledge"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-028",
@@ -8721,7 +8855,14 @@
           "context": "Possession marker — universally taught lesson 1.",
           "provenance": "llm_curated"
         }
-      ]
+      ],
+      "cultural_callout": {
+        "note": "の (possessive / noun-modifier) is THE most-used particle. Chained possessives are completely natural (\"私の友だちの本\") — don't prune to sound concise; you'll sound clipped. English \"of\" doesn't map 1:1; sometimes Japanese の has no English equivalent (\"日本語の先生\" = \"Japanese teacher\").",
+        "contexts": [
+          "all_speech"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-030",
@@ -9061,7 +9202,15 @@
         "humble": "よむのが すきで ございます。",
         "respectful": "よむのが おすきで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "の (nominalizer, e.g., \"見るのが好き\") turns a verb-clause into a noun-phrase. こと does similar work but feels more abstract/formal (\"見ることが好き\"). Use の for personal preferences and concrete actions; こと for general statements and written/formal contexts.",
+        "contexts": [
+          "preferences",
+          "formal_writing"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-031",
@@ -9358,7 +9507,15 @@
         "humble": "あかいのを いただけませんか。",
         "respectful": "あかいのを おもとめに なりますか。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "Plain-form + の? as an informal question (\"行くの？\") is COMMON in casual speech — softer than the harder か question marker. Used heavily by women in soft register; men use it too but less. Adds nuance of curiosity / surprise that か doesn't carry.",
+        "contexts": [
+          "casual_curiosity",
+          "soft_question"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-033",
@@ -9679,7 +9836,15 @@
         "humble": "ひとりだけ まいりました。",
         "respectful": "ひとりだけ いらっしゃいました。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "だけ (only) emphasizes a LIMIT (\"一人だけ来た\" = \"only one person came — others were expected\"). Often carries a tone of disappointment or restriction. Don't confuse with しか + negative which is a stronger \"only / no more than\".",
+        "contexts": [
+          "limits",
+          "restriction"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-034",
@@ -10032,7 +10197,15 @@
         "humble": "ひゃくえんしか ございません。",
         "respectful": "(highest register would reframe; しか + neg too curt)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "しか〜ない (only, with negative) is STRONGER than だけ — implies \"and that's not enough\" or \"I really expected more\". \"一人しか来なかった\" = \"only one person came (I expected more)\". Pedagogically a key contrast point with だけ.",
+        "contexts": [
+          "disappointment",
+          "minimum"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-035",
@@ -10340,7 +10513,14 @@
         "humble": "いちじかんぐらい かかります。 (humble for self-time uncommon)",
         "respectful": "いちじかんぐらい おかかりに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "ぐらい / くらい (about, approximately) attaches to QUANTITIES (\"百円ぐらい\"). ごろ does the same for TIME POINTS (\"3時ごろ\"). Mixing them is a common error: \"3時ぐらい\" sounds slightly off (use 3時ごろ).",
+        "contexts": [
+          "approximation"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-036",
@@ -10659,7 +10839,15 @@
         "humble": "にじごろ まいります。",
         "respectful": "にじごろ いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "ごろ (approximately, for time points) — see n5-035. The quantity-vs-time-point distinction is the entire pedagogical point of ぐらい/ごろ contrast.",
+        "contexts": [
+          "time_approximation",
+          "meeting_time"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-037",
@@ -11035,7 +11223,15 @@
         "humble": "りんごや みかんなどを ちょうだい いたします。",
         "respectful": "りんごや みかんなどを おもとめに なります。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "など (etc.) is conversational hedging — \"I bought books, magazines, など\". In business or academic writing, など is appropriate; in casual chat, や alone often suffices. Combining や〜など (\"books や magazines など\") doubles the hedge — fine but heavy.",
+        "contexts": [
+          "listing_with_etc",
+          "hedging"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-038",
@@ -11373,7 +11569,15 @@
         "humble": "いっこずつ さしあげます。",
         "respectful": "いっこずつ おもらいに なります。 (rare)"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "ずつ (each / per) is distributive (\"ひとつずつ\" = \"one each\"). Often appears in instructions and recipes (\"少しずつ食べる\" = \"eat little by little\"). Watch the rhythm: ずつ is unaccented and quiet.",
+        "contexts": [
+          "instructions",
+          "recipes"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-039",
@@ -11693,7 +11897,15 @@
         "respectful": "こちらは なんで いらっしゃいますか。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-014"
+      "_alias_of": "n5-014",
+      "cultural_callout": {
+        "note": "これ/それ/あれ (standalone \"this/that/over-there\") never carry a noun directly after them — that's この/その/あの (n5-015). Mixing them is a top-5 N5 error. Mnemonic: これ ends a phrase (\"これは何？\"); この starts one (\"この本\").",
+        "contexts": [
+          "pointing",
+          "first_meeting_objects"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-040",
@@ -12416,7 +12628,15 @@
         "respectful": "こちらは いいところで いらっしゃいます。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-016"
+      "_alias_of": "n5-016",
+      "cultural_callout": {
+        "note": "ここ/そこ/あそこ/どこ (place pronouns, n5-016 duplicate-area). Used in restaurants and stations (\"ここで降ります\" = \"I get off here\"). あそこ for a specific place both speaker AND listener can see; otherwise prefer specific names.",
+        "contexts": [
+          "transit",
+          "restaurants"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-042",
@@ -12734,7 +12954,15 @@
         "humble": "こちらで ございます。",
         "respectful": "こちらで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "こちら/そちら/あちら/どちら (polite directions/options) — service workers default to こちら for \"this way please\" and どちら for \"which one (polite)\". Using これ/それ to a customer is impolite; use the こちら series in any service context.",
+        "contexts": [
+          "service_industry",
+          "business_polite"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-043",
@@ -13044,7 +13272,15 @@
         "humble": "こんな ほんが すきで ございます。",
         "respectful": "こんな ほんを おすきで いらっしゃいます。"
       },
-      "politeness_ladder_provenance": "llm_curated"
+      "politeness_ladder_provenance": "llm_curated",
+      "cultural_callout": {
+        "note": "こんな/そんな/あんな/どんな + Noun (\"this kind of X\") evaluates or characterizes (\"こんな問題は簡単だ\" = \"this kind of problem is easy\"). Different from この/その/あの which point at a specific object. Don't confuse: \"こんなペン\" = \"this kind of pen\"; \"このペン\" = \"this specific pen\".",
+        "contexts": [
+          "characterizing",
+          "evaluating"
+        ]
+      },
+      "cultural_callout_provenance": "llm_curated"
     },
     {
       "id": "n5-044",

@@ -5738,7 +5738,12 @@
         },
         "contrast_note": "何 has two readings: なに (standalone) and なん (before counter compounds: 何時/何人/何月)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "phono_semantic",
+        "story": "A person (亻) carrying something (可). Originally meant \"to carry\" — borrowed for \"what\" through phonetic loan in ancient Chinese."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.人",
@@ -5996,7 +6001,12 @@
         },
         "contrast_note": "人 kun=ひと, on=じん in nationality/group compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a standing person seen from the side — two legs forming a triangular figure. One of the oldest characters in the Chinese script."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.男",
@@ -6131,7 +6141,12 @@
       "authentic_refs": [
         "auth.signs.toire-otoko"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "田 (rice field) + 力 (strength/plow) — the one who works the fields with strength. Captures the ancient division of agricultural labor by gender."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.女",
@@ -6265,7 +6280,12 @@
       "authentic_refs": [
         "auth.signs.toire-onna"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a kneeling figure with arms folded — the traditional posture of women in ancient East Asian seated etiquette. Highly stylized over time."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.子",
@@ -6418,7 +6438,12 @@
         },
         "contrast_note": "子 kun=こ standalone or compound. on=し (e.g. 椅子 いす — N4+)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a swaddled infant — head + arms + bundled lower body. The horizontal stroke represents the swaddling."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.父",
@@ -6549,7 +6574,12 @@
         },
         "contrast_note": "父 kun=ちち (humble) vs お父さん (polite, about others)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a hand holding an axe / staff — symbol of authority. The \"axe-wielder\" came to mean \"father\" as the patriarchal head of the household."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.母",
@@ -6694,7 +6724,12 @@
         },
         "contrast_note": "母 kun=はは (humble) vs お母さん (polite)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a kneeling woman (女) with two added dots for breasts — emphasizing the nursing / maternal aspect that distinguishes mother from other women."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.友",
@@ -6827,7 +6862,12 @@
           "vocab_id": "n5.vocab.2-people-family.ともだち"
         }
       ],
-      "n5_compounds_provenance": "llm_curated"
+      "n5_compounds_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "Two hands (又) reaching toward each other — the gesture of friendship and mutual support. Originally written with two full hands."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.先",
@@ -7000,7 +7040,12 @@
         },
         "contrast_note": "先 kun=さき (ahead/before), on=せん in 先生/先週."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "人 (person) with a vertical stroke and 之 (going) — a person walking ahead of others. Hence \"ahead, previous, first, tip\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.生",
@@ -7192,7 +7237,12 @@
         },
         "contrast_note": "生 has multiple readings: い-(kun verb), う- (kun verb), せい/しょう (on)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a plant sprouting from the ground (土) — a young shoot pushing up. Hence the broad sense of \"life / birth / produce / grow / raw\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.手",
@@ -7336,7 +7386,12 @@
           "vocab_id": "n5.vocab.32-adjectives.じょうず"
         }
       ],
-      "n5_compounds_provenance": "llm_curated"
+      "n5_compounds_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a hand with five fingers spread. The modern form preserves four finger-strokes plus the thumb/palm structure."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.足",
@@ -7472,7 +7527,12 @@
       "authentic_refs": [
         "auth.transit.te-wo-haisaku"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a foot/leg with the knee (口 element) on top and the foot at the bottom. Captures the entire lower limb, not just the foot."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.目",
@@ -7632,7 +7692,12 @@
           "vocab_id": "n5.vocab.4-body-parts.め"
         }
       ],
-      "n5_compounds_provenance": "llm_curated"
+      "n5_compounds_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of an eye seen sideways — originally drawn horizontally, then rotated 90 degrees in the script standardization. The horizontal strokes inside represent the iris/pupil."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.口",
@@ -7774,7 +7839,12 @@
         "auth.transit.deguchi-kita",
         "auth.transit.deguchi-minami"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of an open mouth — a square enclosure representing the opening. Used as both a character and a radical in many other characters."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.力",
@@ -7902,7 +7972,12 @@
           "gloss": "power, strength"
         }
       ],
-      "n5_compounds_provenance": "llm_curated"
+      "n5_compounds_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a plow / muscular arm — strength in action. The bent shape represents the plow handle or a flexed bicep, depending on the etymological school."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.学",
@@ -8090,7 +8165,12 @@
         },
         "contrast_note": "学 kun=まな-ぶ (verb), on=がく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "Simplified from 學 — hands handling sticks (used for counting/divination) above a roof and a child (子). The image of teaching the young to count or write."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.校",
@@ -8246,7 +8326,12 @@
         },
         "contrast_note": "校 only on=こう; rarely standalone."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "phono_semantic",
+        "story": "木 (wood/tree) + 交 (cross/exchange) — phonetic component. Originally \"wooden lattice/frame\" then specialized to \"place of crossed activities / school\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.本",
@@ -8520,7 +8605,12 @@
         },
         "contrast_note": "本 is unusual: uses on-yomi ほん even standalone. kun=もと (origin)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "木 (tree) with a horizontal stroke at the BASE — pointing to the root / origin of the tree. Hence \"origin, source, main thing, book (as a primary source)\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.語",
@@ -8692,7 +8782,12 @@
         },
         "contrast_note": "語 only on=ご; language-suffix marker."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "言 (word/speech) + 吾 (I/me) — what I say. The 言 radical anchors it as a speech-related kanji."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.国",
@@ -8870,7 +8965,12 @@
         },
         "contrast_note": "国 kun=くに, on=こく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "Simplified from 國 — 囗 (enclosure / borders) containing 玉 (jade / king's treasure). A bordered land with a treasure inside = a country."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.会",
@@ -9019,7 +9119,12 @@
         },
         "contrast_note": "会 kun=あ-う (verb), on=かい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Simplified from 會 — pictograph of a steamer with layers + a lid coming together. Hence \"to come together / meeting\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.社",
@@ -9144,7 +9249,12 @@
         },
         "contrast_note": "社 only on=しゃ; rarely standalone."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "示 (altar / divine) + 土 (earth) — an earthen altar where the community gathered. Originally \"village shrine\"; came to mean \"society / association / company\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.員",
@@ -9280,7 +9390,12 @@
         },
         "contrast_note": "員 only on=いん; suffix in workplace compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "口 (mouth) above 貝 (shell / money) — a counted member with status. Originally \"round number / count\"; came to mean \"member, staff (a counted person)\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.大",
@@ -9531,7 +9646,12 @@
       "authentic_refs": [
         "auth.menu.oomori"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a person standing with arms outstretched wide — the BIG gesture. Captures \"large\" through the human reference frame."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.中",
@@ -9684,7 +9804,12 @@
         },
         "contrast_note": "中 kun=なか, on=ちゅう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a flag/pole stuck through the middle of a square — marking the CENTER of a place. Hence \"middle / inside / center\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.小",
@@ -9812,7 +9937,12 @@
         },
         "contrast_note": "小 kun=ちい-さい (adj), on=しょう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Three small dots / strokes representing small grains or particles. Captures \"small\" through the visual minimalism."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.上",
@@ -9976,7 +10106,12 @@
         },
         "contrast_note": "上 kun=うえ, on=じょう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "ideograph",
+        "story": "A short horizontal stroke ABOVE a long base line — representing \"what is on top\". One of the earliest abstract positional ideographs."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.下",
@@ -10106,7 +10241,12 @@
         },
         "contrast_note": "下 kun=した, on=か/げ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "ideograph",
+        "story": "A short horizontal stroke BELOW a long top line — the mirror of 上. Represents \"what is underneath\" — positional ideograph."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.左",
@@ -10228,7 +10368,12 @@
       "authentic_refs": [
         "auth.signs.kakeki-hidari"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "又 (hand) + 工 (work/tool) — the LEFT hand traditionally held the tools while the right hand worked them. The 工 element pins down \"left\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.右",
@@ -10351,7 +10496,12 @@
       "authentic_refs": [
         "auth.signs.kakeki-michi"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "又 (hand) + 口 (mouth) — the RIGHT hand was used to eat (bring food to the mouth). The 口 element pins down \"right\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.前",
