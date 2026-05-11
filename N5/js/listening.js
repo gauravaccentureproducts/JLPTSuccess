@@ -199,6 +199,21 @@ function renderItem(container) {
           ` : ''}
         ` : `<p class="muted small">${renderJa('おんせいファイルは まだ ありません。')}</p>`}
       </div>
+      ${it.voice_planned ? (() => {
+        // F-10 (legal-vetting 2026-05-11): surface synthetic-voice provenance
+        // on the playback UI per audit recommendation (was only in NOTICES.md
+        // + audio_render_meta). Strip the ja-JP-...Neural wrapper for a
+        // friendly speaker label; engine identifier stays as-is.
+        const friendly = v => v ? String(v).replace(/^ja-JP-/, '').replace(/Neural$/, '') : '';
+        const p = friendly(it.voice_planned.primary);
+        const s = friendly(it.voice_planned.secondary);
+        const engine = it.voice_planned.engine || 'TTS';
+        const names = [p, s].filter(Boolean).join(' · ');
+        const label = (typeof t === 'function' ? t('listening.voices_label') : 'Voices') || 'Voices';
+        return `<p class="muted xs listening-voice-attribution">
+          ${esc(label)}: ${esc(names)} (${esc(engine)})
+        </p>`;
+      })() : ''}
       ${it.prompt_ja ? `<p>${renderJa(it.prompt_ja)}</p>` : ''}
       ${it.choices ? `
         <div class="choice-grid">

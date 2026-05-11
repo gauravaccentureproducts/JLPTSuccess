@@ -1081,6 +1081,16 @@ h2 + * + .section-label:first-of-type {
   text-align: center;
   text-wrap: balance;
 }
+/* F-10 (legal-vetting 2026-05-11): synthetic-voice provenance label
+   under each listening-item audio player. Faint, italic, small —
+   keeps focus on the audio control while disclosing TTS source. */
+.listening-voice-attribution {
+  margin: var(--space-1) 0 var(--space-3);
+  color: var(--color-text-faint);
+  font-size: var(--text-2xs);
+  font-style: italic;
+  letter-spacing: var(--tracking-normal);
+}
 .app-footer .footer-nav,
 .app-footer .footer-links { display: inline-flex; gap: var(--space-5); }
 .app-footer a {
