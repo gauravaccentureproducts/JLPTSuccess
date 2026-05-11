@@ -6599,7 +6599,12 @@
           "why": "Japanese sentence-final question particle is か, not ？; the ？ is optional and Western. Period (。) is the canonical end-mark in formal text."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-024",
+          "note": "Same particle か, different function: n5-023 is the sentence-final question marker (行きますか). n5-024 is the listing/choice marker between alternatives (コーヒーか おちゃ)."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -6939,7 +6944,12 @@
           "why": "For \"or\", connect with か (e.g., A か B). Comma alone reads as a list, not an alternative."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-023",
+          "note": "Same particle か, different function: n5-024 lists alternatives (\"A or B\"). n5-023 ends a question sentence. Listening cue: position — final か = question; medial か = choice."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -7243,6 +7253,10 @@
         {
           "with_pattern_id": "n5-026",
           "note": "ね = agreement (shared); よ = new info (telling)."
+        },
+        {
+          "with_pattern_id": "n5-027",
+          "note": "よね is the combined form: よ (assertion) + ね (seeking agreement). n5-025 is the bare ね alone — softer, just inviting confirmation."
         }
       ],
       "notes": "",
@@ -7541,6 +7555,10 @@
         {
           "with_pattern_id": "n5-025",
           "note": "よ tells the listener something they didn't know; ね assumes they already know."
+        },
+        {
+          "with_pattern_id": "n5-027",
+          "note": "よね is the combined form: よ (assertion) + ね (seeking agreement). n5-026 is the bare よ alone — purely informing, not soliciting agreement."
         }
       ],
       "notes": "",
@@ -7868,7 +7886,16 @@
           "why": "よね combines よ (assertion) with ね (seeking agreement). Beginners drop ね and use よ alone, which sounds like a one-sided declaration rather than 'right?' / 'isn't it?' confirmation."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-025",
+          "note": "n5-025 is ね alone (mild confirmation, \"right?\"). n5-027 is the よね combination — adds the よ-assertion punch (\"I think so, and you agree, right?\")."
+        },
+        {
+          "with_pattern_id": "n5-026",
+          "note": "n5-026 is よ alone (assertion / new info to listener). n5-027 is the よね combination — keeps よ's assertive force but seeks agreement instead of just informing."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -12510,7 +12537,12 @@
           "why": "こちら is the polite-direction form; the casual form is こっち. Dropping the ら yields a non-word. Pair こちら/そちら/あちら/どちら together as a polite series with ます-form predicates."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-049",
+          "note": "n5-049 (どれ / どの / どちら) covers the which-selection question words across the こそあど grid. n5-042 is the polite parallel series (こちら / そちら / あちら / どちら) — どちら is shared between them as the polite version of どれ."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "आदर-दिशा / विकल्प (こちら-शृंखला)",
@@ -14440,7 +14472,16 @@
           "why": "Before a noun, use どの (not どれ)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-050",
+          "note": "Both are question words. n5-049 (どれ / どの / どちら) asks which item from a known set. n5-050 (どう / いかが) asks about state, opinion, or makes a polite offer (\"how about ~?\")."
+        },
+        {
+          "with_pattern_id": "n5-042",
+          "note": "n5-042 (こちら / そちら / あちら / どちら) is the polite こそあど directions series. どちら appears in BOTH: n5-042 uses it as \"which direction / which one (polite)\", n5-049 uses どちら as the polite どれ in 2-way choice questions."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कौन सा (विकल्पों में से चुनाव)",
@@ -14781,7 +14822,12 @@
           "why": "いかが is the polite/respectful form of どう, used with です. Plain casual speech uses どう, not いかが."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-049",
+          "note": "Both are question words. n5-050 (どう / いかが) asks state / opinion. n5-049 (どれ / どの / どちら) asks which item to pick from a list. Often confused: \"which one is good?\" = どれが いいですか (n5-049), \"how is it?\" = どうですか (n5-050)."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कैसे / कैसा है (स्थिति, मत, आदर-प्रस्ताव)",
@@ -18221,7 +18267,12 @@
           "why": "ました replaces ます - don't add でした to ます. でした is only for です."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-067",
+          "note": "Both express past affirmative. n5-060 is the polite -ました form (友だちに 会いました). n5-067 is the plain た-form (友だちに 会った). Same meaning, different register."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "विनम्र भूत-सकारात्मक क्रिया-समापन",
@@ -18572,7 +18623,12 @@
           "why": "The past-negative is ませんでした (with でした as a unit), not ませんました."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-068",
+          "note": "Both express past negative. n5-061 is the polite -ませんでした (行きませんでした). n5-068 is the plain -なかった (行かなかった). Same meaning, different register."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "विनम्र भूत-नकारात्मक क्रिया-समापन",
@@ -23805,7 +23861,12 @@
           "why": "てから needs a verb て-form before it, not a noun."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-120",
+          "note": "Both mean \"after\". n5-076 (Verb-てから) links two clauses in tight temporal sequence (\"after eating, watch TV\") — the second clause requires the first. n5-120 (〜あと) marks a more independent \"after\" — often noun-form あとで, less tight coupling."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X करने के बाद",
@@ -38697,7 +38758,12 @@
           "why": "Use PAST plain (た-form) before あとで, opposite of まえに."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-076",
+          "note": "Both mean \"after\". n5-120 (〜あと / あとで) is the noun-style \"after\". n5-076 (Verb-てから) tightly chains two actions where the second depends on the first (\"after eating, then watch TV\"). Use てから for cause-effect; あと for sequencing."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "बाद",
