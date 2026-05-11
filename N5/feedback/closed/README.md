@@ -48,9 +48,9 @@ read `../MASTER-TASK-LIST.md` and the project-root `TASKS.md`.
 ### External corpus - gap audit consumed
 | File | Closure note |
 |---|---|
-| `external-questions-learnjapaneseaz.md` | Reference extract from learnjapaneseaz.com; gaps closed via Pass-15 (paraphrase + kanji_writing subtypes shipped per JA-29). |
-| `external-corpus/learnjapaneseaz-extract.json` | Extraction artefact; consumed. |
-| `external-corpus/analysis-and-gap-audit.md` | Gap audit; closure via Pass-15 P0 + P1 batches. |
+| `external-questions-learnjapaneseaz.md` | **REMOVED 2026-05-11 per legal-vetting F-1 (DMCA risk)** — see `feedback/legal-vetting-audit-2026-05-10.md` §F-1. Analytical conclusions absorbed via Pass-15 (paraphrase + kanji_writing subtypes shipped per JA-29). |
+| `external-corpus/learnjapaneseaz-extract.json` | **REMOVED 2026-05-11 per legal-vetting F-1 (DMCA risk)** — extraction artefact; analytical content consumed before removal. |
+| `external-corpus/analysis-and-gap-audit.md` | Gap audit; closure via Pass-15 P0 + P1 batches. **2026-05-11: direct source-quotations redacted per legal-vetting F-1** — analytical findings + format taxonomy preserved. |
 | `coverage-comparison.md` | "163 vs 175" comparison superseded by current 198+ question count + JA-29 closed-taxonomy. |
 
 ### Native-reviewer dossier - replaced by internal-audit pair

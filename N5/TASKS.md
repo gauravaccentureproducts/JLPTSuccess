@@ -17,7 +17,8 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred
 
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
-| 1 | LEGAL-F-1 | P1 | Remove `feedback/closed/external-questions-learnjapaneseaz.md` + `feedback/closed/external-corpus/learnjapaneseaz-extract.json` from public repo (DMCA risk) | ⏳ pending |
+| 1 | LEGAL-F-1 | P1 | Remove `feedback/closed/external-questions-learnjapaneseaz.md` + `feedback/closed/external-corpus/learnjapaneseaz-extract.json` from public repo (DMCA risk) | ✅ done 2026-05-11 (git rm both files from HEAD; analysis-and-gap-audit.md source quotes redacted; README.md updated; history retained — not filter-repo'd, see commit msg) |
+| 1b | LEGAL-F-12 | P1 | NEW (discovered during F-1 execution): `KnowledgeBank/externally_sourced_n5.md` (1778 lines, 42 mentions of learnjapaneseaz, line 20 declares "All questions in this file are extracted from public practice tests on learnjapaneseaz.com/jlpt-n5") was NOT in F-1 scope per audit text but appears to carry the same DMCA risk class. Audit missed this. **Action required:** user decision on scope — `git rm`, full redaction in-place, or "out of F-1 scope, leave it"? | ⏳ pending (user decision) |
 | 2 | LEGAL-F-2 | P1 | Disclose Claude-as-native-reviewer in CONTENT-LICENSE.md §9 + propagate `_meta.native_review_pass_2026_05_07` to grammar/vocab/kanji/papers/manifest data files | ✅ done 2026-05-11 (§9 added; manifest.json _meta added; grammar/vocab/kanji already propagated in earlier batches) |
 
 ### TIER 2 — MEDIUM severity (documentation backlog)

@@ -1,5 +1,11 @@
 # learnjapaneseaz.com extraction - analysis and gap audit
 
+> **2026-05-11 redaction note (per legal-vetting F-1):** Direct quotations of
+> source-site question stems, choice sets, and paraphrase examples have been
+> redacted to remove DMCA risk while preserving the analytical findings,
+> format taxonomy, and gap-audit conclusions that drove subsequent authoring
+> passes. Search for `[source ... redacted per F-1]` markers to locate redactions.
+
 **Source:** `feedback/external-corpus/learnjapaneseaz-extract.json`
 **Date:** 2026-05-01
 **Sample:** 218 questions extracted (21 of 25 kanji tests, 9 of 17 vocab tests, 16 of 23 reading tests)
@@ -78,15 +84,15 @@ The external corpus tests grammar through reading-fill-blanks. Patterns observed
 
 | Pattern | Reading test | Our coverage |
 |---|---|---|
-| Verb-dict + 前に | reading 20 (`朝ごはんを 食べる 前に`) | n5-119 ✓ |
-| ながら simultaneous | reading 17 (`働きながら 大学院で 勉強`) | n5-022 ✓ |
-| Verb-stem + に + 行く (purposive) | reading 8 (`遊びに / 買いに 行きました`) | n5-107 ✓ |
-| こと nominaliser | reading 1, 2, 5 (`眠ることが できました / 読むことです`) | n5-103 ✓ |
-| ～ながら + relative | reading 9 (`コーヒーを 飲みながら ... 話しました`) | n5-022 ✓ |
-| Comparison より | reading 23 (`青いの より 2,000円 高かった`) | n5-095 ✓ |
-| Counter rendaku 匹 ひき/ぴき | reading 11 (1ぴき / 12ひき / 6ぴき) | **Not directly drilled. Gap?** |
+| Verb-dict + 前に | reading 20 ([source stem redacted per F-1]) | n5-119 ✓ |
+| ながら simultaneous | reading 17 ([source stem redacted per F-1]) | n5-022 ✓ |
+| Verb-stem + に + 行く (purposive) | reading 8 ([source stem redacted per F-1]) | n5-107 ✓ |
+| こと nominaliser | reading 1, 2, 5 ([source stems redacted per F-1]) | n5-103 ✓ |
+| ～ながら + relative | reading 9 ([source stem redacted per F-1]) | n5-022 ✓ |
+| Comparison より | reading 23 ([source stem redacted per F-1]) | n5-095 ✓ |
+| Counter rendaku 匹 ひき/ぴき | reading 11 ([source choice set redacted per F-1]) | **Not directly drilled. Gap?** |
 | ～たり～たり | none observed | We have via grammar (n5-094) |
-| ～たら conditional | kanji 3 (`一億円あったら`) | **N4 boundary; we deliberately exclude.** |
+| ～たら conditional | kanji 3 ([source stem redacted per F-1]) | **N4 boundary; we deliberately exclude.** |
 
 The external corpus is **slightly more lenient** than ours on N4-boundary patterns (たら conditional, 紹介する, 卒業する, 大学院). This validates our stricter N5-scope - our content will feel "lower-N4-level" to a strict-N5 learner, but we're aligned with where the official JLPT actually lands.
 
@@ -116,9 +122,9 @@ The external corpus is **slightly more lenient** than ours on N4-boundary patter
 We have 138 mcq + 16 sentence_order + 9 text_input = 163 questions. Cross-checking patterns:
 
 - **Counter rendaku consistency:** External reading-11 explicitly tests ひき / ぴき distinction. Our n5-108 covers counters but doesn't directly drill the 1/6/8/10 → ぴき rule. **Action:** Add 2-3 sentence_order or text_input questions on this rule.
-- **Particle pairs in passages:** External heavily tests に vs で in employment contexts (病院に勤める / 会社で働く, reading 17). We test these in standalone question stems. **Action:** Add reading-context test for に vs で employment (we can author this since we've seen the format).
-- **Family kinship paraphrase:** External vocab-15 tests おじさん = おかあさんの おにいさん. We test family terms in `n5.read.022` etc. but not as paraphrase chains. **Action:** Could add 3-4 paraphrase-style text_input questions.
-- **Time relative paraphrase:** External vocab-15 tests おととい = ふつかまえ. Useful synonym chain. **Action:** Author 2-3 paraphrase questions on time vocabulary.
+- **Particle pairs in passages:** External heavily tests に vs で in employment contexts (reading 17 — source phrases redacted per F-1). We test these in standalone question stems. **Action:** Add reading-context test for に vs で employment (we can author this since we've seen the format).
+- **Family kinship paraphrase:** External vocab-15 tests a kinship-paraphrase pair [source quote redacted per F-1]. We test family terms in `n5.read.022` etc. but not as paraphrase chains. **Action:** Could add 3-4 paraphrase-style text_input questions.
+- **Time relative paraphrase:** External vocab-15 tests a time-relative synonym pair [source quote redacted per F-1]. **Action:** Author 2-3 paraphrase questions on time vocabulary.
 
 ### 4.2 New question seeds (use it to grow OUR corpus)
 
@@ -146,7 +152,7 @@ The external distractors are consistently:
 - **Plausible:** all 4 are real Japanese words / forms.
 - **Same word-class:** all nouns OR all verbs OR all adjectives within an option set.
 - **Length-symmetric:** 4 choices have similar character counts.
-- **Phonetically near-similar (kanji-reading tests):** お**な**じ / お**う**じ / そ**う**じ / ど**う**じ - minimal-pair distractors.
+- **Phonetically near-similar (kanji-reading tests):** [source MCQ option set redacted per F-1] - minimal-pair distractors.
 
 Our F-14 audit found pattern-meta questions where distractors mixed pattern labels with single particles. The external corpus shows what good looks like. **Action:** Add this as a question-authoring-style note in README.
 
@@ -156,12 +162,7 @@ Our F-14 audit found pattern-meta questions where distractors mixed pattern labe
 
 ### P0 - Immediately useful for our corpus
 
-1. **Add ~10 paraphrase-style text_input/mcq questions** modeled on external vocab-15 / vocab-17. Each tests vocab equivalence:
-   - おととい = ふつかまえ
-   - おじさん = おかあさんの おにいさん
-   - くらい = あかるくない
-   - ふくをせんたくする = ふくをあらう
-   - リーさんが もりさんに かす = もりさんが リーさんから かりる
+1. **Add ~10 paraphrase-style text_input/mcq questions** modeled on the external paraphrase format (vocab tests 15 / 17). Each tests vocab equivalence (e.g. time-relative synonyms, kinship-paraphrases, antonym-paraphrases, verb perspective-swap give/receive). Specific source examples redacted per F-1 2026-05-11 — author fresh equivalences during implementation.
    - This adds a new pedagogical surface (synonym recognition) we currently lack.
 
 2. **Add 3-5 counter-rendaku drills** as text_input:
@@ -173,7 +174,7 @@ Our F-14 audit found pattern-meta questions where distractors mixed pattern labe
    - These currently appear as readings on the Counters page but aren't drillable as MCQ/text-input.
 
 3. **Add 3-4 reading-context particle questions** modeled on external reading 9, 17:
-   - "私は バス（）会社（）行きます" (で / に / で)
+   - "[source stem template redacted per F-1]"
    - Tests particle selection in connected discourse (richer than our isolated-particle MCQs).
 
 ### P1 - Worth doing if time
