@@ -10813,7 +10813,12 @@
         },
         "contrast_note": "後 kun=うし-ろ / あと, on=ご/こう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "彳 (walking) + 幺 (small) + 夂 (footprint) — slow walker lagging behind. Came to mean \"after / behind\" in space and time."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.外",
@@ -10963,7 +10968,12 @@
         },
         "contrast_note": "外 kun=そと, on=がい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "夕 (evening) + 卜 (divination) — evening divination done OUTSIDE the proper ritual schedule. Hence \"outside / external\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.東",
@@ -11090,7 +11100,12 @@
         },
         "contrast_note": "東 kun=ひがし, on=とう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of the sun (日) rising behind a tree (木) — the eastern horizon. Combined element captures sunrise direction."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.西",
@@ -11210,7 +11225,12 @@
         },
         "contrast_note": "西 kun=にし, on=さい/せい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a bird in its nest (settling at sunset) — the direction the sun sets toward, \"west\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.南",
@@ -11330,7 +11350,12 @@
         },
         "contrast_note": "南 kun=みなみ, on=なん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a bell-like musical instrument hung in the warm SOUTHERN exposure of an ancient hall. Came to denote the south compass direction."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.北",
@@ -11451,7 +11476,12 @@
         },
         "contrast_note": "北 kun=きた, on=ほく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of two people sitting back-to-back — the COLD direction one turns away from. Hence \"north\" (with the secondary connotation \"to flee\" surviving in 敗北)."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.間",
@@ -11600,7 +11630,12 @@
         },
         "contrast_note": "間 kun=あいだ, on=かん/けん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "門 (gate) + 日 (sun) — sunlight visible BETWEEN the gate doors. The \"in-between\" sense extended to time intervals."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.山",
@@ -11730,7 +11765,12 @@
         },
         "contrast_note": "山 kun=やま, on=さん in mountain-name compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of three mountain peaks rising — central peak tallest, two flanking peaks. One of the oldest oracle-bone characters."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.川",
@@ -11853,7 +11893,12 @@
         },
         "contrast_note": "川 kun=かわ, on=せん rare."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of three flowing streams — central current with two side waters. Captures the linear flow of a river."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.田",
@@ -11975,7 +12020,12 @@
         },
         "contrast_note": "田 kun=た, appears in many surnames (田中/山田)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a rice paddy divided into four sections by levees — birds-eye view of cultivated land. The internal cross IS the paddy walls."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.雨",
@@ -12101,7 +12151,12 @@
       "authentic_refs": [
         "auth.weather.ame"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of raindrops (4 dots) falling from a cloud (top horizontal) under the sky (top horizontal above it). Hence \"rain\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.天",
@@ -12237,7 +12292,12 @@
       "authentic_refs": [
         "auth.weather.tenki-yohou"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "大 (big/person with arms outstretched) + a horizontal stroke above the head = \"what is ABOVE the person\" — heaven / sky."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.気",
@@ -12377,7 +12437,12 @@
       "authentic_refs": [
         "auth.weather.tenki-yohou"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "Simplified from 氣 — 气 (steam / vapor rising) + 米 (rice). Steam rising from cooked rice = invisible essence / spirit / mood / air."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.花",
@@ -12494,7 +12559,12 @@
         },
         "contrast_note": "花 kun=はな, on=か rare."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "phono_semantic",
+        "story": "艹 (grass / plant radical) + 化 (change, phonetic) — the part of a plant that transforms (blooms). Hence \"flower\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.空",
@@ -12619,7 +12689,12 @@
         },
         "contrast_note": "空 kun=そら, on=くう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "穴 (hole / cave) + 工 (work / craft / pierce) — a hollowed-out, empty space. Came to mean \"sky\" (the vast empty above) and \"empty\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.電",
@@ -12785,7 +12860,12 @@
       "authentic_refs": [
         "auth.transit.densha-okurete"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "雨 (rain) + 申 (lightning bolt) — a lightning bolt during rain. Originally \"lightning\"; in modern Japanese, extended to \"electricity\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.車",
@@ -12917,7 +12997,12 @@
       "authentic_refs": [
         "auth.transit.densha-okurete"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a chariot seen from above — two wheels (the dots on each side, now simplified into the framing strokes) and an axle (vertical line)."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.道",
@@ -13048,7 +13133,12 @@
         },
         "contrast_note": "道 kun=みち, on=どう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "辶 (move / walk) + 首 (head / neck) — to walk WITH ONE'S HEAD AHEAD on a path. Came to mean \"road / way / the Way (philosophy)\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.店",
@@ -13179,7 +13269,12 @@
         },
         "contrast_note": "店 kun=みせ, on=てん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "广 (roofed structure) + 占 (occupy / claim a spot) — a roofed place where someone has claimed a spot to sell goods. Hence \"shop\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.駅",
@@ -13300,7 +13395,12 @@
         },
         "contrast_note": "駅 only on=えき; appears as both standalone and station-name suffix."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "Simplified from 驛 — 馬 (horse) + 尺 (measure / station post). A relay station where horses were swapped. Modern: train station."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.食",
@@ -13452,7 +13552,12 @@
       "authentic_refs": [
         "auth.menu.tabehoudai"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a covered vessel of cooked food — top is the lid, body is the container holding rice or grain. Hence \"to eat / food\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.飲",
@@ -13584,7 +13689,12 @@
         },
         "contrast_note": "飲 kun=の-む (verb), on=いん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "食 (food / drink) + 欠 (open mouth / yawn) — the action of opening one's mouth to take in fluid. Specifically \"to drink\" (vs eat)."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.見",
@@ -13761,7 +13871,12 @@
         },
         "contrast_note": "見 kun=み-る (verb), on=けん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "目 (eye) on top of 人 (legs/person) — a person with prominent eye, the act of LOOKING. The eye stands tall."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.聞",
@@ -13912,7 +14027,12 @@
         },
         "contrast_note": "聞 kun=き-く (verb), on=ぶん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "門 (gate) + 耳 (ear) — listening at the gate. Came to mean \"hear / listen / ask\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.読",
@@ -14051,7 +14171,12 @@
         },
         "contrast_note": "読 kun=よ-む (verb), on=どく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "phono_semantic",
+        "story": "言 (speech / word radical) + 売 (sell, phonetic component, simplified from 賣). The 言 anchors it as a speech-related action: \"to read aloud\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.書",
@@ -14180,7 +14305,12 @@
         },
         "contrast_note": "書 kun=か-く (verb), on=しょ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "聿 (brush) + 者 (person / object) — a person holding a brush. Hence \"to write\" and \"writing / book / document\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.話",
@@ -14356,7 +14486,12 @@
         },
         "contrast_note": "話 kun=はな-す (verb), on=わ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "言 (speech) + 舌 (tongue) — the act of moving the tongue to speak. Hence \"to talk / story / conversation\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.来",
@@ -14546,7 +14681,12 @@
         },
         "contrast_note": "来 kun=く-る (verb), on=らい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a ripening grain plant (wheat / barley) — originally meant the grain itself. Borrowed phonetically for \"to come\" in ancient Chinese; the grain meaning migrated to other characters."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.行",
@@ -14756,7 +14896,12 @@
         },
         "contrast_note": "行 kun=い-く (verb), on=こう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a crossroads / intersection — two paths crossing. Originally meant \"intersection / road\"; came to mean \"to go / conduct\" via the road sense."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.出",
@@ -14934,7 +15079,12 @@
         "auth.transit.deguchi-kita",
         "auth.transit.deguchi-minami"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a plant emerging from the ground — vertical stroke up + horizontal base. Captures \"to come out / exit / produce\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.入",
@@ -15111,7 +15261,12 @@
       "authentic_refs": [
         "auth.signs.iriguchi"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of an arrow or pointed object entering — two strokes converging downward. Captures \"to enter / put in\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.立",
@@ -15238,7 +15393,12 @@
         },
         "contrast_note": "立 kun=た-つ, on=りつ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a person STANDING on the ground (横 horizontal bar at bottom). Captures the stance of standing upright."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.休",
@@ -15394,7 +15554,12 @@
         },
         "contrast_note": "休 kun=やす-む, on=きゅう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "亻 (person) + 木 (tree) — a person resting under a tree. Captures \"to rest / take a break\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.言",
@@ -15535,7 +15700,12 @@
         },
         "contrast_note": "言 kun=い-う (verb), on=げん/ごん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "辛 (knife / sharp) + 口 (mouth) — words come out of the mouth like cuts from a blade. Hence \"to say / word\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.買",
@@ -15687,7 +15857,12 @@
         },
         "contrast_note": "買 kun=か-う (verb), on=ばい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "罒 (net / catch) + 貝 (shell / money) — to catch / acquire something using money. Hence \"to buy\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.高",
@@ -15838,7 +16013,12 @@
         },
         "contrast_note": "高 kun=たか-い (adj), on=こう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a tall multi-story building / tower seen from the side. Captures \"high / tall\" through architectural elevation."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.安",
@@ -15969,7 +16149,12 @@
         },
         "contrast_note": "安 kun=やす-い (adj), on=あん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "宀 (roof / house) + 女 (woman) — a woman safely at home under a roof. Originally \"peaceful / safe\"; extended to \"cheap / inexpensive (no risk)\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.新",
@@ -16111,7 +16296,12 @@
       "authentic_refs": [
         "auth.transit.shinkansen"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "etymology": {
+        "origin_type": "phono_semantic",
+        "story": "木 (tree) + 斤 (axe) + 立 (stand) — chopping NEW wood with an axe. Hence \"new / fresh\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.古",
@@ -16257,7 +16447,12 @@
         },
         "contrast_note": "古 kun=ふる-い (adj), on=こ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "十 (ten) + 口 (mouth) — what has been spoken (mouth) for ten generations. Captures \"old / antique\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.長",
@@ -16386,7 +16581,12 @@
         },
         "contrast_note": "長 kun=なが-い (adj), on=ちょう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of a long-haired elder with a staff — captures \"long\" (physical length) and \"leader / elder\" (the long-haired one in authority)."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.白",
@@ -16553,7 +16753,12 @@
         },
         "contrast_note": "白 kun=しろ/しろ-い (adj), on=はく/びゃく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "pictograph",
+        "story": "Pictograph of an acorn / sun ray / thumbnail (etymology contested). The leading ノ stroke distinguishes 白 (white) from 日 (sun). One reading: a sunbeam shining white."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.名",
@@ -16671,7 +16876,12 @@
         },
         "contrast_note": "名 kun=な (name), on=めい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "夕 (evening) + 口 (mouth) — in the evening dark you must SAY your NAME to be recognized. Hence \"name\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.番",
@@ -16812,7 +17022,12 @@
         },
         "contrast_note": "番 on=ばん standalone or suffix."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "釆 (animal tracks pattern) + 田 (field) — taking turns walking the field paths. Came to mean \"ordinal number / turn / one's position in a sequence\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.号",
@@ -16934,7 +17149,12 @@
         },
         "contrast_note": "号 only on=ごう; suffix for serial numbers."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "口 (mouth) + 丂 (signal flag / breath) — making a signal by mouth. Hence \"to call out / number / signal\"."
+      },
+      "etymology_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.私",
@@ -17105,7 +17325,12 @@
         },
         "contrast_note": "私 kun=わたし (informal わたくし), on=し in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "etymology": {
+        "origin_type": "compound_ideograph",
+        "story": "禾 (grain plant) + 厶 (self / private) — one's own private grain (vs the lord's public grain). Hence \"I / private / personal\"."
+      },
+      "etymology_provenance": "llm_curated"
     }
   ],
   "_meta": {

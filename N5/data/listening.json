@@ -2738,7 +2738,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "すみません",
+          "category": "politeness",
+          "count": 2
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.010",
@@ -2872,7 +2880,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "おねがいします",
+          "category": "politeness",
+          "count": 2
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.011",
@@ -3189,7 +3205,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "おはようございます",
+          "category": "politeness",
+          "count": 2
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.013",
@@ -6442,7 +6466,20 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "おねがいします",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "すみません",
+          "category": "politeness",
+          "count": 1
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.028",
@@ -6565,7 +6602,20 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "しつれいします",
+          "category": "politeness",
+          "count": 2
+        },
+        {
+          "token": "いただきます",
+          "category": "politeness",
+          "count": 1
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.029",
@@ -6698,7 +6748,30 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "しつれいします",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "いただきます",
+          "category": "politeness",
+          "count": 2
+        },
+        {
+          "token": "ごちそうさま",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "すみません",
+          "category": "politeness",
+          "count": 1
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.030",
@@ -7117,7 +7190,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "女の人は 男の人に 何を おすすめしましたか。",
+            "prompt_en": "Which gift did the woman recommend?",
+            "type": "speaker_intent"
+          },
+          {
+            "prompt_ja": "男の人は どうして 本に しませんでしたか。",
+            "prompt_en": "Why did the man change his mind from book to hat?",
+            "type": "inference"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.032",
@@ -7326,7 +7414,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "男の人は しゅうまつ どのくらい いそがしいですか。",
+            "prompt_en": "How busy will the man's weekend be?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.033",
@@ -7559,7 +7657,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "お きゃくは つぎに 何を しますか。",
+            "prompt_en": "What does the guest probably do next?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.034",
@@ -7795,7 +7903,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "子どもは つぎに 何を しますか。",
+            "prompt_en": "What will the child do right after washing their face?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.035",
@@ -8031,7 +8149,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "クラスで 一ばん おおい こくせきは どこですか。",
+            "prompt_en": "Which nationality has the largest count?",
+            "type": "implication"
+          },
+          {
+            "prompt_ja": "のこりの 五人は どんな 人ですか。",
+            "prompt_en": "How many students are unaccounted for in the breakdown?",
+            "type": "application"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.036",
@@ -8266,7 +8399,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "なぜ しんかんせんを えらびましたか。",
+            "prompt_en": "Why might they choose Shinkansen over flight or bus?",
+            "type": "inference"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.037",
@@ -8481,7 +8624,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "きょう 大きい 本は いくらに なりますか。",
+            "prompt_en": "Calculate today's price for the big book.",
+            "type": "application"
+          },
+          {
+            "prompt_ja": "なぜ お きゃくは セールを えらびますか。",
+            "prompt_en": "Why might customers wait for sale days?",
+            "type": "inference"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.038",
@@ -8615,7 +8773,30 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "いえの 人は どう こたえますか。",
+            "prompt_en": "How does the host typically respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "いただきます",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "おじゃまします",
+          "category": "politeness",
+          "count": 2
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.039",
@@ -8784,7 +8965,35 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "店員は どう こたえますか。",
+            "prompt_en": "How does the restaurant staff typically respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "おはようございます",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "いただきます",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "ごちそうさまでした",
+          "category": "politeness",
+          "count": 2
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.040",
@@ -8917,7 +9126,25 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "ともだちは どう こたえますか。",
+            "prompt_en": "How does the friend typically respond to an evening greeting?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "おはようございます",
+          "category": "politeness",
+          "count": 1
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.041",
@@ -9048,7 +9275,30 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "のこって いる 人は 何と こたえますか。",
+            "prompt_en": "How does the remaining person typically respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "しつれいします",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "ごちそうさまでした",
+          "category": "politeness",
+          "count": 1
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.042",
@@ -9162,7 +9412,35 @@
         "estimated_total_seconds": 8,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "たんじょうびの 人は つぎに 何を 言いますか。",
+            "prompt_en": "How does the birthday person typically reply?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "ありがとうございます",
+          "category": "politeness",
+          "count": 2
+        },
+        {
+          "token": "いただきます",
+          "category": "politeness",
+          "count": 1
+        },
+        {
+          "token": "すみません",
+          "category": "politeness",
+          "count": 1
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.043",
@@ -9295,7 +9573,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "みちを きかれた 人は つぎに 何を 言いますか。",
+            "prompt_en": "How does the asked-for-directions person typically respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.044",
@@ -9436,7 +9724,17 @@
         "estimated_total_seconds": 8,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "さそわれた 人は どう こたえますか。",
+            "prompt_en": "How does the invited person typically reply?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.045",
@@ -9549,7 +9847,25 @@
         "estimated_total_seconds": 8,
         "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
       },
-      "time_target_seconds_provenance": "auto_derived"
+      "time_target_seconds_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "あいさつされた 人は つぎに 何を 言いますか。",
+            "prompt_en": "How does the greeted person reply?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated",
+      "discourse_markers_used": [
+        {
+          "token": "おはようございます",
+          "category": "politeness",
+          "count": 3
+        }
+      ],
+      "discourse_markers_used_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.046",
@@ -9677,7 +9993,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "ペンを かりられた 人は どう こたえますか。",
+            "prompt_en": "How does the asked person typically respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.047",
@@ -9805,7 +10131,17 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "あやまられた 人は どう こたえますか。",
+            "prompt_en": "How does the apologized-to person typically respond?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.048",
@@ -10037,7 +10373,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "女の人は つぎに 何を しますか。",
+            "prompt_en": "What does the woman do next after agreeing to the walk?",
+            "type": "next_utterance"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.049",
@@ -10288,7 +10634,17 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "みちを きかれた 人の こたえに、どんな ことばが ふくまれて いますか。",
+            "prompt_en": "What kind of language markers (fillers / hesitations) appear in the response?",
+            "type": "implication"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     },
     {
       "id": "n5.listen.050",
@@ -10542,7 +10898,22 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "inference_question_expansion": {
+        "prompts": [
+          {
+            "prompt_ja": "いしゃは つぎに 何を しますか。",
+            "prompt_en": "What does the doctor do next after deciding to give medicine?",
+            "type": "next_utterance"
+          },
+          {
+            "prompt_ja": "かんじゃは どんな びょうきだと おもいますか。",
+            "prompt_en": "What illness does the patient likely have?",
+            "type": "inference"
+          }
+        ]
+      },
+      "inference_question_expansion_provenance": "llm_curated"
     }
   ],
   "_meta": {

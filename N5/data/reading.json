@@ -8236,7 +8236,22 @@
       "authentic_categories": [
         "menu"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What kind of restaurant is described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What menu items does the writer mention?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Would you order the same items, and why?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.042",
@@ -8480,7 +8495,22 @@
         "char_count": 253,
         "note": "Estimated native-equivalent age band based on 1.2% kanji density and 253-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "Where is the writer planning to go this weekend?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Who is the writer going with?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What might they do once they arrive?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.043",
@@ -8745,7 +8775,22 @@
       "authentic_categories": [
         "hospital"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What symptoms does the writer have?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How long have the symptoms lasted?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What action does the writer plan to take?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.044",
@@ -9005,7 +9050,22 @@
       "authentic_categories": [
         "time"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What event is on the calendar?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What date and time is it scheduled for?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "If you had to RSVP, what would you say?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.045",
@@ -9272,7 +9332,18 @@
         "char_count": 243,
         "note": "Estimated native-equivalent age band based on 4.9% kanji density and 243-char length."
       },
-      "target_reading_age_provenance": "auto_derived"
+      "target_reading_age_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What hobby or daily ritual is the writer describing?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How important is this ritual to the writer?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.046",
@@ -9502,7 +9573,22 @@
       },
       "target_reading_age_provenance": "auto_derived",
       "summary_hi": "जापान के पूर्व में अमेरिका और पश्चिम में चीन है — देश में पहाड़, नदियाँ और धान के खेत भी हैं। उत्तरी पहाड़ ふじ山 बहुत ऊँचा और सुंदर है; लेखक अगले साल वहाँ जाना चाहता है।",
-      "summary_hi_provenance": "llm_curated"
+      "summary_hi_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "Where is America in relation to Japan, geographically?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Why does the writer want to climb Mt. Fuji next year?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "Is there a similarly iconic landmark in your country?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.047",
@@ -9793,7 +9879,22 @@
       },
       "target_reading_age_provenance": "auto_derived",
       "summary_hi": "घर के पास एक नया स्टेशन है — स्टेशन से निकलकर बायें मुड़ने पर एक सस्ती दुकान मिलती है, जहाँ दरवाज़े पर खड़े वृद्ध मालिक हमेशा सज्जन हैं। सड़क के पार एक बड़ी दुकान भी है, महँगी पर तरह-तरह का सामान।",
-      "summary_hi_provenance": "llm_curated"
+      "summary_hi_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "How do you reach the cheap shop from the station exit?",
+          "type": "application"
+        },
+        {
+          "prompt_en": "How is the shop owner described?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Why might the writer prefer the smaller shop over the bigger one?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.048",
@@ -10036,7 +10137,22 @@
       "authentic_categories": [
         "post"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What is Tanaka asking Yamada to do?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does the writer convey friendliness in the letter?",
+          "type": "inference"
+        },
+        {
+          "prompt_en": "How would you politely respond to this letter in Japanese?",
+          "type": "application"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.049",
@@ -10305,7 +10421,22 @@
       "authentic_categories": [
         "weather"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What did the writer do during the morning rain?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What changes after lunch?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "How does this passage reflect Japanese springtime culture?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.050",
@@ -10596,7 +10727,22 @@
       "authentic_categories": [
         "notice"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "How many men and women work at this company?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What contrasts are drawn between Nakayama and Ogawa?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What atmosphere does the workplace seem to have?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.051",
@@ -10820,7 +10966,22 @@
       "authentic_categories": [
         "shop"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "How many apples did the writer buy and at what price?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Was the total under or over 1,000 yen?",
+          "type": "application"
+        },
+        {
+          "prompt_en": "What does the writer's reaction tell us about their shopping mood?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.052",
@@ -11046,7 +11207,22 @@
       },
       "target_reading_age_provenance": "auto_derived",
       "summary_hi": "लेखक अपने मित्र के साथ स्कूल में पढ़ाई करता है — सुबह ऊपरी मंज़िल की कक्षा में जापानी, दोपहर निचली मंज़िल की कक्षा में अंग्रेज़ी। साथ रहकर हर दिन बहुत आनंददायक लगता है।",
-      "summary_hi_provenance": "llm_curated"
+      "summary_hi_provenance": "llm_curated",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What subjects do the two students study together?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "When and where does each class meet?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "Do you have a study buddy or partner? Describe how you study together.",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.053",
@@ -11268,7 +11444,22 @@
       "authentic_categories": [
         "hospital"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "What body parts ache from running?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is the writer's plan for tomorrow?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "When was the last time you over-exercised? What did you do to recover?",
+          "type": "personal"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     },
     {
       "id": "n5.read.054",
@@ -11502,7 +11693,22 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "reflection_prompts": [
+        {
+          "prompt_en": "Where is the writer traveling, and how long is the trip?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What is the approximate cost?",
+          "type": "comprehension"
+        },
+        {
+          "prompt_en": "What do you think the writer is looking forward to most?",
+          "type": "inference"
+        }
+      ],
+      "reflection_prompts_provenance": "llm_curated"
     }
   ],
   "_meta": {
