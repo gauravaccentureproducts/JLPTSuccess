@@ -818,6 +818,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-40", "moji/goi/bunpou paper distractors bounded by N5 + paper-distractor exception (2026-05-08)", lambda: _check_ja_40_paper_distractor_kanji_bounded()),
     ("JA-41", "Hindi prose: Japanese grammatical particles attached to Hindi terms must be in kana (R-1.1, 2026-05-07)", lambda: _check_ja_41_kana_prefix_convention()),
     ("JA-47", "CONTENT-LICENSE.md corpus counts agree with live data/*.json counts (legal-vetting F-3, 2026-05-11)", lambda: _check_ja_47_content_license_counts()),
+    ("JA-48", "KanjiVG SVG copyright headers preserved (Ulrich Apel attribution per CC-BY-SA 3.0) (legal-vetting F-8, 2026-05-11)", lambda: _check_ja_48_kanjivg_svg_headers()),
 ]
 
 
@@ -2472,6 +2473,29 @@ def _check_ja_41_kana_prefix_convention() -> list[str]:
                 failures.append(f"JA-41 parse error on {pf.name}: {e}")
 
     return failures[:30]  # cap noise
+
+
+# ---------------------------------------------------------------------------
+# JA-48 added for legal-vetting F-8 (2026-05-11)
+# ---------------------------------------------------------------------------
+
+def _check_ja_48_kanjivg_svg_headers() -> list[str]:
+    """Every svg/kanji/*.svg preserves the upstream KanjiVG copyright header
+    (Ulrich Apel, CC-BY-SA 3.0). Required by the CC-BY-SA license to maintain
+    attribution. Header must appear in the first 1KB of the file."""
+    failures = []
+    svg_dir = ROOT / "svg" / "kanji"
+    if not svg_dir.is_dir():
+        return ["JA-48 svg/kanji/ directory not found"]
+    for svg in sorted(svg_dir.glob("*.svg")):
+        try:
+            head = svg.read_text(encoding="utf-8", errors="replace")[:1024]
+        except Exception as e:
+            failures.append(f"JA-48 {svg.name}: read failed: {e}")
+            continue
+        if "Ulrich Apel" not in head or "Copyright" not in head:
+            failures.append(f"JA-48 {svg.name}: KanjiVG copyright header missing (no 'Ulrich Apel' / 'Copyright' in first 1KB)")
+    return failures
 
 
 # ---------------------------------------------------------------------------

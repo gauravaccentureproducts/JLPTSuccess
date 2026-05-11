@@ -28,14 +28,14 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred
 | 3 | LEGAL-F-3 | P2 | Refresh CONTENT-LICENSE.md corpus counts to live values (1041 → 1000 vocab; verify all others); add JA-47 invariant to lock against drift | ✅ done 2026-05-11 (vocab 1041→1009, reading 45→54, listening 47→50 refreshed; JA-47 invariant added — 51/51 green) |
 | 4 | LEGAL-F-4 | P2 | Add JLPT-trademark non-affiliation disclaimer to runtime footer (visible — not just in linked NOTICES.md / CONTENT-LICENSE.md) | ✅ done 2026-05-11 (index.html footer + en/hi locale keys + .footer-disclaimer CSS; cache version v1.12.71→v1.12.72) |
 | 5 | LEGAL-F-5 | P2 | Add Inter font + Noto Sans JP attribution sections to NOTICES.md (SIL OFL 1.1 — currently missing despite README claim) | ✅ done 2026-05-11 (Inter + Noto Sans JP sections added with source URL, author, OFL 1.1 license + compliance note for each) |
-| 6 | LEGAL-F-6 | P3 | Per-release manual spot-check: 10 random questions across `data/papers/*` — flag any potential competitor-corpus paraphrasing (lightweight track; heavyweight similarity-detection deferred) | ⏳ pending |
+| 6 | LEGAL-F-6 | P3 | Per-release manual spot-check: 10 random questions across `data/papers/*` — flag any potential competitor-corpus paraphrasing (lightweight track; heavyweight similarity-detection deferred) | ✅ done 2026-05-11 (10/10 audited: 9 safe, 1 borderline dokkai-6.8 monitored, no remediation needed; report at `feedback/legal-vetting-f6-spot-check-2026-05-11.md`; sampler at `not-required/tools-archive/sample_papers_f6_2026_05_11.py`) |
 | 7 | LEGAL-F-7 | P3 | No remediation needed — mock-paper format-resemblance is mitigated by CONTENT-LICENSE.md §5 + audit_provenance.py CI gate (0 hits across 716 questions). Maintain F-6 coverage. | ✅ already mitigated |
 
 ### TIER 3 — LOW severity (backlog polish)
 
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
-| 8 | LEGAL-F-8 | P4 | Spot-check 5 random `svg/kanji/*.svg` for byte-preserved KanjiVG copyright header; add JA-48 invariant if any are missing | ⏳ pending |
+| 8 | LEGAL-F-8 | P4 | Spot-check 5 random `svg/kanji/*.svg` for byte-preserved KanjiVG copyright header; add JA-48 invariant if any are missing | ✅ done 2026-05-11 (all 106 SVGs verified preserve Ulrich Apel copyright header — exhaustive scan, not 5-sample; JA-48 invariant added — 52/52 green) |
 | 9 | LEGAL-F-9 | P4 | Add GitHub-Pages server-side IP-logging note to PRIVACY.md (closes GDPR Art 13/14 information-obligation gap) | ⏳ pending |
 | 10 | LEGAL-F-10 | P4 | Surface VOICEVOX speaker name on the listening-item playback UI (e.g. "Voice: 四国めたん") — currently only in NOTICES.md + internal `audio_render_meta` | ⏳ pending |
 | 11 | LEGAL-F-11 | P5 | Run `python tools/check_content_integrity.py -v` to confirm 50/50 invariants stayed green during this legal-vetting audit pass (audit-process honesty) | ✅ done 2026-05-11 (50/50 green) |

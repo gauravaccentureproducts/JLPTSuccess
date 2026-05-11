@@ -6,7 +6,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
-import { currentLocale } from './i18n.js';
+import { currentLocale, t } from './i18n.js';
 
 // IMP-045 (audit round-5): pick locale-aware grammar explanation when
 // present (native_reviewed only - see data/grammar.json
@@ -203,10 +203,21 @@ export function renderGrammarTOC(container, data) {
       const lessonTag = p.genki_lesson
         ? `G${p.genki_lesson.book}·L${p.genki_lesson.lesson}`
         : '';
+      // IMP-WAVE3 (UI audit fix, 2026-05-11): show meaning_<locale> when the
+      // current UI locale is non-English and the localized field exists.
+      // Falls back to meaning_en silently.
+      const cardMeaning = (() => {
+        const lc = currentLocale && currentLocale();
+        if (lc && lc !== 'en') {
+          const m = p[`meaning_${lc}`];
+          if (typeof m === 'string' && m.trim()) return m;
+        }
+        return p.meaning_en || '';
+      })();
       html += `
         <a class="grammar-card" href="#/learn/${encodeURIComponent(p.id)}">
           <span class="grammar-pattern" lang="ja">${esc(p.pattern)}</span>
-          <span class="grammar-card-print-meaning">${esc(p.meaning_en || '')}</span>
+          <span class="grammar-card-print-meaning">${esc(cardMeaning)}</span>
           <span class="grammar-card-print-example" lang="ja">${esc(firstExample)}</span>
           ${lessonTag ? `<span class="grammar-card-print-lesson">${esc(lessonTag)}</span>` : ''}
         </a>
@@ -375,7 +386,7 @@ function renderHowToUseTable(p) {
 
   const usageHeader = `
     <div class="pattern-usage-header">
-      <h3 class="section-title">How to use</h3>
+      <h3 class="section-title">${esc(t('grammar_detail.how_to_use'))}</h3>
       <span class="pattern-usage-chip" lang="ja">使い方</span>
     </div>
   `;
@@ -471,15 +482,10 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
   const wcp = Array.isArray(p.wrong_corrected_pair) ? p.wrong_corrected_pair : [];
   const categoryBadge = (cat) => {
     if (!cat) return '';
-    const labels = {
-      particle:        'Particle',
-      conjugation:     'Conjugation',
-      lexicon:         'Word choice',
-      word_order:      'Word order',
-      register:        'Register',
-      counter:         'Counter',
-    };
-    return `<span class="error-category-badge cat-${esc(cat)}">${esc(labels[cat] || cat)}</span>`;
+    // IMP-WAVE3: localized via locale dict (grammar_detail.cat_*).
+    const key = `grammar_detail.cat_${cat}`;
+    const label = t(key) !== key ? t(key) : cat;
+    return `<span class="error-category-badge cat-${esc(cat)}">${esc(label)}</span>`;
   };
   const wcpItems = wcp.map(m => `
     <li>
@@ -495,15 +501,16 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
   const ladder = (p.politeness_ladder && typeof p.politeness_ladder === 'object') ? p.politeness_ladder : null;
   const ladderHtml = ladder ? `
     <section class="politeness-ladder">
-      <h3 class="section-title">Politeness ladder (4-tier register)</h3>
+      <h3 class="section-title">${esc(t('grammar_detail.ladder_section'))}</h3>
       <table class="ladder-table">
         <tbody>
           ${['casual','polite','humble','respectful'].map(tier => {
             const v = ladder[tier];
             if (!v) return '';
+            const tierLabel = t(`grammar_detail.ladder_${tier}`);
             return `
               <tr class="ladder-row ladder-${tier}">
-                <th scope="row">${esc(tier.charAt(0).toUpperCase() + tier.slice(1))}</th>
+                <th scope="row">${esc(tierLabel)}</th>
                 <td lang="ja">${renderJa(v)}</td>
               </tr>
             `;
@@ -517,7 +524,7 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
   const citations = Array.isArray(p.authentic_citations) ? p.authentic_citations : [];
   const citationsHtml = citations.length ? `
     <section class="authentic-citations">
-      <h3 class="section-title">Authoritative sources</h3>
+      <h3 class="section-title">${esc(t('grammar_detail.citations_section'))}</h3>
       <ul class="citations-list">
         ${citations.map(c => `
           <li>
@@ -550,7 +557,7 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
   const html = `
     <article class="pattern-detail">
       ${navHtml}
-      <a class="back-link no-print" href="#/learn/grammar">← Back to grammar list</a>
+      <a class="back-link no-print" href="#/learn/grammar">← ${esc(t('grammar_detail.back_to_list'))}</a>
       <div class="pattern-header">
         <div>
           <h2 class="pattern-name">${esc(p.pattern)} ${lessonTag}</h2>
@@ -558,19 +565,19 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
         </div>
         <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known" ${isKnown ? 'checked' : ''}>
-          <span>Mark as known</span>
+          <span>${esc(t('grammar_detail.mark_as_known'))}</span>
           ${statusBadge}
         </label>
         <button type="button" id="pattern-print-btn" class="btn-secondary no-print pattern-print-btn"
                 title="Print this lesson note (use 'Save as PDF' in your browser's print dialog).">
-          🖨 Print / Save as PDF
+          🖨 ${esc(t('grammar_detail.print_pdf'))}
         </button>
       </div>
 
       ${renderHowToUseTable(p)}
 
       <section>
-        <h3 class="section-title">Explanation</h3>
+        <h3 class="section-title">${esc(t('grammar_detail.explanation'))}</h3>
         <p>${esc(localizedExplanation(p))}</p>
       </section>
 
@@ -593,12 +600,12 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
         };
         return `
           <section class="pattern-essay">
-            <h3 class="section-title">Deep dive ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
-            ${item('At a glance', essay.intro)}
-            ${item('Why it matters', essay.why_it_matters, stub ? 'Pending native author.' : '')}
-            ${item('Common pitfalls', essay.common_pitfalls)}
-            ${item('Contrasts', essay.contrasts)}
-            ${item('Practice tip', essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
+            <h3 class="section-title">${esc(t('grammar_detail.deep_dive'))} ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
+            ${item(t('grammar_detail.deep_dive_at_a_glance'), essay.intro)}
+            ${item(t('grammar_detail.deep_dive_why'), essay.why_it_matters, stub ? 'Pending native author.' : '')}
+            ${item(t('grammar_detail.deep_dive_pitfalls'), essay.common_pitfalls)}
+            ${item(t('grammar_detail.deep_dive_contrasts'), essay.contrasts)}
+            ${item(t('grammar_detail.deep_dive_practice'), essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
           </section>
         `;
       })()}
@@ -610,27 +617,27 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
         if (!note) return '';
         return `
           <section class="l1-note">
-            <h3 class="section-title">L1 note</h3>
+            <h3 class="section-title">${esc(t('grammar_detail.l1_note'))}</h3>
             <p>${esc(note)}</p>
           </section>
         `;
       })()}
 
       <section>
-        <h3 class="section-title">Examples (${examples.length})</h3>
+        <h3 class="section-title">${esc(t('grammar_detail.examples'))} (${examples.length})</h3>
         <ul class="example-list">${exampleItems}</ul>
       </section>
 
       ${mistakes.length ? `
         <section>
-          <h3 class="section-title">Common Mistakes / Contrasts</h3>
+          <h3 class="section-title">${esc(t('grammar_detail.common_mistakes'))}</h3>
           <ul class="mistakes-list">${mistakeItems}</ul>
         </section>
       ` : ''}
 
       ${wcp.length ? `
         <section class="wrong-corrected-pair">
-          <h3 class="section-title">Categorized common-learner errors (${wcp.length})</h3>
+          <h3 class="section-title">${esc(t('grammar_detail.wcp_section'))} (${wcp.length})</h3>
           <ul class="wcp-list">${wcpItems}</ul>
         </section>
       ` : ''}
@@ -644,7 +651,7 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
         <p>${renderJa(p.meaning_ja)}</p>
       </section>
 
-      ${p.notes ? `<section><h3 class="section-title">Notes</h3><p>${esc(p.notes)}</p></section>` : ''}
+      ${p.notes ? `<section><h3 class="section-title">${esc(t('grammar_detail.notes'))}</h3><p>${esc(p.notes)}</p></section>` : ''}
     </article>
   `;
   container.innerHTML = html;

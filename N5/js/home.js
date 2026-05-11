@@ -136,55 +136,63 @@ function computeProgress(counts) {
 // Single source of truth for the 6 syllabus cards. Description + action copy
 // stays in sync with what the linked page actually contains. Update the
 // description whenever a section's scope changes.
+// IMP-WAVE3 (UI audit fix, 2026-05-11): syllabus cards now localized via i18n.
+// Keys live under `home.card_<id>_*` in locales/{en,hi}.json. fmt() preserves
+// per-locale Indian/US number grouping.
 function syllabusCards(counts) {
+  const localCount = (key, n) => {
+    const tpl = t(`home.${key}`);
+    if (typeof tpl === 'string' && tpl.includes('${n}')) return tpl.replace('${n}', fmt(n));
+    return tpl;
+  };
   return [
     {
       idx: '01', id: 'grammar',
-      title: 'Grammar',
-      count: `${fmt(counts.grammar)} patterns`,
-      desc: 'Basic sentence structure, particles, verb forms, adjectives, comparison, requests, and common N5 expressions.',
+      title: t('home.card_grammar_title'),
+      count: localCount('card_grammar_count', counts.grammar),
+      desc: t('home.card_grammar_desc'),
       href: '#/learn/grammar',
-      action: 'Open Grammar Syllabus',
+      action: t('home.card_grammar_action'),
     },
     {
       idx: '02', id: 'vocab',
-      title: 'Vocabulary',
-      count: `${fmt(counts.vocab)} words`,
-      desc: 'Daily life words, time expressions, family, food, school, travel, verbs, adjectives, and common expressions.',
+      title: t('home.card_vocab_title'),
+      count: localCount('card_vocab_count', counts.vocab),
+      desc: t('home.card_vocab_desc'),
       href: '#/learn/vocab',
-      action: 'Open Vocabulary List',
+      action: t('home.card_vocab_action'),
     },
     {
       idx: '03', id: 'kanji',
-      title: 'Kanji',
-      count: `${fmt(counts.kanji)} characters`,
-      desc: 'Numbers, time, people, school, directions, nature, common verbs, and basic recognition kanji.',
+      title: t('home.card_kanji_title'),
+      count: localCount('card_kanji_count', counts.kanji),
+      desc: t('home.card_kanji_desc'),
       href: '#/kanji',
-      action: 'Open Kanji List',
+      action: t('home.card_kanji_action'),
     },
     {
       idx: '04', id: 'reading',
-      title: 'Reading',
-      count: `${fmt(counts.reading)} passages`,
-      desc: 'Short notices, simple messages, daily-life paragraphs, and basic comprehension practice.',
+      title: t('home.card_reading_title'),
+      count: localCount('card_reading_count', counts.reading),
+      desc: t('home.card_reading_desc'),
       href: '#/reading',
-      action: 'Start Reading Practice',
+      action: t('home.card_reading_action'),
     },
     {
       idx: '05', id: 'listening',
-      title: 'Listening',
-      count: `${fmt(counts.listening)} drills`,
-      desc: 'Greetings, classroom phrases, daily conversations, time, shopping, directions, and simple Q&A.',
+      title: t('home.card_listening_title'),
+      count: localCount('card_listening_count', counts.listening),
+      desc: t('home.card_listening_desc'),
       href: '#/listening',
-      action: 'Start Listening Practice',
+      action: t('home.card_listening_action'),
     },
     {
       idx: '06', id: 'test',
-      title: 'Mock Test',
-      count: '15 questions',
-      desc: 'Auto-scored mock test with correct answers, explanations, and weak-area review.',
+      title: t('home.card_test_title'),
+      count: t('home.card_test_count'),
+      desc: t('home.card_test_desc'),
       href: '#/test',
-      action: 'Take Mock Test',
+      action: t('home.card_test_action'),
     },
   ];
 }
@@ -202,21 +210,23 @@ function syllabusCards(counts) {
 // multi-skill nature on the home study path so learners understand
 // they're getting one mixed 15-min session, not three separate review
 // loops.
-const STUDY_ORDER = [
-  { text: 'Learn basic sentence structure and particles', href: '#/learn/grammar' },
-  { text: 'Study core vocabulary',                         href: '#/learn/vocab' },
-  { text: 'Learn basic kanji recognition',                 href: '#/kanji' },
-  { text: 'Practice grammar questions',                    href: '#/drill' },
-  { text: 'Practice short reading passages',               href: '#/reading' },
-  { text: 'Practice listening drills',                     href: '#/listening' },
-  { text: 'Take the mock test',                            href: '#/test' },
-  { text: 'Mixed drill: grammar + vocab + kanji SRS',      href: '#/review' },
-  // IMP-126 (richness audit, 2026-05-09): authentic real-world JP
-  // (signs / menus / transit / shop / notice). The audit flagged 0%
-  // authentic content across every surface as the largest leverage
-  // gap; this is the starter corpus + study route.
-  { text: 'Real-world Japanese (signs, menus, transit)',   href: '#/authentic' },
-];
+// IMP-WAVE3 (UI audit fix, 2026-05-11): study-order steps now localized via i18n.
+// Localized at render time so the locale swap is live.
+function studyOrder() {
+  return [
+    { text: t('home.study_step_grammar'),   href: '#/learn/grammar' },
+    { text: t('home.study_step_vocab'),     href: '#/learn/vocab' },
+    { text: t('home.study_step_kanji'),     href: '#/kanji' },
+    { text: t('home.study_step_drill'),     href: '#/drill' },
+    { text: t('home.study_step_reading'),   href: '#/reading' },
+    { text: t('home.study_step_listening'), href: '#/listening' },
+    { text: t('home.study_step_test'),      href: '#/test' },
+    { text: t('home.study_step_review'),    href: '#/review' },
+    // IMP-126 (richness audit, 2026-05-09): authentic real-world JP
+    // (signs / menus / transit / shop / notice).
+    { text: t('home.study_step_authentic'), href: '#/authentic' },
+  ];
+}
 
 function renderSyllabusCard(card) {
   return `
@@ -236,12 +246,13 @@ function renderProgressRow(label, p) {
       <li class="progress-row">
         <span class="progress-label">${esc(label)}</span>
         <span class="progress-bar" aria-hidden="true"><span class="progress-fill" style="width:0%"></span></span>
-        <span class="progress-value">Not attempted</span>
+        <span class="progress-value">${esc(t('home.progress_not_attempted'))}</span>
       </li>
     `;
   }
   const pct = p.total > 0 ? Math.min(100, Math.round((p.done / p.total) * 100)) : 0;
-  const valueText = label === 'Mock Test'
+  // IMP-WAVE3: compare against canonical test label for mock-percentage format.
+  const valueText = (label === t('home.progress_label_test') || label === 'Mock Test')
     ? `${p.done} / ${p.total} (${p.percent ?? pct}%)`
     : `${fmt(p.done)} / ${fmt(p.total)}`;
   return `
@@ -374,7 +385,7 @@ export async function renderHome(container) {
 
       <section class="syllabus-overview" aria-label="Syllabus overview">
         <header class="section-label">
-          <span class="section-label-text">Syllabus</span>
+          <span class="section-label-text">${esc(t('home.syllabus_section_label'))}</span>
           <span class="section-label-rule" aria-hidden="true"></span>
         </header>
         <div class="syllabus-grid">
@@ -384,11 +395,11 @@ export async function renderHome(container) {
 
       <section class="syllabus-study-order" aria-label="Recommended study order">
         <header class="section-label">
-          <span class="section-label-text">Recommended Study Order</span>
+          <span class="section-label-text">${esc(t('home.study_order_section_label'))}</span>
           <span class="section-label-rule" aria-hidden="true"></span>
         </header>
         <ol class="study-order-list">
-          ${STUDY_ORDER.map((step, i) => `
+          ${studyOrder().map((step, i) => `
             <li class="study-order-item">
               <a class="study-order-link" href="${step.href}">
                 <span class="study-order-num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
@@ -401,16 +412,16 @@ export async function renderHome(container) {
 
       <section class="syllabus-progress" aria-label="Progress overview">
         <header class="section-label">
-          <span class="section-label-text">Progress</span>
+          <span class="section-label-text">${esc(t('home.progress_section_label'))}</span>
           <span class="section-label-rule" aria-hidden="true"></span>
         </header>
         <ul class="progress-list">
-          ${renderProgressRow('Grammar', progress.grammar)}
-          ${renderProgressRow('Vocabulary', progress.vocab)}
-          ${renderProgressRow('Kanji', progress.kanji)}
-          ${renderProgressRow('Reading', progress.reading)}
-          ${renderProgressRow('Listening', progress.listening)}
-          ${renderProgressRow('Mock Test', progress.mockTest)}
+          ${renderProgressRow(t('home.progress_label_grammar'), progress.grammar)}
+          ${renderProgressRow(t('home.progress_label_vocab'), progress.vocab)}
+          ${renderProgressRow(t('home.progress_label_kanji'), progress.kanji)}
+          ${renderProgressRow(t('home.progress_label_reading'), progress.reading)}
+          ${renderProgressRow(t('home.progress_label_listening'), progress.listening)}
+          ${renderProgressRow(t('home.progress_label_test'), progress.mockTest)}
         </ul>
       </section>
 
@@ -445,10 +456,10 @@ export async function renderHome(container) {
       ` : ''}
 
       <section class="syllabus-action" aria-label="Where to start">
-        <p class="syllabus-action-prompt">Not sure where to start?</p>
+        <p class="syllabus-action-prompt">${esc(t('home.action_prompt'))}</p>
         <div class="syllabus-action-buttons">
-          <a class="btn-action btn-action-primary" href="#/diagnostic">Take Placement Check</a>
-          <a class="btn-action btn-action-secondary" href="#/learn/grammar">Start with Grammar</a>
+          <a class="btn-action btn-action-primary" href="#/diagnostic">${esc(t('home.action_placement'))}</a>
+          <a class="btn-action btn-action-secondary" href="#/learn/grammar">${esc(t('home.action_start_grammar'))}</a>
         </div>
       </section>
     </section>
