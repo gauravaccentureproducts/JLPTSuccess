@@ -23,6 +23,12 @@ import { t } from './i18n.js';
 // next to each question, so users build time discipline without the
 // section timer changing.
 import { loadPacing, renderPacingChip } from './mondai-pacing.js';
+// IMP-WAVE-P4-T4 (UI audit fix, 2026-05-11): scaled-score estimator
+// using test_strategy.json's score_breakdown. Maps the 3-section
+// sitting result (mojigoi, bunpoudok, choukai) onto the official
+// 2-section JLPT N5 0-180 scale via a linear approximation, then
+// looks up the diagnostic band (fail/weak/borderline/pass/strong).
+import { estimate as estimateScore } from './score-estimator.js';
 
 const SECTIONS = [
   // [section-id, label, ja-label, [paper-categories], duration-minutes]
@@ -350,6 +356,15 @@ function renderResult(container, paperNumber) {
       <p class="muted small">
         ※ The app ships 85Q across the 3 sections (close to the official 91Q). Per-section minimums above are raw-question approximations. The official JLPT N5 score report uses a scaled-equating method that this app does not replicate — only raw-correct percentages are shown.
       </p>
+
+      <!-- IMP-WAVE-P4-T4 (UI audit fix, 2026-05-11): scaled-score
+           estimator. Maps app's 3 sections onto official 2 (mojigoi+
+           bunpoudok = section 1 lang+reading; choukai = section 2
+           listening), projects raw% linearly onto the 120/60 caps,
+           and surfaces a diagnostic band. APPROXIMATION — labelled
+           as such so users don't read it as JEES-official. -->
+      ${renderScoreEstimate(session.sectionResults)}
+
       <div class="test-nav">
         <a class="btn-primary" href="#/sitting">Try another paper</a>
         <a class="btn-secondary" href="#/home">Home</a>
@@ -358,4 +373,67 @@ function renderResult(container, paperNumber) {
   `;
   // Reset session so a future click on a paper starts fresh.
   session = null;
+}
+
+// IMP-WAVE-P4-T4 (UI audit fix, 2026-05-11): render the
+// scaled-score estimate block on the sitting result page.
+// `sectionResults` is the 3-section array from the active session
+// (mojigoi, bunpoudok, choukai). We pool the first two into
+// official Section 1 (language knowledge + reading) and pass the
+// third as official Section 2 (listening) to score-estimator.
+function renderScoreEstimate(sectionResults) {
+  if (!sectionResults || sectionResults.length < 3) return '';
+  const sec1 = {
+    correct: (sectionResults[0]?.correct || 0) + (sectionResults[1]?.correct || 0),
+    total:   (sectionResults[0]?.total   || 0) + (sectionResults[1]?.total   || 0),
+  };
+  const sec2 = {
+    correct: sectionResults[2]?.correct || 0,
+    total:   sectionResults[2]?.total   || 0,
+  };
+  const est = estimateScore(sec1, sec2);
+  return `
+    <section class="score-estimate" aria-labelledby="score-estimate-heading">
+      <h3 id="score-estimate-heading">Scaled-score estimate <span class="muted small">(approximation)</span></h3>
+      <p class="muted small">
+        The official JLPT N5 uses an equipercentile scale that this app does NOT replicate. The numbers below are a linear-projection approximation onto the official 120 + 60 = 180 cap, intended as a directional indicator only.
+      </p>
+      <table class="category-table">
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Raw %</th>
+            <th>Estimated scaled</th>
+            <th>Section minimum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="${est.section1.meets_min ? 'pass' : 'fail'}">
+            <td>Section 1 — Lang Knowledge + Reading</td>
+            <td>${est.section1.raw_pct}%</td>
+            <td>${est.section1.scaled} / ${est.section1.max}</td>
+            <td class="muted small">${est.section1.meets_min ? `✓ ≥ ${est.section1.min}` : `✗ &lt; ${est.section1.min}`}</td>
+          </tr>
+          <tr class="${est.section2.meets_min ? 'pass' : 'fail'}">
+            <td>Section 2 — Listening</td>
+            <td>${est.section2.raw_pct}%</td>
+            <td>${est.section2.scaled} / ${est.section2.max}</td>
+            <td class="muted small">${est.section2.meets_min ? `✓ ≥ ${est.section2.min}` : `✗ &lt; ${est.section2.min}`}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th></th>
+            <th>${est.total.scaled} / ${est.total.max}</th>
+            <th class="muted small">${est.total.meets_min ? `✓ ≥ ${est.total.min}` : `✗ &lt; ${est.total.min}`}</th>
+          </tr>
+        </tfoot>
+      </table>
+      <p class="score-band-callout score-band-${esc(est.band.tone)}">
+        <strong>Estimated band:</strong> ${esc(est.band.label)}
+        <span class="muted small" style="display:block; margin-top:4px">${esc(est.band.hint)}</span>
+      </p>
+    </section>
+  `;
 }

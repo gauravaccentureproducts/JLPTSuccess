@@ -3895,6 +3895,29 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .sitting-break-actions { margin-top: var(--space-4); }
 .sitting-result { max-width: 640px; }
 
+/* IMP-WAVE-P4-T4 (UI audit fix, 2026-05-11): scaled-score estimator
+   block on the sitting result page. The band callout uses tone-keyed
+   background tints so users can scan the verdict at a glance. */
+.score-estimate {
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md, 8px);
+  background: var(--color-surface-soft, transparent);
+}
+.score-estimate h3 { margin-top: 0; }
+.score-band-callout {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border-left: 4px solid var(--color-line);
+}
+.score-band-fail        { background: rgba(179, 38, 30, 0.08);  border-left-color: var(--color-incorrect, #b3261e); }
+.score-band-weak        { background: rgba(255, 140, 0, 0.08);  border-left-color: #cc7a00; }
+.score-band-borderline  { background: rgba(255, 193, 7, 0.10);  border-left-color: #b08400; }
+.score-band-pass        { background: rgba(26, 92, 56, 0.08);   border-left-color: var(--c-success, #1a5c38); }
+.score-band-strong_pass { background: rgba(20, 69, 42, 0.10);   border-left-color: var(--PRIMARY_DARK, #14452a); }
+
 /* IMP-007 / IMP-010 / IMP-038 (audit round-3): custom audio-player skin
  * wraps the native <audio>. Skip-back-5s + skip-forward-5s + per-clip
  * 0.75/1.0/1.25× rate buttons. Native player stays in the DOM as a
