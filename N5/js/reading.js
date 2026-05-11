@@ -2,6 +2,7 @@
 // Each session: pick a passage, show it, then run comprehension questions.
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
+import { t } from './i18n.js';
 
 // Display labels for level / topic taxonomy. Data values stay English
 // (stable code keys for lookup); we localize at render time so the
@@ -167,7 +168,7 @@ function renderRead(container, p) {
       <div class="passage-text">${renderJa(p.ja)}</div>
       ${p.cultural_context ? `
         <aside class="reading-cultural-context">
-          <p class="muted small"><strong>Cultural context:</strong> ${esc(p.cultural_context)}</p>
+          <p class="muted small"><strong>${esc(t('dokkai_detail.cultural_context'))}:</strong> ${esc(p.cultural_context)}</p>
         </aside>
       ` : ''}
       ${renderGrammarFootnotes(p)}
@@ -179,8 +180,8 @@ function renderRead(container, p) {
         if (!tt || typeof tt !== 'object') return '';
         return `
           <aside class="reading-time-target muted small">
-            <strong>Target time:</strong> ${esc(tt.total_seconds || '?')}s total
-            ${tt.reading_seconds ? ` (read: ${esc(tt.reading_seconds)}s` : ''}${tt.comprehension_seconds ? ` + comprehend: ${esc(tt.comprehension_seconds)}s)` : tt.reading_seconds ? ')' : ''}
+            <strong>${esc(t('dokkai_detail.target_time'))}:</strong> ${esc(tt.total_seconds || '?')}s ${esc(t('dokkai_detail.total'))}
+            ${tt.reading_seconds ? ` (${esc(t('dokkai_detail.read'))}: ${esc(tt.reading_seconds)}s` : ''}${tt.comprehension_seconds ? ` + ${esc(t('dokkai_detail.comprehend'))}: ${esc(tt.comprehension_seconds)}s)` : tt.reading_seconds ? ')' : ''}
             ${tt.note ? `<br><span class="muted small">${esc(tt.note)}</span>` : ''}
           </aside>
         `;
@@ -193,7 +194,7 @@ function renderRead(container, p) {
         return `
           <aside class="reading-strategy-hints">
             <details>
-              <summary><strong>Strategy hints (${hints.length})</strong></summary>
+              <summary><strong>${esc(t('dokkai_detail.strategy_hints'))} (${hints.length})</strong></summary>
               <ul>
                 ${hints.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
               </ul>
@@ -207,8 +208,8 @@ function renderRead(container, p) {
         if (!rs || typeof rs !== 'object' || !rs.register) return '';
         return `
           <p class="muted small reading-register-signal">
-            <strong>Register:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} confidence)</span>` : ''}
-            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">Signals: ${rs.signals.map(esc).join('; ')}</span>` : ''}
+            <strong>${esc(t('dokkai_detail.register'))}:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} ${esc(t('dokkai_detail.confidence'))})</span>` : ''}
+            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">${esc(t('dokkai_detail.signals'))}: ${rs.signals.map(esc).join('; ')}</span>` : ''}
           </p>
         `;
       })()}
@@ -218,8 +219,8 @@ function renderRead(container, p) {
         if (!ta || typeof ta !== 'object') return '';
         return `
           <p class="muted small reading-target-age">
-            <strong>Native-equivalent reading level:</strong> age ${esc(ta.native_equivalent_age_years || '?')}
-            ${ta.kanji_ratio != null ? ` <span class="muted">(${(ta.kanji_ratio * 100).toFixed(1)}% kanji, ${esc(ta.char_count || '?')} chars)</span>` : ''}
+            <strong>${esc(t('dokkai_detail.native_reading_level'))}:</strong> ${esc(t('dokkai_detail.age'))} ${esc(ta.native_equivalent_age_years || '?')}
+            ${ta.kanji_ratio != null ? ` <span class="muted">(${(ta.kanji_ratio * 100).toFixed(1)}% ${esc(t('dokkai_detail.kanji'))}, ${esc(ta.char_count || '?')} ${esc(t('dokkai_detail.chars'))})</span>` : ''}
           </p>
         `;
       })()}
@@ -229,7 +230,7 @@ function renderRead(container, p) {
         if (!dm.length) return '';
         return `
           <p class="muted small reading-discourse-markers">
-            <strong>Discourse markers in this passage:</strong>
+            <strong>${esc(t('dokkai_detail.discourse_markers'))}:</strong>
             ${dm.map(m => `<span class="discourse-marker-chip" lang="ja">${esc(m)}</span>`).join(' ')}
           </p>
         `;

@@ -4,7 +4,7 @@
 // The stroke-order SVG path lives in data/kanji.json under stroke_order_svg;
 // the SVG file itself ships separately (KanjiVG drop-in target).
 import * as storage from './storage.js';
-import { currentLocale } from './i18n.js';
+import { currentLocale, t } from './i18n.js';
 import { renderItemBadge } from './provenance-badge.js';
 
 // IMP-047 (audit round-5): pick locale-aware meanings if available, else
@@ -229,38 +229,38 @@ function renderDetail(container, entry, entries) {
   container.innerHTML = `
     <article class="kanji-detail">
       <div class="srs-progress">
-        <a href="#/kanji">← All kanji</a>
-        <span class="muted small">${idx + 1} of ${entries.length}</span>
+        <a href="#/kanji">← ${esc(t('kanji_detail.all_kanji'))}</a>
+        <span class="muted small">${idx + 1} ${esc(t('kanji_detail.of_total'))} ${entries.length}</span>
       </div>
       <div class="kanji-glyph-row pattern-header">
         <div class="kanji-glyph-cluster">
           <div class="kanji-glyph-big" lang="ja">${esc(entry.glyph)}</div>
           <div class="kanji-readings">
             ${entry.on?.length
-                ? `<p><strong>On:</strong> <span lang="ja">${entry.on.map(esc).join(' / ')}</span></p>`
-                : (Array.isArray(entry.on) ? `<p><strong>On:</strong> <span class="muted small">(none at N5)</span></p>` : '')}
+                ? `<p><strong>${esc(t('kanji_detail.on'))}:</strong> <span lang="ja">${entry.on.map(esc).join(' / ')}</span></p>`
+                : (Array.isArray(entry.on) ? `<p><strong>${esc(t('kanji_detail.on'))}:</strong> <span class="muted small">${esc(t('kanji_detail.none_at_n5'))}</span></p>` : '')}
             ${entry.kun?.length
-                ? `<p><strong>Kun:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>`
-                : (Array.isArray(entry.kun) ? `<p><strong>Kun:</strong> <span class="muted small">(none at N5)</span></p>` : '')}
-            ${(() => { const m = localizedMeanings(entry); return m.length ? `<p><strong>Meaning:</strong> ${m.map(esc).join(', ')} ${renderItemBadge(entry, true)}</p>` : ''; })()}
+                ? `<p><strong>${esc(t('kanji_detail.kun'))}:</strong> <span lang="ja">${entry.kun.map(esc).join(' / ')}</span></p>`
+                : (Array.isArray(entry.kun) ? `<p><strong>${esc(t('kanji_detail.kun'))}:</strong> <span class="muted small">${esc(t('kanji_detail.none_at_n5'))}</span></p>` : '')}
+            ${(() => { const m = localizedMeanings(entry); return m.length ? `<p><strong>${esc(t('kanji_detail.meaning'))}:</strong> ${m.map(esc).join(', ')} ${renderItemBadge(entry, true)}</p>` : ''; })()}
           </div>
         </div>
         <label class="known-toggle" title="Manually mark this kanji as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known-kanji" ${isKnown ? 'checked' : ''}>
-          <span>Mark as known</span>
+          <span>${esc(t('kanji_detail.mark_as_known'))}</span>
         </label>
       </div>
       ${(entry.radical || entry.radical_decomposition || entry.mnemonic) ? `
         <section class="kanji-mnemonic-block">
-          <h3>Radical &amp; mnemonic</h3>
+          <h3>${esc(t('kanji_detail.radical_and_mnemonic'))}</h3>
           ${entry.radical ? `
-            <p><strong>Radical:</strong>
+            <p><strong>${esc(t('kanji_detail.radical'))}:</strong>
               <span class="kanji-radical-glyph" lang="ja">${esc(entry.radical.glyph || '')}</span>
               <span class="muted small">${esc(entry.radical.name || '')}</span>
             </p>
           ` : ''}
           ${entry.radical_decomposition?.length ? `
-            <p><strong>Components:</strong>
+            <p><strong>${esc(t('kanji_detail.components'))}:</strong>
               <span class="kanji-decomposition" lang="ja">${entry.radical_decomposition.map(esc).join(' + ')}</span>
             </p>
           ` : ''}
@@ -269,7 +269,7 @@ function renderDetail(container, entry, entries) {
       ` : ''}
       ${entry.confusable_with?.length ? `
         <section class="kanji-confusable-block">
-          <h3>Don't confuse with</h3>
+          <h3>${esc(t('kanji_detail.dont_confuse'))}</h3>
           <div class="kanji-confusable-grid">
             ${entry.confusable_with.map(g => `
               <a class="kanji-confusable-card" href="#/kanji/${encodeURIComponent(g)}">
@@ -281,7 +281,7 @@ function renderDetail(container, entry, entries) {
       ` : ''}
       ${entry.examples?.length ? `
         <section class="kanji-examples">
-          <h3>Example usage (N5)</h3>
+          <h3>${esc(t('kanji_detail.example_usage'))}</h3>
           <table class="kanji-examples-table">
             <tbody>
               ${entry.examples.map(ex => `
@@ -297,7 +297,7 @@ function renderDetail(container, entry, entries) {
       ` : ''}
       ${entry.sentences?.length ? `
         <section class="kanji-sentences">
-          <h3>In a sentence</h3>
+          <h3>${esc(t('kanji_detail.in_a_sentence'))}</h3>
           <ul class="kanji-sentences-list">
             ${entry.sentences.map(s => `
               <li>
@@ -310,11 +310,11 @@ function renderDetail(container, entry, entries) {
       ` : ''}
       ${entry.stroke_order_svg ? `
         <section class="kanji-stroke">
-          <h3>Stroke order</h3>
+          <h3>${esc(t('kanji_detail.stroke_order'))}</h3>
           <object class="stroke-svg" data="${esc(entry.stroke_order_svg)}" type="image/svg+xml" aria-label="Stroke order for ${esc(entry.glyph)}">
-            <p class="muted small">Stroke-order diagram could not load.</p>
+            <p class="muted small">${esc(t('kanji_detail.stroke_diagram_fail'))}</p>
           </object>
-          <p class="muted small kanji-stroke-credit">Stroke data: <a href="https://kanjivg.tagaini.net/" rel="noopener noreferrer" target="_blank">KanjiVG</a> (CC BY-SA 3.0).</p>
+          <p class="muted small kanji-stroke-credit">${esc(t('kanji_detail.stroke_order_credit'))}: <a href="https://kanjivg.tagaini.net/" rel="noopener noreferrer" target="_blank">KanjiVG</a> (CC BY-SA 3.0).</p>
         </section>
       ` : ''}
       ${entry.stroke_order_mistakes ? `
@@ -323,43 +323,33 @@ function renderDetail(container, entry, entries) {
              persona. Surfaces below the SVG so a learner reading the
              diagram has the trap context inline. -->
         <section class="kanji-stroke-mistakes">
-          <h3>Common stroke-order traps</h3>
+          <h3>${esc(t('kanji_detail.stroke_order_traps'))}</h3>
           <p class="kanji-stroke-mistake-note" lang="ja">${esc(entry.stroke_order_mistakes)}</p>
         </section>
       ` : ''}
       ${(() => {
-        // IMP-WAVE1 (UI audit fix, 2026-05-11): stroke_order_trap
-        // schemaful trap entry. Schema:
-        //   {trap, correct_order_summary, why_it_matters}
-        // Authored across kanji batches A-C; 106/106 coverage.
         const trap = entry.stroke_order_trap;
         if (!trap || typeof trap !== 'object') return '';
         return `
           <section class="kanji-stroke-trap">
-            <h3>Stroke-order trap (pedagogical)</h3>
-            ${trap.trap ? `<p><strong>What learners often get wrong:</strong> ${esc(trap.trap)}</p>` : ''}
-            ${trap.correct_order_summary ? `<p><strong>Correct order:</strong> ${esc(trap.correct_order_summary)}</p>` : ''}
-            ${trap.why_it_matters ? `<p><strong>Why it matters:</strong> ${esc(trap.why_it_matters)}</p>` : ''}
+            <h3>${esc(t('kanji_detail.stroke_order_trap_section'))}</h3>
+            ${trap.trap ? `<p><strong>${esc(t('kanji_detail.what_learners_get_wrong'))}:</strong> ${esc(trap.trap)}</p>` : ''}
+            ${trap.correct_order_summary ? `<p><strong>${esc(t('kanji_detail.correct_order'))}:</strong> ${esc(trap.correct_order_summary)}</p>` : ''}
+            ${trap.why_it_matters ? `<p><strong>${esc(t('kanji_detail.why_it_matters'))}:</strong> ${esc(trap.why_it_matters)}</p>` : ''}
           </section>
         `;
       })()}
       ${(() => {
-        // IMP-WAVE1: on_kun_pair_drill — paired on/kun exemplar with
-        // contrast note. Schema:
-        //   {standalone: {form, reading, gloss},
-        //    compound:   {form, reading, gloss},
-        //    contrast_note}
-        // 106/106 coverage.
         const drill = entry.on_kun_pair_drill;
         if (!drill || typeof drill !== 'object') return '';
         const sa = drill.standalone || {};
         const cp = drill.compound || {};
         return `
           <section class="kanji-on-kun-drill">
-            <h3>On / Kun pair drill</h3>
+            <h3>${esc(t('kanji_detail.on_kun_pair_drill'))}</h3>
             <table class="on-kun-drill-table">
               <thead>
-                <tr><th>Standalone (typically kun)</th><th>Compound (typically on)</th></tr>
+                <tr><th>${esc(t('kanji_detail.standalone_typically_kun'))}</th><th>${esc(t('kanji_detail.compound_typically_on'))}</th></tr>
               </thead>
               <tbody>
                 <tr>
@@ -381,24 +371,18 @@ function renderDetail(container, entry, entries) {
         `;
       })()}
       ${entry.reading_rule ? `
-        <!-- IMP-WAVE1: reading_rule — generic on/kun rule of thumb. -->
         <section class="kanji-reading-rule">
-          <h3>Reading rule of thumb</h3>
+          <h3>${esc(t('kanji_detail.reading_rule_of_thumb'))}</h3>
           <p class="muted small">${esc(entry.reading_rule)}</p>
         </section>
       ` : ''}
       ${(() => {
-        // IMP-WAVE4 (UI audit fix, 2026-05-11): okurigana_cuts.
-        // Derived list of "kanji:okurigana" pairs showing where the
-        // verb/adjective stem ends and the suffix begins (e.g., "食:べる",
-        // "新:しい"). Pedagogically useful for understanding inflection
-        // boundaries. 44/106 kanji have entries; render only when present.
         const oc = Array.isArray(entry.okurigana_cuts) ? entry.okurigana_cuts : [];
         if (!oc.length) return '';
         return `
           <section class="kanji-okurigana-cuts">
-            <h3>Okurigana boundary</h3>
-            <p class="muted small">Where the kanji stem ends and the okurigana (kana suffix) begins:</p>
+            <h3>${esc(t('kanji_detail.okurigana_boundary'))}</h3>
+            <p class="muted small">${esc(t('kanji_detail.okurigana_intro'))}</p>
             <ul class="okurigana-cuts-list">
               ${oc.map(cut => {
                 // cut format: "<kanji>:<okurigana>" e.g. "食:べる"

@@ -5,7 +5,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
-import { currentLocale } from './i18n.js';
+import { currentLocale, t } from './i18n.js';
 import { renderItemBadge } from './provenance-badge.js';
 
 // ISSUE-063 + IMP-087 (audit round-7): render NHK pitch-accent {mora,
@@ -342,7 +342,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
   if (!entry) {
     container.innerHTML = `
       <article class="vocab-detail">
-        <a class="back-link" href="#/learn/vocab">← Back to Vocabulary</a>
+        <a class="back-link" href="#/learn/vocab">← ${esc(t('vocab_detail.back_to_vocabulary'))}</a>
         <h2>Word not found</h2>
         <p>No vocab entry matches <strong lang="ja">${esc(form)}</strong>. The word may live under a different form.</p>
       </article>
@@ -410,7 +410,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
   const isVocabKnown = storage.isVocabKnown(entry.form);
   container.innerHTML = `
     <article class="vocab-detail">
-      <a class="back-link" href="#/learn/vocab">← Back to Vocabulary</a>
+      <a class="back-link" href="#/learn/vocab">← ${esc(t('vocab_detail.back_to_vocabulary'))}</a>
       <header class="vocab-header pattern-header">
         <div>
           <p class="muted small">${esc(entry.section || '')}</p>
@@ -420,17 +420,17 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         </div>
         <label class="known-toggle" title="Manually mark this word as known. Cleared on the next miss in Test or Drill.">
           <input type="checkbox" id="mark-known-vocab" ${isVocabKnown ? 'checked' : ''}>
-          <span>Mark as known</span>
+          <span>${esc(t('vocab_detail.mark_as_known'))}</span>
         </label>
       </header>
 
       <section>
-        <h3 class="section-title">Meaning</h3>
-        <p><strong>${currentLocale() === 'en' ? 'English' : 'Meaning'}:</strong> ${esc(localizedGloss(entry) || '-')}</p>
+        <h3 class="section-title">${esc(t('vocab_detail.meaning'))}</h3>
+        <p><strong>${currentLocale() === 'en' ? esc(t('vocab_detail.english')) : esc(t('vocab_detail.meaning'))}:</strong> ${esc(localizedGloss(entry) || '-')}</p>
         ${currentLocale() !== 'en' && entry.gloss && localizedGloss(entry) !== entry.gloss
-            ? `<p><strong>English:</strong> ${esc(entry.gloss)}</p>`
+            ? `<p><strong>${esc(t('vocab_detail.english'))}:</strong> ${esc(entry.gloss)}</p>`
             : ''}
-        ${entry.reading ? `<p><strong>Japanese reading:</strong> <span lang="ja">${esc(entry.reading)}</span></p>` : ''}
+        ${entry.reading ? `<p><strong>${esc(t('vocab_detail.japanese_reading'))}:</strong> <span lang="ja">${esc(entry.reading)}</span></p>` : ''}
         ${(() => {
           // ISSUE-063 + IMP-087 + IMP-088 (audit round-7): surface vocab
           // depth fields when present. Pitch shown as Tokyo-dialect HL
@@ -438,16 +438,16 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
           // canonical reading; register chain badge for keigo entries.
           const out = [];
           if (entry.pitch_accent && Number.isFinite(entry.pitch_accent.mora)) {
-            out.push(`<p><strong>Pitch accent:</strong> <span class="vocab-pitch" lang="ja">${esc(_pitchPattern(entry.pitch_accent, entry.reading))}</span> <span class="muted small">(drop: ${entry.pitch_accent.drop})</span></p>`);
+            out.push(`<p><strong>${esc(t('vocab_detail.pitch_accent'))}:</strong> <span class="vocab-pitch" lang="ja">${esc(_pitchPattern(entry.pitch_accent, entry.reading))}</span> <span class="muted small">(drop: ${entry.pitch_accent.drop})</span></p>`);
           }
           if (entry.counter) {
-            out.push(`<p><strong>Counter:</strong> <span lang="ja">〜${esc(_counterKana(entry.counter))}</span></p>`);
+            out.push(`<p><strong>${esc(t('vocab_detail.counter'))}:</strong> <span lang="ja">〜${esc(_counterKana(entry.counter))}</span></p>`);
           }
           if (entry.register) {
-            out.push(`<p><strong>Register:</strong> <span class="vocab-register-tag">${esc(entry.register)}</span></p>`);
+            out.push(`<p><strong>${esc(t('vocab_detail.register'))}:</strong> <span class="vocab-register-tag">${esc(entry.register)}</span></p>`);
           }
           if (entry.transitivity) {
-            out.push(`<p><strong>Transitivity:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(pair: ${esc(entry.pair_id)})</span>` : ''}</p>`);
+            out.push(`<p><strong>${esc(t('vocab_detail.transitivity'))}:</strong> ${esc(entry.transitivity)}${entry.pair_id ? ` <span class="muted small">(${esc(t('vocab_detail.pair'))}: ${esc(entry.pair_id)})</span>` : ''}</p>`);
           }
           // BUG-3 fix (UI test 2026-05-07): surface verb_class +
           // group1_exception. Populated on all 134 verbs in v1.12.43
@@ -462,7 +462,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
             const g1exc = entry.group1_exception
               ? ` <span class="vocab-g1-exception" title="Looks like Group 2 but conjugates as Group 1 (X-6.6)">Group-1 exception</span>`
               : '';
-            out.push(`<p><strong>Verb class:</strong> ${esc(label)}${g1exc}</p>`);
+            out.push(`<p><strong>${esc(t('vocab_detail.verb_class'))}:</strong> ${esc(label)}${g1exc}</p>`);
           }
           // IMP-119 (round-9, 2026-05-06): keigo-chain visualizer.
           // When the entry is part of a register chain (humble / plain /
@@ -485,19 +485,19 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       </section>
 
       <section>
-        <h3 class="section-title">Example sentences ${top.length ? `(${top.length})` : ''}</h3>
+        <h3 class="section-title">${esc(t('vocab_detail.example_sentences'))} ${top.length ? `(${top.length})` : ''}</h3>
         ${top.length ? `
           <ol class="example-list">
             ${top.map(ex => `
               <li>
                 <p lang="ja" class="example-ja">${renderJa(ex.ja)}</p>
                 ${ex.en ? `<p class="translation">${esc(ex.en)}</p>` : ''}
-                ${ex.source ? `<p class="muted small">From pattern: <span lang="ja">${esc(ex.source)}</span></p>` : ''}
+                ${ex.source ? `<p class="muted small">${esc(t('vocab_detail.from_pattern'))}: <span lang="ja">${esc(ex.source)}</span></p>` : ''}
               </li>
             `).join('')}
           </ol>
         ` : `
-          <p class="muted">No example sentences in the corpus yet for this word. Try the search bar to find phrases that include it.</p>
+          <p class="muted">${esc(t('vocab_detail.no_examples'))}</p>
         `}
       </section>
 
@@ -510,7 +510,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         if (!colls.length) return '';
         return `
           <section class="vocab-collocations">
-            <h3 class="section-title">Collocations (${colls.length})</h3>
+            <h3 class="section-title">${esc(t('vocab_detail.collocations'))} (${colls.length})</h3>
             <ul class="collocation-list">
               ${colls.map(c => `<li class="collocation-chip" lang="ja">${esc(c)}</li>`).join('')}
             </ul>
@@ -526,7 +526,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         if (!ff.length) return '';
         return `
           <section class="vocab-false-friends">
-            <h3 class="section-title">Don't confuse with</h3>
+            <h3 class="section-title">${esc(t('vocab_detail.false_friends'))}</h3>
             <div class="false-friend-grid">
               ${ff.map(form => `
                 <a class="false-friend-card" href="#/learn/vocab/${encodeURIComponent(form)}">
@@ -545,7 +545,7 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         if (!pf.length) return '';
         return `
           <section class="vocab-pragmatic">
-            <h3 class="section-title">Multiple uses (pragmatic)</h3>
+            <h3 class="section-title">${esc(t('vocab_detail.pragmatic'))}</h3>
             <ul class="pragmatic-list">
               ${pf.map(p => `
                 <li>
@@ -566,12 +566,12 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         if (!dv || typeof dv !== 'object') return '';
         return `
           <section class="vocab-devoicing">
-            <h3 class="section-title">Pronunciation: devoiced vowels</h3>
+            <h3 class="section-title">${esc(t('vocab_detail.devoiced_vowels'))}</h3>
             ${Array.isArray(dv.positions) && dv.positions.length
-              ? `<p><strong>Position(s):</strong> mora ${dv.positions.join(', ')} (0-indexed)</p>`
-              : '<p class="muted small">No devoicing in standard Tokyo speech for this form.</p>'}
+              ? `<p><strong>${esc(t('vocab_detail.devoiced_position'))}:</strong> mora ${dv.positions.join(', ')} (0-indexed)</p>`
+              : `<p class="muted small">${esc(t('vocab_detail.devoiced_no_dev'))}</p>`}
             ${dv.note ? `<p class="muted small">${esc(dv.note)}</p>` : ''}
-            ${dv.rule ? `<p class="muted small"><em>Rule:</em> ${esc(dv.rule)}</p>` : ''}
+            ${dv.rule ? `<p class="muted small"><em>${esc(t('vocab_detail.devoiced_rule'))}:</em> ${esc(dv.rule)}</p>` : ''}
           </section>
         `;
       })()}
@@ -583,13 +583,13 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
         if (!cr || typeof cr !== 'object') return '';
         return `
           <section class="vocab-counter-register">
-            <h3 class="section-title">Counter register</h3>
-            ${cr.counter ? `<p><strong>Counter root:</strong> <span lang="ja">〜${esc(cr.counter)}</span> ${cr.irregular ? '<span class="vocab-g1-exception" title="Irregular kun-yomi form">irregular</span>' : ''}</p>` : ''}
+            <h3 class="section-title">${esc(t('vocab_detail.counter_register'))}</h3>
+            ${cr.counter ? `<p><strong>${esc(t('vocab_detail.counter_root'))}:</strong> <span lang="ja">〜${esc(cr.counter)}</span> ${cr.irregular ? `<span class="vocab-g1-exception" title="Irregular kun-yomi form">${esc(t('vocab_detail.irregular'))}</span>` : ''}</p>` : ''}
             ${cr.note ? `<p>${esc(cr.note)}</p>` : ''}
             ${cr.register_pair ? `
               <div class="register-pair-grid">
-                ${cr.register_pair.casual_alt ? `<div><span class="muted small">casual:</span> <span lang="ja">${esc(cr.register_pair.casual_alt)}</span></div>` : ''}
-                ${cr.register_pair.formal_same ? `<div><span class="muted small">formal:</span> <span lang="ja">${esc(cr.register_pair.formal_same)}</span></div>` : ''}
+                ${cr.register_pair.casual_alt ? `<div><span class="muted small">${esc(t('vocab_detail.casual'))}:</span> <span lang="ja">${esc(cr.register_pair.casual_alt)}</span></div>` : ''}
+                ${cr.register_pair.formal_same ? `<div><span class="muted small">${esc(t('vocab_detail.formal'))}:</span> <span lang="ja">${esc(cr.register_pair.formal_same)}</span></div>` : ''}
               </div>
             ` : ''}
           </section>

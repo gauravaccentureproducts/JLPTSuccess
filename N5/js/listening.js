@@ -6,6 +6,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { hasAlignedTranscript, renderTranscriptHTML, wireTranscriptSync } from './listening-transcript.js';
+import { t } from './i18n.js';
 
 let bank = null;
 let session = null;
@@ -223,7 +224,7 @@ function renderItem(container) {
         return `
           <aside class="listening-strategy-hints">
             <details>
-              <summary><strong>Strategy hints (${hints.length})</strong></summary>
+              <summary><strong>${esc(t('chokai_detail.strategy_hints'))} (${hints.length})</strong></summary>
               <ul>
                 ${hints.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
               </ul>
@@ -237,7 +238,7 @@ function renderItem(container) {
         if (!sr || typeof sr !== 'object' || !sr.category) return '';
         return `
           <p class="muted small listening-speech-rate">
-            <strong>Speech rate:</strong> ${esc(sr.category)}
+            <strong>${esc(t('chokai_detail.speech_rate'))}:</strong> ${esc(sr.category)}
             ${sr.morae_per_min ? ` <span class="muted">(${esc(sr.morae_per_min)} mora/min)</span>` : ''}
             ${sr.note ? `<br><span class="muted small">${esc(sr.note)}</span>` : ''}
           </p>
@@ -249,8 +250,8 @@ function renderItem(container) {
         if (!rs || typeof rs !== 'object' || !rs.register) return '';
         return `
           <p class="muted small listening-register-signal">
-            <strong>Register:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} confidence)</span>` : ''}
-            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">Signals: ${rs.signals.map(esc).join('; ')}</span>` : ''}
+            <strong>${esc(t('chokai_detail.register'))}:</strong> ${esc(rs.register)}${rs.confidence ? ` <span class="muted">(${esc(rs.confidence)} ${esc(t('chokai_detail.confidence'))})</span>` : ''}
+            ${Array.isArray(rs.signals) && rs.signals.length ? `<br><span class="muted small">${esc(t('chokai_detail.signals'))}: ${rs.signals.map(esc).join('; ')}</span>` : ''}
           </p>
         `;
       })()}
@@ -260,7 +261,7 @@ function renderItem(container) {
         if (!sd || typeof sd !== 'object' || !Array.isArray(sd.roles_detected) || !sd.roles_detected.length) return '';
         return `
           <p class="muted small listening-speakers">
-            <strong>Speakers detected (${sd.n_speakers_inferred || sd.roles_detected.length}):</strong>
+            <strong>${esc(t('chokai_detail.speakers_detected'))} (${sd.n_speakers_inferred || sd.roles_detected.length}):</strong>
             ${sd.roles_detected.map(r => `<span class="speaker-role-chip" lang="ja">${esc(r.tag || r.role || '?')}</span>`).join(' ')}
           </p>
         `;
@@ -272,7 +273,7 @@ function renderItem(container) {
         return `
           <aside class="listening-prosody">
             <details>
-              <summary class="muted small"><strong>Prosody / intonation cues</strong></summary>
+              <summary class="muted small"><strong>${esc(t('chokai_detail.prosody_intonation_cues'))}</strong></summary>
               <ul>
                 ${ph.map(h => `<li class="muted small">${esc(h)}</li>`).join('')}
               </ul>
@@ -286,8 +287,8 @@ function renderItem(container) {
         if (!tt || typeof tt !== 'object') return '';
         return `
           <p class="muted small listening-time-target">
-            <strong>Target time:</strong> ~${esc(tt.estimated_total_seconds || tt.jlpt_target_seconds_per_question || '?')}s
-            ${tt.audio_seconds_estimated ? `<span class="muted"> (audio ~${esc(tt.audio_seconds_estimated)}s)</span>` : ''}
+            <strong>${esc(t('chokai_detail.target_time'))}:</strong> ~${esc(tt.estimated_total_seconds || tt.jlpt_target_seconds_per_question || '?')}s
+            ${tt.audio_seconds_estimated ? `<span class="muted"> (${esc(t('chokai_detail.audio_approx'))}${esc(tt.audio_seconds_estimated)}s)</span>` : ''}
           </p>
         `;
       })()}
@@ -298,9 +299,9 @@ function renderItem(container) {
         return `
           <aside class="listening-distractor-pattern">
             <details>
-              <summary class="muted small"><strong>Distractor pattern:</strong> ${esc(dp.pattern)}</summary>
+              <summary class="muted small"><strong>${esc(t('chokai_detail.distractor_pattern'))}:</strong> ${esc(dp.pattern)}</summary>
               ${dp.note ? `<p class="muted small">${esc(dp.note)}</p>` : ''}
-              ${dp.mentioned_count != null ? `<p class="muted small">Mentioned-but-rejected count: ${esc(dp.mentioned_count)}</p>` : ''}
+              ${dp.mentioned_count != null ? `<p class="muted small">${esc(t('chokai_detail.mentioned_rejected_count'))}: ${esc(dp.mentioned_count)}</p>` : ''}
             </details>
           </aside>
         `;
