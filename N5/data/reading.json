@@ -163,7 +163,40 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Scan for nationality and occupation in first 2 sentences.",
+        "Look for desu/masu form to identify subject.",
+        "Note pronouns (わたし/かれ/かのじょ) to track speakers."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.093,
+        "char_count": 86,
+        "note": "Estimated native-equivalent age band based on 9.3% kanji density and 86-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.002",
@@ -326,7 +359,41 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 60,
+        "total_seconds": 94,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 3 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.105,
+        "char_count": 86,
+        "note": "Estimated native-equivalent age band based on 10.5% kanji density and 86-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.003",
@@ -469,7 +536,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.048,
+        "char_count": 62,
+        "note": "Estimated native-equivalent age band based on 4.8% kanji density and 62-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.004",
@@ -592,7 +690,38 @@
           "note": "Japanese self-intros follow a fixed sequence: greeting → name → affiliation → \"yoroshiku\"."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.056,
+        "char_count": 71,
+        "note": "Estimated native-equivalent age band based on 5.6% kanji density and 71-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.005",
@@ -752,7 +881,38 @@
           "note": "School year starts in April; senior/junior (senpai (せんぱい) / kouhai (こうはい)) hierarchy is rigid."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 31,
+        "comprehension_seconds": 60,
+        "total_seconds": 91,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 3 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.127,
+        "char_count": 79,
+        "note": "Estimated native-equivalent age band based on 12.7% kanji density and 79-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.006",
@@ -891,7 +1051,40 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.043,
+        "char_count": 69,
+        "note": "Estimated native-equivalent age band based on 4.3% kanji density and 69-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.007",
@@ -1023,7 +1216,47 @@
       "translation_natural": "Library hours\nMon-Fri: 9 AM-9 PM\nSat: 10 AM-6 PM\nSun: closed\nYou can borrow books for up to two weeks.",
       "translation_natural_provenance": "llm_curated",
       "spacing_mode": "wakachi_full",
-      "spacing_mode_provenance": "auto_derived"
+      "spacing_mode_provenance": "auto_derived",
+      "cultural_callout": [
+        {
+          "tag": "generic",
+          "label_en": "General / no specific cultural callout",
+          "matched_trigger": null,
+          "note": "This passage does not invoke a specific canonical-12 cultural topic; general everyday content."
+        }
+      ],
+      "cultural_callout_provenance": "llm_curated",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.08,
+        "char_count": 87,
+        "note": "Estimated native-equivalent age band based on 8.0% kanji density and 87-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.008",
@@ -1152,7 +1385,42 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "そして",
+        "から",
+        "まず"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.082,
+        "char_count": 85,
+        "note": "Estimated native-equivalent age band based on 8.2% kanji density and 85-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.009",
@@ -1280,7 +1548,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.075,
+        "char_count": 67,
+        "note": "Estimated native-equivalent age band based on 7.5% kanji density and 67-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.010",
@@ -1398,7 +1697,40 @@
           "note": "School year starts in April; senior/junior (senpai (せんぱい) / kouhai (こうはい)) hierarchy is rigid."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.035,
+        "char_count": 85,
+        "note": "Estimated native-equivalent age band based on 3.5% kanji density and 85-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.011",
@@ -1542,7 +1874,41 @@
           "note": "Washoku is UNESCO-listed; specific food terms carry strong cultural connotation."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 31,
+        "comprehension_seconds": 40,
+        "total_seconds": 71,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.038,
+        "char_count": 78,
+        "note": "Estimated native-equivalent age band based on 3.8% kanji density and 78-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.012",
@@ -1670,7 +2036,42 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 32,
+        "comprehension_seconds": 40,
+        "total_seconds": 72,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.075,
+        "char_count": 80,
+        "note": "Estimated native-equivalent age band based on 7.5% kanji density and 80-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.013",
@@ -1831,7 +2232,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 36,
+        "comprehension_seconds": 60,
+        "total_seconds": 96,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 3 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.033,
+        "char_count": 91,
+        "note": "Estimated native-equivalent age band based on 3.3% kanji density and 91-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.014",
@@ -1951,7 +2383,40 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 36,
+        "comprehension_seconds": 40,
+        "total_seconds": 76,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.043,
+        "char_count": 92,
+        "note": "Estimated native-equivalent age band based on 4.3% kanji density and 92-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.015",
@@ -2084,7 +2549,38 @@
           "note": "Four-season awareness saturates Japanese culture; seasonal greetings expected in correspondence."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.127,
+        "char_count": 63,
+        "note": "Estimated native-equivalent age band based on 12.7% kanji density and 63-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.016",
@@ -2218,7 +2714,41 @@
           "note": "School year starts in April; senior/junior (senpai (せんぱい) / kouhai (こうはい)) hierarchy is rigid."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 31,
+        "comprehension_seconds": 40,
+        "total_seconds": 71,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.089,
+        "char_count": 79,
+        "note": "Estimated native-equivalent age band based on 8.9% kanji density and 79-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.017",
@@ -2344,7 +2874,45 @@
           "note": "Washoku is UNESCO-listed; specific food terms carry strong cultural connotation."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "grammar_footnotes": [
+        {
+          "sentence_idx": 0,
+          "sentence_ja": "メニュー",
+          "patterns": [],
+          "note": "Short single-clause passage; minimal grammar pattern coverage."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "unmarked",
+        "signals": [],
+        "confidence": "low"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.078,
+        "char_count": 64,
+        "note": "Estimated native-equivalent age band based on 7.8% kanji density and 64-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.018",
@@ -2492,7 +3060,41 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.149,
+        "char_count": 87,
+        "note": "Estimated native-equivalent age band based on 14.9% kanji density and 87-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.019",
@@ -2621,7 +3223,39 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.096,
+        "char_count": 73,
+        "note": "Estimated native-equivalent age band based on 9.6% kanji density and 73-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.020",
@@ -2761,7 +3395,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.128,
+        "char_count": 86,
+        "note": "Estimated native-equivalent age band based on 12.8% kanji density and 86-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.021",
@@ -2918,7 +3583,40 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 38,
+        "comprehension_seconds": 40,
+        "total_seconds": 78,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.158,
+        "char_count": 95,
+        "note": "Estimated native-equivalent age band based on 15.8% kanji density and 95-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.022",
@@ -3066,7 +3764,39 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.042,
+        "char_count": 72,
+        "note": "Estimated native-equivalent age band based on 4.2% kanji density and 72-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.023",
@@ -3211,7 +3941,45 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "grammar_footnotes": [
+        {
+          "sentence_idx": 0,
+          "sentence_ja": "バスの じかん",
+          "patterns": [],
+          "note": "Short single-clause passage; minimal grammar pattern coverage."
+        }
+      ],
+      "grammar_footnotes_provenance": "llm_curated",
+      "time_target_seconds": {
+        "reading_seconds": 38,
+        "comprehension_seconds": 40,
+        "total_seconds": 78,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "unmarked",
+        "signals": [],
+        "confidence": "low"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.186,
+        "char_count": 97,
+        "note": "Estimated native-equivalent age band based on 18.6% kanji density and 97-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.024",
@@ -3355,7 +4123,38 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.095,
+        "char_count": 74,
+        "note": "Estimated native-equivalent age band based on 9.5% kanji density and 74-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.025",
@@ -3514,7 +4313,42 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 35,
+        "comprehension_seconds": 40,
+        "total_seconds": 75,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "それから",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.114,
+        "char_count": 88,
+        "note": "Estimated native-equivalent age band based on 11.4% kanji density and 88-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.026",
@@ -3648,7 +4482,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.062,
+        "char_count": 65,
+        "note": "Estimated native-equivalent age band based on 6.2% kanji density and 65-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.027",
@@ -3794,7 +4659,42 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 32,
+        "comprehension_seconds": 40,
+        "total_seconds": 72,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "unmarked",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "low"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "それから",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.037,
+        "char_count": 82,
+        "note": "Estimated native-equivalent age band based on 3.7% kanji density and 82-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.028",
@@ -3942,7 +4842,40 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 35,
+        "comprehension_seconds": 40,
+        "total_seconds": 75,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.045,
+        "char_count": 88,
+        "note": "Estimated native-equivalent age band based on 4.5% kanji density and 88-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.029",
@@ -4085,7 +5018,39 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 30,
+        "comprehension_seconds": 40,
+        "total_seconds": 70,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.081,
+        "char_count": 62,
+        "note": "Estimated native-equivalent age band based on 8.1% kanji density and 62-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.030",
@@ -4242,7 +5207,40 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 40,
+        "comprehension_seconds": 40,
+        "total_seconds": 80,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "ます/です polite"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.098,
+        "char_count": 102,
+        "note": "Estimated native-equivalent age band based on 9.8% kanji density and 102-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.031",
@@ -4395,7 +5393,39 @@
           "note": "Japanese self-intros follow a fixed sequence: greeting → name → affiliation → \"yoroshiku\"."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 41,
+        "comprehension_seconds": 40,
+        "total_seconds": 81,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.048,
+        "char_count": 104,
+        "note": "Estimated native-equivalent age band based on 4.8% kanji density and 104-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.032",
@@ -4587,7 +5617,42 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 44,
+        "comprehension_seconds": 40,
+        "total_seconds": 84,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.171,
+        "char_count": 111,
+        "note": "Estimated native-equivalent age band based on 17.1% kanji density and 111-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.033",
@@ -4745,7 +5810,38 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 44,
+        "comprehension_seconds": 40,
+        "total_seconds": 84,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.018,
+        "char_count": 110,
+        "note": "Estimated native-equivalent age band based on 1.8% kanji density and 110-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.034",
@@ -4922,7 +6018,40 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 34,
+        "comprehension_seconds": 40,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.115,
+        "char_count": 87,
+        "note": "Estimated native-equivalent age band based on 11.5% kanji density and 87-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.035",
@@ -5096,7 +6225,39 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 40,
+        "comprehension_seconds": 60,
+        "total_seconds": 100,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 3 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.069,
+        "char_count": 101,
+        "note": "Estimated native-equivalent age band based on 6.9% kanji density and 101-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.036",
@@ -5265,7 +6426,42 @@
           "note": "School year starts in April; senior/junior (senpai (せんぱい) / kouhai (こうはい)) hierarchy is rigid."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 55,
+        "comprehension_seconds": 40,
+        "total_seconds": 95,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.138,
+        "char_count": 138,
+        "note": "Estimated native-equivalent age band based on 13.8% kanji density and 138-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.037",
@@ -5454,7 +6650,40 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 40,
+        "comprehension_seconds": 40,
+        "total_seconds": 80,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "でも"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.198,
+        "char_count": 101,
+        "note": "Estimated native-equivalent age band based on 19.8% kanji density and 101-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.038",
@@ -5634,7 +6863,40 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 42,
+        "comprehension_seconds": 40,
+        "total_seconds": 82,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.105,
+        "char_count": 105,
+        "note": "Estimated native-equivalent age band based on 10.5% kanji density and 105-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.039",
@@ -5837,7 +7099,41 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 41,
+        "comprehension_seconds": 40,
+        "total_seconds": 81,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "8-10",
+        "kanji_ratio": 0.252,
+        "char_count": 103,
+        "note": "Estimated native-equivalent age band based on 25.2% kanji density and 103-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.040",
@@ -5989,7 +7285,48 @@
       "translation_natural": "I went to the park on Saturday morning. There are lots of big trees there. Kids were playing ball. An older man was reading a book on a bench. I could hear birds singing. It was a beautiful morning.",
       "translation_natural_provenance": "llm_curated",
       "spacing_mode": "wakachi_full",
-      "spacing_mode_provenance": "auto_derived"
+      "spacing_mode_provenance": "auto_derived",
+      "cultural_callout": [
+        {
+          "tag": "generic",
+          "label_en": "General / no specific cultural callout",
+          "matched_trigger": null,
+          "note": "This passage does not invoke a specific canonical-12 cultural topic; general everyday content."
+        }
+      ],
+      "cultural_callout_provenance": "llm_curated",
+      "time_target_seconds": {
+        "reading_seconds": 48,
+        "comprehension_seconds": 40,
+        "total_seconds": 88,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.074,
+        "char_count": 122,
+        "note": "Estimated native-equivalent age band based on 7.4% kanji density and 122-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.041",
@@ -6193,7 +7530,47 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "kanji_used": [
+        "七",
+        "時"
+      ],
+      "time_target_seconds": {
+        "reading_seconds": 98,
+        "comprehension_seconds": 40,
+        "total_seconds": 138,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から",
+        "じゃ",
+        "また",
+        "それで"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.008,
+        "char_count": 245,
+        "note": "Estimated native-equivalent age band based on 0.8% kanji density and 245-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.042",
@@ -6397,7 +7774,47 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "kanji_used": [
+        "日",
+        "曜"
+      ],
+      "time_target_seconds": {
+        "reading_seconds": 101,
+        "comprehension_seconds": 40,
+        "total_seconds": 141,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "それから",
+        "が、",
+        "から",
+        "じゃ"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.012,
+        "char_count": 253,
+        "note": "Estimated native-equivalent age band based on 1.2% kanji density and 253-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.043",
@@ -6619,7 +8036,46 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "kanji_used": [
+        "三",
+        "時"
+      ],
+      "time_target_seconds": {
+        "reading_seconds": 100,
+        "comprehension_seconds": 40,
+        "total_seconds": 140,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から",
+        "それで"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.008,
+        "char_count": 250,
+        "note": "Estimated native-equivalent age band based on 0.8% kanji density and 250-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.044",
@@ -6830,7 +8286,52 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "kanji_used": [
+        "土",
+        "日",
+        "曜",
+        "月",
+        "木",
+        "水",
+        "火",
+        "金"
+      ],
+      "time_target_seconds": {
+        "reading_seconds": 97,
+        "comprehension_seconds": 40,
+        "total_seconds": 137,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.111,
+        "char_count": 244,
+        "note": "Estimated native-equivalent age band based on 11.1% kanji density and 244-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.045",
@@ -7053,7 +8554,51 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "kanji_used": [
+        "三",
+        "九",
+        "八",
+        "六",
+        "出",
+        "十",
+        "半",
+        "時"
+      ],
+      "time_target_seconds": {
+        "reading_seconds": 97,
+        "comprehension_seconds": 40,
+        "total_seconds": 137,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 2 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、",
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.049,
+        "char_count": 243,
+        "note": "Estimated native-equivalent age band based on 4.9% kanji density and 243-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.046",
@@ -7250,7 +8795,38 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 38,
+        "comprehension_seconds": 20,
+        "total_seconds": 58,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "8-10",
+        "kanji_ratio": 0.227,
+        "char_count": 97,
+        "note": "Estimated native-equivalent age band based on 22.7% kanji density and 97-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.047",
@@ -7506,7 +9082,40 @@
           "note": "Punctual public transport is a cultural touchstone; Suica/PASMO ubiquity."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 54,
+        "comprehension_seconds": 20,
+        "total_seconds": 74,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.126,
+        "char_count": 135,
+        "note": "Estimated native-equivalent age band based on 12.6% kanji density and 135-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.048",
@@ -7711,7 +9320,39 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 41,
+        "comprehension_seconds": 20,
+        "total_seconds": 61,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.087,
+        "char_count": 103,
+        "note": "Estimated native-equivalent age band based on 8.7% kanji density and 103-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.049",
@@ -7941,7 +9582,40 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 51,
+        "comprehension_seconds": 20,
+        "total_seconds": 71,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "から"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.116,
+        "char_count": 129,
+        "note": "Estimated native-equivalent age band based on 11.6% kanji density and 129-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.050",
@@ -8192,7 +9866,41 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 57,
+        "comprehension_seconds": 20,
+        "total_seconds": 77,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected",
+          "sentence-final particles ね/よ — possibly conversational"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "が、"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "8-10",
+        "kanji_ratio": 0.21,
+        "char_count": 143,
+        "note": "Estimated native-equivalent age band based on 21.0% kanji density and 143-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.051",
@@ -8379,7 +10087,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 39,
+        "comprehension_seconds": 20,
+        "total_seconds": 59,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.143,
+        "char_count": 98,
+        "note": "Estimated native-equivalent age band based on 14.3% kanji density and 98-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.052",
@@ -8570,7 +10309,40 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 45,
+        "comprehension_seconds": 20,
+        "total_seconds": 65,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [
+        "でも"
+      ],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.079,
+        "char_count": 114,
+        "note": "Estimated native-equivalent age band based on 7.9% kanji density and 114-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.053",
@@ -8755,7 +10527,38 @@
           "note": "Bowing depth signals respect level; shoes off indoors; meishi exchange has strict choreography."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 37,
+        "comprehension_seconds": 20,
+        "total_seconds": 57,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "5-6",
+        "kanji_ratio": 0.096,
+        "char_count": 94,
+        "note": "Estimated native-equivalent age band based on 9.6% kanji density and 94-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     },
     {
       "id": "n5.read.054",
@@ -8952,7 +10755,38 @@
           "note": "Nature reverence pervades daily speech (kigo (きご), weather small-talk)."
         }
       ],
-      "cultural_callout_provenance": "auto_derived"
+      "cultural_callout_provenance": "auto_derived",
+      "time_target_seconds": {
+        "reading_seconds": 37,
+        "comprehension_seconds": 20,
+        "total_seconds": 57,
+        "note": "Based on N5 reading rate ~2.5 chars/sec + 20s per question. 1 questions on this passage."
+      },
+      "time_target_seconds_provenance": "auto_derived",
+      "comprehension_strategy_hints": [
+        "Read once for overall meaning before answering questions.",
+        "Underline key nouns and verbs as you read.",
+        "Use particle markers (は/が/を/に) to identify subjects/objects.",
+        "Re-read difficult sentences ignoring unknown words."
+      ],
+      "comprehension_strategy_hints_provenance": "llm_curated",
+      "register_signal": {
+        "register": "polite",
+        "signals": [
+          "polite ます/です detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_provenance": "auto_derived",
+      "discourse_markers_used": [],
+      "discourse_markers_used_provenance": "auto_derived",
+      "target_reading_age": {
+        "native_equivalent_age_years": "6-8",
+        "kanji_ratio": 0.117,
+        "char_count": 94,
+        "note": "Estimated native-equivalent age band based on 11.7% kanji density and 94-char length."
+      },
+      "target_reading_age_provenance": "auto_derived"
     }
   ],
   "_meta": {
