@@ -27,7 +27,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred
 |---|---|---|---|---|
 | 3 | LEGAL-F-3 | P2 | Refresh CONTENT-LICENSE.md corpus counts to live values (1041 → 1000 vocab; verify all others); add JA-47 invariant to lock against drift | ✅ done 2026-05-11 (vocab 1041→1009, reading 45→54, listening 47→50 refreshed; JA-47 invariant added — 51/51 green) |
 | 4 | LEGAL-F-4 | P2 | Add JLPT-trademark non-affiliation disclaimer to runtime footer (visible — not just in linked NOTICES.md / CONTENT-LICENSE.md) | ✅ done 2026-05-11 (index.html footer + en/hi locale keys + .footer-disclaimer CSS; cache version v1.12.71→v1.12.72) |
-| 5 | LEGAL-F-5 | P2 | Add Inter font + Noto Sans JP attribution sections to NOTICES.md (SIL OFL 1.1 — currently missing despite README claim) | ⏳ pending |
+| 5 | LEGAL-F-5 | P2 | Add Inter font + Noto Sans JP attribution sections to NOTICES.md (SIL OFL 1.1 — currently missing despite README claim) | ✅ done 2026-05-11 (Inter + Noto Sans JP sections added with source URL, author, OFL 1.1 license + compliance note for each) |
 | 6 | LEGAL-F-6 | P3 | Per-release manual spot-check: 10 random questions across `data/papers/*` — flag any potential competitor-corpus paraphrasing (lightweight track; heavyweight similarity-detection deferred) | ⏳ pending |
 | 7 | LEGAL-F-7 | P3 | No remediation needed — mock-paper format-resemblance is mitigated by CONTENT-LICENSE.md §5 + audit_provenance.py CI gate (0 hits across 716 questions). Maintain F-6 coverage. | ✅ already mitigated |
 

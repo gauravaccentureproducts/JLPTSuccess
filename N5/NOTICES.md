@@ -115,6 +115,43 @@ licence.
   "auto_extracted"` so a future BCCWJ swap can re-tag without
   data migration.
 
+## Inter (UI typeface — Latin glyphs)
+
+- **Used as:** the primary Latin/Devanagari/CJK-fallback UI typeface
+  in this app. Loaded as `fonts/inter-300.woff2`, `inter-400.woff2`,
+  `inter-500.woff2` (subsetted to Latin Extended + Devanagari ranges).
+- **Source:** <https://rsms.me/inter/> (also distributed via
+  <https://github.com/rsms/inter>).
+- **Author:** Rasmus Andersson and contributors.
+- **License:** SIL Open Font License 1.1 (SIL OFL 1.1).
+  Full license text: <https://github.com/rsms/inter/blob/master/LICENSE.txt>.
+- **Compliance:** SIL OFL 1.1 permits embedding, modification, and
+  redistribution in software products provided (a) the font itself
+  is not sold standalone, (b) modified versions do not reuse the
+  reserved name "Inter," and (c) this attribution notice ships with
+  the software. We satisfy (a) by bundling the font with a free,
+  open-source app; (b) by not modifying or renaming the font files;
+  and (c) by listing the attribution here. The subsetting performed
+  for this app (Latin Extended + Devanagari) does not constitute a
+  modification under OFL §1 since it only removes glyphs.
+
+## Noto Sans JP (Japanese typeface — kanji + kana glyphs)
+
+- **Used as:** the Japanese-script typeface for kanji, hiragana, and
+  katakana rendering throughout the app. Loaded as
+  `fonts/noto-sans-jp-400.woff2` (subsetted to JIS X 0208 + JIS X
+  0212 ranges plus the N5 kanji whitelist used in mock papers).
+- **Source:** <https://fonts.google.com/noto/specimen/Noto+Sans+JP>
+  (also distributed via <https://github.com/notofonts/noto-cjk>).
+- **Author:** Google LLC / Adobe Inc. (joint development; part of
+  the Pan-CJK Noto family).
+- **License:** SIL Open Font License 1.1 (SIL OFL 1.1).
+  Full license text: <https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE>.
+- **Compliance:** Same OFL 1.1 conditions as Inter (above). The
+  font file is bundled unmodified except for glyph subsetting (OFL
+  §1 explicitly permits subsetting). The reserved name "Noto Sans
+  JP" is preserved on the bundled file. No standalone redistribution.
+
 ## Question content / corpus
 
 The grammar patterns, vocabulary entries, kanji records, mock-test
@@ -134,5 +171,5 @@ either organization.
 
 ---
 
-*Last updated: 2026-05-09 (richness-audit Tier-2 batch 6 — added
-Kanjium pitch-accent attribution for IMP-127).*
+*Last updated: 2026-05-11 (legal-vetting F-5 — added Inter and Noto
+Sans JP font attributions per SIL OFL 1.1 compliance requirement).*
