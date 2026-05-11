@@ -151,7 +151,90 @@
         "correct_order_summary": "1: horizontal stroke (left → right).",
         "why_it_matters": "Direction matters even for single strokes — calligraphic convention is L→R, not R→L."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "一",
+          "reading": "いち",
+          "gloss": "one",
+          "vocab_id": "n5.vocab.7-numbers.一"
+        },
+        {
+          "form": "十一",
+          "reading": "じゅういち",
+          "gloss": "eleven",
+          "vocab_id": "n5.vocab.7-numbers.十一"
+        },
+        {
+          "form": "一万",
+          "reading": "いちまん",
+          "gloss": "ten thousand",
+          "vocab_id": "n5.vocab.7-numbers.一万"
+        },
+        {
+          "form": "一つ",
+          "reading": "ひとつ",
+          "gloss": "one (thing)",
+          "vocab_id": "n5.vocab.8-native-counters-series.一つ"
+        },
+        {
+          "form": "一人",
+          "reading": "ひとり",
+          "gloss": "one person",
+          "vocab_id": "n5.vocab.9-counters-common.一人"
+        },
+        {
+          "form": "一日",
+          "reading": "ついたち",
+          "gloss": "1st of the month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.一日"
+        },
+        {
+          "form": "一日",
+          "reading": "いちにち",
+          "gloss": "one day, a whole day (note: same kanji 一日 with a d",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.一日.2"
+        },
+        {
+          "form": "一月",
+          "reading": "いちがつ",
+          "gloss": "January",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.一月"
+        },
+        {
+          "form": "一番",
+          "reading": "いちばん",
+          "gloss": "most, number one",
+          "vocab_id": "n5.vocab.33-adverbs.一番"
+        },
+        {
+          "form": "十一月",
+          "reading": "じゅういちがつ",
+          "gloss": "November",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十一月"
+        },
+        {
+          "form": "一人で",
+          "reading": "ひとりで",
+          "gloss": "alone",
+          "vocab_id": "n5.vocab.33-adverbs.一人で"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "一つ",
+          "reading": "ひとつ",
+          "gloss": "one thing (kun-stem 一-)"
+        },
+        "compound": {
+          "form": "一月",
+          "reading": "いちがつ",
+          "gloss": "January (on-yomi)"
+        },
+        "contrast_note": "Numbers usually take on-yomi (いち) in compounds and times; kun (ひと-) appears in counter 一つ."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.二",
@@ -301,7 +384,72 @@
         "correct_order_summary": "1: short horizontal (top). 2: long horizontal (bottom).",
         "why_it_matters": "Top-first principle universal for stacked horizontals."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "二",
+          "reading": "に",
+          "gloss": "two",
+          "vocab_id": "n5.vocab.7-numbers.二"
+        },
+        {
+          "form": "二十",
+          "reading": "にじゅう",
+          "gloss": "twenty",
+          "vocab_id": "n5.vocab.7-numbers.二十"
+        },
+        {
+          "form": "二つ",
+          "reading": "ふたつ",
+          "gloss": "two",
+          "vocab_id": "n5.vocab.8-native-counters-series.二つ"
+        },
+        {
+          "form": "二人",
+          "reading": "ふたり",
+          "gloss": "two people",
+          "vocab_id": "n5.vocab.9-counters-common.二人"
+        },
+        {
+          "form": "二日",
+          "reading": "ふつか",
+          "gloss": "2nd / two days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.二日"
+        },
+        {
+          "form": "二月",
+          "reading": "にがつ",
+          "gloss": "February",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.二月"
+        },
+        {
+          "form": "二十日",
+          "reading": "はつか",
+          "gloss": "20th / twenty days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.二十日"
+        },
+        {
+          "form": "十二月",
+          "reading": "じゅうにがつ",
+          "gloss": "December",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十二月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "二つ",
+          "reading": "ふたつ",
+          "gloss": "two things (kun-stem)"
+        },
+        "compound": {
+          "form": "二月",
+          "reading": "にがつ",
+          "gloss": "February (on)"
+        },
+        "contrast_note": "二 reads ふた- in 一/二/三-counter compounds; に in numerical compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.三",
@@ -422,7 +570,48 @@
         "correct_order_summary": "1: top horizontal. 2: middle horizontal. 3: long horizontal (bottom).",
         "why_it_matters": "Top-to-bottom stacking; middle is between, not last."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "三",
+          "reading": "さん",
+          "gloss": "three",
+          "vocab_id": "n5.vocab.7-numbers.三"
+        },
+        {
+          "form": "三つ",
+          "reading": "みっつ",
+          "gloss": "three",
+          "vocab_id": "n5.vocab.8-native-counters-series.三つ"
+        },
+        {
+          "form": "三日",
+          "reading": "みっか",
+          "gloss": "3rd / three days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.三日"
+        },
+        {
+          "form": "三月",
+          "reading": "さんがつ",
+          "gloss": "March",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.三月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "三つ",
+          "reading": "みっつ",
+          "gloss": "three things (kun)"
+        },
+        "compound": {
+          "form": "三月",
+          "reading": "さんがつ",
+          "gloss": "March (on)"
+        },
+        "contrast_note": "みっつ kun in 〜つ counter; さん on in numerical/time compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.四",
@@ -532,7 +721,48 @@
         "correct_order_summary": "1: left vertical. 2: top+right (bracket). 3-4: inside (two short ノ). 5: bottom horizontal (closes).",
         "why_it_matters": "Box-closure rule: enclose, fill inside, close LAST."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "四",
+          "reading": "し / よん",
+          "gloss": "four",
+          "vocab_id": "n5.vocab.7-numbers.四"
+        },
+        {
+          "form": "四つ",
+          "reading": "よっつ",
+          "gloss": "four",
+          "vocab_id": "n5.vocab.8-native-counters-series.四つ"
+        },
+        {
+          "form": "四日",
+          "reading": "よっか",
+          "gloss": "4th / four days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.四日"
+        },
+        {
+          "form": "四月",
+          "reading": "しがつ",
+          "gloss": "April",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.四月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "四つ",
+          "reading": "よっつ",
+          "gloss": "four things (kun)"
+        },
+        "compound": {
+          "form": "四月",
+          "reading": "しがつ",
+          "gloss": "April (on, irregular)"
+        },
+        "contrast_note": "四 has THREE readings: よ (4-time), し (months/sino-compounds), よん (general)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.五",
@@ -656,7 +886,48 @@
         "correct_order_summary": "1: top horizontal. 2: vertical+L-shape (one stroke). 3: middle horizontal. 4: long bottom horizontal.",
         "why_it_matters": "4 strokes total. The 2nd stroke is L-shaped (one continuous), not two separate."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "五",
+          "reading": "ご",
+          "gloss": "five",
+          "vocab_id": "n5.vocab.7-numbers.五"
+        },
+        {
+          "form": "五つ",
+          "reading": "いつつ",
+          "gloss": "five",
+          "vocab_id": "n5.vocab.8-native-counters-series.五つ"
+        },
+        {
+          "form": "五日",
+          "reading": "いつか",
+          "gloss": "5th / five days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.五日"
+        },
+        {
+          "form": "五月",
+          "reading": "ごがつ",
+          "gloss": "May",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.五月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "五つ",
+          "reading": "いつつ",
+          "gloss": "five things (kun)"
+        },
+        "compound": {
+          "form": "五月",
+          "reading": "ごがつ",
+          "gloss": "May (on)"
+        },
+        "contrast_note": "いつ- (kun) in counter; ご (on) in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.六",
@@ -761,7 +1032,48 @@
         "correct_order_summary": "1: top dot. 2: long horizontal. 3: left ノ leg. 4: right ╲ leg.",
         "why_it_matters": "Dot-first convention for hat-style structures. Distinguishes 六 from 大."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "六",
+          "reading": "ろく",
+          "gloss": "six",
+          "vocab_id": "n5.vocab.7-numbers.六"
+        },
+        {
+          "form": "六つ",
+          "reading": "むっつ",
+          "gloss": "six",
+          "vocab_id": "n5.vocab.8-native-counters-series.六つ"
+        },
+        {
+          "form": "六日",
+          "reading": "むいか",
+          "gloss": "6th / six days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.六日"
+        },
+        {
+          "form": "六月",
+          "reading": "ろくがつ",
+          "gloss": "June",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.六月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "六つ",
+          "reading": "むっつ",
+          "gloss": "six things (kun)"
+        },
+        "compound": {
+          "form": "六月",
+          "reading": "ろくがつ",
+          "gloss": "June (on)"
+        },
+        "contrast_note": "むっ- (kun); ろく (on)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.七",
@@ -876,7 +1188,48 @@
         "correct_order_summary": "1: short horizontal (slanted slightly). 2: long curve (down + hook up).",
         "why_it_matters": "Direction of stroke 2 (down then up) gives the calligraphic feel."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "七",
+          "reading": "しち / なな",
+          "gloss": "seven",
+          "vocab_id": "n5.vocab.7-numbers.七"
+        },
+        {
+          "form": "七つ",
+          "reading": "ななつ",
+          "gloss": "seven",
+          "vocab_id": "n5.vocab.8-native-counters-series.七つ"
+        },
+        {
+          "form": "七日",
+          "reading": "なのか",
+          "gloss": "7th / seven days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.七日"
+        },
+        {
+          "form": "七月",
+          "reading": "しちがつ",
+          "gloss": "July",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.七月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "七つ",
+          "reading": "ななつ",
+          "gloss": "seven things (kun)"
+        },
+        "compound": {
+          "form": "七月",
+          "reading": "しちがつ",
+          "gloss": "July (on)"
+        },
+        "contrast_note": "七 has both しち (on) and なな (kun); しち in months, なな more common in modern speech."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.八",
@@ -1024,7 +1377,48 @@
         "correct_order_summary": "1: left descending stroke (slants outward). 2: right descending stroke (slants outward).",
         "why_it_matters": "Strokes flare apart in 八 (eight) but converge to a peak in 人/入. Touching the top makes it look like 人."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "八",
+          "reading": "はち",
+          "gloss": "eight",
+          "vocab_id": "n5.vocab.7-numbers.八"
+        },
+        {
+          "form": "八つ",
+          "reading": "やっつ",
+          "gloss": "eight",
+          "vocab_id": "n5.vocab.8-native-counters-series.八つ"
+        },
+        {
+          "form": "八日",
+          "reading": "ようか",
+          "gloss": "8th / eight days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.八日"
+        },
+        {
+          "form": "八月",
+          "reading": "はちがつ",
+          "gloss": "August",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.八月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "八つ",
+          "reading": "やっつ",
+          "gloss": "eight things (kun)"
+        },
+        "compound": {
+          "form": "八月",
+          "reading": "はちがつ",
+          "gloss": "August (on)"
+        },
+        "contrast_note": "やっ- (kun); はち (on)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.九",
@@ -1136,7 +1530,48 @@
         "correct_order_summary": "1: short ノ (left descending). 2: long arc (down-curve, up).",
         "why_it_matters": "九 has 2 strokes; stroke 2 is one continuous arc, not two."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "九",
+          "reading": "きゅう / く",
+          "gloss": "nine",
+          "vocab_id": "n5.vocab.7-numbers.九"
+        },
+        {
+          "form": "九つ",
+          "reading": "ここのつ",
+          "gloss": "nine",
+          "vocab_id": "n5.vocab.8-native-counters-series.九つ"
+        },
+        {
+          "form": "九日",
+          "reading": "ここのか",
+          "gloss": "9th / nine days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.九日"
+        },
+        {
+          "form": "九月",
+          "reading": "くがつ",
+          "gloss": "September",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.九月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "九つ",
+          "reading": "ここのつ",
+          "gloss": "nine things (kun)"
+        },
+        "compound": {
+          "form": "九月",
+          "reading": "くがつ",
+          "gloss": "September (on, irregular く)"
+        },
+        "contrast_note": "九 has く and きゅう (on) variants; く in dates/times."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.十",
@@ -1285,7 +1720,78 @@
         "correct_order_summary": "1: horizontal stroke. 2: vertical stroke (top to bottom).",
         "why_it_matters": "Universal in 十-shape kanji components."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "十",
+          "reading": "じゅう",
+          "gloss": "ten",
+          "vocab_id": "n5.vocab.7-numbers.十"
+        },
+        {
+          "form": "十",
+          "reading": "とお",
+          "gloss": "ten",
+          "vocab_id": "n5.vocab.8-native-counters-series.十"
+        },
+        {
+          "form": "十一",
+          "reading": "じゅういち",
+          "gloss": "eleven",
+          "vocab_id": "n5.vocab.7-numbers.十一"
+        },
+        {
+          "form": "二十",
+          "reading": "にじゅう",
+          "gloss": "twenty",
+          "vocab_id": "n5.vocab.7-numbers.二十"
+        },
+        {
+          "form": "十日",
+          "reading": "とおか",
+          "gloss": "10th / ten days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十日"
+        },
+        {
+          "form": "十月",
+          "reading": "じゅうがつ",
+          "gloss": "October",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十月"
+        },
+        {
+          "form": "二十日",
+          "reading": "はつか",
+          "gloss": "20th / twenty days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.二十日"
+        },
+        {
+          "form": "十一月",
+          "reading": "じゅういちがつ",
+          "gloss": "November",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十一月"
+        },
+        {
+          "form": "十二月",
+          "reading": "じゅうにがつ",
+          "gloss": "December",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十二月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "十",
+          "reading": "とお",
+          "gloss": "ten (kun, no -tsu)"
+        },
+        "compound": {
+          "form": "十月",
+          "reading": "じゅうがつ",
+          "gloss": "October (on)"
+        },
+        "contrast_note": "十 reads とお as standalone count and じゅう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.百",
@@ -1383,7 +1889,30 @@
         "correct_order_summary": "1: top horizontal. 2: ノ stroke into 白. 3-6: 白 (left vertical, top+right bracket, middle horizontal, bottom horizontal).",
         "why_it_matters": "Hat-first; then standard 白 closure rule."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "百",
+          "reading": "ひゃく",
+          "gloss": "hundred",
+          "vocab_id": "n5.vocab.7-numbers.百"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "百",
+          "reading": "ひゃく",
+          "gloss": "100 (on)"
+        },
+        "compound": {
+          "form": "三百",
+          "reading": "さんびゃく",
+          "gloss": "300 (compound with sound change)"
+        },
+        "contrast_note": "百 only has on-yomi ひゃく; sound changes (びゃく/ぴゃく) by preceding number."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.千",
@@ -1531,7 +2060,30 @@
         "correct_order_summary": "1: short ノ (left descending). 2: horizontal. 3: long vertical (top to bottom).",
         "why_it_matters": "Distinguishes 千 from 干 (干 starts with horizontal)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "thousand",
+          "vocab_id": "n5.vocab.7-numbers.千"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "千",
+          "reading": "せん",
+          "gloss": "1,000 (on)"
+        },
+        "compound": {
+          "form": "三千",
+          "reading": "さんぜん",
+          "gloss": "3,000 (compound with sound change ぜん)"
+        },
+        "contrast_note": "千 only has on せん; combines with ぜん variant."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.万",
@@ -1624,7 +2176,36 @@
         "correct_order_summary": "1: short horizontal. 2: short ノ (left descending). 3: long hook (down + curl).",
         "why_it_matters": "3 strokes. Distinguishes from 方 (which has extra dot)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "万",
+          "reading": "まん",
+          "gloss": "ten thousand",
+          "vocab_id": "n5.vocab.7-numbers.万"
+        },
+        {
+          "form": "一万",
+          "reading": "いちまん",
+          "gloss": "ten thousand",
+          "vocab_id": "n5.vocab.7-numbers.一万"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "万",
+          "reading": "まん",
+          "gloss": "10,000 (on)"
+        },
+        "compound": {
+          "form": "一万",
+          "reading": "いちまん",
+          "gloss": "10,000 (on, with まん)"
+        },
+        "contrast_note": "万 standalone まん; compounds use まん with the preceding number."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.円",
@@ -1762,7 +2343,30 @@
         "correct_order_summary": "1: left vertical (with hook). 2: top + right bracket (with hook). 3-4: 二 inside. (4 strokes total for 円).",
         "why_it_matters": "Outer-frame first; inside stays bare in 円 (different from 田)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "円",
+          "reading": "えん",
+          "gloss": "yen",
+          "vocab_id": "n5.vocab.22-money-and-shopping.円"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "円",
+          "reading": "えん",
+          "gloss": "yen / circle (on)"
+        },
+        "compound": {
+          "form": "百円",
+          "reading": "ひゃくえん",
+          "gloss": "100 yen (compound)"
+        },
+        "contrast_note": "円 reads えん (on) standalone for \"yen\" or in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.日",
@@ -2083,7 +2687,114 @@
         "correct_order_summary": "1: left vertical. 2: top + right (bracket). 3: middle horizontal. 4: bottom horizontal (closes box).",
         "why_it_matters": "Same convention as 田/口/国: enclose first, close last. Common to most \"box\" kanji."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "日",
+          "reading": "ひ",
+          "gloss": "day",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.日"
+        },
+        {
+          "form": "何日",
+          "reading": "なんにち",
+          "gloss": "what day",
+          "vocab_id": "n5.vocab.6-question-words.何日"
+        },
+        {
+          "form": "今日",
+          "reading": "きょう",
+          "gloss": "today",
+          "vocab_id": "n5.vocab.10-time-general.今日"
+        },
+        {
+          "form": "一日",
+          "reading": "ついたち",
+          "gloss": "1st of the month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.一日"
+        },
+        {
+          "form": "一日",
+          "reading": "いちにち",
+          "gloss": "one day, a whole day (note: same kanji 一日 with a d",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.一日.2"
+        },
+        {
+          "form": "二日",
+          "reading": "ふつか",
+          "gloss": "2nd / two days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.二日"
+        },
+        {
+          "form": "三日",
+          "reading": "みっか",
+          "gloss": "3rd / three days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.三日"
+        },
+        {
+          "form": "四日",
+          "reading": "よっか",
+          "gloss": "4th / four days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.四日"
+        },
+        {
+          "form": "五日",
+          "reading": "いつか",
+          "gloss": "5th / five days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.五日"
+        },
+        {
+          "form": "六日",
+          "reading": "むいか",
+          "gloss": "6th / six days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.六日"
+        },
+        {
+          "form": "七日",
+          "reading": "なのか",
+          "gloss": "7th / seven days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.七日"
+        },
+        {
+          "form": "八日",
+          "reading": "ようか",
+          "gloss": "8th / eight days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.八日"
+        },
+        {
+          "form": "九日",
+          "reading": "ここのか",
+          "gloss": "9th / nine days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.九日"
+        },
+        {
+          "form": "十日",
+          "reading": "とおか",
+          "gloss": "10th / ten days",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十日"
+        },
+        {
+          "form": "毎日",
+          "reading": "まいにち",
+          "gloss": "every day",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.毎日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "日",
+          "reading": "ひ",
+          "gloss": "day (kun)"
+        },
+        "compound": {
+          "form": "日本",
+          "reading": "にほん",
+          "gloss": "Japan (on+on)"
+        },
+        "contrast_note": "日 reads ひ (kun, \"day/sun\") standalone, にち/じつ (on) in most compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.月",
@@ -2270,7 +2981,114 @@
         "correct_order_summary": "1: left vertical (with bottom-left hook). 2: top+right (bracket with hook). 3: middle horizontal. 4: bottom horizontal.",
         "why_it_matters": "The hook on stroke 1 distinguishes 月 from 日 (no hook); frame-second is enclosed-shape rule."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "月",
+          "reading": "つき",
+          "gloss": "month, moon",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.月"
+        },
+        {
+          "form": "月",
+          "reading": "つき",
+          "gloss": "moon",
+          "vocab_id": "n5.vocab.14-nature-and-weather.月"
+        },
+        {
+          "form": "何月",
+          "reading": "なんがつ",
+          "gloss": "what month",
+          "vocab_id": "n5.vocab.6-question-words.何月"
+        },
+        {
+          "form": "一月",
+          "reading": "いちがつ",
+          "gloss": "January",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.一月"
+        },
+        {
+          "form": "二月",
+          "reading": "にがつ",
+          "gloss": "February",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.二月"
+        },
+        {
+          "form": "三月",
+          "reading": "さんがつ",
+          "gloss": "March",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.三月"
+        },
+        {
+          "form": "四月",
+          "reading": "しがつ",
+          "gloss": "April",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.四月"
+        },
+        {
+          "form": "五月",
+          "reading": "ごがつ",
+          "gloss": "May",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.五月"
+        },
+        {
+          "form": "六月",
+          "reading": "ろくがつ",
+          "gloss": "June",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.六月"
+        },
+        {
+          "form": "七月",
+          "reading": "しちがつ",
+          "gloss": "July",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.七月"
+        },
+        {
+          "form": "八月",
+          "reading": "はちがつ",
+          "gloss": "August",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.八月"
+        },
+        {
+          "form": "九月",
+          "reading": "くがつ",
+          "gloss": "September",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.九月"
+        },
+        {
+          "form": "十月",
+          "reading": "じゅうがつ",
+          "gloss": "October",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.十月"
+        },
+        {
+          "form": "先月",
+          "reading": "せんげつ",
+          "gloss": "last month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.先月"
+        },
+        {
+          "form": "今月",
+          "reading": "こんげつ",
+          "gloss": "this month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.今月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "月",
+          "reading": "つき",
+          "gloss": "moon (kun)"
+        },
+        "compound": {
+          "form": "月曜日",
+          "reading": "げつようび",
+          "gloss": "Monday (on)"
+        },
+        "contrast_note": "月 kun=つき (moon) standalone, on=げつ/がつ in day-name/month compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.火",
@@ -2371,7 +3189,36 @@
         "correct_order_summary": "1: left dot. 2: right dot. 3: long descending-left stroke. 4: long descending-right stroke.",
         "why_it_matters": "Side dots first establishes the \"spark\" baseline; correct order also matches the radical 灬 position."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "火",
+          "reading": "ひ",
+          "gloss": "fire",
+          "vocab_id": "n5.vocab.14-nature-and-weather.火"
+        },
+        {
+          "form": "火曜日",
+          "reading": "かようび",
+          "gloss": "Tuesday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.火曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "火",
+          "reading": "ひ",
+          "gloss": "fire (kun)"
+        },
+        "compound": {
+          "form": "火曜日",
+          "reading": "かようび",
+          "gloss": "Tuesday (on)"
+        },
+        "contrast_note": "火 kun=ひ (fire) standalone, on=か in day-name compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.水",
@@ -2474,7 +3321,36 @@
         "correct_order_summary": "1: hook (left curve+drop). 2: small dot (left). 3: long downward sweep right. 4: hook (right).",
         "why_it_matters": "Wrong order produces unbalanced left/right halves; correct order makes the kanji look like flowing water."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "水",
+          "reading": "みず",
+          "gloss": "water (cold)",
+          "vocab_id": "n5.vocab.14-nature-and-weather.水"
+        },
+        {
+          "form": "水曜日",
+          "reading": "すいようび",
+          "gloss": "Wednesday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.水曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "水",
+          "reading": "みず",
+          "gloss": "water (kun)"
+        },
+        "compound": {
+          "form": "水曜日",
+          "reading": "すいようび",
+          "gloss": "Wednesday (on)"
+        },
+        "contrast_note": "水 kun=みず, on=すい in day-name and Sino-compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.木",
@@ -2627,7 +3503,36 @@
         "why_it_matters": "Horizontal-first establishes the \"branch\" line; vertical-first looks like 十 with extras attached."
       },
       "stroke_order_trap_provenance": "llm_curated",
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "木",
+          "reading": "き",
+          "gloss": "tree",
+          "vocab_id": "n5.vocab.14-nature-and-weather.木"
+        },
+        {
+          "form": "木曜日",
+          "reading": "もくようび",
+          "gloss": "Thursday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.木曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "木",
+          "reading": "き",
+          "gloss": "tree (kun)"
+        },
+        "compound": {
+          "form": "木曜日",
+          "reading": "もくようび",
+          "gloss": "Thursday (on)"
+        },
+        "contrast_note": "木 kun=き (tree), on=もく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.金",
@@ -2747,7 +3652,36 @@
         "correct_order_summary": "1-2: 人-shape (left ノ, right ╲ — converging hat). 3-4: two horizontals (top). 5: vertical. 6: middle horizontal. 7: ノ. 8: ╲ (bottom diagonals).",
         "why_it_matters": "8 strokes. Hat-first convention applied to a 人 element."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "お金",
+          "reading": "おかね",
+          "gloss": "money",
+          "vocab_id": "n5.vocab.22-money-and-shopping.お金"
+        },
+        {
+          "form": "金曜日",
+          "reading": "きんようび",
+          "gloss": "Friday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.金曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "金",
+          "reading": "かね",
+          "gloss": "money / gold (kun)"
+        },
+        "compound": {
+          "form": "金曜日",
+          "reading": "きんようび",
+          "gloss": "Friday (on)"
+        },
+        "contrast_note": "金 kun=かね/きん (money), on=きん in day-name compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.土",
@@ -2879,7 +3813,30 @@
         "correct_order_summary": "1: top horizontal. 2: vertical (top to bottom). 3: long bottom horizontal.",
         "why_it_matters": "Same as 王 family but without middle horizontal."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "土曜日",
+          "reading": "どようび",
+          "gloss": "Saturday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.土曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "土",
+          "reading": "つち",
+          "gloss": "earth / soil (kun)"
+        },
+        "compound": {
+          "form": "土曜日",
+          "reading": "どようび",
+          "gloss": "Saturday (on)"
+        },
+        "contrast_note": "土 kun=つち, on=ど in day-name compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.曜",
@@ -3036,7 +3993,72 @@
         "correct_order_summary": "1-4: 日 (box). 5-10: top羽 element. 11-18: 隹 element. Total 18 strokes.",
         "why_it_matters": "Multi-component kanji follow component-by-component rule."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "何曜日",
+          "reading": "なんようび",
+          "gloss": "what day of the week",
+          "vocab_id": "n5.vocab.6-question-words.何曜日"
+        },
+        {
+          "form": "月曜日",
+          "reading": "げつようび",
+          "gloss": "Monday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.月曜日"
+        },
+        {
+          "form": "火曜日",
+          "reading": "かようび",
+          "gloss": "Tuesday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.火曜日"
+        },
+        {
+          "form": "水曜日",
+          "reading": "すいようび",
+          "gloss": "Wednesday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.水曜日"
+        },
+        {
+          "form": "木曜日",
+          "reading": "もくようび",
+          "gloss": "Thursday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.木曜日"
+        },
+        {
+          "form": "金曜日",
+          "reading": "きんようび",
+          "gloss": "Friday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.金曜日"
+        },
+        {
+          "form": "土曜日",
+          "reading": "どようび",
+          "gloss": "Saturday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.土曜日"
+        },
+        {
+          "form": "日曜日",
+          "reading": "にちようび",
+          "gloss": "Sunday",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.日曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "曜日",
+          "reading": "ようび",
+          "gloss": "day of week (on+on)"
+        },
+        "compound": {
+          "form": "日曜日",
+          "reading": "にちようび",
+          "gloss": "Sunday"
+        },
+        "contrast_note": "曜 only on=よう; appears only in day-of-week compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.年",
@@ -3150,7 +4172,48 @@
         "correct_order_summary": "1: short ノ. 2: short horizontal (top). 3: longer horizontal (middle). 4: vertical (down through). 5: horizontal across vertical. 6: bottom horizontal.",
         "why_it_matters": "6 strokes total. Common confusion: skipping the short horizontal."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "年",
+          "reading": "とし / ねん",
+          "gloss": "year",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.年"
+        },
+        {
+          "form": "今年",
+          "reading": "ことし",
+          "gloss": "this year",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.今年"
+        },
+        {
+          "form": "来年",
+          "reading": "らいねん",
+          "gloss": "next year",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来年"
+        },
+        {
+          "form": "毎年",
+          "reading": "まいとし / まいねん",
+          "gloss": "every year (まいとし is more common in conversation; ま",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.毎年"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "年",
+          "reading": "とし",
+          "gloss": "year (kun)"
+        },
+        "compound": {
+          "form": "来年",
+          "reading": "らいねん",
+          "gloss": "next year (on)"
+        },
+        "contrast_note": "年 kun=とし (one's years), on=ねん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.時",
@@ -3316,7 +4379,42 @@
         "correct_order_summary": "1-4: 日 (left, top+right, middle, bottom). 5-7: 土 (top horizontal, vertical, bottom). 8-10: 寸 (horizontal, vertical, dot).",
         "why_it_matters": "Left radical first, then right side top-to-bottom."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        },
+        {
+          "form": "時間",
+          "reading": "じかん",
+          "gloss": "time, hour",
+          "vocab_id": "n5.vocab.10-time-general.時間"
+        },
+        {
+          "form": "時々",
+          "reading": "ときどき",
+          "gloss": "sometimes",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.時々"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "時",
+          "reading": "とき",
+          "gloss": "time / occasion (kun)"
+        },
+        "compound": {
+          "form": "時間",
+          "reading": "じかん",
+          "gloss": "time / duration (on)"
+        },
+        "contrast_note": "時 kun=とき (occasion), on=じ in clock-time compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.分",
@@ -3454,7 +4552,42 @@
         "correct_order_summary": "1: left ノ (descending). 2: right ╲ (descending). 3: 刀 top horizontal. 4: 刀 curve+hook (one stroke).",
         "why_it_matters": "4 strokes total; the bottom 刀 is 2 strokes only."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "分",
+          "reading": "ふん / ぷん",
+          "gloss": "minute(s)",
+          "vocab_id": "n5.vocab.10-time-general.分"
+        },
+        {
+          "form": "半分",
+          "reading": "はんぶん",
+          "gloss": "half",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.はんぶん"
+        },
+        {
+          "form": "分かる",
+          "reading": "わかる",
+          "gloss": "to understand",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.分かる"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "分かる",
+          "reading": "わかる",
+          "gloss": "to understand (kun-verb)"
+        },
+        "compound": {
+          "form": "十分",
+          "reading": "じゅっぷん",
+          "gloss": "10 minutes (on)"
+        },
+        "contrast_note": "分 kun=わ-かる/わ-ける (verbs), on=ふん/ぷん (minutes) / ぶん (part)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.半",
@@ -3556,7 +4689,36 @@
         "correct_order_summary": "1: left dot. 2: right dot. 3: middle horizontal. 4: long bottom horizontal. 5: vertical (through).",
         "why_it_matters": "Vertical LAST is the trap; many write vertical first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "半",
+          "reading": "はん",
+          "gloss": "half (past)",
+          "vocab_id": "n5.vocab.10-time-general.半"
+        },
+        {
+          "form": "半分",
+          "reading": "はんぶん",
+          "gloss": "half",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.はんぶん"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "半",
+          "reading": "はん",
+          "gloss": "half (on)"
+        },
+        "compound": {
+          "form": "半分",
+          "reading": "はんぶん",
+          "gloss": "half (on+on)"
+        },
+        "contrast_note": "半 on=はん; very common in time/half compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.今",
@@ -3708,7 +4870,54 @@
         "correct_order_summary": "1: 个-top: ノ (left). 2: ╲ (right). 3: ─ (horizontal under hat). 4: 7-shape (one stroke, hooks left).",
         "why_it_matters": "4 strokes total. Common error: writing the bottom as 2 separate strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now",
+          "vocab_id": "n5.vocab.10-time-general.今"
+        },
+        {
+          "form": "今日",
+          "reading": "きょう",
+          "gloss": "today",
+          "vocab_id": "n5.vocab.10-time-general.今日"
+        },
+        {
+          "form": "今週",
+          "reading": "こんしゅう",
+          "gloss": "this week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.今週"
+        },
+        {
+          "form": "今月",
+          "reading": "こんげつ",
+          "gloss": "this month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.今月"
+        },
+        {
+          "form": "今年",
+          "reading": "ことし",
+          "gloss": "this year",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.今年"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "今",
+          "reading": "いま",
+          "gloss": "now (kun)"
+        },
+        "compound": {
+          "form": "今日",
+          "reading": "きょう",
+          "gloss": "today (special reading)"
+        },
+        "contrast_note": "今 kun=いま standalone; on=こん in compounds; 今日 has irregular reading きょう."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.毎",
@@ -3826,7 +5035,48 @@
         "correct_order_summary": "1: short ノ (top-left descending). 2: horizontal. 3-6: 母-like bottom shape.",
         "why_it_matters": "6 strokes; distinguishes from 海 (has water radical)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "毎週",
+          "reading": "まいしゅう",
+          "gloss": "every week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.毎週"
+        },
+        {
+          "form": "毎月",
+          "reading": "まいつき",
+          "gloss": "every month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.毎月"
+        },
+        {
+          "form": "毎年",
+          "reading": "まいとし / まいねん",
+          "gloss": "every year (まいとし is more common in conversation; ま",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.毎年"
+        },
+        {
+          "form": "毎日",
+          "reading": "まいにち",
+          "gloss": "every day",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.毎日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "毎日",
+          "reading": "まいにち",
+          "gloss": "every day (on)"
+        },
+        "compound": {
+          "form": "毎週",
+          "reading": "まいしゅう",
+          "gloss": "every week (on)"
+        },
+        "contrast_note": "毎 only on=まい; always in compounds for \"every-\"."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.週",
@@ -3940,7 +5190,60 @@
         "correct_order_summary": "1-8: 周 (interior + outer frame). 9-11: 辶 (path-radical, the LAST stroke).",
         "why_it_matters": "辶 radical is always written LAST in 辶-kanji."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "週",
+          "reading": "しゅう",
+          "gloss": "week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.週"
+        },
+        {
+          "form": "先週",
+          "reading": "せんしゅう",
+          "gloss": "last week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.先週"
+        },
+        {
+          "form": "今週",
+          "reading": "こんしゅう",
+          "gloss": "this week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.今週"
+        },
+        {
+          "form": "来週",
+          "reading": "らいしゅう",
+          "gloss": "next week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来週"
+        },
+        {
+          "form": "毎週",
+          "reading": "まいしゅう",
+          "gloss": "every week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.毎週"
+        },
+        {
+          "form": "週末",
+          "reading": "しゅうまつ",
+          "gloss": "weekend",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.週末"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "週",
+          "reading": "しゅう",
+          "gloss": "week (on)"
+        },
+        "compound": {
+          "form": "今週",
+          "reading": "こんしゅう",
+          "gloss": "this week"
+        },
+        "contrast_note": "週 only on=しゅう."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.午",
@@ -4058,7 +5361,36 @@
         "correct_order_summary": "1: short ノ. 2: top horizontal. 3: short horizontal (middle). 4: long vertical.",
         "why_it_matters": "4 strokes. Often confused with 牛 (which has extra vertical)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "午前",
+          "reading": "ごぜん",
+          "gloss": "A.M.",
+          "vocab_id": "n5.vocab.10-time-general.午前"
+        },
+        {
+          "form": "午後",
+          "reading": "ごご",
+          "gloss": "P.M.",
+          "vocab_id": "n5.vocab.10-time-general.午後"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "午前",
+          "reading": "ごぜん",
+          "gloss": "morning (a.m.) (on)"
+        },
+        "compound": {
+          "form": "午後",
+          "reading": "ごご",
+          "gloss": "afternoon (p.m.) (on)"
+        },
+        "contrast_note": "午 only on=ご; in 午前/午後 only."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.何",
@@ -4170,7 +5502,60 @@
         "correct_order_summary": "1-2: 亻 (left side: ノ + vertical). 3-7: 可 (top horizontal, mouth-like, hook).",
         "why_it_matters": "Left-radical-first rule."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "何",
+          "reading": "なに / なん",
+          "gloss": "what",
+          "vocab_id": "n5.vocab.6-question-words.何"
+        },
+        {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time",
+          "vocab_id": "n5.vocab.6-question-words.何時"
+        },
+        {
+          "form": "何月",
+          "reading": "なんがつ",
+          "gloss": "what month",
+          "vocab_id": "n5.vocab.6-question-words.何月"
+        },
+        {
+          "form": "何日",
+          "reading": "なんにち",
+          "gloss": "what day",
+          "vocab_id": "n5.vocab.6-question-words.何日"
+        },
+        {
+          "form": "何で",
+          "reading": "なんで",
+          "gloss": "why, by what means",
+          "vocab_id": "n5.vocab.6-question-words.何で"
+        },
+        {
+          "form": "何曜日",
+          "reading": "なんようび",
+          "gloss": "what day of the week",
+          "vocab_id": "n5.vocab.6-question-words.何曜日"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "何",
+          "reading": "なに",
+          "gloss": "what (kun)"
+        },
+        "compound": {
+          "form": "何時",
+          "reading": "なんじ",
+          "gloss": "what time (なん before counter)"
+        },
+        "contrast_note": "何 has two readings: なに (standalone) and なん (before counter compounds: 何時/何人/何月)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.人",
@@ -4355,7 +5740,78 @@
         "correct_order_summary": "1: long ノ (left-descending). 2: short ╲ (right-descending, joining mid-stroke).",
         "why_it_matters": "Reversed order produces 入. The crossing-point also shifts."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "人",
+          "reading": "ひと",
+          "gloss": "person",
+          "vocab_id": "n5.vocab.1-people-pronouns-and-se.人"
+        },
+        {
+          "form": "人",
+          "reading": "にん",
+          "gloss": "counter for people",
+          "vocab_id": "n5.vocab.9-counters-common.人"
+        },
+        {
+          "form": "大人",
+          "reading": "おとな",
+          "gloss": "adult",
+          "vocab_id": "n5.vocab.2-people-family.大人"
+        },
+        {
+          "form": "一人",
+          "reading": "ひとり",
+          "gloss": "one person",
+          "vocab_id": "n5.vocab.9-counters-common.一人"
+        },
+        {
+          "form": "二人",
+          "reading": "ふたり",
+          "gloss": "two people",
+          "vocab_id": "n5.vocab.9-counters-common.二人"
+        },
+        {
+          "form": "外国人",
+          "reading": "がいこくじん",
+          "gloss": "foreigner",
+          "vocab_id": "n5.vocab.3-people-roles.外国人"
+        },
+        {
+          "form": "日本人",
+          "reading": "にほんじん",
+          "gloss": "Japanese (person)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本人"
+        },
+        {
+          "form": "一人で",
+          "reading": "ひとりで",
+          "gloss": "alone",
+          "vocab_id": "n5.vocab.33-adverbs.一人で"
+        },
+        {
+          "form": "スペイン人",
+          "reading": "スペインじん",
+          "gloss": "Spanish person",
+          "vocab_id": "n5.vocab.25-languages-and-countri.スペイン人"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "人",
+          "reading": "ひと",
+          "gloss": "person (kun)"
+        },
+        "compound": {
+          "form": "日本人",
+          "reading": "にほんじん",
+          "gloss": "Japanese person (on)"
+        },
+        "contrast_note": "人 kun=ひと, on=じん in nationality/group compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.男",
@@ -4457,7 +5913,36 @@
         "correct_order_summary": "1-5: 田 (top half, 5 strokes). 6-7: 力 (hook + ノ).",
         "why_it_matters": "Component-by-component: 田 fully before 力."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "男",
+          "reading": "おとこ",
+          "gloss": "man",
+          "vocab_id": "n5.vocab.2-people-family.男"
+        },
+        {
+          "form": "男の子",
+          "reading": "おとこのこ",
+          "gloss": "boy",
+          "vocab_id": "n5.vocab.2-people-family.男の子"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "男",
+          "reading": "おとこ",
+          "gloss": "man (kun)"
+        },
+        "compound": {
+          "form": "男の子",
+          "reading": "おとこのこ",
+          "gloss": "boy"
+        },
+        "contrast_note": "男 kun=おとこ. on=だん in 男性."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.女",
@@ -4558,7 +6043,36 @@
         "correct_order_summary": "1: ノ (left descending) curving. 2: bottom horizontal (extending right). 3: long horizontal across (cross stroke).",
         "why_it_matters": "Cross-last is opposite of intuition; if drawn first, balance is off."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "女",
+          "reading": "おんな",
+          "gloss": "woman",
+          "vocab_id": "n5.vocab.2-people-family.女"
+        },
+        {
+          "form": "女の子",
+          "reading": "おんなのこ",
+          "gloss": "girl",
+          "vocab_id": "n5.vocab.2-people-family.女の子"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "女",
+          "reading": "おんな",
+          "gloss": "woman (kun)"
+        },
+        "compound": {
+          "form": "女の子",
+          "reading": "おんなのこ",
+          "gloss": "girl"
+        },
+        "contrast_note": "女 kun=おんな. on=じょ in 女性."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.子",
@@ -4676,7 +6190,42 @@
         "correct_order_summary": "1: 7-shape top (right-then-curve-down). 2: vertical hook (long down with curl at bottom). 3: long horizontal across.",
         "why_it_matters": "3 strokes total. Common error: drawing top as separate strokes (4-stroke version)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "子ども",
+          "reading": "こども",
+          "gloss": "child (often written こども in everyday text)",
+          "vocab_id": "n5.vocab.2-people-family.子ども"
+        },
+        {
+          "form": "男の子",
+          "reading": "おとこのこ",
+          "gloss": "boy",
+          "vocab_id": "n5.vocab.2-people-family.男の子"
+        },
+        {
+          "form": "女の子",
+          "reading": "おんなのこ",
+          "gloss": "girl",
+          "vocab_id": "n5.vocab.2-people-family.女の子"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "子",
+          "reading": "こ",
+          "gloss": "child (kun)"
+        },
+        "compound": {
+          "form": "子供",
+          "reading": "こども",
+          "gloss": "child (kun+kun)"
+        },
+        "contrast_note": "子 kun=こ standalone or compound. on=し (e.g. 椅子 いす — N4+)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.父",
@@ -4778,7 +6327,36 @@
         "correct_order_summary": "1: left dot (descending). 2: right dot (descending). 3: long ノ (down-left). 4: long ╲ (down-right).",
         "why_it_matters": "Top dots establish position; without them, 父 looks like 文 (literature, N4)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "父",
+          "reading": "ちち",
+          "gloss": "father (own)",
+          "vocab_id": "n5.vocab.2-people-family.父"
+        },
+        {
+          "form": "お父さん",
+          "reading": "おとうさん",
+          "gloss": "father (someone else's / address form)",
+          "vocab_id": "n5.vocab.2-people-family.お父さん"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "父",
+          "reading": "ちち",
+          "gloss": "my father (kun)"
+        },
+        "compound": {
+          "form": "お父さん",
+          "reading": "おとうさん",
+          "gloss": "father / someone else's father (kun, polite)"
+        },
+        "contrast_note": "父 kun=ちち (humble) vs お父さん (polite, about others)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.母",
@@ -4894,7 +6472,36 @@
         "correct_order_summary": "1: left vertical+hook. 2: top + right (bracket). 3: cross horizontal. 4: dot (inside). 5: dot (inside).",
         "why_it_matters": "5 strokes. The TWO dots inside are NOT a horizontal stroke."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "母",
+          "reading": "はは",
+          "gloss": "mother (own)",
+          "vocab_id": "n5.vocab.2-people-family.母"
+        },
+        {
+          "form": "お母さん",
+          "reading": "おかあさん",
+          "gloss": "mother (someone else's / address form)",
+          "vocab_id": "n5.vocab.2-people-family.お母さん"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "母",
+          "reading": "はは",
+          "gloss": "my mother (kun)"
+        },
+        "compound": {
+          "form": "お母さん",
+          "reading": "おかあさん",
+          "gloss": "mother (polite)"
+        },
+        "contrast_note": "母 kun=はは (humble) vs お母さん (polite)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.友",
@@ -5004,7 +6611,21 @@
         "correct_order_summary": "1: top horizontal. 2: ノ (top-left descent). 3: 又 (right curve+ノ — 2 strokes).",
         "why_it_matters": "Distinguishes from 反 (similar shape)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "友",
+          "reading": "とも",
+          "gloss": "friend (kun, formal)"
+        },
+        "compound": {
+          "form": "友達",
+          "reading": "ともだち",
+          "gloss": "friend (kun + N5-tail)"
+        },
+        "contrast_note": "友 kun=とも; common compound 友達 (友達 is N4 but とも is N5)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.先",
@@ -5136,7 +6757,48 @@
         "correct_order_summary": "1: short ノ. 2: top horizontal. 3: short horizontal. 4: vertical. 5: 儿 left leg. 6: 儿 right hook.",
         "why_it_matters": "6 strokes; 儿 (legs) always at the end."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "先",
+          "reading": "さき",
+          "gloss": "earlier, ahead, previous",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.先"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "先週",
+          "reading": "せんしゅう",
+          "gloss": "last week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.先週"
+        },
+        {
+          "form": "先月",
+          "reading": "せんげつ",
+          "gloss": "last month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.先月"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "先",
+          "reading": "さき",
+          "gloss": "before / ahead (kun)"
+        },
+        "compound": {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher (on)"
+        },
+        "contrast_note": "先 kun=さき (ahead/before), on=せん in 先生/先週."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.生",
@@ -5287,7 +6949,48 @@
         "correct_order_summary": "1: short ノ. 2: top horizontal. 3: short horizontal. 4: vertical. 5: long bottom horizontal.",
         "why_it_matters": "5 strokes. Similar to 先 but different element."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student",
+          "vocab_id": "n5.vocab.3-people-roles.学生"
+        },
+        {
+          "form": "先生",
+          "reading": "せんせい",
+          "gloss": "teacher, doctor",
+          "vocab_id": "n5.vocab.3-people-roles.先生"
+        },
+        {
+          "form": "高校生",
+          "reading": "こうこうせい",
+          "gloss": "high school student",
+          "vocab_id": "n5.vocab.3-people-roles.高校生"
+        },
+        {
+          "form": "生まれる",
+          "reading": "うまれる",
+          "gloss": "to be born",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.生まれる"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "生きる",
+          "reading": "いきる",
+          "gloss": "to live (kun-verb)"
+        },
+        "compound": {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student (on)"
+        },
+        "contrast_note": "生 has multiple readings: い-(kun verb), う- (kun verb), せい/しょう (on)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.手",
@@ -5396,7 +7099,21 @@
         "correct_order_summary": "1: short ノ. 2: top horizontal. 3: middle horizontal. 4: long vertical with hook.",
         "why_it_matters": "4 strokes; the final hook is a curl, not separate."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "手",
+          "reading": "て",
+          "gloss": "hand (kun)"
+        },
+        "compound": {
+          "form": "上手",
+          "reading": "じょうず",
+          "gloss": "skilled (irregular reading)"
+        },
+        "contrast_note": "手 kun=て standalone. Most common compound 上手/下手 use irregular reading."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.足",
@@ -5505,7 +7222,21 @@
         "correct_order_summary": "1-3: 口 (top box). 4: horizontal. 5: vertical. 6: ノ. 7: ╲.",
         "why_it_matters": "7 strokes. Component-by-component."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "足",
+          "reading": "あし",
+          "gloss": "foot / leg (kun)"
+        },
+        "compound": {
+          "form": "足音",
+          "reading": "あしおと",
+          "gloss": "footstep sound (kun+kun)"
+        },
+        "contrast_note": "足 kun=あし, on=そく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.目",
@@ -5642,7 +7373,21 @@
         "correct_order_summary": "1: left vertical. 2: top + right (bracket). 3: middle-1 horizontal. 4: middle-2 horizontal. 5: bottom horizontal.",
         "why_it_matters": "5 strokes. Box-rule: enclose first, then fill, close last."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "目",
+          "reading": "め",
+          "gloss": "eye (kun)"
+        },
+        "compound": {
+          "form": "一番目",
+          "reading": "いちばんめ",
+          "gloss": "first / number one (kun-suffix)"
+        },
+        "contrast_note": "目 kun=め standalone, also ordinal-suffix (1つ目, 2番目)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.口",
@@ -5754,7 +7499,30 @@
         "correct_order_summary": "1: left vertical. 2: top + right (one bracket stroke). 3: bottom horizontal (closes box).",
         "why_it_matters": "Three-stroke kanji, NOT four. The top+right is a single stroke (hook)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "出口",
+          "reading": "でぐち",
+          "gloss": "exit",
+          "vocab_id": "n5.vocab.13-locations-and-places-.出口"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "口",
+          "reading": "くち",
+          "gloss": "mouth (kun)"
+        },
+        "compound": {
+          "form": "入口",
+          "reading": "いりぐち",
+          "gloss": "entrance (kun+kun)"
+        },
+        "contrast_note": "口 kun=くち, on=こう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.力",
@@ -5860,7 +7628,21 @@
         "correct_order_summary": "1: hook (downward + curl right). 2: ノ (descending-left, crosses).",
         "why_it_matters": "2 strokes. Stroke order distinguishes from 九 (which has horizontal at top)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "力",
+          "reading": "ちから",
+          "gloss": "strength (kun)"
+        },
+        "compound": {
+          "form": "電力",
+          "reading": "でんりょく",
+          "gloss": "electric power (on)"
+        },
+        "contrast_note": "力 kun=ちから, on=りょく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.学",
@@ -6013,7 +7795,42 @@
         "correct_order_summary": "1-3: top dots (3 dots in slight V). 4-6: 冖 cover (horizontal + vertical+hook). 7-8: 子 below.",
         "why_it_matters": "8 strokes total. Three-tier kanji."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "学生",
+          "reading": "がくせい",
+          "gloss": "student",
+          "vocab_id": "n5.vocab.3-people-roles.学生"
+        },
+        {
+          "form": "学校",
+          "reading": "がっこう",
+          "gloss": "school",
+          "vocab_id": "n5.vocab.13-locations-and-places-.学校"
+        },
+        {
+          "form": "大学",
+          "reading": "だいがく",
+          "gloss": "university",
+          "vocab_id": "n5.vocab.13-locations-and-places-.大学"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "学ぶ",
+          "reading": "まなぶ",
+          "gloss": "to learn (kun-verb)"
+        },
+        "compound": {
+          "form": "学校",
+          "reading": "がっこう",
+          "gloss": "school (on+on)"
+        },
+        "contrast_note": "学 kun=まな-ぶ (verb), on=がく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.校",
@@ -6134,7 +7951,42 @@
         "correct_order_summary": "1-4: 木 (left half). 5: top dot. 6: top horizontal. 7-8: ハ inside. 9-10: bottom ノ + ╲.",
         "why_it_matters": "10 strokes. Left radical first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "学校",
+          "reading": "がっこう",
+          "gloss": "school",
+          "vocab_id": "n5.vocab.13-locations-and-places-.学校"
+        },
+        {
+          "form": "高校",
+          "reading": "こうこう",
+          "gloss": "high school",
+          "vocab_id": "n5.vocab.13-locations-and-places-.高校"
+        },
+        {
+          "form": "高校生",
+          "reading": "こうこうせい",
+          "gloss": "high school student",
+          "vocab_id": "n5.vocab.3-people-roles.高校生"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "校",
+          "reading": "こう",
+          "gloss": "(on; school — appears mostly in compounds)"
+        },
+        "compound": {
+          "form": "高校",
+          "reading": "こうこう",
+          "gloss": "high school"
+        },
+        "contrast_note": "校 only on=こう; rarely standalone."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.本",
@@ -6361,7 +8213,54 @@
         "correct_order_summary": "1-4: identical to 木. 5: short horizontal across the lower vertical.",
         "why_it_matters": "The bottom horizontal converts 木 to 本; missing it is a common error."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "本",
+          "reading": "ほん",
+          "gloss": "counter for long thin objects",
+          "vocab_id": "n5.vocab.9-counters-common.本"
+        },
+        {
+          "form": "本",
+          "reading": "ほん",
+          "gloss": "book",
+          "vocab_id": "n5.vocab.24-school-and-study.本"
+        },
+        {
+          "form": "日本",
+          "reading": "にほん / にっぽん",
+          "gloss": "Japan",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本"
+        },
+        {
+          "form": "日本語",
+          "reading": "にほんご",
+          "gloss": "Japanese (language)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本語"
+        },
+        {
+          "form": "日本人",
+          "reading": "にほんじん",
+          "gloss": "Japanese (person)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本人"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "本",
+          "reading": "ほん",
+          "gloss": "book (on)"
+        },
+        "compound": {
+          "form": "日本",
+          "reading": "にほん",
+          "gloss": "Japan (on+on)"
+        },
+        "contrast_note": "本 is unusual: uses on-yomi ほん even standalone. kun=もと (origin)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.語",
@@ -6498,7 +8397,42 @@
         "correct_order_summary": "1-7: 言. 8-14: 吾 (五 + 口).",
         "why_it_matters": "14 strokes. Left-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "日本語",
+          "reading": "にほんご",
+          "gloss": "Japanese (language)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.日本語"
+        },
+        {
+          "form": "中国語",
+          "reading": "ちゅうごくご",
+          "gloss": "Chinese (language)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.中国語"
+        },
+        {
+          "form": "外国語",
+          "reading": "がいこくご",
+          "gloss": "foreign language",
+          "vocab_id": "n5.vocab.25-languages-and-countri.外国語"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "語",
+          "reading": "ご",
+          "gloss": "word (on; suffix-form)"
+        },
+        "compound": {
+          "form": "日本語",
+          "reading": "にほんご",
+          "gloss": "Japanese language (on)"
+        },
+        "contrast_note": "語 only on=ご; language-suffix marker."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.国",
@@ -6617,7 +8551,66 @@
       "lookalikes": [
         "社"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "国",
+          "reading": "くに",
+          "gloss": "country",
+          "vocab_id": "n5.vocab.13-locations-and-places-.国"
+        },
+        {
+          "form": "中国",
+          "reading": "ちゅうごく",
+          "gloss": "China",
+          "vocab_id": "n5.vocab.25-languages-and-countri.中国"
+        },
+        {
+          "form": "外国",
+          "reading": "がいこく",
+          "gloss": "foreign country",
+          "vocab_id": "n5.vocab.25-languages-and-countri.外国"
+        },
+        {
+          "form": "国籍",
+          "reading": "こくせき",
+          "gloss": "nationality",
+          "vocab_id": "n5.vocab.25-languages-and-countri.国籍"
+        },
+        {
+          "form": "外国人",
+          "reading": "がいこくじん",
+          "gloss": "foreigner",
+          "vocab_id": "n5.vocab.3-people-roles.外国人"
+        },
+        {
+          "form": "中国語",
+          "reading": "ちゅうごくご",
+          "gloss": "Chinese (language)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.中国語"
+        },
+        {
+          "form": "外国語",
+          "reading": "がいこくご",
+          "gloss": "foreign language",
+          "vocab_id": "n5.vocab.25-languages-and-countri.外国語"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "国",
+          "reading": "くに",
+          "gloss": "country (kun)"
+        },
+        "compound": {
+          "form": "中国",
+          "reading": "ちゅうごく",
+          "gloss": "China (on)"
+        },
+        "contrast_note": "国 kun=くに, on=こく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.会",
@@ -6731,7 +8724,42 @@
         "correct_order_summary": "1: left ノ. 2: right ╲ (hat). 3-6: 云 (top horizontal, dot, hook+curl).",
         "why_it_matters": "6 strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "会社",
+          "reading": "かいしゃ",
+          "gloss": "company",
+          "vocab_id": "n5.vocab.13-locations-and-places-.会社"
+        },
+        {
+          "form": "会う",
+          "reading": "あう",
+          "gloss": "to meet",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.会う"
+        },
+        {
+          "form": "会社員",
+          "reading": "かいしゃいん",
+          "gloss": "company employee",
+          "vocab_id": "n5.vocab.3-people-roles.会社員"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "会う",
+          "reading": "あう",
+          "gloss": "to meet (kun-verb)"
+        },
+        "compound": {
+          "form": "会社",
+          "reading": "かいしゃ",
+          "gloss": "company (on+on)"
+        },
+        "contrast_note": "会 kun=あ-う (verb), on=かい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.社",
@@ -6827,7 +8855,36 @@
         "correct_order_summary": "1-4: 示 (left half: dot, two horizontals, two ノ). 5-7: 土.",
         "why_it_matters": "7 strokes. Left radical 示 first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "会社",
+          "reading": "かいしゃ",
+          "gloss": "company",
+          "vocab_id": "n5.vocab.13-locations-and-places-.会社"
+        },
+        {
+          "form": "会社員",
+          "reading": "かいしゃいん",
+          "gloss": "company employee",
+          "vocab_id": "n5.vocab.3-people-roles.会社員"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "社",
+          "reading": "しゃ",
+          "gloss": "(on — appears in compounds)"
+        },
+        "compound": {
+          "form": "会社",
+          "reading": "かいしゃ",
+          "gloss": "company"
+        },
+        "contrast_note": "社 only on=しゃ; rarely standalone."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.員",
@@ -6925,7 +8982,42 @@
         "correct_order_summary": "1-3: 口 (top box). 4-10: 貝 (eye-shape + two legs).",
         "why_it_matters": "10 strokes. Top component first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "駅員",
+          "reading": "えきいん",
+          "gloss": "station staff",
+          "vocab_id": "n5.vocab.3-people-roles.駅員"
+        },
+        {
+          "form": "店員",
+          "reading": "てんいん",
+          "gloss": "shop clerk",
+          "vocab_id": "n5.vocab.3-people-roles.店員"
+        },
+        {
+          "form": "会社員",
+          "reading": "かいしゃいん",
+          "gloss": "company employee",
+          "vocab_id": "n5.vocab.3-people-roles.会社員"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "員",
+          "reading": "いん",
+          "gloss": "(on — member-suffix)"
+        },
+        "compound": {
+          "form": "会社員",
+          "reading": "かいしゃいん",
+          "gloss": "company employee"
+        },
+        "contrast_note": "員 only on=いん; suffix in workplace compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.大",
@@ -7129,7 +9221,48 @@
       },
       "stroke_order_trap_provenance": "llm_curated",
       "lookalikes_note": "大 has no close visual confusion partner among N5 kanji.",
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "大人",
+          "reading": "おとな",
+          "gloss": "adult",
+          "vocab_id": "n5.vocab.2-people-family.大人"
+        },
+        {
+          "form": "大学",
+          "reading": "だいがく",
+          "gloss": "university",
+          "vocab_id": "n5.vocab.13-locations-and-places-.大学"
+        },
+        {
+          "form": "大きい",
+          "reading": "おおきい",
+          "gloss": "big",
+          "vocab_id": "n5.vocab.31-adjectives.大きい"
+        },
+        {
+          "form": "大きな",
+          "reading": "おおきな",
+          "gloss": "big (variant adjectival form of 大きい)",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.大きな"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "大きい",
+          "reading": "おおきい",
+          "gloss": "big (kun-adj)"
+        },
+        "compound": {
+          "form": "大学",
+          "reading": "だいがく",
+          "gloss": "university (on)"
+        },
+        "contrast_note": "大 kun=おお-きい (adj), on=だい/たい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.中",
@@ -7247,7 +9380,42 @@
         "上",
         "下"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "中",
+          "reading": "なか",
+          "gloss": "inside, middle",
+          "vocab_id": "n5.vocab.13-locations-and-places-.中"
+        },
+        {
+          "form": "中国",
+          "reading": "ちゅうごく",
+          "gloss": "China",
+          "vocab_id": "n5.vocab.25-languages-and-countri.中国"
+        },
+        {
+          "form": "中国語",
+          "reading": "ちゅうごくご",
+          "gloss": "Chinese (language)",
+          "vocab_id": "n5.vocab.25-languages-and-countri.中国語"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "中",
+          "reading": "なか",
+          "gloss": "inside / middle (kun)"
+        },
+        "compound": {
+          "form": "中国",
+          "reading": "ちゅうごく",
+          "gloss": "China (on)"
+        },
+        "contrast_note": "中 kun=なか, on=ちゅう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.小",
@@ -7350,7 +9518,30 @@
       "stroke_order_trap_provenance": "llm_curated",
       "lookalikes": [],
       "lookalikes_note": "小 has no close visual confusion partner among N5 kanji.",
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "小さい",
+          "reading": "ちいさい",
+          "gloss": "small",
+          "vocab_id": "n5.vocab.31-adjectives.小さい"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "小さい",
+          "reading": "ちいさい",
+          "gloss": "small (kun-adj)"
+        },
+        "compound": {
+          "form": "小学校",
+          "reading": "しょうがっこう",
+          "gloss": "elementary school (on)"
+        },
+        "contrast_note": "小 kun=ちい-さい (adj), on=しょう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.上",
@@ -7491,7 +9682,30 @@
         "correct_order_summary": "1: short horizontal (top). 2: vertical (down). 3: long bottom horizontal.",
         "why_it_matters": "3 strokes. Distinguishes from 下 (which starts with the long horizontal)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "上",
+          "reading": "うえ",
+          "gloss": "top, above",
+          "vocab_id": "n5.vocab.13-locations-and-places-.上"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "上",
+          "reading": "うえ",
+          "gloss": "top / above (kun)"
+        },
+        "compound": {
+          "form": "上手",
+          "reading": "じょうず",
+          "gloss": "skilled (on+kun unique reading)"
+        },
+        "contrast_note": "上 kun=うえ, on=じょう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.下",
@@ -7598,7 +9812,30 @@
         "correct_order_summary": "1: long horizontal (top). 2: vertical (down). 3: short dot (top-right).",
         "why_it_matters": "3 strokes. Mirror-pair with 上 — STROKE 1 IS THE DIFFERENCE."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "下",
+          "reading": "した",
+          "gloss": "under, below",
+          "vocab_id": "n5.vocab.13-locations-and-places-.下"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "下",
+          "reading": "した",
+          "gloss": "below (kun)"
+        },
+        "compound": {
+          "form": "下手",
+          "reading": "へた",
+          "gloss": "unskilled (kun+kun unique)"
+        },
+        "contrast_note": "下 kun=した, on=か/げ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.左",
@@ -7693,7 +9930,30 @@
         "correct_order_summary": "1: long horizontal. 2: short ノ (descending-left). 3-5: 工 (work) bottom.",
         "why_it_matters": "Mirror-pair with 右; getting stroke 1 right is the calligraphic identity of left-vs-right."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "左",
+          "reading": "ひだり",
+          "gloss": "left",
+          "vocab_id": "n5.vocab.13-locations-and-places-.左"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "左",
+          "reading": "ひだり",
+          "gloss": "left (kun)"
+        },
+        "compound": {
+          "form": "左右",
+          "reading": "さゆう",
+          "gloss": "left and right (on)"
+        },
+        "contrast_note": "左 kun=ひだり, on=さ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.右",
@@ -7789,7 +10049,30 @@
         "correct_order_summary": "1: short ノ (descending-left). 2: long horizontal. 3-5: 口 (left, top-right, bottom).",
         "why_it_matters": "Mirror-pair with 左; opposite stroke 1 is the only visual cue distinguishing the calligraphic balance."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "右",
+          "reading": "みぎ",
+          "gloss": "right",
+          "vocab_id": "n5.vocab.13-locations-and-places-.右"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "右",
+          "reading": "みぎ",
+          "gloss": "right (kun)"
+        },
+        "compound": {
+          "form": "左右",
+          "reading": "さゆう",
+          "gloss": "left and right (on)"
+        },
+        "contrast_note": "右 kun=みぎ, on=う/ゆう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.前",
@@ -7897,7 +10180,48 @@
         "correct_order_summary": "1: left dot. 2: right dot. 3: horizontal. 4-7: 月 (frame). 8-9: 刂 (vertical + hook).",
         "why_it_matters": "9 strokes. Three-component arrangement."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "前",
+          "reading": "まえ",
+          "gloss": "before, in front",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.前"
+        },
+        {
+          "form": "前",
+          "reading": "まえ",
+          "gloss": "front",
+          "vocab_id": "n5.vocab.13-locations-and-places-.前"
+        },
+        {
+          "form": "午前",
+          "reading": "ごぜん",
+          "gloss": "A.M.",
+          "vocab_id": "n5.vocab.10-time-general.午前"
+        },
+        {
+          "form": "名前",
+          "reading": "なまえ",
+          "gloss": "name",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.名前"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "前",
+          "reading": "まえ",
+          "gloss": "front / before (kun)"
+        },
+        "compound": {
+          "form": "名前",
+          "reading": "なまえ",
+          "gloss": "name (kun)"
+        },
+        "contrast_note": "前 kun=まえ, on=ぜん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.後",
@@ -8014,7 +10338,48 @@
         "correct_order_summary": "1-3: 彳. 4: 幺-like top. 5-9: bottom ⼡-like.",
         "why_it_matters": "9 strokes. Left-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "後",
+          "reading": "あと",
+          "gloss": "after / later (時間的に後で)",
+          "vocab_id": "n5.vocab.10-time-general.後"
+        },
+        {
+          "form": "午後",
+          "reading": "ごご",
+          "gloss": "P.M.",
+          "vocab_id": "n5.vocab.10-time-general.午後"
+        },
+        {
+          "form": "後で",
+          "reading": "あとで",
+          "gloss": "later",
+          "vocab_id": "n5.vocab.12-time-frequency-sequen.後で"
+        },
+        {
+          "form": "後ろ",
+          "reading": "うしろ",
+          "gloss": "back, behind",
+          "vocab_id": "n5.vocab.13-locations-and-places-.後ろ"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "後ろ",
+          "reading": "うしろ",
+          "gloss": "behind (kun)"
+        },
+        "compound": {
+          "form": "午後",
+          "reading": "ごご",
+          "gloss": "afternoon (on)"
+        },
+        "contrast_note": "後 kun=うし-ろ / あと, on=ご/こう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.外",
@@ -8123,7 +10488,48 @@
         "correct_order_summary": "1-3: 夕. 4: vertical. 5: short top-right dot.",
         "why_it_matters": "5 strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "外",
+          "reading": "そと",
+          "gloss": "outside",
+          "vocab_id": "n5.vocab.13-locations-and-places-.外"
+        },
+        {
+          "form": "外国",
+          "reading": "がいこく",
+          "gloss": "foreign country",
+          "vocab_id": "n5.vocab.25-languages-and-countri.外国"
+        },
+        {
+          "form": "外国人",
+          "reading": "がいこくじん",
+          "gloss": "foreigner",
+          "vocab_id": "n5.vocab.3-people-roles.外国人"
+        },
+        {
+          "form": "外国語",
+          "reading": "がいこくご",
+          "gloss": "foreign language",
+          "vocab_id": "n5.vocab.25-languages-and-countri.外国語"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "外",
+          "reading": "そと",
+          "gloss": "outside (kun)"
+        },
+        "compound": {
+          "form": "外国",
+          "reading": "がいこく",
+          "gloss": "foreign country (on)"
+        },
+        "contrast_note": "外 kun=そと, on=がい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.東",
@@ -8227,7 +10633,30 @@
         "correct_order_summary": "1: top horizontal. 2: vertical. 3-7: 田 (box with cross). 8: ノ. 9: ╲.",
         "why_it_matters": "9 strokes. The horizontal+vertical at top precedes the box."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "東",
+          "reading": "ひがし",
+          "gloss": "east",
+          "vocab_id": "n5.vocab.13-locations-and-places-.東"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "東",
+          "reading": "ひがし",
+          "gloss": "east (kun)"
+        },
+        "compound": {
+          "form": "東京",
+          "reading": "とうきょう",
+          "gloss": "Tokyo (on)"
+        },
+        "contrast_note": "東 kun=ひがし, on=とう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.西",
@@ -8324,7 +10753,30 @@
         "correct_order_summary": "1: top horizontal. 2: short horizontal inside (top). 3: left vertical. 4: top+right (bracket). 5: middle horizontal+legs. 6: bottom horizontal (closes).",
         "why_it_matters": "6 strokes. Variant of box-closure rule."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "西",
+          "reading": "にし",
+          "gloss": "west",
+          "vocab_id": "n5.vocab.13-locations-and-places-.西"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "西",
+          "reading": "にし",
+          "gloss": "west (kun)"
+        },
+        "compound": {
+          "form": "関西",
+          "reading": "かんさい",
+          "gloss": "Kansai region (on) — N4"
+        },
+        "contrast_note": "西 kun=にし, on=さい/せい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.南",
@@ -8421,7 +10873,30 @@
         "correct_order_summary": "1: top dot+horizontal. 2-3: outer frame strokes. 4-9: inside elements. Total 9.",
         "why_it_matters": "9 strokes. Multi-tier structure."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "南",
+          "reading": "みなみ",
+          "gloss": "south",
+          "vocab_id": "n5.vocab.13-locations-and-places-.南"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "南",
+          "reading": "みなみ",
+          "gloss": "south (kun)"
+        },
+        "compound": {
+          "form": "南北",
+          "reading": "なんぼく",
+          "gloss": "north-south (on)"
+        },
+        "contrast_note": "南 kun=みなみ, on=なん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.北",
@@ -8519,7 +10994,30 @@
         "correct_order_summary": "1: vertical (left). 2: ╲ (left side). 3: ノ (right). 4: hook (right). 5: bottom curve.",
         "why_it_matters": "5 strokes. The mirror symmetry is misleading — different stroke counts each half."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "北",
+          "reading": "きた",
+          "gloss": "north",
+          "vocab_id": "n5.vocab.13-locations-and-places-.北"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "北",
+          "reading": "きた",
+          "gloss": "north (kun)"
+        },
+        "compound": {
+          "form": "東北",
+          "reading": "とうほく",
+          "gloss": "Tohoku region (on)"
+        },
+        "contrast_note": "北 kun=きた, on=ほく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.間",
@@ -8645,7 +11143,30 @@
         "correct_order_summary": "1-8: 門 (gate: left half 4 strokes, right half 4 strokes). 9-12: 日 (inside box).",
         "why_it_matters": "12 strokes. Frame-outside, inside-inside; standard enclosure rule."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "時間",
+          "reading": "じかん",
+          "gloss": "time, hour",
+          "vocab_id": "n5.vocab.10-time-general.時間"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "間",
+          "reading": "あいだ",
+          "gloss": "between (kun)"
+        },
+        "compound": {
+          "form": "時間",
+          "reading": "じかん",
+          "gloss": "time-duration (on)"
+        },
+        "contrast_note": "間 kun=あいだ, on=かん/けん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.山",
@@ -8752,7 +11273,30 @@
       "lookalikes": [
         "出"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "山",
+          "reading": "やま",
+          "gloss": "mountain",
+          "vocab_id": "n5.vocab.14-nature-and-weather.山"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "山",
+          "reading": "やま",
+          "gloss": "mountain (kun)"
+        },
+        "compound": {
+          "form": "富士山",
+          "reading": "ふじさん",
+          "gloss": "Mt. Fuji (on with rendaku)"
+        },
+        "contrast_note": "山 kun=やま, on=さん in mountain-name compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.川",
@@ -8849,7 +11393,30 @@
       "stroke_order_trap_provenance": "llm_curated",
       "lookalikes": [],
       "lookalikes_note": "川 has no close visual confusion partner among N5 kanji.",
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "川",
+          "reading": "かわ",
+          "gloss": "river",
+          "vocab_id": "n5.vocab.14-nature-and-weather.川"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "川",
+          "reading": "かわ",
+          "gloss": "river (kun)"
+        },
+        "compound": {
+          "form": "小川",
+          "reading": "おがわ",
+          "gloss": "stream / surname (kun+kun)"
+        },
+        "contrast_note": "川 kun=かわ, on=せん rare."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.田",
@@ -8948,7 +11515,30 @@
       "lookalikes": [
         "円"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "田",
+          "reading": "た",
+          "gloss": "rice field",
+          "vocab_id": "n5.vocab.14-nature-and-weather.田"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "田",
+          "reading": "た",
+          "gloss": "rice field (kun)"
+        },
+        "compound": {
+          "form": "田中",
+          "reading": "たなか",
+          "gloss": "Tanaka (surname)"
+        },
+        "contrast_note": "田 kun=た, appears in many surnames (田中/山田)."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.雨",
@@ -9047,7 +11637,30 @@
         "correct_order_summary": "1: top horizontal. 2: left ノ. 3: vertical+hook bracket. 4-7: 4 inside dots.",
         "why_it_matters": "8 strokes. Top frame first, dots inside last."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "雨",
+          "reading": "あめ",
+          "gloss": "rain",
+          "vocab_id": "n5.vocab.14-nature-and-weather.雨"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "雨",
+          "reading": "あめ",
+          "gloss": "rain (kun)"
+        },
+        "compound": {
+          "form": "大雨",
+          "reading": "おおあめ",
+          "gloss": "heavy rain (kun+kun)"
+        },
+        "contrast_note": "雨 kun=あめ, on=う rare."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.天",
@@ -9150,7 +11763,36 @@
         "correct_order_summary": "1: top horizontal (short). 2: long horizontal. 3: ノ (left-descending). 4: ╲ (right-descending).",
         "why_it_matters": "4 strokes. Distinguishes from 大 (which has only ONE horizontal at top)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "天気",
+          "reading": "てんき",
+          "gloss": "weather",
+          "vocab_id": "n5.vocab.14-nature-and-weather.天気"
+        },
+        {
+          "form": "天ぷら",
+          "reading": "てんぷら",
+          "gloss": "tempura",
+          "vocab_id": "n5.vocab.17-food-items.天ぷら"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "天",
+          "reading": "てん",
+          "gloss": "heaven (on)"
+        },
+        "compound": {
+          "form": "天気",
+          "reading": "てんき",
+          "gloss": "weather (on+on)"
+        },
+        "contrast_note": "天 mostly on=てん; kun=あめ archaic."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.気",
@@ -9251,7 +11893,42 @@
         "correct_order_summary": "1-4: 气 frame (top arc + hook). 5-6: ノ + ╲. 7-6: 〆-like inside.",
         "why_it_matters": "6 strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "天気",
+          "reading": "てんき",
+          "gloss": "weather",
+          "vocab_id": "n5.vocab.14-nature-and-weather.天気"
+        },
+        {
+          "form": "電気",
+          "reading": "でんき",
+          "gloss": "electricity, light",
+          "vocab_id": "n5.vocab.24-school-and-study.電気"
+        },
+        {
+          "form": "電気",
+          "reading": "でんき",
+          "gloss": "light",
+          "vocab_id": "n5.vocab.26-house-and-furniture.電気"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "気",
+          "reading": "き",
+          "gloss": "spirit / feeling (on)"
+        },
+        "compound": {
+          "form": "元気",
+          "reading": "げんき",
+          "gloss": "energetic (on+on) — N4 for 元"
+        },
+        "contrast_note": "気 only on=き/け; very common compound element."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.花",
@@ -9345,7 +12022,30 @@
         "correct_order_summary": "1-3: 艹 (3-stroke grass radical). 4-5: 亻 (person on left of 化). 6-7: 匕 (right of 化).",
         "why_it_matters": "7 strokes. Top-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "花",
+          "reading": "はな",
+          "gloss": "flower",
+          "vocab_id": "n5.vocab.14-nature-and-weather.花"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "花",
+          "reading": "はな",
+          "gloss": "flower (kun)"
+        },
+        "compound": {
+          "form": "花火",
+          "reading": "はなび",
+          "gloss": "fireworks (kun+kun)"
+        },
+        "contrast_note": "花 kun=はな, on=か rare."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.空",
@@ -9447,7 +12147,30 @@
         "correct_order_summary": "1-5: 穴 (top hat structure). 6-8: 工.",
         "why_it_matters": "8 strokes. Hat-first structure."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "空",
+          "reading": "そら",
+          "gloss": "sky",
+          "vocab_id": "n5.vocab.14-nature-and-weather.空"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "空",
+          "reading": "そら",
+          "gloss": "sky (kun)"
+        },
+        "compound": {
+          "form": "空港",
+          "reading": "くうこう",
+          "gloss": "airport (on+on) — 港 is N4"
+        },
+        "contrast_note": "空 kun=そら, on=くう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.電",
@@ -9556,7 +12279,60 @@
         "correct_order_summary": "1-8: 雨 cap. 9-12: 田-like body. 13: hook below.",
         "why_it_matters": "13 strokes. 雨 always tops the kanji."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (electric)",
+          "vocab_id": "n5.vocab.23-transport.電車"
+        },
+        {
+          "form": "電気",
+          "reading": "でんき",
+          "gloss": "electricity, light",
+          "vocab_id": "n5.vocab.24-school-and-study.電気"
+        },
+        {
+          "form": "電話",
+          "reading": "でんわ",
+          "gloss": "telephone",
+          "vocab_id": "n5.vocab.24-school-and-study.電話"
+        },
+        {
+          "form": "電気",
+          "reading": "でんき",
+          "gloss": "light",
+          "vocab_id": "n5.vocab.26-house-and-furniture.電気"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number",
+          "vocab_id": "n5.vocab.24-school-and-study.電話番号"
+        },
+        {
+          "form": "電話する",
+          "reading": "でんわする",
+          "gloss": "to telephone",
+          "vocab_id": "n5.vocab.29-verbs-irregular-and-v.電話する"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "電",
+          "reading": "でん",
+          "gloss": "(on — electricity element)"
+        },
+        "compound": {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (on+on)"
+        },
+        "contrast_note": "電 only on=でん; element in many \"electric\" compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.車",
@@ -9655,7 +12431,36 @@
       "lookalikes": [
         "電"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "車",
+          "reading": "くるま",
+          "gloss": "car",
+          "vocab_id": "n5.vocab.23-transport.車"
+        },
+        {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (electric)",
+          "vocab_id": "n5.vocab.23-transport.電車"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "車",
+          "reading": "くるま",
+          "gloss": "car (kun)"
+        },
+        "compound": {
+          "form": "電車",
+          "reading": "でんしゃ",
+          "gloss": "train (on)"
+        },
+        "contrast_note": "車 kun=くるま standalone for \"car\", on=しゃ in vehicle compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.道",
@@ -9757,7 +12562,36 @@
         "correct_order_summary": "1-9: 首. 10-12: 辶 (path-radical, the LAST 3 strokes).",
         "why_it_matters": "辶 radical is always written LAST."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "道",
+          "reading": "みち",
+          "gloss": "road, way",
+          "vocab_id": "n5.vocab.13-locations-and-places-.道"
+        },
+        {
+          "form": "道",
+          "reading": "みち",
+          "gloss": "road",
+          "vocab_id": "n5.vocab.23-transport.道"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "道",
+          "reading": "みち",
+          "gloss": "road (kun)"
+        },
+        "compound": {
+          "form": "北海道",
+          "reading": "ほっかいどう",
+          "gloss": "Hokkaido (on)"
+        },
+        "contrast_note": "道 kun=みち, on=どう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.店",
@@ -9859,7 +12693,36 @@
         "correct_order_summary": "1-3: 广 (dot + horizontal + ノ). 4-8: 占 (vertical + 卜 + 口).",
         "why_it_matters": "8 strokes. Roof-cap-first structure."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "店員",
+          "reading": "てんいん",
+          "gloss": "shop clerk",
+          "vocab_id": "n5.vocab.3-people-roles.店員"
+        },
+        {
+          "form": "お店",
+          "reading": "おみせ",
+          "gloss": "shop",
+          "vocab_id": "n5.vocab.13-locations-and-places-.お店"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "店",
+          "reading": "みせ",
+          "gloss": "shop (kun)"
+        },
+        "compound": {
+          "form": "本店",
+          "reading": "ほんてん",
+          "gloss": "head store (on)"
+        },
+        "contrast_note": "店 kun=みせ, on=てん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.駅",
@@ -9951,7 +12814,36 @@
         "correct_order_summary": "1-10: 馬. 11-14: 尺.",
         "why_it_matters": "14 strokes. Left-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "駅",
+          "reading": "えき",
+          "gloss": "station",
+          "vocab_id": "n5.vocab.13-locations-and-places-.駅"
+        },
+        {
+          "form": "駅員",
+          "reading": "えきいん",
+          "gloss": "station staff",
+          "vocab_id": "n5.vocab.3-people-roles.駅員"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "駅",
+          "reading": "えき",
+          "gloss": "station (on)"
+        },
+        "compound": {
+          "form": "東京駅",
+          "reading": "とうきょうえき",
+          "gloss": "Tokyo Station (on)"
+        },
+        "contrast_note": "駅 only on=えき; appears as both standalone and station-name suffix."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.食",
@@ -10076,7 +12968,30 @@
         "correct_order_summary": "1: left ノ. 2: right ╲. 3-9: 良 below.",
         "why_it_matters": "9 strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "食べる",
+          "reading": "たべる",
+          "gloss": "to eat",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.食べる"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "食べる",
+          "reading": "たべる",
+          "gloss": "to eat (kun-verb)"
+        },
+        "compound": {
+          "form": "食事",
+          "reading": "しょくじ",
+          "gloss": "meal (on)"
+        },
+        "contrast_note": "食 kun=た-べる (verb), on=しょく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.飲",
@@ -10185,7 +13100,30 @@
         "correct_order_summary": "1-9: 食 radical. 10-13: 欠 (man with open mouth).",
         "why_it_matters": "13 strokes. Left-radical-first; 食 used in many food/drink verbs."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "飲む",
+          "reading": "のむ",
+          "gloss": "to drink",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.飲む"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "飲む",
+          "reading": "のむ",
+          "gloss": "to drink (kun-verb)"
+        },
+        "compound": {
+          "form": "飲料",
+          "reading": "いんりょう",
+          "gloss": "drinks (on) — N4"
+        },
+        "contrast_note": "飲 kun=の-む (verb), on=いん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.見",
@@ -10333,7 +13271,36 @@
       "lookalikes": [
         "聞"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "見る",
+          "reading": "みる",
+          "gloss": "to see, to watch",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.見る"
+        },
+        {
+          "form": "見せる",
+          "reading": "みせる",
+          "gloss": "to show",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.見せる"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "見る",
+          "reading": "みる",
+          "gloss": "to see (kun-verb)"
+        },
+        "compound": {
+          "form": "意見",
+          "reading": "いけん",
+          "gloss": "opinion (on) — N4"
+        },
+        "contrast_note": "見 kun=み-る (verb), on=けん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.聞",
@@ -10449,7 +13416,42 @@
       "lookalikes": [
         "見"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "新聞",
+          "reading": "しんぶん",
+          "gloss": "newspaper",
+          "vocab_id": "n5.vocab.24-school-and-study.新聞"
+        },
+        {
+          "form": "聞く",
+          "reading": "きく",
+          "gloss": "to listen, to ask",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.聞く"
+        },
+        {
+          "form": "聞こえる",
+          "reading": "きこえる",
+          "gloss": "be audible / can be heard (intransitive of 聞く)",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.聞こえる"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "聞く",
+          "reading": "きく",
+          "gloss": "to listen / ask (kun-verb)"
+        },
+        "compound": {
+          "form": "新聞",
+          "reading": "しんぶん",
+          "gloss": "newspaper (on)"
+        },
+        "contrast_note": "聞 kun=き-く (verb), on=ぶん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.読",
@@ -10565,7 +13567,30 @@
         "correct_order_summary": "1-7: 言. 8-14: 売-like.",
         "why_it_matters": "14 strokes. Left-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "読む",
+          "reading": "よむ",
+          "gloss": "to read",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.読む"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "読む",
+          "reading": "よむ",
+          "gloss": "to read (kun-verb)"
+        },
+        "compound": {
+          "form": "読書",
+          "reading": "どくしょ",
+          "gloss": "reading (books) (on) — N4"
+        },
+        "contrast_note": "読 kun=よ-む (verb), on=どく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.書",
@@ -10671,7 +13696,30 @@
         "correct_order_summary": "1: short horizontal. 2-7: 聿-like upper part. 8-10: 曰 box. Total 10.",
         "why_it_matters": "10 strokes. Top-to-bottom assembly."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "書く",
+          "reading": "かく",
+          "gloss": "to write",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.書く"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "書く",
+          "reading": "かく",
+          "gloss": "to write (kun-verb)"
+        },
+        "compound": {
+          "form": "書道",
+          "reading": "しょどう",
+          "gloss": "calligraphy (on) — N4"
+        },
+        "contrast_note": "書 kun=か-く (verb), on=しょ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.話",
@@ -10800,7 +13848,54 @@
         "correct_order_summary": "1-7: 言. 8-13: 舌 (千 + 口).",
         "why_it_matters": "13 strokes. Left-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "話",
+          "reading": "はなし",
+          "gloss": "story, talk",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.話"
+        },
+        {
+          "form": "電話",
+          "reading": "でんわ",
+          "gloss": "telephone",
+          "vocab_id": "n5.vocab.24-school-and-study.電話"
+        },
+        {
+          "form": "話す",
+          "reading": "はなす",
+          "gloss": "to speak",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.話す"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number",
+          "vocab_id": "n5.vocab.24-school-and-study.電話番号"
+        },
+        {
+          "form": "電話する",
+          "reading": "でんわする",
+          "gloss": "to telephone",
+          "vocab_id": "n5.vocab.29-verbs-irregular-and-v.電話する"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "話す",
+          "reading": "はなす",
+          "gloss": "to talk (kun-verb)"
+        },
+        "compound": {
+          "form": "電話",
+          "reading": "でんわ",
+          "gloss": "phone (on)"
+        },
+        "contrast_note": "話 kun=はな-す (verb), on=わ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.来",
@@ -10949,7 +14044,48 @@
         "correct_order_summary": "1: top horizontal. 2: left vertical. 3: right vertical. 4-7: cross + dots inside.",
         "why_it_matters": "7 strokes. Distinguishes from 末 (similar but different element)."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "来週",
+          "reading": "らいしゅう",
+          "gloss": "next week",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来週"
+        },
+        {
+          "form": "来月",
+          "reading": "らいげつ",
+          "gloss": "next month",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来月"
+        },
+        {
+          "form": "来年",
+          "reading": "らいねん",
+          "gloss": "next year",
+          "vocab_id": "n5.vocab.11-time-days-weeks-month.来年"
+        },
+        {
+          "form": "来る",
+          "reading": "くる",
+          "gloss": "to come",
+          "vocab_id": "n5.vocab.29-verbs-irregular-and-v.来る"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "来る",
+          "reading": "くる",
+          "gloss": "to come (kun-verb)"
+        },
+        "compound": {
+          "form": "来年",
+          "reading": "らいねん",
+          "gloss": "next year (on)"
+        },
+        "contrast_note": "来 kun=く-る (verb), on=らい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.行",
@@ -11136,7 +14272,30 @@
       "lookalikes": [
         "来"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "行く",
+          "reading": "いく",
+          "gloss": "to go",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.行く"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "行く",
+          "reading": "いく",
+          "gloss": "to go (kun-verb)"
+        },
+        "compound": {
+          "form": "銀行",
+          "reading": "ぎんこう",
+          "gloss": "bank (on)"
+        },
+        "contrast_note": "行 kun=い-く (verb), on=こう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.出",
@@ -11273,7 +14432,42 @@
       "lookalikes": [
         "山"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "出る",
+          "reading": "でる",
+          "gloss": "to leave, to go out",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.出る"
+        },
+        {
+          "form": "出口",
+          "reading": "でぐち",
+          "gloss": "exit",
+          "vocab_id": "n5.vocab.13-locations-and-places-.出口"
+        },
+        {
+          "form": "出かける",
+          "reading": "でかける",
+          "gloss": "to go out",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.出かける"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "出る",
+          "reading": "でる",
+          "gloss": "to exit (kun-verb)"
+        },
+        "compound": {
+          "form": "出口",
+          "reading": "でぐち",
+          "gloss": "exit (kun+kun)"
+        },
+        "contrast_note": "出 kun=で-る/だ-す (verbs), on=しゅつ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.入",
@@ -11417,7 +14611,36 @@
         "correct_order_summary": "1: short ノ (left-descending, with curl at bottom). 2: long ╲ (right-descending).",
         "why_it_matters": "Visual identity vs 人: 入 has the short-then-long order; 人 has long-then-short. Reversed order produces the wrong character."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "入る",
+          "reading": "はいる",
+          "gloss": "to enter (Group 1 exception - looks like Group 2)",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.入る"
+        },
+        {
+          "form": "入れる",
+          "reading": "いれる",
+          "gloss": "to put in",
+          "vocab_id": "n5.vocab.28-verbs-group-2-verbs.入れる"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "入る",
+          "reading": "はいる",
+          "gloss": "to enter (kun-verb)"
+        },
+        "compound": {
+          "form": "入口",
+          "reading": "いりぐち",
+          "gloss": "entrance (kun+kun!)"
+        },
+        "contrast_note": "入 has both kun (はい-る, い-る verbs) and on (にゅう); 入口 unusually combines kun+kun."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.立",
@@ -11521,7 +14744,30 @@
       "lookalikes": [
         "休"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "立つ",
+          "reading": "たつ",
+          "gloss": "to stand",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.立つ"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "立つ",
+          "reading": "たつ",
+          "gloss": "to stand (kun-verb)"
+        },
+        "compound": {
+          "form": "国立",
+          "reading": "こくりつ",
+          "gloss": "national (on) — N4"
+        },
+        "contrast_note": "立 kun=た-つ, on=りつ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.休",
@@ -11654,7 +14900,30 @@
         "correct_order_summary": "1-2: 亻 (ノ + vertical). 3-6: 木.",
         "why_it_matters": "6 strokes. Left-radical-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "休む",
+          "reading": "やすむ",
+          "gloss": "to rest",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.休む"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "休む",
+          "reading": "やすむ",
+          "gloss": "to rest (kun-verb)"
+        },
+        "compound": {
+          "form": "休日",
+          "reading": "きゅうじつ",
+          "gloss": "holiday (on)"
+        },
+        "contrast_note": "休 kun=やす-む, on=きゅう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.言",
@@ -11772,7 +15041,30 @@
         "correct_order_summary": "1: short horizontal (top). 2: middle horizontal. 3: longest horizontal. 4-7: 口 box (with closure rule).",
         "why_it_matters": "7 strokes. Top stack + 口 universal for the 言 radical."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "言う",
+          "reading": "いう",
+          "gloss": "to say",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.言う"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "言う",
+          "reading": "いう",
+          "gloss": "to say (kun-verb)"
+        },
+        "compound": {
+          "form": "言語",
+          "reading": "げんご",
+          "gloss": "language (on) — N4"
+        },
+        "contrast_note": "言 kun=い-う (verb), on=げん/ごん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.買",
@@ -11899,7 +15191,30 @@
         "correct_order_summary": "1-5: 罒 (4-bar top). 6-12: 貝.",
         "why_it_matters": "12 strokes. Cap-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "買う",
+          "reading": "かう",
+          "gloss": "to buy",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.買う"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "買う",
+          "reading": "かう",
+          "gloss": "to buy (kun-verb)"
+        },
+        "compound": {
+          "form": "売買",
+          "reading": "ばいばい",
+          "gloss": "buying/selling (on) — N4"
+        },
+        "contrast_note": "買 kun=か-う (verb), on=ばい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.高",
@@ -12015,7 +15330,42 @@
       "lookalikes": [
         "安"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "高校",
+          "reading": "こうこう",
+          "gloss": "high school",
+          "vocab_id": "n5.vocab.13-locations-and-places-.高校"
+        },
+        {
+          "form": "高い",
+          "reading": "たかい",
+          "gloss": "high, tall, expensive",
+          "vocab_id": "n5.vocab.31-adjectives.高い"
+        },
+        {
+          "form": "高校生",
+          "reading": "こうこうせい",
+          "gloss": "high school student",
+          "vocab_id": "n5.vocab.3-people-roles.高校生"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "高い",
+          "reading": "たかい",
+          "gloss": "expensive / tall (kun-adj)"
+        },
+        "compound": {
+          "form": "高校",
+          "reading": "こうこう",
+          "gloss": "high school (on)"
+        },
+        "contrast_note": "高 kun=たか-い (adj), on=こう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.安",
@@ -12123,7 +15473,30 @@
         "correct_order_summary": "1-3: 宀 (dot, horizontal+hook). 4-6: 女 (cross-stroke last in 女).",
         "why_it_matters": "6 strokes. Roof-first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "安い",
+          "reading": "やすい",
+          "gloss": "cheap",
+          "vocab_id": "n5.vocab.31-adjectives.安い"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "安い",
+          "reading": "やすい",
+          "gloss": "cheap (kun-adj)"
+        },
+        "compound": {
+          "form": "安心",
+          "reading": "あんしん",
+          "gloss": "peace of mind (on)"
+        },
+        "contrast_note": "安 kun=やす-い (adj), on=あん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.新",
@@ -12232,7 +15605,36 @@
         "correct_order_summary": "1-9: 亲. 10-13: 斤.",
         "why_it_matters": "13 strokes. Left part first."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "新聞",
+          "reading": "しんぶん",
+          "gloss": "newspaper",
+          "vocab_id": "n5.vocab.24-school-and-study.新聞"
+        },
+        {
+          "form": "新しい",
+          "reading": "あたらしい",
+          "gloss": "new",
+          "vocab_id": "n5.vocab.31-adjectives.新しい"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "新しい",
+          "reading": "あたらしい",
+          "gloss": "new (kun-adj)"
+        },
+        "compound": {
+          "form": "新聞",
+          "reading": "しんぶん",
+          "gloss": "newspaper (on)"
+        },
+        "contrast_note": "新 kun=あたら-しい (adj), on=しん in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.古",
@@ -12355,7 +15757,30 @@
         "correct_order_summary": "1: horizontal. 2: vertical. 3-5: 口 (with box rule).",
         "why_it_matters": "5 strokes. Cross + box."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "古い",
+          "reading": "ふるい",
+          "gloss": "old (not for people)",
+          "vocab_id": "n5.vocab.31-adjectives.古い"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "古い",
+          "reading": "ふるい",
+          "gloss": "old (kun-adj)"
+        },
+        "compound": {
+          "form": "中古",
+          "reading": "ちゅうこ",
+          "gloss": "used (item) (on) — N4"
+        },
+        "contrast_note": "古 kun=ふる-い (adj), on=こ in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.長",
@@ -12461,7 +15886,30 @@
         "correct_order_summary": "1: top horizontal. 2-7: middle strokes. 8: ノ (bottom). Total 8.",
         "why_it_matters": "8 strokes. Common confusion: missing the middle short horizontal."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "長い",
+          "reading": "ながい",
+          "gloss": "long",
+          "vocab_id": "n5.vocab.31-adjectives.長い"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "長い",
+          "reading": "ながい",
+          "gloss": "long (kun-adj)"
+        },
+        "compound": {
+          "form": "社長",
+          "reading": "しゃちょう",
+          "gloss": "company president (on)"
+        },
+        "contrast_note": "長 kun=なが-い (adj), on=ちょう in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.白",
@@ -12599,7 +16047,36 @@
         "correct_order_summary": "1: short ノ (top). 2: left vertical. 3: top + right (bracket). 4: middle horizontal. 5: bottom horizontal.",
         "why_it_matters": "5 strokes. The leading ノ distinguishes from 日."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "白",
+          "reading": "しろ",
+          "gloss": "white (noun)",
+          "vocab_id": "n5.vocab.20-colors.白"
+        },
+        {
+          "form": "白い",
+          "reading": "しろい",
+          "gloss": "white (adj)",
+          "vocab_id": "n5.vocab.20-colors.白い"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "白い",
+          "reading": "しろい",
+          "gloss": "white (kun-adj)"
+        },
+        "compound": {
+          "form": "白人",
+          "reading": "はくじん",
+          "gloss": "white person (on) — N4+"
+        },
+        "contrast_note": "白 kun=しろ/しろ-い (adj), on=はく/びゃく in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.名",
@@ -12694,7 +16171,30 @@
       "lookalikes": [
         "友"
       ],
-      "lookalikes_provenance": "llm_curated"
+      "lookalikes_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "名前",
+          "reading": "なまえ",
+          "gloss": "name",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.名前"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "名前",
+          "reading": "なまえ",
+          "gloss": "name (kun)"
+        },
+        "compound": {
+          "form": "有名",
+          "reading": "ゆうめい",
+          "gloss": "famous (on) — N4"
+        },
+        "contrast_note": "名 kun=な (name), on=めい in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.番",
@@ -12792,7 +16292,48 @@
         "correct_order_summary": "1-7: 采 top (米-like). 8-12: 田.",
         "why_it_matters": "12 strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "番",
+          "reading": "ばん",
+          "gloss": "number, ordinal",
+          "vocab_id": "n5.vocab.9-counters-common.番"
+        },
+        {
+          "form": "番号",
+          "reading": "ばんごう",
+          "gloss": "number",
+          "vocab_id": "n5.vocab.24-school-and-study.番号"
+        },
+        {
+          "form": "一番",
+          "reading": "いちばん",
+          "gloss": "most, number one",
+          "vocab_id": "n5.vocab.33-adverbs.一番"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number",
+          "vocab_id": "n5.vocab.24-school-and-study.電話番号"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "番",
+          "reading": "ばん",
+          "gloss": "turn / number (on)"
+        },
+        "compound": {
+          "form": "一番",
+          "reading": "いちばん",
+          "gloss": "number one / most (on+on)"
+        },
+        "contrast_note": "番 on=ばん standalone or suffix."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.号",
@@ -12883,7 +16424,36 @@
         "correct_order_summary": "1-3: 口. 4: top of 丂 (horizontal). 5: 丂 hook+curl.",
         "why_it_matters": "5 strokes."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "番号",
+          "reading": "ばんごう",
+          "gloss": "number",
+          "vocab_id": "n5.vocab.24-school-and-study.番号"
+        },
+        {
+          "form": "電話番号",
+          "reading": "でんわばんごう",
+          "gloss": "phone number",
+          "vocab_id": "n5.vocab.24-school-and-study.電話番号"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "号",
+          "reading": "ごう",
+          "gloss": "number / issue (on)"
+        },
+        "compound": {
+          "form": "番号",
+          "reading": "ばんごう",
+          "gloss": "number (on+on)"
+        },
+        "contrast_note": "号 only on=ごう; suffix for serial numbers."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.私",
@@ -13025,7 +16595,36 @@
         "correct_order_summary": "1: ノ (top). 2: top horizontal. 3: vertical. 4: ノ left. 5: ╲ right. 6-7: 厶 (right side).",
         "why_it_matters": "7 strokes. Left radical 禾 sets the meaning (originally \"my rice plant\")."
       },
-      "stroke_order_trap_provenance": "llm_curated"
+      "stroke_order_trap_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "私",
+          "reading": "わたし",
+          "gloss": "I, me",
+          "vocab_id": "n5.vocab.1-people-pronouns-and-se.私"
+        },
+        {
+          "form": "私たち",
+          "reading": "わたしたち",
+          "gloss": "we",
+          "vocab_id": "n5.vocab.1-people-pronouns-and-se.私たち"
+        }
+      ],
+      "n5_compounds_provenance": "auto_derived",
+      "on_kun_pair_drill": {
+        "standalone": {
+          "form": "私",
+          "reading": "わたし",
+          "gloss": "I / me (kun)"
+        },
+        "compound": {
+          "form": "私立",
+          "reading": "しりつ",
+          "gloss": "private (school) (on) — N4"
+        },
+        "contrast_note": "私 kun=わたし (informal わたくし), on=し in compounds."
+      },
+      "on_kun_pair_drill_provenance": "llm_curated"
     }
   ],
   "_meta": {
