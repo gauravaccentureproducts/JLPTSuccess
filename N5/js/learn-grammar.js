@@ -461,6 +461,74 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
     </li>
   `).join('');
 
+  // IMP-WAVE1 (UI audit fix, 2026-05-11): render wrong_corrected_pair
+  // list. This is the categorized-error catalog authored across grammar
+  // batches C-F: every pattern has >=3 entries with schema
+  // {wrong, correct, why, error_category, provenance}.
+  // The legacy `common_mistakes` field (above) is kept for backward
+  // compatibility, but `wrong_corrected_pair` is the richer, schemaful
+  // version — render below `common_mistakes` if present.
+  const wcp = Array.isArray(p.wrong_corrected_pair) ? p.wrong_corrected_pair : [];
+  const categoryBadge = (cat) => {
+    if (!cat) return '';
+    const labels = {
+      particle:        'Particle',
+      conjugation:     'Conjugation',
+      lexicon:         'Word choice',
+      word_order:      'Word order',
+      register:        'Register',
+      counter:         'Counter',
+    };
+    return `<span class="error-category-badge cat-${esc(cat)}">${esc(labels[cat] || cat)}</span>`;
+  };
+  const wcpItems = wcp.map(m => `
+    <li>
+      <div class="wcp-header">${categoryBadge(m.error_category)}</div>
+      <div><span class="wrong">${renderJa(m.wrong)}</span></div>
+      <div><span class="right">${renderJa(m.correct)}</span></div>
+      <span class="why">${esc(m.why)}</span>
+    </li>
+  `).join('');
+
+  // IMP-WAVE1: politeness_ladder (4-tier register variation).
+  // Each pattern carries {casual, polite, humble, respectful} strings.
+  const ladder = (p.politeness_ladder && typeof p.politeness_ladder === 'object') ? p.politeness_ladder : null;
+  const ladderHtml = ladder ? `
+    <section class="politeness-ladder">
+      <h3 class="section-title">Politeness ladder (4-tier register)</h3>
+      <table class="ladder-table">
+        <tbody>
+          ${['casual','polite','humble','respectful'].map(tier => {
+            const v = ladder[tier];
+            if (!v) return '';
+            return `
+              <tr class="ladder-row ladder-${tier}">
+                <th scope="row">${esc(tier.charAt(0).toUpperCase() + tier.slice(1))}</th>
+                <td lang="ja">${renderJa(v)}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </section>
+  ` : '';
+
+  // IMP-WAVE1: authentic_citations (Genki / Minna / DBJG sourcing).
+  const citations = Array.isArray(p.authentic_citations) ? p.authentic_citations : [];
+  const citationsHtml = citations.length ? `
+    <section class="authentic-citations">
+      <h3 class="section-title">Authoritative sources</h3>
+      <ul class="citations-list">
+        ${citations.map(c => `
+          <li>
+            <strong class="citation-source">${esc(c.source || '')}</strong>
+            ${c.context ? ` — <span class="citation-context">${renderJa(c.context)}</span>` : ''}
+          </li>
+        `).join('')}
+      </ul>
+    </section>
+  ` : '';
+
   const statusBadge = isMastered
     ? `<span class="status-badge mastered">★ Mastered</span>`
     : isWeak
@@ -559,6 +627,17 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
           <ul class="mistakes-list">${mistakeItems}</ul>
         </section>
       ` : ''}
+
+      ${wcp.length ? `
+        <section class="wrong-corrected-pair">
+          <h3 class="section-title">Categorized common-learner errors (${wcp.length})</h3>
+          <ul class="wcp-list">${wcpItems}</ul>
+        </section>
+      ` : ''}
+
+      ${ladderHtml}
+
+      ${citationsHtml}
 
       <section>
         <h3 class="section-title">意味（やさしい にほんご）</h3>

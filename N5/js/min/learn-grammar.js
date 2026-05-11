@@ -1,19 +1,232 @@
-import{renderJa as b}from"./furigana.js";import*as k from"./storage.js";import{esc as s,wireExpandCollapseControls as U}from"./learn.js";import{currentLocale as C}from"./i18n.js";function M(t){const e=C();if(e&&e!=="en"){const a=t[`explanation_${e}`];if(typeof a=="string"&&a.trim())return a}return t.explanation_en||""}function D(t){const e=C();if(e&&e!=="en"){const a=t[`meaning_${e}`];if(typeof a=="string"&&a.trim())return a}return t.meaning_en||""}function I(t){const e=C();if(e&&e!=="en"&&t.l1_notes&&typeof t.l1_notes=="object"){const a=t.l1_notes[e];if(typeof a=="string"&&a.trim())return a}return null}const w=[["Sentence Basics",["Copula and Basic Sentence Structure","Particles","Demonstratives","Question Words"]],["Verbs",["Verbs - Tense and Politeness (\u307E\u3059-form)","Verbs - Plain (Dictionary) Form and Negation","Te-form and Related Patterns","Existence and Possession","Desiderative and Volitional","Giving and Receiving (basic)","Additional Upper N5 / Borderline Patterns - Permission and Obligation","Additional Upper N5 / Borderline Patterns - Experience and Advice","Additional Upper N5 / Borderline Patterns - Compound and Listed Actions","Additional Upper N5 / Borderline Patterns - Excess","Additional Upper N5 / Borderline Patterns - Intention","Additional Upper N5 / Borderline Patterns - Way of Doing","Additional Upper N5 / Borderline Patterns - Prohibitive (Casual)"]],["Adjectives and Comparison",["Adjectives","Comparison and Preference"]],["Time, Counters, Connectives",["Counters and Quantity","Time Expressions","Conjunctions and Connectives","Asking and Stating with \u304B\u3089 / \u306E\u3067 (basic causation)","Existence-of-Plans and Frequency"]],["Set Phrases and Discourse",["Nominalization and Modification","Common Set Patterns","Functional Expressions (Non-Grammar, Common Usage)","Other Core Patterns","Honorific / Polite Vocabulary at N5 (functional)","Additional Upper N5 / Borderline Patterns - Explanation and Emphasis","Additional Upper N5 / Borderline Patterns - Quotation (Casual)","Additional Upper N5 / Borderline Patterns - Sentence-Final Exclamation"]]],x={"n5-135":"Verbs","n5-144":"Verbs","n5-153":"Verbs","n5-154":"Verbs","n5-162":"Verbs","n5-163":"Verbs"};function A(t){if(typeof t=="object"&&t&&t.id in x)return x[t.id];const e=typeof t=="string"?t:t?.category||"";for(const[a,c]of w)if(c.includes(e))return a;return"Set Phrases and Discourse"}function R(t){const e=new Map;for(const[c]of w)e.set(c,[]);for(const c of t){const d=A(c);e.has(d)&&e.get(d).push(c)}const a=[];for(const[,c]of e)c.sort((d,g)=>(d.patternOrder??0)-(g.patternOrder??0)),a.push(...c);return a}let j="";function F(t,e){return e?[t.pattern,t.meaning_en,t.meaning_ja||"",t.notes||"",(t.examples||[]).map(c=>c.ja).join(" ")].join(" ").toLowerCase().includes(e):!0}function S(t,e){const a=new Map;for(const[r]of w)a.set(r,[]);const c=j.trim().toLowerCase(),d=e.patterns.filter(r=>F(r,c));for(const r of d){const i=A(r);a.get(i).push(r)}const g=r=>r.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");let l=`
-    <a class="back-link" href="#/learn">\u2190 Back to Learn</a>
+// Grammar half of Chapter 1 - Learn (split out from learn.js per IMP-022,
+// audit 2026-05-04 round 2). Owns the grammar TOC, the per-pattern detail
+// page, and the supporting category map / per-pattern overrides. Loaded
+// lazily by `renderLearn` in learn.js when the user navigates to a grammar
+// route, so the hub doesn't pull this code on first paint.
+import { renderJa } from './furigana.js';
+import * as storage from './storage.js';
+import { esc, wireExpandCollapseControls } from './learn.js';
+import { currentLocale } from './i18n.js';
+
+// IMP-045 (audit round-5): pick locale-aware grammar explanation when
+// present (native_reviewed only - see data/grammar.json
+// `_translation_status` policy), else fall back to English. The active
+// per-locale field is `explanation_hi` (post-2026-05-06 IMP-096
+// narrowing — earlier en/vi/id/ne/zh shell collapsed to en+hi); absence
+// is the default state until reviewers fill it via docs/TRANSLATING.md.
+function localizedExplanation(p) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = p[`explanation_${lc}`];
+    if (typeof localized === 'string' && localized.trim()) return localized;
+  }
+  return p.explanation_en || '';
+}
+
+// ISSUE-056 (audit round-7): pick locale-aware grammar meaning when
+// present, else fall back to English meaning. Same pattern as
+// localizedExplanation() but for the shorter `meaning_*` field.
+function localizedMeaning(p) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en') {
+    const localized = p[`meaning_${lc}`];
+    if (typeof localized === 'string' && localized.trim()) return localized;
+  }
+  return p.meaning_en || '';
+}
+
+// IMP-080 (audit round-7): L1-interference notes per locale.
+// When the current locale matches an l1_notes key, return the note;
+// else return null (renderer hides the section).
+function localizedL1Note(p) {
+  const lc = currentLocale();
+  if (lc && lc !== 'en' && p.l1_notes && typeof p.l1_notes === 'object') {
+    const note = p.l1_notes[lc];
+    if (typeof note === 'string' && note.trim()) return note;
+  }
+  return null;
+}
+
+// Render-time mapping: 32 fine-grained categories in data/grammar.json
+// to 5 pedagogically-coherent super-categories. Every fine category is
+// explicitly mapped (no fallback needed).
+const GRAMMAR_SUPERCATS = [
+  ['Sentence Basics', [
+    'Copula and Basic Sentence Structure',
+    'Particles',
+    'Demonstratives',
+    'Question Words',
+  ]],
+  ['Verbs', [
+    'Verbs - Tense and Politeness (ます-form)',
+    'Verbs - Plain (Dictionary) Form and Negation',
+    'Te-form and Related Patterns',
+    'Existence and Possession',
+    'Desiderative and Volitional',
+    'Giving and Receiving (basic)',
+    // Verb-modal patterns moved here from the old catchall bucket.
+    'Additional Upper N5 / Borderline Patterns - Permission and Obligation',
+    'Additional Upper N5 / Borderline Patterns - Experience and Advice',
+    'Additional Upper N5 / Borderline Patterns - Compound and Listed Actions',
+    'Additional Upper N5 / Borderline Patterns - Excess',
+    'Additional Upper N5 / Borderline Patterns - Intention',
+    'Additional Upper N5 / Borderline Patterns - Way of Doing',
+    'Additional Upper N5 / Borderline Patterns - Prohibitive (Casual)',
+  ]],
+  ['Adjectives and Comparison', [
+    'Adjectives',
+    'Comparison and Preference',
+  ]],
+  ['Time, Counters, Connectives', [
+    'Counters and Quantity',
+    'Time Expressions',
+    'Conjunctions and Connectives',
+    'Asking and Stating with から / ので (basic causation)',
+    'Existence-of-Plans and Frequency',
+  ]],
+  ['Set Phrases and Discourse', [
+    'Nominalization and Modification',
+    'Common Set Patterns',
+    'Functional Expressions (Non-Grammar, Common Usage)',
+    'Other Core Patterns',
+    'Honorific / Polite Vocabulary at N5 (functional)',
+    'Additional Upper N5 / Borderline Patterns - Explanation and Emphasis',
+    'Additional Upper N5 / Borderline Patterns - Quotation (Casual)',
+    'Additional Upper N5 / Borderline Patterns - Sentence-Final Exclamation',
+  ]],
+];
+
+// Per-pattern overrides for cases where the fine-grained `category` value
+// doesn't match the pattern's true type. These are individual patterns
+// that live inside a non-verb subcategory but are actually verb patterns
+// (verb relative clauses, verb-stem constructions, ています/ました with
+// time markers, etc.). Moved to "Verbs" to remove the cross-bucket
+// duplication the user flagged 2026-05-01.
+const PATTERN_SUPERCAT_OVERRIDES = {
+  'n5-135': 'Verbs',  // Verb (plain) + Noun - relative clauses
+  'n5-144': 'Verbs',  // Verb-stem + ながら - while doing
+  'n5-153': 'Verbs',  // まだ + Verb-ていません - not yet
+  'n5-154': 'Verbs',  // もう + Verb-ました - already
+  'n5-162': 'Verbs',  // Verb-plain ましょう (see 〜ます)
+  'n5-163': 'Verbs',  // Verb-た あとで (see 〜あと)
+};
+
+function superCategoryFor(pattern) {
+  if (typeof pattern === 'object' && pattern && pattern.id in PATTERN_SUPERCAT_OVERRIDES) {
+    return PATTERN_SUPERCAT_OVERRIDES[pattern.id];
+  }
+  const category = (typeof pattern === 'string') ? pattern : (pattern?.category || '');
+  for (const [supercat, members] of GRAMMAR_SUPERCATS) {
+    if (members.includes(category)) return supercat;
+  }
+  // Should never fire on the current 32 categories (all explicitly mapped).
+  return 'Set Phrases and Discourse';
+}
+
+// Flatten patterns into the same order the TOC presents them: super-category
+// declaration order, sorted by patternOrder within each group. Used by the
+// detail-page prev/next nav so navigation matches the user's mental model
+// (the order they see when browsing the grammar list).
+export function buildOrderedPatternList(allPatterns) {
+  const bySuperCat = new Map();
+  for (const [supercat] of GRAMMAR_SUPERCATS) bySuperCat.set(supercat, []);
+  for (const pat of allPatterns) {
+    const sc = superCategoryFor(pat);
+    if (bySuperCat.has(sc)) bySuperCat.get(sc).push(pat);
+  }
+  const flat = [];
+  for (const [, items] of bySuperCat) {
+    items.sort((a, b) => (a.patternOrder ?? 0) - (b.patternOrder ?? 0));
+    flat.push(...items);
+  }
+  return flat;
+}
+
+// IMP-029 (audit round 2): grammar list filter state. Module-local so the
+// search query persists while the user navigates within the index but
+// resets on a fresh page load.
+//
+// Tier filter (All / Core N5 / Late N5) removed 2026-05-10 per user
+// direction — the chips were redundant for an N5-only app where 153/178
+// patterns are core_n5 and 25 are late_n5; the binary distinction
+// didn't drive enough learner action to justify the chrome.
+let _grammarFilterText = '';
+
+function _matchGrammar(p, q) {
+  if (!q) return true;
+  const hay = [
+    p.pattern, p.meaning_en, p.meaning_ja || '',
+    p.notes || '', (p.examples || []).map(e => e.ja).join(' '),
+  ].join(' ').toLowerCase();
+  return hay.includes(q);
+}
+
+export function renderGrammarTOC(container, data) {
+  // Group by super-category instead of fine-grained category.
+  const bySuperCat = new Map();
+  for (const [supercat] of GRAMMAR_SUPERCATS) bySuperCat.set(supercat, []);
+
+  const q = _grammarFilterText.trim().toLowerCase();
+  const filtered = data.patterns.filter(p => _matchGrammar(p, q));
+  for (const p of filtered) {
+    const sc = superCategoryFor(p);
+    bySuperCat.get(sc).push(p);
+  }
+
+  const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  let html = `
+    <a class="back-link" href="#/learn">← Back to Learn</a>
     <h2>Grammar</h2>
-    <p class="page-lede">${e.patterns.length} patterns in ${a.size} sections.</p>
-  `;for(const[r,i]of a){if(i.length===0)continue;i.sort((o,u)=>(o.patternOrder??0)-(u.patternOrder??0));const p=!!c;l+=`<details class="toc-category" id="cat-${g(r)}"${p?" open":""}>`,l+=`<summary><h3>${s(r)} <span class="cat-count muted small">(${i.length})</span></h3></summary>`,l+='<div class="grammar-grid">';for(const o of i){const u=(()=>{const y=(o.examples||[]).filter(_=>_&&_.ja);return y[0]?y[0].ja:""})(),f=o.genki_lesson?`G${o.genki_lesson.book}\xB7L${o.genki_lesson.lesson}`:"";l+=`
-        <a class="grammar-card" href="#/learn/${encodeURIComponent(o.id)}">
-          <span class="grammar-pattern" lang="ja">${s(o.pattern)}</span>
-          <span class="grammar-card-print-meaning">${s(o.meaning_en||"")}</span>
-          <span class="grammar-card-print-example" lang="ja">${s(u)}</span>
-          ${f?`<span class="grammar-card-print-lesson">${s(f)}</span>`:""}
+    <p class="page-lede">${data.patterns.length} patterns in ${bySuperCat.size} sections.</p>
+  `;
+  // Category sections (super-category accordions with grammar cards inside).
+  // Rendered FIRST so the table-of-contents is the primary surface; the
+  // search / tier filter / TOC controls block appears AFTER the categories
+  // as a secondary refinement tool (per UI direction 2026-05-10).
+  for (const [supercat, items] of bySuperCat) {
+    if (items.length === 0) continue;
+    items.sort((a, b) => (a.patternOrder ?? 0) - (b.patternOrder ?? 0));
+    const isFiltered = !!q;
+    html += `<details class="toc-category" id="cat-${slugify(supercat)}"${isFiltered ? ' open' : ''}>`;
+    html += `<summary><h3>${esc(supercat)} <span class="cat-count muted small">(${items.length})</span></h3></summary>`;
+    html += `<div class="grammar-grid">`;
+    for (const p of items) {
+      // IMP-143 (richness audit, 2026-05-09): inline meaning_en +
+      // first-example + Genki lesson tag in hidden print-only spans.
+      // The print stylesheet reveals them so the rendered list view
+      // becomes a printable cheat sheet (one row per pattern).
+      const firstExample = (() => {
+        const exs = (p.examples || []).filter(e => e && e.ja);
+        return exs[0] ? exs[0].ja : '';
+      })();
+      const lessonTag = p.genki_lesson
+        ? `G${p.genki_lesson.book}·L${p.genki_lesson.lesson}`
+        : '';
+      html += `
+        <a class="grammar-card" href="#/learn/${encodeURIComponent(p.id)}">
+          <span class="grammar-pattern" lang="ja">${esc(p.pattern)}</span>
+          <span class="grammar-card-print-meaning">${esc(p.meaning_en || '')}</span>
+          <span class="grammar-card-print-example" lang="ja">${esc(firstExample)}</span>
+          ${lessonTag ? `<span class="grammar-card-print-lesson">${esc(lessonTag)}</span>` : ''}
         </a>
-      `}l+="</div></details>"}d.length===0?l+='<div class="placeholder"><p>No patterns match the current filter.</p></div>':e.patterns.length===1&&(l+='<div class="placeholder" style="margin-top:24px"><p>Scaffold currently has 1 example pattern. Add more to <code>data/grammar.json</code> as you author content.</p></div>'),l+=`
+      `;
+    }
+    html += `</div></details>`;
+  }
+  if (filtered.length === 0) {
+    html += `<div class="placeholder"><p>No patterns match the current filter.</p></div>`;
+  } else if (data.patterns.length === 1) {
+    html += `<div class="placeholder" style="margin-top:24px"><p>Scaffold currently has 1 example pattern. Add more to <code>data/grammar.json</code> as you author content.</p></div>`;
+  }
+  // Search / filter / TOC-controls block — placed AFTER the categories
+  // so the category table-of-contents is the primary surface on first
+  // paint; the filter is a secondary refinement (UI direction 2026-05-10).
+  html += `
     <div class="kanji-filters" role="search" aria-label="Filter grammar patterns">
       <input type="search" id="grammar-filter-q" class="kanji-filter-input"
-        placeholder="Search pattern, meaning, or example (e.g. \u3066-form / wants to / \u3067\u3059)"
-        value="${s(j)}" autocomplete="off"
+        placeholder="Search pattern, meaning, or example (e.g. て-form / wants to / です)"
+        value="${esc(_grammarFilterText)}" autocomplete="off"
         aria-label="Search grammar patterns">
     </div>
     <div class="toc-controls">
@@ -25,119 +238,425 @@ import{renderJa as b}from"./furigana.js";import*as k from"./storage.js";import{e
            stylesheet reveals .grammar-card-print-* spans for a dense
            one-row-per-pattern reference layout. -->
       <button type="button" class="btn-secondary toc-print-cheatsheet">
-        \u{1F5A8} Print cheat sheet
+        🖨 Print cheat sheet
       </button>
     </div>
-  `,t.innerHTML=l,U(t,"details.toc-category"),t.querySelector(".toc-print-cheatsheet")?.addEventListener("click",()=>{const r=Array.from(t.querySelectorAll("details.toc-category")),i=r.map(o=>o.open);r.forEach(o=>{o.open=!0}),document.body.classList.add("is-printing-cheatsheet");const p=()=>{r.forEach((o,u)=>{o.open=i[u]}),document.body.classList.remove("is-printing-cheatsheet"),window.removeEventListener("afterprint",p)};window.addEventListener("afterprint",p),window.print()});const m=document.getElementById("grammar-filter-q");if(m){let r=!1;m.addEventListener("compositionstart",()=>{r=!0}),m.addEventListener("compositionend",()=>{r=!1,j=m.value,S(t,e);const i=document.getElementById("grammar-filter-q");if(i){i.focus();const p=i.value;i.setSelectionRange(p.length,p.length)}}),m.addEventListener("input",()=>{if(r)return;j=m.value,S(t,e);const i=document.getElementById("grammar-filter-q");if(i){i.focus();const p=i.value;i.setSelectionRange(p.length,p.length)}})}}const L={noun:"Noun",noun_subject:"Noun (subject)",noun_location:"Noun (location)",noun_time:"Noun (time)",noun_quantity:"Noun (quantity)",noun_or_adj:"Noun or adjective",na_adjective:"\u306A-adjective",i_adjective:"\u3044-adjective",verb:"Verb",verb_stem:"Verb stem (\u307E\u3059-base)",verb_stem_i:"Verb i-stem",verb_root:"Verb root",verb_dictionary:"Verb (dictionary form)",verb_plain:"Verb (plain form)",verb_te:"Verb (\u3066-form)",verb_ta:"Verb (\u305F-form)",verb_nai:"Verb (\u306A\u3044-form)",verb_mashita:"Verb (\u307E\u3057\u305F form)",verb_te_imasu_neg:"Verb (\u3066-\u3044\u307E\u305B\u3093)",verb_or_adj_stem:"Verb or adjective stem",pronoun:"Pronoun",question_word:"Question word",before_noun:"Before a noun",adverbial:"Adverbial position",sentence_end:"Sentence end",sentence_pattern:"Full sentence",clause:"Clause",clause_start:"Clause-initial",clause_end:"Clause-final",plain_clause:"Plain-form clause",plain_or_polite_clause:"Plain or polite clause",quoted_clause:"Quoted clause",quantity:"Quantity expression",number:"Number",set_phrase:"Set phrase",standalone:"Standalone",dialogue:"Dialogue line",after_name:"After a name"};function q(t){return L[t]?L[t]:String(t).replace(/_/g," ").replace(/^./,e=>e.toUpperCase())}function O(t){const e=t.form_rules?.attaches_to??[],a=t.form_rules?.conjugations??[];if(!e.length&&!a.length)return"";const c=`
+  `;
+  container.innerHTML = html;
+  wireExpandCollapseControls(container, 'details.toc-category');
+
+  // IMP-143: wire the cheat-sheet print button. Force-expand every
+  // <details> so the printed output shows all categories, then trigger
+  // window.print() and restore the prior open/closed state on
+  // afterprint so the on-screen TOC isn't disrupted.
+  container.querySelector('.toc-print-cheatsheet')?.addEventListener('click', () => {
+    const detailsEls = Array.from(container.querySelectorAll('details.toc-category'));
+    const priorOpen = detailsEls.map(d => d.open);
+    detailsEls.forEach(d => { d.open = true; });
+    document.body.classList.add('is-printing-cheatsheet');
+    const restore = () => {
+      detailsEls.forEach((d, i) => { d.open = priorOpen[i]; });
+      document.body.classList.remove('is-printing-cheatsheet');
+      window.removeEventListener('afterprint', restore);
+    };
+    window.addEventListener('afterprint', restore);
+    window.print();
+  });
+
+  const inp = document.getElementById('grammar-filter-q');
+  if (inp) {
+    // IME composition guard. When a Japanese IME is active, every key
+    // press fires an `input` event with the partial composition string
+    // (e.g., typing "ita" emits い → ｔ → あ → い across multiple
+    // input events before the IME commits "いたい" via compositionend).
+    // Re-rendering the TOC on each event destroys the input element
+    // mid-composition; the IME loses state and the partial latin
+    // characters leak into the value (visible as いｔあい instead of
+    // いたい). Solution: track composition state and skip re-render
+    // until compositionend fires. Also handles Korean / Chinese IMEs
+    // and dead-key sequences on European layouts.
+    let isComposing = false;
+    inp.addEventListener('compositionstart', () => {
+      isComposing = true;
+    });
+    inp.addEventListener('compositionend', () => {
+      isComposing = false;
+      // Re-render once with the committed value.
+      _grammarFilterText = inp.value;
+      renderGrammarTOC(container, data);
+      const re = document.getElementById('grammar-filter-q');
+      if (re) {
+        re.focus();
+        const v = re.value;
+        re.setSelectionRange(v.length, v.length);
+      }
+    });
+    inp.addEventListener('input', () => {
+      if (isComposing) return;   // wait for compositionend
+      _grammarFilterText = inp.value;
+      renderGrammarTOC(container, data);
+      const re = document.getElementById('grammar-filter-q');
+      if (re) {
+        re.focus();
+        const v = re.value;
+        re.setSelectionRange(v.length, v.length);
+      }
+    });
+  }
+}
+
+// Friendly labels for the raw `form_rules.attaches_to` category strings.
+// When a key isn't in this map, we humanize it on the fly (snake_case →
+// "Snake case"). The mapping covers all 35 keys present in grammar.json
+// as of 2026-05-02.
+const ATTACHES_TO_LABEL = {
+  'noun':                    'Noun',
+  'noun_subject':            'Noun (subject)',
+  'noun_location':           'Noun (location)',
+  'noun_time':               'Noun (time)',
+  'noun_quantity':           'Noun (quantity)',
+  'noun_or_adj':             'Noun or adjective',
+  'na_adjective':            'な-adjective',
+  'i_adjective':             'い-adjective',
+  'verb':                    'Verb',
+  'verb_stem':               'Verb stem (ます-base)',
+  'verb_stem_i':             'Verb i-stem',
+  'verb_root':               'Verb root',
+  'verb_dictionary':         'Verb (dictionary form)',
+  'verb_plain':              'Verb (plain form)',
+  'verb_te':                 'Verb (て-form)',
+  'verb_ta':                 'Verb (た-form)',
+  'verb_nai':                'Verb (ない-form)',
+  'verb_mashita':            'Verb (ました form)',
+  'verb_te_imasu_neg':       'Verb (て-いません)',
+  'verb_or_adj_stem':        'Verb or adjective stem',
+  'pronoun':                 'Pronoun',
+  'question_word':           'Question word',
+  'before_noun':             'Before a noun',
+  'adverbial':               'Adverbial position',
+  'sentence_end':            'Sentence end',
+  'sentence_pattern':        'Full sentence',
+  'clause':                  'Clause',
+  'clause_start':            'Clause-initial',
+  'clause_end':              'Clause-final',
+  'plain_clause':            'Plain-form clause',
+  'plain_or_polite_clause':  'Plain or polite clause',
+  'quoted_clause':           'Quoted clause',
+  'quantity':                'Quantity expression',
+  'number':                  'Number',
+  'set_phrase':              'Set phrase',
+  'standalone':              'Standalone',
+  'dialogue':                'Dialogue line',
+  'after_name':              'After a name',
+};
+
+function attachesLabel(key) {
+  if (ATTACHES_TO_LABEL[key]) return ATTACHES_TO_LABEL[key];
+  return String(key)
+    .replace(/_/g, ' ')
+    .replace(/^./, c => c.toUpperCase());
+}
+
+// Build the "How to use / 使い方" table. Two layouts depending on the
+// pattern's form-shape:
+//   (A) Uniform pattern - same surface form attaches to every entry in
+//       `attaches_to` (typical: ～だろう, ～ながら, etc.). Render rows of
+//       attach-points on the left and one merged cell on the right
+//       carrying the literal pattern.
+//   (B) Conjugating pattern - `conjugations` lists multiple forms with
+//       distinct examples (typical: 〜です／〜ます, ーは, etc.). The
+//       attach-point table at top still shows the rowspan layout for
+//       quick scanning; a secondary "Forms" table underneath shows the
+//       conjugation labels + examples.
+function renderHowToUseTable(p) {
+  const attaches = p.form_rules?.attaches_to ?? [];
+  const conjugations = p.form_rules?.conjugations ?? [];
+  if (!attaches.length && !conjugations.length) return '';
+
+  const usageHeader = `
     <div class="pattern-usage-header">
       <h3 class="section-title">How to use</h3>
-      <span class="pattern-usage-chip" lang="ja">\u4F7F\u3044\u65B9</span>
+      <span class="pattern-usage-chip" lang="ja">使い方</span>
     </div>
-  `,d=e.length?`
-    <table class="pattern-usage-table" aria-label="Attach points for ${s(t.pattern)}">
+  `;
+
+  const topTable = attaches.length ? `
+    <table class="pattern-usage-table" aria-label="Attach points for ${esc(p.pattern)}">
       <tbody>
-        ${e.map((l,m)=>`
+        ${attaches.map((a, i) => `
           <tr>
-            <td class="pattern-usage-pos">${s(q(l))}</td>
-            ${m===0?`<td class="pattern-usage-form" rowspan="${e.length}" lang="ja">${b(t.pattern)}</td>`:""}
+            <td class="pattern-usage-pos">${esc(attachesLabel(a))}</td>
+            ${i === 0
+              ? `<td class="pattern-usage-form" rowspan="${attaches.length}" lang="ja">${renderJa(p.pattern)}</td>`
+              : ''}
           </tr>
-        `).join("")}
+        `).join('')}
       </tbody>
     </table>
-  `:"",g=a.length>=2?`
+  ` : '';
+
+  const conjTable = conjugations.length >= 2 ? `
     <table class="pattern-conjugation-table" aria-label="Conjugation forms">
       <thead>
         <tr><th scope="col">Form</th><th scope="col">Example</th></tr>
       </thead>
       <tbody>
-        ${a.map(l=>`
+        ${conjugations.map(c => `
           <tr>
-            <td>${s(l.label||l.form)}</td>
-            <td lang="ja">${b(l.example)}</td>
+            <td>${esc(c.label || c.form)}</td>
+            <td lang="ja">${renderJa(c.example)}</td>
           </tr>
-        `).join("")}
+        `).join('')}
       </tbody>
     </table>
-  `:"";return`<section class="pattern-usage">${c}${d}${g}</section>`}function G(t,e,a){const c=e.form_rules?.conjugations??[],d=e.examples??[],g=e.common_mistakes??[],l=k.getPatternEntry(e.id),m=!!l?.isManuallyKnown,r=!!l?.isMastered,i=!!l?.isWeak&&!r,p=Array.isArray(a)?R(a):[],o=p.findIndex(n=>n.id===e.id),u=o>0?p[o-1]:null,f=o>=0&&o<p.length-1?p[o+1]:null,y=u||f?`
+  ` : '';
+
+  return `<section class="pattern-usage">${usageHeader}${topTable}${conjTable}</section>`;
+}
+
+export function renderGrammarPatternDetail(container, p, allPatterns) {
+  const conj = p.form_rules?.conjugations ?? [];
+  const examples = p.examples ?? [];
+  const mistakes = p.common_mistakes ?? [];
+  const entry = storage.getPatternEntry(p.id);
+  const isKnown = !!entry?.isManuallyKnown;
+  const isMastered = !!entry?.isMastered;
+  const isWeak = !!entry?.isWeak && !isMastered;
+
+  // Prev / next pattern in TOC order. allPatterns may be undefined if a future
+  // caller forgets to thread it through - degrade gracefully (no nav row).
+  const ordered = Array.isArray(allPatterns) ? buildOrderedPatternList(allPatterns) : [];
+  const idx = ordered.findIndex(x => x.id === p.id);
+  const prev = idx > 0 ? ordered[idx - 1] : null;
+  const next = idx >= 0 && idx < ordered.length - 1 ? ordered[idx + 1] : null;
+  const navHtml = (prev || next) ? `
     <div class="pattern-nav">
-      ${u?`<a class="pattern-nav-prev" href="#/learn/${encodeURIComponent(u.id)}" title="Previous: ${s(u.pattern)}">&larr; <span class="pattern-nav-name" lang="ja">${s(u.pattern)}</span></a>`:'<span class="pattern-nav-prev pattern-nav-empty" aria-hidden="true"></span>'}
-      ${f?`<a class="pattern-nav-next" href="#/learn/${encodeURIComponent(f.id)}" title="Next: ${s(f.pattern)}"><span class="pattern-nav-name" lang="ja">${s(f.pattern)}</span> &rarr;</a>`:'<span class="pattern-nav-next pattern-nav-empty" aria-hidden="true"></span>'}
+      ${prev
+        ? `<a class="pattern-nav-prev" href="#/learn/${encodeURIComponent(prev.id)}" title="Previous: ${esc(prev.pattern)}">&larr; <span class="pattern-nav-name" lang="ja">${esc(prev.pattern)}</span></a>`
+        : `<span class="pattern-nav-prev pattern-nav-empty" aria-hidden="true"></span>`}
+      ${next
+        ? `<a class="pattern-nav-next" href="#/learn/${encodeURIComponent(next.id)}" title="Next: ${esc(next.pattern)}"><span class="pattern-nav-name" lang="ja">${esc(next.pattern)}</span> &rarr;</a>`
+        : `<span class="pattern-nav-next pattern-nav-empty" aria-hidden="true"></span>`}
     </div>
-  `:"",_=d.map((n,v)=>{const $=!n.ja||n.ja.includes("(see ")?null:`audio/grammar/${e.id}.${v}.mp3`;return`
+  ` : '';
+
+  const exampleItems = examples.map((ex, i) => {
+    const skipAudio = !ex.ja || ex.ja.includes('(see ');
+    const audioPath = skipAudio ? null : `audio/grammar/${p.id}.${i}.mp3`;
+    return `
     <li>
-      <span class="form-tag">${s(n.form||"")}</span>
-      ${b(n.ja,n.furigana)}
-      ${n.translation_en?`<span class="translation">${s(n.translation_en)}</span>`:""}
-      ${$?`<audio class="example-audio" controls preload="none" src="${s($)}">Audio not available.</audio>`:""}
+      <span class="form-tag">${esc(ex.form || '')}</span>
+      ${renderJa(ex.ja, ex.furigana)}
+      ${ex.translation_en ? `<span class="translation">${esc(ex.translation_en)}</span>` : ''}
+      ${audioPath ? `<audio class="example-audio" controls preload="none" src="${esc(audioPath)}">Audio not available.</audio>` : ''}
     </li>
-  `}).join(""),N=g.map(n=>`
+  `;
+  }).join('');
+
+  const mistakeItems = mistakes.map(m => `
     <li>
-      <div><span class="wrong">${b(n.wrong)}</span></div>
-      <div><span class="right">${b(n.right)}</span></div>
-      <span class="why">${s(n.why)}</span>
+      <div><span class="wrong">${renderJa(m.wrong)}</span></div>
+      <div><span class="right">${renderJa(m.right)}</span></div>
+      <span class="why">${esc(m.why)}</span>
     </li>
-  `).join(""),V=r?'<span class="status-badge mastered">\u2605 Mastered</span>':i?'<span class="status-badge weak">Needs practice</span>':"",T=(()=>{const n=e.genki_lesson;return n?`<span class="pattern-lesson-tag" title="Genki ${n.book} Lesson ${n.lesson}">G${n.book}\xB7L${n.lesson}</span>`:""})(),B=`
+  `).join('');
+
+  // IMP-WAVE1 (UI audit fix, 2026-05-11): render wrong_corrected_pair
+  // list. This is the categorized-error catalog authored across grammar
+  // batches C-F: every pattern has >=3 entries with schema
+  // {wrong, correct, why, error_category, provenance}.
+  // The legacy `common_mistakes` field (above) is kept for backward
+  // compatibility, but `wrong_corrected_pair` is the richer, schemaful
+  // version — render below `common_mistakes` if present.
+  const wcp = Array.isArray(p.wrong_corrected_pair) ? p.wrong_corrected_pair : [];
+  const categoryBadge = (cat) => {
+    if (!cat) return '';
+    const labels = {
+      particle:        'Particle',
+      conjugation:     'Conjugation',
+      lexicon:         'Word choice',
+      word_order:      'Word order',
+      register:        'Register',
+      counter:         'Counter',
+    };
+    return `<span class="error-category-badge cat-${esc(cat)}">${esc(labels[cat] || cat)}</span>`;
+  };
+  const wcpItems = wcp.map(m => `
+    <li>
+      <div class="wcp-header">${categoryBadge(m.error_category)}</div>
+      <div><span class="wrong">${renderJa(m.wrong)}</span></div>
+      <div><span class="right">${renderJa(m.correct)}</span></div>
+      <span class="why">${esc(m.why)}</span>
+    </li>
+  `).join('');
+
+  // IMP-WAVE1: politeness_ladder (4-tier register variation).
+  // Each pattern carries {casual, polite, humble, respectful} strings.
+  const ladder = (p.politeness_ladder && typeof p.politeness_ladder === 'object') ? p.politeness_ladder : null;
+  const ladderHtml = ladder ? `
+    <section class="politeness-ladder">
+      <h3 class="section-title">Politeness ladder (4-tier register)</h3>
+      <table class="ladder-table">
+        <tbody>
+          ${['casual','polite','humble','respectful'].map(tier => {
+            const v = ladder[tier];
+            if (!v) return '';
+            return `
+              <tr class="ladder-row ladder-${tier}">
+                <th scope="row">${esc(tier.charAt(0).toUpperCase() + tier.slice(1))}</th>
+                <td lang="ja">${renderJa(v)}</td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </section>
+  ` : '';
+
+  // IMP-WAVE1: authentic_citations (Genki / Minna / DBJG sourcing).
+  const citations = Array.isArray(p.authentic_citations) ? p.authentic_citations : [];
+  const citationsHtml = citations.length ? `
+    <section class="authentic-citations">
+      <h3 class="section-title">Authoritative sources</h3>
+      <ul class="citations-list">
+        ${citations.map(c => `
+          <li>
+            <strong class="citation-source">${esc(c.source || '')}</strong>
+            ${c.context ? ` — <span class="citation-context">${renderJa(c.context)}</span>` : ''}
+          </li>
+        `).join('')}
+      </ul>
+    </section>
+  ` : '';
+
+  const statusBadge = isMastered
+    ? `<span class="status-badge mastered">★ Mastered</span>`
+    : isWeak
+      ? `<span class="status-badge weak">Needs practice</span>`
+      : '';
+
+  // IMP-146 (richness audit, 2026-05-09): "Print / Save as PDF" button.
+  // Browser-native print → save-as-PDF flow. The companion @media print
+  // rules in css/main.css hide nav/chrome and format pattern-detail for
+  // paper. No PDF library, no network round-trip, no extra dependency.
+  // Effective lesson-notes export per the Genki lesson tag also added
+  // in IMP-130.
+  const lessonTag = (() => {
+    const g = p.genki_lesson;
+    if (!g) return '';
+    return `<span class="pattern-lesson-tag" title="Genki ${g.book} Lesson ${g.lesson}">G${g.book}·L${g.lesson}</span>`;
+  })();
+
+  const html = `
     <article class="pattern-detail">
-      ${y}
-      <a class="back-link no-print" href="#/learn/grammar">\u2190 Back to grammar list</a>
+      ${navHtml}
+      <a class="back-link no-print" href="#/learn/grammar">← Back to grammar list</a>
       <div class="pattern-header">
         <div>
-          <h2 class="pattern-name">${s(e.pattern)} ${T}</h2>
-          <p class="meaning-en">${s(D(e))}</p>
+          <h2 class="pattern-name">${esc(p.pattern)} ${lessonTag}</h2>
+          <p class="meaning-en">${esc(localizedMeaning(p))}</p>
         </div>
         <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
-          <input type="checkbox" id="mark-known" ${m?"checked":""}>
+          <input type="checkbox" id="mark-known" ${isKnown ? 'checked' : ''}>
           <span>Mark as known</span>
-          ${V}
+          ${statusBadge}
         </label>
         <button type="button" id="pattern-print-btn" class="btn-secondary no-print pattern-print-btn"
                 title="Print this lesson note (use 'Save as PDF' in your browser's print dialog).">
-          \u{1F5A8} Print / Save as PDF
+          🖨 Print / Save as PDF
         </button>
       </div>
 
-      ${O(e)}
+      ${renderHowToUseTable(p)}
 
       <section>
         <h3 class="section-title">Explanation</h3>
-        <p>${s(M(e))}</p>
+        <p>${esc(localizedExplanation(p))}</p>
       </section>
 
-      ${(()=>{const n=e.essay;if(!n||typeof n!="object")return"";const v=n.provenance==="needs_native_review",h=($,P,E)=>!P&&!E?"":P?`<p><strong>${s($)}:</strong> ${s(P)}</p>`:`<p><strong>${s($)}:</strong> <span class="muted small">${s(E)}</span></p>`;return`
+      ${(() => {
+        // IMP-137 (richness audit, 2026-05-10): Tofugu-style pedagogical
+        // essay for the top-30 trickiest patterns. Renders when an essay
+        // object is present. Each section is a short pedagogical
+        // commentary block (intro, why_it_matters, common_pitfalls,
+        // contrasts, closing_practice_tip). Stubs (provenance =
+        // needs_native_review) render the intro + auto-extracted bits
+        // and show a "essay pending native review" hint for the
+        // empty fields.
+        const essay = p.essay;
+        if (!essay || typeof essay !== 'object') return '';
+        const stub = essay.provenance === 'needs_native_review';
+        const item = (label, text, fallback) => {
+          if (!text && !fallback) return '';
+          if (!text) return `<p><strong>${esc(label)}:</strong> <span class="muted small">${esc(fallback)}</span></p>`;
+          return `<p><strong>${esc(label)}:</strong> ${esc(text)}</p>`;
+        };
+        return `
           <section class="pattern-essay">
-            <h3 class="section-title">Deep dive ${v?'<span class="essay-stub-badge muted small">stub</span>':""}</h3>
-            ${h("At a glance",n.intro)}
-            ${h("Why it matters",n.why_it_matters,v?"Pending native author.":"")}
-            ${h("Common pitfalls",n.common_pitfalls)}
-            ${h("Contrasts",n.contrasts)}
-            ${h("Practice tip",n.closing_practice_tip,v?"Pending native author.":"")}
+            <h3 class="section-title">Deep dive ${stub ? '<span class="essay-stub-badge muted small">stub</span>' : ''}</h3>
+            ${item('At a glance', essay.intro)}
+            ${item('Why it matters', essay.why_it_matters, stub ? 'Pending native author.' : '')}
+            ${item('Common pitfalls', essay.common_pitfalls)}
+            ${item('Contrasts', essay.contrasts)}
+            ${item('Practice tip', essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
           </section>
-        `})()}
+        `;
+      })()}
 
-      ${(()=>{const n=I(e);return n?`
+      ${(() => {
+        // IMP-080 (audit round-7): L1-interference note for the active
+        // locale, when authored. Niche-N1 unique-claim lever.
+        const note = localizedL1Note(p);
+        if (!note) return '';
+        return `
           <section class="l1-note">
             <h3 class="section-title">L1 note</h3>
-            <p>${s(n)}</p>
+            <p>${esc(note)}</p>
           </section>
-        `:""})()}
+        `;
+      })()}
 
       <section>
-        <h3 class="section-title">Examples (${d.length})</h3>
-        <ul class="example-list">${_}</ul>
+        <h3 class="section-title">Examples (${examples.length})</h3>
+        <ul class="example-list">${exampleItems}</ul>
       </section>
 
-      ${g.length?`
+      ${mistakes.length ? `
         <section>
           <h3 class="section-title">Common Mistakes / Contrasts</h3>
-          <ul class="mistakes-list">${N}</ul>
+          <ul class="mistakes-list">${mistakeItems}</ul>
         </section>
-      `:""}
+      ` : ''}
+
+      ${wcp.length ? `
+        <section class="wrong-corrected-pair">
+          <h3 class="section-title">Categorized common-learner errors (${wcp.length})</h3>
+          <ul class="wcp-list">${wcpItems}</ul>
+        </section>
+      ` : ''}
+
+      ${ladderHtml}
+
+      ${citationsHtml}
 
       <section>
-        <h3 class="section-title">\u610F\u5473\uFF08\u3084\u3055\u3057\u3044 \u306B\u307B\u3093\u3054\uFF09</h3>
-        <p>${b(e.meaning_ja)}</p>
+        <h3 class="section-title">意味（やさしい にほんご）</h3>
+        <p>${renderJa(p.meaning_ja)}</p>
       </section>
 
-      ${e.notes?`<section><h3 class="section-title">Notes</h3><p>${s(e.notes)}</p></section>`:""}
+      ${p.notes ? `<section><h3 class="section-title">Notes</h3><p>${esc(p.notes)}</p></section>` : ''}
     </article>
-  `;t.innerHTML=B,document.getElementById("mark-known")?.addEventListener("change",n=>{k.setManuallyKnown(e.id,n.target.checked),G(t,e,a)}),document.getElementById("pattern-print-btn")?.addEventListener("click",()=>{window.print()})}export{R as buildOrderedPatternList,G as renderGrammarPatternDetail,S as renderGrammarTOC};
+  `;
+  container.innerHTML = html;
+
+  document.getElementById('mark-known')?.addEventListener('change', (ev) => {
+    storage.setManuallyKnown(p.id, ev.target.checked);
+    renderGrammarPatternDetail(container, p, allPatterns);
+  });
+  // IMP-146: print → save-as-PDF. window.print() opens the browser
+  // print dialog where the user picks "Save as PDF" as the destination.
+  // No new dependency; @media print CSS hides the chrome.
+  document.getElementById('pattern-print-btn')?.addEventListener('click', () => {
+    window.print();
+  });
+}

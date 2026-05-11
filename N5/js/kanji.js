@@ -327,6 +327,66 @@ function renderDetail(container, entry, entries) {
           <p class="kanji-stroke-mistake-note" lang="ja">${esc(entry.stroke_order_mistakes)}</p>
         </section>
       ` : ''}
+      ${(() => {
+        // IMP-WAVE1 (UI audit fix, 2026-05-11): stroke_order_trap
+        // schemaful trap entry. Schema:
+        //   {trap, correct_order_summary, why_it_matters}
+        // Authored across kanji batches A-C; 106/106 coverage.
+        const trap = entry.stroke_order_trap;
+        if (!trap || typeof trap !== 'object') return '';
+        return `
+          <section class="kanji-stroke-trap">
+            <h3>Stroke-order trap (pedagogical)</h3>
+            ${trap.trap ? `<p><strong>What learners often get wrong:</strong> ${esc(trap.trap)}</p>` : ''}
+            ${trap.correct_order_summary ? `<p><strong>Correct order:</strong> ${esc(trap.correct_order_summary)}</p>` : ''}
+            ${trap.why_it_matters ? `<p><strong>Why it matters:</strong> ${esc(trap.why_it_matters)}</p>` : ''}
+          </section>
+        `;
+      })()}
+      ${(() => {
+        // IMP-WAVE1: on_kun_pair_drill — paired on/kun exemplar with
+        // contrast note. Schema:
+        //   {standalone: {form, reading, gloss},
+        //    compound:   {form, reading, gloss},
+        //    contrast_note}
+        // 106/106 coverage.
+        const drill = entry.on_kun_pair_drill;
+        if (!drill || typeof drill !== 'object') return '';
+        const sa = drill.standalone || {};
+        const cp = drill.compound || {};
+        return `
+          <section class="kanji-on-kun-drill">
+            <h3>On / Kun pair drill</h3>
+            <table class="on-kun-drill-table">
+              <thead>
+                <tr><th>Standalone (typically kun)</th><th>Compound (typically on)</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="form" lang="ja">${esc(sa.form || '')}</span>
+                    <span class="reading muted small" lang="ja">${esc(sa.reading || '')}</span>
+                    <span class="gloss">${esc(sa.gloss || '')}</span>
+                  </td>
+                  <td>
+                    <span class="form" lang="ja">${esc(cp.form || '')}</span>
+                    <span class="reading muted small" lang="ja">${esc(cp.reading || '')}</span>
+                    <span class="gloss">${esc(cp.gloss || '')}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            ${drill.contrast_note ? `<p class="contrast-note">${esc(drill.contrast_note)}</p>` : ''}
+          </section>
+        `;
+      })()}
+      ${entry.reading_rule ? `
+        <!-- IMP-WAVE1: reading_rule — generic on/kun rule of thumb. -->
+        <section class="kanji-reading-rule">
+          <h3>Reading rule of thumb</h3>
+          <p class="muted small">${esc(entry.reading_rule)}</p>
+        </section>
+      ` : ''}
       <nav class="kanji-nav">
         ${prev ? `<a href="#/kanji/${encodeURIComponent(prev.glyph)}">← <span lang="ja">${esc(prev.glyph)}</span></a>` : '<span></span>'}
         ${next ? `<a href="#/kanji/${encodeURIComponent(next.glyph)}"><span lang="ja">${esc(next.glyph)}</span> →</a>` : '<span></span>'}
