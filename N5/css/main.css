@@ -971,6 +971,36 @@ h2 + * + .section-label:first-of-type {
 .mistakes-list .right { color: var(--c-success); font-weight: 500; }
 .mistakes-list .why { color: var(--c-muted); font-size: 13px; margin-top: 4px; display: block; }
 
+/* IMP-WAVE3+ (UI clarity 2026-05-11): wrong_corrected_pair rows now
+   carry explicit ✗ Incorrect: / ✓ Correct: labels in front of each
+   Japanese example. Symbol + label stay visually aligned with the
+   Japanese text via flex; color matches the existing .wrong / .right
+   semantics (red strikethrough vs green bold). */
+.mistakes-list .wcp-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0.15rem 0;
+}
+.mistakes-list .wcp-row .wcp-mark {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.mistakes-list .wcp-row .wcp-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  flex-shrink: 0;
+}
+.mistakes-list .wcp-row-wrong   .wcp-mark,
+.mistakes-list .wcp-row-wrong   .wcp-label { color: var(--c-error); }
+.mistakes-list .wcp-row-correct .wcp-mark,
+.mistakes-list .wcp-row-correct .wcp-label { color: var(--c-success); }
+
 /* Placeholder pages */
 .placeholder {
   background: var(--c-surface);
