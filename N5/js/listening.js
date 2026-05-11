@@ -306,6 +306,15 @@ function renderItem(container) {
           </aside>
         `;
       })()}
+      ${it.authentic_categories?.length ? `
+        <!-- IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): thematic
+             cross-link from listening setting (ambient_context)
+             to matching authentic-content categories. -->
+        <aside class="listening-authentic-link muted small">
+          <strong>Related real-world content:</strong>
+          ${it.authentic_categories.map(c => `<a href="#/authentic" class="authentic-cat-chip">${esc(c)}</a>`).join(' ')}
+        </aside>
+      ` : ''}
       ${it.choices ? `
         <div class="choice-grid">
           ${it.choices.map(c => {
