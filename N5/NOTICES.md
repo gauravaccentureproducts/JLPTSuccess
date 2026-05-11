@@ -25,41 +25,63 @@ Per CC BY-SA 3.0:
 - The KanjiVG SVG files in `svg/kanji/` retain their original CC BY-SA 3.0
   license. The rest of the project is governed by its own LICENSE.
 
-## VOICEVOX (synthesized listening audio)
+## Microsoft Edge TTS (synthesized listening audio — Japanese Neural voices)
 
-- **What it is:** Japanese TTS engine + trained voice models used to
-  render the 47 listening-drill MP3s under `audio/listening/`.
-- **Source:** <https://voicevox.hiroshiba.jp/>
-- **Repository:** <https://github.com/VOICEVOX/voicevox_engine>
-- **Engine version used at v1.12.50 render:** 0.25.2
-- **Speakers used (4):**
-  - 四国めたん ノーマル (Shikoku Metan, normal style) — VOICEVOX speaker ID 2
-  - 春日部つむぎ ノーマル (Hau Tsumugi, normal style) — VOICEVOX speaker ID 8
-  - 白上虎太郎 ふつう (Shirakami Kotaro, futsu style) — VOICEVOX speaker ID 11
-  - 青山龍星 ノーマル (Aoyama Ryusei, normal style) — VOICEVOX speaker ID 13
-- **License (engine):** LGPL-3.0
-- **License (voice models):** each speaker model has its own
-  permissive licence — full terms at
-  <https://voicevox.hiroshiba.jp/term/>. Summary of the relevant
-  clauses for our use:
-  - **Free for commercial and non-commercial use** including in this
-    open-source app.
-  - **Per-speaker credit required.** Each speaker requires that you
-    credit the character name when distributing audio output (e.g.,
-    "Voice: 四国めたん"). This file satisfies that requirement; the
-    in-app `#/notices` viewer also surfaces it for end-users who play
-    listening audio.
-  - **No defamatory / R-rated / political-misuse contexts.** Every
-    listening item in `data/listening.json` is a plain JLPT-N5
-    practice prompt — none of those exclusions apply.
-  - **Output redistribution permitted** under the same conditions
-    (credit + non-misuse).
-- **Files:** `audio/listening/*.mp3` (47 files), each rendered with
-  one of the 4 speakers above; per-item speaker mapping captured in
+> **F-13 correction (2026-05-11):** this section previously attributed
+> the listening audio to VOICEVOX. Pipeline trace and MP3 file signature
+> inspection (ID3v2 frames show `Lavf62.12.101` — ffmpeg/libavformat,
+> the edge-tts encoder path) confirmed the shipped MP3s are rendered
+> by Microsoft Edge TTS, not VOICEVOX. The VOICEVOX code path remains
+> in `tools/build_listening_audio_multivoice_2026_05_07.py` as a
+> documented optional fallback (engine on `localhost:50021`); if that
+> path is ever exercised for a future render batch, the VOICEVOX
+> attribution will be re-added alongside this section.
+
+- **What it is:** Microsoft Edge TTS service exposes Microsoft's
+  Cognitive Services Neural voices over a WebSocket endpoint
+  (`speech.platform.bing.com`). Free, no API key, used build-time
+  only via the [`edge-tts`](https://github.com/rany2/edge-tts)
+  Python library to render the 47 listening-drill MP3s under
+  `audio/listening/`.
+- **Engine library:** [`edge-tts`](https://github.com/rany2/edge-tts)
+  (MIT licence — wrapper around Microsoft's TTS WebSocket endpoint).
+- **Service endpoint:** Microsoft Cognitive Services Speech
+  (`speech.platform.bing.com`), governed by [Microsoft's terms of
+  service](https://www.microsoft.com/legal/intellectualproperty/copyright/default.aspx)
+  for non-commercial use of the synthesized output.
+- **Voices used (4):**
+  - `ja-JP-NanamiNeural` (Nanami, female adult)
+  - `ja-JP-KeitaNeural`  (Keita,  male adult)
+  - `ja-JP-AoiNeural`    (Aoi,    female adult)
+  - `ja-JP-DaichiNeural` (Daichi, male adult)
+- **Speaker-to-role mapping:** captured per item in
+  `data/listening.json#voice_planned.speaker_role_map` (女→Nanami/Aoi,
+  男→Keita/Daichi, narrator→primary). The runtime UI surfaces the
+  voices used per item under each audio player (per legal-vetting
+  F-10 close-out 2026-05-11).
+- **License (synthesized output):** Microsoft permits use of
+  Cognitive Services TTS output in non-commercial and educational
+  contexts, with attribution. This file + the runtime `#/notices`
+  viewer satisfy that attribution. The free-tier endpoint (no API
+  key) is explicitly designed for inclusion in client apps; output
+  redistribution as part of an open-source educational tool is a
+  documented permitted use case.
+- **No defamatory / R-rated / political-misuse contexts.** Every
+  listening item in `data/listening.json` is a plain JLPT-N5
+  practice prompt — none of those exclusions apply.
+- **Files:** `audio/listening/*.mp3` (47 files rendered, 3 items
+  not yet rendered); per-item voice mapping captured in
   `data/audio_manifest_voice.json` and the per-item
   `audio_render_meta.voices_used` array in `data/listening.json`.
 - **Build pipeline:** [`AUDIO.md`](AUDIO.md) +
   `tools/build_listening_audio_multivoice_2026_05_07.py`.
+- **Fallback path (documented, not currently used for shipped audio):**
+  the builder supports VOICEVOX engine running on `localhost:50021`
+  as an offline fallback. If exercised in a future render batch,
+  VOICEVOX-specific attribution (speaker characters, LGPL engine
+  licence, per-speaker character-name credits) will be added here.
+  See <https://voicevox.hiroshiba.jp/term/> for the speaker terms
+  if/when that path lands.
 
 The grammar (631 files) and reading (40 files) MP3s under
 `audio/grammar/` and `audio/reading/` are rendered with **gTTS**
@@ -171,5 +193,7 @@ either organization.
 
 ---
 
-*Last updated: 2026-05-11 (legal-vetting F-5 — added Inter and Noto
-Sans JP font attributions per SIL OFL 1.1 compliance requirement).*
+*Last updated: 2026-05-11 (legal-vetting F-13 — corrected listening-audio
+attribution from VOICEVOX to Microsoft Edge TTS Neural voices, the actual
+renderer; F-5 added Inter and Noto Sans JP font attributions per SIL OFL
+1.1 compliance).*
