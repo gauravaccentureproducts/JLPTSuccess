@@ -8301,7 +8301,28 @@
       "authentic_categories": [
         "menu"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "vocab_glossary": [
+        {
+          "form": "天気",
+          "reading": "てんき",
+          "gloss": "weather",
+          "gloss_hi": "मौसम"
+        },
+        {
+          "form": "さんぽ",
+          "reading": "さんぽ",
+          "gloss": "walk, stroll",
+          "gloss_hi": "सैर"
+        },
+        {
+          "form": "うち",
+          "reading": "うち",
+          "gloss": "home, inside",
+          "gloss_hi": "घर"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.049",
@@ -8444,7 +8465,44 @@
       "authentic_categories": [
         "transit"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "vocab_glossary": [
+        {
+          "form": "駅",
+          "reading": "えき",
+          "gloss": "station",
+          "gloss_hi": "स्टेशन",
+          "vocab_id": "n5.vocab.13-locations-and-places-.駅"
+        },
+        {
+          "form": "まっすぐ",
+          "reading": "まっすぐ",
+          "gloss": "straight ahead",
+          "gloss_hi": "सीधा",
+          "vocab_id": "n5.vocab.33-adverbs.まっすぐ"
+        },
+        {
+          "form": "しんごう",
+          "reading": "しんごう",
+          "gloss": "traffic signal",
+          "gloss_hi": "सिगनल",
+          "vocab_id": null
+        },
+        {
+          "form": "右",
+          "reading": "みぎ",
+          "gloss": "right",
+          "gloss_hi": "दाएँ"
+        },
+        {
+          "form": "まがる",
+          "reading": "まがる",
+          "gloss": "to turn, to bend",
+          "gloss_hi": "मुड़ना",
+          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.まがる"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.050",
@@ -8587,7 +8645,45 @@
       "authentic_categories": [
         "hospital"
       ],
-      "authentic_categories_provenance": "auto_derived"
+      "authentic_categories_provenance": "auto_derived",
+      "vocab_glossary": [
+        {
+          "form": "あたま",
+          "reading": "あたま",
+          "gloss": "head",
+          "gloss_hi": "सिर",
+          "vocab_id": "n5.vocab.4-body-parts.あたま"
+        },
+        {
+          "form": "いたい",
+          "reading": "いたい",
+          "gloss": "painful",
+          "gloss_hi": "दर्दनाक",
+          "vocab_id": "n5.vocab.31-adjectives.いたい"
+        },
+        {
+          "form": "ねつ",
+          "reading": "ねつ",
+          "gloss": "fever",
+          "gloss_hi": "बुखार",
+          "vocab_id": null
+        },
+        {
+          "form": "くすり",
+          "reading": "くすり",
+          "gloss": "medicine",
+          "gloss_hi": "दवा",
+          "vocab_id": "n5.vocab.37-common-nouns-miscella.くすり"
+        },
+        {
+          "form": "きのう",
+          "reading": "きのう",
+          "gloss": "yesterday",
+          "gloss_hi": "कल",
+          "vocab_id": "n5.vocab.10-time-general.きのう"
+        }
+      ],
+      "vocab_glossary_provenance": "auto_derived"
     }
   ],
   "_meta": {
