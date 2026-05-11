@@ -1,0 +1,452 @@
+"""Test-Taking Strategy (T1-T6) bank for JLPT N5.
+Creates data/test_strategy.json with comprehensive coverage.
+"""
+from __future__ import annotations
+import io, json, sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+while not (ROOT / 'data').exists() and ROOT != ROOT.parent: ROOT = ROOT.parent
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+
+test_strategy = {
+    "schema_version": "1.0",
+    "last_updated": "2026-05-11",
+    "source_notes": "Compiled from JEES JLPT N5 specification (post-2010), official sample papers, Genki/Minna teaching notes, and observed N5 trap patterns across this module's 178 grammar + 1009 vocab + 106 kanji + 54 dokkai + 50 chokai items.",
+
+    # ======================== T1: SECTION/MONDAI TIMING ========================
+    "section_timing": {
+        "exam_structure": {
+            "total_sections": 2,
+            "section_1": {
+                "name": "Language Knowledge (Kanji-Vocab) + Language Knowledge (Grammar) + Reading",
+                "alt_name": "言語知識（文字・語彙）＋（文法）＋読解",
+                "total_minutes": 60,
+                "total_questions": 49,
+                "scoring_combined_section": True,
+                "score_min_required": 38,
+                "score_max": 120,
+            },
+            "section_2": {
+                "name": "Listening",
+                "alt_name": "聴解",
+                "total_minutes": 30,
+                "total_questions": 24,
+                "score_min_required": 19,
+                "score_max": 60,
+            },
+            "pass_threshold_total": 80,
+            "pass_threshold_total_max": 180,
+            "section_minimums_rule": "Must score >=38 in combined Lang Knowledge + Reading AND >=19 in Listening. Total >=80."
+        },
+        "moji_goi": {
+            "section_part": "Section 1 (first 20 min)",
+            "module": "vocab + kanji",
+            "total_minutes": 20,
+            "total_questions": 28,
+            "average_seconds_per_question": 42,
+            "mondai_breakdown": [
+                {"number": 1, "type": "kanji_reading", "label_ja": "漢字読み", "n_questions": 7, "seconds_per_q": 20, "strategy": "Don't overthink — first reading you recognize is usually right. Scan distractors for slight kana variations (-こう / -ごう)."},
+                {"number": 2, "type": "kanji_writing", "label_ja": "表記", "n_questions": 5, "seconds_per_q": 20, "strategy": "Match kana given against correct kanji. Watch for homophone distractors (はやい 速い vs 早い)."},
+                {"number": 3, "type": "context_word", "label_ja": "文脈規定", "n_questions": 6, "seconds_per_q": 40, "strategy": "Read the entire blank-sentence; let context narrow choice. Common trap: same POS but wrong nuance."},
+                {"number": 4, "type": "paraphrase", "label_ja": "言い換え類義", "n_questions": 3, "seconds_per_q": 60, "strategy": "Identify the key meaning of the underlined word; match to synonym. Watch for partial-overlap distractors."},
+                {"number": 5, "type": "usage", "label_ja": "用法", "n_questions": 1, "seconds_per_q": 60, "strategy": "Word given — pick the sentence using it correctly. Eliminate by collocation/particle mismatches."},
+            ],
+            "time_budget_warning": "If stuck >2x normal time on a single item, mark and move on; come back at end."
+        },
+        "bunpou_dokkai": {
+            "section_part": "Section 1 (final 40 min)",
+            "module": "grammar + reading",
+            "total_minutes": 40,
+            "total_questions": 21,
+            "average_seconds_per_question": 114,
+            "mondai_breakdown": [
+                {"number": 1, "type": "grammar_form_fill", "label_ja": "文の文法１", "n_questions": 9, "seconds_per_q": 30, "strategy": "Identify what slot needs filling (particle / verb form / conjunction). Eliminate based on form rules first."},
+                {"number": 2, "type": "sentence_composition", "label_ja": "文の文法２", "n_questions": 4, "seconds_per_q": 80, "strategy": "Star (★) marks the asked slot. Build the sentence mentally first; check what fills the star. Don't assemble all 4 pieces in order — find the structurally-forced order."},
+                {"number": 3, "type": "text_grammar_fill", "label_ja": "文章の文法", "n_questions": 4, "seconds_per_q": 60, "strategy": "Connectives and discourse markers. Read the whole paragraph first; context disambiguates."},
+                {"number": 4, "type": "reading_short", "label_ja": "短文の内容理解", "n_questions": 2, "seconds_per_q": 180, "strategy": "Short passage (~50-150 chars). Read once for gist, then scan for the answer keyword."},
+                {"number": 5, "type": "reading_long", "label_ja": "中文の内容理解", "n_questions": 2, "seconds_per_q": 270, "strategy": "Medium passage (~200-300 chars). Read once carefully; questions usually target main idea + one detail."},
+                {"number": 6, "type": "info_search", "label_ja": "情報検索", "n_questions": 1, "seconds_per_q": 240, "strategy": "Notice/schedule/menu format. SCAN for the specific information; do not read linearly."},
+            ],
+            "time_budget_warning": "Reserve 10 min minimum for the final 3 questions (long reading + info search)."
+        },
+        "chokai": {
+            "section_part": "Section 2",
+            "module": "listening",
+            "total_minutes": 30,
+            "total_questions": 24,
+            "average_seconds_per_question": 75,
+            "format_note": "Audio is played ONCE per item. Read prompt/choices BEFORE audio if time allows.",
+            "mondai_breakdown": [
+                {"number": 1, "type": "task_understanding", "label_ja": "課題理解", "n_questions": 7, "seconds_per_q": 80, "strategy": "Question read FIRST (printed). Listen for the SPEAKER'S FINAL DECISION/TASK."},
+                {"number": 2, "type": "point_understanding", "label_ja": "ポイント理解", "n_questions": 6, "seconds_per_q": 70, "strategy": "Question read FIRST (printed). Listen for the SPECIFIC INFORMATION asked."},
+                {"number": 3, "type": "speech_expression", "label_ja": "発話表現", "n_questions": 5, "seconds_per_q": 50, "strategy": "Visual prompt shows situation. Pick the natural utterance for that context. Match register to relationship."},
+                {"number": 4, "type": "immediate_response", "label_ja": "即時応答", "n_questions": 6, "seconds_per_q": 30, "strategy": "Hear utterance; pick natural response. NO TIME to think — answer by feel. Common trap: similar-sound responses."},
+            ],
+            "rest_break": "There is NO break between mondai. Maintain focus throughout."
+        },
+    },
+
+    # ======================== T2: TRAP-PATTERN CATALOG ========================
+    "trap_patterns": [
+        # GRAMMAR TRAPS
+        {"id": "T2-G-001", "module": "grammar", "name": "particle_ha_vs_ga_question_words", "description": "Question words (だれ/なに/どこ/いつ) take が, never は.", "wrong_example": "だれは きましたか。", "correct_example": "だれが きましたか。", "defense": "Memorize: Q-word → が. は cannot topicalize an unknown."},
+        {"id": "T2-G-002", "module": "grammar", "name": "ga_for_subject_of_feeling_adj", "description": "Feeling/skill adjectives (すき/きらい/上手/下手/ほしい/わかる/できる) take が for their object.", "wrong_example": "コーヒーを すきです。", "correct_example": "コーヒーが すきです。", "defense": "Memorize: 〜が adj. category. Same applies to ほしい/たい."},
+        {"id": "T2-G-003", "module": "grammar", "name": "te_form_irregular_iku", "description": "行く is the only Group-1 verb with っ-promotion in te-form (行って, NOT 行きて).", "wrong_example": "がっこうに いきて、たべます。", "correct_example": "がっこうに いって、たべます。", "defense": "Memorize the 6 G1 exception verbs: 行く 帰る 走る 知る 切る 要る."},
+        {"id": "T2-G-004", "module": "grammar", "name": "iadj_negative_drop_i", "description": "い-Adj negative drops final い: 高い→高くない. NOT 高いくない.", "wrong_example": "たかいくないです。", "correct_example": "たかくないです。", "defense": "い→く transformation; only いい is irregular (よくない)."},
+        {"id": "T2-G-005", "module": "grammar", "name": "naadj_negative_jaarimasen", "description": "na-Adj negative uses じゃありません, NOT くない. きれい LOOKS like い-Adj but is na-Adj.", "wrong_example": "きれくないです。", "correct_example": "きれいじゃありません。", "defense": "Remember na-Adj list: きれい, ゆうめい, しずか, げんき, etc."},
+        {"id": "T2-G-006", "module": "grammar", "name": "relative_time_no_particle", "description": "Relative time-words (きょう/あした/きのう/まいにち/らいしゅう) take NO particle.", "wrong_example": "あしたに きます。", "correct_example": "あした きます。", "defense": "Only specific clock-time / date takes に."},
+        {"id": "T2-G-007", "module": "grammar", "name": "humble_respectful_inversion", "description": "Self-action uses HUMBLE form; other's action uses RESPECTFUL form. Inverting is wrong.", "wrong_example": "せんせい、いただきますか？ (asking teacher to eat)", "correct_example": "せんせい、めしあがりますか？", "defense": "Self → humble (まいる/いたす/いただく). Other → respectful (いらっしゃる/なさる/めしあがる)."},
+        {"id": "T2-G-008", "module": "grammar", "name": "moo_vs_mada_pairing", "description": "もう pairs with positive past (already V-ed). まだ pairs with ていません (have not V-ed yet).", "wrong_example": "もう たべません。 (intent: have not eaten yet)", "correct_example": "まだ たべていません。", "defense": "もう = already (+positive). まだ = yet (+negative)."},
+        {"id": "T2-G-009", "module": "grammar", "name": "to_vs_to_quotative", "description": "と as quotative attaches to plain form: 行くと思う, NOT 行きますと思う.", "wrong_example": "いきますと おもいます。", "correct_example": "いくと おもいます。", "defense": "Subordinate-clause-internal verbs are PLAIN form."},
+        {"id": "T2-G-010", "module": "grammar", "name": "ageru_vs_kureru_direction", "description": "あげる = I/X give TO Y. くれる = Y gives TO me/in-group.", "wrong_example": "ははが プレゼントを あげました。 (mother gave to me)", "correct_example": "ははが プレゼントを くれました。", "defense": "Direction matters: to-me = くれる. From-me-or-outgroup = あげる."},
+
+        # VOCAB TRAPS
+        {"id": "T2-V-001", "module": "vocab", "name": "iie_vs_iiyo", "description": "いい (good) vs いいえ (no). One mora difference.", "wrong_example": "いい です — declining offer", "correct_example": "いいえ、けっこうです。", "defense": "When refusing an offer: いいえ + けっこう. When agreeing it's good: いい (no preceding え)."},
+        {"id": "T2-V-002", "module": "vocab", "name": "kaeru_homophones", "description": "かえる has 3 different kanji: 帰る (return), 変える (change), 買える (can buy).", "wrong_example": "Mixing in context", "correct_example": "うちに かえる。/ いろを かえる。", "defense": "Distinguish by context."},
+        {"id": "T2-V-003", "module": "vocab", "name": "hashi_pitch_minimal", "description": "はし has 2 readings + 3 kanji: 橋 (bridge, LH), 箸 (chopsticks, HL), 端 (edge, LH).", "wrong_example": "Wrong pitch", "correct_example": "Listen for pitch accent.", "defense": "Pitch matters in listening sections."},
+        {"id": "T2-V-004", "module": "vocab", "name": "ame_pitch_minimal", "description": "あめ has 2 pitches: 雨 (rain, HL) vs 飴 (candy, LH).", "wrong_example": "Wrong pitch", "correct_example": "Pitch distinguishes meaning.", "defense": "Pitch matters."},
+        {"id": "T2-V-005", "module": "vocab", "name": "yasui_kanji_distinction", "description": "やすい = 安い (cheap) AND 易しい (easy). Different kanji, same reading.", "wrong_example": "Confusing in writing.", "correct_example": "Context: price → 安い; difficulty → 易しい.", "defense": "Use context."},
+        {"id": "T2-V-006", "module": "vocab", "name": "atsui_kanji_distinction", "description": "あつい = 暑い (hot weather) vs 熱い (hot object). Different kanji.", "wrong_example": "コーヒーが 暑い", "correct_example": "コーヒーが 熱い", "defense": "Weather → 暑い; object → 熱い."},
+        {"id": "T2-V-007", "module": "vocab", "name": "person_counter_irregular", "description": "1-person is ひとり (not いちにん). 2-people is ふたり (not ににん). 3+ regular (さんにん, よにん).", "wrong_example": "いちにん きました", "correct_example": "ひとり きました", "defense": "Memorize: ひとり / ふたり / さんにん / よにん."},
+        {"id": "T2-V-008", "module": "vocab", "name": "4_reading_yo_yon_shi", "description": "4 has 3 readings: よ (4時 よじ), よん (general), し (4月 しがつ). 7 similar: しち (時/月) / なな (general).", "wrong_example": "しじ (4 o'clock)", "correct_example": "よじ", "defense": "4時=よじ, 4月=しがつ, 4本=よんほん. Memorize per-counter."},
+
+        # KANJI TRAPS
+        {"id": "T2-K-001", "module": "kanji", "name": "right_left_mirror", "description": "右 starts with SHORT ノ, 左 starts with LONG horizontal — only stroke 1 distinguishes them visually.", "wrong_example": "Wrong stroke order produces unbalanced character.", "correct_example": "Memorize the stroke-1 difference.", "defense": "右 → ノ first. 左 → horizontal first."},
+        {"id": "T2-K-002", "module": "kanji", "name": "ten_versus_dai_dot", "description": "大 vs 太 vs 犬: dot position differs. 大=no dot. 太=dot below crossing. 犬=dot top-right.", "wrong_example": "Misplacing dot.", "correct_example": "大 has no dot.", "defense": "Memorize dot-position for the three."},
+        {"id": "T2-K-003", "module": "kanji", "name": "box_kanji_close_last", "description": "Box-closure: enclosure kanji (口/日/田/月/国/車/西) write the bottom-closing horizontal LAST, after the inside.", "wrong_example": "Closing bottom before inside cramped.", "correct_example": "Outline first, fill inside, close at bottom.", "defense": "Universal box-closure rule."},
+        {"id": "T2-K-004", "module": "kanji", "name": "shinnyou_radical_last", "description": "辶 (path-radical) in 道/週 is written LAST, after all other components.", "wrong_example": "Writing 辶 first.", "correct_example": "Body first, 辶 last.", "defense": "Universal for 辶 kanji."},
+
+        # READING TRAPS
+        {"id": "T2-D-001", "module": "dokkai", "name": "scan_vs_read_choice", "description": "Mondai 4-5 (短文/中文): read for understanding. Mondai 6 (情報検索): SCAN, don't read.", "wrong_example": "Reading 情報検索 linearly.", "correct_example": "Scan for the specific item.", "defense": "Match strategy to mondai type."},
+        {"id": "T2-D-002", "module": "dokkai", "name": "register_signal_mismatch", "description": "Conversation passages use polite ます/です. Diary uses plain だ. Letter has formal closing.", "wrong_example": "Misreading register.", "correct_example": "Use register cues to identify text type.", "defense": "Spot copula form (です/だ/でございます)."},
+        {"id": "T2-D-003", "module": "dokkai", "name": "discourse_marker_attention", "description": "Watch でも/しかし for contrast (changes direction). から/ので signal reason. それから/そして signal sequence.", "wrong_example": "Missing でも → wrong inference.", "correct_example": "Track every connector.", "defense": "Highlight markers mentally."},
+
+        # LISTENING TRAPS
+        {"id": "T2-L-001", "module": "chokai", "name": "mentioned_but_rejected", "description": "Mondai 1: things mentioned in audio are often REJECTED. Wait for the FINAL decision.", "wrong_example": "Picking the first thing mentioned.", "correct_example": "Listen for でも/じゃ/そうですか change-of-mind signals.", "defense": "The FINAL decision wins."},
+        {"id": "T2-L-002", "module": "chokai", "name": "similar_sound_confusion", "description": "あした (tomorrow) vs あさって (day after tomorrow). たべる vs たべない. Listen carefully for negation morae.", "wrong_example": "Mishearing one mora.", "correct_example": "Listen for negative -nai/-masen suffix.", "defense": "Focus on suffix morae for negation."},
+        {"id": "T2-L-003", "module": "chokai", "name": "speaker_swap", "description": "When two speakers, action of A is often attributed to B in distractors. Track WHO does what.", "wrong_example": "Confusing speakers.", "correct_example": "Tag each line with speaker.", "defense": "Mental notation: M=man, F=woman."},
+        {"id": "T2-L-004", "module": "chokai", "name": "number_close_distractor", "description": "Times/numbers: distractors often differ by 1 (3時/4時, 100円/110円). Listen for exact morae.", "wrong_example": "Approximating.", "correct_example": "Note exact numbers.", "defense": "Count morae carefully."},
+        {"id": "T2-L-005", "module": "chokai", "name": "register_mismatch_response", "description": "Mondai 4 (immediate response): wrong responses often use mismatched register (casual to senior etc.)", "wrong_example": "うん in response to teacher.", "correct_example": "Match register to relationship.", "defense": "Polite-context → polite response."},
+    ],
+
+    # ======================== T3: TEST-TAKING TECHNIQUES ========================
+    "techniques": [
+        {
+            "id": "T3-001",
+            "name": "skip_and_return",
+            "title_en": "Skip and Return",
+            "title_ja": "とばす・あとで",
+            "description": "If a question takes >2x your average time, mark it and move on. Return at the end.",
+            "applies_to": ["moji_goi", "bunpou_dokkai"],
+            "rationale": "JLPT is point-per-question; do not lose easy points by getting stuck on a hard one.",
+            "warning": "Listening: CANNOT skip — audio plays once."
+        },
+        {
+            "id": "T3-002",
+            "name": "elimination_first",
+            "title_en": "Eliminate Before Choosing",
+            "title_ja": "消去法",
+            "description": "Eliminate 1-2 wrong answers first; even if unsure, guess from remaining 2.",
+            "applies_to": ["all_sections"],
+            "rationale": "Random 4-option guess = 25% correct. Eliminate 2 → 50%. Eliminate 1 → 33%."
+        },
+        {
+            "id": "T3-003",
+            "name": "pre_read_listening",
+            "title_en": "Pre-Read Listening Choices",
+            "title_ja": "聴解：先に選択肢を読む",
+            "description": "For mondai 1-2 (where prompt + choices are printed): read them BEFORE audio plays.",
+            "applies_to": ["chokai_mondai_1", "chokai_mondai_2"],
+            "rationale": "Knowing what to listen for primes your attention."
+        },
+        {
+            "id": "T3-004",
+            "name": "particle_form_first",
+            "title_en": "Check Particle/Form First",
+            "title_ja": "助詞・活用形を先に確認",
+            "description": "For grammar mondai: the answer is usually FORCED by the surrounding particles/forms. Identify the constraint before reading choices.",
+            "applies_to": ["bunpou_mondai_1", "bunpou_mondai_2"],
+            "rationale": "Eliminates 2-3 distractors quickly."
+        },
+        {
+            "id": "T3-005",
+            "name": "star_anchor_composition",
+            "title_en": "Star-Anchor for Sentence Composition",
+            "title_ja": "並べ替え：★に注目",
+            "description": "For mondai 2 (★ position): build the sentence backwards from constraint clauses; don't try to assemble linearly.",
+            "applies_to": ["bunpou_mondai_2"],
+            "rationale": "Many compositions have ONE structurally-forced order; find it via context-clauses first."
+        },
+        {
+            "id": "T3-006",
+            "name": "scan_dont_read",
+            "title_en": "Scan for Info-Search",
+            "title_ja": "情報検索：スキャン",
+            "description": "Mondai 6 of bunpou/dokkai: scan visually (numerics, headers, days). Do NOT read linearly.",
+            "applies_to": ["dokkai_mondai_6"],
+            "rationale": "Format is notice/menu/schedule — designed for scanning."
+        },
+        {
+            "id": "T3-007",
+            "name": "final_decision_wins",
+            "title_en": "Final Decision Wins (Listening)",
+            "title_ja": "聴解：最後の決定",
+            "description": "Mondai 1: the speaker often proposes A, gets rejected, then agrees to B. The answer is B (the final decision).",
+            "applies_to": ["chokai_mondai_1"],
+            "rationale": "Common N5 trap: pick what was mentioned FIRST."
+        },
+        {
+            "id": "T3-008",
+            "name": "guess_no_negative_marking",
+            "title_en": "Always Guess (No Negative Marking)",
+            "title_ja": "空欄を残さない",
+            "description": "JLPT has NO negative marking for wrong answers. Always fill an answer — even if you guess randomly.",
+            "applies_to": ["all_sections"],
+            "rationale": "Expected value of random guess = +0.25 points. Expected value of blank = 0."
+        },
+        {
+            "id": "T3-009",
+            "name": "context_disambiguation",
+            "title_en": "Use Context to Disambiguate",
+            "title_ja": "文脈で意味を確認",
+            "description": "If a word has multiple meanings, look at surrounding context to identify the intended one.",
+            "applies_to": ["all_sections"],
+            "rationale": "Many distractors use the wrong meaning of a multi-meaning word."
+        },
+        {
+            "id": "T3-010",
+            "name": "track_two_speakers",
+            "title_en": "Mental Notation for Two Speakers",
+            "title_ja": "聴解：2人の話者を区別",
+            "description": "When two speakers, mentally label as M (male) and F (female), and tag each piece of info.",
+            "applies_to": ["chokai_mondai_1", "chokai_mondai_2"],
+            "rationale": "Common trap: confuse speaker A's action with speaker B's."
+        },
+        {
+            "id": "T3-011",
+            "name": "register_match_response",
+            "title_en": "Match Register to Relationship",
+            "title_ja": "敬語：関係に合わせる",
+            "description": "For mondai 3-4 chokai: pick the response that matches the social relationship (junior-senior, customer-staff, friend-friend).",
+            "applies_to": ["chokai_mondai_3", "chokai_mondai_4"],
+            "rationale": "Wrong-register responses are explicit distractors."
+        },
+        {
+            "id": "T3-012",
+            "name": "time_pacing_per_mondai",
+            "title_en": "Per-Mondai Time Budget",
+            "title_ja": "問題ごとの時間配分",
+            "description": "Allocate time per mondai upfront. Stop if a mondai is taking >120% of its budget.",
+            "applies_to": ["moji_goi", "bunpou_dokkai"],
+            "rationale": "Avoid spending 5 min on a 20-second mondai 1 kanji-reading question."
+        },
+        {
+            "id": "T3-013",
+            "name": "mark_for_review_pencil_mark",
+            "title_en": "Pencil-Mark for Review",
+            "title_ja": "見直し印",
+            "description": "Mark uncertain answers with a small dot; review only those in the final 5 min.",
+            "applies_to": ["moji_goi", "bunpou_dokkai"],
+            "rationale": "Don't second-guess confident answers."
+        },
+        {
+            "id": "T3-014",
+            "name": "answer_sheet_block_fill",
+            "title_en": "Fill Answer Sheet in Blocks",
+            "title_ja": "解答用紙：まとめて塗る",
+            "description": "Mark answers in the test booklet first, then transfer to answer sheet every 10 questions. Reduces errors and saves time.",
+            "applies_to": ["all_sections_paper"],
+            "rationale": "Constant switching between problem and answer sheet wastes time."
+        },
+        {
+            "id": "T3-015",
+            "name": "kanji_distractor_kana_check",
+            "title_en": "Check Kana for Kanji Distractors",
+            "title_ja": "漢字読み：かなの違いを確認",
+            "description": "Mondai 1 (kanji reading): distractors often differ by one mora (こう/ごう, しゃ/じゃ, etc.). Check kana letter-by-letter.",
+            "applies_to": ["moji_goi_mondai_1"],
+            "rationale": "Common N5 trap: voicing/length distinction."
+        },
+    ],
+
+    # ======================== T4: SCORE BREAKDOWN ========================
+    "score_breakdown": {
+        "scoring_system": "JEES post-2010 scoring. Scaled (NOT raw point totals).",
+        "sections": {
+            "language_knowledge_and_reading_combined": {
+                "label": "Lang Knowledge (Vocab + Grammar) + Reading",
+                "max_score": 120,
+                "pass_min": 38,
+                "components": [
+                    "Vocab section (mondai 1-5 of moji_goi)",
+                    "Grammar section (mondai 1-3 of bunpou)",
+                    "Reading section (mondai 4-6 of dokkai)"
+                ],
+                "note": "These three are scaled together. Individual component score is NOT broken out."
+            },
+            "listening": {
+                "label": "Listening",
+                "max_score": 60,
+                "pass_min": 19,
+                "components": [
+                    "Mondai 1 (task understanding)",
+                    "Mondai 2 (point understanding)",
+                    "Mondai 3 (speech expression)",
+                    "Mondai 4 (immediate response)"
+                ]
+            }
+        },
+        "total_score": {
+            "max_score": 180,
+            "pass_min": 80,
+            "rule": "ALL section minimums must be met (38 + 19 = 57 minimum from both) AND total must be >=80."
+        },
+        "scaling_explanation": "Raw scores are scaled by section difficulty using equipercentile mapping. Raw 60% does NOT necessarily map to scaled 60%. Historically, raw ~50% has been needed for the section minimums.",
+        "diagnostic_band": {
+            "below_38_or_19": "fail (any section below minimum = fail regardless of total)",
+            "38_57": "weak — needs focused review of section topics",
+            "57_80": "borderline — strengthen weak section",
+            "80_120": "pass — solid",
+            "120_180": "strong pass — N4-ready"
+        }
+    },
+
+    # ======================== T5: DIAGNOSTIC + DRILL ========================
+    "diagnostic_drills": {
+        "diagnostic_areas": [
+            {
+                "area": "particle_use",
+                "diagnostic_questions": ["Quiz: 5 particle-fill questions covering は/が/を/に/で/と/から/まで/も"],
+                "drill_recommendation": "If <60% correct: review n5-002 to n5-013 grammar patterns + Vocab Batch V8 counter_register entries.",
+                "module_pointers": ["data/grammar.json:n5-002..013", "data/grammar.json:n5-021"]
+            },
+            {
+                "area": "verb_conjugation",
+                "diagnostic_questions": ["Conjugate 食べる, 行く, する across te-form, past, negative"],
+                "drill_recommendation": "If <60% correct: drill wrong_corrected_pair entries on n5-067 (Vた), n5-069 (Vて), n5-066 (Vない).",
+                "module_pointers": ["data/grammar.json:n5-066..070"]
+            },
+            {
+                "area": "adjective_conjugation",
+                "diagnostic_questions": ["Conjugate 高い (i-Adj) and しずか (na-Adj) across negative, past, te-form"],
+                "drill_recommendation": "If <60% correct: review n5-079 to n5-089 patterns.",
+                "module_pointers": ["data/grammar.json:n5-078..089"]
+            },
+            {
+                "area": "counters",
+                "diagnostic_questions": ["Quiz: count 3 people, 4 books, 1 cup, 5 long objects"],
+                "drill_recommendation": "If <60% correct: review V8 counter_register entries + n5-108 to n5-114 grammar patterns.",
+                "module_pointers": ["data/vocab.json (counter_register field)", "data/grammar.json:n5-108..114"]
+            },
+            {
+                "area": "kanji_reading_recognition",
+                "diagnostic_questions": ["Recognize readings of 大学, 学校, 日本, 食べる, 行く"],
+                "drill_recommendation": "If <60% correct: review on_kun_pair_drill field for each problem kanji.",
+                "module_pointers": ["data/kanji.json (on_kun_pair_drill field)"]
+            },
+            {
+                "area": "kanji_writing_distinction",
+                "diagnostic_questions": ["Distinguish 右/左, 入/出, 大/犬/太"],
+                "drill_recommendation": "If <60% correct: review stroke_order_trap and lookalikes fields.",
+                "module_pointers": ["data/kanji.json (stroke_order_trap, lookalikes fields)"]
+            },
+            {
+                "area": "register_choice",
+                "diagnostic_questions": ["Pick appropriate response for: teacher-student vs friend-friend contexts"],
+                "drill_recommendation": "If <60% correct: review politeness_ladder on all grammar patterns + honorific_chain on verbs.",
+                "module_pointers": ["data/grammar.json (politeness_ladder field)", "data/vocab.json (honorific_chain field)"]
+            },
+            {
+                "area": "listening_speed",
+                "diagnostic_questions": ["Listen to 3 items at standard N5 rate (180-230 mora/min); track correctness"],
+                "drill_recommendation": "If <60% correct: use audio_slow versions on listening items. Build up to standard rate.",
+                "module_pointers": ["data/listening.json (audio_slow field, speech_rate_classification)"]
+            },
+            {
+                "area": "discourse_marker_tracking",
+                "diagnostic_questions": ["Read 2 short passages with でも/しかし/から/ので; answer about cause-effect"],
+                "drill_recommendation": "If <60% correct: review n5-121..134 grammar patterns + dokkai discourse_markers_used.",
+                "module_pointers": ["data/grammar.json:n5-121..134", "data/reading.json (discourse_markers_used field)"]
+            },
+        ],
+        "drill_methodology": [
+            "Step 1: Take a 5-question diagnostic per area (timed).",
+            "Step 2: For areas <60% correct, review the linked module's curated content (wrong_corrected_pair entries are the highest-yield drill source).",
+            "Step 3: Re-take the 5-question diagnostic after each review session.",
+            "Step 4: Move to the next area when target accuracy is 80%+."
+        ]
+    },
+
+    # ======================== T6: META-STRATEGY ========================
+    "meta_strategy": {
+        "five_minute_summary": [
+            "(1) JLPT N5 has TWO sections: combined Lang+Reading (60 min, 49 q, min 38/120) AND Listening (30 min, 24 q, min 19/60).",
+            "(2) Pass = both sections at minimum AND total >=80/180.",
+            "(3) Mondai have specific strategies — review them before exam.",
+            "(4) Time discipline: skip-and-return for Section 1; cannot skip in Listening.",
+            "(5) Always answer — no negative marking. Random guess = +25% expected value.",
+            "(6) Trap awareness: particle-misuse, kanji homophones, mentioned-but-rejected listening, register mismatch — all are explicit distractors.",
+            "(7) Audio plays ONCE. Pre-read printed prompts. Mental-tag speakers in 2-person dialogues."
+        ],
+        "study_distribution_recommendation": {
+            "moji_goi": "30% — high-yield vocab + kanji recognition",
+            "bunpou": "25% — pattern memorization with wrong/correct discrimination",
+            "dokkai": "15% — short timed passages",
+            "chokai": "25% — daily 30 min listening practice with native-rate items",
+            "test_simulation": "5% — full timed mock exam every 2 weeks"
+        },
+        "two_week_drill_schedule": [
+            {"day": 1, "focus": "Kanji recognition (mondai 1 + 2 of moji_goi)", "minutes": 45},
+            {"day": 2, "focus": "Vocabulary context (mondai 3-5 of moji_goi)", "minutes": 45},
+            {"day": 3, "focus": "Grammar form-fill (mondai 1 of bunpou)", "minutes": 60},
+            {"day": 4, "focus": "Sentence composition (mondai 2 of bunpou)", "minutes": 60},
+            {"day": 5, "focus": "Text grammar + short reading (mondai 3-4)", "minutes": 60},
+            {"day": 6, "focus": "Long reading + info-search (mondai 5-6)", "minutes": 60},
+            {"day": 7, "focus": "Listening mondai 1-2 (task + point)", "minutes": 45},
+            {"day": 8, "focus": "Listening mondai 3-4 (expression + immediate)", "minutes": 45},
+            {"day": 9, "focus": "Review wrong_corrected_pair across grammar", "minutes": 60},
+            {"day": 10, "focus": "Review false_friends across vocab", "minutes": 60},
+            {"day": 11, "focus": "Half-length timed mock (3 mondai of each section)", "minutes": 90},
+            {"day": 12, "focus": "Identify weak areas from mock; drill", "minutes": 90},
+            {"day": 13, "focus": "Full timed mock exam", "minutes": 90},
+            {"day": 14, "focus": "Light review + rest", "minutes": 30},
+        ],
+        "exam_day_checklist": [
+            "Bring HB pencils (NOT mechanical) and an eraser.",
+            "Bring photo ID and admission slip.",
+            "Arrive 30 min early. Bathroom break before each section.",
+            "Read instructions even if familiar.",
+            "Pace yourself — don't sprint mondai 1, don't crawl mondai 6.",
+            "Trust your first instinct unless you find concrete evidence against it.",
+            "Keep moving — never linger more than 2x average per question.",
+            "Fill EVERY blank — never leave any answer empty."
+        ]
+    },
+
+    # ======================== INTEGRATION POINTERS ========================
+    "ui_integration_pointers": {
+        "score_estimator": "Aggregate user's session correctness rate; map to scaled-score band using diagnostic_band table.",
+        "weak_area_dashboard": "Cross-reference user's wrong-answer history against trap_patterns and diagnostic_drills to suggest review paths.",
+        "timer_overlay": "Per-mondai timer using section_timing.*.mondai_breakdown[*].seconds_per_q. Yellow when 75% used, red when 100% used.",
+        "strategy_card_modal": "Show technique cards by id (T3-001 to T3-015) on hover/tap, contextual to current mondai.",
+        "exam_day_prep": "Show 5-minute summary + checklist 24h before user's registered exam date."
+    }
+}
+
+# Write file
+out_path = ROOT / 'data' / 'test_strategy.json'
+out_path.write_text(json.dumps(test_strategy, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+print(f'Wrote: {out_path}')
+print(f'Size: {out_path.stat().st_size} bytes')
+
+# Summary
+print()
+print('=== TEST-STRATEGY BANK SUMMARY ===')
+print(f'  T1 section_timing:        {len(test_strategy["section_timing"]) - 1} sections + exam_structure meta')
+print(f'  T2 trap_patterns:         {len(test_strategy["trap_patterns"])} catalogued')
+print(f'  T3 techniques:            {len(test_strategy["techniques"])} authored')
+print(f'  T4 score_breakdown:       complete (raw->scaled, section mins, diagnostic bands)')
+print(f'  T5 diagnostic_drills:     {len(test_strategy["diagnostic_drills"]["diagnostic_areas"])} areas')
+print(f'  T6 meta_strategy:         5-min summary + 14-day drill + exam-day checklist')
+print(f'  ui_integration_pointers:  {len(test_strategy["ui_integration_pointers"])} hooks documented')
