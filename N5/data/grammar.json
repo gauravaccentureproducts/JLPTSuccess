@@ -6293,7 +6293,12 @@
           "why": "Order is start-end: から first, then まで."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-010",
+          "note": "Paired range. n5-021 is the \"から ～ まで\" both-endpoints range marker (9:00 から 5:00 まで). n5-010 is the bare まで, marking just the endpoint (\"until X\") without the explicit start."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -22806,7 +22811,12 @@
           "why": "しる is the famous exception. Affirmative しっています but negative しりません (NOT しっていません)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-072",
+          "note": "Negative pair: n5-072 (Verb-ています) is the affirmative continuous / state. n5-073 (Verb-ていません) is the negative — \"currently NOT in state, NOT doing.\" Same form, opposite polarity."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "अभी नहीं कर रहा / स्थिति में नहीं",
@@ -41608,7 +41618,16 @@
           "why": "Reason answers in formal speech end in ～からです, not just the bare clause."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-134",
+          "note": "Both are reason patterns. n5-129 is the explicit Q-and-A frame (どうして〜か → 〜から). n5-134 (〜ので) is the softer / more polite \"because\" — preferred when the speaker wants to sound less direct."
+        },
+        {
+          "with_pattern_id": "n5-009",
+          "note": "Both involve から as causal. n5-009 is the bare から marker on a clause (\"because-X\"). n5-129 is the explicit Q-and-A frame (どうしてですか / 〜から) — a discourse template, not just a particle."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्यों...? क्योंकि~ (प्रश्न-उत्तर कारण-पैटर्न)",
@@ -54077,7 +54096,12 @@
           "why": "Recommendations use the た-form: ～たほうがいい. Plain form ～ほうがいい is grammatical but sounds like a comparison (\"the going option is better\"), not advice."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-171",
+          "note": "Affirmative recommendation. n5-170 (Verb-た + ほうが いい) is \"you should do X\" using the た-form. n5-171 is the negative counterpart (Verb-ない + ほうが いい) — \"you shouldn't do X\". Mind the た vs ない form distinction."
+        }
+      ],
       "notes": "Upper N5 / borderline.",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-た + ほうがいい - करना चाहिए",
@@ -54425,7 +54449,12 @@
           "why": "Negative ほうがいい uses the plain ない form (行かない), not the て-form ない (行かなくて)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-170",
+          "note": "Negative recommendation. n5-171 (Verb-ない + ほうが いい) is \"you shouldn't do X\" using the ない-form. n5-170 is the affirmative counterpart (Verb-た + ほうが いい) — \"you should do X\". The form distinguishes polarity."
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-ない + ほうがいい - नहीं करना चाहिए",
