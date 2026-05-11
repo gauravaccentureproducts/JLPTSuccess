@@ -244,6 +244,93 @@ function applyNavTranslations() {
   });
 }
 
+// IMP-WAVE-P4-29 (UI audit fix, 2026-05-12): per-route SEO meta
+// updater. SPAs ship a single index.html; server-side meta tags
+// can't change per route. Client-side updates still help screen
+// readers, dynamic-rendering crawlers (Googlebot since 2019 runs
+// JS), and browser tab titles / share previews.
+//
+// Maps each route to a (title, description) tuple. The hash-deep
+// param (e.g., #/learn/n5-001) gets appended to title when present
+// for deep-link previews. Falls back to the static meta when no
+// route-specific tuple exists.
+const ROUTE_META = {
+  home:       { title: 'JLPT N5 study material — free, offline, English + Hindi',
+                desc:  'Grammar / vocab / kanji / reading / listening. No login. No tracking. Works offline.' },
+  learn:      { title: 'Learn JLPT N5 — grammar + vocabulary',
+                desc:  '178 N5 grammar patterns and 1009 vocab entries, with native examples and provenance.' },
+  test:       { title: 'JLPT N5 test mode',
+                desc:  'Timed multiple-choice tests over the N5 corpus. Per-question rationale, per-pattern history.' },
+  drill:      { title: 'JLPT N5 spaced-repetition drill',
+                desc:  'SRS-graded review of patterns and vocab you have studied. SM-2 / FSRS scheduling.' },
+  review:     { title: 'JLPT N5 review queue',
+                desc:  'Items due for review today. Anki-style grading.' },
+  summary:    { title: 'JLPT N5 progress dashboard',
+                desc:  'Mastered patterns, weak areas, error patterns, study streak.' },
+  diagnostic: { title: 'JLPT N5 placement diagnostic',
+                desc:  '15-question placement test to establish where to start.' },
+  settings:   { title: 'JLPT N5 settings',
+                desc:  'Locale, theme, font size, audio rate, daily caps, data export.' },
+  reading:    { title: 'JLPT N5 reading practice',
+                desc:  '54 reading passages with grammar footnotes, vocabulary preview, time targets.' },
+  listening:  { title: 'JLPT N5 listening practice',
+                desc:  '50 chokai items with VOICEVOX audio, transcripts, distractor-pattern hints.' },
+  kanji:      { title: 'JLPT N5 kanji — 106 characters',
+                desc:  '106 N5 kanji with stroke-order SVGs, mnemonics, etymology, real-world cards.' },
+  sitting:    { title: 'JLPT N5 mock paper sitting',
+                desc:  'Full timed mock exam with section breaks, per-mondai pacing, scaled-score estimate.' },
+  papers:     { title: 'JLPT N5 papers',
+                desc:  '29 papers across moji, goi, bunpou, dokkai, listening, plus full-mock sets.' },
+  missed:     { title: 'JLPT N5 wrong-answer history',
+                desc:  'Every question you got wrong, ordered for review.' },
+  print:      { title: 'Print JLPT N5 paper to PDF',
+                desc:  'Save any mock paper as a printable PDF for paper-and-pencil practice.' },
+  authentic:  { title: 'Authentic Japanese — real-world signs, menus, transit',
+                desc:  '100 cards of actual JP signage, menu prices, station notices, weather forecasts.' },
+  strategy:   { title: 'JLPT N5 test-taking strategy',
+                desc:  'Section timing, trap patterns, 15 techniques, score breakdown, diagnostic drills.' },
+  weakareas:  { title: 'JLPT N5 weak-area diagnostic',
+                desc:  'Cross-references your history against 9 diagnostic areas; surfaces drill recommendations.' },
+  examday:    { title: 'JLPT N5 exam-day prep checklist',
+                desc:  '5-min summary, day-of checklist, 14-day drill schedule. Printable.' },
+  changelog:  { title: 'JLPT N5 changelog',
+                desc:  'Version history of the JLPTSuccess N5 release stream.' },
+  privacy:    { title: 'JLPT N5 privacy policy',
+                desc:  'No login. No telemetry. No third-party scripts. Everything stays in your browser.' },
+  notices:    { title: 'JLPT N5 legal notices + licenses',
+                desc:  'MIT (code) + CC BY-SA 4.0 (content). Third-party attribution.' },
+  feedback:   { title: 'JLPT N5 feedback',
+                desc:  'How to report a content error, suggest improvements, or request a feature.' },
+};
+
+function applyRouteMeta(name, params) {
+  const meta = ROUTE_META[name];
+  if (!meta) return;
+  let title = meta.title;
+  if (params && typeof params === 'string' && params.length) {
+    title += ` — ${params.split('/')[0]}`;
+  }
+  document.title = title;
+  // Update or create per-route meta description
+  let desc = document.querySelector('meta[name="description"]');
+  if (desc) desc.setAttribute('content', meta.desc);
+  // Mirror to OG
+  for (const sel of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+    const m = document.querySelector(sel);
+    if (m) m.setAttribute('content', title);
+  }
+  for (const sel of ['meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+    const m = document.querySelector(sel);
+    if (m) m.setAttribute('content', meta.desc);
+  }
+  // og:url with the current hash so social-card previews resolve correctly
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) {
+    const base = ogUrl.getAttribute('content') || location.origin + location.pathname;
+    ogUrl.setAttribute('content', base.replace(/#.*$/, '') + location.hash);
+  }
+}
+
 async function route() {
   const container = document.getElementById('app');
   const { name, params } = parseRoute();
@@ -251,6 +338,7 @@ async function route() {
   setActiveNav(handler === renderLearn ? 'learn' : name);
   applyNavTranslations();
   applyDataI18nKeys();
+  applyRouteMeta(name, params);
   renderSkeleton(container, name);
   let timedOut = false;
   const timeoutId = setTimeout(() => {
