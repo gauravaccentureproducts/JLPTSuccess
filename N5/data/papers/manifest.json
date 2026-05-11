@@ -622,5 +622,8 @@
       "grading_method": "text_match_runtime_shuffled",
       "note": "Virtual paper — sampled from listening pool. Real JLPT N5 Chokai = 24Q in 30 min. Renderer shuffles choices at runtime; static answer-position is irrelevant."
     }
-  ]
+  ],
+  "_meta": {
+    "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it)."
+  }
 }

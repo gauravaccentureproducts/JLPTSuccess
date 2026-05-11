@@ -18,7 +18,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred
 | # | ID | P | Title | Status |
 |---|---|---|---|---|
 | 1 | LEGAL-F-1 | P1 | Remove `feedback/closed/external-questions-learnjapaneseaz.md` + `feedback/closed/external-corpus/learnjapaneseaz-extract.json` from public repo (DMCA risk) | ⏳ pending |
-| 2 | LEGAL-F-2 | P1 | Disclose Claude-as-native-reviewer in CONTENT-LICENSE.md §9 + propagate `_meta.native_review_pass_2026_05_07` to grammar/vocab/kanji/papers/manifest data files | ⏳ pending |
+| 2 | LEGAL-F-2 | P1 | Disclose Claude-as-native-reviewer in CONTENT-LICENSE.md §9 + propagate `_meta.native_review_pass_2026_05_07` to grammar/vocab/kanji/papers/manifest data files | ✅ done 2026-05-11 (§9 added; manifest.json _meta added; grammar/vocab/kanji already propagated in earlier batches) |
 
 ### TIER 2 — MEDIUM severity (documentation backlog)
 
@@ -37,7 +37,7 @@ Status: ⏳ pending · 🔧 in-progress · ✅ done · ⏸ deferred
 | 8 | LEGAL-F-8 | P4 | Spot-check 5 random `svg/kanji/*.svg` for byte-preserved KanjiVG copyright header; add JA-48 invariant if any are missing | ⏳ pending |
 | 9 | LEGAL-F-9 | P4 | Add GitHub-Pages server-side IP-logging note to PRIVACY.md (closes GDPR Art 13/14 information-obligation gap) | ⏳ pending |
 | 10 | LEGAL-F-10 | P4 | Surface VOICEVOX speaker name on the listening-item playback UI (e.g. "Voice: 四国めたん") — currently only in NOTICES.md + internal `audio_render_meta` | ⏳ pending |
-| 11 | LEGAL-F-11 | P5 | Run `python tools/check_content_integrity.py -v` to confirm 50/50 invariants stayed green during this legal-vetting audit pass (audit-process honesty) | ⏳ pending |
+| 11 | LEGAL-F-11 | P5 | Run `python tools/check_content_integrity.py -v` to confirm 50/50 invariants stayed green during this legal-vetting audit pass (audit-process honesty) | ✅ done 2026-05-11 (50/50 green) |
 
 ### Open factual questions (F-1..F-11 follow-ups)
 

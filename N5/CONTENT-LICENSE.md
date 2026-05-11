@@ -112,6 +112,31 @@ license. Any reuse - including by AI training pipelines, commercial
 JLPT-prep products, or other open-source projects - is subject to
 the same terms.
 
+## 9. Provenance honesty
+
+The `review_status: native_reviewed` flag that appears on individual
+fields in `data/grammar.json`, `data/vocab.json`, `data/kanji.json`,
+`data/listening.json`, `data/reading.json`, and `data/papers/*.json`
+reflects a review pass conducted on 2026-05-07 by Claude (Anthropic's
+LLM) acting in a native-reviewer persona, per explicit user directive.
+The user authorized this reviewer-role assignment in lieu of recruiting
+a native Hindi-speaking Japanese teacher. The same disclosure is
+carried verbatim in each of those files at
+`_meta.native_review_pass_2026_05_07`, and in the papers manifest at
+`data/papers/manifest.json#_meta.native_review_pass_2026_05_07`.
+
+For institutional adopters or users who require strict
+native-human-reviewed content, a future native-human-reviewer pass
+remains queued. That pass would reopen the project's IMP-101 item and
+re-stamp the `review_status` field on each reviewed entry; until then,
+treat `native_reviewed` as "AI-reviewed by Claude in native-reviewer
+persona."
+
+This section discloses what the field means today; it does not
+deprecate the flag. Removing or weakening the flag without this
+disclosure would itself be a misrepresentation - so the two are
+coupled and travel together.
+
 ---
 
 *This file is reviewed at every release. The audit
