@@ -338,7 +338,19 @@ export function renderVocabularyList(container, data) {
 
 export function renderVocabularyDetail(container, vocabData, grammarData, form) {
   const entries = vocabData.entries || [];
-  const entry = entries.find(e => e.form === form);
+  // IMP-P3.33 (UI audit polish, 2026-05-11): accept either form or full
+  // vocab id (e.g. "n5.vocab.10-verbs-of-motion-and-pre.食べる") so
+  // direct-link sharing from a vocab item works regardless of which
+  // identifier the URL carries.
+  let entry = entries.find(e => e.form === form);
+  if (!entry) {
+    entry = entries.find(e => e.id === form);
+  }
+  if (!entry && form && form.includes('.')) {
+    // Try matching the trailing segment of an id as a form
+    const tail = form.split('.').pop();
+    entry = entries.find(e => e.form === tail);
+  }
   if (!entry) {
     container.innerHTML = `
       <article class="vocab-detail">

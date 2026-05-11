@@ -507,7 +507,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       <span class="form-tag">${esc(ex.form || '')}</span>
       ${renderJa(ex.ja, ex.furigana)}
       ${ex.translation_en ? `<span class="translation">${esc(ex.translation_en)}</span>` : ''}
-      ${audioPath ? `<audio class="example-audio" controls preload="none" src="${esc(audioPath)}">Audio not available.</audio>` : ''}
+      ${audioPath ? `<audio class="example-audio" controls preload="none" src="${esc(audioPath)}"></audio>` : ''}
     </li>
   `;
   }).join('');
