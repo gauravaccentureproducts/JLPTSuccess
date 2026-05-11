@@ -535,11 +535,28 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
     const label = t(key) !== key ? t(key) : cat;
     return `<span class="error-category-badge cat-${esc(cat)}">${esc(label)}</span>`;
   };
+  // IMP-WAVE3+ (UI clarity 2026-05-11): wcp pairs previously showed
+  // two lines of Japanese without explicit correct/incorrect labels —
+  // users were having to guess which was which from CSS color cues
+  // alone (.wrong = red strikethrough, .right = green bold). Adding
+  // explicit text labels + ✗/✓ symbols. The label is localized
+  // (grammar_detail.wcp_wrong / wcp_correct) so EN and HI both read
+  // clearly; symbols are language-agnostic and screen-reader-friendly.
+  const wcpLabelWrong   = t('grammar_detail.wcp_wrong');
+  const wcpLabelCorrect = t('grammar_detail.wcp_correct');
   const wcpItems = wcp.map(m => `
     <li>
       <div class="wcp-header">${categoryBadge(m.error_category)}</div>
-      <div><span class="wrong">${renderJa(m.wrong)}</span></div>
-      <div><span class="right">${renderJa(m.correct)}</span></div>
+      <div class="wcp-row wcp-row-wrong">
+        <span class="wcp-mark" aria-hidden="true">✗</span>
+        <span class="wcp-label">${esc(wcpLabelWrong)}</span>
+        <span class="wrong">${renderJa(m.wrong)}</span>
+      </div>
+      <div class="wcp-row wcp-row-correct">
+        <span class="wcp-mark" aria-hidden="true">✓</span>
+        <span class="wcp-label">${esc(wcpLabelCorrect)}</span>
+        <span class="right">${renderJa(m.correct)}</span>
+      </div>
       <span class="why">${esc(m.why)}</span>
     </li>
   `).join('');
@@ -606,6 +623,8 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
     <article class="pattern-detail">
       ${navHtml}
       <a class="back-link no-print" href="#/learn/grammar">← ${esc(t('grammar_detail.back_to_list'))}</a>
+      ${p._alias_of ? `<p class="pattern-alias-badge muted small">↔ <a href="#/learn/${encodeURIComponent(p._alias_of)}">Also see ${esc(p._alias_of)}</a> <span class="muted">(dual-coverage of the same concept; different examples)</span></p>` : ''}
+      ${p._homonym_of ? `<p class="pattern-homonym-badge muted small">⚠ <a href="#/learn/${encodeURIComponent(p._homonym_of)}">Same kana, different meaning: ${esc(p._homonym_of)}</a></p>` : ''}
       <div class="pattern-header">
         <div>
           <h2 class="pattern-name">${esc(p.pattern)} ${lessonTag}</h2>
