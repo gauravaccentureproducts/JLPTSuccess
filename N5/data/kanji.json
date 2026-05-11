@@ -5935,7 +5935,7 @@
       "reading_rule": "Generic rule: standalone kanji → typically kun-yomi; compound kanji → typically on-yomi. For 男: standalone use of kun (おとこ); compounds use on (だん).",
       "reading_rule_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "田 above, 力 below.",
+        "trap": "Two common errors: (a) writing 力 first (left-to-right scan instinct), and (b) drawing 田 with the inner cross out of order. The cross inside 田 always comes after the outer box closes.",
         "correct_order_summary": "1-5: 田 (top half, 5 strokes). 6-7: 力 (hook + ノ).",
         "why_it_matters": "Component-by-component: 田 fully before 力."
       },
@@ -8802,7 +8802,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "Top hat 人 + bottom 云.",
+        "trap": "Many learners draw the bottom 云 first because it's the more prominent element. The top 人-hat (ノ then ╲) must come first — the same rule as 入 / 八 / 全.",
         "correct_order_summary": "1: left ノ. 2: right ╲ (hat). 3-6: 云 (top horizontal, dot, hook+curl).",
         "why_it_matters": "6 strokes."
       },
@@ -8933,7 +8933,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "示 (left radical), then 土.",
+        "trap": "The left radical 示 (ねへん) must finish completely before 土 starts. A common slip is interleaving — drawing 示's leftmost ノ, then jumping to 土's top horizontal.",
         "correct_order_summary": "1-4: 示 (left half: dot, two horizontals, two ノ). 5-7: 土.",
         "why_it_matters": "7 strokes. Left radical 示 first."
       },
@@ -12235,7 +12235,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "穴 cap on top, 工 below.",
+        "trap": "Learners often start 工 before closing 穴 on top. The 穴 cap (5 strokes) is a single self-contained unit that must finish first — same hat-first rule as 究 / 突.",
         "correct_order_summary": "1-5: 穴 (top hat structure). 6-8: 工.",
         "why_it_matters": "8 strokes. Hat-first structure."
       },
@@ -13784,7 +13784,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "Top 聿-like, then 曰 at bottom.",
+        "trap": "Starting with the bottom 曰 is the typical mistake. The order is the top horizontal first, then the 聿-like upper block top-to-bottom, then 曰 last. Mirror of the more visible bottom-half.",
         "correct_order_summary": "1: short horizontal. 2-7: 聿-like upper part. 8-10: 曰 box. Total 10.",
         "why_it_matters": "10 strokes. Top-to-bottom assembly."
       },
@@ -13936,7 +13936,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "言 (left) + 舌 (right).",
+        "trap": "Drawing 舌 (the right element) before completing 言 (the left radical, ごんべん). All radical-on-left kanji follow left-first: finish 言 entirely, then start 舌.",
         "correct_order_summary": "1-7: 言. 8-13: 舌 (千 + 口).",
         "why_it_matters": "13 strokes. Left-radical-first."
       },
@@ -14132,7 +14132,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "一 first, then 米-like.",
+        "trap": "Two issues: (a) confusing the central structure with 末 (similar silhouette, different mid-element), and (b) stroking the central vertical before completing the top horizontal. Top horizontal first, then the central frame top-down.",
         "correct_order_summary": "1: top horizontal. 2: left vertical. 3: right vertical. 4-7: cross + dots inside.",
         "why_it_matters": "7 strokes. Distinguishes from 末 (similar but different element)."
       },
@@ -14988,7 +14988,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "亻 (left, person radical) + 木.",
+        "trap": "Drawing 木 (the right element) before 亻 (the left radical, にんべん). All にんべん kanji are left-first: finish 亻 (2 strokes), then start 木.",
         "correct_order_summary": "1-2: 亻 (ノ + vertical). 3-6: 木.",
         "why_it_matters": "6 strokes. Left-radical-first."
       },
@@ -15563,7 +15563,7 @@
       ],
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "宀 (roof) on top, 女 below.",
+        "trap": "Drawing 女 before fully closing 宀 (うかんむり) is one slip; the other is reversing 女's own internal order — 女's long horizontal cross-stroke comes LAST, not first.",
         "correct_order_summary": "1-3: 宀 (dot, horizontal+hook). 4-6: 女 (cross-stroke last in 女).",
         "why_it_matters": "6 strokes. Roof-first."
       },
@@ -15847,7 +15847,7 @@
       "okurigana_cuts_provenance": "auto_derived",
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "十 (top, 2 strokes) + 口.",
+        "trap": "Writing 口 first is the common mistake. The 十 on top (horizontal then vertical) precedes the 口 box — top-down assembly. Inside 口, follow standard box rule (left side / top+right bracket / bottom horizontal).",
         "correct_order_summary": "1: horizontal. 2: vertical. 3-5: 口 (with box rule).",
         "why_it_matters": "5 strokes. Cross + box."
       },
@@ -16137,7 +16137,7 @@
       ],
       "okurigana_cuts_provenance": "auto_derived",
       "stroke_order_trap": {
-        "trap": "丿 first (top ノ), then 日.",
+        "trap": "Omitting the leading ノ turns 白 into 日 — a different kanji entirely. The short ノ at the very top is stroke #1, and is what distinguishes 白 from 日 visually and orthographically.",
         "correct_order_summary": "1: short ノ (top). 2: left vertical. 3: top + right (bracket). 4: middle horizontal. 5: bottom horizontal.",
         "why_it_matters": "5 strokes. The leading ノ distinguishes from 日."
       },
@@ -16518,7 +16518,7 @@
       "lookalikes_note": "号 has no close visual confusion partner among N5 kanji.",
       "lookalikes_provenance": "llm_curated",
       "stroke_order_trap": {
-        "trap": "口 (top) + 丂 (bottom).",
+        "trap": "Writing the bottom 丂 before completing 口 is the typical mistake. The structure is top-down: 口 (3 strokes) first, then 丂 (horizontal then hook+curl). Same top-first rule as 員 / 品.",
         "correct_order_summary": "1-3: 口. 4: top of 丂 (horizontal). 5: 丂 hook+curl.",
         "why_it_matters": "5 strokes."
       },
