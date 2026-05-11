@@ -817,6 +817,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-39", "Locale set in content data is exactly {en, hi} (2026-05-06)", lambda: _check_ja_39_locale_set_en_hi()),
     ("JA-40", "moji/goi/bunpou paper distractors bounded by N5 + paper-distractor exception (2026-05-08)", lambda: _check_ja_40_paper_distractor_kanji_bounded()),
     ("JA-41", "Hindi prose: Japanese grammatical particles attached to Hindi terms must be in kana (R-1.1, 2026-05-07)", lambda: _check_ja_41_kana_prefix_convention()),
+    ("JA-47", "CONTENT-LICENSE.md corpus counts agree with live data/*.json counts (legal-vetting F-3, 2026-05-11)", lambda: _check_ja_47_content_license_counts()),
 ]
 
 
@@ -2471,6 +2472,73 @@ def _check_ja_41_kana_prefix_convention() -> list[str]:
                 failures.append(f"JA-41 parse error on {pf.name}: {e}")
 
     return failures[:30]  # cap noise
+
+
+# ---------------------------------------------------------------------------
+# JA-47 added for legal-vetting F-3 (2026-05-11)
+# ---------------------------------------------------------------------------
+
+def _check_ja_47_content_license_counts() -> list[str]:
+    """CONTENT-LICENSE.md §1 'What is original' table corpus counts agree
+    with live data/*.json counts. Prevents the legal-defensibility document
+    drifting out of sync after content batches. Added per F-3 (2026-05-11)."""
+    failures = []
+    try:
+        cl_text = (ROOT / "CONTENT-LICENSE.md").read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-47 could not read CONTENT-LICENSE.md: {e}"]
+
+    def _live_list_count(filename: str, key: str) -> int | None:
+        try:
+            d = json.loads((ROOT / filename).read_text(encoding="utf-8"))
+            v = d.get(key)
+            return len(v) if isinstance(v, list) else None
+        except Exception:
+            return None
+
+    # (regex-with-int-capture, human-label, live-count-or-None)
+    # Reads counts straight out of the §1 table cell, e.g. "(178 patterns)".
+    checks = [
+        (r"`data/grammar\.json`\s*\((\d+)\s*patterns?\)",  "grammar patterns",   _live_list_count("data/grammar.json",   "patterns")),
+        (r"`data/questions\.json`\s*\((\d+)\s*MCQ",        "MCQ questions",      _live_list_count("data/questions.json", "questions")),
+        (r"`data/reading\.json`\s*\((\d+)\s*passages?\)",  "reading passages",   _live_list_count("data/reading.json",   "passages")),
+        (r"`data/listening\.json`\s*\((\d+)\s*drills?\)",  "listening drills",   _live_list_count("data/listening.json", "items")),
+        (r"`data/vocab\.json`\s*\((\d+)\s*entries?\)",     "vocab entries",      _live_list_count("data/vocab.json",     "entries")),
+        (r"`data/kanji\.json`\s*\((\d+)\s*entries?\)",     "kanji entries",      _live_list_count("data/kanji.json",     "entries")),
+    ]
+    for pattern, label, live in checks:
+        m = re.search(pattern, cl_text)
+        if not m:
+            failures.append(f"JA-47 could not locate {label} claim in CONTENT-LICENSE.md")
+            continue
+        if live is None:
+            failures.append(f"JA-47 could not compute live count for {label}")
+            continue
+        claimed = int(m.group(1))
+        if claimed != live:
+            failures.append(f"JA-47 {label}: CONTENT-LICENSE.md claims {claimed}, live count is {live}")
+
+    # Papers manifest: paperCount + totalQuestions both cross-referenced.
+    try:
+        pm = json.loads((ROOT / "data" / "papers" / "manifest.json").read_text(encoding="utf-8"))
+        live_papers = pm.get("totalPapers")
+        live_paper_qs = pm.get("totalQuestions")
+        m_papers = re.search(r"`data/papers/.*?\((\d+)\s*papers?\s*\xd7\s*(\d+)\s*paper\s*questions", cl_text)
+        if m_papers is None:
+            # `×` may be written as ASCII 'x' in some edits; allow fallback
+            m_papers = re.search(r"`data/papers/.*?\((\d+)\s*papers?\s*[x\xd7]\s*(\d+)\s*paper\s*questions", cl_text)
+        if m_papers:
+            cl_papers, cl_qs = int(m_papers.group(1)), int(m_papers.group(2))
+            if isinstance(live_papers, int) and cl_papers != live_papers:
+                failures.append(f"JA-47 paper count: CONTENT-LICENSE.md claims {cl_papers}, manifest.json has {live_papers}")
+            if isinstance(live_paper_qs, int) and cl_qs != live_paper_qs:
+                failures.append(f"JA-47 paper questions: CONTENT-LICENSE.md claims {cl_qs}, manifest.json has {live_paper_qs}")
+        else:
+            failures.append("JA-47 could not locate papers count claim in CONTENT-LICENSE.md")
+    except Exception as e:
+        failures.append(f"JA-47 papers cross-check failed: {e}")
+
+    return failures
 
 
 def main(argv: list[str] | None = None) -> int:
