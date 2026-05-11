@@ -6651,7 +6651,16 @@
         },
         "contrast_note": "友 kun=とも; common compound 友達 (友達 is N4 but とも is N5)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "友だち",
+          "reading": "ともだち",
+          "gloss": "friend",
+          "vocab_id": "n5.vocab.2-people-family.ともだち"
+        }
+      ],
+      "n5_compounds_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.先",
@@ -7139,7 +7148,28 @@
         },
         "contrast_note": "手 kun=て standalone. Most common compound 上手/下手 use irregular reading."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "手",
+          "reading": "て",
+          "gloss": "hand",
+          "vocab_id": "n5.vocab.4-body-parts.て"
+        },
+        {
+          "form": "手紙",
+          "reading": "てがみ",
+          "gloss": "letter",
+          "vocab_id": "n5.vocab.22-money-and-shopping.てがみ"
+        },
+        {
+          "form": "上手",
+          "reading": "じょうず",
+          "gloss": "skilled",
+          "vocab_id": "n5.vocab.32-adjectives.じょうず"
+        }
+      ],
+      "n5_compounds_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.足",
@@ -7262,7 +7292,16 @@
         },
         "contrast_note": "足 kun=あし, on=そく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "足",
+          "reading": "あし",
+          "gloss": "leg, foot",
+          "vocab_id": "n5.vocab.4-body-parts.あし"
+        }
+      ],
+      "n5_compounds_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.目",
@@ -7413,7 +7452,16 @@
         },
         "contrast_note": "目 kun=め standalone, also ordinal-suffix (1つ目, 2番目)."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "目",
+          "reading": "め",
+          "gloss": "eye",
+          "vocab_id": "n5.vocab.4-body-parts.め"
+        }
+      ],
+      "n5_compounds_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.口",
@@ -7668,7 +7716,15 @@
         },
         "contrast_note": "力 kun=ちから, on=りょく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "n5_compounds": [
+        {
+          "form": "力",
+          "reading": "ちから",
+          "gloss": "power, strength"
+        }
+      ],
+      "n5_compounds_provenance": "llm_curated"
     },
     {
       "id": "n5.kanji.学",
