@@ -308,6 +308,24 @@ function renderDetail(container, entry, entries) {
           </ul>
         </section>
       ` : ''}
+      ${entry.authentic_refs?.length ? `
+        <!-- IMP-WAVE-AUTHENTIC-XLINK (2026-05-11): real-world
+             cards where this kanji appears on actual JP signs,
+             menus, transit boards, etc. The /authentic page
+             hosts the source cards. -->
+        <section class="kanji-authentic-refs">
+          <h3>Seen in the real world</h3>
+          <p class="muted small">
+            This kanji appears on these authentic Japanese cards. Click to see the original sign / menu / notice in context.
+          </p>
+          <ul class="authentic-ref-list">
+            ${entry.authentic_refs.map(cid => {
+              const cat = (cid.split('.')[1] || 'authentic');
+              return `<li><a href="#/authentic">${esc(cid)}</a> <span class="muted small">(${esc(cat)})</span></li>`;
+            }).join('')}
+          </ul>
+        </section>
+      ` : ''}
       ${entry.stroke_order_svg ? `
         <section class="kanji-stroke">
           <h3>${esc(t('kanji_detail.stroke_order'))}</h3>

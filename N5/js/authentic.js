@@ -105,7 +105,12 @@ function renderItemCard(it) {
       ${it.context ? `<p class="authentic-card-context muted small">${esc(it.context)}</p>` : ''}
       ${it.vocab_refs?.length ? `
         <p class="authentic-card-vocab-refs muted small">
-          Study: ${it.vocab_refs.map(vid => `<a href="#/learn/${encodeURIComponent(vid)}">${esc(vidLabel(vid))}</a>`).join(', ')}
+          Study vocab: ${it.vocab_refs.map(vid => `<a href="#/learn/${encodeURIComponent(vid)}">${esc(vidLabel(vid))}</a>`).join(', ')}
+        </p>
+      ` : ''}
+      ${it.kanji_refs?.length ? `
+        <p class="authentic-card-kanji-refs muted small">
+          Study kanji: ${it.kanji_refs.map(kid => `<a href="#/kanji/${encodeURIComponent(vidLabel(kid))}" lang="ja">${esc(vidLabel(kid))}</a>`).join(' ')}
         </p>
       ` : ''}
       <div class="authentic-card-actions">

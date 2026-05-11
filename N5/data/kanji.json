@@ -2372,7 +2372,12 @@
         },
         "contrast_note": "円 reads えん (on) standalone for \"yen\" or in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.koohii",
+        "auth.menu.ocha"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.日",
@@ -4438,7 +4443,11 @@
         },
         "contrast_note": "時 kun=とき (occasion), on=じ in clock-time compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.shop.jikan"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.分",
@@ -5968,7 +5977,11 @@
         },
         "contrast_note": "男 kun=おとこ. on=だん in 男性."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.toire-otoko"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.女",
@@ -6098,7 +6111,11 @@
         },
         "contrast_note": "女 kun=おんな. on=じょ in 女性."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.toire-onna"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.子",
@@ -7301,7 +7318,11 @@
           "vocab_id": "n5.vocab.4-body-parts.あし"
         }
       ],
-      "n5_compounds_provenance": "llm_curated"
+      "n5_compounds_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.te-wo-haisaku"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.目",
@@ -7596,7 +7617,14 @@
         },
         "contrast_note": "口 kun=くち, on=こう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.deguchi",
+        "auth.signs.iriguchi",
+        "auth.transit.deguchi-kita",
+        "auth.transit.deguchi-minami"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.力",
@@ -9349,7 +9377,11 @@
         },
         "contrast_note": "大 kun=おお-きい (adj), on=だい/たい in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.oomori"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.中",
@@ -10042,7 +10074,11 @@
         },
         "contrast_note": "左 kun=ひだり, on=さ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kakeki-hidari"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.右",
@@ -10161,7 +10197,11 @@
         },
         "contrast_note": "右 kun=みぎ, on=う/ゆう in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kakeki-michi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.前",
@@ -11752,7 +11792,11 @@
         },
         "contrast_note": "雨 kun=あめ, on=う rare."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.weather.ame"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.天",
@@ -11884,7 +11928,11 @@
         },
         "contrast_note": "天 mostly on=てん; kun=あめ archaic."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.weather.tenki-yohou"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.気",
@@ -12020,7 +12068,11 @@
         },
         "contrast_note": "気 only on=き/け; very common compound element."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.weather.tenki-yohou"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.花",
@@ -12424,7 +12476,11 @@
         },
         "contrast_note": "電 only on=でん; element in many \"electric\" compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.densha-okurete"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.車",
@@ -12552,7 +12608,11 @@
         },
         "contrast_note": "車 kun=くるま standalone for \"car\", on=しゃ in vehicle compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.densha-okurete"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.道",
@@ -13083,7 +13143,11 @@
         },
         "contrast_note": "食 kun=た-べる (verb), on=しょく in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.tabehoudai"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.飲",
@@ -14559,7 +14623,13 @@
         },
         "contrast_note": "出 kun=で-る/だ-す (verbs), on=しゅつ in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.deguchi",
+        "auth.transit.deguchi-kita",
+        "auth.transit.deguchi-minami"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.入",
@@ -14732,7 +14802,11 @@
         },
         "contrast_note": "入 has both kun (はい-る, い-る verbs) and on (にゅう); 入口 unusually combines kun+kun."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.iriguchi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.立",
@@ -15728,7 +15802,11 @@
         },
         "contrast_note": "新 kun=あたら-しい (adj), on=しん in compounds."
       },
-      "on_kun_pair_drill_provenance": "llm_curated"
+      "on_kun_pair_drill_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.shinkansen"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.kanji.古",
