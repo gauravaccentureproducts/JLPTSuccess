@@ -45,7 +45,8 @@ QUESTION_FILES = [
     "goi_questions_n5.md",
     "bunpou_questions_n5.md",
     "dokkai_questions_n5.md",
-    "externally_sourced_n5.md",
+    # externally_sourced_n5.md removed 2026-05-11 per legal-vetting F-12
+    # (DMCA risk — was source-faithful to learnjapaneseaz.com test papers).
 ]
 
 CATALOG_FILES = ["grammar_n5.md", "kanji_n5.md", "vocabulary_n5.md", "sources.md"]
@@ -55,9 +56,9 @@ EXPECTED_Q_COUNTS = {
     "goi_questions_n5.md": 100,
     "bunpou_questions_n5.md": 100,
     "dokkai_questions_n5.md": 102,
-    "externally_sourced_n5.md": 189,
+    # externally_sourced_n5.md (189 questions) removed 2026-05-11 per F-12.
 }
-EXPECTED_TOTAL = sum(EXPECTED_Q_COUNTS.values())  # 591
+EXPECTED_TOTAL = sum(EXPECTED_Q_COUNTS.values())  # 402
 
 # X-6.6: required ru-verb exception flags
 RU_VERB_EXCEPTIONS = ["入る", "はいる", "かえる", "帰る", "はしる", "走る", "しる", "知る", "きる", "切る"]
@@ -211,8 +212,8 @@ def parse_questions(md_text: str) -> list[dict]:
 
 def check_x_6_1_catalog_completeness() -> list[str]:
     """Every kanji used as a correct-answer-option text is in kanji_n5.md (or pragmatic N5 set).
-    Skips dokkai (passages get the naturalness exception per `dokkai_questions_n5.md` line 17)
-    and authentic_extracted (source-faithful to learnjapaneseaz.com)."""
+    Skips dokkai (passages get the naturalness exception per `dokkai_questions_n5.md` line 17).
+    (Source-faithful exemption for externally_sourced_n5.md retired 2026-05-11 per F-12 — file deleted.)"""
     catalog = augmented_kanji_catalog()
     failures = []
     audited = ["moji_questions_n5.md", "goi_questions_n5.md", "bunpou_questions_n5.md"]
@@ -433,7 +434,8 @@ def check_x_6_9_furigana_primary_reading_sanity() -> list[str]:
 
 def check_ja_1_stem_kanji_scope() -> list[str]:
     """Every kanji in question stems is in the augmented N5 catalog (strict ∪ pragmatic).
-    Skips dokkai (passages have naturalness exception) and authentic_extracted (source-faithful)."""
+    Skips dokkai (passages have naturalness exception).
+    (Source-faithful exemption for externally_sourced_n5.md retired 2026-05-11 per F-12.)"""
     catalog = augmented_kanji_catalog()
     failures = []
     audited = ["moji_questions_n5.md", "goi_questions_n5.md", "bunpou_questions_n5.md"]
@@ -591,9 +593,8 @@ def check_ja_7_no_duplicate_stems() -> list[str]:
     Scoped to originally-authored files only:
     - dokkai passages legitimately repeat short comprehension stems across passages
       (e.g. "パーティーは何時にはじまりますか" appears in two unrelated party passages);
-    - authentic_extracted is source-faithful to learnjapaneseaz.com test papers,
-      which themselves contain duplicate templates across test pages.
-    Both are documented design choices; flagging them as bugs would be noise."""
+      this is a documented design choice; flagging as a bug would be noise.
+    (Source-faithful exemption for externally_sourced_n5.md retired 2026-05-11 per F-12 — file deleted.)"""
     failures = []
     audited = ["moji_questions_n5.md", "goi_questions_n5.md", "bunpou_questions_n5.md"]
     for fname in audited:
