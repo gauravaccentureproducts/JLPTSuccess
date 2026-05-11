@@ -8,6 +8,47 @@ import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
 import { currentLocale, t } from './i18n.js';
 
+// IMP-AUDIO-FIX (UI audit critical, 2026-05-11): audio manifest cache.
+// Many grammar examples (1043 of 1782) have no rendered audio file because
+// the build pipeline (build_audio.py) only generated audio for the original
+// 0-6 indexed examples per pattern. Later content batches added examples at
+// indices 7-9 without re-rendering audio. The UI was showing a broken audio
+// player ("0:00 / 0:00") for every missing file.
+//
+// Fix: load data/audio_manifest.json once, build a Set of paths that have
+// rendered audio, and suppress the player block when the example's expected
+// path is NOT in the set. Falls back to a no-audio render that doesn't show
+// a broken player.
+let _audioManifestCache = null;
+let _audioManifestPromise = null;
+async function getAudioManifest() {
+  if (_audioManifestCache) return _audioManifestCache;
+  if (_audioManifestPromise) return _audioManifestPromise;
+  _audioManifestPromise = fetch('data/audio_manifest.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(m => {
+      if (m && Array.isArray(m.items)) {
+        _audioManifestCache = new Set(m.items.map(it => it.path));
+      } else {
+        _audioManifestCache = new Set();
+      }
+      return _audioManifestCache;
+    })
+    .catch(() => {
+      _audioManifestCache = new Set();
+      return _audioManifestCache;
+    });
+  return _audioManifestPromise;
+}
+function audioExists(path) {
+  // Synchronous lookup; only meaningful after getAudioManifest() resolved.
+  // Conservative default: when the manifest hasn't loaded yet, assume the
+  // audio is missing rather than show a broken player. The renderer below
+  // awaits the manifest before producing HTML.
+  if (!_audioManifestCache) return false;
+  return _audioManifestCache.has(path);
+}
+
 // IMP-045 (audit round-5): pick locale-aware grammar explanation when
 // present (native_reviewed only - see data/grammar.json
 // `_translation_status` policy), else fall back to English. The active
@@ -425,7 +466,10 @@ function renderHowToUseTable(p) {
   return `<section class="pattern-usage">${usageHeader}${topTable}${conjTable}</section>`;
 }
 
-export function renderGrammarPatternDetail(container, p, allPatterns) {
+export async function renderGrammarPatternDetail(container, p, allPatterns) {
+  // IMP-AUDIO-FIX: preload audio manifest so audioExists() returns truth
+  // for example audio paths. Cached after first call; near-zero cost.
+  await getAudioManifest();
   const conj = p.form_rules?.conjugations ?? [];
   const examples = p.examples ?? [];
   const mistakes = p.common_mistakes ?? [];
@@ -453,7 +497,11 @@ export function renderGrammarPatternDetail(container, p, allPatterns) {
 
   const exampleItems = examples.map((ex, i) => {
     const skipAudio = !ex.ja || ex.ja.includes('(see ');
-    const audioPath = skipAudio ? null : `audio/grammar/${p.id}.${i}.mp3`;
+    const candidatePath = skipAudio ? null : `audio/grammar/${p.id}.${i}.mp3`;
+    // IMP-AUDIO-FIX: only render the audio player if the file is in the
+    // manifest. Avoids the "0:00 / 0:00" broken-player UI on examples
+    // that don't have rendered audio.
+    const audioPath = (candidatePath && audioExists(candidatePath)) ? candidatePath : null;
     return `
     <li>
       <span class="form-tag">${esc(ex.form || '')}</span>
