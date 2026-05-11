@@ -180,7 +180,61 @@
         "はい",
         "おお"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 176.8,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "6 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "4 question(s) — rising intonation expected on か.",
+        "2 sentence-final ね — confirmation-seeking, soft rise+fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 10,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 18,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~10s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.002",
@@ -345,7 +399,61 @@
       "aizuchi_tokens": [
         "はい"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 185.2,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "6 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か.",
+        "1 sentence-final ね — confirmation-seeking, soft rise+fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 7,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 15,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.003",
@@ -504,7 +612,70 @@
         "そうです",
         "そうですね"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 170.3,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "6 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "8時",
+            0.8
+          ],
+          [
+            "9時半",
+            0.67
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か.",
+        "2 sentence-final ね — confirmation-seeking, soft rise+fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 8,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 16,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~8s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.004",
@@ -694,7 +865,61 @@
         "はい",
         "いいえ"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 208.1,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "formal_business",
+        "signals": [
+          "humble/respectful verbs detected"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "shop_staff",
+            "tag": "店員"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か.",
+        "1 sentence-final ね — confirmation-seeking, soft rise+fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 5,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 13,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~5s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.005",
@@ -938,7 +1163,65 @@
           "note": "sokuon: gakkou (school) — small tsu before voiceless k"
         }
       ],
-      "phonological_target_provenance": "auto_derived"
+      "phonological_target_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 190.2,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "バスが おくれたから",
+            0.73
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          },
+          {
+            "role": "student",
+            "tag": "学生"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "4 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 7,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 15,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.006",
@@ -1123,7 +1406,65 @@
           "note": "にほん: pitch distinguishes Japan from two long objects (counter)."
         }
       ],
-      "pitch_minimal_pair_focus_provenance": "auto_derived"
+      "pitch_minimal_pair_focus_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 153.6,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "7 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "たなの 下",
+            0.8
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "4 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 10,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 18,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~10s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.007",
@@ -1337,7 +1678,56 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "fast",
+        "morae_per_min": 273.3,
+        "note": "Faster than JLPT N5 — approaching N4 listening speed."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "10 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 3,
+        "note": "3 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 1,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 9,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~1s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.008",
@@ -1526,7 +1916,60 @@
       "aizuchi_tokens": [
         "そうです",
         "いいえ"
-      ]
+      ],
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 179.8,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "10 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 2,
+        "note": "2 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "6 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 7,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 15,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.009",
@@ -1603,7 +2046,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 43.1,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "numerical_off_by_one",
+        "note": "Choices are numerical — track exact numbers heard. Common distractor: a number near the correct one."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 8,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 16,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~8s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.010",
@@ -1673,7 +2159,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "station",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 42.2,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 2,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 10,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~2s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.011",
@@ -1786,7 +2315,50 @@
           "note": "sokuon: ippai (one cup / full) — small tsu doubles p"
         }
       ],
-      "phonological_target_provenance": "auto_derived"
+      "phonological_target_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 92.1,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 1,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 9,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~1s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.012",
@@ -1863,7 +2435,55 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 38.4,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 7,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 15,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.013",
@@ -1994,7 +2614,60 @@
           "note": "sokuon: gakkou (school) — small tsu before voiceless k"
         }
       ],
-      "phonological_target_provenance": "auto_derived"
+      "phonological_target_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 151.5,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "8時半",
+            0.67
+          ],
+          [
+            "9時",
+            0.8
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.014",
@@ -2092,7 +2765,60 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "station",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 117.4,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "2 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 6,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 14,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~6s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.015",
@@ -2229,7 +2955,56 @@
       "aizuchi_tokens": [
         "いいえ"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 157.0,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "3 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "りんごと ぎゅうにゅうと パン",
+            0.85
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 4,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 12,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~4s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.016",
@@ -2379,7 +3154,51 @@
       "aizuchi_present": true,
       "aizuchi_tokens": [
         "そうです"
-      ]
+      ],
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 192.6,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "5 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 1,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 9,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~1s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.017",
@@ -2498,7 +3317,64 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 120.5,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "5 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          },
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          }
+        ],
+        "n_speakers_inferred": 3,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 8,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 16,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~8s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.018",
@@ -2617,7 +3493,51 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "station",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 148.9,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.019",
@@ -2778,7 +3698,65 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 192.6,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "2 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "本が なかったから",
+            0.67
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          },
+          {
+            "role": "student",
+            "tag": "学生"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 2,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 10,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~2s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.020",
@@ -2916,7 +3894,53 @@
       "filler_tokens": [
         "その"
       ],
-      "fillers_present_provenance": "auto_derived"
+      "fillers_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 138.9,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "2 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か.",
+        "1 sentence-final ね — confirmation-seeking, soft rise+fall expected.",
+        "1 sentence-final よ — assertive, slight fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.021",
@@ -3011,7 +4035,73 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 154.9,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "3 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "8時から 4時まで",
+            0.78
+          ],
+          [
+            "1時から 4時まで",
+            0.78
+          ],
+          [
+            "9時から 4時まで",
+            0.89
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          },
+          {
+            "role": "student",
+            "tag": "学生"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 8,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 16,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~8s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.022",
@@ -3163,7 +4253,60 @@
       "aizuchi_present": true,
       "aizuchi_tokens": [
         "そうです"
-      ]
+      ],
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 162.6,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 2,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 10,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~2s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.023",
@@ -3268,7 +4411,73 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 154.1,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "2 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "月よう日と 水よう日",
+            0.8
+          ],
+          [
+            "水よう日と 金よう日",
+            0.8
+          ],
+          [
+            "月よう日と 金よう日",
+            0.8
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.024",
@@ -3368,7 +4577,61 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 120.9,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "3 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "父の 先生・母・先生",
+            0.67
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 7,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 15,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.025",
@@ -3468,7 +4731,55 @@
           "note": "sokuon: gakkou (school) — small tsu before voiceless k"
         }
       ],
-      "phonological_target_provenance": "auto_derived"
+      "phonological_target_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 155.0,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "teacher_or_doctor",
+            "tag": "先生"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 1,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 9,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~1s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.026",
@@ -3539,7 +4850,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "cafe",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 229.2,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.027",
@@ -3610,7 +4964,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "fast",
+        "morae_per_min": 255.4,
+        "note": "Faster than JLPT N5 — approaching N4 listening speed."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.028",
@@ -3674,7 +5071,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 204.5,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.029",
@@ -3752,7 +5192,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 202.0,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.030",
@@ -3823,7 +5306,60 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "station",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 194.6,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "駅は 何時ですか",
+            0.75
+          ],
+          [
+            "駅は いくらですか",
+            0.71
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.031",
@@ -3983,7 +5519,62 @@
         "そうです",
         "そうですね"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 161.1,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "6 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          },
+          {
+            "role": "female_speaker",
+            "tag": "女"
+          }
+        ],
+        "n_speakers_inferred": 2,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か.",
+        "1 sentence-final ね — confirmation-seeking, soft rise+fall expected.",
+        "1 sentence-final よ — assertive, slight fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 7,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 15,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~7s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.032",
@@ -4093,7 +5684,56 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 153.8,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "6 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "3 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 10,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 18,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~10s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.033",
@@ -4224,7 +5864,51 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "restaurant",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 190.0,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 1,
+        "note": "1 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "2 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 4,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 12,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~4s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.034",
@@ -4370,7 +6054,50 @@
           "note": "sokuon: gakkou (school) — small tsu before voiceless k"
         }
       ],
-      "phonological_target_provenance": "auto_derived"
+      "phonological_target_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 200.5,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "3 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.035",
@@ -4532,7 +6259,56 @@
           "note": "にほん: pitch distinguishes Japan from two long objects (counter)."
         }
       ],
-      "pitch_minimal_pair_focus_provenance": "auto_derived"
+      "pitch_minimal_pair_focus_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 147.1,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "5 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 2,
+        "note": "2 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "student",
+            "tag": "学生"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 9,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 17,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~9s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.036",
@@ -4680,7 +6456,65 @@
       "aizuchi_tokens": [
         "おお"
       ],
-      "aizuchi_present_provenance": "auto_derived"
+      "aizuchi_present_provenance": "auto_derived",
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 174.6,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "二日間",
+            0.67
+          ],
+          [
+            "四日間",
+            0.67
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "male_speaker",
+            "tag": "男"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 5,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 13,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~5s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.037",
@@ -4809,7 +6643,56 @@
       ],
       "filler_tokens": [
         "あの"
-      ]
+      ],
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "slow",
+        "morae_per_min": 164.7,
+        "note": "Slightly slower than JLPT N5 target."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "mentioned_but_rejected",
+        "mentioned_count": 3,
+        "note": "3 of the 3 wrong answers are mentioned in audio but rejected. Track the FINAL decision."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [
+          {
+            "role": "shop_staff",
+            "tag": "店員"
+          }
+        ],
+        "n_speakers_inferred": 1,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 5,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 13,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~5s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.038",
@@ -4894,7 +6777,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 87.3,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 2,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 10,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~2s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.039",
@@ -5014,7 +6940,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "shop",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "n5_standard",
+        "morae_per_min": 196.3,
+        "note": "On JLPT N5 standard rate (180-230 mora/min)."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 2,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 10,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~2s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.040",
@@ -5098,7 +7067,50 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the situation and the SOCIAL RELATIONSHIP between speakers.",
+        "Match the register (casual / polite / honorific) to the relationship.",
+        "Distinguish requests (ください) vs invitations (ませんか) vs offers (ましょうか).",
+        "Listen for context-specific cues: customer/staff, friend/friend, junior/senior."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "very_slow",
+        "morae_per_min": 125.9,
+        "note": "Slower than JLPT N5 target (180-230 mora/min). Good for early-N5 listeners."
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.041",
@@ -5181,7 +7193,49 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.042",
@@ -5249,7 +7303,51 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
+      "cultural_context_provenance": "llm_curated",
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.043",
@@ -5324,7 +7422,51 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "station",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
+      "cultural_context_provenance": "llm_curated",
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.044",
@@ -5421,7 +7563,49 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.045",
@@ -5490,7 +7674,49 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "1 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.046",
@@ -5566,7 +7792,49 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.047",
@@ -5642,7 +7910,49 @@
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "general",
       "ambient_context_provenance": "auto_derived",
-      "aizuchi_present": false
+      "aizuchi_present": false,
+      "listening_strategy_hints": [
+        "Identify the SPEECH ACT of the first utterance: greeting / request / question / offer.",
+        "The correct reply must match register AND act appropriately.",
+        "Common trap: similar-sounding words used to confuse (ある vs いる, あした vs あさって).",
+        "For pure-reply mondai (no visual): rely on contextual particles (はい/いいえ/そうですね)."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "mixed",
+        "signals": [
+          "0 polite + 0 casual"
+        ],
+        "confidence": "medium"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "Even declarative intonation throughout."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 0,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 8,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~0s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.048",
@@ -5726,7 +8036,54 @@
           "note": "sokuon: gakkou (school) — small tsu before voiceless k"
         }
       ],
-      "phonological_target_provenance": "auto_derived"
+      "phonological_target_provenance": "auto_derived",
+      "pacing_status": "unmeasured",
+      "pacing_status_note": "pacing_morae_per_min not yet measured for this item",
+      "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
+      "cultural_context_provenance": "llm_curated",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "4 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か.",
+        "2 sentence-final ね — confirmation-seeking, soft rise+fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.049",
@@ -5808,7 +8165,59 @@
       "filler_tokens": [
         "えーと",
         "あの"
-      ]
+      ],
+      "pacing_status": "unmeasured",
+      "pacing_status_note": "pacing_morae_per_min not yet measured for this item",
+      "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
+      "cultural_context_provenance": "llm_curated",
+      "listening_strategy_hints": [
+        "Pre-read the QUESTION before audio plays — anchor on what to find.",
+        "Listen specifically for the requested information; ignore other facts.",
+        "Numbers, times, places are common targets — note them as you hear.",
+        "Common distractor: a number mentioned but rejected. Wait for the FINAL answer."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "2 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "similar_sound",
+        "similar_pairs": [
+          [
+            "まっすぐ 行って 左に まがる",
+            0.93
+          ]
+        ],
+        "note": "Wrong answers sound similar to the correct one. Listen carefully for distinguishing morae."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 trailing ellipsis — hesitation, pause expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 3,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 11,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~3s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     },
     {
       "id": "n5.listen.050",
@@ -5895,7 +8304,54 @@
       ],
       "filler_tokens": [
         "あの"
-      ]
+      ],
+      "pacing_status": "unmeasured",
+      "pacing_status_note": "pacing_morae_per_min not yet measured for this item",
+      "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
+      "cultural_context_provenance": "llm_curated",
+      "listening_strategy_hints": [
+        "Listen for the SPEAKER'S TASK — what action will they take.",
+        "Note imperative or volitional markers (てください, ましょう, つもりです).",
+        "The CORRECT answer is what the speaker decides AT THE END — not first proposals.",
+        "Watch for change-of-mind cues: でも / じゃ / そうですか."
+      ],
+      "listening_strategy_hints_provenance": "llm_curated",
+      "speech_rate_classification": {
+        "category": "unmeasured",
+        "note": "rate not measured"
+      },
+      "speech_rate_classification_provenance": "auto_derived",
+      "register_signal_l": {
+        "register": "polite_standard",
+        "signals": [
+          "5 polite ます/です"
+        ],
+        "confidence": "high"
+      },
+      "register_signal_l_provenance": "auto_derived",
+      "distractor_pattern_hint": {
+        "pattern": "semantic_contrast",
+        "note": "Choices represent semantically different options — comprehension matters more than aural distinction."
+      },
+      "distractor_pattern_hint_provenance": "auto_derived",
+      "speaker_demographics": {
+        "roles_detected": [],
+        "n_speakers_inferred": 0,
+        "note": "Speakers auto-inferred from script tags and honorifics; may miss inferential cases."
+      },
+      "speaker_demographics_provenance": "auto_derived",
+      "prosody_hints": [
+        "1 question(s) — rising intonation expected on か.",
+        "1 sentence-final ね — confirmation-seeking, soft rise+fall expected."
+      ],
+      "prosody_hints_provenance": "auto_derived",
+      "time_target_seconds": {
+        "audio_seconds_estimated": 1,
+        "jlpt_target_seconds_per_question": 75,
+        "estimated_total_seconds": 9,
+        "note": "JLPT N5 chokai target ~75s per question (24 questions / 30 min). Audio ~1s."
+      },
+      "time_target_seconds_provenance": "auto_derived"
     }
   ],
   "_meta": {
