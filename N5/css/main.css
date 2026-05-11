@@ -1068,6 +1068,19 @@ h2 + * + .section-label:first-of-type {
   font-weight: var(--weight-base);
 }
 .app-footer .footer-meta { color: var(--color-text-muted); }
+/* F-4 (legal-vetting 2026-05-11): trademark non-affiliation disclaimer.
+   Faint but readable; sits below version, above nav. Block-display so
+   it occupies its own row and doesn't get squeezed inline. */
+.app-footer .footer-disclaimer {
+  display: block;
+  margin: var(--space-2) auto var(--space-3);
+  max-width: var(--container-narrow);
+  color: var(--color-text-faint);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-base);
+  text-align: center;
+  text-wrap: balance;
+}
 .app-footer .footer-nav,
 .app-footer .footer-links { display: inline-flex; gap: var(--space-5); }
 .app-footer a {
