@@ -1,223 +1,147 @@
-// IMP-WAVE1 (UI audit fix, 2026-05-11): Test-strategy page renderer.
-// Consumes data/test_strategy.json (T1-T6 fully authored) and surfaces:
-//   T1 section_timing  — per-mondai time budgets
-//   T2 trap_patterns   — 30 catalogued JLPT N5 traps
-//   T3 techniques      — 15 actionable test-taking techniques
-//   T4 score_breakdown — JEES scoring + diagnostic bands
-//   T5 diagnostic_drills — 9 weak-area drill paths
-//   T6 meta_strategy   — 5-min summary + study split + 14-day schedule + exam-day checklist
-//
-// Route: #/strategy
-//
-// Until now this rich 36 KB data file was reachable at /data/test_strategy.json
-// but not consumed by any UI surface. This module wires it up.
-
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-}[c]));
-
-let _strategy = null;
-async function loadStrategy() {
-  if (_strategy) return _strategy;
-  try {
-    const r = await fetch('data/test_strategy.json');
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    _strategy = await r.json();
-    return _strategy;
-  } catch (e) {
-    console.error('[strategy] load failed:', e);
-    return null;
-  }
-}
-
-function renderSectionTiming(timing) {
-  if (!timing) return '';
-  const sections = ['moji_goi', 'bunpou_dokkai', 'chokai'];
-  const html = sections.map(key => {
-    const s = timing[key];
-    if (!s) return '';
-    const rows = (s.mondai_breakdown || []).map(m => `
+const e=s=>String(s??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t]);let i=null;async function c(){if(i)return i;try{const s=await fetch("data/test_strategy.json");if(!s.ok)throw new Error(`HTTP ${s.status}`);return i=await s.json(),i}catch(s){return console.error("[strategy] load failed:",s),null}}function d(s){return s?`
+    <section class="strategy-block">
+      <h3>T1 \xB7 Section &amp; mondai timing</h3>
+      ${["moji_goi","bunpou_dokkai","chokai"].map(l=>{const a=s[l];if(!a)return"";const n=(a.mondai_breakdown||[]).map(o=>`
       <tr>
-        <td>${esc(m.number)}</td>
-        <td>${esc(m.type)} ${m.label_ja ? `<span class="muted small" lang="ja">${esc(m.label_ja)}</span>` : ''}</td>
-        <td>${esc(m.n_questions)}</td>
-        <td>${esc(m.seconds_per_q)}s</td>
-        <td class="muted small">${esc(m.strategy || '')}</td>
+        <td>${e(o.number)}</td>
+        <td>${e(o.type)} ${o.label_ja?`<span class="muted small" lang="ja">${e(o.label_ja)}</span>`:""}</td>
+        <td>${e(o.n_questions)}</td>
+        <td>${e(o.seconds_per_q)}s</td>
+        <td class="muted small">${e(o.strategy||"")}</td>
       </tr>
-    `).join('');
-    return `
+    `).join("");return`
       <section class="timing-section">
-        <h4>${esc(s.section_part || key)} — ${esc(s.module || '')}</h4>
-        <p class="muted small">${esc(s.total_minutes)} min · ${esc(s.total_questions)} questions · avg ${esc(s.average_seconds_per_question)}s/q</p>
+        <h4>${e(a.section_part||l)} \u2014 ${e(a.module||"")}</h4>
+        <p class="muted small">${e(a.total_minutes)} min \xB7 ${e(a.total_questions)} questions \xB7 avg ${e(a.average_seconds_per_question)}s/q</p>
         <table class="timing-table">
           <thead><tr><th>Mondai</th><th>Type</th><th>Q</th><th>Time/Q</th><th>Strategy</th></tr></thead>
-          <tbody>${rows}</tbody>
+          <tbody>${n}</tbody>
         </table>
-        ${s.time_budget_warning ? `<p class="muted small warning">⚠ ${esc(s.time_budget_warning)}</p>` : ''}
-        ${s.rest_break ? `<p class="muted small">${esc(s.rest_break)}</p>` : ''}
-        ${s.format_note ? `<p class="muted small">${esc(s.format_note)}</p>` : ''}
+        ${a.time_budget_warning?`<p class="muted small warning">\u26A0 ${e(a.time_budget_warning)}</p>`:""}
+        ${a.rest_break?`<p class="muted small">${e(a.rest_break)}</p>`:""}
+        ${a.format_note?`<p class="muted small">${e(a.format_note)}</p>`:""}
       </section>
-    `;
-  }).join('');
-  return `
-    <section class="strategy-block">
-      <h3>T1 · Section &amp; mondai timing</h3>
-      ${html}
+    `}).join("")}
     </section>
-  `;
-}
-
-function renderTrapPatterns(traps) {
-  if (!Array.isArray(traps) || !traps.length) return '';
-  // Group by module
-  const byModule = {};
-  traps.forEach(t => { (byModule[t.module || 'other'] ||= []).push(t); });
-  const html = Object.entries(byModule).map(([mod, list]) => `
+  `:""}function m(s){if(!Array.isArray(s)||!s.length)return"";const t={};s.forEach(l=>{var a;(t[a=l.module||"other"]||(t[a]=[])).push(l)});const r=Object.entries(t).map(([l,a])=>`
     <details class="trap-group">
-      <summary><strong>${esc(mod)}</strong> (${list.length})</summary>
+      <summary><strong>${e(l)}</strong> (${a.length})</summary>
       <ul class="trap-list">
-        ${list.map(t => `
+        ${a.map(n=>`
           <li>
-            <p><strong>${esc(t.name || '')}</strong> — ${esc(t.description || '')}</p>
-            ${t.wrong_example ? `<p class="wrong" lang="ja">✗ ${esc(t.wrong_example)}</p>` : ''}
-            ${t.correct_example ? `<p class="right" lang="ja">✓ ${esc(t.correct_example)}</p>` : ''}
-            ${t.defense ? `<p class="muted small"><em>Defense:</em> ${esc(t.defense)}</p>` : ''}
+            <p><strong>${e(n.name||"")}</strong> \u2014 ${e(n.description||"")}</p>
+            ${n.wrong_example?`<p class="wrong" lang="ja">\u2717 ${e(n.wrong_example)}</p>`:""}
+            ${n.correct_example?`<p class="right" lang="ja">\u2713 ${e(n.correct_example)}</p>`:""}
+            ${n.defense?`<p class="muted small"><em>Defense:</em> ${e(n.defense)}</p>`:""}
           </li>
-        `).join('')}
+        `).join("")}
       </ul>
     </details>
-  `).join('');
-  return `
+  `).join("");return`
     <section class="strategy-block">
-      <h3>T2 · Trap-pattern catalog (${traps.length} traps)</h3>
-      ${html}
+      <h3>T2 \xB7 Trap-pattern catalog (${s.length} traps)</h3>
+      ${r}
     </section>
-  `;
-}
-
-function renderTechniques(techs) {
-  if (!Array.isArray(techs) || !techs.length) return '';
-  return `
+  `}function p(s){return!Array.isArray(s)||!s.length?"":`
     <section class="strategy-block">
-      <h3>T3 · Test-taking techniques (${techs.length})</h3>
+      <h3>T3 \xB7 Test-taking techniques (${s.length})</h3>
       <ul class="techniques-list">
-        ${techs.map(t => `
+        ${s.map(t=>`
           <li>
-            <p><strong>${esc(t.title_en || t.name || '')}</strong>${t.title_ja ? ` <span class="muted small" lang="ja">${esc(t.title_ja)}</span>` : ''}</p>
-            <p>${esc(t.description || '')}</p>
-            ${t.applies_to?.length ? `<p class="muted small">Applies to: ${t.applies_to.map(esc).join(', ')}</p>` : ''}
-            ${t.rationale ? `<p class="muted small"><em>Why:</em> ${esc(t.rationale)}</p>` : ''}
-            ${t.warning ? `<p class="warning"><em>⚠ Warning:</em> ${esc(t.warning)}</p>` : ''}
+            <p><strong>${e(t.title_en||t.name||"")}</strong>${t.title_ja?` <span class="muted small" lang="ja">${e(t.title_ja)}</span>`:""}</p>
+            <p>${e(t.description||"")}</p>
+            ${t.applies_to?.length?`<p class="muted small">Applies to: ${t.applies_to.map(e).join(", ")}</p>`:""}
+            ${t.rationale?`<p class="muted small"><em>Why:</em> ${e(t.rationale)}</p>`:""}
+            ${t.warning?`<p class="warning"><em>\u26A0 Warning:</em> ${e(t.warning)}</p>`:""}
           </li>
-        `).join('')}
+        `).join("")}
       </ul>
     </section>
-  `;
-}
-
-function renderScoreBreakdown(sb) {
-  if (!sb || typeof sb !== 'object') return '';
-  const sec = sb.sections || {};
-  const total = sb.total_score || {};
-  const bands = sb.diagnostic_band || {};
-  return `
+  `}function g(s){if(!s||typeof s!="object")return"";const t=s.sections||{},r=s.total_score||{},l=s.diagnostic_band||{};return`
     <section class="strategy-block">
-      <h3>T4 · Score breakdown</h3>
-      <p class="muted small">${esc(sb.scoring_system || '')}</p>
+      <h3>T4 \xB7 Score breakdown</h3>
+      <p class="muted small">${e(s.scoring_system||"")}</p>
       <table class="score-table">
         <thead><tr><th>Section</th><th>Max</th><th>Pass min</th></tr></thead>
         <tbody>
-          ${Object.entries(sec).map(([k, s]) => `
+          ${Object.entries(t).map(([a,n])=>`
             <tr>
-              <td>${esc(s.label || k)}</td>
-              <td>${esc(s.max_score)}</td>
-              <td>${esc(s.pass_min)}</td>
+              <td>${e(n.label||a)}</td>
+              <td>${e(n.max_score)}</td>
+              <td>${e(n.pass_min)}</td>
             </tr>
-          `).join('')}
-          <tr><td><strong>Total</strong></td><td><strong>${esc(total.max_score)}</strong></td><td><strong>${esc(total.pass_min)}</strong></td></tr>
+          `).join("")}
+          <tr><td><strong>Total</strong></td><td><strong>${e(r.max_score)}</strong></td><td><strong>${e(r.pass_min)}</strong></td></tr>
         </tbody>
       </table>
-      ${total.rule ? `<p class="muted small"><strong>Rule:</strong> ${esc(total.rule)}</p>` : ''}
-      ${sb.scaling_explanation ? `<p class="muted small"><strong>Scaling:</strong> ${esc(sb.scaling_explanation)}</p>` : ''}
+      ${r.rule?`<p class="muted small"><strong>Rule:</strong> ${e(r.rule)}</p>`:""}
+      ${s.scaling_explanation?`<p class="muted small"><strong>Scaling:</strong> ${e(s.scaling_explanation)}</p>`:""}
       <h4>Diagnostic bands</h4>
       <ul class="diag-bands">
-        ${Object.entries(bands).map(([band, desc]) => `
-          <li><strong>${esc(band)}:</strong> ${esc(desc)}</li>
-        `).join('')}
+        ${Object.entries(l).map(([a,n])=>`
+          <li><strong>${e(a)}:</strong> ${e(n)}</li>
+        `).join("")}
       </ul>
     </section>
-  `;
-}
-
-function renderDiagnostic(diag) {
-  if (!diag || !Array.isArray(diag.diagnostic_areas)) return '';
-  return `
+  `}function u(s){return!s||!Array.isArray(s.diagnostic_areas)?"":`
     <section class="strategy-block">
-      <h3>T5 · Diagnostic + drill recommendations</h3>
+      <h3>T5 \xB7 Diagnostic + drill recommendations</h3>
       <ul class="diagnostic-list">
-        ${diag.diagnostic_areas.map(a => `
+        ${s.diagnostic_areas.map(t=>`
           <li>
-            <p><strong>${esc(a.area)}</strong></p>
-            ${a.diagnostic_questions?.length ? `<p class="muted small">Diagnostic: ${a.diagnostic_questions.map(esc).join('; ')}</p>` : ''}
-            ${a.drill_recommendation ? `<p>${esc(a.drill_recommendation)}</p>` : ''}
-            ${a.module_pointers?.length ? `<p class="muted small">References: ${a.module_pointers.map(esc).join(', ')}</p>` : ''}
+            <p><strong>${e(t.area)}</strong></p>
+            ${t.diagnostic_questions?.length?`<p class="muted small">Diagnostic: ${t.diagnostic_questions.map(e).join("; ")}</p>`:""}
+            ${t.drill_recommendation?`<p>${e(t.drill_recommendation)}</p>`:""}
+            ${t.module_pointers?.length?`<p class="muted small">References: ${t.module_pointers.map(e).join(", ")}</p>`:""}
           </li>
-        `).join('')}
+        `).join("")}
       </ul>
-      ${diag.drill_methodology?.length ? `
+      ${s.drill_methodology?.length?`
         <h4>Drill methodology</h4>
-        <ol>${diag.drill_methodology.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
-      ` : ''}
+        <ol>${s.drill_methodology.map(t=>`<li>${e(t)}</li>`).join("")}</ol>
+      `:""}
     </section>
-  `;
-}
-
-function renderMetaStrategy(meta) {
-  if (!meta || typeof meta !== 'object') return '';
-  return `
+  `}function $(s){return!s||typeof s!="object"?"":`
     <section class="strategy-block">
-      <h3>T6 · Meta-strategy</h3>
-      ${meta.five_minute_summary?.length ? `
+      <h3>T6 \xB7 Meta-strategy</h3>
+      ${s.five_minute_summary?.length?`
         <h4>Five-minute summary</h4>
-        <ol>${meta.five_minute_summary.map(s => `<li>${esc(s)}</li>`).join('')}</ol>
-      ` : ''}
-      ${meta.study_distribution_recommendation ? `
+        <ol>${s.five_minute_summary.map(t=>`<li>${e(t)}</li>`).join("")}</ol>
+      `:""}
+      ${s.study_distribution_recommendation?`
         <h4>Study distribution</h4>
-        <ul>${Object.entries(meta.study_distribution_recommendation).map(([k,v]) => `<li><strong>${esc(k)}:</strong> ${esc(v)}</li>`).join('')}</ul>
-      ` : ''}
-      ${meta.two_week_drill_schedule?.length ? `
+        <ul>${Object.entries(s.study_distribution_recommendation).map(([t,r])=>`<li><strong>${e(t)}:</strong> ${e(r)}</li>`).join("")}</ul>
+      `:""}
+      ${s.two_week_drill_schedule?.length?`
         <details>
           <summary><strong>Fourteen-day drill schedule</strong></summary>
-          <ol>${meta.two_week_drill_schedule.map(d => `<li><strong>Day ${esc(d.day)}:</strong> ${esc(d.focus)} <span class="muted small">(${esc(d.minutes)} min)</span></li>`).join('')}</ol>
+          <ol>${s.two_week_drill_schedule.map(t=>`<li><strong>Day ${e(t.day)}:</strong> ${e(t.focus)} <span class="muted small">(${e(t.minutes)} min)</span></li>`).join("")}</ol>
         </details>
-      ` : ''}
-      ${meta.exam_day_checklist?.length ? `
+      `:""}
+      ${s.exam_day_checklist?.length?`
         <h4>Exam-day checklist</h4>
-        <ul>${meta.exam_day_checklist.map(s => `<li>${esc(s)}</li>`).join('')}</ul>
-      ` : ''}
+        <ul>${s.exam_day_checklist.map(t=>`<li>${e(t)}</li>`).join("")}</ul>
+      `:""}
     </section>
-  `;
-}
-
-export async function renderStrategy(container /*, params */) {
-  container.innerHTML = `<p class="muted small">Loading test strategy…</p>`;
-  const s = await loadStrategy();
-  if (!s) {
-    container.innerHTML = `<article class="strategy-page"><p>Could not load test-strategy data. Please try again.</p></article>`;
-    return;
-  }
-  container.innerHTML = `
+  `}async function h(s){s.innerHTML='<p class="muted small">Loading test strategy\u2026</p>';const t=await c();if(!t){s.innerHTML='<article class="strategy-page"><p>Could not load test-strategy data. Please try again.</p></article>';return}s.innerHTML=`
     <article class="strategy-page">
-      <a class="back-link" href="#/home">← Back home</a>
-      <h2>JLPT N5 · Test-taking strategy</h2>
-      <p class="muted small">${esc(s.source_notes || '')}</p>
-      ${renderSectionTiming(s.section_timing)}
-      ${renderTrapPatterns(s.trap_patterns)}
-      ${renderTechniques(s.techniques)}
-      ${renderScoreBreakdown(s.score_breakdown)}
-      ${renderDiagnostic(s.diagnostic_drills)}
-      ${renderMetaStrategy(s.meta_strategy)}
-      <p class="muted small">Schema version ${esc(s.schema_version)} · last updated ${esc(s.last_updated)}</p>
+      <a class="back-link" href="#/home">\u2190 Back home</a>
+      <h2>JLPT N5 \xB7 Test-taking strategy</h2>
+      <p class="muted small">${e(t.source_notes||"")}</p>
+      <!-- IMP-WAVE-P4-T6 (2026-05-11): focused entry-point into the
+           printable exam-day prep page (extracts meta_strategy into
+           an actionable checklist). -->
+      <p>
+        <a href="#/examday" class="btn-secondary" style="text-decoration:none">\u{1F4CB} Open exam-day prep checklist \u2192</a>
+        \xB7
+        <a href="#/weakareas" style="margin-left:8px">Weak-area diagnostic \u2192</a>
+      </p>
+      ${d(t.section_timing)}
+      ${m(t.trap_patterns)}
+      ${p(t.techniques)}
+      ${g(t.score_breakdown)}
+      ${u(t.diagnostic_drills)}
+      ${$(t.meta_strategy)}
+      <p class="muted small">Schema version ${e(t.schema_version)} \xB7 last updated ${e(t.last_updated)}</p>
     </article>
-  `;
-}
+  `}export{h as renderStrategy};

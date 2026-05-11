@@ -211,6 +211,14 @@ export async function renderStrategy(container /*, params */) {
       <a class="back-link" href="#/home">← Back home</a>
       <h2>JLPT N5 · Test-taking strategy</h2>
       <p class="muted small">${esc(s.source_notes || '')}</p>
+      <!-- IMP-WAVE-P4-T6 (2026-05-11): focused entry-point into the
+           printable exam-day prep page (extracts meta_strategy into
+           an actionable checklist). -->
+      <p>
+        <a href="#/examday" class="btn-secondary" style="text-decoration:none">📋 Open exam-day prep checklist →</a>
+        ·
+        <a href="#/weakareas" style="margin-left:8px">Weak-area diagnostic →</a>
+      </p>
       ${renderSectionTiming(s.section_timing)}
       ${renderTrapPatterns(s.trap_patterns)}
       ${renderTechniques(s.techniques)}

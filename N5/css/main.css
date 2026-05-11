@@ -3895,6 +3895,45 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
 .sitting-break-actions { margin-top: var(--space-4); }
 .sitting-result { max-width: 640px; }
 
+/* IMP-WAVE-P4-T6 (UI audit fix, 2026-05-11): exam-day prep page
+   layout. Bold callout sections + a print-friendly check-list. */
+.exam-day-page { max-width: 740px; }
+.exam-day-callout {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md, 8px);
+  background: var(--color-surface-soft, transparent);
+}
+.exam-day-callout h3 { margin-top: 0; }
+.exam-day-list { padding-left: 22px; }
+.exam-day-list li { margin: 6px 0; }
+.exam-day-checklist {
+  list-style: none;
+  padding-left: 4px;
+  margin: 0;
+}
+.exam-day-checklist li {
+  margin: 8px 0;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+.exam-day-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.exam-day-checklist input[type="checkbox"]:checked + * { text-decoration: line-through; color: var(--color-text-muted); }
+.exam-day-checklist-section { background: rgba(20, 69, 42, 0.04); border-color: var(--PRIMARY_DARK, #14452a); }
+
+@media print {
+  .exam-day-page { max-width: 100%; }
+  .exam-day-page .back-link,
+  .exam-day-page p:last-of-type { display: none; }
+  .exam-day-checklist input[type="checkbox"] { outline: 1px solid currentColor; }
+}
+
 /* IMP-WAVE-P4-T3 (UI audit fix, 2026-05-11): per-section strategy
    button + focus-trapped modal listing techniques + trap patterns. */
 .sitting-strategy-btn {

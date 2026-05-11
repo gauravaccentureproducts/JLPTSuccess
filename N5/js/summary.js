@@ -80,13 +80,17 @@ export async function renderSummary(container) {
       ${suggestNextStep(masteredIds, weakIds, untestedIds, totalTests)}
     </section>
 
-    <!-- IMP-WAVE-P4-T5 (UI audit, 2026-05-11): cross-history weak-area
-         diagnostic. Maps your actual answers onto the 9 diagnostic
-         areas authored in test_strategy.json, surfaces the gaps. -->
+    <!-- IMP-WAVE-P4-T5/T6 (UI audit, 2026-05-11): cross-history
+         weak-area diagnostic + exam-day prep page. Both surface
+         test_strategy.json data in actionable form. -->
     <section class="weak-areas-cta" style="margin:24px 0; padding:16px; border:1px solid var(--surface-border); border-radius:var(--radius-md); background:var(--surface-soft, transparent);">
-      <h3 style="margin-top:0">Weak-area diagnostic</h3>
-      <p class="muted small">See which of the 9 N5 diagnostic areas you're weakest on, with drill recommendations for each gap.</p>
-      <p><a href="#/weakareas" class="btn-secondary" style="text-decoration:none">Open weak-area diagnostic →</a></p>
+      <h3 style="margin-top:0">Weak-area diagnostic + exam-day prep</h3>
+      <p class="muted small">See which of the 9 N5 diagnostic areas you're weakest on, with drill recommendations for each gap. Print the exam-day checklist before test morning.</p>
+      <p>
+        <a href="#/weakareas" class="btn-secondary" style="text-decoration:none">Open weak-area diagnostic →</a>
+        ·
+        <a href="#/examday" style="margin-left:8px">📋 Exam-day prep →</a>
+      </p>
     </section>
 
     <section class="reset">
