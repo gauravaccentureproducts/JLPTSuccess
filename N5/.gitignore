@@ -39,3 +39,15 @@ audit_out.json
 # Tools-archive caches (regenerable from upstream URLs; not committed)
 not-required/tools-archive/_cache_*.txt
 not-required/tools-archive/_cache_*.json
+
+# Local snapshot files (data/*.bak_*, feedback/*.bak_*, etc.) — kept on
+# disk for fast local rollback while a wave is in flight; never committed
+# (full git history covers every state these snapshots represent). Older
+# snapshots archived to not-required/data/ + not-required/feedback/ after
+# their parent commit ships (see tools/archive_old_snapshots.py).
+# Added 2026-05-13 during snapshot housekeeping (79 older snapshots moved).
+**/*.bak
+**/*.bak_*
+**/*.backup
+**/*.backup_*
+.commit_msg.tmp
