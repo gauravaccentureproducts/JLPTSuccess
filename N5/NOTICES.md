@@ -25,17 +25,25 @@ Per CC BY-SA 3.0:
 - The KanjiVG SVG files in `svg/kanji/` retain their original CC BY-SA 3.0
   license. The rest of the project is governed by its own LICENSE.
 
-## Microsoft Edge TTS (synthesized listening audio — Japanese Neural voices)
+## Microsoft Edge TTS (legacy — not currently shipped)
 
-> **F-13 correction (2026-05-11):** this section previously attributed
-> the listening audio to VOICEVOX. Pipeline trace and MP3 file signature
-> inspection (ID3v2 frames show `Lavf62.12.101` — ffmpeg/libavformat,
-> the edge-tts encoder path) confirmed the shipped MP3s are rendered
-> by Microsoft Edge TTS, not VOICEVOX. The VOICEVOX code path remains
-> in `tools/build_listening_audio_multivoice_2026_05_07.py` as a
-> documented optional fallback (engine on `localhost:50021`); if that
-> path is ever exercised for a future render batch, the VOICEVOX
-> attribution will be re-added alongside this section.
+> **2026-05-12 update:** as of release v1.14.1, the 50 listening
+> drills are rendered with VOICEVOX (6-speaker age-band variety per
+> ISSUE-114 closure). Edge TTS is no longer the active listening
+> renderer. The historical edge-TTS renders (with 4 voices:
+> Nanami / Keita / Aoi / Daichi) are preserved at
+> `audio/_backup_edge_tts_listening_2026_05_12/` for reference / revert.
+>
+> The edge-TTS attribution section below is retained for historical
+> accuracy of the v1.13.x — v1.14.0 releases. The
+> `tools/build_listening_audio_multivoice_2026_05_07.py` script that
+> handled edge-TTS rendering remains in the repo for future
+> contributors who may want it.
+>
+> **F-13 (2026-05-11):** edge-TTS replaced VOICEVOX between
+> 2026-05-07 (initial multi-voice render) and 2026-05-11 (legal
+> attribution correction). Now (2026-05-12) it has flipped back to
+> VOICEVOX with proper attribution.
 
 - **What it is:** Microsoft Edge TTS service exposes Microsoft's
   Cognitive Services Neural voices over a WebSocket endpoint
@@ -102,13 +110,29 @@ Per CC BY-SA 3.0:
 - **Engine license:** LGPL-3.0 (engine) — the engine binary is not
   redistributed, only its synthesized output (MP3 files). Output
   licence is governed by each speaker character's own term sheet.
-- **Speaker / character used:**
-  - **春日部つむぎ (Kasukabe Tsumugi)** — style: ノーマル (Normal),
-    speaker_id `8`, speaker_uuid `35b2c544-660e-401e-b503-0e14c635303a`.
-  - Character maintained by the 春日部つむぎ project (separate from
+- **Speakers / characters used (6 total across grammar + listening + kanji):**
+  - **春日部つむぎ (Kasukabe Tsumugi)** — style: ノーマル, speaker_id `8`,
+    speaker_uuid `35b2c544-660e-401e-b503-0e14c635303a`.
+    Used for: all 1782 grammar example renders, half of listening
+    items, all 259 kanji per-yomi renders.
+    Character maintained by the 春日部つむぎ project (separate from
     the VOICEVOX engine itself; see
     <https://tsukushinyoki10.wixsite.com/ktsumugiofficial> for the
     canonical character terms).
+  - **玄野武宏 (Kurono Takehiro)** — style: ノーマル, speaker_id `11`.
+    Used for: listening items 1-9, 26-33, 34-42 (adult male role).
+  - **四国めたん (Shikoku Metan)** — style: ノーマル, speaker_id `2`.
+    Used for: listening items 10-17, 34-42 (young female role).
+  - **ずんだもん (Zundamon)** — style: ノーマル, speaker_id `3`.
+    Used for: listening items 10-17, 43-50 (young male role).
+  - **雨晴はう (Amehare Hau)** — style: ノーマル, speaker_id `10`.
+    Used for: listening items 26-33 (adolescent female role).
+  - **青山龍星 (Aoyama Ryusei)** — style: ノーマル, speaker_id `13`.
+    Used for: listening items 18-25 (mature-young male role).
+  - All 6 characters are maintained by independent character projects;
+    each carries its own term sheet linked from
+    <https://voicevox.hiroshiba.jp/dormitory/> and aggregated at
+    <https://voicevox.hiroshiba.jp/term/>.
 - **License (synthesized output):** the 春日部つむぎ character permits
   use of synthesized audio for both commercial and non-commercial
   works **with attribution**. This file + the runtime `#/notices`
@@ -116,9 +140,15 @@ Per CC BY-SA 3.0:
   no R-rated / political-misuse / defamatory contexts (every grammar
   example in this app is plain N5 study content — none of those
   exclusions apply).
-- **Files:** `audio/grammar/n5-NNN.M.mp3` (1782 files, one per grammar
-  example across 178 patterns). Voice metadata stored in
-  `data/audio_manifest.json#voicevox_character_attribution`.
+- **Files:**
+  - `audio/grammar/n5-NNN.M.mp3` (1782 files, one per grammar
+    example across 178 patterns; speaker 8 = Tsumugi).
+  - `audio/listening/n5.listen.NNN.mp3` + `.slow.mp3` (50 + 50 = 100
+    files; multi-speaker per item, see v1.14.1 release notes).
+  - `audio/kanji/<glyph>-{on|kun}-<reading>.mp3` (259 files: 136 on +
+    123 kun; speaker 8 = Tsumugi).
+  Voice metadata: per-corpus in `data/audio_manifest.json` and
+  per-item in `data/listening.json items[].audio_render_meta`.
 - **Build pipeline:** `tools/build_audio_voicevox.py` (sends each
   example's `ja` text to the local VOICEVOX engine, transcodes the
   returned WAV to MP3 via `ffmpeg`).

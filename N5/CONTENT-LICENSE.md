@@ -34,14 +34,22 @@ Bundled third-party content is documented in [`NOTICES.md`](./NOTICES.md):
 
 - **KanjiVG** stroke-order SVGs (`svg/kanji/<glyph>.svg`, 106 files) —
   CC BY-SA 3.0, attributed.
-- **Microsoft Edge TTS** synthesized audio (`audio/listening/*.mp3`,
-  50 files + 50 slow versions) — free non-commercial / educational
-  use per Microsoft Cognitive Services terms; 4 Japanese Neural
-  voices (Nanami / Keita / Aoi / Daichi).
-- **VOICEVOX** synthesized audio (`audio/grammar/*.mp3`, 1782 files)
-  — character `春日部つむぎ (Kasukabe Tsumugi)` style `ノーマル`,
-  speaker_id `8`. VOICEVOX engine LGPL-3.0; character permits
-  commercial + non-commercial use with attribution (see NOTICES.md).
+- **VOICEVOX** synthesized audio (3 surfaces, 2141 files total):
+  - Grammar: `audio/grammar/n5-NNN.M.mp3` (1782 files) — speaker 8
+    (春日部つむぎ).
+  - Listening: `audio/listening/n5.listen.NNN.mp3` + `.slow.mp3`
+    (50 + 50 = 100 files) — 6 distinct speakers (8 / 11 / 2 / 3 / 10 / 13:
+    春日部つむぎ / 玄野武宏 / 四国めたん / ずんだもん / 雨晴はう / 青山龍星)
+    cycled across items for age × gender variety.
+  - Kanji per-yomi: `audio/kanji/<glyph>-{on|kun}-<reading>.mp3`
+    (259 files: 136 on + 123 kun) — speaker 8 (春日部つむぎ).
+  VOICEVOX engine LGPL-3.0; each character permits commercial +
+  non-commercial use with attribution per https://voicevox.hiroshiba.jp/term/
+  and the canonical per-character term sheets (see NOTICES.md).
+- **Microsoft Edge TTS** — no longer shipped. Listening audio was
+  edge-TTS rendered between v1.13.x and v1.14.0; flipped to VOICEVOX
+  in v1.14.1. Historical edge-TTS renders preserved in
+  `audio/_backup_edge_tts_listening_2026_05_12/` (untracked / gitignored).
 - **gTTS** synthesized audio (`audio/reading/*.mp3`, 54 files) —
   Google Translate TTS via the open-source `gtts` Python library;
   no per-file crediting required by its licence.

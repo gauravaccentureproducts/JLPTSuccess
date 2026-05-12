@@ -928,7 +928,19 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
                            # whitelist. Same rationale as cultural_callout
                            # and etymology — explanatory text that needs
                            # natural Japanese, not curriculum-bound input.
-                           "contrasts"}
+                           "contrasts",
+                           # ISSUE-114 (2026-05-12): audio_render_meta on
+                           # listening items carries VOICEVOX character
+                           # names (春日部つむぎ / 玄野武宏 / 四国めたん /
+                           # ずんだもん / 雨晴はう / 青山龍星) for legal
+                           # attribution. These character names use kanji
+                           # well beyond N5 (春/部/玄/野/武/宏/etc.) but
+                           # they are RENDERING METADATA, not learner-
+                           # facing content. The runtime audio player
+                           # displays only the role label, not the
+                           # character name. Same rationale as the
+                           # other explanatory-text exemptions above.
+                           "audio_render_meta"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing

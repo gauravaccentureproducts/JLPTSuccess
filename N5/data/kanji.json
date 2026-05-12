@@ -248,7 +248,26 @@
         "auth.signs.ichi-getsu",
         "auth.signs.ichi-jikan",
         "auth.signs.juuichi-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "いち",
+            "audio": "audio/kanji/一-on-いち.mp3"
+          },
+          {
+            "reading": "いつ",
+            "audio": "audio/kanji/一-on-いつ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ひと",
+            "audio": "audio/kanji/一-kun-ひと.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.二",
@@ -473,7 +492,22 @@
       "authentic_refs": [
         "auth.signs.juuni-getsu",
         "auth.signs.ni-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "に",
+            "audio": "audio/kanji/二-on-に.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ふた",
+            "audio": "audio/kanji/二-kun-ふた.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.三",
@@ -643,7 +677,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.san-ninmae"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "さん",
+            "audio": "audio/kanji/三-on-さん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "み",
+            "audio": "audio/kanji/三-kun-み.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.四",
@@ -802,7 +851,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shi-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "し",
+            "audio": "audio/kanji/四-on-し.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "よ",
+            "audio": "audio/kanji/四-kun-よ.mp3"
+          },
+          {
+            "reading": "よん",
+            "audio": "audio/kanji/四-kun-よん.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.五",
@@ -975,7 +1043,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.go-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ご",
+            "audio": "audio/kanji/五-on-ご.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "いつ",
+            "audio": "audio/kanji/五-kun-いつ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.六",
@@ -1129,7 +1212,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.roku-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ろく",
+            "audio": "audio/kanji/六-on-ろく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "む",
+            "audio": "audio/kanji/六-kun-む.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.七",
@@ -1293,7 +1391,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shichi-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しち",
+            "audio": "audio/kanji/七-on-しち.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "なな",
+            "audio": "audio/kanji/七-kun-なな.mp3"
+          },
+          {
+            "reading": "なの",
+            "audio": "audio/kanji/七-kun-なの.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.八",
@@ -1490,7 +1607,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.hachi-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "はち",
+            "audio": "audio/kanji/八-on-はち.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "や",
+            "audio": "audio/kanji/八-kun-や.mp3"
+          },
+          {
+            "reading": "よう",
+            "audio": "audio/kanji/八-kun-よう.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.九",
@@ -1651,7 +1787,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kyuu-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "きゅう",
+            "audio": "audio/kanji/九-on-きゅう.mp3"
+          },
+          {
+            "reading": "く",
+            "audio": "audio/kanji/九-on-く.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ここの",
+            "audio": "audio/kanji/九-kun-ここの.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.十",
@@ -1882,7 +2037,30 @@
         "auth.signs.juu-getsu",
         "auth.signs.juuichi-getsu",
         "auth.signs.juuni-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "じゅう",
+            "audio": "audio/kanji/十-on-じゅう.mp3"
+          },
+          {
+            "reading": "じっ",
+            "audio": "audio/kanji/十-on-じっ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "とお",
+            "audio": "audio/kanji/十-kun-とお.mp3"
+          },
+          {
+            "reading": "と",
+            "audio": "audio/kanji/十-kun-と.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.百",
@@ -2011,7 +2189,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.hyaku-en"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ひゃく",
+            "audio": "audio/kanji/百-on-ひゃく.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.千",
@@ -2190,7 +2378,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.sen-en"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "せん",
+            "audio": "audio/kanji/千-on-せん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ち",
+            "audio": "audio/kanji/千-kun-ち.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.万",
@@ -2323,7 +2526,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.ichiman-en"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "まん",
+            "audio": "audio/kanji/万-on-まん.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.円",
@@ -2497,7 +2710,17 @@
         "origin_type": "compound_ideograph",
         "story": "Simplified form of 圓 (round / circle). The original 圓 = 囗 (enclosure) + 員 (member) — a circular grouping. Used for the Japanese yen since 1871 because coins are round."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "えん",
+            "audio": "audio/kanji/円-on-えん.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.日",
@@ -2951,7 +3174,34 @@
         "auth.signs.nichiyoubi",
         "auth.signs.nihongo",
         "auth.signs.suiyoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "にち",
+            "audio": "audio/kanji/日-on-にち.mp3"
+          },
+          {
+            "reading": "じつ",
+            "audio": "audio/kanji/日-on-じつ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ひ",
+            "audio": "audio/kanji/日-kun-ひ.mp3"
+          },
+          {
+            "reading": "-び",
+            "audio": "audio/kanji/日-kun--び.mp3"
+          },
+          {
+            "reading": "-か",
+            "audio": "audio/kanji/日-kun--か.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.月",
@@ -3267,7 +3517,26 @@
         "auth.signs.roku-getsu",
         "auth.signs.shi-getsu",
         "auth.signs.shichi-getsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "げつ",
+            "audio": "audio/kanji/月-on-げつ.mp3"
+          },
+          {
+            "reading": "がつ",
+            "audio": "audio/kanji/月-on-がつ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "つき",
+            "audio": "audio/kanji/月-kun-つき.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.火",
@@ -3405,7 +3674,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kayoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "か",
+            "audio": "audio/kanji/火-on-か.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ひ",
+            "audio": "audio/kanji/火-kun-ひ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.水",
@@ -3547,7 +3831,22 @@
         "auth.notice.nomimizu",
         "auth.notice.omizu",
         "auth.signs.suiyoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "すい",
+            "audio": "audio/kanji/水-on-すい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "みず",
+            "audio": "audio/kanji/水-kun-みず.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.木",
@@ -3737,7 +4036,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.mokuyoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "もく",
+            "audio": "audio/kanji/木-on-もく.mp3"
+          },
+          {
+            "reading": "ぼく",
+            "audio": "audio/kanji/木-on-ぼく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "き",
+            "audio": "audio/kanji/木-kun-き.mp3"
+          },
+          {
+            "reading": "こ-",
+            "audio": "audio/kanji/木-kun-こ-.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.金",
@@ -3898,7 +4220,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kinyoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "きん",
+            "audio": "audio/kanji/金-on-きん.mp3"
+          },
+          {
+            "reading": "こん",
+            "audio": "audio/kanji/金-on-こん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "かね",
+            "audio": "audio/kanji/金-kun-かね.mp3"
+          },
+          {
+            "reading": "かな-",
+            "audio": "audio/kanji/金-kun-かな-.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.土",
@@ -4063,7 +4408,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.doyoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ど",
+            "audio": "audio/kanji/土-on-ど.mp3"
+          },
+          {
+            "reading": "と",
+            "audio": "audio/kanji/土-on-と.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "つち",
+            "audio": "audio/kanji/土-kun-つち.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.曜",
@@ -4302,7 +4666,17 @@
         "auth.signs.mokuyoubi",
         "auth.signs.nichiyoubi",
         "auth.signs.suiyoubi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "よう",
+            "audio": "audio/kanji/曜-on-よう.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.年",
@@ -4465,7 +4839,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kotoshi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ねん",
+            "audio": "audio/kanji/年-on-ねん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "とし",
+            "audio": "audio/kanji/年-kun-とし.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.時",
@@ -4678,7 +5067,22 @@
         "origin_type": "compound_ideograph",
         "story": "日 (sun) + 寺 (temple). The temple kept time by the sun. Originally meant \"season / proper moment\"; came to mean \"time / hour\" generally."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "じ",
+            "audio": "audio/kanji/時-on-じ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "とき",
+            "audio": "audio/kanji/時-kun-とき.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.分",
@@ -4859,7 +5263,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.juppun"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ぶん",
+            "audio": "audio/kanji/分-on-ぶん.mp3"
+          },
+          {
+            "reading": "ふん",
+            "audio": "audio/kanji/分-on-ふん.mp3"
+          },
+          {
+            "reading": "ぶ",
+            "audio": "audio/kanji/分-on-ぶ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "わ",
+            "audio": "audio/kanji/分-kun-わ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.半",
@@ -4998,7 +5425,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.shop.hachi-ji-han"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "はん",
+            "audio": "audio/kanji/半-on-はん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "なか",
+            "audio": "audio/kanji/半-kun-なか.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.今",
@@ -5206,7 +5648,22 @@
       "authentic_refs": [
         "auth.signs.kotoshi",
         "auth.signs.kyou-no"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こん",
+            "audio": "audio/kanji/今-on-こん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "いま",
+            "audio": "audio/kanji/今-kun-いま.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.毎",
@@ -5374,7 +5831,17 @@
       "authentic_refs": [
         "auth.signs.mainichi",
         "auth.signs.maishuu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "まい",
+            "audio": "audio/kanji/毎-on-まい.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.週",
@@ -5549,7 +6016,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.maishuu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しゅう",
+            "audio": "audio/kanji/週-on-しゅう.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.午",
@@ -5705,7 +6182,17 @@
       "authentic_refs": [
         "auth.signs.gogo",
         "auth.signs.gozen"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ご",
+            "audio": "audio/kanji/午-on-ご.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.何",
@@ -5878,7 +6365,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.nanji-kara"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "か",
+            "audio": "audio/kanji/何-on-か.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "なに",
+            "audio": "audio/kanji/何-kun-なに.mp3"
+          },
+          {
+            "reading": "なん",
+            "audio": "audio/kanji/何-kun-なん.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.人",
@@ -6145,7 +6651,26 @@
       "authentic_refs": [
         "auth.menu.ichi-ninmae",
         "auth.menu.san-ninmae"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "じん",
+            "audio": "audio/kanji/人-on-じん.mp3"
+          },
+          {
+            "reading": "にん",
+            "audio": "audio/kanji/人-on-にん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ひと",
+            "audio": "audio/kanji/人-kun-ひと.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.男",
@@ -6285,7 +6810,26 @@
         "origin_type": "compound_ideograph",
         "story": "田 (rice field) + 力 (strength/plow) — the one who works the fields with strength. Captures the ancient division of agricultural labor by gender."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "だん",
+            "audio": "audio/kanji/男-on-だん.mp3"
+          },
+          {
+            "reading": "なん",
+            "audio": "audio/kanji/男-on-なん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "おとこ",
+            "audio": "audio/kanji/男-kun-おとこ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.女",
@@ -6424,7 +6968,30 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a kneeling figure with arms folded — the traditional posture of women in ancient East Asian seated etiquette. Highly stylized over time."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "じょ",
+            "audio": "audio/kanji/女-on-じょ.mp3"
+          },
+          {
+            "reading": "にょ",
+            "audio": "audio/kanji/女-on-にょ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "おんな",
+            "audio": "audio/kanji/女-kun-おんな.mp3"
+          },
+          {
+            "reading": "め",
+            "audio": "audio/kanji/女-kun-め.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.子",
@@ -6585,7 +7152,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kodomo"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "し",
+            "audio": "audio/kanji/子-on-し.mp3"
+          },
+          {
+            "reading": "す",
+            "audio": "audio/kanji/子-on-す.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "こ",
+            "audio": "audio/kanji/子-kun-こ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.父",
@@ -6724,7 +7310,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.chichi-no-hi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ふ",
+            "audio": "audio/kanji/父-on-ふ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ちち",
+            "audio": "audio/kanji/父-kun-ちち.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.母",
@@ -6877,7 +7478,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.haha-no-hi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ぼ",
+            "audio": "audio/kanji/母-on-ぼ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "はは",
+            "audio": "audio/kanji/母-kun-はは.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.友",
@@ -7018,7 +7634,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.tomodachi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ゆう",
+            "audio": "audio/kanji/友-on-ゆう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "とも",
+            "audio": "audio/kanji/友-kun-とも.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.先",
@@ -7199,7 +7830,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.sensei"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "せん",
+            "audio": "audio/kanji/先-on-せん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "さき",
+            "audio": "audio/kanji/先-kun-さき.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.生",
@@ -7400,7 +8046,26 @@
       "authentic_refs": [
         "auth.signs.gakusei",
         "auth.signs.sensei"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "せい",
+            "audio": "audio/kanji/生-on-せい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "い",
+            "audio": "audio/kanji/生-kun-い.mp3"
+          },
+          {
+            "reading": "う",
+            "audio": "audio/kanji/生-kun-う.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.手",
@@ -7552,7 +8217,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shuwa"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しゅ",
+            "audio": "audio/kanji/手-on-しゅ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "て",
+            "audio": "audio/kanji/手-kun-て.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.足",
@@ -7693,7 +8373,22 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a foot/leg with the knee (口 element) on top and the foot at the bottom. Captures the entire lower limb, not just the foot."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "そく",
+            "audio": "audio/kanji/足-on-そく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "あし",
+            "audio": "audio/kanji/足-kun-あし.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.目",
@@ -7861,7 +8556,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.me"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "もく",
+            "audio": "audio/kanji/目-on-もく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "め",
+            "audio": "audio/kanji/目-kun-め.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.口",
@@ -8012,7 +8722,22 @@
         "origin_type": "pictograph",
         "story": "Pictograph of an open mouth — a square enclosure representing the opening. Used as both a character and a radical in many other characters."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こう",
+            "audio": "audio/kanji/口-on-こう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "くち",
+            "audio": "audio/kanji/口-kun-くち.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.力",
@@ -8148,7 +8873,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.chikara"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "りょく",
+            "audio": "audio/kanji/力-on-りょく.mp3"
+          },
+          {
+            "reading": "りき",
+            "audio": "audio/kanji/力-on-りき.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ちから",
+            "audio": "audio/kanji/力-kun-ちから.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.学",
@@ -8348,7 +9092,22 @@
         "auth.notice.shougakkou",
         "auth.signs.gakusei",
         "auth.signs.shiritsu-gakkou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "がく",
+            "audio": "audio/kanji/学-on-がく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "まな",
+            "audio": "audio/kanji/学-kun-まな.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.校",
@@ -8515,7 +9274,17 @@
         "auth.notice.gakkou",
         "auth.notice.shougakkou",
         "auth.signs.shiritsu-gakkou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こう",
+            "audio": "audio/kanji/校-on-こう.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.本",
@@ -8801,7 +9570,22 @@
         "auth.signs.honten",
         "auth.signs.nihongo",
         "auth.signs.yamamoto"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ほん",
+            "audio": "audio/kanji/本-on-ほん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "もと",
+            "audio": "audio/kanji/本-kun-もと.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.語",
@@ -8981,7 +9765,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.nihongo"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ご",
+            "audio": "audio/kanji/語-on-ご.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "かた",
+            "audio": "audio/kanji/語-kun-かた.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.国",
@@ -9168,7 +9967,22 @@
       "authentic_refs": [
         "auth.signs.chuugoku",
         "auth.signs.gaikoku"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こく",
+            "audio": "audio/kanji/国-on-こく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "くに",
+            "audio": "audio/kanji/国-kun-くに.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.会",
@@ -9326,7 +10140,26 @@
       "authentic_refs": [
         "auth.signs.kaiin",
         "auth.signs.kaisha"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "かい",
+            "audio": "audio/kanji/会-on-かい.mp3"
+          },
+          {
+            "reading": "え",
+            "audio": "audio/kanji/会-on-え.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "あ",
+            "audio": "audio/kanji/会-kun-あ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.社",
@@ -9459,7 +10292,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kaisha"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しゃ",
+            "audio": "audio/kanji/社-on-しゃ.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.員",
@@ -9605,7 +10448,17 @@
         "auth.signs.ekiin",
         "auth.signs.kaiin",
         "auth.signs.tenin"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "いん",
+            "audio": "audio/kanji/員-on-いん.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.大",
@@ -9861,7 +10714,26 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a person standing with arms outstretched wide — the BIG gesture. Captures \"large\" through the human reference frame."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "だい",
+            "audio": "audio/kanji/大-on-だい.mp3"
+          },
+          {
+            "reading": "たい",
+            "audio": "audio/kanji/大-on-たい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "おお",
+            "audio": "audio/kanji/大-kun-おお.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.中",
@@ -10025,7 +10897,22 @@
         "auth.signs.chuugoku",
         "auth.signs.tanaka",
         "auth.transit.eki-naka"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ちゅう",
+            "audio": "audio/kanji/中-on-ちゅう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "なか",
+            "audio": "audio/kanji/中-kun-なか.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.小",
@@ -10161,7 +11048,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.notice.shougakkou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しょう",
+            "audio": "audio/kanji/小-on-しょう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ちい",
+            "audio": "audio/kanji/小-kun-ちい.mp3"
+          },
+          {
+            "reading": "こ-",
+            "audio": "audio/kanji/小-kun-こ-.mp3"
+          },
+          {
+            "reading": "お-",
+            "audio": "audio/kanji/小-kun-お-.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.上",
@@ -10333,7 +11243,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.ue"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "じょう",
+            "audio": "audio/kanji/上-on-じょう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "うえ",
+            "audio": "audio/kanji/上-kun-うえ.mp3"
+          },
+          {
+            "reading": "あ",
+            "audio": "audio/kanji/上-kun-あ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.下",
@@ -10471,7 +11400,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shita"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "か",
+            "audio": "audio/kanji/下-on-か.mp3"
+          },
+          {
+            "reading": "げ",
+            "audio": "audio/kanji/下-on-げ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "した",
+            "audio": "audio/kanji/下-kun-した.mp3"
+          },
+          {
+            "reading": "さ",
+            "audio": "audio/kanji/下-kun-さ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.左",
@@ -10598,7 +11550,22 @@
         "origin_type": "compound_ideograph",
         "story": "又 (hand) + 工 (work/tool) — the LEFT hand traditionally held the tools while the right hand worked them. The 工 element pins down \"left\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "さ",
+            "audio": "audio/kanji/左-on-さ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ひだり",
+            "audio": "audio/kanji/左-kun-ひだり.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.右",
@@ -10726,7 +11693,26 @@
         "origin_type": "compound_ideograph",
         "story": "又 (hand) + 口 (mouth) — the RIGHT hand was used to eat (bring food to the mouth). The 口 element pins down \"right\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "う",
+            "audio": "audio/kanji/右-on-う.mp3"
+          },
+          {
+            "reading": "ゆう",
+            "audio": "audio/kanji/右-on-ゆう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "みぎ",
+            "audio": "audio/kanji/右-kun-みぎ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.前",
@@ -10887,7 +11873,22 @@
         "auth.signs.gozen",
         "auth.signs.onamae",
         "auth.transit.eki-mae"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ぜん",
+            "audio": "audio/kanji/前-on-ぜん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "まえ",
+            "audio": "audio/kanji/前-kun-まえ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.後",
@@ -11053,7 +12054,34 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.gogo"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ご",
+            "audio": "audio/kanji/後-on-ご.mp3"
+          },
+          {
+            "reading": "こう",
+            "audio": "audio/kanji/後-on-こう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "うし",
+            "audio": "audio/kanji/後-kun-うし.mp3"
+          },
+          {
+            "reading": "あと",
+            "audio": "audio/kanji/後-kun-あと.mp3"
+          },
+          {
+            "reading": "のち",
+            "audio": "audio/kanji/後-kun-のち.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.外",
@@ -11211,7 +12239,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.gaikoku"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "がい",
+            "audio": "audio/kanji/外-on-がい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "そと",
+            "audio": "audio/kanji/外-kun-そと.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.東",
@@ -11347,7 +12390,22 @@
       "authentic_refs": [
         "auth.transit.higashi-guchi",
         "auth.transit.tokyo-iki"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "とう",
+            "audio": "audio/kanji/東-on-とう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ひがし",
+            "audio": "audio/kanji/東-kun-ひがし.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.西",
@@ -11475,7 +12533,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.transit.nishi-guchi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "せい",
+            "audio": "audio/kanji/西-on-せい.mp3"
+          },
+          {
+            "reading": "さい",
+            "audio": "audio/kanji/西-on-さい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "にし",
+            "audio": "audio/kanji/西-kun-にし.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.南",
@@ -11603,7 +12680,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.transit.minami-guchi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "なん",
+            "audio": "audio/kanji/南-on-なん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "みなみ",
+            "audio": "audio/kanji/南-kun-みなみ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.北",
@@ -11732,7 +12824,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.transit.kita-guchi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ほく",
+            "audio": "audio/kanji/北-on-ほく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "きた",
+            "audio": "audio/kanji/北-kun-きた.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.間",
@@ -11889,7 +12996,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.ichi-jikan"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "かん",
+            "audio": "audio/kanji/間-on-かん.mp3"
+          },
+          {
+            "reading": "けん",
+            "audio": "audio/kanji/間-on-けん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "あいだ",
+            "audio": "audio/kanji/間-kun-あいだ.mp3"
+          },
+          {
+            "reading": "ま",
+            "audio": "audio/kanji/間-kun-ま.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.山",
@@ -12028,7 +13158,22 @@
       "authentic_refs": [
         "auth.signs.yamamichi",
         "auth.signs.yamamoto"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "さん",
+            "audio": "audio/kanji/山-on-さん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "やま",
+            "audio": "audio/kanji/山-kun-やま.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.川",
@@ -12159,7 +13304,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.kawa"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "せん",
+            "audio": "audio/kanji/川-on-せん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "かわ",
+            "audio": "audio/kanji/川-kun-かわ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.田",
@@ -12289,7 +13449,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.tanaka"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "でん",
+            "audio": "audio/kanji/田-on-でん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "た",
+            "audio": "audio/kanji/田-kun-た.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.雨",
@@ -12420,7 +13595,22 @@
         "origin_type": "pictograph",
         "story": "Pictograph of raindrops (4 dots) falling from a cloud (top horizontal) under the sky (top horizontal above it). Hence \"rain\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "う",
+            "audio": "audio/kanji/雨-on-う.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "あめ",
+            "audio": "audio/kanji/雨-kun-あめ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.天",
@@ -12561,7 +13751,26 @@
         "origin_type": "compound_ideograph",
         "story": "大 (big/person with arms outstretched) + a horizontal stroke above the head = \"what is ABOVE the person\" — heaven / sky."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "てん",
+            "audio": "audio/kanji/天-on-てん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "あめ",
+            "audio": "audio/kanji/天-kun-あめ.mp3"
+          },
+          {
+            "reading": "あま-",
+            "audio": "audio/kanji/天-kun-あま-.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.気",
@@ -12706,7 +13915,21 @@
         "origin_type": "compound_ideograph",
         "story": "Simplified from 氣 — 气 (steam / vapor rising) + 米 (rice). Steam rising from cooked rice = invisible essence / spirit / mood / air."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "き",
+            "audio": "audio/kanji/気-on-き.mp3"
+          },
+          {
+            "reading": "け",
+            "audio": "audio/kanji/気-on-け.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.花",
@@ -12831,7 +14054,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.hanami"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "か",
+            "audio": "audio/kanji/花-on-か.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "はな",
+            "audio": "audio/kanji/花-kun-はな.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.空",
@@ -12964,7 +14202,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.sora"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "くう",
+            "audio": "audio/kanji/空-on-くう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "そら",
+            "audio": "audio/kanji/空-kun-そら.mp3"
+          },
+          {
+            "reading": "あ",
+            "audio": "audio/kanji/空-kun-あ.mp3"
+          },
+          {
+            "reading": "から",
+            "audio": "audio/kanji/空-kun-から.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.電",
@@ -13135,7 +14396,17 @@
         "origin_type": "compound_ideograph",
         "story": "雨 (rain) + 申 (lightning bolt) — a lightning bolt during rain. Originally \"lightning\"; in modern Japanese, extended to \"electricity\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "でん",
+            "audio": "audio/kanji/電-on-でん.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.車",
@@ -13272,7 +14543,22 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a chariot seen from above — two wheels (the dots on each side, now simplified into the framing strokes) and an axle (vertical line)."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しゃ",
+            "audio": "audio/kanji/車-on-しゃ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "くるま",
+            "audio": "audio/kanji/車-kun-くるま.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.道",
@@ -13413,7 +14699,22 @@
         "auth.signs.michi",
         "auth.signs.shodou",
         "auth.signs.yamamichi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "どう",
+            "audio": "audio/kanji/道-on-どう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "みち",
+            "audio": "audio/kanji/道-kun-みち.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.店",
@@ -13553,7 +14854,22 @@
       "authentic_refs": [
         "auth.signs.honten",
         "auth.signs.tenin"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "てん",
+            "audio": "audio/kanji/店-on-てん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "みせ",
+            "audio": "audio/kanji/店-kun-みせ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.駅",
@@ -13687,7 +15003,17 @@
         "auth.transit.eki-naka",
         "auth.transit.ekichou",
         "auth.transit.kita-eki"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "えき",
+            "audio": "audio/kanji/駅-on-えき.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.食",
@@ -13844,7 +15170,26 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a covered vessel of cooked food — top is the lid, body is the container holding rice or grain. Hence \"to eat / food\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しょく",
+            "audio": "audio/kanji/食-on-しょく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "た",
+            "audio": "audio/kanji/食-kun-た.mp3"
+          },
+          {
+            "reading": "く",
+            "audio": "audio/kanji/食-kun-く.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.飲",
@@ -13984,7 +15329,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.notice.nomimizu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "いん",
+            "audio": "audio/kanji/飲-on-いん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "の",
+            "audio": "audio/kanji/飲-kun-の.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.見",
@@ -14169,7 +15529,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.hanami"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "けん",
+            "audio": "audio/kanji/見-on-けん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "み",
+            "audio": "audio/kanji/見-kun-み.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.聞",
@@ -14328,7 +15703,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shinbun"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ぶん",
+            "audio": "audio/kanji/聞-on-ぶん.mp3"
+          },
+          {
+            "reading": "もん",
+            "audio": "audio/kanji/聞-on-もん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "き",
+            "audio": "audio/kanji/聞-kun-き.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.読",
@@ -14475,7 +15869,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.dokusho"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "どく",
+            "audio": "audio/kanji/読-on-どく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "よ",
+            "audio": "audio/kanji/読-kun-よ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.書",
@@ -14613,7 +16022,22 @@
       "authentic_refs": [
         "auth.signs.dokusho",
         "auth.signs.shodou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しょ",
+            "audio": "audio/kanji/書-on-しょ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "か",
+            "audio": "audio/kanji/書-kun-か.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.話",
@@ -14797,7 +16221,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shuwa"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "わ",
+            "audio": "audio/kanji/話-on-わ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "はな",
+            "audio": "audio/kanji/話-kun-はな.mp3"
+          },
+          {
+            "reading": "はなし",
+            "audio": "audio/kanji/話-kun-はなし.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.来",
@@ -14995,7 +16438,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.raigetsu"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "らい",
+            "audio": "audio/kanji/来-on-らい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "く",
+            "audio": "audio/kanji/来-kun-く.mp3"
+          },
+          {
+            "reading": "きた",
+            "audio": "audio/kanji/来-kun-きた.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.行",
@@ -15213,7 +16675,38 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.transit.tokyo-iki"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こう",
+            "audio": "audio/kanji/行-on-こう.mp3"
+          },
+          {
+            "reading": "ぎょう",
+            "audio": "audio/kanji/行-on-ぎょう.mp3"
+          },
+          {
+            "reading": "あん",
+            "audio": "audio/kanji/行-on-あん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "い",
+            "audio": "audio/kanji/行-kun-い.mp3"
+          },
+          {
+            "reading": "ゆ",
+            "audio": "audio/kanji/行-kun-ゆ.mp3"
+          },
+          {
+            "reading": "おこな",
+            "audio": "audio/kanji/行-kun-おこな.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.出",
@@ -15396,7 +16889,30 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a plant emerging from the ground — vertical stroke up + horizontal base. Captures \"to come out / exit / produce\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しゅつ",
+            "audio": "audio/kanji/出-on-しゅつ.mp3"
+          },
+          {
+            "reading": "すい",
+            "audio": "audio/kanji/出-on-すい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "で",
+            "audio": "audio/kanji/出-kun-で.mp3"
+          },
+          {
+            "reading": "だ",
+            "audio": "audio/kanji/出-kun-だ.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.入",
@@ -15578,7 +17094,26 @@
         "origin_type": "pictograph",
         "story": "Pictograph of an arrow or pointed object entering — two strokes converging downward. Captures \"to enter / put in\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "にゅう",
+            "audio": "audio/kanji/入-on-にゅう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "はい",
+            "audio": "audio/kanji/入-kun-はい.mp3"
+          },
+          {
+            "reading": "い",
+            "audio": "audio/kanji/入-kun-い.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.立",
@@ -15713,7 +17248,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shiritsu-gakkou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "りつ",
+            "audio": "audio/kanji/立-on-りつ.mp3"
+          },
+          {
+            "reading": "りゅう",
+            "audio": "audio/kanji/立-on-りゅう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "た",
+            "audio": "audio/kanji/立-kun-た.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.休",
@@ -15877,7 +17431,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.yasumi"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "きゅう",
+            "audio": "audio/kanji/休-on-きゅう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "やす",
+            "audio": "audio/kanji/休-kun-やす.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.言",
@@ -16026,7 +17595,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.hitokoto"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "げん",
+            "audio": "audio/kanji/言-on-げん.mp3"
+          },
+          {
+            "reading": "ごん",
+            "audio": "audio/kanji/言-on-ごん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "い",
+            "audio": "audio/kanji/言-kun-い.mp3"
+          },
+          {
+            "reading": "こと",
+            "audio": "audio/kanji/言-kun-こと.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.買",
@@ -16186,7 +17778,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.shop.kau"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ばい",
+            "audio": "audio/kanji/買-on-ばい.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "か",
+            "audio": "audio/kanji/買-kun-か.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.高",
@@ -16345,7 +17952,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.takai"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こう",
+            "audio": "audio/kanji/高-on-こう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "たか",
+            "audio": "audio/kanji/高-kun-たか.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.安",
@@ -16484,7 +18106,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.yasui"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "あん",
+            "audio": "audio/kanji/安-on-あん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "やす",
+            "audio": "audio/kanji/安-kun-やす.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.新",
@@ -16632,7 +18269,30 @@
         "origin_type": "phono_semantic",
         "story": "木 (tree) + 斤 (axe) + 立 (stand) — chopping NEW wood with an axe. Hence \"new / fresh\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "しん",
+            "audio": "audio/kanji/新-on-しん.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "あたら",
+            "audio": "audio/kanji/新-kun-あたら.mp3"
+          },
+          {
+            "reading": "あら",
+            "audio": "audio/kanji/新-kun-あら.mp3"
+          },
+          {
+            "reading": "にい-",
+            "audio": "audio/kanji/新-kun-にい-.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.古",
@@ -16786,7 +18446,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.shop.furuhonya"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "こ",
+            "audio": "audio/kanji/古-on-こ.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "ふる",
+            "audio": "audio/kanji/古-kun-ふる.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.長",
@@ -16923,7 +18598,22 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.transit.ekichou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ちょう",
+            "audio": "audio/kanji/長-on-ちょう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "なが",
+            "audio": "audio/kanji/長-kun-なが.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.白",
@@ -17098,7 +18788,30 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.menu.hakumai"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "はく",
+            "audio": "audio/kanji/白-on-はく.mp3"
+          },
+          {
+            "reading": "びゃく",
+            "audio": "audio/kanji/白-on-びゃく.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "しろ",
+            "audio": "audio/kanji/白-kun-しろ.mp3"
+          },
+          {
+            "reading": "しら-",
+            "audio": "audio/kanji/白-kun-しら-.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.名",
@@ -17224,7 +18937,26 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.onamae"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "めい",
+            "audio": "audio/kanji/名-on-めい.mp3"
+          },
+          {
+            "reading": "みょう",
+            "audio": "audio/kanji/名-on-みょう.mp3"
+          }
+        ],
+        "kun": [
+          {
+            "reading": "な",
+            "audio": "audio/kanji/名-kun-な.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.番",
@@ -17373,7 +19105,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.bangou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ばん",
+            "audio": "audio/kanji/番-on-ばん.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.号",
@@ -17503,7 +19245,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.bangou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [
+          {
+            "reading": "ごう",
+            "audio": "audio/kanji/号-on-ごう.mp3"
+          }
+        ],
+        "kun": []
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     },
     {
       "id": "n5.kanji.私",
@@ -17682,7 +19434,17 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.shiritsu-gakkou"
-      ]
+      ],
+      "audio_yomi": {
+        "on": [],
+        "kun": [
+          {
+            "reading": "わたし",
+            "audio": "audio/kanji/私-kun-わたし.mp3"
+          }
+        ]
+      },
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
     }
   ],
   "_meta": {

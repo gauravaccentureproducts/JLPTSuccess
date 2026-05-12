@@ -2,6 +2,99 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.14.1 - 2026-05-12 (Listening voice variety + kanji per-yomi audio; closes ISSUE-114 + ISSUE-123)
+
+Second audio-cycle release: re-renders the 50 listening items with 6
+distinct VOICEVOX speakers across age bands, and adds per-yomi audio
+for all 106 kanji.
+
+### ISSUE-114 — Listening voice variety (4 → 6 speakers, age-band coverage)
+
+The 50 listening drills were previously rendered with 4 edge-TTS
+voices (Nanami / Keita / Aoi / Daichi, all adult). The audit's bar
+was **≥6 distinct voices** with age × gender variety. Now met:
+
+| Speaker | Character | Style | Age band | Gender |
+|---|---|---|---|---|
+| `8` | 春日部つむぎ (Tsumugi) | ノーマル | adult | F |
+| `11` | 玄野武宏 (Kurono) | ノーマル | adult | M |
+| `2` | 四国めたん (Metan) | ノーマル | young | F |
+| `3` | ずんだもん (Zundamon) | ノーマル | young | M |
+| `10` | 雨晴はう (Hau) | ノーマル | adolescent | F |
+| `13` | 青山龍星 (Aoyama) | ノーマル | mature-young | M |
+
+Pairs are cycled across the 50 items so distinct speakers appear in
+every quartile. Each item's `audio_render_meta.voice_provider` is now
+`voicevox`, with the F + M speaker assignment captured in
+`voice_planned_for_engine.{F,M}`. Slow versions re-rendered as well
+(50 normal + 50 slow = 100 mp3s under `audio/listening/`).
+
+### ISSUE-123 — Kanji per-yomi audio (0 → 106/106)
+
+Added `audio_yomi` field to every kanji entry, with separate `on` and
+`kun` arrays where each entry has the reading + relative MP3 path:
+
+```json
+"audio_yomi": {
+  "on":  [{"reading": "いち", "audio": "audio/kanji/一-on-いち.mp3"},
+          {"reading": "いつ", "audio": "audio/kanji/一-on-いつ.mp3"}],
+  "kun": [{"reading": "ひと", "audio": "audio/kanji/一-kun-ひと.mp3"}]
+}
+```
+
+259 reading audio files rendered total (136 on-yomi + 123 kun-yomi).
+106/106 kanji covered. Speaker: 春日部つむぎ (Tsumugi), same as the
+grammar-example renders for consistency. Each file is short
+(typically 0.4-0.8 seconds, ~6-12 KB).
+
+### What didn't change
+
+- The 1782 grammar example audio files from v1.14.0 remain unchanged.
+- The 54 reading-passage MP3s remain rendered with gTTS (separate
+  surface; not in scope of this release).
+
+### Engine + character attribution
+
+- **VOICEVOX engine** v0.25.2 (CPU build via WinGet). Engine remained
+  running between the v1.14.0 grammar render and this release; both
+  renders share the engine and the `:50021` HTTP API.
+- **Characters used** (6 total across the two surfaces):
+  - 春日部つむぎ — used for grammar + half of listening + all kanji yomi
+  - 玄野武宏 — listening (male adult role)
+  - 四国めたん — listening (young female role)
+  - ずんだもん — listening (young male role)
+  - 雨晴はう — listening (adolescent female role)
+  - 青山龍星 — listening (mature young male role)
+- **Character licences**: all permit commercial + non-commercial use
+  with attribution per <https://voicevox.hiroshiba.jp/term/>.
+
+### Backups
+
+- `audio/_backup_edge_tts_listening_2026_05_12/listening/` — prior
+  edge-TTS listening renders (100 files preserved). Untracked
+  (gitignored).
+- `audio/_backup_gtts_2026_05_12/grammar/` — from v1.14.0; still
+  preserved.
+
+### Audit registry follow-up
+
+ISSUE-114 + ISSUE-123 in `feedback/n5-audit-2026-05-04.xlsx`
+flipped Defer → Done with full closure notes.
+
+After this release the audit Defer list narrows from 5 items to **3**:
+- ISSUE-117 (ambient context audio 0/50) — still Q3 gated (CC-0 asset sourcing)
+- ISSUE-124 + IMP-147 (anime/drama citations 0/178) — still Q4 gated (fair-use licensing posture)
+
+### CI invariants
+
+All 69 PASS. JA-15 (audio refs resolve to files on disk) validates the
+new 50 listening + 259 kanji yomi MP3 references in addition to the
+1782 grammar refs from v1.14.0.
+
+### Cache version
+
+v1.14.0 → **v1.14.1**.
+
 ## v1.14.0 - 2026-05-12 (Grammar audio: gtts → VOICEVOX quality lift; closes ISSUE-111)
 
 Re-rendered all 1782 grammar example MP3s from gTTS to **VOICEVOX**
