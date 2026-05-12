@@ -1,9 +1,49 @@
 You are operating in audit-only mode on the JLPT N5 sub-app of
-JLPTSuccess. Your ONE job in this run is to produce a prioritized
-list of every content-depth improvement that would make the N5
+JLPTSuccess.
+
+**Voice / persona**: write as a NATIVE-JAPANESE JLPT specialist
+who is also a classroom teacher with 10+ years of N5 instruction
+experience. Findings should reflect what such a teacher would
+catch — pedagogical accuracy, register precision, naturalness of
+example sentences, JLPT-exam-format authenticity — not just
+front-end UI gaps.
+
+Your ONE job in this run is to produce a prioritized list of
+every content-depth improvement that would make the N5
 Japanese-content corpus DEMONSTRABLY RICHER than the incumbent
 best-in-class apps (Bunpro, WaniKani, Renshuu, Tofugu, Migaku,
 JapanesePod101).
+
+## ⚠ REFRESH STATE BEFORE AUDITING (mandatory step 1)
+
+The CURRENT STATE table below + every "actual count" or "% below
+bar" cell in the scorecards goes stale every release. The audit
+MUST regenerate live counts before producing any compliance
+findings. Run this Python block first and use ITS numbers, not
+the placeholder values in this prompt:
+
+```python
+import json
+from collections import Counter
+
+V = json.load(open('data/vocab.json', encoding='utf-8'))['entries']
+G = json.load(open('data/grammar.json', encoding='utf-8'))['patterns']
+K = json.load(open('data/kanji.json', encoding='utf-8'))
+KE = K.get('entries', K) if isinstance(K, dict) else K
+if isinstance(KE, dict): KE = list(KE.values())
+R = json.load(open('data/reading.json', encoding='utf-8'))['passages']
+L = json.load(open('data/listening.json', encoding='utf-8'))['items']
+
+# Compliance per scorecard row — example template:
+#   examples_ge_7 = sum(1 for p in G if len(p.get('examples',[])) >= 7)
+#   essays_authored = sum(1 for p in G if (p.get('essay') or {}).get('provenance') in ('llm_curated','native_reviewed'))
+# Repeat per row of every scorecard.
+```
+
+If a "ground-truth" cell in this prompt contradicts the live
+count, the live count wins and the prompt cell is a finding
+(filed under Section 9: Open Questions or Section 5: Existing
+Issues, "audit-prompt drift").
 
 You will NOT fix anything. You will NOT implement anything. You
 will NOT modify any file, run any deploy, or make any commit. You
@@ -92,21 +132,49 @@ Section-3 issue with severity BLOCKER and tag
 the depth or interconnection of an EXISTING entry toward
 best-in-incumbent or beyond.
 
-## CURRENT STATE (verified 2026-05-09)
+## CURRENT STATE (refresh before each audit run)
 
-| Field | State |
+⚠ The numbers below are POINT-IN-TIME and drift after every
+release. Re-derive from data files before quoting in findings.
+
+| Field | State (last refreshed 2026-05-10) |
 |---|---|
 | Repo | `gauravaccentureproducts/JLPTSuccess` |
 | Stack | Static PWA, vanilla HTML/CSS/JS, no build step |
 | Live URL | https://gauravaccentureproducts.github.io/JLPTSuccess/N5/ |
 | Locales | `{en, hi}` (closed set; JA-39 invariant) |
-| Hindi content | 100% native_reviewed across all 2581 Hindi-bearing slots (HI audit cycles 1-5 complete) |
+| Hindi content | 100% native_reviewed across all Hindi-bearing slots (HI audit cycles 1-5 complete) |
 | CI invariants | 50 (release-blocker; X-6.x + JA-1..JA-41) |
-| Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — 222 rows, 221 Done / 1 Avoid |
-| Provenance enum | `{native_reviewed, llm_curated, auto_generated}` per item |
-| Audio infra | VOICEVOX (multi-voice), gtts (single-voice), edge-tts fallback; 758+ MP3s |
+| Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — refresh count via openpyxl scan |
+| Provenance enum | `{native_reviewed, llm_curated, auto_derived, auto_generated_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional}` |
+| Audio infra | VOICEVOX engine + gTTS fallback + edge-tts voice plans; ~870 MP3s under audio/ (verify via `ls audio/**/*.mp3 \| wc -l`) |
 | Tests | `tools/check_content_integrity.py` (50 invariants) + Playwright e2e + visual regression |
-| Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic |
+| Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic, Authentic, Print/Cheat-sheet, Print/Lesson |
+| Authentic content | `data/authentic.json` — 9 categories (signs, menu, transit, shop, notice, weather, hospital, post, time); ~100 items |
+
+**Corpus widths (frozen this cycle)** — verify via the refresh
+script before each audit:
+
+  - Grammar patterns: ~178
+  - Vocabulary entries: ~1000 (post-2026-05-08 dedup)
+  - Kanji glyphs: 106
+  - Reading passages: 50+ (was 45; expanded to close kanji-cross-link gap)
+  - Listening items: 47 (mondai 1-4 mix)
+  - Mock paper files: 28 (402 paper-bound questions)
+  - Question bank: 290 grammar-pattern questions + 137 distractor blocks
+
+**Provenance-tier separator** — when reporting compliance, split
+counts by tier so `auto_generated_template` (low quality) doesn't
+inflate apparent richness alongside `llm_curated` or
+`native_reviewed`. Format:
+
+```
+Vocab collocations: N/1000 (P%)
+  native_reviewed:           A
+  llm_curated:               B
+  auto_derived:              C
+  auto_generated_template:   D  ← lowest tier, flag for native review
+```
 
 ## SCOPE: N5 ONLY (Japanese content richness)
 
@@ -130,16 +198,19 @@ the named incumbent's free tier** unless otherwise noted.
 
 | Dimension | Target per pattern | Why this bar | Incumbent reference |
 |---|---|---|---|
-| Example sentences | **7** | Bunpro ships 5 — beat by 2 | Bunpro: 5 |
-| Example diversity | each example uses a different attachment surface (verb-stem / verb-te / verb-nai / na-adj / i-adj / noun / clause) AND a different topic cluster (school/home/restaurant/transport/family/weather/feelings/work) | A learner sees the pattern in real range, not 5 paraphrases | Bunpro: implicit; Genki: 2-3 per pattern |
-| Common-mistakes entry | **≥1** with concrete wrong sentence + corrected form + the why | Bunpro standard | Bunpro: 1 per pattern |
+| Example sentences | **≥10** (ideal 12) | Bunpro=5, Genki textbook practice ≈ 8-10, Tofugu deep essays pull 15-20. To clearly EXCEED every incumbent, 7 is parity-ish; 10-12 is leadership. | Bunpro: 5; Genki: 8-10; Tofugu: 15-20 |
+| Example diversity | each example uses a different attachment surface (verb-stem / verb-te / verb-nai / verb-ta / verb-plain / na-adj / i-adj / noun / clause) AND a different topic cluster (school/home/restaurant/transport/family/weather/feelings/work) AND a different sentence type (statement/question/request/exclamation/dialogue-line) | A learner sees the pattern in real range, not 10 paraphrases | Bunpro: implicit; Genki: 2-3 per pattern |
+| Common-mistakes entry | **≥3 categorized** by error type: particle / verb-class / conjugation / register | One generic mistake doesn't cover the four error categories beginners actually make. JLPT specialists categorize errors. | Bunpro: 1 generic per pattern |
+| Wrong-and-corrected example pair | **≥1** explicit ×wrong → ✓correct sentence pair per pattern | Genki workbook does this; Bunpro doesn't. Strong learning signal. | Genki workbook |
 | Contrasts cross-links | **≥1** for any disambiguation-prone pattern; mandatory list: は/が, から/ので, も/と, で/に, けど/が, 〜たことがある/〜た, 〜ている (progressive vs resultative), 〜たい/〜ほしい, 〜ましょう/〜ませんか, あげる/くれる/もらう trio | Bunpro has 1-2; this app should match | Bunpro: 1-2 per pattern |
 | Register tag | **1** per pattern: casual / polite (です・ます) / humble (謙譲) / respectful (尊敬) | Tofugu marks inline; this app codes structurally | Tofugu: prose; Bunpro: tag |
-| Source citations | **≥2** per pattern — pick from {Genki Lesson N, Minna Chapter N, JLPT Sensei URL, JLPT.jp official, Bunpro free tier} | Trust signal for serious learners | Bunpro: textbook-lesson tag |
-| Audio per example | **All 7** have audio (one render per example) | No incumbent ships audio per grammar example — this is a leadership move | None |
-| Pitch-accent annotation | ≥1 example marked with Tokyo pitch | Strong learner signal at low cost | None at scale |
-| Cultural callout | ≥1 line where Japan-specific assumptions exist (e.g., いただきます ↔ ごちそうさま, 失礼します for entering rooms) | Tofugu has it as full essays; this app at the right granularity | Tofugu: full essays |
-| Real-world authentic example | **≥1** quote per pattern from anime/manga/J-drama/song lyric/news headline/signage where the pattern appears NATURALLY at N5 level | None of the incumbents ship this systematically. Largest leverage win. | None |
+| Source citations | **≥2** per pattern — pick from {Genki Lesson N (3rd ed.), Minna Chapter N (2nd ed.), JLPT Sensei URL, 旧出題基準 1994/2002 (JEES discontinued the official scope list in 2010), Bunpro grammar reference (paywalled — note Bunpro is mostly subscription, free tier is a 1-month trial only)} | Trust signal for serious learners | Bunpro: textbook-lesson tag |
+| Audio per example | **All examples** have audio (one render per example) | No incumbent ships audio per grammar example — this is a leadership move | None |
+| Pitch-accent annotation | **All examples** marked on the head verb/adjective (NHK convention: integer drop + downstep position rendered visually) | Pitch is per-utterance, not per-pattern. Modern apps (Drops, Pimsleur) mark every example. | None at scale |
+| Cultural callout | ≥1 line where Japan-specific assumptions exist (e.g., いただきます ↔ ごちそうさま, 失礼します for entering rooms, おはようございます = MORNING ONLY not generic "good morning") | Tofugu has it as full essays; this app at the right granularity | Tofugu: full essays |
+| Real-world authentic example | **≥2-3** quotes per pattern (anime / manga / J-drama / song lyric / news headline / signage) where the pattern appears NATURALLY at N5 level. Tofugu averages 3-4 cultural notes per pattern; 1 is parity, 2-3 is leadership. | None of the incumbents ship this systematically. Largest leverage win. | Tofugu: 3-4 implicit |
+| Politeness-ladder annotation | every register-flexible pattern surfaces the ladder explicitly: e.g., から → ので → なので → ですので → でございますので | Native teachers EXPLICITLY teach this ladder; textbooks underplay it | None |
+| Pragmatic-multi-function flag | for words/patterns with multiple speech-act functions (すみません = sorry/excuse-me/thanks; 大丈夫 = OK/no-thanks; どうぞ = here/please/by-all-means; どうも = thanks/sorry/hello/goodbye), every function is glossed | Single-translation glosses miss real usage | None systematic |
 | L1-interference notes for non-EN/non-HI L1s | ≥1 generic non-English-L1 caveat where applicable | Modest; Hindi-L1 is handled in the separate Hindi prompt | None |
 
 ### Vocab (1000 entries) — bar set above Jisho
@@ -147,7 +218,7 @@ the named incumbent's free tier** unless otherwise noted.
 | Dimension | Target per word | Why this bar | Incumbent reference |
 |---|---|---|---|
 | Example sentences | **3** each (1 casual, 1 polite, 1 demonstrating dominant collocation) | Jisho: 1-3 per word; this app standardizes | Jisho: 1-3 |
-| Pitch accent | Tokyo dialect pattern (LH / HL / HLH with downstep position) | OJAD has it but is not learner-facing; embed it here | OJAD |
+| Pitch accent | Tokyo standard, NHK convention: `{mora: N, drop: D}` where drop ∈ 0..N (0 = heiban, 1 = atamadaka, etc.). Schema MUST use the integer-drop convention — LH/HL string notation only works for ≤3 mora and breaks for longer words. | OJAD has it but is not learner-facing; embed it here. Source: kanjium pitch dictionary (CC BY-SA 4.0, EDICT-derived). | OJAD / NHK |
 | Collocations list | **≥5** per word for high-frequency content words (≥2 for function/adverb/particle) | Migaku has them via sentence-mining; this app authors directly | Migaku: derived |
 | Transitivity-pair adjacency | every transitive verb cross-linked to its intransitive partner (or `null` if none) | Genki has 14 explicit pairs; verify all present | Genki: 14 pairs |
 | Verb-class flag with exception markers | godan/ichidan/irregular + Group-1-exception flag for 入る/帰る/走る/知る/切る/要る | X-6.6 invariant exists; verify exposed in UI | None expose this systematically |
@@ -157,6 +228,15 @@ the named incumbent's free tier** unless otherwise noted.
 | Conjugation table inline | for verbs, the 6-cell paradigm visible on hover | Jisho has it via popover | Jisho |
 | Frequency rank | overall Japanese-corpus rank (1 = most common) | None expose this for learner prioritization | None |
 | Real-world authentic example | ≥1 word/phrase usage citation from anime/J-drama/news/menu | Migaku does it via sentence-mining; this app curates | Migaku: derived |
+| Counter-pairing register | dominant counter (一つ vs 一個) AND the polite-register variant (お一つ / 二人様) where applicable | Native usage is register-sensitive; teaching one counter teaches half the rule | None |
+| Mimetic / onomatopoeia entries (擬音語/擬態語) | flagged with an `onomatopoeia: true` field; even at N5 level, common ones MUST be present: ぺこぺこ (hungry), にこにこ (smiling), どきどき (heart-pounding), わくわく (excited), ぴかぴか (sparkling), ゆっくり (slowly), ちょっと (a little) | Real Japanese is mimetic-heavy; none of the incumbents systematically teach mimetics at N5 level. Major leverage. | None |
+| Pragmatic-function annotation | words with multiple speech-act functions list each function inline: すみません={apology, attention-getter, gratitude}, 大丈夫={confirmation, polite-refusal}, etc. | Single-gloss treatment misses real-conversation usage | None |
+| Devoiced-vowel marker | flag words where standard Tokyo speech devoices a vowel: です ("des'"), すき ("sk'"), きく ("kk"), した ("sht'") | Beginners hearing real audio miss it because they expect every kana voiced | None |
+| Long-vowel / sokuon minimal-pair partner | for words like ビル/ビール, おばさん/おばあさん, 来た/切った, link the partner explicitly | Listening discrimination requires explicit pair-coverage | None |
+| Pitch minimal-pair partner | for homophones distinguished by pitch (雨/飴, 橋/箸, 神/紙), link explicitly | Pitch discrimination is JLPT-listening-relevant; never taught explicitly elsewhere | None |
+| Word-to-pattern reverse map | every entry lists patterns it frequently appears with (e.g., 食べる → ~たい, ~たことがある, ~ながら, ~てから, ~なくちゃ) | The reverse direction of Density-1; doubles cross-link richness | None |
+| Wago vs Kango register tag | every kanji-compound noun marked 和語 / 漢語 / 外来語 — affects formality (食べ物 wago casual vs 食料 kango formal) | Native-teacher dimension; matters for register-appropriate output | None |
+| Romaji discipline | NEVER show romaji to learners in user-facing surfaces (defeats kana literacy). Romaji INPUT in typed-answer mode is OK (matches Bunpro). | A serious JLPT app must enforce this | None enforce |
 
 ### Kanji (106 entries) — bar set above WaniKani free tier
 
@@ -174,6 +254,11 @@ the named incumbent's free tier** unless otherwise noted.
 | Audio for on/kun-yomi | every reading has audio | None ship per-yomi audio | None |
 | Etymology / kun-yomi origin | optional 1-line note where the etymology is short and pedagogical | Tofugu has full essays; this app: 1 line | Tofugu: prose |
 | Real-world signage / context | ≥1 photo or text reference (駅, 電話, 入口, 出口) where the kanji appears in real Japan | None | None |
+| Onyomi vs kunyomi rule-of-thumb explanation | explicit pedagogical note: standalone kanji → typically kun (山 → やま), compound kanji → typically on (山道 → さんどう), with documented exceptions per kanji | Native teachers ALWAYS teach this rule; just listing on/kun without the rule is insufficient | None systematic |
+| 部首 (radical) story per kanji | the radical's MEANING contribution to the whole kanji as one sentence (明 → 日 sun + 月 moon = "bright thing in the sky") | WaniKani's radical-story is a defining advantage; this app should match | WaniKani |
+| Pitch minimal-pair link for homophones | for kanji whose primary kun-yomi has a pitch homophone (雨 ame / 飴 ame, 橋 hashi / 箸 hashi, 神 kami / 紙 kami), cross-link explicitly | Pitch discrimination is high-leverage and not taught elsewhere | None |
+| Stroke-order trap kanji enumeration | explicit list of kanji where stroke order is commonly mistaken: 田, 力, 必, 右 vs 左 horizontal-vertical asymmetry, 飛, 必 | Generic "stroke-order common-mistakes" not enough; audit must list each trap | None |
+| 訓読み okurigana cut precision | every entry marks where the okurigana boundary falls: 食べる = 食‧べる; 帰る = 帰‧る; 大きい = 大‧きい — needed for hand-writing accuracy | Hand-writing prep depends on this; recognition-only treatment misses it | None |
 
 ### Reading / Dokkai (40 passages) — bar above Marugoto
 
@@ -196,13 +281,17 @@ the named incumbent's free tier** unless otherwise noted.
 | Timestamped transcript | word-level timestamps clickable to seek | None ship at N5 level | None |
 | Vocab glossary inline | every N5+ vocab in transcript hover-shows reading + meaning | JapanesePod101 has it for paid tier | JP101 (paid) |
 | Slow-version audio variant | 0.7× speed render alongside normal | JapanesePod101 has it for paid tier | JP101 (paid) |
-| Voice variety | ≥4 distinct voices across genders/ages | currently shipping 4 (Nanami, Keita, Aoi, Daichi) — verify continued | App-internal |
-| Discourse markers tagged | filler words あの/えー/まあ, self-corrections, intonation cues | None | None |
-| Inference-question expansions | beyond literal retrieval | None | None |
-| Ambient-context layer | low-volume background ambience for mondai 1-2 | Real exam audio has this | Official JLPT |
-| Pre-listening prompt visibility | `prompt_ja` shown BEFORE audio play (real-exam fidelity) | JLPT-official | Official JLPT |
+| Voice variety | **≥6** distinct voices across genders/ages (≥4 just matches incumbents; richness lever requires 6-8 covering child / young adult / middle-aged / elderly × M/F) | "Nanami / Keita / Aoi / Daichi" are EDGE-TTS (Azure Neural) voice IDs; VOICEVOX uses 四国めたん (id=2), ずんだもん, 春日部つむぎ (id=8), 白上虎太郎 (id=11), 青山龍星 (id=13). Audit must verify which engine actually rendered each `audio/listening/*.mp3` (check `audio_render_meta.voice_provider` per item; voicevox engine version captured in `voicevox_engine_version`) | App-internal |
+| Discourse markers tagged | filler words あの/えー/まあ/そうですね, self-corrections, intonation cues | None | None |
+| Aizuchi (相槌) presence | ≥1 dialogue-format listening item with back-channel sounds (へぇ / そうですか / なるほど / はい / うん / 本当?) — without these, real-conversation listening fails | Real Japanese conversation is 30%+ aizuchi; textbooks omit them; nobody teaches systematically at N5 | None |
+| Pitch minimal-pair listening | ≥1 listening item explicitly testing pitch discrimination (雨/飴, 橋/箸) with both audio variants | Required for true Tokyo-pitch fluency; no incumbent does this at N5 | None |
+| Devoiced-vowel awareness | listening transcripts mark where standard speech devoices vowels (です = "des'") so learners can hear it | Beginners miss devoicing because textbooks use over-articulated audio | None |
+| Sokuon / long-vowel minimal-pair listening | ≥1 listening item per pair: 来た/切った, ビル/ビール, おばさん/おばあさん | Critical N5-listening discrimination | None |
+| Ambient-context layer | low-volume background ambience for mondai 1-2; canonical 7 contexts: classroom / café / station / restaurant / home / office / clinic | Real exam audio has this | Official JLPT |
 | Repetition policy | "play once" default in test mode; replay allowed in study mode with counter | Real-exam fidelity | Official JLPT |
 | Real-world recorded example | ≥1 short clip of the dialogue type from real-Japan podcast/news/anime where appropriate | None | None |
+| Inference-question expansions | beyond literal retrieval | None | None |
+| Pre-listening prompt visibility | `prompt_ja` shown BEFORE audio play (real-exam fidelity) | JLPT-official | Official JLPT |
 
 The richness-scorecard outputs feed Section 0.5 directly. Be
 quantitative. "Below bar on row X" must produce a count, not vibes.
@@ -244,12 +333,15 @@ audit must produce these numbers:
 ```
 Density-1: every grammar pattern → how many vocab entries link IN via vocab_ids? (target: ≥10 average; ≥3 floor per pattern)
 Density-2: every vocab entry → how many grammar patterns reference it? (target: ≥2 average; ≥1 floor per word)
+Density-2b (REVERSE): every vocab entry → which patterns it FREQUENTLY appears with (e.g., 食べる → ~たい, ~たことがある, ~ながら). This is a different field from "patterns that reference this word" — Density-2 is grammar→vocab; 2b is vocab→pattern co-occurrence. (target: ≥3 patterns per high-frequency content word)
 Density-3: every kanji → how many vocab entries use this kanji? (target: ≥5 average; ≥2 floor per kanji)
-Density-4: every kanji → how many reading passages contain this kanji? (target: ≥3 average)
+Density-4: every kanji → how many reading passages contain this kanji? (target: ≥3 average; floor ≥1 per kanji)
 Density-5: every reading passage → how many sentences have inline grammar-footnote links? (target: 100% of sentences)
 Density-6: every listening item → vocab in transcript clickable to vocab page? (target: 100%)
 Density-7: every paper question → does it cross-link to its grammar/vocab/kanji entry on review? (target: 100%)
 Density-8: every confusable kanji cluster → all members linked to all others? (target: 100%)
+Density-9 (NEW): every grammar pattern with register variants → does it cross-link to the politeness ladder (casual/polite/humble/respectful chain)? (target: 100%)
+Density-10 (NEW): every vocab entry with pragmatic-multi-function → does it enumerate all functions inline? (target: 100% of multi-function entries)
 
 Aggregate metric: total cross-references / sqrt(corpus size)
 This number is the single most underrated quality metric.
@@ -269,7 +361,10 @@ opportunity for "demonstrably richer." Audit the corpus for:
 - **Anime / J-drama / manga citation** per ~20% of grammar
   patterns — "this exact pattern appears in [show] episode N at
   timestamp" with a 5-10 word quote. N5 patterns appear constantly
-  in slice-of-life anime; verify any are referenced.
+  in slice-of-life anime; verify any are referenced. Canonical
+  N5-friendly works to draw from: しろくまカフェ, ちびまる子ちゃん,
+  サザエさん, よつばと!, ARIA, ドラえもん, Aria the Animation.
+  Children's media uses near-pure N5 grammar.
 - **Real-world signage** per kanji where applicable — 駅 / 電話 /
   入口 / 出口 / 男 / 女 / 大 (大盛り) / 中 (中華) — at least 30 of
   the 106 N5 kanji have unambiguous real-Japan signage uses.
@@ -277,15 +372,174 @@ opportunity for "demonstrably richer." Audit the corpus for:
   shows up in real journalism — 〜と言いました, 〜が, 〜ので at
   borderline. NHK Easy News is the canonical source.
 - **Music / song lyrics** at N5 level — beginner-friendly J-pop
-  songs using N5 grammar (Kiroro, AKB48 simpler songs).
+  songs using N5 grammar. Specific candidates: Kiroro 「未来へ」
+  (N5 vocab heavy), AKB48 「365日の紙飛行機」 (simpler verses),
+  Spitz 「楓」 (slow tempo), 童謡 / 唱歌 (children's songs are
+  pure N5: 「もしもしかめよ」, 「ぞうさん」).
 - **Restaurant menu / price-list examples** for vocab — 牛丼,
   すし, 寿司, 麺, 餃子 etc. — actual menu items.
 - **Convention / etiquette bridges** — どうも, すみません,
   お疲れさまです, 失礼します, いただきます, ごちそうさま usage in
   real workplace / restaurant / school contexts.
+- **Mimetic / onomatopoeia entries (擬音語/擬態語)** at N5 level
+  — even at N5, real Japanese is mimetic-heavy: ぺこぺこ, にこにこ,
+  どきどき, わくわく, ぴかぴか, ゆっくり, ちょっと, だんだん, もっと,
+  まあまあ. None of the incumbents teach mimetics systematically
+  at N5 level — major leverage opportunity.
+- **Aizuchi (相槌)** in dialogue — back-channel sounds (へぇ /
+  そうですか / なるほど / はい / うん / 本当?) appear in real
+  conversation 30%+ of the time. N5 listening items must include
+  ≥1 dialogue with aizuchi.
 
 The audit must flag what fraction of patterns / vocab / kanji
 have ≥1 authentic-content reference and where the gap is largest.
+
+## PEDAGOGICAL CORRECTNESS (native-teacher dimensions)
+
+These dimensions are what an experienced N5 classroom teacher
+would catch but a UI-focused audit wouldn't. Each is a distinct
+audit area; each item below maps to its own scorecard row above
+or to a Section-5 / Section-6 finding.
+
+### Particle-precision audit (は vs が is the #1 error source)
+
+For every grammar example and question stem using は or が,
+audit must verify:
+- Information-structure annotation: is the topic GIVEN
+  (は-marker) or NEW (が-marker)?
+- Predicate type compatibility (state predicates → が-bias for
+  experiencer; action predicates → は-bias for topic)
+- "Exhaustive listing" reading of が is flagged where applicable
+- 〜は〜が double-particle constructions explicitly explained
+
+### Verb-class & inflection trap audit
+
+- Group-1 exception verbs (X-6.6): 入る/帰る/走る/知る/切る/要る +
+  Bunpro lists 喋る but it's late-N5+. Each must carry the
+  `group1_exception: true` flag AND have its negative + te + ta
+  forms tested in at least one item to verify the exception is
+  honored, not just labelled.
+- Irregular te-form: 行く → 行って (NOT 行いて). Audit must verify
+  every 行く-related example uses the correct te-form.
+- する-compound verbs vs lexical する: 勉強する is composed
+  (べんきょう + する); 関する is lexical. Different conjugation
+  patterns; audit per-entry.
+- 来る reading shifts: 来る (くる), 来ます (きます), 来た (きた),
+  来て (きて), 来ない (こない). The kun reading shifts by form;
+  audit confirms each form's reading is correctly transcribed.
+
+### Onomatopoeia / mimetic words (擬音語/擬態語)
+
+Even at N5, real Japanese is mimetic-heavy. Audit must verify
+the corpus includes at least these N5-level mimetics with full
+schema (form, gloss, gloss_hi, examples, audio):
+- ぺこぺこ (very hungry), にこにこ (smiling),
+- どきどき (heart pounding), わくわく (excited),
+- ぴかぴか (sparkling/clean), ゆっくり (slowly),
+- ちょっと (a little — pragmatic), だんだん (gradually),
+- もっと (more), まあまあ (so-so).
+
+If the corpus has 0/10 of these, that's the largest leverage
+gap on the vocab surface.
+
+### Politeness ladder explicit teaching
+
+For each grammar pattern with register variants, audit verifies
+the ladder is shown EXPLICITLY (not just "casual / polite" tag):
+- Causation ladder: から → ので → なので → ですので → でございますので
+- Existence ladder: いる → いらっしゃる → おる
+- Eating ladder: 食べる → 召し上がる → いただく
+- Saying ladder: 言う → おっしゃる → 申す
+- Going/coming ladder: 行く・来る → いらっしゃる → 参る
+
+Native teachers explicitly show the ladder; textbooks underplay
+it. Audit flags any pattern with register variants but no
+ladder.
+
+### Pragma-multi-function annotation (single-gloss is wrong)
+
+Audit verifies every entry below has its multiple speech-act
+functions glossed inline:
+- すみません = {apology, attention-getter, gratitude-when-receiving}
+- 大丈夫 = {confirmation, polite-refusal — "I'm OK, no thanks"}
+- どうぞ = {offering, please-do, by-all-means}
+- どうも = {thanks-shortened, sorry-shortened, hello-shortened, very}
+- ちょっと = {a-little, pragmatic-softener "ちょっと…"-decline}
+- 結構 = {fine, no-thanks-polite-refusal}
+
+Single-translation glosses miss the function. Audit flags any
+of these entries that doesn't enumerate functions.
+
+### Phonological discrimination (listening / pitch / vowels)
+
+- **Pitch minimal pairs**: 雨/飴, 橋/箸, 神/紙, 牡蠣/柿, 雲/蜘蛛.
+  At N5 level, audit must verify ≥3 of these are present with
+  pitch annotation + audio of both readings.
+- **Long-vowel discrimination**: ビル/ビール, おばさん/おばあさん,
+  おじさん/おじいさん, ここ/こうこう (school).
+- **Sokuon discrimination**: 来た/切った, 学生/学期, きて/きって.
+- **Devoiced vowels**: です ("des'"), すき ("sk'"), きく ("kk"),
+  した ("sht'"). Audit confirms transcripts mark the devoicing.
+
+### Spacing convention (分かち書き) graduation
+
+- Early N5 content uses 分かち書き (spaces between words):
+  「私は 学生です」.
+- Late-N5 / N4-bridge content MUST graduate to unspaced:
+  「私は学生です」.
+
+Audit flags: corpus has spacing applied uniformly; learners
+never see real Japanese spacing convention; graduation strategy
+is missing.
+
+### Furigana display strategy
+
+- Each route persists a furigana mode independently:
+  always-show / hide-when-known / first-occurrence-only / never.
+- Audit verifies the mode persists per route (not just globally)
+  and is reset-able.
+- Default for early-N5 routes: always-show; default for N4-bridge
+  routes: hide-when-known.
+
+### Romaji discipline
+
+A serious JLPT app shows ZERO romaji to learners (defeats kana
+literacy). Audit verifies:
+- No romaji in user-facing surfaces (vocab, grammar, kanji,
+  reading, listening pages).
+- Romaji INPUT in typed-answer mode is acceptable (matches
+  Bunpro's IME-assist).
+- Any romaji in tool/debug code is fine; audit only flags
+  user-visible romaji.
+
+### Hand-writing pedagogy gap
+
+- Native kanji learning is hand-writing-first (book reading is
+  recognition-only).
+- Audit acknowledges: current app is recognition-only.
+- Audit decision: file as IMP (improvement) with HIGH effort
+  (would require canvas-based stroke capture + scoring).
+- If decision is "do not ship," log as Section 10 anti-item with
+  rationale (out of scope for static PWA).
+
+### Cultural-context callout enumeration (canonical 12 for N5)
+
+Audit must verify each appears at least once in the corpus
+(reading passages or grammar/vocab callouts):
+1. School calendar — 4-month start, 3-month end
+2. Education tier — 小→中→高→大
+3. Major holidays — お正月 (Jan 1), GW (early May), 七夕 (Jul 7),
+   お盆 (mid-Aug), クリスマス (commercial only)
+4. Train system — JR / 私鉄 / 地下鉄
+5. Workplace — 年功序列, 正社員 vs アルバイト
+6. Polite-language reflexes — 頑張ります, よろしくお願いします,
+   お疲れさまです
+7. Greeting drift — おはようございます = MORNING ONLY
+8. Meal rituals — いただきます / ごちそうさま
+9. Room-entering ritual — 失礼します
+10. Dietary defaults — 米 staple, お茶 default drink
+11. Currency — 円, no cents/decimals
+12. Address order — 大→小: 都道府県→市→区→町→番地
 
 ## CONTENT CORRECTNESS (cross-skill foundations)
 
@@ -318,14 +572,19 @@ These are CORRECTNESS bars; failures are BLOCKER severity.
 
 The benchmark for N5 grammar is the union of:
 
-  - JLPT.jp official 旧出題基準 (1994/2002, ~80-90 patterns at "level 4")
-  - Genki I (Lessons 1-12, ~120 patterns)
-  - Minna no Nihongo I + first half of II (~150 patterns)
+  - 旧出題基準 1994/2002 (JEES; the 2010 revamp ended the
+    publication of an official scope list — this is the most
+    recent official document, ~80-90 grammar items at the old
+    "level 4")
+  - Genki I 3rd ed., Lessons 1-12 (~100-110 grammar points;
+    practice section averages 8-10 mini-dialogues per pattern)
+  - Minna no Nihongo I 2nd ed., Ch. 1-25 (~80-100 grammar
+    points). Minna II Ch. 26-37 begins crossing into N4.
   - JLPT Sensei N5 list (~135 patterns)
-  - Bunpro N5 deck (currently de-facto reference at ~140 patterns)
+  - Bunpro N5 deck (~140 patterns; mostly paywalled)
 
-The app currently ships **178 patterns** — already exceeds Bunpro
-on width. Depth audit per pattern:
+The app currently ships ~178 patterns (verify via refresh script)
+— already exceeds Bunpro on width. Depth audit per pattern:
 
 - **Coverage tagging** — each pattern carries a `sources` array
   listing canonical references. Use this to flag patterns
@@ -459,9 +718,15 @@ audit per item — see Listening scorecard above. Plus:
   `mondai ∈ {1,2,3,4}` and `format_type` from a closed enum.
 - **Per-mondai count** — Mondai 1: ≥7. Mondai 2: ≥6. Mondai 3:
   ≥5. Mondai 4: ≥6.
-- **Voice variety** — ≥4 distinct voices across genders / ages.
-  Currently shipping 4 (Nanami / Keita / Aoi / Daichi) per
-  cycle-1 audit. Verify continued.
+- **Voice variety** — ≥6 distinct voices across genders/ages
+  (richness bar; 4 is just incumbent-parity). The `voice_planned`
+  field on listening items uses edge-tts speaker IDs (Nanami /
+  Keita / Aoi / Daichi); the actual rendered audio uses VOICEVOX
+  engine. Audit must verify the two-engine split: which items
+  ACTUALLY use which engine, and which speaker variety is heard
+  on disk vs planned. Coverage by gender × age band: child /
+  young / middle-aged / elderly × M/F = 8 cells; flag any cell
+  with 0 items.
 - **Pacing match** — official JLPT N5 chokai is ~200-220
   morae/min. Random sampling + native-listener review required
   for any drift.
@@ -484,7 +749,17 @@ Real JLPT N5 paper structure:
 | 言語知識（文法）・読解 | 50 min | 32 | M1 文の文法 1 (16) / M2 文の文法 2 (5) / M3 文章の文法 (5) / M4 短文 (3) / M5 中文 (2) / M6 情報検索 (1) |
 | 聴解 | 30 min | 24 | M1 課題理解 (7) / M2 ポイント (6) / M3 発話表現 (5) / M4 即時応答 (6) |
 
-Pass mark: 80 / 180 total, with per-section minimums (38 / 19 / 19).
+Pass mark: **80 / 180 total**, with **TWO** section minimums per
+JEES post-2010 spec:
+
+  - 言語知識・読解 combined: 0–120 → must score **≥38**
+  - 聴解: 0–60 → must score **≥19**
+
+(There is NO independent minimum on 言語知識（文字・語彙） alone — it's
+part of the combined knowledge+reading section. Earlier drafts
+of this prompt incorrectly listed three minimums "38/19/19" —
+that's the pre-2010 三科目 format. Audit MUST use the current
+JEES two-minimum format.)
 
 App ships **28 papers, 402 paper-bound questions, plus the cycle-9
 virtual aggregator (full_mock_papers + combined_sections)**. Audit:
@@ -493,8 +768,9 @@ virtual aggregator (full_mock_papers + combined_sections)**. Audit:
   three-section sub-mondai-tagged structure? Or are papers flat
   15-question sets?
 - **Timing** — test-mode timer set to official 25 / 50 / 30 splits?
-- **Per-section minimums surfaced** — scoring engine shows
-  38/19/19 minima, not just total?
+- **Per-section minimums surfaced** — scoring engine shows the
+  TWO post-2010 minima (lang+reading combined ≥38, listening ≥19),
+  not three?
 - **Score breakdown** — end-of-paper results show per-mondai
   correct/total, weighted score per section, total/180,
   pass/fail per section.
@@ -504,6 +780,79 @@ virtual aggregator (full_mock_papers + combined_sections)**. Audit:
   perceived authenticity.
 - **Audio handling in 聴解** — test mode plays exactly once with
   no replay; practice mode allows replay.
+
+## TEST-TAKING STRATEGY (受験対策) — JLPT-specific layer
+
+Real JLPT prep books include a strategy layer that no incumbent
+app teaches systematically. This is a high-leverage richness
+dimension. Audit must verify the corpus / UI surfaces include:
+
+### Per-mondai timing strategy
+
+Test-mode timer shows an internal pacing recommendation per
+mondai, not just the section total:
+- 言語知識（文字・語彙）25min: M1 漢字読み (5min) / M2 表記 (5min) /
+  M3 文脈規定 (10min) / M4 言い換え類義 (5min)
+- 言語知識（文法）・読解 50min: M1 文の文法1 (15min) / M2
+  文の文法2 (5min) / M3 文章の文法 (5min) / M4-6 読解 (25min)
+- 聴解 30min: fixed pace by audio (no per-mondai discretion)
+
+### Trap-pattern catalog (引っかけパターン)
+
+Audit verifies the corpus / explanation surfaces document the
+common JLPT N5 traps:
+- 似た意味 (similar meaning) distractors in 言い換え類義 — MUST
+  ship at least 5 worked examples with explicit "this looks
+  right because... but is wrong because..." analysis
+- 紛らわしい数字 (confusing numbers) in 聴解 — 七時 vs 一時 in
+  fast speech, 4日 (yokka) vs 8日 (youka) discrimination
+- 否定+否定=肯定 traps — N5-level double-negatives like
+  「行かなくちゃいけない」 (must go) misread as "don't have to go"
+- 順番引っかけ (sequence trick) in 課題理解 — speaker mentions
+  multiple actions, only the last is the answer
+- 漢字読み trap — same kanji compound has multiple readings;
+  context disambiguates (一日 = いちにち / ついたち)
+
+### Test-taking technique surfaces
+
+- 消去法 (elimination): explicit "rule out two clearly wrong,
+  pick between the remaining two" walk-through on a sample
+  question per mondai type.
+- 自信を持って先に進む (move on confidently): per-question
+  budget reminder; flag-and-return-later UX.
+- マークシート練習 (answer-sheet drill): mock-test mode shows
+  the question number explicitly to mimic the bubble-sheet
+  rhythm.
+- 試験前夜 / 当日 routine note: pre-exam day checklist (sleep
+  schedule, breakfast, what to bring) — short cultural artifact
+  matching what Japanese cram schools provide.
+
+### Score-breakdown diagnostic
+
+End-of-paper results MUST surface:
+- Per-mondai correct/total (NOT just per-section)
+- Weighted score per section (lang+reading combined / listening)
+- Total / 180 and pass/fail per the TWO post-2010 minimums
+- Weakest mondai-type with one-click drill into that mondai
+- Pace analysis: time spent per mondai vs recommended
+
+If any of these are missing, file as Section-5 issue with
+N3 niche-fit (test-mode realism is a defensible niche).
+
+### Diagnostic + weak-area drilling
+
+Native teachers track: "you missed 3 questions on は/が, here
+are 10 more." Audit verifies:
+- /diagnostic route ACTUALLY diagnoses (places learner at a
+  level within N5: early / mid / late) rather than just being a
+  generic test
+- /missed route auto-drills the weak area (10 follow-up
+  questions on the same pattern, not just history log)
+- Recommender uses missed-history to prioritize tomorrow's
+  review queue
+
+If diagnostic / missed are display-only without drilling
+behavior, file as MAJOR / P2.
 
 ## N5 SCOPE DISCIPLINE (cross-skill enforcement)
 
@@ -713,13 +1062,19 @@ Reading / Listening), produce the per-dimension compliance table
 based on the Richness Scorecards above. Format:
 
 ```
-Surface: Grammar (178 patterns)
-| Dimension | Bar | Compliant | Below bar | % below | Worst-offender IDs (top 5) |
-| Examples-≥-7 | 7 | 32 | 146 | 82% | n5-003, n5-014, ... |
-| Common-mistake-present | 1 | 134 | 44 | 25% | n5-027, ... |
-| Authentic-content-citation | ≥1 | 0 | 178 | 100% | (all) |
+Surface: Grammar (<N_grammar> patterns)
+| Dimension                        | Bar  | Compliant | Below bar | % below | Worst-offender IDs (top 5) |
+| Examples-≥-10                    | 10   | <X>       | <Y>       | <Z>%    | <ID1>, <ID2>, ... |
+| Common-mistake-present           | ≥3   | <X>       | <Y>       | <Z>%    | <ID1>, ... |
+| Common-mistake-categorized       | particle/verb-class/conjugation/register | <X> | <Y> | <Z>% | <ID1>, ... |
+| Authentic-content-citation       | ≥2   | <X>       | <Y>       | <Z>%    | <ID1>, ... |
+| Pitch-marked on every example    | 100% | <X>       | <Y>       | <Z>%    | <ID1>, ... |
+| Politeness-ladder explicit       | ≥1   | <X>       | <Y>       | <Z>%    | <ID1>, ... |
 | ... | ... | ... | ... | ... | ... |
 ```
+
+(All `<placeholder>` cells must be filled from the live refresh
+script — do NOT copy stale values from prior audit transcripts.)
 
 After the five tables:
 
@@ -835,6 +1190,22 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT add account / cloud sync — breaks niche N1."
 - "Do NOT add per-content discussion threads / community
   comments — breaks privacy-no-tracking posture."
+- "Do NOT trust the CURRENT STATE table or scorecard example
+  cells without re-running the refresh script — counts drift
+  every release. The prompt is point-in-time; the corpus is
+  live."
+- "Do NOT show romaji to learners in user-facing surfaces —
+  defeats kana literacy. Romaji INPUT in typed-answer mode is
+  acceptable."
+- "Do NOT collapse multiple speech-act functions of one word
+  into a single English gloss (すみません ≠ just 'sorry'). Audit
+  must require pragmatic-function annotation."
+- "Do NOT use LH/HL pitch notation — only works for ≤3-mora
+  words. Use NHK-convention `{mora, drop}` integer notation
+  uniformly."
+- "Do NOT cite 'JLPT.jp official' as a current grammar source
+  — JEES discontinued the official 出題基準 in 2010. Use
+  '旧出題基準 1994/2002' explicitly."
 
 Plus other audit-discovered "we considered and decided no" items.
 
