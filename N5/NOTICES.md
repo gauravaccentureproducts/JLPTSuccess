@@ -194,10 +194,14 @@ required by its licence.
 
 ## Public-domain literary references (Aozora Bunko + government + proverbs + folk songs)
 
-> **Added 2026-05-13 (v1.15.0):** 36 N5 grammar patterns now carry
+> **Added 2026-05-13 (v1.15.0):** N5 grammar patterns now carry
 > references to legally-safe authentic Japanese sources via a new
 > `public_domain_refs` field. Rendered on the pattern detail page
 > below the contrasts section.
+>
+> **Expanded 2026-05-13 (v1.15.1):** Coverage extended from 36 to all
+> 178 patterns (184 total ref entries). Same five-tier source pool;
+> see CHANGELOG v1.15.1 for the per-author PD-status table.
 
 ### Aozora Bunko (青空文庫) — PD literature
 

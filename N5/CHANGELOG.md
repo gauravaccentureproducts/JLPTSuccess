@@ -2,6 +2,75 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.1 - 2026-05-13 (PD refs full coverage + Phase 7 polish)
+
+Two follow-on improvements to v1.15.0:
+
+### Public-domain references — expanded to all 178 patterns
+
+The `public_domain_refs` field now covers every N5 grammar pattern
+(178/178, up from 36/178). 148 additional references were added,
+distributed across the same five source tiers as v1.15.0:
+
+- **Aozora Bunko PD literature** (~101 refs): Sōseki (d.1916), Akutagawa
+  (d.1927), Dazai (d.1948), Miyazawa Kenji (d.1933), Lafcadio Hearn /
+  小泉八雲 (d.1904), Higuchi Ichiyō (d.1896), Mori Ōgai (d.1922),
+  Fukuzawa Yukichi (d.1901), Niimi Nankichi (d.1943), Nakajima Atsushi
+  (d.1942), Yosano Akiko (d.1942), Ishikawa Takuboku (d.1912), Bashō
+  (d.1694). All authors died ≥70 years before 2026 = PD in Japan and
+  most jurisdictions.
+- **Government works** (~12 refs): 日本国憲法 (Constitution), 教育基本法,
+  道路交通法 — PD under 著作権法 §13 (Works of the State).
+- **Traditional proverbs** (~30 refs): 諺 (ことわざ), folk wisdom — no
+  attributable author, public-domain by age.
+- **Folk songs** (~20 refs): わらべうた, 民謡 — same PD status as proverbs.
+- **NHK Easy News** (~19 refs): cited as recommendation-only (no quoted
+  text), to direct learners to current authentic register.
+
+All entries vetted for the same legal posture as v1.15.0: zero
+copyrighted-work citations, full author/year/PD-status disclosure.
+
+### Phase 7 polish — 8 short explanations expanded
+
+Phase 6 (v1.15.0) tackled 13 truly-weak entries. Phase 7 takes a
+surgical pass at the remaining short `explanation_en` fields. Census
+surfaced 43 entries under 80 chars; 35 were judged "accurate and
+concise" and left untouched. 8 were upgraded because adding context
+genuinely closes a learner gap:
+
+- **n5-027 (よね)** — when-to-use rule vs. plain よ / plain ね.
+- **n5-053 (いくら)** — full pattern これは いくらですか + おいくら formal variant.
+- **n5-099 (好き/嫌い)** — 大好き / 大嫌い superlative forms + negation.
+- **n5-148 (frequency adverbs)** — five-rung frequency ladder including
+  あまり/ぜんぜん (negative-only).
+- **n5-150 (おねがいします)** — explicit register difference vs. ください.
+- **n5-179 (って)** — three distinct functions (quotation / topic /
+  hearsay), broken out with examples.
+- **n5-180 (Verb-stem + ～かた)** — worked examples (読み方, 書き方, 食べ方).
+- **n5-181 (～なあ)** — gender/register cue (male-leaning, casual).
+
+All 8 carry `provenance: native_reviewed` and `audit_wave:
+phase-7-polish-2026-05-13`.
+
+### Verification
+
+- CI: 69/69 invariants green (no schema or shape regression).
+- Coverage: 178/178 patterns now have ≥1 PD ref.
+- All 178 patterns now have provenance `native_reviewed` on the four
+  audited fields (explanation_en, common_mistakes, contrasts,
+  cultural_callout).
+
+### File counts
+
+`data/grammar.json`: 178 patterns × 184 PD ref entries (some patterns
+have 2 refs — typically one Aozora + one proverb or one government).
+Source distribution: 101 aozora_bunko, 30 proverb, 20 folk_song,
+12 government, 19 nhk_easy, 2 fallback adjective-copula Aozora refs.
+
+### Cache version
+
+v1.15.0 → v1.15.1 (patch bump — same surface, broader coverage).
+
 ## v1.15.0 - 2026-05-13 (Public-domain media citations + Phase 6 polish)
 
 Two new content layers landed in this release:
