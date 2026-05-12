@@ -234,16 +234,17 @@ export function renderGrammarTOC(container, data) {
     html += `<div class="grammar-grid">`;
     for (const p of items) {
       // IMP-143 (richness audit, 2026-05-09): inline meaning_en +
-      // first-example + Genki lesson tag in hidden print-only spans.
-      // The print stylesheet reveals them so the rendered list view
-      // becomes a printable cheat sheet (one row per pattern).
+      // first-example in hidden print-only spans. The print stylesheet
+      // reveals them so the rendered list view becomes a printable
+      // cheat sheet (one row per pattern).
+      //
+      // Lesson tag column retired 2026-05-12: external textbook brand
+      // initials (e.g., G1·L2) removed from the print cheatsheet per
+      // maintainer directive.
       const firstExample = (() => {
         const exs = (p.examples || []).filter(e => e && e.ja);
         return exs[0] ? exs[0].ja : '';
       })();
-      const lessonTag = p.genki_lesson
-        ? `G${p.genki_lesson.book}·L${p.genki_lesson.lesson}`
-        : '';
       // IMP-WAVE3 (UI audit fix, 2026-05-11): show meaning_<locale> when the
       // current UI locale is non-English and the localized field exists.
       // Falls back to meaning_en silently.
@@ -260,7 +261,6 @@ export function renderGrammarTOC(container, data) {
           <span class="grammar-pattern" lang="ja">${esc(p.pattern)}</span>
           <span class="grammar-card-print-meaning">${esc(cardMeaning)}</span>
           <span class="grammar-card-print-example" lang="ja">${esc(firstExample)}</span>
-          ${lessonTag ? `<span class="grammar-card-print-lesson">${esc(lessonTag)}</span>` : ''}
         </a>
       `;
     }
@@ -585,21 +585,12 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
     </section>
   ` : '';
 
-  // IMP-WAVE1: authentic_citations (Genki / Minna / DBJG sourcing).
-  const citations = Array.isArray(p.authentic_citations) ? p.authentic_citations : [];
-  const citationsHtml = citations.length ? `
-    <section class="authentic-citations">
-      <h3 class="section-title">${esc(t('grammar_detail.citations_section'))}</h3>
-      <ul class="citations-list">
-        ${citations.map(c => `
-          <li>
-            <strong class="citation-source">${esc(c.source || '')}</strong>
-            ${c.context ? ` — <span class="citation-context">${renderJa(c.context)}</span>` : ''}
-          </li>
-        `).join('')}
-      </ul>
-    </section>
-  ` : '';
+  // Citation section retired 2026-05-12: external textbook brand names
+  // (Genki / Minna) are not rendered in user-facing UI per maintainer
+  // directive. The data fields (authentic_citations, genki_lesson,
+  // sources) remain in data/grammar.json for internal reference and
+  // CC-BY-SA attribution requirements; they are simply not displayed.
+  const citationsHtml = '';
 
   const statusBadge = isMastered
     ? `<span class="status-badge mastered">★ Mastered</span>`
@@ -611,13 +602,11 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   // Browser-native print → save-as-PDF flow. The companion @media print
   // rules in css/main.css hide nav/chrome and format pattern-detail for
   // paper. No PDF library, no network round-trip, no extra dependency.
-  // Effective lesson-notes export per the Genki lesson tag also added
-  // in IMP-130.
-  const lessonTag = (() => {
-    const g = p.genki_lesson;
-    if (!g) return '';
-    return `<span class="pattern-lesson-tag" title="Genki ${g.book} Lesson ${g.lesson}">G${g.book}·L${g.lesson}</span>`;
-  })();
+  //
+  // Lesson tag (G1·L2 + "Genki X Lesson Y" tooltip) retired 2026-05-12:
+  // external textbook brand initials removed from the rendered UI per
+  // maintainer directive. The p.genki_lesson data is kept in
+  // data/grammar.json for internal use but no longer surfaced here.
 
   const html = `
     <article class="pattern-detail">
@@ -627,7 +616,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${p._homonym_of ? `<p class="pattern-homonym-badge muted small">⚠ <a href="#/learn/${encodeURIComponent(p._homonym_of)}">Same kana, different meaning: ${esc(p._homonym_of)}</a></p>` : ''}
       <div class="pattern-header">
         <div>
-          <h2 class="pattern-name">${esc(p.pattern)} ${lessonTag}</h2>
+          <h2 class="pattern-name">${esc(p.pattern)}</h2>
           <p class="meaning-en">${esc(localizedMeaning(p))}</p>
         </div>
         <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
