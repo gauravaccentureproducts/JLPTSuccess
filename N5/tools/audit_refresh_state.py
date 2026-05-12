@@ -69,10 +69,11 @@ def main():
         if (p.get("examples") or [])
         and all(e.get("audio") for e in (p.get("examples") or []))
     )
+    # ISSUE-128 fix (2026-05-13): grammar example field is `pitch_marks`, not `pitch_accent`.
     pitch_marked = sum(
         1 for p in G
         if (p.get("examples") or [])
-        and all(e.get("pitch_accent") or e.get("pitch") for e in (p.get("examples") or []))
+        and all(e.get("pitch_marks") for e in (p.get("examples") or []))
     )
     cultural_callout_present = sum(1 for p in G if truthy(p.get("cultural_callout")))
     authentic_refs_ge_2 = sum(1 for p in G if len(p.get("authentic_refs") or p.get("public_domain_refs") or []) >= 2)
@@ -103,7 +104,8 @@ def main():
     print("=" * 70)
 
     examples_ge_3 = sum(1 for v in V if len(v.get("examples") or []) >= 3)
-    pitch_with_drop = sum(1 for v in V if isinstance(v.get("pitch"), dict) and "drop" in v.get("pitch", {}))
+    # ISSUE-128 fix (2026-05-13): vocab field is `pitch_accent`, not `pitch`.
+    pitch_with_drop = sum(1 for v in V if isinstance(v.get("pitch_accent"), dict) and "drop" in v.get("pitch_accent", {}))
     collocations_ge_5 = sum(1 for v in V if len(v.get("collocations") or []) >= 5)
     collocations_ge_2 = sum(1 for v in V if len(v.get("collocations") or []) >= 2)
     transitivity_pair = sum(1 for v in V if v.get("transitivity_pair") or v.get("intrans_pair") or v.get("trans_pair"))
@@ -111,12 +113,14 @@ def main():
     counter_pairing = sum(1 for v in V if v.get("counter") or v.get("counters"))
     register_present_v = sum(1 for v in V if truthy(v.get("register")))
     register_origin = sum(1 for v in V if v.get("register_origin"))
-    onomatopoeia = sum(1 for v in V if v.get("onomatopoeia") is True or v.get("mimetic") is True)
+    # ISSUE-128: fields are `onomatopoeia` (bool) and `mimetic_class` (string).
+    onomatopoeia = sum(1 for v in V if v.get("onomatopoeia") is True or v.get("mimetic_class"))
     pragma_functions = sum(1 for v in V if v.get("pragmatic_functions"))
     devoiced_vowel = sum(1 for v in V if v.get("devoiced_vowel"))
     minimal_pair_pitch = sum(1 for v in V if v.get("pitch_minimal_pair"))
     minimal_pair_long = sum(1 for v in V if v.get("long_vowel_pair") or v.get("minimal_pair_long"))
-    word_to_pattern = sum(1 for v in V if v.get("pattern_co_occurs") or v.get("appears_with_patterns"))
+    # ISSUE-128: field is `frequent_patterns`.
+    word_to_pattern = sum(1 for v in V if v.get("frequent_patterns"))
     authentic_ref_v = sum(1 for v in V if v.get("authentic_ref") or v.get("authentic_refs"))
 
     n = len(V)
@@ -143,8 +147,9 @@ def main():
     print("=" * 70)
 
     mnemonic_radical = sum(1 for k in K if k.get("mnemonic") or k.get("radical_story"))
-    mnemonic_visual = sum(1 for k in K if k.get("mnemonic_visual"))
-    mnemonic_reading = sum(1 for k in K if k.get("mnemonic_reading"))
+    # ISSUE-128: kanji `mnemonic` is a dict with `visual`/`reading` sub-fields.
+    mnemonic_visual = sum(1 for k in K if isinstance(k.get("mnemonic"), dict) and k["mnemonic"].get("visual"))
+    mnemonic_reading = sum(1 for k in K if isinstance(k.get("mnemonic"), dict) and k["mnemonic"].get("reading"))
     radical_decomp = sum(1 for k in K if k.get("radical_decomposition"))
     stroke_svg = sum(1 for k in K if k.get("stroke_order_svg"))
     stroke_trap = sum(1 for k in K if k.get("stroke_order_trap"))
@@ -191,7 +196,8 @@ def main():
     grammar_footnote = sum(1 for r in R if r.get("grammar_footnotes") or r.get("sentence_footnotes"))
     vocab_preview = sum(1 for r in R if r.get("vocab_preview") or r.get("vocab_glossary"))
     native_audio = sum(1 for r in R if r.get("audio"))
-    paragraph_summary = sum(1 for r in R if r.get("paragraph_summaries"))
+    # ISSUE-128: per-paragraph summary tracked via `paragraph_summary_provenance`.
+    paragraph_summary = sum(1 for r in R if r.get("paragraph_summary_provenance"))
     natural_translation = sum(1 for r in R if r.get("translation_natural") or r.get("translation_literal"))
     cultural_callout_r = sum(1 for r in R if r.get("cultural_callout") or r.get("cultural_note"))
     reflection_prompts = sum(1 for r in R if r.get("reflection_prompts"))
@@ -211,31 +217,28 @@ def main():
     print(f"LISTENING SCORECARD ({len(L)} items)")
     print("=" * 70)
     n = len(L)
-    timestamped = sum(1 for li in L if li.get("timestamps"))
+    # ISSUE-128: listening field names corrected to live schema.
+    timestamped = sum(1 for li in L if li.get("timestamped_transcript"))
     glossary_inline = sum(1 for li in L if li.get("vocab_glossary"))
     slow_variant = sum(1 for li in L if li.get("audio_slow") or li.get("audio_variants"))
-    discourse_markers = sum(1 for li in L if li.get("discourse_markers"))
-    aizuchi = sum(1 for li in L if li.get("aizuchi"))
+    discourse_markers = sum(1 for li in L if li.get("discourse_markers_used"))
+    aizuchi = sum(1 for li in L if li.get("aizuchi_tokens"))  # tokens = actual content, not just flag
     pitch_pair_listen = sum(1 for li in L if li.get("pitch_minimal_pair"))
     devoiced_vowel_listen = sum(1 for li in L if li.get("devoiced_vowel_marks"))
     sokuon_pair = sum(1 for li in L if li.get("sokuon_pair") or li.get("long_vowel_pair"))
     ambient_layer = sum(1 for li in L if li.get("ambient_context") or li.get("audio_render_meta"))
-    inference_q = sum(1 for li in L if li.get("inference_question") or li.get("question_type") == "inference")
+    # ISSUE-128: field is `inference_question_expansion`.
+    inference_q = sum(1 for li in L if li.get("inference_question_expansion"))
     prompt_ja_pre = sum(1 for li in L if li.get("prompt_ja"))
 
-    # Voice variety: enumerate distinct voices across listening
+    # ISSUE-128: parse audio_render_meta.voices_used list (the live schema).
     voices = set()
     for li in L:
         meta = li.get("audio_render_meta") or {}
-        v = meta.get("voicevox_speaker") or meta.get("voice_id") or meta.get("voice")
-        if v is not None:
-            voices.add(str(v))
-        # Also scan dialogue lines
-        for line in (li.get("script") or []):
-            if isinstance(line, dict):
-                vv = line.get("voicevox_speaker") or line.get("voice_id")
-                if vv is not None:
-                    voices.add(str(vv))
+        used = meta.get("voices_used") or []
+        if isinstance(used, list):
+            for v in used:
+                voices.add(str(v))
 
     print(f"  timestamped transcript:        {timestamped}/{n} ({timestamped*100//n}%)")
     print(f"  vocab_glossary inline:         {glossary_inline}/{n} ({glossary_inline*100//n}%)")
