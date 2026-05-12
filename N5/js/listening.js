@@ -91,6 +91,10 @@ function renderIndex(container) {
   container.innerHTML = `
     <h2>${renderJa('ちょうかい れんしゅう')}</h2>
     <p>${renderJa('JLPT N5 ちょうかいの 三つの けいしき。おんせいを 聞いて、ただしい こたえを えらんで ください。')}</p>
+    <p class="listening-story-cta">
+      <a href="#/listeningstory" class="btn-secondary" style="text-decoration:none">🎧 Try story-mode listening</a>
+      <span class="muted small">— immersive chained playback grouped by setting (cafe / station / shop / etc.)</span>
+    </p>
     <div class="toc-controls">
       <button type="button" class="btn-secondary toc-expand-all">${renderJa('ぜんぶ ひらく')}</button>
       <button type="button" class="btn-secondary toc-collapse-all">${renderJa('ぜんぶ とじる')}</button>

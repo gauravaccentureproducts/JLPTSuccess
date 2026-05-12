@@ -28,7 +28,7 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
         \u{1F5A8} Print cheat sheet
       </button>
     </div>
-  `,a.innerHTML=c,Q(a,"details.toc-category"),a.querySelector(".toc-print-cheatsheet")?.addEventListener("click",()=>{const o=Array.from(a.querySelectorAll("details.toc-category")),l=o.map(i=>i.open);o.forEach(i=>{i.open=!0}),document.body.classList.add("is-printing-cheatsheet");const p=()=>{o.forEach((i,g)=>{i.open=l[g]}),document.body.classList.remove("is-printing-cheatsheet"),window.removeEventListener("afterprint",p)};window.addEventListener("afterprint",p),window.print()});const h=document.getElementById("grammar-filter-q");if(h){let o=!1;h.addEventListener("compositionstart",()=>{o=!0}),h.addEventListener("compositionend",()=>{o=!1,C=h.value,U(a,e);const l=document.getElementById("grammar-filter-q");if(l){l.focus();const p=l.value;l.setSelectionRange(p.length,p.length)}}),h.addEventListener("input",()=>{if(o)return;C=h.value,U(a,e);const l=document.getElementById("grammar-filter-q");if(l){l.focus();const p=l.value;l.setSelectionRange(p.length,p.length)}})}}const M={noun:"Noun",noun_subject:"Noun (subject)",noun_location:"Noun (location)",noun_time:"Noun (time)",noun_quantity:"Noun (quantity)",noun_or_adj:"Noun or adjective",na_adjective:"\u306A-adjective",i_adjective:"\u3044-adjective",verb:"Verb",verb_stem:"Verb stem (\u307E\u3059-base)",verb_stem_i:"Verb i-stem",verb_root:"Verb root",verb_dictionary:"Verb (dictionary form)",verb_plain:"Verb (plain form)",verb_te:"Verb (\u3066-form)",verb_ta:"Verb (\u305F-form)",verb_nai:"Verb (\u306A\u3044-form)",verb_mashita:"Verb (\u307E\u3057\u305F form)",verb_te_imasu_neg:"Verb (\u3066-\u3044\u307E\u305B\u3093)",verb_or_adj_stem:"Verb or adjective stem",pronoun:"Pronoun",question_word:"Question word",before_noun:"Before a noun",adverbial:"Adverbial position",sentence_end:"Sentence end",sentence_pattern:"Full sentence",clause:"Clause",clause_start:"Clause-initial",clause_end:"Clause-final",plain_clause:"Plain-form clause",plain_or_polite_clause:"Plain or polite clause",quoted_clause:"Quoted clause",quantity:"Quantity expression",number:"Number",set_phrase:"Set phrase",standalone:"Standalone",dialogue:"Dialogue line",after_name:"After a name"};function ae(a){return M[a]?M[a]:String(a).replace(/_/g," ").replace(/^./,e=>e.toUpperCase())}function ne(a){const e=a.form_rules?.attaches_to??[],s=a.form_rules?.conjugations??[];if(!e.length&&!s.length)return"";const d=`
+  `,a.innerHTML=c,Q(a,"details.toc-category"),a.querySelector(".toc-print-cheatsheet")?.addEventListener("click",()=>{const o=Array.from(a.querySelectorAll("details.toc-category")),l=o.map(i=>i.open);o.forEach(i=>{i.open=!0}),document.body.classList.add("is-printing-cheatsheet");const p=()=>{o.forEach((i,g)=>{i.open=l[g]}),document.body.classList.remove("is-printing-cheatsheet"),window.removeEventListener("afterprint",p)};window.addEventListener("afterprint",p),window.print()});const f=document.getElementById("grammar-filter-q");if(f){let o=!1;f.addEventListener("compositionstart",()=>{o=!0}),f.addEventListener("compositionend",()=>{o=!1,C=f.value,U(a,e);const l=document.getElementById("grammar-filter-q");if(l){l.focus();const p=l.value;l.setSelectionRange(p.length,p.length)}}),f.addEventListener("input",()=>{if(o)return;C=f.value,U(a,e);const l=document.getElementById("grammar-filter-q");if(l){l.focus();const p=l.value;l.setSelectionRange(p.length,p.length)}})}}const M={noun:"Noun",noun_subject:"Noun (subject)",noun_location:"Noun (location)",noun_time:"Noun (time)",noun_quantity:"Noun (quantity)",noun_or_adj:"Noun or adjective",na_adjective:"\u306A-adjective",i_adjective:"\u3044-adjective",verb:"Verb",verb_stem:"Verb stem (\u307E\u3059-base)",verb_stem_i:"Verb i-stem",verb_root:"Verb root",verb_dictionary:"Verb (dictionary form)",verb_plain:"Verb (plain form)",verb_te:"Verb (\u3066-form)",verb_ta:"Verb (\u305F-form)",verb_nai:"Verb (\u306A\u3044-form)",verb_mashita:"Verb (\u307E\u3057\u305F form)",verb_te_imasu_neg:"Verb (\u3066-\u3044\u307E\u305B\u3093)",verb_or_adj_stem:"Verb or adjective stem",pronoun:"Pronoun",question_word:"Question word",before_noun:"Before a noun",adverbial:"Adverbial position",sentence_end:"Sentence end",sentence_pattern:"Full sentence",clause:"Clause",clause_start:"Clause-initial",clause_end:"Clause-final",plain_clause:"Plain-form clause",plain_or_polite_clause:"Plain or polite clause",quoted_clause:"Quoted clause",quantity:"Quantity expression",number:"Number",set_phrase:"Set phrase",standalone:"Standalone",dialogue:"Dialogue line",after_name:"After a name"};function ae(a){return M[a]?M[a]:String(a).replace(/_/g," ").replace(/^./,e=>e.toUpperCase())}function ne(a){const e=a.form_rules?.attaches_to??[],s=a.form_rules?.conjugations??[];if(!e.length&&!s.length)return"";const d=`
     <div class="pattern-usage-header">
       <h3 class="section-title">${n(r("grammar_detail.how_to_use"))}</h3>
       <span class="pattern-usage-chip" lang="ja">\u4F7F\u3044\u65B9</span>
@@ -36,10 +36,10 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
   `,m=e.length?`
     <table class="pattern-usage-table" aria-label="Attach points for ${n(a.pattern)}">
       <tbody>
-        ${e.map((c,h)=>`
+        ${e.map((c,f)=>`
           <tr>
             <td class="pattern-usage-pos">${n(ae(c))}</td>
-            ${h===0?`<td class="pattern-usage-form" rowspan="${e.length}" lang="ja">${_(a.pattern)}</td>`:""}
+            ${f===0?`<td class="pattern-usage-form" rowspan="${e.length}" lang="ja">${_(a.pattern)}</td>`:""}
           </tr>
         `).join("")}
       </tbody>
@@ -58,7 +58,7 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
         `).join("")}
       </tbody>
     </table>
-  `:"";return`<section class="pattern-usage">${d}${m}${b}</section>`}async function se(a,e,s){await K();const d=e.form_rules?.conjugations??[],m=e.examples??[],b=e.common_mistakes??[],c=V.getPatternEntry(e.id),h=!!c?.isManuallyKnown,o=!!c?.isMastered,l=!!c?.isWeak&&!o,p=Array.isArray(s)?ee(s):[],i=p.findIndex(t=>t.id===e.id),g=i>0?p[i-1]:null,v=i>=0&&i<p.length-1?p[i+1]:null,P=g||v?`
+  `:"";return`<section class="pattern-usage">${d}${m}${b}</section>`}async function se(a,e,s){await K();const d=e.form_rules?.conjugations??[],m=e.examples??[],b=e.common_mistakes??[],c=V.getPatternEntry(e.id),f=!!c?.isManuallyKnown,o=!!c?.isMastered,l=!!c?.isWeak&&!o,p=Array.isArray(s)?ee(s):[],i=p.findIndex(t=>t.id===e.id),g=i>0?p[i-1]:null,v=i>=0&&i<p.length-1?p[i+1]:null,P=g||v?`
     <div class="pattern-nav">
       ${g?`<a class="pattern-nav-prev" href="#/learn/${encodeURIComponent(g.id)}" title="Previous: ${n(g.pattern)}">&larr; <span class="pattern-nav-name" lang="ja">${n(g.pattern)}</span></a>`:'<span class="pattern-nav-prev pattern-nav-empty" aria-hidden="true"></span>'}
       ${v?`<a class="pattern-nav-next" href="#/learn/${encodeURIComponent(v.id)}" title="Next: ${n(v.pattern)}"><span class="pattern-nav-name" lang="ja">${n(v.pattern)}</span> &rarr;</a>`:'<span class="pattern-nav-next pattern-nav-empty" aria-hidden="true"></span>'}
@@ -76,7 +76,7 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
       <div><span class="right">${_(t.right)}</span></div>
       <span class="why">${n(t.why)}</span>
     </li>
-  `).join(""),E=Array.isArray(e.wrong_corrected_pair)?e.wrong_corrected_pair:[],R=t=>{if(!t)return"";const u=`grammar_detail.cat_${t}`,f=r(u)!==u?r(u):t;return`<span class="error-category-badge cat-${n(t)}">${n(f)}</span>`},q=r("grammar_detail.wcp_wrong"),D=r("grammar_detail.wcp_correct"),F=E.map(t=>`
+  `).join(""),E=Array.isArray(e.wrong_corrected_pair)?e.wrong_corrected_pair:[],R=t=>{if(!t)return"";const u=`grammar_detail.cat_${t}`,h=r(u)!==u?r(u):t;return`<span class="error-category-badge cat-${n(t)}">${n(h)}</span>`},q=r("grammar_detail.wcp_wrong"),D=r("grammar_detail.wcp_correct"),F=E.map(t=>`
     <li>
       <div class="wcp-header">${R(t.error_category)}</div>
       <div class="wcp-row wcp-row-wrong">
@@ -96,9 +96,9 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
       <h3 class="section-title">${n(r("grammar_detail.ladder_section"))}</h3>
       <table class="ladder-table">
         <tbody>
-          ${["casual","polite","humble","respectful"].map(t=>{const u=L[t];if(!u)return"";const f=r(`grammar_detail.ladder_${t}`);return`
+          ${["casual","polite","humble","respectful"].map(t=>{const u=L[t];if(!u)return"";const h=r(`grammar_detail.ladder_${t}`);return`
               <tr class="ladder-row ladder-${t}">
-                <th scope="row">${n(f)}</th>
+                <th scope="row">${n(h)}</th>
                 <td lang="ja">${_(u)}</td>
               </tr>
             `}).join("")}
@@ -129,7 +129,7 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
           <p class="meaning-en">${n(Y(e))}</p>
         </div>
         <label class="known-toggle no-print" title="Manually mark as known. Cleared on the next miss in Test or Drill.">
-          <input type="checkbox" id="mark-known" ${h?"checked":""}>
+          <input type="checkbox" id="mark-known" ${f?"checked":""}>
           <span>${n(r("grammar_detail.mark_as_known"))}</span>
           ${H}
         </label>
@@ -146,14 +146,15 @@ import{renderJa as _}from"./furigana.js";import*as V from"./storage.js";import{e
         <p>${n(X(e))}</p>
       </section>
 
-      ${(()=>{const t=e.essay;if(!t||typeof t!="object")return"";const u=t.provenance==="needs_native_review",f=(j,x,T)=>!x&&!T?"":x?`<p><strong>${n(j)}:</strong> ${n(x)}</p>`:`<p><strong>${n(j)}:</strong> <span class="muted small">${n(T)}</span></p>`;return`
+      ${(()=>{const t=e.essay;if(!t||typeof t!="object")return"";const u=t.provenance==="needs_native_review",h=(j,x,T)=>!x&&!T?"":x?`<p><strong>${n(j)}:</strong> ${n(x)}</p>`:`<p><strong>${n(j)}:</strong> <span class="muted small">${n(T)}</span></p>`;return`
           <section class="pattern-essay">
             <h3 class="section-title">${n(r("grammar_detail.deep_dive"))} ${u?'<span class="essay-stub-badge muted small">stub</span>':""}</h3>
-            ${f(r("grammar_detail.deep_dive_at_a_glance"),t.intro)}
-            ${f(r("grammar_detail.deep_dive_why"),t.why_it_matters,u?"Pending native author.":"")}
-            ${f(r("grammar_detail.deep_dive_pitfalls"),t.common_pitfalls)}
-            ${f(r("grammar_detail.deep_dive_contrasts"),t.contrasts)}
-            ${f(r("grammar_detail.deep_dive_practice"),t.closing_practice_tip,u?"Pending native author.":"")}
+            ${h(r("grammar_detail.deep_dive_at_a_glance"),t.intro)}
+            ${h(r("grammar_detail.deep_dive_why"),t.why_it_matters,u?"Pending native author.":"")}
+            ${h(r("grammar_detail.deep_dive_pitfalls"),t.common_pitfalls)}
+            ${h(r("grammar_detail.deep_dive_contrasts"),t.contrasts)}
+            ${h(r("grammar_detail.deep_dive_practice"),t.closing_practice_tip,u?"Pending native author.":"")}
+            ${h("Cultural / usage context",t.cultural_context)}
           </section>
         `})()}
 

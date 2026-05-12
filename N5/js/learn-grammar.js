@@ -673,6 +673,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
             ${item(t('grammar_detail.deep_dive_pitfalls'), essay.common_pitfalls)}
             ${item(t('grammar_detail.deep_dive_contrasts'), essay.contrasts)}
             ${item(t('grammar_detail.deep_dive_practice'), essay.closing_practice_tip, stub ? 'Pending native author.' : '')}
+            ${item('Cultural / usage context', essay.cultural_context)}
           </section>
         `;
       })()}

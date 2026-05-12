@@ -9,6 +9,10 @@ import{renderJa as n}from"./furigana.js";import*as A from"./storage.js";import{h
     `;return}const u=t.reduce((i,c)=>((i[c.format]=i[c.format]||[]).push(c),i),{});a.innerHTML=`
     <h2>${n("\u3061\u3087\u3046\u304B\u3044 \u308C\u3093\u3057\u3085\u3046")}</h2>
     <p>${n("JLPT N5 \u3061\u3087\u3046\u304B\u3044\u306E \u4E09\u3064\u306E \u3051\u3044\u3057\u304D\u3002\u304A\u3093\u305B\u3044\u3092 \u805E\u3044\u3066\u3001\u305F\u3060\u3057\u3044 \u3053\u305F\u3048\u3092 \u3048\u3089\u3093\u3067 \u304F\u3060\u3055\u3044\u3002")}</p>
+    <p class="listening-story-cta">
+      <a href="#/listeningstory" class="btn-secondary" style="text-decoration:none">\u{1F3A7} Try story-mode listening</a>
+      <span class="muted small">\u2014 immersive chained playback grouped by setting (cafe / station / shop / etc.)</span>
+    </p>
     <div class="toc-controls">
       <button type="button" class="btn-secondary toc-expand-all">${n("\u305C\u3093\u3076 \u3072\u3089\u304F")}</button>
       <button type="button" class="btn-secondary toc-collapse-all">${n("\u305C\u3093\u3076 \u3068\u3058\u308B")}</button>
