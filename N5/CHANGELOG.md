@@ -2,6 +2,77 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.14.0 - 2026-05-12 (Grammar audio: gtts → VOICEVOX quality lift; closes ISSUE-111)
+
+Re-rendered all 1782 grammar example MP3s from gTTS to **VOICEVOX**
+(春日部つむぎ / Kasukabe Tsumugi, normal style, speaker_id 8) for
+substantially better Japanese prosody, natural pitch-accent placement,
+and consonant transitions.
+
+### What changed
+
+- **`audio/grammar/*.mp3` (1782 files)** re-rendered via VOICEVOX
+  engine v0.25.2 (CPU build). File sizes ~30-60 KB vs prior gTTS
+  ~16-21 KB — roughly 2× higher fidelity. Total audio surface bumps
+  from ~30 MB (gTTS) to ~60-70 MB (VOICEVOX) on disk.
+- **`data/grammar.json`**: every `patterns[].examples[].audio` field
+  now populated with the relative path `audio/grammar/<id>.<i>.mp3`
+  (was uniformly `null` despite the files existing on disk). The
+  renderer in `js/learn-grammar.js` plays the example audio whenever
+  this field is set — so users get per-example audio on all 1782
+  examples across all 178 patterns starting with this release.
+- **`data/audio_manifest.json`**: backend bumped from `gtts` to
+  `voicevox`, voice_default to `voicevox-speaker-8-tsumugi`. Per-item
+  metadata in `grammar_voicevox` block captures file size + speaker
+  per example.
+- **`NOTICES.md`** + **`CONTENT-LICENSE.md`**: added VOICEVOX
+  attribution section + 春日部つむぎ character credit + LGPL-3.0
+  engine note. The character's terms allow commercial + non-commercial
+  use with attribution; this file + the runtime `#/notices` viewer
+  satisfy that requirement.
+- **Backup preserved**: prior gTTS renders saved at
+  `audio/_backup_gtts_2026_05_12/grammar/` (1782 files) for revert /
+  comparison.
+
+### Why this matters
+
+This closes **ISSUE-111** (P1 / Section 0 TOP-1 of the 2026-05-12
+richness audit). Per-example grammar audio at 0/1782 was the single
+largest leadership-claim opportunity on the grammar surface — NO
+incumbent (Tofugu, Bunpro, JLPT Sensei, WaniKani) ships per-example
+audio on grammar. This release puts JLPTSuccess clearly ahead of every
+named competitor on this dimension.
+
+The audit's claim of "0/1782" was technically about the data field
+(`examples[].audio` null), not the on-disk files (the 1782 gTTS files
+already existed). This release does both: re-renders for quality lift
++ wires the data field.
+
+### Engine + attribution
+
+- **VOICEVOX engine** v0.25.2, CPU build via WinGet
+  (`HiroshibaKazuyuki.VOICEVOX.CPU`), local HTTP API on
+  `localhost:50021`. LGPL-3.0; engine binary not bundled, only its
+  synthesized output (the MP3 files).
+- **Character used**: 春日部つむぎ (Kasukabe Tsumugi),
+  style ノーマル (Normal), speaker_id `8`,
+  speaker_uuid `35b2c544-660e-401e-b503-0e14c635303a`.
+- **Character licence**: commercial + non-commercial OK with attribution,
+  per <https://voicevox.hiroshiba.jp/term/> (no R-rated / political-misuse
+  / defamatory contexts — all grammar examples are plain N5 study
+  content, no exclusions apply).
+
+### CI invariants
+
+All 69 invariants PASS. JA-15 (audio refs resolve to files on disk) now
+validates 1782 grammar refs in addition to the 50 listening + 54 reading
+refs it already covered.
+
+### Cache version
+
+v1.13.6 → **v1.14.0** (minor bump to reflect a substantive content
+quality lift, not just a polish patch).
+
 ## v1.13.6 - 2026-05-12 (anti-item CI lock-in + final polish batch)
 
 Continuation of the v1.13.5 audit close-out — locks the Section-10

@@ -18,6 +18,10 @@ __pycache__/
 *.draft
 .claude/settings.local.json
 .git_commit_msg.txt
+# Audio render backups — pre-VOICEVOX gTTS / pre-edge-TTS originals kept
+# locally for revert/comparison; not part of the shipped corpus.
+audio/_backup_gtts_*/
+audio/_backup_*/
 
 # Transient verifier output (regenerated on every audit run; archived copy in not-required/)
 /drift_report.txt

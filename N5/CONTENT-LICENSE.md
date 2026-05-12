@@ -32,8 +32,19 @@ Every byte of the following is original work (counts current as of 2026-05-11):
 
 Bundled third-party content is documented in [`NOTICES.md`](./NOTICES.md):
 
-- **KanjiVG** stroke-order SVGs (`svg/kanji/<glyph>.svg`, 106 files) - 
+- **KanjiVG** stroke-order SVGs (`svg/kanji/<glyph>.svg`, 106 files) —
   CC BY-SA 3.0, attributed.
+- **Microsoft Edge TTS** synthesized audio (`audio/listening/*.mp3`,
+  50 files + 50 slow versions) — free non-commercial / educational
+  use per Microsoft Cognitive Services terms; 4 Japanese Neural
+  voices (Nanami / Keita / Aoi / Daichi).
+- **VOICEVOX** synthesized audio (`audio/grammar/*.mp3`, 1782 files)
+  — character `春日部つむぎ (Kasukabe Tsumugi)` style `ノーマル`,
+  speaker_id `8`. VOICEVOX engine LGPL-3.0; character permits
+  commercial + non-commercial use with attribution (see NOTICES.md).
+- **gTTS** synthesized audio (`audio/reading/*.mp3`, 54 files) —
+  Google Translate TTS via the open-source `gtts` Python library;
+  no per-file crediting required by its licence.
 
 That's the entire third-party surface. Everything else under `data/`
 and `KnowledgeBank/` is original.

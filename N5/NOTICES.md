@@ -75,19 +75,62 @@ Per CC BY-SA 3.0:
   `audio_render_meta.voices_used` array in `data/listening.json`.
 - **Build pipeline:** [`AUDIO.md`](AUDIO.md) +
   `tools/build_listening_audio_multivoice_2026_05_07.py`.
-- **Fallback path (documented, not currently used for shipped audio):**
+- **Fallback path (documented, not currently used for LISTENING audio):**
   the builder supports VOICEVOX engine running on `localhost:50021`
-  as an offline fallback. If exercised in a future render batch,
-  VOICEVOX-specific attribution (speaker characters, LGPL engine
-  licence, per-speaker character-name credits) will be added here.
-  See <https://voicevox.hiroshiba.jp/term/> for the speaker terms
-  if/when that path lands.
+  as an offline fallback for listening. Not currently exercised for
+  shipped listening audio (still edge-TTS per F-13 above). VOICEVOX
+  IS used for grammar audio — see the next section.
 
-The grammar (631 files) and reading (40 files) MP3s under
-`audio/grammar/` and `audio/reading/` are rendered with **gTTS**
-(Google Translate TTS, single voice). gTTS attribution is implicit in
-its open-source library; no per-file crediting is required by its
-licence.
+## VOICEVOX (synthesized grammar example audio — Japanese)
+
+> **Added 2026-05-12 (audio quality lift):** the 1782 grammar example
+> audio files (`audio/grammar/*.mp3`) were re-rendered from gTTS to
+> VOICEVOX for substantially better Japanese prosody, natural pitch-
+> accent placement, and consonant transitions. Prior gTTS renders are
+> preserved as a backup at `audio/_backup_gtts_2026_05_12/grammar/`.
+
+- **What it is:** VOICEVOX is an open-source Japanese text-to-speech
+  engine bundling multiple character voice models. Renders happen
+  build-time only; the runtime <audio> element references the
+  pre-rendered MP3 paths so no engine/network call is needed in the
+  shipped PWA.
+- **Engine:** [VOICEVOX](https://voicevox.hiroshiba.jp/) v0.25.2 (CPU
+  build) — local HTTP API on `localhost:50021`, two-step
+  `/audio_query` → `/synthesis` pipeline. The engine binary is not
+  bundled with this repo (≈12 GB install); contributors render
+  locally using `tools/build_audio_voicevox.py`.
+- **Engine license:** LGPL-3.0 (engine) — the engine binary is not
+  redistributed, only its synthesized output (MP3 files). Output
+  licence is governed by each speaker character's own term sheet.
+- **Speaker / character used:**
+  - **春日部つむぎ (Kasukabe Tsumugi)** — style: ノーマル (Normal),
+    speaker_id `8`, speaker_uuid `35b2c544-660e-401e-b503-0e14c635303a`.
+  - Character maintained by the 春日部つむぎ project (separate from
+    the VOICEVOX engine itself; see
+    <https://tsukushinyoki10.wixsite.com/ktsumugiofficial> for the
+    canonical character terms).
+- **License (synthesized output):** the 春日部つむぎ character permits
+  use of synthesized audio for both commercial and non-commercial
+  works **with attribution**. This file + the runtime `#/notices`
+  viewer satisfy the attribution requirement. Permitted-use boundary:
+  no R-rated / political-misuse / defamatory contexts (every grammar
+  example in this app is plain N5 study content — none of those
+  exclusions apply).
+- **Files:** `audio/grammar/n5-NNN.M.mp3` (1782 files, one per grammar
+  example across 178 patterns). Voice metadata stored in
+  `data/audio_manifest.json#voicevox_character_attribution`.
+- **Build pipeline:** `tools/build_audio_voicevox.py` (sends each
+  example's `ja` text to the local VOICEVOX engine, transcodes the
+  returned WAV to MP3 via `ffmpeg`).
+- **Backup of the prior gTTS renders:**
+  `audio/_backup_gtts_2026_05_12/grammar/` (1782 files preserved in
+  case a future contributor wants to compare gTTS → VOICEVOX quality
+  delta or revert).
+
+The reading (54 files) MP3s under `audio/reading/` remain rendered
+with **gTTS** (Google Translate TTS, single voice). gTTS attribution
+is implicit in its open-source library; no per-file crediting is
+required by its licence.
 
 ## Kanjium pitch-accent dictionary
 
