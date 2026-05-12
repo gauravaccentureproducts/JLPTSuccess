@@ -51,6 +51,10 @@ import { renderWeakAreas } from './weak-areas.js';
 // extracted from test_strategy.json's meta_strategy block.
 // Route #/examday. See js/exam-day.js.
 import { renderExamDay } from './exam-day.js';
+// IMP-WAVE-P4-27 (UI audit fix, 2026-05-12): JP101-parity story-mode
+// listening — groups listening items by ambient_context into chained
+// auto-play stories. Route #/listeningstory. See js/listening-story.js.
+import { renderListeningStory } from './listening-story.js';
 // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
 // Reads data/branding.json (or legacy data/theme-overrides.json) at
 // boot and applies CSS tokens, brand strings, meta tags, footer
@@ -91,6 +95,7 @@ const ROUTES = {
   strategy:   renderStrategy,  // IMP-WAVE1: T1-T6 test-strategy page (data/test_strategy.json)
   weakareas:  renderWeakAreas, // IMP-WAVE-P4-T5: cross-history weak-area diagnostic dashboard
   examday:    renderExamDay,   // IMP-WAVE-P4-T6: exam-day prep page (printable checklist)
+  listeningstory: renderListeningStory, // IMP-WAVE-P4-27: JP101-parity story-mode listening
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
   // test, etc.) - clicking N5 on the picker navigates to #/home.

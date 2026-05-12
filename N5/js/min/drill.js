@@ -1,86 +1,87 @@
-import{renderJa as b}from"./furigana.js";import*as y from"./storage.js";import{t as w}from"./i18n.js";let $=null,g=null,c=null,f="setup";async function C(){if($)return $;const t=await fetch("data/questions.json");if(!t.ok)throw new Error(`Failed to load questions.json: ${t.status}`);return $=(await t.json()).questions||[],$}async function P(){if(g)return g;const e=await(await fetch("data/grammar.json")).json();return g=new Map((e.patterns||[]).map(n=>[n.id,n])),g}async function Q(t){return f==="finished"&&(f="setup",c=null),f==="drilling"&&c?h(t):f==="finished"&&c?I(t):_(t)}async function _(t){f="setup",await Promise.all([C(),P()]);const e=y.getDuePatternIds(),n=Object.entries(y.getHistory()),r=n.filter(([,s])=>s.srsBox&&s.srsBox!=="graduated").length,a=n.filter(([,s])=>s.srsBox==="graduated").length;if(e.length===0){t.innerHTML=`
-      <h2>${w("page.drill")}</h2>
+import{renderJa as b}from"./furigana.js";import*as $ from"./storage.js";import{t as _}from"./i18n.js";import{attachRomajiKanaAll as E}from"./romaji-kana.js";let w=null,h=null,d=null,g="setup";async function P(){if(w)return w;const e=await fetch("data/questions.json");if(!e.ok)throw new Error(`Failed to load questions.json: ${e.status}`);return w=(await e.json()).questions||[],w}async function S(){if(h)return h;const t=await(await fetch("data/grammar.json")).json();return h=new Map((t.patterns||[]).map(n=>[n.id,n])),h}async function N(e){return g==="finished"&&(g="setup",d=null),g==="drilling"&&d?m(e):g==="finished"&&d?j(e):A(e)}async function A(e){g="setup",await Promise.all([P(),S()]);const t=$.getDuePatternIds(),n=Object.entries($.getHistory()),r=n.filter(([,a])=>a.srsBox&&a.srsBox!=="graduated").length,s=n.filter(([,a])=>a.srsBox==="graduated").length;if(t.length===0){e.innerHTML=`
+      <h2>${_("page.drill")}</h2>
       <div class="placeholder">
         <p><strong>No patterns due right now.</strong></p>
         <p>Patterns enter Drill the moment you miss them in a Test or Diagnostic. Once in Drill, they reappear at <strong>1d / 3d / 7d / 14d</strong> intervals - graduate after 4 consecutive correct answers.</p>
-        <p class="muted">Queue: <strong>${r}</strong> pending \xB7 <strong>${a}</strong> graduated</p>
+        <p class="muted">Queue: <strong>${r}</strong> pending \xB7 <strong>${s}</strong> graduated</p>
         <p style="margin-top:24px"><a href="#/test" class="btn-primary" style="text-decoration:none">Take a Test \u2192</a></p>
       </div>
-    `;return}const i=j(e,$,10);if(i.length===0){t.innerHTML=`
-      <h2>${w("page.drill")}</h2>
+    `;return}const o=L(t,w,10);if(o.length===0){e.innerHTML=`
+      <h2>${_("page.drill")}</h2>
       <div class="placeholder">
-        <p><strong>${e.length}</strong> pattern(s) due, but no questions exist for them yet.</p>
+        <p><strong>${t.length}</strong> pattern(s) due, but no questions exist for them yet.</p>
         <p class="muted">Add questions for these patterns to <code>data/questions.json</code>.</p>
       </div>
-    `;return}t.innerHTML=`
-    <h2>${w("page.drill")}</h2>
+    `;return}e.innerHTML=`
+    <h2>${_("page.drill")}</h2>
     <div class="drill-setup">
       <div class="drill-stats">
-        <div class="stat-card weak"><div class="stat-num">${e.length}</div><div class="stat-label">Due today</div></div>
+        <div class="stat-card weak"><div class="stat-num">${t.length}</div><div class="stat-label">Due today</div></div>
         <div class="stat-card neutral"><div class="stat-num">${r}</div><div class="stat-label">In queue</div></div>
-        <div class="stat-card mastered"><div class="stat-num">${a}</div><div class="stat-label">Graduated</div></div>
+        <div class="stat-card mastered"><div class="stat-num">${s}</div><div class="stat-label">Graduated</div></div>
       </div>
-      <p>Drill session: <strong>${i.length}</strong> question(s) from due patterns. You'll get feedback after each question. Correct answers advance the SRS box (1d \u2192 3d \u2192 7d \u2192 14d \u2192 graduated). A wrong answer resets the pattern to the 1-day box.</p>
+      <p>Drill session: <strong>${o.length}</strong> question(s) from due patterns. You'll get feedback after each question. Correct answers advance the SRS box (1d \u2192 3d \u2192 7d \u2192 14d \u2192 graduated). A wrong answer resets the pattern to the 1-day box.</p>
       <button id="start-drill" class="btn-primary">Start Drill</button>
     </div>
-  `,document.getElementById("start-drill").addEventListener("click",()=>{c={questions:i,currentIdx:0,answers:{},startedAt:new Date().toISOString()},f="drilling",h(t)})}function j(t,e,n){const r=new Set(t),a=e.filter(o=>r.has(o.grammarPatternId));L(a);const i=new Set,s=[];for(const o of a)i.has(o.grammarPatternId)||(s.push(o),i.add(o.grammarPatternId));const d=a.filter(o=>!s.includes(o));return[...s,...d].slice(0,n)}function L(t){for(let e=t.length-1;e>0;e--){const n=Math.floor(Math.random()*(e+1));[t[e],t[n]]=[t[n],t[e]]}return t}function h(t){const e=c.questions.length,n=c.currentIdx,r=c.questions[n],a=c.answers[r.id],i=!!a,s=g.get(r.grammarPatternId),d=s?s.pattern:r.grammarPatternId;let o="";r.type==="mcq"||r.type==="dropdown"?o=B(r,a):r.type==="sentence_order"?o=D(r,a):(r.type==="text_input"||r.type==="cloze"||r.type==="production")&&(o=S(r,a));const p=i?M(r,a):"",m=k(r,a),x=!i&&!m?`<p class="check-answer-hint">${r.type==="sentence_order"?"Tap the tiles in order to build the sentence, then click Check Answer.":r.type==="text_input"?"Type your answer in the box, then click Check Answer.":"Pick a choice, then click Check Answer."}</p>`:"",E=i?`<button id="next-drill" class="btn-primary">${n===e-1?"Finish Drill":"Next Question \u2192"}</button>`:`${x}<button id="check-answer" class="btn-primary" ${m?"":"disabled"} title="${m?"Check your answer":"Answer the question first"}">Check Answer</button>`;if(t.innerHTML=`
+  `,document.getElementById("start-drill").addEventListener("click",()=>{d={questions:o,currentIdx:0,answers:{},startedAt:new Date().toISOString()},g="drilling",m(e)})}function L(e,t,n){const r=new Set(e),s=t.filter(i=>r.has(i.grammarPatternId));B(s);const o=new Set,a=[];for(const i of s)o.has(i.grammarPatternId)||(a.push(i),o.add(i.grammarPatternId));const l=s.filter(i=>!a.includes(i));return[...a,...l].slice(0,n)}function B(e){for(let t=e.length-1;t>0;t--){const n=Math.floor(Math.random()*(t+1));[e[t],e[n]]=[e[n],e[t]]}return e}function m(e){const t=d.questions.length,n=d.currentIdx,r=d.questions[n],s=d.answers[r.id],o=!!s,a=h.get(r.grammarPatternId),l=a?a.pattern:r.grammarPatternId;let i="";r.type==="mcq"||r.type==="dropdown"?i=T(r,s):r.type==="sentence_order"?i=D(r,s):(r.type==="text_input"||r.type==="cloze"||r.type==="production")&&(i=M(r,s));const c=o?z(r,s):"",u=x(r,s),v=!o&&!u?`<p class="check-answer-hint">${r.type==="sentence_order"?"Tap the tiles in order to build the sentence, then click Check Answer.":r.type==="text_input"?"Type your answer in the box, then click Check Answer.":"Pick a choice, then click Check Answer."}</p>`:"",k=o?`<button id="next-drill" class="btn-primary">${n===t-1?"Finish Drill":"Next Question \u2192"}</button>`:`${v}<button id="check-answer" class="btn-primary" ${u?"":"disabled"} title="${u?"Check your answer":"Answer the question first"}">Check Answer</button>`;if(e.innerHTML=`
     <div class="drill-session">
       <div class="drill-header">
-        <span>Drill \xB7 Question <strong>${n+1}</strong> of <strong>${e}</strong></span>
-        <span class="pattern-tag">Pattern: ${u(d)}</span>
+        <span>Drill \xB7 Question <strong>${n+1}</strong> of <strong>${t}</strong></span>
+        <span class="pattern-tag">Pattern: ${f(l)}</span>
       </div>
-      <div class="progress-bar"><div style="width:${(n+(i?1:.5))/e*100}%"></div></div>
+      <div class="progress-bar"><div style="width:${(n+(o?1:.5))/t*100}%"></div></div>
 
       <article class="question-card">
-        <p class="prompt">${u(r.prompt_ja||"")}</p>
+        <p class="prompt">${f(r.prompt_ja||"")}</p>
         ${r.question_ja?`<p class="question">${b(r.question_ja)}</p>`:""}
-        ${o}
-        ${p}
+        ${i}
+        ${c}
       </article>
 
-      <div class="test-nav">${E}</div>
+      <div class="test-nav">${k}</div>
     </div>
-  `,i)document.getElementById("next-drill")?.addEventListener("click",()=>O(t));else{t.querySelectorAll("[data-choice]").forEach(l=>{l.addEventListener("click",()=>{c.answers[r.id]||(c.draftAnswer=l.dataset.choice,c.questions[n]._draft=l.dataset.choice,h(t))})}),t.querySelectorAll("[data-tile-add]").forEach(l=>{l.addEventListener("click",()=>T(r,l.dataset.tileAdd,t))}),t.querySelectorAll("[data-tile-remove]").forEach(l=>{l.addEventListener("click",()=>H(r,parseInt(l.dataset.tileRemove,10),t))});const v=t.querySelector("[data-drill-text-input]");v&&(v.addEventListener("input",()=>{r._draft=v.value;const l=document.getElementById("check-answer");l&&(l.disabled=!k(r,null))}),v.addEventListener("keydown",l=>{l.key==="Enter"&&k(r,null)&&(l.preventDefault(),A(r,t))}),c.answers[r.id]||Promise.resolve().then(()=>v.focus())),document.getElementById("check-answer")?.addEventListener("click",()=>A(r,t))}}function B(t,e){const n=e?e.answer:t._draft;return`<div class="choice-grid">${(t.choices||[]).map(a=>{let i="choice-button";return e?(a===t.correctAnswer&&(i+=" correct-choice"),e.answer===a&&a!==t.correctAnswer&&(i+=" wrong-choice")):n===a&&(i+=" selected"),`<button type="button" data-choice="${u(a)}" class="${i}" ${e?"disabled":""}>${b(a)}</button>`}).join("")}</div>`}function D(t,e){const n=e?e.answer:t._draft||[],r=(t.tiles||[]).filter(s=>!n.includes(s)),a=n.length?n.map((s,d)=>{let o="tile ordered";return e&&(o=`tile ordered ${t.correctOrder?.[d]===s?"correct-tile":"wrong-tile"}`),`<button type="button" ${e?"disabled":`data-tile-remove="${d}"`} class="${o}">${b(s)}</button>`}).join(""):'<span class="tile-placeholder">Click tiles below to build the sentence</span>',i=r.map(s=>`<button type="button" ${e?"disabled":`data-tile-add="${u(s)}"`} class="tile">${b(s)}</button>`).join("");return`
+  `,o)document.getElementById("next-drill")?.addEventListener("click",()=>K(e));else{e.querySelectorAll("[data-choice]").forEach(p=>{p.addEventListener("click",()=>{d.answers[r.id]||(d.draftAnswer=p.dataset.choice,d.questions[n]._draft=p.dataset.choice,m(e))})}),e.querySelectorAll("[data-tile-add]").forEach(p=>{p.addEventListener("click",()=>H(r,p.dataset.tileAdd,e))}),e.querySelectorAll("[data-tile-remove]").forEach(p=>{p.addEventListener("click",()=>R(r,parseInt(p.dataset.tileRemove,10),e))}),E(e);const y=e.querySelector("[data-drill-text-input]");y&&(y.addEventListener("input",()=>{r._draft=y.value;const p=document.getElementById("check-answer");p&&(p.disabled=!x(r,null))}),y.addEventListener("keydown",p=>{p.key==="Enter"&&x(r,null)&&(p.preventDefault(),I(r,e))}),d.answers[r.id]||Promise.resolve().then(()=>y.focus())),document.getElementById("check-answer")?.addEventListener("click",()=>I(r,e))}}function T(e,t){const n=t?t.answer:e._draft;return`<div class="choice-grid">${(e.choices||[]).map(s=>{let o="choice-button";return t?(s===e.correctAnswer&&(o+=" correct-choice"),t.answer===s&&s!==e.correctAnswer&&(o+=" wrong-choice")):n===s&&(o+=" selected"),`<button type="button" data-choice="${f(s)}" class="${o}" ${t?"disabled":""}>${b(s)}</button>`}).join("")}</div>`}function D(e,t){const n=t?t.answer:e._draft||[],r=(e.tiles||[]).filter(a=>!n.includes(a)),s=n.length?n.map((a,l)=>{let i="tile ordered";return t&&(i=`tile ordered ${e.correctOrder?.[l]===a?"correct-tile":"wrong-tile"}`),`<button type="button" ${t?"disabled":`data-tile-remove="${l}"`} class="${i}">${b(a)}</button>`}).join(""):'<span class="tile-placeholder">Click tiles below to build the sentence</span>',o=r.map(a=>`<button type="button" ${t?"disabled":`data-tile-add="${f(a)}"`} class="tile">${b(a)}</button>`).join("");return`
     <div class="sentence-order">
-      <div class="ordered-tray">${a}</div>
-      <div class="tile-pool">${i}</div>
+      <div class="ordered-tray">${s}</div>
+      <div class="tile-pool">${o}</div>
     </div>
-  `}function k(t,e){return e?!0:t.type==="sentence_order"?Array.isArray(t._draft)&&t._draft.length===(t.tiles?.length||0):t.type==="text_input"||t.type==="cloze"||t.type==="production"?typeof t._draft=="string"&&t._draft.trim().length>0:t._draft!==void 0&&t._draft!==null&&t._draft!==""}function S(t,e){const n=e?e.answer:t._draft||"",r=!!e,a=u(n),i=t.question_ja||"",s=/[\(（][\s　]*[\)）]/,d=s.test(i);let o="drill-text-input";r&&(o+=e.isCorrect?" drill-text-input-correct":" drill-text-input-wrong");const p=`
-    <input type="text" data-drill-text-input
-           class="${o}"
+  `}function x(e,t){return t?!0:e.type==="sentence_order"?Array.isArray(e._draft)&&e._draft.length===(e.tiles?.length||0):e.type==="text_input"||e.type==="cloze"||e.type==="production"?typeof e._draft=="string"&&e._draft.trim().length>0:e._draft!==void 0&&e._draft!==null&&e._draft!==""}function M(e,t){const n=t?t.answer:e._draft||"",r=!!t,s=f(n),o=e.question_ja||"",a=/[\(（][\s　]*[\)）]/,l=a.test(o);let i="drill-text-input";r&&(i+=t.isCorrect?" drill-text-input-correct":" drill-text-input-wrong");const c=`
+    <input type="text" data-drill-text-input data-jp-input
+           class="${i}"
            ${r?"disabled":""}
            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-           value="${a}"
-           placeholder="${t.type==="production"?"Type the Japanese sentence":"Type your answer"}"
+           value="${s}"
+           placeholder="${e.type==="production"?"Type the Japanese sentence (romaji auto-converts)":"Type your answer (romaji auto-converts)"}"
            lang="ja">
-  `;return d&&t.type!=="production"?`
+  `;return l&&e.type!=="production"?`
       <div class="drill-text-input-block">
-        <p class="drill-cloze-sentence" lang="ja">${i.split(s).map(u).join(`<span class="drill-cloze-blank">${p}</span>`)}</p>
+        <p class="drill-cloze-sentence" lang="ja">${o.split(a).map(f).join(`<span class="drill-cloze-blank">${c}</span>`)}</p>
       </div>
     `:`
     <div class="drill-text-input-block">
-      ${p}
+      ${c}
     </div>
-  `}function T(t,e,n){t._draft||(t._draft=[]),!t._draft.includes(e)&&(t._draft.push(e),h(n))}function H(t,e,n){Array.isArray(t._draft)&&(t._draft.splice(e,1),h(n))}function z(t,e){if(t.type==="sentence_order"){if(!Array.isArray(e))return!1;const n=t.correctOrder||[];return e.length!==n.length?!1:e.every((r,a)=>r===n[a])}if(t.type==="text_input"||t.type==="cloze"||t.type==="production"){if(typeof e!="string")return!1;const n=i=>String(i||"").normalize("NFKC").replace(/[\s　]+/g,"").replace(/[。．.!?！？]+$/g,"").toLowerCase().trim(),r=n(e);return r?n(t.correctAnswer)===r?!0:(Array.isArray(t.acceptedAnswers)?t.acceptedAnswers:[]).some(i=>n(i)===r):!1}return e===t.correctAnswer}function A(t,e){const n=t._draft,r=z(t,n);c.answers[t.id]={answer:n,isCorrect:r,recorded:!1},y.recordDrillResponse(t.grammarPatternId,r),c.answers[t.id].recorded=!0,h(e)}function M(t,e){const n=e.isCorrect,r=g.get(t.grammarPatternId),a=!n&&t.distractor_explanations&&typeof e.answer=="string"?t.distractor_explanations[e.answer]:null,i=y.getPatternEntry(t.grammarPatternId),s=i?.srsBox||"?",d=i?.consecutiveCorrect??0;let o="";return n?s==="graduated"?o='<strong class="graduated">Graduated.</strong> Pattern mastered.':o=`Advanced to <strong>${s}</strong> box. ${d}/4 consecutive correct.`:o="Reset to the <strong>1d</strong> box. This pattern returns tomorrow.",`
-    <div class="drill-feedback ${n?"correct":"incorrect"}">
-      <div class="feedback-headline">${n?"Correct":"Wrong"}</div>
-      ${t.explanation_en?`<p class="feedback-explanation">${u(t.explanation_en)}</p>`:""}
-      ${a?`<p class="feedback-distractor"><em>Why your choice was off:</em> ${u(a)}</p>`:""}
-      <p class="feedback-srs">${o}</p>
-      ${r?`<p class="feedback-pattern">Pattern: <a href="#/learn/${encodeURIComponent(r.id)}">${u(r.pattern)}</a></p>`:""}
+  `}function H(e,t,n){e._draft||(e._draft=[]),!e._draft.includes(t)&&(e._draft.push(t),m(n))}function R(e,t,n){Array.isArray(e._draft)&&(e._draft.splice(t,1),m(n))}function W(e,t){return C(e,t).isCorrect}function C(e,t){if(e.type==="sentence_order"){if(!Array.isArray(t))return{isCorrect:!1,score:0,reason:"wrong_form"};const n=e.correctOrder||[];return t.length!==n.length?{isCorrect:!1,score:0,reason:"wrong_length"}:t.every((s,o)=>s===n[o])?{isCorrect:!0,score:1,reason:null}:{isCorrect:!1,score:0,reason:"wrong_order"}}if(e.type==="text_input"||e.type==="cloze"||e.type==="production"){if(typeof t!="string")return{isCorrect:!1,score:0,reason:"empty"};const n=c=>String(c||"").normalize("NFKC").replace(/[\s　]+/g,"").replace(/[。．.!?！？]+$/g,"").toLowerCase().trim(),r=n(t);if(!r)return{isCorrect:!1,score:0,reason:"empty"};if(n(e.correctAnswer)===r)return{isCorrect:!0,score:1,reason:null};const s=Array.isArray(e.acceptedAnswers)?e.acceptedAnswers:[];if(s.some(c=>n(c)===r))return{isCorrect:!0,score:1,reason:null};const o=c=>String(c||"").replace(/[぀-ゟ゠-ヿ]/g,""),a=c=>String(c||"").replace(/[^぀-ゟ゠-ヿ]/g,""),l=a(t),i=o(t);for(const c of[e.correctAnswer,...s]){if(!c)continue;const u=a(c),v=o(c);if(l&&u&&l===u)return{isCorrect:!1,score:.5,reason:"kana_form_correct"};if(i&&v&&i===v)return{isCorrect:!1,score:.5,reason:"kanji_form_correct"}}for(const c of[e.correctAnswer,...s])if(c&&O(r,n(c)))return{isCorrect:!1,score:.5,reason:"one_char_typo"};return{isCorrect:!1,score:0,reason:"wrong"}}return t===e.correctAnswer?{isCorrect:!0,score:1,reason:null}:{isCorrect:!1,score:0,reason:"wrong"}}function O(e,t){if(e===t)return!0;const n=e.length,r=t.length;if(Math.abs(n-r)>1)return!1;if(n===r){let c=0;for(let u=0;u<n;u++)if(e[u]!==t[u]&&(c++,c>1))return!1;return c===1}const s=n>r?e:t,o=n>r?t:e;let a=0,l=0,i=0;for(;a<s.length&&l<o.length;)if(s[a]===o[l])a++,l++;else{if(i++,i>1)return!1;a++}return!0}function I(e,t){const n=e._draft,r=C(e,n),s=r.isCorrect;d.answers[e.id]={answer:n,isCorrect:s,score:r.score,partial_reason:r.reason,recorded:!1},$.recordDrillResponse(e.grammarPatternId,s),d.answers[e.id].recorded=!0,m(t)}function z(e,t){const n=t.isCorrect,r=h.get(e.grammarPatternId),s=!n&&e.distractor_explanations&&typeof t.answer=="string"?e.distractor_explanations[t.answer]:null,o=$.getPatternEntry(e.grammarPatternId),a=o?.srsBox||"?",l=o?.consecutiveCorrect??0;let i="";n?a==="graduated"?i='<strong class="graduated">Graduated.</strong> Pattern mastered.':i=`Advanced to <strong>${a}</strong> box. ${l}/4 consecutive correct.`:i="Reset to the <strong>1d</strong> box. This pattern returns tomorrow.";const c=t.score,u=t.partial_reason,k=c===.5&&u?`<p class="feedback-partial-credit"><strong>Half-credit</strong> (50%): ${f({kana_form_correct:"Reading is right \u2014 the canonical answer uses the kanji form.",kanji_form_correct:"Kanji is right \u2014 the canonical answer uses the kana form.",one_char_typo:"One character off from the expected answer."}[u]||u)}</p>`:"";return`
+    <div class="drill-feedback ${n?"correct":c===.5?"partial":"incorrect"}">
+      <div class="feedback-headline">${n?"Correct":c===.5?"Close \u2014 half-credit":"Wrong"}</div>
+      ${k}
+      ${e.explanation_en?`<p class="feedback-explanation">${f(e.explanation_en)}</p>`:""}
+      ${s?`<p class="feedback-distractor"><em>Why your choice was off:</em> ${f(s)}</p>`:""}
+      <p class="feedback-srs">${i}</p>
+      ${r?`<p class="feedback-pattern">Pattern: <a href="#/learn/${encodeURIComponent(r.id)}">${f(r.pattern)}</a></p>`:""}
     </div>
-  `}function O(t){if(c.currentIdx===c.questions.length-1){f="finished",I(t);return}c.currentIdx+=1,h(t)}function I(t){const e=c.questions.length,n=Object.values(c.answers).filter(s=>s.isCorrect).length,r=e-n,a=new Map;for(const s of c.questions){const d=c.answers[s.id];a.has(s.grammarPatternId)||a.set(s.grammarPatternId,{right:0,wrong:0});const o=a.get(s.grammarPatternId);d?.isCorrect?o.right++:o.wrong++}const i=[...a.entries()].map(([s,d])=>{const o=g.get(s),p=y.getPatternEntry(s),m=p?.srsBox==="graduated"?"\u2605 graduated":p?.srsBox||"-";return`
+  `}function K(e){if(d.currentIdx===d.questions.length-1){g="finished",j(e);return}d.currentIdx+=1,m(e)}function j(e){const t=d.questions.length,n=Object.values(d.answers).filter(a=>a.isCorrect).length,r=t-n,s=new Map;for(const a of d.questions){const l=d.answers[a.id];s.has(a.grammarPatternId)||s.set(a.grammarPatternId,{right:0,wrong:0});const i=s.get(a.grammarPatternId);l?.isCorrect?i.right++:i.wrong++}const o=[...s.entries()].map(([a,l])=>{const i=h.get(a),c=$.getPatternEntry(a),u=c?.srsBox==="graduated"?"\u2605 graduated":c?.srsBox||"-";return`
       <li>
-        <span class="pat-name">${u(o?.pattern||s)}</span>
-        <span class="pat-stats">${d.right} right \xB7 ${d.wrong} wrong</span>
-        <span class="pat-box">${u(m)}</span>
+        <span class="pat-name">${f(i?.pattern||a)}</span>
+        <span class="pat-stats">${l.right} right \xB7 ${l.wrong} wrong</span>
+        <span class="pat-box">${f(u)}</span>
       </li>
-    `}).join("");t.innerHTML=`
+    `}).join("");e.innerHTML=`
     <div class="drill-finished">
       <h2>Drill complete</h2>
       <div class="score-summary">
         <div class="score-headline">
-          <span class="score-big">${n}/${e}</span>
+          <span class="score-big">${n}/${t}</span>
         </div>
         <div class="score-meta">
           <span class="score-correct">${n} correct</span>
@@ -89,11 +90,11 @@ import{renderJa as b}from"./furigana.js";import*as y from"./storage.js";import{t
       </div>
 
       <h3>Pattern updates</h3>
-      <ul class="pattern-summary-list">${i}</ul>
+      <ul class="pattern-summary-list">${o}</ul>
 
       <div class="test-nav">
         <button id="drill-again" class="btn-primary">Drill again</button>
         <button id="drill-back">Back to Learn</button>
       </div>
     </div>
-  `,document.getElementById("drill-again")?.addEventListener("click",()=>{c=null,f="setup",_(t)}),document.getElementById("drill-back")?.addEventListener("click",()=>{location.hash="#/learn"})}function u(t){return String(t??"").replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}export{Q as renderDrill};
+  `,document.getElementById("drill-again")?.addEventListener("click",()=>{d=null,g="setup",A(e)}),document.getElementById("drill-back")?.addEventListener("click",()=>{location.hash="#/learn"})}function f(e){return String(e??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t])}export{N as renderDrill};

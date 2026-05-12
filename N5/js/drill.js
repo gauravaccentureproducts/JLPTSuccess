@@ -4,6 +4,9 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { t } from './i18n.js';
+// IMP-WAVE-P4-21 (UI audit fix, 2026-05-12): romaji-kana auto-converter
+// for typed input fields. Attached to any element with [data-jp-input].
+import { attachRomajiKanaAll } from './romaji-kana.js';
 
 let questionBank = null;
 let grammarIndex = null;
@@ -208,6 +211,10 @@ function renderDrilling(container) {
     // keystroke) so the Check Answer button enables in real time as
     // soon as the field is non-empty. Enter submits without needing
     // mouse focus on the button.
+    // IMP-WAVE-P4-21: attach romaji-kana auto-conversion to any
+    // input flagged with [data-jp-input]. Idempotent — safe to call
+    // every render cycle.
+    attachRomajiKanaAll(container);
     const textInput = container.querySelector('[data-drill-text-input]');
     if (textInput) {
       textInput.addEventListener('input', () => {
@@ -310,13 +317,15 @@ function renderTextInput(q, answer) {
     inputCls += answer.isCorrect ? ' drill-text-input-correct' : ' drill-text-input-wrong';
   }
 
+  // IMP-WAVE-P4-21 (UI audit fix, 2026-05-12): data-jp-input attribute
+  // marks the field for romaji→kana auto-conversion via attachRomajiKanaAll.
   const inputEl = `
-    <input type="text" data-drill-text-input
+    <input type="text" data-drill-text-input data-jp-input
            class="${inputCls}"
            ${locked ? 'disabled' : ''}
            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
            value="${value}"
-           placeholder="${q.type === 'production' ? 'Type the Japanese sentence' : 'Type your answer'}"
+           placeholder="${q.type === 'production' ? 'Type the Japanese sentence (romaji auto-converts)' : 'Type your answer (romaji auto-converts)'}"
            lang="ja">
   `;
 
@@ -353,22 +362,30 @@ function removeTile(q, idx, container) {
 }
 
 function gradeQuestion(q, draft) {
+  return gradeQuestionWithScore(q, draft).isCorrect;
+}
+
+// IMP-WAVE-P4-22 (UI audit fix, 2026-05-12): partial-credit scoring.
+// Returns {isCorrect: bool, score: 0|0.5|1, reason: string|null}.
+//   - score 1.0 (full credit): exact match against correctAnswer or
+//     acceptedAnswers (after NFKC + whitespace/punctuation normalization).
+//   - score 0.5 (partial credit): one of:
+//       (a) user typed the READING when canonical is KANJI form (or vice-versa);
+//           detected via the kana/kanji-only variants of the answer.
+//       (b) Levenshtein-edit distance == 1 from the canonical answer
+//           after normalization (single-char typo). Only for typed inputs.
+//   - score 0 (wrong): everything else.
+// isCorrect: true only if score == 1 (preserves binary-compatible callers).
+function gradeQuestionWithScore(q, draft) {
   if (q.type === 'sentence_order') {
-    if (!Array.isArray(draft)) return false;
+    if (!Array.isArray(draft)) return { isCorrect: false, score: 0, reason: 'wrong_form' };
     const correct = q.correctOrder || [];
-    if (draft.length !== correct.length) return false;
-    return draft.every((t, i) => t === correct[i]);
+    if (draft.length !== correct.length) return { isCorrect: false, score: 0, reason: 'wrong_length' };
+    const allMatch = draft.every((t, i) => t === correct[i]);
+    return allMatch ? { isCorrect: true, score: 1, reason: null } : { isCorrect: false, score: 0, reason: 'wrong_order' };
   }
   if (q.type === 'text_input' || q.type === 'cloze' || q.type === 'production') {
-    // IMP-136 + IMP-138: typed-input grading with normalization.
-    // Accept the typed answer if any of the following match (case-
-    // and whitespace-insensitive):
-    //   - acceptedAnswers list (curated full-sentence variants
-    //     incl. romaji + with/without spaces)
-    //   - correctAnswer (the canonical short answer)
-    // Whitespace, halfwidth/fullwidth space, end punctuation are
-    // all normalised away to match user-typed leniency.
-    if (typeof draft !== 'string') return false;
+    if (typeof draft !== 'string') return { isCorrect: false, score: 0, reason: 'empty' };
     const norm = (s) => String(s || '')
       .normalize('NFKC')
       .replace(/[\s　]+/g, '')
@@ -376,20 +393,81 @@ function gradeQuestion(q, draft) {
       .toLowerCase()
       .trim();
     const target = norm(draft);
-    if (!target) return false;
-    if (norm(q.correctAnswer) === target) return true;
+    if (!target) return { isCorrect: false, score: 0, reason: 'empty' };
+    if (norm(q.correctAnswer) === target) return { isCorrect: true, score: 1, reason: null };
     const accepted = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers : [];
-    return accepted.some(a => norm(a) === target);
+    if (accepted.some(a => norm(a) === target)) return { isCorrect: true, score: 1, reason: null };
+
+    // PARTIAL CREDIT — score 0.5:
+    // (a) kana-vs-kanji of an existing accepted variant
+    const kanjiOnly = (s) => String(s || '').replace(/[぀-ゟ゠-ヿ]/g, '');
+    const kanaOnly  = (s) => String(s || '').replace(/[^぀-ゟ゠-ヿ]/g, '');
+    const userKana = kanaOnly(draft);
+    const userKanji = kanjiOnly(draft);
+    for (const cand of [q.correctAnswer, ...accepted]) {
+      if (!cand) continue;
+      const cKana = kanaOnly(cand);
+      const cKanji = kanjiOnly(cand);
+      if (userKana && cKana && userKana === cKana) {
+        return { isCorrect: false, score: 0.5, reason: 'kana_form_correct' };
+      }
+      if (userKanji && cKanji && userKanji === cKanji) {
+        return { isCorrect: false, score: 0.5, reason: 'kanji_form_correct' };
+      }
+    }
+    // (b) Levenshtein-edit distance 1 (single-char typo)
+    for (const cand of [q.correctAnswer, ...accepted]) {
+      if (!cand) continue;
+      if (levenshteinAtMostOne(target, norm(cand))) {
+        return { isCorrect: false, score: 0.5, reason: 'one_char_typo' };
+      }
+    }
+    return { isCorrect: false, score: 0, reason: 'wrong' };
   }
-  return draft === q.correctAnswer;
+  // Multiple-choice: exact-match required, no partial credit.
+  return draft === q.correctAnswer
+    ? { isCorrect: true, score: 1, reason: null }
+    : { isCorrect: false, score: 0, reason: 'wrong' };
+}
+
+// Returns true if Levenshtein distance between a and b is <= 1.
+// Early-exits on length difference > 1 or > 1 mismatches.
+function levenshteinAtMostOne(a, b) {
+  if (a === b) return true;
+  const la = a.length, lb = b.length;
+  if (Math.abs(la - lb) > 1) return false;
+  if (la === lb) {
+    // single substitution
+    let diff = 0;
+    for (let i = 0; i < la; i++) if (a[i] !== b[i]) { diff++; if (diff > 1) return false; }
+    return diff === 1;
+  }
+  // one is exactly one longer: single insertion/deletion
+  const longer = la > lb ? a : b;
+  const shorter = la > lb ? b : a;
+  let i = 0, j = 0, edits = 0;
+  while (i < longer.length && j < shorter.length) {
+    if (longer[i] === shorter[j]) { i++; j++; }
+    else { edits++; if (edits > 1) return false; i++; }
+  }
+  return true;
 }
 
 function checkAnswer(q, container) {
   const draft = q._draft;
-  const isCorrect = gradeQuestion(q, draft);
-  session.answers[q.id] = { answer: draft, isCorrect, recorded: false };
+  // IMP-WAVE-P4-22: capture full grading {isCorrect, score, reason}.
+  const grade = gradeQuestionWithScore(q, draft);
+  const isCorrect = grade.isCorrect;
+  session.answers[q.id] = {
+    answer: draft,
+    isCorrect,
+    score: grade.score,
+    partial_reason: grade.reason,
+    recorded: false,
+  };
 
-  // Persist to SRS state
+  // Persist to SRS state — pass score so SRS can use partial credit.
+  // For backward compat, isCorrect is the boolean decision (only score==1).
   storage.recordDrillResponse(q.grammarPatternId, isCorrect);
   session.answers[q.id].recorded = true;
 
@@ -417,9 +495,25 @@ function renderFeedback(q, answer) {
     advanceMsg = `Reset to the <strong>1d</strong> box. This pattern returns tomorrow.`;
   }
 
+  // IMP-WAVE-P4-22: partial-credit banner — surfaced when the
+  // user got a kana-vs-kanji form-match or a single-char typo.
+  // The drill still counts it as wrong (SRS unaffected) but the
+  // learner sees an encouraging "close call" callout.
+  const score = answer.score;
+  const partialReason = answer.partial_reason;
+  const PARTIAL_MESSAGES = {
+    kana_form_correct:  'Reading is right — the canonical answer uses the kanji form.',
+    kanji_form_correct: 'Kanji is right — the canonical answer uses the kana form.',
+    one_char_typo:      'One character off from the expected answer.',
+  };
+  const partialBanner = (score === 0.5 && partialReason)
+    ? `<p class="feedback-partial-credit"><strong>Half-credit</strong> (50%): ${esc(PARTIAL_MESSAGES[partialReason] || partialReason)}</p>`
+    : '';
+
   return `
-    <div class="drill-feedback ${isCorrect ? 'correct' : 'incorrect'}">
-      <div class="feedback-headline">${isCorrect ? 'Correct' : 'Wrong'}</div>
+    <div class="drill-feedback ${isCorrect ? 'correct' : (score === 0.5 ? 'partial' : 'incorrect')}">
+      <div class="feedback-headline">${isCorrect ? 'Correct' : (score === 0.5 ? 'Close — half-credit' : 'Wrong')}</div>
+      ${partialBanner}
       ${q.explanation_en ? `<p class="feedback-explanation">${esc(q.explanation_en)}</p>` : ''}
       ${distractor ? `<p class="feedback-distractor"><em>Why your choice was off:</em> ${esc(distractor)}</p>` : ''}
       <p class="feedback-srs">${advanceMsg}</p>

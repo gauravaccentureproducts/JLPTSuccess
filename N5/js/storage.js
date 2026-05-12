@@ -258,6 +258,67 @@ export function getUnifiedDueQueue() {
   return out;
 }
 
+// IMP-WAVE-P4-24 (UI audit fix, 2026-05-12): "ghost reviews"
+// surfacing. Items the SRS thinks are at risk of failure get
+// preemptively shown BEFORE their nextDue date.
+//
+// Ghost-candidate criteria (any one triggers):
+//   (a) easeFactor < 2.0  AND  last interval was > 7 days ago
+//       (weak ease + long interval = high relapse risk)
+//   (b) consecutiveCorrect == 0  AND  srsBox in {7d, 14d, 30d}
+//       (advanced box but recent failure — already on rocky ground)
+//   (c) interval >= 30 AND last review > 30 days ago
+//       (overdue mature card — typical "ghost" usage)
+//
+// Returns items in the same {skill, id, entry, isGhost: true}
+// shape as the due queue so review.js can interleave them.
+export function getGhostReviewQueue() {
+  const now = Date.now();
+  const DAY_MS = 24 * 60 * 60 * 1000;
+
+  function isGhostCandidate(entry) {
+    if (!entry) return false;
+    if (entry.isMastered) return false;
+    if (entry.srsBox === 'graduated') return false;
+    if (!entry.nextDue) return false;
+    // Skip items that are already due — those go to the regular queue
+    if (new Date(entry.nextDue).getTime() <= now) return false;
+    const ease = entry.easeFactor ?? 2.5;
+    const interval = entry.interval ?? 0;
+    const consec = entry.consecutiveCorrect ?? 0;
+    const lastReview = entry.lastReviewedAt ? new Date(entry.lastReviewedAt).getTime() : null;
+    const daysSinceLastReview = lastReview ? (now - lastReview) / DAY_MS : null;
+
+    // (a) Weak ease + long interval
+    if (ease < 2.0 && daysSinceLastReview && daysSinceLastReview > 7) return true;
+    // (b) Advanced box but recent failure
+    const advancedBox = ['7d', '14d', '30d'];
+    if (advancedBox.includes(entry.srsBox) && consec === 0) return true;
+    // (c) Overdue mature card
+    if (interval >= 30 && daysSinceLastReview && daysSinceLastReview > 30) return true;
+    return false;
+  }
+
+  const out = [];
+  for (const [id, entry] of Object.entries(getHistory())) {
+    if (isGhostCandidate(entry)) out.push({ skill: 'grammar', id, entry, isGhost: true, isNew: false });
+  }
+  for (const [id, entry] of Object.entries(getVocabHistory())) {
+    if (isGhostCandidate(entry)) out.push({ skill: 'vocab', id, entry, isGhost: true, isNew: false });
+  }
+  for (const [id, entry] of Object.entries(getKanjiHistory())) {
+    if (isGhostCandidate(entry)) out.push({ skill: 'kanji', id, entry, isGhost: true, isNew: false });
+  }
+  return out;
+}
+
+// IMP-WAVE-P4-24: count of ghost-review candidates across skills.
+// Used by the home page badge to advertise "+ N ghost reviews
+// suggested" alongside the regular due-today count.
+export function getGhostCount() {
+  return getGhostReviewQueue().length;
+}
+
 // Per-skill due counts for the home page aggregate ("47 reviews due
 // today (12 grammar · 23 vocab · 12 kanji)").
 export function getDueCountsBySkill() {
