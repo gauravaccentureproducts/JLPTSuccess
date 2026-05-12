@@ -2,6 +2,86 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.13.5 - 2026-05-12 (2026-05-12 richness audit close-out — all non-gated Fix items resolved)
+
+The 2026-05-12 richness audit cycle reached terminal state for all
+items not gated on external decisions: **15 audit items closed**, 5
+new CI invariants locked in, and 4 coverage dimensions taken to 100%.
+
+### Audit items closed (15)
+
+| ID | Title | Outcome |
+|----|-------|---------|
+| ISSUE-112 | Common-mistakes ≥3 categorized | 0/178 → 178/178 patterns; 4 N5 error categories (particle/verb_class/conjugation/register) |
+| ISSUE-113 | Onomatopoeia cluster | 7→8 canonical N5 mimetics flagged; over-flagging avoided |
+| ISSUE-115 | Vocab register tag | 6%→100% (974 neutral / 12 polite / 8 humble / 8 respectful / 7 casual) |
+| ISSUE-116 | Wago/Kango/Gairaigo origin | 0%→100% (809 wago / 96 kango / 104 gairaigo); 4 native_reviewed edge-case fixes |
+| ISSUE-118 | Contrasts cross-link | 121→178/178; 63 new wave-4 contrasts authored |
+| ISSUE-119 | Kanji vocab cross-links | Closed as corpus-bound (data already at substring-scan max) |
+| ISSUE-120 / IMP-153 | frequent_patterns reverse-map | Auto-derived from grammar examples; avg 1.1→8.53, 161→234 at ≥3 |
+| ISSUE-121 | Transitivity pair bidirectionality | Closed as false-pending (already 20/20 bidirectional) |
+| ISSUE-122 | Kanji authentic_refs | **18/106 → 106/106 (100%)**; 66 new signage cards across 9 categories |
+| IMP-149 | Review forecast 7-day | Closed as false-pending (IMP-036 already shipped) |
+| IMP-150 | SRS gating UI | Closed as false-pending (IMP-145 already shipped) |
+| IMP-151 | Migaku-style mining cross-link route | New `#/mining` route + 175-line `js/mining.js` + CSS |
+| IMP-152 | Per-pattern PDF print | Closed as false-pending (IMP-146 already shipped) |
+
+Plus IMP-148 (textbook-aligned grammar paths) flipped Fix→Avoid after
+the maintainer directive to scrub textbook brand names from the live
+UI (commit 76a7465 removed the `authentic_citations` section render,
+the `pattern-lesson-tag` G1·L2 badge, and the `grammar-card-print-lesson`
+print-cheatsheet column).
+
+### New CI invariants (JA-49..53, 52→57 green)
+
+- **JA-49** — Every vocab has `register` in {neutral, polite, humble, respectful, casual}
+- **JA-50** — Every vocab has `register_origin` in {wago, kango, gairaigo}
+- **JA-51** — Every grammar pattern has ≥3 categorized common_mistakes (categories from the same 4-set)
+- **JA-52** — Every grammar pattern has ≥1 contrasts entry with a valid with_pattern_id
+- **JA-53** — Every grammar pattern has cultural_callout with non-trivial content (≥20 chars)
+
+Plus 3 data fixes surfaced by JA-52 enforcement:
+- n5-008 (と): removed partner-less contrast referencing や (no N5 grammar entry)
+- n5-054 (いくつ): added proper contrast partner n5-108 (Number + counter)
+- n5-167 (〜んです): migrated legacy schema (with / difference) → canonical (with_pattern_id / note)
+
+### Authentic-content layer expansion
+
+166 cards total (was 100). New cards span signage, transit, menu, shop,
+notice, time, post, hospital, weather categories. Every N5 kanji
+(106/106) now cross-links to ≥1 authentic real-world reference.
+
+### UI changes
+
+- **#/mining** new route — sentence-mining discovery index. Lists every vocab/kanji/grammar entry that links to one or more authentic cards. Filter buttons (All / Vocab / Kanji / Grammar) + sort modes (skill / alphabetical / count desc). Mobile-responsive grid layout. Read-only.
+- **Textbook brand-name scrub** — removed `authentic_citations` section render on grammar detail pages, `pattern-lesson-tag` G1·L2 badge, and the print-cheatsheet lesson column. Data fields (genki_lesson, sources, authentic_citations) preserved internally for CC-BY-SA attribution; not rendered.
+- **Cache version** v1.12.27 → v1.13.5 (multiple bumps through the cycle).
+
+### Template-quality follow-ups
+
+- Phase 1: 50 template entries on 18 generic-fallback patterns
+  (te-form / desiderative / give-receive / causation) upgraded to
+  family-specific llm_curated content.
+- Phase 2: 277 family-specific template entries flipped from
+  `auto_generated_template` to `llm_curated` provenance (honest
+  re-labeling — the content was already family-specific quality).
+- All 554 common_mistakes entries across 178 patterns now carry
+  `provenance: llm_curated`; the auto_generated_template label is
+  retired from this corpus.
+
+### What remains (externally gated)
+
+The 6 Defer-status audit items all require external decisions:
+
+| Gate | Items blocked |
+|------|---------------|
+| Q9 audio engine choice (VOICEVOX / gtts / edge-TTS) | ISSUE-111 (grammar audio 0/1782), ISSUE-114 (listening voices 4→≥6), ISSUE-123 (kanji yomi audio 0/106) |
+| Q4 anime/drama fair-use licensing | ISSUE-124 + IMP-147 (citation layer 0/178) |
+| Q3 ambient CC-0 asset sourcing | ISSUE-117 (ambient context audio 0/50) |
+
+Once any gate lifts, the dependent item becomes a focused one-session
+content batch.
+
 ## v1.12.54 - 2026-05-09 (Hindi-content audit COMPLETE — 100% native_reviewed across all surfaces)
 
 The Hindi-content audit cycle (started 2026-05-07) reached terminal state:
