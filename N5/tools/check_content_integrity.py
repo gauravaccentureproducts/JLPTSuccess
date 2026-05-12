@@ -844,6 +844,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-63", "Authentic kanji_refs lists all N5 kanji in ja text (shape contract; 2026-05-12)", lambda: _check_ja_63_authentic_kanji_refs_complete()),
     ("JA-64", "Common_mistakes have wrong+right+why fields populated (renderer contract; 2026-05-12)", lambda: _check_ja_64_common_mistakes_shape()),
     ("JA-65", "Contrasts notes >=30 chars (substantive explanation bar; 2026-05-12)", lambda: _check_ja_65_contrast_notes_min_length()),
+    # JA-66 (2026-05-13): hardening from v1.15.1 Phase 7 drift. JA-13
+    # leaf-skips explanation_en + pattern_role as "English commentary",
+    # but Phase 7 inadvertently embedded 4 above-N5 kanji (好/嫌/広/方)
+    # in those fields. This check programmatically enforces the
+    # corpus-wide convention: English commentary fields use only
+    # N5-whitelist kanji + kana.
+    ("JA-66", "explanation_en + pd_refs.pattern_role: kanji bounded by N5 whitelist (2026-05-13)", lambda: _check_ja_66_explanation_en_kanji_in_scope()),
 ]
 
 
@@ -3213,6 +3220,63 @@ def _check_ja_65_contrast_notes_min_length() -> list[str]:
                 failures.append(
                     f"JA-65 {pid}.contrasts[{i}].note: only {len(note)} chars (need >=30): {note!r}"
                 )
+    return failures
+
+
+def _check_ja_66_explanation_en_kanji_in_scope() -> list[str]:
+    """JA-66 (2026-05-13): every grammar pattern's `explanation_en` field
+    must contain only kanji that appear on the N5 whitelist
+    (data/n5_kanji_whitelist.json).
+
+    Background: JA-13's leaf-skip set includes `explanation_en` because
+    it is nominally English commentary. That assumption broke in the
+    Phase 7 polish (v1.15.1) when surgical upgrades to 3 patterns
+    introduced 4 above-N5 kanji (好/嫌/広/方) embedded inline in the
+    English text — slipped past CI and was caught only by manual review.
+
+    This check enforces the convention used throughout the rest of the
+    corpus: when explanation_en cites a Japanese word, write it in kana
+    (or kana with N5-kanji where possible). Above-N5 kanji belong in
+    the example-sentence field or the contrast-pair surface — not in
+    the explanation gloss.
+
+    Reciprocal pattern_role (under public_domain_refs) is also nominal
+    English commentary; same convention. Both surfaces are checked.
+    """
+    failures: list[str] = []
+    try:
+        whitelist = set(json.loads((ROOT / "data" / "n5_kanji_whitelist.json").read_text(encoding="utf-8")))
+    except Exception as e:
+        return [f"JA-66 could not load n5_kanji_whitelist.json: {e}"]
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-66: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-66: parse error: {e}"]
+    KANJI_RE = re.compile(r"[一-鿿]")
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        expl = p.get("explanation_en") or ""
+        if isinstance(expl, str):
+            bad = sorted({c for c in KANJI_RE.findall(expl) if c not in whitelist})
+            if bad:
+                failures.append(
+                    f"JA-66 {pid}.explanation_en: above-N5 kanji {bad} — "
+                    f"use kana or N5-only kanji in English commentary."
+                )
+        for i, r in enumerate(p.get("public_domain_refs") or []):
+            if not isinstance(r, dict):
+                continue
+            role = r.get("pattern_role") or ""
+            if isinstance(role, str):
+                bad = sorted({c for c in KANJI_RE.findall(role) if c not in whitelist})
+                if bad:
+                    failures.append(
+                        f"JA-66 {pid}.public_domain_refs[{i}].pattern_role: "
+                        f"above-N5 kanji {bad} — pattern_role is English."
+                    )
     return failures
 
 
