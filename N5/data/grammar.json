@@ -23135,12 +23135,20 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-て",
-          "right": "Use the correct particle for Verb-て's syntactic frame",
-          "why": "Particles surrounding Verb-て follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "食む + て = 食みて",
+          "right": "食む → 食んで (Group 1 む-ending uses ん + で)",
+          "why": "Te-form derivation by ending (Group 1 / godan): く→いて (書く→書いて), ぐ→いで (泳ぐ→泳いで), す→して (話す→話して), つ・る・う→って (待つ→待って, 帰る→帰って, 買う→買って), ぶ・む・ぬ→んで (遊ぶ→遊んで, 飲む→飲んで, 死ぬ→死んで). Memorize all 5 sub-rules — they're the #1 te-form mistake source.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -23530,20 +23538,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-て、Verb-て、…",
-          "right": "Use the correct particle for Verb-て、Verb-て、…'s syntactic frame",
-          "why": "Particles surrounding Verb-て、Verb-て、… follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
-          "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食む + て = 食みて",
+          "right": "食む → 食んで (Group 1 む-ending uses ん + で)",
+          "why": "Te-form derivation by ending (Group 1 / godan): く→いて (書く→書いて), ぐ→いで (泳ぐ→泳いで), す→して (話す→話して), つ・る・う→って (待つ→待って, 帰る→帰って, 買う→買って), ぶ・む・ぬ→んで (遊ぶ→遊んで, 飲む→飲んで, 死ぬ→死んで). Memorize all 5 sub-rules — they're the #1 te-form mistake source.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-て、Verb-て、…",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-て、Verb-て、… to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
+          "category": "particle",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -23870,20 +23886,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-てください",
-          "right": "Use the correct particle for Verb-てください's syntactic frame",
-          "why": "Particles surrounding Verb-てください follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
-          "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
+          "category": "verb_class",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-てください",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-てください to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
-          "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
+          "category": "particle",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "casual てる instead of polite ています",
+          "right": "polite ています / casual てる — match register throughout",
+          "why": "ています is the polite progressive (今、食べています = I'm eating now). The casual contraction is てる (今、食べてる). Don't mix polite and casual in the same sentence.",
+          "category": "register",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -24269,12 +24293,20 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-ています",
-          "right": "Use the correct particle for Verb-ています's syntactic frame",
-          "why": "Particles surrounding Verb-ています follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
+          "category": "verb_class",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -24650,20 +24682,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-ていません",
-          "right": "Use the correct particle for Verb-ていません's syntactic frame",
-          "why": "Particles surrounding Verb-ていません follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
-          "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食む + て = 食みて",
+          "right": "食む → 食んで (Group 1 む-ending uses ん + で)",
+          "why": "Te-form derivation by ending (Group 1 / godan): く→いて (書く→書いて), ぐ→いで (泳ぐ→泳いで), す→して (話す→話して), つ・る・う→って (待つ→待って, 帰る→帰って, 買う→買って), ぶ・む・ぬ→んで (遊ぶ→遊んで, 飲む→飲んで, 死ぬ→死んで). Memorize all 5 sub-rules — they're the #1 te-form mistake source.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-ていません",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-ていません to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
+          "category": "particle",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -25017,20 +25057,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-てもいいです",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-てもいいです to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
-          "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食む + て = 食みて",
+          "right": "食む → 食んで (Group 1 む-ending uses ん + で)",
+          "why": "Te-form derivation by ending (Group 1 / godan): く→いて (書く→書いて), ぐ→いで (泳ぐ→泳いで), す→して (話す→話して), つ・る・う→って (待つ→待って, 帰る→帰って, 買う→買って), ぶ・む・ぬ→んで (遊ぶ→遊んで, 飲む→飲んで, 死ぬ→死んで). Memorize all 5 sub-rules — they're the #1 te-form mistake source.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Wrong form before Verb-てもいいです",
-          "right": "Use the form specified by the pattern's rule",
-          "why": "Each pattern attaches to a specific form: dictionary form (食べる), te-form (食べて), stem (食べ), or plain past (食べた). Confirm the required form before applying Verb-てもいいです.",
-          "category": "conjugation",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
+          "category": "verb_class",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "casual てる instead of polite ています",
+          "right": "polite ています / casual てる — match register throughout",
+          "why": "ています is the polite progressive (今、食べています = I'm eating now). The casual contraction is てる (今、食べてる). Don't mix polite and casual in the same sentence.",
+          "category": "register",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -25408,20 +25456,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-てはいけません",
-          "right": "Use the correct particle for Verb-てはいけません's syntactic frame",
-          "why": "Particles surrounding Verb-てはいけません follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
-          "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
+          "category": "verb_class",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-てはいけません",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-てはいけません to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
-          "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
+          "category": "particle",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "casual てる instead of polite ています",
+          "right": "polite ています / casual てる — match register throughout",
+          "why": "ています is the polite progressive (今、食べています = I'm eating now). The casual contraction is てる (今、食べてる). Don't mix polite and casual in the same sentence.",
+          "category": "register",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -25792,20 +25848,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-てから",
-          "right": "Use the correct particle for Verb-てから's syntactic frame",
-          "why": "Particles surrounding Verb-てから follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
-          "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食む + て = 食みて",
+          "right": "食む → 食んで (Group 1 む-ending uses ん + で)",
+          "why": "Te-form derivation by ending (Group 1 / godan): く→いて (書く→書いて), ぐ→いで (泳ぐ→泳いで), す→して (話す→話して), つ・る・う→って (待つ→待って, 帰る→帰って, 買う→買って), ぶ・む・ぬ→んで (遊ぶ→遊んで, 飲む→飲んで, 死ぬ→死んで). Memorize all 5 sub-rules — they're the #1 te-form mistake source.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-てから",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-てから to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
+          "category": "particle",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -26129,20 +26193,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-ないでください",
-          "right": "Use the correct particle for Verb-ないでください's syntactic frame",
-          "why": "Particles surrounding Verb-ないでください follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
-          "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "wrong": "食む + て = 食みて",
+          "right": "食む → 食んで (Group 1 む-ending uses ん + で)",
+          "why": "Te-form derivation by ending (Group 1 / godan): く→いて (書く→書いて), ぐ→いで (泳ぐ→泳いで), す→して (話す→話して), つ・る・う→って (待つ→待って, 帰る→帰って, 買う→買って), ぶ・む・ぬ→んで (遊ぶ→遊んで, 飲む→飲んで, 死ぬ→死んで). Memorize all 5 sub-rules — they're the #1 te-form mistake source.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-ないでください",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-ないでください to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "食べる + て → 食べって (treating Group 2 as Group 1)",
+          "right": "食べる + て → 食べて (drop る, add て)",
+          "why": "Group 2 (ichidan / る-verbs) te-form: drop る, add て. Group 3 (irregular): する → して, くる → きて. Don't apply Group 1 sub-rules to Group 2 / 3 verbs.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "食べての本",
+          "right": "食べる本 OR 食べてから本を読む",
+          "why": "Te-form on its own doesn't take a particle. To connect two clauses, use te-form + next verb directly (食べて、行く = eat and go). For sequence emphasis use てから (食べてから = after eating).",
+          "category": "particle",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -36227,12 +36299,20 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-stem + たいです",
-          "right": "Use the correct particle for Verb-stem + たいです's syntactic frame",
-          "why": "Particles surrounding Verb-stem + たいです follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "水を飲みたい (using を with 〜たい)",
+          "right": "水が飲みたい (using が with 〜たい in standard speech)",
+          "why": "〜たい marks the desired object with が in standard speech: 水が飲みたい (I want to drink water). Modern colloquial allows を, but が is the textbook-correct form. Native teachers will mark を wrong on exams.",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Trying to attach 〜たい to dictionary form: 飲むたい",
+          "right": "Attaching 〜たい to verb-stem: 飲みたい",
+          "why": "〜たい attaches to the verb STEM (the ます-form minus ます). Drop ます from 飲みます → 飲み, then append たい → 飲みたい. Don't attach to dictionary form.",
+          "category": "verb_class",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -36585,12 +36665,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-stem + たくないです",
-          "right": "Use the correct particle for Verb-stem + たくないです's syntactic frame",
-          "why": "Particles surrounding Verb-stem + たくないです follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "水を飲みたい (using を with 〜たい)",
+          "right": "水が飲みたい (using が with 〜たい in standard speech)",
+          "why": "〜たい marks the desired object with が in standard speech: 水が飲みたい (I want to drink water). Modern colloquial allows を, but が is the textbook-correct form. Native teachers will mark を wrong on exams.",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Trying to attach 〜たい to dictionary form: 飲むたい",
+          "right": "Attaching 〜たい to verb-stem: 飲みたい",
+          "why": "〜たい attaches to the verb STEM (the ます-form minus ます). Drop ます from 飲みます → 飲み, then append たい → 飲みたい. Don't attach to dictionary form.",
+          "category": "verb_class",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "飲みたいでした (incorrect past)",
+          "right": "飲みたかったです (correct past)",
+          "why": "〜たい conjugates like an い-adjective: present 〜たい, past 〜たかった, negative 〜たくない, past negative 〜たくなかった. Add です for polite form; do NOT use でした.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -36952,12 +37048,20 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Noun + が ほしいです",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Noun + が ほしいです to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "Trying to attach 〜たい to dictionary form: 飲むたい",
+          "right": "Attaching 〜たい to verb-stem: 飲みたい",
+          "why": "〜たい attaches to the verb STEM (the ます-form minus ます). Drop ます from 飲みます → 飲み, then append たい → 飲みたい. Don't attach to dictionary form.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "飲みたいでした (incorrect past)",
+          "right": "飲みたかったです (correct past)",
+          "why": "〜たい conjugates like an い-adjective: present 〜たい, past 〜たかった, negative 〜たくない, past negative 〜たくなかった. Add です for polite form; do NOT use でした.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -37318,20 +37422,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Verb-stem + に 行きます / 来ます / かえります",
-          "right": "Use the correct particle for Verb-stem + に 行きます / 来ます / かえります's syntactic frame",
-          "why": "Particles surrounding Verb-stem + に 行きます / 来ます / かえります follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "水を飲みたい (using を with 〜たい)",
+          "right": "水が飲みたい (using が with 〜たい in standard speech)",
+          "why": "〜たい marks the desired object with が in standard speech: 水が飲みたい (I want to drink water). Modern colloquial allows を, but が is the textbook-correct form. Native teachers will mark を wrong on exams.",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Verb-stem + に 行きます / 来ます / かえります",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Verb-stem + に 行きます / 来ます / かえります to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "Trying to attach 〜たい to dictionary form: 飲むたい",
+          "right": "Attaching 〜たい to verb-stem: 飲みたい",
+          "why": "〜たい attaches to the verb STEM (the ます-form minus ます). Drop ます from 飲みます → 飲み, then append たい → 飲みたい. Don't attach to dictionary form.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Speaker's desire 〜たい about another person: 田中さんが飲みたい",
+          "right": "Use 〜たがる about another person: 田中さんが飲みたがっている",
+          "why": "〜たい is reserved for the SPEAKER'S OWN desire (or asking the listener). For third-person desire, switch to 〜たがる (田中さんは水を飲みたがる = Tanaka-san wants to drink water). The distinction is mandatory in formal writing.",
+          "category": "register",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -45334,20 +45446,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Applying wrong verb-class rules with ～に～をあげます",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching ～に～をあげます to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "Treating くれる / もらう / あげる as Group 1",
+          "right": "All three are Group 2 (ichidan, る-verbs)",
+          "why": "あげる, もらう, くれる are all Group 2. Past tense: あげた, もらった, くれた. Polite: あげます, もらいます, くれます. Don't apply Group 1 sub-rules (which would yield wrong forms like あげって).",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Wrong form before ～に～をあげます",
-          "right": "Use the form specified by the pattern's rule",
-          "why": "Each pattern attaches to a specific form: dictionary form (食べる), te-form (食べて), stem (食べ), or plain past (食べた). Confirm the required form before applying ～に～をあげます.",
+          "wrong": "Using くれた when giving to an outgroup person",
+          "right": "Use あげた when giving outward; くれた is for inward direction (ingroup)",
+          "why": "Directional rule: あげる = I/we give to someone (outward); もらう = I/we receive from someone (inward); くれる = someone gives to me/us (inward). Mixing the direction is the #1 give/receive mistake.",
           "category": "conjugation",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "あげる to a superior (rude)",
+          "right": "さしあげる to a superior (humble)",
+          "why": "あげる is for ingroup peers; for SUPERIORS / customers, use 差し上げる (さしあげる) as the humble form. Conversely, やる is for inferiors / pets / plants — using it with peers is rude/childish.",
+          "category": "register",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -45725,20 +45845,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around ～に / から ～をもらいます",
-          "right": "Use the correct particle for ～に / から ～をもらいます's syntactic frame",
-          "why": "Particles surrounding ～に / から ～をもらいます follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "友達をプレゼントをあげる (double を)",
+          "right": "友達にプレゼントをあげる (に for recipient, を for object)",
+          "why": "Giving verbs (あげる / さしあげる / やる) take に for the RECIPIENT and を for the OBJECT given. Receiving verbs (もらう / いただく) take から or に for the GIVER and を for the object.",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with ～に / から ～をもらいます",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching ～に / から ～をもらいます to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "Treating くれる / もらう / あげる as Group 1",
+          "right": "All three are Group 2 (ichidan, る-verbs)",
+          "why": "あげる, もらう, くれる are all Group 2. Past tense: あげた, もらった, くれた. Polite: あげます, もらいます, くれます. Don't apply Group 1 sub-rules (which would yield wrong forms like あげって).",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Using くれた when giving to an outgroup person",
+          "right": "Use あげた when giving outward; くれた is for inward direction (ingroup)",
+          "why": "Directional rule: あげる = I/we give to someone (outward); もらう = I/we receive from someone (inward); くれる = someone gives to me/us (inward). Mixing the direction is the #1 give/receive mistake.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -46071,20 +46199,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around ～が～をくれます",
-          "right": "Use the correct particle for ～が～をくれます's syntactic frame",
-          "why": "Particles surrounding ～が～をくれます follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "友達をプレゼントをあげる (double を)",
+          "right": "友達にプレゼントをあげる (に for recipient, を for object)",
+          "why": "Giving verbs (あげる / さしあげる / やる) take に for the RECIPIENT and を for the OBJECT given. Receiving verbs (もらう / いただく) take から or に for the GIVER and を for the object.",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with ～が～をくれます",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching ～が～をくれます to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "Treating くれる / もらう / あげる as Group 1",
+          "right": "All three are Group 2 (ichidan, る-verbs)",
+          "why": "あげる, もらう, くれる are all Group 2. Past tense: あげた, もらった, くれた. Polite: あげます, もらいます, くれます. Don't apply Group 1 sub-rules (which would yield wrong forms like あげって).",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Using くれた when giving to an outgroup person",
+          "right": "Use あげた when giving outward; くれた is for inward direction (ingroup)",
+          "why": "Directional rule: あげる = I/we give to someone (outward); もらう = I/we receive from someone (inward); くれる = someone gives to me/us (inward). Mixing the direction is the #1 give/receive mistake.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -46471,12 +46607,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Sentence + から、Sentence",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Sentence + から、Sentence to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "明日雨ですからから行きません (double から)",
+          "right": "明日雨ですから行きません",
+          "why": "から attaches once at the clause boundary. Don't double the particle. Note that AFTER copula です/だ + から, the clause break is automatic.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Forgetting that な-adjective + ので requires な",
+          "right": "静かなので (correct な before ので) vs 静かので (incorrect)",
+          "why": "ので attaches to the PLAIN-FORM (連体形 / attributive form). For な-adjectives that means stem + な + ので (静かなので). For nouns + copula, use な (学生なので). Don't drop the な.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "から in a customer-facing complaint context",
+          "right": "ので / 〜まして for softer / more polite reasoning",
+          "why": "から is direct / blunt; sounds confrontational in customer-service contexts. Use ので (softer) or 〜まして (formal speech) when explaining a reason to a customer or boss. The pragmatic register matters as much as the grammatical form.",
+          "category": "register",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [
@@ -46826,20 +46978,28 @@
           "category_provenance": "heuristic_categorized"
         },
         {
-          "wrong": "Misusing particles around Sentence + ので、Sentence",
-          "right": "Use the correct particle for Sentence + ので、Sentence's syntactic frame",
-          "why": "Particles surrounding Sentence + ので、Sentence follow the pattern's syntactic frame. Common error: substituting は for が, を for に, or omitting the particle entirely in casual-form sentences.",
+          "wrong": "雨だ。だから行きません (using だから as conjunction)",
+          "right": "雨だから行きません (clause-final から; no comma break)",
+          "why": "から attaches to the END of clause A to mark it as a REASON for clause B. Don't start a new sentence with だから unless it's deliberately emphatic. Standard form: A から B (A reason → B result).",
           "category": "particle",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         },
         {
-          "wrong": "Applying wrong verb-class rules with Sentence + ので、Sentence",
-          "right": "Identify the verb group then apply correct conjugation",
-          "why": "When attaching Sentence + ので、Sentence to verbs, identify the verb group (Group 1 う-verbs, Group 2 る-verbs, Group 3 irregular) and apply that group's conjugation rules. Don't generalize Group 2 rules to Group 1 verbs.",
+          "wrong": "明日雨ですからから行きません (double から)",
+          "right": "明日雨ですから行きません",
+          "why": "から attaches once at the clause boundary. Don't double the particle. Note that AFTER copula です/だ + から, the clause break is automatic.",
+          "category": "conjugation",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
+        },
+        {
+          "wrong": "Forgetting that な-adjective + ので requires な",
+          "right": "静かなので (correct な before ので) vs 静かので (incorrect)",
+          "why": "ので attaches to the PLAIN-FORM (連体形 / attributive form). For な-adjectives that means stem + な + ので (静かなので). For nouns + copula, use な (学生なので). Don't drop the な.",
           "category": "verb_class",
-          "provenance": "auto_generated_template",
-          "audit_wave": "issue-112-wave1-2026-05-12"
+          "provenance": "llm_curated",
+          "audit_wave": "issue-112-quality-phase1-2026-05-12"
         }
       ],
       "contrasts": [

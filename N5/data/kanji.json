@@ -240,7 +240,15 @@
         "origin_type": "ideograph",
         "story": "A single horizontal stroke representing the abstract concept of \"one\" — the most basic counting symbol in the Chinese-Japanese script."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.ichi-ninmae",
+        "auth.menu.ichiman-en",
+        "auth.signs.hitokoto",
+        "auth.signs.ichi-getsu",
+        "auth.signs.ichi-jikan",
+        "auth.signs.juuichi-getsu"
+      ]
     },
     {
       "id": "n5.kanji.二",
@@ -461,7 +469,11 @@
         "origin_type": "ideograph",
         "story": "Two horizontal strokes — a direct doubling of 一. The top stroke is shorter by tradition."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.juuni-getsu",
+        "auth.signs.ni-getsu"
+      ]
     },
     {
       "id": "n5.kanji.三",
@@ -628,7 +640,10 @@
         "origin_type": "ideograph",
         "story": "Three horizontal strokes — extending the 一 / 二 series. Used since oracle-bone script (~1200 BCE)."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.san-ninmae"
+      ]
     },
     {
       "id": "n5.kanji.四",
@@ -784,7 +799,10 @@
         "origin_type": "pictograph",
         "story": "Originally a pictograph of nostrils (breath). Loaned to mean \"four\" by sound association in ancient Chinese."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shi-getsu"
+      ]
     },
     {
       "id": "n5.kanji.五",
@@ -954,7 +972,10 @@
         "origin_type": "compound_ideograph",
         "story": "Two crossed sticks between sky (天) and earth (地) — representing the five elements / five directions in early Chinese cosmology."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.go-getsu"
+      ]
     },
     {
       "id": "n5.kanji.六",
@@ -1105,7 +1126,10 @@
         "origin_type": "pictograph",
         "story": "Originally a pictograph of a hut or shelter. Borrowed for \"six\" through phonetic loan in oracle-bone period."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.roku-getsu"
+      ]
     },
     {
       "id": "n5.kanji.七",
@@ -1266,7 +1290,10 @@
         "origin_type": "ideograph",
         "story": "A cross-stroke indicating \"to cut\" — borrowed to represent the number seven. The cutting sense survives in 切 (cut)."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shichi-getsu"
+      ]
     },
     {
       "id": "n5.kanji.八",
@@ -1460,7 +1487,10 @@
         "origin_type": "pictograph",
         "story": "Two strokes splaying outward like an object being split — the original meaning was \"to divide.\" The number-eight meaning came from phonetic loan."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.hachi-getsu"
+      ]
     },
     {
       "id": "n5.kanji.九",
@@ -1618,7 +1648,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a bent arm/elbow. Borrowed for \"nine\" by sound association. The hook stroke retains the elbow shape."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kyuu-getsu"
+      ]
     },
     {
       "id": "n5.kanji.十",
@@ -1844,7 +1877,12 @@
         "origin_type": "ideograph",
         "story": "A simple vertical stroke (originally) meaning \"completed counting on one hand\" — later the horizontal crossbar was added to distinguish from 一."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.juu-getsu",
+        "auth.signs.juuichi-getsu",
+        "auth.signs.juuni-getsu"
+      ]
     },
     {
       "id": "n5.kanji.百",
@@ -1970,7 +2008,10 @@
         "origin_type": "compound_ideograph",
         "story": "一 (one) on top of 白 (white / counter). Originally meant \"white\" but extended to mean \"many\" then \"hundred.\""
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.hyaku-en"
+      ]
     },
     {
       "id": "n5.kanji.千",
@@ -2146,7 +2187,10 @@
         "origin_type": "phono_semantic",
         "story": "人 (person) phonetic component with an added horizontal stroke. Used for \"thousand\" through phonetic loan in ancient Chinese."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.sen-en"
+      ]
     },
     {
       "id": "n5.kanji.万",
@@ -2276,7 +2320,10 @@
         "origin_type": "pictograph",
         "story": "Simplified from 萬, which was originally a pictograph of a scorpion (萬 = scorpion → \"many\" by metaphor → \"ten thousand\"). The modern 万 keeps only the structural skeleton."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.ichiman-en"
+      ]
     },
     {
       "id": "n5.kanji.円",
@@ -2439,8 +2486,11 @@
       },
       "on_kun_pair_drill_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.menu.hyaku-en",
+        "auth.menu.ichiman-en",
         "auth.menu.koohii",
-        "auth.menu.ocha"
+        "auth.menu.ocha",
+        "auth.menu.sen-en"
       ],
       "authentic_refs_provenance": "auto_derived",
       "etymology": {
@@ -2889,8 +2939,18 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.signs.chichi-no-hi",
+        "auth.signs.doyoubi",
+        "auth.signs.getsuyoubi",
+        "auth.signs.haha-no-hi",
+        "auth.signs.kayoubi",
+        "auth.signs.kinyoubi",
         "auth.signs.kyou-no",
-        "auth.signs.mainichi"
+        "auth.signs.mainichi",
+        "auth.signs.mokuyoubi",
+        "auth.signs.nichiyoubi",
+        "auth.signs.nihongo",
+        "auth.signs.suiyoubi"
       ]
     },
     {
@@ -3192,7 +3252,22 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a crescent moon. The two horizontal lines inside represent moon phases / lunar markings. Used for both \"moon\" and \"month\" since calendars were lunar."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.getsuyoubi",
+        "auth.signs.go-getsu",
+        "auth.signs.hachi-getsu",
+        "auth.signs.ichi-getsu",
+        "auth.signs.juu-getsu",
+        "auth.signs.juuichi-getsu",
+        "auth.signs.juuni-getsu",
+        "auth.signs.kyuu-getsu",
+        "auth.signs.ni-getsu",
+        "auth.signs.raigetsu",
+        "auth.signs.roku-getsu",
+        "auth.signs.shi-getsu",
+        "auth.signs.shichi-getsu"
+      ]
     },
     {
       "id": "n5.kanji.火",
@@ -3327,7 +3402,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of flames rising upward. The two outer strokes are the flickering flame tongues; the inner shape is the main fire body."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kayoubi"
+      ]
     },
     {
       "id": "n5.kanji.水",
@@ -3466,7 +3544,9 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
-        "auth.notice.omizu"
+        "auth.notice.nomimizu",
+        "auth.notice.omizu",
+        "auth.signs.suiyoubi"
       ]
     },
     {
@@ -3654,7 +3734,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a tree: the vertical line is the trunk, the upper crossbar represents branches, and the lower flaring strokes are the roots."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.mokuyoubi"
+      ]
     },
     {
       "id": "n5.kanji.金",
@@ -3812,7 +3895,10 @@
         "origin_type": "compound_ideograph",
         "story": "A roof (人) over earth (土) holding two precious dots — representing metal ore buried in the ground. Came to mean \"gold\" specifically then \"money.\""
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kinyoubi"
+      ]
     },
     {
       "id": "n5.kanji.土",
@@ -3974,7 +4060,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a small mound of earth on a baseline — the cross with a horizontal base. The horizontal line is the ground; the upright is the soil heap."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.doyoubi"
+      ]
     },
     {
       "id": "n5.kanji.曜",
@@ -4204,7 +4293,16 @@
         "origin_type": "compound_ideograph",
         "story": "日 (sun) + 翟 (pheasant feathers) — the \"shining sun\" element. Originally meant \"to shine\"; came to denote weekdays because each day was named after a celestial body."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.doyoubi",
+        "auth.signs.getsuyoubi",
+        "auth.signs.kayoubi",
+        "auth.signs.kinyoubi",
+        "auth.signs.mokuyoubi",
+        "auth.signs.nichiyoubi",
+        "auth.signs.suiyoubi"
+      ]
     },
     {
       "id": "n5.kanji.年",
@@ -4364,7 +4462,10 @@
         "origin_type": "compound_ideograph",
         "story": "Originally a person (人) carrying grain (禾) — a year was one harvest cycle. The modern simplification compresses the grain-bundle into the lower strokes."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kotoshi"
+      ]
     },
     {
       "id": "n5.kanji.時",
@@ -4567,7 +4668,10 @@
       },
       "on_kun_pair_drill_provenance": "llm_curated",
       "authentic_refs": [
-        "auth.shop.jikan"
+        "auth.shop.hachi-ji-han",
+        "auth.shop.jikan",
+        "auth.signs.ichi-jikan",
+        "auth.signs.nanji-kara"
       ],
       "authentic_refs_provenance": "auto_derived",
       "etymology": {
@@ -4752,7 +4856,10 @@
         "origin_type": "compound_ideograph",
         "story": "八 (split apart) + 刀 (knife / sword) — a knife splitting something into parts. Hence the meaning \"to divide / portion / minute (1/60 of an hour).\""
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.juppun"
+      ]
     },
     {
       "id": "n5.kanji.半",
@@ -4888,7 +4995,10 @@
         "origin_type": "compound_ideograph",
         "story": "八 (split) on top of 牛 (cow) — splitting a cow in two for shared sacrifice / banquet. Hence \"half.\""
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.shop.hachi-ji-han"
+      ]
     },
     {
       "id": "n5.kanji.今",
@@ -5094,6 +5204,7 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.signs.kotoshi",
         "auth.signs.kyou-no"
       ]
     },
@@ -5261,7 +5372,8 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
-        "auth.signs.mainichi"
+        "auth.signs.mainichi",
+        "auth.signs.maishuu"
       ]
     },
     {
@@ -5434,7 +5546,10 @@
         "origin_type": "compound_ideograph",
         "story": "辶 (move / walk) + 周 (cycle / circle). Originally meant \"to walk a circuit\"; came to denote a recurring 7-day cycle = a week."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.maishuu"
+      ]
     },
     {
       "id": "n5.kanji.午",
@@ -5760,7 +5875,10 @@
         "origin_type": "phono_semantic",
         "story": "A person (亻) carrying something (可). Originally meant \"to carry\" — borrowed for \"what\" through phonetic loan in ancient Chinese."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.nanji-kara"
+      ]
     },
     {
       "id": "n5.kanji.人",
@@ -6023,7 +6141,11 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a standing person seen from the side — two legs forming a triangular figure. One of the oldest characters in the Chinese script."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.ichi-ninmae",
+        "auth.menu.san-ninmae"
+      ]
     },
     {
       "id": "n5.kanji.男",
@@ -6460,7 +6582,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a swaddled infant — head + arms + bundled lower body. The horizontal stroke represents the swaddling."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.kodomo"
+      ]
     },
     {
       "id": "n5.kanji.父",
@@ -6596,7 +6721,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a hand holding an axe / staff — symbol of authority. The \"axe-wielder\" came to mean \"father\" as the patriarchal head of the household."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.chichi-no-hi"
+      ]
     },
     {
       "id": "n5.kanji.母",
@@ -6746,7 +6874,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a kneeling woman (女) with two added dots for breasts — emphasizing the nursing / maternal aspect that distinguishes mother from other women."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.haha-no-hi"
+      ]
     },
     {
       "id": "n5.kanji.友",
@@ -6884,7 +7015,10 @@
         "origin_type": "compound_ideograph",
         "story": "Two hands (又) reaching toward each other — the gesture of friendship and mutual support. Originally written with two full hands."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.tomodachi"
+      ]
     },
     {
       "id": "n5.kanji.先",
@@ -7062,7 +7196,10 @@
         "origin_type": "compound_ideograph",
         "story": "人 (person) with a vertical stroke and 之 (going) — a person walking ahead of others. Hence \"ahead, previous, first, tip\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.sensei"
+      ]
     },
     {
       "id": "n5.kanji.生",
@@ -7259,7 +7396,11 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a plant sprouting from the ground (土) — a young shoot pushing up. Hence the broad sense of \"life / birth / produce / grow / raw\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.gakusei",
+        "auth.signs.sensei"
+      ]
     },
     {
       "id": "n5.kanji.手",
@@ -7408,7 +7549,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a hand with five fingers spread. The modern form preserves four finger-strokes plus the thumb/palm structure."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shuwa"
+      ]
     },
     {
       "id": "n5.kanji.足",
@@ -7714,7 +7858,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of an eye seen sideways — originally drawn horizontally, then rotated 90 degrees in the script standardization. The horizontal strokes inside represent the iris/pupil."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.me"
+      ]
     },
     {
       "id": "n5.kanji.口",
@@ -7854,7 +8001,11 @@
         "auth.signs.deguchi",
         "auth.signs.iriguchi",
         "auth.transit.deguchi-kita",
-        "auth.transit.deguchi-minami"
+        "auth.transit.deguchi-minami",
+        "auth.transit.higashi-guchi",
+        "auth.transit.kita-guchi",
+        "auth.transit.minami-guchi",
+        "auth.transit.nishi-guchi"
       ],
       "authentic_refs_provenance": "auto_derived",
       "etymology": {
@@ -7994,7 +8145,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a plow / muscular arm — strength in action. The bent shape represents the plow handle or a flexed bicep, depending on the etymological school."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.chikara"
+      ]
     },
     {
       "id": "n5.kanji.学",
@@ -8191,7 +8345,9 @@
       "authentic_refs": [
         "auth.notice.chuugakkou",
         "auth.notice.gakkou",
-        "auth.notice.shougakkou"
+        "auth.notice.shougakkou",
+        "auth.signs.gakusei",
+        "auth.signs.shiritsu-gakkou"
       ]
     },
     {
@@ -8357,7 +8513,8 @@
       "authentic_refs": [
         "auth.notice.chuugakkou",
         "auth.notice.gakkou",
-        "auth.notice.shougakkou"
+        "auth.notice.shougakkou",
+        "auth.signs.shiritsu-gakkou"
       ]
     },
     {
@@ -8641,7 +8798,9 @@
       "authentic_refs": [
         "auth.shop.furuhonya",
         "auth.shop.honya",
-        "auth.signs.honten"
+        "auth.signs.honten",
+        "auth.signs.nihongo",
+        "auth.signs.yamamoto"
       ]
     },
     {
@@ -8819,7 +8978,10 @@
         "origin_type": "compound_ideograph",
         "story": "言 (word/speech) + 吾 (I/me) — what I say. The 言 radical anchors it as a speech-related kanji."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.nihongo"
+      ]
     },
     {
       "id": "n5.kanji.国",
@@ -9002,7 +9164,11 @@
         "origin_type": "compound_ideograph",
         "story": "Simplified from 國 — 囗 (enclosure / borders) containing 玉 (jade / king's treasure). A bordered land with a treasure inside = a country."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.chuugoku",
+        "auth.signs.gaikoku"
+      ]
     },
     {
       "id": "n5.kanji.会",
@@ -9158,6 +9324,7 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.signs.kaiin",
         "auth.signs.kaisha"
       ]
     },
@@ -9433,7 +9600,12 @@
         "origin_type": "compound_ideograph",
         "story": "口 (mouth) above 貝 (shell / money) — a counted member with status. Originally \"round number / count\"; came to mean \"member, staff (a counted person)\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.ekiin",
+        "auth.signs.kaiin",
+        "auth.signs.tenin"
+      ]
     },
     {
       "id": "n5.kanji.大",
@@ -9850,6 +10022,8 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.notice.chuugakkou",
+        "auth.signs.chuugoku",
+        "auth.signs.tanaka",
         "auth.transit.eki-naka"
       ]
     },
@@ -10156,7 +10330,10 @@
         "origin_type": "ideograph",
         "story": "A short horizontal stroke ABOVE a long base line — representing \"what is on top\". One of the earliest abstract positional ideographs."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.ue"
+      ]
     },
     {
       "id": "n5.kanji.下",
@@ -10291,7 +10468,10 @@
         "origin_type": "ideograph",
         "story": "A short horizontal stroke BELOW a long top line — the mirror of 上. Represents \"what is underneath\" — positional ideograph."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shita"
+      ]
     },
     {
       "id": "n5.kanji.左",
@@ -10702,7 +10882,10 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.menu.ichi-ninmae",
+        "auth.menu.san-ninmae",
         "auth.signs.gozen",
+        "auth.signs.onamae",
         "auth.transit.eki-mae"
       ]
     },
@@ -11025,7 +11208,10 @@
         "origin_type": "compound_ideograph",
         "story": "夕 (evening) + 卜 (divination) — evening divination done OUTSIDE the proper ritual schedule. Hence \"outside / external\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.gaikoku"
+      ]
     },
     {
       "id": "n5.kanji.東",
@@ -11157,7 +11343,11 @@
         "origin_type": "pictograph",
         "story": "Pictograph of the sun (日) rising behind a tree (木) — the eastern horizon. Combined element captures sunrise direction."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.higashi-guchi",
+        "auth.transit.tokyo-iki"
+      ]
     },
     {
       "id": "n5.kanji.西",
@@ -11282,7 +11472,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a bird in its nest (settling at sunset) — the direction the sun sets toward, \"west\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.nishi-guchi"
+      ]
     },
     {
       "id": "n5.kanji.南",
@@ -11407,7 +11600,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a bell-like musical instrument hung in the warm SOUTHERN exposure of an ancient hall. Came to denote the south compass direction."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.minami-guchi"
+      ]
     },
     {
       "id": "n5.kanji.北",
@@ -11533,7 +11729,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of two people sitting back-to-back — the COLD direction one turns away from. Hence \"north\" (with the secondary connotation \"to flee\" surviving in 敗北)."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.kita-guchi"
+      ]
     },
     {
       "id": "n5.kanji.間",
@@ -11687,7 +11886,10 @@
         "origin_type": "compound_ideograph",
         "story": "門 (gate) + 日 (sun) — sunlight visible BETWEEN the gate doors. The \"in-between\" sense extended to time intervals."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.ichi-jikan"
+      ]
     },
     {
       "id": "n5.kanji.山",
@@ -11824,7 +12026,8 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
-        "auth.signs.yamamichi"
+        "auth.signs.yamamichi",
+        "auth.signs.yamamoto"
       ]
     },
     {
@@ -12083,7 +12286,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a rice paddy divided into four sections by levees — birds-eye view of cultivated land. The internal cross IS the paddy walls."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.tanaka"
+      ]
     },
     {
       "id": "n5.kanji.雨",
@@ -12622,7 +12828,10 @@
         "origin_type": "phono_semantic",
         "story": "艹 (grass / plant radical) + 化 (change, phonetic) — the part of a plant that transforms (blooms). Hence \"flower\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.hanami"
+      ]
     },
     {
       "id": "n5.kanji.空",
@@ -12752,7 +12961,10 @@
         "origin_type": "compound_ideograph",
         "story": "穴 (hole / cave) + 工 (work / craft / pierce) — a hollowed-out, empty space. Came to mean \"sky\" (the vast empty above) and \"empty\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.sora"
+      ]
     },
     {
       "id": "n5.kanji.電",
@@ -13199,6 +13411,7 @@
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
         "auth.signs.michi",
+        "auth.signs.shodou",
         "auth.signs.yamamichi"
       ]
     },
@@ -13338,7 +13551,8 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
-        "auth.signs.honten"
+        "auth.signs.honten",
+        "auth.signs.tenin"
       ]
     },
     {
@@ -13467,9 +13681,11 @@
       },
       "etymology_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.signs.ekiin",
         "auth.transit.eki",
         "auth.transit.eki-mae",
         "auth.transit.eki-naka",
+        "auth.transit.ekichou",
         "auth.transit.kita-eki"
       ]
     },
@@ -13765,7 +13981,10 @@
         "origin_type": "compound_ideograph",
         "story": "食 (food / drink) + 欠 (open mouth / yawn) — the action of opening one's mouth to take in fluid. Specifically \"to drink\" (vs eat)."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.notice.nomimizu"
+      ]
     },
     {
       "id": "n5.kanji.見",
@@ -13947,7 +14166,10 @@
         "origin_type": "compound_ideograph",
         "story": "目 (eye) on top of 人 (legs/person) — a person with prominent eye, the act of LOOKING. The eye stands tall."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.hanami"
+      ]
     },
     {
       "id": "n5.kanji.聞",
@@ -14103,7 +14325,10 @@
         "origin_type": "compound_ideograph",
         "story": "門 (gate) + 耳 (ear) — listening at the gate. Came to mean \"hear / listen / ask\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shinbun"
+      ]
     },
     {
       "id": "n5.kanji.読",
@@ -14247,7 +14472,10 @@
         "origin_type": "phono_semantic",
         "story": "言 (speech / word radical) + 売 (sell, phonetic component, simplified from 賣). The 言 anchors it as a speech-related action: \"to read aloud\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.dokusho"
+      ]
     },
     {
       "id": "n5.kanji.書",
@@ -14381,7 +14609,11 @@
         "origin_type": "compound_ideograph",
         "story": "聿 (brush) + 者 (person / object) — a person holding a brush. Hence \"to write\" and \"writing / book / document\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.dokusho",
+        "auth.signs.shodou"
+      ]
     },
     {
       "id": "n5.kanji.話",
@@ -14562,7 +14794,10 @@
         "origin_type": "compound_ideograph",
         "story": "言 (speech) + 舌 (tongue) — the act of moving the tongue to speak. Hence \"to talk / story / conversation\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shuwa"
+      ]
     },
     {
       "id": "n5.kanji.来",
@@ -14757,7 +14992,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a ripening grain plant (wheat / barley) — originally meant the grain itself. Borrowed phonetically for \"to come\" in ancient Chinese; the grain meaning migrated to other characters."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.raigetsu"
+      ]
     },
     {
       "id": "n5.kanji.行",
@@ -14972,7 +15210,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a crossroads / intersection — two paths crossing. Originally meant \"intersection / road\"; came to mean \"to go / conduct\" via the road sense."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.tokyo-iki"
+      ]
     },
     {
       "id": "n5.kanji.出",
@@ -15469,7 +15710,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a person STANDING on the ground (横 horizontal bar at bottom). Captures the stance of standing upright."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shiritsu-gakkou"
+      ]
     },
     {
       "id": "n5.kanji.休",
@@ -15630,7 +15874,10 @@
         "origin_type": "compound_ideograph",
         "story": "亻 (person) + 木 (tree) — a person resting under a tree. Captures \"to rest / take a break\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.yasumi"
+      ]
     },
     {
       "id": "n5.kanji.言",
@@ -15776,7 +16023,10 @@
         "origin_type": "compound_ideograph",
         "story": "辛 (knife / sharp) + 口 (mouth) — words come out of the mouth like cuts from a blade. Hence \"to say / word\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.hitokoto"
+      ]
     },
     {
       "id": "n5.kanji.買",
@@ -15933,7 +16183,10 @@
         "origin_type": "compound_ideograph",
         "story": "罒 (net / catch) + 貝 (shell / money) — to catch / acquire something using money. Hence \"to buy\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.shop.kau"
+      ]
     },
     {
       "id": "n5.kanji.高",
@@ -16371,6 +16624,7 @@
       },
       "on_kun_pair_drill_provenance": "llm_curated",
       "authentic_refs": [
+        "auth.signs.shinbun",
         "auth.transit.shinkansen"
       ],
       "authentic_refs_provenance": "auto_derived",
@@ -16666,7 +16920,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of a long-haired elder with a staff — captures \"long\" (physical length) and \"leader / elder\" (the long-haired one in authority)."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.transit.ekichou"
+      ]
     },
     {
       "id": "n5.kanji.白",
@@ -16838,7 +17095,10 @@
         "origin_type": "pictograph",
         "story": "Pictograph of an acorn / sun ray / thumbnail (etymology contested). The leading ノ stroke distinguishes 白 (white) from 日 (sun). One reading: a sunbeam shining white."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.menu.hakumai"
+      ]
     },
     {
       "id": "n5.kanji.名",
@@ -17419,7 +17679,10 @@
         "origin_type": "compound_ideograph",
         "story": "禾 (grain plant) + 厶 (self / private) — one's own private grain (vs the lord's public grain). Hence \"I / private / personal\"."
       },
-      "etymology_provenance": "llm_curated"
+      "etymology_provenance": "llm_curated",
+      "authentic_refs": [
+        "auth.signs.shiritsu-gakkou"
+      ]
     }
   ],
   "_meta": {

@@ -1723,6 +1723,7 @@
       "context": "Form-field label used on every clinic / city-hall / school registration form. The honorific お is standard on form labels.",
       "review_status": "llm_curated",
       "kanji_refs": [
+        "n5.kanji.前",
         "n5.kanji.名"
       ],
       "kanji_refs_provenance": "llm_curated",
@@ -1758,6 +1759,1066 @@
       ],
       "kanji_refs_provenance": "llm_curated",
       "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.menu.hyaku-en",
+      "category": "menu",
+      "ja": "百円",
+      "reading": "ひゃくえん",
+      "gloss_en": "100 yen",
+      "gloss_hi": "100 येन",
+      "context": "Price-tag denomination seen on 100-yen-shop banners and bargain-bin labels (the ubiquitous 百均 / 100-yen store culture).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.円",
+        "n5.kanji.百"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.menu.sen-en",
+      "category": "menu",
+      "ja": "千円",
+      "reading": "せんえん",
+      "gloss_en": "1000 yen",
+      "gloss_hi": "1000 येन",
+      "context": "Price tag at the next-up denomination. Common on bento-box prices and small-purchase ATM withdrawal prompts (千円札 = 1000-yen note).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.円",
+        "n5.kanji.千"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.menu.ichiman-en",
+      "category": "menu",
+      "ja": "一万円",
+      "reading": "いちまんえん",
+      "gloss_en": "10,000 yen",
+      "gloss_hi": "10,000 येन",
+      "context": "Major-purchase denomination — the largest single Japanese banknote. Seen on cash-deposit ATM screens and high-tier menu/sake-bottle prices.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.一",
+        "n5.kanji.万",
+        "n5.kanji.円"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.menu.ichi-ninmae",
+      "category": "menu",
+      "ja": "一人前",
+      "reading": "いちにんまえ",
+      "gloss_en": "One serving",
+      "gloss_hi": "एक हिस्सा",
+      "context": "Menu-board quantity label — '1 portion for 1 person'. Often paired with prices (一人前 1,200円) for set meals.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.一",
+        "n5.kanji.人",
+        "n5.kanji.前"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.menu.san-ninmae",
+      "category": "menu",
+      "ja": "三人前",
+      "reading": "さんにんまえ",
+      "gloss_en": "Three servings",
+      "gloss_hi": "तीन हिस्से",
+      "context": "Family-size or shareable-portion label — common on takeout-bento promotional banners (三人前 2,800円).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.三",
+        "n5.kanji.人",
+        "n5.kanji.前"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.ichi-getsu",
+      "category": "time",
+      "ja": "一月",
+      "reading": "いちがつ",
+      "gloss_en": "January",
+      "gloss_hi": "जनवरी",
+      "context": "Month header on calendars, magazine covers, and seasonal-promotion signs. Read with on-yomi いち + がつ. Note: 1月 (Arabic numeral) is equally common.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.一",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shi-getsu",
+      "category": "time",
+      "ja": "四月",
+      "reading": "しがつ",
+      "gloss_en": "April",
+      "gloss_hi": "अप्रैल",
+      "context": "April marks the start of the Japanese fiscal/school year — 4月 banners on new-employee welcome signs, school-entrance ceremonies, cherry-blossom-season menus.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.四",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.go-getsu",
+      "category": "time",
+      "ja": "五月",
+      "reading": "ごがつ",
+      "gloss_en": "May",
+      "gloss_hi": "मई",
+      "context": "May features Golden Week 5月の連休 — multiple national holidays. Travel-promotion signs and koinobori (carp-streamer) displays carry this date prominently.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.五",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.roku-getsu",
+      "category": "time",
+      "ja": "六月",
+      "reading": "ろくがつ",
+      "gloss_en": "June",
+      "gloss_hi": "जून",
+      "context": "Rainy-season starts in June — 6月の梅雨 forecasts on weather-board displays. Also seen on rainy-season umbrella-shop promotional banners.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.六",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shichi-getsu",
+      "category": "time",
+      "ja": "七月",
+      "reading": "しちがつ",
+      "gloss_en": "July",
+      "gloss_hi": "जुलाई",
+      "context": "Summer-festival 七夕 (Tanabata) on July 7 is heavily signed — 7月7日 wishes on bamboo decorations in shops and stations.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.七",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.hachi-getsu",
+      "category": "time",
+      "ja": "八月",
+      "reading": "はちがつ",
+      "gloss_en": "August",
+      "gloss_hi": "अगस्त",
+      "context": "August = obon-festival month (お盆) — train-station signs announce holiday-period schedules; 8月のお盆 fireworks-festival banners.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.八",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kyuu-getsu",
+      "category": "time",
+      "ja": "九月",
+      "reading": "くがつ",
+      "gloss_en": "September",
+      "gloss_hi": "सितंबर",
+      "context": "September starts autumn — autumn-foods menu rotations and 9月の秋祭り (autumn-festival) banners replace summer signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.九",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.juu-getsu",
+      "category": "time",
+      "ja": "十月",
+      "reading": "じゅうがつ",
+      "gloss_en": "October",
+      "gloss_hi": "अक्टूबर",
+      "context": "Read じゅうがつ (irregular contraction of じゅう + がつ → not じゅうげつ). October hosts Sports Day 体育の日 and harvest-festival signs.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.十",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kayoubi",
+      "category": "time",
+      "ja": "火曜日",
+      "reading": "かようび",
+      "gloss_en": "Tuesday",
+      "gloss_hi": "मंगलवार",
+      "context": "Day-of-week schedule label on shop signs (火曜日定休 = closed Tuesdays) and clinic-hours boards. Read with on-yomi か (fire) + よう + び.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.曜",
+        "n5.kanji.火"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.mokuyoubi",
+      "category": "time",
+      "ja": "木曜日",
+      "reading": "もくようび",
+      "gloss_en": "Thursday",
+      "gloss_hi": "गुरुवार",
+      "context": "Tree-themed day label. Common on rotating-special menus (木曜日のおすすめ = Thursday's recommendation) and weekly farmer's-market schedules.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.曜",
+        "n5.kanji.木"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kinyoubi",
+      "category": "time",
+      "ja": "金曜日",
+      "reading": "きんようび",
+      "gloss_en": "Friday",
+      "gloss_hi": "शुक्रवार",
+      "context": "End-of-workweek day — 金曜日のハッピーアワー (Friday happy hour) on izakaya promotional signs; also payday-related (金 = money).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.曜",
+        "n5.kanji.金"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.doyoubi",
+      "category": "time",
+      "ja": "土曜日",
+      "reading": "どようび",
+      "gloss_en": "Saturday",
+      "gloss_hi": "शनिवार",
+      "context": "Weekend day label on store-hours signs (土曜日10:00-20:00) and family-event banners. Most retail and dining establishments operate full hours on Saturdays.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.土",
+        "n5.kanji.日",
+        "n5.kanji.曜"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kotoshi",
+      "category": "time",
+      "ja": "今年",
+      "reading": "ことし",
+      "gloss_en": "This year",
+      "gloss_hi": "इस वर्ष",
+      "context": "Seasonal promotional banner prefix — 今年もよろしくお願いします (this year too, please favor us). Common on New Year's shopfront greetings.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.今",
+        "n5.kanji.年"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.juppun",
+      "category": "time",
+      "ja": "10分",
+      "reading": "じゅっぷん",
+      "gloss_en": "10 minutes",
+      "gloss_hi": "10 मिनट",
+      "context": "Quick-service signage (10分でカット = 10-minute haircut) and short-wait time indicators on station departure boards.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.分"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.shop.hachi-ji-han",
+      "category": "time",
+      "ja": "8時半",
+      "reading": "はちじはん",
+      "gloss_en": "8:30",
+      "gloss_hi": "8:30",
+      "context": "Casual time-of-day label on shop signs — 8時半から (from 8:30) is common on morning-hours boards. The kanji 半 = half, paired with 時 to mean 'half-hour past'.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.半",
+        "n5.kanji.時"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kodomo",
+      "category": "shop",
+      "ja": "子ども",
+      "reading": "こども",
+      "gloss_en": "Children",
+      "gloss_hi": "बच्चे",
+      "context": "Kids' section / children's products label. The hiragana ども-form is preferred over kanji 子供 on consumer-facing signage to soften the tone for parents.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.子"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.gakusei",
+      "category": "notice",
+      "ja": "学生",
+      "reading": "がくせい",
+      "gloss_en": "Student",
+      "gloss_hi": "विद्यार्थी",
+      "context": "Student-discount sign at museums and theaters (学生 800円 = student 800 yen); also used on student-ID labels (学生証).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.学",
+        "n5.kanji.生"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.sensei",
+      "category": "notice",
+      "ja": "先生",
+      "reading": "せんせい",
+      "gloss_en": "Teacher / doctor (honorific)",
+      "gloss_hi": "अध्यापक / डॉक्टर",
+      "context": "Faculty-office nameplate on school doors (○○先生); also addresses doctors at clinics (山田先生). The 先生 honorific is used for any expert-recognition role.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.先",
+        "n5.kanji.生"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.tomodachi",
+      "category": "shop",
+      "ja": "友だち",
+      "reading": "ともだち",
+      "gloss_en": "Friend",
+      "gloss_hi": "मित्र",
+      "context": "Friendship-themed retail signage — 友だち と一緒に (with friends) on group-discount banners at restaurants and entertainment venues.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.友"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.chichi-no-hi",
+      "category": "shop",
+      "ja": "父の日",
+      "reading": "ちちのひ",
+      "gloss_en": "Father's Day",
+      "gloss_hi": "पिता दिवस",
+      "context": "Department-store seasonal promotion banner (third Sunday of June). 父の日プレゼント = Father's Day gift display tables.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.父"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.haha-no-hi",
+      "category": "shop",
+      "ja": "母の日",
+      "reading": "ははのひ",
+      "gloss_en": "Mother's Day",
+      "gloss_hi": "मातृ दिवस",
+      "context": "Department-store seasonal promotion banner (second Sunday of May). 母の日に贈る花 = flowers to give on Mother's Day, common florist signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.母"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.chuugoku",
+      "category": "shop",
+      "ja": "中国",
+      "reading": "ちゅうごく",
+      "gloss_en": "China",
+      "gloss_hi": "चीन",
+      "context": "中国 = China — common prefix on restaurant signs 中国料理 (Chinese cuisine) and tourism-info boards. Reads ちゅうごく; 中 is also Japan's western Chuugoku region.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.中",
+        "n5.kanji.国"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shiritsu-gakkou",
+      "category": "notice",
+      "ja": "私立学校",
+      "reading": "しりつがっこう",
+      "gloss_en": "Private school",
+      "gloss_hi": "निजी विद्यालय",
+      "context": "School-classification label — 私立 (private) vs 公立 (public, N4). The 私 (I / private) appears on school-gate plaques and admission-document headers.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.学",
+        "n5.kanji.校",
+        "n5.kanji.私",
+        "n5.kanji.立"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.nanji-kara",
+      "category": "shop",
+      "ja": "何時から",
+      "reading": "なんじから",
+      "gloss_en": "From what time",
+      "gloss_hi": "किस समय से",
+      "context": "Customer-facing question form on shop-hours notices (何時から何時まで = from what time until what time). Also common in casual conversation.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.何",
+        "n5.kanji.時"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave2-2026-05-12"
+    },
+    {
+      "id": "auth.signs.ni-getsu",
+      "category": "time",
+      "ja": "二月",
+      "reading": "にがつ",
+      "gloss_en": "February",
+      "gloss_hi": "फ़रवरी",
+      "context": "Month header. February features Setsubun (節分, beans-throwing day) and Valentine's Day — chocolate displays and seasonal-menu boards prominently show 2月.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.二",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.juuichi-getsu",
+      "category": "time",
+      "ja": "十一月",
+      "reading": "じゅういちがつ",
+      "gloss_en": "November",
+      "gloss_hi": "नवंबर",
+      "context": "Month header reading uses standard digit-chain rules (十一 = 11, がつ contracted). November = 七五三 (shichi-go-san) children's festival.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.十",
+        "n5.kanji.一",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.juuni-getsu",
+      "category": "time",
+      "ja": "十二月",
+      "reading": "じゅうにがつ",
+      "gloss_en": "December",
+      "gloss_hi": "दिसंबर",
+      "context": "Year-end month — シーズン中 (peak season) for shopfront 十二月の福袋 (December lucky-bag) promotions, and year-end-cleaning service labels.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.十",
+        "n5.kanji.二",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.getsuyoubi",
+      "category": "time",
+      "ja": "月曜日",
+      "reading": "げつようび",
+      "gloss_en": "Monday",
+      "gloss_hi": "सोमवार",
+      "context": "Day-of-week schedule label. Many businesses use 月曜日定休 (closed Mondays) on storefront notices to indicate weekly rest day.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.月",
+        "n5.kanji.曜",
+        "n5.kanji.日"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.suiyoubi",
+      "category": "time",
+      "ja": "水曜日",
+      "reading": "すいようび",
+      "gloss_en": "Wednesday",
+      "gloss_hi": "बुधवार",
+      "context": "Day-of-week schedule label. Used on mid-week event banners and 水曜日のお買い得 (Wednesday's bargain) supermarket promotions.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.水",
+        "n5.kanji.曜",
+        "n5.kanji.日"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.nichiyoubi",
+      "category": "time",
+      "ja": "日曜日",
+      "reading": "にちようび",
+      "gloss_en": "Sunday",
+      "gloss_hi": "रविवार",
+      "context": "Day-of-week schedule label. 日曜日も営業 (open Sundays too) is a common shopfront marker in commercial districts.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.曜"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.maishuu",
+      "category": "shop",
+      "ja": "毎週",
+      "reading": "まいしゅう",
+      "gloss_en": "Every week / weekly",
+      "gloss_hi": "हर सप्ताह",
+      "context": "Service-availability label (毎週月曜日 = every Monday). Common on workshop / class schedule boards and recurring-event signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.毎",
+        "n5.kanji.週"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.nihongo",
+      "category": "notice",
+      "ja": "日本語",
+      "reading": "にほんご",
+      "gloss_en": "Japanese (language)",
+      "gloss_hi": "जापानी (भाषा)",
+      "context": "Language label seen on language-school signs, tourist-information boards (日本語のみ = Japanese only), and software-language selectors.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.日",
+        "n5.kanji.本",
+        "n5.kanji.語"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.ekiin",
+      "category": "transit",
+      "ja": "駅員",
+      "reading": "えきいん",
+      "gloss_en": "Station staff",
+      "gloss_hi": "स्टेशन कर्मचारी",
+      "context": "Sign on staff-only doors and information-desk signage at train stations. 駅員 means JR/metro employee — typically the person to ask for help.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.駅",
+        "n5.kanji.員"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.tenin",
+      "category": "shop",
+      "ja": "店員",
+      "reading": "てんいん",
+      "gloss_en": "Shop staff",
+      "gloss_hi": "दुकानदार",
+      "context": "Sign distinguishing customer area from staff area. 店員さん = the shop assistant; 店員募集 (now hiring) is a frequent help-wanted banner.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.店",
+        "n5.kanji.員"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kaiin",
+      "category": "shop",
+      "ja": "会員",
+      "reading": "かいいん",
+      "gloss_en": "Member",
+      "gloss_hi": "सदस्य",
+      "context": "Membership-club label. 会員のみ (members only) on premium-area entrances; 会員カード on signup-form labels.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.会",
+        "n5.kanji.員"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.ue",
+      "category": "signs",
+      "ja": "上",
+      "reading": "うえ",
+      "gloss_en": "Up / upper",
+      "gloss_hi": "ऊपर",
+      "context": "Single-character directional sign on stair signage and floor-indicator panels. Often paired with arrow (↑) to mean 'upstairs' or 'upper floor'.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.上"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shita",
+      "category": "signs",
+      "ja": "下",
+      "reading": "した",
+      "gloss_en": "Down / lower",
+      "gloss_hi": "नीचे",
+      "context": "Single-character directional sign on stair signage. Paired with arrow (↓) to indicate 'downstairs' or 'lower floor' — opposite of 上.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.下"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.gaikoku",
+      "category": "notice",
+      "ja": "外国",
+      "reading": "がいこく",
+      "gloss_en": "Foreign country / abroad",
+      "gloss_hi": "विदेश",
+      "context": "Tourist-information label (外国の方 = foreign visitors) and form-field marker (外国人登録 = foreign resident registration).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.外",
+        "n5.kanji.国"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.transit.higashi-guchi",
+      "category": "transit",
+      "ja": "東口",
+      "reading": "ひがしぐち",
+      "gloss_en": "East exit",
+      "gloss_hi": "पूर्वी निकास",
+      "context": "Station exit signage (compass-direction labels on every major station). 東口 = east exit; pair with 西口/南口/北口 to specify which side of the station.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.東",
+        "n5.kanji.口"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.transit.nishi-guchi",
+      "category": "transit",
+      "ja": "西口",
+      "reading": "にしぐち",
+      "gloss_en": "West exit",
+      "gloss_hi": "पश्चिमी निकास",
+      "context": "Compass-direction station exit. Tokyo's Shinjuku 新宿西口 is the iconic west-exit example — major bus terminus + office-tower district.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.西",
+        "n5.kanji.口"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.transit.minami-guchi",
+      "category": "transit",
+      "ja": "南口",
+      "reading": "みなみぐち",
+      "gloss_en": "South exit",
+      "gloss_hi": "दक्षिणी निकास",
+      "context": "Compass-direction station exit. 南口 typically leads to bus terminals or commercial districts; pair with the station name on guide signs.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.南",
+        "n5.kanji.口"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.transit.kita-guchi",
+      "category": "transit",
+      "ja": "北口",
+      "reading": "きたぐち",
+      "gloss_en": "North exit",
+      "gloss_hi": "उत्तरी निकास",
+      "context": "Compass-direction station exit. 北口 is one of the fundamental wayfinding labels in any large Japanese station.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.北",
+        "n5.kanji.口"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.ichi-jikan",
+      "category": "time",
+      "ja": "一時間",
+      "reading": "いちじかん",
+      "gloss_en": "One hour",
+      "gloss_hi": "एक घंटा",
+      "context": "Duration label on parking-meter signs (一時間 500円 = 500 yen per hour), service-time indicators (一時間以内 = within one hour), and rental-by-the-hour boards.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.一",
+        "n5.kanji.時",
+        "n5.kanji.間"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.tanaka",
+      "category": "signs",
+      "ja": "田中",
+      "reading": "たなか",
+      "gloss_en": "Tanaka (common surname)",
+      "gloss_hi": "तानाका (सामान्य उपनाम)",
+      "context": "Most common surname on doorplate signs (表札 / hyoosatsu). 田 (rice field) + 中 (middle) — literally 'middle of the rice field'. About 1.3 million people share this name.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.田",
+        "n5.kanji.中"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.yamamoto",
+      "category": "signs",
+      "ja": "山本",
+      "reading": "やまもと",
+      "gloss_en": "Yamamoto (common surname)",
+      "gloss_hi": "यामामोतो (सामान्य उपनाम)",
+      "context": "Common surname on doorplate signs. 山 (mountain) + 本 (origin/main) — literally 'base of the mountain'. Frequent in central / western Japan.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.山",
+        "n5.kanji.本"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.hanami",
+      "category": "shop",
+      "ja": "花見",
+      "reading": "はなみ",
+      "gloss_en": "Cherry-blossom viewing",
+      "gloss_hi": "वसंत में फूल देखना",
+      "context": "Spring promotion banner (花見特集 / 花見弁当). 花見 is the iconic spring activity — picnic under cherry blossoms; signage peaks in late March / early April.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.花",
+        "n5.kanji.見"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.sora",
+      "category": "weather",
+      "ja": "空",
+      "reading": "そら",
+      "gloss_en": "Sky",
+      "gloss_hi": "आकाश",
+      "context": "Weather-forecast board label (今日の空 = today's sky). Also seen on rooftop-bar signs and airline branding (空 = sky in 空港 airport, though 港 itself is N4).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.空"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shinbun",
+      "category": "shop",
+      "ja": "新聞",
+      "reading": "しんぶん",
+      "gloss_en": "Newspaper",
+      "gloss_hi": "अख़बार",
+      "context": "Newsstand and convenience-store label. 新聞 = newspaper; major dailies (朝日新聞 / 読売新聞) are displayed under this category sign.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.新",
+        "n5.kanji.聞"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.dokusho",
+      "category": "notice",
+      "ja": "読書",
+      "reading": "どくしょ",
+      "gloss_en": "Reading (books)",
+      "gloss_hi": "पढ़ना",
+      "context": "Library / quiet-zone label. 読書スペース (reading space) on bookstore signs and 読書の秋 (reading-autumn) seasonal-promotion campaigns.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.読",
+        "n5.kanji.書"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shodou",
+      "category": "shop",
+      "ja": "書道",
+      "reading": "しょどう",
+      "gloss_en": "Calligraphy",
+      "gloss_hi": "सुलेख",
+      "context": "Cultural-class signage. 書道教室 (calligraphy class) outside community centers and stationery shops selling brushes + ink.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.書",
+        "n5.kanji.道"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.raigetsu",
+      "category": "time",
+      "ja": "来月",
+      "reading": "らいげつ",
+      "gloss_en": "Next month",
+      "gloss_hi": "अगले महीने",
+      "context": "Forward-looking promotion banner — 来月オープン (opening next month) on under-construction shop signs; also on event-announcement posters.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.来",
+        "n5.kanji.月"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.yasumi",
+      "category": "shop",
+      "ja": "休み",
+      "reading": "やすみ",
+      "gloss_en": "Closed / day off",
+      "gloss_hi": "बंद",
+      "context": "Shopfront closure notice — 本日休み (closed today) on dangling cardboard signs. Distinct from 定休日 (fixed closure day, slightly more formal).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.休"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.hitokoto",
+      "category": "notice",
+      "ja": "一言",
+      "reading": "ひとこと",
+      "gloss_en": "A word / brief remark",
+      "gloss_hi": "एक शब्द",
+      "context": "Comment-box header on customer-feedback forms (お客様の一言 = customer's word). Also on bulletin-board comment-card labels.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.一",
+        "n5.kanji.言"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.transit.ekichou",
+      "category": "transit",
+      "ja": "駅長",
+      "reading": "えきちょう",
+      "gloss_en": "Station master",
+      "gloss_hi": "स्टेशन मास्टर",
+      "context": "Title plaque on the station-master's office door. The 駅長 is the senior official at each station; their announcement carries authority on platform notices.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.駅",
+        "n5.kanji.長"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.menu.hakumai",
+      "category": "menu",
+      "ja": "白米",
+      "reading": "はくまい",
+      "gloss_en": "White rice",
+      "gloss_hi": "सफेद चावल",
+      "context": "Restaurant menu category label. 白米 = plain white rice — the default rice option, contrasted with 玄米 (brown rice, 玄 is N4) on healthier menu boards.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.白"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.shuwa",
+      "category": "notice",
+      "ja": "手話",
+      "reading": "しゅわ",
+      "gloss_en": "Sign language",
+      "gloss_hi": "साइन भाषा",
+      "context": "Accessibility-service label at public-facility information desks (手話サービス = sign-language service available). 手 (hand) + 話 (speak) = literal meaning.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.手",
+        "n5.kanji.話"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.me",
+      "category": "shop",
+      "ja": "目",
+      "reading": "め",
+      "gloss_en": "Eye / optician",
+      "gloss_hi": "आँख",
+      "context": "Single-character optician / eye-care label. 目 (eye) on glasses-shop signs and eye-clinic logos. Also appears in 目薬 (eye drops; 薬 is N4, so use 目 alone on signage).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.目"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.signs.chikara",
+      "category": "shop",
+      "ja": "力",
+      "reading": "ちから",
+      "gloss_en": "Strength / power",
+      "gloss_hi": "शक्ति",
+      "context": "Single-character gym / fitness label. 力 appears on weightlifting / strength-training signs and 力こぶ (biceps muscle) cartoon mascots in workout-related signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.力"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.transit.tokyo-iki",
+      "category": "transit",
+      "ja": "東京行",
+      "reading": "とうきょうゆき",
+      "gloss_en": "Bound for Tokyo (train/bus destination)",
+      "gloss_hi": "टोक्यो जाने वाली (ट्रेन/बस)",
+      "context": "Destination label on intercity bus departure boards and commuter train head-signs. The 行 (read ゆき in this context) marks 'bound for' — 大阪行 / 京都行 follow the same pattern.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.東",
+        "n5.kanji.行"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.shop.kau",
+      "category": "shop",
+      "ja": "買う",
+      "reading": "かう",
+      "gloss_en": "Buy (verb)",
+      "gloss_hi": "खरीदना",
+      "context": "Action-button label on e-commerce checkout screens (今すぐ買う = buy now). Also on in-store self-service kiosks and vending-machine prompts.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.買"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12"
+    },
+    {
+      "id": "auth.notice.nomimizu",
+      "category": "notice",
+      "ja": "飲み水",
+      "reading": "のみみず",
+      "gloss_en": "Drinking water",
+      "gloss_hi": "पीने का पानी",
+      "context": "Public-fountain and park-water-tap label. 飲み水 explicitly marks water as safe to drink (vs irrigation or decorative water). Common at trail heads and park entrances.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.飲",
+        "n5.kanji.水"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave3-2026-05-12-final"
     }
   ]
 }
