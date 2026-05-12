@@ -47471,7 +47471,30 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pragmatic_functions": [
+        {
+          "function": "positive-evaluation",
+          "gloss": "fine / good",
+          "context": "けっこうです = that's fine / quite good (accepting offer)"
+        },
+        {
+          "function": "polite-refusal",
+          "gloss": "no thank you (I'm fine)",
+          "context": "けっこうです = no thank you (declining offer) — same words, opposite meaning"
+        },
+        {
+          "function": "degree-intensifier",
+          "gloss": "quite / rather",
+          "context": "けっこう難しい = quite difficult"
+        },
+        {
+          "function": "sufficient",
+          "gloss": "enough",
+          "context": "もうけっこう = that's enough already"
+        }
+      ],
+      "pragmatic_functions_provenance": "native_reviewed"
     },
     {
       "id": "n5.vocab.32-adjectives.たいせつ",
@@ -47962,22 +47985,32 @@
       "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
-          "function": "a-little",
-          "gloss": "a little / a bit",
-          "context": "small quantity"
+          "function": "degree-modifier",
+          "gloss": "a little",
+          "context": "ちょっと寒い = a little cold; literal small-degree usage"
         },
         {
-          "function": "pragmatic-softener",
-          "gloss": "...well... / hmm...",
-          "context": "declining politely: 「ちょっと…」 trails off"
+          "function": "hedging-request",
+          "gloss": "just a moment",
+          "context": "ちょっと待って = wait a moment; softens the imperative"
+        },
+        {
+          "function": "polite-refusal",
+          "gloss": "um... that's a bit...",
+          "context": "ちょっと... trailing off — culturally clear refusal without saying no"
         },
         {
           "function": "attention-getter",
-          "gloss": "excuse me / hey",
-          "context": "getting attention casually"
+          "gloss": "hey!",
+          "context": "ちょっと! sharp tone — calling someone over"
+        },
+        {
+          "function": "modest-understatement",
+          "gloss": "rather well",
+          "context": "ちょっとできる typically means I can do it WELL, not poorly — N5 culture trap"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated",
+      "pragmatic_functions_provenance": "native_reviewed",
       "frequent_patterns": [
         "n5-062",
         "n5-071"
@@ -49178,21 +49211,26 @@
       "pragmatic_functions": [
         {
           "function": "offering",
-          "gloss": "here you go / please take",
-          "context": "handing item"
+          "gloss": "please go ahead / here you are",
+          "context": "extending a thing or invitation; service interaction"
         },
         {
-          "function": "please-do",
-          "gloss": "please / go ahead",
-          "context": "inviting action"
+          "function": "inviting",
+          "gloss": "please enter / be welcome",
+          "context": "どうぞお入りください at the door of a home or shop"
         },
         {
-          "function": "by-all-means",
-          "gloss": "by all means / certainly",
-          "context": "granting permission"
+          "function": "permitting",
+          "gloss": "by all means",
+          "context": "どうぞどうぞ doubles for emphatic permission"
+        },
+        {
+          "function": "request-softener",
+          "gloss": "kindly please",
+          "context": "どうぞよろしくお願いします = please treat me well (formal intro)"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated",
+      "pragmatic_functions_provenance": "native_reviewed",
       "authentic_refs": [
         "auth.notice.gojiyu"
       ],
@@ -49254,27 +49292,27 @@
       "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
-          "function": "thanks-shortened",
+          "function": "thanks-abbreviated",
           "gloss": "thanks",
-          "context": "casual gratitude"
+          "context": "abbreviated どうもありがとう"
         },
         {
-          "function": "sorry-shortened",
-          "gloss": "sorry",
-          "context": "mild apology"
+          "function": "casual-greeting",
+          "gloss": "quick hello / hey / oh",
+          "context": "between acquaintances; can sub for こんにちは casually"
         },
         {
-          "function": "hello-shortened",
-          "gloss": "hi / hello",
-          "context": "casual greeting"
+          "function": "apology-intensifier",
+          "gloss": "very (sorry)",
+          "context": "どうもすみません = I'm very sorry — どうも adds depth"
         },
         {
-          "function": "intensifier",
-          "gloss": "very / really",
-          "context": "before adjective: どうも すみません"
+          "function": "general-intensifier",
+          "gloss": "somehow / really",
+          "context": "どうも変だ = something's really off / どうも分からない = I just don't get it"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated",
+      "pragmatic_functions_provenance": "native_reviewed",
       "register": "casual",
       "register_provenance": "auto_derived",
       "frequent_patterns": [
@@ -52788,21 +52826,26 @@
       "pragmatic_functions": [
         {
           "function": "apology",
-          "gloss": "sorry / I apologize",
-          "context": "minor mistake / interrupting"
+          "gloss": "I'm sorry",
+          "context": "genuine apology for an error or inconvenience"
         },
         {
           "function": "attention-getter",
           "gloss": "excuse me",
-          "context": "calling waiter / asking stranger"
+          "context": "すみません! to call a server or shop staff"
         },
         {
-          "function": "gratitude-on-receiving",
-          "gloss": "thank you (when receiving favor)",
-          "context": "ceding privilege; mild thanks"
+          "function": "thanks-with-apology",
+          "gloss": "thanks (for the trouble)",
+          "context": "すみません when receiving a favor — acknowledges the imposition"
+        },
+        {
+          "function": "request-opener",
+          "gloss": "excuse me, can you...",
+          "context": "すみません、〜 prefacing a question or favor request"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated",
+      "pragmatic_functions_provenance": "native_reviewed",
       "frequent_patterns": [
         "n5-126",
         "n5-149",
@@ -53628,27 +53671,22 @@
       "collocations_provenance": "llm_curated",
       "pragmatic_functions": [
         {
-          "function": "thanks-shortened",
+          "function": "casual-thanks",
           "gloss": "thanks",
-          "context": "casual gratitude"
+          "context": "set phrase; stands alone as informal thanks"
         },
         {
-          "function": "sorry-shortened",
-          "gloss": "sorry",
-          "context": "mild apology"
+          "function": "casual-hello",
+          "gloss": "hey there",
+          "context": "どうも〜 with rising intonation as greeting"
         },
         {
-          "function": "hello-shortened",
-          "gloss": "hi / hello",
-          "context": "casual greeting"
-        },
-        {
-          "function": "intensifier",
-          "gloss": "very / really",
-          "context": "before adjective: どうも すみません"
+          "function": "parting",
+          "gloss": "see you / OK then",
+          "context": "closing a transaction or conversation"
         }
       ],
-      "pragmatic_functions_provenance": "llm_curated",
+      "pragmatic_functions_provenance": "native_reviewed",
       "register": "casual",
       "register_provenance": "auto_derived",
       "frequent_patterns": [

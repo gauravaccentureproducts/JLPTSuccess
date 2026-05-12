@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.13.5';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.13.6';
 
 const PRECACHE = [
   './',
@@ -138,6 +138,11 @@ const PRECACHE = [
   // resolves offline.
   './js/authentic.js',
   './js/min/authentic.js',
+  // IMP-151 (richness audit, 2026-05-12): mining cross-link index.
+  // Static-imported by app.js. Precache both copies so #/mining
+  // resolves offline.
+  './js/mining.js',
+  './js/min/mining.js',
   './CHANGELOG.md',
   './data/vocab.json',
   './data/kanji.json',

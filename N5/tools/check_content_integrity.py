@@ -827,6 +827,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-51", "Every grammar pattern has >=3 categorized common_mistakes (ISSUE-112, 2026-05-12)", lambda: _check_ja_51_common_mistakes_categorized()),
     ("JA-52", "Every grammar pattern has >=1 contrasts with valid with_pattern_id (ISSUE-118, 2026-05-12)", lambda: _check_ja_52_grammar_contrasts_floor()),
     ("JA-53", "Every grammar pattern has cultural_callout with non-trivial content (P2-12, 2026-05-12)", lambda: _check_ja_53_grammar_cultural_callout()),
+    # JA-54..61: anti-item enforcement batch (Section-10 anti-items
+    # from the 2026-05-12 richness audit). Programmatically lock the
+    # frozen contracts so future edits cannot silently violate them.
+    ("JA-54", "Every grammar pattern essay totals >=500 chars (Tofugu-bar; 2026-05-12)", lambda: _check_ja_54_essay_min_length()),
+    ("JA-55", "Every grammar pattern essay has all 6 sub-fields (intro/why/pitfalls/contrasts/practice/cultural_context; 2026-05-12)", lambda: _check_ja_55_essay_schema()),
+    ("JA-56", "Corpus sizes locked at 178/1009/106/54/50 (Section-10 anti-items #1-4; 2026-05-12)", lambda: _check_ja_56_corpus_size_locks()),
+    ("JA-57", "No LH/HL pitch notation in vocab.json (use {mora, drop} integer; anti-item #11; 2026-05-12)", lambda: _check_ja_57_no_lh_pitch_notation()),
+    ("JA-58", "No 'JLPT.jp official' citations (JEES 出題基準 discontinued 2010; anti-item #12; 2026-05-12)", lambda: _check_ja_58_no_jlpt_jp_current_citation()),
+    ("JA-59", "No competitive gamification (no XP/leaderboard/badge/achievement keys or files; anti-item #5 refined; 2026-05-12)", lambda: _check_ja_59_no_gamification_state()),
+    ("JA-60", "No account / cloud-sync (no fetch to non-local URLs; anti-item #6; 2026-05-12)", lambda: _check_ja_60_no_account_or_cloud_sync()),
+    ("JA-61", "No per-content discussion / comments route (anti-item #7; 2026-05-12)", lambda: _check_ja_61_no_discussion_route()),
 ]
 
 
@@ -2742,6 +2753,268 @@ def _check_ja_52_grammar_contrasts_floor() -> list[str]:
                 failures.append(
                     f"JA-52 {pid}: contrast with_pattern_id={tid!r} not a real pattern"
                 )
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-54 through JA-61 added 2026-05-12 (anti-item enforcement batch):
+# programmatically lock the Section-10 mandatory anti-items so a future
+# careless edit cannot silently violate the audit's frozen contracts.
+# ---------------------------------------------------------------------------
+
+_CORPUS_LOCKS = {
+    ("data/grammar.json",   "patterns", 178),
+    ("data/vocab.json",     "entries",  1009),
+    ("data/reading.json",   "passages", 54),
+    ("data/listening.json", "items",    50),
+}
+
+# Kanji has separate count locking (X-6.6) but the count is the same anyway.
+_KANJI_LOCK = 106
+
+_ESSAY_SUBFIELDS = (
+    "intro", "why_it_matters", "common_pitfalls",
+    "contrasts", "closing_practice_tip", "cultural_context",
+)
+
+
+def _check_ja_54_essay_min_length() -> list[str]:
+    """Every grammar pattern's essay sub-fields combined must total >=500
+    characters. Locks in the Tofugu-level depth bar referenced by the
+    2026-05-09 audit (P2-13 essay enrichment) and confirmed at 178/178
+    on 2026-05-12 after the n5-149 4-char top-up."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-54: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-54: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        e = p.get("essay") or {}
+        if not isinstance(e, dict):
+            failures.append(f"JA-54 {pid}: essay is not a dict")
+            continue
+        total = sum(len(str(e.get(sf, ""))) for sf in _ESSAY_SUBFIELDS)
+        if total < 500:
+            failures.append(f"JA-54 {pid}: essay total only {total} chars (need >=500)")
+    return failures
+
+
+def _check_ja_55_essay_schema() -> list[str]:
+    """Every grammar pattern's essay dict must contain all 6 sub-fields
+    (intro, why_it_matters, common_pitfalls, contrasts,
+    closing_practice_tip, cultural_context). The renderer in
+    js/learn-grammar.js iterates these fields directly; missing keys
+    would silently degrade the rendered output."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-55: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-55: parse error: {e}"]
+    expected = set(_ESSAY_SUBFIELDS)
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        e = p.get("essay")
+        if not isinstance(e, dict):
+            failures.append(f"JA-55 {pid}: no essay dict")
+            continue
+        keys = set(e.keys())
+        missing = expected - keys
+        if missing:
+            failures.append(
+                f"JA-55 {pid}: essay missing sub-fields {sorted(missing)}"
+            )
+    return failures
+
+
+def _check_ja_56_corpus_size_locks() -> list[str]:
+    """Section-10 anti-items #1-4: corpus sizes are FROZEN.
+      - 178 grammar patterns (exceeds Bunpro N5)
+      - 1009 vocab entries (exceeds Genki/MNN/JLPT Sensei)
+      - 106 kanji (matches the canonical N5 set)
+      - 54 reading passages
+      - 50 listening items
+    Adding more violates the audit's anti-items and bloats the bundle."""
+    failures: list[str] = []
+    for relpath, list_key, expected in _CORPUS_LOCKS:
+        path = ROOT / relpath
+        if not path.exists():
+            failures.append(f"JA-56: {relpath} missing")
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-56: {relpath} parse error: {e}")
+            continue
+        arr = data.get(list_key) or []
+        if len(arr) != expected:
+            failures.append(
+                f"JA-56 {relpath}.{list_key}: {len(arr)} entries (locked at {expected})"
+            )
+
+    # Kanji.json has the entries either as dict or list — handle both
+    k_path = ROOT / "data" / "kanji.json"
+    if k_path.exists():
+        try:
+            kdata = json.loads(k_path.read_text(encoding="utf-8"))
+            KE = kdata.get("entries", kdata)
+            if isinstance(KE, dict):
+                KE = list(KE.values())
+            if len(KE) != _KANJI_LOCK:
+                failures.append(
+                    f"JA-56 data/kanji.json.entries: {len(KE)} entries (locked at {_KANJI_LOCK})"
+                )
+        except Exception as e:
+            failures.append(f"JA-56 data/kanji.json parse error: {e}")
+    return failures
+
+
+def _check_ja_57_no_lh_pitch_notation() -> list[str]:
+    """Section-10 anti-item #11: pitch_accent must use the NHK
+    {mora, drop} integer notation, NOT the LH/HL string notation
+    (which only works for words <=3 morae and breaks at N4+ scale)."""
+    failures: list[str] = []
+    path = ROOT / "data" / "vocab.json"
+    if not path.exists():
+        return ["JA-57: data/vocab.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-57: parse error: {e}"]
+    lh_pattern = re.compile(r"\b[LH]{2,}\b")
+    for v in data.get("entries", []):
+        vid = v.get("id", "?")
+        pa = v.get("pitch_accent")
+        if pa is None:
+            continue
+        # Check stringified pitch_accent for LH/HL contiguous patterns
+        as_str = json.dumps(pa, ensure_ascii=False)
+        if lh_pattern.search(as_str):
+            failures.append(
+                f"JA-57 {vid}: pitch_accent contains LH/HL string notation "
+                f"(use {{mora, drop}} integer form instead): {as_str[:80]}"
+            )
+    return failures
+
+
+def _check_ja_58_no_jlpt_jp_current_citation() -> list[str]:
+    """Section-10 anti-item #12: the JEES 出題基準 (JLPT.jp official)
+    was discontinued in 2010. Citing it as a CURRENT source for
+    grammar/vocab/kanji is incorrect — the legitimate citation is the
+    archival 旧出題基準 1994/2002, which the corpus already uses.
+    Block any new 'JLPT.jp official' tokens that would imply currency."""
+    failures: list[str] = []
+    for relpath in ("data/grammar.json", "data/vocab.json", "data/kanji.json"):
+        path = ROOT / relpath
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        # Look for the literal phrase indicating CURRENT-source claim
+        if "JLPT.jp official" in text:
+            count = text.count("JLPT.jp official")
+            failures.append(
+                f"JA-58 {relpath}: {count} occurrences of 'JLPT.jp official' "
+                f"(JEES 出題基準 discontinued 2010; use '旧出題基準 1994/2002' instead)"
+            )
+    return failures
+
+
+def _check_ja_59_no_gamification_state() -> list[str]:
+    """Section-10 anti-item #5 (refined scope): no COMPETITIVE
+    gamification — leaderboards / XP / badges / achievements.
+
+    Note: the pre-existing local habit-formation tracker `streak`
+    (consecutive-study-days counter) in js/storage.js is intentionally
+    permitted. It carries no social / comparative semantics — purely
+    local motivation for adult learners. The anti-item's core spirit
+    is to avoid COMPETITIVE / public-comparison gamification, which
+    would break the privacy-no-account contract. Local streak counts
+    do not violate that contract.
+
+    Enforce blocking on the harder-line entries:
+      - leaderboards (any comparative ranking surface)
+      - XP (experience-point accumulation systems)
+      - badges / achievements (collectibles that imply progress-rewards
+        beyond plain SRS state)
+    """
+    failures: list[str] = []
+    # Check js/storage.js for COMPETITIVE gamification keys
+    storage_path = ROOT / "js" / "storage.js"
+    if storage_path.exists():
+        text = storage_path.read_text(encoding="utf-8")
+        forbidden_keys = [
+            r"\bleaderboard\s*:",
+            r"\bxp\s*:",
+            r"\bexperience_points\s*:",
+            r"\bbadge\s*:",
+            r"\bachievement\s*:",
+            r"\brank\s*:",
+        ]
+        for pat in forbidden_keys:
+            if re.search(pat, text, re.I):
+                failures.append(
+                    f"JA-59 js/storage.js: competitive-gamification key matching {pat!r} found"
+                )
+    # Check no standalone files for competitive-gamification routes exist
+    for fname in ("leaderboard.js", "xp.js", "badges.js", "achievements.js", "rankings.js"):
+        if (ROOT / "js" / fname).exists():
+            failures.append(f"JA-59 js/{fname}: competitive-gamification file exists (forbidden)")
+    return failures
+
+
+def _check_ja_60_no_account_or_cloud_sync() -> list[str]:
+    """Section-10 anti-item #6 + #7: no account / cloud-sync / per-content
+    discussion threads. Enforce by checking that no JS file fetches a
+    non-local URL (privacy posture: everything from ./)."""
+    failures: list[str] = []
+    js_dir = ROOT / "js"
+    if not js_dir.is_dir():
+        return failures
+    # Look for fetch() / XMLHttpRequest with explicit non-relative URL
+    # The exemption: data: URIs (no network), blob:, and ./relative paths.
+    bad_url_pat = re.compile(
+        r"""\bfetch\s*\(\s*["']\s*(https?:\/\/|ws:\/\/|wss:\/\/)""",
+        re.I,
+    )
+    for jsfile in js_dir.glob("*.js"):
+        if jsfile.name.startswith("."):
+            continue
+        try:
+            text = jsfile.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        if bad_url_pat.search(text):
+            failures.append(
+                f"JA-60 {jsfile.relative_to(ROOT)}: fetch() to non-local URL "
+                f"(privacy posture: only ./ relative paths allowed)"
+            )
+    return failures
+
+
+def _check_ja_61_no_discussion_route() -> list[str]:
+    """Section-10 anti-item #7: no per-content discussion / comments.
+    Enforce by checking that no js/discussion.js or js/comments.js
+    exists, and the router in app.js does NOT register a discussion
+    or comments route."""
+    failures: list[str] = []
+    for fname in ("discussion.js", "comments.js", "thread.js"):
+        if (ROOT / "js" / fname).exists():
+            failures.append(f"JA-61 js/{fname}: discussion/comments file exists (forbidden)")
+    app_path = ROOT / "js" / "app.js"
+    if app_path.exists():
+        text = app_path.read_text(encoding="utf-8")
+        # Look for route registration matching 'discussion' or 'comments'
+        bad_route = re.compile(r"['\"](discussion|comments|thread)['\"]\s*:")
+        for m in bad_route.finditer(text):
+            failures.append(
+                f"JA-61 js/app.js: route '{m.group(1)}' registered (forbidden anti-item)"
+            )
     return failures
 
 
