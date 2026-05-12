@@ -2735,17 +2735,12 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .pattern-detail .example-list li,
   .pattern-detail .mistakes-list li { margin: 6pt 0; page-break-inside: avoid; }
   .pattern-detail section { page-break-inside: avoid; }
-  .pattern-lesson-tag {
-    font-size: 9pt;
-    color: #555;
-    background: #f0f0f0;
-    border: 0.5pt solid #999;
-  }
 
   /* IMP-143 cheat-sheet print mode: dense grammar TOC -> printable
      reference card. Active when JS adds .is-printing-cheatsheet to
      <body>. Each card becomes a single row: pattern (ja) | meaning |
-     first example | Genki tag. */
+     first example. The Genki-tag column was retired 2026-05-12 (commit
+     76a7465) along with the textbook brand-name UI scrub. */
   .is-printing-cheatsheet .grammar-grid {
     display: block;
   }
@@ -2765,16 +2760,10 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
     font-weight: 500;
   }
   .is-printing-cheatsheet .grammar-card-print-meaning,
-  .is-printing-cheatsheet .grammar-card-print-example,
-  .is-printing-cheatsheet .grammar-card-print-lesson {
+  .is-printing-cheatsheet .grammar-card-print-example {
     display: block;
     font-size: 9pt;
     color: #333;
-  }
-  .is-printing-cheatsheet .grammar-card-print-lesson {
-    color: #666;
-    font-size: 8pt;
-    text-align: right;
   }
   .is-printing-cheatsheet .toc-category > summary h3 {
     font-size: 12pt;
@@ -3013,23 +3002,11 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
    pattern title in each card) while still making meaning + first
    example available for the print render. */
 .grammar-card-print-meaning,
-.grammar-card-print-example,
-.grammar-card-print-lesson { display: none; }
+.grammar-card-print-example { display: none; }
 
-/* IMP-146: lesson-tag pill on pattern detail (Genki/Minna lesson tag) */
-.pattern-lesson-tag {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  vertical-align: middle;
-  background: color-mix(in srgb, var(--c-primary-dark, #14452a) 10%, transparent);
-  color: var(--c-primary-dark, #14452a);
-  border: 0.5px solid color-mix(in srgb, var(--c-primary-dark, #14452a) 25%, transparent);
-}
+/* .pattern-lesson-tag + .grammar-card-print-lesson rules removed
+   2026-05-12 (commit 76a7465) as part of the textbook brand-name
+   scrub. The DOM no longer emits these classes; rules are gone. */
 .pattern-print-btn {
   margin-left: auto;
   font-size: 13px;

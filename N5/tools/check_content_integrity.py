@@ -819,6 +819,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-41", "Hindi prose: Japanese grammatical particles attached to Hindi terms must be in kana (R-1.1, 2026-05-07)", lambda: _check_ja_41_kana_prefix_convention()),
     ("JA-47", "CONTENT-LICENSE.md corpus counts agree with live data/*.json counts (legal-vetting F-3, 2026-05-11)", lambda: _check_ja_47_content_license_counts()),
     ("JA-48", "KanjiVG SVG copyright headers preserved (Ulrich Apel attribution per CC-BY-SA 3.0) (legal-vetting F-8, 2026-05-11)", lambda: _check_ja_48_kanjivg_svg_headers()),
+    # JA-49..53 added 2026-05-12 to lock in the audit-cycle gains
+    # (ISSUE-115 register tag, ISSUE-116 wago/kango, ISSUE-112
+    # common_mistakes categorized, ISSUE-118 contrasts, P2-12 cultural_callout).
+    ("JA-49", "Every vocab has register in {neutral, polite, humble, respectful, casual} (ISSUE-115, 2026-05-12)", lambda: _check_ja_49_vocab_register_coverage()),
+    ("JA-50", "Every vocab has register_origin in {wago, kango, gairaigo} (ISSUE-116, 2026-05-12)", lambda: _check_ja_50_vocab_register_origin_coverage()),
+    ("JA-51", "Every grammar pattern has >=3 categorized common_mistakes (ISSUE-112, 2026-05-12)", lambda: _check_ja_51_common_mistakes_categorized()),
+    ("JA-52", "Every grammar pattern has >=1 contrasts with valid with_pattern_id (ISSUE-118, 2026-05-12)", lambda: _check_ja_52_grammar_contrasts_floor()),
+    ("JA-53", "Every grammar pattern has cultural_callout with non-trivial content (P2-12, 2026-05-12)", lambda: _check_ja_53_grammar_cultural_callout()),
 ]
 
 
@@ -2598,6 +2606,167 @@ def _check_ja_47_content_license_counts() -> list[str]:
     except Exception as e:
         failures.append(f"JA-47 papers cross-check failed: {e}")
 
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-49 through JA-53 added 2026-05-12: lock in the 2026-05-12 audit-cycle
+# gains so future edits cannot silently regress past today's bar.
+# Each is the CI complement of a closed-as-Done audit item (ISSUE-115, 116,
+# 112, 118, plus P2-12). Adding them prevents the "audit drift" failure
+# mode catalogued in feedback/audit-drift-findings-2026-05-12.md.
+# ---------------------------------------------------------------------------
+
+
+_VALID_REGISTERS = {"neutral", "polite", "humble", "respectful", "casual"}
+_VALID_REGISTER_ORIGINS = {"wago", "kango", "gairaigo"}
+_VALID_MISTAKE_CATEGORIES = {"particle", "verb_class", "conjugation", "register"}
+
+
+def _check_ja_49_vocab_register_coverage() -> list[str]:
+    """Every vocab entry must carry a `register` field with value in
+    {neutral, polite, humble, respectful, casual}. Locks in ISSUE-115
+    closure (1009/1009 explicit-neutral default policy)."""
+    failures: list[str] = []
+    path = ROOT / "data" / "vocab.json"
+    if not path.exists():
+        return ["JA-49: data/vocab.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-49: parse error: {e}"]
+    for v in data.get("entries", []):
+        vid = v.get("id", "?")
+        reg = v.get("register")
+        if not reg:
+            failures.append(f"JA-49 {vid}: missing register field")
+        elif reg not in _VALID_REGISTERS:
+            failures.append(
+                f"JA-49 {vid}: register={reg!r} not in {sorted(_VALID_REGISTERS)}"
+            )
+    return failures
+
+
+def _check_ja_50_vocab_register_origin_coverage() -> list[str]:
+    """Every vocab entry must carry a `register_origin` field with value
+    in {wago, kango, gairaigo}. Locks in ISSUE-116 closure (deterministic
+    Wago/Kango/Gairaigo classifier)."""
+    failures: list[str] = []
+    path = ROOT / "data" / "vocab.json"
+    if not path.exists():
+        return ["JA-50: data/vocab.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-50: parse error: {e}"]
+    for v in data.get("entries", []):
+        vid = v.get("id", "?")
+        ro = v.get("register_origin")
+        if not ro:
+            failures.append(f"JA-50 {vid}: missing register_origin field")
+        elif ro not in _VALID_REGISTER_ORIGINS:
+            failures.append(
+                f"JA-50 {vid}: register_origin={ro!r} not in {sorted(_VALID_REGISTER_ORIGINS)}"
+            )
+    return failures
+
+
+def _check_ja_51_common_mistakes_categorized() -> list[str]:
+    """Every grammar pattern must carry >=3 common_mistakes entries, each
+    with a `category` field in {particle, verb_class, conjugation,
+    register}. Locks in ISSUE-112 closure (the audit's Section 0 TOP-2
+    P1 item — categorized error coverage above Bunpro's 1-generic bar)."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-51: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-51: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        cms = p.get("common_mistakes") or []
+        if not isinstance(cms, list):
+            failures.append(f"JA-51 {pid}: common_mistakes is not a list")
+            continue
+        categorized = [
+            cm for cm in cms
+            if isinstance(cm, dict) and cm.get("category") in _VALID_MISTAKE_CATEGORIES
+        ]
+        if len(categorized) < 3:
+            failures.append(
+                f"JA-51 {pid}: only {len(categorized)} categorized common_mistakes (need >=3)"
+            )
+        # Also flag any out-of-set categories
+        for cm in cms:
+            if isinstance(cm, dict):
+                cat = cm.get("category")
+                if cat and cat not in _VALID_MISTAKE_CATEGORIES:
+                    failures.append(
+                        f"JA-51 {pid}: common_mistake category={cat!r} "
+                        f"not in {sorted(_VALID_MISTAKE_CATEGORIES)}"
+                    )
+    return failures
+
+
+def _check_ja_52_grammar_contrasts_floor() -> list[str]:
+    """Every grammar pattern must carry >=1 `contrasts` entry. Locks in
+    ISSUE-118 closure (178/178 contrast cross-link coverage). Each
+    contrast entry must include with_pattern_id pointing to a real
+    pattern id."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-52: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-52: parse error: {e}"]
+    patterns = data.get("patterns", [])
+    pattern_ids = {p.get("id") for p in patterns if p.get("id")}
+    for p in patterns:
+        pid = p.get("id", "?")
+        cs = p.get("contrasts") or []
+        if not isinstance(cs, list) or len(cs) < 1:
+            failures.append(f"JA-52 {pid}: missing or empty contrasts (need >=1)")
+            continue
+        for c in cs:
+            if not isinstance(c, dict):
+                failures.append(f"JA-52 {pid}: contrast entry is not a dict")
+                continue
+            tid = c.get("with_pattern_id")
+            if not tid:
+                failures.append(f"JA-52 {pid}: contrast missing with_pattern_id")
+            elif tid not in pattern_ids:
+                failures.append(
+                    f"JA-52 {pid}: contrast with_pattern_id={tid!r} not a real pattern"
+                )
+    return failures
+
+
+def _check_ja_53_grammar_cultural_callout() -> list[str]:
+    """Every grammar pattern must carry a `cultural_callout` field with
+    non-empty content. Locks in P2-12 closure (cultural_callout 178/178
+    coverage from audit round 12)."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-53: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-53: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        cc = p.get("cultural_callout")
+        if not cc:
+            failures.append(f"JA-53 {pid}: missing cultural_callout")
+        elif isinstance(cc, str) and len(cc.strip()) < 20:
+            # The field exists but contains a trivial placeholder
+            failures.append(
+                f"JA-53 {pid}: cultural_callout too short ({len(cc.strip())} chars, need >=20)"
+            )
     return failures
 
 

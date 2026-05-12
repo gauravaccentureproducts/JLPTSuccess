@@ -2770,9 +2770,6 @@
       ],
       "contrasts": [
         {
-          "note": "と (exhaustive: A and B, full stop) vs や (non-exhaustive: A, B, etc., among others). や is often paired with など. Note: や does not have its own grammar entry in this corpus."
-        },
-        {
           "with_pattern_id": "n5-013",
           "note": "と pairs items exhaustively (A and B, full stop). も adds (A も B も = both A and B as well). Distinct functions even though both can join nouns."
         }
@@ -17534,7 +17531,10 @@
       ],
       "contrasts": [
         {
-          "note": "いくつ = \"how many\" (native counter). For specific counters use なん + counter (なんにん, なんまい). Note: counter-specific patterns live in the counters section."
+          "with_pattern_id": "n5-108",
+          "note": "いくつ asks 'how many' using the native ひとつ-series (no specific counter). For specific item types, use なん + counter (なんにん people, なんまい flat objects, なんぼん cylindrical) following the Number + counter pattern.",
+          "provenance": "llm_curated",
+          "audit_wave": "ja-52-ci-fix-2026-05-12"
         }
       ],
       "notes": "",
@@ -57503,8 +57503,11 @@
       ],
       "contrasts": [
         {
-          "with": "～です (plain copula)",
-          "difference": "～です = flat statement of fact. ～んです = explanation, emphasis, or reaction to context. Use ～です on forms and in objective writing; ～んです in conversation when reacting or explaining."
+          "with_pattern_id": "n5-001",
+          "note": "～です = flat statement of fact. ～んです = explanation, emphasis, or reaction to context. Use ～です on forms and in objective writing; ～んです in conversation when reacting or explaining.",
+          "provenance": "llm_curated",
+          "audit_wave": "ja-52-ci-fix-2026-05-12-schema-migration",
+          "legacy_with_text": "～です (plain copula)"
         }
       ],
       "notes": "late_n5 tier: the form is N5 but the explanation/emphasis nuance crosses into N4 territory. The 3 examples here cover the most common N5-appropriate uses (giving a reason, asking for one, providing context). For deeper discussion of the contrast register-shift behavior or the assertive ～んだ casual form, see N4 sources. Pending native-teacher review of the framing per Pass-16 F-15.23 note (2026-05-01).",
