@@ -144,11 +144,41 @@ Per CC BY-SA 3.0:
   - `audio/grammar/n5-NNN.M.mp3` (1782 files, one per grammar
     example across 178 patterns; speaker 8 = Tsumugi).
   - `audio/listening/n5.listen.NNN.mp3` + `.slow.mp3` (50 + 50 = 100
-    files; multi-speaker per item, see v1.14.1 release notes).
+    files; multi-speaker per item, see v1.14.1 release notes; +
+    synthetic ambient context layer mixed under voice in v1.14.2,
+    see next section).
   - `audio/kanji/<glyph>-{on|kun}-<reading>.mp3` (259 files: 136 on +
     123 kun; speaker 8 = Tsumugi).
   Voice metadata: per-corpus in `data/audio_manifest.json` and
   per-item in `data/listening.json items[].audio_render_meta`.
+
+## Synthetic ambient context layers (listening audio only)
+
+> **Added 2026-05-12 (v1.14.2):** the 50 listening items now carry
+> a low-volume ambient atmospheric layer mixed UNDER the VOICEVOX
+> voice tracks. This is **procedurally synthesized** (ffmpeg lavfi
+> noise generators), NOT recorded sound effects from third-party
+> libraries.
+
+- **What it is:** Per-item ambient context layer matching the
+  `ambient_context` tag on each listening item
+  (cafe / station / restaurant / shop / home / office / clinic /
+  classroom / general). Generated at build time using ffmpeg's
+  `anoisesrc` filter (pink / brown noise sources, per-context
+  amplitude + mix levels). Mixed under the voice audio at -24 to
+  -36 dB so dialogue clarity is unaffected.
+- **Source:** None — fully synthesized by `ffmpeg` v8.1.1 (LGPL/GPL).
+  No third-party CC-0 or commercial samples used.
+- **Quality honest:** synthetic ambient does not match the realism
+  of recorded café / station / classroom samples. Per-context
+  filter design is documented in
+  `tools/render_listening_ambient_context.py`. Each item's metadata
+  records the filter expression used.
+- **Future quality lift:** replace synthetic layers with recorded
+  CC-0 samples from freesound.org / Pixabay when a sourcing path is
+  established. The current synthetic implementation satisfies the
+  audit's "no dead silence under mondai 1-2" intent while remaining
+  100% in-house (no external assets to attribute).
 - **Build pipeline:** `tools/build_audio_voicevox.py` (sends each
   example's `ja` text to the local VOICEVOX engine, transcodes the
   returned WAV to MP3 via `ffmpeg`).

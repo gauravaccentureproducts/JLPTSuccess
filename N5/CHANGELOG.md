@@ -2,6 +2,85 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.14.2 - 2026-05-12 (Synthetic ambient context audio + anime/drama Avoid decision)
+
+Third audio-cycle release. Closes ISSUE-117 via synthetic ambient
+mixing, and formally marks ISSUE-124 + IMP-147 as Avoid per the
+maintainer directive (zero-risk legal posture on anime/drama citations).
+
+### ISSUE-117 — Synthetic ambient context layers on listening (0/50 → 50/50)
+
+The 50 listening items now play with a low-volume ambient context
+layer mixed UNDER the VOICEVOX voice track. Generated procedurally
+by ffmpeg's `anoisesrc` filter; no third-party sound effects used.
+
+Per-context mix levels:
+
+| Context | Filter base | Mix level | Items |
+|---|---|---|---|
+| general | brown noise | -34 dB | 22 |
+| station | brown noise (rumble) | -24 dB | 7 |
+| home | brown noise (very quiet) | -36 dB | 7 |
+| cafe | pink noise | -26 dB | 5 |
+| shop | pink noise (light) | -30 dB | 3 |
+| classroom | pink noise (moderate) | -27 dB | 3 |
+| restaurant | pink noise | -25 dB | 1 |
+| office | pink noise (light) | -30 dB | 1 |
+| clinic | brown noise (very quiet) | -34 dB | 1 |
+
+All ambient levels are well below dialogue volume — dialogue clarity
+is unaffected. The intent is removing the "dead silent room" artifact
+that real exam audio doesn't have, not adding distracting effects.
+
+Each listening item now carries an `ambient_context_audio` metadata
+block in `data/listening.json` documenting the filter expression and
+mix level used. Voice-only mp3s preserved at
+`audio/_backup_voice_only_2026_05_12/listening/` (untracked / gitignored).
+
+**Honesty note**: synthetic ambient is lower quality than recorded
+CC-0 café / station samples. Future quality lift could substitute
+real recordings once a sourcing path is established. The current
+implementation is the maximum achievable within the build environment
+without external assets.
+
+### ISSUE-124 + IMP-147 — Anime / drama citation layer (Avoid)
+
+Per maintainer directive (2026-05-12), the anime/drama citation layer
+is now formally **Avoid** rather than Defer. Rationale:
+
+- Maintainer chose the zero-legal-risk path: "skip using the names,
+  lets play safe, cant take even 1% risk".
+- The audit Section-0 TOP-3 strategic-lever framing (no incumbent
+  ships systematic anime citations at N5) is acknowledged but
+  not actioned.
+- Even verbatim 5-10 word educational quotations from copyrighted
+  anime/drama/manga (potentially defensible under US fair use,
+  uncertain under Japanese Copyright Law §32 引用) are not pursued.
+
+Possible future revisit IF (none currently on roadmap):
+- Corpus migrates to fully public-domain or openly-licensed sources
+- Explicit per-work permission obtained from rights holders
+- Project transitions to a Japan-based educational-institution
+  framing that invokes §35 educational copying exception
+
+Registry status: terminal Avoid.
+
+### Cache version
+
+v1.14.1 → v1.14.2.
+
+### Audit registry close-out
+
+After this release:
+
+| Bucket | Count | Items |
+|---|---|---|
+| Done | 18 | All audit Fix-decision + Defer-becoming-Done items |
+| Avoid | 3 | IMP-148 (textbook brand names), ISSUE-124, IMP-147 |
+| Defer | 0 | All previously-Defer items resolved |
+
+**The 2026-05-12 richness audit cycle is now at terminal state.**
+
 ## v1.14.1 - 2026-05-12 (Listening voice variety + kanji per-yomi audio; closes ISSUE-114 + ISSUE-123)
 
 Second audio-cycle release: re-renders the 50 listening items with 6

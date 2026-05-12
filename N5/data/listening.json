@@ -93,7 +93,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 6
+        "segments_count": 6,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.001.slow.mp3",
@@ -336,7 +338,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "cafe",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.15:duration=<duration>",
+        "mix_db": -26,
+        "description": "light cafe murmur (pink noise base)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.002",
@@ -436,7 +446,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 7
+        "segments_count": 7,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.002.slow.mp3",
@@ -664,7 +676,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "shop",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.10:duration=<duration>",
+        "mix_db": -30,
+        "description": "small shop interior (light pink noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.003",
@@ -754,7 +774,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 5
+        "segments_count": 5,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.003.slow.mp3",
@@ -981,7 +1003,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.004",
@@ -1077,7 +1107,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 6
+        "segments_count": 6,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.004.slow.mp3",
@@ -1326,7 +1358,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "cafe",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.15:duration=<duration>",
+        "mix_db": -26,
+        "description": "light cafe murmur (pink noise base)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.005",
@@ -1420,7 +1460,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 5
+        "segments_count": 5,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.005.slow.mp3",
@@ -1723,7 +1765,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "classroom",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.14:duration=<duration>",
+        "mix_db": -27,
+        "description": "classroom student murmur (moderate pink noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.006",
@@ -1819,7 +1869,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 6
+        "segments_count": 6,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.006.slow.mp3",
@@ -2068,7 +2120,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.007",
@@ -2144,7 +2204,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 2
+        "segments_count": 2,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.007.slow.mp3",
@@ -2396,7 +2458,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.008",
@@ -2492,7 +2562,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 6
+        "segments_count": 6,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.008.slow.mp3",
@@ -2734,7 +2806,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.009",
@@ -2798,7 +2878,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.009.slow.mp3",
@@ -2906,7 +2988,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.010",
@@ -2970,7 +3060,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.010.slow.mp3",
@@ -3080,7 +3172,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.011",
@@ -3144,7 +3244,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.011.slow.mp3",
@@ -3292,7 +3394,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "cafe",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.15:duration=<duration>",
+        "mix_db": -26,
+        "description": "light cafe murmur (pink noise base)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.012",
@@ -3356,7 +3466,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.012.slow.mp3",
@@ -3469,7 +3581,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.013",
@@ -3555,7 +3675,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.013.slow.mp3",
@@ -3731,7 +3853,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "classroom",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.14:duration=<duration>",
+        "mix_db": -27,
+        "description": "classroom student murmur (moderate pink noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.014",
@@ -3817,7 +3947,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.014.slow.mp3",
@@ -3959,7 +4091,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.015",
@@ -4044,7 +4184,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.015.slow.mp3",
@@ -4231,7 +4373,15 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.016",
@@ -4317,7 +4467,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.016.slow.mp3",
@@ -4508,7 +4660,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.017",
@@ -4594,7 +4754,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.017.slow.mp3",
@@ -4767,7 +4929,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.018",
@@ -4853,7 +5023,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.018.slow.mp3",
@@ -5004,7 +5176,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.019",
@@ -5090,7 +5270,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.019.slow.mp3",
@@ -5296,7 +5478,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.020",
@@ -5382,7 +5572,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.020.slow.mp3",
@@ -5553,7 +5745,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.021",
@@ -5629,7 +5829,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 2
+        "segments_count": 2,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.021.slow.mp3",
@@ -5773,7 +5975,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.022",
@@ -5854,7 +6064,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 3
+        "segments_count": 3,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.022.slow.mp3",
@@ -6049,7 +6261,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.023",
@@ -6135,7 +6355,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.023.slow.mp3",
@@ -6293,7 +6515,15 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.024",
@@ -6373,7 +6603,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 3
+        "segments_count": 3,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.024.slow.mp3",
@@ -6517,7 +6749,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.025",
@@ -6582,7 +6822,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.025.slow.mp3",
@@ -6717,7 +6959,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "classroom",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.14:duration=<duration>",
+        "mix_db": -27,
+        "description": "classroom student murmur (moderate pink noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.026",
@@ -6782,7 +7032,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.026.slow.mp3",
@@ -6879,7 +7131,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "cafe",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.15:duration=<duration>",
+        "mix_db": -26,
+        "description": "light cafe murmur (pink noise base)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.027",
@@ -6944,7 +7204,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.027.slow.mp3",
@@ -7050,7 +7312,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.028",
@@ -7115,7 +7385,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.028.slow.mp3",
@@ -7218,7 +7490,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.029",
@@ -7283,7 +7563,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.029.slow.mp3",
@@ -7406,7 +7688,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.030",
@@ -7471,7 +7761,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.030.slow.mp3",
@@ -7591,7 +7883,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.031",
@@ -7682,7 +7982,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 5
+        "segments_count": 5,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.031.slow.mp3",
@@ -7896,7 +8198,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.032",
@@ -7987,7 +8297,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 5
+        "segments_count": 5,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.032.slow.mp3",
@@ -8139,7 +8451,15 @@
           "count": 1
         }
       ],
-      "discourse_markers_used_provenance": "auto_derived"
+      "discourse_markers_used_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.033",
@@ -8230,7 +8550,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 5
+        "segments_count": 5,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.033.slow.mp3",
@@ -8398,7 +8720,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "restaurant",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.18:duration=<duration>",
+        "mix_db": -25,
+        "description": "restaurant dining ambience (pink noise base)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.034",
@@ -8483,7 +8813,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.034.slow.mp3",
@@ -8659,7 +8991,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.035",
@@ -8734,7 +9074,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 2
+        "segments_count": 2,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.035.slow.mp3",
@@ -8925,7 +9267,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.036",
@@ -9001,7 +9351,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 2
+        "segments_count": 2,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.036.slow.mp3",
@@ -9186,7 +9538,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "office",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.10:duration=<duration>",
+        "mix_db": -30,
+        "description": "office room tone (light pink noise + faint HVAC)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.037",
@@ -9261,7 +9621,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 2
+        "segments_count": 2,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.037.slow.mp3",
@@ -9431,7 +9793,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "shop",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.10:duration=<duration>",
+        "mix_db": -30,
+        "description": "small shop interior (light pink noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.038",
@@ -9496,7 +9866,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.038.slow.mp3",
@@ -9620,7 +9992,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.039",
@@ -9685,7 +10065,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.039.slow.mp3",
@@ -9849,7 +10231,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "shop",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.10:duration=<duration>",
+        "mix_db": -30,
+        "description": "small shop interior (light pink noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.040",
@@ -9913,7 +10303,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.040.slow.mp3",
@@ -10032,7 +10424,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.041",
@@ -10093,7 +10493,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10224,7 +10626,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "home",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.08:duration=<duration>",
+        "mix_db": -36,
+        "description": "home room tone (very quiet brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.042",
@@ -10284,7 +10694,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10404,7 +10816,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.043",
@@ -10464,7 +10884,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10585,7 +11007,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.044",
@@ -10646,7 +11076,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10787,7 +11219,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.045",
@@ -10848,7 +11288,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10956,7 +11398,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.046",
@@ -11017,7 +11467,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11132,7 +11584,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.047",
@@ -11193,7 +11653,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 1
+        "segments_count": 1,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11308,7 +11770,15 @@
           }
         ]
       },
-      "timestamped_transcript_provenance": "auto_derived"
+      "timestamped_transcript_provenance": "auto_derived",
+      "ambient_context_audio": {
+        "context": "general",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "generic room tone (subtle brown noise)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.048",
@@ -11400,7 +11870,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "aizuchi_tokens": [
         "うん",
@@ -11569,7 +12041,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "cafe",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=pink:amplitude=0.15:duration=<duration>",
+        "mix_db": -26,
+        "description": "light cafe murmur (pink noise base)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.049",
@@ -11661,7 +12141,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 4
+        "segments_count": 4,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "fillers_present": [
         "あの",
@@ -11849,7 +12331,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "station",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.20:duration=<duration>",
+        "mix_db": -24,
+        "description": "station platform rumble (brown noise low-end)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     },
     {
       "id": "n5.listen.050",
@@ -11946,7 +12436,9 @@
         "engine": "voicevox-cpu",
         "slow_render_filter": "atempo=0.7",
         "slow_render_date": "2026-05-12",
-        "segments_count": 5
+        "segments_count": 5,
+        "has_ambient_context_layer": true,
+        "ambient_synth_method": "ffmpeg-procedural"
       },
       "fillers_present": [
         "あの"
@@ -12136,7 +12628,15 @@
           }
         ]
       },
-      "inference_question_expansion_provenance": "llm_curated"
+      "inference_question_expansion_provenance": "llm_curated",
+      "ambient_context_audio": {
+        "context": "clinic",
+        "method": "synthetic-ffmpeg",
+        "filter": "anoisesrc=color=brown:amplitude=0.06:duration=<duration>",
+        "mix_db": -34,
+        "description": "clinic / waiting room (very quiet)",
+        "rendered_at": "2026-05-12T20:00:00+00:00"
+      }
     }
   ],
   "_meta": {
