@@ -1412,6 +1412,352 @@
         "n5.kanji.気"
       ],
       "kanji_refs_provenance": "auto_derived"
+    },
+    {
+      "id": "auth.transit.eki-mae",
+      "category": "transit",
+      "ja": "駅前",
+      "reading": "えきまえ",
+      "gloss_en": "In front of the station",
+      "gloss_hi": "स्टेशन के सामने",
+      "context": "Common neighborhood label used in bus-stop names (○○駅前) and small-business signs. Indicates the immediate plaza in front of the station.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.駅",
+        "n5.kanji.前"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.transit.eki-naka",
+      "category": "transit",
+      "ja": "駅の中",
+      "reading": "えきのなか",
+      "gloss_en": "Inside the station",
+      "gloss_hi": "स्टेशन के अंदर",
+      "context": "Directional label used in transit-system signage to indicate retail / facilities inside the paid area of a station building.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.駅",
+        "n5.kanji.中"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.transit.kita-eki",
+      "category": "transit",
+      "ja": "きた駅",
+      "reading": "きたえき",
+      "gloss_en": "North station / North exit station name",
+      "gloss_hi": "उत्तर स्टेशन",
+      "context": "Many cities use compass-direction prefixes for multi-station hubs (きた駅 = north station). Compare to みなみ駅 / ひがし駅 / にし駅.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.駅"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.notice.shougakkou",
+      "category": "signs",
+      "ja": "小学校",
+      "reading": "しょうがっこう",
+      "gloss_en": "Elementary school",
+      "gloss_hi": "प्राथमिक विद्यालय",
+      "context": "Sign attached to the gate of every elementary school in Japan. Often paired with the school's name on a wooden / brass plaque.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.小",
+        "n5.kanji.学",
+        "n5.kanji.校"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.notice.chuugakkou",
+      "category": "signs",
+      "ja": "中学校",
+      "reading": "ちゅうがっこう",
+      "gloss_en": "Middle school",
+      "gloss_hi": "मध्य विद्यालय",
+      "context": "Sign attached to the gate of every middle school in Japan. Uses 中 (middle / inside) + 学校 (school).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.中",
+        "n5.kanji.学",
+        "n5.kanji.校"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.notice.gakkou",
+      "category": "signs",
+      "ja": "学校",
+      "reading": "がっこう",
+      "gloss_en": "School",
+      "gloss_hi": "विद्यालय",
+      "context": "Generic school signage — common on school-zone road signs and on the front gate of any educational facility.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.学",
+        "n5.kanji.校"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kaisha",
+      "category": "signs",
+      "ja": "会社",
+      "reading": "かいしゃ",
+      "gloss_en": "Company / office",
+      "gloss_hi": "कंपनी",
+      "context": "Generic company-building label — common suffix on corporate signage (○○会社) and in office-park directories.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.会",
+        "n5.kanji.社"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.honten",
+      "category": "shop",
+      "ja": "本店",
+      "reading": "ほんてん",
+      "gloss_en": "Main branch / head shop",
+      "gloss_hi": "मुख्य शाखा",
+      "context": "Suffix on the original / flagship location of a chain restaurant or retail brand. Contrasted with 支店 (branch) in chain-store signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.本",
+        "n5.kanji.店"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.shop.honya",
+      "category": "shop",
+      "ja": "本や",
+      "reading": "ほんや",
+      "gloss_en": "Bookstore",
+      "gloss_hi": "किताबों की दुकान",
+      "context": "Bookstore signage — small independent shops often write 本や rather than the kanji-only 本屋 (屋 is N4). The kana 'や' is common in shop names.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.本"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.shop.furuhonya",
+      "category": "shop",
+      "ja": "古い本や",
+      "reading": "ふるいほんや",
+      "gloss_en": "Used / antiquarian bookstore",
+      "gloss_hi": "पुरानी किताबों की दुकान",
+      "context": "Phrasing seen on used-bookstore shopfronts in Jimbocho (Tokyo's book-district). Conveys 'second-hand books'.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.古",
+        "n5.kanji.本"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.michi",
+      "category": "signs",
+      "ja": "道",
+      "reading": "みち",
+      "gloss_en": "Road / way",
+      "gloss_hi": "रास्ता",
+      "context": "Single-character signage on street-name plates (○○道 = the X road). Common in older neighborhood signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.道"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.yamamichi",
+      "category": "signs",
+      "ja": "山道",
+      "reading": "やまみち",
+      "gloss_en": "Mountain trail",
+      "gloss_hi": "पहाड़ी रास्ता",
+      "context": "Hiking-trail signage in mountain parks — wooden post markers with carved 山道 indicating a footpath.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.山",
+        "n5.kanji.道"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kawa",
+      "category": "signs",
+      "ja": "川",
+      "reading": "かわ",
+      "gloss_en": "River",
+      "gloss_hi": "नदी",
+      "context": "Single-character signage on bridge nameplates and river-bank parks (○○川 = X river). Common in landscape signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.川"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.gozen",
+      "category": "time",
+      "ja": "午前",
+      "reading": "ごぜん",
+      "gloss_en": "AM / morning (before noon)",
+      "gloss_hi": "पूर्वाह्न",
+      "context": "Schedule / hours label on shop signs and bus timetables (午前10時 = 10 AM). Contrasted with 午後 (afternoon).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.午",
+        "n5.kanji.前"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.gogo",
+      "category": "time",
+      "ja": "午後",
+      "reading": "ごご",
+      "gloss_en": "PM / afternoon (after noon)",
+      "gloss_hi": "अपराह्न",
+      "context": "Schedule / hours label on shop signs and bus timetables (午後5時まで = until 5 PM). Pair with 午前 in any time-window signage.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.午",
+        "n5.kanji.後"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.kyou-no",
+      "category": "shop",
+      "ja": "今日の",
+      "reading": "きょうの",
+      "gloss_en": "Today's (special / menu / news)",
+      "gloss_hi": "आज का",
+      "context": "Restaurant-board prefix used for daily specials (今日のおすすめ = today's recommendation). Also common on bulletin-board headers (今日の天気 = today's weather).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.今",
+        "n5.kanji.日"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.mainichi",
+      "category": "shop",
+      "ja": "毎日",
+      "reading": "まいにち",
+      "gloss_en": "Every day / daily",
+      "gloss_hi": "हर दिन",
+      "context": "Service-availability label on shop signage (毎日 = open daily). Often paired with hours (毎日10時から).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.毎",
+        "n5.kanji.日"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.menu.takai",
+      "category": "menu",
+      "ja": "高い",
+      "reading": "たかい",
+      "gloss_en": "Expensive / high",
+      "gloss_hi": "महंगा / ऊँचा",
+      "context": "Price-tag adjective used on hand-written menu boards or discount-shop labels to indicate higher-tier items.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.高"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.menu.yasui",
+      "category": "menu",
+      "ja": "安い",
+      "reading": "やすい",
+      "gloss_en": "Cheap / inexpensive",
+      "gloss_hi": "सस्ता",
+      "context": "Price-tag adjective used on hand-written menu boards and discount-shop banners (安い! 100円!). The same kanji 安 also means 'safe' in 安全.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.安"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.onamae",
+      "category": "notice",
+      "ja": "お名前",
+      "reading": "おなまえ",
+      "gloss_en": "Name (form field)",
+      "gloss_hi": "नाम",
+      "context": "Form-field label used on every clinic / city-hall / school registration form. The honorific お is standard on form labels.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.名"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.signs.bangou",
+      "category": "notice",
+      "ja": "番号",
+      "reading": "ばんごう",
+      "gloss_en": "Number (sequence / ticket)",
+      "gloss_hi": "नंबर",
+      "context": "Ticket-machine and form-field label (受付番号 / 整理番号). Also on bus-stop sequence labels (○番のりば = bay number X).",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.番",
+        "n5.kanji.号"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
+    },
+    {
+      "id": "auth.notice.omizu",
+      "category": "notice",
+      "ja": "お水",
+      "reading": "おみず",
+      "gloss_en": "Water (drinking)",
+      "gloss_hi": "पीने का पानी",
+      "context": "Polite-form label seen above water dispensers in restaurants, public buildings, and on water-fountain plaques. The honorific お softens the request to a friendly offer.",
+      "review_status": "llm_curated",
+      "kanji_refs": [
+        "n5.kanji.水"
+      ],
+      "kanji_refs_provenance": "llm_curated",
+      "audit_wave": "issue-122-wave1-2026-05-12"
     }
   ]
 }
