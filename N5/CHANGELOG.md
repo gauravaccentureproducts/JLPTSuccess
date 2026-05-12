@@ -2,6 +2,44 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.13.6 - 2026-05-12 (anti-item CI lock-in + final polish batch)
+
+Continuation of the v1.13.5 audit close-out — locks the Section-10
+anti-items into CI enforcement and closes residual polish items.
+
+### CI invariants added (65 → 69 green, +4)
+
+Round 2 of anti-item enforcement:
+
+- **JA-62** — No romaji in user-facing Japanese display fields (anti-item #9). Romaji INPUT via `js/romaji-kana.js` for typed-answer mode remains permitted; only DISPLAY fields (vocab.form/reading, vocab.examples[].ja, grammar.examples[].ja, authentic.ja/reading) are checked.
+- **JA-63** — Authentic cards' `kanji_refs` must list all N5 kanji in their `ja` text. Surfaces under-population (the integrity gap I manually fixed during wave-2/3 signage authoring).
+- **JA-64** — Common_mistakes entries must have non-empty `wrong` + `right` + `why` fields (renderer contract in `js/learn-grammar.js#renderMistakes`).
+- **JA-65** — Contrasts entry `note` field must be ≥30 chars (anchors substantive one-sentence explanation rather than trivial gloss).
+
+### Round 1 anti-item invariants from v1.13.5 confirmed
+
+JA-54..61 (8 invariants added in v1.13.5) re-checked green:
+essay ≥500 chars, essay 6-subfield schema, corpus size locks
+(178/1009/106/54/50), no LH/HL pitch, no JLPT.jp current claims, no
+competitive gamification, no remote fetch, no discussion routes.
+
+### Polish items closed today (post v1.13.5 commit)
+
+- **n5-149 essay top-up** (496 → 572 chars; common_pitfalls extended with double-を warning). Enables JA-54 100% enforcement.
+- **3 short contrast notes** (n5-068 / n5-089 / n5-119) expanded from 25-27 chars to 124-143 chars. Enables JA-65 100% enforcement.
+- **sw.js PRECACHE** — `js/mining.js` and `js/min/mining.js` added to install-time precache (matches the pattern for #/authentic).
+- **pragmatic_functions enriched** on 6 entries (どうも×2 / どうぞ / ちょっと / けっこう / すみません) via canonical schema with native_reviewed provenance. Captures the N5 cultural traps (e.g., ちょっとできる usually means "I can do it well"; けっこうです can mean both acceptance and refusal).
+- **Cache version** v1.13.5 → v1.13.6 in index.html + sw.js CACHE_VERSION.
+
+### Total CI invariant count: 69 PASS
+
+Original 48 (JA-1..48 + X-6.1..6.7) + audit-cycle gains 5 (JA-49..53) +
+anti-item round 1 8 (JA-54..61) + shape/anti-item round 2 4 (JA-62..65) = **69**.
+
+Every coverage gain from the 2026-05-12 audit cycle is now locked
+behind a CI invariant. A future careless edit cannot silently regress
+past any of today's bars.
+
 ## v1.13.5 - 2026-05-12 (2026-05-12 richness audit close-out — all non-gated Fix items resolved)
 
 The 2026-05-12 richness audit cycle reached terminal state for all

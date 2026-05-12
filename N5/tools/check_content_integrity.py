@@ -838,6 +838,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-59", "No competitive gamification (no XP/leaderboard/badge/achievement keys or files; anti-item #5 refined; 2026-05-12)", lambda: _check_ja_59_no_gamification_state()),
     ("JA-60", "No account / cloud-sync (no fetch to non-local URLs; anti-item #6; 2026-05-12)", lambda: _check_ja_60_no_account_or_cloud_sync()),
     ("JA-61", "No per-content discussion / comments route (anti-item #7; 2026-05-12)", lambda: _check_ja_61_no_discussion_route()),
+    # JA-62..65: round 2 of anti-item + shape-contract enforcement.
+    # 2026-05-12. Locks romaji-in-display rule + 3 shape contracts.
+    ("JA-62", "No romaji in user-facing Japanese display fields (anti-item #9; 2026-05-12)", lambda: _check_ja_62_no_romaji_in_japanese_fields()),
+    ("JA-63", "Authentic kanji_refs lists all N5 kanji in ja text (shape contract; 2026-05-12)", lambda: _check_ja_63_authentic_kanji_refs_complete()),
+    ("JA-64", "Common_mistakes have wrong+right+why fields populated (renderer contract; 2026-05-12)", lambda: _check_ja_64_common_mistakes_shape()),
+    ("JA-65", "Contrasts notes >=30 chars (substantive explanation bar; 2026-05-12)", lambda: _check_ja_65_contrast_notes_min_length()),
 ]
 
 
@@ -3015,6 +3021,174 @@ def _check_ja_61_no_discussion_route() -> list[str]:
             failures.append(
                 f"JA-61 js/app.js: route '{m.group(1)}' registered (forbidden anti-item)"
             )
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-62..65 added 2026-05-12 (round 2 of anti-item enforcement):
+# romaji-in-data + shape contracts on authentic_refs, common_mistakes,
+# and contrasts.
+# ---------------------------------------------------------------------------
+
+
+def _check_ja_62_no_romaji_in_japanese_fields() -> list[str]:
+    """Section-10 anti-item #9: no romaji in user-facing Japanese
+    display fields. Romaji INPUT (the typed-answer path through
+    js/romaji-kana.js) is intentionally permitted; only DISPLAY
+    fields are restricted.
+
+    Checks fields that must be in kana/kanji:
+      - vocab.form, vocab.reading
+      - vocab.examples[].ja
+      - grammar.examples[].ja
+      - authentic.ja, authentic.reading
+
+    Detection: 3+ consecutive ASCII letters (a-z / A-Z) inside the
+    field value. Stand-alone Latin punctuation, single letters
+    (e.g., "P" in pitch notation), and numeric-only strings pass.
+    Pattern-label fields like grammar.pattern are exempt (some
+    legitimate labels are romanized — te-form, ます-form)."""
+    failures: list[str] = []
+    romaji_pat = re.compile(r"[a-zA-Z]{3,}")
+
+    # vocab
+    v_path = ROOT / "data" / "vocab.json"
+    if v_path.exists():
+        try:
+            vdata = json.loads(v_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            return [f"JA-62: vocab.json parse error: {e}"]
+        for v in vdata.get("entries", []):
+            vid = v.get("id", "?")
+            for fld in ("form", "reading"):
+                val = v.get(fld) or ""
+                if isinstance(val, str) and romaji_pat.search(val):
+                    failures.append(f"JA-62 vocab {vid}.{fld}: romaji found in {val!r}")
+            for ex in v.get("examples") or []:
+                if isinstance(ex, dict):
+                    ja = ex.get("ja") or ""
+                    if isinstance(ja, str) and romaji_pat.search(ja):
+                        failures.append(f"JA-62 vocab {vid}.examples[].ja: romaji found in {ja!r}")
+
+    # grammar
+    g_path = ROOT / "data" / "grammar.json"
+    if g_path.exists():
+        try:
+            gdata = json.loads(g_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            return failures + [f"JA-62: grammar.json parse error: {e}"]
+        for p in gdata.get("patterns", []):
+            pid = p.get("id", "?")
+            for ex in p.get("examples") or []:
+                if isinstance(ex, dict):
+                    ja = ex.get("ja") or ""
+                    if isinstance(ja, str) and romaji_pat.search(ja):
+                        failures.append(f"JA-62 grammar {pid}.examples[].ja: romaji found in {ja!r}")
+
+    # authentic
+    a_path = ROOT / "data" / "authentic.json"
+    if a_path.exists():
+        try:
+            adata = json.loads(a_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            return failures + [f"JA-62: authentic.json parse error: {e}"]
+        for c in adata.get("items", []):
+            cid = c.get("id", "?")
+            for fld in ("ja", "reading"):
+                val = c.get(fld) or ""
+                if isinstance(val, str) and romaji_pat.search(val):
+                    failures.append(f"JA-62 authentic {cid}.{fld}: romaji found in {val!r}")
+    return failures
+
+
+def _check_ja_63_authentic_kanji_refs_complete() -> list[str]:
+    """Shape contract: every authentic card's `kanji_refs` array must
+    list ALL N5 kanji that appear in its `ja` text. Surfaced as a
+    data-integrity gap during today's wave-2/3 signage authoring —
+    16 cards were initially under-populated. JA-63 prevents this
+    regression."""
+    failures: list[str] = []
+    a_path = ROOT / "data" / "authentic.json"
+    k_path = ROOT / "data" / "kanji.json"
+    if not a_path.exists() or not k_path.exists():
+        return ["JA-63: required data files missing"]
+    try:
+        adata = json.loads(a_path.read_text(encoding="utf-8"))
+        kdata = json.loads(k_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-63: parse error: {e}"]
+    KE = kdata.get("entries", kdata)
+    if isinstance(KE, dict):
+        KE = list(KE.values())
+    n5_glyphs = {k.get("glyph"): k.get("id") for k in KE if k.get("glyph") and k.get("id")}
+
+    for c in adata.get("items", []):
+        cid = c.get("id", "?")
+        ja = c.get("ja", "")
+        refs = set(c.get("kanji_refs") or [])
+        expected = set()
+        for ch in ja:
+            if ch in n5_glyphs:
+                expected.add(n5_glyphs[ch])
+        missing = expected - refs
+        if missing:
+            failures.append(
+                f"JA-63 {cid}: ja={ja!r} contains N5 kanji not in kanji_refs: {sorted(missing)}"
+            )
+    return failures
+
+
+def _check_ja_64_common_mistakes_shape() -> list[str]:
+    """Shape contract: every common_mistakes entry must have non-empty
+    `wrong`, `right`, AND `why` fields. The renderer iterates these
+    three fields directly (js/learn-grammar.js#renderMistakes); a
+    missing field produces visibly broken output ('undefined' or
+    blank cells in the mistakes table)."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-64: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-64: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        for i, cm in enumerate(p.get("common_mistakes") or []):
+            if not isinstance(cm, dict):
+                failures.append(f"JA-64 {pid}.common_mistakes[{i}]: not a dict")
+                continue
+            for fld in ("wrong", "right", "why"):
+                val = cm.get(fld)
+                if not val or (isinstance(val, str) and not val.strip()):
+                    failures.append(
+                        f"JA-64 {pid}.common_mistakes[{i}].{fld}: missing or empty"
+                    )
+    return failures
+
+
+def _check_ja_65_contrast_notes_min_length() -> list[str]:
+    """Shape contract: every `contrasts` entry's `note` field must be
+    >=30 chars. Pedagogically anchors the bar at a substantive
+    one-sentence explanation rather than a trivial gloss ('A vs B')."""
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-65: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-65: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        for i, c in enumerate(p.get("contrasts") or []):
+            if not isinstance(c, dict):
+                continue
+            note = c.get("note") or ""
+            if isinstance(note, str) and len(note) < 30:
+                failures.append(
+                    f"JA-65 {pid}.contrasts[{i}].note: only {len(note)} chars (need >=30): {note!r}"
+                )
     return failures
 
 
