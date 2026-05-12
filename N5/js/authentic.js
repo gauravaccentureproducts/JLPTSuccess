@@ -71,6 +71,9 @@ export async function renderAuthentic(container) {
         Tap a card to study; click <em>Pronounce</em> to use your device's
         speech engine if available (no audio is bundled — privacy-preserving).
       </p>
+      <p class="muted small">
+        <a href="#/mining">→ Sentence-mining index: every vocab / kanji / grammar entry linked to one or more of these cards</a>
+      </p>
       ${sections}
     </article>
   `;

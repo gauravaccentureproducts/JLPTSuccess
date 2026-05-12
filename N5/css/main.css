@@ -7024,3 +7024,209 @@ html[data-protect="on"][data-blur="true"] body::before {
     color-adjust: exact !important;
   }
 }
+
+/* ============================================================
+   IMP-151 (richness audit, 2026-05-12): mining cross-link index.
+   Discovery view at #/mining listing every vocab/kanji/grammar
+   entry with authentic-card cross-links. Read-only surface.
+   ============================================================ */
+
+.mining-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.mining-header h2 {
+  margin: 0 0 8px;
+}
+
+.mining-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+  padding: 12px;
+  background: var(--surface-2, #f5f5f5);
+  border-radius: 8px;
+}
+
+.mining-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mining-filter {
+  padding: 6px 12px;
+  border: 1px solid var(--border, #ccc);
+  background: var(--surface, white);
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.15s;
+}
+
+.mining-filter:hover {
+  background: var(--surface-3, #eee);
+}
+
+.mining-filter.active {
+  background: var(--primary, #14452a);
+  color: white;
+  border-color: var(--primary, #14452a);
+}
+
+.mining-filter.active .muted {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mining-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mining-sort-select {
+  padding: 4px 8px;
+  border: 1px solid var(--border, #ccc);
+  border-radius: 4px;
+  font-size: 0.9em;
+  background: var(--surface, white);
+}
+
+.mining-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mining-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "entry count"
+    "cards cards";
+  gap: 8px 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border, #e5e5e5);
+  align-items: start;
+}
+
+.mining-row:hover {
+  background: var(--surface-2, #fafafa);
+}
+
+.mining-entry {
+  grid-area: entry;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mining-entry:hover .mining-entry-label {
+  text-decoration: underline;
+}
+
+.mining-skill-badge {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.75em;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.mining-skill-vocab    { background: #2166ac; }
+.mining-skill-kanji    { background: #b2182b; }
+.mining-skill-grammar  { background: #5aae61; }
+
+.mining-entry-label {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.mining-entry-reading {
+  font-style: italic;
+}
+
+.mining-count {
+  grid-area: count;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.mining-cards {
+  grid-area: cards;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mining-card-chip {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 4px 10px 4px 8px;
+  background: var(--surface, white);
+  border: 1px solid var(--border, #d5d5d5);
+  border-radius: 4px;
+  font-size: 0.85em;
+  text-decoration: none;
+  color: inherit;
+  max-width: 260px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.mining-card-chip:hover {
+  background: var(--surface-2, #f5f5f5);
+  transform: translateY(-1px);
+}
+
+.mining-card-chip.mining-card-missing {
+  background: #fee;
+  border-color: #d99;
+  color: #c33;
+  cursor: help;
+}
+
+.mining-card-ja {
+  font-weight: 500;
+}
+
+.mining-card-en {
+  display: block;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+  .mining-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mining-filters {
+    justify-content: center;
+  }
+  .mining-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "entry"
+      "count"
+      "cards";
+  }
+  .mining-count {
+    justify-self: start;
+  }
+  .mining-card-chip {
+    max-width: 100%;
+  }
+}

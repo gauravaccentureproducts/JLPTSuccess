@@ -55,6 +55,10 @@ import { renderExamDay } from './exam-day.js';
 // listening — groups listening items by ambient_context into chained
 // auto-play stories. Route #/listeningstory. See js/listening-story.js.
 import { renderListeningStory } from './listening-story.js';
+// IMP-151 (richness audit, 2026-05-12): Migaku-style sentence-mining
+// index — unified discovery view of every vocab/kanji/grammar entry's
+// authentic-card cross-links. Route #/mining. See js/mining.js.
+import { renderMining } from './mining.js';
 // SVA-NEXT-3 (round-9 follow-up, 2026-05-08): branding-override layer.
 // Reads data/branding.json (or legacy data/theme-overrides.json) at
 // boot and applies CSS tokens, brand strings, meta tags, footer
@@ -96,6 +100,7 @@ const ROUTES = {
   weakareas:  renderWeakAreas, // IMP-WAVE-P4-T5: cross-history weak-area diagnostic dashboard
   examday:    renderExamDay,   // IMP-WAVE-P4-T6: exam-day prep page (printable checklist)
   listeningstory: renderListeningStory, // IMP-WAVE-P4-27: JP101-parity story-mode listening
+  mining:     renderMining,    // IMP-151: Migaku-style sentence-mining cross-link index
   // Level-1 hierarchy: picker + 4 placeholder pages for N4-N1.
   // The actual N5 content stays at all the routes above (home, learn,
   // test, etc.) - clicking N5 on the picker navigates to #/home.
