@@ -7207,3 +7207,66 @@ html[data-protect="on"][data-blur="true"] body::before {
     max-width: 100%;
   }
 }
+
+/* ============================================================
+   Public-domain references section (added 2026-05-13)
+   Renders the new `public_domain_refs` field on grammar pattern
+   detail pages. Source-type variants get distinct left-border
+   accents to visually distinguish PD literature / government
+   works / proverbs / folk songs / NHK-Easy recommendations.
+   ============================================================ */
+
+.pd-refs {
+  margin: 24px 0;
+}
+
+.pd-refs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pd-ref {
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: var(--surface-2, #f7f7f7);
+  border-radius: 6px;
+  border-left: 4px solid var(--border, #ccc);
+}
+
+.pd-ref-aozora_bunko { border-left-color: #b2182b; }   /* PD literature — deep red */
+.pd-ref-government   { border-left-color: #2166ac; }   /* Government work — blue */
+.pd-ref-proverb      { border-left-color: #5aae61; }   /* Cultural commons — green */
+.pd-ref-folk_song    { border-left-color: #9970ab; }   /* Folk song — purple */
+.pd-ref-nhk_easy     { border-left-color: #f4a582; }   /* NHK Easy recommendation — peach */
+
+.pd-ref-header {
+  margin-bottom: 4px;
+}
+
+.pd-work-title {
+  font-size: 1.05em;
+  margin-right: 8px;
+}
+
+.pd-author,
+.pd-status,
+.pd-context,
+.pd-role {
+  display: block;
+  margin: 4px 0 0;
+  font-size: 0.9em;
+}
+
+.pd-role em {
+  font-style: italic;
+}
+
+.pd-link {
+  font-size: 0.85em;
+  text-decoration: none;
+  color: var(--link-blue, #1a5c38);
+}
+.pd-link:hover {
+  text-decoration: underline;
+}

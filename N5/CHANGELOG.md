@@ -2,6 +2,78 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.0 - 2026-05-13 (Public-domain media citations + Phase 6 polish)
+
+Two new content layers landed in this release:
+
+### Public-domain references — 36 grammar patterns
+
+New `public_domain_refs` field on grammar patterns. 36 patterns now
+carry references to legally-safe authentic Japanese sources, displayed
+in the pattern detail page below the contrasts section.
+
+Source tiers:
+
+| Tier | Source type | Examples | Patterns |
+|---|---|---|---|
+| 1 | Aozora Bunko (PD literature) | 夏目漱石 坊っちゃん, 芥川龍之介 蜘蛛の糸, 太宰治 走れメロス, 宮沢賢治 銀河鉄道の夜, 小泉八雲 怪談 | 14 |
+| 2 | Government works | 日本国憲法 (PD via 著作権法 §13) | 3 |
+| 3 | Traditional proverbs | 千里の道も一歩から, 壁に耳あり, 石の上にも三年, etc. | 11 |
+| 4 | Folk songs | 茶摘み, 桃太郎, ふるさと, うさぎとかめ | 4 |
+| 5 | NHK NEWS WEB EASY | Recommendation only (no quotation) | 4 |
+
+All sources verified legally safe:
+- Aozora Bunko authors all died ≥ 70 years before 2026 (Japan PD threshold).
+- Government works are PD by Japanese 著作権法 §13 ('Works of the State' exception).
+- Proverbs and traditional folk songs are cultural commons (not copyrightable).
+- NHK Easy references are recommendation-only — no quotation, just resource pointer.
+
+This complements (does NOT replace) the audit's TOP-3 strategic-lever
+framing: copyrighted anime/drama/manga citations remain Avoid per
+2026-05-12 maintainer directive (1% legal risk threshold). PD refs
+fill the same authentic-content niche from the legally-safe side.
+
+Each ref entry carries: source_type, work_title, author (with death
+year for PD verification), pd_status, optional canonical URL, context
+(where the pattern appears in the source), and pattern_role (how
+the source illustrates the pattern).
+
+### Phase 6 polish — 13 lowest-quality entries upgraded
+
+Bottom-quartile content lift on the only entries with clear quality gaps:
+
+- **3 placeholder contrast notes** (n5-029, n5-039, n5-040) that said
+  "This is a duplicate entry — see canonical pattern" expanded to
+  proper cross-references explaining the alias relationship + the
+  rule both patterns share.
+- **10 mistake `why` fields** that were terse one-liners (16-32 chars,
+  accurate but no example or context) expanded with full pedagogical
+  explanation including the underlying rule and the broader pattern-
+  family it belongs to.
+
+These were the only entries where polish offered real value beyond the
+"already native-reviewed" baseline. The other ~177 short entries were
+verified accurate-and-concise (not low-quality) and left as-is.
+
+### Renderer
+
+`js/learn-grammar.js` now renders the `public_domain_refs` section
+below contrasts. Source-type variants get distinct CSS accents
+(red for PD literature, blue for government, green for proverbs,
+purple for folk songs, peach for NHK Easy recommendations).
+Per-card layout: work title + optional URL link, author + death year,
+PD status, context paragraph, pattern-role italic explainer.
+
+### Cache version
+
+v1.14.2 → v1.15.0 (minor bump for new content surface, not patch).
+
+### Documentation
+
+- NOTICES.md: new section for the PD references attribution layer.
+- The Procedure Manual (`JLPT Common/procedure-manual-build-next-jlpt-level.md`)
+  Appendix D updated with the audit-cycle close-out learnings.
+
 ## v1.14.2 - 2026-05-12 (Synthetic ambient context audio + anime/drama Avoid decision)
 
 Third audio-cycle release. Closes ISSUE-117 via synthetic ambient

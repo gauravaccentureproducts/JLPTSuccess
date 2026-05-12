@@ -192,6 +192,77 @@ with **gTTS** (Google Translate TTS, single voice). gTTS attribution
 is implicit in its open-source library; no per-file crediting is
 required by its licence.
 
+## Public-domain literary references (Aozora Bunko + government + proverbs + folk songs)
+
+> **Added 2026-05-13 (v1.15.0):** 36 N5 grammar patterns now carry
+> references to legally-safe authentic Japanese sources via a new
+> `public_domain_refs` field. Rendered on the pattern detail page
+> below the contrasts section.
+
+### Aozora Bunko (青空文庫) — PD literature
+
+- **Source:** <https://www.aozora.gr.jp/>
+- **License:** All works cited have authors who died ≥ 70 years
+  before 2026 (Japan copyright is life + 70 years per 著作権法).
+  Each work is in the public domain in Japan and may be freely
+  cited / quoted / reproduced.
+- **Works referenced** (14 patterns):
+  - 夏目漱石 (Natsume Sōseki, 1867-1916): 坊っちゃん, 吾輩は猫である
+  - 芥川龍之介 (Akutagawa Ryūnosuke, 1892-1927): 蜘蛛の糸, 杜子春
+  - 太宰治 (Dazai Osamu, 1909-1948): 走れメロス
+  - 宮沢賢治 (Miyazawa Kenji, 1896-1933): 銀河鉄道の夜, 注文の多い料理店
+  - 小泉八雲 (Lafcadio Hearn, 1850-1904): 怪談
+- **PD verification:** each ref entry includes `author_death_year`
+  and `pd_status` so future contributors can verify when the work
+  became PD.
+
+### Government works (政府著作物)
+
+- **Source:** Japanese Government — Constitution and legal codes.
+- **License:** Public domain by Japanese 著作権法 §13 ('Works of the
+  State' exception). Government works are explicitly PD by statute
+  and may be freely cited.
+- **Works referenced** (3 patterns):
+  - 日本国憲法 (Constitution of Japan) — Preamble and Article 1.
+
+### Traditional proverbs (ことわざ) and folk songs (童謡)
+
+- **Source:** Cultural commons — proverbs and folk songs that have
+  been part of Japanese cultural heritage for centuries.
+- **License:** Not copyrightable (cultural commons / pre-Meiji
+  traditional works). Folk-song lyrics composed before 1900 are
+  PD by default.
+- **Works referenced** (15 patterns):
+  - Proverbs: 千里の道も一歩から, 壁に耳あり障子に目あり, 案ずるより産むが易し,
+    一日一善, 石の上にも三年, 覆水盆に返らず, 明日は明日の風が吹く,
+    猫に小判, 馬の耳に念仏, どうぞよろしくお願いします
+  - Folk songs / Traditional tales: 茶摘み, 桃太郎, ふるさと, うさぎとかめ
+  - Note: ふるさと (lyrics: 高野辰之 died 1947; melody: 岡野貞一 died 1941) —
+    both PD as of 2026. 肩たたき's specific lyrics by 西條八十 (died 1970)
+    remain copyrighted until 2041; only summary-level reference used.
+
+### NHK NEWS WEB EASY — Recommendation only (no quotation)
+
+- **Source:** <https://www3.nhk.or.jp/news/easy/>
+- **License:** NHK content is © NHK. **No direct quotation is made.**
+  References to NHK Easy are educational-resource pointers only —
+  we recommend learners read the site daily but do not reproduce
+  any NHK headlines or article text.
+- **Works referenced** (4 patterns): NHK NEWS WEB EASY (general),
+  NHK NEWS WEB EASY 天気予報 (weather forecast). Both as recommended
+  reading sources, not quotation sources.
+
+### Why this layer exists
+
+The 2026-05-12 richness audit identified an "authentic-content layer"
+as the largest strategic richness lever for the grammar surface.
+The audit's original framing named copyrighted anime/drama/manga
+(しろくまカフェ / ちびまる子ちゃん / etc.) — those were Avoid'd per the
+2026-05-12 maintainer directive (1% legal risk threshold; see CHANGELOG
+v1.14.2). This PD references layer fills the same niche from the
+legally-safe side: same pedagogical value (real Japanese literature
++ government + cultural sources), zero copyright exposure.
+
 ## Kanjium pitch-accent dictionary
 
 - **What it is:** Tokyo-standard pitch-accent drop positions for

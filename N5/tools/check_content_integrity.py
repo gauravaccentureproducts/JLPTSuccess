@@ -940,7 +940,19 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
                            # displays only the role label, not the
                            # character name. Same rationale as the
                            # other explanatory-text exemptions above.
-                           "audio_render_meta"}
+                           "audio_render_meta",
+                           # 2026-05-13 (v1.15.0): public_domain_refs on
+                           # grammar patterns cite literary / government /
+                           # proverb sources with author names and work
+                           # titles that use kanji well beyond N5
+                           # (漱石 / 芥川 / 八雲 / 賢治 / 一葉 / 鷗外 etc.).
+                           # These are CITATION METADATA, not learner-
+                           # facing comprehension content. The renderer
+                           # displays them as authentic external references,
+                           # not as text the learner is expected to parse.
+                           # Same rationale as the other commentary-field
+                           # exemptions above.
+                           "public_domain_refs"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing

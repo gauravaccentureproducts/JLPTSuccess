@@ -592,6 +592,41 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   // CC-BY-SA attribution requirements; they are simply not displayed.
   const citationsHtml = '';
 
+  // Public-domain literature / cultural references (added 2026-05-13):
+  // The `public_domain_refs` field carries legally-safe authentic
+  // citations — Aozora Bunko PD literature, government works, traditional
+  // proverbs, folk songs, and NHK Easy News (recommendation-only).
+  // These are LOW-RISK contrasts to the (deliberately-avoided) copyrighted
+  // anime/drama citations. See NOTICES.md for the legal posture.
+  const pdRefs = Array.isArray(p.public_domain_refs) ? p.public_domain_refs : [];
+  const pdRefsHtml = pdRefs.length ? `
+    <section class="pd-refs">
+      <h3 class="section-title">Public-domain references</h3>
+      <ul class="pd-refs-list">
+        ${pdRefs.map(r => {
+          const source = esc(r.source_type || '?');
+          const title = esc(r.work_title || '');
+          const author = esc(r.author || '');
+          const death = r.author_death_year ? ` (died ${r.author_death_year})` : '';
+          const pd = r.pd_status ? `<span class="pd-status muted small">${esc(r.pd_status)}</span>` : '';
+          const context = r.context ? `<p class="pd-context muted small">${esc(r.context)}</p>` : '';
+          const role = r.pattern_role ? `<p class="pd-role muted small"><em>${esc(r.pattern_role)}</em></p>` : '';
+          const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener" class="pd-link">↗ source</a>` : '';
+          return `
+            <li class="pd-ref pd-ref-${source}">
+              <div class="pd-ref-header">
+                <strong class="pd-work-title" lang="ja">${title}</strong>${link}
+                ${author ? `<span class="pd-author muted small">— ${author}${death}</span>` : ''}
+              </div>
+              ${pd}
+              ${context}
+              ${role}
+            </li>`;
+        }).join('')}
+      </ul>
+    </section>
+  ` : '';
+
   const statusBadge = isMastered
     ? `<span class="status-badge mastered">★ Mastered</span>`
     : isWeak
@@ -702,6 +737,8 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${ladderHtml}
 
       ${citationsHtml}
+
+      ${pdRefsHtml}
 
       <section>
         <h3 class="section-title">意味（やさしい にほんご）</h3>
