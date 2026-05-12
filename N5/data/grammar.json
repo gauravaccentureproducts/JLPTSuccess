@@ -249,7 +249,14 @@
           "why": "Verbs use ません for the polite negative, not じゃありません. じゃありません is only for nouns and な-adjectives."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-002",
+          "note": "〜です / 〜ます is the polite-form predicate ending. The topic-marker は usually pairs with です in introductory sentences (わたしは学生です). The two patterns work together — topic + polite predicate.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "Foundation pattern for all polite-form Japanese. Every other polite-form pattern in N5 builds on it.",
       "review_status": "native_reviewed",
       "sources": [
@@ -5434,7 +5441,14 @@
           "why": "Counters always trigger なん: なんじ, なんにん, なんさい, なんがつ, なんにち, なんようび."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-018",
+          "note": "何 asks about things; だれ asks about people. Both take は or が depending on focus.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -5773,7 +5787,14 @@
           "why": "どなた is polite - using it with close friends sounds stiff. Using だれ with a customer sounds rude. Match the register."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-017",
+          "note": "だれ/どなた asks about PEOPLE; 何（なに/なん）asks about THINGS. どなた is the polite form of だれ — use it in formal contexts.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -6122,7 +6143,14 @@
           "why": "から and まで attach directly to いつ - no space. いつから / いつまで are single units."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-055",
+          "note": "いつ asks for general time (day, year, occasion); なんじ asks for the specific clock time. Don't use なんじ when the question is about a date or general period.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -8473,7 +8501,14 @@
           "why": "Bare verbs cannot be subjects of すき. Add の (or こと) to nominalize: 話すのが すき."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-031",
+          "note": "〜の as a possessive links two nouns (わたしの本 = my book). The SAME particle 〜の also nominalizes verbs/sentences (走るのが好き). Same particle, two distinct grammatical jobs.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -9150,7 +9185,14 @@
           "why": "Nominalizer の turns a verb/adjective clause into a noun phrase ('the act of -ing'). Replacing the whole clause with a noun (日本語の勉強) is grammatical but loses the verbal nuance the speaker intended. Use の to nominalize a clause, not to swap to a noun-only phrasing."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-031",
+          "note": "こと (basic nominalizer) is the formal/written form for turning verbs into noun-equivalents. The colloquial form 〜の (n5-031) does the same job in spoken Japanese.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "sources": [
@@ -9451,7 +9493,20 @@
           "why": "Informal の attaches to PLAIN form, not polite ます-form."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-028",
+          "note": "〜の as a nominalizer turns a verb/clause into a noun-equivalent (たべるのは楽しい). The same 〜の elsewhere is a possessive/genitive link between two nouns.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        },
+        {
+          "with_pattern_id": "n5-030",
+          "note": "〜の nominalizer (たべるの) is the more colloquial form; こと in basic nominalizer use (たべること) is the more formal/written form. Many contexts allow either.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "Pairs with n5-012 (formal か). Use か in polite contexts; use の in casual ones.",
       "review_status": "native_reviewed",
       "meaning_hi": "वाक्य-अंत の - अनौपचारिक प्रश्न-सूचक (सादा-रूप + の?)",
@@ -11519,7 +11574,14 @@
           "why": "ずつ alone means 'each / per' (e.g. 一つずつ = 'one each'). Combining with だけ creates a redundant double-restrictive ('only one each only'). Use ずつ alone unless the intent is 'no more than one each'."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-108",
+          "note": "ずつ is the DISTRIBUTIVE marker that follows a number-counter to mean 'each' (二人ずつ = two each). Plain Number + counter has no distributive nuance.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "प्रत्येक / प्रति (वितरणात्मक)",
@@ -13227,7 +13289,14 @@
           "why": "こんな/そんな/あんな/どんな directly modify the following noun - no の between them and the noun. Compare with これの (incorrect) vs この (correct) for the demonstrative noun-modifier."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-044",
+          "note": "こんな/そんな/あんな/どんな + Noun (こんな本 = this kind of book) — describes a TYPE of thing. こう/そう/ああ/どう is the ADVERB form (こうする = do it like this) — describes a manner of action.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "इस/उस/किस प्रकार का + संज्ञा",
@@ -13545,7 +13614,14 @@
           "why": "こう/そう/ああ/どう modify verbs ('this way' / 'how') and never take の. To modify a noun use こんな; to modify a verb use こう."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-043",
+          "note": "こう/そう/ああ/どう modifies a VERB (こう書く = write like this). こんな/そんな/あんな/どんな + Noun modifies a NOUN (こんな人 = this kind of person).",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "इस तरह / उस तरह / कैसे",
@@ -15961,7 +16037,14 @@
           "why": "どう alone often asks \"how is it?\" (state/quality). For \"by what means\", use どうやって."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-053",
+          "note": "どうやって asks the MANNER (how something is done); いくら asks the AMOUNT (how much / what price). Different question categories despite both being 'how' in English.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कैसे / किस माध्यम से",
@@ -16324,7 +16407,14 @@
           "why": "Both work, but いくら is the standard. なんえん specifically asks 'how many yen'."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-052",
+          "note": "いくら asks the amount or price; どうやって asks the manner. Use どのぐらい for general quantity / duration / distance.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कितना (मूल्य)",
@@ -17032,7 +17122,20 @@
           "why": "Counters trigger なん, never なに. Same for なんにん, なんさい."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-019",
+          "note": "なんじ asks for the clock hour specifically; いつ is the general 'when' for any time period.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        },
+        {
+          "with_pattern_id": "n5-056",
+          "note": "なんじ asks the clock time; なんようび asks the day of the week. Both are answered with specific time-unit nouns.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कितने बजे",
@@ -17362,7 +17465,20 @@
           "why": "何日 (なんにち) asks for the date (the 5th, the 12th); 何曜日 (なんようび) asks for the day of the week (Monday, Tuesday). These are different questions and the readings differ. Beginners often write 何日 when they mean 'what day of the week'."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-055",
+          "note": "なんようび asks the day-of-week; なんじ asks the clock time.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        },
+        {
+          "with_pattern_id": "n5-057",
+          "note": "なんようび asks the day-of-week (月曜日, 火曜日...); なんがつなんにち asks the calendar month-and-day (3月15日).",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "सप्ताह का कौन सा दिन",
@@ -17707,7 +17823,14 @@
           "why": "Month and day are asked separately: 何月 (なんがつ) and 何日 (なんにち), each with its own counter."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-056",
+          "note": "なんがつなんにち asks for the calendar date; なんようび asks for the day-of-week label.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कौन सा महीना / कौन सी तारीख़",
@@ -25217,7 +25340,14 @@
           "why": "Don't insert の between い-adj and noun. の is for noun-noun linking only."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-079",
+          "note": "い-Adjective + Noun directly modifies (大きい家 = a big house). い-Adjective + です ends a sentence with a predicate adjective (家は大きいです = the house is big). Same adjective, modifier-position vs predicate-position.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "い-विशेषण + संज्ञा (सीधे जुड़ता है)",
@@ -31109,7 +31239,14 @@
           "why": "For events/scheduled things (test, meeting, party), use ～が あります. The subject is the event, not its time."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-092",
+          "note": "〜があります = a thing exists / I have an inanimate thing. The fuller pattern 〜に〜があります specifies WHERE the existence holds (テーブルに本があります). Use 〜があります when location is implied or already known.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "For animate possessions (children, pets), use いる/います instead of ある/あります: 子どもが 二人 います ('I have two children'). 「子どもが あります」is non-standard in modern Japanese.",
       "review_status": "native_reviewed",
       "meaning_hi": "है (घटनाएँ, कौशल, संपत्ति)",
@@ -32835,7 +32972,14 @@
           "why": "Stative predicates (すき, きらい, わかる, できる) take が, never を."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-100",
+          "note": "〜がすき/きらい expresses PREFERENCE / emotional liking (映画が好きです). 〜がじょうず/へた expresses SKILL or ability level (テニスがじょうずです). Both use が, but the predicate semantic class differs.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X पसंद / नापसंद",
@@ -33206,7 +33350,14 @@
           "why": "Saying じょうず about yourself sounds boastful. Reserve じょうず for others; for yourself, use とくい or まだまだです."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-099",
+          "note": "〜がじょうず/へた = skill-level adjective. 〜がすき/きらい = preference adjective. Both take が rather than を because the adjective treats the noun as object-of-feeling, not direct object of an action.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X में कुशल / अकुशल",
@@ -33852,7 +34003,14 @@
           "why": "わかる takes が, never を."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-103",
+          "note": "〜がわかります = 'understand X' (cognitive comprehension). 〜ができます = 'can do X' (potential / ability). Different meanings; わかります is mental, できます is performative.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X समझता / जानता हूँ",
@@ -34197,7 +34355,14 @@
           "why": "A learner who only knows the \"can do\" sense will misread 「ばんごはんができました」 as \"I can make dinner\" (wrong). The completion sense is essential for restaurants, schedules, and announcements."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-188",
+          "note": "〜ができます takes a NOUN (日本語ができます = can speak Japanese). V-dictionary + ことができます takes a VERB (話すことができます = can speak). Use the V-form when the ability is about doing a specific action.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X कर सकता हूँ / X की क्षमता है",
@@ -35567,7 +35732,14 @@
           "why": "Use the い-stem (買う → 買い), not the dictionary form, before に + movement verb."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-092",
+          "note": "Verb-stem + に + 行きます/来ます/かえります = 'go to do X' (purpose-of-motion). Contrast with 〜に〜があります which uses に to mark LOCATION rather than purpose.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-तना + に जाना/आना/लौटना - X करने जाना/आना",
@@ -35913,7 +36085,14 @@
           "why": "Need a counter - bare numbers can't quantify nouns."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-038",
+          "note": "Number + counter (1冊/3個/2人) names a quantity. ずつ ('each') adds DISTRIBUTIVE meaning: 一つずつ = 'one each'. Use ずつ when each member of a group gets the same amount.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "つ-counter (ひとつ to ここのつ + とお) works for almost anything when in doubt - safe fallback.",
       "review_status": "native_reviewed",
       "meaning_hi": "संख्या + गणक - गिनती (人, まい, 本, さつ, つ आदि)",
@@ -36885,7 +37064,14 @@
           "why": "4時 is read よじ, not しじ. Same as 7時 = しちじ (not なな)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-112",
+          "note": "〜じ counts hours on the clock (3時 = 3:00); 〜ふん/ぷん counts minutes (15分 = 15 minutes / quarter past). Combine: 3時15分 = 3:15.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~बजे (समय-गणक)",
@@ -37178,7 +37364,14 @@
           "why": "ふん vs ぷん is determined by the preceding number. 1, 3, 4, 6, 8, 10 -> ぷん (gemination); 2, 5, 7, 9 -> ふん. Beginners memorise one form and apply it everywhere. Practice: 1ぷん, 2ふん, 3ぷん, 4ぷん, 5ふん..."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-113",
+          "note": "〜ふん/ぷん gives explicit minutes (30分); 〜じはん is the contracted form meaning 'half past the hour' (3時はん = 3:30). Native speakers prefer はん over 30分 in casual speech.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~मिनट (समय-गणक)",
@@ -37485,7 +37678,14 @@
           "why": "In casual speech, 三十分 (sanjuppun) is replaced by はん (han). 三時はん = \"3:30\" / \"half past 3\"."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-112",
+          "note": "〜じはん = exactly 'X-thirty'; 〜ふん/ぷん gives any minute count. はん replaces 30分 only at the half-hour.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~बजे आधा (~30 मिनट)",
@@ -38463,7 +38663,14 @@
           "why": "まい-time words don't take に - they're already adverbs."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-117",
+          "note": "毎日/毎週/毎月/毎年 marks RECURRING time intervals (every day, every week...); 今日/あした/きのう refers to SPECIFIC calendar days. Pair them: 毎日、今日は…",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "हर दिन / सप्ताह / महीना / वर्ष",
@@ -38804,7 +39011,14 @@
           "why": "Relative time words take no particle."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-118",
+          "note": "今日/あした/きのう = specific calendar days (today, tomorrow, yesterday). 今/すぐ/もう/まだ = aspect adverbs (now, soon, already, still). Use 今 when speaking about THIS moment, 今日 about today's entire span.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "समय-शब्दावली: आज / कल / परसों आदि",
@@ -39161,7 +39375,14 @@
           "why": "For \"haven't eaten yet\", use まだ + negative-progressive (まだ食べていません), not もう + negative."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-154",
+          "note": "今/すぐ/もう/まだ are time-aspect adverbs that PRECEDE verbs (もう食べました = I already ate). もう + V-ました explicitly combines もう with the past-perfect, the highest-frequency もう pattern.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "अब / तुरंत / अब तक / अभी नहीं",
@@ -40660,7 +40881,14 @@
           "why": "それから connects sequential past events; both clauses should match in tense."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-124",
+          "note": "それから = sequential connector ('and then', 'after that'). しかし = adversative connector ('but', 'however'). Don't substitute one for the other — different discourse functions.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "और फिर / उसके बाद",
@@ -41408,7 +41636,14 @@
           "why": "しかし is formal/written; in casual conversation, でも is more natural."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-122",
+          "note": "しかし introduces CONTRAST; それから introduces SEQUENCE. しかし is more formal than でも; both express 'but' but しかし fits written/announcement contexts.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "परंतु / किंतु (औपचारिक विरोध)",
@@ -44909,7 +45144,14 @@
           "why": "Use plain form (買った), never ました, in modifying clauses."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-084",
+          "note": "V-plain + Noun is a relative clause (食べる人 = a person who eats). な-Adjective + な + Noun is a noun-modifier (きれいな人 = a beautiful person). Both modify nouns but using different word-class syntax.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया (सादा) + संज्ञा - मूल सापेक्ष-वाक्य",
@@ -45940,7 +46182,14 @@
           "why": "\"Choose / decide on X\" uses に, not を. を します means \"do X\" (action verb)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-143",
+          "note": "〜にします = the speaker DELIBERATELY chooses/decides (コーヒーにします = I'll have coffee). 〜になります = something CHANGES STATE naturally (寒くなります = it becomes cold). Different agency: にします is volitional, になります is descriptive.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X निर्णय लेना / चुनना",
@@ -46263,7 +46512,14 @@
           "why": "い-adj drop い and use くなる, not に."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-142",
+          "note": "〜になります describes a change happening (春になりました = spring has come). 〜にします is the speaker's act of selecting (これにします = I'll go with this one).",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X बन जाना / X-कर हो जाना",
@@ -46976,7 +47232,20 @@
           "why": "Use PLAIN form before と: noun + だ, い-adj + plain. Don't insert です."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-146",
+          "note": "〜とおもいます = 'I THINK X' (speaker's opinion / hedged statement). 〜と言いました = 'X SAID' (reporting someone else's words). Same particle と but different speech-acts.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        },
+        {
+          "with_pattern_id": "n5-178",
+          "note": "〜とおもいます = 'I think (probably) X' (speaker's belief). 〜つもりだ = 'I intend to X' (speaker's plan/resolve). Belief vs intention — don't conflate.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X सोचता हूँ",
@@ -47331,7 +47600,20 @@
           "why": "Quotative particle is と, not を. Quoted clause stays in plain form before と (not 行くを)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-145",
+          "note": "〜と言いました reports speech literally ('they said X'). 〜とおもいます reports the speaker's own opinion. The と marks quoted/thought content in both.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        },
+        {
+          "with_pattern_id": "n5-179",
+          "note": "〜と言いました is the POLITE quotation form. 〜って is the CASUAL contraction of と言って/と言う — heard in conversation but not formal writing. Same content, different register.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "X कहा",
@@ -47690,7 +47972,14 @@
           "why": "ぜんぜん requires a negative verb."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-148",
+          "note": "よく/ときどき/あまり/ぜんぜん describes frequency QUANTITY: often / sometimes / not much / never. いつも/たいてい/たまに describes frequency PROPORTION: always / usually / occasionally. The two sets overlap pragmatically; いつも is highest, ぜんぜん is lowest.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "आवृत्ति-क्रिया-विशेषण: अक्सर / कभी-कभी / अधिक नहीं / बिलकुल नहीं",
@@ -48053,7 +48342,14 @@
           "why": "いつも is \"always\"  -  does not pair with negation. Use ぜんぜん or just the negative verb for \"never\"."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-147",
+          "note": "いつも/たいてい/たまに sits on the 'always-rare' axis. よく/ときどき/あまり/ぜんぜん sits on the 'often-never' axis. Native usage often combines: たいていよく eats out = 'usually often eats out'.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "हमेशा / आमतौर पर / कभी-कभार",
@@ -48354,7 +48650,14 @@
           "why": "を is required between noun and ください in standard speech. Drop is colloquial only."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-150",
+          "note": "〜をください is the standard polite request ('please give me X'). 〜をおねがいします is slightly MORE polite / formal — often used in restaurants and customer-service contexts. Genki teaches them as near-synonyms.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "कृपया मुझे ~ दीजिए",
@@ -48697,7 +49000,20 @@
           "why": "Both work, but おねがいします is more polite/standard for ordering at a restaurant or making polite requests."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-149",
+          "note": "〜をおねがいします is more deferential than 〜をください — use it when asking for service (お水をおねがいします in a restaurant). 〜をください works for any polite request.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        },
+        {
+          "with_pattern_id": "n5-151",
+          "note": "〜をおねがいします is a REQUEST ('I'd like X please'). 〜はいかがですか is an OFFER ('How about X / would you like X?'). The first is for the customer; the second is what the staff says.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "मुझे ~ चाहिए / कृपया दीजिए (くださいसे अधिक विनम्र)",
@@ -49033,7 +49349,14 @@
           "why": "いかが is the polite form of どう. When offering to customers / superiors, use いかが."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-150",
+          "note": "〜はいかがですか is the OFFER form used by service staff (How about X? / Would you care for X?). 〜をおねがいします (n5-150) is what the customer says in reply when accepting.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~कैसा रहेगा? (विनम्र प्रस्ताव)",
@@ -49406,7 +49729,14 @@
           "why": "どうぞ = \"please go ahead / here you are\" (offering). For \"thanks\", pair ありがとう with どうも, not どうぞ."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-166",
+          "note": "どうぞ/どうも/すみません/おねがいします are flexible courtesy openers/closers. The greeting-set (いただきます/ごちそうさま/おはようございます) are FIXED ritual phrases tied to specific situations (meals, time of day).",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "विनम्र वाक्यांश-समूह: どうぞ / どうも / すみません / おねがいします",
@@ -50142,7 +50472,14 @@
           "why": "もう = \"already\" requires past (～ました). Present tense もう食べます would mean \"I'll eat now\", not \"already ate\"."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-118",
+          "note": "もう + V-ました = 'already done X' (完了 perfect aspect). The same もう also pairs with まだ/もうすぐ in n5-118 to mark non-completion or imminence.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "पहले से ही (कार्य पूर्ण)",
@@ -51120,7 +51457,14 @@
           "why": "でしょう attaches directly to the noun/adj/verb-plain form, NOT to です. です + でしょう is double-copula."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-145",
+          "note": "〜でしょう conveys probability/conjecture often with rising intonation seeking agreement (明日は雨でしょう = It'll probably rain tomorrow, right?). 〜とおもいます is the speaker's INTERNAL opinion (明日は雨だとおもいます). でしょう invites listener confirmation; とおもいます doesn't.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "Borderline N5.",
       "review_status": "native_reviewed",
       "meaning_hi": "शायद / है ना?",
@@ -53547,7 +53891,14 @@
           "why": "Don't put さん on your own name - it sounds bizarrely self-honorific."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-165",
+          "note": "〜さん is the standard person-suffix (田中さん). お〜/ご〜 is the noun-prefix that adds politeness to objects (お水, ご家族). Different scope: 〜さん attaches to names, お〜 attaches to common nouns.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~さん - नाम-प्रत्यय (जी / श्री / श्रीमती)",
@@ -53882,7 +54233,14 @@
           "why": "お~ attaches to native (和語) words; ご~ attaches to Sino-Japanese (漢語) words. 電話 is 漢語 so ご should win - but 電話 has been so thoroughly nativised that お電話 is the standard. Exception lists matter: お+和語, ご+漢語 with documented overrides."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-164",
+          "note": "お〜 (wago nouns) / ご〜 (kango nouns) prefix adds politeness to nouns. 〜さん attaches to people's names. Both elevate register but target different word classes.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "お~ / ご~ - सम्मानजनक / आदर-उपसर्ग",
@@ -54222,7 +54580,14 @@
           "why": "いただきます = before eating; ごちそうさま = after eating. Don't reverse them."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-152",
+          "note": "Greetings (いただきます etc.) are RITUAL set phrases — they only fit their specific occasion. どうぞ/どうも/すみません are flexible courtesy markers used across many contexts.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "सेट अभिवादन: いただきます / ごちそうさま / おはようございます आदि",
@@ -56356,7 +56721,14 @@
           "why": "The set phrase requires も between なくて and いい: ～なくても いい. Without も it sounds like \"don't go and it's fine\"."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-173",
+          "note": "〜なくてもいい = 'don't have to do X' (PERMISSION to skip). 〜なくてはいけない = 'must do X / can't skip X' (OBLIGATION). Direct logical opposites — beware swapping them.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "Upper N5 / borderline.",
       "review_status": "native_reviewed",
       "meaning_hi": "~नहीं करना भी ठीक है (~なくてもいい)",
@@ -56715,7 +57087,14 @@
           "why": "～なくては attaches to the negative-stem (ない-form base): 行か + なくては. NOT to the polite-stem 行き."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-172",
+          "note": "〜なくてはいけない = OBLIGATION ('I have to'). 〜なくてもいい = no obligation ('I don't have to'). The ない-stem branches into 'must' vs 'don't need to'.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "Upper N5 / borderline.",
       "review_status": "native_reviewed",
       "meaning_hi": "अवश्य करना चाहिए (~なくてはいけない)",
@@ -58013,7 +58392,14 @@
           "why": "～すぎる attaches to verb-STEM (the ます-form minus ます), not to the て-form. 食べる -> 食べ + すぎる -> 食べすぎる. Adjectives use the root: 高い -> 高すぎる; 静か -> 静かすぎる."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-079",
+          "note": "Verb-stem / Adj-stem + すぎる means 'too much / excessive' (食べすぎる = eat too much; 大きすぎる = too big). For い-adjectives, drop the い before adding すぎる (大きい → 大きすぎる).",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-तना / विशेषण-तना + すぎる - बहुत ज़्यादा",
@@ -58356,7 +58742,14 @@
           "why": "つもり attaches to the PLAIN form (行く), not the polite form (行きます)."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-145",
+          "note": "〜つもりだ commits to a future action ('I plan to'). 〜とおもいます softens an opinion ('I think...'). Native speakers use つもり for plans and とおもう for guesses.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-सादा + つもりだ - करने का इरादा",
@@ -58679,7 +59072,14 @@
           "why": "って is a casual contraction of という / と言って. In formal speech / writing it sounds slangy. Beginners overuse って in formal contexts where と言う is appropriate."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-146",
+          "note": "〜って is the casual/colloquial quotation form. 〜と言いました is the polite explicit form. Use って with friends, と言いました in reports/exams.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~って - अनौ. उद्धरण-सूचक / विषय-परिचय",
@@ -59027,7 +59427,14 @@
           "why": "For Group-2 verbs, drop the final る before adding かた: 食べる → 食べ + かた."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-058",
+          "note": "Verb-stem + 〜かた = 'way / method of doing' (たべかた = way of eating). Same stem extraction as the 〜ます form: drop ます from V-ます, append かた.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-तना + ~कた - करने का तरीक़ा",
@@ -59349,7 +59756,14 @@
           "why": "なあ is a sentence-final exclamation particle; it doesn't combine with です. Either use the exclamation alone (casual) or use the polite ですね (no exclamation). Mixing them ('exclamation + politeness') sounds awkward."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-182",
+          "note": "〜なあ is an EXCLAMATORY sentence-final particle (きれいだなあ = how pretty!). The SAME な on V-plain forms a PROHIBITIVE (行くな = don't go!). Different syntactic environments: exclamation after copula/adjective vs imperative after verb-dictionary.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "~なあ - वाक्य-अंत भावुक उद्गार (\"बहुत~ लगता है\")",
@@ -59643,7 +60057,14 @@
           "why": "〜な is harsh and casual - only with very close friends, kids, or in shouts."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-181",
+          "note": "V-dictionary + な is a strong CASUAL prohibitive ('don't!') — male-coded, often considered rough. 〜なあ ending an adjective/copula sentence is an emotional exclamation, register-neutral.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-सादा + な - दृढ़/अनौ. निषेध (\"मत करो!\")",
@@ -59909,7 +60330,14 @@
           "why": "With negative verbs, use なにも (nothing). なにか + negative is ungrammatical."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-017",
+          "note": "Question-word + か forms an INDEFINITE pronoun (だれか someone, 何か something); the bare question word asks an actual question.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "",
       "review_status": "native_reviewed",
       "meaning_hi": "प्रश्न-शब्द + か / も - कुछ / कोई संयोजन",
@@ -61588,7 +62016,14 @@
           "why": "At N5 the こと-form is taught; the bare potential form 話せる is N4. They mean the same thing but stick to the こと-form for the N5 exam."
         }
       ],
-      "contrasts": [],
+      "contrasts": [
+        {
+          "with_pattern_id": "n5-103",
+          "note": "V-dictionary + ことができます explicitly says 'be able to do [verb]'. The simpler 〜ができます uses a noun. Both express potential but differ in syntactic input.",
+          "provenance": "llm_curated",
+          "audit_wave": "issue-118-wave4-2026-05-12"
+        }
+      ],
       "notes": "Pairs with n5-103 (noun + ～ができます): use n5-103 when the thing-you-can-do is a noun (skill / language / activity); use this pattern when it's a verb (action). Many textbooks introduce both in the same lesson.",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-शब्दकोश + ことができます - कर सकना (उत्पादक सकता है-do रूप)",

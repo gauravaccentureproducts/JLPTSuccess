@@ -893,7 +893,17 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
                            # mirrors reflection_prompts — open-ended
                            # follow-up questions whose Japanese phrasing
                            # naturally uses analytical N4+ vocabulary.
-                           "inference_question_expansion"}
+                           "inference_question_expansion",
+                           # ISSUE-118 wave 4 (2026-05-12): contrasts notes
+                           # are pedagogical commentary that explains the
+                           # distinction between two grammar patterns and
+                           # naturally cites illustrative example phrases
+                           # ("映画が好きです", "1冊/3個/2人", "大きい家")
+                           # whose kanji set may exceed the strict N5
+                           # whitelist. Same rationale as cultural_callout
+                           # and etymology — explanatory text that needs
+                           # natural Japanese, not curriculum-bound input.
+                           "contrasts"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing
