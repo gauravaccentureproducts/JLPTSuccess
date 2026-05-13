@@ -188,27 +188,38 @@ A11. Mixed orthography for the same morpheme
        いきます」 vs 「あしたがっこうにいきます」 — pick one for the
        N5 listening / dokkai surface; document the choice).
 
-A12. meaning_ja CROSS-CONTAMINATION (added 2026-05-13 — session-3 lesson)
-     A specific failure mode caught 28 times across 3 native-teacher
-     audit runs. The `meaning_ja` field's leading 「marker」 must
-     reference the SAME grammar point as the entry's `pattern` field.
-     Catastrophic failure mode: meaning_ja describes a completely
-     different rule.
-     Examples caught (now fixed; included as documented FAIL cases):
+A12. meaning_ja CROSS-CONTAMINATION (added 2026-05-13; closed by JA-75)
+     A failure mode caught 28 times across 3 native-teacher audit
+     runs before JA-75 locked it down. The `meaning_ja` field's
+     leading 「marker」 must reference the SAME grammar point as the
+     entry's `pattern` field. Catastrophic failure mode: meaning_ja
+     describes a completely different rule.
+     Examples caught (now fixed; documented for reference):
        - n5-110 (counter pattern) had meaning_ja about 〜たい
        - n5-126 (が) had meaning_ja about 〜から、〜
        - n5-142 (〜にします) had meaning_ja about な-Adj+な+めいし
        - n5-154 (もう+ました) had meaning_ja about へ direction
        - n5-183 (Question word + か/も) had meaning_ja about Verb-た+ことがある
-     The CI invariant JA-71 catches the egregious "no character
-     overlap" cases. It WILL miss subtle cases where the wrong
-     meaning_ja happens to contain 1 incidental character from the
-     pattern (も, が, です, ます are common N5 chars that coincidentally
-     overlap with many wrong markers). Manual sampling REQUIRED to
-     catch the JA-71-missed subset. When sampling, verify:
-       - meaning_ja's first 「marker」 directly references the pattern
-       - The grammar-point being described matches what the entry
-         actually teaches (not just an incidental character match)
+
+     CURRENT GUARDS (in order of strength):
+       1. JA-75 (PRIMARY — installed 2026-05-13): per-pattern
+          `_meaning_ja_markers` list (internal metadata, snapshot of
+          the verified-correct meaning_ja's distinctive vocabulary).
+          meaning_ja must contain at least 2 markers, OR at least 1
+          distinctive (>=3-char) marker. Catches future drift AWAY
+          from the verified state — including subtle 1-char-overlap
+          cases that JA-71 missed.
+       2. JA-71 (SECONDARY): character-overlap heuristic. Still
+          green; serves as a coarse first-line check. Limitation:
+          single-char incidental overlap (も, が, で) lets contamination
+          pass — that's why JA-75 supersedes it.
+
+     What JA-75 STILL cannot catch:
+       - Edits that PRESERVE the marker vocabulary but reword the
+         actual meaning (rare; would require LLM semantic comparison).
+       - Authoring of a brand-new pattern where the markers themselves
+         get authored incorrectly from the start.
+     For these, manual native-teacher sampling remains the catch-all.
 
 A13. PITCH-ACCENT MORA COUNT ERRORS (added 2026-05-13)
      Tokyo NHK convention: each kana = 1 mora, EXCEPT small kana
@@ -660,7 +671,7 @@ CI INVARIANTS RELEVANT TO THIS AUDIT (verify these pre-audit)
 ============================================================
 
 Before opening any finding, run `python tools/check_content_integrity.py`
-and confirm 78/78 invariants are green. If any FAIL, the audit is
+and confirm 79/79 invariants are green. If any FAIL, the audit is
 running on broken baseline data and findings may be artifacts.
 
 Key invariants for language-accuracy work:
@@ -673,13 +684,20 @@ Key invariants for language-accuracy work:
   JA-68  Cache version 3-place sync (2026-05-13)
   JA-69  public_domain_refs legal-status guard (2026-05-13)
   JA-70  Vocab pitch_accent.mora == count_mora(reading) (2026-05-13)
-  JA-71  Grammar meaning_ja first marker overlaps with pattern (2026-05-13)
+  JA-71  Grammar meaning_ja first marker overlaps with pattern (2026-05-13) — coarse first-line; superseded by JA-75 for the cross-contamination class
   JA-72  Gairaigo vocab uses katakana form (2026-05-13)
   JA-73  Reading questions use canonical prompt_ja key (2026-05-13)
   JA-74  Vocab reading is single kana; multi-reading uses readings[] (2026-05-13)
+  JA-75  meaning_ja must contain ≥2 markers (or 1 distinctive ≥3-char marker)
+         from its pattern's _meaning_ja_markers snapshot (2026-05-13 — closes
+         the JA-71 limitation; catches subtle 1-char-overlap contamination)
 
 Manual sampling responsibilities (CI cannot catch these):
-  - Subtle meaning_ja cross-contamination (JA-71 catches obvious only)
+  - meaning_ja edits that PRESERVE marker vocabulary but reword the
+    actual meaning (rare; would require LLM semantic check)
+  - Authoring of NEW patterns where the markers themselves are wrong
+    from the start (JA-75 only protects against drift from the
+    verified state)
   - Naturalness of example sentences (no JA-* check; native ear required)
   - Register stack correctness inside individual common_mistakes
   - Cultural-context accuracy in callouts
@@ -693,8 +711,10 @@ This audit prompt was sharpened during a 2026-05-13 audit cycle that
 ran the native-teacher pass 3 times. Calibration data points:
 
 ERROR-RATE FLOORS BY CATEGORY (what to expect even on a "clean" corpus):
-  - Cross-contaminated meaning_ja: ~2-3 per 178 patterns (JA-71-missed
-    subset). Expect to find 1-3 each run.
+  - Cross-contaminated meaning_ja: WAS 1-3 per run; NOW close to
+    zero after JA-75 installed (2026-05-13, commit b9b0ac5). Subtle
+    drift can still happen on new pattern authoring; locked
+    snapshots cover everything else.
   - Schema-drift residue from cleanup cascades: ~5-10 entries per
     refactor batch (T-2 → see_also; G-2 → cross-link target normalization).
   - Above-N5 kanji slipping into newly-authored explanation_en:
