@@ -64,8 +64,8 @@ JLPTSuccess/
 │   ├── sw.js                         N5-scoped service worker
 │   ├── css/main.css + main.min.css   N5 styling
 │   ├── js/                           35 JS modules (see §6)
-│   ├── data/                         41 JSON data files (see §7)
-│   ├── KnowledgeBank/                9 markdown source-of-truth files
+│   ├── data/                         41 JSON data files (see §7) — single source of truth
+│   ├── docs/                         documentation (incl. N5-syllabus-methodology.md — scope + sources + authoring conventions)
 │   ├── locales/                      2 i18n bundles (en/hi) - narrowed 2026-05-06 (IMP-096)
 │   ├── audio/                        711 MP3 files (grammar/reading/listening)
 │   ├── svg/kanji/                    106 stroke-order SVGs from KanjiVG
@@ -83,7 +83,7 @@ JLPTSuccess/
 
 - **localStorage** - N5 keys are prefixed `jlpt-n5-tutor:*`. No collision with future N4/N3/N2/N1 entries.
 - **Service worker scope** - registered against `/JLPTSuccess/N5/`, so caches are entirely separate from sibling levels.
-- **Build pipeline** - N5 has its own `tools/`, `KnowledgeBank/`, integrity invariants, tests. No shared build infrastructure.
+- **Build pipeline** - N5 has its own `tools/`, integrity invariants, tests. No shared build infrastructure. (Former `KnowledgeBank/` directory merged into `data/` + `docs/N5-syllabus-methodology.md` on 2026-05-14.)
 
 ### 3.3 Cross-app navigation
 
@@ -253,18 +253,18 @@ Unified daily review queue across grammar + vocab + kanji. FSRS-4.5 scheduler ag
 
 ## 7. Data model
 
-**41 JSON files in `data/`** drive the runtime. Source-of-truth markdown lives in `KnowledgeBank/` and is parsed into JSON by `tools/build_data.py` (and friends).
+**41 JSON files in `data/`** drive the runtime and ARE the single source of truth. The former `KnowledgeBank/` markdown directory (initial scope reference; never updated past initial monorepo commit) was merged into `data/` + `docs/N5-syllabus-methodology.md` on 2026-05-14.
 
 ### 7.1 Content scale
 
-| Resource | Count | Source file | Source markdown |
-|---|---|---|---|
-| Grammar patterns | **178** | `data/grammar.json` | `KnowledgeBank/grammar_n5.md` |
-| Vocab entries | **1041** | `data/vocab.json` | `KnowledgeBank/vocabulary_n5.md` |
-| Kanji entries | **106** | `data/kanji.json` | `KnowledgeBank/kanji_n5.md` |
-| Reading passages | **45** | `data/reading.json` | `KnowledgeBank/dokkai_questions_n5.md` |
-| Listening items | **47** | `data/listening.json` | `KnowledgeBank/chokai_questions_n5.md` |
-| Question bank (raw) | **290** | `data/questions.json` | various `*_questions_n5.md` |
+| Resource | Count | Source file |
+|---|---|---|
+| Grammar patterns | **178** | `data/grammar.json` |
+| Vocab entries | **1009** | `data/vocab.json` |
+| Kanji entries | **106** | `data/kanji.json` |
+| Reading passages | **54** | `data/reading.json` |
+| Listening items | **50** | `data/listening.json` |
+| Question bank (raw) | **290** | `data/questions.json` |
 | Mock test papers | **29** (4 per-section + chokai virtual) | `data/papers/manifest.json` + per-paper files | derived; chokai is a virtual aggregator over listening pool |
 | Paper-bound questions | **426** (incl. 24 chokai) | (across paper files) | derived |
 | Combined virtual papers | 14 (7 per real-JLPT section pair) | `manifest.combined_sections` | derived |

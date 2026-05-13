@@ -9,7 +9,7 @@ The user has explicitly authorized the following classes of action **without per
 - **All file edits and writes** in this project tree, including:
   - `.github/workflows/*.yml` - CI workflow files
   - `.claude/*` - Claude config
-  - `KnowledgeBank/*`, `data/*`, `tools/*`, `specifications/*`, `feedback/*`, `js/*`, `css/*`, `locales/*` - all project content
+  - `data/*`, `docs/*`, `tools/*`, `specifications/*`, `feedback/*`, `js/*`, `css/*`, `locales/*` - all project content (the former `KnowledgeBank/` directory was merged into `data/` + `docs/N5-syllabus-methodology.md` on 2026-05-14 as a single source of truth)
 - **Git push to remote** (`git push origin main`, `git push origin HEAD`, `git push origin <branch>`) - proceed without asking
 - **Git commit** - including `git commit -m "msg"` AND heredoc-style `git commit -m "$(cat <<'EOF' ... EOF)"` AND batched `git add ... && git commit -m ... && git push ...` chains - proceed without asking
 - **Git add / status / diff / log / show** - including all `cd "..." && git <cmd>` compound forms - proceed without asking

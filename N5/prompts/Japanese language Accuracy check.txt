@@ -349,26 +349,22 @@ DATA FILES (machine-readable, derived corpus):
                                 (moji / goi / bunpou / dokkai), plus
                                 chokai virtual + full-mock 85-Q sittings.
 
-KNOWLEDGEBANK FILES (N5 SCOPE REFERENCE — canonical human-readable
-list of what is in scope for each paper section. NOT the structured
-authoring source; the data/*.json files are the live source-of-truth
-for teaching content + enrichment. KB is consulted to verify scope
-correctness only):
-- KnowledgeBank/grammar_n5.md — N5 grammar pattern inventory (scope list)
-- KnowledgeBank/vocabulary_n5.md — N5 vocab inventory (form/reading/gloss list)
-- KnowledgeBank/kanji_n5.md — 106 N5 kanji inventory + readings
-- KnowledgeBank/moji_questions_n5.md — moji question-section scope
-- KnowledgeBank/goi_questions_n5.md — goi question-section scope
-- KnowledgeBank/bunpou_questions_n5.md — bunpou question-section scope
-- KnowledgeBank/dokkai_questions_n5.md — dokkai question-section scope
-- KnowledgeBank/sources.md — provenance + citations
+METHODOLOGY + SCOPE REFERENCE:
+- docs/N5-syllabus-methodology.md — single human-readable consolidation
+  of N5 scope, source citations, pedagogical-curation policy, vocab /
+  kanji / grammar / question authoring conventions.
 
-Scope verification path: `tools/build_data.py` is a comparison-only
-tool (since run-4 2026-05-14) that reports KB-vs-live-whitelist drift
-without writing. Run it to detect scope drift between KB and the
-hand-tuned `data/n5_*_whitelist.json` files. Drift in the whitelist
-JSONs is the canonical CI input; drift in KB itself is documentation
-that may need refresh.
+LIVE SOURCE-OF-TRUTH (single):
+- data/grammar.json, data/vocab.json, data/kanji.json — content + enrichment
+- data/papers/{moji,goi,bunpou,dokkai}/*.json — paper questions (full)
+- data/n5_kanji_whitelist.json, data/n5_kanji_readings.json,
+  data/n5_vocab_whitelist.json — canonical scope whitelists used by CI
+
+NOTE: The former KnowledgeBank/ directory was deleted 2026-05-14. All
+unique methodology + source citations + authoring conventions migrated
+to docs/N5-syllabus-methodology.md. Membership scope content lives in
+data/*.json. Question content lives in data/papers/*/*.json. There is
+no longer a second "scope reference" copy outside data/.
 
 ============================================================
 WHAT IS IN SCOPE FOR FINDINGS
@@ -898,7 +894,7 @@ Total issues: N  (Critical: X, Major: Y, Minor: Z)
 [F-1] CRITICAL — Japanese accuracy — <one-line summary>
    Location:   <JSON path or KB line number, e.g. data/grammar.json
                 patterns[n5-181].politeness_ladder.humble OR
-                KnowledgeBank/grammar_n5.md line 247>
+                data/grammar.json patterns[n5-NNN].field>
    Found:      "<offending text verbatim>"
    Issue:      <one-paragraph teacher-grade explanation; cite a
                 textbook or rule reference where relevant>

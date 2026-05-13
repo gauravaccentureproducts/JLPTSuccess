@@ -22,7 +22,7 @@ Every byte of the following is original work (counts current as of 2026-05-11):
 |---|---|---|
 | `data/grammar.json` (178 patterns) | 178 patterns × ≥4 examples each, all with `meaning_hi` + `explanation_hi` + `l1_notes.hi` | Project authors, with a per-pattern `examples` array hand-written to illustrate the pattern in N5-scope vocabulary |
 | `data/questions.json` (290 MCQ + variants) | 290 stems + distractor sets | Project authors, with `tools/add_uncovered_questions*.py` documenting the conventions for adding more |
-| `data/papers/*/paper-*.json` (29 papers × 426 paper questions across moji / goi / bunpou / dokkai + chokai virtual paper + full-mock 85-Q × 105-min papers) | 29 papers · 426 questions | Project authors, sourced from internal `KnowledgeBank/*_questions_n5.md` mock files (also authored by project - see provenance audit, §3) |
+| `data/papers/*/paper-*.json` (29 papers × 426 paper questions across moji / goi / bunpou / dokkai + chokai virtual paper + full-mock 85-Q × 105-min papers) | 29 papers · 426 questions | Project authors. Originally drafted in `KnowledgeBank/*_questions_n5.md` (deleted 2026-05-14; content merged into the paper JSON files as the single source of truth — see `docs/N5-syllabus-methodology.md`). See provenance audit §3. |
 | `data/reading.json` (54 passages) | 54 short passages + comprehension Qs, all with `summary_hi` + `cultural_context` where Japan-specific | Project authors, with stems written to N5 kanji whitelist + format alignment with JEES sample papers |
 | `data/listening.json` (50 drills) | 50 dialogue/monologue scripts + 50 questions, all with `explanation_hi` and multi-voice 男:/女: role tagging for VOICEVOX synthesis | Project authors |
 | `data/vocab.json` (1009 entries) | 1009 form/reading/gloss/section/pos rows, all with `gloss_hi`; 134 verbs with `verb_class` + 6 X-6.6 group-1 exception flags; 87 nouns with `counter`; pitch-accent + collocations on high-frequency entries (count reflects post-2026-05-08 structural-dedup pass, was 1041 pre-dedup) | Compiled by project authors from public N5-syllabus references (see §4) |
@@ -55,7 +55,8 @@ Bundled third-party content is documented in [`NOTICES.md`](./NOTICES.md):
   no per-file crediting required by its licence.
 
 That's the entire third-party surface. Everything else under `data/`
-and `KnowledgeBank/` is original.
+(and the now-deleted `KnowledgeBank/` — see `docs/N5-syllabus-methodology.md`
+for the merge history) is original.
 
 ## 3. Provenance audit (automated)
 
@@ -98,8 +99,8 @@ deliberately so the student's practice transfers to the real exam.
 
 ## 6. What this project does NOT do
 
-- **No verbatim past-paper text.** Not in any data file, KnowledgeBank
-  source file, or example.
+- **No verbatim past-paper text.** Not in any data file, methodology
+  document, or example.
 - **No translated past-paper text.** Translation is a derivative
   work; even an English version of a Japanese past-paper question
   would be infringement.

@@ -1,7 +1,11 @@
 # n5_vocab_whitelist.json - Design
 
-This whitelist is **generated** from `KnowledgeBank/vocabulary_n5.md` by
-`tools/build_data.py`. It is not a hand-curated mirror of `data/vocab.json`.
+This whitelist is the **hand-tuned canonical N5 vocab scope**, used by
+CI for scope enforcement. The file was originally generated from
+`KnowledgeBank/vocabulary_n5.md` (the now-deleted scope-reference
+directory; merged into `docs/N5-syllabus-methodology.md` + data/ on
+2026-05-14 as a single source of truth). Since the merge, the whitelist
+is hand-maintained as a flat token list -- no longer regenerated.
 
 ## Purpose
 
@@ -54,14 +58,13 @@ The size difference (1041 entries vs 969 unique tokens) reflects:
 
 ## Maintenance
 
-  - **Adding a new word to N5 scope**: edit `vocabulary_n5.md`, then
-    run `python tools/build_data.py` to regenerate
-    `n5_vocab_whitelist.json`. Also add a structured entry to
-    `data/vocab.json` (form, reading, gloss, section, pos, examples)
-    so the catalog stays aligned.
-  - **Removing a deprecated form**: edit `vocabulary_n5.md` to remove
-    the line, regenerate the whitelist, and remove the corresponding
-    `data/vocab.json` entry (or update its multi-form notation if the
-    other form in a pair stays).
+  - **Adding a new word to N5 scope**: add the token directly to this
+    JSON (must be sorted), add a structured entry to `data/vocab.json`
+    (form, reading, gloss, section, pos, examples), and update CI
+    invariants if needed. Document the addition in
+    `docs/N5-syllabus-methodology.md` if it affects scope policy.
+  - **Removing a deprecated form**: remove the token from this JSON
+    and remove the corresponding `data/vocab.json` entry.
 
-The whitelist is a **derived artifact** - never edit it by hand.
+The whitelist is **hand-maintained** post-2026-05-14 (was a generated
+artifact before).

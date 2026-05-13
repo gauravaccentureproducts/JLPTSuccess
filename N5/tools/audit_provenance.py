@@ -98,9 +98,11 @@ def main() -> int:
             for field in GRAMMAR_FIELDS:
                 scan(p.get(field, ""), pid, field, hits)
 
-    # KnowledgeBank/*.md (raw source files for the paper questions -
-    # these are also project-authored but worth scanning to catch any
-    # references in the metadata / notes sections)
+    # KnowledgeBank/ was deleted 2026-05-14 (merged into data/ + docs/);
+    # questions now live exclusively in data/papers/. The KB scan below
+    # is retained as a defensive check in case any future re-introduction
+    # of the KB directory needs the provenance sweep. Skipped silently
+    # when KB is absent.
     kb_dir = ROOT / "KnowledgeBank"
     if kb_dir.exists():
         for f in kb_dir.glob("*_questions_n5.md"):
@@ -128,7 +130,7 @@ def main() -> int:
         print("in the project's voice, not exempted. See CONTENT-LICENSE.md §3.")
         return 1
 
-    print("\nPASS: 0 past-paper signatures across data/, KnowledgeBank/.")
+    print("\nPASS: 0 past-paper signatures across data/.")
     print("All content traces to project-authored sources.")
     return 0
 

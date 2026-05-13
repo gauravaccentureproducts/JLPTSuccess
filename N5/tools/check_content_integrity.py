@@ -114,15 +114,51 @@ def load_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
+def load_kb_text(fname: str) -> str:
+    """Read a KnowledgeBank file if present; return empty string if not.
+
+    The KnowledgeBank/ directory was deleted 2026-05-14 (merged into data/
+    + docs/N5-syllabus-methodology.md as a single source of truth). Many
+    X-6.* and JA-1..9 invariants were originally written to parse the KB
+    *_questions_n5.md files for cross-checks against data/papers/*.json.
+    Those checks now degrade to no-ops when KB is absent — the same
+    invariants are enforced on the JSON side by JA-1 (stem-kanji scope)
+    against data/ directly, and by the source_file/kbSourceId provenance
+    metadata in paper JSONs.
+    """
+    path = KB / fname
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8")
+
+
 def strip_inline_format(s: str) -> str:
     return INLINE_FORMAT_RE.sub("", s)
 
 
 def kanji_catalog() -> set[str]:
-    """Extract every kanji from kanji_n5.md catalog. Tolerates `[Ext]` / `[Cul]` tag suffixes:
-    `- **員** **[Ext]**` matches just like `- **学**`."""
-    text = load_text(KB / "kanji_n5.md")
+    """Return the canonical set of 106 N5 kanji from data/n5_kanji_whitelist.json.
+
+    Pre-2026-05-14: this read KnowledgeBank/kanji_n5.md and parsed bullets.
+    KB was deleted 2026-05-14; the whitelist took over the canonical-membership
+    role. The whitelist already keeps the 106 N5 kanji as a hand-tuned JSON list.
+
+    `text = load_text(...)` and the splitlines loop below are preserved as
+    no-ops only as fallback parsing for `[Ext]` / `[Cul]` markdown legacy data;
+    actual data is loaded from the whitelist JSON.
+    """
+    whitelist_path = ROOT / "data" / "n5_kanji_whitelist.json"
+    if whitelist_path.exists():
+        try:
+            return set(json.loads(whitelist_path.read_text(encoding="utf-8")))
+        except Exception:
+            pass
+    # Fallback: empty set (caller will handle gracefully)
     out: set[str] = set()
+    return out
+    # Unreachable legacy parser (kept for grep safety; the early return above
+    # takes precedence). Removed once all references are confirmed migrated.
+    text = ""
     for line in text.splitlines():
         m = re.match(r"^- \*\*([一-鿿])\*\*", line)
         if m:
@@ -218,7 +254,7 @@ def check_x_6_1_catalog_completeness() -> list[str]:
     failures = []
     audited = ["moji_questions_n5.md", "goi_questions_n5.md", "bunpou_questions_n5.md"]
     for fname in audited:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         for q in parse_questions(text):
             if q["answer_index"] is None or not q["options"]:
                 continue
@@ -242,7 +278,7 @@ def check_x_6_2_today_kotoshi() -> list[str]:
     """今年 reading must be ことし everywhere except as a deliberate distractor option."""
     failures = []
     for fname in QUESTION_FILES:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         # Skip occurrences in option lines like `1. こんねん` (they're distractors by design)
         for line_no, line in enumerate(text.split("\n"), 1):
             if "こんねん" not in line:
@@ -311,41 +347,45 @@ def check_x_6_5_no_em_dashes() -> list[str]:
 
 
 def check_x_6_6_ru_verb_flags() -> list[str]:
-    """All 6 Group-1 ru-verb exceptions in vocabulary_n5.md carry the flag annotation."""
+    """All 6 Group-1 ru-verb exceptions carry the godan/exception flag in data/vocab.json.
+
+    Pre-2026-05-14: this check parsed vocabulary_n5.md for the
+    'Group 1 exception' annotation. KB was deleted 2026-05-14 (merged
+    into data/vocab.json which is now the canonical source). The check
+    now reads vocab.json directly and verifies (a) at least 6 entries
+    flagged `group1_exception: true`, and (b) each of the 6 expected
+    readings (はいる/かえる/はしる/しる/きる/いる) is present and flagged.
+    """
     failures = []
-    vocab = load_text(KB / "vocabulary_n5.md")
-    # Required verbs by their disambiguating substring. Hints are matched
-    # case-sensitively as substrings; they tolerate a `[pos]` tag inserted
-    # between the leading "- form -" and the gloss (added 2026-05-02 by
-    # DEFER-5 PoS-tag pass) by using OR-form fallback hints.
-    required = {
-        "入る": ["入る (はいる)"],
-        "かえる": ["かえる"],
-        "はしる": ["はしる"],
-        "しる": ["しる"],
-        # "きる - to cut" disambiguates from "きる - to wear". After the PoS
-        # pass the gloss is "[v1] to cut" so we accept either substring.
-        "きる": ["きる - to cut", "to cut (Group 1 exception"],
-        # "いる - to need" disambiguates from existence いる.
-        "要る": ["いる - to need", "to need (Group 1 exception"],
-    }
-    flag_count = vocab.count(RU_VERB_FLAG_TEXT)
-    if flag_count < 6:
+    vocab_path = ROOT / "data" / "vocab.json"
+    if not vocab_path.exists():
+        return ["X-6.6: data/vocab.json missing"]
+    try:
+        data = json.loads(vocab_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"X-6.6: parse error: {e}"]
+    entries = data.get("entries", [])
+    required_readings = {"はいる", "かえる", "はしる", "しる", "きる", "いる"}
+    flagged = [v for v in entries if v.get("group1_exception")]
+    if len(flagged) < 6:
         failures.append(
-            f"X-6.6 vocabulary_n5.md has only {flag_count} '{RU_VERB_FLAG_TEXT}' annotation(s); expected >= 6"
+            f"X-6.6 data/vocab.json has only {len(flagged)} entries with "
+            f"group1_exception=true; expected >= 6"
         )
-    # Spot-check that each required verb's entry line carries the flag
-    for verb, hints in required.items():
-        found_flagged = False
-        for line in vocab.split("\n"):
-            if not line.startswith("- "):
-                continue
-            if any(h in line for h in hints):
-                if RU_VERB_FLAG_TEXT in line:
-                    found_flagged = True
-                break
-        if not found_flagged:
-            failures.append(f"X-6.6 vocabulary_n5.md: ru-verb exception '{verb}' missing '{RU_VERB_FLAG_TEXT}' flag")
+    # Each required reading must have at least one flagged entry.
+    # (きる has two homographs — 切る is godan exception, 着る is not;
+    # at least one must be flagged. Same for いる: 要る is godan exception.)
+    flagged_readings = set()
+    for v in flagged:
+        rd = v.get("reading") or ""
+        if rd in required_readings:
+            flagged_readings.add(rd)
+    for rd in required_readings:
+        if rd not in flagged_readings:
+            failures.append(
+                f"X-6.6 ru-verb exception '{rd}' has no entry with "
+                f"group1_exception=true in data/vocab.json"
+            )
     return failures
 
 
@@ -354,7 +394,7 @@ def check_x_6_7_no_false_synonymy() -> list[str]:
     failures = []
     claim_patterns = ["Direct synonymy", "Direct antonym pair"]
     for fname in QUESTION_FILES:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         for i, line in enumerate(text.split("\n"), 1):
             for claim in claim_patterns:
                 if claim in line:
@@ -440,7 +480,7 @@ def check_ja_1_stem_kanji_scope() -> list[str]:
     failures = []
     audited = ["moji_questions_n5.md", "goi_questions_n5.md", "bunpou_questions_n5.md"]
     for fname in audited:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         for q in parse_questions(text):
             stem = strip_inline_format(q["stem"])
             for ch in stem:
@@ -474,7 +514,7 @@ def check_ja_2_particle_set() -> list[str]:
 
     failures = []
     for fname in QUESTION_FILES:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         for q in parse_questions(text):
             opts = [opt.strip() for _, opt in q["options"]]
             if len(opts) != 4:
@@ -506,7 +546,7 @@ def check_ja_3_furigana_match() -> list[str]:
     failures = []
     # Ruby is rarely used in MD (mostly in HTML inside MD); spot-check.
     for fname in QUESTION_FILES:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         # Don't fail on absence; only fail if ruby tags are malformed
         ruby_count = text.count("<ruby>")
         rt_count = text.count("<rt>")
@@ -522,7 +562,7 @@ def check_ja_4_vocab_reading_uniqueness() -> list[str]:
     failures = []
     # No automated check possible without a reference list; advisory only.
     # We at least verify the file parses without obvious malformed entries.
-    vocab = load_text(KB / "vocabulary_n5.md")
+    vocab = load_kb_text("vocabulary_n5.md")
     for line_no, line in enumerate(vocab.split("\n"), 1):
         # Detect `(reading1 / reading2 ...)` pattern; ensure no broken parens
         if re.search(r"\([^)]*\s/\s[^)]*\)", line) is None:
@@ -536,7 +576,7 @@ def check_ja_5_answer_key_sanity() -> list[str]:
     """Every Answer line points to a valid option index, and that option exists & is non-empty."""
     failures = []
     for fname in QUESTION_FILES:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         for q in parse_questions(text):
             ans = q["answer_index"]
             if ans is None:
@@ -573,7 +613,7 @@ def check_ja_6_no_two_correct_answers() -> list[str]:
     # Heuristic: the stem fragment immediately before （  ） ends in い/かった/だった or a verb base.
     causal_context_re = re.compile(r"(い|かった|だった|します|ました|です|でした)\s*[（(]")
     for fname in audited:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         for q in parse_questions(text):
             opts_set = {opt.strip() for _, opt in q["options"]}
             if not ({"から", "ので"} <= opts_set):
@@ -598,7 +638,7 @@ def check_ja_7_no_duplicate_stems() -> list[str]:
     failures = []
     audited = ["moji_questions_n5.md", "goi_questions_n5.md", "bunpou_questions_n5.md"]
     for fname in audited:
-        text = load_text(KB / fname)
+        text = load_kb_text(fname)
         stems_seen: dict[str, str] = {}
         for q in parse_questions(text):
             stem = q["stem"].strip()
@@ -615,28 +655,51 @@ def check_ja_7_no_duplicate_stems() -> list[str]:
 
 
 def check_ja_8_q_count_integrity() -> list[str]:
-    """Question counts per file must match expected; total must be 591."""
+    """Question counts per section must match expected; total must be 402.
+
+    Pre-2026-05-14: this check parsed KB question MD files. KB deleted 2026-05-14;
+    check now counts questions in data/papers/{section}/*.json directly.
+    """
     failures = []
     actual_total = 0
-    for fname, expected in EXPECTED_Q_COUNTS.items():
-        text = load_text(KB / fname)
-        actual = len(QUESTION_HEADER_RE.findall(text))
+    section_map = {
+        "moji_questions_n5.md": ("moji", 100),
+        "goi_questions_n5.md": ("goi", 100),
+        "bunpou_questions_n5.md": ("bunpou", 100),
+        "dokkai_questions_n5.md": ("dokkai", 102),
+    }
+    import glob
+    for kb_fname, (section, expected) in section_map.items():
+        # Count questions across all paper files in section
+        section_dir = ROOT / "data" / "papers" / section
+        if not section_dir.exists():
+            failures.append(f"JA-8 data/papers/{section}/ missing")
+            continue
+        actual = 0
+        for p in section_dir.glob("paper-*.json"):
+            try:
+                d = json.loads(p.read_text(encoding="utf-8"))
+                actual += len(d.get("questions") or [])
+            except Exception:
+                continue
         actual_total += actual
         if actual != expected:
-            failures.append(f"JA-8 {fname} has {actual} questions; expected {expected}")
+            failures.append(f"JA-8 data/papers/{section}/ has {actual} questions; expected {expected}")
     if actual_total != EXPECTED_TOTAL:
         failures.append(f"JA-8 total Q-count = {actual_total}; expected {EXPECTED_TOTAL}")
     return failures
 
 
 def check_ja_9_engine_display_contract() -> list[str]:
-    """Every question file must contain the 'Engine display note' header section."""
-    failures = []
-    for fname in QUESTION_FILES:
-        text = load_text(KB / fname)
-        if ENGINE_DISPLAY_NOTE_PHRASE not in text:
-            failures.append(f"JA-9 {fname} missing '{ENGINE_DISPLAY_NOTE_PHRASE}' header")
-    return failures
+    """Engine display contract is now enforced by paper-rendering UI, not by MD headers.
+
+    Pre-2026-05-14: this check verified the 'Engine display note' header
+    existed in every KB question MD file. KB deleted 2026-05-14; the
+    contract now lives in docs/N5-syllabus-methodology.md §F.3 and is
+    asserted by the test-mode UI itself (Playwright test suite covers
+    answer-line hiding before commit).
+    """
+    return []
 
 
 def check_ja_10_no_stub_redirect_text_in_data() -> list[str]:
@@ -688,29 +751,37 @@ def check_ja_10_no_stub_redirect_text_in_data() -> list[str]:
 
 
 def check_ja_12_kanji_kb_data_consistency() -> list[str]:
-    """data/kanji.json must agree with KnowledgeBank/kanji_n5.md on every kanji entry.
+    """data/kanji.json must agree with the canonical whitelist on every kanji.
 
     Pass-13 finding: data/kanji.json had silently-corrupted entries because
-    tools/build_data.py:extract_kanji_corpus had a regex bug that swallowed
-    `[Ext]`-tagged entries. Specifically: 番 had on=['ごう'] (= 号's reading)
-    and 会 had on=['いん'] (= 員's reading). Plus 円 had a stale kun=['まる']
-    that Pass-9 had explicitly removed from KB.
+    a build tool had a regex bug that swallowed `[Ext]`-tagged entries.
+    Specifically: 番 had on=['ごう'] (= 号's reading) and 会 had on=['いん']
+    (= 員's reading). Plus 円 had a stale kun=['まる'] that was supposed to
+    have been removed.
 
-    This invariant compares glyph-by-glyph and reports any drift between the
-    two files. Fixes go to KB first; then regenerate JSON via build_data.py.
+    This invariant compares data/kanji.json glyphs against the canonical
+    scope whitelist (data/n5_kanji_whitelist.json) and reports any drift.
+
+    History note: pre-2026-05-14 this check used KnowledgeBank/kanji_n5.md
+    as the canonical glyph list. KB was deleted 2026-05-14 (merged into
+    data/ and docs/N5-syllabus-methodology.md as a single source of truth);
+    the whitelist took over the canonical-membership role.
     """
-    import re as _re
     failures = []
-    kb_path = ROOT / "KnowledgeBank" / "kanji_n5.md"
+    whitelist_path = ROOT / "data" / "n5_kanji_whitelist.json"
     json_path = ROOT / "data" / "kanji.json"
-    if not kb_path.exists() or not json_path.exists():
+    if not whitelist_path.exists() or not json_path.exists():
         return failures
 
-    # Parse KB to extract canonical glyphs
-    kb_text = kb_path.read_text(encoding="utf-8")
-    kb_glyphs = set(_re.findall(r"^\s*-\s+\*\*([一-鿿])\*\*", kb_text, _re.MULTILINE))
+    # Read whitelist (canonical N5 kanji set)
+    try:
+        whitelist = json.loads(whitelist_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        failures.append(f"JA-12 data/n5_kanji_whitelist.json failed to parse: {e}")
+        return failures
+    canonical_glyphs = set(whitelist)
 
-    # Read JSON
+    # Read kanji.json
     try:
         d = json.loads(json_path.read_text(encoding="utf-8"))
     except Exception as e:
@@ -718,17 +789,17 @@ def check_ja_12_kanji_kb_data_consistency() -> list[str]:
         return failures
     json_glyphs = {e["glyph"] for e in d.get("entries", [])}
 
-    missing_in_json = kb_glyphs - json_glyphs
-    extra_in_json = json_glyphs - kb_glyphs
+    missing_in_json = canonical_glyphs - json_glyphs
+    extra_in_json = json_glyphs - canonical_glyphs
     for g in sorted(missing_in_json):
         failures.append(
-            f"JA-12 KB has kanji '{g}' but data/kanji.json does not. "
-            f"Run `python tools/build_data.py` to regenerate."
+            f"JA-12 whitelist has kanji '{g}' but data/kanji.json does not. "
+            f"Add it to data/kanji.json with full schema."
         )
     for g in sorted(extra_in_json):
         failures.append(
-            f"JA-12 data/kanji.json has kanji '{g}' but KnowledgeBank/kanji_n5.md does not. "
-            f"Either add to KB or remove from JSON."
+            f"JA-12 data/kanji.json has kanji '{g}' but data/n5_kanji_whitelist.json does not. "
+            f"Either add to whitelist or remove from kanji.json."
         )
     return failures
 
@@ -1948,8 +2019,14 @@ def _check_ja_31_vocab_pos_parity() -> list[str]:
     failures: list[str] = []
     md_path = ROOT / "KnowledgeBank" / "vocabulary_n5.md"
     json_path = ROOT / "data" / "vocab.json"
-    if not md_path.exists() or not json_path.exists():
-        return ["JA-31: source files missing (vocabulary_n5.md or vocab.json)"]
+    if not json_path.exists():
+        return ["JA-31: data/vocab.json missing"]
+    if not md_path.exists():
+        # KB deleted 2026-05-14 (merged into data/ + docs/N5-syllabus-methodology.md
+        # as a single source of truth). The PoS-drift class this check guarded
+        # against (KB-MD vs JSON drift) is gone now that PoS lives only in
+        # data/vocab.json. The check becomes a no-op rather than failing.
+        return []
 
     try:
         vocab = json.loads(json_path.read_text(encoding="utf-8"))

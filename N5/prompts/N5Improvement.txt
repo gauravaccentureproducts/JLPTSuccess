@@ -472,7 +472,7 @@ Vocab collocations: N/1000 (P%)
 
 ## SCOPE: N5 ONLY (Japanese content richness)
 
-In: `/N5/data/`, `KnowledgeBank/`, app code (audio playback,
+In: `/N5/data/`, `/N5/docs/N5-syllabus-methodology.md`, app code (audio playback,
 furigana, popovers, cross-links), Test mode, Progress dashboard,
 PWA shell, service worker, manifest, CSP, `/N5/tools/`, all N5
 documentation surfaces (CHANGELOG, PRIVACY, README, in-app help).
@@ -1260,7 +1260,7 @@ behavior, file as MAJOR / P2.
 - README accuracy (counts, paths, commands).
 - In-app help / rationales use plain beginner language; no
   assumed N4+ vocabulary in explanations.
-- KnowledgeBank internal consistency.
+- docs/N5-syllabus-methodology.md internal consistency.
 - Self-host / fork guide for niche N2.
 
 ## TESTS

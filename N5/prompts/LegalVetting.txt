@@ -89,13 +89,13 @@ JLPT prep sites typically do." Read the actual files:
 12. Sample 3-5 mock-paper files from `data/papers/{moji,goi,
     bunpou,dokkai}/paper-N.json` — these are the surfaces most
     likely to look like JLPT past papers.
-13. `KnowledgeBank/grammar_n5.md`, `vocabulary_n5.md`,
-    `kanji_n5.md`, `reading_n5.md`, `listening_n5.md`,
-    `moji_questions_n5.md`, `goi_questions_n5.md`,
-    `bunpou_questions_n5.md`, `dokkai_questions_n5.md` —
-    the source-of-truth markdown that the JSON catalogs derive
-    from. THIS is where prose-level copy-paste evidence will be
-    most visible.
+13. `docs/N5-syllabus-methodology.md` — the consolidated scope +
+    authoring-methodology document. Migrated from the former
+    KnowledgeBank/ directory (deleted 2026-05-14). Reference sources,
+    pedagogical-curation policy, vocab / kanji / grammar / question
+    authoring conventions all live here. Prose-level copy-paste
+    evidence (verbatim third-party text) would be most visible in this
+    file or in the rich-content fields of `data/*.json`.
 14. `package.json` (and `package-lock.json` if present) — the
     JS dependency tree. Each transitively-included package
     carries its own license; each must be compatible with the
@@ -237,9 +237,10 @@ where applicable. No abstract concerns — point to the evidence.
 
 - Sample 30-50 questions across `data/papers/*/paper-*.json` and
   spot-check whether the stems / choices / rationales look like
-  paraphrases of recognizable JLPT past-paper questions. Cross-
-  reference against `KnowledgeBank/{moji,goi,bunpou,dokkai}_
-  questions_n5.md` source.
+  paraphrases of recognizable JLPT past-paper questions. Question
+  content lives entirely in `data/papers/*/*.json` (the former
+  KnowledgeBank/ scope directory was merged into the live data on
+  2026-05-14 — see docs/N5-syllabus-methodology.md for the migration).
 - Check `tools/check_content_integrity.py` for `JA-30` (no past-
   paper provenance signatures). Report whether the regex coverage
   is plausibly complete.
@@ -293,7 +294,7 @@ where applicable. No abstract concerns — point to the evidence.
 - npm dependencies (`package.json`): GPL-derivative? AGPL? SSPL?
   — any of these bundled into the static site is a license-
   compatibility issue with MIT.
-- KnowledgeBank / data files lifted from any other open project
+- data files lifted from any other open project
   with non-MIT license terms.
 
 ### CAT-5 — Privacy + advertising-claim defensibility

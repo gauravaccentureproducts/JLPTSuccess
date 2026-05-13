@@ -99,37 +99,28 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
 /fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
 /tests/                                Playwright specs (p0-smoke, visual-regression with 76 baselines)
 /tools/                                Python scripts run by the content author only
-  check_content_integrity.py           48 release-blocker invariants
+  check_content_integrity.py           83 release-blocker invariants
   check_design_system.py               8 D-rules (Muji-flat spec compliance)
-  build_data.py check_coverage.py lint_content.py
+  lint_content.py
   build_spec.py build_audio.py
   build_listening_audio_multivoice_2026_05_07.py    multi-provider listening render
   fix_*.py                             versioned fixers (one per release)
-/KnowledgeBank/grammar_n5.md           canonical N5 pattern catalog (human source-of-truth)
-/KnowledgeBank/kanji_n5.md             N5 kanji catalog with on/kun readings
-/KnowledgeBank/vocabulary_n5.md        N5 vocab catalog
-/KnowledgeBank/moji_questions_n5.md    Mondai 1 (kanji reading) + Mondai 2 (orthography), 100 Qs
-/KnowledgeBank/goi_questions_n5.md     Mondai 3 (context) + Mondai 4 (paraphrase), 100 Qs
-/KnowledgeBank/bunpou_questions_n5.md  grammar Mondai 1 + 2 + 3, 100 Qs
-/KnowledgeBank/dokkai_questions_n5.md  reading Mondai 4 + 5 + 6, 102 Qs
-/KnowledgeBank/sources.md              reference / authority documentation
-verification.md                        cross-source audit of KnowledgeBank content
+/docs/N5-syllabus-methodology.md       N5 scope + source citations + authoring conventions
+verification.md                        cross-source audit of N5 content
 TASKS.md                               task list (mirrors session TodoWrite)
 JLPT N5 Tutor - Functional Spec.docx               full functional spec
 ```
 
 ## Content authoring workflow
 
-1. Edit the markdown source-of-truth files in `KnowledgeBank/` (`grammar_n5.md`, `kanji_n5.md`, `vocabulary_n5.md`).
-2. Edit rich content in `data/grammar.json` and `data/questions.json` (the app consumes these).
-3. Regenerate whitelists + kanji-reading map from the markdown:
-   ```
-   python tools/build_data.py
-   ```
-4. Verify pattern coverage:
-   ```
-   python tools/check_coverage.py
-   ```
+1. Edit rich content directly in the JSON files (single source of truth):
+   - `data/grammar.json` (178 patterns)
+   - `data/vocab.json` (1009 entries)
+   - `data/kanji.json` (106 entries)
+   - `data/reading.json` / `data/listening.json` / `data/questions.json`
+   - `data/papers/{moji,goi,bunpou,dokkai}/*.json` (paper questions)
+2. Edit scope whitelists in `data/n5_*_whitelist.json` if adding to N5 scope.
+3. Edit `docs/N5-syllabus-methodology.md` if changing methodology, source citations, or authoring conventions.
 5. Lint for out-of-scope kanji + vocab tokens:
    ```
    python tools/lint_content.py
