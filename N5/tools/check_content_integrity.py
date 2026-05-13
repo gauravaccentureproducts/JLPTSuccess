@@ -894,6 +894,11 @@ CHECKS: list[tuple[str, str, callable]] = [
     # origin words. Catches any future loanword authoring that
     # accidentally uses hiragana.
     ("JA-72", "Gairaigo vocab entries use katakana in their form field (2026-05-13)", lambda: _check_ja_72_gairaigo_katakana()),
+    # JA-73 (2026-05-13 run-2): reading questions must use `prompt_ja`
+    # as the canonical stem-field key (not the legacy `question_ja`).
+    # Added after run-2 review caught 9 questions using the legacy
+    # key. Schema parity across all reading questions.
+    ("JA-73", "Reading questions use canonical prompt_ja key (not question_ja) (2026-05-13)", lambda: _check_ja_73_reading_prompt_ja_canonical()),
 ]
 
 
@@ -3456,6 +3461,34 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
     return failures
 
 
+def _check_ja_73_reading_prompt_ja_canonical() -> list[str]:
+    """JA-73 (2026-05-13): reading questions must use `prompt_ja` as
+    the stem-field key. The legacy `question_ja` key was used for 9
+    questions (n5.read.046-054) but was renamed to prompt_ja in the
+    run-2 review T-3 fix. This invariant locks the rename forward.
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "reading.json"
+    if not path.exists():
+        return ["JA-73: data/reading.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-73: parse error: {e}"]
+    for r in data.get("passages", []):
+        for qi, q in enumerate(r.get("questions") or []):
+            if "question_ja" in q:
+                failures.append(
+                    f"JA-73 {r.get('id')} q[{qi}]: uses legacy "
+                    f"'question_ja' key; rename to canonical 'prompt_ja'."
+                )
+            if not q.get("prompt_ja"):
+                failures.append(
+                    f"JA-73 {r.get('id')} q[{qi}]: missing prompt_ja stem."
+                )
+    return failures
+
+
 def _check_ja_72_gairaigo_katakana() -> list[str]:
     """JA-72 (2026-05-13): vocab entries flagged as gairaigo (loanwords
     from non-Japanese languages) must have their `form` field written
@@ -3597,6 +3630,13 @@ def _check_ja_71_meaning_ja_pattern_alignment() -> list[str]:
         # "Verb-る / Verb-う" and meaning_ja uses example verbs
         # (のむ, 食べる, する) — the kana る IS in meaning_ja, just not
         # in the first 「marker」.
+        # Threshold note (run-2 review): tested ≥2-char overlap to catch
+        # n5-151/n5-183 cross-contaminations, but it produced 17 false
+        # positives on single-character particle patterns (や/も/か/ね/
+        # よ/が/に — common N5 grammar markers). Reverted to ≥1.
+        # JA-71 catches the egregious systematic-misalignment class but
+        # not subtle cases where 1 character coincidentally overlaps;
+        # those require manual native-teacher review.
         if marker_chars and pattern_chars and not (marker_chars & pattern_chars):
             full_overlap = pattern_chars & set(meaning_ja)
             if not full_overlap:
