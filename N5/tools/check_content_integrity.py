@@ -871,6 +871,23 @@ CHECKS: list[tuple[str, str, callable]] = [
     # whose pd_status contains red-flag legal language or whose
     # author_death_year is too recent under Japan's life+70 rule.
     ("JA-69", "public_domain_refs legal-status guard: no 'pending'/'protected' pd_status; author_death_year <= 1955 buffer (2026-05-13)", lambda: _check_ja_69_pd_refs_legal_status()),
+    # JA-70 (2026-05-13): pitch_accent.mora must equal count_mora(reading)
+    # for every vocab entry with a single-reading form. Added after the
+    # native-teacher review caught 110/1009 entries (10.9%) with wrong
+    # mora counts — all in the LLM-curated subset. Re-derived via
+    # kanjium where possible (88 entries), mechanical mora-count
+    # correction for the rest (5 entries). 17 entries skipped (multi-
+    # reading slash-separated forms like "なに / なん" — a measurement
+    # artifact, not a real error).
+    ("JA-70", "Vocab pitch_accent.mora == count_mora(reading) for single-reading entries (2026-05-13)", lambda: _check_ja_70_vocab_pitch_mora_count()),
+    # JA-71 (2026-05-13): grammar meaning_ja cross-contamination guard.
+    # Added after the native-teacher review caught 13 patterns whose
+    # meaning_ja text described a DIFFERENT grammar point (systematic
+    # off-by-N misalignment from a translation pass). This check
+    # asserts the first 「marker」 in meaning_ja has at least one
+    # substring overlap with the pattern field, catching the case
+    # where the marker is for a completely different rule.
+    ("JA-71", "Grammar meaning_ja first 「marker」 must overlap with pattern field (2026-05-13)", lambda: _check_ja_71_meaning_ja_pattern_alignment()),
 ]
 
 
@@ -3430,6 +3447,119 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
                         f"under life+70 = {adyear + 70} (still in copyright)."
                     )
 
+    return failures
+
+
+def _check_ja_70_vocab_pitch_mora_count() -> list[str]:
+    """JA-70 (2026-05-13): every vocab entry's pitch_accent.mora must
+    equal the actual mora count of its reading. Tokyo NHK convention:
+    each kana = 1 mora; small kana (ゃゅょぁぃぅぇぉ) merge with the
+    preceding mora; ー and っ are their own mora.
+
+    Skip entries whose reading contains "/" or " " — those are
+    multi-reading aliases (e.g., "なに / なん") which are a schema
+    quirk, not a real mora-count issue (V-2 in native-teacher review
+    documents this).
+
+    Catches the class of bug fixed in commit d870a2e+1 (110 LLM-curated
+    entries had systematically wrong mora counts, all corrected via
+    kanjium re-lookup + mechanical fallback).
+    """
+    failures: list[str] = []
+    SMALL_KANA = set("ゃゅょぁぃぅぇぉャュョァィゥェォ")
+
+    def count_mora(s: str) -> int:
+        return sum(1 for ch in (s or "") if ch not in SMALL_KANA)
+
+    path = ROOT / "data" / "vocab.json"
+    if not path.exists():
+        return ["JA-70: data/vocab.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-70: parse error: {e}"]
+
+    for v in data.get("entries", []):
+        reading = v.get("reading") or ""
+        if "/" in reading or " " in reading:
+            continue  # multi-reading alias — skip
+        pa = v.get("pitch_accent")
+        if not isinstance(pa, dict) or "mora" not in pa:
+            continue
+        expected = count_mora(reading)
+        actual = pa.get("mora")
+        if actual != expected:
+            failures.append(
+                f"JA-70 {v.get('id')}: pitch_accent.mora={actual} but "
+                f"count_mora('{reading}')={expected}"
+            )
+    return failures
+
+
+def _check_ja_71_meaning_ja_pattern_alignment() -> list[str]:
+    """JA-71 (2026-05-13): grammar's meaning_ja text's first 「marker」
+    must reference the same grammar point as the pattern field.
+    Catches the cross-contamination class (commit d870a2e+1 fixed 13
+    patterns whose meaning_ja described a different rule entirely).
+
+    Heuristic: extract the first 「marker」 substring from meaning_ja;
+    require that AT LEAST ONE non-trivial character from the marker
+    appears in the pattern field. Excludes patterns whose pattern
+    field is empty or just a tilde-placeholder (see_also stubs).
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-71: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-71: parse error: {e}"]
+
+    QUOTE_RE = re.compile(r"「([^」]+)」")
+    TRIVIAL_CHARS = set("〜～「」、。 　・のな")
+    # JA-71 false-positive guard: skip patterns whose `pattern` field
+    # is Latin-only abstract notation (e.g., "V-plain + N", "Adj + N",
+    # "Verb-stem + たいです"). For those, the meaning_ja markers can't
+    # be expected to share characters with Latin tokens.
+    LATIN_ONLY_RE = re.compile(r"^[A-Za-z0-9 \-\+\(\)\.\/\,]+$")
+    NON_KANA_CHAR_RE = re.compile(r"[ぁ-んァ-ン一-鿿]")
+
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        pattern = (p.get("pattern") or "").strip()
+        meaning_ja = (p.get("meaning_ja") or "").strip()
+        if not pattern or pattern in ("〜", "～", "?"):
+            continue  # see_also stub — skip
+        if not meaning_ja:
+            continue
+        # Skip patterns with no Japanese characters at all (Latin-only
+        # abstract notation like "Verb-stem + たいです" — actually this
+        # has Japanese, ok. But "V-plain + N" or "Adj + N" do not).
+        if not NON_KANA_CHAR_RE.search(pattern):
+            continue
+        first_marker_match = QUOTE_RE.search(meaning_ja)
+        if not first_marker_match:
+            continue  # no quoted marker — skip (some entries are descriptive)
+        marker = first_marker_match.group(1)
+        # Extract non-trivial chars from marker; require overlap with pattern
+        marker_chars = {c for c in marker if c not in TRIVIAL_CHARS}
+        pattern_chars = {c for c in pattern if c not in TRIVIAL_CHARS}
+        # Fallback pass: if the marker doesn't overlap, check if the
+        # FULL meaning_ja text contains the pattern's Japanese kana.
+        # This passes cases like n5-065 where the pattern is
+        # "Verb-る / Verb-う" and meaning_ja uses example verbs
+        # (のむ, 食べる, する) — the kana る IS in meaning_ja, just not
+        # in the first 「marker」.
+        if marker_chars and pattern_chars and not (marker_chars & pattern_chars):
+            full_overlap = pattern_chars & set(meaning_ja)
+            if not full_overlap:
+                failures.append(
+                    f"JA-71 {pid}: meaning_ja first 「marker」='{marker}' shares "
+                    f"no characters with pattern field '{pattern}', and full "
+                    f"meaning_ja text also doesn't reference the pattern. "
+                    f"Possible cross-contamination."
+                )
     return failures
 
 

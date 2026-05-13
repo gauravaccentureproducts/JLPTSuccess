@@ -301,10 +301,10 @@
       },
       "gloss_hi": "वह (महिला)",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "counter": {
         "kanji": "人",
         "reading": "にん"
@@ -327,7 +327,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かた",
@@ -565,10 +566,10 @@
       },
       "gloss_hi": "कौन",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2128,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -605,7 +606,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.どなた",
@@ -1102,10 +1104,10 @@
       "gloss_hi": "बड़ा भाई (अपना)",
       "register": "humble",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "counter": "人",
       "frequency_rank": 27407,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -1141,7 +1143,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "register_origin": "wago",
-      "register_origin_provenance": "auto_derived"
+      "register_origin_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.あね",
@@ -1173,10 +1176,10 @@
       "gloss_hi": "बड़ी बहन (अपनी)",
       "register": "humble",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 2,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "counter": "人",
       "frequency_rank": 1662,
       "frequency_rank_source": "section_band_estimate",
@@ -1207,7 +1210,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.おとうと",
@@ -1367,10 +1371,10 @@
       "gloss_hi": "बड़ा भाई (आदर)",
       "register": "respectful",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2150,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -1397,7 +1401,8 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.おねえさん",
@@ -1429,10 +1434,10 @@
       "gloss_hi": "बड़ी बहन (आदर)",
       "register": "respectful",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2312,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -1466,7 +1471,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.きょうだい",
@@ -2107,10 +2113,10 @@
       },
       "gloss_hi": "लड़का",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3806,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -2134,7 +2140,8 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.女の子",
@@ -2165,10 +2172,10 @@
       },
       "gloss_hi": "लड़की",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 1585,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -2192,7 +2199,8 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.男",
@@ -4367,10 +4375,10 @@
       },
       "gloss_hi": "कौन-सा",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 952,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -4395,7 +4403,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.5-demonstratives.この",
@@ -4903,10 +4912,10 @@
       },
       "gloss_hi": "कहाँ",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 278,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -4943,7 +4952,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.5-demonstratives.こちら",
@@ -8300,10 +8310,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 3,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 135,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -8340,7 +8350,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.8-native-counters-series.いくつ",
@@ -9772,10 +9783,10 @@
       },
       "gloss_hi": "कल (बीता)",
       "pitch_accent": {
-        "mora": 2,
-        "drop": 2
+        "mora": 3,
+        "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7352,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -9814,7 +9825,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.10-time-general.あさって",
@@ -9846,10 +9858,10 @@
       },
       "gloss_hi": "परसों (आगामी)",
       "pitch_accent": {
-        "mora": 3,
-        "drop": 0
+        "mora": 4,
+        "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 20166,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -9873,7 +9885,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.10-time-general.おととい",
@@ -9971,10 +9984,10 @@
       },
       "gloss_hi": "सुबह",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 29534,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -10003,7 +10016,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.10-time-general.ひる",
@@ -10171,10 +10185,10 @@
       },
       "gloss_hi": "रात",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 2,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 784,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -10209,7 +10223,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.10-time-general.ばん",
@@ -10241,10 +10256,10 @@
       },
       "gloss_hi": "शाम / रात",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 8457,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -10281,7 +10296,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.10-time-general.けさ",
@@ -10627,10 +10643,10 @@
       },
       "gloss_hi": "आधा",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 1534,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -10662,7 +10678,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.10-time-general.分",
@@ -10879,10 +10896,10 @@
       },
       "gloss_hi": "महीने की पहली तारीख़",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 4
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 14942,
       "frequency_rank_source": "leeds_corpus_substring_proxy",
       "frequency_rank_provenance": "auto_extracted",
@@ -10914,7 +10931,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.一日.2",
@@ -11793,10 +11811,10 @@
       },
       "gloss_hi": "पिछला सप्ताह",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2252,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -11828,7 +11846,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.今週",
@@ -11859,10 +11878,10 @@
       },
       "gloss_hi": "इस सप्ताह",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 1823,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -11894,7 +11913,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.来週",
@@ -11925,10 +11945,10 @@
       },
       "gloss_hi": "अगला सप्ताह",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3237,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -11950,7 +11970,8 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.毎週",
@@ -11982,10 +12003,10 @@
       },
       "gloss_hi": "हर सप्ताह",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3489,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12021,7 +12042,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.月曜日",
@@ -12053,10 +12075,10 @@
       },
       "gloss_hi": "सोमवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3882,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12092,7 +12114,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.火曜日",
@@ -12123,10 +12146,10 @@
       },
       "gloss_hi": "मंगलवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 5144,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12160,7 +12183,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.水曜日",
@@ -12191,10 +12215,10 @@
       },
       "gloss_hi": "बुधवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 5433,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12228,7 +12252,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.木曜日",
@@ -12259,10 +12284,10 @@
       },
       "gloss_hi": "गुरुवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 5335,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12296,7 +12321,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.金曜日",
@@ -12328,10 +12354,10 @@
       },
       "gloss_hi": "शुक्रवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3516,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12365,7 +12391,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.土曜日",
@@ -12396,10 +12423,10 @@
       },
       "gloss_hi": "शनिवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2902,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12423,7 +12450,8 @@
       "authentic_refs": [
         "auth.signs.doyoubi"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.日曜日",
@@ -12455,10 +12483,10 @@
       },
       "gloss_hi": "रविवार",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2626,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12484,7 +12512,8 @@
       "authentic_refs": [
         "auth.signs.nichiyoubi"
       ],
-      "authentic_refs_provenance": "auto_derived"
+      "authentic_refs_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.しゅうまつ",
@@ -12784,10 +12813,10 @@
       },
       "gloss_hi": "मार्च",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 4662,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -12817,7 +12846,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.四月",
@@ -13334,10 +13364,10 @@
       },
       "gloss_hi": "नवंबर",
       "pitch_accent": {
-        "mora": 5,
-        "drop": 5
+        "mora": 6,
+        "drop": 6
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 8216,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13373,7 +13403,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.十二月",
@@ -13472,10 +13503,10 @@
       },
       "gloss_hi": "पिछला महीना",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 4,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 5060,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13505,7 +13536,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.今月",
@@ -13536,10 +13568,10 @@
       },
       "gloss_hi": "इस महीना",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2710,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13569,7 +13601,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.来月",
@@ -13600,10 +13633,10 @@
       },
       "gloss_hi": "अगला महीना",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 4,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 6335,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13637,7 +13670,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.毎月",
@@ -13668,10 +13702,10 @@
       },
       "gloss_hi": "हर महीना",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3805,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13703,7 +13737,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.年",
@@ -13868,10 +13903,10 @@
       },
       "gloss_hi": "इस वर्ष",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 3,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 462,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13905,7 +13940,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.来年",
@@ -13936,10 +13972,10 @@
       },
       "gloss_hi": "अगला वर्ष",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 1917,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13970,7 +14006,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.毎年",
@@ -14258,10 +14295,10 @@
       },
       "gloss_hi": "हर दिन",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 4,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 623,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -14301,7 +14338,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.まいあさ",
@@ -14842,10 +14880,10 @@
       },
       "gloss_hi": "तुरंत",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 441,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -14880,7 +14918,8 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "verb_class": "godan",
-      "verb_class_provenance": "auto_derived"
+      "verb_class_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もう",
@@ -14911,10 +14950,10 @@
       },
       "gloss_hi": "पहले से / अब (नकारात्मक) / और (もう一つ)",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 154,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -14978,7 +15017,8 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "verb_class": "godan",
-      "verb_class_provenance": "auto_derived"
+      "verb_class_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もうすぐ",
@@ -15075,10 +15115,10 @@
       },
       "gloss_hi": "अभी / अब तक नहीं",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 239,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -15127,7 +15167,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.はじめて",
@@ -17527,10 +17568,10 @@
       },
       "gloss_hi": "स्टेशन",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 733,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -17575,7 +17616,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.くうこう",
@@ -20552,10 +20594,10 @@
       },
       "gloss_hi": "समुद्र",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 14367,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -20587,7 +20629,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.いけ",
@@ -21959,10 +22002,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 9168,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -21993,7 +22036,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.なつ",
@@ -22095,10 +22139,10 @@
       },
       "gloss_hi": "पतझड़",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 2,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 6145,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -22134,7 +22178,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.ふゆ",
@@ -22227,10 +22272,10 @@
       },
       "gloss_hi": "गरम (मौसम)",
       "pitch_accent": {
-        "mora": 2,
-        "drop": 2
+        "mora": 3,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 35637,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -22274,7 +22319,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.さむい",
@@ -22305,10 +22351,10 @@
       },
       "gloss_hi": "ठंडा (मौसम)",
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 4200,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -22341,7 +22387,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.すずしい",
@@ -22924,10 +22971,10 @@
       },
       "gloss_hi": "पक्षी",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 2,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "counter": "羽",
       "frequency_rank": 2268,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -22962,7 +23009,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.15-animals.さかな",
@@ -23598,10 +23646,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3714,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -23622,7 +23670,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.ひるごはん",
@@ -23664,10 +23713,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 4071,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -23680,7 +23729,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.ばんごはん",
@@ -23722,10 +23772,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 4428,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -23755,7 +23805,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.ゆうはん",
@@ -23852,10 +23903,10 @@
       },
       "gloss_hi": "भात / भोजन",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 5437,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -23913,7 +23964,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.16-food-and-drink-genera.しょくじ",
@@ -24131,10 +24183,10 @@
       },
       "gloss_hi": "रोटी (पाव)",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_corrected",
       "counter": "個",
       "frequency_rank": 1744,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -24157,7 +24209,8 @@
       "register_origin": "gairaigo",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-mechanical-mora-2026-05-13"
     },
     {
       "id": "n5.vocab.17-food-items.たまご",
@@ -24781,10 +24834,10 @@
       },
       "gloss_hi": "केला",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_corrected",
       "counter": {
         "kanji": "本",
         "reading": "ほん"
@@ -24811,7 +24864,8 @@
       "register_origin": "gairaigo",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-mechanical-mora-2026-05-13"
     },
     {
       "id": "n5.vocab.17-food-items.いちご",
@@ -27190,10 +27244,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_corrected",
       "frequency_rank": 2136,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -27248,7 +27302,8 @@
       "register_origin": "gairaigo",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-mechanical-mora-2026-05-13"
     },
     {
       "id": "n5.vocab.18-drinks.ぎゅうにゅう",
@@ -27485,10 +27540,10 @@
       },
       "gloss_hi": "बियर",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_corrected",
       "counter": "本",
       "frequency_rank": 2162,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -27519,7 +27574,8 @@
       "long_vowel_pair": "n5.vocab.13-locations-and-places-.ビル",
       "long_vowel_pair_note": "ビル (building, 2-mora) vs ビール (beer, 3-mora long ー). Listening discrimination: hold the い longer = beer.",
       "long_vowel_pair_provenance": "native_reviewed",
-      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13",
+      "pitch_accent_audit_wave": "v1-mechanical-mora-2026-05-13"
     },
     {
       "id": "n5.vocab.18-drinks.ワイン",
@@ -37298,10 +37354,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 2,
+        "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 535,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -37336,7 +37392,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.しんしつ",
@@ -39487,10 +39544,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 9311,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -39516,7 +39573,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.買う",
@@ -39812,10 +39870,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 6288,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -39840,7 +39898,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つくる",
@@ -39881,10 +39940,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 2,
-        "drop": 0
+        "mora": 3,
+        "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2042,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -39915,7 +39974,8 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しる",
@@ -40021,10 +40081,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 8832,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40050,7 +40110,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.立つ",
@@ -40458,10 +40519,10 @@
       "verb_class": "godan",
       "group1_exception": true,
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "transitivity_pair": {
         "pair_form": "入れる",
         "type": "intransitive"
@@ -40495,7 +40556,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はく",
@@ -40689,10 +40751,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 1500,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -40712,7 +40774,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はたらく",
@@ -40820,10 +40883,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7678,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40855,7 +40918,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もつ",
@@ -40896,10 +40960,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2197,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40931,7 +40995,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.休む",
@@ -41416,10 +41481,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 3,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "transitivity_pair": {
         "pair_form": "かえす",
         "type": "intransitive"
@@ -41457,7 +41522,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うる",
@@ -42676,10 +42742,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 20595,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -42717,7 +42783,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つく",
@@ -44914,10 +44981,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 2,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7569,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -44962,7 +45029,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おきる",
@@ -45095,10 +45163,10 @@
       ],
       "verb_class": "ichidan",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "transitivity_pair": {
         "pair_form": "だす",
         "type": "intransitive"
@@ -45135,7 +45203,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.入れる",
@@ -45407,10 +45476,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2000,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -45433,7 +45502,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おぼえる",
@@ -45474,10 +45544,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
-        "drop": 0
+        "mora": 4,
+        "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 30277,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -45505,7 +45575,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.わすれる",
@@ -45613,10 +45684,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 3,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2666,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -45644,7 +45715,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.こたえる",
@@ -47403,10 +47475,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 5,
+        "mora": 6,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_corrected",
       "frequency_rank": 2000,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -47434,7 +47506,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-mechanical-mora-2026-05-13"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.さんぽする",
@@ -49000,10 +49073,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 16921,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -49020,7 +49093,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.あつい",
@@ -49553,10 +49627,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 34593,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -49573,7 +49647,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.ひろい",
@@ -49604,10 +49679,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 33307,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -49631,7 +49706,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.せまい",
@@ -49662,10 +49738,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 30850,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -49693,7 +49769,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.おもい",
@@ -49724,10 +49801,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 2,
-        "drop": 0
+        "mora": 3,
+        "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7459,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -49753,7 +49830,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.かるい",
@@ -50230,10 +50308,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 26364,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -50285,7 +50363,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.おそい",
@@ -50316,10 +50395,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 40936,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -50357,7 +50436,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.たのしい",
@@ -50399,10 +50479,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 22242,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -50423,7 +50503,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.うれしい",
@@ -50465,10 +50546,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
-        "drop": 0
+        "mora": 4,
+        "drop": 3
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2903,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -50485,7 +50566,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.かなしい",
@@ -50527,10 +50609,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 40496,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -50547,7 +50629,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.さびしい",
@@ -50923,10 +51006,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 4,
+        "mora": 5,
         "drop": 4
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 44070,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -50945,7 +51028,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.やさしい",
@@ -51277,10 +51361,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 4,
         "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2238,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -51307,7 +51391,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.まずい",
@@ -51338,10 +51423,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 2,
+        "mora": 3,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 5517,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -51373,7 +51458,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.31-adjectives.あまい",
@@ -52448,10 +52534,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 34193,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -52471,7 +52557,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.しずか",
@@ -52513,10 +52600,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 22396,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -52545,7 +52632,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.にぎやか",
@@ -52587,10 +52675,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 2,
+        "mora": 4,
         "drop": 2
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 14103,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -52608,7 +52696,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.きれい",
@@ -52650,10 +52739,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 1905,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -52672,7 +52761,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.しんせつ",
@@ -52969,10 +53059,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2687,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -52990,7 +53080,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.ふべん",
@@ -53021,10 +53112,10 @@
         "en": "native_reviewed"
       },
       "pitch_accent": {
-        "mora": 1,
+        "mora": 3,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 2875,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -53063,7 +53154,8 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.ゆうめい",
@@ -53105,10 +53197,10 @@
       ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
-        "mora": 1,
-        "drop": 1
+        "mora": 4,
+        "drop": 0
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 3062,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -53123,7 +53215,8 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13"
     },
     {
       "id": "n5.vocab.32-adjectives.じょうず",
