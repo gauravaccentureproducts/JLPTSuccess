@@ -6565,54 +6565,23 @@
           "audio": "audio/grammar/n5-017.4.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "なんで 行きますか。",
+          "translation_en": "By what means do you go?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-017.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "なんさいですか。",
+          "translation_en": "How old are you?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-017.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -12662,102 +12631,34 @@
           "audio": "audio/grammar/n5-034.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "おかねは 100円しか ありません。",
+          "translation_en": "I have only 100 yen.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-034.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "ペンは 一本しか ありません。",
+          "translation_en": "I have only one pen.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-034.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "おちゃしか のみません。",
+          "translation_en": "I drink only tea.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-034.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -14908,31 +14809,11 @@
           "audio": "audio/grammar/n5-039.1.mp3"
         },
         {
-          "ja": "あれは くるまじゃありません。",
+          "ja": "あれは わたしの くるまじゃありません。",
           "form": "negative",
-          "translation_en": "That (over there) is not a car.",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "translation_en": "That isn't my car.",
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-039.2.mp3"
         },
         {
@@ -18012,63 +17893,23 @@
           "audio": "audio/grammar/n5-046.4.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "だれの ほんですか。",
+          "translation_en": "Whose book is this?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-046.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "どなたが せんせいですか。",
+          "translation_en": "Who is the teacher?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-046.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -18911,89 +18752,34 @@
           "audio": "audio/grammar/n5-049.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "どれが あなたのですか。",
+          "translation_en": "Which one is yours?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-049.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "どちらが すきですか。",
+          "translation_en": "Which do you like?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-049.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "どの りょうりが おいしいですか。",
+          "translation_en": "Which dish is delicious?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-049.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -19378,89 +19164,34 @@
           "audio": "audio/grammar/n5-050.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "あの えいがは どうでしたか。",
+          "translation_en": "How was that movie?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-050.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "おしごとは どうですか。",
+          "translation_en": "How is work?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-050.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "おさけは いかがですか。",
+          "translation_en": "How about sake?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-050.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -19812,89 +19543,34 @@
           "audio": "audio/grammar/n5-051.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "どうして きょう やすみましたか。",
+          "translation_en": "Why did you take today off?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-051.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "なぜ おそく なりましたか。",
+          "translation_en": "Why did you become late?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-051.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "どうして べんきょうしませんか。",
+          "translation_en": "Why don't you study?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-051.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -20238,89 +19914,34 @@
           "audio": "audio/grammar/n5-052.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "どうやって つかいますか。",
+          "translation_en": "How do you use it?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-052.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "どうやって 行きますか。",
+          "translation_en": "How do you go?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-052.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "どうやって この りょうりを つくりますか。",
+          "translation_en": "How do you make this dish?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-052.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -20692,89 +20313,34 @@
           "audio": "audio/grammar/n5-053.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "コーヒーは いくらですか。",
+          "translation_en": "How much is the coffee?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-053.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "あの くつは いくらですか。",
+          "translation_en": "How much are those shoes?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-053.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "ぜんぶで いくらに なりますか。",
+          "translation_en": "How much will it be in total?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-053.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -21127,89 +20693,34 @@
           "audio": "audio/grammar/n5-054.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "あめは いくつ ありますか。",
+          "translation_en": "How many candies are there?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-054.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "たまごは いくつ ありますか。",
+          "translation_en": "How many eggs are there?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-054.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "ペンは いくつ ありますか。",
+          "translation_en": "How many pens are there?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-054.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -21555,89 +21066,34 @@
           "audio": "audio/grammar/n5-055.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "テストは なんじから ですか。",
+          "translation_en": "What time does the test start?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-055.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "ばんごはんは なんじですか。",
+          "translation_en": "What time is dinner?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-055.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "あした なんじに きますか。",
+          "translation_en": "What time will you come tomorrow?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-055.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -22005,89 +21461,34 @@
           "audio": "audio/grammar/n5-056.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "パーティーは なんようびですか。",
+          "translation_en": "What day is the party?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-056.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "クラスは なんようびですか。",
+          "translation_en": "What day is class?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-056.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "やすみは なんようびに ありますか。",
+          "translation_en": "What day is the holiday on?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-056.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -22434,89 +21835,34 @@
           "audio": "audio/grammar/n5-057.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "なつやすみは なんがつですか。",
+          "translation_en": "What month is summer vacation?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-057.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "テストは なんがつ なんにちですか。",
+          "translation_en": "What month and day is the test?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-057.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "こどもの 日は なんにちですか。",
+          "translation_en": "What date is Children's Day?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-057.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -22834,30 +22180,11 @@
           "audio": "audio/grammar/n5-058.2.mp3"
         },
         {
-          "ja": "まいにち にほんごを べんきょうします。",
+          "ja": "あした 友だちと えいがを 見ます。",
           "form": "affirmative",
-          "translation_en": "I study Japanese every day.",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "まいにち",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "にほんご",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "translation_en": "Tomorrow I will watch a movie with a friend.",
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-058.3.mp3"
         },
         {
@@ -23333,102 +22660,34 @@
           "audio": "audio/grammar/n5-059.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きょうは べんきょうしません。",
+          "translation_en": "I don't study today.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-059.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "テレビを 見ません。",
+          "translation_en": "I don't watch TV.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-059.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "バスで 行きません。",
+          "translation_en": "I don't go by bus.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-059.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -24255,38 +23514,12 @@
           "audio": "audio/grammar/n5-061.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きのうは べんきょうしませんでした。",
+          "translation_en": "I didn't study yesterday.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-061.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -25973,32 +25206,12 @@
           "audio": "audio/grammar/n5-065.3.mp3"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "わたしは ねこを かいません。",
+          "translation_en": "I don't have a cat.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-065.4.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -27338,38 +26551,12 @@
           "audio": "audio/grammar/n5-068.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きのうは いかなかった。",
+          "translation_en": "I didn't go yesterday.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-068.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -29827,102 +29014,34 @@
           "audio": "audio/grammar/n5-073.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "まだ ごはんを たべて いません。",
+          "translation_en": "I haven't eaten yet.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-073.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "まだ しゅくだいを して いません。",
+          "translation_en": "I haven't done my homework yet.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-073.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "テストは うけて いません。",
+          "translation_en": "I haven't taken the test.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-073.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -30373,27 +29492,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "ここで たべても いいですか。",
+          "translation_en": "May I eat here?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-074.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -30807,102 +29911,34 @@
           "audio": "audio/grammar/n5-075.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "ここで しゃしんを とっては いけません。",
+          "translation_en": "You may not take photos here.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-075.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "ここで はしっては いけません。",
+          "translation_en": "You may not run here.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-075.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "じゅぎょうちゅう しゃべっては いけません。",
+          "translation_en": "You may not chat during class.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-075.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -32751,27 +31787,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "この みせは ちいさいですか。",
+          "translation_en": "Is this shop small?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-079.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -33119,102 +32140,34 @@
           "audio": "audio/grammar/n5-080.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "この おちゃは あつくないです。",
+          "translation_en": "This tea isn't hot.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-080.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "この くるまは あたらしくないです。",
+          "translation_en": "This car isn't new.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-080.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "きょうは さむくないです。",
+          "translation_en": "It isn't cold today.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-080.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -33578,63 +32531,23 @@
           "audio": "audio/grammar/n5-081.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "テストは どうでしたか。",
+          "translation_en": "How was the test?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-081.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "あの えいがは よかったですか。",
+          "translation_en": "Was that movie good?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-081.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -34002,38 +32915,12 @@
           "audio": "audio/grammar/n5-082.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "テストは むずかしくなかったです。",
+          "translation_en": "The test wasn't difficult.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-082.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -35886,102 +34773,34 @@
           "audio": "audio/grammar/n5-086.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "この まちは しずかじゃありません。",
+          "translation_en": "This town isn't quiet.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-086.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "あの 人は しんせつじゃありません。",
+          "translation_en": "That person isn't kind.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-086.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "この みせは べんりじゃありません。",
+          "translation_en": "This shop isn't convenient.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-086.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -36389,38 +35208,12 @@
           "audio": "audio/grammar/n5-087.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きのうは ひまでしたか。",
+          "translation_en": "Were you free yesterday?",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-087.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -36873,38 +35666,12 @@
           "audio": "audio/grammar/n5-088.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "テストは かんたんじゃありませんでした。",
+          "translation_en": "The test wasn't easy.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-088.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -40684,27 +39451,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "バナナより りんごの ほうが すきですか。",
+          "translation_en": "Do you prefer apples over bananas?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-096.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -41125,89 +39877,34 @@
           "audio": "audio/grammar/n5-097.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "コーヒーと おちゃと、どちらが すきですか。",
+          "translation_en": "Coffee or tea, which do you like?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-097.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "ねこと いぬと、どちらが すきですか。",
+          "translation_en": "Cat or dog, which do you like?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-097.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "バスと でんしゃと、どちらが はやいですか。",
+          "translation_en": "Bus or train, which is faster?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-097.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -42083,27 +40780,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "どんな りょうりが すきですか。",
+          "translation_en": "What kind of dishes do you like?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-099.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -42526,28 +41208,12 @@
           "audio": "audio/grammar/n5-100.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "だれが いちばん じょうずですか。",
+          "translation_en": "Who is the best?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-100.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -44303,38 +42969,12 @@
           "audio": "audio/grammar/n5-104.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きょうは どこへも 行きたくないです。",
+          "translation_en": "I don't want to go anywhere today.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-104.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -49653,31 +48293,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "まいにち にほんごを べんきょうします。",
-          "translation_en": "I study Japanese every day.",
+          "ja": "まいしゅう 土曜日に かいものを します。",
+          "translation_en": "Every week I shop on Saturdays.",
           "source": "vocab.n5.vocab.7-numbers.二.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "まいにち",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "にほんご",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-116.5.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -59757,31 +58378,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "まいにち にほんごを べんきょうします。",
-          "translation_en": "I study Japanese every day.",
+          "ja": "コーヒーに しますか、おちゃに しますか。",
+          "translation_en": "Will you have coffee or tea?",
           "source": "vocab.n5.vocab.7-numbers.二.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "まいにち",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "にほんご",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-142.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -62038,38 +60640,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きのうは ぜんぜん べんきょうしませんでした。",
+          "translation_en": "I didn't study at all yesterday.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-147.6.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -63753,89 +62329,34 @@
           "audio": "audio/grammar/n5-151.3.mp3"
         },
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?",
+          "ja": "ジュースは いかがですか。",
+          "translation_en": "How about juice?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-151.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あなたは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "ja": "もう いっぱい いかがですか。",
+          "translation_en": "How about another cup?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.あなた",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "あなた",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-151.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あの かたは どなたですか。",
-          "translation_en": "Who is that person? (polite)",
+          "ja": "ごはんは いかがですか。",
+          "translation_en": "How about some rice?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.かた.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.どなた",
-            "n5.vocab.1-people-pronouns-and-se.かた",
-            "n5.vocab.5-demonstratives.あの",
-            "n5.vocab.39-function-filler-expre.あの",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どなた",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かた",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あの",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-151.6.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -64271,38 +62792,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "きのうは ぜんぜん べんきょう できませんでした、すみません。",
+          "translation_en": "I couldn't study at all yesterday — I'm sorry.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-152.6.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -64696,102 +63191,34 @@
           "audio": "audio/grammar/n5-153.3.mp3"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "まだ あさごはんを たべて いません。",
+          "translation_en": "I haven't had breakfast yet.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-153.4.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あれは くるまじゃありません。",
-          "translation_en": "That (over there) is not a car.",
+          "ja": "まだ しゅくだいを して いません。",
+          "translation_en": "I haven't done homework yet.",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.39-function-filler-expre.じゃあ",
-            "n5.vocab.5-demonstratives.あれ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "じゃあ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あれ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-153.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そこまで タクシーで いきません。",
-          "translation_en": "I won't take a taxi that far.",
+          "ja": "まだ ねて いません。",
+          "translation_en": "I haven't slept yet.",
           "source": "vocab.n5.vocab.5-demonstratives.そこ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.23-transport.タクシー",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.まで",
-            "n5.vocab.35-particles-functional-.で"
-          ],
-          "pitch_marks": [
-            {
-              "form": "タクシー",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-153.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -71567,31 +69994,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "まいにち にほんごを べんきょうします。",
-          "translation_en": "I study Japanese every day.",
+          "ja": "やすみの 日は 本を よんだり、えいがを 見たり します。",
+          "translation_en": "On holidays I read books, watch movies, and so on.",
           "source": "vocab.n5.vocab.7-numbers.二.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "まいにち",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "にほんご",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-168.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -80444,38 +78852,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
-          "translation_en": "Why didn't you come? - Because I had a headache.",
+          "ja": "むずかしい かんじを よむことが できません。",
+          "translation_en": "I cannot read difficult kanji.",
           "source": "vocab.n5.vocab.4-body-parts.あたま.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.どうして",
-            "n5.vocab.4-body-parts.あたま",
-            "n5.vocab.31-adjectives.いたい",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.34-conjunctions.から",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "どうして",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "あたま",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-188.6.mp3",
           "form": "past-negative",
           "form_provenance": "auto_derived_form_2026_05_13"
