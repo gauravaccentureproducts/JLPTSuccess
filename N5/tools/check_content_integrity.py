@@ -930,6 +930,11 @@ CHECKS: list[tuple[str, str, callable]] = [
     # class — grammatically valid (母 + は particle) but reads as a
     # typo to N5 learners. Use kanji form for clarity.
     ("JA-78", "Grammar example sentences avoid 3+ consecutive same hiragana (clarity) (2026-05-13)", lambda: _check_ja_78_no_repeated_kana_examples()),
+    # JA-79 (2026-05-13 run-3): grammar example `form` field must be
+    # consistently populated across all examples in a pattern, OR
+    # consistently absent. Mixed populations cause UI badges to render
+    # partially (broken UX). Per anti-pattern §3.2.34.
+    ("JA-79", "Grammar example form-field is all-populated or all-empty within a pattern (2026-05-13)", lambda: _check_ja_79_form_field_consistency()),
 ]
 
 
@@ -3555,6 +3560,36 @@ def _check_ja_77_no_placeholder_leakage() -> list[str]:
                             f"placeholder text '{term}' found: {val[:80]!r}"
                         )
                         break  # one finding per field
+    return failures
+
+
+def _check_ja_79_form_field_consistency() -> list[str]:
+    """JA-79 (2026-05-13): within each grammar pattern, all examples must
+    EITHER all have `form` populated OR none. Mixed populations cause
+    the UI to render partial form-badges (broken UX). Per anti-pattern
+    §3.2.34.
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-79: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-79: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        exs = p.get("examples") or []
+        if not exs:
+            continue
+        has = sum(1 for ex in exs if isinstance(ex, dict) and ex.get("form"))
+        if 0 < has < len(exs):
+            missing = [i for i, ex in enumerate(exs)
+                       if not (isinstance(ex, dict) and ex.get("form"))]
+            failures.append(
+                f"JA-79 {pid}: {has}/{len(exs)} examples have `form`; "
+                f"missing at indices {missing}. Either fill all or strip all."
+            )
     return failures
 
 
