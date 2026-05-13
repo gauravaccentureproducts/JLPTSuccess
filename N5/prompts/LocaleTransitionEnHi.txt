@@ -1,31 +1,37 @@
 You are operating in implementation mode on the JLPT N5 sub-app of
 JLPTSuccess. The 5-locale → en+hi transition completed 2026-05-06.
 The Hindi-content audit (cycles 1-5) completed 2026-05-09 with
-**100% native_reviewed across all 2581 Hindi-bearing slots**. This
+**100% native_reviewed across all Hindi-bearing slots**. This
 prompt is now in REFERENCE MODE — used as a template for any
 future locale rollout (e.g., when N4 unblocks, or when a new
 locale is added). Active audit work is closed.
 
-## STATUS BANNER (terminal — audit COMPLETE 2026-05-09)
+## STATUS BANNER (terminal — audit COMPLETE 2026-05-09; corpus widths refreshed 2026-05-14)
 
-**ALL 2581 Hindi-bearing slots are now provenance: native_reviewed.**
+**All Hindi-bearing slots are at provenance: native_reviewed.**
 
   questions.json explanation_hi:        290 NR / 0 LLM   (100%)
   questions.json distractor block:      137 NR / 0 LLM   (100%)
   grammar.json meaning_hi:              178 NR / 0 LLM   (100%)
   grammar.json explanation_hi:          178 NR / 0 LLM   (100%)
   grammar.json l1_notes.hi:             178 NR / 0 LLM   (100%)
-  vocab.json gloss_hi:                  1000 NR / 0 LLM  (100%)
+  vocab.json gloss_hi:                  1009 NR / 0 LLM  (100%) (post-2026-05-08 dedup)
   kanji.json meanings_hi:               106 NR / 0 LLM   (100%)
-  listening.json explanation_hi:        47 NR / 0 LLM    (100%)
-  reading.json summary_hi:              45 NR / 0 LLM    (100%)
+  listening.json explanation_hi:        50 NR / 0 LLM    (100%) (expanded post-audit)
+  reading.json summary_hi:              54 NR / 0 LLM    (100%) (expanded post-audit)
   reading.json q.explanation_hi:        20 NR / 0 LLM    (100%)
   papers/**/rationale_hi:               402 NR / 0 LLM   (100%)
 
-  Total Hindi-bearing slots:            2581 NR (100%)
+  Total Hindi-bearing slots:            2602 NR (100%)  (was 2581 at audit close; +21 from later corpus expansion)
 
-CI invariants: 50/50 green (incl. JA-41 kana-prefix lock).
+CI invariants: 83/83 green (incl. JA-41 kana-prefix lock; JA-1..JA-79
++ JA-80 attempted/reverted in run-4 + JA-41 + X-6.x; +13 invariants
+added 2026-05-12..14 post-audit-close).
 Audit registry: IMP-123 reflects terminal state.
+
+KnowledgeBank/ folder was deleted 2026-05-14 (merged into data/ + docs/N5-syllabus-methodology.md
+as a single source of truth). This prompt's references to KB are now
+historical context.
 
 ## CYCLE HISTORY (for reference)
 
@@ -197,14 +203,17 @@ After cycle 2 completes, the app must satisfy ALL of:
 - `N5/data/papers/**/*.json` — 402 newly-added rationale_hi (all
   marked llm_curated); polish + flip to native_reviewed where
   possible
-- `N5/data/listening.json` — 47 explanation_hi (already
-  native_reviewed; verify quality holds)
-- `N5/data/reading.json` — 45 summary_hi + 20 question
-  explanation_hi (already native_reviewed; verify quality holds)
+- `N5/data/listening.json` — 50 explanation_hi (already
+  native_reviewed; verify quality holds) — was 47 at original audit;
+  expanded to 50 post-cycle in later content batches
+- `N5/data/reading.json` — 54 summary_hi + 20 question
+  explanation_hi (already native_reviewed; verify quality holds) —
+  was 45 summary at original audit; expanded to 54
 - `N5/data/kanji.json` — 106 meanings_hi (cycle 1 added 35
-  entries via MANUAL_MAP; verify those land at native quality)
-- `N5/data/vocab.json` — 1041 gloss_hi (already native_reviewed;
-  spot-check)
+  entries via MANUAL_MAP; verify those land at native quality) —
+  17 entries also gained `reading_notes` field 2026-05-14 (KB merge)
+- `N5/data/vocab.json` — 1009 gloss_hi (already native_reviewed;
+  spot-check) — was 1041 pre-2026-05-08-dedup; current 1009 post-dedup
 - `N5/locales/hi.json` — 125 UI strings (already native_reviewed
   post-cycle-1; spot-check the 4 changed in Phase B)
 - `N5/tools/check_content_integrity.py` — add JA-NN
@@ -388,8 +397,8 @@ This is the bulk of cycle 2. Process in surfaces, smaller-first
 
   Phase 3a: locales/hi.json (125 strings) - probably mostly OK,
     spot-check
-  Phase 3b: data/listening.json (47 explanation_hi)
-  Phase 3c: data/reading.json (65 entries: 45 summary + 20 expl)
+  Phase 3b: data/listening.json (50 explanation_hi) — was 47
+  Phase 3c: data/reading.json (74 entries: 54 summary + 20 expl) — was 65
   Phase 3d: data/kanji.json (the 35 cycle-1 manual-map entries)
   Phase 3e: data/papers/**/*.json (402 rationale_hi - largest)
   Phase 3f: data/grammar.json (178+178 + 481 l1_notes)
@@ -431,8 +440,9 @@ Commit:
 
 ### Phase 6: Tests + push
 
-- `python tools/check_content_integrity.py` 49/49 (or higher
-  with JA-41) green.
+- `python tools/check_content_integrity.py` 83/83 green
+  (incl. JA-41 kana-prefix + the JA-1..JA-79 set; was 49 at original
+  cycle close).
 - `npx playwright test` green.
 - Regenerate visual-regression baselines if Hindi text length
   changed meaningfully on any rendered surface.

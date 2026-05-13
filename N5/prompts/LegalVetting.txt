@@ -41,10 +41,10 @@ The product:
 - The repo is publicly visible on GitHub
   (`gauravaccentureproducts/JLPTSuccess`). Code: MIT-licensed.
   Content: claimed to be original (`CONTENT-LICENSE.md`).
-- The corpus today: 178 grammar patterns, ~1000 vocabulary
-  entries, 106 kanji, 40 reading passages, 47 listening items
-  (synthetic TTS via VOICEVOX), 28 mock-paper files / 402
-  paper-bound questions.
+- The corpus today: 178 grammar patterns, 1009 vocabulary
+  entries (post-2026-05-08 dedup), 106 kanji, 54 reading passages,
+  50 listening items (synthetic audio via VOICEVOX), 28 mock-paper
+  files / 402 paper-bound questions.
 - Locales: English (en) + Hindi (hi). Hindi explanations are a
   mix of native-reviewed, llm-curated, and machine-translated
   per the per-field `*_provenance` flags.

@@ -214,6 +214,8 @@ print('Look-alikes ≥1:', sum(1 for k in KE if k.get('look_alikes')))
 print('N5 compounds ≥2:', sum(1 for k in KE if len(k.get('n5_compounds') or []) >= 2))
 print('Stroke-order SVG present:', sum(1 for k in KE if k.get('stroke_order_svg')))
 print('On-yomi katakana convention:', sum(1 for k in KE if all(o == o.upper() or not any(0x3041 <= ord(c) <= 0x3096 for c in o) for o in (k.get('on_yomi') or []))))
+# reading_notes added 2026-05-14 (KB merge): 17 kanji with N4+/recognition-only annotations
+print('Reading_notes present:', sum(1 for k in KE if k.get('reading_notes')))
 ```
 
 ### Phase-0 Reading (54 passages)
@@ -431,16 +433,17 @@ best-in-incumbent or beyond.
 ⚠ The numbers below are POINT-IN-TIME and drift after every
 release. Re-derive from data files before quoting in findings.
 
-| Field | State (last refreshed 2026-05-13) |
+| Field | State (last refreshed 2026-05-14) |
 |---|---|
 | Repo | `gauravaccentureproducts/JLPTSuccess` |
 | Stack | Static PWA, vanilla HTML/CSS/JS, no build step |
 | Live URL | https://gauravaccentureproducts.github.io/JLPTSuccess/N5/ |
 | Locales | `{en, hi}` (closed set; JA-39 invariant) |
+| Source-of-truth structure | Single source of truth: `data/*.json` for content + scope; `docs/N5-syllabus-methodology.md` for methodology + sources + authoring conventions. The former `KnowledgeBank/` directory was merged into the data + docs tree on 2026-05-14 (commit 136abc4). No second-copy scope reference exists. |
 | Content origin | Machine-generated and maintainer-curated via Claude (LLM). NO Japanese-native-speaker review has taken place. The internal provenance tag value `native_reviewed` is a TRACKING LABEL ONLY (it marks entries the maintainer hand-curated / promoted after LLM review), NOT a user-facing claim. Do NOT recommend exposing provenance tiers in the UI as a trust signal — that would be a false promise. (IMP-184 set 2026-05-13 to Avoid for this exact reason.) |
-| CI invariants | 83 (release-blocker; X-6.x + JA-1..JA-79; JA-67..JA-79 added in 2026-05 cycle — see `tools/check_content_integrity.py`) |
+| CI invariants | 83 (release-blocker; X-6.x + JA-1..JA-79; JA-67..JA-79 added in 2026-05 cycle; JA-12/X-6.6/JA-8 retargeted to `data/` on 2026-05-14 post-KB-merge — see `tools/check_content_integrity.py`. JA-80 was attempted run-4 and reverted — too lossy.) |
 | Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — refresh count via openpyxl scan |
-| Provenance enum | Internal tracking only: `{native_reviewed, llm_curated, auto_derived, auto_generated_template, auto_derived_from_vocab_pitch, auto_derived_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional}`. The `native_reviewed` value is a misnomer — re-read the "Content origin" row above. |
+| Provenance enum | Internal tracking only: `{native_reviewed, llm_curated, auto_derived, auto_generated_template, auto_derived_from_vocab_pitch, auto_derived_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional, kb_migration_2026_05_14}`. The `native_reviewed` value is a misnomer — re-read the "Content origin" row above. |
 | Audio infra | VOICEVOX engine v0.25.2 + gTTS fallback + edge-tts voice plans; refresh MP3 count via `find audio -name '*.mp3' \| wc -l` |
 | Tests | `tools/check_content_integrity.py` (83 invariants) + Playwright e2e + visual regression |
 | Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic, Authentic, Print/Cheat-sheet, Print/Lesson |
@@ -1477,7 +1480,7 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT add new grammar patterns — 178 already exceeds
   Bunpro's N5 deck width; depth on existing patterns is the
   higher-leverage move."
-- "Do NOT add new vocabulary entries — 1000 already exceeds the
+- "Do NOT add new vocabulary entries — 1009 already exceeds the
   ~700 official scope; depth on existing entries (collocations,
   pitch-accent, examples, authentic-content) is the leverage."
 - "Do NOT add new kanji — 106 matches the canonical N5 set;
