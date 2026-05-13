@@ -94,6 +94,50 @@ body {
   background: var(--header-bg);
   color: var(--brand);
   padding: 1rem 1.5rem;
+  /* 2026-05-14: header now also hosts a fullscreen toggle on the right
+     (parity with N5 sub-app). Flex layout: brand pinned left, action
+     buttons pinned right. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Header icon buttons — ported from N5 main.css (.app-header .icon-btn).
+   Same 32px square + monochrome SVG + hairline-on-hover convention so the
+   landing page and N5 sub-app share visual vocabulary. */
+.app-header .icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: 0.5px solid transparent;
+  border-radius: 4px;
+  color: var(--brand);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.app-header .icon-btn:hover {
+  background: rgba(20, 69, 42, 0.08);
+  border-color: rgba(20, 69, 42, 0.18);
+}
+.app-header .icon-btn:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.app-header .icon-btn .icon { width: 18px; height: 18px; display: block; }
+@media (prefers-color-scheme: dark) {
+  .app-header .icon-btn:hover {
+    background: rgba(93, 165, 126, 0.12);
+    border-color: rgba(93, 165, 126, 0.25);
+  }
 }
 .brand h1 {
   margin: 0;
