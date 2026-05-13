@@ -270,23 +270,36 @@ def main():
     d1_below_floor = sum(1 for c in density1_counts if c < 3)
     print(f"  Density-1 (pattern->vocab):    avg={d1_avg:.1f}, below floor (<3): {d1_below_floor}/{len(G)}")
 
-    # Density 2: vocab -> how many grammar patterns reference it (via vocab_ids reverse)
-    vocab_id_to_patterns = defaultdict(set)
-    for p in G:
-        for ex in (p.get("examples") or []):
-            for vid in (ex.get("vocab_ids") or []):
-                vocab_id_to_patterns[vid].add(p["id"])
-    density2_counts = [len(vocab_id_to_patterns.get(v.get("id"), set())) for v in V]
+    # Density 2: vocab -> how many grammar patterns it co-occurs with.
+    # IMP-D2-fix (2026-05-13): use the live `frequent_patterns` field
+    # on vocab (which includes both example-derived links AND
+    # pos-heuristic co-occurrence). Prior version counted only the
+    # example-derived subset and reported many vocab as dead-end when
+    # they had heuristic links.
+    density2_counts = [len(v.get("frequent_patterns") or []) for v in V]
     d2_avg = sum(density2_counts) / max(1, len(density2_counts))
     d2_below_floor = sum(1 for c in density2_counts if c < 1)
     print(f"  Density-2 (vocab->pattern):    avg={d2_avg:.1f}, below floor (<1): {d2_below_floor}/{len(V)}")
 
-    # Density 3: kanji -> how many vocab use it
+    # Density 3: kanji -> how many vocab use it (UNION of vocab.form
+    # scan AND kanji.n5_compounds.vocab_id link). IMP-D3-fix
+    # (2026-05-13): the n5_compounds list now includes kana-form vocab
+    # cross-links (e.g., 食 -> しょくじ vocab_id). Counting via union
+    # gives a true picture of the kanji-vocab interconnection density.
     density3_counts = []
+    n5_glyph_set = {ke["glyph"] for ke in K}
     for ke in K:
         glyph = ke["glyph"]
-        c = sum(1 for v in V if glyph in (v.get("form") or ""))
-        density3_counts.append(c)
+        # Method A: count vocab whose form contains this kanji
+        seen_ids = set()
+        for v in V:
+            if glyph in (v.get("form") or ""):
+                seen_ids.add(v["id"])
+        # Method B: count vocab linked via n5_compounds.vocab_id
+        for c in ke.get("n5_compounds") or []:
+            if isinstance(c, dict) and c.get("vocab_id"):
+                seen_ids.add(c["vocab_id"])
+        density3_counts.append(len(seen_ids))
     d3_avg = sum(density3_counts) / max(1, len(density3_counts))
     d3_below_floor = sum(1 for c in density3_counts if c < 2)
     print(f"  Density-3 (kanji->vocab):      avg={d3_avg:.1f}, below floor (<2): {d3_below_floor}/{len(K)}")
