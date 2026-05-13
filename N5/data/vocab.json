@@ -5945,7 +5945,7 @@
     {
       "id": "n5.vocab.6-question-words.何",
       "form": "何",
-      "reading": "なに / なん",
+      "reading": "なに",
       "gloss": "what",
       "section": "6. Question Words",
       "pos": "question-word",
@@ -5994,7 +5994,12 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "なに",
+        "なん"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.6-question-words.いつ",
@@ -6818,7 +6823,7 @@
     {
       "id": "n5.vocab.7-numbers.四",
       "form": "四",
-      "reading": "し / よん",
+      "reading": "し",
       "gloss": "four",
       "section": "7. Numbers",
       "pos": "numeral",
@@ -6870,7 +6875,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "し",
+        "よん"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.7-numbers.五",
@@ -6991,7 +7001,7 @@
     {
       "id": "n5.vocab.7-numbers.七",
       "form": "七",
-      "reading": "しち / なな",
+      "reading": "しち",
       "gloss": "seven",
       "section": "7. Numbers",
       "pos": "numeral",
@@ -7046,7 +7056,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "しち",
+        "なな"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.7-numbers.八",
@@ -7116,7 +7131,7 @@
     {
       "id": "n5.vocab.7-numbers.九",
       "form": "九",
-      "reading": "きゅう / く",
+      "reading": "きゅう",
       "gloss": "nine",
       "section": "7. Numbers",
       "pos": "numeral",
@@ -7142,10 +7157,10 @@
       },
       "gloss_hi": "नौ",
       "pitch_accent": {
-        "mora": 3,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_recomputed_v2",
       "frequency_rank": 571,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -7170,7 +7185,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "きゅう",
+        "く"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.7-numbers.十",
@@ -10684,7 +10704,7 @@
     {
       "id": "n5.vocab.10-time-general.分",
       "form": "分",
-      "reading": "ふん / ぷん",
+      "reading": "ふん",
       "gloss": "minute(s)",
       "section": "10. Time - General",
       "pos": "noun",
@@ -10711,10 +10731,10 @@
       },
       "gloss_hi": "मिनट",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_recomputed_v2",
       "frequency_rank": 134,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -10746,7 +10766,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "ふん",
+        "ぷん"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.10-time-general.びょう",
@@ -13743,7 +13768,7 @@
     {
       "id": "n5.vocab.11-time-days-weeks-month.年",
       "form": "年",
-      "reading": "とし / ねん",
+      "reading": "とし",
       "gloss": "year",
       "section": "11. Time - Days, Weeks, Months, Years",
       "pos": "noun",
@@ -13769,10 +13794,10 @@
       },
       "gloss_hi": "वर्ष",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 2,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_recomputed_v2",
       "frequency_rank": 35,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -13804,7 +13829,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "とし",
+        "ねん"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.きょねん",
@@ -14012,7 +14042,7 @@
     {
       "id": "n5.vocab.11-time-days-weeks-month.毎年",
       "form": "毎年",
-      "reading": "まいとし / まいねん",
+      "reading": "まいとし",
       "gloss": "every year (まいとし is more common in conversation; まいねん in formal/written contexts)",
       "section": "11. Time - Days, Weeks, Months, Years",
       "pos": "noun",
@@ -14038,10 +14068,10 @@
       },
       "gloss_hi": "हर वर्ष",
       "pitch_accent": {
-        "mora": 1,
+        "mora": 4,
         "drop": 1
       },
-      "pitch_accent_provenance": "llm_curated",
+      "pitch_accent_provenance": "llm_curated+mora_recomputed_v2",
       "frequency_rank": 1766,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -14071,7 +14101,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "まいとし",
+        "まいねん"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.おととし",
@@ -35662,7 +35697,7 @@
     {
       "id": "n5.vocab.25-languages-and-countri.日本",
       "form": "日本",
-      "reading": "にほん / にっぽん",
+      "reading": "にほん",
       "gloss": "Japan",
       "section": "25. Languages and Countries",
       "pos": "noun",
@@ -35719,7 +35754,12 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "にほん",
+        "にっぽん"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.日本語",
@@ -68221,7 +68261,7 @@
     {
       "id": "n5.vocab.31-adjectives.いい",
       "form": "いい",
-      "reading": "いい / よい",
+      "reading": "いい",
       "gloss": "good (いい more colloquial; よい more formal/literary - same meaning)",
       "section": "31. い-Adjectives",
       "pos": "i-adj",
@@ -68307,12 +68347,17 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "いい",
+        "よい"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.いえ",
       "form": "いえ",
-      "reading": "いえ / うち",
+      "reading": "いえ",
       "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
       "section": "26. House and Furniture",
       "pos": "noun",
@@ -68387,12 +68432,17 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "いえ",
+        "うち"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.35-particles-functional-.ぐらい",
       "form": "ぐらい",
-      "reading": "ぐらい / くらい",
+      "reading": "ぐらい",
       "gloss": "about, approximately (ぐらい more common after voiced sounds; くらい elsewhere - particle of estimate)",
       "section": "35. Particles (functional vocabulary)",
       "pos": "particle",
@@ -68441,12 +68491,17 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "ぐらい",
+        "くらい"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.34-conjunctions.けれど",
       "form": "けれど",
-      "reading": "けれど / けれども / けど",
+      "reading": "けれど",
       "gloss": "but / however (けど most casual; けれど middle; けれども most formal - same meaning)",
       "section": "34. Conjunctions",
       "pos": "conjunction",
@@ -68494,12 +68549,18 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "けれど",
+        "けれども",
+        "けど"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.ござる",
       "form": "ござる",
-      "reading": "ござる / ございます",
+      "reading": "ござる",
       "gloss": "to be / there is (very polite; ございます is the ます-form, used in shop/hotel speech)",
       "section": "30. Verbs - Existence and Possession",
       "pos": "verb-1",
@@ -68566,12 +68627,17 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "ござる",
+        "ございます"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.じゃあ",
       "form": "じゃあ",
-      "reading": "じゃあ / では / じゃ",
+      "reading": "じゃあ",
       "gloss": "well then / so (じゃあ casual; では formal; じゃ very casual - discourse marker for transitioning)",
       "section": "39. Function / Filler Expressions",
       "pos": "expression",
@@ -68636,12 +68702,18 @@
         "n5-155"
       ],
       "register_origin": "wago",
-      "register_origin_provenance": "auto_derived"
+      "register_origin_provenance": "auto_derived",
+      "readings": [
+        "じゃあ",
+        "では",
+        "じゃ"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.みんな",
       "form": "みんな",
-      "reading": "みんな / みな",
+      "reading": "みんな",
       "gloss": "everyone / all (みんな more colloquial; みな more formal - both function as inclusive \"everyone\")",
       "section": "1. People - Pronouns and Self",
       "pos": "noun",
@@ -68690,12 +68762,17 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "readings": [
+        "みんな",
+        "みな"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.33-adverbs.やはり",
       "form": "やはり",
-      "reading": "やはり / やっぱり",
+      "reading": "やはり",
       "gloss": "as expected / after all (やはり more formal; やっぱり colloquial - confirms an expectation or returns to a prior view)",
       "section": "33. Adverbs",
       "pos": "adverb",
@@ -68750,12 +68827,17 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "やはり",
+        "やっぱり"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.7-numbers.ゼロ",
       "form": "ゼロ",
-      "reading": "ゼロ / れい",
+      "reading": "ゼロ",
       "gloss": "zero (ゼロ for \"0\" digit reading; れい for formal/numeric \"zero\" especially in counts)",
       "section": "7. Numbers",
       "pos": "numeral",
@@ -68807,7 +68889,12 @@
       ],
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13"
+      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
+      "readings": [
+        "ゼロ",
+        "れい"
+      ],
+      "readings_provenance": "v2_migration_2026_05_13"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.ぺこぺこ",

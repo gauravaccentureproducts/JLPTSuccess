@@ -899,6 +899,11 @@ CHECKS: list[tuple[str, str, callable]] = [
     # Added after run-2 review caught 9 questions using the legacy
     # key. Schema parity across all reading questions.
     ("JA-73", "Reading questions use canonical prompt_ja key (not question_ja) (2026-05-13)", lambda: _check_ja_73_reading_prompt_ja_canonical()),
+    # JA-74 (2026-05-13 opt-outs): vocab entries with multiple kana
+    # readings must use the `readings: [...]` list schema (NOT a
+    # slash-separated `reading: "なに / なん"` string). The migration
+    # ran 2026-05-13; this invariant locks the schema forward.
+    ("JA-74", "Vocab `reading` field is a single kana form; multi-reading uses `readings: [...]` list (2026-05-13)", lambda: _check_ja_74_vocab_readings_schema()),
 ]
 
 
@@ -3458,6 +3463,41 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
                         f"under life+70 = {adyear + 70} (still in copyright)."
                     )
 
+    return failures
+
+
+def _check_ja_74_vocab_readings_schema() -> list[str]:
+    """JA-74 (2026-05-13): vocab `reading` field must be a single kana
+    form. Multi-reading entries (e.g., 何 = なに/なん) use the
+    `readings: [...]` list field with `reading` set to the primary.
+    Slash-separated strings in `reading` are a schema regression.
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "vocab.json"
+    if not path.exists():
+        return ["JA-74: data/vocab.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-74: parse error: {e}"]
+    for v in data.get("entries", []):
+        reading = v.get("reading") or ""
+        if "/" in reading:
+            failures.append(
+                f"JA-74 {v.get('id')}: `reading` contains '/'. Use "
+                f"`readings: [...]` list for multi-reading entries; "
+                f"set `reading` to the primary single form."
+            )
+        readings = v.get("readings")
+        if readings is not None:
+            if not isinstance(readings, list):
+                failures.append(
+                    f"JA-74 {v.get('id')}: `readings` must be a list, got {type(readings).__name__}"
+                )
+            elif readings and reading and reading not in readings:
+                failures.append(
+                    f"JA-74 {v.get('id')}: `reading`='{reading}' is not in `readings={readings}`."
+                )
     return failures
 
 
