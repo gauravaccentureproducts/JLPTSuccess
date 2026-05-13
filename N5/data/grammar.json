@@ -1140,29 +1140,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "だれが きましたか。",
+          "ja": "なにが おいしいですか。",
           "form": "wh-question-subject",
-          "translation_en": "Who came?",
+          "translation_en": "What is delicious?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.だれ",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-003.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "だれ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "きました",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -1544,27 +1528,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "ほんを よみます。",
+          "ja": "おちゃを のみます。",
           "form": "object-direct",
-          "translation_en": "I read a book.",
+          "translation_en": "I drink tea.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.読む",
-            "n5.vocab.35-particles-functional-.を"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-004.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "よみます",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -2784,33 +2754,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "としょかんで べんきょうします。",
+          "ja": "うちで えいがを みます。",
           "form": "location-of-action",
-          "translation_en": "I study at the library.",
+          "translation_en": "I watch movies at home.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.13-locations-and-places-.としょかん",
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.35-particles-functional-.で"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-007.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "としょかん",
-              "mora": 4,
-              "drop": 2
-            },
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "します",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -4967,26 +4917,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "わたしも がくせいです。",
+          "ja": "たなかさんも きます。",
           "form": "inclusive",
-          "translation_en": "I am also a student.",
+          "translation_en": "Mr./Ms. Tanaka also comes.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.も"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-013.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "わたし",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -5374,53 +5311,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "これは ほんです。",
+          "ja": "これは ペンです。",
           "form": "near-speaker",
-          "translation_en": "This is a book.",
+          "translation_en": "This is a pen.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.これ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-014.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "これ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "それは なんですか。",
+          "ja": "それは くるまですか。",
           "form": "near-listener-question",
-          "translation_en": "What is that?",
+          "translation_en": "Is that a car?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.それ",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-014.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "それ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "なんで",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -6736,23 +6644,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "なにを たべますか。",
+          "ja": "なにを かいますか。",
           "form": "wh-direct-object",
-          "translation_en": "What will you eat?",
+          "translation_en": "What will you buy?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.28-verbs-group-2-verbs.食べる",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-017.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "たべます",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -7190,36 +7088,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "これは だれの かばんですか。",
+          "ja": "それは だれの ペンですか。",
           "form": "wh-possession",
-          "translation_en": "Whose bag is this?",
+          "translation_en": "Whose pen is that?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.21-clothing-and-accessor.かばん",
-            "n5.vocab.1-people-pronouns-and-se.だれ",
-            "n5.vocab.5-demonstratives.これ",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か",
-            "n5.vocab.35-particles-functional-.の"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-018.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "これ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "だれ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "かばん",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
@@ -9365,27 +9240,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "いい てんきですね。",
+          "ja": "あついですね。",
           "form": "weather-agreement",
-          "translation_en": "Nice weather, isn't it?",
+          "translation_en": "It's hot, isn't it?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.ね"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-025.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "いい",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "てんき",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -9409,22 +9270,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "おいしいですね。",
+          "ja": "おもしろいですね。",
           "form": "taste-agreement",
-          "translation_en": "It's delicious, isn't it?",
+          "translation_en": "It's interesting, isn't it?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.おいしい",
-            "n5.vocab.35-particles-functional-.ね"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-025.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "おいしい",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
@@ -14209,35 +14061,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "ペンや ノートなどを かいました。",
-          "translation_en": "I bought pens, notebooks, and so on.",
+          "ja": "りんごや バナナなどを たべました。",
+          "translation_en": "I ate apples, bananas, and so on.",
           "source": "vocab.n5.vocab.24-school-and-study.ノート.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.ノート",
-            "n5.vocab.24-school-and-study.ペン",
-            "n5.vocab.27-verbs-group-1-verbs.買う",
-            "n5.vocab.35-particles-functional-.など",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.や"
-          ],
-          "pitch_marks": [
-            {
-              "form": "ノート",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かい",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "いま",
-              "mora": 1,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-037.5.mp3",
           "form": "past",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -16205,35 +16034,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "そこに ねこが います。",
+          "ja": "そこに ぎんこうが あります。",
           "form": "there-cat",
-          "translation_en": "There is a cat there.",
+          "translation_en": "There is a bank there.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.15-animals.ねこ",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.に"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-041.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ねこ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "います",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -16629,56 +16436,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "こちらへ どうぞ。",
+          "ja": "こちらは わたしの きょうしつです。",
           "form": "this-way-please",
-          "translation_en": "This way, please.",
+          "translation_en": "This is my classroom.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.こちら",
-            "n5.vocab.33-adverbs.どうぞ",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.35-particles-functional-.へ"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-042.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "こちら",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どうぞ",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "どちらが いいですか。",
+          "ja": "りんごと バナナと、どちらが すきですか。",
           "form": "which-binary",
-          "translation_en": "Which is good?",
+          "translation_en": "Apple or banana, which do you like?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.どちら",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-042.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "どちら",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "いい",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -17558,28 +17333,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "そう おもいます。",
+          "ja": "わたしも そう おもいます。",
           "form": "agreement-opinion",
-          "translation_en": "I think so.",
+          "translation_en": "I think so too.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.おもう",
-            "n5.vocab.31-adjectives.おもい",
-            "n5.vocab.5-demonstratives.そう"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-044.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "そう",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "おもいます",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
@@ -18812,29 +18572,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "どこで かいましたか。",
+          "ja": "どこで まちましたか。",
           "form": "location-action",
-          "translation_en": "Where did you buy it?",
+          "translation_en": "Where did you wait?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.どこ",
-            "n5.vocab.27-verbs-group-1-verbs.買う",
-            "n5.vocab.35-particles-functional-.で",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-048.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "どこ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "かいました",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -19722,62 +19466,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "りょこうは どうでしたか。",
+          "ja": "てんきは どうですか。",
           "form": "how-was-trip",
-          "translation_en": "How was the trip?",
+          "translation_en": "How is the weather?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.37-common-nouns-miscella.りょこう",
-            "n5.vocab.5-demonstratives.こう",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-050.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "りょこう",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "した",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "コーヒーは いかがですか。",
+          "ja": "ケーキは いかがですか。",
           "form": "polite-offer-coffee",
-          "translation_en": "How about some coffee?",
+          "translation_en": "How about cake?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.コーヒー",
-            "n5.vocab.39-function-filler-expre.いかが",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-050.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "コーヒー",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "いかが",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -20221,35 +19927,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "なぜ そう おもいますか。",
+          "ja": "なぜ おそく きましたか。",
           "form": "why-think-so",
-          "translation_en": "Why do you think so?",
+          "translation_en": "Why did you come late?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.おもう",
-            "n5.vocab.31-adjectives.おもい",
-            "n5.vocab.5-demonstratives.そう",
-            "n5.vocab.6-question-words.なぜ",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-051.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "なぜ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "そう",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "おもいます",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -20675,29 +20359,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "どうやって つくりますか。",
+          "ja": "どうやって たべますか。",
           "form": "how-make",
-          "translation_en": "How do you make it?",
+          "translation_en": "How do you eat it?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.つくる",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.27-verbs-group-1-verbs.つく",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-052.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "どう",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "つく",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -21112,58 +20780,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "これは いくらですか。",
+          "ja": "その ほんは いくらですか。",
           "form": "price-question",
-          "translation_en": "How much is this?",
+          "translation_en": "How much is that book?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.いくら",
-            "n5.vocab.5-demonstratives.これ",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-053.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "これ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "いくら",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "ぜんぶで いくらですか。",
+          "ja": "ふたつで いくらですか。",
           "form": "total-question",
-          "translation_en": "How much in total?",
+          "translation_en": "How much for two?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.いくら",
-            "n5.vocab.33-adverbs.ぜんぶ",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.で",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-053.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "ぜんぶ",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "いくら",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -21581,31 +21215,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "りんごは いくつ ありますか。",
+          "ja": "みかんは いくつ ありますか。",
           "form": "count-objects",
-          "translation_en": "How many apples are there?",
+          "translation_en": "How many oranges are there?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.いくつ",
-            "n5.vocab.17-food-items.りんご",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-054.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "りんご",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "いくつ",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -22477,53 +22093,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "きょうは なんようびですか。",
+          "ja": "あしたは なんようびですか。",
           "form": "today-day",
-          "translation_en": "What day is today?",
+          "translation_en": "What day is tomorrow?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-056.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "きょう",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "なんようび",
-              "mora": 5,
-              "drop": 3
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "やすみは なんようびですか。",
+          "ja": "テストは なんようびですか。",
           "form": "holiday-day",
-          "translation_en": "What day is the holiday?",
+          "translation_en": "What day is the test?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.37-common-nouns-miscella.やすみ",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-056.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "やすみ",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "なんようび",
-              "mora": 5,
-              "drop": 3
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -22935,58 +22522,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "たんじょうびは なんがつ なんにちですか。",
+          "ja": "クリスマスは なんがつ なんにちですか。",
           "form": "birthday-date",
-          "translation_en": "What date is your birthday?",
+          "translation_en": "When is Christmas?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.11-time-days-weeks-month.たんじょうび",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-057.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "たんじょうび",
-              "mora": 5,
-              "drop": 3
-            },
-            {
-              "form": "なんがつ",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "なんにち",
-              "mora": 4,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "きょうは なんにちですか。",
+          "ja": "やすみは なんがつですか。",
           "form": "today-date",
-          "translation_en": "What's today's date?",
+          "translation_en": "What month is the holiday?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-057.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "きょう",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "なんにち",
-              "mora": 4,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -23881,28 +23434,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "おさけは のみません。",
+          "ja": "あさごはんは たべません。",
           "form": "habitual-negative",
-          "translation_en": "I don't drink alcohol.",
+          "translation_en": "I don't eat breakfast.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.おさけ",
-            "n5.vocab.27-verbs-group-1-verbs.飲む",
-            "n5.vocab.35-particles-functional-.は"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-059.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "おさけ",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "のみません",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -25259,23 +24797,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "いっしょに たべましょう。",
+          "ja": "いっしょに あるきましょう。",
           "form": "together-suggestion",
-          "translation_en": "Let's eat together.",
+          "translation_en": "Let's walk together.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.33-adverbs.いっしょに",
-            "n5.vocab.28-verbs-group-2-verbs.食べる",
-            "n5.vocab.35-particles-functional-.に"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-062.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "いっしょに",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -25606,22 +25134,11 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "いっしょに 行きましょうか。",
-          "translation_en": "Shall we go together?",
+          "ja": "いっしょに かえりましょうか。",
+          "translation_en": "Shall we go home together?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.33-adverbs.いっしょに",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.に",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "いっしょに",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-063.5.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -25648,43 +25165,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "まどを あけましょうか。",
+          "ja": "でんきを つけましょうか。",
           "form": "offer-help",
-          "translation_en": "Shall I open the window?",
+          "translation_en": "Shall I turn on the light?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.28-verbs-group-2-verbs.あける",
-            "n5.vocab.26-house-and-furniture.まど",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-063.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "まど",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "てつだいましょうか。",
+          "ja": "おちゃを つくりましょうか。",
           "form": "offer-assistance",
-          "translation_en": "Shall I help you?",
+          "translation_en": "Shall I make tea?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-063.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "だい",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -33279,34 +32777,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "この ほんは おもしろいです。",
+          "ja": "この りょうりは おいしいです。",
           "form": "descriptive",
-          "translation_en": "This book is interesting.",
+          "translation_en": "This dish is delicious.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.おもしろい",
-            "n5.vocab.5-demonstratives.この",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.の"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-079.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "この",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "おもしろい",
-              "mora": 5,
-              "drop": 4
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -33743,34 +33220,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "この ほんは おもしろくないです。",
+          "ja": "この えいがは おもしろくないです。",
           "form": "negative-descriptive",
-          "translation_en": "This book isn't interesting.",
+          "translation_en": "This movie isn't interesting.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.おもしろい",
-            "n5.vocab.5-demonstratives.この",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.の"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-080.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "この",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "おもしろくない",
-              "mora": 5,
-              "drop": 4
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -34204,31 +33660,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "きのうは あつかったです。",
+          "ja": "テストは むずかしかったです。",
           "form": "past-weather",
-          "translation_en": "It was hot yesterday.",
+          "translation_en": "The test was difficult.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.10-time-general.きのう",
-            "n5.vocab.14-nature-and-weather.あつい",
-            "n5.vocab.31-adjectives.あつい",
-            "n5.vocab.31-adjectives.あつい.2",
-            "n5.vocab.31-adjectives.あつい.3",
-            "n5.vocab.35-particles-functional-.は"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-081.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "きのう",
-              "mora": 2,
-              "drop": 2
-            },
-            {
-              "form": "あつかった",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -35043,38 +34481,11 @@
           "audio": "audio/grammar/n5-083.3.mp3"
         },
         {
-          "ja": "この りょうりは あつくて、おいしいです。",
-          "translation_en": "This dish is hot and delicious.",
+          "ja": "あの ほんは ながくて おもしろいです。",
+          "translation_en": "That book is long and interesting.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.おいしい",
-            "n5.vocab.37-common-nouns-miscella.りょうり",
-            "n5.vocab.14-nature-and-weather.あつい",
-            "n5.vocab.31-adjectives.あつい",
-            "n5.vocab.31-adjectives.あつい.2",
-            "n5.vocab.31-adjectives.あつい.3",
-            "n5.vocab.5-demonstratives.この",
-            "n5.vocab.27-verbs-group-1-verbs.つく",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "おいしい",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "りょうり",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "この",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-083.4.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -38039,33 +37450,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あそこは しずかです。",
-          "translation_en": "Over there is quiet.",
+          "ja": "この まちは しずかで、きれいです。",
+          "translation_en": "This town is quiet and clean.",
           "source": "vocab.n5.vocab.32-adjectives.しずか.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.あそこ",
-            "n5.vocab.32-adjectives.しずか",
-            "n5.vocab.5-demonstratives.そこ",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あそこ",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "しずか",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "そこ",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-089.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -39580,34 +38970,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "きょうしつに がくせいが います。",
+          "ja": "がっこうに せんせいが います。",
           "form": "place-people",
-          "translation_en": "There are students in the classroom.",
+          "translation_en": "There is a teacher at school.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.13-locations-and-places-.きょうしつ",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.に"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-092.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "きょうしつ",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "います",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
@@ -40053,36 +39422,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "ぎんこうは えきの まえに あります。",
+          "ja": "ねこは いすの したに います。",
           "form": "place-relative-location",
-          "translation_en": "The bank is in front of the station.",
+          "translation_en": "The cat is under the chair.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.13-locations-and-places-.ぎんこう",
-            "n5.vocab.5-demonstratives.こう",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.に",
-            "n5.vocab.35-particles-functional-.の"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-093.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "ぎんこう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "えき",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "まえ",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
@@ -41908,42 +41254,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "なつと ふゆと、どちらが すきですか。",
+          "ja": "やまと うみと、どちらが すきですか。",
           "form": "season-preference",
-          "translation_en": "Which do you like, summer or winter?",
+          "translation_en": "Mountain or sea, which do you like?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.どちら",
-            "n5.vocab.14-nature-and-weather.なつ",
-            "n5.vocab.14-nature-and-weather.ふゆ",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.と",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-097.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "なつ",
-              "mora": 2,
-              "drop": 2
-            },
-            {
-              "form": "ふゆ",
-              "mora": 2,
-              "drop": 2
-            },
-            {
-              "form": "どちら",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "すき",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -45504,34 +44821,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "この みせは あまり たかくないです。",
-          "translation_en": "This shop isn't very expensive.",
+          "ja": "きょうは いきたくないです。",
+          "translation_en": "I don't want to go today.",
           "source": "vocab.n5.vocab.31-adjectives.高い.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.12-time-frequency-sequen.あまり",
-            "n5.vocab.5-demonstratives.この",
-            "n5.vocab.31-adjectives.高い",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あまり",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "この",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "かく",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-105.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -45988,32 +45283,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "新しい くるまが ほしいです。",
-          "translation_en": "I want a new car.",
+          "ja": "おおきい いえが ほしいです。",
+          "translation_en": "I want a big house.",
           "source": "vocab.n5.vocab.31-adjectives.ほしい.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.新しい",
-            "n5.vocab.31-adjectives.ほしい",
-            "n5.vocab.35-particles-functional-.が"
-          ],
-          "pitch_marks": [
-            {
-              "form": "くるま",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "新しい",
-              "mora": 5,
-              "drop": 4
-            },
-            {
-              "form": "ほしい",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-106.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -46070,27 +45345,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "おかねが ほしいです。",
+          "ja": "じてんしゃが ほしいです。",
           "form": "want-money",
-          "translation_en": "I want money.",
+          "translation_en": "I want a bicycle.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.ほしい",
-            "n5.vocab.35-particles-functional-.が"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-106.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "おかね",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "ほしい",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
@@ -47345,34 +46606,11 @@
           "audio": "audio/grammar/n5-109.3.mp3"
         },
         {
-          "ja": "りんごは いくつ ありますか。",
-          "translation_en": "How many apples are there?",
+          "ja": "がくせいは なんにん いますか。",
+          "translation_en": "How many students are there?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.いくつ",
-            "n5.vocab.17-food-items.りんご",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "いくつ",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "りんご",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "くつ",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-109.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -47441,31 +46679,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "りんごは いくつ ありますか。",
+          "ja": "かみは なんまい ありますか。",
           "form": "count-tsu",
-          "translation_en": "How many apples are there?",
+          "translation_en": "How many sheets of paper are there?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.6-question-words.いくつ",
-            "n5.vocab.17-food-items.りんご",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-109.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "りんご",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "いくつ",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -48660,21 +47880,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "10分ぐらい かかります。",
-          "translation_en": "It takes about 10 minutes.",
+          "ja": "30分 まちました。",
+          "translation_en": "I waited 30 minutes.",
           "source": "vocab.n5.vocab.27-verbs-group-1-verbs.かかる.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.かかる",
-            "n5.vocab.35-particles-functional-.ぐらい"
-          ],
-          "pitch_marks": [
-            {
-              "form": "ぐらい",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-112.5.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -50472,31 +49683,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "まいにち にほんごを べんきょうします。",
-          "translation_en": "I study Japanese every day.",
+          "ja": "まいしゅう えいがを みます。",
+          "translation_en": "I watch movies every week.",
           "source": "vocab.n5.vocab.7-numbers.五.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "まいにち",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "にほんご",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-116.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -50976,30 +50168,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "きょうは あついです。",
+          "ja": "あしたは やすみです。",
           "form": "today-state",
-          "translation_en": "It's hot today.",
+          "translation_en": "Tomorrow is a holiday.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.14-nature-and-weather.あつい",
-            "n5.vocab.31-adjectives.あつい",
-            "n5.vocab.31-adjectives.あつい.2",
-            "n5.vocab.31-adjectives.あつい.3",
-            "n5.vocab.35-particles-functional-.は"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-117.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "きょう",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あつい",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -56822,34 +55997,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "ともだちに ほんを あげました。",
+          "ja": "母に かばんを あげました。",
           "form": "past-give",
-          "translation_en": "I gave a book to my friend.",
+          "translation_en": "I gave my mother a bag.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.2-people-family.ともだち",
-            "n5.vocab.30-verbs-existence-and-p.あげる",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.に"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-130.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "ともだち",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あげました",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -60633,49 +59787,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "コーヒーに します。",
+          "ja": "おちゃに します。",
           "form": "order-choice",
-          "translation_en": "I'll have coffee.",
+          "translation_en": "I'll have tea.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.コーヒー",
-            "n5.vocab.29-verbs-irregular-and-v.する",
-            "n5.vocab.35-particles-functional-.に"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-142.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "コーヒー",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "します",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "なにに しますか。",
+          "ja": "のみものは なにに しますか。",
           "form": "choice-question",
-          "translation_en": "What will you have?",
+          "translation_en": "What will you have to drink?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.29-verbs-irregular-and-v.する",
-            "n5.vocab.35-particles-functional-.に",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-142.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "します",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -61082,28 +60211,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "にほんごが じょうずに なりたいです。",
+          "ja": "せんせいに なりたいです。",
           "form": "aspire-skilled",
-          "translation_en": "I want to become good at Japanese.",
+          "translation_en": "I want to become a teacher.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.32-adjectives.じょうず",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.に"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-143.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "にほんご",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "じょうず",
-              "mora": 3,
-              "drop": 3
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -63479,34 +62593,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "たいてい うちで ごはんを たべます。",
+          "ja": "たいてい バスで 学校へ いきます。",
           "form": "usually-eat-home",
-          "translation_en": "I usually eat at home.",
+          "translation_en": "I usually go to school by bus.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.16-food-and-drink-genera.ごはん",
-            "n5.vocab.28-verbs-group-2-verbs.食べる",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.で"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-148.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "いて",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ごはん",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "たべます",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -63891,21 +62984,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "みずを ください。",
+          "ja": "ペンを ください。",
           "form": "water-request",
-          "translation_en": "Please give me water.",
+          "translation_en": "Please give me a pen.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.を"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-149.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "みず",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -64326,48 +63411,24 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "コーヒーを おねがいします。",
+          "ja": "おちゃを おねがいします。",
           "form": "order-coffee",
-          "translation_en": "Coffee, please.",
+          "translation_en": "Tea, please.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.36-greetings-and-set-phr.おねがいします",
-            "n5.vocab.18-drinks.コーヒー",
-            "n5.vocab.35-particles-functional-.を"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-150.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "コーヒー",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "おねがいします",
-              "mora": 7,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "メニューを おねがいします。",
+          "ja": "おみずを おねがいします。",
           "form": "menu-please",
-          "translation_en": "The menu, please.",
+          "translation_en": "Water, please.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.36-greetings-and-set-phr.おねがいします",
-            "n5.vocab.35-particles-functional-.を"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-150.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "おねがいします",
-              "mora": 7,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -64780,29 +63841,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "おちゃは いかがですか。",
+          "ja": "おかしは いかがですか。",
           "form": "offer-tea",
-          "translation_en": "How about some tea?",
+          "translation_en": "How about some sweets?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.おちゃ",
-            "n5.vocab.39-function-filler-expre.いかが",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-151.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "おちゃ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "いかが",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -66258,35 +65303,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "もう しゅくだいを しました。",
+          "ja": "もう ごはんを たべました。",
           "form": "already-homework",
-          "translation_en": "I've already done my homework.",
+          "translation_en": "I already ate.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.しゅくだい",
-            "n5.vocab.12-time-frequency-sequen.もう",
-            "n5.vocab.33-adverbs.もう",
-            "n5.vocab.29-verbs-irregular-and-v.する",
-            "n5.vocab.35-particles-functional-.を"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-154.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "もう",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "しゅくだい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "しました",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -66672,69 +65695,23 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "コーヒーは 飲みますが、にくは たべません。",
-          "translation_en": "I drink coffee, but I do not eat meat. (contrastive は: marks the contrast between two topics)",
+          "ja": "やすいですが、おいしくないです。",
+          "translation_en": "It's cheap, but it isn't delicious.",
           "source": "vocab.n5.vocab.18-drinks.コーヒー.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.コーヒー",
-            "n5.vocab.28-verbs-group-2-verbs.食べる",
-            "n5.vocab.17-food-items.にく",
-            "n5.vocab.27-verbs-group-1-verbs.飲む",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.が"
-          ],
-          "pitch_marks": [
-            {
-              "form": "コーヒー",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "にく",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-155.5.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "コーヒーは 飲みますが、にくは たべません。",
-          "translation_en": "I drink coffee, but I do not eat meat. (contrastive は: marks the contrast between two topics)",
+          "ja": "ねこは すきですが、いぬは すきじゃありません。",
+          "translation_en": "I like cats, but I don't like dogs.",
           "source": "vocab.n5.vocab.27-verbs-group-1-verbs.飲む.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.コーヒー",
-            "n5.vocab.28-verbs-group-2-verbs.食べる",
-            "n5.vocab.17-food-items.にく",
-            "n5.vocab.27-verbs-group-1-verbs.飲む",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.が"
-          ],
-          "pitch_marks": [
-            {
-              "form": "コーヒー",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "にく",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-155.6.mp3",
           "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -67156,27 +66133,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "いい てんきですね。",
+          "ja": "この りょうりは おいしいですよ。",
           "form": "weather-agreement",
-          "translation_en": "Nice weather, isn't it?",
+          "translation_en": "This dish is delicious, you know.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.ね"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-156.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "いい",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "てんき",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -71302,29 +70265,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "おちゃを どうぞ。",
+          "ja": "ごはんを どうぞ。",
           "form": "polite-tea",
-          "translation_en": "Please have some tea.",
+          "translation_en": "Please have some rice.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.おちゃ",
-            "n5.vocab.33-adverbs.どうぞ",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.35-particles-functional-.を"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-165.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "おちゃ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "どうぞ",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -73599,36 +72546,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "はやく ねた ほうが いいですよ。",
+          "ja": "やさいを たべた ほうが いいですよ。",
           "form": "advice-sleep",
-          "translation_en": "You should sleep early.",
+          "translation_en": "You should eat vegetables.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.はやい",
-            "n5.vocab.28-verbs-group-2-verbs.ねる",
-            "n5.vocab.40-misc-useful-items.ほう",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.よ"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-170.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "ねた",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "ほう",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "いい",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -75532,40 +74456,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "もっと べんきょうしなくては なりません。",
+          "ja": "あさ はやく おきなくては なりません。",
           "form": "must-study-more",
-          "translation_en": "I must study more.",
+          "translation_en": "I must wake up early in the morning.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.33-adverbs.もっと",
-            "n5.vocab.27-verbs-group-1-verbs.なく",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.と"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-174.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "もっと",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "なく",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -76450,13 +75347,11 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "はやく ねなきゃ。",
+          "ja": "もう いかなくちゃ。",
           "form": "casual-must-sleep",
-          "translation_en": "I've gotta sleep early.",
+          "translation_en": "Gotta go now.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.はやい"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-176.8.mp3"
         },
         {
@@ -78631,21 +77526,13 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "きれいだなあ。",
+          "ja": "そらが きれいだなあ。",
           "form": "exclamation-beautiful",
-          "translation_en": "How beautiful!",
+          "translation_en": "The sky is beautiful!",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.32-adjectives.きれい"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-181.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "きれい",
-              "mora": 1,
-              "drop": 1
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -79779,22 +78666,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "なにか たべたいです。",
+          "ja": "なにか のみたいです。",
           "form": "something-positive",
-          "translation_en": "I want to eat something.",
+          "translation_en": "I want to drink something.",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.28-verbs-group-2-verbs.食べる",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-184.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "たべた",
-              "mora": 3,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -80129,26 +79007,11 @@
           "audio": "audio/grammar/n5-185.3.mp3"
         },
         {
-          "ja": "だれか 来ましたか。",
-          "translation_en": "Did someone come?",
+          "ja": "だれか いますか。",
+          "translation_en": "Is someone there?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.だれ",
-            "n5.vocab.29-verbs-irregular-and-v.来る",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "だれ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "した",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-185.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
