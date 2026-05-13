@@ -1,3 +1,36 @@
+## ⛔ DO NOT RUN ON A CALENDAR / AUTO-CADENCE (set 2026-05-13)
+
+This prompt produced 29 / 5 / 0 actionable findings across three
+successive runs (commits bad804a → 5cfd230 over a single working
+session). The third run was zero-signal — every actionable
+dimension closeable under the RICHNESS-FIRST mandate is closed.
+
+**Run this prompt ONLY when ONE of these trigger conditions fires:**
+
+1. A major content-shape change ships (new chapter, new surface,
+   new scorecard dimension added to this prompt).
+2. The RICHNESS-FIRST width-freeze is lifted (e.g., maintainer
+   decides to grow the vocab list past 1009 or grammar past 178).
+3. /N4/ (or any next level) is unblocked — at that point, port this
+   prompt to that level's path and run it once for that corpus.
+4. A specific reviewer / external request asks for a fresh audit on
+   the existing N5 corpus.
+5. Drift suspicion: the audit-refresh tool reports significantly
+   different numbers than the prompt's CURRENT STATE table.
+
+**Do NOT trigger from:**
+- /loop or scheduled-wakeup cadences (calendar reruns produce zero
+  signal at saturation).
+- Routine release / commit / push events.
+- Auto-pilot from "let's check if anything's new" — at saturation
+  the answer is always "no, nothing actionable."
+
+If unsure whether a trigger fires, ask the maintainer before
+running. The audit cycle is closed; reopening it without cause
+wastes maintainer review attention on confirmatory output.
+
+---
+
 You are operating in audit-only mode on the JLPT N5 sub-app of
 JLPTSuccess.
 
