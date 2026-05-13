@@ -336,7 +336,25 @@ def main():
             continue  # nested, skip for now
         c = Counter()
         for it in items:
-            c[it.get(key) or "(none)"] += 1
+            # IMP-181 fix (2026-05-13): some provenance fields are dicts
+            # (cultural_callout_provenance is a per-subfield dict, not a
+            # scalar). Stringify to a hashable summary instead of
+            # crashing on a dict key.
+            val = it.get(key)
+            if val is None:
+                key_label = "(none)"
+            elif isinstance(val, str):
+                key_label = val
+            elif isinstance(val, dict):
+                # Summarise dict-shaped provenance to its dominant subfield value.
+                vals = list(val.values()) if val else []
+                if all(isinstance(v, str) for v in vals) and vals:
+                    key_label = f"<dict: {Counter(vals).most_common(1)[0][0]}>"
+                else:
+                    key_label = "<dict>"
+            else:
+                key_label = f"<{type(val).__name__}>"
+            c[key_label] += 1
         print(f"\n  {name}:")
         for k, v in c.most_common():
             print(f"    {k:35s} {v}")

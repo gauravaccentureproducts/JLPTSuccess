@@ -137,29 +137,29 @@ best-in-incumbent or beyond.
 ⚠ The numbers below are POINT-IN-TIME and drift after every
 release. Re-derive from data files before quoting in findings.
 
-| Field | State (last refreshed 2026-05-10) |
+| Field | State (last refreshed 2026-05-13) |
 |---|---|
 | Repo | `gauravaccentureproducts/JLPTSuccess` |
 | Stack | Static PWA, vanilla HTML/CSS/JS, no build step |
 | Live URL | https://gauravaccentureproducts.github.io/JLPTSuccess/N5/ |
 | Locales | `{en, hi}` (closed set; JA-39 invariant) |
-| Hindi content | 100% native_reviewed across all Hindi-bearing slots (HI audit cycles 1-5 complete) |
-| CI invariants | 50 (release-blocker; X-6.x + JA-1..JA-41) |
+| Content origin | Machine-generated and maintainer-curated via Claude (LLM). NO Japanese-native-speaker review has taken place. The internal provenance tag value `native_reviewed` is a TRACKING LABEL ONLY (it marks entries the maintainer hand-curated / promoted after LLM review), NOT a user-facing claim. Do NOT recommend exposing provenance tiers in the UI as a trust signal — that would be a false promise. (IMP-184 set 2026-05-13 to Avoid for this exact reason.) |
+| CI invariants | 70 (release-blocker; X-6.x + JA-1..JA-67) |
 | Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — refresh count via openpyxl scan |
-| Provenance enum | `{native_reviewed, llm_curated, auto_derived, auto_generated_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional}` |
-| Audio infra | VOICEVOX engine + gTTS fallback + edge-tts voice plans; ~870 MP3s under audio/ (verify via `ls audio/**/*.mp3 \| wc -l`) |
-| Tests | `tools/check_content_integrity.py` (50 invariants) + Playwright e2e + visual regression |
+| Provenance enum | Internal tracking only: `{native_reviewed, llm_curated, auto_derived, auto_generated_template, auto_derived_from_vocab_pitch, auto_derived_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional}`. The `native_reviewed` value is a misnomer — re-read the "Content origin" row above. |
+| Audio infra | VOICEVOX engine v0.25.2 + gTTS fallback + edge-tts voice plans; refresh MP3 count via `find audio -name '*.mp3' \| wc -l` |
+| Tests | `tools/check_content_integrity.py` (70 invariants) + Playwright e2e + visual regression |
 | Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic, Authentic, Print/Cheat-sheet, Print/Lesson |
 | Authentic content | `data/authentic.json` — 9 categories (signs, menu, transit, shop, notice, weather, hospital, post, time); ~100 items |
 
 **Corpus widths (frozen this cycle)** — verify via the refresh
 script before each audit:
 
-  - Grammar patterns: ~178
-  - Vocabulary entries: ~1000 (post-2026-05-08 dedup)
+  - Grammar patterns: 178
+  - Vocabulary entries: 1009 (post-2026-05-08 dedup)
   - Kanji glyphs: 106
-  - Reading passages: 50+ (was 45; expanded to close kanji-cross-link gap)
-  - Listening items: 47 (mondai 1-4 mix)
+  - Reading passages: 54
+  - Listening items: 50 (mondai 1-4 mix)
   - Mock paper files: 28 (402 paper-bound questions)
   - Question bank: 290 grammar-pattern questions + 137 distractor blocks
 
@@ -561,10 +561,14 @@ These are CORRECTNESS bars; failures are BLOCKER severity.
 - **Rationale taxonomy** — strict equivalence / context-anchored
   paraphrase / pragmatic substitution / scope exception. Per
   JA-29 closed enum.
-- **Provenance + review_status** — `{native_reviewed,
-  llm_curated, auto_generated}` enum; the visual badge (per
-  IMP-116) gates UI exposure at the ≥10% native-reviewed
-  threshold per surface.
+- **Provenance + review_status** — internal tracking only. The
+  enum exists to mark which entries were maintainer-curated vs
+  LLM-auto-generated. Do NOT recommend a user-facing badge or
+  per-surface threshold disclosure (IMP-184 set to Avoid
+  2026-05-13). Reason: nothing in the corpus has actually been
+  reviewed by a Japanese native speaker — exposing the tag would
+  be a false claim. Content correctness is what matters; we don't
+  disclose its origin as a trust signal.
 - **Source citations** — items reference the textbook / reference
   work they're sourced from. Trust signal.
 
@@ -1140,15 +1144,17 @@ Effort.
 Statistical state of the app today. Read-only.
 
 - Answer-position distribution per corpus.
-- Coverage counts: kanji / 106, vocab / 1000, grammar / 178,
-  reading / 40, listening / 47, paper / 28.
+- Coverage counts: kanji / 106, vocab / 1009, grammar / 178,
+  reading / 54, listening / 50, paper / 28.
 - Per-corpus item counts vs target.
 - Test-suite pass status (read existing CI artifacts).
 - localStorage namespace currently in use vs documented.
 - Per-surface presence/absence checklist.
-- **native_reviewed vs llm_curated count per surface** — current
-  100% native_reviewed across all Hindi slots per cycle-5; any
-  drift is a regression finding.
+- **Internal provenance-tier counts per surface** — report for
+  audit-internal use only (track maintainer-curated vs auto-derived
+  entries). Do NOT recommend exposing these as a user-facing trust
+  signal — the `native_reviewed` tag is a misnomer (nothing has
+  been native-speaker-reviewed; the corpus is machine-generated).
 
 ### Section 8: Out-of-Scope Notes
 

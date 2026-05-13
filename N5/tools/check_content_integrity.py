@@ -851,6 +851,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     # corpus-wide convention: English commentary fields use only
     # N5-whitelist kanji + kana.
     ("JA-66", "explanation_en + pd_refs.pattern_role: kanji bounded by N5 whitelist (2026-05-13)", lambda: _check_ja_66_explanation_en_kanji_in_scope()),
+    # JA-67 (2026-05-13): Density-3 floor regression guard. After the
+    # D2/D3 fix (commit d7eaf43) the below-floor count is 24/106
+    # (the genuinely-singleton N5 kanji: 力 + 23 with exactly 1 vocab).
+    # Locking the count prevents accidental vocab deletions from
+    # silently dropping more kanji below the floor.
+    ("JA-67", "Density-3 below-floor count locked at 24 (kanji->vocab union method; 2026-05-13)", lambda: _check_ja_67_density3_floor_lock()),
+    # JA-68 (2026-05-13): cache-version 3-place sync. index.html CSS
+    # `?v=`, index.html JS `?v=`, and sw.js CACHE_VERSION must all
+    # match. Forgotten bumps in any one breaks the cache-bust on
+    # release.
+    ("JA-68", "Cache version sync: index.html css + js + sw.js CACHE_VERSION (2026-05-13)", lambda: _check_ja_68_cache_version_sync()),
 ]
 
 
@@ -3277,6 +3288,80 @@ def _check_ja_66_explanation_en_kanji_in_scope() -> list[str]:
                         f"JA-66 {pid}.public_domain_refs[{i}].pattern_role: "
                         f"above-N5 kanji {bad} — pattern_role is English."
                     )
+    return failures
+
+
+def _check_ja_67_density3_floor_lock() -> list[str]:
+    """JA-67 (2026-05-13): Density-3 (kanji->vocab) below-floor count
+    regression guard. After the D2/D3 fix (commit d7eaf43), 24 of 106
+    kanji have <2 vocab uses (intrinsic singletons at frozen N5 width).
+    The count is LOCKED at 24 — a drop further below the floor is a
+    regression that this check catches.
+
+    Union method: kanji is "used" if it appears in vocab.form OR is
+    linked via kanji.n5_compounds.vocab_id. This matches the canonical
+    Density-3 measurement.
+    """
+    failures: list[str] = []
+    LOCKED_COUNT = 24  # below-floor count at the lock point (commit d7eaf43)
+    try:
+        V = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))["entries"]
+        K = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))["entries"]
+    except Exception as e:
+        return [f"JA-67: load error: {e}"]
+
+    n5_glyphs = {k["glyph"] for k in K}
+    used = {g: set() for g in n5_glyphs}
+    for v in V:
+        for ch in (v.get("form") or ""):
+            if ch in n5_glyphs:
+                used[ch].add(v.get("id"))
+    for k in K:
+        for c in (k.get("n5_compounds") or []):
+            if isinstance(c, dict) and c.get("vocab_id"):
+                used[k["glyph"]].add(c["vocab_id"])
+
+    below_floor = sum(1 for g in n5_glyphs if len(used[g]) < 2)
+    if below_floor > LOCKED_COUNT:
+        glyphs_below = sorted([g for g in n5_glyphs if len(used[g]) < 2],
+                              key=lambda g: len(used[g]))
+        failures.append(
+            f"JA-67: Density-3 below-floor count regressed to {below_floor} "
+            f"(locked at {LOCKED_COUNT}). Excess kanji: {glyphs_below[LOCKED_COUNT:]}"
+        )
+    return failures
+
+
+def _check_ja_68_cache_version_sync() -> list[str]:
+    """JA-68 (2026-05-13): the cache version must match across 3 places:
+    index.html's CSS query string, index.html's JS query string, and
+    sw.js's CACHE_VERSION constant. Forgotten bumps in any one breaks
+    the cache-bust on release.
+    """
+    failures: list[str] = []
+    try:
+        index_html = (ROOT / "index.html").read_text(encoding="utf-8")
+        sw_js = (ROOT / "sw.js").read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-68: load error: {e}"]
+
+    css_m = re.search(r'css/main\.min\.css\?v=(\d+\.\d+\.\d+)', index_html)
+    js_m = re.search(r'js/min/app\.js\?v=(\d+\.\d+\.\d+)', index_html)
+    sw_m = re.search(r"CACHE_VERSION\s*=\s*'jlptsuccess-n5-v(\d+\.\d+\.\d+)'", sw_js)
+
+    if not css_m:
+        failures.append("JA-68: index.html missing css/main.min.css?v=X.Y.Z marker")
+    if not js_m:
+        failures.append("JA-68: index.html missing js/min/app.js?v=X.Y.Z marker")
+    if not sw_m:
+        failures.append("JA-68: sw.js missing CACHE_VERSION = 'jlptsuccess-n5-vX.Y.Z' marker")
+    if css_m and js_m and sw_m:
+        versions = {css_m.group(1), js_m.group(1), sw_m.group(1)}
+        if len(versions) > 1:
+            failures.append(
+                f"JA-68: cache versions out of sync — "
+                f"css={css_m.group(1)}, js={js_m.group(1)}, sw={sw_m.group(1)}"
+            )
     return failures
 
 
