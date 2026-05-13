@@ -77,7 +77,7 @@ distribution / topic / vocabulary scope** - never for question text:
 | Source | What we took | What we did NOT take |
 |---|---|---|
 | **JEES official sample papers** (jlpt.jp) | The Mondai structure (1 - 7), the rough question-count distribution per Mondai, the difficulty range | Any specific question text, distractor set, or passage |
-| **JLPT N5 official syllabus** (published by JEES) | The kanji list (106 chars), the vocabulary scope (~800 core entries; we expanded to 1003 with related N5 vocabulary), the grammar inventory (~150 patterns; we cover 177 with related forms) | Anything that would constitute the "exam itself" |
+| **JLPT N5 official syllabus** (published by JEES) | The kanji list (106 chars), the vocabulary scope (~800 core entries; we expanded to 1009 with related N5 vocabulary), the grammar inventory (~150 patterns; we cover 178 with related forms) | Anything that would constitute the "exam itself" |
 | **Tofugu / WaniKani / Imabi / Bunpro / JLPTsensei / Tae Kim** | Pattern explanations, common-mistake lists, register notes - used as cross-references when authoring our own `meaning_en` / `notes` fields | Any verbatim text |
 | **KANJIDIC2 + JMdict** | On / kun reading lists per kanji, frequency rank | We re-derived our own primary-reading flags + example sentences |
 | **JLPT past-paper *analysis* (third-party books, learner blogs)** | Question-distribution facts, common topics in dokkai (school / shopping / family / weather), characteristic phrasings of Mondai instructions | The actual past-paper questions themselves |

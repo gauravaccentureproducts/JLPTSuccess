@@ -862,6 +862,15 @@ CHECKS: list[tuple[str, str, callable]] = [
     # match. Forgotten bumps in any one breaks the cache-bust on
     # release.
     ("JA-68", "Cache version sync: index.html css + js + sw.js CACHE_VERSION (2026-05-13)", lambda: _check_ja_68_cache_version_sync()),
+    # JA-69 (2026-05-13): public_domain_refs legal-status guard. Added
+    # after the legal-vetting run-2 audit caught 4 entries citing
+    # in-copyright works (Kawabata d.1972, Nakamura ×2 d.1972, Nishijō
+    # d.1970) whose pd_status text itself admitted "PD pending until
+    # 2043". The fix is mechanical (replace with verified-PD authors);
+    # this invariant prevents recurrence by failing on any future ref
+    # whose pd_status contains red-flag legal language or whose
+    # author_death_year is too recent under Japan's life+70 rule.
+    ("JA-69", "public_domain_refs legal-status guard: no 'pending'/'protected' pd_status; author_death_year <= 1955 buffer (2026-05-13)", lambda: _check_ja_69_pd_refs_legal_status()),
 ]
 
 
@@ -3329,6 +3338,98 @@ def _check_ja_67_density3_floor_lock() -> list[str]:
             f"JA-67: Density-3 below-floor count regressed to {below_floor} "
             f"(locked at {LOCKED_COUNT}). Excess kanji: {glyphs_below[LOCKED_COUNT:]}"
         )
+    return failures
+
+
+def _check_ja_69_pd_refs_legal_status() -> list[str]:
+    """JA-69 (2026-05-13): every entry in grammar.json's `public_domain_refs`
+    must cite a verified public-domain work. Failure modes caught:
+
+    1. `pd_status` text contains red-flag legal language ('pending',
+       'protected', 'in copyright', 'PD in 20XX' for a future year, or
+       '(Fallback ref:)' placeholder substring).
+    2. `author_death_year` is more recent than 1955 (conservative buffer
+       over Japan's mathematical PD threshold of 1967 — works whose
+       authors died in 1968+ get the new life+70 rule and aren't PD
+       until 2038+; works with deaths 1956-1967 are borderline edge
+       cases the corpus avoids by policy).
+
+    Background: legal-vetting audit 2026-05-13 caught 4 in-copyright
+    entries that slipped through the original PD-refs expansion
+    (Kawabata d.1972, Nakamura ×2 d.1972, Nishijō d.1970). The data
+    file's own pd_status field admitted the copyright status ("PD
+    pending until 2043"). This check programmatically catches the same
+    class going forward.
+
+    Exemptions:
+      - source_type == "proverb"/"folk_song" with author == "(traditional)"
+        and author_death_year is None → pre-modern anonymous; pass.
+      - source_type == "government" → §13 著作権法 exception; pass.
+      - source_type == "nhk_easy" with no quoted text → recommendation-
+        only reference; pass (the upstream usage rights are NHK's, not
+        ours; we don't redistribute the content).
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-69: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-69: parse error: {e}"]
+
+    RED_FLAG_SUBSTRINGS = (
+        "pending",
+        "protected",
+        "in copyright",
+        "(fallback ref:)",
+    )
+    # Match "PD in 20XX" / "PD until 20XX" / "expires 20XX" with year >= 2026.
+    FUTURE_PD_RE = re.compile(r"(?:PD in|PD until|expires)\s+(\d{4})", re.IGNORECASE)
+    AUTHOR_DEATH_YEAR_BUFFER = 1955  # conservative; mathematical threshold is 1967
+
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        for i, r in enumerate(p.get("public_domain_refs") or []):
+            if not isinstance(r, dict):
+                continue
+            source_type = (r.get("source_type") or "").lower()
+            pd_status = r.get("pd_status") or ""
+            context = r.get("context") or ""
+            adyear = r.get("author_death_year")
+
+            # Red-flag substring check (case-insensitive over pd_status + context).
+            blob = (pd_status + " " + context).lower()
+            for flag in RED_FLAG_SUBSTRINGS:
+                if flag in blob:
+                    failures.append(
+                        f"JA-69 {pid}.public_domain_refs[{i}]: "
+                        f"red-flag substring '{flag}' in pd_status/context. "
+                        f"Replace with a verified-PD reference."
+                    )
+                    break
+
+            # Future-PD-year claim.
+            for m in FUTURE_PD_RE.finditer(pd_status):
+                year = int(m.group(1))
+                if year >= 2026:
+                    failures.append(
+                        f"JA-69 {pid}.public_domain_refs[{i}]: "
+                        f"pd_status admits work enters PD in {year} (future) — "
+                        f"work is still in copyright today."
+                    )
+
+            # author_death_year buffer (skip for source_types that don't
+            # rely on an authored work).
+            if isinstance(adyear, int) and adyear > AUTHOR_DEATH_YEAR_BUFFER:
+                if source_type not in ("proverb", "folk_song", "government", "nhk_easy"):
+                    failures.append(
+                        f"JA-69 {pid}.public_domain_refs[{i}]: "
+                        f"author_death_year={adyear} is more recent than the "
+                        f"safe buffer ({AUTHOR_DEATH_YEAR_BUFFER}). Japan PD "
+                        f"under life+70 = {adyear + 70} (still in copyright)."
+                    )
+
     return failures
 
 
