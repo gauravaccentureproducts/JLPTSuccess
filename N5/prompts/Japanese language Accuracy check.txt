@@ -45,6 +45,254 @@ output format are recommendations for the fix-pass — not changes you
 make yourself.
 
 ============================================================
+PHASE 0 — MANDATORY EXECUTABLE CHECKLIST (RUN VERBATIM EVERY TIME)
+============================================================
+
+This section exists because the audit kept catching issues in later
+runs that earlier runs should have caught. Root cause: ad-hoc
+sampling instead of systematic check execution. Saturation cannot be
+declared until every check below returns its expected value.
+
+EXECUTION RULE: Before doing any random sampling, run every check
+below as a structured aggregate / regex / count. Report each as
+"[CHECK-N] result". If a check exceeds its expected threshold, that
+finding goes into Section 5 / 6 of the output. Random sampling
+(Phase 1) only happens AFTER Phase 0 completes with all results
+documented.
+
+SAMPLING vs STRUCTURAL distinction:
+  - Random sampling = "does this surface read naturally?" Use after
+    Phase 0.
+  - Structural check = "is X present/consistent across N entries?"
+    Must be Phase 0. Cannot be replaced by sampling because rare
+    issues (1-2 instances in a 1000-entry corpus) have near-zero
+    sampling-hit probability.
+
+LIST OF CHECKS (run in order; mark each PASS/FAIL with the count):
+
+[CHECK-1] CI invariants pre-flight
+  How:   structural; verify the integrity check passes
+  Code:  python tools/check_content_integrity.py
+  Pass:  "PASS: all NN/NN invariants green" where NN is the current
+         total (was 83 at 2026-05-13 session close)
+  Fail:  any non-zero violation; STOP audit and surface the failures
+         before sampling
+
+[CHECK-2] Placeholder text leakage (any shipped data field)
+  How:   regex on user-facing string values across all data files
+  Code:  grep -E '(\(unspecified|placeholder|TODO|FIXME|TBD|XXX|keep prior|\(temp\)|INSERT_|fallback ref|lorem ipsum|Sample text)' data/*.json
+  Pass:  0 hits
+  Lock:  JA-77 (since 2026-05-13)
+  History: caught 2 entries in n5-098.wrong_corrected_pair shipping
+           '(unspecified — keep prior)' (run-2 of accuracy audit)
+
+[CHECK-3] Repeated-kana clarity (looks-like-typo)
+  How:   regex on all example sentences
+  Code:  pattern `([぀-ゟ])\1{2,}` on grammar.examples[].ja
+  Pass:  0 hits
+  Lock:  JA-78 (since 2026-05-13)
+  History: caught 'ははは' in n5-072 and 'ははが' in n5-146 — both
+           grammatically correct (母+は) but readable as typos.
+           Fix is to use the kanji form (母は instead of ははは).
+
+[CHECK-4] Grammar example form-field consistency (anti-§3.2.34)
+  How:   structural aggregate per pattern
+  Code:  for each pattern, count examples with `form` populated; if
+         0 < count < total, fail
+  Pass:  every pattern has all-populated OR all-empty form fields
+  Lock:  JA-79 (since 2026-05-13)
+  History: caught 177/178 patterns with mixed form coverage at slots
+           4-6 (520 missing form values) in run-3 of accuracy audit
+
+[CHECK-5] meaning_ja cross-contamination — strict marker check
+  How:   per-pattern marker dictionary match
+  Code:  for each pattern with `_meaning_ja_markers`, meaning_ja must
+         contain ≥2 markers OR ≥1 distinctive (≥3-char) marker
+  Pass:  0 patterns failing
+  Lock:  JA-75 (since 2026-05-13)
+  History: caught 28 entries across native-teacher runs 1-3 where
+           meaning_ja described a different grammar point
+
+[CHECK-6] meaning_ja first-marker coarse overlap (anti-N1-misalignment)
+  How:   regex + per-pattern character overlap
+  Code:  first 「marker」 in meaning_ja must share ≥1 char with pattern
+         field (Latin patterns / single-char patterns exempted)
+  Pass:  0 patterns failing
+  Lock:  JA-71 (since 2026-05-13; coarser than JA-75)
+
+[CHECK-7] Pitch-accent mora-count integrity
+  How:   structural per-vocab count
+  Code:  for each vocab with reading not containing "/", assert
+         pitch_accent.mora == count_mora(reading) where small kana
+         (ゃゅょぁぃぅぇぉ) merge with previous mora
+  Pass:  0 mismatches
+  Lock:  JA-70 (since 2026-05-13)
+  History: caught 110 wrong mora counts (29% of LLM-curated subset)
+
+[CHECK-8] Vocab readings schema (no slash-separated reading strings)
+  How:   structural per-vocab
+  Code:  vocab.reading must be single kana form; multi-reading goes
+         in vocab.readings[] list with vocab.reading set to primary
+  Pass:  0 vocab entries with "/" in reading
+  Lock:  JA-74 (since 2026-05-13)
+
+[CHECK-9] Gairaigo katakana enforcement
+  How:   structural per-vocab
+  Code:  vocab entries with register_origin == 'gairaigo' must have
+         all-katakana `form` field (no hiragana or kanji)
+  Pass:  0 violations
+  Lock:  JA-72 (since 2026-05-13)
+
+[CHECK-10] Reading question canonical stem key
+  How:   structural per-question
+  Code:  reading.passages[].questions[] use prompt_ja (not legacy
+         question_ja)
+  Pass:  0 questions using question_ja
+  Lock:  JA-73 (since 2026-05-13)
+
+[CHECK-11] Listening choices include correctAnswer
+  How:   structural per-listening-item
+  Code:  for each listening item, correctAnswer must appear in choices
+  Pass:  0 mismatches
+
+[CHECK-12] Listening item completeness
+  How:   structural per-listening-item
+  Code:  every listening item has non-empty prompt_ja AND choices
+  Pass:  0 missing
+
+[CHECK-13] Reading passage completeness
+  How:   structural per-reading-passage
+  Code:  every passage has paragraphs[] non-empty AND topic AND
+         questions[] non-empty
+  Pass:  0 missing
+
+[CHECK-14] Grammar example vocab_id integrity (anti-§3.2.13)
+  How:   cross-surface aggregate
+  Code:  for each vocab_id referenced in grammar.examples[].vocab_ids,
+         the vocab_id must exist in vocab.json
+  Pass:  0 broken refs
+
+[CHECK-15] Kanji lookalike symmetry (anti-§3.2.X)
+  How:   cross-kanji aggregate
+  Code:  for each kanji A whose lookalikes include B, kanji B's
+         lookalikes must include A (symmetric)
+  Pass:  0 asymmetric pairs
+
+[CHECK-16] Kanji on-yomi katakana convention
+  How:   structural per-kanji
+  Code:  every kanji.on[] entry must be katakana-only (no hiragana
+         characters U+3040..U+309F); same for audio_yomi.on[].reading
+  Pass:  0 hiragana hits in on-yomi
+  Lock:  JA-76 (since 2026-05-13)
+  History: caught 105 kanji with hiragana on-yomi (corpus-wide
+           convention shift, 136 readings converted)
+
+[CHECK-17] Above-target-level kanji in English commentary (anti-§3.2.21)
+  How:   structural scan of leaf-skipped fields
+  Code:  explanation_en + public_domain_refs.pattern_role must use
+         only N5-whitelist kanji + kana
+  Pass:  0 above-N5 kanji
+  Lock:  JA-66 (since 2026-05-13)
+
+[CHECK-18] PD-refs legal status (anti-IP-exposure)
+  How:   structural per-ref
+  Code:  every public_domain_refs entry must have pd_status that does
+         NOT contain 'pending' / 'protected' / 'in copyright' /
+         'PD in 20XX' (future year); author_death_year ≤ 1955
+  Pass:  0 violations
+  Lock:  JA-69 (since 2026-05-13)
+
+[CHECK-19] Cache-version 3-place sync
+  How:   structural file-content check
+  Code:  index.html CSS ?v=, index.html JS ?v=, sw.js CACHE_VERSION
+         all match
+  Pass:  all three equal
+  Lock:  JA-68 (since 2026-05-13)
+
+[CHECK-20] Group-1 exception verbs tagged godan (anti-§3.2.X)
+  How:   structural per-vocab
+  Code:  vocab entries with reading in {はいる/かえる/はしる/しる/きる/
+         いる} must have verb_class containing 'godan' (these look
+         ichidan but are godan)
+  Pass:  all 6 tagged correctly
+
+[CHECK-21] 行く irregular te-form correctness
+  How:   regex on all example sentences
+  Code:  grep -F '行いて' or '行いた' across grammar.examples[].ja and
+         vocab.examples[].ja
+  Pass:  0 hits (correct form is 行って / 行った)
+
+[CHECK-22] Sokuon allophones not listed as separate kun (anti-§3.2.15)
+  How:   regex on kanji.kun[]
+  Code:  no kanji.kun[] entry contains っ
+  Pass:  0 violations (みっつ etc. should NOT be listed as kun;
+         they're sokuon allophones of み, よ, etc.)
+
+[CHECK-23] Half-applied ウ音便 keigo (anti-A9)
+  How:   regex on politeness_ladder.humble
+  Code:  no entry contains stem+う+ござ (uncontracted form like
+         たかう ござ which should be たこう ござ)
+  Pass:  0 hits
+
+[CHECK-24] Double-particle / double-copula in examples
+  How:   regex on example sentences
+  Code:  no example contains literal 'ですです', 'ますます', 'がが',
+         'をを', 'にに', 'でで' (note: でで within 'までです' is まで+です
+         = false positive; only flag if not preceded by ま+
+         followed by す)
+  Pass:  0 hits after false-positive exclusion
+
+[CHECK-25] Romaji leakage in JA user-facing fields
+  How:   regex on grammar/vocab/kanji/reading/listening ja fields
+  Code:  no 4+-letter Latin word (excluding allowlist: JLPT, VOICEVOX,
+         TTS, true, false) in any ja-text field
+  Pass:  0 hits
+
+[CHECK-26] Audio reference integrity
+  How:   filesystem check
+  Code:  every audio path referenced in data/*.json exists on disk
+  Pass:  0 missing files
+  Note:  This is a sampled check (15-50 refs) because exhaustive
+         scan is slow; if any sampled ref is missing, escalate to
+         exhaustive.
+
+[CHECK-27] Cultural-context coverage on listening items
+  How:   structural per-listening
+  Code:  every listening item with mondai 2 or 3 has cultural_context
+  Pass:  100% coverage on dialogue items
+
+[CHECK-28] Hindi locale coverage (anti-locale-drift)
+  How:   structural per-entry
+  Code:  every grammar pattern has meaning_hi; every vocab has gloss_hi;
+         every kanji has meanings_hi or meaning_hi
+  Pass:  0 missing
+
+[CHECK-29] Self-incriminating fallback / placeholder marks
+  How:   regex scan
+  Code:  no entry contains '(Fallback ref:)' / 'See pattern detail' /
+         'Refer to grammar.json' in user-visible fields
+  Pass:  0 hits
+
+[CHECK-30] meaning_ja first-marker references correct pattern
+         (manual sample after Phase 0 — fold into Phase 1)
+  Note:  CI cannot fully catch subtle cross-contamination where
+         markers happen to overlap by chance. Manual sample of 10
+         random patterns after Phase 0.
+
+RECORDING REQUIREMENT: every Phase 0 check that fires produces an
+F-N finding with the corresponding CHECK-NN reference in its
+"Cross-ref" field. Even if the count is "1 hit", file it.
+
+SATURATION DEFINITION: do NOT declare saturation unless ALL of:
+  (a) Every Phase-0 check returned its pass value
+  (b) Phase 1 sampling (12+ items per surface) found 0 actionable issues
+  (c) The most-recent commit hash matches the post-fix state of
+      the previous audit run
+
+If any condition fails, the audit is not saturated — continue.
+
+
+============================================================
 FILES IN AUDIT SCOPE
 ============================================================
 
@@ -723,6 +971,26 @@ ERROR-RATE FLOORS BY CATEGORY (what to expect even on a "clean" corpus):
     ~0% on kanjium-dictionary-derived. Use kanjium values when
     available.
 
+AD-HOC-SAMPLING ANTI-PATTERN (NEW 2026-05-13):
+  Across three accuracy-audit runs in a single day, each run found
+  new issues that the prior run missed — NOT because the corpus
+  changed, but because each run sampled DIFFERENT dimensions:
+    Run 1: cultural register, on-yomi convention, topic tags
+           → caught F-1, F-2, F-3
+    Run 2: placeholders, repeated-kana, double-particles
+           → caught F-4, F-5, F-6
+    Run 3: form-field consistency, cross-locale, audio refs
+           → caught F-7 (520 missing form values!)
+  The form-field check (anti-§3.2.34) was IN THE PROMPT'S OWN
+  anti-pattern list at run 1; it just wasn't structurally checked
+  until run 3. The lesson: prose anti-pattern bullets are not a
+  substitute for executable checks. Phase 0 (mandatory checklist)
+  exists to prevent this recurrence.
+
+  Rule: never claim "I audited X" if you didn't actually execute
+  the structured check for X. Sampling is for naturalness; structural
+  checks are for presence/consistency.
+
 DRIFT BETWEEN PROMPT CURRENT-STATE TABLE AND LIVE DATA:
   Every audit-refresh script encoded in this prompt risks using
   WRONG FIELD NAMES (anti-pattern: name drift from authoring batch
@@ -806,6 +1074,25 @@ STRICT RULES — VIOLATIONS INVALIDATE THE AUDIT
 15. If a run produces zero actionable findings, declare saturation
     and STOP. Do not manufacture P5 polish items to fill output
     slots (anti-pattern #23).
+16. EXECUTE PHASE 0 BEFORE SAMPLING. The 30-check list near the top
+    of this prompt is mechanical and must run every audit. Do not
+    skip checks because they "feel" already covered by CI invariants
+    — invariants can be bypassed, broken, or stale; the checklist is
+    the redundant safety net. Anti-pattern: ad-hoc sampling. Lesson
+    from accuracy-audit runs 1-3 (2026-05-13): three successive runs
+    found new issues that earlier runs missed BECAUSE the earlier
+    runs sampled different areas instead of running the full
+    checklist. The fix is to make Phase 0 unskippable.
+17. SATURATION REQUIRES (a) ALL Phase-0 checks at expected values,
+    AND (b) Phase 1 sampling clean, AND (c) corpus state has not
+    advanced beyond the last verified-clean commit. Premature
+    saturation claims are the worst failure mode of an auditor
+    (declares "we're done" while bugs ship).
+18. NEW CHECKS GO AT THE BOTTOM. When a bug is caught manually
+    that should have been a Phase-0 check, ADD a CHECK-NN entry at
+    the bottom of the Phase-0 list with the executable code, expected
+    output, and historical-bug reference. The checklist GROWS over
+    time; never shrinks.
 
 ============================================================
 END OF AUDIT BRIEF (updated 2026-05-13 with session-3 lessons)
