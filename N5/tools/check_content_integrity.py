@@ -904,6 +904,15 @@ CHECKS: list[tuple[str, str, callable]] = [
     # slash-separated `reading: "なに / なん"` string). The migration
     # ran 2026-05-13; this invariant locks the schema forward.
     ("JA-74", "Vocab `reading` field is a single kana form; multi-reading uses `readings: [...]` list (2026-05-13)", lambda: _check_ja_74_vocab_readings_schema()),
+    # JA-75 (2026-05-13): per-pattern meaning_ja marker dictionary.
+    # JA-71's character-overlap heuristic catches egregious cross-
+    # contamination but misses subtle cases (1 incidental char
+    # overlap). JA-75 snapshots the current (verified-correct after
+    # 3 native-teacher audits) meaning_ja's distinctive vocabulary
+    # as `_meaning_ja_markers` on each pattern. meaning_ja must
+    # contain at least one marker. Catches any future drift away
+    # from the verified state.
+    ("JA-75", "Grammar meaning_ja must contain at least one of its pattern's _meaning_ja_markers (2026-05-13)", lambda: _check_ja_75_meaning_ja_markers()),
 ]
 
 
@@ -1012,7 +1021,16 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
                            # not as text the learner is expected to parse.
                            # Same rationale as the other commentary-field
                            # exemptions above.
-                           "public_domain_refs"}
+                           "public_domain_refs",
+                           # 2026-05-13 (JA-75 install): _meaning_ja_markers
+                           # is a per-pattern internal-metadata snapshot of
+                           # the distinctive vocabulary in meaning_ja, used
+                           # by JA-75 to detect content drift. The list
+                           # naturally includes Japanese function-name terms
+                           # like 場所 / 時間 / 場面 (N4+ kanji) since those
+                           # appear in the verified-correct meaning_ja text.
+                           # Internal metadata; never user-facing.
+                           "_meaning_ja_markers"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing
@@ -3463,6 +3481,56 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
                         f"under life+70 = {adyear + 70} (still in copyright)."
                     )
 
+    return failures
+
+
+def _check_ja_75_meaning_ja_markers() -> list[str]:
+    """JA-75 (2026-05-13): per-pattern meaning_ja marker dictionary.
+
+    Each grammar pattern carries a `_meaning_ja_markers: [...]` list
+    (snapshot of distinctive vocabulary in the verified-correct
+    meaning_ja, populated 2026-05-13 by tools/install_ja75_marker_dict.py).
+
+    meaning_ja MUST contain at least one of its markers as a substring.
+    Catches the cross-contamination class that JA-71 misses (1
+    incidental character overlap is enough to pass JA-71, but won't
+    contain the conceptual markers).
+
+    Patterns without `_meaning_ja_markers` are skipped (back-compat
+    for new entries; install script repopulates).
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-75: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-75: parse error: {e}"]
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        markers = p.get("_meaning_ja_markers")
+        if not markers:
+            continue  # skip patterns without markers
+        meaning_ja = p.get("meaning_ja") or ""
+        # Tightened rule: meaning_ja must contain EITHER (a) at least
+        # 2 distinct markers, OR (b) at least 1 "distinctive" marker
+        # (≥3 chars, content-word — not a single common kana like
+        # です/ます that would coincidentally match unrelated text).
+        matched = [m for m in markers if m in meaning_ja]
+        if len(matched) >= 2:
+            continue  # >=2 marker hits — clearly references this pattern
+        distinctive = [m for m in matched if len(m) >= 3]
+        if distinctive:
+            continue  # at least 1 distinctive content marker
+        # Otherwise: failure (either zero markers matched, or only short
+        # generic ones like です which doesn't prove the meaning_ja is
+        # actually about THIS pattern)
+        failures.append(
+            f"JA-75 {pid}: meaning_ja has insufficient marker overlap "
+            f"(matched={matched}, expected ≥2 markers OR ≥1 distinctive ≥3-char "
+            f"marker from {markers[:5]}). meaning_ja[:60]='{meaning_ja[:60]}'"
+        )
     return failures
 
 
