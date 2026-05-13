@@ -920,6 +920,16 @@ CHECKS: list[tuple[str, str, callable]] = [
     # converted from hiragana to katakana on-yomi 2026-05-13; this
     # invariant locks the convention forward.
     ("JA-76", "Kanji on-yomi entries are written in katakana (pedagogical convention) (2026-05-13)", lambda: _check_ja_76_on_yomi_katakana()),
+    # JA-77 (2026-05-13 run-2): no placeholder text leakage in user-
+    # facing fields. Caught 2 entries in n5-098.wrong_corrected_pair
+    # that shipped "(unspecified — keep prior)" strings — author meta-
+    # commentary that should never have landed in production data.
+    ("JA-77", "No placeholder/TODO/unspecified text in shipped data fields (2026-05-13)", lambda: _check_ja_77_no_placeholder_leakage()),
+    # JA-78 (2026-05-13 run-2): example sentences should not contain
+    # 3+ consecutive same hiragana characters. Catches the "ははは"
+    # class — grammatically valid (母 + は particle) but reads as a
+    # typo to N5 learners. Use kanji form for clarity.
+    ("JA-78", "Grammar example sentences avoid 3+ consecutive same hiragana (clarity) (2026-05-13)", lambda: _check_ja_78_no_repeated_kana_examples()),
 ]
 
 
@@ -3488,6 +3498,92 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
                         f"under life+70 = {adyear + 70} (still in copyright)."
                     )
 
+    return failures
+
+
+def _check_ja_77_no_placeholder_leakage() -> list[str]:
+    """JA-77 (2026-05-13): no placeholder authoring meta-commentary
+    in shipped data fields. Catches text like:
+      - "(unspecified — keep prior)"
+      - "TODO" / "FIXME" / "TBD" / "XXX"
+      - "placeholder" / "(temp)" / "INSERT_"
+      - "fallback ref" (from earlier PD-refs cleanup)
+      - "Pattern-shape placeholder"
+    Scans all user-facing text fields across all data files.
+    """
+    PLACEHOLDER_TERMS = [
+        "(unspecified", "TODO:", "TODO ", "FIXME", "XXX",
+        "placeholder", "(temp)", "INSERT_", "TBD",
+        "keep prior", "Pattern-shape placeholder",
+        "Fallback ref", "(fallback ref:)",
+        "Sample text", "lorem ipsum",
+    ]
+    failures: list[str] = []
+    files = ["data/grammar.json", "data/vocab.json", "data/kanji.json",
+             "data/reading.json", "data/listening.json"]
+
+    def walk(obj, path):
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                # Skip internal metadata keys (underscore-prefix)
+                if isinstance(k, str) and k.startswith("_"):
+                    continue
+                yield from walk(v, f"{path}.{k}")
+        elif isinstance(obj, list):
+            for i, item in enumerate(obj):
+                yield from walk(item, f"{path}[{i}]")
+        elif isinstance(obj, str):
+            yield (path, obj)
+
+    for fname in files:
+        path = ROOT / fname
+        if not path.exists():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        items = data.get("entries") or data.get("passages") or data.get("items") or data.get("patterns") or []
+        for item in items:
+            item_id = item.get("id", "?")
+            for field_path, val in walk(item, item_id):
+                for term in PLACEHOLDER_TERMS:
+                    if term.lower() in val.lower():
+                        short = field_path.split('.', 1)[1] if '.' in field_path else field_path
+                        failures.append(
+                            f"JA-77 {fname.split('/')[-1]} {item_id}.{short}: "
+                            f"placeholder text '{term}' found: {val[:80]!r}"
+                        )
+                        break  # one finding per field
+    return failures
+
+
+def _check_ja_78_no_repeated_kana_examples() -> list[str]:
+    """JA-78 (2026-05-13): grammar example sentences should not have 3+
+    consecutive same hiragana characters. Catches typo-looking strings
+    like ははは / がが / をを that are grammatically valid but read as
+    typos to learners. The fix is usually to use kanji form (母は instead
+    of ははは).
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "grammar.json"
+    if not path.exists():
+        return ["JA-78: data/grammar.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-78: parse error: {e}"]
+    REPEAT_RE = re.compile(r"([぀-ゟ])\1{2,}")  # 3+ consecutive same hiragana
+    for p in data.get("patterns", []):
+        pid = p.get("id", "?")
+        for i, ex in enumerate(p.get("examples") or []):
+            ja = ex.get("ja") or ""
+            m = REPEAT_RE.search(ja)
+            if m:
+                failures.append(
+                    f"JA-78 {pid}.examples[{i}]: 3+ consecutive '{m.group(1)}' "
+                    f"in {ja!r}. Consider kanji form for clarity."
+                )
     return failures
 
 

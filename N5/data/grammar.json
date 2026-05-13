@@ -30071,7 +30071,7 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "ははは でんわを かけて います。",
+          "ja": "母は でんわを かけて います。",
           "form": "in-progress-other",
           "translation_en": "My mother is on the phone.",
           "provenance": "llm_curated",
@@ -30106,7 +30106,8 @@
             }
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13",
+          "audit_wave": "accuracy-audit-f5-fix-2026-05-13"
         }
       ],
       "common_mistakes": [
@@ -42444,18 +42445,20 @@
           "error_category": "lexicon"
         },
         {
-          "wrong": "(unspecified — keep prior)",
-          "correct": "(unspecified — keep prior)",
-          "why": "Pattern-shape placeholder; primary entry covers main trap.",
-          "error_category": "word_order",
-          "provenance": "llm_curated"
+          "wrong": "日本ごを じょうずです。",
+          "correct": "日本ごが じょうずです。",
+          "why": "じょうず / へた / すき / きらい / ほしい mark their target with が, not を. They're な-adjectives functioning as predicate-state — the target is the subject of the state, not the object of an action.",
+          "provenance": "native_teacher_review_2026_05_13",
+          "error_category": "particle",
+          "audit_wave": "accuracy-audit-f4-fix-2026-05-13"
         },
         {
-          "wrong": "(unspecified — keep prior)",
-          "correct": "(unspecified — keep prior)",
-          "why": "Pattern-shape placeholder; primary entry covers main trap.",
-          "error_category": "word_order",
-          "provenance": "llm_curated"
+          "wrong": "なっとうを きらいです。",
+          "correct": "なっとうが きらいです。",
+          "why": "きらい (na-adj, 'disliked') takes its target with が. Same rule as すき: the disliked thing is the SUBJECT of the dislike-state, not a direct object.",
+          "provenance": "native_teacher_review_2026_05_13",
+          "error_category": "particle",
+          "audit_wave": "accuracy-audit-f4-fix-2026-05-13"
         }
       ],
       "authentic_citations": [
@@ -62165,7 +62168,7 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "ははが くると いいました。",
+          "ja": "母が くると いいました。",
           "form": "indirect-quote",
           "translation_en": "My mother said she would come.",
           "provenance": "llm_curated",
@@ -62194,7 +62197,8 @@
             }
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13",
+          "audit_wave": "accuracy-audit-f6-fix-2026-05-13"
         },
         {
           "ja": "なんと いいましたか。",
