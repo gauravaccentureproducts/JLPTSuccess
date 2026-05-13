@@ -5539,7 +5539,7 @@
       "categoryOrder": 3,
       "patternOrder": 1,
       "meaning_en": "Pronouns: this / that-near-listener / that-far / which-one (standalone, no noun follows)",
-      "meaning_ja": "「これ・それ・あれ・どれ」(ぶつ)",
+      "meaning_ja": "「これ・それ・あれ・どれ」は もの や こと を しめす ことばです。「これ」(はなす人の ちかく)、「それ」(きく人の ちかく)、「あれ」(どちらも とおい)、「どれ」(しつもん)。",
       "form_rules": {
         "attaches_to": [
           "standalone"
@@ -5964,12 +5964,15 @@
         }
       ],
       "_meaning_ja_markers": [
-        "これ・それ・あれ・どれ",
-        "あれ",
-        "これ",
-        "どれ",
-        "それ"
-      ]
+        "「これ・それ・あれ・どれ」",
+        "もの や こと",
+        "はなす人",
+        "きく人",
+        "ちかく",
+        "とおい",
+        "しつもん"
+      ],
+      "meaning_ja_provenance": "phase1_thin_expand_2026_05_13_run4"
     },
     {
       "id": "n5-015",
@@ -17335,7 +17338,7 @@
       "categoryOrder": 5,
       "patternOrder": 5,
       "meaning_en": "こんな / そんな / あんな / どんな + Noun - 'this/that kind of'",
-      "meaning_ja": "「こんな〜」(しゅるい)",
+      "meaning_ja": "「こんな・そんな・あんな・どんな + めいし」で めいしの しゅるいや ようすを しめします。「こんな本」(この ような 本)、「どんな たべものが すきですか」(しつもん)。",
       "form_rules": {
         "attaches_to": [
           "before_noun"
@@ -17756,13 +17759,18 @@
         }
       ],
       "_meaning_ja_markers": [
-        "しゅるい",
-        "こんな〜",
-        "どんな",
         "こんな",
+        "そんな",
         "あんな",
-        "そんな"
-      ]
+        "どんな",
+        "めいし",
+        "しゅるい",
+        "ようす",
+        "この ような",
+        "しつもん",
+        "たべもの"
+      ],
+      "meaning_ja_provenance": "phase1_thin_expand_2026_05_13_run4"
     },
     {
       "id": "n5-044",
@@ -23624,7 +23632,7 @@
       "categoryOrder": 6,
       "patternOrder": 1,
       "meaning_en": "Polite non-past affirmative verb ending",
-      "meaning_ja": "ていねいな ふつうけい",
+      "meaning_ja": "ていねいな いいかた。「Verb-ます」で げんざい・みらいの ことを ていねいに いいます。「ごはんを たべます」「学校に いきます」。",
       "form_rules": {
         "attaches_to": [
           "verb_stem"
@@ -24091,10 +24099,15 @@
         }
       ],
       "_meaning_ja_markers": [
-        "ふつうけい",
-        "ていねいな",
-        "ます"
-      ]
+        "ていねいな いいかた",
+        "ていねい",
+        "Verb-ます",
+        "げんざい",
+        "みらい",
+        "たべます",
+        "いきます"
+      ],
+      "meaning_ja_provenance": "phase1_terminology_fix_2026_05_13_run4"
     },
     {
       "id": "n5-059",
@@ -33063,7 +33076,7 @@
       "categoryOrder": 9,
       "patternOrder": 1,
       "meaning_en": "い-Adjective + Noun - adjective directly before noun",
-      "meaning_ja": "い-けいようし + めいし",
+      "meaning_ja": "「い-けいようし + めいし」で めいしを しゅうしょくします。「い-けいようし」は そのまま めいしに つけます(「な」は いりません)。「たかい 山」「あつい 日」「あたらしい 本」。",
       "form_rules": {
         "attaches_to": [
           "before_noun"
@@ -33508,10 +33521,15 @@
       ],
       "_meaning_ja_markers": [
         "い-けいようし",
-        "い-adj",
-        "けいようし",
-        "めいし"
-      ]
+        "めいし",
+        "しゅうしょく",
+        "そのまま",
+        "「な」は いりません",
+        "たかい 山",
+        "あつい 日",
+        "あたらしい 本"
+      ],
+      "meaning_ja_provenance": "phase1_thin_expand_2026_05_13_run4"
     },
     {
       "id": "n5-079",
@@ -42591,8 +42609,8 @@
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 4,
-      "meaning_en": "Expressing likes / dislikes contrast (using すき / きらい).",
-      "meaning_ja": "「〜が すき／きらい」で すきな ものや きらいな ものを いいます。「を」では なくて「が」を つかいます。",
+      "meaning_en": "Among X (group), Y is the most [adj] — N5 superlative pattern. Uses が-particle on the superlative item; 'いちばん' (number one) before the adjective.",
+      "meaning_ja": "「〜の中で〜が いちばん [けいようし]」で、グループ(なかま)の 中で 何が いちばん [けいようし]か を いいます。「くだものの 中で りんごが いちばん すきです」「クラスの 中で たなかさんが いちばん せが たかいです」。",
       "form_rules": {
         "attaches_to": [],
         "conjugations": [
@@ -42606,15 +42624,15 @@
       "explanation_en": "すき / きらい are な-adjectives. The thing liked/disliked takes が, NEVER を.",
       "examples": [
         {
-          "ja": "わたしは ねこが すきです。",
+          "ja": "くだものの 中で りんごが いちばん すきです。",
+          "en": "Among fruits, I like apples the best.",
+          "vocab_ids": [
+            "n5.vocab.17-food-items.くだもの",
+            "n5.vocab.17-food-items.りんご",
+            "n5.vocab.32-adjectives.すき"
+          ],
           "form": "affirmative",
           "translation_en": "I like cats.",
-          "vocab_ids": [
-            "n5.vocab.15-animals.ねこ",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.が"
-          ],
           "pitch_marks": [
             {
               "form": "わたし",
@@ -42631,279 +42649,164 @@
               "mora": 2,
               "drop": 2
             }
-          ],
-          "audio": "audio/grammar/n5-098.0.mp3"
+          ]
         },
         {
-          "ja": "なっとうが きらいです。",
+          "ja": "クラスの 中で たなかさんが いちばん せが たかいです。",
+          "en": "In the class, Tanaka is the tallest.",
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.クラス",
+            "n5.vocab.31-adjectives.高い"
+          ],
           "form": "affirmative",
-          "translation_en": "I dislike natto.",
-          "vocab_ids": [
-            "n5.vocab.32-adjectives.きらい",
-            "n5.vocab.35-particles-functional-.が"
-          ],
+          "translation_en": "I like cats.",
           "pitch_marks": [
-            {
-              "form": "きらい",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
-          "audio": "audio/grammar/n5-098.1.mp3"
-        },
-        {
-          "ja": "なにが すきですか。",
-          "form": "question",
-          "translation_en": "What do you like?",
-          "vocab_ids": [
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "すき",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
-          "audio": "audio/grammar/n5-098.2.mp3"
-        },
-        {
-          "form": "preference-contrast",
-          "ja": "にくは すきですが、さかなは あまり すきじゃ ありません。",
-          "translation_en": "I like meat, but I don't like fish very much.",
-          "vocab_ids": [
-            "n5.vocab.12-time-frequency-sequen.あまり",
-            "n5.vocab.15-animals.さかな",
-            "n5.vocab.17-food-items.にく",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.が"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あまり",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "さかな",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "audio": "audio/grammar/n5-098.3.mp3"
-        },
-        {
-          "ja": "どれが いちばん すきですか。",
-          "translation_en": "Which one do you like best?",
-          "source": "vocab.n5.vocab.5-demonstratives.どれ.examples[1]",
-          "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.どれ",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "いちばん",
-              "mora": 4,
-              "drop": 2
-            },
-            {
-              "form": "どれ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "いち",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
-          "audio": "audio/grammar/n5-098.4.mp3",
-          "form": "question",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
-          "ja": "どれが いちばん すきですか。",
-          "translation_en": "Which one do you like best?",
-          "source": "vocab.n5.vocab.7-numbers.一.examples[1]",
-          "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.どれ",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "いちばん",
-              "mora": 4,
-              "drop": 2
-            },
-            {
-              "form": "どれ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "いち",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
-          "audio": "audio/grammar/n5-098.5.mp3",
-          "form": "question",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
-          "ja": "どれが いちばん すきですか。",
-          "translation_en": "Which one do you like best?",
-          "source": "vocab.n5.vocab.9-counters-common.番.examples[1]",
-          "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.どれ",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "いちばん",
-              "mora": 4,
-              "drop": 2
-            },
-            {
-              "form": "どれ",
-              "mora": 1,
-              "drop": 1
-            },
-            {
-              "form": "いち",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
-          "audio": "audio/grammar/n5-098.6.mp3",
-          "form": "question",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
-          "ja": "これは わたしの ほんです。",
-          "form": "identification",
-          "translation_en": "This is my book.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.5-demonstratives.これ",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "audio": "audio/grammar/n5-098.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "これ",
-              "mora": 2,
-              "drop": 0
-            },
             {
               "form": "わたし",
               "mora": 3,
               "drop": 0
             },
             {
-              "form": "ほん",
+              "form": "ねこ",
               "mora": 2,
               "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
-          "ja": "やまださんは がくせいです。",
-          "form": "profession",
-          "translation_en": "Yamada-san is a student.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "audio": "audio/grammar/n5-098.8.mp3",
-          "pitch_marks": [
+            },
             {
-              "form": "やま",
+              "form": "すき",
               "mora": 2,
               "drop": 2
-            },
-            {
-              "form": "さん",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
             }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          ]
         },
         {
-          "ja": "にほんは アジアに あります。",
-          "form": "location-fact",
-          "translation_en": "Japan is in Asia.",
-          "provenance": "llm_curated",
+          "ja": "日本の 中で ふじさんが いちばん たかい 山です。",
+          "en": "In Japan, Mt. Fuji is the tallest mountain.",
           "vocab_ids": [
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.に"
+            "n5.vocab.25-languages-and-countri.日本",
+            "n5.vocab.14-nature-and-weather.山",
+            "n5.vocab.31-adjectives.高い"
           ],
-          "audio": "audio/grammar/n5-098.9.mp3",
+          "form": "affirmative",
+          "translation_en": "I like cats.",
           "pitch_marks": [
             {
-              "form": "ほん",
+              "form": "わたし",
+              "mora": 3,
+              "drop": 0
+            },
+            {
+              "form": "ねこ",
               "mora": 2,
               "drop": 1
+            },
+            {
+              "form": "すき",
+              "mora": 2,
+              "drop": 2
             }
+          ]
+        },
+        {
+          "ja": "スポーツの 中で サッカーが いちばん おもしろいです。",
+          "en": "Among sports, soccer is the most interesting.",
+          "vocab_ids": [
+            "n5.vocab.37-common-nouns-miscella.スポーツ",
+            "n5.vocab.31-adjectives.おもしろい"
           ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "form": "affirmative",
+          "translation_en": "I like cats.",
+          "pitch_marks": [
+            {
+              "form": "わたし",
+              "mora": 3,
+              "drop": 0
+            },
+            {
+              "form": "ねこ",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "すき",
+              "mora": 2,
+              "drop": 2
+            }
+          ]
+        },
+        {
+          "ja": "1ねんの 中で はるが いちばん いい きせつです。",
+          "en": "In a year, spring is the best season.",
+          "vocab_ids": [
+            "n5.vocab.11-time-days-weeks-month.年",
+            "n5.vocab.14-nature-and-weather.はる"
+          ],
+          "form": "affirmative",
+          "translation_en": "I like cats.",
+          "pitch_marks": [
+            {
+              "form": "わたし",
+              "mora": 3,
+              "drop": 0
+            },
+            {
+              "form": "ねこ",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "すき",
+              "mora": 2,
+              "drop": 2
+            }
+          ]
+        },
+        {
+          "ja": "かぞくの 中で おとうとが いちばん せが ひくいです。",
+          "en": "In my family, my younger brother is the shortest.",
+          "vocab_ids": [
+            "n5.vocab.2-people-family.かぞく",
+            "n5.vocab.2-people-family.おとうと",
+            "n5.vocab.31-adjectives.ひくい"
+          ],
+          "form": "affirmative",
+          "translation_en": "I like cats.",
+          "pitch_marks": [
+            {
+              "form": "わたし",
+              "mora": 3,
+              "drop": 0
+            },
+            {
+              "form": "ねこ",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "すき",
+              "mora": 2,
+              "drop": 2
+            }
+          ]
         }
       ],
       "common_mistakes": [
         {
-          "wrong": "私はりんごを好きです。",
-          "right": "私はりんごが好きです。",
-          "why": "好き / 嫌い take が, not を, even though they translate as 'like / dislike' (transitive verbs in English). 好き is a な-adjective in Japanese, not a verb; the object of preference is marked with が.",
-          "category": "particle",
-          "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "wrong": "くだものの 中で りんごは いちばん すきです。",
+          "right": "くだものの 中で りんごが いちばん すきです。",
+          "why": "いちばん の しゅごには「が」を つかいます。「は」では ありません。",
+          "category": "particle"
         },
         {
-          "wrong": "わたしは ねこを すきです。",
-          "right": "わたしは ねこが すきです。",
-          "why": "すき/きらい/じょうず/へた/ほしい/わかる all take が, not を. They're adjectival predicates where the noun is the SUBJECT OF FEELING, not a direct object. For 'I like cats', use ねこが (not ねこを).",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "wrong": "クラスの 中に たなかさんが いちばん せが たかいです。",
+          "right": "クラスの 中で たなかさんが いちばん せが たかいです。",
+          "why": "グループ(なかま)を しめす ときは「〜の 中で」。「〜の 中に」(ばしょ) では ありません。",
+          "category": "particle"
         },
         {
-          "wrong": "わたしは ねこを すきです。",
-          "right": "わたしは ねこが すきです。",
-          "why": "すき (and 嫌い, 上手, 下手, ほしい, わかる, できる) take が — these adjectival predicates treat the noun as 'subject of feeling', not direct object. を is for transitive verbs only.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "クラスの 中で たなかさんが いちばん せが たかいだ。",
+          "right": "クラスの 中で たなかさんが いちばん せが たかいです。",
+          "why": "い-けいようし(たかい)は そのままで コピュラに なります。「だ」では なくて「です」を つかいます。",
+          "category": "conjugation"
         }
       ],
       "contrasts": [
@@ -42918,7 +42821,7 @@
       ],
       "notes": "",
       "review_status": "native_reviewed",
-      "meaning_hi": "पसंद/नापसंद का विरोधाभास (すき/きらい)",
+      "meaning_hi": "उच्चतम तुलना: '〜の中で〜が いちばん [विशेषण]' = 'X (समूह) में Y सबसे [विशेषण] है'। जैसे: 'फलों में सेब सबसे पसंदीदा है'।",
       "meaning_provenance": {
         "hi": "native_reviewed"
       },
@@ -43025,15 +42928,18 @@
       ],
       "pattern_provenance": "g2_seealso_fill_2026_05_13",
       "_meaning_ja_markers": [
-        "〜が すき／きらい",
-        "いいます",
-        "きらいな",
+        "〜の中で",
+        "〜の 中で",
         "いちばん",
-        "の中でが",
-        "すきな",
-        "ものや",
-        "ものを"
-      ]
+        "けいようし",
+        "グループ",
+        "なかま",
+        "くだものの",
+        "りんごが",
+        "せが たかい",
+        "たなかさん"
+      ],
+      "meaning_ja_provenance": "phase1_body_swap_fix_2026_05_13_run4"
     },
     {
       "id": "n5-099",
@@ -70050,7 +69956,7 @@
         }
       ],
       "cultural_callout": {
-        "note": "See n5-119 for まえ.",
+        "note": "Noun + の + まえに — combine a noun with まえに to mean 'before [noun]'. The の linker is mandatory: '食事のまえに' (before the meal), 'しゅっぱつのまえに' (before departure). Differs from verb + まえに (which uses dictionary form, no の: '食べるまえに'). See n5-119 for the broader 〜まえ pattern.",
         "contexts": [
           "scheduling"
         ]
@@ -76228,7 +76134,7 @@
       "categoryOrder": 27,
       "patternOrder": 4,
       "meaning_en": "Must do (common spoken variant)",
-      "meaning_ja": "「〜なくては いけない」",
+      "meaning_ja": "「〜ないと いけない」は ぎむを いいます。「〜なくては いけない」の カジュアルな かたちです。「もう ねないと いけない」「べんきょうを しないと いけない」。",
       "form_rules": {
         "attaches_to": [],
         "conjugations": [
@@ -76684,9 +76590,14 @@
         "〜ないといけない"
       ],
       "_meaning_ja_markers": [
-        "〜なくては いけない",
-        "ないといけない"
-      ]
+        "〜ないと いけない",
+        "ぎむ",
+        "なくては いけない",
+        "カジュアル",
+        "ねないと いけない",
+        "べんきょう"
+      ],
+      "meaning_ja_provenance": "phase1_thin_expand_2026_05_13_run4"
     },
     {
       "id": "n5-176",
@@ -80412,7 +80323,7 @@
         }
       ],
       "cultural_callout": {
-        "note": "See n5-183 — 何か / 何も rule for something / nothing.",
+        "note": "なにか / なにも — question-word + か/も compounds for 'something' vs 'nothing'. なにか (something — affirmative sentences: '何か 食べますか' = 'will you eat something?'), なにも (nothing — REQUIRES negative verb: '何も 食べません' = 'I will not eat anything'). Mismatching the affirmative/negative polarity is the most common N5 error. See n5-183 for the full Question-word + か/も system.",
         "contexts": [
           "indefinite_pronouns"
         ]
