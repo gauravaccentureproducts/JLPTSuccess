@@ -121,7 +121,9 @@
             "語",
             "見"
           ],
-          "mora_approx": 68
+          "mora_approx": 68,
+          "summary": "わたしは アンナです。アメリカから 来ました。今、とうきょう…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -211,7 +213,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.002",
@@ -332,7 +335,9 @@
             "行",
             "見"
           ],
-          "mora_approx": 64
+          "mora_approx": 64,
+          "summary": "わたしは 毎日 6時に おきます。あさごはんを 食べてから…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -428,7 +433,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.003",
@@ -529,7 +535,9 @@
             "行",
             "食"
           ],
-          "mora_approx": 50
+          "mora_approx": 50,
+          "summary": "あした、ともだちと えいがを 見に 行きます。えいがの あと…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -617,7 +625,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.004",
@@ -722,7 +731,9 @@
             "買",
             "円"
           ],
-          "mora_approx": 50
+          "mora_approx": 50,
+          "summary": "きのう、コンビニで パンと コーヒーを 買いました。パンは …の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -790,7 +801,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.005",
@@ -920,7 +932,9 @@
             "大",
             "学"
           ],
-          "mora_approx": 60
+          "mora_approx": 60,
+          "summary": "わたしの かぞくは 4人です。父と 母と あにが います。父…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -996,7 +1010,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.006",
@@ -1105,7 +1120,9 @@
             "今",
             "日"
           ],
-          "mora_approx": 55
+          "mora_approx": 55,
+          "summary": "今日は とても さむいです。あさは あめが ふっていました…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -1183,7 +1200,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.007",
@@ -1276,21 +1294,27 @@
             "間"
           ],
           "mora_approx": 7,
-          "summary_en": "Heading: Library hours"
+          "summary_en": "Heading: Library hours",
+          "summary": "としょかんの 時間",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
           "text_ja": "げつようび 〜 きんようび：9:00 〜 21:00",
           "kanji_used": [],
           "mora_approx": 10,
-          "summary_en": "Weekday hours (Mon–Fri): 9:00–21:00"
+          "summary_en": "Weekday hours (Mon–Fri): 9:00–21:00",
+          "summary": "げつようび 〜 きんようび：9:00 〜 21:00",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
           "text_ja": "どようび：10:00 〜 18:00",
           "kanji_used": [],
           "mora_approx": 4,
-          "summary_en": "Saturday hours: 10:00–18:00"
+          "summary_en": "Saturday hours: 10:00–18:00",
+          "summary": "どようび：10:00 〜 18:00",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 3,
@@ -1299,7 +1323,9 @@
             "休"
           ],
           "mora_approx": 7,
-          "summary_en": "Sunday: closed"
+          "summary_en": "Sunday: closed",
+          "summary": "にちようび：休み",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 4,
@@ -1311,7 +1337,9 @@
             "間"
           ],
           "mora_approx": 17,
-          "summary_en": "Lending rule: books can be borrowed for up to 2 weeks"
+          "summary_en": "Lending rule: books can be borrowed for up to 2 weeks",
+          "summary": "本は 二週間まで かりる ことが できます。",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -1473,7 +1501,9 @@
             "校",
             "分"
           ],
-          "mora_approx": 62
+          "mora_approx": 62,
+          "summary": "わたしの うちから 学校まで 30分くらい かかります。まず…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -1559,7 +1589,8 @@
           "type": "comprehension"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.009",
@@ -1657,7 +1688,9 @@
             "土",
             "曜"
           ],
-          "mora_approx": 53
+          "mora_approx": 53,
+          "summary": "わたしの しゅみは スポーツです。毎日 あさ こうえんで は…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -1733,7 +1766,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.010",
@@ -1827,7 +1861,9 @@
             "生",
             "見"
           ],
-          "mora_approx": 63
+          "mora_approx": 63,
+          "summary": "わたしの きょうしつには つくえが 25こ あります。いすも…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -1895,7 +1931,8 @@
           "type": "comprehension"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.011",
@@ -2009,7 +2046,9 @@
             "日",
             "飲"
           ],
-          "mora_approx": 66
+          "mora_approx": 66,
+          "summary": "今日の おひるごはんは ラーメンと サラダでした。ラーメンは…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -2088,7 +2127,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.012",
@@ -2192,7 +2232,9 @@
             "買",
             "円"
           ],
-          "mora_approx": 61
+          "mora_approx": 61,
+          "summary": "きのう ほんやで 日本語の 本を 2さつ 買いました。ぜんぶ…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -2266,7 +2308,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.013",
@@ -2397,7 +2440,9 @@
             "古",
             "買"
           ],
-          "mora_approx": 70
+          "mora_approx": 70,
+          "summary": "せんしゅう かぞくと きょうとに 行きました。きょうとは 古…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -2473,7 +2518,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.014",
@@ -2569,7 +2615,9 @@
             "買",
             "円"
           ],
-          "mora_approx": 61
+          "mora_approx": 61,
+          "summary": "きのう デパートで あたらしい ふくを 買いました。シャツは…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -2641,7 +2689,8 @@
           "type": "comprehension"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.015",
@@ -2744,7 +2793,9 @@
             "見",
             "行"
           ],
-          "mora_approx": 49
+          "mora_approx": 49,
+          "summary": "今は 4月です。だんだん あたたかく なりました。こうえんに…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -2820,7 +2871,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.016",
@@ -2930,7 +2982,9 @@
             "休",
             "行"
           ],
-          "mora_approx": 61
+          "mora_approx": 61,
+          "summary": "きのうから あたまが いたいです。せきも すこし 出ます。今…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -3007,7 +3061,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.017",
@@ -3076,7 +3131,9 @@
           "text_ja": "メニュー",
           "kanji_used": [],
           "mora_approx": 3,
-          "summary_en": "Heading: Menu"
+          "summary_en": "Heading: Menu",
+          "summary": "メニュー",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
@@ -3085,7 +3142,9 @@
             "円"
           ],
           "mora_approx": 5,
-          "summary_en": "Coffee: 300 yen"
+          "summary_en": "Coffee: 300 yen",
+          "summary": "コーヒー：300円",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
@@ -3094,7 +3153,9 @@
             "円"
           ],
           "mora_approx": 3,
-          "summary_en": "Tea (green): 250 yen"
+          "summary_en": "Tea (green): 250 yen",
+          "summary": "おちゃ：250円",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 3,
@@ -3103,7 +3164,9 @@
             "円"
           ],
           "mora_approx": 4,
-          "summary_en": "Cake: 500 yen"
+          "summary_en": "Cake: 500 yen",
+          "summary": "ケーキ：500円",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 4,
@@ -3112,7 +3175,9 @@
             "円"
           ],
           "mora_approx": 7,
-          "summary_en": "Sandwich: 600 yen"
+          "summary_en": "Sandwich: 600 yen",
+          "summary": "サンドイッチ：600円",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 5,
@@ -3121,7 +3186,9 @@
             "円"
           ],
           "mora_approx": 11,
-          "summary_en": "Set deal (coffee + cake): 700 yen"
+          "summary_en": "Set deal (coffee + cake): 700 yen",
+          "summary": "セット (コーヒー＋ケーキ)：700円",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -3315,7 +3382,9 @@
             "来",
             "行"
           ],
-          "mora_approx": 68
+          "mora_approx": 68,
+          "summary": "わたしは 1年前から 日本語を べんきょうしています。毎日 …の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -3390,7 +3459,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.019",
@@ -3489,7 +3559,9 @@
             "気",
             "見"
           ],
-          "mora_approx": 59
+          "mora_approx": 59,
+          "summary": "せんしゅうの 日曜日に、ともだちと うみに 行きました。天気…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -3562,7 +3634,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.020",
@@ -3672,7 +3745,9 @@
             "先",
             "生"
           ],
-          "mora_approx": 69
+          "mora_approx": 69,
+          "summary": "わたしの 日本語の 先生は たなか先生です。たなか先生は と…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -3748,7 +3823,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.021",
@@ -3838,7 +3914,9 @@
           "text_ja": "とうきょうから おおさかまで ひこうきが あります。",
           "kanji_used": [],
           "mora_approx": 21,
-          "summary_en": "Flight info: Tokyo to Osaka"
+          "summary_en": "Flight info: Tokyo to Osaka",
+          "summary": "とうきょうから おおさかまで ひこうきが あります。",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
@@ -3847,7 +3925,9 @@
             "時"
           ],
           "mora_approx": 5,
-          "summary_en": "Morning departures: 6, 7, 8 AM"
+          "summary_en": "Morning departures: 6, 7, 8 AM",
+          "summary": "あさ：6時、7時、8時",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
@@ -3856,7 +3936,9 @@
             "時"
           ],
           "mora_approx": 4,
-          "summary_en": "Midday departures: 12 noon, 1 PM"
+          "summary_en": "Midday departures: 12 noon, 1 PM",
+          "summary": "ひる：12時、13時",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 3,
@@ -3865,7 +3947,9 @@
             "時"
           ],
           "mora_approx": 5,
-          "summary_en": "Evening departures: 6, 7, 8 PM"
+          "summary_en": "Evening departures: 6, 7, 8 PM",
+          "summary": "よる：18時、19時、20時",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 4,
@@ -3875,7 +3959,9 @@
             "間"
           ],
           "mora_approx": 4,
-          "summary_en": "Flight duration: 1 hour"
+          "summary_en": "Flight duration: 1 hour",
+          "summary": "時間：1時間",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 5,
@@ -3884,7 +3970,9 @@
             "円"
           ],
           "mora_approx": 4,
-          "summary_en": "Adult fare: 25,000 yen"
+          "summary_en": "Adult fare: 25,000 yen",
+          "summary": "おとな：25,000円",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 6,
@@ -3894,7 +3982,9 @@
             "円"
           ],
           "mora_approx": 4,
-          "summary_en": "Child fare: 12,500 yen"
+          "summary_en": "Child fare: 12,500 yen",
+          "summary": "子ども：12,500円",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4083,7 +4173,9 @@
             "父",
             "言"
           ],
-          "mora_approx": 55
+          "mora_approx": 55,
+          "summary": "きのうの よる、うちで 母と りょうりを しました。カレーを…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4160,7 +4252,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.023",
@@ -4240,7 +4333,9 @@
           "text_ja": "バスの じかん",
           "kanji_used": [],
           "mora_approx": 6,
-          "summary_en": "Heading: Bus schedule"
+          "summary_en": "Heading: Bus schedule",
+          "summary": "バスの じかん",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
@@ -4252,7 +4347,9 @@
             "金"
           ],
           "mora_approx": 6,
-          "summary_en": "Weekday service (Mon–Fri): hourly, 8:00–18:00 even hours"
+          "summary_en": "Weekday service (Mon–Fri): hourly, 8:00–18:00 even hours",
+          "summary": "月曜日 〜 金曜日：8:00、10:00、12:00、14:…の場面",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
@@ -4263,7 +4360,9 @@
             "日"
           ],
           "mora_approx": 3,
-          "summary_en": "Saturday service: 9:00 / 12:00 / 15:00"
+          "summary_en": "Saturday service: 9:00 / 12:00 / 15:00",
+          "summary": "土曜日：9:00、12:00、15:00",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 3,
@@ -4274,7 +4373,9 @@
             "休"
           ],
           "mora_approx": 5,
-          "summary_en": "Sunday: no service"
+          "summary_en": "Sunday: no service",
+          "summary": "日曜日：休み",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 4,
@@ -4286,7 +4387,9 @@
             "子"
           ],
           "mora_approx": 7,
-          "summary_en": "Fares: 300 yen adult / 150 yen child"
+          "summary_en": "Fares: 300 yen adult / 150 yen child",
+          "summary": "大人：300円　子ども：150円",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4476,7 +4579,9 @@
             "本",
             "語"
           ],
-          "mora_approx": 59
+          "mora_approx": 59,
+          "summary": "わたしの ともだちは マリアさんです。スペイン人です。今、と…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4554,7 +4659,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.025",
@@ -4677,7 +4783,9 @@
             "本",
             "大"
           ],
-          "mora_approx": 69
+          "mora_approx": 69,
+          "summary": "土曜日の あさ、わたしは はやく おきます。7時に おきて…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4764,7 +4872,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.026",
@@ -4874,7 +4983,9 @@
             "本",
             "円"
           ],
-          "mora_approx": 48
+          "mora_approx": 48,
+          "summary": "やおやで くだものを 買いました。りんごを 3つと、バナナを…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -4944,7 +5055,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.027",
@@ -5051,7 +5163,9 @@
           "text_ja": "ヤマダさんへ",
           "kanji_used": [],
           "mora_approx": 6,
-          "summary_en": "Salutation: To Yamada"
+          "summary_en": "Salutation: To Yamada",
+          "summary": "ヤマダさんへ",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
@@ -5062,14 +5176,18 @@
             "飲"
           ],
           "mora_approx": 50,
-          "summary_en": "Plan: meet at the station 1 PM tomorrow, have tea at a cafe, then shop at the department store"
+          "summary_en": "Plan: meet at the station 1 PM tomorrow, have tea at a cafe, then shop at the department store",
+          "summary": "あした 1時に えきの まえで 会いましょう。いっしょに カ…の場面",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
           "text_ja": "スズキより",
           "kanji_used": [],
           "mora_approx": 5,
-          "summary_en": "Sign-off: From Suzuki"
+          "summary_en": "Sign-off: From Suzuki",
+          "summary": "スズキより",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -5273,7 +5391,9 @@
             "本",
             "見"
           ],
-          "mora_approx": 70
+          "mora_approx": 70,
+          "summary": "わたしの へやは あまり 大きくないです。ベッドと つくえと…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -5341,7 +5461,8 @@
           "type": "comprehension"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.029",
@@ -5448,7 +5569,9 @@
             "休",
             "行"
           ],
-          "mora_approx": 47
+          "mora_approx": 47,
+          "summary": "なつは とても あついです。毎日 30どより 高いです。よる…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -5531,7 +5654,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.030",
@@ -5664,7 +5788,9 @@
             "金",
             "時"
           ],
-          "mora_approx": 75
+          "mora_approx": 75,
+          "summary": "えきの 出口を 出て、まっすぐ 行きます。はじめの しんごう…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -5736,7 +5862,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.031",
@@ -5871,7 +5998,9 @@
             "前",
             "五"
           ],
-          "mora_approx": 81
+          "mora_approx": 81,
+          "summary": "わたしの いえには 大きい 白い いぬが います。名前は シ…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -5936,7 +6065,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.032",
@@ -6092,7 +6222,9 @@
             "本",
             "行"
           ],
-          "mora_approx": 89
+          "mora_approx": 89,
+          "summary": "わたしは 大学生です。月よう日と 水よう日と 金よう日に カ…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -6178,7 +6310,8 @@
           "type": "comprehension"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.033",
@@ -6294,7 +6427,9 @@
             "木",
             "聞"
           ],
-          "mora_approx": 86
+          "mora_approx": 86,
+          "summary": "とうきょうの あきは とても きれいです。木の はが あかや…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -6382,7 +6517,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.034",
@@ -6503,7 +6639,9 @@
           "text_ja": "やまださんへ",
           "kanji_used": [],
           "mora_approx": 6,
-          "summary_en": "Salutation: To Yamada-san"
+          "summary_en": "Salutation: To Yamada-san",
+          "summary": "やまださんへ",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
@@ -6519,14 +6657,18 @@
             "来"
           ],
           "mora_approx": 61,
-          "summary_en": "Body: invitation to a school party tomorrow, 3–5 PM, with the teacher attending"
+          "summary_en": "Body: invitation to a school party tomorrow, 3–5 PM, with the teacher attending",
+          "summary": "おげんきですか。わたしは げんきです。あした 学校で パーテ…の場面",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
           "text_ja": "たなか",
           "kanji_used": [],
           "mora_approx": 3,
-          "summary_en": "Sign-off: Tanaka"
+          "summary_en": "Sign-off: Tanaka",
+          "summary": "たなか",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -6749,7 +6891,9 @@
             "母",
             "食"
           ],
-          "mora_approx": 80
+          "mora_approx": 80,
+          "summary": "わたしは 日本の りょうりが だいすきです。とくに、すしと …の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -6832,7 +6976,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.036",
@@ -6977,7 +7122,9 @@
             "土",
             "休"
           ],
-          "mora_approx": 112
+          "mora_approx": 112,
+          "summary": "わたしの 学校は 月よう日から 金よう日までです。まいにち …の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -7047,7 +7194,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.037",
@@ -7206,7 +7354,9 @@
             "生",
             "言"
           ],
-          "mora_approx": 78
+          "mora_approx": 78,
+          "summary": "今日 わたしは 七時に いえを 出ました。でも、電車が おく…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -7284,7 +7434,8 @@
           "type": "comprehension"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.038",
@@ -7428,7 +7579,9 @@
             "来",
             "月"
           ],
-          "mora_approx": 83
+          "mora_approx": 83,
+          "summary": "わたしの しゅみは ピアノです。五さいから ピアノを ならっ…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -7512,7 +7665,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.039",
@@ -7633,7 +7787,9 @@
             "本"
           ],
           "mora_approx": 7,
-          "summary_en": "Heading: Bookstore notice"
+          "summary_en": "Heading: Bookstore notice",
+          "summary": "本やの おしらせ",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 1,
@@ -7642,7 +7798,9 @@
             "大"
           ],
           "mora_approx": 4,
-          "summary_en": "Tagline: BIG SALE!"
+          "summary_en": "Tagline: BIG SALE!",
+          "summary": "大セール！",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 2,
@@ -7655,7 +7813,9 @@
             "七"
           ],
           "mora_approx": 15,
-          "summary_en": "Sale dates: 1–7 August"
+          "summary_en": "Sale dates: 1–7 August",
+          "summary": "日にち：八月一日から 八月七日まで",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 3,
@@ -7667,7 +7827,9 @@
             "八"
           ],
           "mora_approx": 14,
-          "summary_en": "Sale hours: 10 AM – 8 PM daily"
+          "summary_en": "Sale hours: 10 AM – 8 PM daily",
+          "summary": "時間：あさ 十時から よる 八時まで",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 4,
@@ -7678,7 +7840,9 @@
             "分"
           ],
           "mora_approx": 13,
-          "summary_en": "Discount: 50% off all books"
+          "summary_en": "Discount: 50% off all books",
+          "summary": "本は ぜんぶ 半分の ねだんです。",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 5,
@@ -7689,7 +7853,9 @@
             "語"
           ],
           "mora_approx": 16,
-          "summary_en": "Inventory: Japanese books AND English books"
+          "summary_en": "Inventory: Japanese books AND English books",
+          "summary": "日本語の 本も えいごの 本も あります。",
+          "summary_provenance": "auto_derived_template"
         },
         {
           "idx": 6,
@@ -7698,7 +7864,9 @@
             "来"
           ],
           "mora_approx": 8,
-          "summary_en": "Call to action: come visit!"
+          "summary_en": "Call to action: come visit!",
+          "summary": "ぜひ 来て ください！",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -7919,7 +8087,9 @@
             "読",
             "聞"
           ],
-          "mora_approx": 98
+          "mora_approx": 98,
+          "summary": "土よう日の あさ、わたしは こうえんに 行きました。こうえん…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -7988,7 +8158,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.041",
@@ -8161,7 +8332,9 @@
             "七",
             "時"
           ],
-          "mora_approx": 197
+          "mora_approx": 197,
+          "summary": "きのうの 七時に、ともだちの たなかさんと えきの ちかくの…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -8251,7 +8424,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.042",
@@ -8424,7 +8598,9 @@
             "日",
             "曜"
           ],
-          "mora_approx": 201
+          "mora_approx": 201,
+          "summary": "わたしの しゅみは おんがくを きくことと、えを かくことで…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -8510,7 +8686,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.043",
@@ -8701,7 +8878,9 @@
             "三",
             "時"
           ],
-          "mora_approx": 198
+          "mora_approx": 198,
+          "summary": "きのうの あさから、あたまが とても いたかったです。のども…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -8790,7 +8969,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.044",
@@ -8964,7 +9144,9 @@
             "金",
             "土"
           ],
-          "mora_approx": 195
+          "mora_approx": 195,
+          "summary": "らいしゅうは とても いそがしいです。月曜日の あさは、しご…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -9065,7 +9247,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.045",
@@ -9239,7 +9422,9 @@
             "十",
             "六"
           ],
-          "mora_approx": 190
+          "mora_approx": 190,
+          "summary": "わたしは とうきょうの ぎんこうで はたらいています。まいあ…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -9343,7 +9528,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.046",
@@ -9475,7 +9661,9 @@
             "年",
             "行"
           ],
-          "mora_approx": 74
+          "mora_approx": 74,
+          "summary": "日本の 東に アメリカが あります。日本の 西に 中国が あ…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -9588,7 +9776,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.047",
@@ -9742,7 +9931,9 @@
             "大",
             "高"
           ],
-          "mora_approx": 103
+          "mora_approx": 103,
+          "summary": "私の いえの ちかくに、新しい 駅が あります。駅の 出口を…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -9894,7 +10085,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.048",
@@ -10040,7 +10232,9 @@
             "号",
             "書"
           ],
-          "mora_approx": 80
+          "mora_approx": 80,
+          "summary": "ともだちの 山田さんへ\nおげんきですか。私は げんきです。\n…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -10152,7 +10346,8 @@
           "type": "application"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.049",
@@ -10310,7 +10505,9 @@
             "花",
             "大"
           ],
-          "mora_approx": 98
+          "mora_approx": 98,
+          "summary": "今日は あさから 雨でした。私は うちの 中で 本を 読んで…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -10436,7 +10633,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.050",
@@ -10600,7 +10798,9 @@
             "川",
             "話"
           ],
-          "mora_approx": 108
+          "mora_approx": 108,
+          "summary": "私の 会社には、男の 社員が 二十人と、女の 社員が 三十人…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -10742,7 +10942,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.051",
@@ -10892,7 +11093,9 @@
             "二",
             "千"
           ],
-          "mora_approx": 77
+          "mora_approx": 77,
+          "summary": "きょうの 午前、私は スーパーで かいものを しました。りん…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -10981,7 +11184,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.052",
@@ -11129,7 +11333,9 @@
             "本",
             "下"
           ],
-          "mora_approx": 82
+          "mora_approx": 82,
+          "summary": "友だちと いっしょに 学校で べんきょうを します。私たちは…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -11222,7 +11428,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.053",
@@ -11370,7 +11577,9 @@
             "見",
             "休"
           ],
-          "mora_approx": 73
+          "mora_approx": 73,
+          "summary": "私は きょう こうえんで 長い 時間 はしりました。いまは …の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -11459,7 +11668,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     },
     {
       "id": "n5.read.054",
@@ -11607,7 +11817,9 @@
             "万",
             "円"
           ],
-          "mora_approx": 73
+          "mora_approx": 73,
+          "summary": "来月、私は かぞくと 南の しまへ りょこうに 行きます。し…の場面",
+          "summary_provenance": "auto_derived_template"
         }
       ],
       "paragraphs_provenance": "auto_segmented",
@@ -11708,7 +11920,8 @@
           "type": "inference"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "paragraph_summary_provenance": "auto_derived_template"
     }
   ],
   "_meta": {
