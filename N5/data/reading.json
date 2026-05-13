@@ -3067,7 +3067,7 @@
     {
       "id": "n5.read.017",
       "level": "info-search",
-      "topic": "schedule",
+      "topic": "food",
       "title_ja": "カフェの メニュー",
       "ja": "メニュー\nコーヒー：300円\nおちゃ：250円\nケーキ：500円\nサンドイッチ：600円\nセット (コーヒー＋ケーキ)：700円",
       "audio": "audio/reading/n5.read.017.mp3",
@@ -3264,7 +3264,8 @@
           "type": "personal"
         }
       ],
-      "reflection_prompts_provenance": "llm_curated"
+      "reflection_prompts_provenance": "llm_curated",
+      "topic_audit_wave": "accuracy-audit-f3-fix-2026-05-13"
     },
     {
       "id": "n5.read.018",

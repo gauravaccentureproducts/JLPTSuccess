@@ -7421,10 +7421,10 @@
       "mondai": 3,
       "format": "utterance",
       "format_type": "utterance_expression",
-      "title_ja": "友だちの いえに 入る",
+      "title_ja": "先生の へやに 入る",
       "audio": "audio/listening/n5.listen.028.mp3",
-      "script_ja": "友だちの いえへ 入ります。",
-      "prompt_ja": "友だちの いえへ 入ります。何と 言いますか。",
+      "script_ja": "先生の へやに 入ります。何と 言いますか。",
+      "prompt_ja": "先生の へやに 入ります。何と 言いますか。",
       "choices": [
         "ただいま",
         "いただきます",
@@ -7432,7 +7432,7 @@
         "どうも ありがとう"
       ],
       "correctAnswer": "しつれいします",
-      "explanation_en": "しつれいします is said when entering someone else's home. ただいま is for your own home.",
+      "explanation_en": "しつれいします is the canonical phrase when entering a teacher's, superior's, or formal context room. ただいま is for returning to YOUR own home. For a friend's casual home, おじゃまします is used (see n5.listen.038).",
       "review_status": "native_reviewed",
       "pacing_morae_per_min": 204.5,
       "pacing_status": "in_range",
@@ -7452,7 +7452,7 @@
         }
       },
       "voice_variety_status": "rendered",
-      "cultural_context": "Entering someones home: おじゃまします (literally \"Im intruding/disturbing\") — said when entering. The host responds どうぞ (please, come in). Shoes go off at the entryway (げんかん).",
+      "cultural_context": "Entering a teacher's room or superior's office: しつれいします ('I beg your pardon' / 'excuse me for intruding') — said when entering and again when leaving. For casual contexts (friend's home), おじゃまします is the equivalent. Distinguishing the two registers is a core N5 pragmatics skill.",
       "cultural_context_provenance": "native_reviewed",
       "explanation_hi": "किसी और के घर में प्रवेश करते समय しつれいします कहा जाता है। ただいま अपने घर के लिए है।",
       "audio_render_meta": {
@@ -7593,7 +7593,8 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "audit_wave": "accuracy-audit-f1-fix-2026-05-13"
     },
     {
       "id": "n5.listen.029",

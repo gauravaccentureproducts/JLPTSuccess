@@ -913,6 +913,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     # contain at least one marker. Catches any future drift away
     # from the verified state.
     ("JA-75", "Grammar meaning_ja must contain at least one of its pattern's _meaning_ja_markers (2026-05-13)", lambda: _check_ja_75_meaning_ja_markers()),
+    # JA-76 (2026-05-13): kanji on-yomi convention lock. Standard
+    # Japanese pedagogical convention writes on-yomi in katakana
+    # (ニチ, ジツ) and kun-yomi in hiragana (ひ, き). Genki I, Minna
+    # no Nihongo, and JLPT dictionaries all follow this. The corpus
+    # converted from hiragana to katakana on-yomi 2026-05-13; this
+    # invariant locks the convention forward.
+    ("JA-76", "Kanji on-yomi entries are written in katakana (pedagogical convention) (2026-05-13)", lambda: _check_ja_76_on_yomi_katakana()),
 ]
 
 
@@ -3481,6 +3488,51 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
                         f"under life+70 = {adyear + 70} (still in copyright)."
                     )
 
+    return failures
+
+
+def _check_ja_76_on_yomi_katakana() -> list[str]:
+    """JA-76 (2026-05-13): kanji on-yomi entries must be written in
+    katakana per standard pedagogical convention. Hiragana characters
+    in the `on` array indicate a regression from the 2026-05-13
+    katakana-conversion baseline.
+
+    Checks:
+      - kanji.entries[*].on[*] — top-level on-yomi display array
+      - kanji.entries[*].audio_yomi.on[*].reading — per-yomi audio
+        display label (the `audio` path field itself remains in
+        hiragana for filename consistency; only the display label
+        is locked to katakana)
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "kanji.json"
+    if not path.exists():
+        return ["JA-76: data/kanji.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-76: parse error: {e}"]
+    HIRAGANA_RE = re.compile(r"[぀-ゟ]")  # U+3040..U+309F
+    for k in data.get("entries", []):
+        glyph = k.get("glyph")
+        # Check top-level on array
+        for o in (k.get("on") or []):
+            if isinstance(o, str) and HIRAGANA_RE.search(o):
+                failures.append(
+                    f"JA-76 {glyph}: on-yomi '{o}' contains hiragana; "
+                    f"convert to katakana per pedagogical convention."
+                )
+        # Check audio_yomi.on[].reading display labels
+        ay = k.get("audio_yomi") or {}
+        if isinstance(ay, dict):
+            for entry in (ay.get("on") or []):
+                if isinstance(entry, dict):
+                    reading = entry.get("reading") or ""
+                    if HIRAGANA_RE.search(reading):
+                        failures.append(
+                            f"JA-76 {glyph}: audio_yomi.on reading display "
+                            f"'{reading}' contains hiragana."
+                        )
     return failures
 
 
