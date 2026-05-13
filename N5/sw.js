@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.15.2';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.15.3';
 
 const PRECACHE = [
   './',
@@ -113,6 +113,7 @@ const PRECACHE = [
   './js/drill.js',
   './js/diagnostic.js',
   './js/settings.js',
+  './js/corpus-export.js',
   './js/normalize.js',
   './js/kosoado.js',
   './js/wa-vs-ga.js',

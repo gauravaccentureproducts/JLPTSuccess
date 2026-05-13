@@ -3,6 +3,7 @@
 import * as storage from './storage.js';
 import { setLocale, currentLocale, supportedLocales, t } from './i18n.js';
 import { renderJa } from './furigana.js';
+import { exportVocabTSV, exportGrammarTSV, exportKanjiTSV } from './corpus-export.js';
 
 // BUG-7 fix (UI test 2026-05-07): the `hi` entry was missing — the
 // switcher rendered the bare ISO code "hi" as the option label. Added
@@ -145,6 +146,19 @@ export async function renderSettings(container) {
         <input type="file" id="set-import-file" accept="application/json,.json" hidden>
       </div>
       <p id="set-import-msg" class="muted small" role="status" aria-live="polite"></p>
+
+      <!-- IMP-174 (2026-05-13): Anki-importable corpus CSV/TSV export.
+           Per-surface buttons (vocab / grammar / kanji); each generates
+           a 3-column TSV (Front, Back, Notes). Anki imports natively.
+           Privacy preserved: pure client-side; no network. -->
+      <h4 style="margin-top:1.5rem;">Anki / CSV export</h4>
+      <p class="muted small">Download corpus as tab-separated values for import into Anki or any flashcard tool. Three columns: Front, Back, Notes. Plain text only, no HTML.</p>
+      <div class="settings-actions">
+        <button id="set-export-vocab">Vocab TSV</button>
+        <button id="set-export-grammar">Grammar TSV</button>
+        <button id="set-export-kanji">Kanji TSV</button>
+      </div>
+      <p id="set-corpus-export-msg" class="muted small" role="status" aria-live="polite"></p>
     </section>
 
     <section class="settings-danger-zone" aria-labelledby="danger-zone-label">
@@ -261,6 +275,28 @@ export async function renderSettings(container) {
     applyReduceMotion();
     const label = v === 'auto' ? 'Follow system' : v === 'on' ? 'Always reduce' : 'Never reduce';
     showSavedToast(`Reduce motion = ${label}`);
+  });
+
+  // IMP-174: corpus TSV export click handlers.
+  const corpusMsg = document.getElementById('set-corpus-export-msg');
+  function showCorpusMsg(text) {
+    if (corpusMsg) {
+      corpusMsg.textContent = text;
+      corpusMsg.style.color = 'var(--c-success)';
+      setTimeout(() => { if (corpusMsg.textContent === text) corpusMsg.textContent = ''; }, 4000);
+    }
+  }
+  document.getElementById('set-export-vocab').addEventListener('click', async () => {
+    const n = await exportVocabTSV();
+    showCorpusMsg(`Exported ${n} vocab entries to TSV. Check downloads.`);
+  });
+  document.getElementById('set-export-grammar').addEventListener('click', async () => {
+    const n = await exportGrammarTSV();
+    showCorpusMsg(`Exported ${n} grammar patterns to TSV. Check downloads.`);
+  });
+  document.getElementById('set-export-kanji').addEventListener('click', async () => {
+    const n = await exportKanjiTSV();
+    showCorpusMsg(`Exported ${n} kanji entries to TSV. Check downloads.`);
   });
 
   document.getElementById('set-export').addEventListener('click', () => {
