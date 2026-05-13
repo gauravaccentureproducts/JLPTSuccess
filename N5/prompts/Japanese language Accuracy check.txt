@@ -349,16 +349,26 @@ DATA FILES (machine-readable, derived corpus):
                                 (moji / goi / bunpou / dokkai), plus
                                 chokai virtual + full-mock 85-Q sittings.
 
-KNOWLEDGEBANK FILES (authoring source-of-truth, hand-curated by
-project authors before JSON derivation):
-- KnowledgeBank/grammar_n5.md
-- KnowledgeBank/vocabulary_n5.md
-- KnowledgeBank/kanji_n5.md
-- KnowledgeBank/moji_questions_n5.md
-- KnowledgeBank/goi_questions_n5.md
-- KnowledgeBank/bunpou_questions_n5.md
-- KnowledgeBank/dokkai_questions_n5.md
-- KnowledgeBank/sources.md (provenance + citations)
+KNOWLEDGEBANK FILES (N5 SCOPE REFERENCE — canonical human-readable
+list of what is in scope for each paper section. NOT the structured
+authoring source; the data/*.json files are the live source-of-truth
+for teaching content + enrichment. KB is consulted to verify scope
+correctness only):
+- KnowledgeBank/grammar_n5.md — N5 grammar pattern inventory (scope list)
+- KnowledgeBank/vocabulary_n5.md — N5 vocab inventory (form/reading/gloss list)
+- KnowledgeBank/kanji_n5.md — 106 N5 kanji inventory + readings
+- KnowledgeBank/moji_questions_n5.md — moji question-section scope
+- KnowledgeBank/goi_questions_n5.md — goi question-section scope
+- KnowledgeBank/bunpou_questions_n5.md — bunpou question-section scope
+- KnowledgeBank/dokkai_questions_n5.md — dokkai question-section scope
+- KnowledgeBank/sources.md — provenance + citations
+
+Scope verification path: `tools/build_data.py` is a comparison-only
+tool (since run-4 2026-05-14) that reports KB-vs-live-whitelist drift
+without writing. Run it to detect scope drift between KB and the
+hand-tuned `data/n5_*_whitelist.json` files. Drift in the whitelist
+JSONs is the canonical CI input; drift in KB itself is documentation
+that may need refresh.
 
 ============================================================
 WHAT IS IN SCOPE FOR FINDINGS

@@ -1,11 +1,32 @@
-"""Build N5 whitelist JSON files from the markdown source-of-truth.
+"""Compare KnowledgeBank markdown scope against the live whitelist JSONs.
 
-Run from the repo root:
-    python tools/build_data.py
+KnowledgeBank/*.md is the **N5 scope reference** -- the canonical human-
+readable list of what is in scope for each paper section.
 
-Generates:
-    data/n5_kanji_whitelist.json   - list of N5-scope kanji characters
-    data/n5_vocab_whitelist.json   - list of N5-scope vocabulary tokens
+This tool was originally a generator: it extracted scope from KB and
+wrote whitelist JSONs that the CI integrity checks consume. Over time
+the maintainer hand-tuned BOTH layers:
+
+  - The whitelist JSONs (n5_kanji_readings.json got deduplicated kun
+    readings; i-adj kanji got their primary reading set to the kun-yomi;
+    n5_vocab_whitelist.json picked up corpus-specific corrections).
+  - The teaching-content JSONs (vocab.json, kanji.json) got pitch_accent,
+    examples, collocations, frequent_patterns, verb_class, etymology,
+    mnemonics, lookalikes -- none of which exist in KB.
+
+Running the original generator would WIPE the hand-tuning on BOTH
+layers -- a footgun caught during the run-4 accuracy audit (2026-05-14).
+The tool is now **comparison-only**:
+
+  - Default (`python tools/build_data.py`) -- diff KB-extracted scope
+    against live whitelist files, report drift, no writes.
+  - `--write` flag -- DANGEROUS; only use after confirming KB is the
+    intended source-of-truth for the whitelist file in question (it
+    isn't, currently -- the whitelists are hand-tuned).
+
+If KB-to-whitelist drift becomes a concern (e.g., a new kanji added to
+KB without being reflected in the whitelist), use the diff output to
+decide whether to update KB or the whitelist; do NOT auto-write.
 """
 import json
 import re
@@ -301,11 +322,38 @@ def extract_vocab_corpus(md_path: Path) -> list[dict]:
     return out
 
 
+def _diff_lists(kb_items, live_items, label):
+    """Report drift between KB-extracted and live whitelist."""
+    kb_set = set(kb_items)
+    live_set = set(live_items)
+    in_kb_only = sorted(kb_set - live_set)
+    in_live_only = sorted(live_set - kb_set)
+    if not in_kb_only and not in_live_only:
+        print(f"  {label}: KB and live match ({len(live_items)} items)")
+        return 0
+    print(f"  {label}: DRIFT -- KB has {len(kb_items)}, live has {len(live_items)}")
+    if in_kb_only:
+        print(f"    in KB only ({len(in_kb_only)}): {in_kb_only[:20]}{'...' if len(in_kb_only) > 20 else ''}")
+    if in_live_only:
+        print(f"    in live only ({len(in_live_only)}): {in_live_only[:20]}{'...' if len(in_live_only) > 20 else ''}")
+    return len(in_kb_only) + len(in_live_only)
+
+
 def main() -> int:
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="DANGEROUS: overwrite live whitelist files with KB-extracted scope. "
+             "The whitelists are hand-tuned in this repo; running with --write "
+             "would lose the hand-tuning. Default is comparison-only.",
+    )
+    args = parser.parse_args()
+
     kanji_md = ROOT / "KnowledgeBank" / "kanji_n5.md"
     vocab_md = ROOT / "KnowledgeBank" / "vocabulary_n5.md"
     data_dir = ROOT / "data"
-    data_dir.mkdir(exist_ok=True)
 
     if not kanji_md.exists():
         print(f"ERROR: missing {kanji_md}", file=sys.stderr)
@@ -314,43 +362,89 @@ def main() -> int:
         print(f"ERROR: missing {vocab_md}", file=sys.stderr)
         return 1
 
-    kanji = extract_kanji(kanji_md)
-    (data_dir / "n5_kanji_whitelist.json").write_text(
-        json.dumps(kanji, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(f"Wrote {len(kanji):>4} kanji to data/n5_kanji_whitelist.json")
+    kb_kanji = extract_kanji(kanji_md)
+    kb_readings = extract_kanji_readings(kanji_md)
+    kb_vocab = extract_vocab(vocab_md)
 
-    readings = extract_kanji_readings(kanji_md)
-    (data_dir / "n5_kanji_readings.json").write_text(
-        json.dumps(readings, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(
-        f"Wrote {len(readings):>4} kanji readings to "
-        "data/n5_kanji_readings.json"
-    )
+    if args.write:
+        print("WARNING: --write mode will overwrite hand-tuned whitelist files.")
+        print("Press Ctrl-C within 5 seconds to abort.")
+        import time
+        time.sleep(5)
+        data_dir.mkdir(exist_ok=True)
+        (data_dir / "n5_kanji_whitelist.json").write_text(
+            json.dumps(kb_kanji, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"Wrote {len(kb_kanji):>4} kanji to data/n5_kanji_whitelist.json")
+        (data_dir / "n5_kanji_readings.json").write_text(
+            json.dumps(kb_readings, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"Wrote {len(kb_readings):>4} kanji readings to data/n5_kanji_readings.json")
+        (data_dir / "n5_vocab_whitelist.json").write_text(
+            json.dumps(kb_vocab, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"Wrote {len(kb_vocab):>4} vocab tokens to data/n5_vocab_whitelist.json")
+        return 0
 
-    vocab = extract_vocab(vocab_md)
-    (data_dir / "n5_vocab_whitelist.json").write_text(
-        json.dumps(vocab, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(f"Wrote {len(vocab):>4} vocab tokens to data/n5_vocab_whitelist.json")
-
-    corpus = extract_vocab_corpus(vocab_md)
-    (data_dir / "vocab.json").write_text(
-        json.dumps({"entries": corpus}, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(f"Wrote {len(corpus):>4} structured vocab entries to data/vocab.json")
-
-    kanji_corpus = extract_kanji_corpus(kanji_md)
-    (data_dir / "kanji.json").write_text(
-        json.dumps({"entries": kanji_corpus}, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
-    print(f"Wrote {len(kanji_corpus):>4} kanji corpus entries to data/kanji.json")
+    # Comparison-only mode (default)
+    print("KB-vs-live whitelist drift report (read-only; no writes)")
+    print("-" * 60)
+    drift = 0
+    # Compare kanji whitelist
+    live_kw_path = data_dir / "n5_kanji_whitelist.json"
+    if live_kw_path.exists():
+        live_kw = json.loads(live_kw_path.read_text(encoding="utf-8"))
+        drift += _diff_lists(kb_kanji, live_kw, "kanji whitelist")
+    else:
+        print("  kanji whitelist: live file missing")
+        drift += 1
+    # Compare vocab whitelist (token list)
+    live_vw_path = data_dir / "n5_vocab_whitelist.json"
+    if live_vw_path.exists():
+        live_vw = json.loads(live_vw_path.read_text(encoding="utf-8"))
+        drift += _diff_lists(kb_vocab, live_vw, "vocab whitelist (tokens)")
+    else:
+        print("  vocab whitelist: live file missing")
+        drift += 1
+    # Kanji readings is a dict; compare keys + report value differences for shared keys
+    live_kr_path = data_dir / "n5_kanji_readings.json"
+    if live_kr_path.exists():
+        live_kr = json.loads(live_kr_path.read_text(encoding="utf-8"))
+        kb_keys = set(kb_readings.keys()) if isinstance(kb_readings, dict) else set()
+        live_keys = set(live_kr.keys()) if isinstance(live_kr, dict) else set()
+        only_kb = sorted(kb_keys - live_keys)
+        only_live = sorted(live_keys - kb_keys)
+        if only_kb or only_live:
+            print(f"  kanji readings: KEY DRIFT -- KB has {len(kb_keys)}, live has {len(live_keys)}")
+            if only_kb:
+                print(f"    in KB only: {only_kb[:10]}")
+            if only_live:
+                print(f"    in live only: {only_live[:10]}")
+            drift += len(only_kb) + len(only_live)
+        else:
+            # Same keys; check value drift on the primary-reading field
+            same_keys_diff = 0
+            for k in sorted(kb_keys):
+                if kb_readings.get(k) != live_kr.get(k):
+                    same_keys_diff += 1
+            if same_keys_diff:
+                print(f"  kanji readings: {same_keys_diff} entries differ in detail "
+                      f"(expected -- hand-tuned for i-adj primary readings + dedup)")
+            else:
+                print(f"  kanji readings: KB and live match exactly")
+    else:
+        print("  kanji readings: live file missing")
+        drift += 1
+    print("-" * 60)
+    if drift == 0:
+        print("No structural drift between KB and live whitelist files.")
+    else:
+        print(f"Found {drift} structural-drift items (membership-level).")
+        print("Decide manually whether KB or the whitelist needs updating.")
+        print("Do NOT auto-resolve with --write (the whitelists are hand-tuned).")
     return 0
 
 
