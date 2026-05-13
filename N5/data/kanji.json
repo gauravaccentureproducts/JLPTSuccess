@@ -13614,7 +13614,14 @@
           }
         ]
       },
-      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi",
+      "pitch_minimal_pair": {
+        "partner_form": "飴 (candy)",
+        "partner_reading": "あめ",
+        "note": "あめ has two pitch realizations: 雨 (rain, drop=1) vs 飴 (candy, drop=0). 飴 itself is N4+ kanji and is not in the N5 corpus, but the pitch contrast appears whenever ame is spoken."
+      },
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.kanji.天",
@@ -14073,7 +14080,14 @@
           }
         ]
       },
-      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi"
+      "audio_yomi_provenance": "voicevox-speaker-8-tsumugi",
+      "pitch_minimal_pair": {
+        "partner_form": "鼻 (nose)",
+        "partner_reading": "はな",
+        "note": "はな has two pitch realizations: 花 (flower, drop=2) vs 鼻 (nose, drop=0). 鼻 itself is N4+ kanji and is not in the N5 corpus, but the pitch contrast appears whenever hana is spoken."
+      },
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.kanji.空",

@@ -309,6 +309,35 @@ function renderDetail(container, entry, entries) {
           </table>
         </section>
       ` : ''}
+      ${entry.n5_compounds?.length ? `
+        <!-- IMP-176 (2026-05-13): Jisho-style "words containing this kanji"
+             with click-through to the vocab detail page. n5_compounds is
+             the same schema as examples but with vocab_id linking. -->
+        <section class="kanji-n5-compounds">
+          <h3>Words containing this kanji</h3>
+          <p class="muted small">
+            N5-scope vocabulary that uses this kanji. Click any row to jump to its vocab entry.
+          </p>
+          <table class="kanji-examples-table">
+            <tbody>
+              ${entry.n5_compounds.map(c => {
+                // Vocab detail route is #/learn/vocab/<form>, NOT id-keyed.
+                const vocabHref = c.form ? `#/learn/vocab/${encodeURIComponent(c.form)}` : null;
+                const formCell = vocabHref
+                  ? `<a href="${esc(vocabHref)}" lang="ja">${esc(c.form)}</a>`
+                  : `<span lang="ja">${esc(c.form)}</span>`;
+                return `
+                  <tr>
+                    <td class="ex-form">${formCell}</td>
+                    <td class="ex-reading" lang="ja">${esc(c.reading || '')}</td>
+                    <td class="ex-gloss">${esc(c.gloss || '')}</td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </section>
+      ` : ''}
       ${entry.sentences?.length ? `
         <section class="kanji-sentences">
           <h3>${esc(t('kanji_detail.in_a_sentence'))}</h3>

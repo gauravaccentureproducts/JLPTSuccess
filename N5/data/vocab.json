@@ -1711,7 +1711,11 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "long_vowel_pair": "n5.vocab.2-people-family.おじさん",
+      "long_vowel_pair_note": "おじさん (uncle, 4-mora) vs おじいさん (grandfather, 5-mora long じ). Same generation-distinction pattern as お(ば)(ばあ)さん.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.おばあさん",
@@ -1771,7 +1775,11 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "long_vowel_pair": "n5.vocab.2-people-family.おばさん",
+      "long_vowel_pair_note": "おばさん (aunt, 4-mora) vs おばあさん (grandmother, 5-mora long ば). Length 1 extra mora distinguishes generation.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.おじさん",
@@ -1829,7 +1837,11 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "long_vowel_pair": "n5.vocab.2-people-family.おじいさん",
+      "long_vowel_pair_note": "おじさん (uncle, 4-mora) vs おじいさん (grandfather, 5-mora long じ). Same generation-distinction pattern as お(ば)(ばあ)さん.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.おばさん",
@@ -1892,7 +1904,11 @@
       "counter": "人",
       "counter_register": "にん",
       "counter_provenance": "native_reviewed",
-      "counter_audit_wave": "imp-162-people-2026-05-13"
+      "counter_audit_wave": "imp-162-people-2026-05-13",
+      "long_vowel_pair": "n5.vocab.2-people-family.おばあさん",
+      "long_vowel_pair_note": "おばさん (aunt, 4-mora) vs おばあさん (grandmother, 5-mora long ば). Length 1 extra mora distinguishes generation.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.2-people-family.子ども",
@@ -1951,7 +1967,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kodomo"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.2-people-family.男の子",
@@ -2322,7 +2342,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.tomodachi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.3-people-roles.学生",
@@ -2396,7 +2420,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.gakusei"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.3-people-roles.せいと",
@@ -2525,7 +2553,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.sensei"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.3-people-roles.いしゃ",
@@ -2699,7 +2731,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.ekiin"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.3-people-roles.店員",
@@ -2754,7 +2790,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.tenin"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.3-people-roles.けいかん",
@@ -3241,7 +3281,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.me"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.4-body-parts.みみ",
@@ -3363,7 +3407,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_minimal_pair": "n5.vocab.14-nature-and-weather.花",
+      "pitch_minimal_pair_note": "花 (flower, drop=2) vs はな (nose, drop=0). Same kana, different pitch.",
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.4-body-parts.くち",
@@ -4349,7 +4397,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.13-locations-and-places-.高校",
+      "long_vowel_pair_note": "ここ (here, 2-mora) vs 高校 こうこう (high school, 4-mora long こう). Both start with こ-row; the long ー distinguishes location vs institution.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.5-demonstratives.そこ",
@@ -5629,7 +5681,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.8-native-counters-series.五つ",
+      "long_vowel_pair_note": "いつ (when, 2-mora) vs 五つ いつつ (five things, 3-mora long つ). Length-and-sokuon discrimination — question word vs counter.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.6-question-words.いくら",
@@ -7389,7 +7445,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.6-question-words.いつ",
+      "long_vowel_pair_note": "いつ (when, 2-mora) vs 五つ いつつ (five things, 3-mora long つ). Length-and-sokuon discrimination — question word vs counter.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.8-native-counters-series.六つ",
@@ -9686,7 +9746,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.gozen"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.10-time-general.午後",
@@ -9736,7 +9800,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.gogo"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.10-time-general.半",
@@ -10920,7 +10988,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.maishuu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.月曜日",
@@ -10970,7 +11042,8 @@
       ],
       "collocations_provenance": "llm_curated",
       "authentic_refs": [
-        "auth.shop.teikyubi"
+        "auth.shop.teikyubi",
+        "auth.signs.getsuyoubi"
       ],
       "authentic_refs_provenance": "auto_derived",
       "register_origin": "kango",
@@ -11026,7 +11099,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kayoubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.水曜日",
@@ -11076,7 +11153,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.suiyoubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.木曜日",
@@ -11126,7 +11207,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.mokuyoubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.金曜日",
@@ -11177,7 +11262,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kinyoubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.土曜日",
@@ -11231,7 +11320,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.doyoubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.日曜日",
@@ -11288,7 +11381,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.nichiyoubi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.しゅうまつ",
@@ -11457,7 +11554,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.ichi-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.二月",
@@ -11507,7 +11608,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.ni-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.三月",
@@ -11607,7 +11712,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.shi-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.五月",
@@ -11657,7 +11766,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.go-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.六月",
@@ -11707,7 +11820,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.roku-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.七月",
@@ -11767,7 +11884,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.shichi-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.八月",
@@ -11817,7 +11938,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.hachi-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.九月",
@@ -11867,7 +11992,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kyuu-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.十月",
@@ -11917,7 +12046,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.juu-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.十一月",
@@ -11969,7 +12102,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.juuichi-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.十二月",
@@ -12019,7 +12156,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.juuni-getsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.先月",
@@ -12169,7 +12310,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.raigetsu"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.毎月",
@@ -12377,7 +12522,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kotoshi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.来年",
@@ -12699,7 +12848,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.mainichi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.まいあさ",
@@ -14408,7 +14561,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.notice.gakkou"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.大学",
@@ -14525,7 +14682,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.5-demonstratives.ここ",
+      "long_vowel_pair_note": "ここ (here, 2-mora) vs 高校 こうこう (high school, 4-mora long こう). Both start with こ-row; the long ー distinguishes location vs institution.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.きょうしつ",
@@ -14912,7 +15073,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kaisha"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.じむしょ",
@@ -15380,7 +15545,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.shop.honya"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.はなや",
@@ -16676,7 +16845,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.michi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.とおり",
@@ -17174,7 +17347,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.ue"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.下",
@@ -17236,7 +17413,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.shita"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.前",
@@ -18083,7 +18264,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.kawa"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.うみ",
@@ -18428,7 +18613,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_minimal_pair": "n5.vocab.4-body-parts.はな",
+      "pitch_minimal_pair_note": "花 (flower, drop=2) vs はな (nose, drop=0). Same kana, different pitch.",
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.くさ",
@@ -18708,7 +18897,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.sora"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.くも",
@@ -18981,7 +19174,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_minimal_pair": "n5.vocab.17-food-items.あめ",
+      "pitch_minimal_pair_note": "雨 (rain, drop=1) vs あめ (candy, drop=0). Same kana, different pitch.",
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.14-nature-and-weather.ゆき",
@@ -23735,7 +23932,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_minimal_pair": "n5.vocab.14-nature-and-weather.雨",
+      "pitch_minimal_pair_note": "雨 (rain, drop=1) vs あめ (candy, drop=0). Same kana, different pitch.",
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.18-drinks.おちゃ",
@@ -24225,7 +24426,11 @@
       "register_origin": "gairaigo",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.13-locations-and-places-.ビル",
+      "long_vowel_pair_note": "ビル (building, 2-mora) vs ビール (beer, 3-mora long ー). Listening discrimination: hold the い longer = beer.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.18-drinks.ワイン",
@@ -28526,7 +28731,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.michi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.23-transport.しんごう",
@@ -30056,7 +30265,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.shinbun"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.24-school-and-study.かみ",
@@ -30901,7 +31114,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.39-function-filler-expre.ええ",
+      "long_vowel_pair_note": "え (picture, 1-mora) vs ええ (yes / what?, 2-mora long え). Length determines noun vs interjection.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.24-school-and-study.番号",
@@ -30951,7 +31168,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.bangou"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.24-school-and-study.電気",
@@ -31246,7 +31467,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.nihongo"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.日本人",
@@ -31470,7 +31695,11 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived"
+      "devoiced_vowel_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.chuugoku"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.中国語",
@@ -31937,7 +32166,11 @@
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.gaikoku"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.25-languages-and-countri.外国語",
@@ -34590,7 +34823,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.shop.kau"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.書く",
@@ -39862,7 +40099,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_minimal_pair": "n5.vocab.28-verbs-group-2-verbs.いれる",
+      "pitch_minimal_pair_note": "入れる (put in, drop=0) vs いれる (make tea, drop=2). Same kana, different pitch.",
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あける",
@@ -40942,7 +41183,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "pitch_minimal_pair": "n5.vocab.28-verbs-group-2-verbs.入れる",
+      "pitch_minimal_pair_note": "入れる (put in, drop=0) vs いれる (make tea, drop=2). Same kana, different pitch.",
+      "pitch_minimal_pair_provenance": "native_reviewed",
+      "pitch_minimal_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あつめる",
@@ -43594,7 +43839,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.menu.takai"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.31-adjectives.ひくい",
@@ -43716,7 +43965,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.menu.yasui"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.31-adjectives.長い",
@@ -56603,7 +56856,11 @@
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "authentic_refs": [
+        "auth.signs.yasumi"
+      ],
+      "authentic_refs_provenance": "auto_derived"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.りょうり",
@@ -58471,7 +58728,11 @@
       "register": "casual",
       "register_provenance": "auto_derived",
       "register_origin": "wago",
-      "register_origin_provenance": "auto_derived"
+      "register_origin_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.24-school-and-study.え",
+      "long_vowel_pair_note": "え (picture, 1-mora) vs ええ (yes / what?, 2-mora long え). Length determines noun vs interjection.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.うん",
@@ -61725,7 +61986,11 @@
       "register_origin": "gairaigo",
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
-      "register_provenance": "auto_derived"
+      "register_provenance": "auto_derived",
+      "long_vowel_pair": "n5.vocab.18-drinks.ビール",
+      "long_vowel_pair_note": "ビル (building, 2-mora) vs ビール (beer, 3-mora long ー). Listening discrimination: hold the い longer = beer.",
+      "long_vowel_pair_provenance": "native_reviewed",
+      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13"
     }
   ],
   "_meta": {

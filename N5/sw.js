@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.15.1';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.15.2';
 
 const PRECACHE = [
   './',
