@@ -935,6 +935,18 @@ CHECKS: list[tuple[str, str, callable]] = [
     # consistently absent. Mixed populations cause UI badges to render
     # partially (broken UX). Per anti-pattern §3.2.34.
     ("JA-79", "Grammar example form-field is all-populated or all-empty within a pattern (2026-05-13)", lambda: _check_ja_79_form_field_consistency()),
+    # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
+    # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
+    # 19 false positives on legitimate patterns where meaning_ja
+    # paraphrases meaning_en using different words (e.g., n5-068
+    # meaning_en="Plain past negative (-なかった)" but meaning_ja
+    # ="ふつうの かこ ひてい" — semantically equivalent, no string
+    # overlap). The cross-contamination class requires LLM-level
+    # semantic comparison and stays in the manual-review domain.
+    # The single run-4 catch (n5-166) was caught by the Phase-0
+    # CHECK-6 re-implementation, which is a stricter version of JA-71
+    # (no fallback pass); 2 false positives there required manual
+    # inspection. Documented lesson at A12 (audit prompt line 465).
 ]
 
 
@@ -3591,6 +3603,16 @@ def _check_ja_79_form_field_consistency() -> list[str]:
                 f"missing at indices {missing}. Either fill all or strip all."
             )
     return failures
+
+
+# JA-80 implementation removed (2026-05-13 run-4):
+# The heuristic "meaning_ja must share Japanese substring with meaning_en"
+# had 19 false positives — many legitimate meaning_ja entries paraphrase
+# meaning_en using DIFFERENT Japanese vocabulary (e.g., n5-068 meaning_en
+# uses 「なかった」 while meaning_ja uses 「ふつうの かこ ひてい」 — same
+# concept, different words). Cross-contamination detection of this class
+# requires semantic comparison, not string overlap, and is left to
+# manual native-teacher review (logged as A12 still-cannot-catch case).
 
 
 def _check_ja_78_no_repeated_kana_examples() -> list[str]:

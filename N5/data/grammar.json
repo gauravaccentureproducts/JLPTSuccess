@@ -71962,7 +71962,7 @@
       "categoryOrder": 23,
       "patternOrder": 3,
       "meaning_en": "Set greetings: いただきます / ごちそうさま / おはようございます etc.",
-      "meaning_ja": "「〜の」は めいしと めいしを つなぎます。「私の 本」「学校の 先生」。",
+      "meaning_ja": "きまった あいさつの ことばです。「いただきます」(ごはんの まえ)、「ごちそうさま」(ごはんの あと)、「おはようございます」(あさ)、「いってきます」(でかける とき)、「こんにちは」(ひる)。これらは そのまま おぼえます。",
       "form_rules": {
         "attaches_to": [
           "set_phrase"
@@ -72120,16 +72120,14 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あにより わたしのほうが はやく おきます。",
+          "ja": "「いってらっしゃい」と かぞくに いいます。",
           "translation_en": "I get up earlier than my older brother.",
           "source": "vocab.n5.vocab.2-people-family.あに.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
-            "n5.vocab.28-verbs-group-2-verbs.おきる",
-            "n5.vocab.31-adjectives.はやい",
-            "n5.vocab.2-people-family.あに",
-            "n5.vocab.27-verbs-group-1-verbs.おく",
-            "n5.vocab.35-particles-functional-.が"
+            "n5.vocab.36-greetings-and-set-phr.いってらっしゃい",
+            "n5.vocab.2-people-family.かぞく",
+            "n5.vocab.27-verbs-group-1-verbs.言う"
           ],
           "pitch_marks": [
             {
@@ -72153,16 +72151,15 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "いもうとは 学校に 行きます。",
+          "ja": "「ただいま」と いえに かえった とき いいます。",
           "translation_en": "My younger sister goes to school.",
           "source": "vocab.n5.vocab.2-people-family.いもうと.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
-            "n5.vocab.2-people-family.いもうと",
-            "n5.vocab.13-locations-and-places-.学校",
-            "n5.vocab.27-verbs-group-1-verbs.行く",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.に"
+            "n5.vocab.36-greetings-and-set-phr.ただいま",
+            "n5.vocab.26-house-and-furniture.いえ",
+            "n5.vocab.27-verbs-group-1-verbs.かえる",
+            "n5.vocab.27-verbs-group-1-verbs.言う"
           ],
           "pitch_marks": [
             {
@@ -72391,16 +72388,18 @@
         }
       ],
       "_meaning_ja_markers": [
-        "おはようございます",
         "いただきます",
-        "学校の 先生",
         "ごちそうさま",
-        "つなぎます",
-        "めいしを",
-        "めいしと",
-        "私の 本",
-        "〜の"
-      ]
+        "おはようございます",
+        "いってきます",
+        "あいさつ",
+        "きまった",
+        "おぼえます",
+        "ごはんの まえ",
+        "ごはんの あと",
+        "そのまま"
+      ],
+      "meaning_ja_provenance": "n5_166_cross_contamination_fix_2026_05_13_run4"
     },
     {
       "id": "n5-167",

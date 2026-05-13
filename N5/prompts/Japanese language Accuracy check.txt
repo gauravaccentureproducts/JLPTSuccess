@@ -279,6 +279,30 @@ LIST OF CHECKS (run in order; mark each PASS/FAIL with the count):
          markers happen to overlap by chance. Manual sample of 10
          random patterns after Phase 0.
 
+[CHECK-31] meaning_ja semantic alignment vs meaning_en for set-phrase /
+         vocab-listing patterns (added 2026-05-13 run-4 after n5-166)
+  How:   manual triangulation when (a) meaning_en contains explicit
+         Japanese vocabulary tokens (≥4-char hiragana/katakana/kanji
+         substrings) AND (b) the pattern field also contains those
+         tokens. In that narrow case, meaning_ja MUST mention at least
+         one of those tokens explicitly.
+  Pass:  any such pattern's meaning_ja contains ≥1 of the meaning_en's
+         Japanese vocabulary tokens.
+  Note:  Tried as JA-80 (CI invariant) on 2026-05-13 run-4; reverted
+         because the heuristic produced 19 false positives on legitimate
+         patterns where meaning_ja paraphrases meaning_en in different
+         Japanese words (e.g., n5-068 meaning_en="Plain past negative
+         (-なかった)" but meaning_ja="ふつうの かこ ひてい" — same
+         concept, no string overlap). The check is too lossy for CI
+         release-blocker status; lives in Phase-0 manual sampling.
+  History: caught n5-166 set-greetings pattern at run-4 (2026-05-13)
+           where meaning_ja described the の particle. JA-71 passed
+           via fallback (set-greeting katakana shared trivial chars
+           with meaning_ja). JA-75 passed because _meaning_ja_markers
+           were auto-extracted from the WRONG text on install — both
+           guards fail open on the bootstrap-with-wrong-state case.
+  Reference: A12 still-cannot-catch class (line 465 above).
+
 RECORDING REQUIREMENT: every Phase 0 check that fires produces an
 F-N finding with the corresponding CHECK-NN reference in its
 "Cross-ref" field. Even if the count is "1 hit", file it.
@@ -919,7 +943,7 @@ CI INVARIANTS RELEVANT TO THIS AUDIT (verify these pre-audit)
 ============================================================
 
 Before opening any finding, run `python tools/check_content_integrity.py`
-and confirm 79/79 invariants are green. If any FAIL, the audit is
+and confirm 83/83 invariants are green. If any FAIL, the audit is
 running on broken baseline data and findings may be artifacts.
 
 Key invariants for language-accuracy work:
@@ -990,6 +1014,41 @@ AD-HOC-SAMPLING ANTI-PATTERN (NEW 2026-05-13):
   Rule: never claim "I audited X" if you didn't actually execute
   the structured check for X. Sampling is for naturalness; structural
   checks are for presence/consistency.
+
+RUN-4 LESSON: BOOTSTRAP-WITH-WRONG-STATE class (added 2026-05-13):
+  Run-4 (after the 3 native-teacher runs + 3 accuracy runs)
+  caught n5-166: a set-greetings pattern whose meaning_ja described
+  the の particle instead. Failure chain:
+    1. Some prior run/edit replaced n5-166's meaning_ja with content
+       from a different pattern (likely a cleanup-cascade artifact
+       from G-2 or T-2 schema migrations 2026-05-13).
+    2. The install_ja75_marker_dict.py auto-extractor blessed the
+       broken text — its markers became BOTH pattern-side
+       (いただきます/ごちそうさま/おはようございます from pattern field)
+       AND content-side (めいしと/めいしを/つなぎます from broken text).
+    3. JA-71 passed via the fallback pass (any pattern kana appears
+       somewhere in meaning_ja — set-greeting hiragana shared trivial
+       chars い/ま/す/は with the meaning_ja).
+    4. JA-75 passed because markers were auto-extracted from the
+       broken text — they self-matched.
+    5. Three native-teacher audits + 3 accuracy audits + 1 prior
+       N5Improvement run all missed it. CHECK-6 (a stricter
+       reimplementation of JA-71 without fallback) caught it on
+       run-4.
+
+  Tried JA-80 (meaning_ja ↔ meaning_en Japanese-substring overlap)
+  as a CI invariant; reverted with 19 false positives. The class
+  requires LLM-level semantic comparison and stays in the manual-
+  sample domain (CHECK-31 above documents the procedure).
+
+  Procedural lesson: when bootstrapping any "snapshot of current
+  verified-correct state" (like JA-75's markers), do NOT auto-
+  extract from the live text unless that text has been independently
+  verified. Either (a) manually curate the snapshot from canonical
+  authoring sources, or (b) cross-check the snapshot against the
+  pattern's meaning_en BEFORE blessing it. install scripts that
+  bootstrap from the data file inherit any contamination already
+  present.
 
 DRIFT BETWEEN PROMPT CURRENT-STATE TABLE AND LIVE DATA:
   Every audit-refresh script encoded in this prompt risks using
