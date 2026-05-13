@@ -78,6 +78,267 @@ count, the live count wins and the prompt cell is a finding
 (filed under Section 9: Open Questions or Section 5: Existing
 Issues, "audit-prompt drift").
 
+## ⚠ MANDATORY STEP 1.5 — FIELD-NAME VERIFICATION
+
+This was the #1 source of false findings in the 2026-05-13 cycle.
+The audit's run-1 produced 5 P1 items and estimated "10-12 days of
+work"; investigation revealed 7 of the underlying field-name lookups
+were WRONG, producing false-0% readings on items that were already
+100% complete. Specifically:
+
+| Audit looked for | Actual field name | Effect |
+|---|---|---|
+| `vocab.pitch` | `vocab.pitch_accent` | claimed 0% — was 100% |
+| `grammar.examples[].pitch_accent` | `grammar.examples[].pitch_marks` | claimed 0% — was 69% |
+| `kanji.mnemonic_visual` (top-level) | `kanji.mnemonic.visual` (nested dict) | claimed 0% — was 100% |
+| `listening.items[].timestamps` | `listening.items[].timestamped_transcript` | claimed 0% — was 100% |
+| `listening.items[].discourse_markers` | `listening.items[].discourse_markers_used` | claimed 0% — was 92% |
+| `listening.items[].aizuchi` | `listening.items[].aizuchi_present` / `aizuchi_tokens` | claimed 0% — was 34% |
+| `listening.items[].question_type == "inference"` | `listening.items[].inference_question_expansion` | claimed 0% — was 100% |
+| `reading.passages[].paragraph_summaries` | `reading.passages[].paragraph_summary_provenance` | claimed 0% — was 13% |
+| `vocab.entries[].pattern_co_occurs` | `vocab.entries[].frequent_patterns` | claimed 0% — was 43% |
+
+Before claiming ANY field is "missing" or "X%", run this verification:
+
+```python
+# Print actual top-level field-name catalog per surface
+import json
+from collections import Counter
+
+for name, path in [
+    ('vocab', 'data/vocab.json'),
+    ('grammar.patterns', 'data/grammar.json'),
+    ('kanji', 'data/kanji.json'),
+    ('reading.passages', 'data/reading.json'),
+    ('listening.items', 'data/listening.json'),
+]:
+    data = json.load(open(path, encoding='utf-8'))
+    items = (data.get('entries') or data.get('passages') or data.get('items')
+             or data.get('patterns') or [])
+    if items and isinstance(items[0], dict):
+        # Count which fields are present across entries
+        fields = Counter()
+        for it in items:
+            for k in it.keys():
+                fields[k] += 1
+        print(f"{name}: {len(items)} entries; top 30 fields:")
+        for k, n in fields.most_common(30):
+            print(f"  {k}: {n}/{len(items)}")
+```
+
+For NESTED structures (like kanji.mnemonic which is a dict, not
+a top-level key), drill into ONE sample to learn the schema:
+
+```python
+sample = json.load(open('data/kanji.json', encoding='utf-8'))['entries'][0]
+print('kanji[0] schema:', json.dumps(sample, ensure_ascii=False, indent=2)[:1500])
+```
+
+RULE: When checking compliance for a scorecard row, verify the field
+name against the live data FIRST. If you find the canonical field
+name differs from the scorecard's stated name, the SCORECARD CELL
+IS WRONG, not the data. File the scorecard cell as a finding under
+"audit-prompt drift" — but DO NOT count it as a content gap.
+
+## ⚠ MANDATORY STEP 1.6 — PHASE-0 MECHANICAL CHECKLIST
+
+This is the SAME discipline added to the Japanese-accuracy prompt:
+the audit MUST run a mechanical pass FIRST and report Phase-0
+compliance per row BEFORE producing any qualitative findings. The
+2026-05-13 cycle showed that "eyeballing 5-10 random items" produces
+zero-signal at saturation but ALSO produces false positives early
+(see the "Field-Name Verification" section above for the 9 wrong
+field names that the human-eye sample didn't catch).
+
+**Rule:** every Phase-0 row below must be answered with a CONCRETE
+NUMBER from a script run, NOT a vibes-based "looks good."
+
+### Phase-0 Grammar (run mechanically over all 178 patterns)
+
+```python
+import json
+G = json.load(open('data/grammar.json', encoding='utf-8'))['patterns']
+print('Patterns total:', len(G))
+print('Examples ≥10:', sum(1 for p in G if len(p.get('examples') or []) >= 10))
+print('Examples ≥7:',  sum(1 for p in G if len(p.get('examples') or []) >= 7))
+print('Common-mistakes ≥3:', sum(1 for p in G if len(p.get('common_mistakes') or []) >= 3))
+print('Contrasts ≥1:', sum(1 for p in G if p.get('contrasts')))
+print('Register tag set:', sum(1 for p in G if p.get('register')))
+print('Essay ≥500c:', sum(1 for p in G if (p.get('essay') or {}).get('text') and len((p['essay'].get('text') or '')) >= 500))
+print('PD refs ≥1:', sum(1 for p in G if p.get('authentic_citations')))
+print('Audio per example:',
+    sum(1 for p in G for ex in (p.get('examples') or []) if ex.get('audio')),
+    '/',
+    sum(1 for p in G for _ in (p.get('examples') or [])))
+print('Pitch marks per example:',
+    sum(1 for p in G for ex in (p.get('examples') or []) if ex.get('pitch_marks')),
+    '/',
+    sum(1 for p in G for _ in (p.get('examples') or [])))
+print('Form field set per example:',
+    sum(1 for p in G for ex in (p.get('examples') or []) if ex.get('form')),
+    '/',
+    sum(1 for p in G for _ in (p.get('examples') or [])))
+print('Meaning_ja markers set:', sum(1 for p in G if p.get('_meaning_ja_markers')))
+print('Cultural callout set:', sum(1 for p in G if p.get('cultural_callout')))
+```
+
+### Phase-0 Vocab (1009 entries)
+
+```python
+V = json.load(open('data/vocab.json', encoding='utf-8'))['entries']
+print('Entries total:', len(V))
+print('Examples ≥3:', sum(1 for v in V if len(v.get('examples') or []) >= 3))
+print('Pitch accent {mora, drop}:', sum(1 for v in V if (v.get('pitch_accent') or {}).get('mora') and (v.get('pitch_accent') or {}).get('drop') is not None))
+print('Collocations ≥5 (content words):',
+    sum(1 for v in V if v.get('pos') in ('noun','verb','i-adjective','na-adjective') and len(v.get('collocations') or []) >= 5))
+print('Frequent_patterns ≥3 (content words):',
+    sum(1 for v in V if v.get('pos') in ('noun','verb','i-adjective','na-adjective') and len(v.get('frequent_patterns') or []) >= 3))
+print('Readings[] list (multi-reading entries):', sum(1 for v in V if isinstance(v.get('readings'), list)))
+print('Group1 exception flag:', sum(1 for v in V if v.get('group1_exception')))
+print('Counter pairing set:', sum(1 for v in V if v.get('dominant_counter')))
+print('Onomatopoeia flag:', sum(1 for v in V if v.get('onomatopoeia')))
+```
+
+### Phase-0 Kanji (106 entries)
+
+```python
+K = json.load(open('data/kanji.json', encoding='utf-8'))
+KE = K.get('entries', K) if isinstance(K, dict) else K
+if isinstance(KE, dict): KE = list(KE.values())
+print('Entries total:', len(KE))
+print('Mnemonic dict present:', sum(1 for k in KE if k.get('mnemonic')))
+print('Mnemonic.radical_story set:', sum(1 for k in KE if (k.get('mnemonic') or {}).get('radical_story')))
+print('Mnemonic.visual set:',        sum(1 for k in KE if (k.get('mnemonic') or {}).get('visual')))
+print('Mnemonic.reading set:',       sum(1 for k in KE if (k.get('mnemonic') or {}).get('reading')))
+print('Look-alikes ≥1:', sum(1 for k in KE if k.get('look_alikes')))
+print('N5 compounds ≥2:', sum(1 for k in KE if len(k.get('n5_compounds') or []) >= 2))
+print('Stroke-order SVG present:', sum(1 for k in KE if k.get('stroke_order_svg')))
+print('On-yomi katakana convention:', sum(1 for k in KE if all(o == o.upper() or not any(0x3041 <= ord(c) <= 0x3096 for c in o) for o in (k.get('on_yomi') or []))))
+```
+
+### Phase-0 Reading (54 passages)
+
+```python
+R = json.load(open('data/reading.json', encoding='utf-8'))['passages']
+print('Passages total:', len(R))
+print('Mondai tagged:', sum(1 for r in R if r.get('mondai')))
+print('Paragraph summaries ≥1:', sum(1 for r in R if any((p.get('summary_ja') or p.get('summary')) for p in (r.get('paragraphs') or []))))
+print('Topic cluster tagged:', sum(1 for r in R if r.get('topic')))
+print('prompt_ja set on questions:',
+    sum(1 for r in R for q in (r.get('questions') or []) if q.get('prompt_ja')),
+    '/',
+    sum(1 for r in R for _ in (r.get('questions') or [])))
+```
+
+### Phase-0 Listening (50 items)
+
+```python
+L = json.load(open('data/listening.json', encoding='utf-8'))['items']
+print('Items total:', len(L))
+print('Mondai tagged:', sum(1 for l in L if l.get('mondai')))
+print('script_ja set:', sum(1 for l in L if l.get('script_ja')))
+print('speaker set:',  sum(1 for l in L if l.get('speaker')))
+print('Timestamped transcript:', sum(1 for l in L if l.get('timestamped_transcript')))
+print('Slow-audio variant:', sum(1 for l in L if l.get('audio_slow')))
+print('Discourse markers used:', sum(1 for l in L if l.get('discourse_markers_used')))
+print('Aizuchi present:', sum(1 for l in L if l.get('aizuchi_present')))
+print('Inference expansion:', sum(1 for l in L if l.get('inference_question_expansion')))
+```
+
+### Phase-0 Density (interconnection — Sections 4 / Density-1..10)
+
+```python
+from collections import Counter
+# Density-1: grammar → vocab (vocab IDs each pattern references)
+d1 = [len(p.get('vocab_ids') or []) for p in G]
+# Density-3: kanji → vocab (vocab entries that contain this kanji either in form OR in compounds list)
+def kanji_to_vocab(k):
+    g = k.get('glyph')
+    direct = sum(1 for v in V if g and g in (v.get('form') or ''))
+    compounds = sum(1 for compound in (k.get('n5_compounds') or []) if any(compound == v.get('form') for v in V))
+    return direct + compounds
+d3 = [kanji_to_vocab(k) for k in KE]
+print('Density-1 (grammar→vocab) min:', min(d1), 'avg:', sum(d1)/len(d1) if d1 else 0)
+print('Density-3 (kanji→vocab) min:',  min(d3), 'avg:', sum(d3)/len(d3) if d3 else 0)
+print('Density-3 below floor (2):', sum(1 for n in d3 if n < 2))
+```
+
+Run ALL FIVE blocks above before producing Section 2 of the report.
+The numbers from the script ARE Section 2; do not paraphrase.
+
+## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
+
+The audit is SATURATED — and the calendar block in line 1 fires —
+when ALL of these hold simultaneously:
+
+1. **Phase-0 100%-rows count is unchanged from prior run.** Every
+   row that was at 100% last cycle is still 100%; no row regressed.
+2. **No row that was below 100% last cycle dropped further.** A
+   row going from 88% → 80% is regression, not saturation.
+3. **The qualitative "Section 5 + 6 actionable items" count is 0
+   on two consecutive runs.** One zero-signal run is NOT saturation
+   (could be sampling luck). Two consecutive zero-signal runs is.
+4. **The CI invariants count in the CURRENT STATE table matches the
+   live tools/check_content_integrity.py invariant count.** If they
+   differ, the prompt has drifted and is not a reliable saturation
+   detector.
+
+If 1+2+3+4 all hold: the audit is closed. If ANY fails: the prompt
+is not yet saturated and may be re-run when a trigger condition
+fires (top of file).
+
+## LESSONS FROM PRIOR CYCLES (don't relitigate these)
+
+These lessons came from 13 audit cycles producing ~185 content fixes
+across 2026-04 through 2026-05-13. The audit MUST respect them; doing
+so prevents loops where each new cycle re-discovers the same gap.
+
+### Anti-pattern A: ad-hoc sampling at saturation produces false positives
+Run-3 of 2026-05-13 (under the prior version of THIS prompt) "found"
+several issues that did not exist on inspection — they came from
+inspecting 6 random items and pattern-matching against memory of run-1
+findings. The fix: Phase-0 mechanical checklist (Step 1.6 above)
+produces the actual numbers; qualitative findings are layered on top
+of mechanical numbers, never instead of them.
+
+### Anti-pattern B: human-day effort estimates are invalid
+The audit MUST NOT estimate effort in human-person-days. The audit
+runs in Claude, the fixes are applied by Claude, the reviewer is one
+human. Use Claude-turns: "1 turn", "2-3 turns", "5+ turns". A turn
+is a single Claude response cycle. This was added to CLAUDE.md as
+anti-pattern #22.
+
+### Anti-pattern C: calendar-cadence audit reruns produce zero signal at saturation
+The DO-NOT-RUN-ON-CALENDAR block at line 1 of this file exists
+because three runs in one working session produced 29 / 5 / 0
+actionable findings. The third run was confirmatory only and added
+zero value. Calendar reruns (every Friday, every release, every PR)
+spend reviewer attention on confirmatory output. Run ONLY on trigger
+conditions (see line 1).
+
+### Anti-pattern D: scorecard cells calcify against the live corpus
+The 2026-05-13 cycle found 9 wrong field-name lookups producing
+false-0% readings. The cells in this prompt represent what the
+authors EXPECTED the field-names to be; the live data is the source
+of truth. Step 1.5 (Field-Name Verification) fires automatically
+before any "below bar" claim.
+
+### Anti-pattern E: width-additions are out of scope for richness audits
+Every cycle, the temptation is "let's add 20 more vocab to fill
+gaps." The RICHNESS-FIRST mandate (line ~200) freezes widths.
+Depth on EXISTING entries is the work. If the audit produces "add
+N more vocab" as a P1 finding, the prompt has lost the richness-
+first discipline and should NOT be acted on without explicit
+maintainer override.
+
+### Anti-pattern F: provenance tier is not a user-facing trust signal
+The `native_reviewed` provenance tag is a TRACKING LABEL ONLY —
+nothing in the corpus has been reviewed by a Japanese native speaker;
+the maintainer hand-curated and LLM-promoted entries carry this tag.
+Exposing the tag in UI as a trust signal would be a false claim.
+IMP-184 was set to Avoid 2026-05-13 for this reason. Do not surface
+provenance to learners; the content's correctness is the trust signal.
+
 You will NOT fix anything. You will NOT implement anything. You
 will NOT modify any file, run any deploy, or make any commit. You
 will produce one ranked list and stop.
@@ -143,10 +404,10 @@ This audit cycle is **richness-first**. The N5 corpus breadth is
 FROZEN at the current scale:
 
   - 178 grammar patterns (`data/grammar.json`)
-  - 1000 vocabulary entries (`data/vocab.json`, post-2026-05-08 dedup)
+  - 1009 vocabulary entries (`data/vocab.json`, post-2026-05-08 dedup)
   - 106 kanji (`data/kanji.json`)
-  - 40 reading passages (`data/reading.json`)
-  - 47 listening items (`data/listening.json`, rendered with 4
+  - 54 reading passages (`data/reading.json`)
+  - 50 listening items (`data/listening.json`, rendered with 4
     VOICEVOX voices)
   - 28 mock-test paper files (`data/papers/`, 402 paper-bound
     questions)
@@ -177,11 +438,11 @@ release. Re-derive from data files before quoting in findings.
 | Live URL | https://gauravaccentureproducts.github.io/JLPTSuccess/N5/ |
 | Locales | `{en, hi}` (closed set; JA-39 invariant) |
 | Content origin | Machine-generated and maintainer-curated via Claude (LLM). NO Japanese-native-speaker review has taken place. The internal provenance tag value `native_reviewed` is a TRACKING LABEL ONLY (it marks entries the maintainer hand-curated / promoted after LLM review), NOT a user-facing claim. Do NOT recommend exposing provenance tiers in the UI as a trust signal — that would be a false promise. (IMP-184 set 2026-05-13 to Avoid for this exact reason.) |
-| CI invariants | 70 (release-blocker; X-6.x + JA-1..JA-67) |
+| CI invariants | 83 (release-blocker; X-6.x + JA-1..JA-79; JA-67..JA-79 added in 2026-05 cycle — see `tools/check_content_integrity.py`) |
 | Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — refresh count via openpyxl scan |
 | Provenance enum | Internal tracking only: `{native_reviewed, llm_curated, auto_derived, auto_generated_template, auto_derived_from_vocab_pitch, auto_derived_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional}`. The `native_reviewed` value is a misnomer — re-read the "Content origin" row above. |
 | Audio infra | VOICEVOX engine v0.25.2 + gTTS fallback + edge-tts voice plans; refresh MP3 count via `find audio -name '*.mp3' \| wc -l` |
-| Tests | `tools/check_content_integrity.py` (70 invariants) + Playwright e2e + visual regression |
+| Tests | `tools/check_content_integrity.py` (83 invariants) + Playwright e2e + visual regression |
 | Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic, Authentic, Print/Cheat-sheet, Print/Lesson |
 | Authentic content | `data/authentic.json` — 9 categories (signs, menu, transit, shop, notice, weather, hospital, post, time); ~100 items |
 
@@ -293,7 +554,7 @@ the named incumbent's free tier** unless otherwise noted.
 | Stroke-order trap kanji enumeration | explicit list of kanji where stroke order is commonly mistaken: 田, 力, 必, 右 vs 左 horizontal-vertical asymmetry, 飛, 必 | Generic "stroke-order common-mistakes" not enough; audit must list each trap | None |
 | 訓読み okurigana cut precision | every entry marks where the okurigana boundary falls: 食べる = 食‧べる; 帰る = 帰‧る; 大きい = 大‧きい — needed for hand-writing accuracy | Hand-writing prep depends on this; recognition-only treatment misses it | None |
 
-### Reading / Dokkai (40 passages) — bar above Marugoto
+### Reading / Dokkai (54 passages) — bar above Marugoto
 
 | Dimension | Target per passage | Why this bar | Incumbent reference |
 |---|---|---|---|
@@ -307,7 +568,7 @@ the named incumbent's free tier** unless otherwise noted.
 | Topic-cluster tag | 1 from {自己紹介, 家族, 日常, 学校, 食べ物, 買い物, 交通, 天気, 趣味, 体・病気, 時間, 仕事} | Marugoto has tags | Marugoto |
 | `format_role` discipline | primary-vs-supplementary question tagging per JA-19 | App-internal | App-internal |
 
-### Listening / Chokai (47 items) — bar above JapanesePod101 free tier
+### Listening / Chokai (50 items) — bar above JapanesePod101 free tier
 
 | Dimension | Target per item | Why this bar | Incumbent reference |
 |---|---|---|---|
@@ -717,7 +978,7 @@ The official JLPT N5 dokkai paper structure:
 - **Mondai 6 (情報検索)**: information search — timetable, poster,
   notice — 2 questions.
 
-The app ships **40 passages**. Depth audit per passage — see
+The app ships **54 passages**. Depth audit per passage — see
 Reading scorecard above. Plus:
 
 - **Mondai-type tagging** (JA-29) — every passage carries
@@ -748,7 +1009,7 @@ The official JLPT N5 chokai paper structure:
 - **Mondai 3 (発話表現)**: 5 items, picture-based.
 - **Mondai 4 (即時応答)**: 6 items, one-line stimulus.
 
-Total: 24 items, 30 minutes. The app ships **47 items**. Depth
+Total: 24 items, 30 minutes. The app ships **50 items**. Depth
 audit per item — see Listening scorecard above. Plus:
 
 - **Mondai-type tagging** (JA-33) — every item has
@@ -1004,8 +1265,8 @@ behavior, file as MAJOR / P2.
 
 ## TESTS
 
-- `tools/check_content_integrity.py` runs clean (currently 50
-  invariants). Coverage gaps vs the structural properties above.
+- `tools/check_content_integrity.py` runs clean (currently 83
+  invariants — X-6.x + JA-1..JA-79). Coverage gaps vs the structural properties above.
 - Playwright runs clean. Automatable checks not yet covered.
 - Visual-regression coverage on highest-traffic surfaces.
 
@@ -1222,7 +1483,7 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT add new kanji — 106 matches the canonical N5 set;
   width-additions break JA-13 scope discipline."
 - "Do NOT add new reading passages or listening drills until
-  depth on the current 40+47 reaches the target bar (sentence-
+  depth on the current 54+50 reaches the target bar (sentence-
   by-sentence footnotes, transcript timestamps, ambient context)."
 - "Do NOT add gamification (streaks, XP, leaderboards) — runs
   counter to privacy-respecting + adult-learner positioning."
