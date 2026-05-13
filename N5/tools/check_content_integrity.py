@@ -888,6 +888,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     # substring overlap with the pattern field, catching the case
     # where the marker is for a completely different rule.
     ("JA-71", "Grammar meaning_ja first 「marker」 must overlap with pattern field (2026-05-13)", lambda: _check_ja_71_meaning_ja_pattern_alignment()),
+    # JA-72 (2026-05-13): gairaigo (loanword) vocab entries should use
+    # katakana in their `form` field. Hiragana / kanji loanword forms
+    # are a typography mismatch — natives write カタカナ for foreign-
+    # origin words. Catches any future loanword authoring that
+    # accidentally uses hiragana.
+    ("JA-72", "Gairaigo vocab entries use katakana in their form field (2026-05-13)", lambda: _check_ja_72_gairaigo_katakana()),
 ]
 
 
@@ -3447,6 +3453,46 @@ def _check_ja_69_pd_refs_legal_status() -> list[str]:
                         f"under life+70 = {adyear + 70} (still in copyright)."
                     )
 
+    return failures
+
+
+def _check_ja_72_gairaigo_katakana() -> list[str]:
+    """JA-72 (2026-05-13): vocab entries flagged as gairaigo (loanwords
+    from non-Japanese languages) must have their `form` field written
+    in katakana. Hiragana / kanji forms for loanwords are a typography
+    mismatch — natives write カタカナ for foreign-origin words.
+
+    A form is "all-katakana" if every Japanese character in it is in
+    the katakana range U+30A0-U+30FF, U+31F0-U+31FF (kana extensions),
+    or U+FF65-U+FF9F (half-width katakana). Non-Japanese characters
+    (Latin, digits, etc.) are allowed (e.g., "T シャツ" is fine).
+    """
+    failures: list[str] = []
+    path = ROOT / "data" / "vocab.json"
+    if not path.exists():
+        return ["JA-72: data/vocab.json missing"]
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-72: parse error: {e}"]
+
+    # Hiragana range U+3040-U+309F; CJK kanji U+4E00-U+9FFF.
+    HIRAGANA_RE = re.compile(r"[぀-ゟ]")
+    KANJI_RE = re.compile(r"[一-鿿]")
+
+    for v in data.get("entries", []):
+        if v.get("register_origin") != "gairaigo":
+            continue
+        form = v.get("form") or ""
+        # Skip if form is empty
+        if not form:
+            continue
+        if HIRAGANA_RE.search(form) or KANJI_RE.search(form):
+            failures.append(
+                f"JA-72 {v.get('id')}: gairaigo entry '{form}' contains "
+                f"hiragana or kanji; native convention is katakana only "
+                f"for loanwords."
+            )
     return failures
 
 

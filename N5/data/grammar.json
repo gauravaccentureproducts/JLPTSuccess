@@ -8026,11 +8026,11 @@
     {
       "id": "n5-021",
       "tier": "core_n5",
-      "pattern": "から～まで",
+      "pattern": "から〜まで",
       "category": "Particles",
       "categoryOrder": 2,
       "patternOrder": 14,
-      "meaning_en": "から ～ まで - from X to Y (paired range marker)",
+      "meaning_en": "から 〜 まで - from X to Y (paired range marker)",
       "meaning_ja": "「〜から 〜まで」(はんい)",
       "form_rules": {
         "attaches_to": [
@@ -8400,7 +8400,7 @@
       "contrasts": [
         {
           "with_pattern_id": "n5-010",
-          "note": "Paired range. n5-021 is the \"から ～ まで\" both-endpoints range marker (9:00 から 5:00 まで). n5-010 is the bare まで, marking just the endpoint (\"until X\") without the explicit start."
+          "note": "Paired range. n5-021 is the \"から 〜 まで\" both-endpoints range marker (9:00 から 5:00 まで). n5-010 is the bare まで, marking just the endpoint (\"until X\") without the explicit start."
         }
       ],
       "notes": "",
@@ -9609,13 +9609,14 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "Using ね when telling someone NEW info.",
-          "right": "Use よ for new info.",
-          "why": "ね assumes shared knowledge. For information the listener doesn't have, よ is correct.",
+          "wrong": "「あした 雨が ふりますね。」(when telling someone NEW info they didn't know)",
+          "right": "「あした 雨が ふりますよ。」(use よ for new info)",
+          "why": "ね seeks agreement on SHARED knowledge. For information the listener doesn't have yet, use よ instead.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "native_teacher_review_2026_05_13",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "g3-format-fix-2026-05-13"
         },
         {
           "wrong": "いい てんきですよ。",
@@ -10570,11 +10571,11 @@
     {
       "id": "n5-028",
       "tier": "core_n5",
-      "pattern": "～の",
+      "pattern": "〜の",
       "category": "Particles",
       "categoryOrder": 2,
       "patternOrder": 21,
-      "meaning_en": "～の (possessive / noun-modifier)",
+      "meaning_en": "〜の (possessive / noun-modifier)",
       "meaning_ja": "「Aの B」(しゅうしょく)",
       "form_rules": {
         "attaches_to": [
@@ -11042,7 +11043,7 @@
           {
             "form": "see_also",
             "label": "See n5-028",
-            "example": "～の"
+            "example": "〜の"
           }
         ]
       },
@@ -11464,7 +11465,7 @@
       "category": "Particles",
       "categoryOrder": 2,
       "patternOrder": 23,
-      "meaning_en": "～の (nominalizer - turns a verb/adj clause into a noun)",
+      "meaning_en": "〜の (nominalizer - turns a verb/adj clause into a noun)",
       "meaning_ja": "「〜の」(めいしか)",
       "form_rules": {
         "attaches_to": [
@@ -12757,7 +12758,7 @@
     {
       "id": "n5-034",
       "tier": "core_n5",
-      "pattern": "しか～ない",
+      "pattern": "しか〜ない",
       "category": "Particles",
       "categoryOrder": 2,
       "patternOrder": 27,
@@ -25405,7 +25406,7 @@
         {
           "wrong": "行こうか？ (formal context)",
           "right": "行きましょうか。",
-          "why": "Plain volitional 行こうか is casual; in polite contexts use ～ましょうか for offers/proposals.",
+          "why": "Plain volitional 行こうか is casual; in polite contexts use 〜ましょうか for offers/proposals.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -26384,7 +26385,7 @@
       "essay": {
         "intro": "Plain (dictionary) form — non-past affirmative, casual register. The 'verb as listed in a dictionary' form: 食べる, 行く, する, 来る. Replaces ~ます with the verb's basic stem-plus-ending.",
         "why_it_matters": "Dictionary form is the casual default among friends. It's also the form that all subsequent conjugations build from — past plain (~た), te-form (~て), potential (~e), conditional (~ば), passive, causative, etc. all start here.",
-        "common_pitfalls": "Mixing dictionary with polite forms in the same sentence (~る...～ました — pick one register). Using dictionary form to bosses/strangers (sounds rude or overly familiar).",
+        "common_pitfalls": "Mixing dictionary with polite forms in the same sentence (~る...〜ました — pick one register). Using dictionary form to bosses/strangers (sounds rude or overly familiar).",
         "contrasts": "vs ~ます (n5-058): same meaning, casual vs polite register.",
         "closing_practice_tip": "Pick 5 verbs you use daily. Conjugate each into dictionary form (食べる、する、来る、行く、書く). Then say each in casual sentences. Notice how the rhythm differs from ~ます-form.",
         "provenance": "llm_curated",
@@ -32975,7 +32976,7 @@
     {
       "id": "n5-080",
       "tier": "core_n5",
-      "pattern": "い-Adjective negative: ～くないです / ～くありません",
+      "pattern": "い-Adjective negative: 〜くないです / 〜くありません",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 3,
@@ -33435,7 +33436,7 @@
     {
       "id": "n5-081",
       "tier": "core_n5",
-      "pattern": "い-Adjective past: ～かったです",
+      "pattern": "い-Adjective past: 〜かったです",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 4,
@@ -33870,7 +33871,7 @@
     {
       "id": "n5-082",
       "tier": "core_n5",
-      "pattern": "い-Adjective past negative: ～くなかったです / ～くありませんでした",
+      "pattern": "い-Adjective past negative: 〜くなかったです / 〜くありませんでした",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 5,
@@ -34338,7 +34339,7 @@
     {
       "id": "n5-083",
       "tier": "core_n5",
-      "pattern": "い-Adjective て-form: ～くて",
+      "pattern": "い-Adjective て-form: 〜くて",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 6,
@@ -35725,7 +35726,7 @@
     {
       "id": "n5-086",
       "tier": "core_n5",
-      "pattern": "な-Adjective negative: ～じゃありません / ～ではありません",
+      "pattern": "な-Adjective negative: 〜じゃありません / 〜ではありません",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 9,
@@ -36220,7 +36221,7 @@
     {
       "id": "n5-087",
       "tier": "core_n5",
-      "pattern": "な-Adjective past: ～でした",
+      "pattern": "な-Adjective past: 〜でした",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 10,
@@ -36688,7 +36689,7 @@
     {
       "id": "n5-088",
       "tier": "core_n5",
-      "pattern": "な-Adjective past negative: ～じゃありませんでした",
+      "pattern": "な-Adjective past negative: 〜じゃありませんでした",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 11,
@@ -37195,7 +37196,7 @@
     {
       "id": "n5-089",
       "tier": "core_n5",
-      "pattern": "な-Adjective て-form: ～で",
+      "pattern": "な-Adjective て-form: 〜で",
       "category": "Adjectives",
       "categoryOrder": 9,
       "patternOrder": 12,
@@ -38608,11 +38609,11 @@
     {
       "id": "n5-092",
       "tier": "core_n5",
-      "pattern": "～に～があります / います",
+      "pattern": "〜に〜があります / います",
       "category": "Existence and Possession",
       "categoryOrder": 10,
       "patternOrder": 3,
-      "meaning_en": "～に～が あります／います - 'there is X at Y' (location-first existence)",
+      "meaning_en": "〜に〜が あります／います - 'there is X at Y' (location-first existence)",
       "meaning_ja": "「〜に〜が あります／います」は ある ばしょに 何かが ある と いう いみです。「へやに ねこが います」。",
       "form_rules": {
         "attaches_to": [
@@ -38963,7 +38964,7 @@
       "contrasts": [
         {
           "with_pattern_id": "n5-093",
-          "note": "～に～がある = 'there is X at Y' (locating something new). ～は～にある = 'X is at Y' (Y is the new info about an already-known X)."
+          "note": "〜に〜がある = 'there is X at Y' (locating something new). 〜は〜にある = 'X is at Y' (Y is the new info about an already-known X)."
         }
       ],
       "notes": "",
@@ -39075,11 +39076,11 @@
     {
       "id": "n5-093",
       "tier": "core_n5",
-      "pattern": "～は～にあります / います",
+      "pattern": "〜は〜にあります / います",
       "category": "Existence and Possession",
       "categoryOrder": 10,
       "patternOrder": 4,
-      "meaning_en": "～は～にあります／います - 'X is at Y' (already-known X)",
+      "meaning_en": "〜は〜にあります／います - 'X is at Y' (already-known X)",
       "meaning_ja": "「〜は〜に あります／います」は ある ものや 人が どこに あるかを いいます。「ねこは へやに います」。",
       "form_rules": {
         "attaches_to": [
@@ -39094,7 +39095,7 @@
           }
         ]
       },
-      "explanation_en": "When the SUBJECT is already known (topic), lead with は + subject, then location + に + あります/います. Compare with ～に～が which leads with the location.",
+      "explanation_en": "When the SUBJECT is already known (topic), lead with は + subject, then location + に + あります/います. Compare with 〜に〜が which leads with the location.",
       "examples": [
         {
           "ja": "本は つくえの 上に あります。",
@@ -39424,7 +39425,7 @@
       "contrasts": [
         {
           "with_pattern_id": "n5-092",
-          "note": "～に～が = locating something new at a known place. ～は～に = telling where a known thing is."
+          "note": "〜に〜が = locating something new at a known place. 〜は〜に = telling where a known thing is."
         }
       ],
       "notes": "",
@@ -39536,11 +39537,11 @@
     {
       "id": "n5-094",
       "tier": "core_n5",
-      "pattern": "～があります",
+      "pattern": "〜があります",
       "category": "Existence and Possession",
       "categoryOrder": 10,
       "patternOrder": 5,
-      "meaning_en": "～が あります - 'have / there is' (events, skills, possessions)",
+      "meaning_en": "〜が あります - 'have / there is' (events, skills, possessions)",
       "meaning_ja": "「〜が あります」(イベント・スキル)",
       "form_rules": {
         "attaches_to": [
@@ -39846,7 +39847,7 @@
         {
           "wrong": "テストは あした います。",
           "right": "あした テストが あります。",
-          "why": "For events/scheduled things (test, meeting, party), use ～が あります. The subject is the event, not its time.",
+          "why": "For events/scheduled things (test, meeting, party), use 〜が あります. The subject is the event, not its time.",
           "category": "particle",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -39999,7 +40000,7 @@
     {
       "id": "n5-095",
       "tier": "core_n5",
-      "pattern": "～は～より～です",
+      "pattern": "〜は〜より〜です",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 1,
@@ -40425,11 +40426,11 @@
     {
       "id": "n5-096",
       "tier": "core_n5",
-      "pattern": "～より～のほうが～です",
+      "pattern": "〜より〜のほうが〜です",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 2,
-      "meaning_en": "～より～のほうが [adj] です - '~ is more [adj] than ~' (focuses on the bigger one)",
+      "meaning_en": "〜より〜のほうが [adj] です - '~ is more [adj] than ~' (focuses on the bigger one)",
       "meaning_ja": "「AよりBの ほうが〜」は AとBを くらべて、Bが〜だ、と いいます。「ねこより いぬの ほうが 大きい」。",
       "form_rules": {
         "attaches_to": [
@@ -40761,7 +40762,7 @@
         {
           "wrong": "AのほうがBより 大きいです。",
           "right": "BよりAのほうが 大きいです。",
-          "why": "より marks the standard (B), のほうが marks the topic (A). Standard order: BよりAのほうが ～.",
+          "why": "より marks the standard (B), のほうが marks the topic (A). Standard order: BよりAのほうが 〜.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -40891,11 +40892,11 @@
     {
       "id": "n5-097",
       "tier": "core_n5",
-      "pattern": "～と～と、どちらが～ですか",
+      "pattern": "〜と〜と、どちらが〜ですか",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 3,
-      "meaning_en": "AとBと、どちらが ～ですか - 'which is more ~, A or B?' (2-way question)",
+      "meaning_en": "AとBと、どちらが 〜ですか - 'which is more ~, A or B?' (2-way question)",
       "meaning_ja": "「AとBと、どちらが〜ですか」は AとBの 中で どちらが〜か、と ききます。",
       "form_rules": {
         "attaches_to": [
@@ -41272,7 +41273,7 @@
       "contrasts": [
         {
           "with_pattern_id": "n5-098",
-          "note": "Both compare two items. n5-097 (AとBと、どちらが ～ですか) asks the comparison question. n5-098 (likes/dislikes) is the standard answer template using より."
+          "note": "Both compare two items. n5-097 (AとBと、どちらが 〜ですか) asks the comparison question. n5-098 (likes/dislikes) is the standard answer template using より."
         }
       ],
       "notes": "",
@@ -41315,7 +41316,7 @@
         "contrasts": "vs どれが (3+ options): different question word.",
         "closing_practice_tip": "Build 3 2-way questions: コーヒーと おちゃと、どちらが すきですか? Each forces a binary answer.",
         "provenance": "llm_curated",
-        "cultural_context": "AとBと、どちらが ～ですか — \"which is more ~?\" (binary). どちら is the polite どれ for 2-way choice. Native answers: \"Aのほうが~です\" or \"Bのほうが~です\". Drilled in restaurant / shopping scenarios. Typical contexts: service, preference_questions."
+        "cultural_context": "AとBと、どちらが 〜ですか — \"which is more ~?\" (binary). どちら is the polite どれ for 2-way choice. Native answers: \"Aのほうが~です\" or \"Bのほうが~です\". Drilled in restaurant / shopping scenarios. Typical contexts: service, preference_questions."
       },
       "wrong_corrected_pair": [
         {
@@ -41360,7 +41361,7 @@
       },
       "politeness_ladder_provenance": "llm_curated",
       "cultural_callout": {
-        "note": "AとBと、どちらが ～ですか — \"which is more ~?\" (binary). どちら is the polite どれ for 2-way choice. Native answers: \"Aのほうが~です\" or \"Bのほうが~です\". Drilled in restaurant / shopping scenarios.",
+        "note": "AとBと、どちらが 〜ですか — \"which is more ~?\" (binary). どちら is the polite どれ for 2-way choice. Native answers: \"Aのほうが~です\" or \"Bのほうが~です\". Drilled in restaurant / shopping scenarios.",
         "contexts": [
           "service",
           "preference_questions"
@@ -41395,7 +41396,7 @@
     {
       "id": "n5-098",
       "tier": "core_n5",
-      "pattern": "～",
+      "pattern": "〜の中で〜が いちばん",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 4,
@@ -41407,11 +41408,11 @@
           {
             "form": "see_also",
             "label": "See n5-099",
-            "example": "～の中で～が いちばん"
+            "example": "〜の中で〜が いちばん"
           }
         ]
       },
-      "explanation_en": "すき / きらい are な-adjectives. The thing liked/disliked takes が, NEVER を.\n\n(This pattern is also indexed as '～' in another category. Same form rules and usage as the canonical entry.)",
+      "explanation_en": "すき / きらい are な-adjectives. The thing liked/disliked takes が, NEVER を.\n\n(This pattern is also indexed as '〜' in another category. Same form rules and usage as the canonical entry.)",
       "examples": [
         {
           "ja": "わたしは ねこが すきです。",
@@ -41822,16 +41823,17 @@
           "provenance": "native_reviewed",
           "audit_wave": "issue-pd-refs-expand-2026-05-13"
         }
-      ]
+      ],
+      "pattern_provenance": "g2_seealso_fill_2026_05_13"
     },
     {
       "id": "n5-099",
       "tier": "core_n5",
-      "pattern": "～がすきです / きらいです",
+      "pattern": "〜がすきです / きらいです",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 5,
-      "meaning_en": "～が すきです / きらいです - like / dislike",
+      "meaning_en": "〜が すきです / きらいです - like / dislike",
       "meaning_ja": "「〜が すきです／きらいです」で すきな ものや きらいな ものを いいます。",
       "form_rules": {
         "attaches_to": [
@@ -42276,11 +42278,11 @@
     {
       "id": "n5-100",
       "tier": "core_n5",
-      "pattern": "～がじょうずです / へたです",
+      "pattern": "〜がじょうずです / へたです",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 6,
-      "meaning_en": "～が じょうずです / へたです - good at / bad at",
+      "meaning_en": "〜が じょうずです / へたです - good at / bad at",
       "meaning_ja": "「〜が じょうずです／へたです」で じょうずな こと や へたな ことを いいます。「日本ごが じょうずです」。",
       "form_rules": {
         "attaches_to": [
@@ -42761,11 +42763,11 @@
     {
       "id": "n5-101",
       "tier": "core_n5",
-      "pattern": "～がほしいです",
+      "pattern": "〜がほしいです",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 7,
-      "meaning_en": "～が ほしいです - want (an object)",
+      "meaning_en": "〜が ほしいです - want (an object)",
       "meaning_ja": "「〜が ほしいです」で ほしい ものを いいます。「車が ほしいです」。",
       "form_rules": {
         "attaches_to": [
@@ -43049,13 +43051,14 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "Talking about a third person's desire with ほしい.",
-          "right": "Use ほしがっている for third-person desires.",
-          "why": "ほしい expresses the speaker's own (or asks the listener's) desire. For others, use ほしがっている.",
+          "wrong": "田中さんは あたらしい くるまが ほしいです。",
+          "right": "田中さんは あたらしい くるまを ほしがって います。",
+          "why": "Third-person desires use ほしがっている (showing-signs-of-wanting), not direct ほしい. Direct ほしい is for the speaker's own / second-person-asked desire only.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "native_teacher_review_2026_05_13",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "g3-format-fix-2026-05-13"
         },
         {
           "wrong": "新しい くるまを ほしいです。",
@@ -43193,11 +43196,11 @@
     {
       "id": "n5-102",
       "tier": "core_n5",
-      "pattern": "～がわかります",
+      "pattern": "〜がわかります",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 8,
-      "meaning_en": "～が わかります - understand / know",
+      "meaning_en": "〜が わかります - understand / know",
       "meaning_ja": "「〜が わかります」で わかる ことを いいます。「日本ごが わかります」。",
       "form_rules": {
         "attaches_to": [
@@ -43597,11 +43600,11 @@
     {
       "id": "n5-103",
       "tier": "core_n5",
-      "pattern": "～ができます",
+      "pattern": "〜ができます",
       "category": "Comparison and Preference",
       "categoryOrder": 11,
       "patternOrder": 9,
-      "meaning_en": "～が できます - can do / be able to / have ability in",
+      "meaning_en": "〜が できます - can do / be able to / have ability in",
       "meaning_ja": "「〜が できます」で できる ことを いいます。「日本ごが できます」。",
       "form_rules": {
         "attaches_to": [
@@ -44302,7 +44305,7 @@
         {
           "wrong": "わたしは あの 人は 行きたいです。",
           "right": "わたしは 行きたいです。",
-          "why": "たい expresses the SPEAKER'S desire only - don't use it for third parties. For others, use ～たがっている.",
+          "why": "たい expresses the SPEAKER'S desire only - don't use it for third parties. For others, use 〜たがっている.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -44381,7 +44384,7 @@
       "essay": {
         "intro": "This pattern, **Verb-stem + たいです**, means: Verb-stem + たいです - want to do. At a glance: Drop ます, add たい to express the speaker's desire to do something. たい inflects as an い-adjective (negative たくない, past たかった). Object can take が (preferred) or を.",
         "why_it_matters": "たい conjugates like an い-adjective, NOT a verb. 食べたい (want to eat), 食べたかった (wanted to), 食べたくない (don't want to). Beginners try to verb-conjugate it (×食べたます) — wrong category. Also, たい only works for the SPEAKER's desire; for \"X wants to,\" use がっている.",
-        "common_pitfalls": "{'wrong': 'わたしは あの 人は 行きたいです。', 'right': 'わたしは 行きたいです。', 'why': \"たい expresses the SPEAKER'S desire only - don't use it for third parties. For others, use ～たがっている.\"} · {'wrong': 'たべたい です じゃありません', 'right': 'たべたくないです', 'why': 'Negative inflects the い-adj part: drop い, add くない.'}",
+        "common_pitfalls": "{'wrong': 'わたしは あの 人は 行きたいです。', 'right': 'わたしは 行きたいです。', 'why': \"たい expresses the SPEAKER'S desire only - don't use it for third parties. For others, use 〜たがっている.\"} · {'wrong': 'たべたい です じゃありません', 'right': 'たべたくないです', 'why': 'Negative inflects the い-adj part: drop い, add くない.'}",
         "contrasts": "vs ?: たい (positive) ↔ たくない (negative). Past たかった / たくなかった. · vs ?: 〜たい expresses the speaker's own desire to perform an action (\"I want to eat\"). 〜が ほしい expresses desire for an object/state (\"I want a book\"). Different parts of speech: たい attaches to verb stems; ほしい attaches to nouns + が.",
         "closing_practice_tip": "For 3 verbs, conjugate the full たい-cycle: present (食べたいです), negative (食べたくないです), past (食べたかったです), past-negative (食べたくなかったです). It's the same pattern as the い-adjective family from n5-080.",
         "provenance": "llm_curated",
@@ -44768,7 +44771,7 @@
         {
           "wrong": "行きたくありません。 (correct but rigid)",
           "right": "行きたくないです。 (more natural)",
-          "why": "Both are correct; ～たくないです is more natural in conversation. ～たくありません is hyper-formal.",
+          "why": "Both are correct; 〜たくないです is more natural in conversation. 〜たくありません is hyper-formal.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -47184,11 +47187,11 @@
     {
       "id": "n5-111",
       "tier": "core_n5",
-      "pattern": "～じ",
+      "pattern": "〜じ",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 1,
-      "meaning_en": "～じ - o'clock (counter)",
+      "meaning_en": "〜じ - o'clock (counter)",
       "meaning_ja": "「〜じ」で、なん時か いいます。「いま 三時です」「七時に きます」。",
       "form_rules": {
         "attaches_to": [
@@ -47557,11 +47560,11 @@
     {
       "id": "n5-112",
       "tier": "core_n5",
-      "pattern": "～ふん / ぷん",
+      "pattern": "〜ふん / ぷん",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 2,
-      "meaning_en": "～ふん / ～ぷん - minute(s) (counter)",
+      "meaning_en": "〜ふん / 〜ぷん - minute(s) (counter)",
       "meaning_ja": "「〜ふん／〜ぷん」で、なん分か いいます。「いま 十時 五ふんです」「五分 まってください」。",
       "form_rules": {
         "attaches_to": [
@@ -47961,11 +47964,11 @@
     {
       "id": "n5-113",
       "tier": "core_n5",
-      "pattern": "～じはん",
+      "pattern": "〜じはん",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 3,
-      "meaning_en": "～じはん - half past (~30 minutes)",
+      "meaning_en": "〜じはん - half past (~30 minutes)",
       "meaning_ja": "「〜じはん」は 「〜時三十分」と おなじです。「三時はん」=「三時三十分」。",
       "form_rules": {
         "attaches_to": [
@@ -48366,7 +48369,7 @@
     {
       "id": "n5-114",
       "tier": "core_n5",
-      "pattern": "～から～まで",
+      "pattern": "〜から〜まで",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 4,
@@ -48378,11 +48381,11 @@
           {
             "form": "see_also",
             "label": "See n5-021",
-            "example": "～から～まで"
+            "example": "〜から〜まで"
           }
         ]
       },
-      "explanation_en": "から marks start, まで marks end. Paired, they express a range - time, place, or distance.\n\n(This pattern is also indexed as '～から～まで' in another category. Same form rules and usage as the canonical entry.)",
+      "explanation_en": "から marks start, まで marks end. Paired, they express a range - time, place, or distance.\n\n(This pattern is also indexed as '〜から〜まで' in another category. Same form rules and usage as the canonical entry.)",
       "examples": [
         {
           "ja": "9時から 5時まで しごとです。",
@@ -48850,7 +48853,7 @@
     {
       "id": "n5-115",
       "tier": "core_n5",
-      "pattern": "～に",
+      "pattern": "〜に",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 5,
@@ -48862,11 +48865,11 @@
           {
             "form": "see_also",
             "label": "See n5-005",
-            "example": "～に (specific time)"
+            "example": "〜に (specific time)"
           }
         ]
       },
-      "explanation_en": "に has four core uses at N5: (1) location of EXISTENCE with ある／いる, (2) specific point in TIME (7時に, げつようびに), (3) DESTINATION with movement verbs (いく, くる, かえる), (4) RECIPIENT of giving / sending verbs (あげる, おくる, でんわする). Compare carefully with で (location of ACTION) and へ (purely directional).\n\n(This pattern is also indexed as '～に' in another category. Same form rules and usage as the canonical entry.)",
+      "explanation_en": "に has four core uses at N5: (1) location of EXISTENCE with ある／いる, (2) specific point in TIME (7時に, げつようびに), (3) DESTINATION with movement verbs (いく, くる, かえる), (4) RECIPIENT of giving / sending verbs (あげる, おくる, でんわする). Compare carefully with で (location of ACTION) and へ (purely directional).\n\n(This pattern is also indexed as '〜に' in another category. Same form rules and usage as the canonical entry.)",
       "examples": [
         {
           "ja": "7時に おきます。",
@@ -49155,7 +49158,7 @@
       },
       "minna_chapter_provenance": "auto_extracted",
       "essay": {
-        "intro": "This pattern, **～に**, means: Particle に marking specific clock-times (〜時に, 〜時はんに, 何時に, etc.). At a glance: に has four core uses at N5: (1) location of EXISTENCE with ある／いる, (2) specific point in TIME (7時に, げつようびに), (3) DESTINATION with movement verbs (いく, くる, かえる), (4) RECIPIENT of giving / sending verbs (あげる, おくる, でんわする). Compare carefully with...",
+        "intro": "This pattern, **〜に**, means: Particle に marking specific clock-times (〜時に, 〜時はんに, 何時に, etc.). At a glance: に has four core uses at N5: (1) location of EXISTENCE with ある／いる, (2) specific point in TIME (7時に, げつようびに), (3) DESTINATION with movement verbs (いく, くる, かえる), (4) RECIPIENT of giving / sending verbs (あげる, おくる, でんわする). Compare carefully with...",
         "why_it_matters": "に marks SPECIFIC times that have a number — 7時に、月曜日に、3月に. Vague time references (今日、あした、毎日) take NO particle. Adding に to vague times (×今日に) is the most-common time-particle error for English speakers (because English uses \"on\" for both).",
         "common_pitfalls": "{'wrong': '学校で 行きます。', 'right': '学校に 行きます。', 'why': 'For destination of motion verbs (行く, 来る, かえる), use に (or へ), not で. で marks the location of action.'} · {'wrong': '七時で おきます。', 'right': '七時に おきます。', 'why': 'For points in time, use に, not で. (Days of week, months, clock times.)'}",
         "contrasts": "vs ?: This is a duplicate entry - see the canonical pattern.",
@@ -50594,11 +50597,11 @@
     {
       "id": "n5-119",
       "tier": "core_n5",
-      "pattern": "～まえ",
+      "pattern": "〜まえ",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 9,
-      "meaning_en": "～まえ - before",
+      "meaning_en": "〜まえ - before",
       "meaning_ja": "「〜まえ」は ある ことの まえを いいます。「ごはんの まえに 手を あらいます」。",
       "form_rules": {
         "attaches_to": [
@@ -51063,11 +51066,11 @@
     {
       "id": "n5-120",
       "tier": "core_n5",
-      "pattern": "～あと",
+      "pattern": "〜あと",
       "category": "Time Expressions",
       "categoryOrder": 14,
       "patternOrder": 10,
-      "meaning_en": "～あと - after",
+      "meaning_en": "〜あと - after",
       "meaning_ja": "「〜あと」は ある ことの あとを いいます。「ごはんの あとで さんぽします」。",
       "form_rules": {
         "attaches_to": [
@@ -53993,7 +53996,7 @@
           {
             "form": "but",
             "label": "But / and (soft contrast)",
-            "example": "～ですが、～"
+            "example": "〜ですが、〜"
           }
         ]
       },
@@ -54450,7 +54453,7 @@
           {
             "form": "informal_but",
             "label": "Informal but",
-            "example": "～けど、～"
+            "example": "〜けど、〜"
           }
         ]
       },
@@ -54894,7 +54897,7 @@
     {
       "id": "n5-129",
       "tier": "core_n5",
-      "pattern": "どうして～か。～から。",
+      "pattern": "どうして〜か。〜から。",
       "category": "Conjunctions and Connectives",
       "categoryOrder": 15,
       "patternOrder": 9,
@@ -54912,7 +54915,7 @@
           }
         ]
       },
-      "explanation_en": "Standard pattern: question with どうして, answer using から. The answer often ends ～からです (because + polite).",
+      "explanation_en": "Standard pattern: question with どうして, answer using から. The answer often ends 〜からです (because + polite).",
       "examples": [
         {
           "ja": "どうして 来ませんでしたか。―あたまが いたかったからです。",
@@ -55238,7 +55241,7 @@
         {
           "wrong": "どうして 来ませんでしたか。―ねつが あって。",
           "right": "どうして 来ませんでしたか。―ねつが あったからです。",
-          "why": "Reason answers in formal speech end in ～からです, not just the bare clause.",
+          "why": "Reason answers in formal speech end in 〜からです, not just the bare clause.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -55381,7 +55384,7 @@
     {
       "id": "n5-130",
       "tier": "core_n5",
-      "pattern": "～に～をあげます",
+      "pattern": "〜に〜をあげます",
       "category": "Giving and Receiving (basic)",
       "categoryOrder": 16,
       "patternOrder": 1,
@@ -55733,7 +55736,7 @@
       },
       "minna_chapter_provenance": "auto_extracted",
       "essay": {
-        "intro": "This pattern, **～に～をあげます**, means: あげる / あげます - give (to others). At a glance: あげる = give from speaker (or in-group) to others. Recipient marked with に. Don't use あげる when receiving from someone - use もらう.",
+        "intro": "This pattern, **〜に〜をあげます**, means: あげる / あげます - give (to others). At a glance: あげる = give from speaker (or in-group) to others. Recipient marked with に. Don't use あげる when receiving from someone - use もらう.",
         "why_it_matters": "The Japanese give-receive system tracks WHO gives to WHOM relative to YOU. あげる = I/inner-circle gives outward, くれる = outer gives to me/inner-circle, もらう = I receive. Misuse and you'll either accidentally claim a gift you didn't get, or fail to thank the giver. Daily, high-stakes vocabulary.",
         "common_pitfalls": "{'wrong': 'わたしは 田中さんが 本を あげました。', 'right': 'わたしは 田中さんに 本を あげました。', 'why': 'Recipient is marked with に, not が. Pattern: [giver] は [recipient] に [object] を あげる.'}",
         "contrasts": "vs ?: 〜たことがある (experience) vs 〜た (simple past). Experience does NOT take specific time-markers (yesterday etc.); simple past does. · vs ?: あげる = \"give\" from in-group to out-group or speaker → others. もらう = \"receive\" — the reverse direction, marked with に or から for the giver. Use あげる when speaker/in-group gives, もらう when speaker/in-group receives. · vs ?: あげる = \"give to others\" (out-group). くれる = \"give to me / my in-group\" — same action, different direction relative to the speaker. Choose based on who receives.",
@@ -55807,11 +55810,11 @@
     {
       "id": "n5-131",
       "tier": "core_n5",
-      "pattern": "～に / から ～をもらいます",
+      "pattern": "〜に / から 〜をもらいます",
       "category": "Giving and Receiving (basic)",
       "categoryOrder": 16,
       "patternOrder": 2,
-      "meaning_en": "～に / から ～を もらいます - receive (from) (に for personal givers, から for institutional sources)",
+      "meaning_en": "〜に / から 〜を もらいます - receive (from) (に for personal givers, から for institutional sources)",
       "meaning_ja": "「〜に／から〜を もらいます」で、人から ものを もらう ことを いいます。「友だちから 本を もらいました」。",
       "form_rules": {
         "attaches_to": [
@@ -56177,7 +56180,7 @@
           "note": "もらう = \"receive\" (passive POV from receiver). くれる = \"give to me\" (active POV from giver). Both describe the same transfer; the choice signals whose perspective the speaker takes."
         }
       ],
-      "notes": "Both ～に and ～から are valid at N5: ～に is more typical for personal givers (友だちに, 母に); ～から for institutional / non-personal sources (学校から, ぎんこうから).",
+      "notes": "Both 〜に and 〜から are valid at N5: 〜に is more typical for personal givers (友だちに, 母に); 〜から for institutional / non-personal sources (学校から, ぎんこうから).",
       "review_status": "native_reviewed",
       "meaning_hi": "पाना (X से) - に व्यक्तियों के लिए, から संस्थाओं के लिए",
       "meaning_provenance": {
@@ -56285,11 +56288,11 @@
     {
       "id": "n5-132",
       "tier": "core_n5",
-      "pattern": "～が～をくれます",
+      "pattern": "〜が〜をくれます",
       "category": "Giving and Receiving (basic)",
       "categoryOrder": 16,
       "patternOrder": 3,
-      "meaning_en": "～が～を くれます - give (to me / in-group)",
+      "meaning_en": "〜が〜を くれます - give (to me / in-group)",
       "meaning_ja": "「Verb-た ことが あります」で、けいけんを いいます。「日本に 行った ことが あります」。",
       "form_rules": {
         "attaches_to": [
@@ -57242,7 +57245,7 @@
       "category": "Asking and Stating with から / ので (basic causation)",
       "categoryOrder": 17,
       "patternOrder": 2,
-      "meaning_en": "～ので、～ - 'because' (softer than から)",
+      "meaning_en": "〜ので、〜 - 'because' (softer than から)",
       "meaning_ja": "「〜ので」は りゆうを いう ことばです。「あめが ふって いる ので、行きません」。「〜から」より やわらかいです。",
       "form_rules": {
         "attaches_to": [
@@ -57252,7 +57255,7 @@
           {
             "form": "softer_because",
             "label": "Softer because (formal)",
-            "example": "～ので、～"
+            "example": "〜ので、〜"
           }
         ]
       },
@@ -58586,7 +58589,7 @@
       "category": "Nominalization and Modification",
       "categoryOrder": 18,
       "patternOrder": 3,
-      "meaning_en": "Noun の Noun (covered by ～の)",
+      "meaning_en": "Noun の Noun (covered by 〜の)",
       "meaning_ja": "「い-Adj + めいし」で、けいよう-けいが めいしを せつめい します。「あかい 車」「大きい いえ」。",
       "form_rules": {
         "attaches_to": [],
@@ -59038,11 +59041,11 @@
     {
       "id": "n5-142",
       "tier": "core_n5",
-      "pattern": "～にします",
+      "pattern": "〜にします",
       "category": "Common Set Patterns",
       "categoryOrder": 19,
       "patternOrder": 5,
-      "meaning_en": "～にします - decide on / choose",
+      "meaning_en": "〜にします - decide on / choose",
       "meaning_ja": "「〜にします」で、えらぶ ことや きめる ことを いいます。「コーヒーに します」「あおい シャツに します」。",
       "form_rules": {
         "attaches_to": [
@@ -59465,11 +59468,11 @@
     {
       "id": "n5-143",
       "tier": "core_n5",
-      "pattern": "～になります / ～くなります",
+      "pattern": "〜になります / 〜くなります",
       "category": "Common Set Patterns",
       "categoryOrder": 19,
       "patternOrder": 6,
-      "meaning_en": "～になります / ～くなります - becomes",
+      "meaning_en": "〜になります / 〜くなります - becomes",
       "meaning_ja": "「〜になります／〜くなります」で、じょうたいの へんかを いいます。「学生に なります」「さむくなります」「しずかに なりました」。",
       "form_rules": {
         "attaches_to": [
@@ -60310,11 +60313,11 @@
     {
       "id": "n5-145",
       "tier": "late_n5",
-      "pattern": "～とおもいます",
+      "pattern": "〜とおもいます",
       "category": "Common Set Patterns",
       "categoryOrder": 19,
       "patternOrder": 8,
-      "meaning_en": "～と おもいます - I think (that)",
+      "meaning_en": "〜と おもいます - I think (that)",
       "meaning_ja": "「〜と おもいます」で、じぶんの かんがえを いいます。「あした あめが ふると おもいます」。",
       "form_rules": {
         "attaches_to": [
@@ -60324,7 +60327,7 @@
           {
             "form": "opinion",
             "label": "Opinion (plain + とおもう)",
-            "example": "～と おもいます"
+            "example": "〜と おもいます"
           }
         ]
       },
@@ -60655,8 +60658,8 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "～です と おもいます",
-          "right": "～だ と おもいます (or just ～と おもいます)",
+          "wrong": "〜です と おもいます",
+          "right": "〜だ と おもいます (or just 〜と おもいます)",
           "why": "Use PLAIN form before と: noun + だ, い-adj + plain. Don't insert です.",
           "category": "particle",
           "category_provenance": "heuristic_categorized",
@@ -60808,11 +60811,11 @@
     {
       "id": "n5-146",
       "tier": "late_n5",
-      "pattern": "～と言いました",
+      "pattern": "〜と言いました",
       "category": "Common Set Patterns",
       "categoryOrder": 19,
       "patternOrder": 9,
-      "meaning_en": "～と 言いました - said that ~",
+      "meaning_en": "〜と 言いました - said that ~",
       "meaning_ja": "「〜と 言いました」",
       "form_rules": {
         "attaches_to": [
@@ -60822,7 +60825,7 @@
           {
             "form": "quotation",
             "label": "Reported speech",
-            "example": "～と 言いました"
+            "example": "〜と 言いました"
           }
         ]
       },
@@ -62226,11 +62229,11 @@
     {
       "id": "n5-149",
       "tier": "core_n5",
-      "pattern": "～をください",
+      "pattern": "〜をください",
       "category": "Functional Expressions (Non-Grammar, Common Usage)",
       "categoryOrder": 21,
       "patternOrder": 1,
-      "meaning_en": "～を ください - please give me ~",
+      "meaning_en": "〜を ください - please give me ~",
       "meaning_ja": "「い-Adj — く／い」で けいよう-けいの かたちが かわります。「あかい → あかく ない」。",
       "form_rules": {
         "attaches_to": [
@@ -62609,11 +62612,11 @@
     {
       "id": "n5-150",
       "tier": "core_n5",
-      "pattern": "～をおねがいします",
+      "pattern": "〜をおねがいします",
       "category": "Functional Expressions (Non-Grammar, Common Usage)",
       "categoryOrder": 21,
       "patternOrder": 2,
-      "meaning_en": "～を おねがいします - I'd like ~ / please give ~ (more polite than ください)",
+      "meaning_en": "〜を おねがいします - I'd like ~ / please give ~ (more polite than ください)",
       "meaning_ja": "「な-Adj — じゃ ない／で」で けいよう-けいの かたちが かわります。「きれい じゃ ない」。",
       "form_rules": {
         "attaches_to": [
@@ -63059,11 +63062,11 @@
     {
       "id": "n5-151",
       "tier": "core_n5",
-      "pattern": "～はいかがですか",
+      "pattern": "〜はいかがですか",
       "category": "Functional Expressions (Non-Grammar, Common Usage)",
       "categoryOrder": 21,
       "patternOrder": 3,
-      "meaning_en": "～は いかがですか - how about ~? (polite offer)",
+      "meaning_en": "〜は いかがですか - how about ~? (polite offer)",
       "meaning_ja": "「あいさつ」は まいにちの ばめんで つかう ことばです。「おはよう」「さようなら」。",
       "form_rules": {
         "attaches_to": [
@@ -64794,7 +64797,7 @@
         {
           "wrong": "もう 食べます。",
           "right": "もう 食べました。",
-          "why": "もう = \"already\" requires past (～ました). Present tense もう食べます would mean \"I'll eat now\", not \"already ate\".",
+          "why": "もう = \"already\" requires past (〜ました). Present tense もう食べます would mean \"I'll eat now\", not \"already ate\".",
           "category": "conjugation",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -65783,12 +65786,12 @@
           {
             "form": "guess",
             "label": "Probably / I think",
-            "example": "～でしょう"
+            "example": "〜でしょう"
           },
           {
             "form": "agreement",
             "label": "Right? (rising intonation)",
-            "example": "～でしょう？"
+            "example": "〜でしょう？"
           }
         ]
       },
@@ -67022,7 +67025,7 @@
       "category": "Other Core Patterns",
       "categoryOrder": 22,
       "patternOrder": 8,
-      "meaning_en": "Noun の あとで - see ～あと",
+      "meaning_en": "Noun の あとで - see 〜あと",
       "meaning_ja": "「Nounの あとで」は 「その ことの あと」と いう いみです。「学校の あとで あそびます」。",
       "form_rules": {
         "attaches_to": [],
@@ -67490,7 +67493,7 @@
       "category": "Other Core Patterns",
       "categoryOrder": 22,
       "patternOrder": 9,
-      "meaning_en": "Noun の まえに - see ～まえ",
+      "meaning_en": "Noun の まえに - see 〜まえ",
       "meaning_ja": "「Nounの まえに」は 「その ことの まえ」と いう いみです。「ごはんの まえに 手を あらいます」。",
       "form_rules": {
         "attaches_to": [],
@@ -67952,7 +67955,7 @@
       "category": "Other Core Patterns",
       "categoryOrder": 22,
       "patternOrder": 10,
-      "meaning_en": "Verb-plain まえに - see ～まえ",
+      "meaning_en": "Verb-plain まえに - see 〜まえ",
       "meaning_ja": "どうし ふつうけい（じしょけい）＋ まえに。「ねる まえに 本を よみます」。",
       "form_rules": {
         "attaches_to": [],
@@ -68413,7 +68416,7 @@
       "category": "Other Core Patterns",
       "categoryOrder": 22,
       "patternOrder": 11,
-      "meaning_en": "Verb-た あとで - see ～あと",
+      "meaning_en": "Verb-た あとで - see 〜あと",
       "meaning_ja": "どうし た-けい（かこ）＋ あとで。「ごはんを たべた あとで さんぽ します」。",
       "form_rules": {
         "attaches_to": [],
@@ -68889,11 +68892,11 @@
     {
       "id": "n5-164",
       "tier": "core_n5",
-      "pattern": "～さん",
+      "pattern": "〜さん",
       "category": "Honorific / Polite Vocabulary at N5 (functional)",
       "categoryOrder": 23,
       "patternOrder": 1,
-      "meaning_en": "～さん - name suffix (Mr./Ms./equivalent)",
+      "meaning_en": "〜さん - name suffix (Mr./Ms./equivalent)",
       "meaning_ja": "「〜さん」は 人の なまえの あとに つけて、ていねいに よびます。「先生」には つけません。",
       "form_rules": {
         "attaches_to": [
@@ -69330,11 +69333,11 @@
     {
       "id": "n5-165",
       "tier": "core_n5",
-      "pattern": "お～ / ご～",
+      "pattern": "お〜 / ご〜",
       "category": "Honorific / Polite Vocabulary at N5 (functional)",
       "categoryOrder": 23,
       "patternOrder": 2,
-      "meaning_en": "お～ / ご～ - beautifying / honorific prefixes",
+      "meaning_en": "お〜 / ご〜 - beautifying / honorific prefixes",
       "meaning_ja": "「お〜／ご〜」は ことばの 前に つけて、ていねいな いいかたを つくります。お(wa-go): お花、お水。ご(kan-go): ごりょうしん、ごあいさつ。",
       "form_rules": {
         "attaches_to": [
@@ -70191,11 +70194,11 @@
     {
       "id": "n5-167",
       "tier": "late_n5",
-      "pattern": "～んです / ～のです",
+      "pattern": "〜んです / 〜のです",
       "category": "Additional Upper N5 / Borderline Patterns - Explanation and Emphasis",
       "categoryOrder": 24,
       "patternOrder": 1,
-      "meaning_en": "～んです / ～のです - explanation, emphasis, or asking for an explanation",
+      "meaning_en": "〜んです / 〜のです - explanation, emphasis, or asking for an explanation",
       "meaning_ja": "「〜のです／〜んです」で、りゆうや じじょうを せつめいします。「あした、しごと な んです」。",
       "form_rules": {
         "attaches_to": [
@@ -70205,11 +70208,11 @@
           {
             "form": "explanation",
             "label": "Plain + んです",
-            "example": "～んです"
+            "example": "〜んです"
           }
         ]
       },
-      "explanation_en": "Plain-form clause + んです (or のです in writing). Used to GIVE an explanation ('It's because...') or to ASK FOR one ('Why...?'). Compare with bare です: 'たかいです' is a flat statement of fact, while 'たかいんです' adds 'and that's why...' or 'it turns out that...'. Casual form: ～んだ (です→だ). Marked late_n5 because the explanation/emphasis nuance is on the N5/N4 boundary; the form itself is N5.",
+      "explanation_en": "Plain-form clause + んです (or のです in writing). Used to GIVE an explanation ('It's because...') or to ASK FOR one ('Why...?'). Compare with bare です: 'たかいです' is a flat statement of fact, while 'たかいんです' adds 'and that's why...' or 'it turns out that...'. Casual form: 〜んだ (です→だ). Marked late_n5 because the explanation/emphasis nuance is on the N5/N4 boundary; the form itself is N5.",
       "examples": [
         {
           "ja": "あたまが いたいんです。",
@@ -70519,13 +70522,13 @@
       "contrasts": [
         {
           "with_pattern_id": "n5-001",
-          "note": "～です = flat statement of fact. ～んです = explanation, emphasis, or reaction to context. Use ～です on forms and in objective writing; ～んです in conversation when reacting or explaining.",
+          "note": "〜です = flat statement of fact. 〜んです = explanation, emphasis, or reaction to context. Use 〜です on forms and in objective writing; 〜んです in conversation when reacting or explaining.",
           "provenance": "llm_curated",
           "audit_wave": "ja-52-ci-fix-2026-05-12-schema-migration",
-          "legacy_with_text": "～です (plain copula)"
+          "legacy_with_text": "〜です (plain copula)"
         }
       ],
-      "notes": "late_n5 tier: the form is N5 but the explanation/emphasis nuance crosses into N4 territory. The 3 examples here cover the most common N5-appropriate uses (giving a reason, asking for one, providing context). For deeper discussion of the contrast register-shift behavior or the assertive ～んだ casual form, see N4 sources. Pending native-teacher review of the framing per Pass-16 F-15.23 note (2026-05-01).",
+      "notes": "late_n5 tier: the form is N5 but the explanation/emphasis nuance crosses into N4 territory. The 3 examples here cover the most common N5-appropriate uses (giving a reason, asking for one, providing context). For deeper discussion of the contrast register-shift behavior or the assertive 〜んだ casual form, see N4 sources. Pending native-teacher review of the framing per Pass-16 F-15.23 note (2026-05-01).",
       "review_status": "native_reviewed",
       "meaning_hi": "~んです / ~のです - व्याख्या, ज़ोर, या व्याख्या-माँग",
       "meaning_provenance": {
@@ -70559,7 +70562,7 @@
       },
       "minna_chapter_provenance": "auto_extracted",
       "essay": {
-        "intro": "This pattern, **～んです / ～のです**, means: ～んです / ～のです - explanation, emphasis, or asking for an explanation. At a glance: Plain-form clause + んです (or のです in writing). Used to GIVE an explanation ('It's because...') or to ASK FOR one ('Why...?'). Compare with bare です: 'たかいです' is a flat statement of fact, while 'たかいんです' adds 'and that's why...' or 'it turns out ...",
+        "intro": "This pattern, **〜んです / 〜のです**, means: 〜んです / 〜のです - explanation, emphasis, or asking for an explanation. At a glance: Plain-form clause + んです (or のです in writing). Used to GIVE an explanation ('It's because...') or to ASK FOR one ('Why...?'). Compare with bare です: 'たかいです' is a flat statement of fact, while 'たかいんです' adds 'and that's why...' or 'it turns out ...",
         "why_it_matters": "んです adds an EXPLANATORY tone — \"(here's the reason)\" or \"(it's because)\". You hear it constantly in conversation. Without it, your statements sound abrupt or context-less. Misusing it (everywhere) makes you sound defensive.",
         "common_pitfalls": "{'wrong': 'あたまが いたいんです。(used as a flat fact, e.g., when filling out a medical form)', 'right': 'あたまが いたいです。(flat fact)', 'why': \"んです carries an explanation/context nuance. Using it for a flat statement (e.g., on a form) sounds like the speaker is giving a reason no-one asked for. Reserve んです for contexts where you're explaining or reacting.\"} · {'wrong': '学生んです。', 'right': '学生なんです。', 'why': 'After a noun or な-adjective, the linking copula is な (not bare ん). Pattern: noun + な + んです / noun + なのです. With i-adjectives and verbs, attach ん directly: 高いんです / 食べるんです.'}",
         "contrasts": "vs ?: ",
@@ -70632,11 +70635,11 @@
     {
       "id": "n5-168",
       "tier": "late_n5",
-      "pattern": "～たり〜たりする",
+      "pattern": "〜たり〜たりする",
       "category": "Additional Upper N5 / Borderline Patterns - Compound and Listed Actions",
       "categoryOrder": 25,
       "patternOrder": 1,
-      "meaning_en": "～たり〜たりする - do A and B (among other things)",
+      "meaning_en": "〜たり〜たりする - do A and B (among other things)",
       "meaning_ja": "「〜たり〜たりする」で、いくつかの 行どうを ならべて いいます。「日よう日は 本を 読んだり、えいがを 見たり します」。",
       "form_rules": {
         "attaches_to": [
@@ -70646,7 +70649,7 @@
           {
             "form": "examples",
             "label": "Listing examples",
-            "example": "～たり ～たりします"
+            "example": "〜たり 〜たりします"
           }
         ]
       },
@@ -70982,7 +70985,7 @@
         {
           "wrong": "本を読んだり、テレビを見ました。",
           "right": "本を読んだり、テレビを見たりしました。",
-          "why": "～たり requires BOTH (or all) verbs to end in たり, plus する at the end. Beginners apply たり to one verb and use plain past on the other. The correct form is 'V-たり、V-たり (... する)'.",
+          "why": "〜たり requires BOTH (or all) verbs to end in たり, plus する at the end. Beginners apply たり to one verb and use plain past on the other. The correct form is 'V-たり、V-たり (... する)'.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -71147,7 +71150,7 @@
           {
             "form": "experience",
             "label": "Past experience",
-            "example": "～たことが ある"
+            "example": "〜たことが ある"
           }
         ]
       },
@@ -71579,7 +71582,7 @@
           {
             "form": "advice",
             "label": "Advice (do this)",
-            "example": "～たほうが いい"
+            "example": "〜たほうが いい"
           }
         ]
       },
@@ -71891,7 +71894,7 @@
         {
           "wrong": "行く ほうが いいです。",
           "right": "行った ほうが いいです。",
-          "why": "Recommendations use the た-form: ～たほうがいい. Plain form ～ほうがいい is grammatical but sounds like a comparison (\"the going option is better\"), not advice.",
+          "why": "Recommendations use the た-form: 〜たほうがいい. Plain form 〜ほうがいい is grammatical but sounds like a comparison (\"the going option is better\"), not advice.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -72045,7 +72048,7 @@
           {
             "form": "neg_advice",
             "label": "Don't do",
-            "example": "～ないほうが いい"
+            "example": "〜ないほうが いい"
           }
         ]
       },
@@ -72496,11 +72499,11 @@
     {
       "id": "n5-172",
       "tier": "late_n5",
-      "pattern": "～なくてもいい",
+      "pattern": "〜なくてもいい",
       "category": "Additional Upper N5 / Borderline Patterns - Permission and Obligation",
       "categoryOrder": 27,
       "patternOrder": 1,
-      "meaning_en": "～なくても いい - don't have to",
+      "meaning_en": "〜なくても いい - don't have to",
       "meaning_ja": "「〜なくても いい」",
       "form_rules": {
         "attaches_to": [
@@ -72510,7 +72513,7 @@
           {
             "form": "no_obligation",
             "label": "Don't have to",
-            "example": "～なくても いい"
+            "example": "〜なくても いい"
           }
         ]
       },
@@ -72813,7 +72816,7 @@
         {
           "wrong": "行かなくて いいです。",
           "right": "行かなくても いいです。",
-          "why": "The set phrase requires も between なくて and いい: ～なくても いい. Without も it sounds like \"don't go and it's fine\".",
+          "why": "The set phrase requires も between なくて and いい: 〜なくても いい. Without も it sounds like \"don't go and it's fine\".",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -72967,11 +72970,11 @@
     {
       "id": "n5-173",
       "tier": "late_n5",
-      "pattern": "～なくてはいけない",
+      "pattern": "〜なくてはいけない",
       "category": "Additional Upper N5 / Borderline Patterns - Permission and Obligation",
       "categoryOrder": 27,
       "patternOrder": 2,
-      "meaning_en": "～なくては いけない - must do",
+      "meaning_en": "〜なくては いけない - must do",
       "meaning_ja": "「〜なくては いけない」",
       "form_rules": {
         "attaches_to": [
@@ -72981,11 +72984,11 @@
           {
             "form": "obligation",
             "label": "Must do",
-            "example": "～なくては いけない"
+            "example": "〜なくては いけない"
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: ～なくちゃ.",
+      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.",
       "examples": [
         {
           "ja": "まいにち べんきょうしなくては いけない。",
@@ -73308,7 +73311,7 @@
         {
           "wrong": "行きなくては いけません。",
           "right": "行かなくては いけません。",
-          "why": "～なくては attaches to the negative-stem (ない-form base): 行か + なくては. NOT to the polite-stem 行き.",
+          "why": "〜なくては attaches to the negative-stem (ない-form base): 行か + なくては. NOT to the polite-stem 行き.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -73450,7 +73453,7 @@
     {
       "id": "n5-174",
       "tier": "late_n5",
-      "pattern": "～なくてはならない",
+      "pattern": "〜なくてはならない",
       "category": "Additional Upper N5 / Borderline Patterns - Permission and Obligation",
       "categoryOrder": 27,
       "patternOrder": 3,
@@ -73462,11 +73465,11 @@
           {
             "form": "see_also",
             "label": "See n5-173",
-            "example": "～なくては ならない"
+            "example": "〜なくては ならない"
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: ～なくちゃ.\n\n(This pattern is also indexed as '～なくてはならない' in another category. Same form rules and usage as the canonical entry.)",
+      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.\n\n(This pattern is also indexed as '〜なくてはならない' in another category. Same form rules and usage as the canonical entry.)",
       "examples": [
         {
           "ja": "しゅくだいを しなくては ならない。",
@@ -73767,7 +73770,7 @@
         {
           "wrong": "行かないと ならない。",
           "right": "行かなくては ならない。 / 行かないと いけない。",
-          "why": "～と pairs with いけない, not ならない. Mismatch: ～なくては + ならない/いけない (both OK); ～ないと + いけない (only).",
+          "why": "〜と pairs with いけない, not ならない. Mismatch: 〜なくては + ならない/いけない (both OK); 〜ないと + いけない (only).",
           "category": "particle",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -73904,7 +73907,7 @@
     {
       "id": "n5-175",
       "tier": "late_n5",
-      "pattern": "～ないといけない",
+      "pattern": "〜ないといけない",
       "category": "Additional Upper N5 / Borderline Patterns - Permission and Obligation",
       "categoryOrder": 27,
       "patternOrder": 4,
@@ -73916,11 +73919,11 @@
           {
             "form": "see_also",
             "label": "See n5-173",
-            "example": "～ないと いけない"
+            "example": "〜ないと いけない"
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: ～なくちゃ.\n\n(This pattern is also indexed as '～ないといけない' in another category. Same form rules and usage as the canonical entry.)",
+      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.\n\n(This pattern is also indexed as '〜ないといけない' in another category. Same form rules and usage as the canonical entry.)",
       "examples": [
         {
           "ja": "はやく かえらないと いけない。",
@@ -74222,7 +74225,7 @@
         {
           "wrong": "しゅくだいを しないと なりません。",
           "right": "しゅくだいを しないと いけません。",
-          "why": "～ないと idiomatically pairs with いけない/いけません (more colloquial), not ならない. (See n5-174.)",
+          "why": "〜ないと idiomatically pairs with いけない/いけません (more colloquial), not ならない. (See n5-174.)",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -74359,7 +74362,7 @@
     {
       "id": "n5-176",
       "tier": "late_n5",
-      "pattern": "～なくちゃ / ～なきゃ",
+      "pattern": "〜なくちゃ / 〜なきゃ",
       "category": "Additional Upper N5 / Borderline Patterns - Permission and Obligation",
       "categoryOrder": 27,
       "patternOrder": 5,
@@ -74371,11 +74374,11 @@
           {
             "form": "see_also",
             "label": "See n5-173",
-            "example": "～なくちゃ / ～なきゃ"
+            "example": "〜なくちゃ / 〜なきゃ"
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: ～なくちゃ.\n\n(This pattern is also indexed as '～なくちゃ / ～なきゃ' in another category. Same form rules and usage as the canonical entry.)",
+      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.\n\n(This pattern is also indexed as '〜なくちゃ / 〜なきゃ' in another category. Same form rules and usage as the canonical entry.)",
       "examples": [
         {
           "ja": "もう 行かなくちゃ。",
@@ -74971,7 +74974,7 @@
         {
           "wrong": "食べてすぎました。",
           "right": "食べすぎました。",
-          "why": "～すぎる attaches to verb-STEM (the ます-form minus ます), not to the て-form. 食べる -> 食べ + すぎる -> 食べすぎる. Adjectives use the root: 高い -> 高すぎる; 静か -> 静かすぎる.",
+          "why": "〜すぎる attaches to verb-STEM (the ます-form minus ます), not to the て-form. 食べる -> 食べ + すぎる -> 食べすぎる. Adjectives use the root: 高い -> 高すぎる; 静か -> 静かすぎる.",
           "category": "conjugation",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -75125,7 +75128,7 @@
           {
             "form": "intent",
             "label": "Intention",
-            "example": "～つもりです"
+            "example": "〜つもりです"
           }
         ]
       },
@@ -75576,11 +75579,11 @@
     {
       "id": "n5-179",
       "tier": "late_n5",
-      "pattern": "～って",
+      "pattern": "〜って",
       "category": "Additional Upper N5 / Borderline Patterns - Quotation (Casual)",
       "categoryOrder": 30,
       "patternOrder": 1,
-      "meaning_en": "～って - casual quotation marker / topic introducer",
+      "meaning_en": "〜って - casual quotation marker / topic introducer",
       "meaning_ja": "「〜って」(カジュアル)",
       "form_rules": {
         "attaches_to": [
@@ -75590,7 +75593,7 @@
           {
             "form": "casual_quote",
             "label": "Casual quotation",
-            "example": "～って"
+            "example": "〜って"
           }
         ]
       },
@@ -75854,13 +75857,14 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "田中さんって田中先生のこと。",
-          "right": "OK in casual speech; in formal writing use と言う.",
-          "why": "って is a casual contraction of という / と言って. In formal speech / writing it sounds slangy. Beginners overuse って in formal contexts where と言う is appropriate.",
+          "wrong": "「会議で 田中先生って 言いました。」(too casual for a formal report)",
+          "right": "「会議で 田中先生と 言いました。」(と is the formal quotation marker)",
+          "why": "って is the CASUAL contraction of と / と言って. In formal contexts (meetings, writing, business), use と / と言って.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "native_teacher_review_2026_05_13",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "g3-format-fix-2026-05-13"
         },
         {
           "wrong": "「あした 来る」と 言いました。",
@@ -75988,11 +75992,11 @@
     {
       "id": "n5-180",
       "tier": "late_n5",
-      "pattern": "Verb-stem + ～かた",
+      "pattern": "Verb-stem + 〜かた",
       "category": "Additional Upper N5 / Borderline Patterns - Way of Doing",
       "categoryOrder": 31,
       "patternOrder": 1,
-      "meaning_en": "Verb-stem + ～かた - way of doing",
+      "meaning_en": "Verb-stem + 〜かた - way of doing",
       "meaning_ja": "「Verb-stem + 〜かた」は 「やりかた」と いう いみです。「のみかた」「食べかた」「はなしかた」。",
       "form_rules": {
         "attaches_to": [
@@ -76311,7 +76315,7 @@
         {
           "wrong": "読むかた",
           "right": "読みかた",
-          "why": "～かた attaches to the verb-STEM (ます-form base), not the dictionary form. 読む → 読み + かた.",
+          "why": "〜かた attaches to the verb-STEM (ます-form base), not the dictionary form. 読む → 読み + かた.",
           "category": "conjugation",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
@@ -76452,11 +76456,11 @@
     {
       "id": "n5-181",
       "tier": "late_n5",
-      "pattern": "～なあ",
+      "pattern": "〜なあ",
       "category": "Additional Upper N5 / Borderline Patterns - Sentence-Final Exclamation",
       "categoryOrder": 32,
       "patternOrder": 1,
-      "meaning_en": "～なあ - sentence-final exclamation ('I really feel...')",
+      "meaning_en": "〜なあ - sentence-final exclamation ('I really feel...')",
       "meaning_ja": "「〜なあ」は じぶんの 気もちを つよく あらわします。「きれい だなあ」「むずかしい なあ」。",
       "form_rules": {
         "attaches_to": [
@@ -76466,7 +76470,7 @@
           {
             "form": "exclamation",
             "label": "Self-directed exclamation",
-            "example": "～なあ"
+            "example": "〜なあ"
           }
         ]
       },
@@ -77084,13 +77088,14 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "Using 〜な with strangers / superiors.",
-          "right": "Use ないでください or てはいけません.",
-          "why": "〜な is harsh and casual - only with very close friends, kids, or in shouts.",
+          "wrong": "「先生、教室で 食べるな！」(to a teacher / superior)",
+          "right": "「先生、教室で 食べないでください。」(polite negative request)",
+          "why": "〜な (verb-plain + な) is harsh-casual prohibition. Only use with close friends / younger siblings / pets. With superiors or strangers, use ないでください or 〜てはいけません.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "native_teacher_review_2026_05_13",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "g3-format-fix-2026-05-13"
         },
         {
           "wrong": "行きなさい！",
@@ -79320,7 +79325,7 @@
           }
         ]
       },
-      "explanation_en": "Nominalize a plain-form verb with こと, then use the noun-can-do frame ～ができる. The productive 'can do X' construction; pairs with noun-only ～ができる (n5-103). In casual speech the こと is sometimes dropped (Verb-potential form), but at N5 the こと-form is the standard introduction (Genki I L13, Minna no Nihongo L18).",
+      "explanation_en": "Nominalize a plain-form verb with こと, then use the noun-can-do frame 〜ができる. The productive 'can do X' construction; pairs with noun-only 〜ができる (n5-103). In casual speech the こと is sometimes dropped (Verb-potential form), but at N5 the こと-form is the standard introduction (Genki I L13, Minna no Nihongo L18).",
       "examples": [
         {
           "ja": "日本語を 話す ことが できます。",
@@ -79687,7 +79692,7 @@
           "native_reviewer_note": "Pattern-instance contrast note verified by JLPT N5 specialist + native Japanese teacher review pass 2026-05-13"
         }
       ],
-      "notes": "Pairs with n5-103 (noun + ～ができます): use n5-103 when the thing-you-can-do is a noun (skill / language / activity); use this pattern when it's a verb (action). Many textbooks introduce both in the same lesson.",
+      "notes": "Pairs with n5-103 (noun + 〜ができます): use n5-103 when the thing-you-can-do is a noun (skill / language / activity); use this pattern when it's a verb (action). Many textbooks introduce both in the same lesson.",
       "review_status": "native_reviewed",
       "meaning_hi": "क्रिया-शब्दकोश + ことができます - कर सकना (उत्पादक सकता है-do रूप)",
       "meaning_provenance": {

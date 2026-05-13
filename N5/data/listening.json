@@ -24,34 +24,40 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。",
           "startMs": 0,
-          "endMs": 5034
+          "endMs": 5034,
+          "ja": "男の人と 女の人が 話しています。あした、二人は どこで 会いますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "男：あした、えいがを 見に 行きませんか。",
           "startMs": 5034,
-          "endMs": 7910
+          "endMs": 7910,
+          "ja": "男：あした、えいがを 見に 行きませんか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "女：いいですね。何時に 会いますか。",
           "startMs": 7910,
-          "endMs": 10427
+          "endMs": 10427,
+          "ja": "女：いいですね。何時に 会いますか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "男：三時に えきの 前で どうですか。",
           "startMs": 10427,
-          "endMs": 12944
+          "endMs": 12944,
+          "ja": "男：三時に えきの 前で どうですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "女：えきの 前は 人が おおいですね。カフェの 前で 会いましょう。",
           "startMs": 12944,
-          "endMs": 17259
+          "endMs": 17259,
+          "ja": "女：えきの 前は 人が おおいですね。カフェの 前で 会いましょう。",
+          "speaker": "male"
         },
         {
-          "text_ja": "男：はい、わかりました。",
           "startMs": 17259,
-          "endMs": 18877
+          "endMs": 18877,
+          "ja": "男：はい、わかりました。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -372,39 +378,46 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "女の人が 男の人に 電話しています。男の人は 何を 買いますか。",
           "startMs": 0,
-          "endMs": 5309
+          "endMs": 5309,
+          "ja": "女の人が 男の人に 電話しています。男の人は 何を 買いますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：もしもし。いま スーパーですか。",
           "startMs": 5309,
-          "endMs": 8168
+          "endMs": 8168,
+          "ja": "女：もしもし。いま スーパーですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：はい、いま スーパーに います。",
           "startMs": 8168,
-          "endMs": 10823
+          "endMs": 10823,
+          "ja": "男：はい、いま スーパーに います。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：パンと たまごを かって ください。",
           "startMs": 10823,
-          "endMs": 13886
+          "endMs": 13886,
+          "ja": "女：パンと たまごを かって ください。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：パンと たまごですね。",
           "startMs": 13886,
-          "endMs": 15928
+          "endMs": 15928,
+          "ja": "男：パンと たまごですね。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：あ、ぎゅうにゅうも おねがいします。",
           "startMs": 15928,
-          "endMs": 18787
+          "endMs": 18787,
+          "ja": "女：あ、ぎゅうにゅうも おねがいします。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：はい、わかりました。",
           "startMs": 18787,
-          "endMs": 20624
+          "endMs": 20624,
+          "ja": "男：はい、わかりました。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -710,29 +723,34 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男の人と 女の人が 話しています。あした 何時に うちを 出ますか。",
           "startMs": 0,
-          "endMs": 4896
+          "endMs": 4896,
+          "ja": "男の人と 女の人が 話しています。あした 何時に うちを 出ますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：あしたの あさ、何時に 出ますか。",
           "startMs": 4896,
-          "endMs": 7435
+          "endMs": 7435,
+          "ja": "女：あしたの あさ、何時に 出ますか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：そうですね。九時の でんしゃに のりたいです。",
           "startMs": 7435,
-          "endMs": 10880
+          "endMs": 10880,
+          "ja": "男：そうですね。九時の でんしゃに のりたいです。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：では、うちを 八時半に 出ましょう。",
           "startMs": 10880,
-          "endMs": 13419
+          "endMs": 13419,
+          "ja": "女：では、うちを 八時半に 出ましょう。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：いいですね。そう しましょう。",
           "startMs": 13419,
-          "endMs": 15594
+          "endMs": 15594,
+          "ja": "男：いいですね。そう しましょう。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -1036,34 +1054,40 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "カフェで 男の人が ちゅうもんしています。男の人は 何を 飲みますか。",
           "startMs": 0,
-          "endMs": 4892
+          "endMs": 4892,
+          "ja": "カフェで 男の人が ちゅうもんしています。男の人は 何を 飲みますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "店員：いらっしゃいませ。",
           "startMs": 4892,
-          "endMs": 6523
+          "endMs": 6523,
+          "ja": "店員：いらっしゃいませ。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：すみません、コーヒーを ください。",
           "startMs": 6523,
-          "endMs": 9241
+          "endMs": 9241,
+          "ja": "男：すみません、コーヒーを ください。",
+          "speaker": "male"
         },
         {
-          "text_ja": "店員：あつい コーヒーですか。",
           "startMs": 9241,
-          "endMs": 11415
+          "endMs": 11415,
+          "ja": "店員：あつい コーヒーですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：いいえ、つめたい コーヒーで おねがいします。",
           "startMs": 11415,
-          "endMs": 15039
+          "endMs": 15039,
+          "ja": "男：いいえ、つめたい コーヒーで おねがいします。",
+          "speaker": "male"
         },
         {
-          "text_ja": "店員：はい、つめたい コーヒーですね。",
           "startMs": 15039,
-          "endMs": 17757
+          "endMs": 17757,
+          "ja": "店員：はい、つめたい コーヒーですね。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -1396,29 +1420,34 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "学校で 先生と 学生が 話しています。学生は どうして おそく なりましたか。",
           "startMs": 0,
-          "endMs": 5454
+          "endMs": 5454,
+          "ja": "学校で 先生と 学生が 話しています。学生は どうして おそく なりましたか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "先生：今日は どうして おそく 来ましたか。",
           "startMs": 5454,
-          "endMs": 8445
+          "endMs": 8445,
+          "ja": "先生：今日は どうして おそく 来ましたか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "学生：すみません。あさ、でんしゃが おくれました。",
           "startMs": 8445,
-          "endMs": 11788
+          "endMs": 11788,
+          "ja": "学生：すみません。あさ、でんしゃが おくれました。",
+          "speaker": "male"
         },
         {
-          "text_ja": "先生：そうですか。だいじょうぶですか。",
           "startMs": 11788,
-          "endMs": 14427
+          "endMs": 14427,
+          "ja": "先生：そうですか。だいじょうぶですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "学生：はい、もう だいじょうぶです。",
           "startMs": 14427,
-          "endMs": 16714
+          "endMs": 16714,
+          "ja": "学生：はい、もう だいじょうぶです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -1797,34 +1826,40 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "女の人が 男の人と 話しています。本は どこに ありますか。",
           "startMs": 0,
-          "endMs": 5237
+          "endMs": 5237,
+          "ja": "女の人が 男の人と 話しています。本は どこに ありますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：日本語の 本は どこですか。",
           "startMs": 5237,
-          "endMs": 7855
+          "endMs": 7855,
+          "ja": "女：日本語の 本は どこですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：あの たなの 上です。",
           "startMs": 7855,
-          "endMs": 9819
+          "endMs": 9819,
+          "ja": "男：あの たなの 上です。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：上ですか。下では ありませんか。",
           "startMs": 9819,
-          "endMs": 12874
+          "endMs": 12874,
+          "ja": "女：上ですか。下では ありませんか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：はい、上です。一番 大きい 本です。",
           "startMs": 12874,
-          "endMs": 15929
+          "endMs": 15929,
+          "ja": "男：はい、上です。一番 大きい 本です。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：わかりました。ありがとう。",
           "startMs": 15929,
-          "endMs": 18546
+          "endMs": 18546,
+          "ja": "女：わかりました。ありがとう。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -2152,14 +2187,16 @@
       "pacing_status": "too_fast",
       "lines": [
         {
-          "text_ja": "男の人が はなしています。男の人は どの きせつが いちばん すきですか。",
           "startMs": 0,
-          "endMs": 5384
+          "endMs": 5384,
+          "ja": "男の人が はなしています。男の人は どの きせつが いちばん すきですか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "ぼくは きせつの 中で あきが いちばん すきです。あきは あつくないです。さむくないです。たべものも おいしいです。なつは あついですから、すきじゃありません。ふゆは さむいですから、すきじゃありません。はるも すきですが、あきが いちばん すきです。",
           "startMs": 5384,
-          "endMs": 23869
+          "endMs": 23869,
+          "ja": "ぼくは きせつの 中で あきが いちばん すきです。あきは あつくないです。さむくないです。たべものも おいしいです。なつは あついですから、すきじゃありません。ふゆは さむいですから、すきじゃありません。はるも すきですが、あきが いちばん すきです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -2490,34 +2527,40 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "女の人と 男の人が 話しています。男の人は たんじょうびに 何が ほしいですか。",
           "startMs": 0,
-          "endMs": 6593
+          "endMs": 6593,
+          "ja": "女の人と 男の人が 話しています。男の人は たんじょうびに 何が ほしいですか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：たんじょうび、何が ほしいですか。本ですか。",
           "startMs": 6593,
-          "endMs": 10301
+          "endMs": 10301,
+          "ja": "女：たんじょうび、何が ほしいですか。本ですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：本も いいですが、もっと ほしい ものが あります。",
           "startMs": 10301,
-          "endMs": 14627
+          "endMs": 14627,
+          "ja": "男：本も いいですが、もっと ほしい ものが あります。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：何ですか。とけいですか。",
           "startMs": 14627,
-          "endMs": 16893
+          "endMs": 16893,
+          "ja": "女：何ですか。とけいですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：いいえ、新しい カメラが ほしいです。",
           "startMs": 16893,
-          "endMs": 20189
+          "endMs": 20189,
+          "ja": "男：いいえ、新しい カメラが ほしいです。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：そうですか。",
           "startMs": 20189,
-          "endMs": 21426
+          "endMs": 21426,
+          "ja": "女：そうですか。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -2837,9 +2880,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "（しらない人に 時間を 聞く とき）",
           "startMs": 0,
-          "endMs": 2144
+          "endMs": 2144,
+          "ja": "（しらない人に 時間を 聞く とき）",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -3019,9 +3063,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "（えきの まどぐちで）",
           "startMs": 0,
-          "endMs": 1056
+          "endMs": 1056,
+          "ja": "（えきの まどぐちで）",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -3203,9 +3248,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "（友だちが ケーキを すすめました。でも、もう おなかが いっぱいです）",
           "startMs": 0,
-          "endMs": 5205
+          "endMs": 5205,
+          "ja": "（友だちが ケーキを すすめました。でも、もう おなかが いっぱいです）",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -3425,9 +3471,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "（あさ、先生に 会った とき）",
           "startMs": 0,
-          "endMs": 2315
+          "endMs": 2315,
+          "ja": "（あさ、先生に 会った とき）",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -3613,24 +3660,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "A: あした 学校で 会いましょう。",
           "startMs": 0,
-          "endMs": 2076
+          "endMs": 2076,
+          "ja": "A: あした 学校で 会いましょう。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "B: はい。何時に 会いますか。",
           "startMs": 2076,
-          "endMs": 3963
+          "endMs": 3963,
+          "ja": "B: はい。何時に 会いますか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "A: 九時半に しましょう。",
           "startMs": 3963,
-          "endMs": 5473
+          "endMs": 5473,
+          "ja": "A: 九時半に しましょう。",
+          "speaker": "male"
         },
         {
-          "text_ja": "B: わかりました。",
           "startMs": 5473,
-          "endMs": 6605
+          "endMs": 6605,
+          "ja": "B: わかりました。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -3885,24 +3936,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男: 来週の 土ようび、駅の 前で まってください。",
           "startMs": 0,
-          "endMs": 3426
+          "endMs": 3426,
+          "ja": "男: 来週の 土ようび、駅の 前で まってください。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: 駅の どこですか。",
           "startMs": 3426,
-          "endMs": 4869
+          "endMs": 4869,
+          "ja": "女: 駅の どこですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男: 北の 出口です。",
           "startMs": 4869,
-          "endMs": 6131
+          "endMs": 6131,
+          "ja": "男: 北の 出口です。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: わかりました。",
           "startMs": 6131,
-          "endMs": 7394
+          "endMs": 7394,
+          "ja": "女: わかりました。",
+          "speaker": "female"
         }
       ],
       "voice_planned": {
@@ -4123,24 +4178,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "母: 店で 何を 買いますか。",
           "startMs": 0,
-          "endMs": 1880
+          "endMs": 1880,
+          "ja": "母: 店で 何を 買いますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "子: りんごを 三つと、ぎゅうにゅうを 一本 買います。",
           "startMs": 1880,
-          "endMs": 5452
+          "endMs": 5452,
+          "ja": "子: りんごを 三つと、ぎゅうにゅうを 一本 買います。",
+          "speaker": "female"
         },
         {
-          "text_ja": "母: パンも 買いますか。",
           "startMs": 5452,
-          "endMs": 7144
+          "endMs": 7144,
+          "ja": "母: パンも 買いますか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "子: いいえ、パンは いりません。",
           "startMs": 7144,
-          "endMs": 9400
+          "endMs": 9400,
+          "ja": "子: いいえ、パンは いりません。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -4405,24 +4464,28 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "A: あしたの えいがは だれと 行きますか。",
           "startMs": 0,
-          "endMs": 3117
+          "endMs": 3117,
+          "ja": "A: あしたの えいがは だれと 行きますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "B: はじめは 友だちと 行きました。 でも、友だちは いそがしいです。",
           "startMs": 3117,
-          "endMs": 8183
+          "endMs": 8183,
+          "ja": "B: はじめは 友だちと 行きました。 でも、友だちは いそがしいです。",
+          "speaker": "female"
         },
         {
-          "text_ja": "A: そうですか。",
           "startMs": 8183,
-          "endMs": 9157
+          "endMs": 9157,
+          "ja": "A: そうですか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "B: ですから、母と 行きます。",
           "startMs": 9157,
-          "endMs": 11106
+          "endMs": 11106,
+          "ja": "B: ですから、母と 行きます。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -4692,24 +4755,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男: 先生は 何時に 来ますか。",
           "startMs": 0,
-          "endMs": 2181
+          "endMs": 2181,
+          "ja": "男: 先生は 何時に 来ますか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: 三時に 来ます。 でも、道が こんで います。",
           "startMs": 2181,
-          "endMs": 5552
+          "endMs": 5552,
+          "ja": "女: 三時に 来ます。 でも、道が こんで います。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男: では、何時に なりますか。",
           "startMs": 5552,
-          "endMs": 7733
+          "endMs": 7733,
+          "ja": "男: では、何時に なりますか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: たぶん 三時半です。",
           "startMs": 7733,
-          "endMs": 9517
+          "endMs": 9517,
+          "ja": "女: たぶん 三時半です。",
+          "speaker": "female"
         }
       ],
       "voice_planned": {
@@ -4961,24 +5028,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "A: あした どこへ 行きますか。",
           "startMs": 0,
-          "endMs": 2014
+          "endMs": 2014,
+          "ja": "A: あした どこへ 行きますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "B: 父の 友だちの いえへ 行きます。",
           "startMs": 2014,
-          "endMs": 4394
+          "endMs": 4394,
+          "ja": "B: 父の 友だちの いえへ 行きます。",
+          "speaker": "female"
         },
         {
-          "text_ja": "A: 何で 行きますか。",
           "startMs": 4394,
-          "endMs": 5676
+          "endMs": 5676,
+          "ja": "A: 何で 行きますか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "B: 電車で 行きます。",
           "startMs": 5676,
-          "endMs": 6957
+          "endMs": 6957,
+          "ja": "B: 電車で 行きます。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -5208,24 +5279,28 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "先生: しゅくだいは しましたか。",
           "startMs": 0,
-          "endMs": 1628
+          "endMs": 1628,
+          "ja": "先生: しゅくだいは しましたか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "学生: すみません。 きのう しゅくだいを しませんでした。",
           "startMs": 1628,
-          "endMs": 4613
+          "endMs": 4613,
+          "ja": "学生: すみません。 きのう しゅくだいを しませんでした。",
+          "speaker": "female"
         },
         {
-          "text_ja": "先生: どうしてですか。",
           "startMs": 4613,
-          "endMs": 5834
+          "endMs": 5834,
+          "ja": "先生: どうしてですか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "学生: あたまが いたかったです。",
           "startMs": 5834,
-          "endMs": 7597
+          "endMs": 7597,
+          "ja": "学生: あたまが いたかったです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -5510,24 +5585,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "A: その 本は いくらでしたか。",
           "startMs": 0,
-          "endMs": 2320
+          "endMs": 2320,
+          "ja": "A: その 本は いくらでしたか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "B: 千五百円でした。",
           "startMs": 2320,
-          "endMs": 3796
+          "endMs": 3796,
+          "ja": "B: 千五百円でした。",
+          "speaker": "female"
         },
         {
-          "text_ja": "A: 高いですね。",
           "startMs": 3796,
-          "endMs": 4850
+          "endMs": 4850,
+          "ja": "A: 高いですね。",
+          "speaker": "male"
         },
         {
-          "text_ja": "B: でも、おもしろい 本ですよ。",
           "startMs": 4850,
-          "endMs": 7170
+          "endMs": 7170,
+          "ja": "B: でも、おもしろい 本ですよ。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -5777,14 +5856,16 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "学生: としょかんは 何時から 何時までですか。",
           "startMs": 0,
-          "endMs": 2601
+          "endMs": 2601,
+          "ja": "学生: としょかんは 何時から 何時までですか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "先生: 月よう日から 金よう日までは 九時から 五時までです。 土ようびは 一時から 四時までです。",
           "startMs": 2601,
-          "endMs": 8381
+          "endMs": 8381,
+          "ja": "先生: 月よう日から 金よう日までは 九時から 五時までです。 土ようびは 一時から 四時までです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -6007,19 +6088,22 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "女: あしたの 天気は どうですか。",
           "startMs": 0,
-          "endMs": 2471
+          "endMs": 2471,
+          "ja": "女: あしたの 天気は どうですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男: あしたは 雨です。 でも、あさっては 天気が いいです。",
           "startMs": 2471,
-          "endMs": 6652
+          "endMs": 6652,
+          "ja": "男: あしたは 雨です。 でも、あさっては 天気が いいです。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: そうですか。",
           "startMs": 6652,
-          "endMs": 7792
+          "endMs": 7792,
+          "ja": "女: そうですか。",
+          "speaker": "female"
         }
       ],
       "voice_planned": {
@@ -6293,24 +6377,28 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男: しゅくだいは いつですか。",
           "startMs": 0,
-          "endMs": 1592
+          "endMs": 1592,
+          "ja": "男: しゅくだいは いつですか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: 火よう日と 木よう日です。",
           "startMs": 1592,
-          "endMs": 3328
+          "endMs": 3328,
+          "ja": "女: 火よう日と 木よう日です。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男: 水よう日は ありませんか。",
           "startMs": 3328,
-          "endMs": 5064
+          "endMs": 5064,
+          "ja": "男: 水よう日は ありませんか。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女: ありません。",
           "startMs": 5064,
-          "endMs": 5933
+          "endMs": 5933,
+          "ja": "女: ありません。",
+          "speaker": "female"
         }
       ],
       "voice_planned": {
@@ -6547,19 +6635,22 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "母: 今日は だれが 来ますか。",
           "startMs": 0,
-          "endMs": 2276
+          "endMs": 2276,
+          "ja": "母: 今日は だれが 来ますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "子: 父の 先生と、母の 友だちが 来ます。 父も 六時に 来ます。",
           "startMs": 2276,
-          "endMs": 7036
+          "endMs": 7036,
+          "ja": "子: 父の 先生と、母の 友だちが 来ます。 父も 六時に 来ます。",
+          "speaker": "female"
         },
         {
-          "text_ja": "母: わかりました。",
           "startMs": 7036,
-          "endMs": 8485
+          "endMs": 8485,
+          "ja": "母: わかりました。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -6781,9 +6872,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "あさ 学校で 先生に 会いました。",
           "startMs": 0,
-          "endMs": 2283
+          "endMs": 2283,
+          "ja": "あさ 学校で 先生に 会いました。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -6991,9 +7083,10 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "店で コーヒーを 買いたいです。",
           "startMs": 0,
-          "endMs": 1813
+          "endMs": 1813,
+          "ja": "店で コーヒーを 買いたいです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -7163,9 +7256,10 @@
       "pacing_status": "too_fast",
       "lines": [
         {
-          "text_ja": "友だちが おちゃを すすめました。 飲みたく ないです。",
           "startMs": 0,
-          "endMs": 3691
+          "endMs": 3691,
+          "ja": "友だちが おちゃを すすめました。 飲みたく ないです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -7344,9 +7438,10 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "友だちの いえへ 入ります。",
           "startMs": 0,
-          "endMs": 1749
+          "endMs": 1749,
+          "ja": "友だちの いえへ 入ります。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -7522,9 +7617,10 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "ごはんを 食べる 前です。",
           "startMs": 0,
-          "endMs": 1515
+          "endMs": 1515,
+          "ja": "ごはんを 食べる 前です。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -7720,9 +7816,10 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "駅へ 行きたいです。 道が わかりません。",
           "startMs": 0,
-          "endMs": 2645
+          "endMs": 2645,
+          "ja": "駅へ 行きたいです。 道が わかりません。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -7915,29 +8012,34 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男の人と 女の人が 話して います。男の人は 何を 買いますか。",
           "startMs": 0,
-          "endMs": 4507
+          "endMs": 4507,
+          "ja": "男の人と 女の人が 話して います。男の人は 何を 買いますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：たんじょうびに 何を あげますか。",
           "startMs": 4507,
-          "endMs": 7031
+          "endMs": 7031,
+          "ja": "女：たんじょうびに 何を あげますか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：本が いいかな。",
           "startMs": 7031,
-          "endMs": 8293
+          "endMs": 8293,
+          "ja": "男：本が いいかな。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：ぼうしも きれいですよ。",
           "startMs": 8293,
-          "endMs": 10276
+          "endMs": 10276,
+          "ja": "女：ぼうしも きれいですよ。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：そうですね。じゃ、ぼうしに します。",
           "startMs": 10276,
-          "endMs": 12800
+          "endMs": 12800,
+          "ja": "男：そうですね。じゃ、ぼうしに します。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -8230,29 +8332,34 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "二人が 話して います。男の人は 土よう日に 何を しますか。",
           "startMs": 0,
-          "endMs": 4413
+          "endMs": 4413,
+          "ja": "二人が 話して います。男の人は 土よう日に 何を しますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：土よう日、何を しますか。",
           "startMs": 4413,
-          "endMs": 6436
+          "endMs": 6436,
+          "ja": "女：土よう日、何を しますか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：友だちと えいがを 見に 行きます。",
           "startMs": 6436,
-          "endMs": 9194
+          "endMs": 9194,
+          "ja": "男：友だちと えいがを 見に 行きます。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：日よう日も 出かけますか。",
           "startMs": 9194,
-          "endMs": 11401
+          "endMs": 11401,
+          "ja": "女：日よう日も 出かけますか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：日よう日は いえで 休みます。",
           "startMs": 11401,
-          "endMs": 13792
+          "endMs": 13792,
+          "ja": "男：日よう日は いえで 休みます。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -8483,29 +8590,34 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "じょうけい：ホテルの フロントで。",
           "startMs": 0,
-          "endMs": 2242
+          "endMs": 2242,
+          "ja": "じょうけい：ホテルの フロントで。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "女：すみません、いま 何かい いますか。",
           "startMs": 2242,
-          "endMs": 4830
+          "endMs": 4830,
+          "ja": "女：すみません、いま 何かい いますか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：今、五かいに います。",
           "startMs": 4830,
-          "endMs": 6382
+          "endMs": 6382,
+          "ja": "男：今、五かいに います。",
+          "speaker": "male"
         },
         {
-          "text_ja": "女：レストランは どこですか。",
           "startMs": 6382,
-          "endMs": 8452
+          "endMs": 8452,
+          "ja": "女：レストランは どこですか。",
+          "speaker": "female"
         },
         {
-          "text_ja": "男：レストランは 一かいに あります。",
           "startMs": 8452,
-          "endMs": 11040
+          "endMs": 11040,
+          "ja": "男：レストランは 一かいに あります。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -8752,24 +8864,28 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "母と 子どもが 話して います。子どもは あさ、まず 何を しますか。",
           "startMs": 0,
-          "endMs": 4928
+          "endMs": 4928,
+          "ja": "母と 子どもが 話して います。子どもは あさ、まず 何を しますか。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "母：はやく かおを あらって。",
           "startMs": 4928,
-          "endMs": 7013
+          "endMs": 7013,
+          "ja": "母：はやく かおを あらって。",
+          "speaker": "female"
         },
         {
-          "text_ja": "子：はい。あさごはんは。",
           "startMs": 7013,
-          "endMs": 8719
+          "endMs": 8719,
+          "ja": "子：はい。あさごはんは。",
+          "speaker": "male"
         },
         {
-          "text_ja": "母：かおを あらってから 食べます。",
           "startMs": 8719,
-          "endMs": 11373
+          "endMs": 11373,
+          "ja": "母：かおを あらってから 食べます。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -9023,14 +9139,16 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "女の学生が 話して います。",
           "startMs": 0,
-          "endMs": 2350
+          "endMs": 2350,
+          "ja": "女の学生が 話して います。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "わたしの クラスには 二十人 います。日本人は 五人です。中国人は 四人で、かんこく人も 四人 います。アメリカ人は 二人です。",
           "startMs": 2350,
-          "endMs": 13245
+          "endMs": 13245,
+          "ja": "わたしの クラスには 二十人 います。日本人は 五人です。中国人は 四人で、かんこく人も 四人 います。アメリカ人は 二人です。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -9299,14 +9417,16 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "男の人が しごとの あとで 話して います。",
           "startMs": 0,
-          "endMs": 3357
+          "endMs": 3357,
+          "ja": "男の人が しごとの あとで 話して います。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "来月の 七日から 九日まで、おおさかに 行きます。三日間の りょこうです。新かんせんで 行きます。",
           "startMs": 3357,
-          "endMs": 11059
+          "endMs": 11059,
+          "ja": "来月の 七日から 九日まで、おおさかに 行きます。三日間の りょこうです。新かんせんで 行きます。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -9570,14 +9690,16 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "店員が 話して います。",
           "startMs": 0,
-          "endMs": 1849
+          "endMs": 1849,
+          "ja": "店員が 話して います。",
+          "speaker": "narrator"
         },
         {
-          "text_ja": "この 本は 千五百円です。あの 大きい 本は 二千円です。きょうは セールで、ぜんぶ 半分の ねだんです。",
           "startMs": 1849,
-          "endMs": 10067
+          "endMs": 10067,
+          "ja": "この 本は 千五百円です。あの 大きい 本は 二千円です。きょうは セールで、ぜんぶ 半分の ねだんです。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -9825,9 +9947,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "（ともだちの いえに 入る とき）",
           "startMs": 0,
-          "endMs": 2016
+          "endMs": 2016,
+          "ja": "（ともだちの いえに 入る とき）",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -10024,9 +10147,10 @@
       "pacing_status": "in_range",
       "lines": [
         {
-          "text_ja": "じょうけい：ごはんを 食べた あとで、お金を はらいました。店を 出る とき、何と 言いますか。",
           "startMs": 0,
-          "endMs": 7051
+          "endMs": 7051,
+          "ja": "じょうけい：ごはんを 食べた あとで、お金を はらいました。店を 出る とき、何と 言いますか。",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -10262,9 +10386,10 @@
       "pacing_status": "too_slow",
       "lines": [
         {
-          "text_ja": "（よる、ともだちの いえで あった とき）",
           "startMs": 0,
-          "endMs": 2688
+          "endMs": 2688,
+          "ja": "（よる、ともだちの いえで あった とき）",
+          "speaker": "narrator"
         }
       ],
       "voice_planned": {
@@ -10463,9 +10588,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "おさきに しつれいします。",
           "startMs": 0,
-          "endMs": 1504
+          "endMs": 1504,
+          "ja": "おさきに しつれいします。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -10664,9 +10790,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "たんじょうび、おめでとうございます。",
           "startMs": 0,
-          "endMs": 2443
+          "endMs": 2443,
+          "ja": "たんじょうび、おめでとうございます。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -10854,9 +10981,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "すみません、えきは どこですか。",
           "startMs": 0,
-          "endMs": 2613
+          "endMs": 2613,
+          "ja": "すみません、えきは どこですか。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -11046,9 +11174,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "いっしょに ひるごはんを たべませんか。",
           "startMs": 0,
-          "endMs": 2304
+          "endMs": 2304,
+          "ja": "いっしょに ひるごはんを たべませんか。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -11258,9 +11387,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "おはようございます。",
           "startMs": 0,
-          "endMs": 1269
+          "endMs": 1269,
+          "ja": "おはようございます。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -11437,9 +11567,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "すみません、ペンを かして ください。",
           "startMs": 0,
-          "endMs": 2432
+          "endMs": 2432,
+          "ja": "すみません、ペンを かして ください。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -11623,9 +11754,10 @@
       "voice_variety_status": "rendered",
       "lines": [
         {
-          "text_ja": "すみませんでした。",
           "startMs": 0,
-          "endMs": 1323
+          "endMs": 1323,
+          "ja": "すみませんでした。",
+          "speaker": "narrator"
         }
       ],
       "audio_render_meta": {
@@ -11810,28 +11942,28 @@
       "ambient_context_provenance": "native_reviewed",
       "lines": [
         {
-          "text_ja": "男：きょうの 天気は ほんとうに いいですね。",
           "startMs": 0,
           "endMs": 4000,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "男：きょうの 天気は ほんとうに いいですね。"
         },
         {
-          "text_ja": "女：へぇ、そうですか? わたしは あさから うちに いました。",
           "startMs": 4000,
           "endMs": 9000,
-          "speaker": "F"
+          "speaker": "F",
+          "ja": "女：へぇ、そうですか? わたしは あさから うちに いました。"
         },
         {
-          "text_ja": "男：あ、そうなんですか。さんぽに 行きませんか?",
           "startMs": 9000,
           "endMs": 13000,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "男：あ、そうなんですか。さんぽに 行きませんか?"
         },
         {
-          "text_ja": "女：うん、いいですね。なるほど、そうしましょう。",
           "startMs": 13000,
           "endMs": 17000,
-          "speaker": "F"
+          "speaker": "F",
+          "ja": "女：うん、いいですね。なるほど、そうしましょう。"
         }
       ],
       "transcript_timing_provenance": "mora_proportional",
@@ -12081,28 +12213,28 @@
       "ambient_context_provenance": "native_reviewed",
       "lines": [
         {
-          "text_ja": "男：すみません、あの…えきは どこですか?",
           "startMs": 0,
           "endMs": 4500,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "男：すみません、あの…えきは どこですか?"
         },
         {
-          "text_ja": "女：えーと、まっすぐ 行って、はじめの しんごうを 右に まがって ください。",
           "startMs": 4500,
           "endMs": 12000,
-          "speaker": "F"
+          "speaker": "F",
+          "ja": "女：えーと、まっすぐ 行って、はじめの しんごうを 右に まがって ください。"
         },
         {
-          "text_ja": "男：あ、はい。ありがとうございます。",
           "startMs": 12000,
           "endMs": 15500,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "男：あ、はい。ありがとうございます。"
         },
         {
-          "text_ja": "女：いえいえ、どういたしまして。",
           "startMs": 15500,
           "endMs": 18500,
-          "speaker": "F"
+          "speaker": "F",
+          "ja": "女：いえいえ、どういたしまして。"
         }
       ],
       "transcript_timing_provenance": "mora_proportional",
@@ -12371,34 +12503,34 @@
       "ambient_context_provenance": "native_reviewed",
       "lines": [
         {
-          "text_ja": "いしゃ：どう しましたか?",
           "startMs": 0,
           "endMs": 2500,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "いしゃ：どう しましたか?"
         },
         {
-          "text_ja": "かんじゃ：あのー、きのうから あたまが いたいです。",
           "startMs": 2500,
           "endMs": 7500,
-          "speaker": "F"
+          "speaker": "F",
+          "ja": "かんじゃ：あのー、きのうから あたまが いたいです。"
         },
         {
-          "text_ja": "いしゃ：へぇ、ねつは ありますか?",
           "startMs": 7500,
           "endMs": 10500,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "いしゃ：へぇ、ねつは ありますか?"
         },
         {
-          "text_ja": "かんじゃ：はい、すこし あります。",
           "startMs": 10500,
           "endMs": 13500,
-          "speaker": "F"
+          "speaker": "F",
+          "ja": "かんじゃ：はい、すこし あります。"
         },
         {
-          "text_ja": "いしゃ：そうですか。じゃあ、くすりを だしますね。",
           "startMs": 13500,
           "endMs": 17500,
-          "speaker": "M"
+          "speaker": "M",
+          "ja": "いしゃ：そうですか。じゃあ、くすりを だしますね。"
         }
       ],
       "transcript_timing_provenance": "mora_proportional",
