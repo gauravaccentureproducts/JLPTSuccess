@@ -199,6 +199,51 @@ print('Counter pairing set:', sum(1 for v in V if v.get('dominant_counter')))
 print('Onomatopoeia flag:', sum(1 for v in V if v.get('onomatopoeia')))
 ```
 
+Templated-example regression scan (added 2026-05-15 from the vocab
+audit; expected count for each is 0 — if non-zero, see audit prompt
+§A18-A22 + CI gate JA-83):
+
+```python
+import re
+from collections import Counter
+pat_miru  = re.compile(r"^[^\s]{1,10}を\s*見ました(?:よ|ね|よね)?。?$")
+pat_doko  = re.compile(r"^あの\s+(.{1,10})は\s*どこですか。?$")
+pat_kore  = re.compile(r"^(これ|あれ|それ)は\s*(.{1,10})です。?$")
+pat_quote = re.compile(r"^「(.{1,10})」と\s*あいさつしました。?$")
+GREETINGS = {"おはよう","こんにちは","こんばんは","ありがとう","さようなら",
+             "おやすみ","ただいま","おかえり","もしもし","いってきます",
+             "いってらっしゃい","おかげさまで"}
+n_miru = n_doko = n_kore = n_greet = n_dup = 0
+ja_xrefs = Counter()
+for v in V:
+    section = v.get('section','')
+    pos = v.get('pos','')
+    form = v.get('form','')
+    is_loc = '13-locations' in section or '26-house' in section
+    is_dem = pos == 'demonstrative' or 'demonstrative' in section.lower()
+    exs = v.get('examples', [])
+    seen = {}
+    for i, ex in enumerate(exs):
+        ja = (ex.get('ja') or '').strip()
+        if pat_miru.fullmatch(ja): n_miru += 1
+        m = pat_doko.fullmatch(ja)
+        if m and not is_loc and m.group(1).strip() == form.strip(): n_doko += 1
+        m = pat_kore.fullmatch(ja)
+        if m and not is_dem and len(exs) >= 3: n_kore += 1
+        m = pat_quote.fullmatch(ja)
+        if m and m.group(1) not in GREETINGS: n_greet += 1
+        if ja and ja in seen: n_dup += 1
+        elif ja: seen[ja] = i
+        ja_xrefs[ja] += 1
+print('Template Xを 見ました leak (A18, target 0):', n_miru)
+print('Template あの Xは どこ non-location (A19, target 0):', n_doko)
+print('Template これは Xです bare on 3+ex non-demonstrative (A20, target 0):', n_kore)
+print('Template 「X」と あいさつしました non-greeting (A21, target 0):', n_greet)
+print('Within-entry duplicate ja (A17/vocab, target 0):', n_dup)
+print('Cross-entry boilerplate ≥5x (A22, target 0):',
+      sum(1 for c in ja_xrefs.values() if c >= 5))
+```
+
 ### Phase-0 Kanji (106 entries)
 
 ```python
@@ -1530,6 +1575,53 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT cite 'JLPT.jp official' as a current grammar source
   — JEES discontinued the official 出題基準 in 2010. Use
   '旧出題基準 1994/2002' explicitly."
+- "Do NOT bulk-fill vocab example slots with the `Xを 見ました。`
+  template ('I saw X.'). The 2026-05-15 vocab audit removed 108
+  occurrences of this template at example[1] across the noun
+  corpus — many were semantically nonsensical ('I saw this
+  morning.', 'I saw next to.', 'I saw summer.', 'I saw winter.')
+  and English translations were uniformly missing articles ('I
+  saw wall.'). CI gate JA-83 locks the regression. Replacement
+  sentences must use the headword in a varied semantic frame."
+- "Do NOT use `あの Xは どこですか。` ('Where is that X?') as a
+  vocab example for non-location headwords. The 2026-05-15 audit
+  caught 111 such cases where X was a time word, body part, or
+  abstract noun, producing absurd English ('Where is that
+  September?', 'Where is that time?', 'Where is that day before
+  yesterday?'). JA-83 blocks. Use location-only when appropriate;
+  otherwise pick a sentence frame that fits the headword's
+  semantic class."
+- "Do NOT use bare `これは Xです。` / `あれは Xです。` as a vocab
+  example slot on entries with 3+ examples (exception: the
+  demonstrative-pronoun entries これ/それ/あれ/この/その/あの
+  themselves — there the template IS the canonical demonstration
+  of the headword). 178 noun entries used this template at
+  example[1] in the 2026-05-15 audit, wasting a slot that should
+  have demonstrated the headword in real-world context. JA-83
+  blocks. Replacement should be a natural usage sentence."
+- "Do NOT pair non-greeting fillers with `あいさつしました`
+  ('greeted with X'). 12 vocab entries had patterns like '「え
+  ーと」と あいさつしました。' ('I greeted with um.') and '「いい
+  え」と あいさつしました。' ('I greeted with no.') — semantically
+  nonsensical because えーと/いいえ/ええ/そうですか aren't greetings.
+  JA-83 blocks. Use 言いました / 聞きました with the appropriate
+  context, or restructure the sentence."
+- "Do NOT allow the same `ja` string to appear twice in the same
+  vocab entry's examples array. The 2026-05-15 audit caught 86
+  such within-entry duplicates (typically at indices [0] AND [2]
+  with [1] being a templated filler). Each example slot must be
+  unique. When authoring, programmatically check the existing
+  examples before writing a new one."
+- "When authoring vocab example replacements, pre-validate against
+  the 106-character N5 kanji whitelist before saving. Common
+  kanji that LOOK N5 but aren't: 公, 園, 多, 少, 物, 魚, 兄, 弟,
+  姉, 妹, 牛, 茶, 米, 肉, 元, 春, 夏, 秋, 冬, 朝, 昼, 夜, 海, 雪,
+  鳥, 犬, 猫, 馬, 体, 切, 静, 玄, 関, 音, 字, 開, 部, 屋, 家, 京,
+  紙, 回, 色, 光, 走, 玉, 枚, 知, 引, 好, 晩. If unsure, use
+  kana — kana never trips JA-13. The 2026-05-15 vocab audit
+  initially shipped 38 OOS-kanji uses across the round-4 batch
+  that had to be reverted to kana on a second pass; pre-validation
+  would have caught these before the apply step."
 
 Plus other audit-discovered "we considered and decided no" items.
 

@@ -612,6 +612,181 @@ A17. WITHIN-PATTERN DUPLICATE EXAMPLES
      a newly-authored sentence demonstrating the same pattern + same
      form tag, using N5-vocab + N5-kanji only.
 
+A18. VOCAB EXAMPLE TEMPLATE-LEAK: 'Xを 見ました。'
+     (added 2026-05-15; locked by JA-83)
+
+     Anti-pattern: data/vocab.json carried 108 entries whose example
+     at index [1] was the literal template 'Xを 見ました。' →
+     "I saw X." The Japanese is grammatical but semantically weak
+     for many headwords:
+       - 'おとうとを 見ました。'   "I saw younger brother." (unnatural)
+       - 'けさを 見ました。'       "I saw this morning." (nonsense)
+       - 'なつを 見ました。'       "I saw summer." (nonsense)
+       - 'となりを 見ました。'     "I saw next to." (nonsense)
+       - 'まいばんを 見ました。'   "I saw every night." (nonsense)
+     The English translations are also broken — most omit the
+     article ("I saw wall.", "I saw pork."), confirming bulk LLM
+     generation without review.
+
+     Detection regex (strict; require X is a single token, no
+     whitespace, so legitimate sentences like 'どうぶつえんで ぞうを
+     見ました。' / "I saw an elephant at the zoo" pass through):
+
+         ^[^\s]{1,10}を\s*見ました(?:よ|ね|よね)?。?$
+
+     Fix policy: replace with a natural N5-level sentence that uses
+     the headword in a different semantic frame
+     (e.g. Xを 買いました / Xが すきです / Xに 行きます / Xを つかいます).
+
+     CI gate: JA-83 prevents future regression.
+
+A19. VOCAB EXAMPLE TEMPLATE-LEAK: 'あの Xは どこですか。' for
+     non-location headwords
+     (added 2026-05-15; locked by JA-83)
+
+     Anti-pattern: 111 entries used 'あの Xは どこですか。' →
+     "Where is that X?" at index [1] where X is a time word, body
+     part, abstract noun, or other non-location concept:
+       - 'あの 九月は どこですか。'       "Where is that September?"
+       - 'あの ときは どこですか。'        "Where is that time?"
+       - 'あの おとといは どこですか。'    "Where is that day before yesterday?"
+       - 'あの けいかんは どこですか。'    "Where is that police officer?"
+     Locational `どこ` is appropriate for places (the trash entry
+     for ホテル would naturally read 'ホテルは どこですか。'). For
+     non-location headwords, the question is nonsense.
+
+     Detection (skip when entry.section starts with 13-locations
+     or 26-house):
+
+         pat = re.compile(r"^あの\s+(.{1,10})は\s*どこですか。?$")
+         m = pat.fullmatch(ja)
+         if m and not is_locationish and m.group(1).strip() == form.strip():
+             flag
+
+     Fix policy: replace with a natural sentence using the headword
+     in context appropriate to its semantic class (time → 'Xに 〜',
+     body part → 'Xが いたいです', person → 'Xは 〜さんです', etc.).
+
+A20. VOCAB EXAMPLE TEMPLATE-LEAK: 'これは Xです。' / 'あれは Xです。'
+     bare introduction on entries with 3+ examples
+     (added 2026-05-15; locked by JA-83)
+
+     Anti-pattern: 178 noun entries used bare 'これは Xです。' /
+     'あれは Xです。' / 'それは Xです。' at example[1] where the
+     entry already has 3 or more examples. These bare templates
+     waste an example slot:
+       - 'これは お母さんです。'   "This is mother." (no article in EN)
+       - 'あれは 男です。'         "That is man." (bare)
+       - 'これは えです。'          "This is picture." (bland)
+     The template is fine for an INTRODUCTORY example; it becomes
+     filler when the entry has 3+ examples and other slots already
+     demonstrate the headword.
+
+     EXCEPTION: for the demonstrative-pronoun entries themselves
+     (これ / それ / あれ / この / その / あの), 'これは Xです。' IS
+     the canonical demonstration of the headword. Do NOT flag for
+     entries with section/pos in the 5-demonstratives family.
+
+     Detection:
+
+         pat = re.compile(r"^(これ|あれ|それ)は\s*(.{1,10})です。?$")
+         is_demonstrative = (entry.pos == "demonstrative" or
+                             "demonstrative" in entry.section.lower())
+         if pat.fullmatch(ja) and not is_demonstrative \
+            and len(entry.examples) >= 3:
+             flag
+
+     Fix policy: replace with a natural usage of the headword
+     (e.g. 'Xは どこですか。', 'Xを 〜', 'Xが 好きです。').
+
+A21. VOCAB EXAMPLE TEMPLATE-LEAK: '「X」と あいさつしました。' where
+     X is not a greeting
+     (added 2026-05-15; locked by JA-83)
+
+     Anti-pattern: 12 entries in sections 36-greetings and 39-fillers
+     used '「X」と あいさつしました。' → "I greeted with X." even when
+     X was a non-greeting filler:
+       - '「えーと」と あいさつしました。'   (えーと = "um/uh")
+       - '「いいえ」と あいさつしました。'   (no isn't a greeting)
+       - '「ええ」と あいさつしました。'     (yes isn't a greeting)
+       - '「そうですか」と あいさつしました。' (response, not greeting)
+
+     Detection:
+
+         pat = re.compile(r"^「(.{1,10})」と\s*あいさつしました。?$")
+         GREETINGS = {"おはよう","こんにちは","こんばんは","ありがとう",
+                      "さようなら","おやすみ","ただいま","おかえり",
+                      "もしもし","いってきます","いってらっしゃい",
+                      "おかげさまで"}
+         m = pat.fullmatch(ja)
+         if m and m.group(1) not in GREETINGS:
+             flag
+
+     Fix policy: change the verb to 言いました or restructure into a
+     more natural usage (e.g. '「えーと」と 聞きました。', '「いいえ、
+     ちがいます」と 言いました。').
+
+A22. VOCAB CROSS-ENTRY BOILERPLATE (the JA-81 analogue for vocab)
+     (added 2026-05-15)
+
+     A single ja sentence appearing as an example in 5 or more vocab
+     entries is suspicious. Some reuse is legitimate when each entry
+     teaches a different word in the same sentence — e.g. the
+     sentence 'コーヒーは 飲みますが、にくは たべません。' naturally
+     appears under コーヒー, にく, 飲む, 食べる. But the threshold for
+     "natural reuse" is much lower than for grammar (where JA-81 uses
+     10). When the count hits ≥ 5, audit each occurrence:
+       - KEEP if the entry's headword is genuinely demonstrated by
+         that part of the sentence.
+       - REPLACE if the entry's headword is incidental (the sentence
+         could have been written without it). Example: the counter
+         まい entry using 'まいにち にほんごを べんきょうします。' —
+         that's 毎日, not the counter 枚.
+
+     Threshold: ≥ 5 → audit. The 2026-05-15 pass diversified 5
+     sentences (8x→4x, 7x→2x, three 5x→3-4x) using this rule.
+
+A23. VOCAB HEADWORD-MISSING-FROM-EXAMPLE
+     (added 2026-05-15)
+
+     Every example sentence must use its entry's headword somehow.
+     Examples that don't contain the headword are silent bugs: the
+     learner sees the example but doesn't see the word being taught.
+
+     Detection: for each example, check that ja contains AT LEAST
+     ONE of:
+       - the entry's `form`
+       - the entry's `reading`
+       - any string in entry.readings[] (for multi-reading entries)
+       - a verb stem (for verb entries) — see A23a
+       - a counter-rendaku alternant (for counter entries) — see A23b
+
+     Failure mode: 'たばこ' entry had example 'バスで 学校へ 行きます。'
+     at [1] — about bus/school, no たばこ at all. Real bug.
+
+     A23a. Verb-stem awareness (so まつ→まちます counts as a hit):
+            verb-1 (godan): drop the final u-row kana
+              まつ → ま; かう → か; よむ → よ; はたらく → はたら
+            verb-2 (ichidan): drop the final る
+              たべる → たべ; おきる → おき; ねる → ね
+            verb-3 (irregular):
+              する → し / す ; くる → こ / き / く
+              -する compounds: べんきょうする → べんきょう
+            Compound -くる verbs (e.g. もってくる, つれてくる):
+              prefix + {き, こ, く} all count as headword stems.
+
+     A23b. Counter rendaku (so 三びき counts as a ひき hit):
+             ひき → {ぴき, びき}     (一ぴき, 三びき, 八ぴき)
+             はい → {ぱい, ばい}     (一ぱい, 三ばい)
+             ふん → {ぷん}          (一ぷん, 三ぷん)
+             ほん → {ぽん, ぼん}     (一ぽん, 三ぼん)
+             ほ   → {ぽ, ぼ}
+             かい → {がい}          (三がい floor counter)
+             けん → {げん}
+
+     Fix policy: replace the example with one that uses the headword
+     in inflected or rendaku-altered form.
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 
@@ -1322,6 +1497,81 @@ FP-4. Cross-pattern reuse of canonical sentences below threshold-10
             whose marker is NOT visible in the sentence (genuine
             misplaced boilerplate, not canonical reuse).
 
+FP-5. Counter rendaku in headword-presence checks
+      (added 2026-05-15)
+
+      Counter vocab entries headed ひき / はい / ふん / ほん / etc.
+      legitimately appear in examples as ぴき / ばい / ぷん / ぽん
+      (rendaku / handakuon alternation triggered by preceding number):
+        - n5.vocab.9-counters-common.ひき [2] = 'うちには ねこが 三びき います。'
+        - n5.vocab.9-counters-common.はい [0] = 'コーヒーを 一ぱい 飲みました。'
+      These are CORRECT examples. A naive substring check for "ひき"
+      in the ja text will miss "びき" and false-flag. Apply the
+      rendaku alternant set (see A23b) before flagging.
+
+FP-6. Compound -くる verbs in headword-presence checks
+      (added 2026-05-15)
+
+      Compound verbs ending in くる (e.g. もってくる, つれてくる)
+      conjugate on the くる auxiliary:
+        - もってくる → te-form もってきて, past もってきました
+      The kana "くる" never appears in conjugated examples. A naive
+      substring check misses these. Expand the stem set to
+      prefix + {き, こ, く} for any reading containing くる.
+
+FP-7. Demonstrative-pronoun entries using 'これは Xです。'
+      (added 2026-05-15)
+
+      For these entries: これ, それ, あれ, この, その, あの, here-style
+      and there-style demonstratives in section 5-demonstratives.
+      Examples like 'これは ほんです。' / "This is a book." are the
+      CANONICAL demonstration of the headword. They are not
+      boilerplate — the headword is the demonstrative itself, and
+      the template IS the lesson.
+
+      RULE for A20 (KORE-BARE template): skip when entry.pos =
+      "demonstrative" OR section contains "demonstrative". The
+      A20 detector hard-codes this exception.
+
+FP-8. English translations with trailing parenthetical annotations
+      (added 2026-05-15)
+
+      Vocab examples often carry pedagogical annotations after the
+      sentence terminator:
+        - "I am a student. (topic は)"
+        - "Good morning. (formal)"
+        - "It is my book. (possessive の)"
+      The sentence itself IS terminated; the annotation is metadata.
+      A naive "ends with .?!" check sees the closing ")" and false-
+      flags. Strip trailing /\s*\([^)]*\)\s*$/ BEFORE checking for
+      terminator.
+
 ============================================================
-END OF AUDIT BRIEF (updated 2026-05-14 with v2 native-audit lessons)
+N5 KANJI WHITELIST CONSTRAINT (authoring guardrail)
+============================================================
+
+When AUTHORING replacement sentences during a fix pass, every kanji
+used MUST be in the 106-character N5 whitelist:
+
+  一 七 万 三 上 下 中 九 二 五 人 今 休 会 何 先 入 八 六 円
+  出 分 前 力 北 十 千 午 半 南 友 口 古 右 号 名 員 四 国 土
+  外 大 天 女 子 学 安 小 山 川 左 年 店 後 手 新 日 時 曜 書
+  月 木 本 来 東 校 母 毎 気 水 火 父 生 田 男 番 白 百 目 社
+  私 空 立 聞 花 行 西 見 言 話 語 読 買 足 車 週 道 金 長 間
+  雨 電 食 飲 駅 高
+
+Common kanji that LOOK N5 but are NOT (use kana instead during
+authoring):
+
+  公 園 多 少 帰 早 物 魚 兄 弟 姉 妹 牛 茶 米 肉 元 漢 達
+  春 夏 秋 冬 朝 昼 夜 晩 海 雪 鳥 犬 猫 馬 元 始 教 仕 事
+  用 体 切 静 玄 関 音 字 開 部 屋 家 京 紙 回 色 光 走 玉
+  枚 知 引 好 開 始 雪 飛 走 都 京 京 兄
+
+If a fix-pass introduces a non-N5 kanji, JA-13 will fail. Always
+pre-scan authored sentences against the whitelist before saving.
+
+============================================================
+END OF AUDIT BRIEF (updated 2026-05-15 with vocab-audit lessons:
+A18-A23 added, FP-5-8 added, kanji-whitelist authoring guardrail)
 ============================================================
