@@ -2319,11 +2319,18 @@ def _check_ja_35_review_status() -> list[str]:
 
 
 def _check_ja_34_core_late_split() -> list[str]:
-    """ISSUE-033 (audit round 4, 2026-05-05): data/n5_core_pattern_ids.json
-    enumerates the strict-N5 vs late-N5 (borderline N5/N4) pattern IDs.
-    Must agree byte-for-byte with the live grammar.json tier field, so
-    the home count "178 patterns (153 core + 25 late-N5)" stays honest
-    as content evolves.
+    """ISSUE-033 (audit round 4, 2026-05-05) + ISSUE-005 (2026-05-14):
+    data/n5_core_pattern_ids.json enumerates the strict-N5 vs late-N5
+    (borderline N5/N4) vs deferred-to-N4 pattern IDs. Must agree
+    byte-for-byte with the live grammar.json tier field, so the home
+    count "178 patterns (153 core + 20 late-N5 + 5 deferred)" stays
+    honest as content evolves.
+
+    Schema update 2026-05-14: late_n5 became array-of-objects
+    {id, rationale, sources_n5, sources_n4}. Plus new deferred_to_n4
+    flat array. This check accepts both old (flat string) and new
+    (object) shape for late_n5; deferred_to_n4 is optional (treated
+    as empty if absent).
     """
     failures: list[str] = []
     g_path = ROOT / "data" / "grammar.json"
@@ -2342,8 +2349,16 @@ def _check_ja_34_core_late_split() -> list[str]:
                          if (p.get("tier", "core_n5") or "core_n5") == "core_n5")
     late_actual = sorted(p["id"] for p in grammar.get("patterns", [])
                          if p.get("tier") == "late_n5")
+    deferred_actual = sorted(p["id"] for p in grammar.get("patterns", [])
+                             if p.get("tier") == "deferred_to_n4")
     core_listed = sorted(whitelist.get("core_n5", []))
-    late_listed = sorted(whitelist.get("late_n5", []))
+    # late_n5 may be flat strings (legacy) or objects (post 2026-05-14)
+    late_raw = whitelist.get("late_n5", [])
+    if late_raw and isinstance(late_raw[0], dict):
+        late_listed = sorted(item.get("id", "") for item in late_raw)
+    else:
+        late_listed = sorted(late_raw)
+    deferred_listed = sorted(whitelist.get("deferred_to_n4", []))
 
     if core_actual != core_listed:
         only_actual = set(core_actual) - set(core_listed)
@@ -2359,6 +2374,13 @@ def _check_ja_34_core_late_split() -> list[str]:
             failures.append(f"JA-34: late_n5 missing from whitelist: {sorted(only_actual)[:5]}")
         if only_listed:
             failures.append(f"JA-34: late_n5 in whitelist but not in grammar.json: {sorted(only_listed)[:5]}")
+    if deferred_actual != deferred_listed:
+        only_actual = set(deferred_actual) - set(deferred_listed)
+        only_listed = set(deferred_listed) - set(deferred_actual)
+        if only_actual:
+            failures.append(f"JA-34: deferred_to_n4 missing from whitelist: {sorted(only_actual)[:5]}")
+        if only_listed:
+            failures.append(f"JA-34: deferred_to_n4 in whitelist but not in grammar.json: {sorted(only_listed)[:5]}")
     expected_total = whitelist.get("totalCount")
     actual_total = len(grammar.get("patterns", []))
     if expected_total != actual_total:

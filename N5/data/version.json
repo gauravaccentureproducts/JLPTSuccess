@@ -11,7 +11,6 @@
     "papers": 28,
     "paperQuestions": 402
   },
-  "invariants": "84/84 (per tools/check_content_integrity.py)",
   "cacheVersion": "jlptsuccess-n5-v1.15.5",
-  "note": "Single source of truth for build-stamp + corpus counts. Read by js/app.js footer parser (fallback path), sw.js CACHE_VERSION derivation, and the README-consistency check. Regenerate via `python tools/build_version_json.py`."
+  "note": "Single source of truth for build-stamp + corpus counts (public). Read by js/app.js footer parser (fallback path), sw.js CACHE_VERSION derivation, and the README-consistency check. CI metadata (invariants passing count, etc.) lives in sibling data/build_metadata.json per IMP-002. Regenerate via `python tools/build_version_json.py`."
 }

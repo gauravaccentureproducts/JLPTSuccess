@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "doc": "Internal / dev-facing build metadata. Sibling to data/version.json which holds PUBLIC build-stamp + corpus counts. This file holds CI plumbing fields that don't belong in the public version surface (which the runtime app + README parse). Created 2026-05-14 per IMP-002.",
+    "schema_version": 1,
+    "lastUpdated": "2026-05-14",
+    "consumers": [
+      "tools/check_content_integrity.py (could read invariants_passing to self-verify)",
+      "Future CI dashboards / contributor tooling"
+    ],
+    "see_also": [
+      "data/version.json (public build stamp + corpus counts)"
+    ]
+  },
+  "version": "v1.15.5",
+  "builtAt": "2026-05-14T08:30:00Z",
+  "invariants_passing": "84/84",
+  "invariants_source": "tools/check_content_integrity.py",
+  "ci_notes": "84 invariants total as of 2026-05-14 audit pass. JA-81 added this release (boilerplate-leak guard). New file kanji_scope_rules.json documents the single-source-of-truth surface map. JA-34 schema updated to handle late_n5 as array-of-objects with per-pattern attribution and deferred_to_n4 as new field."
+}
