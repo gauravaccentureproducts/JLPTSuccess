@@ -323,6 +323,20 @@ def main(argv: list[str] | None = None) -> int:
         text = text_for(it)
         if not text:
             continue
+        # Strip JLPT-style bunsetsu spaces before sending to VOICEVOX.
+        # The display JSON keeps them for learner readability
+        # ('コーヒーと こうちゃを かいました'), but OpenJTalk treats each
+        # space as a hard token boundary and inserts an inter-bunsetsu
+        # pause. Particles trailing a bunsetsu (こうちゃを) get devoiced
+        # at the pause boundary, making them inaudible. Caught 2026-05-14
+        # on n5-008.8 ('コーヒーと こうちゃを かいました'): listener
+        # reported the を particle missing from the audio; phoneme
+        # analysis confirmed it was rendered but stress-weakened at the
+        # pause boundary. The legacy build_audio.py already strips
+        # spaces via normalize_for_tts() for the same reason. Apply the
+        # same normalization here so the runtime <audio> matches the
+        # particle structure of the displayed text.
+        text = text.replace(" ", "").replace("　", "").replace("\t", "")
         # Output is .mp3 (transcoded post-synth). Final path varies per
         # module - listening uses the explicit `audio` field if given.
         if args.target == "listening" and it.get("audio"):
