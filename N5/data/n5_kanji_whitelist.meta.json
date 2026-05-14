@@ -20,6 +20,18 @@
       "data/kanji.json (full per-kanji records with examples + stroke-order SVG paths)",
       "data/dokkai_kanji_exception.json (passage-allowed non-N5 kanji)",
       "KnowledgeBank/kanji_n5.md (source-of-truth markdown)"
-    ]
+    ],
+    "known_gaps_vs_full_n5_syllabus": {
+      "doc": "Kanji that appear in mainstream N5 reference sources (JEES official sample, Genki I, Minna no Nihongo I, Try! N5, Shin Kanzen Master N5, So-matome N5) but are NOT currently in this whitelist. Surfaced during the 2026-05-14 audit (ISSUE-002). The whitelist is intentionally capped at 106 to match the existing content-authoring envelope: each kanji in the whitelist has a full record in kanji.json (readings, mnemonic, look-alike clusters, examples) AND a stroke-order SVG under svg/kanji/ AND linked vocab entries in vocab.json. Adding new kanji requires authoring all of those artifacts; this list documents the queue without mis-classifying these kanji as N4 (they are NOT N4 — they are N5 in mainstream syllabi).",
+      "queued_n5_kanji": [
+        {"kanji": "多", "readings_on": ["タ"], "readings_kun": ["おお.い"], "primary_reading": "おお.い", "rationale": "Genki I L8, MnN L5, Try! N5; appears in 多い (many) — basic adjective"},
+        {"kanji": "少", "readings_on": ["ショウ"], "readings_kun": ["すく.ない", "すこ.し"], "primary_reading": "すく.ない", "rationale": "Genki I L8, MnN L5; appears in 少ない (few), 少し (a little)"},
+        {"kanji": "帰", "readings_on": ["キ"], "readings_kun": ["かえ.る"], "primary_reading": "かえ.る", "rationale": "Genki I L3, MnN L5; 帰る (return home) — daily-routine verb"},
+        {"kanji": "早", "readings_on": ["ソウ"], "readings_kun": ["はや.い"], "primary_reading": "はや.い", "rationale": "Genki I L8, MnN L4; 早い (early/fast) — basic adjective, distinct from 速い (also fast — N4)"},
+        {"kanji": "物", "readings_on": ["ブツ", "モツ"], "readings_kun": ["もの"], "primary_reading": "もの", "rationale": "Genki I L7, MnN L6; 物 (thing), 食べ物 (food), 飲み物 (drink)"},
+        {"kanji": "魚", "readings_on": ["ギョ"], "readings_kun": ["さかな", "うお"], "primary_reading": "さかな", "rationale": "Borderline N5/N4; in MnN L6 vocab but JEES sample uses kana. Conservative defer until next content pass."}
+      ],
+      "remediation_owner": "future content-authoring pass — full kanji.json entry + svg/kanji/<glyph>.svg KanjiVG stroke order + ≥2 vocab.json entries linking the kanji form. Estimated effort: ~1 hour per kanji including SVG sourcing under CC-BY-SA 3.0."
+    }
   }
 }

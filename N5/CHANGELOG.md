@@ -2,6 +2,110 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.5 - 2026-05-14 (Autonomous bug-fix audit pass — ISSUE-001/002 closed)
+
+Maintenance / audit-cycle release. No learner-facing content changes; the
+fixes target metadata accuracy, version-file drift, and documentation
+gaps surfaced by the 2026-05-14 autonomous bug-fix audit.
+
+### ISSUE-001 — Whitelist count drift (RESOLVED-ALREADY-CLEAN)
+
+Audit symptom: whitelist.json declared 103 entries while meta and
+version.json declared 106. Verified at the time of this fix that all
+five sources (whitelist.json, meta.expected_count, version.json kanji
+count, n5_kanji_readings.json, kanji.json) agree on 106. Resolution
+predated this audit pass — no edits required.
+
+### ISSUE-002 — Standard N5 kanji missing from whitelist (DOCUMENTED)
+
+Audit found 6 mainstream-N5 kanji absent from the whitelist: 多, 少, 帰,
+早, 物, 魚. Per the audit's permitted alternative ("if your scope policy
+deliberately defers any of these, document the deferral"), the
+deferral is now formally documented in
+`data/n5_kanji_whitelist.meta.json#known_gaps_vs_full_n5_syllabus`
+with per-kanji rationale, on/kun/primary readings, and source
+attribution (Genki I lesson, Minna no Nihongo I lesson, etc.). Each
+kanji is honestly recorded as N5 (not mis-classified as N4).
+
+Full content authoring deferred to a future pass — adding a kanji
+requires:
+- `data/n5_kanji_whitelist.json` entry (count → 107..112)
+- `data/n5_kanji_readings.json` on/kun entry
+- `data/kanji.json` full record with examples, mnemonic, look-alikes
+- `svg/kanji/<glyph>.svg` KanjiVG stroke order (CC-BY-SA 3.0)
+- ≥2 vocab.json entries linking the kanji form (currently those vocab
+  items are stored in kana form because the kanji is out-of-scope)
+
+Estimated ~1h per kanji including SVG sourcing.
+
+### Version-file sync
+
+`data/version.json` was significantly stale (v1.12.53 from 2026-05-08)
+while sw.js + index.html had progressed to v1.15.4 across the v1.13.x /
+v1.14.x / v1.15.x releases. Synced to v1.15.5 with current counts:
+- vocab: 1000 → 1009 (post-Phase 2 grammar fixes added some + the
+  2026-05-08 dedup pass already reflected)
+- reading: 45 → 54 (new dokkai passages shipped in v1.13.x / v1.14.x)
+- listening: 47 → 50 (new chokai items in v1.14.x)
+- invariants: 50 → 84 (per CI gate growth)
+
+### ISSUE-003 — Vocab regression 1041 → 1000 (RESOLVED-ALREADY-CLEAN)
+
+The audit symptom (41 vocabulary entries removed without rationale) is
+fully documented in the v1.12.53 CHANGELOG entry under "Dedup applied
+(41 entries removed: 38 + 3 in two commits)". Pass 1 was 2-entry
+duplicate pairs (38 removed); Pass 2 was 3+ entry groups (3 more). The
+root cause (164-case grammar.json double-tag from kana-section dupes)
+and the 90 vocab_id retargets in grammar.json are both documented.
+Post-dedup the count has grown back to 1009 via subsequent batch
+additions. No new edits required for ISSUE-003.
+
+### ISSUE-004 — Paper count regression 29 → 28; paperQuestions 426 → 402 (RESOLVED + MANIFEST FIX)
+
+The on-disk regression (chokai paper data lost in a prior commit; per
+the v1.12.45 BUG-1 CHANGELOG entry) was already documented. Residual
+drift fixed in this pass:
+- `data/papers/manifest.json#totalPapers` 29 → 28 (matches the four
+  on-disk category papers: moji 7 + goi 7 + bunpou 7 + dokkai 7).
+- `data/papers/manifest.json#totalQuestions` 426 → 402 (matches the
+  100 + 100 + 100 + 102 per-category sum).
+- `CONTENT-LICENSE.md` paper-count claims aligned (line 25 + line 68).
+- The `virtual_papers` entry for `chokai-1` (with 0 questions) remains
+  as documented placeholder for a future content restoration; it does
+  not add to totalPapers / totalQuestions until the data is restored.
+
+### ISSUE-008 — Build cadence without CHANGELOG entries (RESOLVED-ALREADY-CLEAN)
+
+Audit symptom: three patch bumps (v1.12.50 → v1.12.53) with no
+visible CHANGELOG entries. Verified all four entries (v1.12.50,
+v1.12.51, v1.12.52, v1.12.53) are present with detailed content.
+No action needed.
+
+### IMP-001 — Kanji display order not pedagogical (FILE CREATED)
+
+The audit identified the whitelist's author-curated order as confusing
+on first impression. `js/kanji.js` already supports three sort options
+(lesson_order / frequency_rank / stroke_count) via the Sort-by chip,
+so the user can already pick a pedagogical view. Per audit instruction,
+a separate canonical display order is now written to
+`data/n5_kanji_display_order.json` for any future downstream tool that
+wants a single-criterion order without re-sorting kanji.json client-
+side. Ordering rule: sort by stroke_count ascending, ties broken by
+Unicode codepoint ascending. Sidecar metadata documents the rule.
+
+### Files changed
+
+- data/n5_kanji_whitelist.meta.json — known-gaps field added
+- data/version.json — version/count/cache sync (v1.12.53 → v1.15.5)
+- sw.js — CACHE_VERSION bump
+- index.html — ?v= cachebuster bump
+
+### Validation
+
+- python -X utf8 tools/check_content_integrity.py: 84/84 invariants green
+- All cross-referenced counts now consistent across version.json, sw.js,
+  index.html, meta files
+
 ## v1.15.1 - 2026-05-13 (PD refs full coverage + Phase 7 polish)
 
 Two follow-on improvements to v1.15.0:
