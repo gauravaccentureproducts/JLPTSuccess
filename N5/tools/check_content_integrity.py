@@ -1006,6 +1006,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     # consistently absent. Mixed populations cause UI badges to render
     # partially (broken UX). Per anti-pattern §3.2.34.
     ("JA-79", "Grammar example form-field is all-populated or all-empty within a pattern (2026-05-13)", lambda: _check_ja_79_form_field_consistency()),
+    # JA-81 (2026-05-14): boilerplate-leak detection. Discovered in the
+    # Phase-1/2 grammar-example content audit that a small set of canned
+    # sentences had been copy-pasted into example slots across many
+    # patterns without checking pattern-relevance (e.g. "あなたは がくせいですか。"
+    # appeared in 21 patterns, "あなたは どなたですか。" in 18). Phase 2 cleanup
+    # dropped max occurrences below 10. This invariant locks the gain.
+    ("JA-81", "No grammar example sentence repeated in 10+ patterns (boilerplate-leak guard, 2026-05-14)", lambda: _check_ja_81_no_boilerplate_leak()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4093,6 +4100,44 @@ def _check_ja_53_grammar_cultural_callout() -> list[str]:
             # The field exists but contains a trivial placeholder
             failures.append(
                 f"JA-53 {pid}: cultural_callout too short ({len(cc.strip())} chars, need >=20)"
+            )
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-81 added for boilerplate-leak detection (2026-05-14)
+# ---------------------------------------------------------------------------
+
+def _check_ja_81_no_boilerplate_leak() -> list[str]:
+    """No grammar example sentence appears as the `ja` field in 10 or more
+    patterns. This caps the boilerplate-leak class of bug — a small set of
+    canned sentences copy-pasted across many patterns without verifying
+    pattern-relevance (the bug Phase 1/2 of the 2026-05-14 content audit
+    cleaned up). Some cross-pattern reuse is legitimate (e.g. 'わたしは がくせいです。'
+    in basic copula patterns), so the threshold is 10 — well above normal
+    legitimate reuse, well below the original 14-21 occurrences of the
+    worst offenders pre-cleanup."""
+    from collections import defaultdict
+    failures = []
+    try:
+        grammar = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-81 could not read grammar.json: {e}"]
+    occurrences = defaultdict(list)
+    for p in grammar.get("patterns", []):
+        pid = p.get("id", "?")
+        for ex in p.get("examples", []):
+            ja = (ex.get("ja") or "").strip()
+            if ja:
+                occurrences[ja].append(pid)
+    THRESHOLD = 10
+    for ja, pids in occurrences.items():
+        if len(pids) >= THRESHOLD:
+            failures.append(
+                f"JA-81 sentence appears in {len(pids)} patterns "
+                f"(>= {THRESHOLD} threshold, boilerplate-leak suspected): "
+                f"{ja[:50]!r} in {','.join(pids[:8])}"
+                + (f"... and {len(pids)-8} more" if len(pids) > 8 else "")
             )
     return failures
 
