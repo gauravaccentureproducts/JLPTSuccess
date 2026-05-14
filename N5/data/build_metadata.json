@@ -13,7 +13,7 @@
   },
   "version": "v1.15.5",
   "builtAt": "2026-05-14T08:30:00Z",
-  "invariants_passing": "84/84",
+  "invariants_passing": "85/85",
   "invariants_source": "tools/check_content_integrity.py",
   "ci_notes": "84 invariants total as of 2026-05-14 audit pass. JA-81 added this release (boilerplate-leak guard). New file kanji_scope_rules.json documents the single-source-of-truth surface map. JA-34 schema updated to handle late_n5 as array-of-objects with per-pattern attribution and deferred_to_n4 as new field."
 }

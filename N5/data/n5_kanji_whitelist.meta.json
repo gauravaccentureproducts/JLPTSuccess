@@ -11,15 +11,14 @@
       "tools/check_content_integrity.py (JA-13 — out-of-scope-kanji enforcement)",
       "tools/audit_dokkai_kanji_scope.py (passage-level scope audit)",
       "tools/audit_teacher_review.py (teacher-review pre-filter)",
-      "tools/build_data.py (writes the file from KnowledgeBank/kanji_n5.md)"
+      "not-required/tools-archive/build_data_kb_era.py (legacy build; KnowledgeBank source deleted 2026-05-14)"
     ],
     "ordering_convention": "Author-curated (roughly first-encountered-in-lesson-order, not strictly sorted by stroke count or Unicode). The order is stable across builds; new additions go at the end.",
     "exceptions": "data/dokkai_kanji_exception.json lists kanji that may appear in dokkai passages and (since 2026-05-08) in moji/goi/bunpou paper distractors despite NOT being in the whitelist. JA-13 + JA-28 + JA-40 enforce the surface-specific rules.",
     "see_also": [
       "data/n5_kanji_readings.json (per-kanji on/kun/primary readings)",
       "data/kanji.json (full per-kanji records with examples + stroke-order SVG paths)",
-      "data/dokkai_kanji_exception.json (passage-allowed non-N5 kanji)",
-      "KnowledgeBank/kanji_n5.md (source-of-truth markdown)"
+      "data/dokkai_kanji_exception.json (passage-allowed non-N5 kanji)"
     ],
     "known_gaps_vs_full_n5_syllabus": {
       "doc": "Kanji that appear in mainstream N5 reference sources (JEES official sample, Genki I, Minna no Nihongo I, Try! N5, Shin Kanzen Master N5, So-matome N5) but are NOT currently in this whitelist. Surfaced during the 2026-05-14 audit (ISSUE-002). The whitelist is intentionally capped at 106 to match the existing content-authoring envelope: each kanji in the whitelist has a full record in kanji.json (readings, mnemonic, look-alike clusters, examples) AND a stroke-order SVG under svg/kanji/ AND linked vocab entries in vocab.json. Adding new kanji requires authoring all of those artifacts; this list documents the queue without mis-classifying these kanji as N4 (they are NOT N4 — they are N5 in mainstream syllabi).",

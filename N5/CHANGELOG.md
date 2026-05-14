@@ -93,6 +93,53 @@ wants a single-criterion order without re-sorting kanji.json client-
 side. Ordering rule: sort by stroke_count ascending, ties broken by
 Unicode codepoint ascending. Sidecar metadata documents the rule.
 
+### P2 — closed in this release
+
+- **ISSUE-005**: late_n5 evidence-based review. 25 patterns evaluated
+  against Genki I+II / MnN / Try! N5 / Shin Kanzen Master N5. 5 deferred
+  to N4 (consensus): n5-144, n5-157, n5-158, n5-175, n5-176. New file
+  `data/n5_deferred_to_n4.json` documents them with rationale + source
+  attribution. Remaining 20 late_n5 patterns converted from flat strings
+  to objects with per-pattern attribution. JA-34 invariant updated to
+  handle the new schema.
+- **ISSUE-006**: legacy `_note` field in `n5_core_pattern_ids.json`
+  deleted (verified zero consumers).
+- **ISSUE-007**: kanji-scope rule consolidation. Already implemented by
+  2026-05-08 schema v2 migration of `dokkai_kanji_exception.json` (its
+  _meta cites "ISSUE-007 + IMP-005"). New summary file
+  `data/kanji_scope_rules.json` documents all 6 surfaces + which CI
+  invariant enforces each.
+- **IMP-002**: build metadata separation. `data/version.json#invariants`
+  field moved to sibling `data/build_metadata.json`. version.json now
+  strictly public surface.
+
+### P3 — closed in this release
+
+- **IMP-003**: branding empty-scaffold Playwright test added at
+  `tests/branding.spec.js`. Verifies that empty-string branding.json
+  values fall through to defaults (brand name, theme-color, og:title).
+- **IMP-004**: denormalized per-kanji record. New build step
+  `tools/build_n5_kanji_full.py` joins whitelist + readings + kanji.json
+  into one record per kanji. Output: `data/n5_kanji_full.json` (106
+  records, ~all metadata inline). Eliminates client-side join risk of
+  version drift between fetches.
+- **IMP-006**: new CI invariant JA-82 walks every `_meta.see_also` and
+  `_meta.consumers` field across `data/*.json` and verifies each path
+  reference resolves. Caught and fixed 5 stale references in this pass
+  (`KnowledgeBank/*` files deleted 2026-05-14, `tools/build_data.py`
+  renamed to `not-required/tools-archive/build_data_kb_era.py`).
+- **IMP-007**: Conventional Commits adoption + auto-CHANGELOG script.
+  New tool `tools/generate_changelog_from_commits.py` parses
+  `<type>: <subject>` formatted commits, groups by type (feat/content/
+  fix/etc.), emits a markdown block ready for paste into CHANGELOG.md.
+  Going forward, all commits should follow Conventional Commits format
+  for clean auto-generated changelogs.
+
+### CI invariants
+
+50/50 (pre-audit) → 84/84 (post-Phase-1/2 grammar audit) → **85/85**
+(post-this-audit pass). New: JA-82 (path-reference resolution).
+
 ### Files changed
 
 - data/n5_kanji_whitelist.meta.json — known-gaps field added

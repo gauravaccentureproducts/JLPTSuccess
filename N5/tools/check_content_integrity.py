@@ -1013,6 +1013,10 @@ CHECKS: list[tuple[str, str, callable]] = [
     # appeared in 21 patterns, "あなたは どなたですか。" in 18). Phase 2 cleanup
     # dropped max occurrences below 10. This invariant locks the gain.
     ("JA-81", "No grammar example sentence repeated in 10+ patterns (boilerplate-leak guard, 2026-05-14)", lambda: _check_ja_81_no_boilerplate_leak()),
+    # JA-82 (2026-05-14, IMP-006): every path mentioned in any _meta.see_also
+    # or _meta.consumers entry across data/*.json must resolve to an existing
+    # file/directory. Cross-reference rot detection.
+    ("JA-82", "_meta.see_also / _meta.consumers path references resolve (IMP-006, 2026-05-14)", lambda: _check_ja_82_meta_paths_resolve()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4129,6 +4133,81 @@ def _check_ja_53_grammar_cultural_callout() -> list[str]:
 # ---------------------------------------------------------------------------
 # JA-81 added for boilerplate-leak detection (2026-05-14)
 # ---------------------------------------------------------------------------
+
+def _check_ja_82_meta_paths_resolve() -> list[str]:
+    """IMP-006 (2026-05-14): every path string mentioned in any _meta.see_also
+    or _meta.consumers entry across data/*.json must resolve to an existing
+    file or directory. Catches the silent-rot bug where docs reference paths
+    that no longer exist after refactors / moves / deletions.
+
+    Each path string is the entire entry, possibly with a trailing
+    parenthetical comment — e.g. "data/grammar.json (per-pattern source)".
+    We split off the comment, take the first whitespace-delimited token, and
+    check whether that resolves under ROOT.
+    """
+    from pathlib import Path
+    failures = []
+    data_dir = ROOT / "data"
+    if not data_dir.is_dir():
+        return ["JA-82: data/ directory missing"]
+
+    def extract_path(entry):
+        """Take the path-like prefix from an entry. Entries are often
+        formatted as 'data/file.json (comment)' or just 'data/file.json'."""
+        if not isinstance(entry, str):
+            return None
+        # Strip parenthetical or hyphen-comment suffix
+        s = entry.split("(")[0].split(" - ")[0].split(" — ")[0].strip()
+        # First whitespace-delimited token is the path
+        s = s.split()[0] if s.split() else s
+        # Strip a few common comment prefixes that some entries use
+        if s.startswith(("tools/", "data/", "js/", "css/", "svg/", "fonts/",
+                         "locales/", "audio/", "KnowledgeBank/", "docs/",
+                         "feedback/", "prompts/", "scripts/", "tests/",
+                         "specifications/", "not-required/", "build/",
+                         "assets/")):
+            return s
+        # Allow root-level files (CHANGELOG.md, README.md, PRIVACY.md, etc.)
+        if s and "/" not in s and "." in s:
+            return s
+        return None  # Not a recognizable path
+
+    def walk_for_meta(obj, json_file):
+        """Find any _meta dict in the tree and check its see_also/consumers."""
+        if isinstance(obj, dict):
+            if "_meta" in obj and isinstance(obj["_meta"], dict):
+                meta = obj["_meta"]
+                for field in ("see_also", "consumers", "consumers_planned",
+                              "consumers_current"):
+                    entries = meta.get(field, [])
+                    if isinstance(entries, list):
+                        for entry in entries:
+                            p = extract_path(entry)
+                            if p is None:
+                                continue
+                            full = ROOT / p
+                            if not full.exists():
+                                failures.append(
+                                    f"JA-82 {json_file}: _meta.{field} references "
+                                    f"non-existent path {p!r}"
+                                )
+            for v in obj.values():
+                walk_for_meta(v, json_file)
+        elif isinstance(obj, list):
+            for item in obj:
+                walk_for_meta(item, json_file)
+
+    # Walk every data/*.json + data/*/*.json + a few well-known top-level
+    # *.meta.json files in data/
+    for jpath in list(data_dir.glob("*.json")) + list(data_dir.glob("*/*.json")):
+        try:
+            d = json.loads(jpath.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
+
+    return failures[:50]  # cap noise
+
 
 def _check_ja_81_no_boilerplate_leak() -> list[str]:
     """No grammar example sentence appears as the `ja` field in 10 or more
