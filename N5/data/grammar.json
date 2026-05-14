@@ -141,7 +141,7 @@
         },
         {
           "ja": "まいにち にほんごを べんきょうします。",
-          "form": "affirmative",
+          "form": "habitual",
           "translation_en": "I study Japanese every day.",
           "vocab_ids": [
             "n5.vocab.24-school-and-study.べんきょう",
@@ -1891,7 +1891,7 @@
         },
         {
           "ja": "ねこは いすに います。",
-          "translation_en": "The cat is on the chair.",
+          "translation_en": "The cat is on/by the chair.",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.じぶん.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [],
@@ -11271,7 +11271,7 @@
           "audio": "audio/grammar/n5-030.2.mp3"
         },
         {
-          "form": "negative",
+          "form": "affirmative",
           "ja": "あさ はやく おきるのは たいへんです。",
           "translation_en": "Waking up early in the morning is hard.",
           "vocab_ids": [
@@ -11764,7 +11764,7 @@
             }
           ],
           "audio": "audio/grammar/n5-031.4.mp3",
-          "form": "affirmative",
+          "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
@@ -11786,7 +11786,7 @@
             }
           ],
           "audio": "audio/grammar/n5-031.5.mp3",
-          "form": "affirmative",
+          "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
@@ -11817,7 +11817,7 @@
             }
           ],
           "audio": "audio/grammar/n5-031.6.mp3",
-          "form": "affirmative",
+          "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
@@ -39395,7 +39395,7 @@
         },
         {
           "ja": "なつと ふゆと、どちらが すきですか。",
-          "form": "affirmative",
+          "form": "question",
           "translation_en": "Which do you like better, summer or winter?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.どちら",
@@ -39458,8 +39458,8 @@
           "audio": "audio/grammar/n5-097.3.mp3"
         },
         {
-          "ja": "コーヒーと おちゃと、どちらが すきですか。",
-          "translation_en": "Coffee or tea, which do you like?",
+          "ja": "りんごと バナナと、どちらが おいしいですか。",
+          "translation_en": "Apple or banana, which is more delicious?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [],
@@ -39491,43 +39491,13 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "コーヒーと こうちゃと、どちらが すきですか。",
+          "ja": "あさと よると、どちらが いいですか。",
           "form": "binary-preference",
-          "translation_en": "Which do you prefer, coffee or tea?",
+          "translation_en": "Morning or evening, which is better?",
           "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.18-drinks.こうちゃ",
-            "n5.vocab.18-drinks.コーヒー",
-            "n5.vocab.5-demonstratives.どちら",
-            "n5.vocab.5-demonstratives.こう",
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.と",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
+          "vocab_ids": [],
           "audio": "audio/grammar/n5-097.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "コーヒー",
-              "mora": 3,
-              "drop": 3
-            },
-            {
-              "form": "こうちゃ",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "どちら",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "すき",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
+          "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
@@ -52091,63 +52061,27 @@
           "vocab_ids": [],
           "pitch_marks": [],
           "audio": "audio/grammar/n5-125.4.mp3",
-          "form": "past",
+          "form": "negative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "母と えいがを 見ました。",
-          "translation_en": "I watched a movie with my mother.",
+          "ja": "では、しごとは おわりました。",
+          "translation_en": "Well then, work is done.",
           "source": "vocab.n5.vocab.2-people-family.母.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.26-house-and-furniture.えいが",
-            "n5.vocab.28-verbs-group-2-verbs.見る",
-            "n5.vocab.35-particles-functional-.と",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "えいが",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "した",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-125.5.mp3",
           "form": "past",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "おとうとを 見ました。",
-          "translation_en": "I saw younger brother.",
+          "ja": "これは わたしの ペンじゃ ありませんでした。",
+          "translation_en": "This wasn't my pen.",
           "source": "vocab.n5.vocab.2-people-family.おとうと.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.2-people-family.おとうと",
-            "n5.vocab.28-verbs-group-2-verbs.見る",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "おとうと",
-              "mora": 4,
-              "drop": 4
-            },
-            {
-              "form": "した",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "おと",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-125.6.mp3",
           "form": "past",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -53479,65 +53413,34 @@
           "audio": "audio/grammar/n5-129.3.mp3"
         },
         {
-          "ja": "私は 学生です。",
-          "translation_en": "I am a student.",
+          "ja": "どうして 日本語を べんきょうしますか。 すきだからです。",
+          "translation_en": "Why do you study Japanese? Because I like it.",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.私.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.3-people-roles.学生",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "学生",
-              "mora": 4,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-129.4.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "わたしは がくせいです。",
-          "translation_en": "I am a student.",
+          "ja": "どうして うちに かえりますか。 つかれたからです。",
+          "translation_en": "Why are you going home? Because I'm tired.",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.私.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "がくせい",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "わたし",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-129.5.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "私たちは 友だちです。",
-          "translation_en": "We are friends.",
+          "ja": "どうして かいませんでしたか。 たかかったからです。",
+          "translation_en": "Why didn't you buy it? Because it was expensive.",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.私たち.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.1-people-pronouns-and-se.私たち",
-            "n5.vocab.35-particles-functional-.は"
-          ],
-          "pitch_marks": [
-            {
-              "form": "私たち",
-              "mora": 5,
-              "drop": 3
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-129.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -53628,7 +53531,7 @@
         {
           "ja": "どうして いそぎますか。 おそいからです。",
           "form": "why-late",
-          "translation_en": "Why are you hurrying? Because I'm late.",
+          "translation_en": "Why are you hurrying? Because it's getting late.",
           "provenance": "llm_curated",
           "vocab_ids": [
             "n5.vocab.6-question-words.どうして",
@@ -71861,33 +71764,12 @@
           "audio": "audio/grammar/n5-174.3.mp3"
         },
         {
-          "ja": "あぶないですから、はいらないでください。",
-          "translation_en": "It's dangerous, so please don't enter.",
+          "ja": "あした はやく おきなくては なりませんか。",
+          "translation_en": "Do I have to wake up early tomorrow?",
           "source": "vocab.n5.vocab.27-verbs-group-1-verbs.入る.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.あぶない",
-            "n5.vocab.34-conjunctions.ですから",
-            "n5.vocab.27-verbs-group-1-verbs.入る",
-            "n5.vocab.34-conjunctions.から"
-          ],
-          "pitch_marks": [
-            {
-              "form": "あぶない",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "ですから",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "はい",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-174.4.mp3",
           "form": "question",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -71915,34 +71797,12 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "この えいがは つまらないです。",
-          "translation_en": "This movie is boring.",
+          "ja": "あさごはんを たべなくては なりません。",
+          "translation_en": "I have to eat breakfast.",
           "source": "vocab.n5.vocab.31-adjectives.つまらない.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [
-            "n5.vocab.31-adjectives.つまらない",
-            "n5.vocab.26-house-and-furniture.えいが",
-            "n5.vocab.5-demonstratives.この",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.の"
-          ],
-          "pitch_marks": [
-            {
-              "form": "つまらない",
-              "mora": 5,
-              "drop": 3
-            },
-            {
-              "form": "えいが",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "この",
-              "mora": 2,
-              "drop": 0
-            }
-          ],
+          "vocab_ids": [],
+          "pitch_marks": [],
           "audio": "audio/grammar/n5-174.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
@@ -76505,7 +76365,7 @@
           "vocab_ids": [],
           "pitch_marks": [],
           "audio": "audio/grammar/n5-185.4.mp3",
-          "form": "question",
+          "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
