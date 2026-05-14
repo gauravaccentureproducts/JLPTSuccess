@@ -1017,6 +1017,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     # or _meta.consumers entry across data/*.json must resolve to an existing
     # file/directory. Cross-reference rot detection.
     ("JA-82", "_meta.see_also / _meta.consumers path references resolve (IMP-006, 2026-05-14)", lambda: _check_ja_82_meta_paths_resolve()),
+    # JA-83 (2026-05-15): vocab template-leak regression guard. The
+    # 2026-05-15 vocab audit removed 539 templated example sentences
+    # across 4 anti-patterns: 'Xを 見ました', 'あの Xは どこですか' (non-
+    # location), 'これは Xです' on 3+ex entries (non-demonstrative), and
+    # '「X」と あいさつしました' for non-greeting X. JA-83 locks the cleanup
+    # so the templates can't drift back via future authoring.
+    ("JA-83", "No vocab example uses removed templates (Xを見ました/あのXはどこ/これはXです/Xとあいさつしました) (2026-05-15)", lambda: _check_ja_83_no_vocab_template_leak()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4213,6 +4220,54 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_83_no_vocab_template_leak() -> list[str]:
+    """No vocab example may use the literal templates that the
+    2026-05-15 vocab audit removed across 539 entries:
+      - 'Xを 見ました。'              (X is single token)
+      - 'あの Xは どこですか。'         (where X equals the headword and
+                                       the section is not location-like)
+      - 'これは Xです。' / 'あれは Xです。' on entries with 3+ examples,
+        excluding the demonstrative-section entries (where it IS the
+        canonical demonstration of the headword).
+    Regression guard for the cleanup so the templates don't drift back
+    in via future authoring batches.
+    """
+    import re
+    failures = []
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-83 could not read vocab.json: {e}"]
+    pat_miru = re.compile(r"^[^\s]{1,10}を\s*見ました(?:よ|ね|よね)?。?$")
+    pat_doko = re.compile(r"^あの\s+(.{1,10})は\s*どこですか。?$")
+    pat_kore = re.compile(r"^(これ|あれ|それ)は\s*(.{1,10})です。?$")
+    pat_quote = re.compile(r"^「(.{1,10})」と\s*あいさつしました。?$")
+    GREETINGS = {"おはよう","こんにちは","こんばんは","ありがとう","さようなら",
+                 "おやすみ","ただいま","おかえり","もしもし","いってきます",
+                 "いってらっしゃい","おかげさまで"}
+    for e in vocab.get("entries", []):
+        eid = e.get("id", "?")
+        form = e.get("form", "")
+        section = e.get("section", "")
+        pos = e.get("pos", "")
+        is_locationish = "13-locations" in section or "26-house" in section
+        is_demonstrative = pos == "demonstrative" or "demonstrative" in section.lower()
+        for i, ex in enumerate(e.get("examples", [])):
+            ja = (ex.get("ja") or "").strip()
+            if pat_miru.fullmatch(ja):
+                failures.append(f"JA-83 {eid}[{i}]: template 'Xを 見ました' leaked back: {ja!r}")
+            m = pat_doko.fullmatch(ja)
+            if m and not is_locationish and m.group(1).strip() == form.strip():
+                failures.append(f"JA-83 {eid}[{i}]: template 'あの Xは どこですか' non-location: {ja!r}")
+            m = pat_kore.fullmatch(ja)
+            if m and not is_demonstrative and len(e.get("examples", [])) >= 3:
+                failures.append(f"JA-83 {eid}[{i}]: bare 'これ/あれは Xです' on 3+ex entry: {ja!r}")
+            m = pat_quote.fullmatch(ja)
+            if m and m.group(1) not in GREETINGS:
+                failures.append(f"JA-83 {eid}[{i}]: 「X」と あいさつしました with non-greeting X: {ja!r}")
+    return failures
 
 
 def _check_ja_81_no_boilerplate_leak() -> list[str]:
