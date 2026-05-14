@@ -1493,6 +1493,27 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT add account / cloud sync — breaks niche N1."
 - "Do NOT add per-content discussion threads / community
   comments — breaks privacy-no-tracking posture."
+- "Do NOT bulk-fill grammar example slots with canned boilerplate
+  without per-pattern relevance verification. The 2026-05-14 native
+  audit found 232+ off-pattern examples across 85 of 178 patterns
+  caused by exactly this anti-pattern at indices [4][5][6]. CI
+  gate JA-81 (no sentence in 10+ patterns) locks the floor; the
+  full §3.2.35 anti-pattern entry in the procedure manual
+  documents the failure mode. Every slot must demonstrate the
+  target pattern's marker."
+- "Do NOT trust audit-checker pass results without manual sampling
+  of fresh patterns. The v2 native audit (2026-05-14) found 23
+  off-pattern findings in patterns the v1 systematic checker
+  marked clean — the checker had false-positives on multi-form
+  pattern labels (Verb-plain + な, Question word + か / も) that
+  hid genuine bugs. Heuristic checkers PRUNE; they don't VERIFY.
+  Hand-sample at least 10 fresh patterns per audit pass."
+- "Do NOT flag おもしろうございます / あおうございます / similar
+  o+u→ō ウ音便 forms as half-applied — they are CORRECT (the
+  spelling stays as -ou because Japanese writes the long ō with
+  the う mora). Only flag a+u→ō or i+u→yū cases where the
+  spelling SHOULD have changed and didn't (たかう should be たこう,
+  おいしう should be おいしゅう)."
 - "Do NOT trust the CURRENT STATE table or scorecard example
   cells without re-running the refresh script — counts drift
   every release. The prompt is point-in-time; the corpus is

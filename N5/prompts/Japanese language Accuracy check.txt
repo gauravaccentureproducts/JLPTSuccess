@@ -526,6 +526,92 @@ A14. PLACEHOLDER / SELF-INCRIMINATING TEXT IN SHIPPED DATA (added 2026-05-13)
      never replaced. CI invariant JA-69 catches the legal-status
      version (pd_status admissions of in-copyright).
 
+A15. OFF-PATTERN BOILERPLATE AT EXAMPLE INDICES [4][5][6]
+     (added 2026-05-14; surfaced during the 2026-05-14 native audit)
+
+     A pervasive anti-pattern in grammar.json: indices [4], [5],
+     and [6] of MANY patterns contain canned filler sentences that
+     do NOT demonstrate the target pattern. Worst-case offenders
+     pre-cleanup:
+       "あなたは がくせいですか。"          in 21 patterns
+       "あなたは どなたですか。"           in 18 patterns
+       "どうして 来ませんでしたか。―..."     in 17 patterns
+       "じぶんで しゅくだいを します。"      in 14 patterns
+       "あにより わたしのほうが はやく ..."  in 14 patterns
+       "父に とけいを もらいました。"        in 11 patterns
+     ...etc.
+
+     Pattern: pick a random grammar pattern with `tier: late_n5` or
+     a conjugation-form pattern (Verb-X, い-Adj-X, な-Adj-X) and
+     check whether indices [4][5][6] contain examples that USE the
+     target pattern's marker. Examples to verify against:
+
+       n5-044 こう/そう/ああ/どう → [4][5][6] previously held
+         てください request sentences (くちを あけて ください, etc.)
+         that don't demonstrate manner-demonstratives.
+
+       n5-104 Verb-stem + たいです → [5][6] previously held
+         "なぜ来なかったのですか" / "しけんはむずかしかったです" —
+         neither uses たいです.
+
+       n5-167 〜んです/〜のです → [4][5][6] previously held plain
+         です sentences (no んです at all).
+
+     Output format for findings:
+       Pattern: <n5-XXX>
+       Index: [N]
+       Issue: example does not demonstrate the pattern's marker
+         (target marker: "<...>", example: "<ja>")
+       Fix proposal: <new sentence using the marker, preserving form tag>
+
+     CI gate: JA-81 (boilerplate-leak guard at threshold 10
+     patterns) already catches the extreme cases. The mid-range
+     (3-9 occurrences) requires this manual audit.
+
+A16. FORM-TAG VALUE MISMATCHED WITH EXAMPLE CONTENT
+     (added 2026-05-14)
+
+     Every example object has a `form` field whose value is one of
+     {affirmative, past, negative, question, habitual, ...} OR a
+     pattern-specific role tag (e.g. "weather-agreement",
+     "exclamation-beautiful"). The value must MATCH the example's
+     grammatical form:
+
+       form="past" example MUST contain past marker (〜た, 〜ました,
+         〜でした, 〜かった, 〜だった, 〜んだ)
+       form="negative" example MUST contain negative marker (〜ない,
+         〜ません, 〜じゃない, 〜では ない, 〜なかった, 〜なくて)
+       form="question" example MUST end with か / ？ / の / よね /
+         かな / だろう / でしょう
+
+     Common mismatch patterns:
+       - form="question" but example is a の-final informal Q tagged
+         as affirmative (or vice versa)
+       - form="past" tagged on a negative-non-past example (e.g.
+         "じゃ ありません" tagged past — that's present-negative)
+       - form="affirmative" tagged on an opinion-question ending in
+         ですか
+
+     False positive to skip: relative-clause past markers appear
+     mid-sentence (e.g. "わたしが 買った 本" / "I bought the book")
+     — the た is on the verb modifying the noun, not at sentence
+     end. Don't flag these.
+
+A17. WITHIN-PATTERN DUPLICATE EXAMPLES
+     (added 2026-05-14)
+
+     Same `ja` string appearing at two different indices in one
+     pattern wastes a slot. Almost always introduced by a content-
+     authoring pass that didn't check sibling examples before
+     authoring a new one.
+
+     Detection: for each pattern, build a dict of ja → index. Any
+     ja value seen twice is a duplicate.
+
+     Fix policy: keep the first occurrence; replace the second with
+     a newly-authored sentence demonstrating the same pattern + same
+     form tag, using N5-vocab + N5-kanji only.
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 
@@ -1160,5 +1246,82 @@ STRICT RULES — VIOLATIONS INVALIDATE THE AUDIT
     time; never shrinks.
 
 ============================================================
-END OF AUDIT BRIEF (updated 2026-05-13 with session-3 lessons)
+KNOWN CHECKER FALSE POSITIVES (do NOT re-flag these — they ARE
+correct Japanese; the heuristic checks misclassify them)
+============================================================
+
+These were caught and confirmed-as-not-bugs in earlier audit passes.
+Skip them silently when they appear in v2 / future audits. Adding
+them to a finding list wastes review cycles.
+
+FP-1. ウ音便 contraction where o+u → ō has no visible spelling change
+      (added 2026-05-14)
+
+      Examples of CORRECT forms that some checkers flag as
+      "half-applied ウ音便":
+        おもしろう ございます  ← おもしろい (omoshiroi) → onbin
+                                  drops く: omoshirou → o+u → ō
+                                  Written: stays as おもしろう because
+                                  the long ō is spelled with う in
+                                  modern Japanese (cf. ありがとう).
+        あおう ございます      ← あおい (aoi)   → o+u → ō
+        あかう ございます      ← あかい (akai)  → a+u → ō (written
+                                  あこう in some styles; both accepted)
+
+      Compare CORRECT contractions where spelling DOES change:
+        おいしゅう ございます  ← おいしい — i+u → yū (spelling changes)
+        たこう ございます      ← たかい  — a+u → ō (spelling changes:
+                                  たかう → たこう)
+
+      RULE OF THUMB: vowel before う in the onbin form:
+        - "a" → spelling changes to "o" (たかう → たこう)
+        - "i" → spelling changes to "yū" (おいしう → おいしゅう)
+        - "o" → spelling stays "ou" (おもしろう, あおう)
+        - "u" → spelling stays "uu" (やすう)
+
+      If the auditor sees a form already-ending-in-"ou"+ございます,
+      check whether the i-adjective stem ended in "o" before flagging.
+
+FP-2. Past-marker mid-sentence in relative clauses
+      (added 2026-05-14)
+
+      Example: わたしが 買った 本 (the book I bought)
+      Form tag: "past"
+      Naive end-of-sentence check: NO past marker found (sentence
+        ends in "本" which is a noun).
+      Reality: 買った IS the past form, just inside a relative clause
+        modifying 本. The form-tag is correct.
+
+      RULE: a sentence with a relative-clause modifier on the LAST
+      noun phrase doesn't end with the past marker, but is still
+      past-tense overall. Don't flag.
+
+FP-3. Mixed kanji/kana orthography within one pattern
+      (added 2026-05-14)
+
+      Example: pattern n5-007 で has 学校 (kanji) in [2] and がっこう
+        (kana) in [7]. Both are accurate Japanese; the project has
+        no enforced single-spelling convention.
+
+      This IS a real style/consistency issue (see §3.2.17 in the
+      procedure manual), but it is NOT a language-ACCURACY bug.
+      Surface as a style note, NOT a CRITICAL finding.
+
+FP-4. Cross-pattern reuse of canonical sentences below threshold-10
+      (added 2026-05-14)
+
+      Example: "わたしは がくせいです。" appears in 9 patterns. All
+      9 are basic copula / identity patterns where the sentence IS
+      a legitimate canonical example. The CI gate JA-81 catches
+      sentences at frequency 10+; below that, manual judgment
+      applies.
+
+      RULE: only flag cross-pattern reuse when EITHER:
+        (a) frequency ≥ 10 (JA-81 would fail);
+        (b) frequency ≥ 4 AND ≥2 of the occurrences are in patterns
+            whose marker is NOT visible in the sentence (genuine
+            misplaced boilerplate, not canonical reuse).
+
+============================================================
+END OF AUDIT BRIEF (updated 2026-05-14 with v2 native-audit lessons)
 ============================================================
