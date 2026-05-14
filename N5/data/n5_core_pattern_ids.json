@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "doc": "ISSUE-033 (audit round-4) + ISSUE-005 (2026-05-14 audit): explicit list of pattern IDs that are strictly within JLPT N5 scope (core_n5), borderline N5/N4 (late_n5 — now with per-pattern source attribution), and deliberately-deferred-to-N4 (deferred_to_n4). Used by the home count + filter UIs to honestly report '178 patterns (153 core + 20 late-N5 + 5 deferred-to-N4)' rather than implying all 178 are core N5. The 5 deferred patterns ship in grammar.json with tier='deferred_to_n4' — they remain accessible to learners but are flagged as N4-equivalent in the tier classification.",
+    "doc": "ISSUE-033 (audit round-4) + ISSUE-005 + 2026-05-14 merge: explicit list of pattern IDs that are strictly within JLPT N5 scope (core_n5 — flat strings), borderline N5/N4 (late_n5 — array of objects with rationale + sources_n5 + sources_n4 per pattern), and deliberately-deferred-to-N4 (deferred_to_n4 — array of objects, SAME SHAPE as late_n5). The deferred patterns ship in grammar.json with tier='deferred_to_n4' — they remain accessible to learners but are flagged as N4-equivalent in the tier classification. Schema-merge 2026-05-14: standalone data/n5_deferred_to_n4.json was merged into this file to eliminate three-file drift risk; the index now carries the rationale + source attribution that previously lived in the standalone file.",
     "schema_version": 1,
     "lastUpdated": "2026-05-14",
     "id_space_policy": "The grammar.json ID space is sparse — IDs n5-012, n5-020, n5-022, n5-032, n5-047, n5-128, n5-138, n5-139, n5-140, n5-141 are NOT in grammar.json (and therefore NOT in either core_n5 or late_n5 list). They are deliberately retired/unused slots from earlier authoring iterations. The lists are 100% in sync with grammar.json: total = 178 = 153 core + 25 late, no orphans either way. Verified by JA-34 invariant in tools/check_content_integrity.py.",
@@ -392,10 +392,64 @@
   "lateCount": 20,
   "deferredCount": 5,
   "deferred_to_n4": [
-    "n5-144",
-    "n5-157",
-    "n5-158",
-    "n5-175",
-    "n5-176"
+    {
+      "id": "n5-144",
+      "pattern": "Verb-stem + ながら",
+      "rationale": "Simultaneous-action subordinator. Genki II (N4), MnN L28 (N4), Try! N4, So-matome N4. Mainstream N4 in all 4 references; previous late_n5 classification was over-permissive.",
+      "sources_n5": [],
+      "sources_n4": [
+        "Genki II L13",
+        "Minna no Nihongo I L28",
+        "Try! N4",
+        "Shin Kanzen Master N4"
+      ]
+    },
+    {
+      "id": "n5-157",
+      "pattern": "〜でしょう",
+      "rationale": "Probability/seeking-agreement formal. Genki II L12 (N4), MnN L32 (N4), Try! N4, So-matome N4. All 4 references categorize as N4.",
+      "sources_n5": [],
+      "sources_n4": [
+        "Genki II L12",
+        "Minna no Nihongo I L32",
+        "Try! N4",
+        "Shin Kanzen Master N4"
+      ]
+    },
+    {
+      "id": "n5-158",
+      "pattern": "〜だろう",
+      "rationale": "Plain-form variant of 〜でしょう. Inherits N4 classification by parallelism with #157. Genki II / MnN / Try! / So-matome all N4.",
+      "sources_n5": [],
+      "sources_n4": [
+        "Genki II L12",
+        "Minna no Nihongo I L32",
+        "Try! N4",
+        "Shin Kanzen Master N4"
+      ]
+    },
+    {
+      "id": "n5-175",
+      "pattern": "〜ないといけない",
+      "rationale": "Obligation construction. Genki II (N4), MnN L37 region (N4), Try! N4. Variant 〜なくてはいけない (n5-173) is the N5-boundary form; 〜ないといけない specifically is more colloquial-formal and consensus N4.",
+      "sources_n5": [],
+      "sources_n4": [
+        "Genki II L12",
+        "Minna no Nihongo I L37",
+        "Try! N4"
+      ]
+    },
+    {
+      "id": "n5-176",
+      "pattern": "〜なくちゃ / 〜なきゃ",
+      "rationale": "Casual contractions of 〜なくては / 〜なければ. All 4 references classify as N4 colloquial. The formal counterpart 〜なくてはいけない (n5-173) is the N5-boundary form.",
+      "sources_n5": [],
+      "sources_n4": [
+        "Genki II L12",
+        "Minna no Nihongo I L37",
+        "Try! N4",
+        "Shin Kanzen Master N4"
+      ]
+    }
   ]
 }

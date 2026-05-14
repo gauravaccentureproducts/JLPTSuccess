@@ -140,6 +140,26 @@ Unicode codepoint ascending. Sidecar metadata documents the rule.
 50/50 (pre-audit) → 84/84 (post-Phase-1/2 grammar audit) → **85/85**
 (post-this-audit pass). New: JA-82 (path-reference resolution).
 
+### Schema consolidation — `n5_deferred_to_n4.json` merged into index
+
+The standalone `data/n5_deferred_to_n4.json` file (created earlier in
+this same release under ISSUE-005) was promoted INTO
+`data/n5_core_pattern_ids.json#deferred_to_n4`. The field is now an
+array-of-objects (same shape as `late_n5`) rather than the previous
+flat-string list. Each entry carries `id` + `pattern` + `rationale` +
+`sources_n5` + `sources_n4`.
+
+Rationale for the merge: the 5 deferred IDs were previously listed in
+THREE places (grammar.json#tier, n5_core_pattern_ids.json#deferred_to_n4,
+and the standalone file). JA-34 already enforces alignment between the
+first two; the standalone file was unprotected and could drift silently.
+Promoting its rationale objects into the index eliminates the third
+place without losing any information.
+
+JA-34 updated again: now accepts `deferred_to_n4` as either flat
+strings (legacy) or objects (post-merge), extracting `id` for the
+membership check.
+
 ### Files changed
 
 - data/n5_kanji_whitelist.meta.json — known-gaps field added

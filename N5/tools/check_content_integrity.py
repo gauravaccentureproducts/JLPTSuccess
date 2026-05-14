@@ -2362,7 +2362,13 @@ def _check_ja_34_core_late_split() -> list[str]:
         late_listed = sorted(item.get("id", "") for item in late_raw)
     else:
         late_listed = sorted(late_raw)
-    deferred_listed = sorted(whitelist.get("deferred_to_n4", []))
+    # deferred_to_n4 may be flat strings (legacy) or objects (post 2026-05-14
+    # merge of standalone n5_deferred_to_n4.json into this file).
+    deferred_raw = whitelist.get("deferred_to_n4", [])
+    if deferred_raw and isinstance(deferred_raw[0], dict):
+        deferred_listed = sorted(item.get("id", "") for item in deferred_raw)
+    else:
+        deferred_listed = sorted(deferred_raw)
 
     if core_actual != core_listed:
         only_actual = set(core_actual) - set(core_listed)
