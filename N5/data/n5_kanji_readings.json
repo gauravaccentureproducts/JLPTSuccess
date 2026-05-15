@@ -13,7 +13,6 @@
       "data/kanji.json — separate denormalized per-kanji record file used by the runtime kanji popover"
     ],
     "see_also": [
-      "data/n5_kanji_whitelist.meta.json",
       "data/kanji.json"
     ],
     "sokuon_allophony_note": "Sokuon-form kun stems (みっ/よっ/むっ/やっ) were removed from the kun arrays of 三/四/六/八 on 2026-05-08. They are not separate readings — they are the base kun (み/よ/む/や) undergoing sokuon before counter morphemes (三つ→みっつ etc.). The full counter forms (みっつ/よっつ/etc.) live in js/counters.js. Listing the sokuon stem as a kun reading caused learners to memorize a spurious distinction. Per native-teacher audit 2026-05-08 (H-3)."
