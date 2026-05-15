@@ -1046,6 +1046,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     # locks both gains so future authoring batches can't leave the
     # parallel-locale fields empty.
     ("JA-86", "authentic context_hi + questions.json distractor en/hi coverage (2026-05-15)", lambda: _check_ja_86_mega_audit_locale_coverage()),
+    # JA-87 (2026-05-15 wave-1): cross-corpus reading/gloss consistency.
+    # Locks the 2026-05-15 cross-corpus audit's findings — any place
+    # that quotes a vocab term must agree with vocab.json canonical
+    # reading + gloss. Caught 1 real mismatch (まがる gloss) which was
+    # reconciled by widening vocab.json's gloss to match.
+    ("JA-87", "Cross-corpus reading/gloss consistency vs vocab.json canonical (2026-05-15 wave-1)", lambda: _check_ja_87_cross_corpus_consistency()),
+    # JA-88 (2026-05-15 wave-2): particle-precision L2-error scan
+    # across all 12 content corpora (6,309 sentences). Locks zero-
+    # finding floor on 10 known L2-error patterns (Xを 好き, double
+    # particle, na-adj as i-adj, double-mashita, etc.).
+    ("JA-88", "Particle-precision L2-error scan across all corpora (2026-05-15 wave-2)", lambda: _check_ja_88_particle_precision()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4242,6 +4253,200 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_87_cross_corpus_consistency() -> list[str]:
+    """Wave-1 (2026-05-15): cross-corpus reading/gloss consistency.
+
+    For every place that quotes a vocab term across corpora, the
+    inline reading/gloss must agree with the canonical entry in
+    vocab.json. Specifically:
+      - reading.json vocab_preview[].reading / .gloss / .gloss_hi
+      - listening.json vocab_glossary[].reading / .gloss
+      - authentic.json items[].reading when ja == single vocab form
+    """
+    import re
+    failures = []
+    try:
+        v = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        vocab_idx = {e["id"]: e for e in v["entries"]}
+    except Exception as e:
+        return [f"JA-87 could not read vocab.json: {e}"]
+
+    def _ok(it_str, v_read, v_readings):
+        if it_str == v_read:
+            return True
+        all_v = set([v_read] + list(v_readings))
+        tokens = [t.strip() for t in it_str.replace("/", " ").split() if t.strip()]
+        return tokens and all(tok in all_v for tok in tokens)
+
+    # reading.json
+    try:
+        r = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return failures + [f"JA-87 could not read reading.json: {e}"]
+    for p in r.get("passages", []):
+        pid = p.get("id", "?")
+        for item in p.get("vocab_preview") or []:
+            if not isinstance(item, dict):
+                continue
+            vid = item.get("vocab_id")
+            canonical = vocab_idx.get(vid)
+            if not canonical:
+                continue
+            it_read = (item.get("reading") or "").strip()
+            v_read = (canonical.get("reading") or "").strip()
+            v_readings = canonical.get("readings", []) or []
+            if it_read and v_read and not _ok(it_read, v_read, v_readings):
+                failures.append(f"JA-87 {pid} vocab_preview reading {it_read!r} != vocab.json {v_read!r} for {vid}")
+            it_gloss = (item.get("gloss") or "").strip()
+            v_gloss = (canonical.get("gloss") or "").strip()
+            if it_gloss and v_gloss and it_gloss != v_gloss:
+                failures.append(f"JA-87 {pid} vocab_preview gloss {it_gloss!r} != vocab.json {v_gloss!r} for {vid}")
+            it_hi = (item.get("gloss_hi") or "").strip()
+            v_hi = (canonical.get("gloss_hi") or "").strip()
+            if it_hi and v_hi and it_hi != v_hi:
+                failures.append(f"JA-87 {pid} vocab_preview gloss_hi mismatch for {vid}")
+    # listening.json
+    try:
+        ls = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return failures + [f"JA-87 could not read listening.json: {e}"]
+    for it in ls.get("items", []):
+        iid = it.get("id", "?")
+        for gx in it.get("vocab_glossary") or []:
+            if not isinstance(gx, dict):
+                continue
+            vid = gx.get("vocab_id")
+            canonical = vocab_idx.get(vid)
+            if not canonical:
+                continue
+            r_val = (gx.get("reading") or "").strip()
+            v_read = (canonical.get("reading") or "").strip()
+            v_readings = canonical.get("readings", []) or []
+            if r_val and v_read and not _ok(r_val, v_read, v_readings):
+                failures.append(f"JA-87 {iid} vocab_glossary reading {r_val!r} != vocab.json {v_read!r} for {vid}")
+            g = (gx.get("gloss") or "").strip()
+            vg = (canonical.get("gloss") or "").strip()
+            if g and vg and g != vg:
+                failures.append(f"JA-87 {iid} vocab_glossary gloss {g!r} != vocab.json {vg!r} for {vid}")
+    # authentic.json single-word cards
+    try:
+        au = json.loads((ROOT / "data" / "authentic.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return failures + [f"JA-87 could not read authentic.json: {e}"]
+    for it in au.get("items", []):
+        iid = it.get("id", "?")
+        refs = it.get("vocab_refs") or []
+        if len(refs) != 1:
+            continue
+        vid = refs[0] if isinstance(refs[0], str) else refs[0].get("vocab_id")
+        canonical = vocab_idx.get(vid)
+        if not canonical:
+            continue
+        if (it.get("ja") or "").strip() != (canonical.get("form") or "").strip():
+            continue
+        r_val = (it.get("reading") or "").strip()
+        v_read = (canonical.get("reading") or "").strip()
+        v_readings = canonical.get("readings", []) or []
+        if r_val and v_read and not _ok(r_val, v_read, v_readings):
+            failures.append(f"JA-87 {iid} authentic reading {r_val!r} != vocab.json {v_read!r} for {vid}")
+    return failures
+
+
+def _check_ja_88_particle_precision() -> list[str]:
+    """Wave-2 (2026-05-15): scan every Japanese sentence across all 12
+    content corpora for the top L2-error particle / conjugation traps.
+
+    Locks zero-finding floor caught by the 2026-05-15 mega-audit.
+    """
+    import re
+    failures = []
+    # Patterns + tags
+    PATTERNS = [
+        ("WO-WITH-STATIVE-ADJ",
+         re.compile(r"[をｦ]\s*(?:が\s*)?(?:大?好き|だいすき|すき|じょうず|上手|へた|下手|嫌い|きらい|ほしい|欲しい|わか(?:り|る|れ)|分か(?:り|る|れ))")),
+        ("WO-WITH-ARU-IRU",
+         re.compile(r"[をｦ]\s*(?:が\s*)?(?:あります|います|ある|いる)\b")),
+        ("IADJ-NEG-WITH-DA", re.compile(r"(?<![ぁ-ゟ一-鿿])くないだ(?![け])")),
+        ("DOUBLE-MASHITA", re.compile(r"ました(?:した|ました)")),
+        ("DOUBLE-DESU", re.compile(r"ですです")),
+        ("DOUBLE-PARTICLE-DENI", re.compile(r"(?<!ひとり)でに\s")),
+        ("DOUBLE-PARTICLE-NIDE", re.compile(r"にで\s")),
+        ("NAADJ-AS-IADJ", re.compile(r"きれいい|げんきい|しずかい")),
+        ("STUTTER-MASHITA", re.compile(r"きました\s+ました")),
+        ("DOUBLE-KA", re.compile(r"(?:です|ます)かか")),
+    ]
+
+    def scan(corpus, iid, field, ja):
+        for tag, rx in PATTERNS:
+            m = rx.search(ja)
+            if m:
+                failures.append(
+                    f"JA-88 {corpus}/{iid}.{field}: {tag} matched {m.group(0)!r} in {ja[:60]!r}"
+                )
+
+    try:
+        # grammar
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+        for p in g.get("patterns", []):
+            for i, ex in enumerate(p.get("examples") or []):
+                ja = (ex.get("ja") or "").strip()
+                if ja:
+                    scan("grammar", p.get("id", "?"), f"examples[{i}].ja", ja)
+        # vocab
+        v = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        for e in v.get("entries", []):
+            for i, ex in enumerate(e.get("examples") or []):
+                ja = (ex.get("ja") or "").strip()
+                if ja:
+                    scan("vocab", e.get("id", "?"), f"examples[{i}].ja", ja)
+        # kanji
+        k = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+        for e in k.get("entries", []):
+            for i, s in enumerate(e.get("sentences") or []):
+                ja = (s.get("ja") or "").strip()
+                if ja:
+                    scan("kanji", e.get("glyph", "?"), f"sentences[{i}].ja", ja)
+        # reading
+        r = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+        for p in r.get("passages", []):
+            ja = (p.get("ja") or "").strip()
+            if ja:
+                scan("reading", p.get("id", "?"), "ja", ja)
+        # listening
+        ls = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+        for it in ls.get("items", []):
+            ja = (it.get("script_ja") or "").strip()
+            if ja:
+                scan("listening", it.get("id", "?"), "script_ja", ja)
+        # authentic
+        au = json.loads((ROOT / "data" / "authentic.json").read_text(encoding="utf-8"))
+        for it in au.get("items", []):
+            ja = (it.get("ja") or "").strip()
+            if ja:
+                scan("authentic", it.get("id", "?"), "ja", ja)
+        # questions
+        qj = json.loads((ROOT / "data" / "questions.json").read_text(encoding="utf-8"))
+        for q in qj.get("questions", []):
+            ja = (q.get("question_ja") or "").strip()
+            if ja:
+                scan("questions", q.get("id", "?"), "question_ja", ja)
+        # papers
+        for cat in ("dokkai", "bunpou", "goi", "moji"):
+            pdir = ROOT / "data" / "papers" / cat
+            if not pdir.exists():
+                continue
+            for pf in sorted(pdir.glob("paper-*.json")):
+                paper = json.loads(pf.read_text(encoding="utf-8"))
+                for q in paper.get("questions") or []:
+                    for fld in ("stem_html", "passage_text"):
+                        ja = (q.get(fld) or "").strip()
+                        if ja:
+                            scan(f"papers/{cat}", q.get("id", "?"), f"{pf.name}.{fld}", ja)
+    except Exception as e:
+        failures.append(f"JA-88 internal error: {e}")
+    return failures
 
 
 def _check_ja_86_mega_audit_locale_coverage() -> list[str]:
