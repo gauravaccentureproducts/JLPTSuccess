@@ -37,6 +37,17 @@ These are listed in `.claude/settings.local.json`. The user has stated they don'
 
 Settings enforcement: `**/*.bak*`, `**/*.backup*`, `**/*_backup_*`, `**/backups/**` are denied for `Write`, `Edit`, `Bash(rm/mv/cp ...)` and `PowerShell(Remove-Item/Move-Item/Copy-Item ...)`. If a deny rule fires when you needed to act, explain the situation to the user and ask — don't try to work around the deny.
 
+## Documentation propagation (BINDING — set 2026-05-15)
+
+**Whenever an audit cycle, fix batch, methodology change, new CI invariant, or new false-positive class is produced, you MUST update — without being asked, as part of the same commit:**
+
+1. `JLPT Common/procedure-manual-build-next-jlpt-level.md` (cross-level build manual; lives in its own git repo)
+2. `N5/prompts/Japanese language Accuracy check.txt` (audit categories + FP catalog)
+3. `N5/prompts/N5Improvement.txt` (anti-items + Phase-0 regression blocks)
+4. `N5/docs/AUDIT-COVERAGE-YYYY-MM-DD.md` (coverage matrix + future-review section)
+
+See the parent `JLPTSuccess/.claude/CLAUDE.md` Rule 4 for the full specification, including the "ask yourself per-file" commit pattern and the mechanical-change exception.
+
 ## Commit workflow (BINDING — set 2026-05-11)
 
 **Never** use inline heredoc commit messages (`git commit -m "$(cat <<'EOF' ... EOF)"`). Claude Code Desktop's permission gating treats those as new prompts every time even with matching glob rules and `defaultMode: "bypassPermissions"` — this has blocked overnight runs and is non-negotiable.
