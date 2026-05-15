@@ -1,0 +1,530 @@
+[
+  {
+    "id": "auth.transit.eki-mae",
+    "ja": "駅前",
+    "gloss_en": "In front of the station",
+    "context": "Common neighborhood label used in bus-stop names (○○駅前) and small-business signs. Indicates the immediate plaza in front of the station."
+  },
+  {
+    "id": "auth.transit.eki-naka",
+    "ja": "駅の中",
+    "gloss_en": "Inside the station",
+    "context": "Directional label used in transit-system signage to indicate retail / facilities inside the paid area of a station building."
+  },
+  {
+    "id": "auth.transit.kita-eki",
+    "ja": "きた駅",
+    "gloss_en": "North station / North exit station name",
+    "context": "Many cities use compass-direction prefixes for multi-station hubs (きた駅 = north station). Compare to みなみ駅 / ひがし駅 / にし駅."
+  },
+  {
+    "id": "auth.notice.shougakkou",
+    "ja": "小学校",
+    "gloss_en": "Elementary school",
+    "context": "Sign attached to the gate of every elementary school in Japan. Often paired with the school's name on a wooden / brass plaque."
+  },
+  {
+    "id": "auth.notice.chuugakkou",
+    "ja": "中学校",
+    "gloss_en": "Middle school",
+    "context": "Sign attached to the gate of every middle school in Japan. Uses 中 (middle / inside) + 学校 (school)."
+  },
+  {
+    "id": "auth.notice.gakkou",
+    "ja": "学校",
+    "gloss_en": "School",
+    "context": "Generic school signage — common on school-zone road signs and on the front gate of any educational facility."
+  },
+  {
+    "id": "auth.signs.kaisha",
+    "ja": "会社",
+    "gloss_en": "Company / office",
+    "context": "Generic company-building label — common suffix on corporate signage (○○会社) and in office-park directories."
+  },
+  {
+    "id": "auth.signs.honten",
+    "ja": "本店",
+    "gloss_en": "Main branch / head shop",
+    "context": "Suffix on the original / flagship location of a chain restaurant or retail brand. Contrasted with 支店 (branch) in chain-store signage."
+  },
+  {
+    "id": "auth.shop.honya",
+    "ja": "本や",
+    "gloss_en": "Bookstore",
+    "context": "Bookstore signage — small independent shops often write 本や rather than the kanji-only 本屋 (屋 is N4). The kana 'や' is common in shop names."
+  },
+  {
+    "id": "auth.shop.furuhonya",
+    "ja": "古い本や",
+    "gloss_en": "Used / antiquarian bookstore",
+    "context": "Phrasing seen on used-bookstore shopfronts in Jimbocho (Tokyo's book-district). Conveys 'second-hand books'."
+  },
+  {
+    "id": "auth.signs.michi",
+    "ja": "道",
+    "gloss_en": "Road / way",
+    "context": "Single-character signage on street-name plates (○○道 = the X road). Common in older neighborhood signage."
+  },
+  {
+    "id": "auth.signs.yamamichi",
+    "ja": "山道",
+    "gloss_en": "Mountain trail",
+    "context": "Hiking-trail signage in mountain parks — wooden post markers with carved 山道 indicating a footpath."
+  },
+  {
+    "id": "auth.signs.kawa",
+    "ja": "川",
+    "gloss_en": "River",
+    "context": "Single-character signage on bridge nameplates and river-bank parks (○○川 = X river). Common in landscape signage."
+  },
+  {
+    "id": "auth.signs.gozen",
+    "ja": "午前",
+    "gloss_en": "AM / morning (before noon)",
+    "context": "Schedule / hours label on shop signs and bus timetables (午前10時 = 10 AM). Contrasted with 午後 (afternoon)."
+  },
+  {
+    "id": "auth.signs.gogo",
+    "ja": "午後",
+    "gloss_en": "PM / afternoon (after noon)",
+    "context": "Schedule / hours label on shop signs and bus timetables (午後5時まで = until 5 PM). Pair with 午前 in any time-window signage."
+  },
+  {
+    "id": "auth.signs.kyou-no",
+    "ja": "今日の",
+    "gloss_en": "Today's (special / menu / news)",
+    "context": "Restaurant-board prefix used for daily specials (今日のおすすめ = today's recommendation). Also common on bulletin-board headers (今日の天気 = today's weather)."
+  },
+  {
+    "id": "auth.signs.mainichi",
+    "ja": "毎日",
+    "gloss_en": "Every day / daily",
+    "context": "Service-availability label on shop signage (毎日 = open daily). Often paired with hours (毎日10時から)."
+  },
+  {
+    "id": "auth.menu.takai",
+    "ja": "高い",
+    "gloss_en": "Expensive / high",
+    "context": "Price-tag adjective used on hand-written menu boards or discount-shop labels to indicate higher-tier items."
+  },
+  {
+    "id": "auth.menu.yasui",
+    "ja": "安い",
+    "gloss_en": "Cheap / inexpensive",
+    "context": "Price-tag adjective used on hand-written menu boards and discount-shop banners (安い! 100円!). The same kanji 安 also means 'safe' in 安全."
+  },
+  {
+    "id": "auth.signs.onamae",
+    "ja": "お名前",
+    "gloss_en": "Name (form field)",
+    "context": "Form-field label used on every clinic / city-hall / school registration form. The honorific お is standard on form labels."
+  },
+  {
+    "id": "auth.signs.bangou",
+    "ja": "番号",
+    "gloss_en": "Number (sequence / ticket)",
+    "context": "Ticket-machine and form-field label (受付番号 / 整理番号). Also on bus-stop sequence labels (○番のりば = bay number X)."
+  },
+  {
+    "id": "auth.notice.omizu",
+    "ja": "お水",
+    "gloss_en": "Water (drinking)",
+    "context": "Polite-form label seen above water dispensers in restaurants, public buildings, and on water-fountain plaques. The honorific お softens the request to a friendly offer."
+  },
+  {
+    "id": "auth.menu.hyaku-en",
+    "ja": "百円",
+    "gloss_en": "100 yen",
+    "context": "Price-tag denomination seen on 100-yen-shop banners and bargain-bin labels (the ubiquitous 百均 / 100-yen store culture)."
+  },
+  {
+    "id": "auth.menu.sen-en",
+    "ja": "千円",
+    "gloss_en": "1000 yen",
+    "context": "Price tag at the next-up denomination. Common on bento-box prices and small-purchase ATM withdrawal prompts (千円札 = 1000-yen note)."
+  },
+  {
+    "id": "auth.menu.ichiman-en",
+    "ja": "一万円",
+    "gloss_en": "10,000 yen",
+    "context": "Major-purchase denomination — the largest single Japanese banknote. Seen on cash-deposit ATM screens and high-tier menu/sake-bottle prices."
+  },
+  {
+    "id": "auth.menu.ichi-ninmae",
+    "ja": "一人前",
+    "gloss_en": "One serving",
+    "context": "Menu-board quantity label — '1 portion for 1 person'. Often paired with prices (一人前 1,200円) for set meals."
+  },
+  {
+    "id": "auth.menu.san-ninmae",
+    "ja": "三人前",
+    "gloss_en": "Three servings",
+    "context": "Family-size or shareable-portion label — common on takeout-bento promotional banners (三人前 2,800円)."
+  },
+  {
+    "id": "auth.signs.ichi-getsu",
+    "ja": "一月",
+    "gloss_en": "January",
+    "context": "Month header on calendars, magazine covers, and seasonal-promotion signs. Read with on-yomi いち + がつ. Note: 1月 (Arabic numeral) is equally common."
+  },
+  {
+    "id": "auth.signs.shi-getsu",
+    "ja": "四月",
+    "gloss_en": "April",
+    "context": "April marks the start of the Japanese fiscal/school year — 4月 banners on new-employee welcome signs, school-entrance ceremonies, cherry-blossom-season menus."
+  },
+  {
+    "id": "auth.signs.go-getsu",
+    "ja": "五月",
+    "gloss_en": "May",
+    "context": "May features Golden Week 5月の連休 — multiple national holidays. Travel-promotion signs and koinobori (carp-streamer) displays carry this date prominently."
+  },
+  {
+    "id": "auth.signs.roku-getsu",
+    "ja": "六月",
+    "gloss_en": "June",
+    "context": "Rainy-season starts in June — 6月の梅雨 forecasts on weather-board displays. Also seen on rainy-season umbrella-shop promotional banners."
+  },
+  {
+    "id": "auth.signs.shichi-getsu",
+    "ja": "七月",
+    "gloss_en": "July",
+    "context": "Summer-festival 七夕 (Tanabata) on July 7 is heavily signed — 7月7日 wishes on bamboo decorations in shops and stations."
+  },
+  {
+    "id": "auth.signs.hachi-getsu",
+    "ja": "八月",
+    "gloss_en": "August",
+    "context": "August = obon-festival month (お盆) — train-station signs announce holiday-period schedules; 8月のお盆 fireworks-festival banners."
+  },
+  {
+    "id": "auth.signs.kyuu-getsu",
+    "ja": "九月",
+    "gloss_en": "September",
+    "context": "September starts autumn — autumn-foods menu rotations and 9月の秋祭り (autumn-festival) banners replace summer signage."
+  },
+  {
+    "id": "auth.signs.juu-getsu",
+    "ja": "十月",
+    "gloss_en": "October",
+    "context": "Read じゅうがつ (irregular contraction of じゅう + がつ → not じゅうげつ). October hosts Sports Day 体育の日 and harvest-festival signs."
+  },
+  {
+    "id": "auth.signs.kayoubi",
+    "ja": "火曜日",
+    "gloss_en": "Tuesday",
+    "context": "Day-of-week schedule label on shop signs (火曜日定休 = closed Tuesdays) and clinic-hours boards. Read with on-yomi か (fire) + よう + び."
+  },
+  {
+    "id": "auth.signs.mokuyoubi",
+    "ja": "木曜日",
+    "gloss_en": "Thursday",
+    "context": "Tree-themed day label. Common on rotating-special menus (木曜日のおすすめ = Thursday's recommendation) and weekly farmer's-market schedules."
+  },
+  {
+    "id": "auth.signs.kinyoubi",
+    "ja": "金曜日",
+    "gloss_en": "Friday",
+    "context": "End-of-workweek day — 金曜日のハッピーアワー (Friday happy hour) on izakaya promotional signs; also payday-related (金 = money)."
+  },
+  {
+    "id": "auth.signs.doyoubi",
+    "ja": "土曜日",
+    "gloss_en": "Saturday",
+    "context": "Weekend day label on store-hours signs (土曜日10:00-20:00) and family-event banners. Most retail and dining establishments operate full hours on Saturdays."
+  },
+  {
+    "id": "auth.signs.kotoshi",
+    "ja": "今年",
+    "gloss_en": "This year",
+    "context": "Seasonal promotional banner prefix — 今年もよろしくお願いします (this year too, please favor us). Common on New Year's shopfront greetings."
+  },
+  {
+    "id": "auth.signs.juppun",
+    "ja": "10分",
+    "gloss_en": "10 minutes",
+    "context": "Quick-service signage (10分でカット = 10-minute haircut) and short-wait time indicators on station departure boards."
+  },
+  {
+    "id": "auth.shop.hachi-ji-han",
+    "ja": "8時半",
+    "gloss_en": "8:30",
+    "context": "Casual time-of-day label on shop signs — 8時半から (from 8:30) is common on morning-hours boards. The kanji 半 = half, paired with 時 to mean 'half-hour past'."
+  },
+  {
+    "id": "auth.signs.kodomo",
+    "ja": "子ども",
+    "gloss_en": "Children",
+    "context": "Kids' section / children's products label. The hiragana ども-form is preferred over kanji 子供 on consumer-facing signage to soften the tone for parents."
+  },
+  {
+    "id": "auth.signs.gakusei",
+    "ja": "学生",
+    "gloss_en": "Student",
+    "context": "Student-discount sign at museums and theaters (学生 800円 = student 800 yen); also used on student-ID labels (学生証)."
+  },
+  {
+    "id": "auth.signs.sensei",
+    "ja": "先生",
+    "gloss_en": "Teacher / doctor (honorific)",
+    "context": "Faculty-office nameplate on school doors (○○先生); also addresses doctors at clinics (山田先生). The 先生 honorific is used for any expert-recognition role."
+  },
+  {
+    "id": "auth.signs.tomodachi",
+    "ja": "友だち",
+    "gloss_en": "Friend",
+    "context": "Friendship-themed retail signage — 友だち と一緒に (with friends) on group-discount banners at restaurants and entertainment venues."
+  },
+  {
+    "id": "auth.signs.chichi-no-hi",
+    "ja": "父の日",
+    "gloss_en": "Father's Day",
+    "context": "Department-store seasonal promotion banner (third Sunday of June). 父の日プレゼント = Father's Day gift display tables."
+  },
+  {
+    "id": "auth.signs.haha-no-hi",
+    "ja": "母の日",
+    "gloss_en": "Mother's Day",
+    "context": "Department-store seasonal promotion banner (second Sunday of May). 母の日に贈る花 = flowers to give on Mother's Day, common florist signage."
+  },
+  {
+    "id": "auth.signs.chuugoku",
+    "ja": "中国",
+    "gloss_en": "China",
+    "context": "中国 = China — common prefix on restaurant signs 中国料理 (Chinese cuisine) and tourism-info boards. Reads ちゅうごく; 中 is also Japan's western Chuugoku region."
+  },
+  {
+    "id": "auth.signs.shiritsu-gakkou",
+    "ja": "私立学校",
+    "gloss_en": "Private school",
+    "context": "School-classification label — 私立 (private) vs 公立 (public, N4). The 私 (I / private) appears on school-gate plaques and admission-document headers."
+  },
+  {
+    "id": "auth.signs.nanji-kara",
+    "ja": "何時から",
+    "gloss_en": "From what time",
+    "context": "Customer-facing question form on shop-hours notices (何時から何時まで = from what time until what time). Also common in casual conversation."
+  },
+  {
+    "id": "auth.signs.ni-getsu",
+    "ja": "二月",
+    "gloss_en": "February",
+    "context": "Month header. February features Setsubun (節分, beans-throwing day) and Valentine's Day — chocolate displays and seasonal-menu boards prominently show 2月."
+  },
+  {
+    "id": "auth.signs.juuichi-getsu",
+    "ja": "十一月",
+    "gloss_en": "November",
+    "context": "Month header reading uses standard digit-chain rules (十一 = 11, がつ contracted). November = 七五三 (shichi-go-san) children's festival."
+  },
+  {
+    "id": "auth.signs.juuni-getsu",
+    "ja": "十二月",
+    "gloss_en": "December",
+    "context": "Year-end month — シーズン中 (peak season) for shopfront 十二月の福袋 (December lucky-bag) promotions, and year-end-cleaning service labels."
+  },
+  {
+    "id": "auth.signs.getsuyoubi",
+    "ja": "月曜日",
+    "gloss_en": "Monday",
+    "context": "Day-of-week schedule label. Many businesses use 月曜日定休 (closed Mondays) on storefront notices to indicate weekly rest day."
+  },
+  {
+    "id": "auth.signs.suiyoubi",
+    "ja": "水曜日",
+    "gloss_en": "Wednesday",
+    "context": "Day-of-week schedule label. Used on mid-week event banners and 水曜日のお買い得 (Wednesday's bargain) supermarket promotions."
+  },
+  {
+    "id": "auth.signs.nichiyoubi",
+    "ja": "日曜日",
+    "gloss_en": "Sunday",
+    "context": "Day-of-week schedule label. 日曜日も営業 (open Sundays too) is a common shopfront marker in commercial districts."
+  },
+  {
+    "id": "auth.signs.maishuu",
+    "ja": "毎週",
+    "gloss_en": "Every week / weekly",
+    "context": "Service-availability label (毎週月曜日 = every Monday). Common on workshop / class schedule boards and recurring-event signage."
+  },
+  {
+    "id": "auth.signs.nihongo",
+    "ja": "日本語",
+    "gloss_en": "Japanese (language)",
+    "context": "Language label seen on language-school signs, tourist-information boards (日本語のみ = Japanese only), and software-language selectors."
+  },
+  {
+    "id": "auth.signs.ekiin",
+    "ja": "駅員",
+    "gloss_en": "Station staff",
+    "context": "Sign on staff-only doors and information-desk signage at train stations. 駅員 means JR/metro employee — typically the person to ask for help."
+  },
+  {
+    "id": "auth.signs.tenin",
+    "ja": "店員",
+    "gloss_en": "Shop staff",
+    "context": "Sign distinguishing customer area from staff area. 店員さん = the shop assistant; 店員募集 (now hiring) is a frequent help-wanted banner."
+  },
+  {
+    "id": "auth.signs.kaiin",
+    "ja": "会員",
+    "gloss_en": "Member",
+    "context": "Membership-club label. 会員のみ (members only) on premium-area entrances; 会員カード on signup-form labels."
+  },
+  {
+    "id": "auth.signs.ue",
+    "ja": "上",
+    "gloss_en": "Up / upper",
+    "context": "Single-character directional sign on stair signage and floor-indicator panels. Often paired with arrow (↑) to mean 'upstairs' or 'upper floor'."
+  },
+  {
+    "id": "auth.signs.shita",
+    "ja": "下",
+    "gloss_en": "Down / lower",
+    "context": "Single-character directional sign on stair signage. Paired with arrow (↓) to indicate 'downstairs' or 'lower floor' — opposite of 上."
+  },
+  {
+    "id": "auth.signs.gaikoku",
+    "ja": "外国",
+    "gloss_en": "Foreign country / abroad",
+    "context": "Tourist-information label (外国の方 = foreign visitors) and form-field marker (外国人登録 = foreign resident registration)."
+  },
+  {
+    "id": "auth.transit.higashi-guchi",
+    "ja": "東口",
+    "gloss_en": "East exit",
+    "context": "Station exit signage (compass-direction labels on every major station). 東口 = east exit; pair with 西口/南口/北口 to specify which side of the station."
+  },
+  {
+    "id": "auth.transit.nishi-guchi",
+    "ja": "西口",
+    "gloss_en": "West exit",
+    "context": "Compass-direction station exit. Tokyo's Shinjuku 新宿西口 is the iconic west-exit example — major bus terminus + office-tower district."
+  },
+  {
+    "id": "auth.transit.minami-guchi",
+    "ja": "南口",
+    "gloss_en": "South exit",
+    "context": "Compass-direction station exit. 南口 typically leads to bus terminals or commercial districts; pair with the station name on guide signs."
+  },
+  {
+    "id": "auth.transit.kita-guchi",
+    "ja": "北口",
+    "gloss_en": "North exit",
+    "context": "Compass-direction station exit. 北口 is one of the fundamental wayfinding labels in any large Japanese station."
+  },
+  {
+    "id": "auth.signs.ichi-jikan",
+    "ja": "一時間",
+    "gloss_en": "One hour",
+    "context": "Duration label on parking-meter signs (一時間 500円 = 500 yen per hour), service-time indicators (一時間以内 = within one hour), and rental-by-the-hour boards."
+  },
+  {
+    "id": "auth.signs.tanaka",
+    "ja": "田中",
+    "gloss_en": "Tanaka (common surname)",
+    "context": "Most common surname on doorplate signs (表札 / hyoosatsu). 田 (rice field) + 中 (middle) — literally 'middle of the rice field'. About 1.3 million people share this name."
+  },
+  {
+    "id": "auth.signs.yamamoto",
+    "ja": "山本",
+    "gloss_en": "Yamamoto (common surname)",
+    "context": "Common surname on doorplate signs. 山 (mountain) + 本 (origin/main) — literally 'base of the mountain'. Frequent in central / western Japan."
+  },
+  {
+    "id": "auth.signs.hanami",
+    "ja": "花見",
+    "gloss_en": "Cherry-blossom viewing",
+    "context": "Spring promotion banner (花見特集 / 花見弁当). 花見 is the iconic spring activity — picnic under cherry blossoms; signage peaks in late March / early April."
+  },
+  {
+    "id": "auth.signs.sora",
+    "ja": "空",
+    "gloss_en": "Sky",
+    "context": "Weather-forecast board label (今日の空 = today's sky). Also seen on rooftop-bar signs and airline branding (空 = sky in 空港 airport, though 港 itself is N4)."
+  },
+  {
+    "id": "auth.signs.shinbun",
+    "ja": "新聞",
+    "gloss_en": "Newspaper",
+    "context": "Newsstand and convenience-store label. 新聞 = newspaper; major dailies (朝日新聞 / 読売新聞) are displayed under this category sign."
+  },
+  {
+    "id": "auth.signs.dokusho",
+    "ja": "読書",
+    "gloss_en": "Reading (books)",
+    "context": "Library / quiet-zone label. 読書スペース (reading space) on bookstore signs and 読書の秋 (reading-autumn) seasonal-promotion campaigns."
+  },
+  {
+    "id": "auth.signs.shodou",
+    "ja": "書道",
+    "gloss_en": "Calligraphy",
+    "context": "Cultural-class signage. 書道教室 (calligraphy class) outside community centers and stationery shops selling brushes + ink."
+  },
+  {
+    "id": "auth.signs.raigetsu",
+    "ja": "来月",
+    "gloss_en": "Next month",
+    "context": "Forward-looking promotion banner — 来月オープン (opening next month) on under-construction shop signs; also on event-announcement posters."
+  },
+  {
+    "id": "auth.signs.yasumi",
+    "ja": "休み",
+    "gloss_en": "Closed / day off",
+    "context": "Shopfront closure notice — 本日休み (closed today) on dangling cardboard signs. Distinct from 定休日 (fixed closure day, slightly more formal)."
+  },
+  {
+    "id": "auth.signs.hitokoto",
+    "ja": "一言",
+    "gloss_en": "A word / brief remark",
+    "context": "Comment-box header on customer-feedback forms (お客様の一言 = customer's word). Also on bulletin-board comment-card labels."
+  },
+  {
+    "id": "auth.transit.ekichou",
+    "ja": "駅長",
+    "gloss_en": "Station master",
+    "context": "Title plaque on the station-master's office door. The 駅長 is the senior official at each station; their announcement carries authority on platform notices."
+  },
+  {
+    "id": "auth.menu.hakumai",
+    "ja": "白米",
+    "gloss_en": "White rice",
+    "context": "Restaurant menu category label. 白米 = plain white rice — the default rice option, contrasted with 玄米 (brown rice, 玄 is N4) on healthier menu boards."
+  },
+  {
+    "id": "auth.signs.shuwa",
+    "ja": "手話",
+    "gloss_en": "Sign language",
+    "context": "Accessibility-service label at public-facility information desks (手話サービス = sign-language service available). 手 (hand) + 話 (speak) = literal meaning."
+  },
+  {
+    "id": "auth.signs.me",
+    "ja": "目",
+    "gloss_en": "Eye / optician",
+    "context": "Single-character optician / eye-care label. 目 (eye) on glasses-shop signs and eye-clinic logos. Also appears in 目薬 (eye drops; 薬 is N4, so use 目 alone on signage)."
+  },
+  {
+    "id": "auth.signs.chikara",
+    "ja": "力",
+    "gloss_en": "Strength / power",
+    "context": "Single-character gym / fitness label. 力 appears on weightlifting / strength-training signs and 力こぶ (biceps muscle) cartoon mascots in workout-related signage."
+  },
+  {
+    "id": "auth.transit.tokyo-iki",
+    "ja": "東京行",
+    "gloss_en": "Bound for Tokyo (train/bus destination)",
+    "context": "Destination label on intercity bus departure boards and commuter train head-signs. The 行 (read ゆき in this context) marks 'bound for' — 大阪行 / 京都行 follow the same pattern."
+  },
+  {
+    "id": "auth.shop.kau",
+    "ja": "買う",
+    "gloss_en": "Buy (verb)",
+    "context": "Action-button label on e-commerce checkout screens (今すぐ買う = buy now). Also on in-store self-service kiosks and vending-machine prompts."
+  },
+  {
+    "id": "auth.notice.nomimizu",
+    "ja": "飲み水",
+    "gloss_en": "Drinking water",
+    "context": "Public-fountain and park-water-tap label. 飲み水 explicitly marks water as safe to drink (vs irrigation or decorative water). Common at trail heads and park entrances."
+  }
+]

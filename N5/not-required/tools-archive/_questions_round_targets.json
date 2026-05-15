@@ -1,0 +1,2911 @@
+[
+  {
+    "id": "q-0022",
+    "question_ja": "ペン（　）ノートなどを かいました。",
+    "answer": "や",
+    "choices": [
+      "へ",
+      "は",
+      "や",
+      "で"
+    ],
+    "missing_en": [
+      "へ"
+    ],
+    "missing_hi": [
+      "へ"
+    ],
+    "explanation_en": "や is the NON-EXHAUSTIVE listing particle, naturally pairing with など (etc.). と would imply 'only these', which contradicts など.",
+    "grammarPatternId": "n5-011"
+  },
+  {
+    "id": "q-0285",
+    "question_ja": "いい てんきです（　）。",
+    "answer": "ね",
+    "choices": [
+      "の",
+      "ね",
+      "で",
+      "も"
+    ],
+    "missing_en": [
+      "の",
+      "で",
+      "も"
+    ],
+    "missing_hi": [
+      "の",
+      "で",
+      "も"
+    ],
+    "explanation_en": "ね at sentence-end seeks agreement or shared feeling - 'isn't it?', 'right?'. Used when the speaker assumes the listener has the same view.",
+    "grammarPatternId": "n5-025"
+  },
+  {
+    "id": "q-0286",
+    "question_ja": "あした しけんです（　）。",
+    "answer": "よ",
+    "choices": [
+      "など",
+      "に",
+      "よ",
+      "ぐらい"
+    ],
+    "missing_en": [
+      "など",
+      "に",
+      "ぐらい"
+    ],
+    "missing_hi": [
+      "など",
+      "に",
+      "ぐらい"
+    ],
+    "explanation_en": "よ at sentence-end conveys new information to the listener or emphasizes a point. 'I'm telling you / you should know'.",
+    "grammarPatternId": "n5-026"
+  },
+  {
+    "id": "q-0287",
+    "question_ja": "あした 来ます（　）。",
+    "answer": "よね",
+    "choices": [
+      "の",
+      "ね",
+      "など",
+      "よね"
+    ],
+    "missing_en": [
+      "の",
+      "ね",
+      "など"
+    ],
+    "missing_hi": [
+      "の",
+      "ね",
+      "など"
+    ],
+    "explanation_en": "よね is よ + ね: the speaker is fairly sure but checking. 'I think... right?'",
+    "grammarPatternId": "n5-027"
+  },
+  {
+    "id": "q-0293",
+    "question_ja": "わたしは コーヒー（ ）飲みます。 おちゃや ジュースは 飲みません。",
+    "answer": "だけ",
+    "choices": [
+      "か",
+      "だけ",
+      "に",
+      "や"
+    ],
+    "missing_en": [
+      "か"
+    ],
+    "missing_hi": [
+      "か"
+    ],
+    "explanation_en": "だけ (only) -  the second sentence 'I don't drink tea or juice' reinforces the exclusion sense. Distractors: か is a question/or particle (doesn't fit declarative); に is a recipient/location particle; や is non-exhaustive listing. Replaces earlier choice that included など (etc.) which contradicted the follow-up sentence.",
+    "grammarPatternId": "n5-033"
+  },
+  {
+    "id": "q-0296",
+    "question_ja": "3時（　） あいましょう。",
+    "answer": "ごろ",
+    "choices": [
+      "ごろ",
+      "で",
+      "か",
+      "が"
+    ],
+    "missing_en": [
+      "で",
+      "か",
+      "が"
+    ],
+    "missing_hi": [
+      "で",
+      "か",
+      "が"
+    ],
+    "explanation_en": "ごろ attaches to a TIME POINT to mean 'around'. Use ごろ for time points; ぐらい for durations/quantities.",
+    "grammarPatternId": "n5-036"
+  },
+  {
+    "id": "q-0297",
+    "question_ja": "りんごや バナナ（　）を よく 食べます。",
+    "answer": "など",
+    "choices": [
+      "もの",
+      "など",
+      "よ",
+      "で"
+    ],
+    "missing_en": [
+      "もの",
+      "よ",
+      "で"
+    ],
+    "missing_hi": [
+      "もの",
+      "よ",
+      "で"
+    ],
+    "explanation_en": "や〜などを is the canonical 'X, Y, etc.' non-exhaustive list pattern. Distractors: もの is a noun (doesn't compose with や), よ is a sentence-final particle, で is means/location.",
+    "grammarPatternId": "n5-037"
+  },
+  {
+    "id": "q-0298",
+    "question_ja": "りんごを ひとつ（　） ください。",
+    "answer": "ずつ",
+    "choices": [
+      "ぐらい",
+      "から",
+      "ずつ",
+      "まで"
+    ],
+    "missing_en": [
+      "ぐらい",
+      "から",
+      "まで"
+    ],
+    "missing_hi": [
+      "ぐらい",
+      "から",
+      "まで"
+    ],
+    "explanation_en": "ずつ after a quantity means 'each' or 'per' - distributing a fixed amount.",
+    "grammarPatternId": "n5-038"
+  },
+  {
+    "id": "q-0313",
+    "question_ja": "これは （　）ですか。",
+    "answer": "いくら",
+    "choices": [
+      "だけ",
+      "いくら",
+      "で",
+      "から"
+    ],
+    "missing_en": [
+      "だけ",
+      "で",
+      "から"
+    ],
+    "missing_hi": [
+      "だけ",
+      "で",
+      "から"
+    ],
+    "explanation_en": "いくら asks the price.",
+    "grammarPatternId": "n5-053"
+  },
+  {
+    "id": "q-0314",
+    "question_ja": "りんごは （　） ありますか。",
+    "answer": "いくつ",
+    "choices": [
+      "や",
+      "も",
+      "いくつ",
+      "だけ"
+    ],
+    "missing_en": [
+      "や",
+      "も",
+      "だけ"
+    ],
+    "missing_hi": [
+      "や",
+      "も",
+      "だけ"
+    ],
+    "explanation_en": "いくつ asks 'how many' using the native ひと-counter system. Also used to politely ask age (especially of children).",
+    "grammarPatternId": "n5-054"
+  },
+  {
+    "id": "q-0315",
+    "question_ja": "いま （　）ですか。",
+    "answer": "なんじ",
+    "choices": [
+      "は",
+      "へ",
+      "だけ",
+      "なんじ"
+    ],
+    "missing_en": [
+      "は",
+      "へ",
+      "だけ"
+    ],
+    "missing_hi": [
+      "は",
+      "へ",
+      "だけ"
+    ],
+    "explanation_en": "Counter じ = 'o'clock'. なんじ asks 'what time?'. Pairs with から/まで for time ranges.",
+    "grammarPatternId": "n5-055"
+  },
+  {
+    "id": "q-0351",
+    "question_ja": "あさごはんを たべました。（　）、しごとに 行きました。",
+    "answer": "そして",
+    "choices": [
+      "から",
+      "も",
+      "だけ",
+      "そして"
+    ],
+    "missing_en": [
+      "から",
+      "も",
+      "だけ"
+    ],
+    "missing_hi": [
+      "から",
+      "も",
+      "だけ"
+    ],
+    "explanation_en": "そして begins a new sentence to add another action or fact. Used in narration / lists.",
+    "grammarPatternId": "n5-121"
+  },
+  {
+    "id": "q-0352",
+    "question_ja": "シャワーを あびました。（　）、ねました。",
+    "answer": "それから",
+    "choices": [
+      "それから",
+      "が",
+      "ね",
+      "に"
+    ],
+    "missing_en": [
+      "が",
+      "ね",
+      "に"
+    ],
+    "missing_hi": [
+      "が",
+      "ね",
+      "に"
+    ],
+    "explanation_en": "それから begins a clause to mark sequence - 'after that, next'.",
+    "grammarPatternId": "n5-122"
+  },
+  {
+    "id": "q-0353",
+    "question_ja": "コーヒーが すきです。（　）、おちゃは すきじゃありません。",
+    "answer": "でも",
+    "choices": [
+      "も",
+      "でも",
+      "ね",
+      "は"
+    ],
+    "missing_en": [
+      "も",
+      "ね",
+      "は"
+    ],
+    "missing_hi": [
+      "も",
+      "ね",
+      "は"
+    ],
+    "explanation_en": "でも at the start of a new sentence introduces a contrast. Casual.",
+    "grammarPatternId": "n5-123"
+  },
+  {
+    "id": "q-0354",
+    "question_ja": "テストは むずかしかったです。（　）、できました。",
+    "answer": "しかし",
+    "choices": [
+      "で",
+      "や",
+      "しかし",
+      "は"
+    ],
+    "missing_en": [
+      "で",
+      "や",
+      "は"
+    ],
+    "missing_hi": [
+      "で",
+      "や",
+      "は"
+    ],
+    "explanation_en": "Formal/written form of でも. Same meaning, more formal register.",
+    "grammarPatternId": "n5-124"
+  },
+  {
+    "id": "q-0356",
+    "question_ja": "コーヒーは すきです（　）、おちゃは すきじゃありません。",
+    "answer": "が",
+    "choices": [
+      "が",
+      "まで",
+      "に",
+      "も"
+    ],
+    "missing_en": [
+      "まで",
+      "に",
+      "も"
+    ],
+    "missing_hi": [
+      "まで",
+      "に",
+      "も"
+    ],
+    "explanation_en": "が at end of a clause (after です/ます or plain) means 'but' as a softening connector. Often introduces a contrast or extends thought.",
+    "grammarPatternId": "n5-126"
+  },
+  {
+    "id": "q-0358",
+    "question_ja": "あつい（　）、まどを あけてください。",
+    "answer": "から",
+    "choices": [
+      "ぐらい",
+      "の",
+      "から",
+      "よ"
+    ],
+    "missing_en": [
+      "ぐらい",
+      "の",
+      "よ"
+    ],
+    "missing_hi": [
+      "ぐらい",
+      "の",
+      "よ"
+    ],
+    "explanation_en": "から at end of a clause means 'because'. Reason comes first; result follows.",
+    "grammarPatternId": "n5-009"
+  },
+  {
+    "id": "q-0433",
+    "question_ja": "おしごとは （ ）ですか。",
+    "answer": "どう",
+    "choices": [
+      "だれ",
+      "どう",
+      "いつ",
+      "どこ"
+    ],
+    "missing_en": [
+      "だれ",
+      "いつ",
+      "どこ"
+    ],
+    "missing_hi": [
+      "だれ",
+      "いつ",
+      "どこ"
+    ],
+    "explanation_en": "How is your work? -  どう (how) is the natural question word for asking about state. The distractors are other question words that don't fit the predicate: だれ (who) for people, いつ (when) for time, どこ (where) for place. Replaces the earlier kosoado quartet (どう/こう/そう/ああ) which had no scene-direction anchor -  see Pass-15 anti-pattern §3.2.4.",
+    "grammarPatternId": "n5-050"
+  },
+  {
+    "id": "q-0470",
+    "question_ja": "ちちは びょういん（ ）はたらいて います。あには ぎんこう（ ）つとめて います。",
+    "answer": "で / に",
+    "choices": [
+      "に / に",
+      "で / で",
+      "で / に",
+      "に / で"
+    ],
+    "missing_en": [
+      "に / で"
+    ],
+    "missing_hi": [
+      "に / で"
+    ],
+    "explanation_en": "はたらく (general 'to work') takes location-of-action で. つとめる (to be employed at) takes に because it expresses 'state of being attached to'. Same workplace-meaning, different particle -  direct N5 vs N4-edge minimal pair from external reading 17.",
+    "grammarPatternId": "n5-005"
+  },
+  {
+    "id": "q-0471",
+    "question_ja": "まいあさ 七時（ ）おきて、八時（ ）うちを 出ます。",
+    "answer": "に / に",
+    "choices": [
+      "を / に",
+      "で / で",
+      "に / を",
+      "に / に"
+    ],
+    "missing_en": [
+      "を / に",
+      "で / で",
+      "に / を"
+    ],
+    "missing_hi": [
+      "を / に",
+      "で / で",
+      "に / を"
+    ],
+    "explanation_en": "Specific clock-times take に: 七時に (at 7) + 八時に (at 8). Both clauses are time-anchored events; に is the only correct particle for specific time. The 'うちを 出る' (leave home) construction uses を for the source of the leave-action -  but the question only blanks the time particles.",
+    "grammarPatternId": "n5-005"
+  },
+  {
+    "id": "q-0472",
+    "question_ja": "ともだち（ ）えいが（ ）見ました。それから きっさてん（ ）コーヒー（ ）飲みました。",
+    "answer": "と / を / で / を",
+    "choices": [
+      "と / を / で / を",
+      "に / が / に / が",
+      "を / と / を / で",
+      "が / を / に / を"
+    ],
+    "missing_en": [
+      "に / が / に / が",
+      "を / と / を / で",
+      "が / を / に / を"
+    ],
+    "missing_hi": [
+      "に / が / に / が",
+      "を / と / を / で",
+      "が / を / に / を"
+    ],
+    "explanation_en": "Companion と (with friend), object を (saw a movie), location-of-action で (at the cafe), object を (drank coffee). All four particles in a connected narrative: distinguishes companion-と from subject-が, location-で from time-に, and reinforces を for direct objects.",
+    "grammarPatternId": "n5-007"
+  },
+  {
+    "id": "q-0473",
+    "question_ja": "やまださんの がっこうは どこですか。",
+    "answer": "学校",
+    "choices": [
+      "学生",
+      "学校",
+      "学行",
+      "学日"
+    ],
+    "missing_en": [
+      "学生",
+      "学行",
+      "学日"
+    ],
+    "missing_hi": [
+      "学生",
+      "学行",
+      "学日"
+    ],
+    "explanation_en": "がっこう = 学校 (school). The distractors swap 校 (school-building) with other N5 kanji: 生 (life/student), 行 (go), 日 (day). Forces precise recognition of 校.",
+    "grammarPatternId": "n5-029"
+  },
+  {
+    "id": "q-0474",
+    "question_ja": "らいげつ にほんに 行きます。",
+    "answer": "来月",
+    "choices": [
+      "今月",
+      "今週",
+      "来月",
+      "来週"
+    ],
+    "missing_en": [
+      "今月",
+      "今週",
+      "来週"
+    ],
+    "missing_hi": [
+      "今月",
+      "今週",
+      "来週"
+    ],
+    "explanation_en": "らいげつ = 来月 (next month). 来 (come/next) + 月 (month). The distractors are all valid N5 time words with one element swapped: 今月 (this month), 今週 (this week), 来週 (next week). Tests both kanji-recognition and time-vocabulary precision.",
+    "grammarPatternId": "n5-117"
+  },
+  {
+    "id": "q-0475",
+    "question_ja": "この カメラは たかいです。",
+    "answer": "高い",
+    "choices": [
+      "古い",
+      "新しい",
+      "安い",
+      "高い"
+    ],
+    "missing_en": [
+      "古い",
+      "新しい",
+      "安い"
+    ],
+    "missing_hi": [
+      "古い",
+      "新しい",
+      "安い"
+    ],
+    "explanation_en": "たかい = 高い (expensive / tall). All four are N5 i-adjectives with related meanings: 古い (old), 新しい (new), 安い (cheap, antonym of 高い). Tests precise kanji recognition within a tightly-related semantic field.",
+    "grammarPatternId": "n5-079"
+  },
+  {
+    "id": "q-0476",
+    "question_ja": "この いぬは あしが しろいです。",
+    "answer": "白い",
+    "choices": [
+      "白い",
+      "日い",
+      "百い",
+      "目い"
+    ],
+    "missing_en": [
+      "日い",
+      "百い",
+      "目い"
+    ],
+    "missing_hi": [
+      "日い",
+      "百い",
+      "目い"
+    ],
+    "explanation_en": "しろい = 白い (white). Distractors use kanji visually similar to 白: 日 (day/sun), 百 (hundred), 目 (eye). The four characters form a tightly-clustered visual group -  small differences in stroke count / interior strokes distinguish them. Tests precise glyph discrimination.",
+    "grammarPatternId": "n5-002"
+  },
+  {
+    "id": "q-0477",
+    "question_ja": "きのうは かいしゃを やすみました。",
+    "answer": "会社",
+    "choices": [
+      "会話",
+      "会社",
+      "会見",
+      "会国"
+    ],
+    "missing_en": [
+      "会話",
+      "会見",
+      "会国"
+    ],
+    "missing_hi": [
+      "会話",
+      "会見",
+      "会国"
+    ],
+    "explanation_en": "かいしゃ = 会社 (company). 会 + 社. Distractors keep 会 and swap with other N5 kanji: 話 (talk), 見 (see), 国 (country).",
+    "grammarPatternId": "n5-117"
+  },
+  {
+    "id": "q-0478",
+    "question_ja": "あのレストランで ばんごはんを たべます。",
+    "answer": "食べ",
+    "choices": [
+      "飲べ",
+      "口べ",
+      "食べ",
+      "見べ"
+    ],
+    "missing_en": [
+      "飲べ",
+      "口べ",
+      "見べ"
+    ],
+    "missing_hi": [
+      "飲べ",
+      "口べ",
+      "見べ"
+    ],
+    "explanation_en": "たべ = 食べ (the stem of 食べる, to eat). The distractors all use semantically-related action kanji: 飲 (drink) is the most common confusion since both 食べる and 飲む are eating/drinking verbs; 口 (mouth) and 見 (see) are visually-distinct but conceptually related. Tests verb-stem recognition against semantically-similar foils.",
+    "grammarPatternId": "n5-002"
+  },
+  {
+    "id": "q-0454",
+    "question_ja": "おととい がっこうを やすみました。",
+    "answer": "ふつかまえ がっこうを やすみました。",
+    "choices": [
+      "いつかまえ がっこうを やすみました。",
+      "みっかまえ がっこうを やすみました。",
+      "ふつかまえ がっこうを やすみました。",
+      "よっかまえ がっこうを やすみました。"
+    ],
+    "missing_en": [
+      "いつかまえ がっこうを やすみました。",
+      "みっかまえ がっこうを やすみました。",
+      "よっかまえ がっこうを やすみました。"
+    ],
+    "missing_hi": [
+      "いつかまえ がっこうを やすみました。",
+      "みっかまえ がっこうを やすみました。",
+      "よっかまえ がっこうを やすみました。"
+    ],
+    "explanation_en": "おととい = day before yesterday = 2 days ago = ふつかまえ. The native counter ふつか (2 days) + まえ (before) is the synonym chain.",
+    "grammarPatternId": "n5-117"
+  },
+  {
+    "id": "q-0455",
+    "question_ja": "あさって うちに かえります。",
+    "answer": "あしたの つぎの ひに うちに かえります。",
+    "choices": [
+      "せんしゅうの あとに うちに かえります。",
+      "きのうの つぎの ひに うちに かえります。",
+      "きょうの つぎの ひに うちに かえります。",
+      "あしたの つぎの ひに うちに かえります。"
+    ],
+    "missing_en": [
+      "せんしゅうの あとに うちに かえります。",
+      "きのうの つぎの ひに うちに かえります。",
+      "きょうの つぎの ひに うちに かえります。"
+    ],
+    "missing_hi": [
+      "せんしゅうの あとに うちに かえります。",
+      "きのうの つぎの ひに うちに かえります。",
+      "きょうの つぎの ひに うちに かえります。"
+    ],
+    "explanation_en": "あさって = day after tomorrow = the day after tomorrow (あしたの つぎの ひ).",
+    "grammarPatternId": "n5-117"
+  },
+  {
+    "id": "q-0456",
+    "question_ja": "ちちと ははは げんきです。",
+    "answer": "りょうしんは げんきです。",
+    "choices": [
+      "りょうしんは げんきです。",
+      "きょうだいは げんきです。",
+      "そふぼは げんきです。",
+      "かぞくは みんな げんきです。"
+    ],
+    "missing_en": [
+      "きょうだいは げんきです。",
+      "そふぼは げんきです。",
+      "かぞくは みんな げんきです。"
+    ],
+    "missing_hi": [
+      "きょうだいは げんきです。",
+      "そふぼは げんきです。",
+      "かぞくは みんな げんきです。"
+    ],
+    "explanation_en": "ちち + はは (father + mother) = りょうしん (parents). Direct lexical equivalence.",
+    "grammarPatternId": "n5-002"
+  },
+  {
+    "id": "q-0457",
+    "question_ja": "この へやは くらいです。",
+    "answer": "この へやは あかるくないです。",
+    "choices": [
+      "この へやは あかるいです。",
+      "この へやは あかるくないです。",
+      "この へやは ひろいです。",
+      "この へやは しずかです。"
+    ],
+    "missing_en": [
+      "この へやは あかるいです。",
+      "この へやは ひろいです。",
+      "この へやは しずかです。"
+    ],
+    "missing_hi": [
+      "この へやは あかるいです。",
+      "この へやは ひろいです。",
+      "この へやは しずかです。"
+    ],
+    "explanation_en": "くらい (dark) = あかるくない (not bright). Antonym-via-negation tests the い-adjective negative form + opposite-meaning pair.",
+    "grammarPatternId": "n5-079"
+  },
+  {
+    "id": "q-0458",
+    "question_ja": "この くるまは やすいです。",
+    "answer": "この くるまは たかくないです。",
+    "choices": [
+      "この くるまは ひくいです。",
+      "この くるまは みじかいです。",
+      "この くるまは たかくないです。",
+      "この くるまは あたらしくないです。"
+    ],
+    "missing_en": [
+      "この くるまは ひくいです。",
+      "この くるまは みじかいです。",
+      "この くるまは あたらしくないです。"
+    ],
+    "missing_hi": [
+      "この くるまは ひくいです。",
+      "この くるまは みじかいです。",
+      "この くるまは あたらしくないです。"
+    ],
+    "explanation_en": "やすい (cheap) = たかくない (not expensive). Common antonym pair; たかい also means 'tall' but in price context = expensive.",
+    "grammarPatternId": "n5-080"
+  },
+  {
+    "id": "q-0459",
+    "question_ja": "この もんだいは やさしいです。",
+    "answer": "この もんだいは むずかしくないです。",
+    "choices": [
+      "この もんだいは おもしろいです。",
+      "この もんだいは あたらしいです。",
+      "この もんだいは ながいです。",
+      "この もんだいは むずかしくないです。"
+    ],
+    "missing_en": [
+      "この もんだいは おもしろいです。",
+      "この もんだいは あたらしいです。",
+      "この もんだいは ながいです。"
+    ],
+    "missing_hi": [
+      "この もんだいは おもしろいです。",
+      "この もんだいは あたらしいです。",
+      "この もんだいは ながいです。"
+    ],
+    "explanation_en": "やさしい (easy, 易しい) = むずかしくない (not difficult). Note: やさしい also has a 'kind' sense (優しい), but the easy sense is most common in N5.",
+    "grammarPatternId": "n5-080"
+  },
+  {
+    "id": "q-0460",
+    "question_ja": "プレゼントを たくさん もらいました。",
+    "answer": "プレゼントを いっぱい もらいました。",
+    "choices": [
+      "プレゼントを いっぱい もらいました。",
+      "プレゼントを すこし もらいました。",
+      "プレゼントを ちょっと もらいました。",
+      "プレゼントを ぜんぜん もらいませんでした。"
+    ],
+    "missing_en": [
+      "プレゼントを すこし もらいました。",
+      "プレゼントを ちょっと もらいました。",
+      "プレゼントを ぜんぜん もらいませんでした。"
+    ],
+    "missing_hi": [
+      "プレゼントを すこし もらいました。",
+      "プレゼントを ちょっと もらいました。",
+      "プレゼントを ぜんぜん もらいませんでした。"
+    ],
+    "explanation_en": "たくさん = いっぱい (a lot, plenty). Both adverbs of quantity meaning 'a large amount'.",
+    "grammarPatternId": "n5-002"
+  },
+  {
+    "id": "q-0461",
+    "question_ja": "ふくを せんたくしました。",
+    "answer": "ふくを あらいました。",
+    "choices": [
+      "ふくを きました。",
+      "ふくを あらいました。",
+      "ふくを ぬぎました。",
+      "ふくを かいました。"
+    ],
+    "missing_en": [
+      "ふくを きました。",
+      "ふくを ぬぎました。",
+      "ふくを かいました。"
+    ],
+    "missing_hi": [
+      "ふくを きました。",
+      "ふくを ぬぎました。",
+      "ふくを かいました。"
+    ],
+    "explanation_en": "せんたくする (to do laundry, 洗濯する) = あらう (to wash). Specific-to-general lexical equivalence; both target the same action.",
+    "grammarPatternId": "n5-004"
+  },
+  {
+    "id": "q-0462",
+    "question_ja": "リーさんは もりさんに ペンを かしました。",
+    "answer": "もりさんは リーさんから ペンを かりました。",
+    "choices": [
+      "もりさんは リーさんに ペンを もらいました。",
+      "もりさんは リーさんに ペンを かしました。",
+      "もりさんは リーさんから ペンを かりました。",
+      "リーさんは もりさんから ペンを かりました。"
+    ],
+    "missing_en": [
+      "もりさんは リーさんに ペンを もらいました。",
+      "もりさんは リーさんに ペンを かしました。",
+      "リーさんは もりさんから ペンを かりました。"
+    ],
+    "missing_hi": [
+      "もりさんは リーさんに ペンを もらいました。",
+      "もりさんは リーさんに ペンを かしました。",
+      "リーさんは もりさんから ペンを かりました。"
+    ],
+    "explanation_en": "AがBにかす (A lends to B) = BがAからかりる (B borrows from A). Same event from the recipient's perspective. Note the particle change: にかす → からかりる.",
+    "grammarPatternId": "n5-002"
+  },
+  {
+    "id": "q-0463",
+    "question_ja": "この ケーキは まずいです。",
+    "answer": "この ケーキは おいしくないです。",
+    "choices": [
+      "この ケーキは おいしいです。",
+      "この ケーキは やすくないです。",
+      "この ケーキは あまいです。",
+      "この ケーキは おいしくないです。"
+    ],
+    "missing_en": [
+      "この ケーキは おいしいです。",
+      "この ケーキは やすくないです。",
+      "この ケーキは あまいです。"
+    ],
+    "missing_hi": [
+      "この ケーキは おいしいです。",
+      "この ケーキは やすくないです。",
+      "この ケーキは あまいです。"
+    ],
+    "explanation_en": "まずい (bad-tasting) = おいしくない (not delicious). Antonym pair; まずい is the い-adjective directly opposite to おいしい.",
+    "grammarPatternId": "n5-079"
+  },
+  {
+    "id": "q-0504",
+    "question_ja": "がっこうは 9じ（ ）3じ までです。",
+    "answer": "から",
+    "choices": [
+      "から",
+      "まで",
+      "に",
+      "で"
+    ],
+    "missing_en": [
+      "まで",
+      "に",
+      "で"
+    ],
+    "missing_hi": [
+      "まで",
+      "に",
+      "で"
+    ],
+    "explanation_en": "から〜まで paired range. The Xから Yまで construction marks 'from X to Y'. The まで is already in place; から is the starting marker.",
+    "grammarPatternId": "n5-021"
+  },
+  {
+    "id": "q-0505",
+    "question_ja": "げつようび（ ）きんようびまで はたらきます。",
+    "answer": "から",
+    "choices": [
+      "と",
+      "から",
+      "に",
+      "へ"
+    ],
+    "missing_en": [
+      "と",
+      "に",
+      "へ"
+    ],
+    "missing_hi": [
+      "と",
+      "に",
+      "へ"
+    ],
+    "explanation_en": "から〜まで paired range marker -  'from Monday to Friday'. から marks the start point of a time range.",
+    "grammarPatternId": "n5-021"
+  },
+  {
+    "id": "q-0506",
+    "question_ja": "これは わたし（ ）ほんです。",
+    "answer": "の",
+    "choices": [
+      "が",
+      "は",
+      "の",
+      "を"
+    ],
+    "missing_en": [
+      "が",
+      "は",
+      "を"
+    ],
+    "missing_hi": [
+      "が",
+      "は",
+      "を"
+    ],
+    "explanation_en": "Possessive の links a possessor to a noun: わたしの ほん = my book. Direct N5 grammar.",
+    "grammarPatternId": "n5-028"
+  },
+  {
+    "id": "q-0507",
+    "question_ja": "えいがを 見る（ ）が すきです。",
+    "answer": "の",
+    "choices": [
+      "で",
+      "ところ",
+      "もの",
+      "の"
+    ],
+    "missing_en": [
+      "で",
+      "ところ",
+      "もの"
+    ],
+    "missing_hi": [
+      "で",
+      "ところ",
+      "もの"
+    ],
+    "explanation_en": "Nominaliser の turns the verb-clause 見る into a noun phrase 'watching movies'. もの and ところ form different noun phrases (thing-to-watch / place-to-watch) that don't fit the 'X が すきです' frame as cleanly. で is a particle, not a nominaliser. (Earlier this question listed こと in the choice set; こと is also a valid nominaliser here, so it was replaced with で to remove the multi-correct hazard. Native speakers freely use either の or こと for sensory verbs like 見る.)",
+    "grammarPatternId": "n5-030"
+  },
+  {
+    "id": "q-0508",
+    "question_ja": "100えん（ ）ありません。",
+    "answer": "しか",
+    "choices": [
+      "しか",
+      "です",
+      "まで",
+      "から"
+    ],
+    "missing_en": [
+      "です",
+      "まで",
+      "から"
+    ],
+    "missing_hi": [
+      "です",
+      "まで",
+      "から"
+    ],
+    "explanation_en": "しか〜ない/ません construction = 'only X (and that's a limited amount)'. Always paired with a negative verb (ありません). Distractors fail because です is the copula (not a particle), まで is endpoint, から is start point.",
+    "grammarPatternId": "n5-034"
+  },
+  {
+    "id": "q-0509",
+    "question_ja": "（ ）ほんを ください。",
+    "answer": "この",
+    "choices": [
+      "これ",
+      "この",
+      "それ",
+      "ここ"
+    ],
+    "missing_en": [
+      "これ",
+      "それ",
+      "ここ"
+    ],
+    "missing_hi": [
+      "これ",
+      "それ",
+      "ここ"
+    ],
+    "explanation_en": "Adjectival demonstrative この (this + noun). この/その/あの always precede a noun. これ is the standalone pronoun form (これ ほん is ungrammatical).",
+    "grammarPatternId": "n5-040"
+  },
+  {
+    "id": "q-0510",
+    "question_ja": "（ ）にほんへ 行きますか。",
+    "answer": "どうして",
+    "choices": [
+      "どうやって",
+      "どこ",
+      "どうして",
+      "いくら"
+    ],
+    "missing_en": [
+      "どうやって",
+      "どこ",
+      "いくら"
+    ],
+    "missing_hi": [
+      "どうやって",
+      "どこ",
+      "いくら"
+    ],
+    "explanation_en": "どうして = why. The expected answer would be 'because of X'. なぜ is interchangeable.",
+    "grammarPatternId": "n5-051"
+  },
+  {
+    "id": "q-0511",
+    "question_ja": "がっこうへ（ ）行きますか。",
+    "answer": "どうやって",
+    "choices": [
+      "どうして",
+      "なぜ",
+      "どこ",
+      "どうやって"
+    ],
+    "missing_en": [
+      "どうして",
+      "なぜ",
+      "どこ"
+    ],
+    "missing_hi": [
+      "どうして",
+      "なぜ",
+      "どこ"
+    ],
+    "explanation_en": "どうやって = how / by what means. Expected answer is means: バスで, でんしゃで, etc.",
+    "grammarPatternId": "n5-052"
+  },
+  {
+    "id": "q-0512",
+    "question_ja": "きょうは（ ）ですか。",
+    "answer": "なんようび",
+    "choices": [
+      "なんようび",
+      "なんにち",
+      "なんがつ",
+      "なんじ"
+    ],
+    "missing_en": [
+      "なんにち",
+      "なんがつ",
+      "なんじ"
+    ],
+    "missing_hi": [
+      "なんにち",
+      "なんがつ",
+      "なんじ"
+    ],
+    "explanation_en": "なんようび = what day of the week. Expected answer: げつようび / かようび / etc.",
+    "grammarPatternId": "n5-056"
+  },
+  {
+    "id": "q-0513",
+    "question_ja": "おたんじょうびは（ ）ですか。",
+    "answer": "なんがつなんにち",
+    "choices": [
+      "なんようび",
+      "なんがつなんにち",
+      "なんじ",
+      "なんねん"
+    ],
+    "missing_en": [
+      "なんようび",
+      "なんじ",
+      "なんねん"
+    ],
+    "missing_hi": [
+      "なんようび",
+      "なんじ",
+      "なんねん"
+    ],
+    "explanation_en": "なんがつなんにち = what month, what day. The standard Japanese way to ask for a date (vs なんようび which is day-of-week).",
+    "grammarPatternId": "n5-057"
+  },
+  {
+    "id": "q-0489",
+    "question_ja": "てつだい（ ）か。",
+    "answer": "ましょう",
+    "choices": [
+      "ます",
+      "ましょう",
+      "ません",
+      "ました"
+    ],
+    "missing_en": [
+      "ます",
+      "ません",
+      "ました"
+    ],
+    "missing_hi": [
+      "ます",
+      "ません",
+      "ました"
+    ],
+    "explanation_en": "Verb-ましょうか = 'shall I / shall we ~?' The か at the end + the offer-context make ましょう the only fit. ます would be a plain statement, not an offer.",
+    "grammarPatternId": "n5-063"
+  },
+  {
+    "id": "q-0490",
+    "question_ja": "いま、ごはんを たべて（ ）。",
+    "answer": "いません",
+    "choices": [
+      "います",
+      "あります",
+      "いません",
+      "ありません"
+    ],
+    "missing_en": [
+      "います",
+      "あります",
+      "ありません"
+    ],
+    "missing_hi": [
+      "います",
+      "あります",
+      "ありません"
+    ],
+    "explanation_en": "Verb-ていません = 'not currently doing'. The progressive ています + negative ません. The context 'いま (now)' triggers progressive aspect.",
+    "grammarPatternId": "n5-073"
+  },
+  {
+    "id": "q-0491",
+    "question_ja": "ばんごはんを たべ（ ）、テレビを 見ます。",
+    "answer": "てから",
+    "choices": [
+      "て",
+      "ても",
+      "ながら",
+      "てから"
+    ],
+    "missing_en": [
+      "て",
+      "ても",
+      "ながら"
+    ],
+    "missing_hi": [
+      "て",
+      "ても",
+      "ながら"
+    ],
+    "explanation_en": "Verb-てから = 'after doing X'. Sequential meaning: first eat dinner, THEN watch TV. て alone would also work but てから makes the sequence explicit.",
+    "grammarPatternId": "n5-076"
+  },
+  {
+    "id": "q-0492",
+    "question_ja": "（ ）くるまを かいました。",
+    "answer": "あたらしい",
+    "choices": [
+      "あたらしい",
+      "あたらしいの",
+      "あたらしく",
+      "あたらしくて"
+    ],
+    "missing_en": [
+      "あたらしいの",
+      "あたらしく",
+      "あたらしくて"
+    ],
+    "missing_hi": [
+      "あたらしいの",
+      "あたらしく",
+      "あたらしくて"
+    ],
+    "explanation_en": "い-Adjective directly before a noun: あたらしい くるま (new car). The dictionary form あたらしい is the noun-modifier form. -く is for connecting to verbs/adjectives.",
+    "grammarPatternId": "n5-078"
+  },
+  {
+    "id": "q-0493",
+    "question_ja": "（ ）へやが ほしいです。",
+    "answer": "きれいな",
+    "choices": [
+      "きれい",
+      "きれいな",
+      "きれいで",
+      "きれいに"
+    ],
+    "missing_en": [
+      "きれい",
+      "きれいで",
+      "きれいに"
+    ],
+    "missing_hi": [
+      "きれい",
+      "きれいで",
+      "きれいに"
+    ],
+    "explanation_en": "な-Adjective + な + Noun: きれいな へや. The な is mandatory before a noun. きれい (without な) is the standalone form used as a predicate, not as a modifier.",
+    "grammarPatternId": "n5-084"
+  },
+  {
+    "id": "q-0494",
+    "question_ja": "つくえの うえ（ ）ほんが あります。",
+    "answer": "に",
+    "choices": [
+      "を",
+      "で",
+      "に",
+      "と"
+    ],
+    "missing_en": [
+      "を",
+      "で",
+      "と"
+    ],
+    "missing_hi": [
+      "を",
+      "で",
+      "と"
+    ],
+    "explanation_en": "Location of existence takes に: 'on the desk, there is a book'. The pattern is XにYが あります -  に for location, が for the existing thing.",
+    "grammarPatternId": "n5-092"
+  },
+  {
+    "id": "q-0495",
+    "question_ja": "わたしの ほんは つくえの うえ（ ）あります。",
+    "answer": "に",
+    "choices": [
+      "と",
+      "で",
+      "を",
+      "に"
+    ],
+    "missing_en": [
+      "と",
+      "で",
+      "を"
+    ],
+    "missing_hi": [
+      "と",
+      "で",
+      "を"
+    ],
+    "explanation_en": "XはYに あります = 'X is at Y' (already-known X first). Same locating particle に as the location-first variant. Topic は marks the already-known thing.",
+    "grammarPatternId": "n5-093"
+  },
+  {
+    "id": "q-0496",
+    "question_ja": "とうきょう（ ）おおさかの ほうが ちかいです。",
+    "answer": "より",
+    "choices": [
+      "より",
+      "から",
+      "と",
+      "は"
+    ],
+    "missing_en": [
+      "から",
+      "と",
+      "は"
+    ],
+    "missing_hi": [
+      "から",
+      "と",
+      "は"
+    ],
+    "explanation_en": "Yより Xの ほうが [adj] です = 'X is more [adj] than Y'. より marks the comparison reference. The のほうが construction emphasises the focused side.",
+    "grammarPatternId": "n5-096"
+  },
+  {
+    "id": "q-0497",
+    "question_ja": "ねこ（ ）いぬと、（ ）が すきですか。",
+    "answer": "と / どちら",
+    "choices": [
+      "を / どっち",
+      "と / どちら",
+      "は / どこ",
+      "で / どれ"
+    ],
+    "missing_en": [
+      "を / どっち",
+      "は / どこ",
+      "で / どれ"
+    ],
+    "missing_hi": [
+      "を / どっち",
+      "は / どこ",
+      "で / どれ"
+    ],
+    "explanation_en": "AとBと、どちらが ~ですか = '(among A and B,) which is more ~?'. と marks each item in the 2-way comparison; どちら is the 'which-of-two' question word.",
+    "grammarPatternId": "n5-097"
+  },
+  {
+    "id": "q-0498",
+    "question_ja": "わたしは ピアノ（ ）じょうずです。",
+    "answer": "が",
+    "choices": [
+      "を",
+      "に",
+      "が",
+      "で"
+    ],
+    "missing_en": [
+      "を",
+      "に",
+      "で"
+    ],
+    "missing_hi": [
+      "を",
+      "に",
+      "で"
+    ],
+    "explanation_en": "~がじょうずです / ~がへたです takes が, not を. This is the same が-class as ~がすきです / ~がほしいです / ~がわかります / ~ができます -  with ability/feeling predicates, the object/skill takes が.",
+    "grammarPatternId": "n5-100"
+  },
+  {
+    "id": "q-0499",
+    "question_ja": "にほんご（ ）すこし わかります。",
+    "answer": "が",
+    "choices": [
+      "を",
+      "で",
+      "に",
+      "が"
+    ],
+    "missing_en": [
+      "を",
+      "で",
+      "に"
+    ],
+    "missing_hi": [
+      "を",
+      "で",
+      "に"
+    ],
+    "explanation_en": "~がわかります = 'understand X'. が, not を. The understood-thing is grammatically the subject of the understanding-state, not the object.",
+    "grammarPatternId": "n5-102"
+  },
+  {
+    "id": "q-0500",
+    "question_ja": "わたしは およぎ（ ）できます。",
+    "answer": "が",
+    "choices": [
+      "が",
+      "を",
+      "に",
+      "で"
+    ],
+    "missing_en": [
+      "を",
+      "に",
+      "で"
+    ],
+    "missing_hi": [
+      "を",
+      "に",
+      "で"
+    ],
+    "explanation_en": "~ができます = 'can do X / be able to'. The ability-target takes が. Note: with a verb stem like およぎ, ~ことができます would also work (using こと as nominaliser); both are N5.",
+    "grammarPatternId": "n5-103"
+  },
+  {
+    "id": "q-0501",
+    "question_ja": "きょうは あめだから、（ ）です。",
+    "answer": "でかけたくない",
+    "choices": [
+      "でかけたい",
+      "でかけたくない",
+      "でかけたかった",
+      "でかけた"
+    ],
+    "missing_en": [
+      "でかけたい",
+      "でかけたかった",
+      "でかけた"
+    ],
+    "missing_hi": [
+      "でかけたい",
+      "でかけたかった",
+      "でかけた"
+    ],
+    "explanation_en": "Verb-stem + たくない = 'don't want to do'. Negative form of たい. The context 'rain today' makes 'don't want to go out' the natural fit.",
+    "grammarPatternId": "n5-105"
+  },
+  {
+    "id": "q-0502",
+    "question_ja": "スーパーへ かいもの（ ）行きます。",
+    "answer": "に",
+    "choices": [
+      "を",
+      "で",
+      "に",
+      "と"
+    ],
+    "missing_en": [
+      "を",
+      "で",
+      "と"
+    ],
+    "missing_hi": [
+      "を",
+      "で",
+      "と"
+    ],
+    "explanation_en": "Verb-stem + に行く = 'go to do X'. Purposive に. かいもの is a verbal noun acting as the purpose. The destination へ + purpose に combination is the canonical 'go shopping' construction.",
+    "grammarPatternId": "n5-107"
+  },
+  {
+    "id": "q-0503",
+    "question_ja": "ほんを（ ）かいましたか。",
+    "answer": "なんさつ",
+    "choices": [
+      "いくら",
+      "どれくらい",
+      "いくつ",
+      "なんさつ"
+    ],
+    "missing_en": [
+      "いくら",
+      "どれくらい",
+      "いくつ"
+    ],
+    "missing_hi": [
+      "いくら",
+      "どれくらい",
+      "いくつ"
+    ],
+    "explanation_en": "なん + counter is the standard 'how many [counter]?' form. For books, the counter is さつ (冊). いくら is for prices; いくつ is the general 'how many' for native counters.",
+    "grammarPatternId": "n5-109"
+  },
+  {
+    "id": "q-0514",
+    "question_ja": "A: あした、しごとに 行く（ ）。\nB: ううん、行かない。",
+    "answer": "の",
+    "choices": [
+      "ね",
+      "よ",
+      "の",
+      "と"
+    ],
+    "missing_en": [
+      "ね",
+      "よ",
+      "と"
+    ],
+    "missing_hi": [
+      "ね",
+      "よ",
+      "と"
+    ],
+    "explanation_en": "Sentence-final no (rising intonation) marks an informal yes/no question. B-plain-negative reply confirms A asked a question. Distractors: yo (assertive), ne (confirmation-seeking), to (quote-marker, ungrammatical sentence-finally).",
+    "grammarPatternId": "n5-031"
+  },
+  {
+    "id": "q-0515",
+    "question_ja": "らいしゅう しけん（ ）あります。",
+    "answer": "が",
+    "choices": [
+      "で",
+      "を",
+      "に",
+      "が"
+    ],
+    "missing_en": [
+      "で",
+      "を",
+      "に"
+    ],
+    "missing_hi": [
+      "で",
+      "を",
+      "に"
+    ],
+    "explanation_en": "X ga arimasu is the canonical pattern for there is/have an event. Subject is marked by ga. Distractors: wo marks direct objects (arimasu is intransitive); ni marks location/time; de marks place of action.",
+    "grammarPatternId": "n5-094"
+  },
+  {
+    "id": "q-0516",
+    "question_ja": "わたしは あたらしい くつ（ ）ほしいです。",
+    "answer": "が",
+    "choices": [
+      "が",
+      "を",
+      "に",
+      "と"
+    ],
+    "missing_en": [
+      "を",
+      "に",
+      "と"
+    ],
+    "missing_hi": [
+      "を",
+      "に",
+      "と"
+    ],
+    "explanation_en": "hoshii takes ga to mark the object of desire (not wo). watashi wa X ga hoshii desu = I want X. Distractors: wo ungrammatical with hoshii; ni/to wrong category.",
+    "grammarPatternId": "n5-106"
+  },
+  {
+    "id": "q-0517",
+    "question_ja": "いま なん（ ）ですか。",
+    "answer": "じ",
+    "choices": [
+      "ふん",
+      "じ",
+      "にち",
+      "がつ"
+    ],
+    "missing_en": [
+      "ふん",
+      "にち",
+      "がつ"
+    ],
+    "missing_hi": [
+      "ふん",
+      "にち",
+      "がつ"
+    ],
+    "explanation_en": "ima nan-ji = what time/oclock now? -  ji is the oclock counter. Distractors: fun (minutes), nichi (day), gatsu (month).",
+    "grammarPatternId": "n5-111"
+  },
+  {
+    "id": "q-0518",
+    "question_ja": "がっこうは ８じ（ ）に はじまります。",
+    "answer": "はん",
+    "choices": [
+      "まえ",
+      "ばん",
+      "はん",
+      "あと"
+    ],
+    "missing_en": [
+      "まえ",
+      "ばん",
+      "あと"
+    ],
+    "missing_hi": [
+      "まえ",
+      "ばん",
+      "あと"
+    ],
+    "explanation_en": "ji-han = half past. 8-ji-han = 8:30. Distractors: ban (evening), mae (before), ato (after).",
+    "grammarPatternId": "n5-113"
+  },
+  {
+    "id": "q-0519",
+    "question_ja": "（ ）あさ ７じに おきます。",
+    "answer": "まいにち",
+    "choices": [
+      "あした",
+      "きのう",
+      "こんばん",
+      "まいにち"
+    ],
+    "missing_en": [
+      "あした",
+      "きのう",
+      "こんばん"
+    ],
+    "missing_hi": [
+      "あした",
+      "きのう",
+      "こんばん"
+    ],
+    "explanation_en": "mainichi = every day. Pairs with habitual present. Distractors: kinou (yesterday), konban (tonight), ashita (tomorrow) -  all single-day temporals, not recurrence.",
+    "grammarPatternId": "n5-116"
+  },
+  {
+    "id": "q-0520",
+    "question_ja": "「ごはんは（ ）たべましたか。」「はい、もう たべました。」",
+    "answer": "もう",
+    "choices": [
+      "もう",
+      "まだ",
+      "いま",
+      "すぐ"
+    ],
+    "missing_en": [
+      "まだ",
+      "いま",
+      "すぐ"
+    ],
+    "missing_hi": [
+      "まだ",
+      "いま",
+      "すぐ"
+    ],
+    "explanation_en": "mou (already) pairs with the affirmative answer yes I already ate. Distractors: mada (yet/still -  would pair with negative answer), ima (now -  wrong tense), sugu (right away -  wrong nuance).",
+    "grammarPatternId": "n5-118"
+  },
+  {
+    "id": "q-0521",
+    "question_ja": "ごはんを たべる（ ）に てを あらいます。",
+    "answer": "まえ",
+    "choices": [
+      "あと",
+      "まえ",
+      "うしろ",
+      "うえ"
+    ],
+    "missing_en": [
+      "あと",
+      "うしろ",
+      "うえ"
+    ],
+    "missing_hi": [
+      "あと",
+      "うしろ",
+      "うえ"
+    ],
+    "explanation_en": "Verb-dictionary-form + mae-ni = before doing. taberu mae ni te wo arau = wash hands before eating (canonical sequence). Distractors: ato needs past-form (tabeta ato de); ushiro/ue are spatial.",
+    "grammarPatternId": "n5-119"
+  },
+  {
+    "id": "q-0522",
+    "question_ja": "べんきょうした（ ）で、ともだちと あいます。",
+    "answer": "あと",
+    "choices": [
+      "とき",
+      "まえ",
+      "あと",
+      "うち"
+    ],
+    "missing_en": [
+      "とき",
+      "まえ",
+      "うち"
+    ],
+    "missing_hi": [
+      "とき",
+      "まえ",
+      "うち"
+    ],
+    "explanation_en": "Verb-past-form + ato-de = after doing. benkyou-shita ato de = after studying. Distractors: mae needs non-past-form (benkyou-suru mae ni); toki/uchi wrong nuance.",
+    "grammarPatternId": "n5-120"
+  },
+  {
+    "id": "q-0523",
+    "question_ja": "「もう おそいですから、（ ）かえります。」",
+    "answer": "では",
+    "choices": [
+      "だから",
+      "でも",
+      "けれど",
+      "では"
+    ],
+    "missing_en": [
+      "だから",
+      "でも",
+      "けれど"
+    ],
+    "missing_hi": [
+      "だから",
+      "でも",
+      "けれど"
+    ],
+    "explanation_en": "dewa (formal) / ja (casual) = well then -  transitions from a stated reason to a follow-up action. Distractors: demo (but/however) introduces contrast, not transition; keredo (but) similar contrast; dakara (therefore) is causal explanation, not transition.",
+    "grammarPatternId": "n5-125"
+  },
+  {
+    "id": "q-0524",
+    "question_ja": "にほんごは むずかしい（ ）、おもしろいです。",
+    "answer": "けれど",
+    "choices": [
+      "けれど",
+      "から",
+      "まで",
+      "ので"
+    ],
+    "missing_en": [
+      "から",
+      "まで",
+      "ので"
+    ],
+    "missing_hi": [
+      "から",
+      "まで",
+      "ので"
+    ],
+    "explanation_en": "keredo (or kedo informal) = but / although -  connects contrasting clauses. Distractors: kara/node are causal (because), made is endpoint.",
+    "grammarPatternId": "n5-127"
+  },
+  {
+    "id": "q-0525",
+    "question_ja": "「（ ）にほんへ きましたか。」「にほんごを べんきょうしたいですから。」",
+    "answer": "どうして",
+    "choices": [
+      "いつ",
+      "どうして",
+      "どこ",
+      "だれ"
+    ],
+    "missing_en": [
+      "いつ",
+      "どこ",
+      "だれ"
+    ],
+    "missing_hi": [
+      "いつ",
+      "どこ",
+      "だれ"
+    ],
+    "explanation_en": "doushite = why -  pairs with kara (because) in the answer. The B response gives a reason, so A asked why. Distractors: itsu (when), doko (where), dare (who) all expect different answer types.",
+    "grammarPatternId": "n5-129"
+  },
+  {
+    "id": "q-0526",
+    "question_ja": "たんじょうびに、ともだち（ ）プレゼントを くれました。",
+    "answer": "が",
+    "choices": [
+      "に",
+      "を",
+      "が",
+      "で"
+    ],
+    "missing_en": [
+      "に",
+      "を",
+      "で"
+    ],
+    "missing_hi": [
+      "に",
+      "を",
+      "で"
+    ],
+    "explanation_en": "X ga (watashi ni) Y wo kureru = X gives Y (to me / in-group). The giver is marked with ga. Distractors: wo marks the gift, ni marks recipient, de is means/place.",
+    "grammarPatternId": "n5-132"
+  },
+  {
+    "id": "q-0527",
+    "question_ja": "きのう（ ）ひとは たなかさんです。",
+    "answer": "きた",
+    "choices": [
+      "こない",
+      "きます",
+      "きました",
+      "きた"
+    ],
+    "missing_en": [
+      "こない",
+      "きます",
+      "きました"
+    ],
+    "missing_hi": [
+      "こない",
+      "きます",
+      "きました"
+    ],
+    "explanation_en": "Plain-form verb modifies a following noun (relative clause). kita hito = the person who came. Distractors: kimasu/kimashita are polite-form (cannot modify a noun directly in N5); konai would mean the person who doesnt come -  wrong sense for past event.",
+    "grammarPatternId": "n5-135"
+  },
+  {
+    "id": "q-0528",
+    "question_ja": "これは とても（ ）ほんです。",
+    "answer": "おもしろい",
+    "choices": [
+      "おもしろい",
+      "おもしろく",
+      "おもしろくて",
+      "おもしろくない"
+    ],
+    "missing_en": [
+      "おもしろく",
+      "おもしろくて",
+      "おもしろくない"
+    ],
+    "missing_hi": [
+      "おもしろく",
+      "おもしろくて",
+      "おもしろくない"
+    ],
+    "explanation_en": "い-adjective in dictionary form modifies a following noun directly: omoshiroi hon = interesting book. Distractors: omoshiroku (adverb form), omoshirokute (て-form, conjunction), omoshirokunai (negative) -  none modify a noun in this slot.",
+    "grammarPatternId": "n5-136"
+  },
+  {
+    "id": "q-0529",
+    "question_ja": "じゅぎょうは ９じ（ ）１２じまでです。",
+    "answer": "から",
+    "choices": [
+      "まで",
+      "から",
+      "に",
+      "へ"
+    ],
+    "missing_en": [
+      "まで",
+      "に",
+      "へ"
+    ],
+    "missing_hi": [
+      "まで",
+      "に",
+      "へ"
+    ],
+    "explanation_en": "X kara Y made = from X to Y. The blank pairs with まで in the second half, so から (start) is the only fit. Distractors: まで is already used; に is recipient/time-point (not range); へ is direction.",
+    "grammarPatternId": "n5-114"
+  },
+  {
+    "id": "q-0530",
+    "question_ja": "これは わたし（ ）ほんです。",
+    "answer": "の",
+    "choices": [
+      "が",
+      "は",
+      "の",
+      "を"
+    ],
+    "missing_en": [
+      "が",
+      "は",
+      "を"
+    ],
+    "missing_hi": [
+      "が",
+      "は",
+      "を"
+    ],
+    "explanation_en": "Noun の Noun = possessive/attributive linking. watashi no hon = my book. Distractors: は marks topic (would change meaning to topic-comment); が marks subject; を marks object.",
+    "grammarPatternId": "n5-137"
+  },
+  {
+    "id": "q-0531",
+    "question_ja": "わたしは コーヒー（ ）します。",
+    "answer": "に",
+    "choices": [
+      "で",
+      "を",
+      "が",
+      "に"
+    ],
+    "missing_en": [
+      "で",
+      "を",
+      "が"
+    ],
+    "missing_hi": [
+      "で",
+      "を",
+      "が"
+    ],
+    "explanation_en": "X に します = decide on / choose X (e.g., when ordering at a restaurant). The choice marker is に. Distractors: を + する is generic 'do X'; が marks subject; で is means/place.",
+    "grammarPatternId": "n5-142"
+  },
+  {
+    "id": "q-0532",
+    "question_ja": "そらが あおく（ ）。",
+    "answer": "なりました",
+    "choices": [
+      "なりました",
+      "しました",
+      "あります",
+      "います"
+    ],
+    "missing_en": [
+      "しました",
+      "あります",
+      "います"
+    ],
+    "missing_hi": [
+      "しました",
+      "あります",
+      "います"
+    ],
+    "explanation_en": "い-adj-stem + ku + narimasu = becomes [adj]. aoku narimashita = became blue. Distractors: shimashita is 'did' (transitive change); arimasu / imasu are 'exist'.",
+    "grammarPatternId": "n5-143"
+  },
+  {
+    "id": "q-0533",
+    "question_ja": "あした、あめが ふる（ ）おもいます。",
+    "answer": "と",
+    "choices": [
+      "を",
+      "と",
+      "に",
+      "で"
+    ],
+    "missing_en": [
+      "を",
+      "に",
+      "で"
+    ],
+    "missing_hi": [
+      "を",
+      "に",
+      "で"
+    ],
+    "explanation_en": "Plain-form sentence + と + omoimasu = I think that ~. と is the quote-marker linking the embedded clause to omoimasu. Distractors: を marks direct object (omou doesn't take a を for embedded thoughts); に/で wrong category.",
+    "grammarPatternId": "n5-145"
+  },
+  {
+    "id": "q-0534",
+    "question_ja": "せんせいは「あした テストです」（ ）言いました。",
+    "answer": "と",
+    "choices": [
+      "に",
+      "を",
+      "と",
+      "で"
+    ],
+    "missing_en": [
+      "に",
+      "を",
+      "で"
+    ],
+    "missing_hi": [
+      "に",
+      "を",
+      "で"
+    ],
+    "explanation_en": "Direct-quote + と + iimashita = said that ~. The brackets「」around the quoted speech force と as the quote-marker. Distractors: を/に/で don't function as quote-markers.",
+    "grammarPatternId": "n5-146"
+  },
+  {
+    "id": "q-0535",
+    "question_ja": "すみません、コーヒー（ ）ください。",
+    "answer": "を",
+    "choices": [
+      "の",
+      "に",
+      "が",
+      "を"
+    ],
+    "missing_en": [
+      "の",
+      "に",
+      "が"
+    ],
+    "missing_hi": [
+      "の",
+      "に",
+      "が"
+    ],
+    "explanation_en": "Noun + を + kudasai = please give me [noun]. The thing requested takes the object marker を. Distractors: に is recipient/time; が marks subject; の is possessive.",
+    "grammarPatternId": "n5-149"
+  },
+  {
+    "id": "q-0536",
+    "question_ja": "すみません、おちゃ（ ）おねがいします。",
+    "answer": "を",
+    "choices": [
+      "を",
+      "に",
+      "で",
+      "と"
+    ],
+    "missing_en": [
+      "に",
+      "で",
+      "と"
+    ],
+    "missing_hi": [
+      "に",
+      "で",
+      "と"
+    ],
+    "explanation_en": "Noun + を + onegaishimasu = I'd like [noun] please (more polite than wo kudasai). Same を-marks-the-thing pattern. Distractors: に/で/と don't fit this request frame.",
+    "grammarPatternId": "n5-150"
+  },
+  {
+    "id": "q-0537",
+    "question_ja": "コーヒー（ ）いかがですか。",
+    "answer": "は",
+    "choices": [
+      "を",
+      "は",
+      "に",
+      "が"
+    ],
+    "missing_en": [
+      "を",
+      "に",
+      "が"
+    ],
+    "missing_hi": [
+      "を",
+      "に",
+      "が"
+    ],
+    "explanation_en": "Noun は ikaga desu ka = how about [noun]? (polite offer). は marks the noun as topic of the offer. Distractors: を/に/が don't fit the offer-introduction pattern.",
+    "grammarPatternId": "n5-151"
+  },
+  {
+    "id": "q-0538",
+    "question_ja": "「ごはんを たべましたか。」「いいえ、（ ）たべて いません。」",
+    "answer": "まだ",
+    "choices": [
+      "いま",
+      "もう",
+      "まだ",
+      "すぐ"
+    ],
+    "missing_en": [
+      "いま",
+      "もう",
+      "すぐ"
+    ],
+    "missing_hi": [
+      "いま",
+      "もう",
+      "すぐ"
+    ],
+    "explanation_en": "mada + V-te imasen = not yet (action still pending). The negative answer 'no, I have not eaten yet' pins まだ. Distractors: もう would pair with the affirmative 'already ate'; いま (now) and すぐ (right away) don't fit the not-yet frame.",
+    "grammarPatternId": "n5-153"
+  },
+  {
+    "id": "q-0539",
+    "question_ja": "「しゅくだいを しましたか。」「はい、（ ）しました。」",
+    "answer": "もう",
+    "choices": [
+      "あとで",
+      "まだ",
+      "いま",
+      "もう"
+    ],
+    "missing_en": [
+      "あとで",
+      "まだ",
+      "いま"
+    ],
+    "missing_hi": [
+      "あとで",
+      "まだ",
+      "いま"
+    ],
+    "explanation_en": "mou + V-mashita = already (action completed). The affirmative answer 'yes, already did' pins もう. Distractors: まだ would pair with negative; いま (now) doesn't match completed-past; あとで (later) is future.",
+    "grammarPatternId": "n5-154"
+  },
+  {
+    "id": "q-0540",
+    "question_ja": "この りょうりは おいしいです（ ）、すこし からいです。",
+    "answer": "が",
+    "choices": [
+      "が",
+      "から",
+      "ので",
+      "まで"
+    ],
+    "missing_en": [
+      "から",
+      "ので",
+      "まで"
+    ],
+    "missing_hi": [
+      "から",
+      "ので",
+      "まで"
+    ],
+    "explanation_en": "Mid-sentence が = but (contrast connector). 'Tasty BUT a bit spicy.' Distractors: から/ので are causal (because); まで is endpoint.",
+    "grammarPatternId": "n5-155"
+  },
+  {
+    "id": "q-0541",
+    "question_ja": "あした、たぶん あめが ふる（ ）。",
+    "answer": "でしょう",
+    "choices": [
+      "でした",
+      "でしょう",
+      "ですか",
+      "でして"
+    ],
+    "missing_en": [
+      "でした",
+      "ですか",
+      "でして"
+    ],
+    "missing_hi": [
+      "でした",
+      "ですか",
+      "でして"
+    ],
+    "explanation_en": "deshou = probably / I expect (paired with tabun 'probably' in the stem for emphasis). Distractors: deshita (past copula), desu ka (question ending -  would change meaning), deshite (て-form, ungrammatical sentence-finally).",
+    "grammarPatternId": "n5-157"
+  },
+  {
+    "id": "q-0542",
+    "question_ja": "あの ひとは たなか（ ）です。",
+    "answer": "さん",
+    "choices": [
+      "くん",
+      "ちゃん",
+      "さん",
+      "さま"
+    ],
+    "missing_en": [
+      "くん",
+      "ちゃん",
+      "さま"
+    ],
+    "missing_hi": [
+      "くん",
+      "ちゃん",
+      "さま"
+    ],
+    "explanation_en": "san is the standard polite name suffix (Mr./Ms.) for adults in neutral contexts. Distractors: chan (young children / very close friends), kun (young men / juniors), sama (extremely formal -  overkill for everyday use).",
+    "grammarPatternId": "n5-164"
+  },
+  {
+    "id": "q-0543",
+    "question_ja": "（ ）ちゃを のみますか。",
+    "answer": "お",
+    "choices": [
+      "を",
+      "ご",
+      "の",
+      "お"
+    ],
+    "missing_en": [
+      "を",
+      "ご",
+      "の"
+    ],
+    "missing_hi": [
+      "を",
+      "ご",
+      "の"
+    ],
+    "explanation_en": "o-cha = (honorific) tea. Native-Japanese-origin words usually take お (o-); Sino-Japanese words take ご (go-). Distractors: ご is for Sino-Japanese stems (gohan, gokazoku); の is possessive; を is object marker.",
+    "grammarPatternId": "n5-165"
+  },
+  {
+    "id": "q-0544",
+    "question_ja": "にちようびは ほんを よんだり、おんがくを きいたり（ ）。",
+    "answer": "します",
+    "choices": [
+      "します",
+      "あります",
+      "います",
+      "なります"
+    ],
+    "missing_en": [
+      "あります",
+      "います",
+      "なります"
+    ],
+    "missing_hi": [
+      "あります",
+      "います",
+      "なります"
+    ],
+    "explanation_en": "V-tari V-tari + suru = do A and B (among other things). The pattern needs the suru helper at the end to bind the listed activities. Distractors: arimasu/imasu are existence verbs; narimasu is 'become' -  none bind tari-listings.",
+    "grammarPatternId": "n5-168"
+  },
+  {
+    "id": "q-0545",
+    "question_ja": "わたしは にほんへ 行った（ ）が あります。",
+    "answer": "こと",
+    "choices": [
+      "もの",
+      "こと",
+      "ところ",
+      "とき"
+    ],
+    "missing_en": [
+      "もの",
+      "ところ",
+      "とき"
+    ],
+    "missing_hi": [
+      "もの",
+      "ところ",
+      "とき"
+    ],
+    "explanation_en": "V-ta + koto + ga arimasu = have done [V] before (experiential). Only こと forms this experience-pattern. Distractors: もの is a physical thing; ところ is a place; とき is a time/occasion.",
+    "grammarPatternId": "n5-169"
+  },
+  {
+    "id": "q-0546",
+    "question_ja": "つかれた ときは、はやく ねた（ ）が いいです。",
+    "answer": "ほう",
+    "choices": [
+      "こと",
+      "もの",
+      "ほう",
+      "ところ"
+    ],
+    "missing_en": [
+      "こと",
+      "もの",
+      "ところ"
+    ],
+    "missing_hi": [
+      "こと",
+      "もの",
+      "ところ"
+    ],
+    "explanation_en": "V-ta + hou + ga + ii = should do [V] (recommendation). Only ほう forms this recommendation pattern. Distractors: もの/こと/ところ don't fit this comparative-recommendation frame.",
+    "grammarPatternId": "n5-170"
+  },
+  {
+    "id": "q-0547",
+    "question_ja": "この にもつは おも（ ）。",
+    "answer": "すぎます",
+    "choices": [
+      "すぎない",
+      "すぎる",
+      "すぎて",
+      "すぎます"
+    ],
+    "missing_en": [
+      "すぎない",
+      "すぎる",
+      "すぎて"
+    ],
+    "missing_hi": [
+      "すぎない",
+      "すぎる",
+      "すぎて"
+    ],
+    "explanation_en": "い-adj-stem (drop い) + sugimasu = too [adj]. omoi → omo + sugimasu = 'too heavy'. Distractors: sugiru (plain form, would need different polite-level context), sugite (て-form, conjunction not a sentence ender), suginai (negative -  would mean 'not too heavy' which contradicts the implied complaint).",
+    "grammarPatternId": "n5-177"
+  },
+  {
+    "id": "q-0548",
+    "question_ja": "らいねん、にほんへ 行く（ ）です。",
+    "answer": "つもり",
+    "choices": [
+      "つもり",
+      "もの",
+      "こと",
+      "とき"
+    ],
+    "missing_en": [
+      "もの",
+      "こと",
+      "とき"
+    ],
+    "missing_hi": [
+      "もの",
+      "こと",
+      "とき"
+    ],
+    "explanation_en": "V-plain + tsumori desu = intend to do [V]. Only つもり forms this intention pattern. Distractors: もの (physical thing), こと (matter/fact), とき (time/occasion) don't carry the future-intention sense.",
+    "grammarPatternId": "n5-178"
+  },
+  {
+    "id": "q-0549",
+    "question_ja": "（みせの 中で）すみません、トイレは（ ）ですか。",
+    "answer": "どこ",
+    "choices": [
+      "ここ",
+      "どこ",
+      "そこ",
+      "なに"
+    ],
+    "missing_en": [
+      "ここ",
+      "そこ",
+      "なに"
+    ],
+    "missing_hi": [
+      "ここ",
+      "そこ",
+      "なに"
+    ],
+    "explanation_en": "Asking for the location of something requires the question demonstrative どこ (where). Distractors: ここ/そこ are statements (here/there) -  declarative, not interrogative; なに asks WHAT, not WHERE.",
+    "grammarPatternId": "n5-041"
+  },
+  {
+    "id": "q-0550",
+    "question_ja": "クラスで（ ）せが たかい ひとは たなかさんです。",
+    "answer": "いちばん",
+    "choices": [
+      "もっと",
+      "とても",
+      "いちばん",
+      "あまり"
+    ],
+    "missing_en": [
+      "もっと",
+      "とても",
+      "あまり"
+    ],
+    "missing_hi": [
+      "もっと",
+      "とても",
+      "あまり"
+    ],
+    "explanation_en": "いちばん = #1 / most / -est. Combined with an い-adjective it forms the superlative. Distractors: とても (very) is degree, not superlative; もっと (more) is comparative, not superlative; あまり needs a negative.",
+    "grammarPatternId": "n5-098"
+  },
+  {
+    "id": "q-0551",
+    "question_ja": "わたしは 七時（ ）あさごはんを たべます。",
+    "answer": "に",
+    "choices": [
+      "を",
+      "で",
+      "へ",
+      "に"
+    ],
+    "missing_en": [
+      "を",
+      "で",
+      "へ"
+    ],
+    "missing_hi": [
+      "を",
+      "で",
+      "へ"
+    ],
+    "explanation_en": "Specific clock-times take に. Distractors: で is means/place-of-action (七時で = ungrammatical for times); へ is destination direction (times don't take direction); を is object marker.",
+    "grammarPatternId": "n5-115"
+  },
+  {
+    "id": "q-0552",
+    "question_ja": "あめが ふっています（ ）、いえに います。",
+    "answer": "から",
+    "choices": [
+      "から",
+      "けれど",
+      "まで",
+      "より"
+    ],
+    "missing_en": [
+      "けれど",
+      "まで",
+      "より"
+    ],
+    "missing_hi": [
+      "けれど",
+      "まで",
+      "より"
+    ],
+    "explanation_en": "Sentence + から = because + result. Rain → so I'm staying home. Distractors: けれど is contrast (but); まで is endpoint; より is comparison.",
+    "grammarPatternId": "n5-133"
+  },
+  {
+    "id": "q-0553",
+    "question_ja": "わたしは 毎日 ８じに（ ）おきます。",
+    "answer": "いつも",
+    "choices": [
+      "あまり",
+      "いつも",
+      "ぜんぜん",
+      "ときどき"
+    ],
+    "missing_en": [
+      "あまり",
+      "ぜんぜん",
+      "ときどき"
+    ],
+    "missing_hi": [
+      "あまり",
+      "ぜんぜん",
+      "ときどき"
+    ],
+    "explanation_en": "毎日 (every day) anchors a habitual action; いつも (always) is the matching frequency adverb. Distractors: あまり and ぜんぜん require a negative verb (ません/ない); ときどき (sometimes) contradicts 毎日.",
+    "grammarPatternId": "n5-147"
+  },
+  {
+    "id": "q-0554",
+    "question_ja": "（ ）すわって ください。",
+    "answer": "どうぞ",
+    "choices": [
+      "すみません",
+      "どうも",
+      "どうぞ",
+      "おねがい"
+    ],
+    "missing_en": [
+      "すみません",
+      "どうも",
+      "おねがい"
+    ],
+    "missing_hi": [
+      "すみません",
+      "どうも",
+      "おねがい"
+    ],
+    "explanation_en": "どうぞ + V-て ください = please go ahead and [V] / please [V] (offering / inviting). Distractors: どうも is gratitude (thanks), すみません is apology, おねがい is requesting a favor (won't pair with V-て + ください).",
+    "grammarPatternId": "n5-152"
+  },
+  {
+    "id": "q-0555",
+    "question_ja": "A: あついです（ ）。\nB: ええ、ほんとうに あついですね。",
+    "answer": "ね",
+    "choices": [
+      "の",
+      "よ",
+      "か",
+      "ね"
+    ],
+    "missing_en": [
+      "の",
+      "よ",
+      "か"
+    ],
+    "missing_hi": [
+      "の",
+      "よ",
+      "か"
+    ],
+    "explanation_en": "ね seeks confirmation/agreement; B's response 'ええ、ほんとうに...ですね' (yes, really hot) confirms agreement, which only pairs with ね from A. Distractors: よ is assertive (informing -  B wouldn't agree-back as enthusiastically), か would make A's line a question, の is informal-question.",
+    "grammarPatternId": "n5-156"
+  },
+  {
+    "id": "q-0556",
+    "question_ja": "あした、たぶん あめが ふる（ ）。",
+    "answer": "だろう",
+    "choices": [
+      "だろう",
+      "だった",
+      "だ",
+      "じゃない"
+    ],
+    "missing_en": [
+      "だった",
+      "だ",
+      "じゃない"
+    ],
+    "missing_hi": [
+      "だった",
+      "だ",
+      "じゃない"
+    ],
+    "explanation_en": "Plain-form + だろう = probably / I expect (casual variant of でしょう). たぶん (probably) anchors the speculation. Distractors: だった is plain past, だ is plain affirmative (no speculation), じゃない is negation.",
+    "grammarPatternId": "n5-158"
+  },
+  {
+    "id": "q-0557",
+    "question_ja": "A: この みせは あたらしいです（ ）。\nB: そうですね、せんしゅう できました。",
+    "answer": "ね",
+    "choices": [
+      "よ",
+      "ね",
+      "か",
+      "の"
+    ],
+    "missing_en": [
+      "よ",
+      "か",
+      "の"
+    ],
+    "missing_hi": [
+      "よ",
+      "か",
+      "の"
+    ],
+    "explanation_en": "ね seeks confirmation; B's そうですね confirms agreement, which uniquely pairs with ね. Distractors: よ would assert; か would query; の is informal.",
+    "grammarPatternId": "n5-159"
+  },
+  {
+    "id": "q-0558",
+    "question_ja": "じゅぎょう（ ）あとで、ともだちと あいます。",
+    "answer": "の",
+    "choices": [
+      "に",
+      "を",
+      "の",
+      "が"
+    ],
+    "missing_en": [
+      "に",
+      "を",
+      "が"
+    ],
+    "missing_hi": [
+      "に",
+      "を",
+      "が"
+    ],
+    "explanation_en": "Noun の あとで = after [Noun]. The の is the genitive linking noun → temporal-noun (あと). Distractors: を/に/が don't link nouns to あと in this temporal pattern.",
+    "grammarPatternId": "n5-160"
+  },
+  {
+    "id": "q-0559",
+    "question_ja": "ごはん（ ）まえに、てを あらいます。",
+    "answer": "の",
+    "choices": [
+      "で",
+      "を",
+      "に",
+      "の"
+    ],
+    "missing_en": [
+      "で",
+      "を",
+      "に"
+    ],
+    "missing_hi": [
+      "で",
+      "を",
+      "に"
+    ],
+    "explanation_en": "Noun の まえに = before [Noun]. Same genitive-link pattern as n5-160 with まえ. Distractors: を/に/で don't link nouns to まえ in this temporal pattern.",
+    "grammarPatternId": "n5-161"
+  },
+  {
+    "id": "q-0560",
+    "question_ja": "ねる（ ）に、はを みがきます。",
+    "answer": "まえ",
+    "choices": [
+      "まえ",
+      "あと",
+      "とき",
+      "うち"
+    ],
+    "missing_en": [
+      "あと",
+      "とき",
+      "うち"
+    ],
+    "missing_hi": [
+      "あと",
+      "とき",
+      "うち"
+    ],
+    "explanation_en": "V-plain (non-past) + まえに = before [V]-ing. Sequence: brush teeth → go to bed. Distractors: あと would need V-past form (ねた あとで); とき is when; うち is while/within.",
+    "grammarPatternId": "n5-162"
+  },
+  {
+    "id": "q-0561",
+    "question_ja": "ごはんを たべた（ ）で、しゅくだいを します。",
+    "answer": "あと",
+    "choices": [
+      "まえ",
+      "あと",
+      "とき",
+      "ところ"
+    ],
+    "missing_en": [
+      "まえ",
+      "とき",
+      "ところ"
+    ],
+    "missing_hi": [
+      "まえ",
+      "とき",
+      "ところ"
+    ],
+    "explanation_en": "V-past (た-form) + あとで = after [V]-ing. Sequence: ate → then homework. Distractors: まえ would need non-past (たべる まえに); とき is when (different aspect); ところ is moment-of-action.",
+    "grammarPatternId": "n5-163"
+  },
+  {
+    "id": "q-0562",
+    "question_ja": "ごはんを たべる まえに、（ ）と 言います。",
+    "answer": "いただきます",
+    "choices": [
+      "おはようございます",
+      "ごちそうさま",
+      "いただきます",
+      "おやすみなさい"
+    ],
+    "missing_en": [
+      "おはようございます",
+      "ごちそうさま",
+      "おやすみなさい"
+    ],
+    "missing_hi": [
+      "おはようございます",
+      "ごちそうさま",
+      "おやすみなさい"
+    ],
+    "explanation_en": "いただきます is said BEFORE eating (literally 'I humbly receive'). Distractors: ごちそうさま is said AFTER eating; おはようございます is morning greeting; おやすみなさい is good-night.",
+    "grammarPatternId": "n5-166"
+  },
+  {
+    "id": "q-0563",
+    "question_ja": "A: どうして きょう やすみましたか。\nB: あたまが いたかった（ ）。",
+    "answer": "んです",
+    "choices": [
+      "ました",
+      "ます",
+      "でした",
+      "んです"
+    ],
+    "missing_en": [
+      "ました",
+      "ます",
+      "でした"
+    ],
+    "missing_hi": [
+      "ました",
+      "ます",
+      "でした"
+    ],
+    "explanation_en": "Plain + んです = explanation form (giving a reason for a state/situation). A asks 'why', B explains with んです. Distractors: ます is non-past polite (wrong tense -  past pain), でした copula (would need adjective ending い→かった directly + でした), ました past polite verb ending (the predicate is an い-adj, not a verb).",
+    "grammarPatternId": "n5-167"
+  },
+  {
+    "id": "q-0564",
+    "question_ja": "あぶないですから、そこへ 行か（ ）ほうが いいです。",
+    "answer": "ない",
+    "choices": [
+      "ない",
+      "ます",
+      "た",
+      "て"
+    ],
+    "missing_en": [
+      "ます",
+      "た",
+      "て"
+    ],
+    "missing_hi": [
+      "ます",
+      "た",
+      "て"
+    ],
+    "explanation_en": "V-ない + ほうが いい = shouldn't [V] (negative recommendation). The slot needs the negative-plain form ない. Distractors: ます is polite-affirmative; た is past affirmative; て is conjunction form -  none combine with ほうが いい to form 'shouldn't'.",
+    "grammarPatternId": "n5-171"
+  },
+  {
+    "id": "q-0565",
+    "question_ja": "しゅくだいは あした まで ですから、きょう 出さ（ ）いいです。",
+    "answer": "なくても",
+    "choices": [
+      "なくては",
+      "なくても",
+      "ないと",
+      "なくちゃ"
+    ],
+    "missing_en": [
+      "なくては",
+      "ないと",
+      "なくちゃ"
+    ],
+    "missing_hi": [
+      "なくては",
+      "ないと",
+      "なくちゃ"
+    ],
+    "explanation_en": "V-stem + なくても いい = don't have to [V] (permission-not-to). Distractors test the must-form siblings: なくては requires いけない (must), ないと requires いけない (must, casual), なくちゃ is the casual contraction (would need ません to follow, not いいです).",
+    "grammarPatternId": "n5-172"
+  },
+  {
+    "id": "q-0566",
+    "question_ja": "あした、テストですから、こんばん べんきょうし（ ）いけません。",
+    "answer": "なくては",
+    "choices": [
+      "ないで",
+      "なくても",
+      "なくては",
+      "なくて"
+    ],
+    "missing_en": [
+      "ないで",
+      "なくても",
+      "なくて"
+    ],
+    "missing_hi": [
+      "ないで",
+      "なくても",
+      "なくて"
+    ],
+    "explanation_en": "V-stem + なくては + いけない = must [V] (obligation). The いけません ending forces なくては. Distractors: なくても goes with いい (don't have to); ないで is V-without-doing; なくて is conjunction without obligation.",
+    "grammarPatternId": "n5-173"
+  },
+  {
+    "id": "q-0567",
+    "question_ja": "がっこうの ルールを まもら（ ）なりません。",
+    "answer": "なくては",
+    "choices": [
+      "なくて",
+      "なくても",
+      "ないで",
+      "なくては"
+    ],
+    "missing_en": [
+      "なくて",
+      "なくても",
+      "ないで"
+    ],
+    "missing_hi": [
+      "なくて",
+      "なくても",
+      "ないで"
+    ],
+    "explanation_en": "V-stem + なくては + ならない = must [V] (formal obligation, same as いけない). The なりません ending forces なくては. Distractors: なくても is permission-not-to (with いい); ないで is V-without-doing; なくて is bare conjunction.",
+    "grammarPatternId": "n5-174"
+  },
+  {
+    "id": "q-0568",
+    "question_ja": "もう おそいですから、はやく 行か（ ）いけません。",
+    "answer": "ないと",
+    "choices": [
+      "ないと",
+      "なくて",
+      "ないで",
+      "なくちゃ"
+    ],
+    "missing_en": [
+      "なくて",
+      "ないで",
+      "なくちゃ"
+    ],
+    "missing_hi": [
+      "なくて",
+      "ないで",
+      "なくちゃ"
+    ],
+    "explanation_en": "V-ない + と + いけない = must [V] (common spoken variant of must). The いけません ending forces ないと. Distractors: なくて is bare conjunction; ないで is V-without-doing; なくちゃ doesn't pair with いけません (it's already a contraction containing いけない).",
+    "grammarPatternId": "n5-175"
+  },
+  {
+    "id": "q-0569",
+    "question_ja": "もう ５じだ。はやく かえら（ ）。",
+    "answer": "なくちゃ",
+    "choices": [
+      "なくては",
+      "なくちゃ",
+      "ないと",
+      "なくても"
+    ],
+    "missing_en": [
+      "なくては",
+      "ないと",
+      "なくても"
+    ],
+    "missing_hi": [
+      "なくては",
+      "ないと",
+      "なくても"
+    ],
+    "explanation_en": "V-stem + なくちゃ = must [V] (casual contraction of なくては いけない; sentence-final by itself implies the いけない). The casual だ ending of the first sentence (もう ５じだ) anchors the casual register. Distractors: なくては/ないと would need a following いけない; なくても is permission-not-to.",
+    "grammarPatternId": "n5-176"
+  },
+  {
+    "id": "q-0570",
+    "question_ja": "たなかさんは、あした こない（ ）言って いました。",
+    "answer": "って",
+    "choices": [
+      "が",
+      "を",
+      "って",
+      "に"
+    ],
+    "missing_en": [
+      "が",
+      "を",
+      "に"
+    ],
+    "missing_hi": [
+      "が",
+      "を",
+      "に"
+    ],
+    "explanation_en": "Plain + って + 言う / 言って いる = casual quote-marker (informal counterpart of と). Distractors: を marks direct objects (言う doesn't take a を for embedded quotes); が marks subject; に is recipient/time.",
+    "grammarPatternId": "n5-179"
+  },
+  {
+    "id": "q-0571",
+    "question_ja": "おすしの たべ（ ）を おしえて ください。",
+    "answer": "かた",
+    "choices": [
+      "ひと",
+      "とき",
+      "ばしょ",
+      "かた"
+    ],
+    "missing_en": [
+      "ひと",
+      "とき",
+      "ばしょ"
+    ],
+    "missing_hi": [
+      "ひと",
+      "とき",
+      "ばしょ"
+    ],
+    "explanation_en": "V-stem (drop ます) + かた = way of [V]-ing. tabe-kata = way of eating. Distractors: とき (time/when), ばしょ (place), ひと (person) -  none form 'way of' in this construction.",
+    "grammarPatternId": "n5-180"
+  },
+  {
+    "id": "q-0572",
+    "question_ja": "「うわあ、この けしきは きれいだ（ ）。」",
+    "answer": "なあ",
+    "choices": [
+      "なあ",
+      "ね",
+      "よ",
+      "か"
+    ],
+    "missing_en": [
+      "ね",
+      "よ",
+      "か"
+    ],
+    "missing_hi": [
+      "ね",
+      "よ",
+      "か"
+    ],
+    "explanation_en": "なあ is a sentence-final exclamation expressing strong personal feeling ('really, isn't it?'). The 「うわあ」 opening interjection anchors strong emotional register, which only なあ matches. Distractors: ね seeks confirmation (less self-directed than なあ), よ asserts, か questions.",
+    "grammarPatternId": "n5-181"
+  },
+  {
+    "id": "q-0573",
+    "question_ja": "あぶない！　そこへ 行く（ ）！",
+    "answer": "な",
+    "choices": [
+      "ね",
+      "な",
+      "よ",
+      "の"
+    ],
+    "missing_en": [
+      "ね",
+      "よ",
+      "の"
+    ],
+    "missing_hi": [
+      "ね",
+      "よ",
+      "の"
+    ],
+    "explanation_en": "V-plain (dictionary form) + な = strong/casual prohibition ('don't!'). The exclamatory あぶない！ context anchors the strong-register prohibition. Distractors: ね/よ are sentence-final tags but not prohibitions; の would form an informal question, not a command.",
+    "grammarPatternId": "n5-182"
+  },
+  {
+    "id": "q-0574",
+    "question_ja": "「おなかが すきました。なに（ ）たべませんか。」",
+    "answer": "か",
+    "choices": [
+      "を",
+      "も",
+      "か",
+      "に"
+    ],
+    "missing_en": [
+      "を",
+      "も",
+      "に"
+    ],
+    "missing_hi": [
+      "を",
+      "も",
+      "に"
+    ],
+    "explanation_en": "なに + か = 'something' (positive existence). 'Want to eat something?' Distractors: なに + も + negative-verb = 'nothing' (would need ません), wo/ni don't form Q-word compounds.",
+    "grammarPatternId": "n5-183"
+  },
+  {
+    "id": "q-0575",
+    "question_ja": "つかれましたから、なに（ ）たべたく ありません。",
+    "answer": "も",
+    "choices": [
+      "が",
+      "か",
+      "を",
+      "も"
+    ],
+    "missing_en": [
+      "が",
+      "か",
+      "を"
+    ],
+    "missing_hi": [
+      "が",
+      "か",
+      "を"
+    ],
+    "explanation_en": "なに + も + negative = nothing. The negative たべたく ありません forces も (not か, which would be positive 'something'). Distractors: か is positive existence; を/が don't form Q-word compounds.",
+    "grammarPatternId": "n5-184"
+  },
+  {
+    "id": "q-0576",
+    "question_ja": "へやに だれ（ ）いません。しずかです。",
+    "answer": "も",
+    "choices": [
+      "も",
+      "か",
+      "が",
+      "に"
+    ],
+    "missing_en": [
+      "か",
+      "が",
+      "に"
+    ],
+    "missing_hi": [
+      "か",
+      "が",
+      "に"
+    ],
+    "explanation_en": "だれ + も + negative-verb = no one. The negative いません forces も. Distractors: か is positive existence (would mean 'someone is there'); が/に don't form Q-word compounds.",
+    "grammarPatternId": "n5-185"
+  },
+  {
+    "id": "q-0577",
+    "question_ja": "つかれましたから、きょうは どこ（ ）行きません。",
+    "answer": "も",
+    "choices": [
+      "か",
+      "も",
+      "へ",
+      "を"
+    ],
+    "missing_en": [
+      "か",
+      "へ",
+      "を"
+    ],
+    "missing_hi": [
+      "か",
+      "へ",
+      "を"
+    ],
+    "explanation_en": "どこ + も + negative-verb = nowhere. The negative 行きません forces も. Distractors: か is positive 'somewhere'; へ/を don't form Q-word compounds (they're plain particles).",
+    "grammarPatternId": "n5-186"
+  },
+  {
+    "id": "q-0578",
+    "question_ja": "わたしは いつ（ ）７じに おきます。",
+    "answer": "も",
+    "choices": [
+      "に",
+      "か",
+      "も",
+      "の"
+    ],
+    "missing_en": [
+      "に",
+      "か",
+      "の"
+    ],
+    "missing_hi": [
+      "に",
+      "か",
+      "の"
+    ],
+    "explanation_en": "いつ + も = always (positive existence; differs from なに/だれ/どこ which need a negative verb to form 'nothing/no-one/nowhere'). Distractors: いつ + か = 'sometime' (would need a non-habitual context); に/の don't form Q-word compounds.",
+    "grammarPatternId": "n5-187"
+  }
+]

@@ -1038,6 +1038,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     # be present on every question; same rationale_hi rule for the
     # papers/dokkai mock-exam questions.
     ("JA-85", "Dokkai locale + format_role parity (2026-05-15)", lambda: _check_ja_85_dokkai_locale_parity()),
+    # JA-86 (2026-05-15): mega-audit regression guard. The 2026-05-15
+    # mega-audit filled 88 authentic.json Hindi context entries
+    # (round-1) and 375 questions.json distractor explanations + 375
+    # parallel Hindi distractor explanations (round-2, across 127
+    # MCQ items that had completely-empty distractor maps). JA-86
+    # locks both gains so future authoring batches can't leave the
+    # parallel-locale fields empty.
+    ("JA-86", "authentic context_hi + questions.json distractor en/hi coverage (2026-05-15)", lambda: _check_ja_86_mega_audit_locale_coverage()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4234,6 +4242,48 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_86_mega_audit_locale_coverage() -> list[str]:
+    """Regression guard for the 2026-05-15 mega-audit (commit ceb64fc..):
+      - authentic.json: every item with non-empty `context` must have a
+        non-empty `context_hi` (88 filled in round-1)
+      - questions.json: every MCQ with `distractor_explanations` (EN)
+        must have parallel `distractor_explanations_hi` covering all
+        non-correct choices (375 EN + 375 HI filled in round-2)
+    """
+    failures = []
+    # authentic.json
+    try:
+        auth = json.loads((ROOT / "data" / "authentic.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-86 could not read authentic.json: {e}"]
+    for it in auth.get("items", []):
+        iid = it.get("id", "?")
+        if (it.get("context") or "").strip() and not (it.get("context_hi") or "").strip():
+            failures.append(f"JA-86 {iid} has context but empty context_hi")
+    # questions.json distractor parity (MCQ only)
+    try:
+        qj = json.loads((ROOT / "data" / "questions.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return failures + [f"JA-86 could not read questions.json: {e}"]
+    for q in qj.get("questions", []):
+        if q.get("type") != "mcq":
+            continue
+        qid = q.get("id", "?")
+        choices = q.get("choices") or []
+        ans = q.get("correctAnswer")
+        if not choices or not ans:
+            continue
+        de_en = q.get("distractor_explanations") or {}
+        de_hi = q.get("distractor_explanations_hi") or {}
+        distractors = [c for c in choices if c != ans]
+        for dist in distractors:
+            if not (de_en.get(dist) or "").strip():
+                failures.append(f"JA-86 {qid}.distractor_explanations missing entry for {dist!r}")
+            if not (de_hi.get(dist) or "").strip():
+                failures.append(f"JA-86 {qid}.distractor_explanations_hi missing entry for {dist!r}")
+    return failures
 
 
 def _check_ja_85_dokkai_locale_parity() -> list[str]:
