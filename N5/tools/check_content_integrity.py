@@ -1024,6 +1024,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     # '「X」と あいさつしました' for non-greeting X. JA-83 locks the cleanup
     # so the templates can't drift back via future authoring.
     ("JA-83", "No vocab example uses removed templates (Xを見ました/あのXはどこ/これはXです/Xとあいさつしました) (2026-05-15)", lambda: _check_ja_83_no_vocab_template_leak()),
+    # JA-84 (2026-05-15): regression guard from the kanji audit. Covers
+    # (a) sentences with non-empty ja but empty translation_en (55
+    # entries fixed in round-1) and (b) <u>...</u> HTML markup leaking
+    # into ja fields that the renderer at js/kanji.js:347 HTML-escapes
+    # (6 entries fixed in round-2).
+    ("JA-84", "kanji.json sentences have populated translation_en + no <u> markup leakage (2026-05-15)", lambda: _check_ja_84_kanji_sentence_translations()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4220,6 +4226,37 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_84_kanji_sentence_translations() -> list[str]:
+    """Every kanji.json entry's `sentences[*].ja` that is non-empty
+    must have a non-empty `translation_en`. The 2026-05-15 kanji
+    audit added 55 missing translations + the unstripped <u>...</u>
+    markup that the renderer was escaping. This regression guard
+    catches both classes.
+    """
+    failures = []
+    try:
+        kanji = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-84 could not read kanji.json: {e}"]
+    for e in kanji.get("entries", []):
+        glyph = e.get("glyph", "?")
+        for i, s in enumerate(e.get("sentences", []) or []):
+            ja = (s.get("ja") or "").strip()
+            en = (s.get("translation_en") or "").strip()
+            if ja and not en:
+                failures.append(
+                    f"JA-84 {glyph}.sentences[{i}] has non-empty ja but empty "
+                    f"translation_en: {ja[:50]!r}"
+                )
+            # HTML markup leak in ja (renderer escapes — displays literally)
+            if "<u>" in ja or "</u>" in ja:
+                failures.append(
+                    f"JA-84 {glyph}.sentences[{i}].ja contains HTML <u> markup "
+                    f"that the renderer would display literally: {ja[:50]!r}"
+                )
+    return failures
 
 
 def _check_ja_83_no_vocab_template_leak() -> list[str]:
