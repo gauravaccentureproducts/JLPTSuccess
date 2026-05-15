@@ -1030,6 +1030,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     # into ja fields that the renderer at js/kanji.js:347 HTML-escapes
     # (6 entries fixed in round-2).
     ("JA-84", "kanji.json sentences have populated translation_en + no <u> markup leakage (2026-05-15)", lambda: _check_ja_84_kanji_sentence_translations()),
+    # JA-85 (2026-05-15): dokkai locale-parity regression guard. The
+    # 2026-05-15 dokkai audit filled 83 missing explanation_hi entries
+    # (Hindi coverage 19% -> 100%) and set format_role='primary' on 9
+    # questions that needed it. JA-85 locks both gains: explanation_hi
+    # must be populated whenever explanation_en is; format_role must
+    # be present on every question; same rationale_hi rule for the
+    # papers/dokkai mock-exam questions.
+    ("JA-85", "Dokkai locale + format_role parity (2026-05-15)", lambda: _check_ja_85_dokkai_locale_parity()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4226,6 +4234,51 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_85_dokkai_locale_parity() -> list[str]:
+    """Regression guard for the 2026-05-15 dokkai audit.
+
+    For every reading.json question with a non-empty explanation_en,
+    explanation_hi must also be non-empty (Hindi-locale parity — 83
+    questions filled in round-2 from 19% coverage to 100%). Same rule
+    for paper-dokkai questions: rationale present implies rationale_hi
+    present.
+
+    Also requires format_role to be set on every reading.json question
+    (mock-test-mode filter at js/reading.js:60 depends on it).
+    """
+    failures = []
+    try:
+        reading = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-85 could not read reading.json: {e}"]
+    for p in reading.get("passages", []):
+        pid = p.get("id", "?")
+        for q in p.get("questions", []) or []:
+            qid = q.get("id", f"{pid}.q?")
+            if (q.get("explanation_en") or "").strip() and not (q.get("explanation_hi") or "").strip():
+                failures.append(
+                    f"JA-85 {qid} has explanation_en but empty explanation_hi"
+                )
+            if not (q.get("format_role") or "").strip():
+                failures.append(f"JA-85 {qid} missing format_role")
+    # Paper-dokkai locale parity
+    papers_dir = ROOT / "data" / "papers" / "dokkai"
+    if papers_dir.exists():
+        for pf in sorted(papers_dir.glob("paper-*.json")):
+            try:
+                p = json.loads(pf.read_text(encoding="utf-8"))
+            except Exception as e:
+                failures.append(f"JA-85 could not read {pf.name}: {e}")
+                continue
+            for q in p.get("questions", []) or []:
+                qid = q.get("id", f"{pf.stem}.q?")
+                if (q.get("rationale") or "").strip() and not (q.get("rationale_hi") or "").strip():
+                    failures.append(
+                        f"JA-85 {qid} has rationale but empty rationale_hi"
+                    )
+    return failures
 
 
 def _check_ja_84_kanji_sentence_translations() -> list[str]:

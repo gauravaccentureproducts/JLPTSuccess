@@ -1222,7 +1222,9 @@
           ],
           "correctAnswer": "いいえ、休みです",
           "explanation_en": "'にちようび：休み'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'にちようび：休み' (रविवार: बंद)। पुस्तकालय रविवार को बंद रहता है।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.007.q2",
@@ -1235,7 +1237,9 @@
           ],
           "correctAnswer": "2しゅうかん",
           "explanation_en": "'本は 二週間まで かりる ことが できます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '本は 二週間まで かりる ことが できます' (किताबें दो सप्ताह तक उधार ली जा सकती हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "format_type": "schedule_table",
@@ -1429,7 +1433,9 @@
           ],
           "correctAnswer": "30分くらい",
           "explanation_en": "'うちから 学校まで 30分くらい かかります'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'うちから 学校まで 30分くらい かかります' (घर से स्कूल लगभग 30 मिनट लगते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.008.q2",
@@ -1442,7 +1448,9 @@
           ],
           "correctAnswer": "あるいて",
           "explanation_en": "'うちから えきまで あるきます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'うちから えきまで あるきます' (घर से स्टेशन तक पैदल जाते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -1611,7 +1619,9 @@
           ],
           "correctAnswer": "はしります",
           "explanation_en": "'毎日 あさ こうえんで はしります'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '毎日 あさ こうえんで はしります' (हर रोज़ सुबह पार्क में दौड़ता हूँ)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.009.q2",
@@ -1624,7 +1634,9 @@
           ],
           "correctAnswer": "サッカーを します",
           "explanation_en": "'土曜日は ともだちと サッカーを します'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '土曜日は ともだちと サッカーを します' (शनिवार को दोस्तों के साथ फुटबॉल खेलते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -1788,7 +1800,9 @@
           ],
           "correctAnswer": "25こ",
           "explanation_en": "'つくえが 25こ あります'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'つくえが 25こ あります' (मेज़ें 25 हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.010.q2",
@@ -1801,7 +1815,9 @@
           ],
           "correctAnswer": "こうえん",
           "explanation_en": "'まどから こうえんが 見えます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'まどから こうえんが 見えます' (खिड़की से पार्क दिखता है)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -1953,7 +1969,9 @@
           ],
           "correctAnswer": "ラーメンと サラダ",
           "explanation_en": "'おひるごはんは ラーメンと サラダでした'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'おひるごはんは ラーメンと サラダでした' (दोपहर का खाना रामन और सलाद था)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.011.q2",
@@ -1966,7 +1984,9 @@
           ],
           "correctAnswer": "おいしかった",
           "explanation_en": "'ラーメンは...おいしかったです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'ラーメンは...おいしかったです' (रामन स्वादिष्ट था)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -2149,7 +2169,9 @@
           ],
           "correctAnswer": "2さつ",
           "explanation_en": "'2さつ 買いました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '2さつ 買いました' (दो किताबें खरीदीं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.012.q2",
@@ -2162,7 +2184,9 @@
           ],
           "correctAnswer": "むずかしくて おもしろかった",
           "explanation_en": "'むずかしかったですが、おもしろかったです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'むずかしかったですが、おもしろかったです' (कठिन था पर दिलचस्प)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -2330,7 +2354,9 @@
           ],
           "correctAnswer": "せんしゅう",
           "explanation_en": "'せんしゅう かぞくと きょうとに 行きました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'せんしゅう かぞくと きょうとに 行きました' (पिछले हफ़्ते परिवार के साथ क्योतो गया)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.013.q2",
@@ -2343,7 +2369,9 @@
           ],
           "correctAnswer": "おてら",
           "explanation_en": "'きれいな おてらが たくさん あります'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'きれいな おてらが たくさん あります' (सुंदर मंदिर बहुत हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.013.q3",
@@ -2356,7 +2384,9 @@
           ],
           "correctAnswer": "おかし",
           "explanation_en": "'おみやげに おかしを 買いました'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'おみやげに おかしを 買いました' (तोहफ़े के रूप में मिठाइयाँ खरीदीं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "late_n5",
@@ -2540,7 +2570,9 @@
           ],
           "correctAnswer": "3,000円",
           "explanation_en": "'シャツは 3,000円で'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'シャツは 3,000円で' (शर्ट 3,000 येन)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.014.q2",
@@ -2553,7 +2585,9 @@
           ],
           "correctAnswer": "8,000円",
           "explanation_en": "3000 + 5000 = 8000.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "3000 + 5000 = 8000 (कुल जोड़)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -2711,7 +2745,9 @@
           ],
           "correctAnswer": "4月",
           "explanation_en": "'今は 4月です'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '今は 4月です' (अभी अप्रैल है)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.015.q2",
@@ -2724,7 +2760,9 @@
           ],
           "correctAnswer": "母",
           "explanation_en": "'土曜日に 母と さくらを 見に 行きます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '土曜日に 母と さくらを 見に 行きます' (शनिवार को माँ के साथ साकुरा देखने जाएँगे)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -2893,7 +2931,9 @@
           ],
           "correctAnswer": "うちで ねます",
           "explanation_en": "'今日は 学校を 休んで、うちで ねます'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '今日は 学校を 休んで、うちで ねます' (आज स्कूल से छुट्टी लेकर घर में सोऊँगा)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.016.q2",
@@ -2906,7 +2946,9 @@
           ],
           "correctAnswer": "いしゃに 行きます",
           "explanation_en": "'あした、いしゃに 行きます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'あした、いしゃに 行きます' (कल डॉक्टर के पास जाऊँगा)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -3083,7 +3125,9 @@
           ],
           "correctAnswer": "800円",
           "explanation_en": "300 + 500 = 800. (The set is 700, but bought separately costs 800.)",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "300 + 500 = 800। (सेट 700 का है, पर अलग-अलग खरीदने पर 800 हो जाता है।)",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.017.q2",
@@ -3096,7 +3140,9 @@
           ],
           "correctAnswer": "おちゃ",
           "explanation_en": "Tea is 250, the lowest priced drink.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "おちゃ (चाय) 250 येन — सबसे सस्ता पेय।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "format_type": "menu_list",
@@ -3286,7 +3332,9 @@
           ],
           "correctAnswer": "30分",
           "explanation_en": "'毎日 30分くらい べんきょうします'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '毎日 30分くらい べんきょうします' (हर रोज़ लगभग 30 मिनट पढ़ाई)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.018.q2",
@@ -3299,7 +3347,9 @@
           ],
           "correctAnswer": "かんじ",
           "explanation_en": "'かんじは むずかしいですが、ひらがなは かんたんです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'かんじは むずかしいですが、ひらがなは かんたんです' (कांजी कठिन है, हीरागाना आसान)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "late_n5",
@@ -3482,7 +3532,9 @@
           ],
           "correctAnswer": "うみ",
           "explanation_en": "'ともだちと うみに 行きました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'ともだちと うみに 行きました' (दोस्तों के साथ समुद्र गए)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.019.q2",
@@ -3495,7 +3547,9 @@
           ],
           "correctAnswer": "およぎました",
           "explanation_en": "'およぎました'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'およぎました' (तैरे)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -3657,7 +3711,9 @@
           ],
           "correctAnswer": "しんせつです",
           "explanation_en": "'たなか先生は とても しんせつです'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'たなか先生は とても しんせつです' (तानाका सर बहुत दयालु हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.020.q2",
@@ -3670,7 +3726,9 @@
           ],
           "correctAnswer": "おもしろいです",
           "explanation_en": "'じゅぎょうは おもしろいです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'じゅぎょうは おもしろいです' (कक्षा दिलचस्प है)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -3846,7 +3904,9 @@
           ],
           "correctAnswer": "1時間",
           "explanation_en": "The schedule shows '時間：1時間'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "समय-सारिणी में: '時間：1時間' (समय: 1 घंटा)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.021.q2",
@@ -3859,7 +3919,9 @@
           ],
           "correctAnswer": "62,500円",
           "explanation_en": "25,000 × 2 + 12,500 = 62,500 yen.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "25,000 × 2 + 12,500 = 62,500 येन (दो वयस्क + एक बच्चा)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "format_type": "schedule_table",
@@ -4077,7 +4139,9 @@
           ],
           "correctAnswer": "カレー",
           "explanation_en": "'カレーを つくりました'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'カレーを つくりました' (करी बनाई)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.022.q2",
@@ -4090,7 +4154,9 @@
           ],
           "correctAnswer": "母",
           "explanation_en": "'うちで 母と りょうりを しました'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'うちで 母と りょうりを しました' (घर में माँ के साथ खाना पकाया)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -4275,7 +4341,9 @@
           ],
           "correctAnswer": "いいえ、休みです",
           "explanation_en": "'日曜日：休み'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '日曜日：休み' (रविवार: बंद)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.023.q2",
@@ -4288,7 +4356,9 @@
           ],
           "correctAnswer": "600円",
           "explanation_en": "300 + 150×2 = 600.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "300 + 150×2 = 600 (एक वयस्क 300 + दो बच्चे 150 प्रत्येक)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -4493,7 +4563,9 @@
           ],
           "correctAnswer": "スペイン",
           "explanation_en": "'スペイン人です'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'スペイン人です' (स्पेन की हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.024.q2",
@@ -4506,7 +4578,9 @@
           ],
           "correctAnswer": "じょうずです",
           "explanation_en": "'マリアさんは 日本語が とても じょうずです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'マリアさんは 日本語が とても じょうずです' (मारिया जापानी में बहुत अच्छी हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -4682,7 +4756,9 @@
           ],
           "correctAnswer": "7時",
           "explanation_en": "'7時に おきて'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '7時に おきて' (7 बजे उठकर)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.025.q2",
@@ -4695,7 +4771,9 @@
           ],
           "correctAnswer": "さんぽします",
           "explanation_en": "'おきて、こうえんで さんぽします'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'おきて、こうえんで さんぽします' (उठकर पार्क में टहलते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "late_n5",
@@ -4895,7 +4973,9 @@
           ],
           "correctAnswer": "3つ",
           "explanation_en": "'りんごを 3つ'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'りんごを 3つ' (सेब 3)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.026.q2",
@@ -4908,7 +4988,9 @@
           ],
           "correctAnswer": "5本",
           "explanation_en": "'バナナを 5本'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'バナナを 5本' (केले 5)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -5078,7 +5160,9 @@
           ],
           "correctAnswer": "1時",
           "explanation_en": "'あした 1時に...会いましょう'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'あした 1時に...会いましょう' (कल 1 बजे मिलते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.027.q2",
@@ -5091,7 +5175,9 @@
           ],
           "correctAnswer": "えきの まえ",
           "explanation_en": "'えきの まえで 会いましょう'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'えきの まえで 会いましょう' (स्टेशन के सामने मिलते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -5289,7 +5375,9 @@
           ],
           "correctAnswer": "あまり 大きくなくて しずかです",
           "explanation_en": "'あまり 大きくないです'+'しずかな へやです'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद के दो वाक्य: 'あまり 大きくないです' + 'しずかな へやです' (बहुत बड़ा नहीं + शांत कमरा)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.028.q2",
@@ -5302,7 +5390,9 @@
           ],
           "correctAnswer": "にわ",
           "explanation_en": "'まどから にわが 見えます'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'まどから にわが 見えます' (खिड़की से बगीचा दिखता है)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -5484,7 +5574,9 @@
           ],
           "correctAnswer": "30どより 高い",
           "explanation_en": "'毎日 30どより 高いです'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '毎日 30どより 高いです' (हर रोज़ 30°C से अधिक)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.029.q2",
@@ -5497,7 +5589,9 @@
           ],
           "correctAnswer": "うみに 行きたい",
           "explanation_en": "'なつ休みに うみに 行きたいです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'なつ休みに うみに 行きたいです' (गर्मी की छुट्टी में समुद्र जाना चाहते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -5677,7 +5771,9 @@
           ],
           "correctAnswer": "右",
           "explanation_en": "'はじめの しんごうを 右に まがります'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'はじめの しんごうを 右に まがります' (पहली ट्रैफ़िक लाइट पर दाएँ मुड़ें)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.030.q2",
@@ -5690,7 +5786,9 @@
           ],
           "correctAnswer": "いいえ",
           "explanation_en": "'月〜金の 9時から 17時まで' (Mon-Fri only).",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '月〜金の 9時から 17時まで' (केवल सोम-शुक्र, इसलिए शनिवार बंद)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -5884,7 +5982,9 @@
           "correctAnswer": "五さい",
           "explanation_en": "'シロは 五さいです'.",
           "format_role": "primary",
-          "id": "n5.read.031.q1"
+          "id": "n5.read.031.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'シロは 五さいです' (शिरो पाँच साल का है)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "シロと どこで さんぽしますか。",
@@ -5897,7 +5997,9 @@
           "correctAnswer": "こうえん",
           "explanation_en": "'こうえんで シロと さんぽします'.",
           "format_role": "extra",
-          "id": "n5.read.031.q2"
+          "id": "n5.read.031.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'こうえんで シロと さんぽします' (पार्क में शिरो के साथ टहलते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -6087,7 +6189,9 @@
           "correctAnswer": "月よう日と 水よう日と 金よう日",
           "explanation_en": "'月よう日と 水よう日と 金よう日に カフェで アルバイト'.",
           "format_role": "primary",
-          "id": "n5.read.032.q1"
+          "id": "n5.read.032.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '月よう日と 水よう日と 金よう日に カフェで アルバイト' (सोम/बुध/शुक्र को कैफ़े में अल्बाइतो)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "どうして お金を ためますか。",
@@ -6100,7 +6204,9 @@
           "correctAnswer": "日本に 行きたいから",
           "explanation_en": "'お金を ためて、来年 日本に 行きたいです'.",
           "format_role": "extra",
-          "id": "n5.read.032.q2"
+          "id": "n5.read.032.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'お金を ためて、来年 日本に 行きたいです' (पैसे बचाकर अगले साल जापान जाना चाहते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "late_n5",
@@ -6332,7 +6438,9 @@
           "correctAnswer": "あかく なります",
           "explanation_en": "'ゆうがた、そらが あかく なります'.",
           "format_role": "primary",
-          "id": "n5.read.033.q1"
+          "id": "n5.read.033.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'ゆうがた、そらが あかく なります' (शाम को आकाश लाल हो जाता है)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "この 人の すきな きせつは いつですか。",
@@ -6345,7 +6453,9 @@
           "correctAnswer": "あき",
           "explanation_en": "'あきは わたしの すきな きせつです'.",
           "format_role": "extra",
-          "id": "n5.read.033.q2"
+          "id": "n5.read.033.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'あきは わたしの すきな きせつです' (शरद ऋतु मेरी पसंदीदा है)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -6539,7 +6649,9 @@
           "correctAnswer": "あした",
           "explanation_en": "'あした 学校で パーティーが あります'.",
           "format_role": "primary",
-          "id": "n5.read.034.q1"
+          "id": "n5.read.034.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'あした 学校で パーティーが あります' (कल स्कूल में पार्टी है)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "パーティーは どこで ありますか。",
@@ -6552,7 +6664,9 @@
           "correctAnswer": "学校",
           "explanation_en": "'学校で パーティーが あります' - the venue is the school.",
           "format_role": "extra",
-          "id": "n5.read.034.q2"
+          "id": "n5.read.034.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '学校で パーティーが あります' — स्थान: स्कूल।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -6774,7 +6888,9 @@
           "correctAnswer": "すしと てんぷら",
           "explanation_en": "'とくに、すしと てんぷらが すきです'.",
           "format_role": "primary",
-          "id": "n5.read.035.q1"
+          "id": "n5.read.035.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'とくに、すしと てんぷらが すきです' (विशेषतः सुशी और टेम्पुरा पसंद हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "きのうは 何を 食べましたか。",
@@ -6787,7 +6903,9 @@
           "correctAnswer": "ラーメン",
           "explanation_en": "'きのうは 母と いっしょに ラーメンを 食べました'.",
           "format_role": "extra",
-          "id": "n5.read.035.q2"
+          "id": "n5.read.035.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'きのうは 母と いっしょに ラーメンを 食べました' (कल माँ के साथ रामन खाया)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "きのう だれと 食べましたか。",
@@ -6800,7 +6918,9 @@
           "correctAnswer": "母",
           "explanation_en": "'母と いっしょに' - with her mother.",
           "format_role": "extra",
-          "id": "n5.read.035.q3"
+          "id": "n5.read.035.q3",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '母と いっしょに' (माँ के साथ)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -6998,7 +7118,9 @@
           "correctAnswer": "月よう日から 金よう日まで",
           "explanation_en": "'月よう日から 金よう日までです'.",
           "format_role": "primary",
-          "id": "n5.read.036.q1"
+          "id": "n5.read.036.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '月よう日から 金よう日までです' (सोम से शुक्र तक)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "むずかしい しゅくだいは 何ですか。",
@@ -7011,7 +7133,9 @@
           "correctAnswer": "すうがく",
           "explanation_en": "'すうがくは むずかしいです'.",
           "format_role": "extra",
-          "id": "n5.read.036.q2"
+          "id": "n5.read.036.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'すうがくは むずかしいです' (गणित कठिन है)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -7216,7 +7340,9 @@
           "correctAnswer": "七時",
           "explanation_en": "'七時に いえを 出ました'.",
           "format_role": "primary",
-          "id": "n5.read.037.q1"
+          "id": "n5.read.037.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '七時に いえを 出ました' (सात बजे घर से निकले)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "学校に 何時に つきましたか。",
@@ -7229,7 +7355,9 @@
           "correctAnswer": "八時十分",
           "explanation_en": "'八時十分に 学校に つきました'.",
           "format_role": "extra",
-          "id": "n5.read.037.q2"
+          "id": "n5.read.037.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '八時十分に 学校に つきました' (आठ बजकर दस मिनट पर स्कूल पहुँचे)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -7456,7 +7584,9 @@
           "correctAnswer": "五さい",
           "explanation_en": "'五さいから ピアノを ならって います'.",
           "format_role": "primary",
-          "id": "n5.read.038.q1"
+          "id": "n5.read.038.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '五さいから ピアノを ならって います' (पाँच साल की उम्र से पियानो सीख रहे हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "一週間に 何かい きょうしつに 行きますか。",
@@ -7469,7 +7599,9 @@
           "correctAnswer": "二かい",
           "explanation_en": "'一週間に 二かい、ピアノきょうしつに 行きます'.",
           "format_role": "extra",
-          "id": "n5.read.038.q2"
+          "id": "n5.read.038.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '一週間に 二かい、ピアノきょうしつに 行きます' (हफ़्ते में दो बार पियानो कक्षा जाते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -7687,7 +7819,9 @@
           "correctAnswer": "八月七日",
           "explanation_en": "'八月一日から 八月七日まで'.",
           "format_role": "primary",
-          "id": "n5.read.039.q1"
+          "id": "n5.read.039.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '八月一日から 八月七日まで' (अगस्त 1 से 7 तक सेल)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "本は いくらに なりますか。",
@@ -7700,7 +7834,9 @@
           "correctAnswer": "ぜんぶ 半分の ねだん",
           "explanation_en": "'本は ぜんぶ 半分の ねだんです'.",
           "format_role": "extra",
-          "id": "n5.read.039.q2"
+          "id": "n5.read.039.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '本は ぜんぶ 半分の ねだんです' (सभी किताबें आधे दाम पर)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -7965,7 +8101,9 @@
           "correctAnswer": "こうえん",
           "explanation_en": "'こうえんに 行きました'.",
           "format_role": "primary",
-          "id": "n5.read.040.q1"
+          "id": "n5.read.040.q1",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'こうえんに 行きました' (पार्क गए)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "prompt_ja": "おじいさんは 何を して いましたか。",
@@ -7978,7 +8116,9 @@
           "correctAnswer": "本を 読んで いました",
           "explanation_en": "'おじいさんは ベンチで 本を 読んで いました'.",
           "format_role": "extra",
-          "id": "n5.read.040.q2"
+          "id": "n5.read.040.q2",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'おじいさんは ベンチで 本を 読んで いました' (दादाजी बेंच पर किताब पढ़ रहे थे)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "tier": "core_n5",
@@ -8994,7 +9134,9 @@
           ],
           "correctAnswer": "木曜日",
           "explanation_en": "'木曜日は おかあさんの たんじょうびです'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '木曜日は おかあさんの たんじょうびです' (गुरुवार माँ का जन्मदिन)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.044.q2",
@@ -9007,7 +9149,9 @@
           ],
           "correctAnswer": "せんたくと そうじ",
           "explanation_en": "'土曜日に せんたくと そうじを します'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '土曜日に せんたくと そうじを します' (शनिवार को कपड़े धोते और सफ़ाई करते हैं)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "summary": "らいしゅうの よてい (calendar विषय का छोटा अनुच्छेद)।",
@@ -9272,7 +9416,9 @@
           ],
           "correctAnswer": "ぎんこう",
           "explanation_en": "'わたしは ぎんこうで はたらいています'.",
-          "format_role": "primary"
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'わたしは ぎんこうで はたらいています' (मैं बैंक में काम करता हूँ)।",
+          "explanation_hi_provenance": "llm_curated"
         },
         {
           "id": "n5.read.045.q2",
@@ -9285,7 +9431,9 @@
           ],
           "correctAnswer": "九時から 六時",
           "explanation_en": "'しごとは 九時から 六時までです'.",
-          "format_role": "extra"
+          "format_role": "extra",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'しごとは 九時から 六時までです' (काम 9 बजे से 6 बजे तक)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "summary": "わたしの しごと (occupation विषय का छोटा अनुच्छेद)।",
@@ -9558,7 +9706,10 @@
           "correctAnswer": "たかくて、きれいな 山",
           "explanation_en": "The passage says ふじ山は とても 高くて、きれいです.",
           "review_status": "native_reviewed",
-          "prompt_ja": "ふじ山は どんな 山ですか。"
+          "prompt_ja": "ふじ山は どんな 山ですか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'ふじ山は とても 高くて、きれいです' (फूजी पर्वत बहुत ऊँचा और सुंदर)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -9578,7 +9729,16 @@
         "年",
         "行"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.25-languages-and-countri.日本",
+        "n5.vocab.25-languages-and-countri.アメリカ",
+        "n5.vocab.25-languages-and-countri.中国",
+        "n5.vocab.13-locations-and-places-.北",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.32-adjectives.きれい",
+        "n5.vocab.24-school-and-study.れい",
+        "n5.vocab.11-time-days-weeks-month.来年"
+      ],
       "vocab_preview": [
         {
           "form": "日本",
@@ -9806,7 +9966,10 @@
           "correctAnswer": "駅から ひだりに あるいた ところ",
           "explanation_en": "The passage says 駅の 出口を 出て、ひだりに あるくと、安い 店が あります。",
           "review_status": "native_reviewed",
-          "prompt_ja": "安い 店は どこですか。"
+          "prompt_ja": "安い 店は どこですか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '駅の 出口を 出て、ひだりに あるくと、安い 店が あります' (स्टेशन के निकास से बाएँ चलने पर सस्ती दुकान मिलती है)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -9823,7 +9986,20 @@
         "大",
         "高"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.13-locations-and-places-.ちかく",
+        "n5.vocab.31-adjectives.新しい",
+        "n5.vocab.13-locations-and-places-.左",
+        "n5.vocab.2-people-family.おじさん",
+        "n5.vocab.7-numbers.三",
+        "n5.vocab.12-time-frequency-sequen.いつも",
+        "n5.vocab.6-question-words.いつ",
+        "n5.vocab.32-adjectives.しんせつ",
+        "n5.vocab.13-locations-and-places-.むこう",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.31-adjectives.大きい",
+        "n5.vocab.32-adjectives.いろいろ"
+      ],
       "vocab_preview": [
         {
           "form": "ちかく",
@@ -10115,7 +10291,10 @@
           "correctAnswer": "電話番号",
           "explanation_en": "The letter explicitly asks: あなたの 電話番号を おしえて ください.",
           "review_status": "native_reviewed",
-          "prompt_ja": "たなかさんは 山田さんに 何を おしえて ほしいですか。"
+          "prompt_ja": "たなかさんは 山田さんに 何を おしえて ほしいですか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का स्पष्ट उद्धरण: 'あなたの 電話番号を おしえて ください' (कृपया अपना फ़ोन नंबर बताइए)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -10128,7 +10307,20 @@
         "号",
         "書"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.2-people-family.ともだち",
+        "n5.vocab.7-numbers.三",
+        "n5.vocab.36-greetings-and-set-phr.おげんきですか",
+        "n5.vocab.32-adjectives.げんき",
+        "n5.vocab.1-people-pronouns-and-se.あなた",
+        "n5.vocab.24-school-and-study.電話番号",
+        "n5.vocab.33-adverbs.いっしょに",
+        "n5.vocab.13-locations-and-places-.下",
+        "n5.vocab.33-adverbs.たくさん",
+        "n5.vocab.22-money-and-shopping.てがみ",
+        "n5.vocab.36-greetings-and-set-phr.ありがとう",
+        "n5.vocab.13-locations-and-places-.中"
+      ],
       "vocab_preview": [
         {
           "form": "ともだち",
@@ -10376,7 +10568,10 @@
           "correctAnswer": "こうえんに 行きました",
           "explanation_en": "The passage says 外に 出て、こうえんに 行きました after the rain stopped.",
           "review_status": "native_reviewed",
-          "prompt_ja": "雨が やんだ後、何を しましたか。"
+          "prompt_ja": "雨が やんだ後、何を しましたか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'そとに 出て、こうえんに 行きました' (बाहर निकलकर पार्क गए) — बारिश रुकने के बाद।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -10395,7 +10590,20 @@
         "花",
         "大"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.10-time-general.今",
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.10-time-general.あさ",
+        "n5.vocab.16-food-and-drink-genera.ひるごはん",
+        "n5.vocab.10-time-general.ひる",
+        "n5.vocab.16-food-and-drink-genera.ごはん",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.32-adjectives.きれい",
+        "n5.vocab.13-locations-and-places-.こうえん",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.33-adverbs.たくさん",
+        "n5.vocab.7-numbers.三"
+      ],
       "vocab_preview": [
         {
           "form": "今",
@@ -10663,7 +10871,10 @@
           "correctAnswer": "小さい 女の人",
           "explanation_en": "The passage says 小川さんは 小さい 女の人ですが、とても げんきです.",
           "review_status": "native_reviewed",
-          "prompt_ja": "小川さんは どんな ひとですか。"
+          "prompt_ja": "小川さんは どんな ひとですか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '小川さんは 小さい 女の人ですが、とても げんきです' (ओगावा छोटी क़द की महिला हैं पर बहुत स्फूर्ति वाली)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -10685,7 +10896,20 @@
         "川",
         "話"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.7-numbers.三",
+        "n5.vocab.31-adjectives.大きい",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.31-adjectives.つよい",
+        "n5.vocab.31-adjectives.小さい",
+        "n5.vocab.32-adjectives.げんき",
+        "n5.vocab.1-people-pronouns-and-se.みんな",
+        "n5.vocab.12-time-frequency-sequen.いつも",
+        "n5.vocab.6-question-words.いつ",
+        "n5.vocab.33-adverbs.いっしょに",
+        "n5.vocab.37-common-nouns-miscella.しごと",
+        "n5.vocab.31-adjectives.たのしい"
+      ],
       "vocab_preview": [
         {
           "form": "三",
@@ -10972,7 +11196,10 @@
           "correctAnswer": "四つ",
           "explanation_en": "The passage says 四つ 買いました.",
           "review_status": "native_reviewed",
-          "prompt_ja": "りんごは いくつ 買いましたか。"
+          "prompt_ja": "りんごは いくつ 買いましたか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: '四つ 買いました' (चार सेब खरीदे)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -10987,7 +11214,20 @@
         "二",
         "千"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.10-time-general.午前",
+        "n5.vocab.13-locations-and-places-.スーパー",
+        "n5.vocab.9-counters-common.かい",
+        "n5.vocab.17-food-items.りんご",
+        "n5.vocab.8-native-counters-series.一つ",
+        "n5.vocab.8-native-counters-series.四つ",
+        "n5.vocab.10-time-general.今",
+        "n5.vocab.33-adverbs.ぜんぶ",
+        "n5.vocab.35-particles-functional-.ぐらい",
+        "n5.vocab.33-adverbs.たくさん",
+        "n5.vocab.7-numbers.三"
+      ],
       "vocab_preview": [
         {
           "form": "今日",
@@ -11214,7 +11454,10 @@
           "correctAnswer": "下の きょうしつ",
           "explanation_en": "The passage says ごごは 下の きょうしつで えいごの じゅぎょう です.",
           "review_status": "native_reviewed",
-          "prompt_ja": "えいごの じゅぎょうは どこで しますか。"
+          "prompt_ja": "えいごの じゅぎょうは どこで しますか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद का उद्धरण: 'ごごは 下の きょうしつで えいごの じゅぎょう です' (दोपहर निचली कक्षा में अंग्रेज़ी की क्लास)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -11228,7 +11471,20 @@
         "本",
         "下"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.33-adverbs.いっしょに",
+        "n5.vocab.24-school-and-study.べんきょう",
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.1-people-pronouns-and-se.私たち",
+        "n5.vocab.6-question-words.何で",
+        "n5.vocab.13-locations-and-places-.きょうしつ",
+        "n5.vocab.24-school-and-study.じゅぎょう",
+        "n5.vocab.25-languages-and-countri.えいご",
+        "n5.vocab.12-time-frequency-sequen.毎日",
+        "n5.vocab.9-counters-common.まい",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.31-adjectives.たのしい"
+      ],
       "vocab_preview": [
         {
           "form": "いっしょに",
@@ -11458,7 +11714,10 @@
           "correctAnswer": "長い 時間 はしったから",
           "explanation_en": "The passage explains tiredness comes from running for a long time.",
           "review_status": "native_reviewed",
-          "prompt_ja": "なぜ 目が つかれましたか。"
+          "prompt_ja": "なぜ 目が つかれましたか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद के अनुसार लंबे समय तक दौड़ने से थकान आती है।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -11472,7 +11731,20 @@
         "見",
         "休"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.13-locations-and-places-.こうえん",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.10-time-general.時間",
+        "n5.vocab.10-time-general.今",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.31-adjectives.いたい",
+        "n5.vocab.1-people-pronouns-and-se.かれ",
+        "n5.vocab.10-time-general.あした",
+        "n5.vocab.4-body-parts.あし",
+        "n5.vocab.33-adverbs.ゆっくり",
+        "n5.vocab.31-adjectives.おもい"
+      ],
       "vocab_preview": [
         {
           "form": "今日",
@@ -11698,7 +11970,10 @@
           "correctAnswer": "らいげつ",
           "explanation_en": "The passage opens with 来月 (next month).",
           "review_status": "native_reviewed",
-          "prompt_ja": "りょこうは いつ 行きますか。"
+          "prompt_ja": "りょこうは いつ 行きますか。",
+          "format_role": "primary",
+          "explanation_hi": "अनुच्छेद की शुरुआत में: 来月 (अगले महीने)।",
+          "explanation_hi_provenance": "llm_curated"
         }
       ],
       "kanji_used": [
@@ -11712,7 +11987,20 @@
         "万",
         "円"
       ],
-      "vocab_used": [],
+      "vocab_used": [
+        "n5.vocab.11-time-days-weeks-month.来月",
+        "n5.vocab.2-people-family.かぞく",
+        "n5.vocab.13-locations-and-places-.南",
+        "n5.vocab.37-common-nouns-miscella.りょこう",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.14-nature-and-weather.うみ",
+        "n5.vocab.32-adjectives.きれい",
+        "n5.vocab.7-numbers.一万",
+        "n5.vocab.35-particles-functional-.ぐらい",
+        "n5.vocab.31-adjectives.たのしい",
+        "n5.vocab.13-locations-and-places-.北"
+      ],
       "vocab_preview": [
         {
           "form": "来月",
