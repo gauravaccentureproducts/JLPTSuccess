@@ -310,6 +310,149 @@ print('Density-3 (kanji→vocab) min:',  min(d3), 'avg:', sum(d3)/len(d3) if d3 
 print('Density-3 below floor (2):', sum(1 for n in d3 if n < 2))
 ```
 
+### Phase-0 Kanji content gaps (added 2026-05-15)
+
+Regression block for the 2026-05-15 kanji audit. All targets are 0:
+
+```python
+import re
+K = json.load(open('data/kanji.json', encoding='utf-8'))['entries']
+empty_translations = 0
+within_dup_form_reading = 0
+stroke_text_mismatch = 0
+for e in K:
+    # K1: sentence with empty translation_en
+    for s in e.get('sentences', []) or []:
+        if (s.get('ja') or '').strip() and not (s.get('translation_en') or '').strip():
+            empty_translations += 1
+    # K5: examples duplicated by (form, reading)
+    seen = set()
+    for ex in e.get('examples', []) or []:
+        key = (ex.get('form'), ex.get('reading'))
+        if key[0] and key in seen:
+            within_dup_form_reading += 1
+        seen.add(key)
+    # K8: stroke_count int vs why_it_matters text
+    sc = e.get('stroke_count')
+    why = (e.get('stroke_order_trap') or {}).get('why_it_matters', '')
+    if isinstance(sc, int) and why:
+        m = re.search(r'(\d+)\s*stroke', why)
+        if m and int(m.group(1)) != sc:
+            stroke_text_mismatch += 1
+print('Kanji K1 empty sentence translation_en (target 0):', empty_translations)
+print('Kanji K5 dup (form,reading) within entry (target 0):', within_dup_form_reading)
+print('Kanji K8 stroke int vs text mismatch (target 0):',     stroke_text_mismatch)
+```
+
+### Phase-0 Dokkai / reading locale parity (added 2026-05-15)
+
+Regression block for the 2026-05-15 dokkai audit:
+
+```python
+RJ = json.load(open('data/reading.json', encoding='utf-8'))['passages']
+hi_gap = role_gap = vocab_used_gap = 0
+for p in RJ:
+    if p.get('ja') and not p.get('vocab_used'):
+        vocab_used_gap += 1
+    for q in p.get('questions', []) or []:
+        if (q.get('explanation_en') or '').strip() and not (q.get('explanation_hi') or '').strip():
+            hi_gap += 1
+        if not (q.get('format_role') or '').strip():
+            role_gap += 1
+print('reading.json explanation_hi gap (A29, target 0):', hi_gap)
+print('reading.json format_role missing (A28, target 0):', role_gap)
+print('reading.json vocab_used empty when ja non-empty (A28, target 0):', vocab_used_gap)
+# mondai range — N5 dokkai uses 4/5/6, NOT 1-4
+print('reading.json mondai out of {4,5,6} (A27, target 0):',
+      sum(1 for p in RJ if p.get('mondai') not in (None, 4, 5, 6)))
+```
+
+### Phase-0 Authentic + Questions locale (added 2026-05-15)
+
+Regression block for the 2026-05-15 mega-audit:
+
+```python
+A = json.load(open('data/authentic.json', encoding='utf-8'))['items']
+Q = json.load(open('data/questions.json', encoding='utf-8'))['questions']
+context_hi_gap = sum(1 for it in A if (it.get('context') or '').strip()
+                                    and not (it.get('context_hi') or '').strip())
+print('authentic.json context_hi gap (A31, target 0):', context_hi_gap)
+de_gap = de_hi_gap = 0
+for q in Q:
+    if q.get('type') != 'mcq': continue
+    choices = q.get('choices') or []
+    ans = q.get('correctAnswer')
+    if not choices or not ans: continue
+    de = q.get('distractor_explanations') or {}
+    de_hi = q.get('distractor_explanations_hi') or {}
+    for c in choices:
+        if c == ans: continue
+        if not (de.get(c) or '').strip(): de_gap += 1
+        if not (de_hi.get(c) or '').strip(): de_hi_gap += 1
+print('questions.json distractor EN gap (A32, target 0):', de_gap)
+print('questions.json distractor HI gap (A32, target 0):', de_hi_gap)
+```
+
+### Phase-0 Cross-corpus consistency (added 2026-05-15 wave-1)
+
+Regression block for the wave-1 cross-corpus audit:
+
+```python
+V_idx = {e['id']: e for e in json.load(open('data/vocab.json', encoding='utf-8'))['entries']}
+mismatch = 0
+# reading.json vocab_preview
+for p in json.load(open('data/reading.json',encoding='utf-8'))['passages']:
+    for item in p.get('vocab_preview') or []:
+        if not isinstance(item, dict): continue
+        v = V_idx.get(item.get('vocab_id'))
+        if not v: continue
+        if item.get('reading') and v.get('reading') and item['reading'].strip() != v['reading'].strip():
+            v_alts = set([v.get('reading','')] + list(v.get('readings',[]) or []))
+            toks = [t.strip() for t in item['reading'].replace('/',' ').split() if t.strip()]
+            if not all(t in v_alts for t in toks):
+                mismatch += 1
+print('reading.json vocab_preview reading vs canonical (A35, target 0):', mismatch)
+```
+
+### Phase-0 Particle-precision L2-error scan (added 2026-05-15 wave-2)
+
+Regression block for the wave-2 audit (all targets 0):
+
+```python
+import re
+PATTERNS = [
+    re.compile(r'[をｦ]\s*(?:が\s*)?(?:大?好き|だいすき|すき|じょうず|上手|へた|下手|嫌い|きらい|ほしい|欲しい|わか(?:り|る|れ)|分か(?:り|る|れ))'),
+    re.compile(r'[をｦ]\s*(?:が\s*)?(?:あります|います|ある|いる)\b'),
+    re.compile(r'(?<![ぁ-ゟ一-鿿])くないだ(?![け])'),
+    re.compile(r'ました(?:した|ました)'),
+    re.compile(r'ですです'),
+    re.compile(r'(?<!ひとり)でに\s'),  # ひとりでに is a fixed adverb (FP-11)
+    re.compile(r'にで\s'),
+    re.compile(r'きれいい|げんきい|しずかい'),
+    re.compile(r'(?:です|ます)かか'),
+]
+def scan(text):
+    return sum(1 for rx in PATTERNS if rx.search(text or ''))
+# Aggregate across all corpora
+import json
+total = 0
+for p in json.load(open('data/grammar.json',encoding='utf-8'))['patterns']:
+    for ex in p.get('examples',[]) or []: total += scan(ex.get('ja',''))
+for e in json.load(open('data/vocab.json',encoding='utf-8'))['entries']:
+    for ex in e.get('examples',[]) or []: total += scan(ex.get('ja',''))
+for e in json.load(open('data/kanji.json',encoding='utf-8'))['entries']:
+    for s in e.get('sentences',[]) or []: total += scan(s.get('ja',''))
+for p in json.load(open('data/reading.json',encoding='utf-8'))['passages']:
+    total += scan(p.get('ja',''))
+for it in json.load(open('data/listening.json',encoding='utf-8'))['items']:
+    total += scan(it.get('script_ja',''))
+for it in json.load(open('data/authentic.json',encoding='utf-8'))['items']:
+    total += scan(it.get('ja',''))
+for q in json.load(open('data/questions.json',encoding='utf-8'))['questions']:
+    total += scan(q.get('question_ja',''))
+print('Particle-precision L2-error scan (A36 / JA-88, target 0):', total)
+```
+
 Run ALL FIVE blocks above before producing Section 2 of the report.
 The numbers from the script ARE Section 2; do not paraphrase.
 
@@ -1622,6 +1765,64 @@ Mandatory entries for this richness-first cycle:
   initially shipped 38 OOS-kanji uses across the round-4 batch
   that had to be reverted to kana on a second pass; pre-validation
   would have caught these before the apply step."
+- "Do NOT leave kanji.json sentence translation_en empty. The
+  2026-05-15 kanji audit filled 58 missing translations across 30+
+  entries (most were authentic-test-style content authored without
+  English equivalents). CI gate JA-84 locks every populated ja in
+  kanji.json.sentences to have a non-empty translation_en."
+- "Do NOT let kanji.json stroke_order_trap.why_it_matters PROSE
+  drift from the stroke_count INT field. The 2026-05-15 audit
+  caught 東 (data: 8, prose claimed '9 strokes') and 飲 (data: 12,
+  prose claimed '13 strokes'). The int field is canonical — fix
+  the prose to match. JA-84 catches this regression."
+- "Do NOT confuse N5 dokkai mondai range (4, 5, 6) with N5 listening
+  mondai range (1, 2, 3, 4). A naive 'mondai in [1..4]' check applied
+  to data/reading.json will false-flag 9 legitimate mondai-5/6
+  entries. Use the correct per-surface range."
+- "Do NOT omit format_role from reading.json questions. js/reading.js
+  mock-test filter at line ~60 reads format_role='primary' for the
+  filtered-out-of-mock-mode set; missing format_role works as a
+  default but leaves schema non-uniform. JA-85 enforces presence."
+- "Do NOT leave reading.json explanation_hi empty when explanation_en
+  is populated. The 2026-05-15 dokkai audit filled 83 of 103 questions
+  (81%) that had this Hindi-locale gap. JA-85 locks parity."
+- "Do NOT leave a paper-question rationale describing a DIFFERENT
+  passage segment from the answer it should justify. The 2026-05-15
+  audit caught 2 such bugs (dokkai-2.3 rationale was about 電話
+  instead of 山に のぼる; dokkai-7.6 rationale was about cake prices
+  instead of the menu's drink+salad set). Rationales should cite the
+  SPECIFIC passage segment that supports the chosen answer."
+- "Do NOT leave authentic.json context_hi empty when context (EN) is
+  populated. The 2026-05-15 mega-audit filled 88 of 188 authentic
+  cards (47%) that had this Hindi-locale gap. JA-86 locks parity."
+- "Do NOT leave questions.json distractor_explanations or
+  distractor_explanations_hi empty on type='mcq' questions. Each
+  non-correct choice must have a brief 'why this is wrong' entry in
+  BOTH EN and HI maps. The 2026-05-15 audit filled 375 + 375 = 750
+  entries across 127 questions. JA-86 locks coverage."
+- "Do NOT confuse listening mondai 3 (utterance-expression, accepts
+  3 OR 4 choices in the current corpus) with mondai 4 (quick-
+  response, strict 3 choices). A blanket choices==4 check false-
+  flags 15 items. Per-mondai rule applies."
+- "Do NOT apply a blanket required-fields check across questions.json
+  without first branching on `type`. type='mcq' uses question_ja +
+  choices + correctAnswer; type='sentence_order' uses tiles +
+  correctOrder (no question_ja, no correctAnswer). Same caveat for
+  drills_auto.json: type='cloze' has stem; type='production' has
+  prompt_en (no stem). The 2026-05-15 mega-audit's blanket check
+  initially false-flagged 1009 production drills and 16 sentence_
+  order questions before per-type discrimination was added."
+- "When cross-corpus checking authentic.json `reading` against
+  vocab.json canonical, condition on `ja == single canonical form`
+  ONLY. The authentic.json reading field is the FULL phrase read-
+  aloud (e.g., 'コーヒー さんびゃくごじゅうえん' for the signage
+  'コーヒー 350円'). Without the condition, 16 legitimate multi-word
+  signage cards false-flag. See FP-9 in the audit-prompt false-
+  positives section."
+- "When regex-scanning for illegal particle stacks (でに / にで),
+  use a `(?<!ひとり)` lookbehind to skip the fixed adverb ひとりでに
+  ('by oneself'). This is a single lexicalised word, not a stack of
+  particles. See FP-11."
 
 Plus other audit-discovered "we considered and decided no" items.
 

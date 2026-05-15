@@ -787,6 +787,231 @@ A23. VOCAB HEADWORD-MISSING-FROM-EXAMPLE
      Fix policy: replace the example with one that uses the headword
      in inflected or rendaku-altered form.
 
+A24. KANJI.JSON SENTENCE TRANSLATIONS EMPTY
+     (added 2026-05-15)
+
+     Anti-pattern: data/kanji.json carried 58 sentences (across 30+
+     entries) where ja was populated but translation_en was an empty
+     string. Most were authentic-test-style content (mock dialogue
+     fragments, ad text) that had been authored without translation.
+
+     Detection: kanji.json.entries[].sentences[i] where
+     ja.strip() != "" but translation_en.strip() == "".
+
+     Fix policy: author the missing English translation. CI gate
+     JA-84 locks the regression.
+
+A25. KANJI.JSON STROKE-COUNT MISMATCH BETWEEN INT AND TEXT
+     (added 2026-05-15)
+
+     Anti-pattern: 2 kanji entries had stroke_count int field
+     correct (per Unicode/JIS) but the stroke_order_trap.why_it_matters
+     prose said a different number. The number-as-text drifted from
+     the canonical int field during prose editing:
+       東 stroke_count=8, text claimed "9 strokes" → text wrong
+       飲 stroke_count=12, text claimed "13 strokes" → text wrong
+
+     Detection: regex `(\d+)\s*stroke` in why_it_matters; compare to
+     stroke_count int.
+
+     Fix policy: trust the int field (it's the canonical column);
+     fix the prose. CI gate JA-84 includes this check.
+
+A26. KANJI.JSON DUPLICATE-FORM EXAMPLES WITH SAME READING
+     (added 2026-05-15)
+
+     Anti-pattern: kanji example `examples[]` array entries
+     duplicated by (form, reading) pair are wasteful (same word
+     listed twice). EXCEPTION: same form with DIFFERENT readings is
+     legitimate (e.g., 十 / じゅう and 十 / とお for 10/ten alternants;
+     人 / ひと and 人 / にん for person/counter).
+
+     Detection: for each entry, dedupe key = (form, reading). Flag
+     only if (form, reading) appears twice.
+
+     Fix policy: keep both when readings differ (multi-reading
+     teaching value); merge / drop when readings are identical.
+
+A27. DOKKAI MONDAI RANGE IS 4-6 (NOT 1-4 LIKE LISTENING)
+     (added 2026-05-15)
+
+     N5 dokkai mondai numbering is DIFFERENT from listening:
+       問題4: short single-question passages
+       問題5: mid-length multi-question passages
+       問題6: information retrieval (signs / menus / brochures)
+     N5 listening uses 1-4 instead:
+       問題1: task understanding
+       問題2: point understanding
+       問題3: utterance expression
+       問題4: quick response
+
+     Detection mistake to avoid: a "valid mondai 1-4" check for
+     reading.json or papers/dokkai will false-flag legitimate mondai
+     5 and 6 entries. Use the correct per-surface range.
+
+A28. READING.JSON FORMAT_ROLE + VOCAB_USED SCHEMA GAPS
+     (added 2026-05-15)
+
+     Anti-pattern: passages added later in the corpus (e.g., 046-054)
+     were authored without:
+       - question.format_role (used by js/reading.js mock-test-mode
+         filter at line ~60; treated as 'primary' when missing, so the
+         renderer doesn't break but the schema is non-uniform).
+       - vocab_used (list of vocab_ids extracted from the passage).
+         Note: vocab_preview is the RICH-PREVIEW field actually used
+         by the UI; vocab_used is the legacy flat-id list used by
+         audit/density tools. Both should be present for completeness.
+
+     Detection: any passage with question(s) missing format_role; any
+     passage with non-empty ja but empty vocab_used.
+
+     Fix policy: set format_role='primary' (the renderer's default
+     assumption); derive vocab_used from vocab_preview's vocab_id
+     entries. CI gate JA-85 locks both.
+
+A29. DOKKAI / READING EXPLANATION_HI EMPTY (LOCALE PARITY)
+     (added 2026-05-15)
+
+     Anti-pattern: 83 reading.json questions (out of 103, ~81%) had
+     populated explanation_en but empty explanation_hi. The Hindi-
+     locale coverage was 19%.
+
+     Detection: reading.json passages[].questions[].explanation_en
+     non-empty AND explanation_hi empty.
+
+     Fix policy: author Hindi mirror — short citation from passage +
+     concise Hindi gloss of the answer context. Provenance
+     llm_curated (truthful — not native-Hindi-reviewed). CI gate
+     JA-85 locks parity.
+
+A30. PAPERS RATIONALE-ANSWER MISALIGNMENT
+     (added 2026-05-15 wave-3)
+
+     Anti-pattern: a paper question's rationale describes a DIFFERENT
+     part of the passage than the answer it should justify. Two cases
+     caught:
+       dokkai-2.3: answer "山に のぼる"; rationale said "asks everyone
+         to call (電話して ください) if they want to come" — that's a
+         SECONDARY instruction in the passage, not the primary
+         mountain-climbing invitation the question is about.
+       dokkai-7.6: answer "ハンバーガー セット"; rationale said "big
+         cakes are expensive, so picks small ones" — completely
+         unrelated (the passage is a menu table; the rationale should
+         cite the row marked のみもの と サラダ 付き).
+
+     Detection: heuristic char-overlap between correct-answer and
+     rationale. Tolerable: rationale in English (paraphrases naturally
+     have low char overlap) OR rationale is a math/grammar-tag micro-
+     explanation (e.g., "past affirmative" for a 来ました answer). Flag
+     only when the rationale clearly describes a different segment of
+     the passage than the answer.
+
+     Fix policy: rewrite rationale to cite the SPECIFIC passage segment
+     that supports the answer.
+
+A31. AUTHENTIC.JSON CONTEXT_HI EMPTY (LOCALE PARITY)
+     (added 2026-05-15)
+
+     Anti-pattern: 88 of 188 authentic.json items had populated
+     `context` (EN) but empty `context_hi` (HI). Coverage was ~53%.
+
+     Detection: authentic.json items[].context non-empty AND
+     context_hi empty.
+
+     Fix policy: author Hindi context mirror. CI gate JA-86 locks.
+
+A32. QUESTIONS.JSON DISTRACTOR-EXPLANATIONS GAP
+     (added 2026-05-15)
+
+     Anti-pattern: 127 MCQ questions (of 290) had empty
+     `distractor_explanations` AND empty `distractor_explanations_hi`.
+     For each non-correct choice, both EN and HI explanation should
+     be present.
+
+     Detection: for type='mcq' questions, build distractors =
+     [c for c in choices if c != correctAnswer]. Each distractor d
+     must have a non-empty entry in both distractor_explanations[d]
+     and distractor_explanations_hi[d].
+
+     Fix policy: generate per-particle/per-grammar role explanation
+     from a knowledge-base dict (see particle-role table in
+     fix_mega_round2_distractors_2026_05_15.py). CI gate JA-86 locks.
+
+A33. LISTENING MONDAI 3 vs 4 CHOICE-COUNT RULES
+     (added 2026-05-15)
+
+     N5 listening choice counts vary by mondai:
+       問題1 (task)      → 4 choices (strict)
+       問題2 (point)     → 4 choices (strict)
+       問題3 (utterance) → 3 strict per JLPT spec; corpus authored
+                          both 3 and 4. Both functional in renderer;
+                          accept either.
+       問題4 (response)  → 3 choices (strict)
+
+     Detection mistake to avoid: requiring 4 choices universally
+     will false-flag 12 corpus items at mondai 3/4. Per-mondai rule.
+
+A34. SCHEMA-TYPE DISCRIMINATION ACROSS QUESTIONS-LIKE FILES
+     (added 2026-05-15)
+
+     Several question-shaped corpora have multiple `type` values that
+     use DIFFERENT field sets. A blanket required-fields check will
+     false-flag legitimate variants:
+
+       questions.json `type`:
+         - mcq          → uses question_ja + choices + correctAnswer
+         - sentence_order → uses tiles + correctOrder (NO question_ja,
+                            NO correctAnswer; choices not required)
+
+       drills_auto.json `type`:
+         - cloze       → has stem (Japanese with blank) + correctAnswer
+         - production  → has prompt_en (EN→JA typing); NO stem
+
+     Detection rule: branch on `type` before checking required fields.
+
+A35. CROSS-CORPUS READING/GLOSS CONSISTENCY
+     (added 2026-05-15 wave-1)
+
+     For every place that QUOTES a vocab term outside vocab.json, the
+     inline reading/gloss/gloss_hi should agree with vocab.json
+     canonical:
+       - reading.json passages[].vocab_preview[].{reading, gloss, gloss_hi}
+       - listening.json items[].vocab_glossary[].{reading, gloss}
+       - authentic.json items[].reading WHEN ja == canonical form
+
+     Caveat: authentic.json reading field is the FULL phrase read-
+     aloud (e.g., 'コーヒー さんびゃくごじゅうえん' for ja='コーヒー 350円').
+     Only apply strict reading-match when ja IS the single vocab word.
+
+     Fix policy: prefer the CANONICAL (vocab.json) value as source-of-
+     truth. If the consumer file has a fuller gloss, consider
+     UPGRADING vocab.json (the まがる 'to turn' → 'to turn, to bend'
+     case in wave-1). CI gate JA-87 locks.
+
+A36. PARTICLE-PRECISION L2-ERROR PATTERNS
+     (added 2026-05-15 wave-2; locked by JA-88)
+
+     The corpus must NOT contain these top-14 L2-learner errors. Scan
+     all Japanese sentences via regex:
+
+       Xを {好き|大好き|だいすき|上手|じょうず|下手|へた|嫌い|きらい|
+            ほしい|欲しい|わかる|分かる|あります|います|ある|いる}
+            → all of these stative-adj / desire-adj / existential verbs
+              take が, not を
+
+       くないだ          → wrong i-adj-negative + copula stack
+       ましたした        → double polite-past stutter
+       ですです          → double copula
+       でに / にで       → illegal particle stacking (EXCEPTION:
+                          ひとりでに is a fixed adverb, lookbehind
+                          required to skip it)
+       きれいい / げんきい / しずかい → na-adj used as i-adj
+       (です|ます)かか   → double question marker
+       きました ました   → stutter pattern
+
+     Corpus result on 2026-05-15: 0 findings across 6,309 sentences
+     (validation pass).
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 
@@ -1546,6 +1771,50 @@ FP-8. English translations with trailing parenthetical annotations
       flags. Strip trailing /\s*\([^)]*\)\s*$/ BEFORE checking for
       terminator.
 
+FP-9. authentic.json `reading` field is the FULL phrase read-aloud
+      (added 2026-05-15 wave-1)
+
+      The authentic.json schema's `reading` field captures the
+      verbalised pronunciation of the WHOLE ja phrase, not the
+      single-vocab-entry reading. For card auth.menu.koohii:
+        ja:      'コーヒー 350円'           (the signage as written)
+        reading: 'コーヒー さんびゃくごじゅうえん'  (how a Japanese speaker
+                                            would read the sign aloud)
+        vocab_refs: ['n5.vocab.18-drinks.コーヒー']  (which vocab entries
+                                                    appear inside)
+      A cross-corpus reading-vs-vocab.json check that doesn't condition
+      on "ja == canonical form" will false-flag 16 such multi-word
+      signage cards. Apply the check ONLY when ja matches a single
+      vocab form exactly.
+
+FP-10. English/short-technical rationales for paper-question answers
+       (added 2026-05-15 wave-3)
+
+       Paper-question rationales are often brief English paraphrases
+       or grammar-tag micro-explanations that legitimately don't share
+       Japanese characters with the (Japanese) correct answer:
+         answer '来ました'      rationale 'past affirmative (came one
+                                          month ago).'
+         answer '220えん'       rationale '1000 - (100×3) - (120×4) =
+                                          1000 - 300 - 480 = 220.'
+         answer 'まいにち'       rationale '毎 (マイ) + 日 (ニチ).'
+       A char-overlap heuristic between correct-answer and rationale
+       flags 115 of 402 paper-questions as misaligned, but manual
+       triage finds only ~2% are real misalignments. Flag only when
+       the rationale CLEARLY describes a different passage segment
+       than the answer (see A30).
+
+FP-11. ひとりでに ("by oneself") is a fixed adverb, not a particle stack
+       (added 2026-05-15 wave-2)
+
+       The substring 「でに」 appears inside the compound adverb
+       「ひとりでに」 (= "by oneself / spontaneously", e.g. 「まどが
+       ひとりでに あきました」 = "the window opened by itself").
+       This is a single lexicalised word, not 「で」 + 「に」 stacked
+       as separate particles. A regex catching「でに」 as an illegal
+       particle stack must use a lookbehind `(?<!ひとり)` to exclude
+       this fixed expression.
+
 ============================================================
 N5 KANJI WHITELIST CONSTRAINT (authoring guardrail)
 ============================================================
@@ -1572,6 +1841,25 @@ If a fix-pass introduces a non-N5 kanji, JA-13 will fail. Always
 pre-scan authored sentences against the whitelist before saving.
 
 ============================================================
-END OF AUDIT BRIEF (updated 2026-05-15 with vocab-audit lessons:
-A18-A23 added, FP-5-8 added, kanji-whitelist authoring guardrail)
+END OF AUDIT BRIEF (updated 2026-05-15 — final session pass)
+
+Added in this session:
+  - A18-A23: vocab template-leak detectors + headword-presence
+  - A24-A26: kanji.json content gaps (translations, stroke-count
+    text drift, dup-form-same-reading)
+  - A27-A30: dokkai/reading schema gaps + rationale-answer alignment
+  - A31-A32: locale-parity gaps (authentic context_hi, questions
+    distractor explanations)
+  - A33-A34: schema-type discrimination (listening choice counts,
+    questions/drills type variants)
+  - A35: cross-corpus reading/gloss consistency
+  - A36: particle-precision L2-error patterns
+
+  - FP-5 to FP-11: documented checker false-positive classes
+
+CI invariants added this session: JA-81, JA-83, JA-84, JA-85, JA-86,
+JA-87, JA-88. Total: 89 (was 81) → 91 (final, after waves 1-3).
+
+See docs/AUDIT-COVERAGE-2026-05-15.md for the honest disclosure of
+what programmatic checks cover vs what still needs native-human review.
 ============================================================
