@@ -1261,6 +1261,58 @@ A46. PITCH ACCENT VALIDATED AGAINST EXTERNAL REFERENCE
      `tools/refresh_pitch_accent_reference.py` is reusable across
      levels — just point at the level's vocab.json.
 
+A47. AUDIO RENDERER NORMALIZATION GAP — bunsetsu-space particle drop
+     (added 2026-05-14; caught on n5-008.8 user-reported audio mismatch)
+
+     The audio renderer (`tools/build_audio_voicevox.py`) MUST strip
+     JLPT-textbook bunsetsu spaces from the displayed `ja` field
+     before passing text to VOICEVOX. The displayed text uses spaces
+     for learner readability (e.g., `コーヒーと こうちゃを かいました。`);
+     VOICEVOX uses OpenJTalk for prosody, and OpenJTalk treats each
+     space as a hard token boundary that inserts an inter-bunsetsu
+     pause. The particle trailing a bunsetsu (the を at end of
+     `こうちゃを`) gets stress-weakened or devoiced at that pause
+     boundary, producing audio where the displayed particle is
+     INAUDIBLE — the learner hears `コーヒーと こうちゃ かいました。`
+     even though `pitch_marks` and the `/audio_query` phoneme
+     analysis confirm を IS rendered.
+
+     **Detection at audit time:**
+     1. For every grammar example with audio + a bunsetsu space
+        followed by a particle (`を` / `が` / `に` / `で` / `と` /
+        `も` / `へ`): listen to the rendered MP3, verify every
+        particle is audible.
+     2. Programmatic proxy: render the same text via VOICEVOX
+        `/audio_query` with spaced vs stripped input; compare
+        `pause_mora` counts. If spaced version has ≥2 more inserted
+        pauses, the particle-devoicing risk is real.
+     3. File-size proxy: spaced-input renders are ~30-50% larger
+        than stripped-input renders for the same sentence (because
+        of the inserted pauses). An audio file ~50% larger than its
+        stripped-input sibling is a red flag.
+
+     **Fix pattern (single repo-line in the renderer):**
+       text = text.replace(" ", "").replace("　", "").replace("\t", "")
+     Applied BEFORE the `/audio_query` call. The display JSON keeps
+     the spaces; only the TTS input is normalized.
+
+     **Corpus-wide impact:** caught after one user-reported example;
+     the bug affected ALL 1782 grammar examples re-rendered in the
+     2026-05-12 VOICEVOX batch (commit `c28266d`). Resolution required
+     a `--force` corpus-wide re-render after the script was patched.
+     ~15 min CPU time with 4 workers.
+
+     **Cross-engine:** the same pause-boundary class affects gTTS,
+     VOICEVOX, edge-tts, Azure JA, OpenAI TTS, and any OpenJTalk- or
+     morphological-analyzer-based engine. The legacy gTTS renderer
+     (`tools/build_audio.py`) had `normalize_for_tts()` for exactly
+     this reason; the VOICEVOX renderer dropped it during the flip.
+
+     **For Nx levels:** any pipeline that consumes display text MUST
+     normalize whitespace at render time. Add a Phase-0 check: assert
+     that the renderer's text-transform call exists in source (regex
+     for `.replace(" ", "")` in the build_audio_*.py file).
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 

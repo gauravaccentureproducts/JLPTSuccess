@@ -6,18 +6,30 @@ and the chokai virtual mock paper. **All audio is generated offline at
 build time and committed to the repo** — the runtime never makes a
 TTS API call.
 
-## Current state (2026-05-07, v1.12.50)
+## Current state (2026-05-14, post-A47 sweep)
 
 | Module    | Total declared | On disk | Backend (actual) | Voices |
 |-----------|----------------|---------|------------------|--------|
-| Grammar   | 631            | 631 (100%) | gTTS                   | 1 |
-| Reading   | 40             | 40 (100%)  | gTTS                   | 1 |
-| Listening | 47             | 47 (100%)  | **VOICEVOX 0.25.2**    | **4** (rotating) |
-| **Total** | **718**        | **718 (100%)** | mixed             | — |
+| Grammar   | 1782           | 1782 (100%) | **VOICEVOX 0.25.2** | 1 (春日部つむぎ, speaker 8) |
+| Reading   | 54             | 54 (100%)   | gTTS                  | 1 |
+| Listening | 50             | 50 (100%)   | **VOICEVOX 0.25.2**   | **4** (rotating) |
+| Kanji per-yomi | 259       | 259 (100%)  | **VOICEVOX 0.25.2**   | 1 (春日部つむぎ, speaker 8) |
+| **Total** | **2145**       | **2145 (100%)** | VOICEVOX-dominant | — |
 
 Round-9 close-out (2026-05-07) brought all three modules to 100%
 coverage and replaced single-voice synthetic listening with
 **multi-voice VOICEVOX** at JLPT-N5 target pace.
+
+Round-10 (2026-05-12, commit `c28266d`) extended VOICEVOX to grammar
+examples (gTTS → VOICEVOX flip, 1782 files re-rendered).
+
+Round-11 (2026-05-14, commit `f21b64e` + post-A47 sweep) patched
+the VOICEVOX renderer to strip JLPT-textbook bunsetsu spaces before
+passing text to OpenJTalk (otherwise the inter-bunsetsu pause
+inserted by OpenJTalk devoices trailing particles, making them
+inaudible). All 1782 grammar examples re-rendered. See A47 / F.12 /
+AUDIT-COVERAGE-2026-05-15 §Addendum-2026-05-14 for the failure-class
+documentation.
 
 ## Provider matrix
 
@@ -26,14 +38,14 @@ module picks the best provider available on the build host:
 
 | Provider | Status | Used for | Why |
 |----------|--------|----------|-----|
-| **VOICEVOX** (`http://127.0.0.1:50021`) | **Primary for listening** (round-9 actual) | listening | Local engine, MIT-style licence, 30+ Japanese voices, native prosody, no network at build time |
+| **VOICEVOX** (`http://127.0.0.1:50021`) | **Primary for grammar + listening + kanji yomi** (round-10/11 actual) | grammar, listening, kanji yomi | Local engine, MIT-style licence, 30+ Japanese voices, native prosody, no network at build time. **Renderer at `tools/build_audio_voicevox.py` MUST strip bunsetsu spaces** before passing text to VOICEVOX — see A47 / F.12 for the failure class. |
 | **edge-tts** (Microsoft Neural via WSS) | Optional / planned | listening, future | 7+ JP voices, free, no API key, but **WSS connection to `wss://speech.platform.bing.com` blocked by some corporate firewalls** — use VOICEVOX where blocked |
-| **gTTS** (Google Translate TTS) | **Primary for grammar + reading** | grammar, reading | Stable, 1-line install, single voice acceptable for short example clips and passage narration |
+| **gTTS** (Google Translate TTS) | **Primary for reading passages only** (post-round-10) | reading | Stable, 1-line install, single voice acceptable for passage narration. Grammar flipped to VOICEVOX 2026-05-12 (commit `c28266d`). |
 | piper-tts | Future fallback | none currently | Smaller engine for CI; rougher JP prosody than VOICEVOX |
 
 Builders auto-detect what's available; fall back order on the listening
-module is **VOICEVOX → edge-tts → gTTS**. Grammar and reading default
-to gTTS unless explicitly overridden.
+module is **VOICEVOX → edge-tts → gTTS**. Grammar defaults to VOICEVOX
+(post-2026-05-12); reading defaults to gTTS.
 
 ## Listening multi-voice plan (round-9 actual)
 

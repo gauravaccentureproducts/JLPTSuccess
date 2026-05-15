@@ -180,6 +180,14 @@ print('Form field set per example:',
     sum(1 for p in G for _ in (p.get('examples') or [])))
 print('Meaning_ja markers set:', sum(1 for p in G if p.get('_meaning_ja_markers')))
 print('Cultural callout set:', sum(1 for p in G if p.get('cultural_callout')))
+# Audio-renderer source-code guard (added 2026-05-14 per A47/F.12).
+# Assert the VOICEVOX renderer strips bunsetsu spaces; without this,
+# OpenJTalk inserts inter-bunsetsu pauses that devoice trailing
+# particles in the resulting audio (n5-008.8 case).
+import pathlib as _pl
+_renderer = _pl.Path('tools/build_audio_voicevox.py').read_text(encoding='utf-8') if _pl.Path('tools/build_audio_voicevox.py').exists() else ''
+_strips_spaces = ('replace(" ", "")' in _renderer or "replace(' ', '')" in _renderer)
+print('VOICEVOX renderer strips bunsetsu spaces:', _strips_spaces)
 ```
 
 ### Phase-0 Vocab (1009 entries)
@@ -1823,6 +1831,19 @@ Mandatory entries for this richness-first cycle:
   use a `(?<!ひとり)` lookbehind to skip the fixed adverb ひとりでに
   ('by oneself'). This is a single lexicalised word, not a stack of
   particles. See FP-11."
+- "Do NOT pass display-text bunsetsu spaces to any Japanese TTS
+  engine (VOICEVOX, gTTS, edge-tts, Azure JA, OpenAI TTS). OpenJTalk-
+  based prosody analyzers (which power most JA TTS) treat each space
+  as a hard token boundary and insert an inter-bunsetsu pause; the
+  particle trailing a bunsetsu gets stress-weakened at the pause
+  boundary and becomes inaudible. Caught 2026-05-14 on n5-008.8
+  (コーヒーと こうちゃを かいました — を inaudible across all 1782
+  grammar example MP3s rendered in the 2026-05-12 VOICEVOX batch).
+  Fix: `text = text.replace(' ', '').replace('　', '').replace('\\t', '')`
+  before the `/audio_query` POST. Display JSON keeps spaces; only
+  TTS input is normalized. The legacy gTTS renderer already does
+  this via `normalize_for_tts()`. See A47 in the accuracy prompt +
+  F.12 in the procedure manual."
 
 Plus other audit-discovered "we considered and decided no" items.
 

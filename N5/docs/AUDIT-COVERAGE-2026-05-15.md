@@ -204,3 +204,76 @@ on top of that, taking the project to **91/91 invariants green**.
 Subsequent native-human review passes should reference this document
 to know what's already validated programmatically vs what still needs
 human eyes.
+
+---
+
+## Addendum 2026-05-14: TTS pipeline bunsetsu-space particle drop (A47 / F.12)
+
+**Trigger:** user reported `audio/grammar/n5-008.8.mp3` rendered
+`コーヒーと こうちゃ かいました` instead of the displayed
+`コーヒーと こうちゃを かいました。` — を direct-object particle inaudible.
+
+**Investigation chain:**
+
+1. Verified script source = display source (same `ja` field; no
+   separate `audio_text` / `script_for_audio` layer).
+2. Text has been stable since first authoring (commit `21e7592`),
+   not regressed by any subsequent edit.
+3. VOICEVOX `/audio_query` confirms phoneme analysis returns
+   `コオヒイト[PAUSE]コオチャオ[PAUSE]カイマシタ` — the /o/ for を IS
+   produced; the issue is prosodic stress at the inserted pause
+   boundary, not lexical drop.
+4. Root cause: `tools/build_audio_voicevox.py` passed the displayed
+   `ja` directly to VOICEVOX. JLPT-textbook bunsetsu spaces cause
+   OpenJTalk to insert inter-bunsetsu pauses; particles trailing a
+   bunsetsu get stress-weakened at the pause boundary. The legacy
+   gTTS renderer (`tools/build_audio.py`) already had
+   `normalize_for_tts()` to strip spaces for exactly this reason;
+   the VOICEVOX renderer dropped that step during the 2026-05-12
+   gTTS→VOICEVOX flip (commit `c28266d`).
+
+**Scope of impact:** ALL 1782 grammar example MP3s rendered in the
+2026-05-12 VOICEVOX batch. Single-file fix is insufficient — every
+bunsetsu+particle in the corpus may have weakened audio.
+
+**Resolution:**
+
+1. Patched `tools/build_audio_voicevox.py` to strip ASCII/full-width/
+   tab whitespace before passing text to VOICEVOX (3-line addition
+   inside the work-building loop; commit `f21b64e`).
+2. Re-rendered the single user-reported file as immediate verification
+   (47277 B → 31149 B; 34% smaller = inserted pauses removed). Backup
+   at `audio/grammar/n5-008.8.mp3.bak_pre_wo_fix_2026_05_14`.
+3. Corpus-wide `--force` re-render of all 1782 grammar examples
+   (this session; ~15 min CPU with 4 workers).
+4. Manifest refreshes to `voice: voicevox-speaker-8` (春日部つむぎ)
+   replacing stale `synthetic-gtts` entries.
+
+**Documentation propagation (Rule 4):**
+
+- ✓ Procedure manual `JLPT Common/`: new §F.12 with full failure-class
+  description + generalization for Nx levels.
+- ✓ Accuracy prompt `Japanese language Accuracy check.txt`: new
+  audit category A47 with detection methodology + fix pattern.
+- ✓ N5Improvement prompt: anti-item entry + Phase-0 source-code
+  guard (`renderer strips bunsetsu spaces`).
+- ✓ This AUDIT-COVERAGE doc: addendum.
+
+**Lessons for future audit cycles:**
+
+- Audio is a surface that audit prompts didn't sufficiently cover
+  before this finding. Adding "listen to N random grammar example
+  MP3s" to the manual-sampling step would have caught the class
+  earlier — currently `tools/audit_audio_coverage.py` only checks
+  presence/absence, not audibility.
+- The patched script's Phase-0 source-code check (`renderer strips
+  bunsetsu spaces: True`) is structural, not behavioral. It catches
+  regression but not first-instance bugs in a new TTS pipeline.
+  Whenever a new audio backend is added, the FIRST 5 renders must
+  be hand-verified by a Japanese listener.
+
+**CI invariant added:** None directly for this class — it's a
+renderer-source check, not a data check. The Phase-0 check in
+N5Improvement is the regression guard. Adding a future JA-NN data-side
+invariant (file-size proxy: any grammar audio file >40% larger than
+its sibling's median is flagged) is a candidate for the next cycle.
