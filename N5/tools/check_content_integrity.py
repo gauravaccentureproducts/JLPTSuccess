@@ -1063,6 +1063,15 @@ CHECKS: list[tuple[str, str, callable]] = [
     # grammar template, and 毎日-ことができます / あした-つもりです
     # verb template leaks. 159 fixes applied in waves A+B+D combined.
     ("JA-89", "Native-teacher audit locks: counter+article+animacy+templates (2026-05-15 phases A/B/D)", lambda: _check_ja_89_native_teacher_phase_b_d_locks()),
+    # JA-90 (2026-05-15 pitch-accent reconciliation): every vocab
+    # pitch_accent.drop is validated against the kanjium reference
+    # (CC-BY-SA 4.0, pinned commit). Entries with confidence='high'
+    # MUST match a drop in the reference; entries with 'medium'/'low'/
+    # 'unverified' are accepted as-is (kept from LLM authoring with
+    # transparency about uncertainty). The 2026-05-15 reconciliation
+    # pass auto-fixed 22 disagreements, validated 810 matches, marked
+    # 177 not-in-reference as 'unverified'.
+    ("JA-90", "Vocab pitch_accent.drop validated vs kanjium reference (2026-05-15)", lambda: _check_ja_90_pitch_accent_reference_agreement()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4259,6 +4268,54 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_90_pitch_accent_reference_agreement() -> list[str]:
+    """2026-05-15: pitch-accent values validated against kanjium reference.
+
+    For every vocab entry's `pitch_accent.drop`, enforce ONE of:
+      (a) confidence == 'high' AND drop ∈ reference_drops_for_this_vocab_id
+      (b) confidence in {'medium', 'low', 'unverified'}
+          (no reference match required — kept as-is from LLM authoring;
+           future native-human review pass should prioritize these)
+
+    Mora count (`pitch_accent.mora`) is separately enforced by JA-70.
+    """
+    failures = []
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        ref = json.loads((ROOT / "data" / "n5_pitch_accent_reference.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-90 could not read inputs: {e}"]
+    ref_idx = {r["vocab_id"]: r for r in ref.get("entries", [])}
+    for e in vocab.get("entries", []):
+        vid = e.get("id", "?")
+        pa = e.get("pitch_accent")
+        if not isinstance(pa, dict):
+            continue  # JA-70 handles structural; we only validate drop here
+        confidence = pa.get("confidence", "unverified")
+        drop = pa.get("drop")
+        if drop is None:
+            continue
+        if confidence == "high":
+            ref_entry = ref_idx.get(vid)
+            if ref_entry is None:
+                failures.append(
+                    f"JA-90 {vid} has confidence='high' but no reference "
+                    f"entry exists — must be 'unverified'"
+                )
+                continue
+            ref_drops = ref_entry.get("drops", [])
+            if drop not in ref_drops:
+                failures.append(
+                    f"JA-90 {vid} pitch_accent.drop={drop} disagrees with "
+                    f"reference {ref_drops} (confidence='high')"
+                )
+        elif confidence not in {"medium", "low", "unverified"}:
+            failures.append(
+                f"JA-90 {vid} has invalid pitch_accent.confidence={confidence!r}"
+            )
+    return failures
 
 
 def _check_ja_89_native_teacher_phase_b_d_locks() -> list[str]:

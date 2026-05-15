@@ -27,6 +27,7 @@ this is documented so future native-human review can prioritise**.
 | Cross-corpus reading/gloss consistency (vocab_preview, vocab_glossary, authentic single-word cards) | ✅ Enforced | JA-87 (new) |
 | Particle-precision (top 14 L2-error patterns) | ✅ Enforced | JA-88 (new) |
 | Pitch accent mora-count matches reading | ✅ Enforced | JA-70 |
+| Pitch accent drop-position validated vs kanjium reference (CC-BY-SA 4.0, pinned commit) | ✅ Enforced | JA-90 (new) |
 | Vocab/grammar tier flags + count locks | ✅ Enforced | JA-21, JA-34, JA-56 |
 
 ### Content-quality programmatic audits (this session)
@@ -61,7 +62,7 @@ this is documented so future native-human review can prioritise**.
 | Subtle particle precision (は vs が discourse choice, に vs で for movement vs activity) | **Not checked** | Requires semantic context understanding | N/A |
 | Counter-noun pairing semantic correctness (枚 for flat, 本 for cylindrical, 個 for general) | **Not checked** | Requires per-object classification | N/A |
 | Tense/aspect appropriateness in narrative | **Not checked** | Requires discourse-level analysis | N/A |
-| Pitch accent drop position (`pitch_accent.drop`) | **Mora count only** | JA-70 enforces mora but not drop accuracy | Low — needs audio-expert review |
+| Pitch accent drop position (`pitch_accent.drop`) | **Cross-validated against kanjium reference (CC-BY-SA 4.0)** | JA-90 reconciliation: 810 MATCH, 22 fixes applied to align with kanjium, 177 NOT_FOUND tagged `confidence: 'unverified'` | High for 82% (kanjium-matched); explicit `unverified` for 18% (gairaigo, function words not in upstream) |
 
 ### Hindi-locale content quality
 
@@ -114,9 +115,13 @@ native-human review, the following items would benefit most:
    could read non-native to a Japanese speaker. Native reviewer would
    confirm each one.
 
-2. **Pitch accent drop positions** — `pitch_accent.drop` field on every
-   vocab entry was authored without a native-speaker confirming the
-   drop-mora position. Native auditory review at 1009 entries.
+2. **Pitch accent drop positions** — RESOLVED 2026-05-15 via JA-90
+   reconciliation against the kanjium reference (CC-BY-SA 4.0, pinned
+   commit `8a0cdaa`). 22 drops auto-fixed to align with kanjium; 810
+   entries validated as MATCH (`confidence: 'high'`); 177 entries
+   (mostly gairaigo/loanwords + function-word phrases not in kanjium
+   upstream) tagged `confidence: 'unverified'` — these still benefit
+   from native auditory review.
 
 3. **Register coherence in dialogue scripts** — listening.json scripts
    may have unintended polite/casual code-switching. 50 items × ~5

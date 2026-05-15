@@ -1,0 +1,7776 @@
+{
+  "_meta": {
+    "doc": "Pitch-accent reference for vocab.json, filtered from the kanjium project's accents.txt to the (form, reading) pairs present in our N5 vocab corpus. Used by JA-90 to validate vocab pitch_accent.drop values against an authoritative source. The 'drops' array lists ALL attested drop positions for the entry — some words have multiple acceptable accents (heiban + odaka alternates etc.).",
+    "source": "kanjium project (https://github.com/mifunetoshiro/kanjium)",
+    "source_pinned_commit": "8a0cdaa16d64a281a2048de2eee2ec5e3a440fa6",
+    "source_url": "https://raw.githubusercontent.com/mifunetoshiro/kanjium/8a0cdaa16d64a281a2048de2eee2ec5e3a440fa6/data/source_files/raw/accents.txt",
+    "license": "CC-BY-SA 4.0",
+    "attribution": "Pitch accent data from kanjium project (CC-BY-SA 4.0). Original data primarily sourced from EDICT/EDRDG and NHK 日本語発音アクセント新辞典 references.",
+    "downloaded_at": "2026-05-16",
+    "entries_in_upstream": 124134,
+    "matched_exact_form_reading": 204,
+    "matched_by_reading_only": 628,
+    "entries_matched_to_n5_vocab": 832,
+    "vocab_corpus_size": 1009,
+    "match_kind_note": "exact = (form, reading) tuple matched kanjium; by-reading = matched by reading alone (used for kana-only forms where kanjium has the kanji form). by-reading matches use the UNION of all drops across kanjium entries with that reading — wider but less precise. Confidence reflects this in JA-90.",
+    "schema_version": 1,
+    "consumers": [
+      "tools/check_content_integrity.py JA-90"
+    ],
+    "regenerate_with": "python tools/refresh_pitch_accent_reference.py"
+  },
+  "entries": [
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.私",
+      "form": "私",
+      "reading": "わたし",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.私たち",
+      "form": "私たち",
+      "reading": "わたしたち",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.あなた",
+      "form": "あなた",
+      "reading": "あなた",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.かれ",
+      "form": "かれ",
+      "reading": "かれ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.かのじょ",
+      "form": "かのじょ",
+      "reading": "かのじょ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.かた",
+      "form": "かた",
+      "reading": "かた",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.人",
+      "form": "人",
+      "reading": "ひと",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.みなさん",
+      "form": "みなさん",
+      "reading": "みなさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.だれ",
+      "form": "だれ",
+      "reading": "だれ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.どなた",
+      "form": "どなた",
+      "reading": "どなた",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.じぶん",
+      "form": "じぶん",
+      "reading": "じぶん",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.かぞく",
+      "form": "かぞく",
+      "reading": "かぞく",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.父",
+      "form": "父",
+      "reading": "ちち",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.母",
+      "form": "母",
+      "reading": "はは",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.お父さん",
+      "form": "お父さん",
+      "reading": "おとうさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.お母さん",
+      "form": "お母さん",
+      "reading": "おかあさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.あに",
+      "form": "あに",
+      "reading": "あに",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.あね",
+      "form": "あね",
+      "reading": "あね",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おとうと",
+      "form": "おとうと",
+      "reading": "おとうと",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.いもうと",
+      "form": "いもうと",
+      "reading": "いもうと",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おにいさん",
+      "form": "おにいさん",
+      "reading": "おにいさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おねえさん",
+      "form": "おねえさん",
+      "reading": "おねえさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.きょうだい",
+      "form": "きょうだい",
+      "reading": "きょうだい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.りょうしん",
+      "form": "りょうしん",
+      "reading": "りょうしん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.そふ",
+      "form": "そふ",
+      "reading": "そふ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.そぼ",
+      "form": "そぼ",
+      "reading": "そぼ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おじいさん",
+      "form": "おじいさん",
+      "reading": "おじいさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おばあさん",
+      "form": "おばあさん",
+      "reading": "おばあさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おじさん",
+      "form": "おじさん",
+      "reading": "おじさん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.おばさん",
+      "form": "おばさん",
+      "reading": "おばさん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.子ども",
+      "form": "子ども",
+      "reading": "こども",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.男の子",
+      "form": "男の子",
+      "reading": "おとこのこ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.女の子",
+      "form": "女の子",
+      "reading": "おんなのこ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.男",
+      "form": "男",
+      "reading": "おとこ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.女",
+      "form": "女",
+      "reading": "おんな",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.大人",
+      "form": "大人",
+      "reading": "おとな",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.2-people-family.ともだち",
+      "form": "ともだち",
+      "reading": "ともだち",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.学生",
+      "form": "学生",
+      "reading": "がくせい",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.せいと",
+      "form": "せいと",
+      "reading": "せいと",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.先生",
+      "form": "先生",
+      "reading": "せんせい",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.いしゃ",
+      "form": "いしゃ",
+      "reading": "いしゃ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.会社員",
+      "form": "会社員",
+      "reading": "かいしゃいん",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.駅員",
+      "form": "駅員",
+      "reading": "えきいん",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.店員",
+      "form": "店員",
+      "reading": "てんいん",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.けいかん",
+      "form": "けいかん",
+      "reading": "けいかん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.おまわりさん",
+      "form": "おまわりさん",
+      "reading": "おまわりさん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.りゅうがくせい",
+      "form": "りゅうがくせい",
+      "reading": "りゅうがくせい",
+      "drops": [
+        3,
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.外国人",
+      "form": "外国人",
+      "reading": "がいこくじん",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.からだ",
+      "form": "からだ",
+      "reading": "からだ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.あたま",
+      "form": "あたま",
+      "reading": "あたま",
+      "drops": [
+        3,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.かお",
+      "form": "かお",
+      "reading": "かお",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.め",
+      "form": "め",
+      "reading": "め",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.みみ",
+      "form": "みみ",
+      "reading": "みみ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.はな",
+      "form": "はな",
+      "reading": "はな",
+      "drops": [
+        2,
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.くち",
+      "form": "くち",
+      "reading": "くち",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.は",
+      "form": "は",
+      "reading": "は",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.て",
+      "form": "て",
+      "reading": "て",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.あし",
+      "form": "あし",
+      "reading": "あし",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.おなか",
+      "form": "おなか",
+      "reading": "おなか",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.4-body-parts.せ",
+      "form": "せ",
+      "reading": "せ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.これ",
+      "form": "これ",
+      "reading": "これ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.それ",
+      "form": "それ",
+      "reading": "それ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.あれ",
+      "form": "あれ",
+      "reading": "あれ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どれ",
+      "form": "どれ",
+      "reading": "どれ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.この",
+      "form": "この",
+      "reading": "この",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.その",
+      "form": "その",
+      "reading": "その",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.あの",
+      "form": "あの",
+      "reading": "あの",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どの",
+      "form": "どの",
+      "reading": "どの",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.ここ",
+      "form": "ここ",
+      "reading": "ここ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.そこ",
+      "form": "そこ",
+      "reading": "そこ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.あそこ",
+      "form": "あそこ",
+      "reading": "あそこ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どこ",
+      "form": "どこ",
+      "reading": "どこ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.こちら",
+      "form": "こちら",
+      "reading": "こちら",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.そちら",
+      "form": "そちら",
+      "reading": "そちら",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.あちら",
+      "form": "あちら",
+      "reading": "あちら",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どちら",
+      "form": "どちら",
+      "reading": "どちら",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.こっち",
+      "form": "こっち",
+      "reading": "こっち",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.そっち",
+      "form": "そっち",
+      "reading": "そっち",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.あっち",
+      "form": "あっち",
+      "reading": "あっち",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どっち",
+      "form": "どっち",
+      "reading": "どっち",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.こう",
+      "form": "こう",
+      "reading": "こう",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.そう",
+      "form": "そう",
+      "reading": "そう",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.ああ",
+      "form": "ああ",
+      "reading": "ああ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どう",
+      "form": "どう",
+      "reading": "どう",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.何",
+      "form": "何",
+      "reading": "なに",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.いつ",
+      "form": "いつ",
+      "reading": "いつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.いくら",
+      "form": "いくら",
+      "reading": "いくら",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.いくつ",
+      "form": "いくつ",
+      "reading": "いくつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.何時",
+      "form": "何時",
+      "reading": "なんじ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.何曜日",
+      "form": "何曜日",
+      "reading": "なんようび",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.何月",
+      "form": "何月",
+      "reading": "なんがつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.何日",
+      "form": "何日",
+      "reading": "なんにち",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.なぜ",
+      "form": "なぜ",
+      "reading": "なぜ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.どうして",
+      "form": "どうして",
+      "reading": "どうして",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.6-question-words.何で",
+      "form": "何で",
+      "reading": "なんで",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.一",
+      "form": "一",
+      "reading": "いち",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.二",
+      "form": "二",
+      "reading": "に",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.三",
+      "form": "三",
+      "reading": "さん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.四",
+      "form": "四",
+      "reading": "し",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.五",
+      "form": "五",
+      "reading": "ご",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.六",
+      "form": "六",
+      "reading": "ろく",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.七",
+      "form": "七",
+      "reading": "しち",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.八",
+      "form": "八",
+      "reading": "はち",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.九",
+      "form": "九",
+      "reading": "きゅう",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.十",
+      "form": "十",
+      "reading": "じゅう",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.十一",
+      "form": "十一",
+      "reading": "じゅういち",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.二十",
+      "form": "二十",
+      "reading": "にじゅう",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.百",
+      "form": "百",
+      "reading": "ひゃく",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.千",
+      "form": "千",
+      "reading": "せん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.万",
+      "form": "万",
+      "reading": "まん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.おく",
+      "form": "おく",
+      "reading": "おく",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.一つ",
+      "form": "一つ",
+      "reading": "ひとつ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.二つ",
+      "form": "二つ",
+      "reading": "ふたつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.三つ",
+      "form": "三つ",
+      "reading": "みっつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.四つ",
+      "form": "四つ",
+      "reading": "よっつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.五つ",
+      "form": "五つ",
+      "reading": "いつつ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.六つ",
+      "form": "六つ",
+      "reading": "むっつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.七つ",
+      "form": "七つ",
+      "reading": "ななつ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.八つ",
+      "form": "八つ",
+      "reading": "やっつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.九つ",
+      "form": "九つ",
+      "reading": "ここのつ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.十",
+      "form": "十",
+      "reading": "とお",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.8-native-counters-series.いくつ",
+      "form": "いくつ",
+      "reading": "いくつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.人",
+      "form": "人",
+      "reading": "にん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.一人",
+      "form": "一人",
+      "reading": "ひとり",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.二人",
+      "form": "二人",
+      "reading": "ふたり",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.まい",
+      "form": "まい",
+      "reading": "まい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.本",
+      "form": "本",
+      "reading": "ほん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.だい",
+      "form": "だい",
+      "reading": "だい",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.さつ",
+      "form": "さつ",
+      "reading": "さつ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.ひき",
+      "form": "ひき",
+      "reading": "ひき",
+      "drops": [
+        0,
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.はい",
+      "form": "はい",
+      "reading": "はい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.こ",
+      "form": "こ",
+      "reading": "こ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.かい",
+      "form": "かい",
+      "reading": "かい",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.かい.2",
+      "form": "かい",
+      "reading": "かい",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.番",
+      "form": "番",
+      "reading": "ばん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.ど",
+      "form": "ど",
+      "reading": "ど",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.とき",
+      "form": "とき",
+      "reading": "とき",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.時間",
+      "form": "時間",
+      "reading": "じかん",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.とけい",
+      "form": "とけい",
+      "reading": "とけい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.今",
+      "form": "今",
+      "reading": "いま",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.今日",
+      "form": "今日",
+      "reading": "きょう",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.あした",
+      "form": "あした",
+      "reading": "あした",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.きのう",
+      "form": "きのう",
+      "reading": "きのう",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.あさって",
+      "form": "あさって",
+      "reading": "あさって",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.おととい",
+      "form": "おととい",
+      "reading": "おととい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.あさ",
+      "form": "あさ",
+      "reading": "あさ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.ひる",
+      "form": "ひる",
+      "reading": "ひる",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.ゆうがた",
+      "form": "ゆうがた",
+      "reading": "ゆうがた",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.よる",
+      "form": "よる",
+      "reading": "よる",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.ばん",
+      "form": "ばん",
+      "reading": "ばん",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.けさ",
+      "form": "けさ",
+      "reading": "けさ",
+      "drops": [
+        2,
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.こんばん",
+      "form": "こんばん",
+      "reading": "こんばん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.こんや",
+      "form": "こんや",
+      "reading": "こんや",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.午前",
+      "form": "午前",
+      "reading": "ごぜん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.午後",
+      "form": "午後",
+      "reading": "ごご",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.半",
+      "form": "半",
+      "reading": "はん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.分",
+      "form": "分",
+      "reading": "ふん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.びょう",
+      "form": "びょう",
+      "reading": "びょう",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.日",
+      "form": "日",
+      "reading": "ひ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.一日",
+      "form": "一日",
+      "reading": "ついたち",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.一日.2",
+      "form": "一日",
+      "reading": "いちにち",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.二日",
+      "form": "二日",
+      "reading": "ふつか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.三日",
+      "form": "三日",
+      "reading": "みっか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.四日",
+      "form": "四日",
+      "reading": "よっか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.五日",
+      "form": "五日",
+      "reading": "いつか",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.六日",
+      "form": "六日",
+      "reading": "むいか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.七日",
+      "form": "七日",
+      "reading": "なのか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.八日",
+      "form": "八日",
+      "reading": "ようか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.九日",
+      "form": "九日",
+      "reading": "ここのか",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.十日",
+      "form": "十日",
+      "reading": "とおか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.二十日",
+      "form": "二十日",
+      "reading": "はつか",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.週",
+      "form": "週",
+      "reading": "しゅう",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.先週",
+      "form": "先週",
+      "reading": "せんしゅう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.今週",
+      "form": "今週",
+      "reading": "こんしゅう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.来週",
+      "form": "来週",
+      "reading": "らいしゅう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.毎週",
+      "form": "毎週",
+      "reading": "まいしゅう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.月曜日",
+      "form": "月曜日",
+      "reading": "げつようび",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.火曜日",
+      "form": "火曜日",
+      "reading": "かようび",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.水曜日",
+      "form": "水曜日",
+      "reading": "すいようび",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.木曜日",
+      "form": "木曜日",
+      "reading": "もくようび",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.金曜日",
+      "form": "金曜日",
+      "reading": "きんようび",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.土曜日",
+      "form": "土曜日",
+      "reading": "どようび",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.日曜日",
+      "form": "日曜日",
+      "reading": "にちようび",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.しゅうまつ",
+      "form": "しゅうまつ",
+      "reading": "しゅうまつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.月",
+      "form": "月",
+      "reading": "つき",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.一月",
+      "form": "一月",
+      "reading": "いちがつ",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.二月",
+      "form": "二月",
+      "reading": "にがつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.三月",
+      "form": "三月",
+      "reading": "さんがつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.四月",
+      "form": "四月",
+      "reading": "しがつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.五月",
+      "form": "五月",
+      "reading": "ごがつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.六月",
+      "form": "六月",
+      "reading": "ろくがつ",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.七月",
+      "form": "七月",
+      "reading": "しちがつ",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.八月",
+      "form": "八月",
+      "reading": "はちがつ",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.九月",
+      "form": "九月",
+      "reading": "くがつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.十月",
+      "form": "十月",
+      "reading": "じゅうがつ",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.十一月",
+      "form": "十一月",
+      "reading": "じゅういちがつ",
+      "drops": [
+        6
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.十二月",
+      "form": "十二月",
+      "reading": "じゅうにがつ",
+      "drops": [
+        5
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.先月",
+      "form": "先月",
+      "reading": "せんげつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.今月",
+      "form": "今月",
+      "reading": "こんげつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.来月",
+      "form": "来月",
+      "reading": "らいげつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.毎月",
+      "form": "毎月",
+      "reading": "まいつき",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.年",
+      "form": "年",
+      "reading": "とし",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.きょねん",
+      "form": "きょねん",
+      "reading": "きょねん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.今年",
+      "form": "今年",
+      "reading": "ことし",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.来年",
+      "form": "来年",
+      "reading": "らいねん",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.毎年",
+      "form": "毎年",
+      "reading": "まいとし",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.おととし",
+      "form": "おととし",
+      "reading": "おととし",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.さらいねん",
+      "form": "さらいねん",
+      "reading": "さらいねん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.たんじょうび",
+      "form": "たんじょうび",
+      "reading": "たんじょうび",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.毎日",
+      "form": "毎日",
+      "reading": "まいにち",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.まいあさ",
+      "form": "まいあさ",
+      "reading": "まいあさ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.まいばん",
+      "form": "まいばん",
+      "reading": "まいばん",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.いつも",
+      "form": "いつも",
+      "reading": "いつも",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.よく",
+      "form": "よく",
+      "reading": "よく",
+      "drops": [
+        1,
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.時々",
+      "form": "時々",
+      "reading": "ときどき",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.たまに",
+      "form": "たまに",
+      "reading": "たまに",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.あまり",
+      "form": "あまり",
+      "reading": "あまり",
+      "drops": [
+        3,
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.ぜんぜん",
+      "form": "ぜんぜん",
+      "reading": "ぜんぜん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.すぐ",
+      "form": "すぐ",
+      "reading": "すぐ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.もう",
+      "form": "もう",
+      "reading": "もう",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.まだ",
+      "form": "まだ",
+      "reading": "まだ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.はじめて",
+      "form": "はじめて",
+      "reading": "はじめて",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.さいしょ",
+      "form": "さいしょ",
+      "reading": "さいしょ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.さいご",
+      "form": "さいご",
+      "reading": "さいご",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.つぎ",
+      "form": "つぎ",
+      "reading": "つぎ",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.12-time-frequency-sequen.前",
+      "form": "前",
+      "reading": "まえ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ところ",
+      "form": "ところ",
+      "reading": "ところ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.へや",
+      "form": "へや",
+      "reading": "へや",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.だいどころ",
+      "form": "だいどころ",
+      "reading": "だいどころ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.おてあらい",
+      "form": "おてあらい",
+      "reading": "おてあらい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.おふろ",
+      "form": "おふろ",
+      "reading": "おふろ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.げんかん",
+      "form": "げんかん",
+      "reading": "げんかん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.にわ",
+      "form": "にわ",
+      "reading": "にわ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.学校",
+      "form": "学校",
+      "reading": "がっこう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.大学",
+      "form": "大学",
+      "reading": "だいがく",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.高校",
+      "form": "高校",
+      "reading": "こうこう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.きょうしつ",
+      "form": "きょうしつ",
+      "reading": "きょうしつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.としょかん",
+      "form": "としょかん",
+      "reading": "としょかん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.びょういん",
+      "form": "びょういん",
+      "reading": "びょういん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ぎんこう",
+      "form": "ぎんこう",
+      "reading": "ぎんこう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ゆうびんきょく",
+      "form": "ゆうびんきょく",
+      "reading": "ゆうびんきょく",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.会社",
+      "form": "会社",
+      "reading": "かいしゃ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.じむしょ",
+      "form": "じむしょ",
+      "reading": "じむしょ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.きっさてん",
+      "form": "きっさてん",
+      "reading": "きっさてん",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.やおや",
+      "form": "やおや",
+      "reading": "やおや",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ほんや",
+      "form": "ほんや",
+      "reading": "ほんや",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.はなや",
+      "form": "はなや",
+      "reading": "はなや",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.にくや",
+      "form": "にくや",
+      "reading": "にくや",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.パンや",
+      "form": "パンや",
+      "reading": "パンや",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.駅",
+      "form": "駅",
+      "reading": "えき",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.くうこう",
+      "form": "くうこう",
+      "reading": "くうこう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.こうえん",
+      "form": "こうえん",
+      "reading": "こうえん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.どうぶつえん",
+      "form": "どうぶつえん",
+      "reading": "どうぶつえん",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.びじゅつかん",
+      "form": "びじゅつかん",
+      "reading": "びじゅつかん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.えいがかん",
+      "form": "えいがかん",
+      "reading": "えいがかん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.りょかん",
+      "form": "りょかん",
+      "reading": "りょかん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.たいしかん",
+      "form": "たいしかん",
+      "reading": "たいしかん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.こうばん",
+      "form": "こうばん",
+      "reading": "こうばん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.こうじょう",
+      "form": "こうじょう",
+      "reading": "こうじょう",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.こうさてん",
+      "form": "こうさてん",
+      "reading": "こうさてん",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.いりぐち",
+      "form": "いりぐち",
+      "reading": "いりぐち",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.しょくどう",
+      "form": "しょくどう",
+      "reading": "しょくどう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.たてもの",
+      "form": "たてもの",
+      "reading": "たてもの",
+      "drops": [
+        2,
+        3,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ろうか",
+      "form": "ろうか",
+      "reading": "ろうか",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.道",
+      "form": "道",
+      "reading": "みち",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.とおり",
+      "form": "とおり",
+      "reading": "とおり",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.かど",
+      "form": "かど",
+      "reading": "かど",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.はし",
+      "form": "はし",
+      "reading": "はし",
+      "drops": [
+        2,
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.まち",
+      "form": "まち",
+      "reading": "まち",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.むら",
+      "form": "むら",
+      "reading": "むら",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.国",
+      "form": "国",
+      "reading": "くに",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.外",
+      "form": "外",
+      "reading": "そと",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.中",
+      "form": "中",
+      "reading": "なか",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.上",
+      "form": "上",
+      "reading": "うえ",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.下",
+      "form": "下",
+      "reading": "した",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.前",
+      "form": "前",
+      "reading": "まえ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.後ろ",
+      "form": "後ろ",
+      "reading": "うしろ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.左",
+      "form": "左",
+      "reading": "ひだり",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.右",
+      "form": "右",
+      "reading": "みぎ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.となり",
+      "form": "となり",
+      "reading": "となり",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.よこ",
+      "form": "よこ",
+      "reading": "よこ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ちかく",
+      "form": "ちかく",
+      "reading": "ちかく",
+      "drops": [
+        2,
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.とおく",
+      "form": "とおく",
+      "reading": "とおく",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.むこう",
+      "form": "むこう",
+      "reading": "むこう",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.北",
+      "form": "北",
+      "reading": "きた",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.南",
+      "form": "南",
+      "reading": "みなみ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.東",
+      "form": "東",
+      "reading": "ひがし",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.西",
+      "form": "西",
+      "reading": "にし",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.山",
+      "form": "山",
+      "reading": "やま",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.川",
+      "form": "川",
+      "reading": "かわ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.うみ",
+      "form": "うみ",
+      "reading": "うみ",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.いけ",
+      "form": "いけ",
+      "reading": "いけ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.みずうみ",
+      "form": "みずうみ",
+      "reading": "みずうみ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.もり",
+      "form": "もり",
+      "reading": "もり",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.木",
+      "form": "木",
+      "reading": "き",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.花",
+      "form": "花",
+      "reading": "はな",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.くさ",
+      "form": "くさ",
+      "reading": "くさ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.は",
+      "form": "は",
+      "reading": "は",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.いし",
+      "form": "いし",
+      "reading": "いし",
+      "drops": [
+        1,
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.田",
+      "form": "田",
+      "reading": "た",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.空",
+      "form": "空",
+      "reading": "そら",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.くも",
+      "form": "くも",
+      "reading": "くも",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.たいよう",
+      "form": "たいよう",
+      "reading": "たいよう",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.月",
+      "form": "月",
+      "reading": "つき",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.ほし",
+      "form": "ほし",
+      "reading": "ほし",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.雨",
+      "form": "雨",
+      "reading": "あめ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.ゆき",
+      "form": "ゆき",
+      "reading": "ゆき",
+      "drops": [
+        0,
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.かぜ",
+      "form": "かぜ",
+      "reading": "かぜ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.天気",
+      "form": "天気",
+      "reading": "てんき",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.はれ",
+      "form": "はれ",
+      "reading": "はれ",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.くもり",
+      "form": "くもり",
+      "reading": "くもり",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.はる",
+      "form": "はる",
+      "reading": "はる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.なつ",
+      "form": "なつ",
+      "reading": "なつ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.あき",
+      "form": "あき",
+      "reading": "あき",
+      "drops": [
+        0,
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.ふゆ",
+      "form": "ふゆ",
+      "reading": "ふゆ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.あつい",
+      "form": "あつい",
+      "reading": "あつい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.さむい",
+      "form": "さむい",
+      "reading": "さむい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.すずしい",
+      "form": "すずしい",
+      "reading": "すずしい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.あたたかい",
+      "form": "あたたかい",
+      "reading": "あたたかい",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.火",
+      "form": "火",
+      "reading": "ひ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.水",
+      "form": "水",
+      "reading": "みず",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.おゆ",
+      "form": "おゆ",
+      "reading": "おゆ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.どうぶつ",
+      "form": "どうぶつ",
+      "reading": "どうぶつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.いぬ",
+      "form": "いぬ",
+      "reading": "いぬ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.ねこ",
+      "form": "ねこ",
+      "reading": "ねこ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.とり",
+      "form": "とり",
+      "reading": "とり",
+      "drops": [
+        0,
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.さかな",
+      "form": "さかな",
+      "reading": "さかな",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.うま",
+      "form": "うま",
+      "reading": "うま",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.うし",
+      "form": "うし",
+      "reading": "うし",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.ぶた",
+      "form": "ぶた",
+      "reading": "ぶた",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.にわとり",
+      "form": "にわとり",
+      "reading": "にわとり",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.ぞう",
+      "form": "ぞう",
+      "reading": "ぞう",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.15-animals.むし",
+      "form": "むし",
+      "reading": "むし",
+      "drops": [
+        2,
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.たべもの",
+      "form": "たべもの",
+      "reading": "たべもの",
+      "drops": [
+        3,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.のみもの",
+      "form": "のみもの",
+      "reading": "のみもの",
+      "drops": [
+        3,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.あさごはん",
+      "form": "あさごはん",
+      "reading": "あさごはん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.ひるごはん",
+      "form": "ひるごはん",
+      "reading": "ひるごはん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.ばんごはん",
+      "form": "ばんごはん",
+      "reading": "ばんごはん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.ゆうはん",
+      "form": "ゆうはん",
+      "reading": "ゆうはん",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.ごはん",
+      "form": "ごはん",
+      "reading": "ごはん",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.しょくじ",
+      "form": "しょくじ",
+      "reading": "しょくじ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.おべんとう",
+      "form": "おべんとう",
+      "reading": "おべんとう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.16-food-and-drink-genera.おかし",
+      "form": "おかし",
+      "reading": "おかし",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.たまご",
+      "form": "たまご",
+      "reading": "たまご",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.にく",
+      "form": "にく",
+      "reading": "にく",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.ぎゅうにく",
+      "form": "ぎゅうにく",
+      "reading": "ぎゅうにく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.ぶたにく",
+      "form": "ぶたにく",
+      "reading": "ぶたにく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.とりにく",
+      "form": "とりにく",
+      "reading": "とりにく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.やさい",
+      "form": "やさい",
+      "reading": "やさい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.くだもの",
+      "form": "くだもの",
+      "reading": "くだもの",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.りんご",
+      "form": "りんご",
+      "reading": "りんご",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.みかん",
+      "form": "みかん",
+      "reading": "みかん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.いちご",
+      "form": "いちご",
+      "reading": "いちご",
+      "drops": [
+        2,
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.ぶどう",
+      "form": "ぶどう",
+      "reading": "ぶどう",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.すいか",
+      "form": "すいか",
+      "reading": "すいか",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.だいこん",
+      "form": "だいこん",
+      "reading": "だいこん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.にんじん",
+      "form": "にんじん",
+      "reading": "にんじん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.たまねぎ",
+      "form": "たまねぎ",
+      "reading": "たまねぎ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.きゅうり",
+      "form": "きゅうり",
+      "reading": "きゅうり",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.こめ",
+      "form": "こめ",
+      "reading": "こめ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.しお",
+      "form": "しお",
+      "reading": "しお",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.さとう",
+      "form": "さとう",
+      "reading": "さとう",
+      "drops": [
+        0,
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.しょうゆ",
+      "form": "しょうゆ",
+      "reading": "しょうゆ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.みそ",
+      "form": "みそ",
+      "reading": "みそ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.すし",
+      "form": "すし",
+      "reading": "すし",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.天ぷら",
+      "form": "天ぷら",
+      "reading": "てんぷら",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.ラーメン",
+      "form": "ラーメン",
+      "reading": "ラーメン",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.うどん",
+      "form": "うどん",
+      "reading": "うどん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.そば",
+      "form": "そば",
+      "reading": "そば",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.あめ",
+      "form": "あめ",
+      "reading": "あめ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.18-drinks.おちゃ",
+      "form": "おちゃ",
+      "reading": "おちゃ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.18-drinks.こうちゃ",
+      "form": "こうちゃ",
+      "reading": "こうちゃ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.18-drinks.ぎゅうにゅう",
+      "form": "ぎゅうにゅう",
+      "reading": "ぎゅうにゅう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.さら",
+      "form": "さら",
+      "reading": "さら",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.ちゃわん",
+      "form": "ちゃわん",
+      "reading": "ちゃわん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.はし",
+      "form": "はし",
+      "reading": "はし",
+      "drops": [
+        2,
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.れいぞうこ",
+      "form": "れいぞうこ",
+      "reading": "れいぞうこ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.なべ",
+      "form": "なべ",
+      "reading": "なべ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.いろ",
+      "form": "いろ",
+      "reading": "いろ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.白",
+      "form": "白",
+      "reading": "しろ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.白い",
+      "form": "白い",
+      "reading": "しろい",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.くろ",
+      "form": "くろ",
+      "reading": "くろ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.くろい",
+      "form": "くろい",
+      "reading": "くろい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.あか",
+      "form": "あか",
+      "reading": "あか",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.あかい",
+      "form": "あかい",
+      "reading": "あかい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.あお",
+      "form": "あお",
+      "reading": "あお",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.あおい",
+      "form": "あおい",
+      "reading": "あおい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.きいろ",
+      "form": "きいろ",
+      "reading": "きいろ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.きいろい",
+      "form": "きいろい",
+      "reading": "きいろい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.ちゃいろ",
+      "form": "ちゃいろ",
+      "reading": "ちゃいろ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.20-colors.みどり",
+      "form": "みどり",
+      "reading": "みどり",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ふく",
+      "form": "ふく",
+      "reading": "ふく",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ようふく",
+      "form": "ようふく",
+      "reading": "ようふく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.きもの",
+      "form": "きもの",
+      "reading": "きもの",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.うわぎ",
+      "form": "うわぎ",
+      "reading": "うわぎ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.Tシャツ",
+      "form": "Tシャツ",
+      "reading": "ティーシャツ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ぼうし",
+      "form": "ぼうし",
+      "reading": "ぼうし",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.くつ",
+      "form": "くつ",
+      "reading": "くつ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.くつした",
+      "form": "くつした",
+      "reading": "くつした",
+      "drops": [
+        2,
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.かばん",
+      "form": "かばん",
+      "reading": "かばん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.さいふ",
+      "form": "さいふ",
+      "reading": "さいふ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.めがね",
+      "form": "めがね",
+      "reading": "めがね",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.とけい",
+      "form": "とけい",
+      "reading": "とけい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.かさ",
+      "form": "かさ",
+      "reading": "かさ",
+      "drops": [
+        1,
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.お金",
+      "form": "お金",
+      "reading": "おかね",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.円",
+      "form": "円",
+      "reading": "えん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.ねだん",
+      "form": "ねだん",
+      "reading": "ねだん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.きっぷ",
+      "form": "きっぷ",
+      "reading": "きっぷ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.きって",
+      "form": "きって",
+      "reading": "きって",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.はがき",
+      "form": "はがき",
+      "reading": "はがき",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.ふうとう",
+      "form": "ふうとう",
+      "reading": "ふうとう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.てがみ",
+      "form": "てがみ",
+      "reading": "てがみ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.にもつ",
+      "form": "にもつ",
+      "reading": "にもつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.おみやげ",
+      "form": "おみやげ",
+      "reading": "おみやげ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.車",
+      "form": "車",
+      "reading": "くるま",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.じどうしゃ",
+      "form": "じどうしゃ",
+      "reading": "じどうしゃ",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.じてんしゃ",
+      "form": "じてんしゃ",
+      "reading": "じてんしゃ",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.電車",
+      "form": "電車",
+      "reading": "でんしゃ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.きしゃ",
+      "form": "きしゃ",
+      "reading": "きしゃ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.ちかてつ",
+      "form": "ちかてつ",
+      "reading": "ちかてつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.ひこうき",
+      "form": "ひこうき",
+      "reading": "ひこうき",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.ふね",
+      "form": "ふね",
+      "reading": "ふね",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.道",
+      "form": "道",
+      "reading": "みち",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.しんごう",
+      "form": "しんごう",
+      "reading": "しんごう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.べんきょう",
+      "form": "べんきょう",
+      "reading": "べんきょう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.じゅぎょう",
+      "form": "じゅぎょう",
+      "reading": "じゅぎょう",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.しゅくだい",
+      "form": "しゅくだい",
+      "reading": "しゅくだい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.しけん",
+      "form": "しけん",
+      "reading": "しけん",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.しつもん",
+      "form": "しつもん",
+      "reading": "しつもん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.こたえ",
+      "form": "こたえ",
+      "reading": "こたえ",
+      "drops": [
+        2,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.いみ",
+      "form": "いみ",
+      "reading": "いみ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ことば",
+      "form": "ことば",
+      "reading": "ことば",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.じ",
+      "form": "じ",
+      "reading": "じ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.かんじ",
+      "form": "かんじ",
+      "reading": "かんじ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.かな",
+      "form": "かな",
+      "reading": "かな",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ひらがな",
+      "form": "ひらがな",
+      "reading": "ひらがな",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.もじ",
+      "form": "もじ",
+      "reading": "もじ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ぶん",
+      "form": "ぶん",
+      "reading": "ぶん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ぶんしょう",
+      "form": "ぶんしょう",
+      "reading": "ぶんしょう",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ぶんぽう",
+      "form": "ぶんぽう",
+      "reading": "ぶんぽう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.れい",
+      "form": "れい",
+      "reading": "れい",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.れんしゅう",
+      "form": "れんしゅう",
+      "reading": "れんしゅう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.本",
+      "form": "本",
+      "reading": "ほん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.きょうかしょ",
+      "form": "きょうかしょ",
+      "reading": "きょうかしょ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.じしょ",
+      "form": "じしょ",
+      "reading": "じしょ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ざっし",
+      "form": "ざっし",
+      "reading": "ざっし",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.新聞",
+      "form": "新聞",
+      "reading": "しんぶん",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.かみ",
+      "form": "かみ",
+      "reading": "かみ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.えんぴつ",
+      "form": "えんぴつ",
+      "reading": "えんぴつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.まんねんひつ",
+      "form": "まんねんひつ",
+      "reading": "まんねんひつ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.こくばん",
+      "form": "こくばん",
+      "reading": "こくばん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.つくえ",
+      "form": "つくえ",
+      "reading": "つくえ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.いす",
+      "form": "いす",
+      "reading": "いす",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.けしゴム",
+      "form": "けしゴム",
+      "reading": "けしゴム",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ちず",
+      "form": "ちず",
+      "reading": "ちず",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.しゃしん",
+      "form": "しゃしん",
+      "reading": "しゃしん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.え",
+      "form": "え",
+      "reading": "え",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.番号",
+      "form": "番号",
+      "reading": "ばんごう",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.電気",
+      "form": "電気",
+      "reading": "でんき",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.電話",
+      "form": "電話",
+      "reading": "でんわ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.電話番号",
+      "form": "電話番号",
+      "reading": "でんわばんごう",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.日本",
+      "form": "日本",
+      "reading": "にほん",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.日本語",
+      "form": "日本語",
+      "reading": "にほんご",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.日本人",
+      "form": "日本人",
+      "reading": "にほんじん",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.えいご",
+      "form": "えいご",
+      "reading": "えいご",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.中国",
+      "form": "中国",
+      "reading": "ちゅうごく",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.中国語",
+      "form": "中国語",
+      "reading": "ちゅうごくご",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.かんこく",
+      "form": "かんこく",
+      "reading": "かんこく",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.かんこくご",
+      "form": "かんこくご",
+      "reading": "かんこくご",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.フランスご",
+      "form": "フランスご",
+      "reading": "フランスご",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.外国",
+      "form": "外国",
+      "reading": "がいこく",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.外国語",
+      "form": "外国語",
+      "reading": "がいこくご",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.と",
+      "form": "と",
+      "reading": "と",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.もん",
+      "form": "もん",
+      "reading": "もん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.まど",
+      "form": "まど",
+      "reading": "まど",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.かべ",
+      "form": "かべ",
+      "reading": "かべ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.かいだん",
+      "form": "かいだん",
+      "reading": "かいだん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.いま",
+      "form": "いま",
+      "reading": "いま",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.しんしつ",
+      "form": "しんしつ",
+      "reading": "しんしつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ふとん",
+      "form": "ふとん",
+      "reading": "ふとん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.もうふ",
+      "form": "もうふ",
+      "reading": "もうふ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.まくら",
+      "form": "まくら",
+      "reading": "まくら",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.たな",
+      "form": "たな",
+      "reading": "たな",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ほんだな",
+      "form": "ほんだな",
+      "reading": "ほんだな",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.かぎ",
+      "form": "かぎ",
+      "reading": "かぎ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.電気",
+      "form": "電気",
+      "reading": "でんき",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.せっけん",
+      "form": "せっけん",
+      "reading": "せっけん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.はブラシ",
+      "form": "はブラシ",
+      "reading": "はブラシ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.えいが",
+      "form": "えいが",
+      "reading": "えいが",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.おんがく",
+      "form": "おんがく",
+      "reading": "おんがく",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.うた",
+      "form": "うた",
+      "reading": "うた",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.え",
+      "form": "え",
+      "reading": "え",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.会う",
+      "form": "会う",
+      "reading": "あう",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.言う",
+      "form": "言う",
+      "reading": "いう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.行く",
+      "form": "行く",
+      "reading": "いく",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.うたう",
+      "form": "うたう",
+      "reading": "うたう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.おもう",
+      "form": "おもう",
+      "reading": "おもう",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.買う",
+      "form": "買う",
+      "reading": "かう",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.書く",
+      "form": "書く",
+      "reading": "かく",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.聞く",
+      "form": "聞く",
+      "reading": "きく",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.きる",
+      "form": "きる",
+      "reading": "きる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.つくる",
+      "form": "つくる",
+      "reading": "つくる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.しる",
+      "form": "しる",
+      "reading": "しる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.すむ",
+      "form": "すむ",
+      "reading": "すむ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.立つ",
+      "form": "立つ",
+      "reading": "たつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.とる",
+      "form": "とる",
+      "reading": "とる",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.とる.2",
+      "form": "とる",
+      "reading": "とる",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.なく",
+      "form": "なく",
+      "reading": "なく",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.飲む",
+      "form": "飲む",
+      "reading": "のむ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.入る",
+      "form": "入る",
+      "reading": "はいる",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.はく",
+      "form": "はく",
+      "reading": "はく",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.話す",
+      "form": "話す",
+      "reading": "はなす",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.はしる",
+      "form": "はしる",
+      "reading": "はしる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.はたらく",
+      "form": "はたらく",
+      "reading": "はたらく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.まつ",
+      "form": "まつ",
+      "reading": "まつ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.もつ",
+      "form": "もつ",
+      "reading": "もつ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.休む",
+      "form": "休む",
+      "reading": "やすむ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.読む",
+      "form": "読む",
+      "reading": "よむ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.わたる",
+      "form": "わたる",
+      "reading": "わたる",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.分かる",
+      "form": "分かる",
+      "reading": "わかる",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.おわる",
+      "form": "おわる",
+      "reading": "おわる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.はじまる",
+      "form": "はじまる",
+      "reading": "はじまる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.かえる",
+      "form": "かえる",
+      "reading": "かえる",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.うる",
+      "form": "うる",
+      "reading": "うる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.おす",
+      "form": "おす",
+      "reading": "おす",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
+      "form": "およぐ",
+      "reading": "およぐ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ひく",
+      "form": "ひく",
+      "reading": "ひく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ひく.2",
+      "form": "ひく",
+      "reading": "ひく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.よぶ",
+      "form": "よぶ",
+      "reading": "よぶ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.とぶ",
+      "form": "とぶ",
+      "reading": "とぶ",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.こまる",
+      "form": "こまる",
+      "reading": "こまる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ならぶ",
+      "form": "ならぶ",
+      "reading": "ならぶ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.のぼる",
+      "form": "のぼる",
+      "reading": "のぼる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.わたす",
+      "form": "わたす",
+      "reading": "わたす",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ぬぐ",
+      "form": "ぬぐ",
+      "reading": "ぬぐ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.あらう",
+      "form": "あらう",
+      "reading": "あらう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.いそぐ",
+      "form": "いそぐ",
+      "reading": "いそぐ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.しぬ",
+      "form": "しぬ",
+      "reading": "しぬ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.すう",
+      "form": "すう",
+      "reading": "すう",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ちがう",
+      "form": "ちがう",
+      "reading": "ちがう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.つかう",
+      "form": "つかう",
+      "reading": "つかう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.つく",
+      "form": "つく",
+      "reading": "つく",
+      "drops": [
+        1,
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ならう",
+      "form": "ならう",
+      "reading": "ならう",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.はる",
+      "form": "はる",
+      "reading": "はる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.まがる",
+      "form": "まがる",
+      "reading": "まがる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.みがく",
+      "form": "みがく",
+      "reading": "みがく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.もってくる",
+      "form": "もってくる",
+      "reading": "もってくる",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.あく",
+      "form": "あく",
+      "reading": "あく",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.しまる",
+      "form": "しまる",
+      "reading": "しまる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.だす",
+      "form": "だす",
+      "reading": "だす",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.おとす",
+      "form": "おとす",
+      "reading": "おとす",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ふく",
+      "form": "ふく",
+      "reading": "ふく",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.ふる",
+      "form": "ふる",
+      "reading": "ふる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.くもる",
+      "form": "くもる",
+      "reading": "くもる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.なくす",
+      "form": "なくす",
+      "reading": "なくす",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.のる",
+      "form": "のる",
+      "reading": "のる",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.すわる",
+      "form": "すわる",
+      "reading": "すわる",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.たのむ",
+      "form": "たのむ",
+      "reading": "たのむ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.とまる",
+      "form": "とまる",
+      "reading": "とまる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.おく",
+      "form": "おく",
+      "reading": "おく",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.さく",
+      "form": "さく",
+      "reading": "さく",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.かかる",
+      "form": "かかる",
+      "reading": "かかる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.さす",
+      "form": "さす",
+      "reading": "さす",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.けす",
+      "form": "けす",
+      "reading": "けす",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.いる",
+      "form": "いる",
+      "reading": "いる",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.食べる",
+      "form": "食べる",
+      "reading": "たべる",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.見る",
+      "form": "見る",
+      "reading": "みる",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.ねる",
+      "form": "ねる",
+      "reading": "ねる",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.おきる",
+      "form": "おきる",
+      "reading": "おきる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.出る",
+      "form": "出る",
+      "reading": "でる",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.入れる",
+      "form": "入れる",
+      "reading": "いれる",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.あける",
+      "form": "あける",
+      "reading": "あける",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.しめる",
+      "form": "しめる",
+      "reading": "しめる",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.おしえる",
+      "form": "おしえる",
+      "reading": "おしえる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.おぼえる",
+      "form": "おぼえる",
+      "reading": "おぼえる",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.わすれる",
+      "form": "わすれる",
+      "reading": "わすれる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.かりる",
+      "form": "かりる",
+      "reading": "かりる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.こたえる",
+      "form": "こたえる",
+      "reading": "こたえる",
+      "drops": [
+        3,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.出かける",
+      "form": "出かける",
+      "reading": "でかける",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.かける",
+      "form": "かける",
+      "reading": "かける",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.きる",
+      "form": "きる",
+      "reading": "きる",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.つける",
+      "form": "つける",
+      "reading": "つける",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.ならべる",
+      "form": "ならべる",
+      "reading": "ならべる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.はじめる",
+      "form": "はじめる",
+      "reading": "はじめる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.見せる",
+      "form": "見せる",
+      "reading": "みせる",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.あびる",
+      "form": "あびる",
+      "reading": "あびる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.いれる",
+      "form": "いれる",
+      "reading": "いれる",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.あつめる",
+      "form": "あつめる",
+      "reading": "あつめる",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.きえる",
+      "form": "きえる",
+      "reading": "きえる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.おちる",
+      "form": "おちる",
+      "reading": "おちる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.はれる",
+      "form": "はれる",
+      "reading": "はれる",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.つかれる",
+      "form": "つかれる",
+      "reading": "つかれる",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.生まれる",
+      "form": "生まれる",
+      "reading": "うまれる",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.おりる",
+      "form": "おりる",
+      "reading": "おりる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.しめる.2",
+      "form": "しめる",
+      "reading": "しめる",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.つとめる",
+      "form": "つとめる",
+      "reading": "つとめる",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.29-verbs-irregular-and-v.する",
+      "form": "する",
+      "reading": "する",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.29-verbs-irregular-and-v.来る",
+      "form": "来る",
+      "reading": "くる",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.ある",
+      "form": "ある",
+      "reading": "ある",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.いる.2",
+      "form": "いる",
+      "reading": "いる",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.やる",
+      "form": "やる",
+      "reading": "やる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.あげる",
+      "form": "あげる",
+      "reading": "あげる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.もらう",
+      "form": "もらう",
+      "reading": "もらう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.くれる",
+      "form": "くれる",
+      "reading": "くれる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.かす",
+      "form": "かす",
+      "reading": "かす",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.かえす",
+      "form": "かえす",
+      "reading": "かえす",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.大きい",
+      "form": "大きい",
+      "reading": "おおきい",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.小さい",
+      "form": "小さい",
+      "reading": "ちいさい",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.新しい",
+      "form": "新しい",
+      "reading": "あたらしい",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.古い",
+      "form": "古い",
+      "reading": "ふるい",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.わるい",
+      "form": "わるい",
+      "reading": "わるい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.あつい",
+      "form": "あつい",
+      "reading": "あつい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.あつい.2",
+      "form": "あつい",
+      "reading": "あつい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.つめたい",
+      "form": "つめたい",
+      "reading": "つめたい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.高い",
+      "form": "高い",
+      "reading": "たかい",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ひくい",
+      "form": "ひくい",
+      "reading": "ひくい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.安い",
+      "form": "安い",
+      "reading": "やすい",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.長い",
+      "form": "長い",
+      "reading": "ながい",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.みじかい",
+      "form": "みじかい",
+      "reading": "みじかい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ひろい",
+      "form": "ひろい",
+      "reading": "ひろい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.せまい",
+      "form": "せまい",
+      "reading": "せまい",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.おもい",
+      "form": "おもい",
+      "reading": "おもい",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.かるい",
+      "form": "かるい",
+      "reading": "かるい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.あつい.3",
+      "form": "あつい",
+      "reading": "あつい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.うすい",
+      "form": "うすい",
+      "reading": "うすい",
+      "drops": [
+        1,
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ふとい",
+      "form": "ふとい",
+      "reading": "ふとい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ほそい",
+      "form": "ほそい",
+      "reading": "ほそい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.つよい",
+      "form": "つよい",
+      "reading": "つよい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.よわい",
+      "form": "よわい",
+      "reading": "よわい",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.はやい",
+      "form": "はやい",
+      "reading": "はやい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.おそい",
+      "form": "おそい",
+      "reading": "おそい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.たのしい",
+      "form": "たのしい",
+      "reading": "たのしい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.うれしい",
+      "form": "うれしい",
+      "reading": "うれしい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.かなしい",
+      "form": "かなしい",
+      "reading": "かなしい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.さびしい",
+      "form": "さびしい",
+      "reading": "さびしい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.いたい",
+      "form": "いたい",
+      "reading": "いたい",
+      "drops": [
+        0,
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.かわいい",
+      "form": "かわいい",
+      "reading": "かわいい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.うつくしい",
+      "form": "うつくしい",
+      "reading": "うつくしい",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.きたない",
+      "form": "きたない",
+      "reading": "きたない",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.いそがしい",
+      "form": "いそがしい",
+      "reading": "いそがしい",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.やさしい",
+      "form": "やさしい",
+      "reading": "やさしい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.むずかしい",
+      "form": "むずかしい",
+      "reading": "むずかしい",
+      "drops": [
+        4,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.おもしろい",
+      "form": "おもしろい",
+      "reading": "おもしろい",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.つまらない",
+      "form": "つまらない",
+      "reading": "つまらない",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.おいしい",
+      "form": "おいしい",
+      "reading": "おいしい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.まずい",
+      "form": "まずい",
+      "reading": "まずい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.あまい",
+      "form": "あまい",
+      "reading": "あまい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.からい",
+      "form": "からい",
+      "reading": "からい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.にがい",
+      "form": "にがい",
+      "reading": "にがい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.おおい",
+      "form": "おおい",
+      "reading": "おおい",
+      "drops": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.すくない",
+      "form": "すくない",
+      "reading": "すくない",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ちかい",
+      "form": "ちかい",
+      "reading": "ちかい",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.とおい",
+      "form": "とおい",
+      "reading": "とおい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.あかるい",
+      "form": "あかるい",
+      "reading": "あかるい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.くらい",
+      "form": "くらい",
+      "reading": "くらい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.まるい",
+      "form": "まるい",
+      "reading": "まるい",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.しかくい",
+      "form": "しかくい",
+      "reading": "しかくい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.わかい",
+      "form": "わかい",
+      "reading": "わかい",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ちゃいろい",
+      "form": "ちゃいろい",
+      "reading": "ちゃいろい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.あぶない",
+      "form": "あぶない",
+      "reading": "あぶない",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ほしい",
+      "form": "ほしい",
+      "reading": "ほしい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.ぬるい",
+      "form": "ぬるい",
+      "reading": "ぬるい",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.うるさい",
+      "form": "うるさい",
+      "reading": "うるさい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.げんき",
+      "form": "げんき",
+      "reading": "げんき",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.しずか",
+      "form": "しずか",
+      "reading": "しずか",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.にぎやか",
+      "form": "にぎやか",
+      "reading": "にぎやか",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.きれい",
+      "form": "きれい",
+      "reading": "きれい",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.しんせつ",
+      "form": "しんせつ",
+      "reading": "しんせつ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.ひま",
+      "form": "ひま",
+      "reading": "ひま",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.たいへん",
+      "form": "たいへん",
+      "reading": "たいへん",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.だいじょうぶ",
+      "form": "だいじょうぶ",
+      "reading": "だいじょうぶ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.べんり",
+      "form": "べんり",
+      "reading": "べんり",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.ふべん",
+      "form": "ふべん",
+      "reading": "ふべん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.ゆうめい",
+      "form": "ゆうめい",
+      "reading": "ゆうめい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.じょうず",
+      "form": "じょうず",
+      "reading": "じょうず",
+      "drops": [
+        3,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.へた",
+      "form": "へた",
+      "reading": "へた",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.すき",
+      "form": "すき",
+      "reading": "すき",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.きらい",
+      "form": "きらい",
+      "reading": "きらい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.だいすき",
+      "form": "だいすき",
+      "reading": "だいすき",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.だいきらい",
+      "form": "だいきらい",
+      "reading": "だいきらい",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.おなじ",
+      "form": "おなじ",
+      "reading": "おなじ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.いろいろ",
+      "form": "いろいろ",
+      "reading": "いろいろ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.りっぱ",
+      "form": "りっぱ",
+      "reading": "りっぱ",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.かんたん",
+      "form": "かんたん",
+      "reading": "かんたん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.けっこう",
+      "form": "けっこう",
+      "reading": "けっこう",
+      "drops": [
+        0,
+        3,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.たいせつ",
+      "form": "たいせつ",
+      "reading": "たいせつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.だいじ",
+      "form": "だいじ",
+      "reading": "だいじ",
+      "drops": [
+        0,
+        1,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.あんぜん",
+      "form": "あんぜん",
+      "reading": "あんぜん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.じょうぶ",
+      "form": "じょうぶ",
+      "reading": "じょうぶ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.32-adjectives.いや",
+      "form": "いや",
+      "reading": "いや",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.とても",
+      "form": "とても",
+      "reading": "とても",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.すごく",
+      "form": "すごく",
+      "reading": "すごく",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.すこし",
+      "form": "すこし",
+      "reading": "すこし",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ちょっと",
+      "form": "ちょっと",
+      "reading": "ちょっと",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.たくさん",
+      "form": "たくさん",
+      "reading": "たくさん",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.おおぜい",
+      "form": "おおぜい",
+      "reading": "おおぜい",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.だいたい",
+      "form": "だいたい",
+      "reading": "だいたい",
+      "drops": [
+        0,
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ぜんぶ",
+      "form": "ぜんぶ",
+      "reading": "ぜんぶ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.もう",
+      "form": "もう",
+      "reading": "もう",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.もうすこし",
+      "form": "もうすこし",
+      "reading": "もうすこし",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.一番",
+      "form": "一番",
+      "reading": "いちばん",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.とくに",
+      "form": "とくに",
+      "reading": "とくに",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ほんとうに",
+      "form": "ほんとうに",
+      "reading": "ほんとうに",
+      "drops": [
+        5,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.すぐ",
+      "form": "すぐ",
+      "reading": "すぐ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.たぶん",
+      "form": "たぶん",
+      "reading": "たぶん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.かならず",
+      "form": "かならず",
+      "reading": "かならず",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.きっと",
+      "form": "きっと",
+      "reading": "きっと",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.もちろん",
+      "form": "もちろん",
+      "reading": "もちろん",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.まっすぐ",
+      "form": "まっすぐ",
+      "reading": "まっすぐ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.まず",
+      "form": "まず",
+      "reading": "まず",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.しかし",
+      "form": "しかし",
+      "reading": "しかし",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.が",
+      "form": "が",
+      "reading": "が",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.から",
+      "form": "から",
+      "reading": "から",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.または",
+      "form": "または",
+      "reading": "または",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.は",
+      "form": "は",
+      "reading": "は",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.が",
+      "form": "が",
+      "reading": "が",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.に",
+      "form": "に",
+      "reading": "に",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.で",
+      "form": "で",
+      "reading": "で",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.へ",
+      "form": "へ",
+      "reading": "へ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.と",
+      "form": "と",
+      "reading": "と",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.か",
+      "form": "か",
+      "reading": "か",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.も",
+      "form": "も",
+      "reading": "も",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.や",
+      "form": "や",
+      "reading": "や",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.の",
+      "form": "の",
+      "reading": "の",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.から",
+      "form": "から",
+      "reading": "から",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.ね",
+      "form": "ね",
+      "reading": "ね",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.よ",
+      "form": "よ",
+      "reading": "よ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.しか",
+      "form": "しか",
+      "reading": "しか",
+      "drops": [
+        1,
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.ごろ",
+      "form": "ごろ",
+      "reading": "ごろ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.など",
+      "form": "など",
+      "reading": "など",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.こんにちは",
+      "form": "こんにちは",
+      "reading": "こんにちは",
+      "drops": [
+        5
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.こんばんは",
+      "form": "こんばんは",
+      "reading": "こんばんは",
+      "drops": [
+        5
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.さようなら",
+      "form": "さようなら",
+      "reading": "さようなら",
+      "drops": [
+        4,
+        5
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.ありがとう",
+      "form": "ありがとう",
+      "reading": "ありがとう",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.どういたしまして",
+      "form": "どういたしまして",
+      "reading": "どういたしまして",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.すみません",
+      "form": "すみません",
+      "reading": "すみません",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.ただいま",
+      "form": "ただいま",
+      "reading": "ただいま",
+      "drops": [
+        4,
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.おかえりなさい",
+      "form": "おかえりなさい",
+      "reading": "おかえりなさい",
+      "drops": [
+        6
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.はじめまして",
+      "form": "はじめまして",
+      "reading": "はじめまして",
+      "drops": [
+        4
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.もの",
+      "form": "もの",
+      "reading": "もの",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.こと",
+      "form": "こと",
+      "reading": "こと",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.名前",
+      "form": "名前",
+      "reading": "なまえ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ことば",
+      "form": "ことば",
+      "reading": "ことば",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.話",
+      "form": "話",
+      "reading": "はなし",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.しごと",
+      "form": "しごと",
+      "reading": "しごと",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.やくそく",
+      "form": "やくそく",
+      "reading": "やくそく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ようじ",
+      "form": "ようじ",
+      "reading": "ようじ",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.もんだい",
+      "form": "もんだい",
+      "reading": "もんだい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.しゅみ",
+      "form": "しゅみ",
+      "reading": "しゅみ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.りょこう",
+      "form": "りょこう",
+      "reading": "りょこう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.さんぽ",
+      "form": "さんぽ",
+      "reading": "さんぽ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.うんどう",
+      "form": "うんどう",
+      "reading": "うんどう",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.しあい",
+      "form": "しあい",
+      "reading": "しあい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.きって",
+      "form": "きって",
+      "reading": "きって",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.りゅうがく",
+      "form": "りゅうがく",
+      "reading": "りゅうがく",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.けっこん",
+      "form": "けっこん",
+      "reading": "けっこん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.かぜ",
+      "form": "かぜ",
+      "reading": "かぜ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.びょうき",
+      "form": "びょうき",
+      "reading": "びょうき",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.くすり",
+      "form": "くすり",
+      "reading": "くすり",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.けが",
+      "form": "けが",
+      "reading": "けが",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.マッチ",
+      "form": "マッチ",
+      "reading": "マッチ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.たばこ",
+      "form": "たばこ",
+      "reading": "たばこ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.はいざら",
+      "form": "はいざら",
+      "reading": "はいざら",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.よてい",
+      "form": "よてい",
+      "reading": "よてい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.じかんわり",
+      "form": "じかんわり",
+      "reading": "じかんわり",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.はこ",
+      "form": "はこ",
+      "reading": "はこ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.はんぶん",
+      "form": "半分",
+      "reading": "はんぶん",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.はたち",
+      "form": "はたち",
+      "reading": "はたち",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.へん",
+      "form": "へん",
+      "reading": "へん",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ほか",
+      "form": "ほか",
+      "reading": "ほか",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ほんとう",
+      "form": "ほんとう",
+      "reading": "ほんとう",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.なつやすみ",
+      "form": "なつやすみ",
+      "reading": "なつやすみ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.やすみ",
+      "form": "やすみ",
+      "reading": "やすみ",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.りょうり",
+      "form": "りょうり",
+      "reading": "りょうり",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ペット",
+      "form": "ペット",
+      "reading": "ペット",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.かてい",
+      "form": "かてい",
+      "reading": "かてい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.かびん",
+      "form": "かびん",
+      "reading": "かびん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.かた",
+      "form": "かた",
+      "reading": "かた",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.おくさん",
+      "form": "おくさん",
+      "reading": "おくさん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.先",
+      "form": "先",
+      "reading": "さき",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.せびろ",
+      "form": "せびろ",
+      "reading": "せびろ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.大きな",
+      "form": "大きな",
+      "reading": "おおきな",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.たて",
+      "form": "たて",
+      "reading": "たて",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ゆうべ",
+      "form": "ゆうべ",
+      "reading": "ゆうべ",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.にっき",
+      "form": "にっき",
+      "reading": "にっき",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.さくぶん",
+      "form": "さくぶん",
+      "reading": "さくぶん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.じびき",
+      "form": "じびき",
+      "reading": "じびき",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ページ",
+      "form": "ページ",
+      "reading": "ページ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.メートル",
+      "form": "メートル",
+      "reading": "メートル",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.キログラム",
+      "form": "キログラム",
+      "reading": "キログラム",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.キロメートル",
+      "form": "キロメートル",
+      "reading": "キロメートル",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.38-sounds-and-voice.こえ",
+      "form": "こえ",
+      "reading": "こえ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.38-sounds-and-voice.おと",
+      "form": "おと",
+      "reading": "おと",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.あの",
+      "form": "あの",
+      "reading": "あの",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.はい",
+      "form": "はい",
+      "reading": "はい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.うん",
+      "form": "うん",
+      "reading": "うん",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.いかが",
+      "form": "いかが",
+      "reading": "いかが",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.ばしょ",
+      "form": "ばしょ",
+      "reading": "ばしょ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.ばあい",
+      "form": "ばあい",
+      "reading": "ばあい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.ほう",
+      "form": "ほう",
+      "reading": "ほう",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.じゅうしょ",
+      "form": "じゅうしょ",
+      "reading": "じゅうしょ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.ねんれい",
+      "form": "ねんれい",
+      "reading": "ねんれい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.しゅっしん",
+      "form": "しゅっしん",
+      "reading": "しゅっしん",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.いっぱい",
+      "form": "いっぱい",
+      "reading": "いっぱい",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.おくれる",
+      "form": "おくれる",
+      "reading": "おくれる",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.おてら",
+      "form": "おてら",
+      "reading": "おてら",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.おもちゃ",
+      "form": "おもちゃ",
+      "reading": "おもちゃ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.3-people-roles.高校生",
+      "form": "高校生",
+      "reading": "こうこうせい",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.14-nature-and-weather.さくら",
+      "form": "さくら",
+      "reading": "さくら",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.じゅんび",
+      "form": "じゅんび",
+      "reading": "じゅんび",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ぜひ",
+      "form": "ぜひ",
+      "reading": "ぜひ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ただ",
+      "form": "ただ",
+      "reading": "ただ",
+      "drops": [
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.ためる",
+      "form": "ためる",
+      "reading": "ためる",
+      "drops": [
+        2,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.たんご",
+      "form": "たんご",
+      "reading": "たんご",
+      "drops": [
+        0,
+        1
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.27-verbs-group-1-verbs.はらう",
+      "form": "はらう",
+      "reading": "はらう",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.べつべつ",
+      "form": "べつべつ",
+      "reading": "べつべつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.スペイン人",
+      "form": "スペイン人",
+      "reading": "スペインじん",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.9-counters-common.倍",
+      "form": "倍",
+      "reading": "ばい",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.出口",
+      "form": "出口",
+      "reading": "でぐち",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.25-languages-and-countri.国籍",
+      "form": "国籍",
+      "reading": "こくせき",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.10-time-general.後",
+      "form": "後",
+      "reading": "あと",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.28-verbs-group-2-verbs.聞こえる",
+      "form": "聞こえる",
+      "reading": "きこえる",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.11-time-days-weeks-month.週末",
+      "form": "週末",
+      "reading": "しゅうまつ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-adjectives.いい",
+      "form": "いい",
+      "reading": "いい",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.いえ",
+      "form": "いえ",
+      "reading": "いえ",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.35-particles-functional-.ぐらい",
+      "form": "ぐらい",
+      "reading": "くらい",
+      "drops": [
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.30-verbs-existence-and-p.ござる",
+      "form": "ござる",
+      "reading": "ござる",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.じゃあ",
+      "form": "じゃあ",
+      "reading": "では",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.1-people-pronouns-and-se.みんな",
+      "form": "みんな",
+      "reading": "みんな",
+      "drops": [
+        3
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.やはり",
+      "form": "やはり",
+      "reading": "やはり",
+      "drops": [
+        2
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.7-numbers.ゼロ",
+      "form": "ゼロ",
+      "reading": "れい",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.だんだん",
+      "form": "だんだん",
+      "reading": "だんだん",
+      "drops": [
+        0,
+        1,
+        3
+      ],
+      "match_kind": "by-reading"
+    }
+  ]
+}

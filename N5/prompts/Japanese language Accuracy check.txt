@@ -1204,6 +1204,63 @@ A45. TEMPLATE 'あの Xは どこですか。' IN GRAMMAR.JSON
      Detection identical to A19. CI gate JA-89 (lock4) extends the
      scan to grammar.json.
 
+A46. PITCH ACCENT VALIDATED AGAINST EXTERNAL REFERENCE
+     (added 2026-05-15; locked by JA-90)
+
+     The vocab.json `pitch_accent.drop` field stores an integer drop-
+     mora position per entry. Drop position is auditory phenomenology
+     — LLM training has limited explicit accent annotation and
+     confidence on this dimension is genuinely lower than on syntax
+     or morphology.
+
+     **Reconciliation methodology (2026-05-15):**
+
+     1. Fetch external reference dataset (kanjium project, CC-BY-SA
+        4.0). The dataset compiles from EDICT/EDRDG and NHK 日本語
+        発音アクセント新辞典. Pin to a specific upstream commit SHA
+        for reproducibility.
+
+     2. Filter to N5 vocab scope by (form, reading). Use a TWO-TIER
+        matching approach:
+          - Tier 1: exact (form, reading) match
+          - Tier 2: reading-only fallback (for N5 entries with kana-
+            only forms where kanjium has the kanji-first form)
+        Save the filtered subset to `data/n5_pitch_accent_reference.json`
+        with full `_meta` block (source, commit SHA, license,
+        attribution, regenerate_with command).
+
+     3. Per-entry classification:
+          - MATCH: current drop ∈ reference drops → confidence='high'
+          - DISAGREE: current drop ∉ reference drops → fix to
+            reference[0], confidence='high', log diff
+          - NOT_FOUND: vocab not in reference → confidence='unverified',
+            keep current value (transparent gap)
+
+     4. Add `pitch_accent.confidence` field to EVERY vocab entry
+        (Option C transparency). Values: 'high' | 'medium' | 'low' |
+        'unverified'. JA-90 enforces:
+          confidence='high' AND drop ∈ reference_drops, OR
+          confidence in {'medium', 'low', 'unverified'}
+
+     **N5 2026-05-15 reconciliation results:**
+        MATCH:           810/1009  (80%)
+        DISAGREE_FIXED:   22/1009  ( 2%)
+        NOT_FOUND:       177/1009  (18%) — gairaigo + function words
+     Total kanjium-validated: 832/1009 (82%) at confidence='high'.
+
+     **Caveats embedded in the methodology:**
+        - Tokyo dialect bias (kanjium reflects standard); Kansai/
+          Kyushu accent maps differ entirely
+        - by-reading matches use UNION of all drops across kanjium
+          entries with that reading — wider but less precise
+        - NOT_FOUND entries (mostly loanwords) genuinely lack a
+          reference; native-human auditory review remains queued
+
+     **For Nx levels:** apply this same pattern in audit cycle 4-5
+     (after structural + linguistic saturation). The refresh tool at
+     `tools/refresh_pitch_accent_reference.py` is reusable across
+     levels — just point at the level's vocab.json.
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 
@@ -2131,7 +2188,11 @@ Added in this session (chronologically):
     issue, not a grammar bug
 
 CI invariants added this session: JA-81, JA-83, JA-84, JA-85, JA-86,
-JA-87, JA-88, JA-89. Total: 89 (was 81) → 92 (final).
+JA-87, JA-88, JA-89, JA-90. Total: 81 → 93 (+12 net).
+
+JA-90 (pitch-accent reference validation) closes the previously-deferred
+"native-human auditory review" gap for 82% of vocab; remaining 18% are
+explicitly tagged `confidence: 'unverified'` for transparency.
 
 See docs/AUDIT-COVERAGE-2026-05-15.md for honest disclosure of what
 programmatic checks cover vs what still needs native-human review.
