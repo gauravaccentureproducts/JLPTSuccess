@@ -1,0 +1,968 @@
+[
+  {
+    "id": "n5.vocab.2-people-family.そぼ",
+    "form": "そぼ",
+    "gloss": "grandmother (own)",
+    "idx": 1,
+    "ja": "そぼが あります。",
+    "en": "There is grandmother.",
+    "all_ja": [
+      "そぼは 八十さいです。",
+      "そぼが あります。",
+      "そぼは とても げんきです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.2-people-family.おばさん",
+    "form": "おばさん",
+    "gloss": "aunt, middle-aged woman",
+    "idx": 1,
+    "ja": "おばさんが あります。",
+    "en": "There is aunt.",
+    "all_ja": [
+      "おばさんは 花が すきです。",
+      "おばさんが あります。",
+      "おばさんは 子どもが 三人 います。"
+    ]
+  },
+  {
+    "id": "n5.vocab.2-people-family.男の子",
+    "form": "男の子",
+    "gloss": "boy",
+    "idx": 1,
+    "ja": "男の子が あります。",
+    "en": "There is boy.",
+    "all_ja": [
+      "こうえんで 男の子が あそんで います。",
+      "男の子が あります。",
+      "あの 男の子は おとうとです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.10-time-general.こんや",
+    "form": "こんや",
+    "gloss": "tonight",
+    "idx": 1,
+    "ja": "こんやが あります。",
+    "en": "There is tonight.",
+    "all_ja": [
+      "こんや 家に います。",
+      "こんやが あります。",
+      "こんや えいがを 見ましょう。"
+    ]
+  },
+  {
+    "id": "n5.vocab.11-time-days-weeks-month.年",
+    "form": "年",
+    "gloss": "year",
+    "idx": 1,
+    "ja": "年が あります。",
+    "en": "There is year.",
+    "all_ja": [
+      "一年は 十二か月です。",
+      "年が あります。",
+      "来年 日本へ いきたいです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.12-time-frequency-sequen.後で",
+    "form": "後で",
+    "gloss": "later",
+    "idx": 1,
+    "ja": "後でが あります。",
+    "en": "There is later.",
+    "all_ja": [
+      "後で でんわします。",
+      "後でが あります。",
+      "後で 電話します。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.だいどころ",
+    "form": "だいどころ",
+    "gloss": "kitchen",
+    "idx": 1,
+    "ja": "だいどころが あります。",
+    "en": "There is kitchen.",
+    "all_ja": [
+      "だいどころで りょうりを します。",
+      "だいどころが あります。",
+      "だいどころで りょうりを しています。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.にわ",
+    "form": "にわ",
+    "gloss": "garden",
+    "idx": 1,
+    "ja": "にわが あります。",
+    "en": "There is garden.",
+    "all_ja": [
+      "にわに 花が あります。",
+      "にわが あります。",
+      "にわに きれいな 花が さいて います。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.大学",
+    "form": "大学",
+    "gloss": "university",
+    "idx": 1,
+    "ja": "大学が あります。",
+    "en": "There is university.",
+    "all_ja": [
+      "大学に 行きたいです。",
+      "大学が あります。",
+      "大学で 日本語を べんきょうして います。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.パンや",
+    "form": "パンや",
+    "gloss": "bakery",
+    "idx": 1,
+    "ja": "パンやが あります。",
+    "en": "There is bakery.",
+    "all_ja": [
+      "パンやで パンを 買いました。",
+      "パンやが あります。",
+      "パンやで しょくパンを 買いました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.どうぶつえん",
+    "form": "どうぶつえん",
+    "gloss": "zoo",
+    "idx": 1,
+    "ja": "どうぶつえんが あります。",
+    "en": "There is zoo.",
+    "all_ja": [
+      "どうぶつえんで パンダを 見ました。",
+      "どうぶつえんが あります。",
+      "子どもと どうぶつえんに 行きました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.道",
+    "form": "道",
+    "gloss": "road, way",
+    "idx": 1,
+    "ja": "道が あります。",
+    "en": "There is road.",
+    "all_ja": [
+      "道を わたります。",
+      "道が あります。",
+      "この 道を まっすぐ 行って ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.かど",
+    "form": "かど",
+    "gloss": "corner",
+    "idx": 1,
+    "ja": "かどが あります。",
+    "en": "There is corner.",
+    "all_ja": [
+      "かどを みぎに まがります。",
+      "かどが あります。",
+      "つぎの かどを 右に まがって ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.むら",
+    "form": "むら",
+    "gloss": "village",
+    "idx": 1,
+    "ja": "むらが あります。",
+    "en": "There is village.",
+    "all_ja": [
+      "小さい むらに すんで います。",
+      "むらが あります。",
+      "この むらは とても しずかです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.14-nature-and-weather.山",
+    "form": "山",
+    "gloss": "mountain",
+    "idx": 1,
+    "ja": "山が あります。",
+    "en": "There is mountain.",
+    "all_ja": [
+      "山に のぼります。",
+      "山が あります。",
+      "らいしゅう 山へ のぼります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.14-nature-and-weather.かぜ",
+    "form": "かぜ",
+    "gloss": "wind",
+    "idx": 1,
+    "ja": "かぜが あります。",
+    "en": "There is wind.",
+    "all_ja": [
+      "今日は かぜが つよいです。",
+      "かぜが あります。",
+      "きょうは かぜが つよいです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.14-nature-and-weather.くもり",
+    "form": "くもり",
+    "gloss": "cloudy",
+    "idx": 1,
+    "ja": "くもりが あります。",
+    "en": "There is cloudy.",
+    "all_ja": [
+      "あした くもりです。",
+      "くもりが あります。",
+      "あしたは くもりの 予報です。"
+    ]
+  },
+  {
+    "id": "n5.vocab.15-animals.むし",
+    "form": "むし",
+    "gloss": "insect",
+    "idx": 1,
+    "ja": "むしが あります。",
+    "en": "There is insect.",
+    "all_ja": [
+      "にわに むしが います。",
+      "むしが あります。",
+      "なつは むしが おおいです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.16-food-and-drink-genera.ひるごはん",
+    "form": "ひるごはん",
+    "gloss": "lunch",
+    "idx": 1,
+    "ja": "ひるごはんが あります。",
+    "en": "There is lunch.",
+    "all_ja": [
+      "ひるごはんを 食べましょう。",
+      "ひるごはんが あります。",
+      "いっしょに ひるごはんを 食べませんか。"
+    ]
+  },
+  {
+    "id": "n5.vocab.16-food-and-drink-genera.おかし",
+    "form": "おかし",
+    "gloss": "sweets, snacks",
+    "idx": 0,
+    "ja": "おかしを 食べます。",
+    "en": "I eat sweets.",
+    "all_ja": [
+      "おかしを 食べます。",
+      "子どもに おかしを あげました。",
+      "おかしを 食べすぎました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.ぶたにく",
+    "form": "ぶたにく",
+    "gloss": "pork",
+    "idx": 0,
+    "ja": "ぶたにくを 食べます。",
+    "en": "I eat pork.",
+    "all_ja": [
+      "ぶたにくを 食べます。",
+      "スーパーで ぶたにくを 買いました。",
+      "ぶたにくが すきです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.くだもの",
+    "form": "くだもの",
+    "gloss": "fruit",
+    "idx": 1,
+    "ja": "くだものが あります。",
+    "en": "There is fruit.",
+    "all_ja": [
+      "くだものが すきです。",
+      "くだものが あります。",
+      "くだものは からだに いいです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.じゃがいも",
+    "form": "じゃがいも",
+    "gloss": "potato",
+    "idx": 1,
+    "ja": "じゃがいもが あります。",
+    "en": "There is potato.",
+    "all_ja": [
+      "じゃがいもを 入れて ください。",
+      "じゃがいもが あります。",
+      "じゃがいもで カレーを つくりました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.バター",
+    "form": "バター",
+    "gloss": "butter",
+    "idx": 1,
+    "ja": "バターが あります。",
+    "en": "There is butter.",
+    "all_ja": [
+      "パンに バターを ぬります。",
+      "バターが あります。",
+      "パンに バターを ぬりました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.チーズ",
+    "form": "チーズ",
+    "gloss": "cheese",
+    "idx": 1,
+    "ja": "チーズが あります。",
+    "en": "There is cheese.",
+    "all_ja": [
+      "チーズが すきです。",
+      "チーズが あります。",
+      "パンに チーズを のせて 食べます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.うどん",
+    "form": "うどん",
+    "gloss": "udon",
+    "idx": 0,
+    "ja": "うどんを 食べます。",
+    "en": "I eat udon.",
+    "all_ja": [
+      "うどんを 食べます。",
+      "うどんは あつくて おいしいです。",
+      "お昼に うどんを 食べました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.サラダ",
+    "form": "サラダ",
+    "gloss": "salad",
+    "idx": 1,
+    "ja": "サラダが あります。",
+    "en": "There is salad.",
+    "all_ja": [
+      "サラダが すきです。",
+      "サラダが あります。",
+      "ばんごはんに サラダを つくりました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.スープ",
+    "form": "スープ",
+    "gloss": "soup",
+    "idx": 0,
+    "ja": "スープを 飲みます。",
+    "en": "I have soup.",
+    "all_ja": [
+      "スープを 飲みます。",
+      "スープが つめたく なって しまいました。",
+      "あったかい スープを 飲みました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.17-food-items.チョコレート",
+    "form": "チョコレート",
+    "gloss": "chocolate",
+    "idx": 1,
+    "ja": "チョコレートが あります。",
+    "en": "There is chocolate.",
+    "all_ja": [
+      "チョコレートが すきです。",
+      "チョコレートが あります。",
+      "たんじょうびに チョコレートを もらいました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.19-tableware-and-cooking.さら",
+    "form": "さら",
+    "gloss": "plate",
+    "idx": 1,
+    "ja": "さらが あります。",
+    "en": "There is plate.",
+    "all_ja": [
+      "さらに りょうりを のせます。",
+      "さらが あります。",
+      "さらに 食べものを のせます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.19-tableware-and-cooking.おわん",
+    "form": "おわん",
+    "gloss": "bowl",
+    "idx": 1,
+    "ja": "おわんが あります。",
+    "en": "There is bowl.",
+    "all_ja": [
+      "おわんで みそしるを 飲みます。",
+      "おわんが あります。",
+      "おわんに スープを 入れて ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.19-tableware-and-cooking.フォーク",
+    "form": "フォーク",
+    "gloss": "fork",
+    "idx": 1,
+    "ja": "フォークが あります。",
+    "en": "There is fork.",
+    "all_ja": [
+      "フォークで サラダを 食べます。",
+      "フォークが あります。",
+      "フォークを とって ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.19-tableware-and-cooking.ナイフ",
+    "form": "ナイフ",
+    "gloss": "knife",
+    "idx": 1,
+    "ja": "ナイフが あります。",
+    "en": "There is knife.",
+    "all_ja": [
+      "ナイフで パンを 切ります。",
+      "ナイフが あります。",
+      "ナイフは つくえの ひだりに あります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.19-tableware-and-cooking.コップ",
+    "form": "コップ",
+    "gloss": "cup, glass",
+    "idx": 1,
+    "ja": "コップが あります。",
+    "en": "There is cup.",
+    "all_ja": [
+      "コップに 水を 入れます。",
+      "コップが あります。",
+      "コップに 水を 入れて ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.19-tableware-and-cooking.なべ",
+    "form": "なべ",
+    "gloss": "pot, pan",
+    "idx": 1,
+    "ja": "なべが あります。",
+    "en": "There is pot.",
+    "all_ja": [
+      "なべで スープを つくります。",
+      "なべが あります。",
+      "なべで スープを つくりました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.20-colors.くろ",
+    "form": "くろ",
+    "gloss": "black (noun)",
+    "idx": 1,
+    "ja": "くろが あります。",
+    "en": "There is black.",
+    "all_ja": [
+      "くろは よるの 色です。",
+      "くろが あります。",
+      "くろい くつが すきです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.20-colors.あお",
+    "form": "あお",
+    "gloss": "blue (noun)",
+    "idx": 1,
+    "ja": "あおが あります。",
+    "en": "There is blue.",
+    "all_ja": [
+      "あおは そらの 色です。",
+      "あおが あります。",
+      "あおい シャツを きました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.21-clothing-and-accessor.うわぎ",
+    "form": "うわぎ",
+    "gloss": "jacket, coat",
+    "idx": 1,
+    "ja": "うわぎが あります。",
+    "en": "There is jacket.",
+    "all_ja": [
+      "うわぎを ぬぎます。",
+      "うわぎが あります。",
+      "さむいから うわぎを きました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.21-clothing-and-accessor.コート",
+    "form": "コート",
+    "gloss": "coat",
+    "idx": 1,
+    "ja": "コートが あります。",
+    "en": "There is coat.",
+    "all_ja": [
+      "冬に コートを きます。",
+      "コートが あります。",
+      "ふゆは コートを きます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.21-clothing-and-accessor.シャツ",
+    "form": "シャツ",
+    "gloss": "shirt",
+    "idx": 1,
+    "ja": "シャツが あります。",
+    "en": "There is shirt.",
+    "all_ja": [
+      "白い シャツを きます。",
+      "シャツが あります。",
+      "白い シャツを きました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.21-clothing-and-accessor.ぼうし",
+    "form": "ぼうし",
+    "gloss": "hat, cap",
+    "idx": 1,
+    "ja": "ぼうしが あります。",
+    "en": "There is hat.",
+    "all_ja": [
+      "ぼうしを かぶります。",
+      "ぼうしが あります。",
+      "あつい 日には ぼうしを かぶります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.21-clothing-and-accessor.ハンカチ",
+    "form": "ハンカチ",
+    "gloss": "handkerchief",
+    "idx": 1,
+    "ja": "ハンカチが あります。",
+    "en": "There is handkerchief.",
+    "all_ja": [
+      "ハンカチを もって います。",
+      "ハンカチが あります。",
+      "新しい ハンカチを 一枚 もって います。"
+    ]
+  },
+  {
+    "id": "n5.vocab.22-money-and-shopping.ねだん",
+    "form": "ねだん",
+    "gloss": "price",
+    "idx": 1,
+    "ja": "ねだんが あります。",
+    "en": "There is price.",
+    "all_ja": [
+      "この かばんの ねだんは 高いです。",
+      "ねだんが あります。",
+      "この くつの ねだんは いくらですか。"
+    ]
+  },
+  {
+    "id": "n5.vocab.22-money-and-shopping.きっぷ",
+    "form": "きっぷ",
+    "gloss": "ticket",
+    "idx": 3,
+    "ja": "きっぷが あります。",
+    "en": "There is ticket.",
+    "all_ja": [
+      "えきで きっぷを 買います。",
+      "きっぷは じどう はんばいきで 買います。",
+      "きっぷを 買います。",
+      "きっぷが あります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.22-money-and-shopping.てがみ",
+    "form": "てがみ",
+    "gloss": "letter",
+    "idx": 3,
+    "ja": "てがみが あります。",
+    "en": "There is letter.",
+    "all_ja": [
+      "友だちに てがみを 書きました。",
+      "てがみを 出しに ゆうびんきょくに 行きました。",
+      "母に てがみを 書きます。",
+      "てがみが あります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.22-money-and-shopping.にもつ",
+    "form": "にもつ",
+    "gloss": "luggage, package",
+    "idx": 1,
+    "ja": "にもつが あります。",
+    "en": "There is luggage.",
+    "all_ja": [
+      "にもつが おもいです。",
+      "にもつが あります。",
+      "にもつは おもいです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.24-school-and-study.もじ",
+    "form": "もじ",
+    "gloss": "letter, character",
+    "idx": 1,
+    "ja": "もじが あります。",
+    "en": "There is letter.",
+    "all_ja": [
+      "もじを 大きく 書きます。",
+      "もじが あります。",
+      "小さい もじが よみにくいです。"
+    ]
+  },
+  {
+    "id": "n5.vocab.24-school-and-study.れい",
+    "form": "れい",
+    "gloss": "example",
+    "idx": 1,
+    "ja": "れいが あります。",
+    "en": "There is example.",
+    "all_ja": [
+      "れいを 見せて ください。",
+      "れいが あります。",
+      "先生が れいを 三つ 出しました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.24-school-and-study.新聞",
+    "form": "新聞",
+    "gloss": "newspaper",
+    "idx": 1,
+    "ja": "新聞が あります。",
+    "en": "There is newspaper.",
+    "all_ja": [
+      "あさ、新聞を 読みます。",
+      "新聞が あります。",
+      "父は 毎朝 新聞を 読みます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.24-school-and-study.いす",
+    "form": "いす",
+    "gloss": "chair",
+    "idx": 3,
+    "ja": "いすが あります。",
+    "en": "There is chair.",
+    "all_ja": [
+      "いすに すわります。",
+      "この いすは 大きくて らくです。",
+      "いすに すわって ください。",
+      "いすが あります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.24-school-and-study.え",
+    "form": "え",
+    "gloss": "picture, drawing",
+    "idx": 1,
+    "ja": "えが あります。",
+    "en": "There is picture.",
+    "all_ja": [
+      "きれいな えを かきました。",
+      "えが あります。",
+      "子どもが きれいな えを かきました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.26-house-and-furniture.アパート",
+    "form": "アパート",
+    "gloss": "apartment",
+    "idx": 1,
+    "ja": "アパートが あります。",
+    "en": "There is apartment.",
+    "all_ja": [
+      "アパートに すんで います。",
+      "アパートが あります。",
+      "新しい アパートに ひっこしました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.26-house-and-furniture.マンション",
+    "form": "マンション",
+    "gloss": "condominium",
+    "idx": 1,
+    "ja": "マンションが あります。",
+    "en": "There is condominium.",
+    "all_ja": [
+      "あの マンションは あたらしいです。",
+      "マンションが あります。",
+      "新しい マンションに ひっこしました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.26-house-and-furniture.もん",
+    "form": "もん",
+    "gloss": "gate",
+    "idx": 1,
+    "ja": "もんが あります。",
+    "en": "There is gate.",
+    "all_ja": [
+      "もんを あけて ください。",
+      "もんが あります。",
+      "がっこうの もんは 八時に しまります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.26-house-and-furniture.せっけん",
+    "form": "せっけん",
+    "gloss": "soap",
+    "idx": 1,
+    "ja": "せっけんが あります。",
+    "en": "There is soap.",
+    "all_ja": [
+      "せっけんで てを あらいます。",
+      "せっけんが あります。",
+      "せっけんで 手を あらいます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.26-house-and-furniture.タオル",
+    "form": "タオル",
+    "gloss": "towel",
+    "idx": 1,
+    "ja": "タオルが あります。",
+    "en": "There is towel.",
+    "all_ja": [
+      "タオルで かおを ふきます。",
+      "タオルが あります。",
+      "シャワーの あとで タオルを つかいます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.26-house-and-furniture.テープ",
+    "form": "テープ",
+    "gloss": "tape",
+    "idx": 3,
+    "ja": "テープが あります。",
+    "en": "There is tape.",
+    "all_ja": [
+      "テープで かみを はります。",
+      "テープが きれて しまいました。",
+      "テープに ろくおんします。",
+      "テープが あります。"
+    ]
+  },
+  {
+    "id": "n5.vocab.27-verbs-group-1-verbs.つかう",
+    "form": "つかう",
+    "gloss": "to use",
+    "idx": 0,
+    "ja": "はしを つかいます。",
+    "en": "I use chopsticks.",
+    "all_ja": [
+      "はしを つかいます。",
+      "はしを つかって ごはんを 食べます。",
+      "まいにち パソコンを つかいます。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.話",
+    "form": "話",
+    "gloss": "story, talk",
+    "idx": 1,
+    "ja": "話が あります。",
+    "en": "There is story.",
+    "all_ja": [
+      "おもしろい 話を 聞きました。",
+      "話が あります。",
+      "先生の 話を ノートに 書きました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.うんどう",
+    "form": "うんどう",
+    "gloss": "exercise",
+    "idx": 1,
+    "ja": "うんどうが あります。",
+    "en": "There is exercise.",
+    "all_ja": [
+      "まいにち うんどうします。",
+      "うんどうが あります。",
+      "まいあさ うんどうを します。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.びょうき",
+    "form": "びょうき",
+    "gloss": "illness",
+    "idx": 1,
+    "ja": "びょうきが あります。",
+    "en": "There is illness.",
+    "all_ja": [
+      "びょうきに なりました。",
+      "びょうきが あります。",
+      "父が びょうきで にゅういんしました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.マッチ",
+    "form": "マッチ",
+    "gloss": "match (lighting)",
+    "idx": 1,
+    "ja": "マッチが あります。",
+    "en": "There is match.",
+    "all_ja": [
+      "マッチで 火を つけます。",
+      "マッチが あります。",
+      "マッチで 火を つけました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.はいざら",
+    "form": "はいざら",
+    "gloss": "ashtray",
+    "idx": 1,
+    "ja": "はいざらが あります。",
+    "en": "There is ashtray.",
+    "all_ja": [
+      "はいざらは ありますか。",
+      "はいざらが あります。",
+      "はいざらは ありません。たばこは すえません。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.じかんわり",
+    "form": "じかんわり",
+    "gloss": "timetable",
+    "idx": 1,
+    "ja": "じかんわりが あります。",
+    "en": "There is timetable.",
+    "all_ja": [
+      "じかんわりを 見せて ください。",
+      "じかんわりが あります。",
+      "新しい じかんわりを もらいました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.はこ",
+    "form": "はこ",
+    "gloss": "box",
+    "idx": 1,
+    "ja": "はこが あります。",
+    "en": "There is box.",
+    "all_ja": [
+      "はこの 中に 本が あります。",
+      "はこが あります。",
+      "はこに プレゼントを 入れました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.かてい",
+    "form": "かてい",
+    "gloss": "household, home life",
+    "idx": 1,
+    "ja": "かていが あります。",
+    "en": "There is household.",
+    "all_ja": [
+      "かていの りょうりが すきです。",
+      "かていが あります。",
+      "この 子は あたたかい かていに そだちました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.じびき",
+    "form": "じびき",
+    "gloss": "dictionary (older term, alt for じしょ)",
+    "idx": 1,
+    "ja": "じびきが あります。",
+    "en": "There is dictionary.",
+    "all_ja": [
+      "じびきを ひきます。",
+      "じびきが あります。",
+      "むかしは じびきで しらべました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.37-common-nouns-miscella.メートル",
+    "form": "メートル",
+    "gloss": "metre, meter",
+    "idx": 1,
+    "ja": "メートルが あります。",
+    "en": "There is metre.",
+    "all_ja": [
+      "百メートル はしりました。",
+      "メートルが あります。",
+      "百メートル 走りました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.40-misc-useful-items.ばしょ",
+    "form": "ばしょ",
+    "gloss": "place",
+    "idx": 1,
+    "ja": "ばしょが あります。",
+    "en": "There is place.",
+    "all_ja": [
+      "しずかな ばしょが すきです。",
+      "ばしょが あります。",
+      "えきの ばしょを おしえて ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.40-misc-useful-items.ほう",
+    "form": "ほう",
+    "gloss": "direction, side",
+    "idx": 1,
+    "ja": "ほうが あります。",
+    "en": "There is direction.",
+    "all_ja": [
+      "右の ほうに あります。",
+      "ほうが あります。",
+      "右の ほうへ いって ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.24-school-and-study.おしらせ",
+    "form": "おしらせ",
+    "gloss": "announcement, notice",
+    "idx": 1,
+    "ja": "おしらせが あります。",
+    "en": "There is announcement.",
+    "all_ja": [
+      "学校から おしらせが きました。",
+      "おしらせが あります。",
+      "おしらせを よく 読んで ください。"
+    ]
+  },
+  {
+    "id": "n5.vocab.40-misc-useful-items.コンサート",
+    "form": "コンサート",
+    "gloss": "concert",
+    "idx": 1,
+    "ja": "コンサートが あります。",
+    "en": "There is concert.",
+    "all_ja": [
+      "土曜日に コンサートに 行きます。",
+      "コンサートが あります。",
+      "コンサートの きっぷを 二まい 買いました。"
+    ]
+  },
+  {
+    "id": "n5.vocab.13-locations-and-places-.出口",
+    "form": "出口",
+    "gloss": "exit",
+    "idx": 1,
+    "ja": "出口が あります。",
+    "en": "There is exit.",
+    "all_ja": [
+      "えきの 出口で あいましょう。",
+      "出口が あります。",
+      "出口は どこですか。"
+    ]
+  },
+  {
+    "id": "n5.vocab.20-tableware-and-cooking.はし-chopsticks",
+    "form": "おはし",
+    "gloss": "chopsticks (polite)",
+    "idx": 0,
+    "ja": "おはしを つかいます。",
+    "en": "I use chopsticks.",
+    "all_ja": [
+      "おはしを つかいます。",
+      "おはしで 食べます。",
+      "おはしで ごはんを 食べます。"
+    ]
+  }
+]

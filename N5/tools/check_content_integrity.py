@@ -1057,6 +1057,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     # finding floor on 10 known L2-error patterns (Xを 好き, double
     # particle, na-adj as i-adj, double-mashita, etc.).
     ("JA-88", "Particle-precision L2-error scan across all corpora (2026-05-15 wave-2)", lambda: _check_ja_88_particle_precision()),
+    # JA-89 (2026-05-15 native-teacher pass): five locks from the
+    # final native-teacher audit covering counter-noun pedagogy,
+    # bare-article EN translations, animacy violations, the あの-doko
+    # grammar template, and 毎日-ことができます / あした-つもりです
+    # verb template leaks. 159 fixes applied in waves A+B+D combined.
+    ("JA-89", "Native-teacher audit locks: counter+article+animacy+templates (2026-05-15 phases A/B/D)", lambda: _check_ja_89_native_teacher_phase_b_d_locks()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4253,6 +4259,99 @@ def _check_ja_82_meta_paths_resolve() -> list[str]:
         walk_for_meta(d, str(jpath.relative_to(ROOT)).replace("\\", "/"))
 
     return failures[:50]  # cap noise
+
+
+def _check_ja_89_native_teacher_phase_b_d_locks() -> list[str]:
+    """2026-05-15 native-teacher audit (waves A+B+D) — three regression
+    guards in one check:
+
+    LOCK 1: Counter-noun pairing for the native-counter-series entries
+            (三つ..九つ) — the example noun must be canonically
+            つ-counted (not books → 冊).
+
+    LOCK 2: No bare-article 'There is X.' / 'I see X.' / 'I eat X.'
+            etc. for singular common nouns. Plural and mass nouns
+            are allowed (chopsticks, water, sweets).
+
+    LOCK 3: No animate-noun + が あります template (animacy violation).
+            Animate nouns must use います.
+
+    LOCK 4: No new instances of 'あの Xは どこですか' grammar template
+            leaking into grammar.json.
+
+    LOCK 5: No 「毎日 X ことが できます」 nor 「あした X つもりです」
+            templates in vocab examples.
+    """
+    import re
+    failures = []
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        grammar = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-89 could not read corpora: {e}"]
+
+    # LOCK 1: native-counter-series (三つ..九つ) — example index [1]
+    # should not use 「本」 with つ counter (books take 冊)
+    bad_counter_entries = {f"n5.vocab.8-native-counters-series.{form}"
+                           for form in ("三つ", "四つ", "六つ", "七つ", "八つ", "九つ")}
+    for e in vocab["entries"]:
+        if e["id"] in bad_counter_entries:
+            for i, ex in enumerate(e.get("examples", []) or []):
+                if "本が" in (ex.get("ja") or "") and "つ" in (ex.get("ja") or ""):
+                    failures.append(
+                        f"JA-89 (lock1) {e['id']}[{i}] uses 本+つ template; "
+                        f"books take 冊 counter")
+    # LOCK 2: bare-article 'There is X' on singular common nouns
+    bare_pat = re.compile(r"^(There is|There are|I (?:see|eat|have|drink|use)) ([a-z]+)\.?$")
+    allowed_bare = {"water","rice","music","snow","rain","fire","milk","sugar","salt",
+                    "tea","coffee","bread","meat","fish","chopsticks","sweets",
+                    "vegetables","noodles","soup","curry"}
+    for e in vocab["entries"]:
+        for i, ex in enumerate(e.get("examples", []) or []):
+            en = (ex.get("translation_en") or "").strip()
+            m = bare_pat.fullmatch(en)
+            if m and m.group(2) not in allowed_bare:
+                failures.append(
+                    f"JA-89 (lock2) {e['id']}[{i}] bare-article 'X' in EN: {en!r}")
+    # LOCK 3: animacy violations
+    animate = ['男の子','女の子','子ども','犬','いぬ','ねこ','とり','うま','うし',
+               'ぶた','にわとり','ぞう','学生','先生','友だち','家族','かぞく',
+               'お父さん','お母さん','父','母','兄','姉','弟','妹','日本人',
+               'スペイン人','イギリス人','アメリカ人','フランス人','ドイツ人',
+               '中国人','かんこく人','そぼ','そふ','おばあさん','おじいさん',
+               'おばさん','おじさん']
+    animacy_rx = re.compile(
+        r"(?<![ぁ-ゟ一-鿿])(" + "|".join(re.escape(n) for n in animate) +
+        r")(?:は|が)\s*あります"
+    )
+    for e in vocab["entries"]:
+        for i, ex in enumerate(e.get("examples", []) or []):
+            ja = (ex.get("ja") or "").strip()
+            m = animacy_rx.search(ja)
+            if m:
+                failures.append(
+                    f"JA-89 (lock3) {e['id']}[{i}] animacy: '{m.group(1)}が あります' should be います: {ja!r}")
+    # LOCK 4: 'あの Xは どこですか' template in grammar.json
+    doko_rx = re.compile(r"^あの\s+(.{1,10})は\s*どこですか。?$")
+    for p in grammar["patterns"]:
+        for i, ex in enumerate(p.get("examples", []) or []):
+            ja = (ex.get("ja") or "").strip()
+            if doko_rx.fullmatch(ja):
+                failures.append(
+                    f"JA-89 (lock4) {p['id']}[{i}] 'あの Xは どこですか' template: {ja!r}")
+    # LOCK 5: '毎日 X ことが できます' / 'あした X つもりです' templates
+    t1_rx = re.compile(r"^毎日\s+.*ことが\s+できます。?$")
+    t2_rx = re.compile(r"^あした\s+.*つもりです。?$")
+    for e in vocab["entries"]:
+        for i, ex in enumerate(e.get("examples", []) or []):
+            ja = (ex.get("ja") or "").strip()
+            if t1_rx.fullmatch(ja):
+                failures.append(
+                    f"JA-89 (lock5a) {e['id']}[{i}] '毎日 X ことが できます' template")
+            if t2_rx.fullmatch(ja):
+                failures.append(
+                    f"JA-89 (lock5b) {e['id']}[{i}] 'あした X つもりです' template")
+    return failures
 
 
 def _check_ja_87_cross_corpus_consistency() -> list[str]:
