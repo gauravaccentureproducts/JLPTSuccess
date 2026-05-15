@@ -1012,6 +1012,198 @@ A36. PARTICLE-PRECISION L2-ERROR PATTERNS
      Corpus result on 2026-05-15: 0 findings across 6,309 sentences
      (validation pass).
 
+A37. COUNTER-NOUN SEMANTIC PAIRING
+     (added 2026-05-15 native-teacher pass; locked by JA-89 lock1)
+
+     Even when the counter is grammatically possible, examples that
+     pair a noun with a counter from the WRONG canonical set teach
+     learners the wrong pairing. JLPT N5 establishes canonical
+     pairings:
+
+       本 (ほん/ぼん/ぽん) → cylindrical objects: pens, bottles,
+                            umbrellas, trees
+       枚 (まい)          → flat thin objects: paper, photos,
+                            tickets, plates, shirts
+       冊 (さつ)          → bound books / magazines / notebooks
+       個 (こ)            → small / general 3D objects: apples,
+                            eggs, balls
+       人 (にん, ひとり/ふたり) → people
+       匹 (ひき/ぴき/びき) → small animals: dogs, cats, fish (live),
+                            insects
+       頭 (とう)          → large animals: horses, cows, elephants
+       台 (だい)          → machines / vehicles
+       杯 (はい/ぱい/ばい) → cupfuls / glasses of liquid
+       軒 (けん, N4)      → buildings / houses (defer)
+       足 (そく)          → pairs of footwear (shoes, socks)
+       つ (native count)  → general fall-back; OK for ~10 objects
+
+     Anti-pattern (caught 6 instances in 2026-05-15 pass): native-
+     counter-series teaching entries 三つ..九つ used 「本が Xつ
+     あります」. While grammatically possible, books canonically
+     take 冊. Replace with a noun that's natively つ-paired (りんご /
+     ボール / いす / コップ / はこ).
+
+     Detection: for each `<num><counter>` token, walk backwards to
+     the noun bound by particle (を/が/に/も). Look up the noun in
+     canonical-pairing table. Flag if counter ∉ valid set for that
+     noun.
+
+     CRITICAL false-positive avoidance:
+       - 倍 (ばい) is a multiplier suffix (三倍 = "triple"), NOT a
+         noun-counter. Exclude from the scan.
+       - 「Xの Yを N counter」 — the closer noun (Y) is the counted
+         one, not the modifier (X). Use rightmost match.
+
+     Fix policy: replace the example noun with a canonically-paired
+     one OR change the counter to the canonical one for that noun.
+
+A38. ANIMACY VIOLATIONS: ANIMATE NOUN + が あります
+     (added 2026-05-15 native-teacher pass; locked by JA-89 lock3)
+
+     Animate nouns (people / animals) must use います for existence.
+     Inanimate nouns use あります. Violations:
+       - 男の子が あります        → must be 男の子が います
+       - 日本人が あります        → must be 日本人が います
+       - スペイン人が あります    → must be スペイン人が います
+       - そぼが あります          → must be そぼが います
+
+     Detection: maintain an ANIMATE_NOUNS list. For each sentence,
+     scan for `<animate-noun>(?:は|が)\s*あります`.
+
+     CRITICAL false-positive avoidance: substring matches. The
+     pattern 「ぼうしが あります」 (hat — inanimate) must NOT match
+     because うし (cow, animate) is a substring of ぼうし. Use
+     `(?<![ぁ-ゟ一-鿿])<noun>` lookbehind to require word-start.
+
+A39. BARE-ARTICLE EN: "There is X." for singular common noun
+     (added 2026-05-15 native-teacher pass; locked by JA-89 lock2)
+
+     74 vocab examples had translation_en of the form 「There is
+     hat.」 (missing article) or 「I see boy.」 (same). Pattern is
+     templated and the EN is ungrammatical for singular common
+     nouns. Allow:
+       - Plural nouns (chopsticks, sweets, vegetables, noodles)
+       - Mass nouns (water, rice, music, snow, rain, fire, milk,
+         sugar, salt, tea, coffee, bread, meat, fish, soup, curry)
+     Flag all others.
+
+     Detection regex: `^(There is|There are|I (?:see|eat|have|
+     drink|use)) ([a-z]+)\.?$` with the noun NOT in the allowed-bare
+     set.
+
+     Fix policy: rewrite the example with a richer sentence using
+     the headword, adding article + context.
+
+A40. WRONG-HEADWORD EXAMPLES
+     (added 2026-05-15 native-teacher pass)
+
+     Vocab examples whose ja text doesn't contain the entry's
+     headword at all are silent bugs (the learner sees an example
+     but doesn't see the word being taught). The 2026-05-15 audit
+     caught 1 new such bug:
+       - すう entry [1]: 「バスで 学校へ 行きます。」 (about bus +
+         school; no smoking content). Same bug class as たばこ
+         caught in earlier audit.
+
+     Detection requires:
+       - Allowing inflected verb forms (まつ → まちます; する →
+         します/して/しよう; くる → きます/きて/こない)
+       - Allowing inflected i-adjective forms (おもしろい →
+         おもしろくて / おもしろかった / おもしろくない)
+       - Allowing counter-rendaku alternants (ひき → びき/ぴき)
+       - Skip when the entry's kanji-form character appears in
+         the ja (e.g., 学 in 学校)
+
+A41. UNNATURAL ADVERB-VERB PAIRINGS
+     (added 2026-05-15 native-teacher pass)
+
+     Some adverbs require specific verb-mood pairings:
+       - ぜひ + volitional / request / want: ぜひ 来てください ✓,
+         ぜひ 食べたい ✓ — but NOT plain ぜひ 食べます (the adverb
+         expects choice or desire, not flat declaration).
+       - ただ + casual / minimization: ただの 水 ✓, ただ 見るだけ ✓
+         — but NOT bare ただ ごはんを 食べます (ambiguous between
+         "just/only" and "free", semantically thin).
+       - やはり + opinion-confirmation: やはり 〜が 好きです ✓ —
+         can pair with neutral declarative but feels heavy without
+         contrast context.
+
+     Caught at the vocab.adverb entries' example[1] slot. Fix by
+     pairing the adverb with the right verb mood.
+
+A42. POTENTIAL/EXISTENTIAL VERB + VOLITIONAL つもり MISMATCH
+     (added 2026-05-15 native-teacher pass)
+
+     つもり ("intend / plan to") attaches to volitional verbs (verbs
+     of intentional action). It does NOT pair with:
+       - 聞こえる (potential / spontaneous "be audible") — caught
+         at vocab 聞こえる[1]: 「あした 聞こえるつもりです」 is
+         "I plan to be audible tomorrow" — nonsense.
+       - ござる (existential keigo, equivalent to ある) — caught
+         at vocab ござる[1]: 「あした ござるつもりです」 is "I plan
+         to exist tomorrow" — nonsense.
+       - Intransitive change-of-state verbs like はじまる / しまる /
+         おちる (caught at the template-leak in A43 below).
+
+     Native judgment: any X-つもり where X is non-volitional /
+     intransitive / spontaneous is wrong.
+
+A43. VOCAB VERB-TEMPLATE LEAKS: '毎日 X ことが できます' and
+     'あした X つもりです'
+     (added 2026-05-15 native-teacher pass; locked by JA-89 lock5)
+
+     Two systemic templates at vocab[verb-entry].examples[1]:
+
+       '毎日 VERB-dictionary ことが できます。'
+         = "I can VERB every day" — leaked into 28 verb entries.
+         Often semantically nonsensical for non-volitional verbs:
+           - 毎日 こまる ことが できます  ("can be troubled daily")
+           - 毎日 くもる ことが できます  ("can become cloudy daily")
+           - 毎日 おちる ことが できます  ("can fall daily")
+
+       'あした VERB-dictionary つもりです。'
+         = "I plan to VERB tomorrow" — leaked into 30 verb entries.
+         Several use intransitive change-of-state verbs that don't
+         take volitional つもり (see A42):
+           - あした はじまる つもりです  (intransitive)
+           - あした しまる つもりです     (intransitive)
+           - あした なくす つもりです     (involuntary loss)
+
+     Detection regex:
+       r"^毎日\s+.*ことが\s+できます。?$"
+       r"^あした\s+.*つもりです。?$"
+
+     Fix policy: replace with a natural usage of the verb that
+     respects its volitionality / transitivity class.
+
+A44. MULTI-TRANSLATION EN: "X / Y" pick-one
+     (added 2026-05-15 native-teacher pass)
+
+     translation_en fields with " / " separating two or more
+     alternative English renderings are bug-prone:
+       - "I can use Japanese. / I'm able to do (in) Japanese."
+       - "I eat meals by all means / definitely."
+       - "There is a person who save / accumulate."  (also relative-
+         clause template leak)
+
+     Detection: regex r" / " in translation_en, length > 30 chars.
+
+     Fix policy: pick the most natural English; commit to one
+     rendering. Translators decide; do not ship optionality to the
+     learner.
+
+A45. TEMPLATE 'あの Xは どこですか。' IN GRAMMAR.JSON
+     (added 2026-05-15 native-teacher pass; locked by JA-89 lock4)
+
+     The same 'あの Xは どこですか。' template anti-pattern caught in
+     vocab.json (see A19) also leaked into grammar.json. 5 instances
+     across n5-041, n5-048, n5-164 (X = みなさん / お父さん — both
+     non-locations). The earlier audit cleaned vocab but never
+     extended the scan to grammar — sister-corpus blindspot.
+
+     Detection identical to A19. CI gate JA-89 (lock4) extends the
+     scan to grammar.json.
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 
@@ -1815,6 +2007,63 @@ FP-11. ひとりでに ("by oneself") is a fixed adverb, not a particle stack
        particle stack must use a lookbehind `(?<!ひとり)` to exclude
        this fixed expression.
 
+FP-12. 〜いです IS the correct polite-affirmative form of an i-adj
+       (added 2026-05-15 native-teacher pass)
+
+       The form `<i-adj-stem>いです` (e.g. 「おもしろいです」,
+       「おいしいです」, 「あついです」) is the CANONICAL polite-
+       affirmative form of an i-adjective. It is NOT the "should-be
+       くて" wrong-conjunction form. The genuinely wrong forms are:
+         <stem>いで、 (should be <stem>くて、)
+         <stem>いでは  (should be <stem>くては)
+         <stem>いでも  (should be <stem>くても)
+       A regex catching the wrong forms MUST exclude `で(?=す)` from
+       the trigger set, or it will false-flag 240+ correct polite-
+       affirmative forms across the corpus.
+
+FP-13. 倍 (ばい) is a multiplier suffix, not a noun-counter
+       (added 2026-05-15 native-teacher pass)
+
+       三倍 (sanbai = "triple"), 二倍 (nibai = "double") attaches to
+       numbers as a multiplier suffix. It is NOT a noun-counter (no
+       「Xを 三倍」 with a real noun). A counter-noun-pairing audit
+       (A37) must EXCLUDE 倍 from the counter token set. Otherwise
+       「三ばいに なりました」 (became triple) will be flagged as a
+       noun + counter pair.
+
+FP-14. i-adjective inflected forms still demonstrate the headword
+       (added 2026-05-15 native-teacher pass)
+
+       i-adjectives inflect by dropping the final い:
+         dictionary:    おもしろい
+         te-form:       おもしろくて
+         negative:      おもしろくない
+         past:          おもしろかった
+         adverbial:     おもしろく
+       Any of these inflected forms CONTAINS the i-adj headword
+       semantically — the entry IS being demonstrated. A naive
+       substring search for the full dictionary form 「おもしろい」
+       will miss 「おもしろく / おもしろくて / おもしろかった」 and
+       false-flag the example as "headword missing". The check must
+       also accept stem-only (drop final い) as a valid match.
+
+       Same caveat for verb-3 'する' standalone (stems are 'し' and
+       'す', not just 'する'): 「しゅくだいを します」 contains 'し'
+       (in します), so the headword IS present.
+
+FP-15. ぜひ / ただ + neutral declarative — semantically thin, not a
+       grammar bug
+       (added 2026-05-15 native-teacher pass)
+
+       Adverbs ぜひ and ただ have natural pairings:
+         ぜひ + volitional / request: ぜひ 来てください, ぜひ 食べたい
+         ただ + minimization:         ただの 友だち, ただ 見るだけ
+       A neutral-declarative pairing like 「ぜひ ごはんを 食べます」
+       is grammatically valid but semantically thin — the adverb
+       adds nothing meaningful. This is a pedagogical-quality issue
+       (caught at vocab.adverb entries' example[1] slot), not a
+       grammar error. Treat as "should improve" not "must fix".
+
 ============================================================
 N5 KANJI WHITELIST CONSTRAINT (authoring guardrail)
 ============================================================
@@ -1841,9 +2090,10 @@ If a fix-pass introduces a non-N5 kanji, JA-13 will fail. Always
 pre-scan authored sentences against the whitelist before saving.
 
 ============================================================
-END OF AUDIT BRIEF (updated 2026-05-15 — final session pass)
+END OF AUDIT BRIEF (updated 2026-05-15 — final native-teacher pass)
 
-Added in this session:
+Added in this session (chronologically):
+  Vocab + kanji + dokkai + mega audits:
   - A18-A23: vocab template-leak detectors + headword-presence
   - A24-A26: kanji.json content gaps (translations, stroke-count
     text drift, dup-form-same-reading)
@@ -1852,14 +2102,40 @@ Added in this session:
     distractor explanations)
   - A33-A34: schema-type discrimination (listening choice counts,
     questions/drills type variants)
-  - A35: cross-corpus reading/gloss consistency
-  - A36: particle-precision L2-error patterns
+  - A35: cross-corpus reading/gloss consistency (wave-1)
+  - A36: particle-precision L2-error patterns (wave-2)
 
-  - FP-5 to FP-11: documented checker false-positive classes
+  Native-teacher 4-phase pass (Phases A/B/C/D):
+  - A37: counter-noun semantic pairing (本+つ for books, etc.)
+  - A38: animacy violations (animate noun + が あります)
+  - A39: bare-article EN ("There is X." for singular common nouns)
+  - A40: wrong-headword examples (ja text doesn't contain headword)
+  - A41: unnatural adverb-verb pairings (ぜひ/ただ + bare declarative)
+  - A42: potential/existential verb + volitional つもり mismatch
+  - A43: vocab verb-template leaks (毎日 X ことが できます / あした
+    X つもりです)
+  - A44: multi-translation EN "X / Y" pick-one
+  - A45: 'あの Xは どこですか' template ALSO in grammar.json
+
+  False-positive catalog:
+  - FP-5 to FP-8: counter rendaku, -くる compound verbs, demonstrative
+    entries, parenthetical-annotation terminators
+  - FP-9: authentic.json reading is the full-phrase read-aloud
+  - FP-10: English/short-technical rationales lack JA char overlap
+  - FP-11: ひとりでに is a fixed adverb, not a particle stack
+  - FP-12: 〜いです IS correct (the polite-affirmative form of i-adj)
+  - FP-13: 倍 is a multiplier, not a noun-counter
+  - FP-14: i-adj inflected forms (くて/く/かった) still demonstrate
+    the headword — stem-strip required in headword-presence checks
+  - FP-15: ぜひ/ただ + neutral declarative — pedagogical-quality
+    issue, not a grammar bug
 
 CI invariants added this session: JA-81, JA-83, JA-84, JA-85, JA-86,
-JA-87, JA-88. Total: 89 (was 81) → 91 (final, after waves 1-3).
+JA-87, JA-88, JA-89. Total: 89 (was 81) → 92 (final).
 
-See docs/AUDIT-COVERAGE-2026-05-15.md for the honest disclosure of
-what programmatic checks cover vs what still needs native-human review.
+See docs/AUDIT-COVERAGE-2026-05-15.md for honest disclosure of what
+programmatic checks cover vs what still needs native-human review.
+
+See docs/AUDIT-REPORT-NATIVE-TEACHER-2026-05-15.md for the per-finding
+status report (fixed vs reviewed-and-kept vs deferred-to-human).
 ============================================================
