@@ -84,6 +84,13 @@ def parse_kanjium(raw: str) -> tuple[dict, dict]:
         form = normalize_full_width(parts[0]).strip()
         reading = parts[1].strip()
         drops_str = parts[2].strip()
+        # CRITICAL: when kanjium leaves the reading column EMPTY, it means
+        # the form IS the reading (katakana-only loanwords like バナナ,
+        # hiragana-only function words like こんな). Treat form as
+        # reading in this case — this is the dominant convention in
+        # the kanjium dataset for kana-only entries.
+        if not reading:
+            reading = form
         # Some kanjium entries prefix POS markers like '(副)3,(形動)0'.
         # Strip parenthetical content before parsing integer drops.
         # Also handle '0,1,2' simple comma-separated lists.

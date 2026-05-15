@@ -8,9 +8,9 @@
     "attribution": "Pitch accent data from kanjium project (CC-BY-SA 4.0). Original data primarily sourced from EDICT/EDRDG and NHK 日本語発音アクセント新辞典 references.",
     "downloaded_at": "2026-05-16",
     "entries_in_upstream": 124134,
-    "matched_exact_form_reading": 204,
-    "matched_by_reading_only": 628,
-    "entries_matched_to_n5_vocab": 832,
+    "matched_exact_form_reading": 354,
+    "matched_by_reading_only": 590,
+    "entries_matched_to_n5_vocab": 944,
     "vocab_corpus_size": 1009,
     "match_kind_note": "exact = (form, reading) tuple matched kanjium; by-reading = matched by reading alone (used for kana-only forms where kanjium has the kanji form). by-reading matches use the UNION of all drops across kanjium entries with that reading — wider but less precise. Confidence reflects this in JA-90.",
     "schema_version": 1,
@@ -99,9 +99,9 @@
       "form": "だれ",
       "reading": "だれ",
       "drops": [
-        1
+        2
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.1-people-pronouns-and-se.どなた",
@@ -531,10 +531,9 @@
       "form": "は",
       "reading": "は",
       "drops": [
-        1,
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.4-body-parts.て",
@@ -579,18 +578,18 @@
       "form": "これ",
       "reading": "これ",
       "drops": [
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.5-demonstratives.それ",
       "form": "それ",
       "reading": "それ",
       "drops": [
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.5-demonstratives.あれ",
@@ -637,7 +636,7 @@
       "drops": [
         0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.5-demonstratives.どの",
@@ -758,6 +757,42 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.5-demonstratives.こんな",
+      "form": "こんな",
+      "reading": "こんな",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.そんな",
+      "form": "そんな",
+      "reading": "そんな",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.あんな",
+      "form": "あんな",
+      "reading": "あんな",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.5-demonstratives.どんな",
+      "form": "どんな",
+      "reading": "どんな",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.5-demonstratives.こう",
       "form": "こう",
       "reading": "こう",
@@ -782,19 +817,18 @@
       "form": "ああ",
       "reading": "ああ",
       "drops": [
-        1
+        0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.5-demonstratives.どう",
       "form": "どう",
       "reading": "どう",
       "drops": [
-        1,
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.6-question-words.何",
@@ -1223,10 +1257,9 @@
       "form": "はい",
       "reading": "はい",
       "drops": [
-        0,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.9-counters-common.こ",
@@ -1282,10 +1315,9 @@
       "form": "とき",
       "reading": "とき",
       "drops": [
-        2,
-        1
+        2
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.10-time-general.時間",
@@ -2047,9 +2079,10 @@
       "form": "もう",
       "reading": "もう",
       "drops": [
-        1
+        1,
+        0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.12-time-frequency-sequen.まだ",
@@ -2141,6 +2174,15 @@
         3
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.トイレ",
+      "form": "トイレ",
+      "reading": "トイレ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.13-locations-and-places-.おふろ",
@@ -2261,6 +2303,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.13-locations-and-places-.スーパー",
+      "form": "スーパー",
+      "reading": "スーパー",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.デパート",
+      "form": "デパート",
+      "reading": "デパート",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.13-locations-and-places-.きっさてん",
       "form": "きっさてん",
       "reading": "きっさてん",
@@ -2269,6 +2329,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.レストラン",
+      "form": "レストラン",
+      "reading": "レストラン",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.13-locations-and-places-.やおや",
@@ -2371,6 +2440,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ホテル",
+      "form": "ホテル",
+      "reading": "ホテル",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.13-locations-and-places-.りょかん",
       "form": "りょかん",
       "reading": "りょかん",
@@ -2455,6 +2533,24 @@
         1
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.プール",
+      "form": "プール",
+      "reading": "プール",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ポスト",
+      "form": "ポスト",
+      "reading": "ポスト",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.13-locations-and-places-.道",
@@ -2773,10 +2869,9 @@
       "form": "は",
       "reading": "は",
       "drops": [
-        1,
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.14-nature-and-weather.いし",
@@ -3204,6 +3299,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.17-food-items.パン",
+      "form": "パン",
+      "reading": "パン",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.17-food-items.たまご",
       "form": "たまご",
       "reading": "たまご",
@@ -3288,6 +3392,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.17-food-items.バナナ",
+      "form": "バナナ",
+      "reading": "バナナ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.17-food-items.いちご",
       "form": "いちご",
       "reading": "いちご",
@@ -3319,6 +3432,16 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.17-food-items.レモン",
+      "form": "レモン",
+      "reading": "レモン",
+      "drops": [
+        1,
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.17-food-items.だいこん",
       "form": "だいこん",
       "reading": "だいこん",
@@ -3346,6 +3469,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.17-food-items.トマト",
+      "form": "トマト",
+      "reading": "トマト",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.17-food-items.きゅうり",
       "form": "きゅうり",
       "reading": "きゅうり",
@@ -3353,6 +3485,15 @@
         1
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.キャベツ",
+      "form": "キャベツ",
+      "reading": "キャベツ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.17-food-items.こめ",
@@ -3402,6 +3543,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.17-food-items.バター",
+      "form": "バター",
+      "reading": "バター",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.チーズ",
+      "form": "チーズ",
+      "reading": "チーズ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.17-food-items.すし",
       "form": "すし",
       "reading": "すし",
@@ -3421,13 +3580,22 @@
       "match_kind": "exact"
     },
     {
+      "vocab_id": "n5.vocab.17-food-items.カレー",
+      "form": "カレー",
+      "reading": "カレー",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.17-food-items.ラーメン",
       "form": "ラーメン",
       "reading": "ラーメン",
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.17-food-items.うどん",
@@ -3446,6 +3614,69 @@
         1
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.ハンバーガー",
+      "form": "ハンバーガー",
+      "reading": "ハンバーガー",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.サンドイッチ",
+      "form": "サンドイッチ",
+      "reading": "サンドイッチ",
+      "drops": [
+        4
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.サラダ",
+      "form": "サラダ",
+      "reading": "サラダ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.スープ",
+      "form": "スープ",
+      "reading": "スープ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.ケーキ",
+      "form": "ケーキ",
+      "reading": "ケーキ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.アイスクリーム",
+      "form": "アイスクリーム",
+      "reading": "アイスクリーム",
+      "drops": [
+        5
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.17-food-items.チョコレート",
+      "form": "チョコレート",
+      "reading": "チョコレート",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.17-food-items.あめ",
@@ -3476,6 +3707,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.18-drinks.コーヒー",
+      "form": "コーヒー",
+      "reading": "コーヒー",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.18-drinks.ぎゅうにゅう",
       "form": "ぎゅうにゅう",
       "reading": "ぎゅうにゅう",
@@ -3483,6 +3723,33 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.18-drinks.ジュース",
+      "form": "ジュース",
+      "reading": "ジュース",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.18-drinks.ビール",
+      "form": "ビール",
+      "reading": "ビール",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.18-drinks.ワイン",
+      "form": "ワイン",
+      "reading": "ワイン",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.19-tableware-and-cooking.さら",
@@ -3513,6 +3780,51 @@
         1
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.スプーン",
+      "form": "スプーン",
+      "reading": "スプーン",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.フォーク",
+      "form": "フォーク",
+      "reading": "フォーク",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.ナイフ",
+      "form": "ナイフ",
+      "reading": "ナイフ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.コップ",
+      "form": "コップ",
+      "reading": "コップ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.19-tableware-and-cooking.カップ",
+      "form": "カップ",
+      "reading": "カップ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.19-tableware-and-cooking.れいぞうこ",
@@ -3653,6 +3965,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.20-colors.ピンク",
+      "form": "ピンク",
+      "reading": "ピンク",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.21-clothing-and-accessor.ふく",
       "form": "ふく",
       "reading": "ふく",
@@ -3691,6 +4012,33 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.コート",
+      "form": "コート",
+      "reading": "コート",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.セーター",
+      "form": "セーター",
+      "reading": "セーター",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.シャツ",
+      "form": "シャツ",
+      "reading": "シャツ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.21-clothing-and-accessor.Tシャツ",
       "form": "Tシャツ",
       "reading": "ティーシャツ",
@@ -3698,6 +4046,34 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ズボン",
+      "form": "ズボン",
+      "reading": "ズボン",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.スカート",
+      "form": "スカート",
+      "reading": "スカート",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ネクタイ",
+      "form": "ネクタイ",
+      "reading": "ネクタイ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.21-clothing-and-accessor.ぼうし",
@@ -3727,6 +4103,16 @@
         4
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ハンカチ",
+      "form": "ハンカチ",
+      "reading": "ハンカチ",
+      "drops": [
+        3,
+        0
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.21-clothing-and-accessor.かばん",
@@ -3765,6 +4151,25 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ボタン",
+      "form": "ボタン",
+      "reading": "ボタン",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.21-clothing-and-accessor.ポケット",
+      "form": "ポケット",
+      "reading": "ポケット",
+      "drops": [
+        2,
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.21-clothing-and-accessor.かさ",
       "form": "かさ",
       "reading": "かさ",
@@ -3788,6 +4193,15 @@
       "vocab_id": "n5.vocab.22-money-and-shopping.円",
       "form": "円",
       "reading": "えん",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.ドル",
+      "form": "ドル",
+      "reading": "ドル",
       "drops": [
         1
       ],
@@ -3866,6 +4280,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.22-money-and-shopping.レジ",
+      "form": "レジ",
+      "reading": "レジ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.23-transport.車",
       "form": "車",
       "reading": "くるま",
@@ -3893,6 +4316,33 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.バイク",
+      "form": "バイク",
+      "reading": "バイク",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.バス",
+      "form": "バス",
+      "reading": "バス",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.23-transport.タクシー",
+      "form": "タクシー",
+      "reading": "タクシー",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.23-transport.電車",
@@ -3995,6 +4445,15 @@
         2
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.テスト",
+      "form": "テスト",
+      "reading": "テスト",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.24-school-and-study.しつもん",
@@ -4193,6 +4652,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.24-school-and-study.ボールペン",
+      "form": "ボールペン",
+      "reading": "ボールペン",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.24-school-and-study.まんねんひつ",
       "form": "まんねんひつ",
       "reading": "まんねんひつ",
@@ -4202,6 +4670,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.24-school-and-study.ペン",
+      "form": "ペン",
+      "reading": "ペン",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.ノート",
+      "form": "ノート",
+      "reading": "ノート",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.24-school-and-study.こくばん",
       "form": "こくばん",
       "reading": "こくばん",
@@ -4209,6 +4695,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.24-school-and-study.チョーク",
+      "form": "チョーク",
+      "reading": "チョーク",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.24-school-and-study.つくえ",
@@ -4260,10 +4755,9 @@
       "form": "え",
       "reading": "え",
       "drops": [
-        1,
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.24-school-and-study.番号",
@@ -4403,6 +4897,33 @@
       "match_kind": "exact"
     },
     {
+      "vocab_id": "n5.vocab.26-house-and-furniture.アパート",
+      "form": "アパート",
+      "reading": "アパート",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.マンション",
+      "form": "マンション",
+      "reading": "マンション",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ドア",
+      "form": "ドア",
+      "reading": "ドア",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.26-house-and-furniture.と",
       "form": "と",
       "reading": "と",
@@ -4419,7 +4940,7 @@
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.26-house-and-furniture.まど",
@@ -4449,6 +4970,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.26-house-and-furniture.エレベーター",
+      "form": "エレベーター",
+      "reading": "エレベーター",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.26-house-and-furniture.いま",
       "form": "いま",
       "reading": "いま",
@@ -4466,6 +4996,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ベッド",
+      "form": "ベッド",
+      "reading": "ベッド",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.26-house-and-furniture.ふとん",
@@ -4495,6 +5034,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.26-house-and-furniture.テーブル",
+      "form": "テーブル",
+      "reading": "テーブル",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.26-house-and-furniture.たな",
       "form": "たな",
       "reading": "たな",
@@ -4512,6 +5060,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.カーテン",
+      "form": "カーテン",
+      "reading": "カーテン",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.26-house-and-furniture.かぎ",
@@ -4551,6 +5108,60 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.26-house-and-furniture.タオル",
+      "form": "タオル",
+      "reading": "タオル",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.テープ",
+      "form": "テープ",
+      "reading": "テープ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.テレビ",
+      "form": "テレビ",
+      "reading": "テレビ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ラジオ",
+      "form": "ラジオ",
+      "reading": "ラジオ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.カメラ",
+      "form": "カメラ",
+      "reading": "カメラ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ビデオ",
+      "form": "ビデオ",
+      "reading": "ビデオ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.26-house-and-furniture.えいが",
       "form": "えいが",
       "reading": "えいが",
@@ -4583,10 +5194,27 @@
       "form": "え",
       "reading": "え",
       "drops": [
-        1,
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ピアノ",
+      "form": "ピアノ",
+      "reading": "ピアノ",
+      "drops": [
         0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ギター",
+      "form": "ギター",
+      "reading": "ギター",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.27-verbs-group-1-verbs.会う",
@@ -4807,7 +5435,7 @@
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.27-verbs-group-1-verbs.休む",
@@ -4889,10 +5517,9 @@
       "form": "おす",
       "reading": "おす",
       "drops": [
-        0,
-        2
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
@@ -5227,11 +5854,11 @@
       "form": "さく",
       "reading": "さく",
       "drops": [
-        1,
         0,
-        2
+        2,
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.27-verbs-group-1-verbs.かかる",
@@ -5247,10 +5874,9 @@
       "form": "さす",
       "reading": "さす",
       "drops": [
-        1,
         0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.27-verbs-group-1-verbs.けす",
@@ -6061,12 +6687,9 @@
       "form": "おおい",
       "reading": "おおい",
       "drops": [
-        2,
-        1,
-        0,
-        3
+        2
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.31-adjectives.すくない",
@@ -6528,9 +7151,10 @@
       "form": "もう",
       "reading": "もう",
       "drops": [
-        1
+        1,
+        0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.33-adverbs.もうすこし",
@@ -6540,6 +7164,15 @@
         4
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.もっと",
+      "form": "もっと",
+      "reading": "もっと",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.33-adverbs.一番",
@@ -6569,6 +7202,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ゆっくり",
+      "form": "ゆっくり",
+      "reading": "ゆっくり",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.33-adverbs.すぐ",
@@ -6618,6 +7260,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.33-adverbs.どうぞ",
+      "form": "どうぞ",
+      "reading": "どうぞ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.どうも",
+      "form": "どうも",
+      "reading": "どうも",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.33-adverbs.まっすぐ",
       "form": "まっすぐ",
       "reading": "まっすぐ",
@@ -6634,6 +7294,24 @@
         1
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.もしもし",
+      "form": "もしもし",
+      "reading": "もしもし",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.でも",
+      "form": "でも",
+      "reading": "でも",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.34-conjunctions.しかし",
@@ -6659,10 +7337,27 @@
       "form": "から",
       "reading": "から",
       "drops": [
-        2,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.だから",
+      "form": "だから",
+      "reading": "だから",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.34-conjunctions.ですから",
+      "form": "ですから",
+      "reading": "ですから",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.34-conjunctions.または",
@@ -6678,10 +7373,9 @@
       "form": "は",
       "reading": "は",
       "drops": [
-        1,
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.が",
@@ -6698,20 +7392,18 @@
       "form": "に",
       "reading": "に",
       "drops": [
-        1,
-        0
+        1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.で",
       "form": "で",
       "reading": "で",
       "drops": [
-        0,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.へ",
@@ -6720,7 +7412,7 @@
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.と",
@@ -6747,10 +7439,9 @@
       "form": "も",
       "reading": "も",
       "drops": [
-        0,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.や",
@@ -6759,7 +7450,7 @@
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.の",
@@ -6775,20 +7466,18 @@
       "form": "から",
       "reading": "から",
       "drops": [
-        2,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.ね",
       "form": "ね",
       "reading": "ね",
       "drops": [
-        0,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.35-particles-functional-.よ",
@@ -6914,6 +7603,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.いらっしゃいませ",
+      "form": "いらっしゃいませ",
+      "reading": "いらっしゃいませ",
+      "drops": [
+        6
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.どうも",
+      "form": "どうも",
+      "reading": "どうも",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.もの",
       "form": "もの",
       "reading": "もの",
@@ -7034,6 +7741,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ゲーム",
+      "form": "ゲーム",
+      "reading": "ゲーム",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.スポーツ",
+      "form": "スポーツ",
+      "reading": "スポーツ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.しあい",
       "form": "しあい",
       "reading": "しあい",
@@ -7043,6 +7768,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ニュース",
+      "form": "ニュース",
+      "reading": "ニュース",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.パーティー",
+      "form": "パーティー",
+      "reading": "パーティー",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.きって",
       "form": "きって",
       "reading": "きって",
@@ -7050,6 +7793,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.プレゼント",
+      "form": "プレゼント",
+      "reading": "プレゼント",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.りゅうがく",
@@ -7106,13 +7858,22 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.シャワー",
+      "form": "シャワー",
+      "reading": "シャワー",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.マッチ",
       "form": "マッチ",
       "reading": "マッチ",
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.たばこ",
@@ -7131,6 +7892,43 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.スリッパ",
+      "form": "スリッパ",
+      "reading": "スリッパ",
+      "drops": [
+        1,
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ティッシュ",
+      "form": "ティッシュ",
+      "reading": "ティッシュ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.フィルム",
+      "form": "フィルム",
+      "reading": "フィルム",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.レコード",
+      "form": "レコード",
+      "reading": "レコード",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.よてい",
@@ -7184,10 +7982,10 @@
       "form": "へん",
       "reading": "へん",
       "drops": [
-        0,
-        1
+        1,
+        0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.ほか",
@@ -7242,7 +8040,16 @@
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.カレンダー",
+      "form": "カレンダー",
+      "reading": "カレンダー",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.かてい",
@@ -7358,6 +8165,24 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.テープレコーダー",
+      "form": "テープレコーダー",
+      "reading": "テープレコーダー",
+      "drops": [
+        5
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.ストーブ",
+      "form": "ストーブ",
+      "reading": "ストーブ",
+      "drops": [
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.ページ",
       "form": "ページ",
       "reading": "ページ",
@@ -7365,6 +8190,15 @@
         0
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.37-common-nouns-miscella.クラス",
+      "form": "クラス",
+      "reading": "クラス",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.37-common-nouns-miscella.メートル",
@@ -7419,17 +8253,27 @@
       "drops": [
         0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.39-function-filler-expre.はい",
       "form": "はい",
       "reading": "はい",
       "drops": [
-        0,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.ええ",
+      "form": "ええ",
+      "reading": "ええ",
+      "drops": [
+        1,
+        2,
+        0
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.39-function-filler-expre.うん",
@@ -7438,7 +8282,26 @@
       "drops": [
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.ううん",
+      "form": "ううん",
+      "reading": "ううん",
+      "drops": [
+        0,
+        2
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.39-function-filler-expre.さあ",
+      "form": "さあ",
+      "reading": "さあ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.39-function-filler-expre.いかが",
@@ -7475,7 +8338,7 @@
         0,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.40-misc-useful-items.じゅうしょ",
@@ -7625,11 +8488,75 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.22-money-and-shopping.アルバイト",
+      "form": "アルバイト",
+      "reading": "アルバイト",
+      "drops": [
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.カフェ",
+      "form": "カフェ",
+      "reading": "カフェ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.40-misc-useful-items.コンサート",
+      "form": "コンサート",
+      "reading": "コンサート",
+      "drops": [
+        1,
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.コンビニ",
+      "form": "コンビニ",
+      "reading": "コンビニ",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.25-languages-and-countri.スペイン人",
       "form": "スペイン人",
       "reading": "スペインじん",
       "drops": [
         3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.22-money-and-shopping.セール",
+      "form": "セール",
+      "reading": "セール",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.フロント",
+      "form": "フロント",
+      "reading": "フロント",
+      "drops": [
+        0
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.26-house-and-furniture.ベンチ",
+      "form": "ベンチ",
+      "reading": "ベンチ",
+      "drops": [
+        1
       ],
       "match_kind": "exact"
     },
@@ -7716,6 +8643,15 @@
       "match_kind": "by-reading"
     },
     {
+      "vocab_id": "n5.vocab.34-conjunctions.けれど",
+      "form": "けれど",
+      "reading": "けれど",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
       "vocab_id": "n5.vocab.30-verbs-existence-and-p.ござる",
       "form": "ござる",
       "reading": "ござる",
@@ -7729,6 +8665,7 @@
       "form": "じゃあ",
       "reading": "では",
       "drops": [
+        1,
         2
       ],
       "match_kind": "by-reading"
@@ -7754,12 +8691,59 @@
     {
       "vocab_id": "n5.vocab.7-numbers.ゼロ",
       "form": "ゼロ",
-      "reading": "れい",
+      "reading": "ゼロ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.36-greetings-and-set-phr.ぺこぺこ",
+      "form": "ぺこぺこ",
+      "reading": "ぺこぺこ",
       "drops": [
         1,
         0
       ],
-      "match_kind": "by-reading"
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.31-i-adjectives.にこにこ",
+      "form": "にこにこ",
+      "reading": "にこにこ",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.どきどき",
+      "form": "どきどき",
+      "reading": "どきどき",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.わくわく",
+      "form": "わくわく",
+      "reading": "わくわく",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.ぴかぴか",
+      "form": "ぴかぴか",
+      "reading": "ぴかぴか",
+      "drops": [
+        2,
+        1,
+        0
+      ],
+      "match_kind": "exact"
     },
     {
       "vocab_id": "n5.vocab.33-adverbs.だんだん",
@@ -7771,6 +8755,25 @@
         3
       ],
       "match_kind": "by-reading"
+    },
+    {
+      "vocab_id": "n5.vocab.33-adverbs.まあまあ",
+      "form": "まあまあ",
+      "reading": "まあまあ",
+      "drops": [
+        1,
+        3
+      ],
+      "match_kind": "exact"
+    },
+    {
+      "vocab_id": "n5.vocab.13-locations-and-places-.ビル",
+      "form": "ビル",
+      "reading": "ビル",
+      "drops": [
+        1
+      ],
+      "match_kind": "exact"
     }
   ]
 }

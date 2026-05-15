@@ -115,13 +115,39 @@ native-human review, the following items would benefit most:
    could read non-native to a Japanese speaker. Native reviewer would
    confirm each one.
 
-2. **Pitch accent drop positions** — RESOLVED 2026-05-15 via JA-90
-   reconciliation against the kanjium reference (CC-BY-SA 4.0, pinned
-   commit `8a0cdaa`). 22 drops auto-fixed to align with kanjium; 810
-   entries validated as MATCH (`confidence: 'high'`); 177 entries
-   (mostly gairaigo/loanwords + function-word phrases not in kanjium
-   upstream) tagged `confidence: 'unverified'` — these still benefit
-   from native auditory review.
+2. **Pitch accent drop positions** — LARGELY RESOLVED 2026-05-15 via
+   JA-90 reconciliation against the kanjium reference (CC-BY-SA 4.0,
+   pinned commit `8a0cdaa`). Two-round reconciliation:
+   - Round 1 (commit `08f6907`): 22 drops auto-fixed; 810 MATCH;
+     177 NOT_FOUND.
+   - Round 2 (kanjium empty-reading-column fix + morphological
+     rule promotions): +112 entries matched (gairaigo, hiragana
+     function words); 16 multi-word greeting phrases tagged
+     `confidence: 'low'`; final distribution:
+       - `high`:        944 (94%) — kanjium-validated
+       - `medium`:       22 (2%)  — morphological-rule (suru/お/country)
+       - `low`:          16 (2%)  — lexicalized greeting phrases
+       - `unverified`:   27 (3%)  — compound expressions / particles
+         that genuinely lack a reference
+
+   Still benefits from native auditory review for the 43 `low` +
+   `unverified` entries. Audio re-render: not needed (no per-entry
+   vocab audio in current project — see
+   `docs/PITCH-ACCENT-AUDIO-RESTALE-NEEDED.md`).
+
+   **Future programmatic enhancements (deferred):**
+   - **OJAD secondary cross-reference**: OJAD (Online Japanese
+     Accent Dictionary, Tokyo Univ. of Foreign Studies) covers
+     ~9,000 lemmas + 42,300 conjugations. No public API or bulk
+     download; would require web-scraping which is risky (ToS
+     uncertainty) + slow (~10s per lookup × 43 entries).
+   - **Multi-dialect support**: kanjium reflects Tokyo dialect
+     only. Adding Kansai / Kyushu / Tohoku alternates requires a
+     project SCOPE decision — currently shipping Tokyo-only by
+     default, which is the JLPT standard.
+   - **Native auditory review**: even with kanjium agreement,
+     gold-standard validation requires a native speaker
+     listening to rendered audio.
 
 3. **Register coherence in dialogue scripts** — listening.json scripts
    may have unintended polite/casual code-switching. 50 items × ~5
