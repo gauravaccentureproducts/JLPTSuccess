@@ -3417,12 +3417,6 @@
           "vocab_id": "n5.vocab.11-time-days-weeks-month.月"
         },
         {
-          "form": "月",
-          "reading": "つき",
-          "gloss": "moon",
-          "vocab_id": "n5.vocab.11-time-days-weeks-month.月"
-        },
-        {
           "form": "何月",
           "reading": "なんがつ",
           "gloss": "what month",
@@ -9600,14 +9594,9 @@
         {
           "form": "本",
           "reading": "ほん",
-          "gloss": "counter for long thin objects",
-          "vocab_id": "n5.vocab.9-counters-common.本"
-        },
-        {
-          "form": "本",
-          "reading": "ほん",
-          "gloss": "book",
-          "vocab_id": "n5.vocab.24-school-and-study.本"
+          "gloss": "book; counter for long thin objects",
+          "vocab_id": "n5.vocab.9-counters-common.本",
+          "bug_024_merged_from": "book"
         },
         {
           "form": "日本",
@@ -11958,12 +11947,6 @@
           "vocab_id": "n5.vocab.12-time-frequency-sequen.前"
         },
         {
-          "form": "前",
-          "reading": "まえ",
-          "gloss": "front",
-          "vocab_id": "n5.vocab.12-time-frequency-sequen.前"
-        },
-        {
           "form": "午前",
           "reading": "ごぜん",
           "gloss": "A.M.",
@@ -14058,12 +14041,6 @@
           "reading": "でんき",
           "gloss": "electricity, light",
           "vocab_id": "n5.vocab.24-school-and-study.電気"
-        },
-        {
-          "form": "電気",
-          "reading": "でんき",
-          "gloss": "light",
-          "vocab_id": "n5.vocab.24-school-and-study.電気"
         }
       ],
       "n5_compounds_provenance": "auto_derived",
@@ -14557,12 +14534,6 @@
           "vocab_id": "n5.vocab.24-school-and-study.電話"
         },
         {
-          "form": "電気",
-          "reading": "でんき",
-          "gloss": "light",
-          "vocab_id": "n5.vocab.24-school-and-study.電気"
-        },
-        {
           "form": "電話番号",
           "reading": "でんわばんごう",
           "gloss": "phone number",
@@ -14872,12 +14843,6 @@
           "form": "道",
           "reading": "みち",
           "gloss": "road, way",
-          "vocab_id": "n5.vocab.13-locations-and-places-.道"
-        },
-        {
-          "form": "道",
-          "reading": "みち",
-          "gloss": "road",
           "vocab_id": "n5.vocab.13-locations-and-places-.道"
         }
       ],
@@ -17896,14 +17861,6 @@
           "form": "ことば",
           "reading": "ことば",
           "gloss": "word, language",
-          "vocab_id": "n5.vocab.24-school-and-study.ことば",
-          "_provenance": "auto_derived",
-          "_audit_wave": "imp-d2-d3-2026-05-13"
-        },
-        {
-          "form": "ことば",
-          "reading": "ことば",
-          "gloss": "word",
           "vocab_id": "n5.vocab.24-school-and-study.ことば",
           "_provenance": "auto_derived",
           "_audit_wave": "imp-d2-d3-2026-05-13"

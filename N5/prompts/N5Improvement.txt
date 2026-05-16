@@ -2217,6 +2217,20 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT assume auto-derived data stays fresh after the source
+  corpus is cleaned. Caught 2026-05-17 as BUG-024 — kanji.json's
+  n5_compounds arrays were auto-derived from vocab.json BEFORE the
+  BUG-018/019 dedup pass, and the auto-derivation pipeline was
+  never re-run after the cleanup landed. Result: 7 residual
+  subset-gloss compound duplicates in kanji.json across 月/前/気/
+  電/道/言/本 entries — same dedup shape as VOCAB-005/006 but at the
+  consumer corpus. Authoring rule: every dedup pass on a source
+  corpus MUST trigger re-derivation of all consumer corpora.
+  CI gate JA-103: within any single kanji entry's n5_compounds
+  array, the (form, reading) tuple must be unique. Catches the
+  drift class automatically; legitimate polysemy with different
+  readings (一日/ついたち vs 一日/いちにち) PASSES. See F.22.5
+  in the procedure manual."
 - "Do NOT default to narrow-scope CI gates when strict-equality is
   the natural shape. Caught 2026-05-17 as BUG-023 (inverse of
   BUG-020). When BUG-020 was fixed, JA-100 was wired as a narrow

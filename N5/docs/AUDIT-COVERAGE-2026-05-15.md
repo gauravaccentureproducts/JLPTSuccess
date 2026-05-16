@@ -1121,6 +1121,82 @@ these to hard CI gates is queued.
 
 ---
 
+## ADDENDUM 2026-05-17 (Part 10) — BUG-024 close-out (auto-derived dedup drift)
+
+A native-teacher audit of kanji.json on 2026-05-17 surfaced
+duplicate compound entries within `n5_compounds` arrays — same
+(form, reading) tuple listed twice with subset-overlapping
+glosses. Root cause: the data was auto-derived from vocab.json
+BEFORE the BUG-018/019 dedup pass cleaned vocab.json's subset-
+gloss entries; the kanji.json auto-derivation pipeline was never
+re-run.
+
+### Bug addressed
+
+**BUG-024 (Low/P3)** — 7 duplicate compound entries in kanji.json:
+
+| Parent kanji | Compound | Action |
+|---|---|---|
+| 月 | 月 "moon" (subset of "month, moon") | DROP subset |
+| 前 | 前 "front" (subset of "before, in front") | DROP subset |
+| 気 | 電気 "light" (subset of "electricity, light") | DROP subset |
+| 電 | 電気 "light" (subset of "electricity, light") | DROP subset |
+| 道 | 道 "road" (subset of "road, way") | DROP subset |
+| 言 | ことば "word" (subset of "word, language") | DROP subset |
+| 本 | 本 "book" + "counter for long thin objects" (same reading ほん, distinct senses) | MERGE to single row "book; counter for long thin objects" |
+
+Cases left intact (legitimate polysemy with DIFFERENT readings):
+- 一 entry: 一日 ついたち vs いちにち
+- 日 entry: 一日 ついたち vs いちにち
+- 人 entry: 人 ひと "person" vs 人 にん "counter for people"
+
+Result: 6 compounds dropped + 1 merge. CI invariant JA-103 added.
+
+### CI invariant added
+
+**JA-103** — within any single kanji entry's `n5_compounds` array,
+the (form, reading) tuple must be unique. Catches the dedup-drift
+class automatically. Different readings PASS (legitimate polysemy).
+
+### Operational rule (added to F.22.5)
+
+Every dedup pass on a source corpus MUST trigger re-derivation of
+all consumer corpora. The N5 case demonstrated that the
+auto-derivation pipeline captured a snapshot ONCE (when kanji.json
+was originally built) and never re-evaluated. After source-corpus
+dedup, the consumer kept stale data with no error or warning.
+
+Future iteration suggestion (queued, not yet implemented): add a
+`last_derivation_run_at` timestamp on every auto-derived array and
+a CI check that it post-dates the source corpus's `last_modified`
+timestamp. JA-82 already enforces that `_meta.consumers` references
+resolve to existing files; this would extend it to freshness.
+
+### Coverage at this checkpoint
+
+CI invariants: 101 (was 100; +1 from JA-103). The previously-
+reserved JA-91..95 remain unwired per prior addenda.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.22.5 (auto-derived data
+  inherits upstream dedup drift).
+- ✓ N5Improvement prompt: 1 new Section-10 anti-item.
+- ✓ Implementation spec: Section 25.4 + 25.8 entries for JA-103
+  added.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx`: BUG-024 row added
+  (row 27); User Reported Bugs sheet was restored from HEAD
+  (working-tree had only Items + Questions sheets). Summary:
+  Total=24, Fixed=24, New=0.
+
+### Final state — all 24 user-reported bugs closed
+
+vocab.json: 995 entries (unchanged). kanji.json: 106 entries (count
+unchanged; 6 n5_compounds rows dropped + 1 merged).
+
+---
+
 ## ADDENDUM 2026-05-17 (Part 9) — BUG-023 close-out (inverse of BUG-020)
 
 A re-audit of kanji.json ↔ vocab.json cross-file integrity one day

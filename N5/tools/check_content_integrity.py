@@ -1118,6 +1118,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     # locks the post-fix state so a future auto-pipeline can't
     # silently flip them back to on-yomi.
     ("JA-102", "Standalone-kun primary_reading lock for 人/中/外/東/車/国 (BUG-021 guard, 2026-05-17)", lambda: _check_ja_102_standalone_kun_primary_reading()),
+    # JA-103 (2026-05-17): BUG-024 close-out. Within any single kanji
+    # entry's n5_compounds array, no two rows may have the same
+    # (form, reading) tuple. Catches the duplicate-subset-gloss class
+    # that BUG-024 reported. Different readings (e.g., 一日 with ついたち
+    # vs いちにち) are legitimate polysemy and pass the check.
+    ("JA-103", "kanji.json n5_compounds: (form, reading) tuple unique within each entry (BUG-024 guard, 2026-05-17)", lambda: _check_ja_103_kanji_compound_form_reading_unique()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4941,6 +4947,43 @@ def _check_ja_101_kanji_examples_form_field_only() -> list[str]:
                 failures.append(
                     f"JA-101 kanji={glyph} examples[{i}]: missing `form` field"
                 )
+    return failures
+
+
+def _check_ja_103_kanji_compound_form_reading_unique() -> list[str]:
+    """BUG-024 (2026-05-17) regression guard.
+
+    Within any single kanji entry's `n5_compounds` array, the
+    (form, reading) tuple must be unique. Catches duplicate-subset-
+    gloss compounds that were auto-derived from vocab.json before
+    the VOCAB-005 / VOCAB-006 dedup cleanup propagated.
+
+    Legitimate polysemy with DIFFERENT readings (e.g., 一日 with
+    ついたち vs いちにち on the 一 entry) PASSES this check — the
+    (form, reading) tuples differ. The check only fails when two
+    rows share both form AND reading.
+    """
+    failures = []
+    try:
+        kanji = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-103 could not read kanji.json: {e}"]
+    for k in kanji.get("entries", []):
+        glyph = k.get("glyph", "?")
+        seen: dict[tuple, int] = {}
+        for i, c in enumerate(k.get("n5_compounds") or []):
+            if not isinstance(c, dict):
+                continue
+            key = (c.get("form"), c.get("reading"))
+            if key[0] is None:
+                continue  # skip malformed; other invariants catch shape issues
+            if key in seen:
+                failures.append(
+                    f"JA-103 kanji={glyph} n5_compounds: duplicate (form={key[0]!r}, "
+                    f"reading={key[1]!r}) at indices {seen[key]} and {i}"
+                )
+            else:
+                seen[key] = i
     return failures
 
 

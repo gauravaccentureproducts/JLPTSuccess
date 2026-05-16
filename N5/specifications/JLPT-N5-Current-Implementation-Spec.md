@@ -794,9 +794,10 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **91 named JA-NN rules** (the runtime
+Currently wired invariants: **92 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
-named invariants are listed exhaustively below).
+named invariants are listed exhaustively below; runtime CI count
+reports 101/101 at this checkpoint).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -914,6 +915,7 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-87 | Cross-corpus reading / gloss consistency vs vocab.json canonical (wave-1) | 2026-05-15 |
 | JA-90 | Vocab `pitch_accent.drop` validated vs kanjium reference (810 high-confidence matches, 199 unverified) | 2026-05-15 |
 | JA-100 | kanji.json compound/example.form == linked vocab.form **STRICT** (BUG-020 OOS + BUG-023 in-scope drift; tightened from narrow to strict 2026-05-17) | 2026-05-17 |
+| JA-103 | kanji.json `n5_compounds`: `(form, reading)` tuple unique within each kanji entry (BUG-024 guard; legitimate polysemy with different readings — e.g., 一日 ついたち vs いちにち — PASSES) | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -971,6 +973,7 @@ Cross-reference table:
 | JA-100 | BUG-020 + BUG-023 | kanji.json ↔ vocab.json form drift (both directions) |
 | JA-101 | BUG-022 | kanji.json examples `lemma` vs `form` schema split |
 | JA-102 | BUG-021 | `primary_reading` set to on-yomi for kun-yomi-standalone kanji |
+| JA-103 | BUG-024 | Duplicate compounds within kanji.json (subset-gloss duplicates auto-derived from pre-dedup vocab.json) |
 | JA-64 (tightened) | BUG-011 + BUG-013 | Register-variant common_mistakes schema migration |
 | JA-35 (extended enum) | BUG-012 | `review_status` provenance disambiguation |
 
