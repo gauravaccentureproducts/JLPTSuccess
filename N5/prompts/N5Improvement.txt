@@ -508,6 +508,98 @@ for h in hits[:10]:
 Run ALL SIX blocks above before producing Section 2 of the report.
 The numbers from the script ARE Section 2; do not paraphrase.
 
+### Phase-0 Native-teacher bug-class regression block (added 2026-05-16)
+
+Regression block: re-runs four mechanical checks that gate against
+re-introduction of BUG-004, BUG-006, BUG-008, BUG-009. Each check
+returns a count that MUST be 0 on the current corpus. Non-zero means
+a regression has been introduced. (BUG-003, BUG-005, BUG-007 are
+content-judgment classes and remain manual-audit items; see A49 / A52
+in the accuracy prompt for the audit-time heuristics.)
+
+Validated 2026-05-16 to return 0/0/0/0 against grammar.json.
+
+```python
+import json, re
+
+with open('data/grammar.json', encoding='utf-8') as f:
+    G = json.load(f)
+P = G.get('patterns', [])
+
+# A50 (BUG-004) — mora-count algorithm equality.
+# Each pitch_marks entry's `mora` must equal count_mora(form).
+SMALL = set('ゃゅょぁぃぅぇぉャュョァィゥェォ')
+def count_mora(s): return sum(1 for c in s if c not in SMALL)
+mora_mismatch = sum(
+    1 for p in P for ex in p.get('examples', [])
+    for pm in (ex.get('pitch_marks') or [])
+    if pm.get('mora') != count_mora(pm.get('form', ''))
+)
+print('A50 mora mismatches (target 0):', mora_mismatch)
+
+# A51 (BUG-006) — pattern-marker presence per example.
+# Bunsetsu-space-tolerant: strip ASCII + full-width spaces before match.
+MARKERS = {
+    'n5-169': ['たことが'],
+    'n5-171': ['ないほうが'],
+    'n5-172': ['なくても'],
+    'n5-173': ['なくては'],
+    'n5-174': ['なくては'],
+    'n5-179': ['って', '」と'],
+}
+marker_violations = []
+for p in P:
+    pid = p.get('id')
+    if pid in MARKERS:
+        markers = MARKERS[pid]
+        for i, ex in enumerate(p.get('examples', [])):
+            ja_ns = ex.get('ja', '').replace(' ', '').replace('　', '')
+            if not any(m in ja_ns for m in markers):
+                marker_violations.append((pid, i, ex.get('ja', '')[:60]))
+print('A51 pattern-marker violations (target 0):', len(marker_violations))
+
+# A53 (BUG-008) — folk-linguistic "intransitive" claim on encounter verbs.
+# Narrow shape: target the SPECIFIC misuse pattern (X is intransitive,
+# where X is an encounter / mutual-action verb). Does NOT flag legitimate
+# uses of "transitive verb" as accurate grammar terminology (e.g., on
+# たべる / よむ).
+FOLK_PHRASES = [
+    r'\b(?:あう|会う|出会う|挨拶|遊ぶ|結婚)[^)]*\)\s*is\s+intransitive',
+    r'is\s+intransitive\b[^,.]{0,40}\b(?:あう|会う|出会う|挨拶|遊ぶ|結婚)',
+    r'topic\s+and\s+subject\s+are\s+the\s+same',  # folk collapse
+]
+folk_hits = sum(
+    1 for p in P for cm in (p.get('common_mistakes') or [])
+    for pat in FOLK_PHRASES
+    if re.search(pat, cm.get('why', '') or '', re.I)
+)
+print('A53 folk-linguistic-claim hits (target 0):', folk_hits)
+
+# A54 (BUG-009) — particle-pattern alignment.
+# For patterns whose canonical particle is named, every example JA must
+# contain that particle.
+PARTICLE_PATTERNS = {'n5-003': 'が'}
+particle_violations = []
+for p in P:
+    pid = p.get('id')
+    if pid in PARTICLE_PATTERNS:
+        particle = PARTICLE_PATTERNS[pid]
+        for i, ex in enumerate(p.get('examples', [])):
+            if particle not in ex.get('ja', ''):
+                particle_violations.append((pid, i, ex.get('ja', '')[:60]))
+print('A54 particle-pattern violations (target 0):', len(particle_violations))
+
+print('')
+print('--- BUG-003..009 REGRESSION SUMMARY ---')
+print('All four counts above must be 0 on current corpus.')
+print('BUG-003 / BUG-005 / BUG-007 are content-judgment classes;')
+print('audit them via A49 / A52 manual heuristics (LLM-as-judge).')
+```
+
+Run this block before producing Section 2 of the report. Any
+non-zero count means a regression has been introduced; flag the
+specific pattern + example index in Section 5 as a P1 fix.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
@@ -1954,6 +2046,84 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT trust an `explanation_en` field copied across patterns —
+  cross-pattern explanation contamination is real and silent.
+  Caught 2026-05-16 on n5-098 (superlative pattern), whose
+  explanation_en was verbatim the n5-099 (好き/嫌い) text AND all
+  10 translation_en strings were 'I like cats.' while the JA was
+  correctly about apples, Fuji, soccer. Schema validators pass;
+  pedagogy fails. Authoring rule: rewrite explanation_en from
+  scratch against a canonical Japanese-grammar reference for the
+  pattern, never copy from a neighbor. Audit rule: Levenshtein ≥0.85
+  between any two patterns' explanation_en is a contamination
+  candidate. Add JA-91 (cross-pattern explanation similarity) +
+  JA-92 (per-example JA-EN content-word overlap) as CI gates. See
+  A49 in the accuracy prompt + F.17.1 in the procedure manual.
+  User-reported BUG-003 and BUG-005."
+- "Do NOT compute pitch_marks.mora with an algorithm that special-cases
+  ん, ー, or っ — they each count as 1 mora. Only small ゃ/ゅ/ょ/
+  ぁ/ぃ/ぅ/ぇ/ぉ COMBINE with the preceding kana. Canonical 4-line
+  algorithm: `SMALL=set('ゃゅょぁぃぅぇぉ' + katakana); count =
+  sum(1 for c in form if c not in SMALL)`. The 2026-05-16 audit
+  recomputed 911 wrong mora values in grammar.json — most off by 1
+  (ん or ー dropped); some off by 2-3 (terminal-kana truncation).
+  Add JA-93 (per-entry mora == count_mora(form)) as a HARD CI gate.
+  See A50 in the accuracy prompt + F.17.2 in the procedure manual.
+  User-reported BUG-004."
+- "Do NOT file an example under pattern P unless its JA contains a
+  surface marker for P. 10 cases caught 2026-05-16 across n5-169
+  (たことがある), n5-171 (ないほうがいい), n5-172 (なくてもいい),
+  n5-173 (なくてはいけない), n5-174 (なくてはならない), n5-179
+  (って quotation) — the JA was valid Japanese but used a different
+  pattern entirely. 6 of 10 sat in `late_n5` or `deferred_to_n4`
+  patterns; these are the patterns farthest from authoring intuition,
+  audit them first. Maintain `data/pattern_markers.json` and gate on
+  JA-94 (every example contains ≥1 marker for its filed pattern).
+  See A51 in the accuracy prompt + F.17.3 in the procedure manual.
+  User-reported BUG-006."
+- "Do NOT use RIGHT/WRONG framing in common_mistakes for forms that
+  differ only in REGISTER, FORMALITY, or PRAGMATIC CONTEXT — only
+  ungrammatical forms get the WRONG label. The 2026-05-16 audit
+  caught 11 such mislabels across n5-127 (けれども vs けど —
+  formal full form vs casual contraction), n5-105 (たくありません vs
+  たくないです — register), n5-023/051-057 (〜ね confirmation-seekers
+  vs 〜か questions — pragmatic), n5-069 (canonical 〜てから),
+  n5-071 (polite softener ね). Replace with: 'In context X, A is the
+  natural choice; B carries [different register/nuance]' OR
+  'Register variants — both correct.' Pedagogical cost of WRONG
+  framing on a valid form: the learner avoids that form for life.
+  Same class as the earlier BUG-002 (companion-と vs direction-に) —
+  this anti-pattern keeps reappearing; gate at authoring, not at
+  audit. See A52 in the accuracy prompt + F.17.4 in the procedure
+  manual. User-reported BUG-007."
+- "Do NOT use folk-linguistic grammar terminology in common_mistakes
+  WHY rationales. Specifically: avoid loose 'transitive/intransitive'
+  labels for verbs that take non-を arguments (use 'encounter/contact
+  verb' / 'mutual-action verb' / 'argument-structure' framing
+  instead); do NOT collapse 'subject' and 'topic' (は marks topic,
+  が marks subject — they are not synonyms); do NOT apply 'passive/
+  causative' or 'auxiliary' labels to constructions that aren't
+  in any standard analysis. The 2026-05-16 audit caught n5-004 cm[0]
+  claiming '会う is intransitive — takes に, not を' — folk-shortcut
+  that misleads about how particle assignment actually works (会う
+  takes に because it's an encounter verb; many transitive verbs also
+  take に). Authoring rule: any grammar-class label in a WHY rationale
+  must match the term as used in Genki, Tobira, or A Dictionary of
+  Basic Japanese Grammar. See A53 in the accuracy prompt + F.17.5 in
+  the procedure manual. User-reported BUG-008."
+- "Do NOT file a canonical example under a particle-introducing
+  pattern unless the example's JA actually demonstrates that particle.
+  Caught 2026-05-16 on n5-003 (が particle), whose ex[6] was
+  「わたしは がくせいです。」 (は, not が). For patterns that teach
+  obligatory が contexts (interrogative-subject, identificational
+  predicate, existential), additionally require an interrogative head
+  (だれ/なに/どれ/どこ/いつ/どの-NP/どんな-NP) OR an existential
+  predicate (います/あります) in the example. Add JA-95 (particle-
+  pattern alignment) as a CI gate; build fails if a pattern's canonical
+  particle is absent from ≥30% of its examples, or absent from ANY
+  example for strict particle-introducing patterns. See A54 in the
+  accuracy prompt + F.17.6 in the procedure manual. User-reported
+  BUG-009."
 
 Plus other audit-discovered "we considered and decided no" items.
 

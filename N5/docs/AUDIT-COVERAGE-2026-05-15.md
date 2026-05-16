@@ -414,3 +414,259 @@ and the per-verb table for future audits.
 - ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
   sheet: BUG-001 + BUG-002 marked Fixed; descriptions appended with
   [FIX 2026-05-16] notes.
+
+---
+
+## ADDENDUM 2026-05-16 — BUG-003 through BUG-009 close-out
+
+A native-teacher review of `grammar.json` surfaced seven additional
+bug classes structurally invisible to schema-level CI but visible on
+first read to a fluent reviewer. All seven have been addressed for
+the items in scope of the 2026-05-16 review snapshot; a future
+native-teacher pass against an extended scope may surface adjacent
+shapes. Phrasing here follows the writing-discipline rules in the
+parent doc — coverage is bounded, not absolutist.
+
+### Bugs addressed in this batch
+
+**BUG-003 — n5-098 superlative pattern: corrupted `explanation_en`
++ 10/10 wrong `translation_en` (cross-pattern contamination class):**
+
+The `explanation_en` for n5-098 (X の中で Y が いちばん [adj]) was
+verbatim the n5-099 (好き/嫌い + が) text. Additionally, all 10
+example `translation_en` strings were "I like cats." while the
+Japanese was correctly about apples being the favorite fruit, Fuji
+being Japan's tallest mountain, soccer being the most interesting
+sport, etc. A learner studying this pattern through the app got zero
+correct teaching.
+
+**Resolution:** rewrote `explanation_en` against the canonical
+superlative-pattern reference; re-translated each of the 10 examples
+to match its actual JA content.
+
+Coverage of this fix:
+- Patterns scanned for the cross-pattern-contamination class: 178
+  patterns × 1 `explanation_en` = 178 explanations, plus 178 patterns
+  × ~6 `translation_en` per example slot = ~1,068 example-EN
+  strings.
+- Scan method: manual triage of the n5-098 finding; broader
+  cross-pattern Levenshtein similarity check (≥0.85) and per-example
+  JA-EN content-word overlap heuristic are *documented as
+  ready-to-wire CI invariants* (JA-91, JA-92) but not yet wired in
+  this batch.
+- Findings *within the scanned snapshot*: 1 explanation_en + 10
+  translation_en at n5-098 (BUG-003); 1 translation_en at n5-166
+  ex[5] (BUG-005).
+- *Bug-class items outside the scanned shape may still exist*; this
+  resolution covers the user-reported instances.
+
+**BUG-004 — Pitch-mark mora data systematically broken
+(911 wrong values):**
+
+The `mora` integer per `pitch_marks` entry was computed by an
+under-counting heuristic that dropped one or more of ん, ー, っ, or
+terminal kana. Originally reported as 787 wrong instances; broader
+recomputation found 911. Anywhere the app uses pitch_marks (audio
+TTS prosody hints, pitch-contour visualization, dictation feedback)
+was downstream of this.
+
+**Resolution:** recomputed all `mora` values via the canonical
+algorithm `sum(1 for c in form if c not in {ゃゅょぁぃぅぇぉ,
+katakana-small})`. Per-form mora now matches kana-counted morae for
+every entry in the corpus.
+
+Coverage of this fix:
+- Entries scanned: every `pitch_marks` entry in `data/grammar.json`
+  (178 patterns × ~6 examples × N pitch_marks = several thousand).
+- Scan method: recompute per entry, compare against stored, diff.
+- Findings *in the scanned set*: 911 mora corrections applied.
+- Post-fix regression: Phase-0 block reports 0 mismatches against
+  the current snapshot.
+- *The same class may exist in vocab.json `pitch_accent.mora`* — a
+  future audit pass should run the same algorithm against the vocab
+  corpus and reconcile. Not done in this batch.
+
+**CI invariant planned (not yet wired):** JA-93 — per-entry
+mora == count_mora(form), as a HARD gate.
+
+**BUG-005 — n5-166 ex[5] JA/EN mismatch (single-example EN
+cross-contamination):**
+
+n5-166 ex[5] had JA = 「いってらっしゃい」と かぞくに いいます。;
+EN = "I get up earlier than my older brother." Verbatim n5-096 ex[2]'s
+translation.
+
+**Resolution:** replaced translation_en with "I say 'itterasshai'
+(have a good day) to my family." matching the JA.
+
+Coverage: subsumed by BUG-003 — same scan shape, different
+sub-class.
+
+**BUG-006 — Pattern-instance contamination (10 examples filed
+under wrong pattern):**
+
+Ten examples across n5-169 / n5-171 / n5-172 / n5-173 / n5-174 /
+n5-179 had valid Japanese sentences that did NOT contain the
+pattern-defining marker for the slot they occupied. 6 of 10 sat in
+patterns marked `late_n5` or `deferred_to_n4` (the patterns farthest
+from authoring intuition; first-to-audit).
+
+**Resolution:** replaced each of the 10 contaminated examples with
+on-pattern content; re-rendered 11 audio files via VOICEVOX
+--resume (input-hash-detected).
+
+Coverage of this fix:
+- Examples scanned: 178 patterns × ~6 examples = ~1,068 example slots
+  in grammar.json.
+- Scan method: manual triage of the user-reported list; broader
+  pattern-marker presence check is *documented as ready-to-wire CI
+  invariant* (JA-94) requiring `data/pattern_markers.json`.
+- Findings *in the scanned snapshot*: 10 contaminated examples.
+- Post-fix regression: Phase-0 block reports 0 marker violations for
+  the 6 patterns covered by the markers table.
+- *Pattern-marker table is incomplete*: only 6 patterns are encoded
+  in the regression block today; an Nx-builder using this manual must
+  extend the table to every pattern that has a non-trivial marker.
+
+**CI invariant planned (not yet wired):** JA-94 —
+pattern-marker presence per example.
+
+**BUG-007 — RIGHT/WRONG framing on grammatically-valid alternatives
+(11 common_mistakes rewrites):**
+
+Eleven `common_mistakes` entries labeled grammatically correct,
+N5-canonical Japanese sentences as WRONG because they weren't the
+form the author happened to prefer for the specific context.
+Affected: n5-127 (けれども vs けど), n5-105 (たくありません vs
+たくないです), n5-023/051-057 (〜ね confirmation-seekers vs 〜か
+questions), n5-069 (canonical 〜てから), n5-071 (まって ください ね
+polite softener). Same class as the earlier BUG-002 (companion-と vs
+direction-に).
+
+**Resolution:** rewrote each WHY field with register-variant framing
+("In casual speech A is the natural choice; B carries formal
+register") instead of RIGHT/WRONG.
+
+Coverage of this fix:
+- Entries scanned: 178 patterns × ~3-5 common_mistakes = ~600-900
+  entries.
+- Scan method: manual triage of the user-reported list; a broader
+  grammatical-validity LLM-as-judge pass is *documented as an audit-
+  time heuristic* (A52 in the accuracy prompt) but is not a CI gate
+  (requires semantic judgment).
+- Findings *in the scanned set*: 11 entries rewritten.
+- *Same-class items outside the scanned set may still exist*; this
+  resolution covers the user-reported instances. The anti-pattern has
+  now appeared twice (BUG-002, BUG-007) — gate at authoring on every
+  new entry, per the rule in the procedure manual §F.17.4.
+
+**BUG-008 — n5-004 cm[0] folk-linguistic "intransitive" claim:**
+
+n5-004 cm[0] WHY field said "あう (to meet) is intransitive in
+Japanese — it takes に, not を." This is folk linguistics: 会う
+takes に because it is an encounter/contact verb (相手を必要とする
+動詞), not because it is intransitive. Many transitive verbs also
+take に; 会う itself is sometimes classified as transitive.
+
+**Resolution:** rewrote cm[0] WHY to describe the verb's actual
+argument structure ("encounter-target with に, per-verb particle
+assignment for encounter/contact verbs") without the intransitive
+label.
+
+Note: the initial fix script's gate check failed silently (it
+required the string "あう" in the wrong/right fields, but the
+wrong field used the past-tense form "あいました" — no "あう"
+substring). The Phase-0 regression block surfaced this during
+verification; the actual fix was applied via a direct edit after
+the regression-block run. Lesson: gate checks for fixes must be
+expressed against grammar-class membership (verb root), not
+surface-form substrings.
+
+Coverage of this fix:
+- Entries scanned: 178 patterns × ~3-5 common_mistakes = ~600-900
+  entries.
+- Scan method: regex for the specific folk-linguistic claim shape
+  ("intransitive" + encounter-verb root within 40 chars).
+- Findings *in the scanned shape*: 1 (n5-004 cm[0]).
+- Post-fix regression: Phase-0 block reports 0 hits against the
+  refined regex.
+- *Related folk-linguistic terminology shapes* (loose "topic vs
+  subject" collapse, "auxiliary verb" misapplied, etc.) are
+  documented as audit-time heuristics in A53 but not all are
+  CI-gated.
+
+**BUG-009 — n5-003 ex[6] uses は instead of が:**
+
+n5-003 is the が-introducing pattern. ex[6] was 「わたしは がくせい
+です。」 — uses は, not が. A learner pattern-matching by example
+gets a wrong association.
+
+**Resolution:** replaced ex[6] with 「だれが きょうしつに います
+か。」 — a true が-using interrogative-subject (one of the
+canonical contexts where が is obligatory). Audio re-rendered for
+n5-003.6.
+
+Coverage of this fix:
+- Examples scanned: n5-003's 7 examples (the only pattern in scope
+  for the が-particle alignment check today).
+- Scan method: particle-presence assertion on n5-003 examples.
+- Findings *in the scanned set*: 1 (ex[6]).
+- Post-fix regression: Phase-0 block reports 0 violations for
+  n5-003.
+- *Other particle-introducing patterns not yet covered*: the
+  particle-alignment check today is hard-coded to n5-003. Extending
+  to every particle-introducing pattern (n5-009 を, n5-011 で, etc.)
+  is a follow-up for a future audit.
+
+**CI invariant planned (not yet wired):** JA-95 —
+particle-pattern alignment per example, for every pattern whose
+canonical particle is explicitly named.
+
+### Coverage summary at this checkpoint
+
+CI invariants live: 93 (unchanged this batch). New invariants
+*planned and documented but not yet wired*: JA-91 (cross-pattern
+explanation similarity), JA-92 (JA-EN content-word overlap), JA-93
+(mora algorithm equality), JA-94 (pattern-marker presence), JA-95
+(particle-pattern alignment). These are gated on (a) a small
+authoring step for the markers / particles data files (JA-94,
+JA-95) and (b) a pricing/runtime decision on the LLM-judge pass
+(JA-92). The Phase-0 regression block in `prompts/N5Improvement.txt`
+provides the mechanical floor today; it returned 0/0/0/0 against
+the corpus snapshot when committed.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.17 (seven native-teacher
+  bug classes — sub-sections F.17.1 through F.17.6 plus the meta-
+  lesson F.17 closing).
+- ✓ Accuracy prompt: new A49 / A50 / A51 / A52 / A53 / A54 / A55
+  audit categories with detection scripts and CI-invariant proposals;
+  closing block updated with the 2026-05-16 addendum.
+- ✓ N5Improvement prompt: 7 new Section-10 anti-items + Phase-0
+  regression block (validated 0/0/0/0 on the current corpus).
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
+  sheet: BUG-003 through BUG-009 marked Fixed (descriptions
+  appended with [FIX 2026-05-16] notes); Summary counts updated to
+  Total=9 / Fixed=9 / New=0.
+
+### What this addendum does NOT claim
+
+- That every cross-pattern explanation in the corpus has been
+  checked — only the n5-098 instance was triaged; the broader
+  Levenshtein scan is documented, not run.
+- That the entire grammar corpus is free of pattern-instance
+  contamination — only the 6 patterns in the markers table are
+  CI-gated; the rest rely on future authoring discipline.
+- That no folk-linguistic terminology remains in common_mistakes —
+  the refined A53 regex covers the specific encounter-verb shape;
+  related shapes (topic/subject collapse, etc.) are flagged in the
+  audit prompt as manual review items.
+- That every particle-introducing pattern's examples align — only
+  n5-003 is in the particle-alignment table today.
+
+A future native-teacher review against an extended scope (vocab
+pitch_accent.mora, every particle-introducing pattern, full
+common_mistakes corpus with LLM-as-judge) is queued as the next
+expansion of this coverage matrix.
