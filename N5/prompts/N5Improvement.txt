@@ -678,30 +678,41 @@ ERROR_DISQUALIFIERS = re.compile(
 )
 
 bad = []
+key_regressions = []
 for p in G.get('patterns', []):
     for i, cm in enumerate(p.get('common_mistakes', []) or []):
         why = cm.get('why', '') or ''
-        wrong = cm.get('wrong', '') or ''
-        right = cm.get('right', '') or ''
+        # After BUG-013, register-variant entries use form_a/form_b
+        # keys, not wrong/right. Read both shapes so this check works
+        # against either the migrated or pre-migration data.
+        form_a = cm.get('form_a') or cm.get('wrong') or ''
+        form_b = cm.get('form_b') or cm.get('right') or ''
         if ERROR_DISQUALIFIERS.search(why):
             continue  # WHY identifies an actual error; not a register variant
         needs_variant = (
             VARIANT_WHY_PHRASES.search(why)
-            or VARIANT_CELL_PHRASES.search(wrong)
-            or VARIANT_CELL_PHRASES.search(right)
+            or VARIANT_CELL_PHRASES.search(form_a)
+            or VARIANT_CELL_PHRASES.search(form_b)
         )
         if needs_variant and cm.get('kind') != 'register_variant':
             bad.append((p['id'], i, why[:80]))
+        # BUG-013: register-variant entries MUST use form_a/form_b
+        # keys, NOT wrong/right. Any straggler that still carries the
+        # old keys is a regression.
+        if cm.get('kind') == 'register_variant' and ('wrong' in cm or 'right' in cm):
+            key_regressions.append((p['id'], i))
 
 print(f'A57 unflagged register-variant entries (target 0): {len(bad)}')
 for b in bad[:5]:
     print(f'  {b}')
+print(f'A57 stale-key regressions (register_variant + wrong/right keys; target 0): {len(key_regressions)}')
+for kr in key_regressions[:5]:
+    print(f'  {kr}')
 ```
 
-Non-zero result means a new register-variant entry was added
-without the `kind` flag, or an existing variant entry had its flag
-dropped. Either way, re-run `tools/fix_bug_011_register_variants_*.py`
-or manually flag the entries.
+Non-zero result on either count means a regression has been introduced.
+Re-run `tools/fix_bug_011_register_variants_*.py` for unflagged entries
+and `tools/fix_bug_013_rename_variant_keys_*.py` to migrate stale keys.
 
 ### Phase-0 Static-mirror coverage regression block (added 2026-05-16)
 

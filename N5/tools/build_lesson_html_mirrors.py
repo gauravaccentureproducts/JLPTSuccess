@@ -138,8 +138,10 @@ def render_common_mistakes(cms):
     if variants:
         out.append("<h2>Register variants — both forms are correct</h2>")
         for cm in variants:
-            form_a = cm.get("wrong") or ""
-            form_b = cm.get("right") or ""
+            # BUG-013: register-variant entries now use form_a/form_b
+            # keys, not wrong/right. Legacy fallback for safety.
+            form_a = cm.get("form_a") or cm.get("wrong") or ""
+            form_b = cm.get("form_b") or cm.get("right") or ""
             label_a = cm.get("label_a") or "Form A"
             label_b = cm.get("label_b") or "Form B"
             why = cm.get("why") or ""

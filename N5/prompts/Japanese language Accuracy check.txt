@@ -1849,21 +1849,29 @@ A57. SCHEMA-LEVEL REGISTER-VARIANT DETECTION IN common_mistakes
          re.I,
      )
      bad = []
+     key_regressions = []
      for p in G.get('patterns', []):
          for i, cm in enumerate(p.get('common_mistakes', []) or []):
              why = cm.get('why', '') or ''
-             wrong = cm.get('wrong', '') or ''
-             right = cm.get('right', '') or ''
+             # After BUG-013, register-variant entries use form_a/form_b
+             # (not wrong/right). Check both shapes for compat.
+             form_a = cm.get('form_a') or cm.get('wrong') or ''
+             form_b = cm.get('form_b') or cm.get('right') or ''
              if ERROR_DISQUALIFIERS.search(why):
                  continue  # legitimate error, not a register variant
              needs_variant = (
                  VARIANT_WHY_PHRASES.search(why)
-                 or VARIANT_CELL_PHRASES.search(wrong)
-                 or VARIANT_CELL_PHRASES.search(right)
+                 or VARIANT_CELL_PHRASES.search(form_a)
+                 or VARIANT_CELL_PHRASES.search(form_b)
              )
              if needs_variant and cm.get('kind') != 'register_variant':
                  bad.append((p['id'], i, why[:60]))
+             # BUG-013: register-variant entries must use form_a/form_b
+             # keys, not wrong/right. Any straggler is a regression.
+             if cm.get('kind') == 'register_variant' and ('wrong' in cm or 'right' in cm):
+                 key_regressions.append((p['id'], i))
      print(f'A57 unflagged register-variant entries (target 0): {len(bad)}')
+     print(f'A57 stale-key regressions (register_variant + wrong/right; target 0): {len(key_regressions)}')
      for b in bad[:5]:
          print(f'  {b}')
      ```

@@ -512,20 +512,28 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   `;
   }).join('');
 
-  // BUG-011 (2026-05-16): entries tagged `kind: "register_variant"` carry
-  // two grammatically-valid forms differing in register, formality, or
-  // pragmatic context — NOT one wrong + one right. Render them with
-  // neutral "Form A / Form B" presentation (no strike-through, no green
-  // check), with register labels when present. Entries without `kind`
-  // fall through to the legacy wrong/right rendering.
+  // BUG-011 + BUG-013 (2026-05-16): entries tagged `kind: "register_variant"`
+  // carry two grammatically-valid forms differing in register, formality,
+  // or pragmatic context — NOT one wrong + one right. BUG-013 completed
+  // the schema migration: the JSON keys are now `form_a` / `form_b` (no
+  // longer `wrong` / `right`) for these entries, so the data surface
+  // itself no longer carries WRONG/RIGHT framing. Legacy `wrong`/`right`
+  // reads are kept as a fallback for any non-migrated entry that might
+  // appear during a release transition.
+  //
+  // Entries without `kind: "register_variant"` use the legacy
+  // wrong/right rendering (red strike vs green check).
   const mistakeItems = mistakes.map(m => {
     if (m.kind === 'register_variant') {
       const labelA = m.label_a ? `<span class="variant-label">${esc(m.label_a)}</span>` : '';
       const labelB = m.label_b ? `<span class="variant-label">${esc(m.label_b)}</span>` : '';
+      // Read the new keys first; fall back to legacy on stale data.
+      const formA = m.form_a ?? m.wrong ?? '';
+      const formB = m.form_b ?? m.right ?? '';
       return `
         <li class="variant-pair">
-          <div class="variant-row">${labelA}<span class="variant-form">${renderJa(m.wrong)}</span></div>
-          <div class="variant-row">${labelB}<span class="variant-form">${renderJa(m.right)}</span></div>
+          <div class="variant-row">${labelA}<span class="variant-form">${renderJa(formA)}</span></div>
+          <div class="variant-row">${labelB}<span class="variant-form">${renderJa(formB)}</span></div>
           <span class="why">${esc(m.why)}</span>
         </li>
       `;

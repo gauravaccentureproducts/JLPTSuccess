@@ -1090,10 +1090,10 @@ rename the value AND add a provenance field.
   Bugs" sheet: BUG-012 marked Fixed. Summary counts:
   Total=12 / Fixed=12 / New=0.
 
-### Final state — all 12 user-reported bugs closed
+### Final state — all 12 user-reported bugs closed (as of BUG-012)
 
 After BUG-012's close-out, every bug on the User Reported Bugs
-sheet is in `Status: Fixed`:
+sheet was in `Status: Fixed`:
 
 | # | Severity | Summary |
 |---|---|---|
@@ -1118,3 +1118,109 @@ pattern alignment), plus the static-mirror coverage and
 register-variant kind-flag and BUG-012 retired-value checks
 implemented as Phase-0 regression blocks. Promotion of any of
 these to hard CI gates is queued.
+
+---
+
+## ADDENDUM 2026-05-16 (Part 5) — BUG-013 close-out
+
+A user-reported re-audit of BUG-011 caught that the schema
+migration didn't actually rename the data-surface keys. BUG-011's
+fix added `kind: "register_variant"` + `label_a` / `label_b` but
+kept `wrong`/`right` in place for backwards compatibility. The
+data-surface contradiction (literal "wrong" key on a sentence the
+same entry's WHY calls valid) remained. BUG-013 completes the
+migration by renaming the keys themselves.
+
+### Bug addressed
+
+**BUG-013 — Self-contradicting WRONG/RIGHT labels still present
+across 14 common_mistakes entries (P1/High, Status: Fixed):**
+
+BUG-011 marked Fixed with a 27-entry migration, but the entries
+still carried `wrong`/`right` as JSON keys. The re-audit flagged
+that downstream consumers (humans reading the JSON, third-party
+adopters, audit-prompt regression checks) see the literal "wrong"
+field on a valid sentence — the data-surface contradiction the
+fix was supposed to resolve.
+
+**Resolution:** complete the schema migration.
+- `wrong` → `form_a`
+- `right` → `form_b`
+- (For all 27 entries with `kind: "register_variant"`.)
+- Other entries (real grammar errors) keep `wrong`/`right`.
+
+### Migration scope
+
+Same 27 entries from BUG-011 (no scope drift). The fix is purely
+a key rename — JA text values are unchanged, all other fields
+(`kind`, `label_a`, `label_b`, `why`, `category`, `provenance`,
+`audit_wave`, `bug_007_fix_2026_05_16`) preserved exactly.
+
+### Consumer updates
+
+1. **`tools/check_content_integrity.py` JA-64:**
+   - Required fields now switch on `kind`:
+     - Legacy entries: `{wrong, right, why}`
+     - Register-variant entries: `{form_a, form_b, why}`
+   - Defense-in-depth: register_variant entries that still carry
+     `wrong`/`right` keys fail CI (regression guard).
+
+2. **`js/learn-grammar.js`:**
+   - Register-variant rendering reads `form_a`/`form_b` first;
+     falls back to `wrong`/`right` only for stale entries (one-
+     release-cycle migration window).
+
+3. **Static-mirror generators**
+   (`tools/build_static_mirrors.py` +
+   `tools/build_lesson_html_mirrors.py`):
+   - Same field-fallback pattern.
+
+4. **`js/min/learn-grammar.js`:** rebuilt via
+   `tools/build_min_js.py`.
+
+5. **Phase-0 A57 regression block** (in both N5Improvement.txt
+   and Japanese language Accuracy check.txt):
+   - Added "stale-key regressions" check: any register_variant
+     entry carrying `wrong`/`right` keys is flagged.
+   - Validated 0/0 against the post-fix corpus.
+
+### Class lineage (4 bugs in 2 days)
+
+- BUG-002 (wcp mislabel — data only)
+- → BUG-007 (cm WHY rewrites — text only)
+- → BUG-011 (cm schema flag added; keys kept)
+- → BUG-013 (cm keys renamed at last)
+
+**Lesson captured in F.19.6:** finish schema migrations involving
+user-visible field labels in a single commit — don't leave the
+old labels in the data for backwards compat. Consumer-side
+fallback in code handles the migration window, not data
+duplication.
+
+If a 5th bug in this class appears, treat as authoring-pipeline
+process failure beyond doubt. The schema is now stable:
+`{kind: register_variant, form_a, form_b, label_a, label_b, why}`.
+
+### Coverage of the fix
+
+- Entries scanned: every register_variant entry across 178
+  patterns (27 in scope).
+- Scan method: direct key-presence check (Phase-0 A57 update).
+- Findings: 27 stale-key instances migrated.
+- Post-fix regression: A57 reports 0 unflagged variants + 0
+  stale-key regressions.
+- CI: 93/93 invariants green (JA-64 updated to the new shape).
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.19 extended with
+  §F.19.6 (BUG-011 → BUG-013 lesson on finishing migrations in
+  one pass).
+- ✓ Accuracy prompt: A57 regression block updated to check for
+  stale-key regressions in addition to unflagged variants.
+- ✓ N5Improvement prompt: same regression-block update; data-
+  migration-completeness signal now part of the audit pipeline.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported
+  Bugs" sheet: BUG-013 marked Fixed; Summary updated:
+  Total=13 / Fixed=13 / New=0.

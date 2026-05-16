@@ -3457,11 +3457,24 @@ def _check_ja_63_authentic_kanji_refs_complete() -> list[str]:
 
 
 def _check_ja_64_common_mistakes_shape() -> list[str]:
-    """Shape contract: every common_mistakes entry must have non-empty
-    `wrong`, `right`, AND `why` fields. The renderer iterates these
-    three fields directly (js/learn-grammar.js#renderMistakes); a
+    """Shape contract: every common_mistakes entry must have a
+    well-populated form pair + a `why` field. The renderer iterates
+    these fields directly (js/learn-grammar.js#renderMistakes); a
     missing field produces visibly broken output ('undefined' or
-    blank cells in the mistakes table)."""
+    blank cells in the mistakes table).
+
+    Two valid shapes (BUG-013, 2026-05-16):
+
+    1. Legacy / error entries: {`wrong`, `right`, `why`} — the
+       red-strike / green-check rendering. `wrong` is an
+       ungrammatical form; `right` is the corrected form.
+
+    2. Register-variant entries (`kind: "register_variant"`):
+       {`form_a`, `form_b`, `why`} — neutral "Form A / Form B"
+       rendering. Both forms are grammatically valid; they differ
+       in register / formality / pragmatic context. Optional:
+       `label_a` / `label_b` register tags.
+    """
     failures: list[str] = []
     path = ROOT / "data" / "grammar.json"
     if not path.exists():
@@ -3476,12 +3489,27 @@ def _check_ja_64_common_mistakes_shape() -> list[str]:
             if not isinstance(cm, dict):
                 failures.append(f"JA-64 {pid}.common_mistakes[{i}]: not a dict")
                 continue
-            for fld in ("wrong", "right", "why"):
+            # Choose required field set based on `kind`
+            if cm.get("kind") == "register_variant":
+                required = ("form_a", "form_b", "why")
+            else:
+                required = ("wrong", "right", "why")
+            for fld in required:
                 val = cm.get(fld)
                 if not val or (isinstance(val, str) and not val.strip()):
                     failures.append(
                         f"JA-64 {pid}.common_mistakes[{i}].{fld}: missing or empty"
                     )
+            # Defense-in-depth: a register_variant entry MUST NOT carry
+            # the legacy wrong/right keys (BUG-013 schema migration).
+            if cm.get("kind") == "register_variant":
+                for stale in ("wrong", "right"):
+                    if stale in cm:
+                        failures.append(
+                            f"JA-64 {pid}.common_mistakes[{i}].{stale}: "
+                            f"stale key on register_variant entry (BUG-013); "
+                            f"use form_a/form_b only"
+                        )
     return failures
 
 

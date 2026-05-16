@@ -318,8 +318,12 @@ def _render_common_mistakes(cms: list) -> str:
         out.append("<h2>Register variants — both forms are correct</h2>")
         out.append('<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>')
         for cm in variants:
-            form_a = cm.get("wrong") or ""
-            form_b = cm.get("right") or ""
+            # BUG-013 (2026-05-16): the schema migration is complete —
+            # register-variant entries now carry `form_a` / `form_b`
+            # keys (not `wrong` / `right`). Fall back to legacy keys
+            # if a stale entry hasn't migrated yet.
+            form_a = cm.get("form_a") or cm.get("wrong") or ""
+            form_b = cm.get("form_b") or cm.get("right") or ""
             label_a = cm.get("label_a") or "Form A"
             label_b = cm.get("label_b") or "Form B"
             why = cm.get("why") or ""
