@@ -1970,14 +1970,16 @@
         {
           "form": "十",
           "reading": "じゅう",
-          "gloss": "ten",
-          "vocab_id": "n5.vocab.7-numbers.十"
+          "gloss": "ten (sino-numeral; used in compounds and counters: 十一 じゅういち, 三十 さんじゅう)",
+          "vocab_id": "n5.vocab.7-numbers.十",
+          "bug_038_fix_2026_05_17": true
         },
         {
           "form": "十",
           "reading": "とお",
-          "gloss": "ten",
-          "vocab_id": "n5.vocab.8-native-counters-series.十"
+          "gloss": "ten (native count; used standalone with つ-series: 十日 とおか \"10 days / 10th of month\")",
+          "vocab_id": "n5.vocab.8-native-counters-series.十",
+          "bug_038_fix_2026_05_17": true
         },
         {
           "form": "十一",
