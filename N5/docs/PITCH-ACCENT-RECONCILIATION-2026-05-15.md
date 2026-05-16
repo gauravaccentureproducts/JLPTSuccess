@@ -28,8 +28,12 @@ CC-BY-SA 4.0). For each vocab entry:
 - **B (kanjium alternates field added):**       226 entries with multi-
   drop attestation now expose `pitch_accent.alternates: [list]`
 
-### Final confidence distribution
+### Confidence distribution at this reconciliation checkpoint
 - **`high`:**        944 (94%) — kanjium MATCH or auto-fixed to kanjium
+                                   (high *for the kanjium-attested patterns*;
+                                   kanjium itself reflects Tokyo dialect from
+                                   EDICT/NHK and may differ from other dialects
+                                   or from contested entries in the source)
 - **`medium`:**       22 (2%)  — morphological-rule (suru/お/country)
 - **`low`:**          16 (2%)  — lexicalized greeting phrases (need
                                    native review)
@@ -129,6 +133,12 @@ should be flagged for future native-human review.
 
 ## Locked by
 
-CI invariant **JA-90** validates that every vocab `pitch_accent.drop`
-agrees with the reference (or has `confidence: unverified` set).
+CI invariant **JA-90** prevents re-introduction of pitch-accent drop
+values that disagree with the kanjium reference: every vocab
+`pitch_accent.drop` either agrees with the reference, or carries
+`confidence: 'unverified' | 'low' | 'medium'` to document why the
+reference can't be used as authority. The gate is "kanjium-agreement
+OR explicitly-flagged-as-unverified", not "all pitch values are
+correct" — native auditory review of `low`/`unverified` entries
+(currently 43 of 1,009) remains the gold standard.
 

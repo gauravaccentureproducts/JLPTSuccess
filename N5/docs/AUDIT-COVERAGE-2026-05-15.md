@@ -4,6 +4,16 @@ This document is the honest accounting of what content-quality checks
 were performed on the N5 corpus, what gaps were filled, and what
 remains for future native-human review.
 
+**Writing-discipline note for this document and all audit docs.** Every
+claim below is bounded by *what was scanned* (a specific regex
+pattern), *what was sampled* (a specific N out of the corpus), or *what
+was cross-referenced* (a specific external dataset, possibly partial in
+coverage). Phrases like "every", "all", "complete", "final",
+"saturated", "closed enum", "0 findings" should always be read with
+the implicit qualifier *"against what we measured"*. A future JLPT exam
+or native-human review may surface item classes outside the categories
+we defined; this document does not claim otherwise.
+
 Auditor: Claude (LLM) acting as native-Japanese-teacher persona, with
 explicit user authorisation. Hindi review by the same LLM in
 native-Hindi-reviewer persona. **Neither persona is a native human;
@@ -20,7 +30,7 @@ this is documented so future native-human review can prioritise**.
 | Kanji within N5 whitelist (user-facing fields) | ✅ Enforced | JA-13 |
 | Hiragana/katakana convention (on-yomi=katakana, kun=hiragana) | ✅ Enforced | JA-76, JA-72 |
 | No HTML markup leak in shipped Japanese fields | ✅ Enforced | JA-83, JA-84 |
-| No template-leak boilerplate (`Xを 見ました。`, `あの Xは どこですか。`, `これは Xです。`, `Xとあいさつしました`) | ✅ Enforced | JA-83 |
+| No template-leak boilerplate — *the specific named templates we caught and locked:* `Xを 見ました。`, `あの Xは どこですか。`, `これは Xです。`, `Xとあいさつしました` (further templates may exist beyond these named patterns) | ✅ Enforced | JA-83 |
 | Kanji.json sentence translations populated | ✅ Enforced | JA-84 |
 | Dokkai locale + format_role parity | ✅ Enforced | JA-85 |
 | authentic.json context_hi + questions distractor en/hi coverage | ✅ Enforced | JA-86 |
@@ -41,23 +51,23 @@ this is documented so future native-human review can prioritise**.
 | Reading/Dokkai native-accuracy | 54 passages + 7 papers | 101 fixes across 2 rounds | 101 |
 | Mega-audit (listening/authentic/questions/drills/papers-{bunpou,goi,moji}) | 1,924 items | 838 fixes across 2 rounds | 838 |
 | **Wave 1** — Cross-corpus consistency | All 12 corpora | 17 flagged, 1 real, 16 checker FPs | 1 |
-| **Wave 2** — Particle-precision L2-error scan | 6,309 sentences | 0 real findings (14 pattern classes) | 0 |
-| **Wave 3** — Sampling deep-linguistic + rationale alignment | 80 sample + 402 paper questions | 115 flagged, 2 real, 113 FPs | 2 |
+| **Wave 2** — Particle-precision L2-error scan | 6,309 sentences | 0 findings *against the 14 specific patterns scanned* (other particle-error classes outside the 14 may still exist) | 0 |
+| **Wave 3** — Sampling deep-linguistic + rationale alignment | 80 sample + 402 paper questions | 115 flagged, 2 real, 113 FPs *(sampled scope — not exhaustive across all ~6,300 sentences)* | 2 |
 | **Session total** | 3,373 items | | **1,900 fixes** |
 
 ### Native-Japanese linguistic accuracy (this session — partial coverage)
 
 | Dimension | Coverage | Method | Confidence |
 |-----------|----------|--------|------------|
-| Sentence-final stative-adj particles (Xが 好き / Xが 上手 etc.) | Full | Regex scan of 6,309 sentences | High |
-| Stacked particle errors (でに, にで) | Full | Regex scan with FP whitelist (ひとりでに) | High |
-| Conjugation errors (くないだ, ますました, ですです, double-か) | Full | Regex scan | High |
-| na-adjective mis-conjugated as i-adj (きれいいです) | Full | Regex scan | High |
-| Headword-presence in vocab examples | Full | Stem-aware substring + counter rendaku awareness | High |
-| Cross-corpus reading agreement | Full | Programmatic comparison vs vocab.json canonical | High |
-| Reading-passage rationale-answer alignment | Full | Char-overlap heuristic; manual triage of flagged | Medium (only the most divergent were caught) |
-| Idiomatic naturalness (does this sound native?) | **Spot-sample only** | 80 random sentences manually reviewed | Medium |
-| Register consistency within a discourse | **Spot-sample only** | Same 80 sentences | Medium |
+| Sentence-final stative-adj particles (Xが 好き / Xが 上手 etc.) | Full *(against this regex pattern across the corpus snapshot)* | Regex scan of 6,309 sentences | High *for the patterns scanned; other stative-adj error shapes may exist* |
+| Stacked particle errors (でに, にで) | Full *(for these two specific stacks)* | Regex scan with FP whitelist (ひとりでに) | High *for these two stacks; other illegitimate particle stacks not exhaustively enumerated* |
+| Conjugation errors (くないだ, ますました, ですです, double-か) | Full *(for these four specific patterns)* | Regex scan | High *for the listed shapes; other conjugation error classes may exist* |
+| na-adjective mis-conjugated as i-adj (きれいいです) | Full *(for this single mis-conjugation pattern)* | Regex scan | High *for this specific shape* |
+| Headword-presence in vocab examples | Full *(every vocab example was checked)* | Stem-aware substring + counter rendaku awareness | High |
+| Cross-corpus reading agreement | Full *(against vocab.json canonical readings as of the snapshot)* | Programmatic comparison vs vocab.json canonical | High |
+| Reading-passage rationale-answer alignment | Full *(by char-overlap heuristic; semantic alignment beyond char-overlap not checked)* | Char-overlap heuristic; manual triage of flagged | Medium (only the most divergent were caught) |
+| Idiomatic naturalness (does this sound native?) | **Spot-sample only** | 80 random sentences manually reviewed *(out of ~6,300 — roughly 1.3% sample)* | Medium *for the sample; unsampled remainder unverified* |
+| Register consistency within a discourse | **Spot-sample only** | Same 80 sentences | Medium *for the sample; unsampled remainder unverified* |
 | Honorifics correctness (尊敬語 / 謙譲語) | **Not checked** | Requires N3+ pragmatic analysis | N/A |
 | Subtle particle precision (は vs が discourse choice, に vs で for movement vs activity) | **Not checked** | Requires semantic context understanding | N/A |
 | Counter-noun pairing semantic correctness (枚 for flat, 本 for cylindrical, 個 for general) | **Not checked** | Requires per-object classification | N/A |
@@ -86,10 +96,10 @@ this is documented so future native-human review can prioritise**.
 
 | Dimension | Coverage | Notes |
 |-----------|----------|-------|
-| Mondai number is N5-valid per surface | ✅ Enforced | reading uses 4-6, listening uses 1-4 |
-| Choice count per mondai (3 vs 4) | Relaxed | Mondai 3 utterance accepts both 3 and 4 (corpus has both shapes) |
+| Mondai number is N5-valid per surface | ✅ Enforced *against the mondai numbers currently observed in the corpus* | reading uses 4-6, listening uses 1-4 (a real JLPT paper may include shapes outside these ranges; the gate is corpus-shape, not authoritative JLPT spec) |
+| Choice count per mondai (3 vs 4) | Relaxed *to accept both shapes currently observed* | Mondai 3 utterance accepts both 3 and 4 (corpus has both shapes) |
 | Difficulty calibration vs real JEES papers | **Not checked** | Would require statistical comparison with past papers |
-| Question type taxonomy closed enum | ✅ Enforced | JA-29 |
+| Question type taxonomy *closed against currently-observed values* | ✅ Enforced | JA-29 — prevents drift of currently-shipped type strings; a future JLPT release may include new types that would need to be added to the enum |
 
 ### Cross-references (denormalisation safety)
 
@@ -110,14 +120,16 @@ native-human review, the following items would benefit most:
 
 ### High-priority (linguistic accuracy)
 
-1. **Idiomatic naturalness of every Japanese example** — random sampling
-   suggests >95% naturalness, but 5% of ~6,300 sentences ≈ 315 entries
-   could read non-native to a Japanese speaker. Native reviewer would
-   confirm each one.
+1. **Idiomatic naturalness of every Japanese sentence we sampled (~80 of ~6,300)** —
+   the 80-sentence sample surfaced 0 unnatural sentences; extrapolating to the
+   unsampled ~6,220 is not statistically justified from a 1.3% sample. The
+   remainder is **unverified for naturalness**, not "≥95% likely natural."
+   A full native review would surface the true rate.
 
-2. **Pitch accent drop positions** — LARGELY RESOLVED 2026-05-15 via
-   JA-90 reconciliation against the kanjium reference (CC-BY-SA 4.0,
-   pinned commit `8a0cdaa`). Two-round reconciliation:
+2. **Pitch accent drop positions** — narrowed via JA-90 reconciliation
+   against the kanjium reference (CC-BY-SA 4.0, pinned commit `8a0cdaa`);
+   27 entries remain `unverified` and 16 entries `low`-confidence pending
+   native auditory review. Two-round reconciliation:
    - Round 1 (commit `08f6907`): 22 drops auto-fixed; 810 MATCH;
      177 NOT_FOUND.
    - Round 2 (kanjium empty-reading-column fix + morphological
@@ -191,19 +203,26 @@ native-human review, the following items would benefit most:
 | Cross-corpus + particle + rationale | — | 3 (waves 1+2+3) | 3 | JA-87, JA-88 |
 | **TOTAL** | **3,373 items** | **~1,903 fixes** | **24 rounds** | **+6 invariants** |
 
-Final CI count: **91 invariants** (was 81 at session start).
+CI invariant count at this checkpoint: **93 invariants** (was 81 at session start;
+counts are point-in-time and may continue to grow with future audit cycles).
 
 ---
 
 ## Last-known-clean checkpoint
 
-Commit `5569dd1` — mega-audit complete, 89/89 invariants green.
-Wave-1/2/3 + this disclosure document add 2 invariants (JA-87, JA-88)
-on top of that, taking the project to **91/91 invariants green**.
+Commit `5569dd1` — checkpoint of the mega-audit pass against the corpus
+*as of that commit*, 89/89 invariants then-defined green.
+Wave-1/2/3 + this disclosure document add 2 invariants (JA-87, JA-88);
+subsequent work added JA-89 and JA-90, bringing the project to
+**93/93 invariants green at the most recent commit**.
 
-Subsequent native-human review passes should reference this document
-to know what's already validated programmatically vs what still needs
-human eyes.
+"All invariants green" means *all the checks we have written* pass —
+not "every conceivable quality concern about the corpus has been
+addressed." Subsequent native-human review passes should reference
+this document to know what's validated programmatically (against
+*specific named patterns*) vs what still needs human eyes (everything
+the checkers don't catch — which may include classes we haven't yet
+named).
 
 ---
 

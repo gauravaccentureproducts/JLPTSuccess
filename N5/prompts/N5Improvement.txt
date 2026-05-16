@@ -461,13 +461,57 @@ for q in json.load(open('data/questions.json',encoding='utf-8'))['questions']:
 print('Particle-precision L2-error scan (A36 / JA-88, target 0):', total)
 ```
 
-Run ALL FIVE blocks above before producing Section 2 of the report.
+### Phase-0 Audit-doc writing-discipline scan (added 2026-05-15)
+
+Regression block: scan the latest audit-coverage / reconciliation /
+native-teacher report files for absolutist phrasing that violates the
+writing-discipline rules. Target = 0; non-zero means an audit doc
+was committed without the qualified phrasing.
+
+```python
+import glob, re
+PATHS = sorted(glob.glob('docs/AUDIT-*-2026-*.md')
+             + glob.glob('docs/PITCH-ACCENT-*-2026-*.md'))
+# Banned absolutist patterns (must appear with a scope qualifier
+# nearby, or not at all). The check is intentionally conservative:
+# it flags any bare occurrence in headings/summary tables. Manual
+# triage required for any hit — some occurrences in the file are
+# legitimate (quoted source, prose explaining the rule).
+ABSOLUTIST = [
+    r'\b(?:RESOLVED|FULLY RESOLVED|fully resolved)\b',
+    r'\b(?:saturated|converged)\b(?!\s+against)',
+    r'\bevery (?:Japanese )?(?:example|sentence|entry)\b'
+        r'(?!\s+(?:in|we|in the corpus|in the snapshot|sampled))',
+    r'\bclosed enum\b(?!\s+against)',
+    r'\bFinal CI count\b',
+    r'\bStatistically (?:>=|≥)\s*\d+%\s+likely\b',
+]
+hits = []
+for p in PATHS:
+    text = open(p, encoding='utf-8').read()
+    for pat in ABSOLUTIST:
+        for m in re.finditer(pat, text):
+            # Skip if inside a code block or quoted example (heuristic)
+            line_start = text.rfind('\n', 0, m.start()) + 1
+            line_end = text.find('\n', m.end())
+            line = text[line_start:line_end]
+            if line.lstrip().startswith('-') and '→' in line:
+                continue  # rewrite-table entry; intentionally cites banned phrase
+            if '"' in line and line.count('"') >= 2:
+                continue  # quoted source
+            hits.append((p, line.strip()[:140]))
+print('Absolutist phrasing in audit docs (target 0):', len(hits))
+for h in hits[:10]:
+    print('  ', h[0], '::', h[1])
+```
+
+Run ALL SIX blocks above before producing Section 2 of the report.
 The numbers from the script ARE Section 2; do not paraphrase.
 
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
-The audit is SATURATED — and the calendar block in line 1 fires —
-when ALL of these hold simultaneously:
+The audit is **saturated against its current pattern set** — and the
+calendar block in line 1 fires — when ALL of these hold simultaneously:
 
 1. **Phase-0 100%-rows count is unchanged from prior run.** Every
    row that was at 100% last cycle is still 100%; no row regressed.
@@ -481,9 +525,22 @@ when ALL of these hold simultaneously:
    differ, the prompt has drifted and is not a reliable saturation
    detector.
 
-If 1+2+3+4 all hold: the audit is closed. If ANY fails: the prompt
-is not yet saturated and may be re-run when a trigger condition
-fires (top of file).
+If 1+2+3+4 all hold: the audit is closed *against the patterns this
+prompt currently checks*. If ANY fails: the prompt is not yet
+saturated and may be re-run when a trigger condition fires (top of
+file).
+
+**Important framing for the audit report:** "saturated" here means
+*the patterns this prompt is defined to detect* return 0 findings on
+the live corpus. It does NOT mean the corpus contains no defects of
+any kind. New finding-classes may exist outside the patterns this
+prompt currently names; they would surface only when a new pattern is
+added to this prompt, when the prompt is re-run against an extended
+corpus, or when native-human review surfaces an item the checker
+doesn't catch. Always write "saturated against this prompt's pattern
+set" in the report — never just "saturated" — to avoid implying
+universal corpus correctness. (Cross-ref: WRITING DISCIPLINE FOR
+AUDIT DOCS in `prompts/Japanese language Accuracy check.txt`.)
 
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
@@ -536,6 +593,35 @@ the maintainer hand-curated and LLM-promoted entries carry this tag.
 Exposing the tag in UI as a trust signal would be a false claim.
 IMP-184 was set to Avoid 2026-05-13 for this reason. Do not surface
 provenance to learners; the content's correctness is the trust signal.
+
+### Anti-pattern G: absolutist phrasing in audit reports (added 2026-05-15)
+Audit report prose must NOT use terminal/conclusive words that imply
+universal coverage. Specifically banned in the report's section
+headings, summary tables, and conclusions:
+
+  - "every X" / "all X" without scope qualifier
+  - "0 findings" without naming the patterns scanned
+  - "RESOLVED" / "complete" / "final" without scope qualifier
+  - "closed enum" without "against currently-observed values"
+  - "JA-NN locks the gain" — instead "JA-NN prevents re-introduction
+    of these specific named patterns"
+  - "saturated" / "converged" without "against this prompt's pattern
+    set"
+  - "Final CI count" — instead "CI invariants at this checkpoint"
+  - Statistical-extrapolation claims from sub-2% samples
+    ("≥95% likely natural from a 80-sample n=6,300 corpus") — the
+    sample shows 0 findings, but extrapolation is not justified
+
+Why: future readers of audit reports (native reviewers, institutional
+adopters, learners) treat absolutist language as "the team verified
+universal correctness." When a JLPT exam or native review surfaces a
+defect, they conclude the report misrepresented coverage. The fix is
+qualified writing — see WRITING DISCIPLINE FOR AUDIT DOCS in
+`prompts/Japanese language Accuracy check.txt` for the rewrite table.
+
+When THIS prompt's audit report is generated, the report MUST use the
+qualified phrasing throughout. Run a final pre-commit grep on the
+report against the banned-word list; rewrite any hit.
 
 You will NOT fix anything. You will NOT implement anything. You
 will NOT modify any file, run any deploy, or make any commit. You

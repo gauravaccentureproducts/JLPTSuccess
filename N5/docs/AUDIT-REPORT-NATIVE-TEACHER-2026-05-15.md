@@ -8,7 +8,17 @@ passages), `data/papers/dokkai/*.json` (7 papers, 102 questions).
 JLPT-N5-expert persona. Not a native human; confidence levels declared
 per dimension below.
 
-**Methodology:** 4 phases, each iterated until 0 real findings.
+**Methodology:** 4 phases, each iterated until the checker for *that
+phase's specific pattern set* returned 0 real findings. "0 findings"
+below always means "0 findings against the patterns scanned" — it does
+not claim universal coverage of all possible linguistic-accuracy
+classes in the corpus.
+
+**Writing-discipline note.** Sections below use phrases like "every",
+"all", "RESOLVED", "complete", "final". Read each as bounded by
+*"within the categories defined in that section"*. A future JLPT exam
+or native-human review may surface item classes outside our defined
+categories.
 
 ---
 
@@ -54,7 +64,10 @@ extension caught 102 more.
 | Stem-format conformance | 86 of 102 (84%) match canonical JLPT-style stem patterns (どこですか / 何時に / どうして / etc.); other 16 are legitimate non-template stems |
 | Distractor pedagogy (sample of 8) | All 8 sampled distractor sets used realistic confusable wrong answers (adjacent times, plausible alternative locations) — no random-distractor laziness |
 
-**Phase C findings: 0.** Papers are JLPT-format-authentic.
+**Phase C findings: 0** *against the three dimensions checked above*.
+Papers conform to JLPT-format conventions for the dimensions reviewed.
+Difficulty calibration vs real JEES papers is **not** checked here
+(see AUDIT-COVERAGE for the gap disclosure).
 
 ---
 
@@ -92,7 +105,10 @@ sampled entries had drop positions consistent with NHK convention.
 
 ### D.3 Idiomatic naturalness of long sentences (15 long-form examples)
 
-Reviewed 15 sentences ≥30 chars. All naturally idiomatic. ✓ 0 bugs.
+Reviewed 15 sentences ≥30 chars. None of these 15 read as unnatural to
+the LLM-native-teacher persona. ✓ 0 bugs *in this 15-sentence sample*;
+longer-sentence naturalness across the full corpus remains unverified
+(see "What still requires native-human review" below).
 
 ### D.4 Audio-script consistency
 
@@ -102,15 +118,20 @@ listening-capable human reviewer.
 
 ---
 
-## Issues fixed (total: 158)
+## Issues fixed (total: 158, within the categories we defined)
 
 | Phase | Real fixes |
 |-------|-----------|
-| A — Counter-noun pedagogy | **7** (6 vocab + 1 grammar) |
-| B — Templates / animacy / translations | **92** (85 vocab + 6 grammar + 1 kanji) |
-| C — JLPT-format authenticity | 0 (already clean) |
-| D.1 — Verb template-leaks + wrong-headword | **59** (all vocab) |
+| A — Counter-noun pedagogy *(6 categories scanned)* | **7** (6 vocab + 1 grammar) |
+| B — Templates / animacy / translations *(5 specific patterns)* | **92** (85 vocab + 6 grammar + 1 kanji) |
+| C — JLPT-format authenticity *(3 dimensions checked)* | 0 *for the dimensions checked* |
+| D.1 — Verb template-leaks + wrong-headword *(2 templates)* | **59** (all vocab matching these 2 templates) |
 | **TOTAL** | **158** |
+
+These 158 fixes address *the specific issue classes named above*.
+Issue classes outside this scope (e.g., subtle は vs が discourse
+choice, honorific register pragmatics, audio-script alignment) are
+**not** addressed in this audit pass.
 
 ---
 
@@ -137,10 +158,13 @@ Documented for future reviewer (when funded):
 2. **Audio-script alignment** — 50 listening + 54 reading audio
    files. Requires listening to confirm each script_ja matches the
    audio content.
-3. **Idiomatic naturalness beyond my sample** — ~5,200 unsampled
-   Japanese sentences. My audit sampled ~80 directly. Statistically
-   ≥95% are likely natural based on the 0% bug-rate in the sample,
-   but exhaustive native review would catch the residual.
+3. **Idiomatic naturalness beyond my sample** — ~6,220 unsampled
+   Japanese sentences. My audit sampled ~80 directly (≈1.3% of the
+   corpus). The sample surfaced 0 naturalness issues, but extrapolating
+   a "≥95% likely natural" rate from a 1.3% sample is not statistically
+   justified — the unsampled remainder is **unverified for
+   naturalness**, full stop. Exhaustive native review would establish
+   the true rate.
 4. **Hindi quality across 838+ LLM-curated entries** — translations
    written by Claude in native-Hindi-reviewer persona, not native
    human.
@@ -152,18 +176,22 @@ Documented for future reviewer (when funded):
 
 ## CI invariants added this audit
 
-| Gate | Locks |
-|------|-------|
-| JA-89 | 5-in-one: counter-noun-pedagogy on native-counter-series; no bare-article 'There is X' EN translations; no animacy violations; no `あの Xは どこですか` template in grammar.json; no `毎日 X ことが できます` / `あした X つもりです` templates in vocab |
+| Gate | Prevents re-introduction of |
+|------|-----------------------------|
+| JA-89 | 5-in-one: counter-noun-pedagogy on native-counter-series; bare-article 'There is X' EN translations; animacy violations; `あの Xは どこですか` template in grammar.json; `毎日 X ことが できます` / `あした X つもりです` templates in vocab — *these specific named patterns only; not a universal grammar-error gate* |
 
-Total CI invariants: **91 → 92**.
+CI invariants at this checkpoint: **91 → 92** (later extended to 93 with JA-90).
 
 ---
 
-## Final state
+## State at this checkpoint
 
-**91 → 92 CI invariants green. 158 fixes applied across 4 phases.**
+**91 → 92 CI invariants green at this commit. 158 fixes applied across 4 phases.**
+The invariants prevent the specific patterns above from being re-introduced;
+they do not assert that no other content-quality issues exist in the corpus.
 
 Combined with prior audits (grammar 348 + vocab 540 + kanji 71 +
 reading/dokkai 103 + mega-audit 838 + waves-1-2-3 3 + this pass 158
-= **2,061 cumulative content fixes in 26 audit rounds this session**).
+= **2,061 cumulative content fixes in 26 audit rounds this session,
+within the audit categories defined this session**). A future audit
+pass may define new categories and surface new findings.

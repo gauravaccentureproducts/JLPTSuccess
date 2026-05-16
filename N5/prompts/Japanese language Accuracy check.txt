@@ -307,13 +307,24 @@ RECORDING REQUIREMENT: every Phase 0 check that fires produces an
 F-N finding with the corresponding CHECK-NN reference in its
 "Cross-ref" field. Even if the count is "1 hit", file it.
 
-SATURATION DEFINITION: do NOT declare saturation unless ALL of:
+SATURATION DEFINITION: a checker is "saturated" against the corpus
+when ALL of:
   (a) Every Phase-0 check returned its pass value
   (b) Phase 1 sampling (12+ items per surface) found 0 actionable issues
+      *against the patterns the sampler is looking for*
   (c) The most-recent commit hash matches the post-fix state of
       the previous audit run
 
-If any condition fails, the audit is not saturated — continue.
+IMPORTANT FRAMING: "saturated" means *the patterns this audit is
+defined to detect* now return 0 findings in the live corpus. It does
+NOT mean the corpus contains no defects — it means we cannot find any
+*with the patterns we have currently named*. New finding-classes may
+exist beyond the current checker's scope; they would surface only by
+adding new patterns or by native-human review. Do not write
+"saturated" in shipped audit docs without this qualifier.
+
+If any condition fails, the audit is not saturated against its
+current pattern set — continue.
 
 
 ============================================================
@@ -989,10 +1000,14 @@ A35. CROSS-CORPUS READING/GLOSS CONSISTENCY
      case in wave-1). CI gate JA-87 locks.
 
 A36. PARTICLE-PRECISION L2-ERROR PATTERNS
-     (added 2026-05-15 wave-2; locked by JA-88)
+     (added 2026-05-15 wave-2; JA-88 prevents re-introduction of
+     these specific patterns)
 
-     The corpus must NOT contain these top-14 L2-learner errors. Scan
-     all Japanese sentences via regex:
+     The corpus must not contain these specific listed L2-learner
+     error patterns. Scan all Japanese sentences via regex. **The list
+     below is a catalog of patterns we caught and locked — additional
+     L2-error classes may exist in the corpus that aren't in this
+     list. Future audit cycles may extend the catalog.**
 
        Xを {好き|大好き|だいすき|上手|じょうず|下手|へた|嫌い|きらい|
             ほしい|欲しい|わかる|分かる|あります|います|ある|いる}
@@ -1009,16 +1024,21 @@ A36. PARTICLE-PRECISION L2-ERROR PATTERNS
        (です|ます)かか   → double question marker
        きました ました   → stutter pattern
 
-     Corpus result on 2026-05-15: 0 findings across 6,309 sentences
-     (validation pass).
+     Corpus result on 2026-05-15: 0 findings *against the patterns
+     listed above*, across 6,309 sentences (validation pass). This
+     does not assert the corpus is free of all L2-error patterns —
+     only that the listed ones are absent.
 
 A37. COUNTER-NOUN SEMANTIC PAIRING
-     (added 2026-05-15 native-teacher pass; locked by JA-89 lock1)
+     (added 2026-05-15 native-teacher pass; JA-89 lock1 prevents
+     re-introduction of the specific mis-pairings caught in this pass)
 
      Even when the counter is grammatically possible, examples that
-     pair a noun with a counter from the WRONG canonical set teach
-     learners the wrong pairing. JLPT N5 establishes canonical
-     pairings:
+     pair a noun with a counter from a non-canonical set teach
+     learners a non-preferred pairing. JLPT N5 has the following
+     primary pairings (context-dependent exceptions exist; this is
+     the textbook-default mapping, not a closed enumeration of all
+     valid pairings):
 
        本 (ほん/ぼん/ぽん) → cylindrical objects: pens, bottles,
                             umbrellas, trees
@@ -1935,11 +1955,14 @@ STRICT RULES — VIOLATIONS INVALIDATE THE AUDIT
     found new issues that earlier runs missed BECAUSE the earlier
     runs sampled different areas instead of running the full
     checklist. The fix is to make Phase 0 unskippable.
-17. SATURATION REQUIRES (a) ALL Phase-0 checks at expected values,
-    AND (b) Phase 1 sampling clean, AND (c) corpus state has not
-    advanced beyond the last verified-clean commit. Premature
-    saturation claims are the worst failure mode of an auditor
-    (declares "we're done" while bugs ship).
+17. SATURATION-AGAINST-CURRENT-PATTERN-SET REQUIRES (a) ALL Phase-0
+    checks at expected values, AND (b) Phase 1 sampling clean, AND
+    (c) corpus state has not advanced beyond the last verified-clean
+    commit. Premature saturation claims are the worst failure mode of
+    an auditor (declares "we're done" while bugs ship). Always write
+    "saturated against the current pattern set" — never just
+    "saturated" — in any shipped audit doc. See the WRITING
+    DISCIPLINE FOR AUDIT DOCS block near the bottom of this prompt.
 18. NEW CHECKS GO AT THE BOTTOM. When a bug is caught manually
     that should have been a Phase-0 check, ADD a CHECK-NN entry at
     the bottom of the Phase-0 list with the executable code, expected
@@ -2199,7 +2222,101 @@ If a fix-pass introduces a non-N5 kanji, JA-13 will fail. Always
 pre-scan authored sentences against the whitelist before saving.
 
 ============================================================
-END OF AUDIT BRIEF (updated 2026-05-15 — final native-teacher pass)
+WRITING DISCIPLINE FOR AUDIT DOCS
+(added 2026-05-15 — applies to every audit report, coverage doc,
+reconciliation doc, and CI-invariant description string)
+============================================================
+
+Audit output is read by future maintainers, native-human reviewers,
+institutional adopters, and learners. Absolutist language in audit
+docs misleads them about what we actually know. Apply the following
+rewrites WITHOUT being asked, before committing any audit-related
+prose:
+
+REWRITE TABLE (absolutist → bounded):
+
+  "every X" / "all X"
+    → "every X *in the corpus snapshot scanned*"
+       OR "every X *we sampled*"
+
+  "0 findings" / "0 real findings"
+    → "0 findings *against the N patterns scanned*"
+       OR "0 findings *in this sample*"
+
+  "RESOLVED" / "complete" / "final"
+    → "addressed for M of N items in scope"
+       OR "narrowed via <method>; <K> items remain unverified"
+       OR "as of commit <SHA>"
+
+  "closed enum"
+    → "closed against currently-observed values"
+       OR "enum-locked to the values currently shipping;
+           future additions would need explicit enum extension"
+
+  "JA-NN locks the gain"
+    → "JA-NN prevents re-introduction of *these specific patterns*"
+       (the gain itself is the absence of these patterns; the
+        invariant does not claim absence of unrelated defects)
+
+  "saturated" / "converged"
+    → "checker returns 0 findings *against its current pattern set*;
+       new finding-classes may exist beyond the checker's scope"
+
+  "Final CI count: N"
+    → "CI invariants at this checkpoint: N (point-in-time; expected
+       to grow with future audit cycles)"
+
+  "Statistically ≥X% likely natural" (from a small sample)
+    → "the sample surfaced 0 issues; extrapolating to the unsampled
+       remainder is not statistically justified from this sample
+       size — the remainder is **unverified**"
+
+  "every Japanese example is checked"
+    → "every Japanese example *in the corpus as of this commit* is
+       checked *for the specific patterns listed*"
+
+  "covers all L2-error patterns" / "the top-14 L2 errors"
+    → "covers the listed patterns" — name them, do not claim the
+       list is exhaustive
+
+  "comprehensive" / "exhaustive" (about coverage)
+    → "broad-coverage *within the patterns named*"
+
+PRACTICAL RULES:
+
+  1. Every numeric finding count gets a denominator and a method.
+     "115 flagged, 2 real" → "115 flagged across 6,309 sentences via
+     <regex>, 2 real after triage, 113 FPs documented in FP-NN".
+
+  2. Every "we caught X" claim names the pattern class. Patterns
+     are CATALOGED in this prompt (A1-A47, FP-1-FP-15); cite them
+     by number.
+
+  3. Every CI invariant description says "prevents re-introduction
+     of <named patterns>", not "locks <abstract concept>".
+
+  4. Every "0 findings" survives only if the prose immediately
+     after says what was searched. If the reader has to infer the
+     scope, the prose is wrong.
+
+  5. When a checker is added or extended, the audit-doc paragraph
+     for that pass MUST note "this pattern was not in the prior
+     run's scope" if it's new — so saturation deltas don't read as
+     regressions.
+
+  6. Phase-0 doesn't establish saturation against unknown patterns.
+     It establishes that the CURRENT pattern set returns 0. Always
+     write the qualifier.
+
+Failure mode being prevented: an exam, a native reviewer, or a
+learner finds a defect that the audit docs implied couldn't exist
+("you said it was complete!"). The fix is qualified writing, not
+qualified work — the work itself is honest; only the prose drifts.
+
+============================================================
+END OF AUDIT BRIEF (last updated 2026-05-15 — captures the native-
+teacher pass and the writing-discipline rewrite; expected to be
+extended in future audit cycles)
 
 Added in this session (chronologically):
   Vocab + kanji + dokkai + mega audits:
@@ -2240,11 +2357,15 @@ Added in this session (chronologically):
     issue, not a grammar bug
 
 CI invariants added this session: JA-81, JA-83, JA-84, JA-85, JA-86,
-JA-87, JA-88, JA-89, JA-90. Total: 81 → 93 (+12 net).
+JA-87, JA-88, JA-89, JA-90. CI count at this checkpoint: 81 → 93
+(+12 net; expected to grow with future audit cycles, not "final").
 
-JA-90 (pitch-accent reference validation) closes the previously-deferred
-"native-human auditory review" gap for 82% of vocab; remaining 18% are
-explicitly tagged `confidence: 'unverified'` for transparency.
+JA-90 (pitch-accent reference validation) narrows the previously-
+deferred "native-human auditory review" gap to 43 of 1,009 vocab
+entries (the 16 `low`-confidence + 27 `unverified` rows that lack a
+kanjium attestation). It does not close the gap — native auditory
+review of those 43 entries (and ideally a sampled re-check of the 944
+kanjium-MATCH entries) remains future work.
 
 See docs/AUDIT-COVERAGE-2026-05-15.md for honest disclosure of what
 programmatic checks cover vs what still needs native-human review.

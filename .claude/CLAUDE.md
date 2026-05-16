@@ -57,6 +57,8 @@ Whenever an audit cycle, fix batch, methodology change, new CI invariant, new fa
 
 **Practical commit pattern:** when wrapping up a substantive change, before writing the commit message, list the 4 doc files above and ask yourself per-file: "did this change produce a learning that belongs here?" If yes, edit it; if no, skip. The commit message should note which docs were updated.
 
+**Writing discipline for audit docs (added 2026-05-15):** every audit-coverage, reconciliation, or native-teacher report MUST use bounded phrasing — never absolutist phrasing — when describing coverage. Prefer "every X *in the corpus snapshot scanned*" over "every X"; prefer "0 findings *against the N patterns scanned*" over "0 findings"; prefer "addressed for M of N items in scope" over "RESOLVED"; prefer "closed against currently-observed values" over "closed enum"; prefer "JA-NN prevents re-introduction of *these specific patterns*" over "JA-NN locks the gain"; prefer "saturated *against this prompt's pattern set*" over "saturated" or "converged"; prefer "CI invariants at this checkpoint" over "Final CI count". A future JLPT exam, native reviewer, or institutional adopter reads audit docs as quality-coverage claims; terminal/absolutist language overclaims and breaks the trust contract when an item-class outside our audited scope surfaces. The full rewrite table + a Phase-0 regression check live in `N5/prompts/Japanese language Accuracy check.txt` (WRITING DISCIPLINE FOR AUDIT DOCS section) and `N5/prompts/N5Improvement.txt` (Phase-0 Audit-doc writing-discipline scan).
+
 ## Operational notes
 
 - Live URL: https://gauravaccentureproducts.github.io/JLPTSuccess/

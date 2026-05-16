@@ -46,7 +46,7 @@ Settings enforcement: `**/*.bak*`, `**/*.backup*`, `**/*_backup_*`, `**/backups/
 3. `N5/prompts/N5Improvement.txt` (anti-items + Phase-0 regression blocks)
 4. `N5/docs/AUDIT-COVERAGE-YYYY-MM-DD.md` (coverage matrix + future-review section)
 
-See the parent `JLPTSuccess/.claude/CLAUDE.md` Rule 4 for the full specification, including the "ask yourself per-file" commit pattern and the mechanical-change exception.
+See the parent `JLPTSuccess/.claude/CLAUDE.md` Rule 4 for the full specification, including the "ask yourself per-file" commit pattern, the mechanical-change exception, **and the writing-discipline-for-audit-docs bullet** (added 2026-05-15: every audit doc must use bounded phrasing — "every X in the corpus scanned" not "every X"; "0 findings against the N patterns scanned" not "0 findings"; "saturated against current pattern set" not "saturated"; "JA-NN prevents re-introduction of these specific patterns" not "JA-NN locks the gain"). The full rewrite table lives in `prompts/Japanese language Accuracy check.txt` → WRITING DISCIPLINE FOR AUDIT DOCS section.
 
 ## Commit workflow (BINDING — set 2026-05-11)
 
