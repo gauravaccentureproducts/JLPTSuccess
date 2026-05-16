@@ -1930,6 +1930,30 @@ Mandatory entries for this richness-first cycle:
   TTS input is normalized. The legacy gTTS renderer already does
   this via `normalize_for_tts()`. See A47 in the accuracy prompt +
   F.12 in the procedure manual."
+- "Do NOT author wrong_corrected_pair or common_mistakes entries
+  that mark an N5-canonical particle form as wrong without
+  identifying the verb's class. The companion-と vs direction-に
+  distinction is per-verb: 会う→に canonical, 遊ぶ→と canonical,
+  結婚する→と canonical, 出会う→に canonical, テニスを する→と
+  canonical, 話す→と, 挨拶する→に. A rationale that says
+  '[verb] takes [particle]' without naming the verb class will
+  mislabel valid forms when applied to a verb of the other class.
+  Caught 2026-05-16 as user-reported BUG-002 — n5-008 wcp[2]
+  mislabeled `ともだちに あいました` (canonical 会う+に form per
+  Genki/Minna/JEES). See A48 in the accuracy prompt + F.15 in the
+  procedure manual."
+- "Do NOT ship a hash-routed SPA without a static HTML mirror
+  surface for crawlers / non-JS fetchers. GitHub Pages (and any
+  static host) strips the `#` fragment server-side; non-JS clients
+  (Claude chat, search-engine crawlers with limited JS budgets,
+  archive snapshots) see only the empty shell. Pattern: generate
+  one static HTML mirror per content unit at a crawlable path
+  (`/N5/lessons/<id>.html`) with `<link rel='canonical'>` back to
+  the SPA route. Caught 2026-05-16 as user-reported BUG-001.
+  Resolved at N5 for grammar surface via
+  `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
+  mirror generator on Day 1; cover every content surface (grammar,
+  vocab, kanji, reading). See F.16 in the procedure manual."
 
 Plus other audit-discovered "we considered and decided no" items.
 

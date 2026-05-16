@@ -336,3 +336,81 @@ parenthesization — VOICEVOX may be reading the parens aloud as
 "kakko nani kakko" instead of treating them as ruby annotations.
 This is a SEPARATE failure class (not bunsetsu-space-related);
 file as a new finding next cycle.
+
+---
+
+## Addendum 2026-05-16: User-reported bugs (BUG-001, BUG-002)
+
+**BUG-001 — SPA hash routes not crawlable by non-JS fetchers:**
+
+`https://...github.io/JLPTSuccess/N5/#/learn/<id>` is invisible to
+Claude chat web-fetch, search engine crawlers (with limited JS
+budgets), archive snapshots, and other read-only mirrors because
+GitHub Pages strips the `#` fragment before sending the request.
+The server returns the SPA shell; JavaScript renders the lesson
+content client-side, which non-JS fetchers don't execute.
+
+**Resolution:** `tools/build_lesson_html_mirrors.py` generates one
+static HTML mirror per grammar pattern at `lessons/<pattern-id>.html`,
+plus a browsable `lessons/index.html`. Each page is plain HTML +
+inline CSS (no JS), with `<link rel="canonical" href="../#/learn/<id>">`
+pointing back to the SPA route. Built 178 grammar pages + 1 index
+this commit. Vocab / kanji / reading mirrors NOT yet built (deferred;
+same approach extensible).
+
+Coverage of this fix:
+- Surface: grammar (178/178 patterns mirrored — *within this commit's
+  scan; future authoring requires re-running the build tool*)
+- Surface: vocab / kanji / reading / listening — *not mirrored
+  in this commit; the SPA still hash-routes these*
+- Search-engine discoverability: not yet wired (sitemap.xml not
+  generated; deferred)
+
+**BUG-002 — Verb-class particle disambiguation mislabel
+(n5-008 wcp[2]):**
+
+User reported that pattern n5-008 had a wcp entry marking
+`ともだちに あいました。` (canonical N5 form per Genki/Minna/JEES) as
+wrong, with the rationale "会う takes と; に is more like happen-to-
+encounter" — both the marking and the rationale were incorrect.
+The bug originated from conflating two distinct verb classes
+(companion-と vs direction-に) and applying a universal rule.
+
+**Resolution:** replaced n5-008 wcp[2] with an on-pattern entry that
+illustrates a real error (joint-action verb テニスを する with に as
+the wrong particle). New `why` field explicitly names BOTH verb
+classes and notes 会う is the direction-に class.
+
+Coverage of this fix:
+- Pattern scanned for the mislabel class: 178 patterns × 3
+  wrong_corrected_pair entries = 534 wcps, plus 178 patterns ×
+  N common_mistakes (variable count, typically 3-5 each). Total
+  ~1,400 entries.
+- Scan method: regex for `ともだちに 会`, `ともだちに あ`, etc.
+  combined with manual inspection of suspicious `why` phrasings
+  ("happen to encounter", "casual", "more natural").
+- Findings *within the scanned regex patterns*: 1 (n5-008 wcp[2]).
+- Other "casual/formal" wcps surfaced by the same scan were
+  inspected and confirmed as legitimate register-mismatch pedagogy
+  (not bugs).
+- *Bug-class items outside the scanned regex patterns may still
+  exist*; this fix addresses the user-reported instance and the
+  scan-detectable variants.
+
+**CI invariants added:** None directly for the verb-class
+disambiguation class — it requires lexical knowledge (per-verb
+canonical particle assignments) not easily encoded as a deterministic
+rule. The accuracy prompt's new A48 category documents the pattern
+and the per-verb table for future audits.
+
+**Documentation propagation (Rule 4):**
+
+- ✓ Procedure manual `JLPT Common/`: §F.15 (verb-class
+  disambiguation) + §F.16 (static HTML mirror pattern).
+- ✓ Accuracy prompt: new A48 audit category with per-verb canonical
+  particle table.
+- ✓ N5Improvement prompt: anti-item entry covering both bug classes.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
+  sheet: BUG-001 + BUG-002 marked Fixed; descriptions appended with
+  [FIX 2026-05-16] notes.

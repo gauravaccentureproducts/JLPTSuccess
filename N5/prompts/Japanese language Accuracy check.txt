@@ -1333,6 +1333,67 @@ A47. AUDIO RENDERER NORMALIZATION GAP — bunsetsu-space particle drop
      that the renderer's text-transform call exists in source (regex
      for `.replace(" ", "")` in the build_audio_*.py file).
 
+A48. VERB-CLASS PARTICLE DISAMBIGUATION IN wcp / common_mistakes
+     (added 2026-05-16; caught on user-reported BUG-002)
+
+     wrong_corrected_pair (wcp) and common_mistakes entries that
+     disambiguate Japanese particles by VERB CLASS can mislabel an
+     N5-canonical form as "wrong" when the rationale conflates two
+     distinct verb classes (companion-と verbs vs direction-に verbs).
+
+     **The specific N5 case (BUG-002):** pattern n5-008 (LIST-EXHAUSTIVE
+     と) had wcp[2] stating:
+       wrong:    ともだちに あいました。
+       correct:  ともだちと あいました。
+       why:      会う meaning "meet (mutual)" takes と; に is
+                 grammatical but more like "happen to encounter".
+
+     Both errors:
+     - 会う is N5-canonical with に (Genki I L4, Minna no Nihongo, JEES
+       samples). The "happen to encounter" rationale was fabricated.
+     - The entry was off-pattern: n5-008 covers LIST-EXHAUSTIVE と (joining
+       nouns), not the companion-と vs direction-に *verb-class*
+       distinction.
+
+     **Per-verb canonical particle table (N5 scope):**
+       会う (meet)             → に  (direction-of-meeting)
+       行く / 来る (go/come)   → に / へ (direction)
+       遊ぶ (play with)        → と  (companion / joint action)
+       話す (talk)             → と  (mutual action)
+       結婚する (marry)        → と  (mutual action)
+       テニスを する (joint X) → と  (companion)
+       出会う (encounter)      → に
+       挨拶する (greet)        → に  (direction)
+
+     Any wcp whose `why` says "[verb] takes [particle]" without
+     identifying the verb's class is over-generalized. Always state
+     "this verb class takes X" rather than "Japanese takes X".
+
+     **Detection at audit time:**
+
+     - For every wcp / common_mistakes entry whose `wrong` field uses
+       a Person-に or Person-と construction with a verb: cross-check
+       the verb against the per-verb canonical table.
+     - Phase-0 candidate: regex scan for ともだちに 会|あ, ともだちに
+       話, ともだちと 行 (canonical forms used as `wrong`); flag for
+       manual review. The flag rate is low (1 in 534 wcps at N5)
+       so manual triage is feasible.
+
+     **Fix pattern:**
+
+     - If the wcp's verb is in the per-verb table as taking [particle],
+       and the wcp marks [particle] as wrong → flip OR replace the wcp
+       entry with a verb of the OTHER class (so the `wrong → correct`
+       pair illustrates a real error).
+     - Update the `why` field to name BOTH verb classes explicitly.
+     - Mark `provenance: user_bug_NNN_fix_YYYY_MM_DD` for traceability.
+
+     **Caveats:**
+
+     - The verb-class assignments above apply at N5; higher levels
+       may have register-flexible verbs (e.g., 出会う in literary
+       context, 〜と) where both are acceptable. Reconfirm at Nx.
+
 Category B — JLPT N5 SCOPE LABELING (HIGH severity)
 ---------------------------------------------------
 

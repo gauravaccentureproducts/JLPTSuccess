@@ -3315,11 +3315,11 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "ともだちに あいました。 (X \"I met with my friend\" intent)",
-          "correct": "ともだちと あいました。",
-          "why": "会う meaning \"meet (mutual)\" takes と; に is grammatical but more like \"happen to encounter\".",
+          "wrong": "ともだちに テニスを しました。",
+          "correct": "ともだちと テニスを しました。",
+          "why": "Joint-action verbs (テニスを する, あそぶ, べんきょうする — doing X TOGETHER WITH someone) take companion-と, not direction-に. Note: the verb 会う (to meet) is a separate class and takes に as its N5-canonical particle (e.g., 「ともだちに 会いました」 ✓ Genki/Minna). The companion vs direction distinction is per-verb, not universal.",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "user_bug_002_fix_2026_05_16"
         }
       ],
       "politeness_ladder": {
