@@ -15,7 +15,8 @@
       "weather"
     ],
     "review_status": "native_reviewed",
-    "license": "Same as the rest of this project's content (CC BY-SA 4.0). Items are paraphrases / typical phrasings of public-space Japanese — no specific establishment trademark or proprietary signage is reproduced."
+    "license": "Same as the rest of this project's content (CC BY-SA 4.0). Items are paraphrases / typical phrasings of public-space Japanese — no specific establishment trademark or proprietary signage is reproduced.",
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
   },
   "items": [
     {
@@ -27,11 +28,12 @@
       "gloss_hi": "अस्पताल",
       "context": "Sign + spoken word. The kanji 病院 is N4-level.",
       "context_hi": "संकेत + बोलचाल। 病院 कान्जी N4 स्तर का है।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.びょういん"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.hospital.hokensho",
@@ -42,7 +44,8 @@
       "gloss_hi": "स्वास्थ्य बीमा कार्ड",
       "context": "Asked at every clinic visit. Carry it always.",
       "context_hi": "हर क्लिनिक यात्रा पर पूछा जाता; हमेशा साथ रखें।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.hospital.kusuri",
@@ -53,11 +56,12 @@
       "gloss_hi": "दवा",
       "context": "Sign at pharmacies. くすりを のんで ください = take the medicine.",
       "context_hi": "फ़ार्मेसी पर संकेत। くすりを のんで ください = दवा लें।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.37-common-nouns-miscella.くすり"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.hospital.netsu",
@@ -68,12 +72,13 @@
       "gloss_hi": "मुझे बुखार है",
       "context": "Stating symptoms: ねつ + が + あります = exist-of-fever.",
       "context_hi": "लक्षण बताना: ねつ + が + あります = बुखार-का-होना।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "grammar_refs": [
         "n5-003",
         "n5-090"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.hospital.uketsuke",
@@ -84,7 +89,8 @@
       "gloss_hi": "रिसेप्शन (काउंटर)",
       "context": "First-stop sign in any clinic / hospital.",
       "context_hi": "किसी भी क्लिनिक/अस्पताल में पहला-स्टॉप संकेत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.gochisousama",
@@ -95,11 +101,12 @@
       "gloss_hi": "(खाने के बाद) — आहार के लिए धन्यवाद",
       "context": "Closing ritual for a meal; pairs with いただきます.",
       "context_hi": "भोजन की समापन रस्म; いただきます के साथ जोड़ी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.36-greetings-and-set-phr.ごちそうさまでした"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.gochuumon",
@@ -110,7 +117,8 @@
       "gloss_hi": "क्या मैं आपका ऑर्डर ले लूँ?",
       "context": "Server question — opens the order-taking interaction.",
       "context_hi": "वेटर का प्रश्न — ऑर्डर-लेने की शुरुआत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.gohan-okawari",
@@ -121,7 +129,7 @@
       "gloss_hi": "चावल का मुफ़्त रीफ़िल उपलब्ध",
       "context": "Restaurant sign — frequent at teishoku-style places.",
       "context_hi": "रेस्तराँ संकेत — टेइशोकू-शैली में बार-बार।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.16-food-and-drink-genera.ごはん"
       ],
@@ -129,7 +137,8 @@
       "grammar_refs": [
         "n5-188"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.honjitsu",
@@ -140,11 +149,12 @@
       "gloss_hi": "आज का विशेष व्यंजन / सेवा",
       "context": "Daily-changing special, often a discounted set.",
       "context_hi": "रोज़ बदलने वाला विशेष व्यंजन, अक्सर छूट वाला सेट।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "grammar_refs": [
         "n5-028"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.itadakimasu",
@@ -155,11 +165,12 @@
       "gloss_hi": "(खाना शुरू करने से पहले) — खाना शुरू करें / आहार के लिए धन्यवाद",
       "context": "Said before every meal in Japan; cultural staple.",
       "context_hi": "जापान में हर भोजन से पहले कहा जाता है; सांस्कृतिक रिवाज।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.36-greetings-and-set-phr.いただきます"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.koohii",
@@ -170,7 +181,7 @@
       "gloss_hi": "कॉफ़ी — 350 येन",
       "context": "Café drink list.",
       "context_hi": "कैफ़े के पेय की सूची।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.18-drinks.コーヒー"
       ],
@@ -178,7 +189,8 @@
       "kanji_refs": [
         "n5.kanji.円"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.menu",
@@ -189,7 +201,8 @@
       "gloss_hi": "मेन्यू",
       "context": "Loanword used everywhere in restaurants.",
       "context_hi": "रेस्तराँ में सर्वत्र इस्तेमाल होने वाला उधार-शब्द।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.miso-shiru",
@@ -200,7 +213,8 @@
       "gloss_hi": "मिसो सूप",
       "context": "Standard side soup at any teishoku set.",
       "context_hi": "किसी भी टेइशोकू सेट का मानक सूप।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.mizu",
@@ -211,7 +225,7 @@
       "gloss_hi": "पानी, कृपया।",
       "context": "Standard request to the server.",
       "context_hi": "वेटर से मानक अनुरोध।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.14-nature-and-weather.水"
       ],
@@ -219,7 +233,8 @@
       "grammar_refs": [
         "n5-071"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.ocha",
@@ -230,7 +245,7 @@
       "gloss_hi": "चाय — 200 येन",
       "context": "Drink listed with price on a menu / vending machine.",
       "context_hi": "मेन्यू / वेंडिंग मशीन पर पेय और मूल्य।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.18-drinks.おちゃ"
       ],
@@ -238,7 +253,8 @@
       "kanji_refs": [
         "n5.kanji.円"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.okawari",
@@ -249,7 +265,8 @@
       "gloss_hi": "रीफ़िल / एक और हिस्सा",
       "context": "Free-refill option common with rice or tea at teishoku shops.",
       "context_hi": "चावल या चाय पर मुफ़्त रीफ़िल — टेइशोकू दुकानों में सामान्य।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.oomori",
@@ -260,11 +277,12 @@
       "gloss_hi": "बड़ा साइज़ (अतिरिक्त चावल)",
       "context": "Common upgrade option in ramen/curry/donburi shops.",
       "context_hi": "रामेन/करी/डोनबुरी दुकानों में सामान्य विकल्प।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.大"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.osusume",
@@ -275,7 +293,8 @@
       "gloss_hi": "अनुशंसित (व्यंजन)",
       "context": "Menu callout: \"Today's recommended dish.\"",
       "context_hi": "मेन्यू पर सूचित: \"आज का अनुशंसित व्यंजन।\"",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.tabehoudai",
@@ -286,11 +305,12 @@
       "gloss_hi": "जितना खा सकें खाइए",
       "context": "Buffet-style restaurants. Pairs with のみほうだい (drink).",
       "context_hi": "बुफ़े-शैली रेस्तराँ। のみほうだい (पेय) के साथ जोड़ी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.食"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.teishoku",
@@ -301,7 +321,8 @@
       "gloss_hi": "सेट-थाली",
       "context": "Cafeteria/diner: a meal set with rice + soup + main + side.",
       "context_hi": "कैफ़ेटेरिया: चावल + सूप + मुख्य व्यंजन + एक सहायक।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.tenai-mochikari",
@@ -312,7 +333,8 @@
       "gloss_hi": "घर ले जाने के लिए",
       "context": "Counter question: \"Eat in or take out?\" — the takeout option.",
       "context_hi": "काउंटर पर: \"यहाँ खाएँगे या ले जाएँगे?\" — ले जाने का विकल्प।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.tennai",
@@ -323,7 +345,8 @@
       "gloss_hi": "दुकान में बैठकर खाने के लिए",
       "context": "The \"eat in\" counterpart to おもちかえり.",
       "context_hi": "おもちかえり का विपरीत — दुकान में खाना।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.menu.tofu",
@@ -334,7 +357,8 @@
       "gloss_hi": "टोफू",
       "context": "Common menu ingredient: みそしるの とうふ.",
       "context_hi": "सामान्य मेन्यू-घटक: मिसो-सूप का टोफू।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.aiteimasu",
@@ -345,7 +369,8 @@
       "gloss_hi": "खाली / उपलब्ध",
       "context": "Counterpart to しようちゅう; toilet/booth available.",
       "context_hi": "しようちゅう का विपरीत; शौचालय/बूथ उपलब्ध।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.chuui",
@@ -356,7 +381,8 @@
       "gloss_hi": "सावधान",
       "context": "Yellow warning sign — generic caution notice.",
       "context_hi": "पीला चेतावनी बोर्ड — सामान्य सावधानी सूचना।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.chuushajou-kinshi",
@@ -367,7 +393,8 @@
       "gloss_hi": "पार्किंग निषेध",
       "context": "Common red-and-white roadside sign.",
       "context_hi": "सड़क के किनारे सामान्य लाल-सफ़ेद संकेत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.gojiyu",
@@ -378,11 +405,12 @@
       "gloss_hi": "स्वेच्छा से लें / उपलब्ध है",
       "context": "Sign next to free items (water, brochures, samples).",
       "context_hi": "मुफ्त वस्तुओं (पानी, ब्रोशर, सैंपल) के पास बोर्ड।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.33-adverbs.どうぞ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.kiken",
@@ -393,7 +421,8 @@
       "gloss_hi": "ख़तरा",
       "context": "Red sign — strong warning (high voltage, drop, etc.).",
       "context_hi": "लाल बोर्ड — उच्च चेतावनी (विद्युत, गिरना, आदि)।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.kojichu",
@@ -404,7 +433,8 @@
       "gloss_hi": "निर्माणाधीन",
       "context": "Yellow-and-black sign at building / road construction sites.",
       "context_hi": "इमारत/सड़क निर्माण-स्थल पर पीला-काला संकेत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.kosho",
@@ -415,7 +445,8 @@
       "gloss_hi": "खराब / सेवा बंद",
       "context": "Sticker on broken vending machine, ATM, etc.",
       "context_hi": "खराब वेंडिंग मशीन, ATM आदि पर स्टिकर।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.shashin-kinshi",
@@ -426,7 +457,7 @@
       "gloss_hi": "कृपया फ़ोटो न लें",
       "context": "Museum, shrine, or shop request — uses N5 〜ないで ください form.",
       "context_hi": "संग्रहालय, मंदिर या दुकान में अनुरोध — N5 〜ないで ください रूप का प्रयोग।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.24-school-and-study.しゃしん"
       ],
@@ -434,7 +465,8 @@
       "grammar_refs": [
         "n5-077"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.shiyouchu",
@@ -445,7 +477,8 @@
       "gloss_hi": "इस्तेमाल में / किसी के पास",
       "context": "Toilet, fitting room, single-stall facility indicator.",
       "context_hi": "शौचालय, ड्रेसिंग रूम, एकल-कक्ष सुविधा का संकेत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.tabako",
@@ -456,11 +489,12 @@
       "gloss_hi": "धूम्रपान निषेध",
       "context": "Common public-space sign. The verb すう (to smoke) is in N5 vocabulary.",
       "context_hi": "सार्वजनिक स्थान पर सामान्य बोर्ड। क्रिया すう (धूम्रपान करना) N5 शब्दावली में है।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.37-common-nouns-miscella.たばこ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.tachiiri",
@@ -471,7 +505,8 @@
       "gloss_hi": "प्रवेश निषेध",
       "context": "Restricted area (staff only, construction, etc.).",
       "context_hi": "प्रतिबंधित क्षेत्र (केवल कर्मचारी, निर्माण कार्य, आदि)।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.notice.tsuukoudome",
@@ -482,7 +517,8 @@
       "gloss_hi": "सड़क बंद / आर-पार आवाजाही निषेध",
       "context": "Road-block sign; literal 'passing-through-stop'.",
       "context_hi": "सड़क-बंद संकेत; शाब्दिक \"आर-पार रोक।\"",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.post.kitte",
@@ -493,11 +529,12 @@
       "gloss_hi": "डाक टिकट",
       "context": "Counter request: 「きってを 三まい ください」.",
       "context_hi": "काउंटर अनुरोध: 「きってを 三まい ください」।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.22-money-and-shopping.きって"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.post.kozutsumi",
@@ -508,7 +545,8 @@
       "gloss_hi": "पैकेज / पार्सल",
       "context": "Sent via post or courier. Both senders and receivers say it.",
       "context_hi": "डाक/कूरियर द्वारा भेजा जाता; दोनों पक्ष कहते हैं।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.post.takuhaibin",
@@ -519,7 +557,8 @@
       "gloss_hi": "घर-वितरण सेवा",
       "context": "Door-to-door package delivery (e.g. Yamato Transport).",
       "context_hi": "दरवाज़े-से-दरवाज़े वितरण (जैसे यामातो ट्रांसपोर्ट)।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.post.tegami",
@@ -530,11 +569,12 @@
       "gloss_hi": "पत्र",
       "context": "てがみを 出す = mail a letter; てがみが きました = a letter arrived.",
       "context_hi": "てがみを 出す = पत्र भेजना; てがみが きました = पत्र आया।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.22-money-and-shopping.てがみ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.post.yuubinkyoku",
@@ -545,11 +585,12 @@
       "gloss_hi": "डाकघर",
       "context": "Standard sign. Red 〒 mark identifies it.",
       "context_hi": "मानक संकेत। लाल 〒 चिह्न इसे पहचानता है।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.ゆうびんきょく"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.arigatou",
@@ -560,7 +601,8 @@
       "gloss_hi": "धन्यवाद (विदाई पर)",
       "context": "Spoken when a customer leaves — past tense.",
       "context_hi": "ग्राहक के जाते समय — भूतकाल।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.cardmoii",
@@ -571,11 +613,12 @@
       "gloss_hi": "कार्ड भी स्वीकार है",
       "context": "Counter sign / shop staff line.",
       "context_hi": "काउंटर संकेत / दुकान-कर्मचारी पंक्ति।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "grammar_refs": [
         "n5-079"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.fukuro",
@@ -586,11 +629,12 @@
       "gloss_hi": "क्या आपको थैला चाहिए?",
       "context": "Convenience-store / supermarket question; bags now usually cost a few yen.",
       "context_hi": "सुविधा-दुकान/सुपरमार्केट का प्रश्न; अब थैलों की कीमत होती है।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "grammar_refs": [
         "n5-023"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.genkin",
@@ -601,7 +645,8 @@
       "gloss_hi": "नक़द",
       "context": "Sign: げんきん only / げんきんとカードどちらも.",
       "context_hi": "संकेत: केवल नक़द / नक़द और कार्ड दोनों।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.irasshaimase",
@@ -612,11 +657,12 @@
       "gloss_hi": "(दुकान में) स्वागत — पारंपरिक अभिवादन",
       "context": "Spoken every time a customer enters; not actually expected to be replied to.",
       "context_hi": "हर ग्राहक के प्रवेश पर कहा जाता है; उत्तर अपेक्षित नहीं।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.36-greetings-and-set-phr.いらっしゃいませ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.jikan",
@@ -627,7 +673,7 @@
       "gloss_hi": "10:00 बजे से 18:00 तक (खुलने का समय)",
       "context": "Standard shop-front operating-hours sign.",
       "context_hi": "दुकान के सामने सामान्य खुलने-का-समय बोर्ड।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.時"
       ],
@@ -635,7 +681,8 @@
       "grammar_refs": [
         "n5-021"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.poin-to",
@@ -646,7 +693,8 @@
       "gloss_hi": "पॉइंट / वफ़ादारी कार्ड",
       "context": "Common upsell at convenience stores and pharmacies.",
       "context_hi": "सुविधा-दुकानों और फ़ार्मेसी पर सामान्य अप-सेल।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.reshi-to",
@@ -657,7 +705,8 @@
       "gloss_hi": "रसीद",
       "context": "What a clerk prints after payment; \"レシートいりますか?\" is common.",
       "context_hi": "भुगतान के बाद क्लर्क छापता है; \"レシートいりますか?\" आम है।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.shoukei",
@@ -668,7 +717,8 @@
       "gloss_hi": "कुल जोड़",
       "context": "Receipt line; cashier announces 「ごうけい〜円です」.",
       "context_hi": "रसीद पंक्ति; काउंटर पर 「ごうけい〜円です」 घोषणा।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.teikyubi",
@@ -679,7 +729,7 @@
       "gloss_hi": "सोमवार को बंद।",
       "context": "Shops typically post a weekly closed-day notice.",
       "context_hi": "दुकानें साप्ताहिक बंद-दिन का बोर्ड लगाती हैं।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.11-time-days-weeks-month.月曜日"
       ],
@@ -688,7 +738,8 @@
         "n5-001",
         "n5-002"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.tsuri",
@@ -699,7 +750,8 @@
       "gloss_hi": "बाक़ी (वापस की गई राशि)",
       "context": "「おつりです」 — handed back at register with the receipt.",
       "context_hi": "「おつりです」 — रसीद के साथ काउंटर पर लौटाया जाता।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.urikire",
@@ -710,7 +762,8 @@
       "gloss_hi": "बिक चुका / स्टॉक नहीं",
       "context": "Sticker on a product or shelf when it's out of stock.",
       "context_hi": "स्टॉक खत्म होने पर उत्पाद/शेल्फ़ पर स्टिकर।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.youkoso",
@@ -721,7 +774,8 @@
       "gloss_hi": "स्वागत",
       "context": "Greeting sign at shop entrance or hotel lobby.",
       "context_hi": "दुकान-प्रवेश या होटल-लॉबी पर अभिवादन।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.zeikomi",
@@ -732,7 +786,8 @@
       "gloss_hi": "कर सहित",
       "context": "Price-tag suffix; ぜいこみ vs ぜいぬき indicates whether tax is in.",
       "context_hi": "मूल्य-लेबल का प्रत्यय; ぜいこみ बनाम ぜいぬき।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.shop.zenpin-biki",
@@ -743,7 +798,8 @@
       "gloss_hi": "सभी वस्तुओं पर 10% की छूट",
       "context": "Sale sign across an entire store; びき = \"off / discount.\"",
       "context_hi": "पूरी दुकान में बिक्री-संकेत; びき = \"छूट।\"",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.eigyochu",
@@ -754,7 +810,8 @@
       "gloss_hi": "खुला / कारोबार जारी",
       "context": "Shop-front board. 営業中 in real signage, but 営業 is N4-level so kana is safer.",
       "context_hi": "दुकान के बोर्ड पर। असली में 営業中, पर 営業 N4 है — कana सुरक्षित।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.junbichu",
@@ -765,7 +822,8 @@
       "gloss_hi": "तैयारी में / अभी बंद",
       "context": "Restaurant before opening hours.",
       "context_hi": "रेस्तराँ खुलने के समय से पहले।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.deguchi",
@@ -776,7 +834,7 @@
       "gloss_hi": "निकास-द्वार",
       "context": "Doors marked for leaving a building or transit area.",
       "context_hi": "इमारत या परिवहन-क्षेत्र छोड़ने के लिए दरवाज़े।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.出口"
       ],
@@ -785,7 +843,8 @@
         "n5.kanji.出",
         "n5.kanji.口"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.hiku",
@@ -796,11 +855,12 @@
       "gloss_hi": "खींचें",
       "context": "Counterpart of おす. The kanji 引 also isn't on the N5 whitelist.",
       "context_hi": "おす का जोड़ी। 引 कान्जी भी श्वेत-सूची में नहीं।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.27-verbs-group-1-verbs.ひく"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.iriguchi",
@@ -811,7 +871,7 @@
       "gloss_hi": "प्रवेश-द्वार",
       "context": "Door / gate / station entrance.",
       "context_hi": "दरवाज़ा / गेट / स्टेशन प्रवेश-द्वार पर।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.いりぐち"
       ],
@@ -820,7 +880,8 @@
         "n5.kanji.入",
         "n5.kanji.口"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.kakeki-hidari",
@@ -831,7 +892,7 @@
       "gloss_hi": "बाएँ",
       "context": "Direction sign — turn-left indicator.",
       "context_hi": "दिशा-संकेत — बाएँ-मोड़ चिह्न।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.左"
       ],
@@ -839,7 +900,8 @@
       "kanji_refs": [
         "n5.kanji.左"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.kakeki-michi",
@@ -850,7 +912,7 @@
       "gloss_hi": "दाएँ",
       "context": "Direction sign — turn-right indicator on stations and roads.",
       "context_hi": "दिशा-संकेत — स्टेशन और सड़कों पर दाएँ-मोड़ चिह्न।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.右"
       ],
@@ -858,7 +920,8 @@
       "kanji_refs": [
         "n5.kanji.右"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.kotsu-todomare",
@@ -869,7 +932,8 @@
       "gloss_hi": "रुकें",
       "context": "Red traffic-stop sign at junctions.",
       "context_hi": "चौराहों पर लाल रुकें-संकेत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.osu",
@@ -880,11 +944,12 @@
       "gloss_hi": "धकेलें",
       "context": "Door operation. The kanji 押 isn't on the N5 whitelist, so we keep the kana form here.",
       "context_hi": "दरवाज़े पर। 押 कान्जी श्वेत-सूची में नहीं, इसलिए कana रखा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.27-verbs-group-1-verbs.おす"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.peto-kinshi",
@@ -895,11 +960,12 @@
       "gloss_hi": "पालतू जानवर निषेध",
       "context": "Cafés, restaurants, apartments where pets are not allowed.",
       "context_hi": "कैफ़े, रेस्तराँ, अपार्टमेंट जहाँ पालतू अनुमत नहीं।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.37-common-nouns-miscella.ペット"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.shashin-kinshi",
@@ -910,11 +976,12 @@
       "gloss_hi": "फ़ोटो खींचना मना",
       "context": "Common in museums, shrines, retail stores.",
       "context_hi": "संग्रहालयों, मंदिरों, खुदरा-दुकानों में सामान्य।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.24-school-and-study.しゃしん"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.shizuka-ni",
@@ -925,11 +992,12 @@
       "gloss_hi": "कृपया शांत रहें",
       "context": "Libraries, hospitals, residential-zone notices.",
       "context_hi": "पुस्तकालय, अस्पताल, आवासीय-क्षेत्र सूचना।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.32-adjectives.しずか"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.tabako-kinshi",
@@ -940,11 +1008,12 @@
       "gloss_hi": "धूम्रपान निषेध",
       "context": "Common public-space sign; equivalent of \"no smoking.\"",
       "context_hi": "सार्वजनिक-स्थान पर सामान्य \"धूम्रपान निषेध\" चिह्न।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.37-common-nouns-miscella.たばこ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.toire",
@@ -955,11 +1024,12 @@
       "gloss_hi": "शौचालय",
       "context": "Generic loanword sign; お手洗い (more polite) is N4.",
       "context_hi": "सामान्य उधार-शब्द; お手洗い अधिक विनम्र (N4 स्तर)।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.13-locations-and-places-.トイレ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.toire-onna",
@@ -970,7 +1040,7 @@
       "gloss_hi": "महिला (शौचालय का चिह्न)",
       "context": "Standalone kanji on toilet doors.",
       "context_hi": "शौचालय के दरवाज़े पर अकेला कान्जी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.2-people-family.女"
       ],
@@ -978,7 +1048,8 @@
       "kanji_refs": [
         "n5.kanji.女"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.toire-otoko",
@@ -989,7 +1060,7 @@
       "gloss_hi": "पुरुष (शौचालय का चिह्न)",
       "context": "Standalone kanji on toilet doors.",
       "context_hi": "शौचालय के दरवाज़े पर अकेला कान्जी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.2-people-family.男"
       ],
@@ -997,7 +1068,8 @@
       "kanji_refs": [
         "n5.kanji.男"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.yukkuri",
@@ -1008,11 +1080,12 @@
       "gloss_hi": "धीरे / धीरे चलें",
       "context": "Yellow speed-warning sign near schools or construction.",
       "context_hi": "स्कूलों या निर्माण-क्षेत्र के पास पीला गति-चेतावनी चिह्न।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.33-adverbs.ゆっくり"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.time.eigyou-jikan",
@@ -1023,11 +1096,12 @@
       "gloss_hi": "व्यवसाय समय",
       "context": "Posted on shop fronts above the daily times.",
       "context_hi": "दुकान-सामने दैनिक समय के ऊपर लिखा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.10-time-general.時間"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.time.heijitsu",
@@ -1038,7 +1112,8 @@
       "gloss_hi": "कार्य-दिवस",
       "context": "Bus/train schedules: weekday vs weekend (しゅうまつ).",
       "context_hi": "बस/रेल समय-सारणी: कार्य-दिवस बनाम सप्ताहांत।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.time.kyouju",
@@ -1049,7 +1124,8 @@
       "gloss_hi": "24 घंटे",
       "context": "Convenience-store / vending-machine availability marker.",
       "context_hi": "सुविधा-दुकान/वेंडिंग-मशीन उपलब्धता-सूचक।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.time.shukujitsu",
@@ -1060,7 +1136,8 @@
       "gloss_hi": "राष्ट्रीय छुट्टी",
       "context": "Schedules: 「しゅくじつ ダイヤ」 = holiday-mode timetable.",
       "context_hi": "समय-सारणी: 「しゅくじつ ダイヤ」 = छुट्टी-शैली सारणी।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.time.teikyuubi",
@@ -1071,7 +1148,8 @@
       "gloss_hi": "नियमित बंद दिन",
       "context": "Weekly day a shop is always closed (e.g., 月曜日が ていきゅうび).",
       "context_hi": "दुकान का साप्ताहिक बंद दिन।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.kakeki",
@@ -1082,7 +1160,8 @@
       "gloss_hi": "टिकट-द्वार",
       "context": "Entrance to the platforms in a train station.",
       "context_hi": "रेलवे स्टेशन में प्लेटफ़ॉर्मों का प्रवेश।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.signs.kippu",
@@ -1093,11 +1172,12 @@
       "gloss_hi": "टिकट",
       "context": "Generic word for paper transit ticket.",
       "context_hi": "रेलवे टिकट के लिए सामान्य शब्द।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.22-money-and-shopping.きっぷ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.basutei",
@@ -1108,7 +1188,8 @@
       "gloss_hi": "बस-स्टॉप",
       "context": "Standalone sign with route + bus number(s).",
       "context_hi": "मार्ग + बस-संख्या के साथ अकेला बोर्ड।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.deguchi-kita",
@@ -1119,12 +1200,13 @@
       "gloss_hi": "उत्तरी निकास-द्वार",
       "context": "Station exits are commonly labelled by direction: きた / みなみ / ひがし / にし.",
       "context_hi": "स्टेशन के निकास दिशा से सूचित: कधर/धरमी/पुरमी/पश्चिमी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.出",
         "n5.kanji.口"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.deguchi-minami",
@@ -1135,12 +1217,13 @@
       "gloss_hi": "दक्षिणी निकास-द्वार",
       "context": "Pair of きた出口 (north exit) — direction-labelled station exits.",
       "context_hi": "きた出口 (उत्तरी निकास) का जोड़ा — दिशा-लेबल वाला स्टेशन निकास।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.出",
         "n5.kanji.口"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.densha-okurete",
@@ -1151,7 +1234,7 @@
       "gloss_hi": "रेल देरी से चल रही है",
       "context": "Common rush-hour announcement.",
       "context_hi": "भीड़भाड़ के समय की सामान्य घोषणा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.23-transport.電車"
       ],
@@ -1164,7 +1247,8 @@
       "grammar_refs": [
         "n5-072"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.doa-shimari",
@@ -1175,7 +1259,7 @@
       "gloss_hi": "दरवाज़े बंद हो रहे हैं",
       "context": "Warning chime + announcement before train departs.",
       "context_hi": "रेल प्रस्थान से पहले चेतावनी + घोषणा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.26-house-and-furniture.ドア"
       ],
@@ -1183,7 +1267,8 @@
       "grammar_refs": [
         "n5-003"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.eki",
@@ -1194,7 +1279,8 @@
       "gloss_hi": "तोक्यो स्टेशन",
       "context": "Station name + えき suffix; common station-board format.",
       "context_hi": "स्टेशन नाम + えき प्रत्यय; सामान्य स्टेशन-बोर्ड शैली।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.futsuu",
@@ -1205,7 +1291,8 @@
       "gloss_hi": "सामान्य (हर स्टेशन रुकती है)",
       "context": "The most basic train tier; stops at every station.",
       "context_hi": "सबसे साधारण रेल-श्रेणी; हर स्टेशन रुकती है।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.jiyuuseki",
@@ -1216,7 +1303,8 @@
       "gloss_hi": "अनारक्षित सीट",
       "context": "First-come-first-served seating on long-distance trains.",
       "context_hi": "दूरगामी रेलों पर पहले-आओ-पहले-पाओ बैठक।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.kyukou",
@@ -1227,7 +1315,8 @@
       "gloss_hi": "एक्सप्रेस",
       "context": "Faster than local; stops at major stations only.",
       "context_hi": "सामान्य से तेज़; केवल बड़े स्टेशनों पर रुकती है।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.norikae",
@@ -1238,7 +1327,8 @@
       "gloss_hi": "रेल बदलना",
       "context": "Sign at transfer stations + automated voice mention.",
       "context_hi": "ट्रांसफर स्टेशनों पर संकेत + स्वचालित आवाज़।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.shinkansen",
@@ -1249,11 +1339,12 @@
       "gloss_hi": "शिंकानसेन / बुलेट ट्रेन",
       "context": "Japan's high-speed inter-city rail. 新 is N5; かんせん in kana.",
       "context_hi": "जापान की हाई-स्पीड अंतर-शहरी रेल। 新 N5 है; かんせん कana में।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.新"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.shiteseki",
@@ -1264,7 +1355,8 @@
       "gloss_hi": "आरक्षित सीट",
       "context": "Pre-booked seat with a specific number; surcharge applies.",
       "context_hi": "पूर्व-बुक की गई विशेष-संख्या सीट; अतिरिक्त शुल्क लगता है।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.te-wo-haisaku",
@@ -1275,7 +1367,7 @@
       "gloss_hi": "कृपया अपने पैरों पर ध्यान दें",
       "context": "Train doors / escalator / step warning.",
       "context_hi": "रेल दरवाज़े / एस्केलेटर / सीढ़ी चेतावनी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.足"
       ],
@@ -1283,7 +1375,8 @@
       "grammar_refs": [
         "n5-071"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.tokyu",
@@ -1294,7 +1387,8 @@
       "gloss_hi": "सीमित-एक्सप्रेस",
       "context": "Fastest train tier, fewer stops; usually requires a surcharge.",
       "context_hi": "सबसे तेज़ रेल-श्रेणी, कम स्टॉप; अक्सर अतिरिक्त शुल्क।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.tsugi",
@@ -1305,7 +1399,7 @@
       "gloss_hi": "अगला स्टॉप तोक्यो है।",
       "context": "Standard on-train station announcement.",
       "context_hi": "रेल में स्टेशन घोषणा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.12-time-frequency-sequen.つぎ"
       ],
@@ -1314,7 +1408,8 @@
         "n5-001",
         "n5-002"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.tsugino-eki",
@@ -1325,7 +1420,7 @@
       "gloss_hi": "अगला स्टेशन तोक्यो है",
       "context": "Standard automated train announcement.",
       "context_hi": "मानक स्वचालित रेल घोषणा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.12-time-frequency-sequen.つぎ",
         "n5.vocab.13-locations-and-places-.駅"
@@ -1335,7 +1430,8 @@
         "n5-028",
         "n5-002"
       ],
-      "grammar_refs_provenance": "llm_curated"
+      "grammar_refs_provenance": "llm_curated",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.weather.ame",
@@ -1346,7 +1442,7 @@
       "gloss_hi": "बारिश",
       "context": "Often shown as an icon; spoken in 雨が ふって います.",
       "context_hi": "अक्सर आइकन रूप में दिखाया; 雨が ふって います कहा जाता है।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.14-nature-and-weather.雨"
       ],
@@ -1354,7 +1450,8 @@
       "kanji_refs": [
         "n5.kanji.雨"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.weather.hare",
@@ -1365,11 +1462,12 @@
       "gloss_hi": "धूप / साफ़",
       "context": "Forecast icon + spoken word. はれ(の)ち くもり = clear later cloudy.",
       "context_hi": "पूर्वानुमान आइकन + बोलचाल। はれ(の)ち くもり = बाद में बादल।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.14-nature-and-weather.はれ"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.weather.kion",
@@ -1380,7 +1478,8 @@
       "gloss_hi": "तापमान",
       "context": "Forecast: 「きおん 25ど」 — temperature 25 degrees.",
       "context_hi": "पूर्वानुमान: 「きおん 25ど」 — तापमान 25 डिग्री।",
-      "review_status": "native_reviewed"
+      "review_status": "ai_quality_reviewed",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.weather.kumori",
@@ -1391,11 +1490,12 @@
       "gloss_hi": "बादलों वाला",
       "context": "Forecast term. Pairs with はれ / 雨 / ゆき.",
       "context_hi": "पूर्वानुमान शब्द। はれ / 雨 / ゆき के साथ जोड़े।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "vocab_refs": [
         "n5.vocab.14-nature-and-weather.くもり"
       ],
-      "vocab_refs_provenance": "auto_derived"
+      "vocab_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.weather.tenki-yohou",
@@ -1406,12 +1506,13 @@
       "gloss_hi": "मौसम पूर्वानुमान",
       "context": "Daily news segment + smartphone widget standard term.",
       "context_hi": "दैनिक समाचार खंड + स्मार्टफ़ोन विजेट का मानक शब्द।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "kanji_refs": [
         "n5.kanji.天",
         "n5.kanji.気"
       ],
-      "kanji_refs_provenance": "auto_derived"
+      "kanji_refs_provenance": "auto_derived",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "auth.transit.eki-mae",

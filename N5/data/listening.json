@@ -17,7 +17,7 @@
       ],
       "correctAnswer": "カフェの 前",
       "explanation_en": "Initially they planned to meet at the station, but the woman suggested the cafe instead, and the man agreed.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "explanation_hi": "पुरुष ने पहले स्टेशन के सामने मिलने का सुझाव दिया, पर महिला ने भीड़ का बहाना देकर कैफ़े के सामने का प्रस्ताव रखा — पुरुष ने मान लिया। उत्तर: कैफ़े के सामने।",
       "cultural_context": "जापान में मिलने का स्थान बदलने का अनुरोध करना सामान्य; भीड़ या मौसम का हवाला देना विनम्र तरीक़ा है। मूल योजना पर ज़ोर देना थोड़ा अशिष्ट लगता है।",
       "pacing_morae_per_min": 176.8,
@@ -352,7 +352,8 @@
         "mix_db": -26,
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.002",
@@ -371,7 +372,7 @@
       ],
       "correctAnswer": "パンと たまごと ぎゅうにゅう",
       "explanation_en": "The woman first asked for bread and eggs, then added milk.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "explanation_hi": "महिला ने पहले पाव (パン) और अंडे (たまご) माँगे, फिर \"あ、ぎゅうにゅうも おねがいします\" कहकर दूध भी जोड़ा। पुरुष को तीनों चीज़ें ख़रीदनी हैं। उत्तर: पाव, अंडे और दूध।",
       "cultural_context": "जापानी फ़ोन-कॉल पर वस्तुएँ माँगते समय \"〜も おねがいします\" से बाद में याद आई वस्तु जोड़ना सामान्य है — \"あ\" का अंत:क्षेप संकेत देता है कि यह बाद में सूझा। श्रोता को सूची की पूरी एकत्रित गिनती याद रखनी होती है।",
       "pacing_morae_per_min": 185.2,
@@ -697,7 +698,8 @@
         "mix_db": -30,
         "description": "small shop interior (light pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.003",
@@ -716,7 +718,7 @@
       ],
       "correctAnswer": "8時半",
       "explanation_en": "They agreed to leave at 8:30 to catch the 9 o'clock train.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "explanation_hi": "पुरुष 9:00 बजे की ट्रेन (九時の でんしゃ) पकड़ना चाहता है, इसलिए महिला ने घर से 8:30 बजे (八時半) निकलने का सुझाव दिया, और दोनों सहमत हुए। प्रश्न \"घर से कब निकलेंगे\" का है — ट्रेन का समय नहीं। उत्तर: 8時半 (8:30)।",
       "cultural_context": "जापानी ट्रेनें मिनटों की सटीकता से चलती हैं, इसलिए स्टेशन तक की 30-मिनट की पैदल/संक्रमण-समय बफ़र की योजना बनाना सामान्य है। \"何時に うちを 出ますか\" (घर से कब निकलेंगे) जापानी अनुसूची-संवाद का बुनियादी प्रश्न है।",
       "pacing_morae_per_min": 170.3,
@@ -1029,7 +1031,8 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.004",
@@ -1048,7 +1051,7 @@
       ],
       "correctAnswer": "つめたい コーヒー",
       "explanation_en": "The man clarified he wanted iced coffee, not hot.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "explanation_hi": "पुरुष ने कॉफ़ी (コーヒー) माँगी; कर्मचारी ने पुष्टि के लिए \"あつい コーヒーですか\" (गर्म कॉफ़ी?) पूछा; पुरुष ने \"いいえ、つめたい コーヒーで おねがいします\" (नहीं, ठंडी कॉफ़ी) कहा। उत्तर: ठंडी (つめたい) कॉफ़ी।",
       "pacing_morae_per_min": 208.1,
       "pacing_status": "in_range",
@@ -1390,7 +1393,8 @@
         "mix_db": -26,
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.005",
@@ -1413,7 +1417,7 @@
         "n5-030"
       ],
       "_curriculum_note": "Choice 1 uses nominalizing の + が (n5-030). Sequence after n5-030 in any curriculum that uses prerequisites.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "explanation_hi": "छात्र ने स्पष्ट कहा \"あさ、でんしゃが おくれました\" (सुबह ट्रेन देर से आई)। बस की देरी, देर से उठना, सिरदर्द — ये भी विद्यालय में देर के सामान्य कारण हैं, पर इस छात्र ने इनमें से कोई नहीं कहा। उत्तर: でんしゃが おくれたから (क्योंकि ट्रेन देर थी)।",
       "cultural_context": "जापानी विद्यालय में देर के लिए \"すみません\" से शुरू करना अनिवार्य; \"でんしゃが おくれました\" (ट्रेन देर थी) सबसे सामान्य कारण है क्योंकि जापानी रेल देरी का प्रमाण-पत्र (遅延証明書) भी जारी करती है, जिसे शिक्षक सहज स्वीकार करते हैं।",
       "pacing_morae_per_min": 190.2,
@@ -1802,7 +1806,8 @@
         "mix_db": -27,
         "description": "classroom student murmur (moderate pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.006",
@@ -1821,7 +1826,7 @@
       ],
       "correctAnswer": "たなの 上",
       "explanation_en": "Confirmed: '上です' (on top of the shelf).",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 153.6,
       "pacing_status": "too_slow",
       "lines": [
@@ -2163,7 +2168,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.007",
@@ -2182,7 +2188,7 @@
       ],
       "correctAnswer": "あき",
       "explanation_en": "'ぼくは あきが いちばん すきです'.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 273.3,
       "pacing_status": "too_fast",
       "lines": [
@@ -2503,7 +2509,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.008",
@@ -2522,7 +2529,7 @@
       ],
       "correctAnswer": "カメラ",
       "explanation_en": "'新しい カメラが ほしいです'.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 179.8,
       "pacing_status": "too_slow",
       "lines": [
@@ -2857,7 +2864,8 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.009",
@@ -2875,7 +2883,7 @@
       ],
       "correctAnswer": "すみません、いま 何時ですか。",
       "explanation_en": "Use すみません as polite opener + いま 何時ですか for asking the current time.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 43.1,
       "pacing_status": "too_slow",
       "lines": [
@@ -3040,7 +3048,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.010",
@@ -3058,7 +3067,7 @@
       ],
       "correctAnswer": "とうきょうまで 一まい おねがいします。",
       "explanation_en": "Standard ticket-purchase phrasing: destination + counter + おねがいします.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 42.2,
       "pacing_status": "too_slow",
       "lines": [
@@ -3225,7 +3234,8 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.011",
@@ -3243,7 +3253,7 @@
       ],
       "correctAnswer": "すみません、もう おなかが いっぱいです。",
       "explanation_en": "Polite refusal: apologize + state you're full.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 92.1,
       "pacing_status": "too_slow",
       "lines": [
@@ -3448,7 +3458,8 @@
         "mix_db": -26,
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.012",
@@ -3466,7 +3477,7 @@
       ],
       "correctAnswer": "おはようございます。",
       "explanation_en": "Morning greeting (polite form for teachers/elders).",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 38.4,
       "pacing_status": "too_slow",
       "lines": [
@@ -3636,7 +3647,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.013",
@@ -3655,7 +3667,7 @@
       ],
       "correctAnswer": "9時半",
       "explanation_en": "A says 9時はんに しましょう (let's meet at 9:30). B agrees.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 151.5,
       "pacing_status": "too_slow",
       "lines": [
@@ -3912,7 +3924,8 @@
         "mix_db": -27,
         "description": "classroom student murmur (moderate pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.014",
@@ -3931,7 +3944,7 @@
       ],
       "correctAnswer": "駅の 北の 出口",
       "explanation_en": "When the woman asks for clarification, the man specifies the north exit.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 117.4,
       "pacing_status": "too_slow",
       "lines": [
@@ -4154,7 +4167,8 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.015",
@@ -4173,7 +4187,7 @@
       ],
       "correctAnswer": "りんごと ぎゅうにゅう",
       "explanation_en": "The child names apples and milk, then declines bread.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 157.0,
       "pacing_status": "too_slow",
       "lines": [
@@ -4440,7 +4454,8 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.016",
@@ -4459,7 +4474,7 @@
       ],
       "correctAnswer": "母",
       "explanation_en": "B's friend is busy, so B goes with their mother.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 192.6,
       "pacing_status": "in_range",
       "lines": [
@@ -4731,7 +4746,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.017",
@@ -4750,7 +4766,7 @@
       ],
       "correctAnswer": "三時半",
       "explanation_en": "Original plan was 3:00; due to traffic the actual arrival will be 3:30.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 120.5,
       "pacing_status": "too_slow",
       "lines": [
@@ -5004,7 +5020,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.018",
@@ -5023,7 +5040,7 @@
       ],
       "correctAnswer": "電車",
       "explanation_en": "B answers 電車で 行きます (by train).",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 148.9,
       "pacing_status": "too_slow",
       "lines": [
@@ -5255,7 +5272,8 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.019",
@@ -5274,7 +5292,7 @@
       ],
       "correctAnswer": "あたまが いたかったから",
       "explanation_en": "The student answers あたまが いたかったです (I had a headache).",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 192.6,
       "pacing_status": "in_range",
       "lines": [
@@ -5561,7 +5579,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.020",
@@ -5580,7 +5599,7 @@
       ],
       "correctAnswer": "千五百円",
       "explanation_en": "B says 千五百円でした (it was 1,500 yen).",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 138.9,
       "pacing_status": "too_slow",
       "lines": [
@@ -5832,7 +5851,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.021",
@@ -5851,7 +5871,7 @@
       ],
       "correctAnswer": "9時から 5時まで",
       "explanation_en": "Monday is in the weekday range (月-金), which is 9-5. The 1-4 hours apply only to Saturday.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 154.9,
       "pacing_status": "too_slow",
       "lines": [
@@ -6064,7 +6084,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.022",
@@ -6083,7 +6104,7 @@
       ],
       "correctAnswer": "雨",
       "explanation_en": "Tomorrow is rainy. Day-after-tomorrow is nice but the question is about tomorrow.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 162.6,
       "pacing_status": "too_slow",
       "lines": [
@@ -6353,7 +6374,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.023",
@@ -6372,7 +6394,7 @@
       ],
       "correctAnswer": "火よう日と 木よう日",
       "explanation_en": "The woman explicitly says Tuesday and Thursday, and confirms there is none on Wednesday.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 154.1,
       "pacing_status": "too_slow",
       "lines": [
@@ -6611,7 +6633,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.024",
@@ -6630,7 +6653,7 @@
       ],
       "correctAnswer": "父の 先生・母の 友だち・父",
       "explanation_en": "Three people: father's teacher, mother's friend, and father himself. The mother is asking, not coming.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 120.9,
       "pacing_status": "too_slow",
       "lines": [
@@ -6848,7 +6871,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.025",
@@ -6867,7 +6891,7 @@
       ],
       "correctAnswer": "おはよう ございます",
       "explanation_en": "Polite morning greeting. おやすみなさい is bedtime; こんばんは is evening; さようなら is goodbye.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 155.0,
       "pacing_status": "too_slow",
       "lines": [
@@ -7059,7 +7083,8 @@
         "mix_db": -27,
         "description": "classroom student murmur (moderate pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.026",
@@ -7078,7 +7103,7 @@
       ],
       "correctAnswer": "コーヒーを ください",
       "explanation_en": "〜を ください is the polite request when ordering. The other options eat coffee, ask location, or state preference.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 229.2,
       "pacing_status": "in_range",
       "lines": [
@@ -7232,7 +7257,8 @@
         "mix_db": -26,
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.027",
@@ -7251,7 +7277,7 @@
       ],
       "correctAnswer": "いいえ、けっこうです",
       "explanation_en": "いいえ、けっこうです is the standard polite refusal of an offer.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 255.4,
       "pacing_status": "too_fast",
       "lines": [
@@ -7414,7 +7440,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.028",
@@ -7433,7 +7460,7 @@
       ],
       "correctAnswer": "しつれいします",
       "explanation_en": "しつれいします is the canonical phrase when entering a teacher's, superior's, or formal context room. ただいま is for returning to YOUR own home. For a friend's casual home, おじゃまします is used (see n5.listen.038).",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 204.5,
       "pacing_status": "in_range",
       "lines": [
@@ -7594,7 +7621,8 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "audit_wave": "accuracy-audit-f1-fix-2026-05-13"
+      "audit_wave": "accuracy-audit-f1-fix-2026-05-13",
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.029",
@@ -7613,7 +7641,7 @@
       ],
       "correctAnswer": "いただきます",
       "explanation_en": "いただきます is said before eating. ごちそうさま is after the meal.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 202.0,
       "pacing_status": "in_range",
       "lines": [
@@ -7793,7 +7821,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.030",
@@ -7812,7 +7841,7 @@
       ],
       "correctAnswer": "駅は どこですか",
       "explanation_en": "どこですか asks for location. The other options ask time, price, or command the listener to go.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 194.6,
       "pacing_status": "in_range",
       "lines": [
@@ -7989,7 +8018,8 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.031",
@@ -8008,7 +8038,7 @@
       "correctAnswer": "ぼうし",
       "explanation_en": "The man initially considered a book but decided on a hat (ぼうしに します).",
       "audio": "audio/listening/n5.listen.031.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 161.1,
       "pacing_status": "too_slow",
       "lines": [
@@ -8309,7 +8339,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.032",
@@ -8328,7 +8359,7 @@
       "correctAnswer": "友だちと えいがを 見ます",
       "explanation_en": "Saturday plan is movies with friends (土よう日、えいがを 見に 行きます).",
       "audio": "audio/listening/n5.listen.032.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 153.8,
       "pacing_status": "too_slow",
       "lines": [
@@ -8567,7 +8598,8 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.033",
@@ -8586,7 +8618,7 @@
       "correctAnswer": "一かい",
       "explanation_en": "'レストランは 一かいに あります'.",
       "audio": "audio/listening/n5.listen.033.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 190.0,
       "pacing_status": "in_range",
       "lines": [
@@ -8841,7 +8873,8 @@
         "mix_db": -25,
         "description": "restaurant dining ambience (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.034",
@@ -8860,7 +8893,7 @@
       "correctAnswer": "かおを あらう",
       "explanation_en": "'はやく かおを あらって'  -  wash face first, then breakfast.",
       "audio": "audio/listening/n5.listen.034.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 200.5,
       "pacing_status": "in_range",
       "lines": [
@@ -9116,7 +9149,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.035",
@@ -9135,7 +9169,7 @@
       "correctAnswer": "四人",
       "explanation_en": "'中国人は 四人で'.",
       "audio": "audio/listening/n5.listen.035.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 147.1,
       "pacing_status": "too_slow",
       "lines": [
@@ -9394,7 +9428,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.036",
@@ -9413,7 +9448,7 @@
       "correctAnswer": "三日間",
       "explanation_en": "'三日間の りょこうです'. (Seventh through ninth = three days.)",
       "audio": "audio/listening/n5.listen.036.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 174.6,
       "pacing_status": "too_slow",
       "lines": [
@@ -9667,7 +9702,8 @@
         "mix_db": -30,
         "description": "office room tone (light pink noise + faint HVAC)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.037",
@@ -9686,7 +9722,7 @@
       "correctAnswer": "千円",
       "explanation_en": "Big book is 2000 yen, half-price today = 1000 yen.",
       "audio": "audio/listening/n5.listen.037.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 164.7,
       "pacing_status": "too_slow",
       "lines": [
@@ -9924,7 +9960,8 @@
         "mix_db": -30,
         "description": "small shop interior (light pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.038",
@@ -9943,7 +9980,7 @@
       "correctAnswer": "おじゃまします",
       "explanation_en": "おじゃまします is the polite phrase when entering someone's home or place.",
       "audio": "audio/listening/n5.listen.038.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 87.3,
       "pacing_status": "too_slow",
       "lines": [
@@ -10124,7 +10161,8 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.039",
@@ -10143,7 +10181,7 @@
       "correctAnswer": "ごちそうさまでした",
       "explanation_en": "ごちそうさまでした is said after a meal when leaving the restaurant.",
       "audio": "audio/listening/n5.listen.039.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 196.3,
       "pacing_status": "in_range",
       "lines": [
@@ -10364,7 +10402,8 @@
         "mix_db": -30,
         "description": "small shop interior (light pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.040",
@@ -10382,7 +10421,7 @@
       "correctAnswer": "こんばんは。",
       "explanation_en": "Evening greeting (こんばんは for evening; おはよう for morning, おやすみ for going to bed).",
       "audio": "audio/listening/n5.listen.040.mp3",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "pacing_morae_per_min": 125.9,
       "pacing_status": "too_slow",
       "lines": [
@@ -10558,14 +10597,15 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.041",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "いえに かえります",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "おさきに しつれいします。",
@@ -10761,14 +10801,15 @@
         "mix_db": -36,
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.042",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "ありがとう",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "たんじょうび、おめでとうございます。",
@@ -10952,14 +10993,15 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.043",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "みち を きく",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "すみません、えきは どこですか。",
@@ -11144,14 +11186,15 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.044",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "いただきます",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "いっしょに ひるごはんを たべませんか。",
@@ -11357,14 +11400,15 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.045",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "おはよう",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "おはようございます。",
@@ -11537,14 +11581,15 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.046",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "きょうしつで",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "すみません、ペンを かして ください。",
@@ -11724,14 +11769,15 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.047",
       "mondai": 4,
       "format": "response",
       "format_type": "immediate_response",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "title_ja": "たすけて くれて",
       "prompt_ja": "もんだい4: いちばん いい へんじを えらんで ください。",
       "script_ja": "すみませんでした。",
@@ -11911,7 +11957,8 @@
         "mix_db": -34,
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.048",
@@ -11931,7 +11978,7 @@
       "correctAnswer": "さんぽに 行きます",
       "explanation_en": "The man invites the woman for a walk; she agrees with なるほど + そうしましょう.",
       "explanation_hi": "पुरुष ने टहलने का प्रस्ताव दिया; महिला ने なるほど + そうしましょう से सहमति दी।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "aizuchi_present": true,
       "aizuchi_examples": [
         "へぇ",
@@ -12182,7 +12229,8 @@
         "mix_db": -26,
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.049",
@@ -12202,7 +12250,7 @@
       "correctAnswer": "まっすぐ 行って 右に まがる",
       "explanation_en": "The woman gives directions: 「まっすぐ 行って、はじめの しんごうを 右に まがって」.",
       "explanation_hi": "महिला ने दिशा बताई: 「सीधा जाओ, पहले सिग्नल पर दाएँ मुड़ो」.",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "aizuchi_present": true,
       "aizuchi_examples": [
         "あの",
@@ -12472,7 +12520,8 @@
         "mix_db": -24,
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "n5.listen.050",
@@ -12492,7 +12541,7 @@
       "correctAnswer": "くすりを だします",
       "explanation_en": "The doctor closes with kusuri wo dashimasu ne = 'I will prescribe medicine.'",
       "explanation_hi": "डॉक्टर ने अंत में 「くすりを だしますね」 = \"दवा लिखूँगा\" कहा।",
-      "review_status": "native_reviewed",
+      "review_status": "ai_quality_reviewed",
       "aizuchi_present": true,
       "aizuchi_examples": [
         "あのー",
@@ -12769,7 +12818,8 @@
         "mix_db": -34,
         "description": "clinic / waiting room (very quiet)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
-      }
+      },
+      "review_status_provenance": "claude_native_reviewer_persona"
     }
   ],
   "_meta": {
@@ -12882,6 +12932,7 @@
       "plan_authored_by": "tools/fix_issue_062_voice_variety_2026_05_07.py",
       "render_step": "Run python tools/build_audio_voicevox.py --provider edge-tts on a machine with network access to speech.platform.bing.com to render the MP3s per voice_planned. Idempotent — only re-renders items whose voice_planned changed.",
       "render_status": "pending_user_machine_execution"
-    }
+    },
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
   }
 }

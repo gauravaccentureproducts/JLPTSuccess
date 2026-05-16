@@ -965,3 +965,156 @@ process failure rather than a one-off data fix — gate at authoring
 - ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
   sheet: BUG-011 marked Fixed with the 27-entry migration noted;
   Summary counts: Total=12 / Fixed=11 / New=1 (BUG-012 remains).
+
+---
+
+## ADDENDUM 2026-05-16 (Part 4) — BUG-012 close-out
+
+A user-reported follow-on to BUG-003 caught the trust-signal gap
+that the field-value `review_status: "native_reviewed"` carried
+across 1,758 entries when assigned by an LLM persona, not a human.
+Resolved on 2026-05-16 via field rename + provenance field
+addition + consumer updates.
+
+### Bug addressed
+
+**BUG-012 — `review_status: "native_reviewed"` misleads when read
+per-pattern (P2/Medium, Status: Fixed):**
+
+All 1,758 items across 7 content corpora carried
+`review_status: "native_reviewed"`. The `_meta` block disclosed the
+value was assigned by Claude acting as a native-reviewer persona,
+not by an actual native human Japanese teacher. The per-item label,
+read in isolation by downstream tooling, UI badge surfaces, or
+third-party adopters, implied human-native review.
+
+BUG-003 (n5-098 with 10/10 wrong translations on a pattern carrying
+this label) proved the label was unreliable. The fix needed to
+disambiguate at the point of use.
+
+**Resolution:** Option B (preferred) from the bug description:
+rename the value AND add a provenance field.
+
+- `review_status: "native_reviewed"` → `review_status: "ai_quality_reviewed"`
+- New field: `review_status_provenance: "claude_native_reviewer_persona"`
+- Reserved future value: `human_native_reviewed` (for a real
+  human-native review pass; not currently in use)
+- _meta block of each corpus gains a `review_status_note`
+  explanation
+
+### Migration scope
+
+| Corpus | Renamed | Notes |
+|---|---|---|
+| `data/grammar.json` | 178 | All patterns |
+| `data/vocab.json` | 1009 | All entries |
+| `data/kanji.json` | 106 | All kanji |
+| `data/reading.json` | 54 | All passages |
+| `data/listening.json` | 50 | All drills |
+| `data/authentic.json` | 100 | 88 `llm_curated` entries unchanged |
+| `data/questions.json` | 261 | All questions |
+| **Total** | **1758** | |
+
+### Consumer updates
+
+1. **`tools/check_content_integrity.py` JA-35 invariant:**
+   - Enum extended to {`ai_quality_reviewed`, `llm_curated`,
+     `auto_generated`, `native_reviewed`}
+   - `native_reviewed` retained as a transitional accepted value
+     during the migration window; should be removed from the
+     accepted set after one release cycle to force any
+     missed-migration item to surface
+   - Docstring updated to document the rename + future
+     `human_native_reviewed` value
+
+2. **`js/provenance-badge.js`:**
+   - `corpusProvenanceStats()` returns `aiQualityReviewed` /
+     `percentAiQualityReviewed` (with `nativeReviewed` /
+     `percentNative` kept as legacy aliases for one release cycle)
+   - `renderItemBadge()` accepts both new and legacy values
+     during migration; both render as "AI quality-reviewed" — NOT
+     "Native-reviewed"
+   - `renderCorpusBanner()` displays "{N} of {T} items
+     AI-quality-reviewed"
+   - CSS class `badge-native` → `badge-ai-quality` (visually
+     identical for now; styling can diverge later)
+
+3. **`js/min/provenance-badge.js`:** rebuilt via
+   `tools/build_min_js.py` (esbuild).
+
+4. **`_meta` blocks:** each of the 7 corpus files gains a
+   `review_status_note` field explicitly stating the value was
+   AI-assigned and naming the future plan.
+
+### Coverage of the fix
+
+- Items scanned for the retired value: every item with a
+  `review_status` field across all 7 content corpora (1758 total
+  + 88 already-`llm_curated`).
+- Scan method: Phase-0 regression block A58 — direct enum check.
+- Findings: 1758 items migrated (100% of items previously
+  `native_reviewed`).
+- Post-fix regression: A58 returns 0 retired values / 0 unknown
+  values.
+- CI: 93/93 invariants green.
+
+### What this resolution does NOT yet cover
+
+- **Removal of `native_reviewed` from the JA-35 accepted enum.**
+  Kept as a transitional accepted value for one release cycle;
+  removal will force any missed-migration item to surface as a CI
+  failure. Queued for the next batch.
+- **Per-corpus badge gates** based on
+  `human_native_reviewed` percentage. The Q21 launch policy now
+  references the future value; until a real human-native review
+  pass crosses the 10% threshold, the badge UI stays off (or
+  labels items as "AI quality-reviewed", never "Native-reviewed").
+- **CSS divergence** between `badge-ai-quality` and a future
+  `badge-human-native`. Currently visually identical; styling
+  divergence is queued for when the human-native value exists.
+- **Human-native review pipeline.** This bug fixes the labeling;
+  it does NOT introduce the review pipeline itself. A future
+  audit (budget + reviewer recruitment + per-pattern review
+  workflow) is separate.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.20 (provenance labels
+  must disambiguate human vs AI review at the point of use).
+- ✓ Accuracy prompt: new A58 audit category with the retired-
+  value check and 4-value future enum.
+- ✓ N5Improvement prompt: new Section-10 anti-item +
+  Phase-0 regression block A58 (validated 0/0 on the corpus).
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported
+  Bugs" sheet: BUG-012 marked Fixed. Summary counts:
+  Total=12 / Fixed=12 / New=0.
+
+### Final state — all 12 user-reported bugs closed
+
+After BUG-012's close-out, every bug on the User Reported Bugs
+sheet is in `Status: Fixed`:
+
+| # | Severity | Summary |
+|---|---|---|
+| BUG-001 | High/P2 | Static mirrors for SPA hash routes (grammar) |
+| BUG-002 | High/P1 | Verb-class particle disambiguation |
+| BUG-003 | Critical/P1 | n5-098 explanation + 10 translations |
+| BUG-004 | Critical/P1 | 911 pitch_marks.mora corrections |
+| BUG-005 | High/P1 | n5-166 ex[5] JA/EN cross-contamination |
+| BUG-006 | High/P1 | 10 pattern-instance contaminations |
+| BUG-007 | High/P1 | 11 RIGHT/WRONG-framed alternatives |
+| BUG-008 | Medium/P2 | n5-004 folk-linguistic "intransitive" |
+| BUG-009 | Medium/P2 | n5-003 ex[6] uses は not が |
+| BUG-010 | High/P1 | Static mirrors for ALL surfaces |
+| BUG-011 | High/P1 | Schema-level register-variant migration |
+| BUG-012 | Medium/P2 | Provenance-label disambiguation |
+
+CI invariants live: 93. New invariants documented as
+ready-to-wire: JA-91 (cross-pattern explanation similarity),
+JA-92 (JA-EN content-word overlap), JA-93 (mora algorithm
+equality), JA-94 (pattern-marker presence), JA-95 (particle-
+pattern alignment), plus the static-mirror coverage and
+register-variant kind-flag and BUG-012 retired-value checks
+implemented as Phase-0 regression blocks. Promotion of any of
+these to hard CI gates is queued.

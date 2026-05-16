@@ -600,6 +600,44 @@ Run this block before producing Section 2 of the report. Any
 non-zero count means a regression has been introduced; flag the
 specific pattern + example index in Section 5 as a P1 fix.
 
+### Phase-0 Provenance-label disambiguation regression block (added 2026-05-16)
+
+Regression block: scan every content corpus for the retired
+`native_reviewed` value (BUG-012). Any retained instance of the old
+value is a regression — re-run `tools/fix_bug_012_review_status_rename_*.py`.
+
+Validated 2026-05-16 to return 0/0 against the corpus snapshot at
+BUG-012 close-out.
+
+```python
+import json
+
+RETIRED = 'native_reviewed'
+ALLOWED = {'ai_quality_reviewed', 'llm_curated', 'auto_generated',
+           'human_native_reviewed'}
+CORPORA = [
+    ('data/grammar.json',   'patterns'),
+    ('data/vocab.json',     'entries'),
+    ('data/kanji.json',     'entries'),
+    ('data/reading.json',   'passages'),
+    ('data/listening.json', 'items'),
+    ('data/authentic.json', 'items'),
+    ('data/questions.json', 'questions'),
+]
+retired_count = 0
+unknown_count = 0
+for fname, key in CORPORA:
+    d = json.load(open(fname, encoding='utf-8'))
+    for it in d.get(key, []):
+        rs = it.get('review_status')
+        if rs == RETIRED:
+            retired_count += 1
+        elif rs and rs not in ALLOWED:
+            unknown_count += 1
+print(f'A58 retired native_reviewed values (target 0): {retired_count}')
+print(f'A58 unknown enum values (target 0): {unknown_count}')
+```
+
 ### Phase-0 Register-variant kind-flag regression block (added 2026-05-16)
 
 Regression block: scan common_mistakes entries for the schema
@@ -2168,6 +2206,24 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT label LLM-assigned content review as `review_status:
+  \"native_reviewed\"` — the value implies human-native review when
+  read at the point of use (UI badges, audit dashboards, third-party
+  adopters), and disclosure in `_meta` is invisible to consumers
+  reading only the per-item label. Caught 2026-05-16 as user-reported
+  BUG-012. Fix: use `ai_quality_reviewed` for LLM-persona reviews;
+  reserve `human_native_reviewed` for an actual human-native review
+  pass; always emit `review_status_provenance` alongside (e.g.
+  `\"claude_native_reviewer_persona\"`, `\"human_teacher_<name>_<date>\"`)
+  so the specific reviewer or pipeline is machine-readable. UI badge
+  logic must render `ai_quality_reviewed` as \"AI quality-reviewed\"
+  — NEVER \"Native-reviewed\". The four-value enum
+  {human_native_reviewed, ai_quality_reviewed, llm_curated,
+  auto_generated} forms a transparent quality ladder. See F.20 in
+  the procedure manual + A58 in the accuracy prompt. The Q21 badge-
+  launch threshold (≥10% native-reviewed before badge UI ships) now
+  applies to `human_native_reviewed` only, NOT to the AI-assigned
+  value."
 - "Do NOT add a common_mistakes entry whose WHY text says 'both are
   correct' / 'either is correct' / 'register choice' / 'natural
   choice' / 'pragmatic, not grammatical' / 'formal' / 'casual'

@@ -2342,14 +2342,25 @@ def _check_ja_33_listening_mondai_taxonomy() -> list[str]:
 
 
 def _check_ja_35_review_status() -> list[str]:
-    """ISSUE-030 (audit round 4, 2026-05-05): every content item across
-    all 5 corpora must carry `review_status` from a closed enum so the
-    UI can render an honest provenance badge ("LLM-curated" vs
-    "native-reviewed" vs "auto-generated") rather than implying a
-    uniform quality bar across content of mixed provenance.
+    """ISSUE-030 (audit round 4, 2026-05-05) + BUG-012 (2026-05-16):
+    every content item across all 5 corpora must carry `review_status`
+    from a closed enum so the UI can render an honest provenance badge.
+
+    BUG-012 update: the value formerly known as `native_reviewed` is
+    renamed to `ai_quality_reviewed`. The label was assigned by Claude
+    acting as a native-reviewer persona — not by an actual native
+    human Japanese teacher. The rename disambiguates at the point of
+    use so downstream consumers don't display a "Native-reviewed"
+    badge implying human review. A future human-native review pass
+    would introduce a separate `human_native_reviewed` value.
+
+    `native_reviewed` is retained in the enum as a transitional
+    accepted value during the migration window (any item carrying
+    it is a regression — the fix script should have renamed all
+    instances).
     """
     failures: list[str] = []
-    ALLOWED = {"native_reviewed", "llm_curated", "auto_generated"}
+    ALLOWED = {"ai_quality_reviewed", "llm_curated", "auto_generated", "native_reviewed"}
     targets = [
         ("data/grammar.json",   "patterns"),
         ("data/vocab.json",     "entries"),

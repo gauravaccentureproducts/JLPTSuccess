@@ -1703,6 +1703,82 @@ A54. PATTERN-PARTICLE MISMATCH IN CANONICAL EXAMPLES
      teaches. If E doesn't, the example belongs in a different
      pattern.
 
+A58. PROVENANCE-LABEL DISAMBIGUATION (HUMAN vs AI REVIEW)
+     (added 2026-05-16; caught on user-reported BUG-012)
+
+     **Problem class:** A content-corpus item's review-status /
+     quality field value, read in isolation by downstream tooling
+     or UI badges, implies human-native review when the value was
+     actually assigned by an LLM persona. Disclosure in _meta is
+     ignored by consumers who read only the per-item label.
+
+     Caught on N5: all 1758 items across 7 corpora carried
+     `review_status: "native_reviewed"` — assigned by Claude as a
+     native-reviewer persona, not by an actual native human
+     teacher. BUG-003 (n5-098 with 10/10 wrong translations under
+     this label) proved the label was unreliable.
+
+     **Audit at each release:**
+
+     - Every `review_status` value in every content corpus MUST
+       be in {ai_quality_reviewed, llm_curated, auto_generated,
+       human_native_reviewed}.
+     - The value `native_reviewed` is RETIRED (replaced by
+       `ai_quality_reviewed` to make AI origin visible). Any item
+       still carrying `native_reviewed` after the migration window
+       is a regression.
+     - Every item with `review_status` SHOULD also carry
+       `review_status_provenance` naming the specific reviewer or
+       pipeline (e.g. "claude_native_reviewer_persona",
+       "human_teacher_<name>_<date>", "kanjium_auto_matched").
+     - UI badge code MUST render `ai_quality_reviewed` as "AI
+       quality-reviewed" (or similar) — NEVER "Native-reviewed".
+     - The "Native-reviewed" badge label is reserved for
+       `human_native_reviewed` (a future value, not currently in
+       use).
+
+     **Detection at audit time:**
+
+     ```python
+     import json
+     RETIRED = 'native_reviewed'
+     ALLOWED = {'ai_quality_reviewed', 'llm_curated',
+                'auto_generated', 'human_native_reviewed'}
+     CORPORA = ['data/grammar.json', 'data/vocab.json',
+                'data/kanji.json', 'data/reading.json',
+                'data/listening.json', 'data/authentic.json',
+                'data/questions.json']
+     retired = 0
+     unknown = 0
+     missing_provenance = 0
+     for f in CORPORA:
+         d = json.load(open(f, encoding='utf-8'))
+         items = (d.get('patterns') or d.get('entries')
+                  or d.get('passages') or d.get('items')
+                  or d.get('questions') or [])
+         for it in items:
+             rs = it.get('review_status')
+             if rs == RETIRED:
+                 retired += 1
+             elif rs and rs not in ALLOWED:
+                 unknown += 1
+             if rs and not it.get('review_status_provenance'):
+                 missing_provenance += 1
+     print(f'A58 retired-value usage (target 0): {retired}')
+     print(f'A58 unknown enum values (target 0): {unknown}')
+     print(f'A58 missing provenance field (target 0 once stable): {missing_provenance}')
+     ```
+
+     **CI invariant:** JA-35 already enforces the closed enum on
+     `review_status`. BUG-012's fix extended the enum to include
+     `ai_quality_reviewed` and kept `native_reviewed` as a
+     transitional accepted value during the migration window. The
+     transitional acceptance should be removed (forcing the
+     migration to complete) after one release cycle.
+
+     **Cross-reference:** F.20 in
+     `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+
 A57. SCHEMA-LEVEL REGISTER-VARIANT DETECTION IN common_mistakes
      (added 2026-05-16; caught on user-reported BUG-011 —
       schema-level follow-on to BUG-007 / A52)
