@@ -670,3 +670,145 @@ A future native-teacher review against an extended scope (vocab
 pitch_accent.mora, every particle-introducing pattern, full
 common_mistakes corpus with LLM-as-judge) is queued as the next
 expansion of this coverage matrix.
+
+---
+
+## ADDENDUM 2026-05-16 (Part 2) — BUG-010 close-out
+
+A user-reported crawlability bug (BUG-010) generalized the BUG-001
+grammar-only static-mirror fix to every SPA route surface. Resolved
+in a 6-stage rollout on 2026-05-16. Phrasing here follows the
+writing-discipline rules — coverage bounded to the surfaces and
+URLs scanned, not absolutist.
+
+### Bug addressed
+
+**BUG-010 — SPA hash routes invisible to non-JS clients across all
+content surfaces (P1/High, Status: Fixed):**
+
+BUG-001 fixed grammar-only static mirrors at `/N5/lessons/<id>.html`.
+That fix did NOT address: vocab (1009 entries), kanji (106), reading
+passages (54), listening drills (50), or meta routes (home,
+changelog, privacy, notices, feedback, settings, test, sitting,
+missed, summary). Consequence: search engines could not index ~95%
+of the corpus; archive.org could not snapshot any deep link;
+social-card scrapers had nothing to read; users with JS disabled saw
+only the SPA shell.
+
+**Resolution:** new tool `tools/build_static_mirrors.py` covering
+all 6 surfaces in 6 staged commits, with a unified sitemap.xml +
+robots.txt.
+
+| Stage | Commit | Surface | Output count |
+|---|---|---|---|
+| 1 | `1ca8173` | Grammar | 178 + 1 index = 179 mirrors at `/N5/learn/grammar/<id>/index.html` |
+| 2 | `06dd57b` | Vocab | 970 unique forms + 1 index = 971 mirrors at `/N5/learn/vocab/<form>/index.html` (form-keyed per SPA route `#/learn/vocab/<form>`) |
+| 3 | `dbdd96d` | Kanji | 106 + 1 index = 107 mirrors at `/N5/kanji/<glyph>/index.html` |
+| 4-5 | `4419efc` | Reading + Listening | 54 + 50 + 2 indexes = 106 mirrors |
+| 6 | `75d0ec1` | Meta routes | 10 mirrors (home / changelog / privacy / notices / feedback / settings / test / sitting / missed / summary) |
+| 7 | this commit | Close-out + Rule-4 propagation | — |
+
+### Per-mirror requirements (uniform across all 6 stages)
+
+Each generated file carries:
+
+- Route-specific `<title>` and `<meta name="description">`
+- Open Graph (`og:type`, `og:url`, `og:title`, `og:description`,
+  `og:site_name`, `og:image`) for social-card previews
+- Twitter Card (`twitter:card`, `twitter:title`,
+  `twitter:description`)
+- `<link rel="canonical">` pointing back to the SPA hash route
+  (search engines deduplicate static + interactive against the
+  SPA's canonical URL)
+- Inline CSS with `prefers-color-scheme: dark` media query
+- JS redirect to SPA after 1.5s — long enough that bots aborting
+  JS execution before the deadline see the static content; short
+  enough that human users don't wait visibly. Skip on `?nojs=1`
+  or `?goSPA=0` query params.
+- Breadcrumb navigation + content-licence footer
+
+### Cross-linking between surfaces
+
+The mirror graph is fully-navigable from any entry point:
+- Vocab pages link to grammar mirrors via `frequent_patterns`
+- Reading passages link to vocab + kanji mirrors via
+  `vocab_used` + `kanji_used`
+- Kanji pages link to other kanji mirrors via `lookalikes`
+- Meta `summary` and `test` stubs link to all per-corpus indexes
+
+### Sitemap + robots.txt
+
+- `/N5/sitemap.xml`: 1,373 URLs (sorted + deduped for deterministic
+  output)
+- `/N5/robots.txt`: `User-agent: * / Allow: / / Sitemap: <abs URL>`
+
+### Coverage of the fix
+
+- Surfaces scanned: 6 (grammar, vocab, kanji, reading, listening,
+  meta).
+- Entities scanned for mirror presence: every entity in
+  data/grammar.json (178), data/vocab.json (970 unique forms /
+  1009 sense entries), data/kanji.json (106), data/reading.json
+  (54), data/listening.json (50), plus 10 meta routes.
+- Phase-0 regression block: returns 0 missing across all 6
+  surfaces at this checkpoint.
+- Idempotency: re-running `tools/build_static_mirrors.py` produces
+  0 written / 1373 unchanged.
+- CI: 93/93 invariants green at every stage commit.
+
+### What this resolution does NOT yet cover (acknowledged debt)
+
+- **Playwright snapshot comparison gate.** BUG-010's acceptance
+  criteria named this as the build-time consistency check
+  (assert mirror content matches what the SPA would render).
+  Queued as follow-on; requires Playwright CI infra not yet
+  present in this repo.
+- **Per-page Open Graph images.** All pages currently share a
+  single `og:image` (the app's `icon-512.png`). Per-route OG
+  images (pattern name + meaning, kanji glyph + readings, etc.)
+  are an enhancement.
+- **Hindi locale variants for non-meta surfaces.** Grammar +
+  vocab + kanji data carry per-entry Hindi content (`meaning_hi`,
+  `gloss_hi`, `meanings_hi`), but the static mirrors only emit
+  `index.html` (English). `index.hi.html` per surface is the
+  next iteration.
+- **CI invariant for mirror presence (JA-NN).** The Phase-0
+  regression block in `prompts/N5Improvement.txt` provides the
+  mechanical check today; promoting it to a CI invariant after
+  the surface stabilizes is queued.
+- **Verification of Google's indexing within the BUG-010 14-day
+  window.** The acceptance criterion `Google site:gauravaccentureproducts.github.io/JLPTSuccess/N5 returns multiple distinct deep-page results within 14 days of deploy`
+  cannot be verified within the commit window — requires
+  observation of search-engine crawl latency.
+- **Retirement of the older `/N5/lessons/<id>.html` mirror
+  surface from BUG-001.** Kept in place to avoid breaking any
+  external link that was created against those URLs; supersession
+  policy TBD.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.18 (full-surface
+  generalization) — extends F.16 (BUG-001 grammar-only); seven
+  subsections (path structure, per-page requirements, cross-
+  linking, sitemap, stage sequencing, generator architecture,
+  acknowledged gaps).
+- ✓ Accuracy prompt: new A56 audit category (static-mirror coverage)
+  with curl-verification examples and ready-to-wire CI invariant
+  proposal.
+- ✓ N5Improvement prompt: new Section-10 anti-item +
+  Phase-0 regression block (6 mechanical mirror-presence checks
+  validated 0/0/0/0/0/0 on the current corpus).
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
+  sheet: BUG-010 marked Fixed; description appended with
+  [FIX 2026-05-16] note; Summary counts updated to Total=10 /
+  Fixed=10 / New=0.
+
+### Coverage summary at this checkpoint
+
+CI invariants live: 93 (unchanged this batch). The Phase-0
+regression block introduced today covers mirror-presence
+mechanically; promotion to JA-NN gate is queued as follow-on once
+the surface settles. The new invariants from BUG-003…BUG-009
+batch (JA-91…JA-95) remain documented as planned but not yet wired
+(same as the previous addendum).

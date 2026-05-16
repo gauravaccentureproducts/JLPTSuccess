@@ -1703,6 +1703,74 @@ A54. PATTERN-PARTICLE MISMATCH IN CANONICAL EXAMPLES
      teaches. If E doesn't, the example belongs in a different
      pattern.
 
+A56. STATIC-MIRROR COVERAGE (CRAWLABILITY) ACROSS ALL CONTENT SURFACES
+     (added 2026-05-16; caught on user-reported BUG-010 — generalization
+      of BUG-001 from grammar-only mirrors to every SPA route surface)
+
+     **Problem class:** A hash-routed SPA returns only the shell for
+     non-JS clients (LLM web-fetch tools, search engines, archive
+     snapshots, social-card scrapers, users with JS disabled). BUG-001
+     addressed the grammar surface; BUG-010 generalizes to vocab,
+     kanji, reading, listening, and meta routes (home / changelog /
+     privacy / notices / feedback / settings / test / sitting /
+     missed / summary).
+
+     **Audit at each release:**
+
+     - For every SPA hash route the app exposes, assert a static
+       mirror exists at the canonical mirror path:
+         #/learn/<id>            → /Nx/learn/grammar/<id>/index.html
+         #/learn/vocab/<form>    → /Nx/learn/vocab/<form>/index.html
+         #/kanji/<glyph>         → /Nx/kanji/<glyph>/index.html
+         #/reading/<id>          → /Nx/reading/<id>/index.html
+         #/listening/<id>        → /Nx/listening/<id>/index.html
+         meta routes             → /Nx/<slug>/index.html
+     - Every mirror MUST carry: route-specific <title>, meta
+       description, OG tags (og:type, og:url, og:title, og:description,
+       og:site_name, og:image), Twitter Card, <link rel="canonical">
+       pointing to the SPA hash route, inline CSS, JS-redirect with
+       bot-friendly delay, breadcrumb, content-licence footer.
+     - /Nx/sitemap.xml must list every mirror URL with absolute paths.
+     - /Nx/robots.txt must contain a `Sitemap:` directive.
+     - Mirrors must cross-link between surfaces (vocab → grammar
+       patterns, reading → vocab + kanji, kanji → other kanji
+       lookalikes) using the static-mirror URL structure (not the
+       SPA hash route directly).
+
+     **Detection at audit time:**
+
+     Run `python tools/build_static_mirrors.py` (idempotent;
+     unchanged inputs produce 0 written). If it writes any files,
+     mirror surface had drifted from the data source. Confirm CI
+     93/93 invariants still green after re-build. Then sample:
+
+     ```
+     curl -s "https://<deploy>/N5/learn/grammar/n5-008/" | head -20
+     curl -s "https://<deploy>/N5/learn/vocab/%E7%A7%81/" | head -20
+     curl -s "https://<deploy>/N5/kanji/%E4%B8%80/" | head -20
+     ```
+
+     Each MUST return real HTML with the pattern title / vocab gloss /
+     kanji meaning visible in the head section, not the empty SPA shell.
+
+     **CI invariant to add (queued):** JA-NN — for each entity in
+     grammar.json / vocab.json / kanji.json / reading.json /
+     listening.json, assert the corresponding /Nx/.../index.html
+     exists and its <title> tag contains a recognizable token
+     (pattern id / form / glyph / passage title). Build fails on
+     missing mirror.
+
+     **Acknowledged gaps (not yet addressed):**
+
+     - Playwright snapshot-comparison gate (assert mirror content
+       matches SPA-rendered DOM) — named in BUG-010 acceptance
+       criteria but requires Playwright CI infra.
+     - Per-page Open Graph images (current: single shared icon-512.png).
+     - Hindi locale variants for non-meta surfaces (`index.hi.html`).
+
+     **Cross-reference:** F.18 in
+     `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+
 A55. MORA-COUNT, PATTERN-MARKER, AND PARTICLE-ALIGNMENT CI INVARIANTS
      (consolidation note added 2026-05-16)
 

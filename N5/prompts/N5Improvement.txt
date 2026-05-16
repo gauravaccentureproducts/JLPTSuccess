@@ -600,6 +600,63 @@ Run this block before producing Section 2 of the report. Any
 non-zero count means a regression has been introduced; flag the
 specific pattern + example index in Section 5 as a P1 fix.
 
+### Phase-0 Static-mirror coverage regression block (added 2026-05-16)
+
+Regression block: assert every entity in every data corpus has a
+corresponding static mirror on disk. Each check returns a count that
+MUST be 0 on the current corpus. Non-zero means a regression has
+been introduced (either data was added without re-running
+tools/build_static_mirrors.py, or a mirror was deleted in error).
+
+Validated 2026-05-16 to return 0/0/0/0/0/0 against the
+corpus snapshot at BUG-010 close-out.
+
+```python
+import json, os
+from pathlib import Path
+
+ROOT = Path('.').resolve()  # run from N5/
+
+def _check(label, ids, dir_root, transform=lambda x: x):
+    missing = [i for i in ids if not (ROOT / dir_root / transform(i) / 'index.html').exists()]
+    print(f'{label}: missing {len(missing)} (target 0)')
+    return len(missing)
+
+# Grammar
+G = json.load(open('data/grammar.json', encoding='utf-8'))
+ids = [p['id'] for p in G.get('patterns', []) if p.get('id')]
+_check('A56 grammar mirror coverage', ids, 'learn/grammar')
+
+# Vocab — keyed by unique form
+V = json.load(open('data/vocab.json', encoding='utf-8'))
+forms = sorted({e['form'] for e in V.get('entries', []) if e.get('form')})
+_check('A56 vocab mirror coverage', forms, 'learn/vocab')
+
+# Kanji
+K = json.load(open('data/kanji.json', encoding='utf-8'))
+glyphs = [e['glyph'] for e in K.get('entries', []) if e.get('glyph')]
+_check('A56 kanji mirror coverage', glyphs, 'kanji')
+
+# Reading
+R = json.load(open('data/reading.json', encoding='utf-8'))
+rids = [p['id'] for p in R.get('passages', []) if p.get('id')]
+_check('A56 reading mirror coverage', rids, 'reading')
+
+# Listening
+L = json.load(open('data/listening.json', encoding='utf-8'))
+lids = [it['id'] for it in L.get('items', []) if it.get('id')]
+_check('A56 listening mirror coverage', lids, 'listening')
+
+# Meta routes
+META = ['home','changelog','privacy','notices','feedback','settings',
+        'test','sitting','missed','summary']
+_check('A56 meta mirror coverage', META, '.')
+```
+
+If any count is non-zero, run `python tools/build_static_mirrors.py`
+to regenerate. The tool is idempotent — re-running on a fully-
+covered corpus produces 0 written / 1373 unchanged.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
@@ -2046,6 +2103,28 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT stop at grammar-only when shipping static mirrors for a
+  hash-routed SPA — generalize to EVERY content + meta surface.
+  Caught 2026-05-16 as user-reported BUG-010 (follow-on to BUG-001).
+  BUG-001's grammar-only solution did not address: vocab pages,
+  kanji pages, reading passages, listening transcripts, meta routes
+  (home / changelog / privacy / notices / feedback / settings / test
+  / sitting / missed / summary). Result: search engines could not
+  index 95% of the corpus; archive.org could not snapshot deep
+  links; social-card scrapers (OG / Twitter Card) had nothing to
+  read; users with JS disabled saw nothing but the shell. Resolved
+  at N5 via tools/build_static_mirrors.py — 1,373 mirror URLs
+  across 6 surfaces, single sitemap.xml, robots.txt, cross-surface
+  links. Each mirror carries: route-specific <title>, meta
+  description, OG tags, Twitter Card, canonical → SPA hash route,
+  inline CSS (with dark-mode), JS-redirect with 1.5s bot-friendly
+  delay (skippable via ?nojs=1), breadcrumb, content-licence
+  footer. Staged rollout: grammar → vocab → kanji → reading+listening
+  → meta routes → close-out (6 commits). Idempotent re-runs produce
+  0 written / 1373 unchanged. See F.18 in the procedure manual.
+  Acknowledged debt: Playwright snapshot CI gate (named in BUG-010
+  acceptance criteria), per-page OG images, Hindi locale variants
+  for non-meta surfaces."
 - "Do NOT trust an `explanation_en` field copied across patterns —
   cross-pattern explanation contamination is real and silent.
   Caught 2026-05-16 on n5-098 (superlative pattern), whose
