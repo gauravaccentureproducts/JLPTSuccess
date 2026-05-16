@@ -903,7 +903,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     # frozen contracts so future edits cannot silently violate them.
     ("JA-54", "Every grammar pattern essay totals >=500 chars (Tofugu-bar; 2026-05-12)", lambda: _check_ja_54_essay_min_length()),
     ("JA-55", "Every grammar pattern essay has all 6 sub-fields (intro/why/pitfalls/contrasts/practice/cultural_context; 2026-05-12)", lambda: _check_ja_55_essay_schema()),
-    ("JA-56", "Corpus sizes locked at 178/998/106/54/50 (Section-10 anti-items #1-4; updated 2026-05-16 for BUG-018 dedup + BUG-017 collision fix, was 1009 before)", lambda: _check_ja_56_corpus_size_locks()),
+    ("JA-56", "Corpus sizes locked at 178/995/106/54/50 (Section-10 anti-items #1-4; updated 2026-05-16: BUG-018 −10 + BUG-017 collision −1 + BUG-019 −3 = 1009→995)", lambda: _check_ja_56_corpus_size_locks()),
     ("JA-57", "No LH/HL pitch notation in vocab.json (use {mora, drop} integer; anti-item #11; 2026-05-12)", lambda: _check_ja_57_no_lh_pitch_notation()),
     ("JA-58", "No 'JLPT.jp official' citations (JEES 出題基準 discontinued 2010; anti-item #12; 2026-05-12)", lambda: _check_ja_58_no_jlpt_jp_current_citation()),
     ("JA-59", "No competitive gamification (no XP/leaderboard/badge/achievement keys or files; anti-item #5 refined; 2026-05-12)", lambda: _check_ja_59_no_gamification_state()),
@@ -3112,7 +3112,7 @@ def _check_ja_52_grammar_contrasts_floor() -> list[str]:
 
 _CORPUS_LOCKS = {
     ("data/grammar.json",   "patterns", 178),
-    ("data/vocab.json",     "entries",  998),   # was 1009; BUG-018 dedup dropped 10 cross-section duplicates + BUG-017 collision merge dropped 1 more (週末 form-rename collided with pre-existing しゅうまつ entry) (2026-05-16)
+    ("data/vocab.json",     "entries",  995),   # was 1009; 2026-05-16: BUG-018 -10 + BUG-017 collision -1 + BUG-019 -3 (月/あつい/きって subset-gloss duplicates missed by BUG-018) = 995
     ("data/reading.json",   "passages", 54),
     ("data/listening.json", "items",    50),
 }

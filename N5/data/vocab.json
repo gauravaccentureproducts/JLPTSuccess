@@ -13446,6 +13446,19 @@
           "ja": "一月から 四月まで さむいです。",
           "translation_en": "From January to April it is cold.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "よる、つきが きれいです。",
+          "translation_en": "The moon is pretty at night."
+        },
+        {
+          "ja": "こんやの 月は とても きれいです。",
+          "translation_en": "Tonight's moon is very beautiful."
+        },
+        {
+          "ja": "こん夜の 月は とても きれいです。",
+          "translation_en": "Tonight's moon is very beautiful.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -13501,7 +13514,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_019_merged_from": "n5.vocab.14-nature-and-weather.月",
+      "bug_019_merged_from_section": "14. Nature and Weather"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.一月",
@@ -22787,83 +22802,6 @@
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
-      "id": "n5.vocab.14-nature-and-weather.月",
-      "form": "月",
-      "reading": "つき",
-      "gloss": "moon",
-      "section": "14. Nature and Weather",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "よる、つきが きれいです。",
-          "translation_en": "The moon is pretty at night."
-        },
-        {
-          "ja": "こんやの 月は とても きれいです。",
-          "translation_en": "Tonight's moon is very beautiful."
-        },
-        {
-          "ja": "こん夜の 月は とても きれいです。",
-          "translation_en": "Tonight's moon is very beautiful.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "चाँद",
-      "frequency_rank": 48,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 2,
-        "drop": 2,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "月が ある",
-        "月に いく",
-        "月まで まつ",
-        "月から はじまる",
-        "いま 月",
-        "月は はやい",
-        "月を まつ",
-        "月が おわる"
-      ],
-      "collocations_provenance": "llm_curated",
-      "devoiced_vowels": {
-        "positions": [],
-        "note": "no devoicing — voiced k initial",
-        "rule": "no_devoicing"
-      },
-      "devoiced_vowels_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
       "id": "n5.vocab.14-nature-and-weather.ほし",
       "form": "ほし",
       "reading": "ほし",
@@ -23634,91 +23572,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.14-nature-and-weather.あつい",
-      "form": "あつい",
-      "reading": "あつい",
-      "gloss": "hot (weather)",
-      "section": "14. Nature and Weather",
-      "pos": "i-adj",
-      "examples": [
-        {
-          "ja": "夏は とても あついです。",
-          "translation_en": "Summer is very hot."
-        },
-        {
-          "ja": "あついから、まどを あけてください。",
-          "translation_en": "It's hot, so please open the window."
-        },
-        {
-          "ja": "なつは とても あついです。",
-          "translation_en": "Summer is very hot.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "गरम (मौसम)",
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 0,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-by-reading",
-        "alternates": [
-          2
-        ]
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "frequency_rank": 35637,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "あつい ほん",
-        "あつい ひと",
-        "あつい くるま",
-        "あつくないです",
-        "とても あつい",
-        "すこし あつい",
-        "あつくて べんりだ",
-        "あつく なる"
-      ],
-      "collocations_provenance": "llm_curated",
-      "frequent_patterns": [
-        "n5-009",
-        "n5-044",
-        "n5-071",
-        "n5-077",
-        "n5-078",
-        "n5-079",
-        "n5-080",
-        "n5-081",
-        "n5-082",
-        "n5-083",
-        "n5-095",
-        "n5-117",
-        "n5-123",
-        "n5-133",
-        "n5-136",
-        "n5-143",
-        "n5-149",
-        "n5-156"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "false_friends": [
-        "さむい",
-        "つめたい"
-      ],
-      "false_friends_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
@@ -33207,6 +33060,19 @@
           "ja": "八十円の きってを 五枚 ください。",
           "translation_en": "Please give me five 80-yen stamps.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "きってを 三まい 買いました。",
+          "translation_en": "I bought three stamps."
+        },
+        {
+          "ja": "きってを はって ポストに 入れました。",
+          "translation_en": "I put on a stamp and dropped it in the mailbox."
+        },
+        {
+          "ja": "てがみに きってを はりました。",
+          "translation_en": "I put a stamp on the letter.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -33237,7 +33103,15 @@
         "きってが ある",
         "きっては ちかい",
         "きってまで あるく",
-        "きってに つく"
+        "きってに つく",
+        "きってを かう",
+        "きってを つかう",
+        "あたらしい きって",
+        "たかい きって",
+        "きってを ください",
+        "きっては どこ",
+        "きってを みる",
+        "やすい きって"
       ],
       "collocations_provenance": "llm_curated",
       "devoiced_vowels": {
@@ -33270,7 +33144,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_019_merged_from": "n5.vocab.37-common-nouns-miscella.きって",
+      "bug_019_merged_from_section": "37. Common Nouns - Miscellaneous"
     },
     {
       "id": "n5.vocab.22-money-and-shopping.はがき",
@@ -52049,7 +51925,7 @@
       "id": "n5.vocab.31-adjectives.あつい",
       "form": "あつい",
       "reading": "あつい",
-      "gloss": "hot (weather; separate adjective from the two below despite shared reading)",
+      "gloss": "hot (weather)",
       "section": "31. い-Adjectives",
       "pos": "i-adj",
       "examples": [
@@ -52064,6 +51940,15 @@
         {
           "ja": "なつは あついです。",
           "translation_en": "Summer is hot.",
+          "provenance": "llm_curated"
+        },
+        {
+          "ja": "夏は とても あついです。",
+          "translation_en": "Summer is very hot."
+        },
+        {
+          "ja": "なつは とても あついです。",
+          "translation_en": "Summer is very hot.",
           "provenance": "llm_curated"
         }
       ],
@@ -52127,7 +52012,10 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_019_merged_from": "n5.vocab.14-nature-and-weather.あつい",
+      "bug_019_merged_from_section": "14. Nature and Weather",
+      "homophone_note": "Same reading as 熱い 'hot to touch' and 厚い 'thick'. The three are written with distinct kanji but pronounced identically; see the あつい.2 and あつい.3 entries for the other two."
     },
     {
       "id": "n5.vocab.31-adjectives.あつい.2",
@@ -64988,87 +64876,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.きって",
-      "form": "きって",
-      "reading": "きって",
-      "gloss": "stamp",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "きってを 三まい 買いました。",
-          "translation_en": "I bought three stamps."
-        },
-        {
-          "ja": "きってを はって ポストに 入れました。",
-          "translation_en": "I put on a stamp and dropped it in the mailbox."
-        },
-        {
-          "ja": "てがみに きってを はりました。",
-          "translation_en": "I put a stamp on the letter.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "डाक टिकट",
-      "counter": {
-        "kanji": "枚",
-        "reading": "まい"
-      },
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 0,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-by-reading"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "frequency_rank": 4300,
-      "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "きってを かう",
-        "きってを つかう",
-        "あたらしい きって",
-        "たかい きって",
-        "きってを ください",
-        "きっては どこ",
-        "きってを みる",
-        "やすい きって"
-      ],
-      "collocations_provenance": "llm_curated",
-      "devoiced_vowels": {
-        "positions": [
-          0
-        ],
-        "note": "き devoices before voiceless tt",
-        "rule": "between_voiceless"
-      },
-      "devoiced_vowels_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {

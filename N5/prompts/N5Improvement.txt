@@ -2259,13 +2259,20 @@ Mandatory entries for this richness-first cycle:
 - "Do NOT keep duplicate vocab entries across sections with subset
   glosses — they inflate the corpus count and show the same word
   twice in SRS / flashcard queues. Caught 2026-05-16 as BUG-018
-  (10 cases). Distinguish polysemy (legitimate; keep split — は as
-  tooth/leaf/topic-marker, きる as cut/wear) from subset-duplicates
-  (drop). Heuristic: same form + reading + subset gloss = drop.
+  (10 cases) + BUG-019 (3 more cases missed by the BUG-018 manual
+  list: 月, あつい-duplicate, きって). Distinguish polysemy
+  (legitimate; keep split — は as tooth/leaf/topic-marker, きる as
+  cut/wear, いくつ as question-word vs counter via DIFFERENT POS)
+  from subset-duplicates (drop). Heuristic: same form + reading +
+  same POS + subset gloss = drop.
   When dropping: pick canonical by gloss-completeness with cross-
   corpus-reference-count as tiebreaker; merge unique examples /
   collocations; rewrite cross-refs in 7 other corpora; update
-  count locks. See F.21.5."
+  count locks. **Don't rely on a hand-curated case list (BUG-019
+  lesson):** run an automated subset-detector before every release
+  — group by (form, reading), require same POS, flag any pair where
+  gloss-B is a strict substring of gloss-A. See F.21.5 in the
+  procedure manual for the script."
 - "Do NOT label LLM-assigned content review as `review_status:
   \"native_reviewed\"` — the value implies human-native review when
   read at the point of use (UI badges, audit dashboards, third-party

@@ -1121,6 +1121,37 @@ these to hard CI gates is queued.
 
 ---
 
+## ADDENDUM 2026-05-16 (Part 7) — BUG-019 close-out (BUG-018 heuristic miss)
+
+A native-teacher re-audit immediately after BUG-018's close-out
+surfaced 3 MORE subset-gloss duplicates that the BUG-018 hand-
+curated list had missed: 月 (Time/Nature), あつい
+(Weather/Adjectives — a duplicate within the 4-entry homophone
+cluster), きって (Money/Common-Nouns).
+
+**Resolution:** same approach as BUG-018 — pick canonical, merge
+data, drop duplicate, rewrite cross-refs. vocab.json 998 → 995.
+30 cross-corpus references rewritten across 5 files. Edge case
+intentionally preserved: いくつ has 2 entries with DIFFERENT POS
+(question-word vs counter) — legitimate polysemy.
+
+**Lesson captured in F.21.5:** hand-curated case lists miss the
+full population. The procedure manual now documents an automated
+subset-detector script that groups vocab by (form, reading) +
+guards on same-POS + flags strict-substring gloss pairs. The
+script would have caught all 13 cases (BUG-018's 10 + BUG-019's 3)
+while correctly skipping いくつ.
+
+**Locks updated:** JA-56 (998→995), CONTENT-LICENSE.md vocab count
+claim. CI invariants unchanged: 97/97 green.
+
+**Final state — all 19 user-reported bugs closed:**
+The table from Part 6 extends by one row: BUG-019 (Low/P3) — 3
+subset-gloss duplicates missed by BUG-018. Summary in the Excel
+sheet: Total=19, Fixed=19, New=0, Pending=0.
+
+---
+
 ## ADDENDUM 2026-05-16 (Part 6) — BUG-014..018 close-out (vocab data quality)
 
 A native-teacher re-audit on 2026-05-16 surfaced 5 vocab-corpus
