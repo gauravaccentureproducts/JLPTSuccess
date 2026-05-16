@@ -812,3 +812,156 @@ mechanically; promotion to JA-NN gate is queued as follow-on once
 the surface settles. The new invariants from BUG-003…BUG-009
 batch (JA-91…JA-95) remain documented as planned but not yet wired
 (same as the previous addendum).
+
+---
+
+## ADDENDUM 2026-05-16 (Part 3) — BUG-011 close-out
+
+A user-reported follow-on to BUG-007 (ISSUE-005) caught the
+schema-level expression of the same anti-pattern: WHY rationales
+say "both forms correct" while the underlying `wrong`/`right`
+field-name dichotomy still labels one form as wrong. Resolved on
+2026-05-16 via schema migration + UI + static-mirror generator
+updates.
+
+### Bug addressed
+
+**BUG-011 — Self-contradicting WRONG/RIGHT labels across
+common_mistakes entries (P1/High, Status: Fixed):**
+
+BUG-007 rewrote 11 common_mistakes WHY rationales to use
+register-variant framing instead of WRONG/RIGHT. But the entries
+still had the `wrong`/`right` field-name dichotomy in the JSON
+data; the UI renders `wrong` cells with red strike-through and
+`right` cells with green check, so the visual hierarchy continued
+to label grammatically-valid alternatives as WRONG.
+
+**Resolution:** schema-level fix — add `kind: "register_variant"`
+field to affected entries, plus optional `label_a` / `label_b`
+register tags. UI rendering checks `kind` and applies neutral
+"Form A / Form B" presentation when the flag is set; entries
+without `kind` fall through to legacy wrong/right styling.
+
+### Migration scope
+
+Original BUG-011 description named 18 entries across 14 patterns
+(7 register/formality cases + 7 ね-vs-か pragmatic confirmation +
+4 implied register cases). During close-out, the Phase-0
+regression block A57 (the regex check just added in this addendum)
+surfaced 9 ADDITIONAL entries of the same class that hadn't been
+in the original bug list. Both batches were migrated, bringing the
+total to **27 entries across 19 patterns**:
+
+| Pattern | Indices | Theme |
+|---|---|---|
+| n5-023, n5-052-057 | cm[2] / cm[1] each | ね-vs-か confirmation pragmatic |
+| n5-069 | cm[3] | てから vs 〜て connective |
+| n5-071 | cm[2] | polite-request ね softener |
+| n5-105 | cm[0] | たくありません vs たくないです (rigid/natural) |
+| n5-107 | cm[3] | plain 行く vs polite 行きます |
+| n5-113 | cm[0] | 三十分 vs はん (full/casual) |
+| n5-124 | cm[0,1,2] | しかし vs でも (formal/casual) |
+| n5-125 | cm[0,1,2] | では vs じゃ (formal/casual) |
+| n5-127 | cm[1] | けれども vs けど (formal/casual) |
+| n5-158 | cm[2] | でしょう vs だろう (polite/casual) |
+| n5-159 | cm[2] | ですね vs だね (polite/casual) |
+| n5-173 | cm[2] | ないといけない (n5-175) vs なくてはいけない (n5-173) |
+| n5-176 | cm[1,2] | なくては vs なくちゃ (full/casual) |
+| n5-179 | cm[0,1,2] | と vs って (formal/casual) |
+
+One related entry was EXCLUDED from migration after manual
+inspection: **n5-176 cm[0]** (`行かなくちゃです` vs `行かなくちゃ` /
+`行かなければなりません`) is a *genuine grammar error*, not a register
+variant — the WHY says "they don't combine [with です]" and "sounds
+wrong". The regression block was updated with an
+`ERROR_DISQUALIFIERS` regex to skip entries whose WHY explicitly
+identifies a grammar error.
+
+### Three-layer fix
+
+1. **Data** (`data/grammar.json`):
+   - 27 entries get `kind: "register_variant"` + `label_a` +
+     `label_b`
+   - Original `wrong` / `right` keys preserved for backwards
+     compatibility (the values now semantically = "form A" / "form B"
+     for those entries, but the key names stay)
+
+2. **SPA UI** (`js/learn-grammar.js` + `css/main.css`):
+   - `mistakes.map()` checks `cm.kind` before rendering
+   - `kind === "register_variant"` → render with `.variant-pair`
+     CSS class (orange-tinted border, no strike-through, register
+     labels in front of each form)
+   - Otherwise → legacy `.wrong` / `.right` rendering preserved
+   - New CSS rules: `.mistakes-list li.variant-pair`,
+     `.variant-row`, `.variant-label`
+
+3. **Static-mirror generators**
+   (`tools/build_static_mirrors.py` +
+   `tools/build_lesson_html_mirrors.py`):
+   - Split common_mistakes into two sections: "Common mistakes"
+     (errors) and "Register variants — both forms are correct"
+   - Register-variant entries render with `[<label_a>]` / `[<label_b>]`
+     prefixes instead of ✗/✓ markers
+   - Inline CSS extended with `.variant-pair` / `.variant-row` /
+     `.variant-label` rules + dark-mode support
+
+### Coverage of the fix
+
+- Entries scanned for the register-variant signal: every
+  common_mistakes entry across 178 grammar patterns (~600-900
+  entries total).
+- Scan method: Phase-0 regression block A57 — regex match on
+  variant WHY phrases ("both are correct", "register choice",
+  "formal full form", "casual contraction", etc.) and variant
+  cell phrases ("(in casual ...)", "(in formal ...)", "correct
+  but rigid"). Skip entries whose WHY contains
+  ERROR_DISQUALIFIERS ("don't combine", "sounds wrong",
+  "ungrammatical", etc.).
+- Findings in the scanned shape: 27 (migrated) + 1 excluded as
+  legitimate error.
+- Post-fix regression: A57 returns 0 unflagged register variants.
+- CI: 93/93 invariants green.
+
+### What this resolution does NOT yet cover
+
+- **Promotion of A57 to a CI invariant.** The Phase-0 regression
+  block is mechanical and runs as part of the audit pipeline; a
+  hard CI gate (JA-NN) is queued.
+- **The same anti-pattern in `wrong_corrected_pair` entries**
+  (BUG-002's class). BUG-011 covered common_mistakes only; a
+  parallel audit of `wrong_corrected_pair` entries with the same
+  regex would close that surface too. Queued.
+- **Locale strings for register-variant labels.** The label_a /
+  label_b values are English-only today (e.g. "formal full form
+  (けれども)"). Hindi translations of the labels are deferred to
+  the Hindi-locale completion pass.
+
+### Class lineage
+
+The class has surfaced 3 times in 2 days:
+- **BUG-002 (2026-05-16):** `wrong_corrected_pair` mislabel —
+  verb-class disambiguation. Fix touched the data only.
+- **BUG-007 (2026-05-16):** 11 common_mistakes WHY rationales
+  rewritten to register-variant framing. Fix touched WHY text only;
+  schema unchanged.
+- **BUG-011 (2026-05-16):** schema-level fix — the dichotomy that
+  BUG-007's rewrites implied. Fix touched data + UI + static
+  mirrors + regression block.
+
+If a fourth bug in this class appears, treat as authoring-pipeline
+process failure rather than a one-off data fix — gate at authoring
+(promote A57 to a CI invariant).
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.19 (schema-level fix for
+  register-variant common_mistakes; extends F.17.4 with the
+  schema layer + UI rule + authoring rule + 3-bug class lineage).
+- ✓ Accuracy prompt: new A57 audit category with the regression
+  script and ERROR_DISQUALIFIERS regex.
+- ✓ N5Improvement prompt: new Section-10 anti-item + Phase-0
+  regression block A57 (validated 0 on the corpus).
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
+  sheet: BUG-011 marked Fixed with the 27-entry migration noted;
+  Summary counts: Total=12 / Fixed=11 / New=1 (BUG-012 remains).

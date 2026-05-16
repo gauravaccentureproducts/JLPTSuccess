@@ -971,6 +971,26 @@ h2 + * + .section-label:first-of-type {
 .mistakes-list .right { color: var(--c-success); font-weight: 500; }
 .mistakes-list .why { color: var(--c-muted); font-size: 13px; margin-top: 4px; display: block; }
 
+/* BUG-011 (2026-05-16): register-variant entries are NOT errors — both
+   forms are grammatically correct, differing only in register / formality
+   / pragmatic context. Render with neutral framing (no strike-through,
+   no green check), small register labels in front of each form. */
+.mistakes-list li.variant-pair { border-left-color: var(--c-due, #A66A1F); }
+.mistakes-list .variant-row { display: flex; align-items: baseline; gap: 8px; margin: 2px 0; }
+.mistakes-list .variant-label {
+  display: inline-block;
+  background: var(--c-due-tint, #F7EFE0);
+  color: var(--c-due, #A66A1F);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.mistakes-list .variant-form { color: var(--c-text, inherit); }
+
 /* IMP-WAVE3+ (UI clarity 2026-05-11): wrong_corrected_pair rows now
    carry explicit ✗ Incorrect: / ✓ Correct: labels in front of each
    Japanese example. Symbol + label stay visually aligned with the

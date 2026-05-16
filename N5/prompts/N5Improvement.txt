@@ -600,6 +600,71 @@ Run this block before producing Section 2 of the report. Any
 non-zero count means a regression has been introduced; flag the
 specific pattern + example index in Section 5 as a P1 fix.
 
+### Phase-0 Register-variant kind-flag regression block (added 2026-05-16)
+
+Regression block: scan common_mistakes entries for the schema
+contradiction caught as BUG-011. Each entry whose WHY text or cell
+content signals a register/context variant MUST carry the
+`kind: "register_variant"` schema marker (added by BUG-011's fix).
+Bare entries with a variant signal but no kind flag are regressions.
+
+Validated 2026-05-16 to return 0 against the corpus snapshot at
+BUG-011 close-out.
+
+```python
+import json, re
+
+G = json.load(open('data/grammar.json', encoding='utf-8'))
+
+VARIANT_WHY_PHRASES = re.compile(
+    r'both are correct|either is correct|register choice|'
+    r'pragmatic, not grammatical|natural choice|both valid|'
+    r"both forms? (are|is) (grammatically )?valid|"
+    r'register variant|formal full form|casual contraction',
+    re.I,
+)
+VARIANT_CELL_PHRASES = re.compile(
+    r'\(in casual|\(in formal|\(too casual|\(too formal|'
+    r'correct but rigid',
+    re.I,
+)
+# Disqualifiers: WHY phrases signaling a GENUINE grammar error
+# (not a register variant). If WHY contains any of these, treat
+# as a legacy wrong/right entry even if it also mentions
+# "casual contraction" etc.
+ERROR_DISQUALIFIERS = re.compile(
+    r"don'?t combine|cannot combine|sounds wrong|ungrammatical|"
+    r"grammatically incorrect|never\s+(?:takes|use|valid)|"
+    r'is wrong because',
+    re.I,
+)
+
+bad = []
+for p in G.get('patterns', []):
+    for i, cm in enumerate(p.get('common_mistakes', []) or []):
+        why = cm.get('why', '') or ''
+        wrong = cm.get('wrong', '') or ''
+        right = cm.get('right', '') or ''
+        if ERROR_DISQUALIFIERS.search(why):
+            continue  # WHY identifies an actual error; not a register variant
+        needs_variant = (
+            VARIANT_WHY_PHRASES.search(why)
+            or VARIANT_CELL_PHRASES.search(wrong)
+            or VARIANT_CELL_PHRASES.search(right)
+        )
+        if needs_variant and cm.get('kind') != 'register_variant':
+            bad.append((p['id'], i, why[:80]))
+
+print(f'A57 unflagged register-variant entries (target 0): {len(bad)}')
+for b in bad[:5]:
+    print(f'  {b}')
+```
+
+Non-zero result means a new register-variant entry was added
+without the `kind` flag, or an existing variant entry had its flag
+dropped. Either way, re-run `tools/fix_bug_011_register_variants_*.py`
+or manually flag the entries.
+
 ### Phase-0 Static-mirror coverage regression block (added 2026-05-16)
 
 Regression block: assert every entity in every data corpus has a
@@ -2103,6 +2168,23 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT add a common_mistakes entry whose WHY text says 'both are
+  correct' / 'either is correct' / 'register choice' / 'natural
+  choice' / 'pragmatic, not grammatical' / 'formal' / 'casual'
+  without setting `kind: \"register_variant\"` + populating `label_a`
+  / `label_b` register tags. Caught 2026-05-16 as user-reported
+  BUG-011 (schema-level follow-on to BUG-007 / ISSUE-005). BUG-007
+  rewrote 11 WHY rationales to use register-variant framing but
+  left the literal `wrong`/`right` field-name dichotomy in the JSON
+  intact, so the UI's red-strike-through-vs-green-check contrast
+  still labeled grammatically-valid alternatives as WRONG.
+  BUG-011's fix migrated 18 entries across 14 patterns to the new
+  schema. The class has now surfaced 3 times in 2 days (BUG-002 →
+  BUG-007 → BUG-011); gate at authoring, not at audit. Phase-0
+  regression check: scan grammar.json for common_mistakes entries
+  whose WHY contains a register-variant phrase but which lack
+  `kind: \"register_variant\"`; target 0. See F.19 in the procedure
+  manual + A57 in the accuracy prompt."
 - "Do NOT stop at grammar-only when shipping static mirrors for a
   hash-routed SPA — generalize to EVERY content + meta surface.
   Caught 2026-05-16 as user-reported BUG-010 (follow-on to BUG-001).

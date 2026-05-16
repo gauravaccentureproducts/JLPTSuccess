@@ -1703,6 +1703,100 @@ A54. PATTERN-PARTICLE MISMATCH IN CANONICAL EXAMPLES
      teaches. If E doesn't, the example belongs in a different
      pattern.
 
+A57. SCHEMA-LEVEL REGISTER-VARIANT DETECTION IN common_mistakes
+     (added 2026-05-16; caught on user-reported BUG-011 —
+      schema-level follow-on to BUG-007 / A52)
+
+     **Problem class:** A52 (BUG-007) caught the case where a
+     common_mistakes WHY rationale said "both forms are correct"
+     while the surface still labeled one as WRONG and the other as
+     RIGHT. The WHY rewrites landed, but the underlying
+     `wrong`/`right` field-name dichotomy stayed. UI rendering uses
+     red strike-through for the `wrong` cell and green check for
+     the `right` cell — so the visual contradiction with the WHY
+     text remains.
+
+     **Detection at audit time — three signals:**
+
+     1. **Field-name + WHY-text contradiction.** Scan every
+        common_mistakes entry where the WHY field contains any of:
+        "both are correct", "either is correct", "register choice",
+        "natural choice", "formal", "casual", "more natural",
+        "pragmatic, not grammatical", "valid form", "both valid".
+        Each hit MUST carry `kind: "register_variant"` (the schema
+        marker from BUG-011's fix). Bare entries with those WHY
+        phrases but no `kind` field are regressions.
+
+     2. **Cell content with explicit-context markers.** A `wrong`
+        or `right` cell that contains a parenthetical context tag
+        (e.g. "(in casual speech)", "(in formal writing)",
+        "(too casual for a formal report)", "correct but rigid")
+        indicates a register-variant pair, not a grammatical error.
+        Set `kind: "register_variant"`.
+
+     3. **Pattern-keyed variant.** A `wrong` form that exemplifies
+        a different N5 pattern from the one being taught (e.g.
+        n5-173 cm[2] uses しないと いけない, which is the n5-175
+        pattern, not the n5-173 〜なくてはいけない form). Also a
+        register_variant by this schema (`label_a` / `label_b`
+        identify the two patterns).
+
+     **CI invariant (queued):** JA-NN — for every
+     common_mistakes entry, if WHY contains a register-variant
+     phrase OR cell contains a context parenthetical, assert
+     `kind == "register_variant"`. Build fails on regression.
+
+     **Sample regression check:**
+
+     ```python
+     import json, re
+     G = json.load(open('data/grammar.json', encoding='utf-8'))
+     VARIANT_WHY_PHRASES = re.compile(
+         r'both are correct|either is correct|register choice|'
+         r'pragmatic, not grammatical|natural choice|both valid|'
+         r"both forms? (are|is) (grammatically )?valid|"
+         r'register variant|formal full form|casual contraction',
+         re.I,
+     )
+     VARIANT_CELL_PHRASES = re.compile(
+         r'\(in casual|\(in formal|\(too casual|\(too formal|'
+         r'correct but rigid|register|register-mismatch',
+         re.I,
+     )
+     # Disqualifiers: WHY phrases signaling a GENUINE grammar error
+     # (not a register variant). Skip these so we don't false-flag
+     # entries like "casual contraction can't combine with です".
+     ERROR_DISQUALIFIERS = re.compile(
+         r"don'?t combine|cannot combine|sounds wrong|ungrammatical|"
+         r"grammatically incorrect|never\s+(?:takes|use|valid)|"
+         r'is wrong because',
+         re.I,
+     )
+     bad = []
+     for p in G.get('patterns', []):
+         for i, cm in enumerate(p.get('common_mistakes', []) or []):
+             why = cm.get('why', '') or ''
+             wrong = cm.get('wrong', '') or ''
+             right = cm.get('right', '') or ''
+             if ERROR_DISQUALIFIERS.search(why):
+                 continue  # legitimate error, not a register variant
+             needs_variant = (
+                 VARIANT_WHY_PHRASES.search(why)
+                 or VARIANT_CELL_PHRASES.search(wrong)
+                 or VARIANT_CELL_PHRASES.search(right)
+             )
+             if needs_variant and cm.get('kind') != 'register_variant':
+                 bad.append((p['id'], i, why[:60]))
+     print(f'A57 unflagged register-variant entries (target 0): {len(bad)}')
+     for b in bad[:5]:
+         print(f'  {b}')
+     ```
+
+     **Cross-reference:** F.19 in
+     `JLPT Common/procedure-manual-build-next-jlpt-level.md`. The
+     class has now surfaced 3 times in 2 days (BUG-002 →
+     BUG-007 → BUG-011); gate at authoring time, not at audit.
+
 A56. STATIC-MIRROR COVERAGE (CRAWLABILITY) ACROSS ALL CONTENT SURFACES
      (added 2026-05-16; caught on user-reported BUG-010 — generalization
       of BUG-001 from grammar-only mirrors to every SPA route surface)

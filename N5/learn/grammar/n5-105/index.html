@@ -36,6 +36,14 @@
   .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
   .wrong { color: #a33; }
   .right { color: var(--green-soft); }
+  /* BUG-011: register-variant entries — neutral framing (no strike/check) */
+  .variant-pair { border-left-color: #a66a1f; }
+  .variant-row { display: flex; align-items: baseline; gap: 0.5em; margin: 0.2em 0; }
+  .variant-label { display: inline-block; background: #f7efe0; color: #a66a1f; border-radius: 3px; padding: 1px 6px; font-size: 0.78em; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  @media (prefers-color-scheme: dark) {
+    .variant-pair { border-left-color: #d6a062; }
+    .variant-label { background: #3a2f1f; color: #f0c890; }
+  }
   .muted { color: var(--muted); font-size: 0.92em; }
   .index-section { margin-bottom: 1.4rem; }
   .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
@@ -122,11 +130,6 @@
 </div>
 <h2>Common mistakes</h2>
 <div class="ex">
-<div class="wrong" lang="ja">✗ 行きたくありません。 (correct but rigid)</div>
-<div class="right" lang="ja">✓ 行きたくないです。 (more natural)</div>
-<div class="en">Both 〜たくありません and 〜たくないです are grammatically correct polite negative volitional forms. 〜たくないです is slightly more natural in modern conversational Japanese; 〜たくありません sounds slightly more formal / older-register but is NOT wrong.</div>
-</div>
-<div class="ex">
 <div class="wrong" lang="ja">✗ 食べたくない です。</div>
 <div class="right" lang="ja">✓ 食べたくないです。</div>
 <div class="en">たくない is one unit; no space between くない and です.</div>
@@ -145,6 +148,13 @@
 <div class="wrong" lang="ja">✗ 今日は 行きたくないでした。</div>
 <div class="right" lang="ja">✓ 今日は 行きたくなかったです。</div>
 <div class="en">〜たい conjugates like i-adjective for past: drop い from たくない, add かった → たくなかった. Then add です for polite. Don&#x27;t add でした after たくない.</div>
+</div>
+<h2>Register variants — both forms are correct</h2>
+<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">formal-rigid (たくありません)</span> <span lang="ja">行きたくありません。 (correct but rigid)</span></div>
+<div class="variant-row"><span class="variant-label">natural polite (たくないです)</span> <span lang="ja">行きたくないです。 (more natural)</span></div>
+<div class="en">Both 〜たくありません and 〜たくないです are grammatically correct polite negative volitional forms. 〜たくないです is slightly more natural in modern conversational Japanese; 〜たくありません sounds slightly more formal / older-register but is NOT wrong.</div>
 </div>
 <h2>Wrong / corrected pairs</h2>
 <div class="ex">

@@ -36,6 +36,14 @@
   .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
   .wrong { color: #a33; }
   .right { color: var(--green-soft); }
+  /* BUG-011: register-variant entries — neutral framing (no strike/check) */
+  .variant-pair { border-left-color: #a66a1f; }
+  .variant-row { display: flex; align-items: baseline; gap: 0.5em; margin: 0.2em 0; }
+  .variant-label { display: inline-block; background: #f7efe0; color: #a66a1f; border-radius: 3px; padding: 1px 6px; font-size: 0.78em; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  @media (prefers-color-scheme: dark) {
+    .variant-pair { border-left-color: #d6a062; }
+    .variant-label { background: #3a2f1f; color: #f0c890; }
+  }
   .muted { color: var(--muted); font-size: 0.92em; }
   .index-section { margin-bottom: 1.4rem; }
   .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
@@ -120,20 +128,21 @@
 <div class="ja" lang="ja"><span class="lang-tag">JA</span>あめが ふるって。</div>
 <div class="en"><span class="lang-tag">EN</span>(I heard) it&#x27;s going to rain.</div>
 </div>
-<h2>Common mistakes</h2>
-<div class="ex">
-<div class="wrong" lang="ja">✗ 「会議で 田中先生って 言いました。」(too casual for a formal report)</div>
-<div class="right" lang="ja">✓ 「会議で 田中先生と 言いました。」(と is the formal quotation marker)</div>
+<h2>Register variants — both forms are correct</h2>
+<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">casual contraction (って in formal context)</span> <span lang="ja">「会議で 田中先生って 言いました。」(too casual for a formal report)</span></div>
+<div class="variant-row"><span class="variant-label">formal quotation (と)</span> <span lang="ja">「会議で 田中先生と 言いました。」(と is the formal quotation marker)</span></div>
 <div class="en">って is the CASUAL contraction of と / と言って. In formal contexts (meetings, writing, business), use と / と言って.</div>
 </div>
-<div class="ex">
-<div class="wrong" lang="ja">✗ 「あした 来る」と 言いました。</div>
-<div class="right" lang="ja">✓ 「あした 来る」って 言いました。</div>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">formal quotation (と)</span> <span lang="ja">「あした 来る」と 言いました。</span></div>
+<div class="variant-row"><span class="variant-label">casual contraction (って)</span> <span lang="ja">「あした 来る」って 言いました。</span></div>
 <div class="en">って is the CASUAL contraction of と言って/と (quotation marker). In casual conversation, 「あした来る」って言ってた replaces 「あした来る」と言いました. Both are correct; choose by register.</div>
 </div>
-<div class="ex">
-<div class="wrong" lang="ja">✗ 「あした 来る」と 言いました。 (in casual conversation)</div>
-<div class="right" lang="ja">✓ 「あした 来る」って 言いました。</div>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">formal quotation (と in casual context)</span> <span lang="ja">「あした 来る」と 言いました。 (in casual conversation)</span></div>
+<div class="variant-row"><span class="variant-label">casual contraction (って)</span> <span lang="ja">「あした 来る」って 言いました。</span></div>
 <div class="en">って is the casual contraction of と (quotation marker). For casual contexts (friend conversations, casual diary), って. For formal/written contexts, と. Match register.</div>
 </div>
 <h2>Wrong / corrected pairs</h2>

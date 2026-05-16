@@ -36,6 +36,14 @@
   .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
   .wrong { color: #a33; }
   .right { color: var(--green-soft); }
+  /* BUG-011: register-variant entries — neutral framing (no strike/check) */
+  .variant-pair { border-left-color: #a66a1f; }
+  .variant-row { display: flex; align-items: baseline; gap: 0.5em; margin: 0.2em 0; }
+  .variant-label { display: inline-block; background: #f7efe0; color: #a66a1f; border-radius: 3px; padding: 1px 6px; font-size: 0.78em; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  @media (prefers-color-scheme: dark) {
+    .variant-pair { border-left-color: #d6a062; }
+    .variant-label { background: #3a2f1f; color: #f0c890; }
+  }
   .muted { color: var(--muted); font-size: 0.92em; }
   .index-section { margin-bottom: 1.4rem; }
   .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
@@ -127,14 +135,16 @@
 <div class="en">Counters trigger なん, never なに. Same for なんにん, なんさい.</div>
 </div>
 <div class="ex">
-<div class="wrong" lang="ja">✗ いま なんじですね。</div>
-<div class="right" lang="ja">✓ いま なんじですか。</div>
-<div class="en">Both ね-ending and か-ending are grammatical. The choice is PRAGMATIC, not grammatical: ね seeks confirmation from a listener who is presumed to share the speaker&#x27;s view (&#x27;it&#x27;s X, right?&#x27;); か is a neutral question (&#x27;is it X?&#x27;). Neither is wrong; pick based on the speaker&#x27;s pragmatic stance.</div>
-</div>
-<div class="ex">
 <div class="wrong" lang="ja">✗ いま なんじか ですか。</div>
 <div class="right" lang="ja">✓ いま なんじですか。</div>
 <div class="en">なんじ is followed directly by ですか. The form なんじか is wrong — か belongs at the very end of the question after the copula, not embedded in the question word.</div>
+</div>
+<h2>Register variants — both forms are correct</h2>
+<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">confirmation-seeker (〜ね)</span> <span lang="ja">いま なんじですね。</span></div>
+<div class="variant-row"><span class="variant-label">neutral question (〜か)</span> <span lang="ja">いま なんじですか。</span></div>
+<div class="en">Both ね-ending and か-ending are grammatical. The choice is PRAGMATIC, not grammatical: ね seeks confirmation from a listener who is presumed to share the speaker&#x27;s view (&#x27;it&#x27;s X, right?&#x27;); か is a neutral question (&#x27;is it X?&#x27;). Neither is wrong; pick based on the speaker&#x27;s pragmatic stance.</div>
 </div>
 <h2>Wrong / corrected pairs</h2>
 <div class="ex">

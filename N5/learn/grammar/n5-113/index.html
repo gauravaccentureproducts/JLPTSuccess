@@ -36,6 +36,14 @@
   .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
   .wrong { color: #a33; }
   .right { color: var(--green-soft); }
+  /* BUG-011: register-variant entries — neutral framing (no strike/check) */
+  .variant-pair { border-left-color: #a66a1f; }
+  .variant-row { display: flex; align-items: baseline; gap: 0.5em; margin: 0.2em 0; }
+  .variant-label { display: inline-block; background: #f7efe0; color: #a66a1f; border-radius: 3px; padding: 1px 6px; font-size: 0.78em; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  @media (prefers-color-scheme: dark) {
+    .variant-pair { border-left-color: #d6a062; }
+    .variant-label { background: #3a2f1f; color: #f0c890; }
+  }
   .muted { color: var(--muted); font-size: 0.92em; }
   .index-section { margin-bottom: 1.4rem; }
   .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
@@ -122,11 +130,6 @@
 </div>
 <h2>Common mistakes</h2>
 <div class="ex">
-<div class="wrong" lang="ja">✗ 三時 三十分 (in casual speech)</div>
-<div class="right" lang="ja">✓ 三時はん</div>
-<div class="en">In casual speech, 三十分 (sanjuppun) is replaced by はん (han). 三時はん = &quot;3:30&quot; / &quot;half past 3&quot;.</div>
-</div>
-<div class="ex">
 <div class="wrong" lang="ja">✗ いま 3時 半です。</div>
 <div class="right" lang="ja">✓ いま 3時はんです。</div>
 <div class="en">はん attaches DIRECTLY to 時, no space or extra particle. 3時はん = &#x27;3:30&#x27;. The form &#x27;3時 半&#x27; with separation reads awkwardly — はん is a fused suffix. Pronunciation: san-ji-han, not san-ji + han.</div>
@@ -135,6 +138,13 @@
 <div class="wrong" lang="ja">✗ いま 3時 半です。 (with space)</div>
 <div class="right" lang="ja">✓ いま 3時はんです。</div>
 <div class="en">はん fuses directly with 時 (no space, no particle). 3時はん = &#x27;3:30&#x27;. The form 3時 半 with separator is incorrect spelling/reading.</div>
+</div>
+<h2>Register variants — both forms are correct</h2>
+<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">polite full (三時 三十分)</span> <span lang="ja">三時 三十分 (in casual speech)</span></div>
+<div class="variant-row"><span class="variant-label">casual (三時はん)</span> <span lang="ja">三時はん</span></div>
+<div class="en">In casual speech, 三十分 (sanjuppun) is replaced by はん (han). 三時はん = &quot;3:30&quot; / &quot;half past 3&quot;.</div>
 </div>
 <h2>Wrong / corrected pairs</h2>
 <div class="ex">

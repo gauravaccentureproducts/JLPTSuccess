@@ -36,6 +36,14 @@
   .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
   .wrong { color: #a33; }
   .right { color: var(--green-soft); }
+  /* BUG-011: register-variant entries — neutral framing (no strike/check) */
+  .variant-pair { border-left-color: #a66a1f; }
+  .variant-row { display: flex; align-items: baseline; gap: 0.5em; margin: 0.2em 0; }
+  .variant-label { display: inline-block; background: #f7efe0; color: #a66a1f; border-radius: 3px; padding: 1px 6px; font-size: 0.78em; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  @media (prefers-color-scheme: dark) {
+    .variant-pair { border-left-color: #d6a062; }
+    .variant-label { background: #3a2f1f; color: #f0c890; }
+  }
   .muted { color: var(--muted); font-size: 0.92em; }
   .index-section { margin-bottom: 1.4rem; }
   .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
@@ -120,20 +128,21 @@
 <div class="ja" lang="ja"><span class="lang-tag">JA</span>それでは、 はじめましょう。</div>
 <div class="en"><span class="lang-tag">EN</span>Well then, let&#x27;s begin.</div>
 </div>
-<h2>Common mistakes</h2>
-<div class="ex">
-<div class="wrong" lang="ja">✗ じゃ、はじめましょう。 (in formal meeting)</div>
-<div class="right" lang="ja">✓ では、はじめましょう。</div>
+<h2>Register variants — both forms are correct</h2>
+<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">casual contraction (じゃ in formal context)</span> <span lang="ja">じゃ、はじめましょう。 (in formal meeting)</span></div>
+<div class="variant-row"><span class="variant-label">formal (では)</span> <span lang="ja">では、はじめましょう。</span></div>
 <div class="en">じゃ is the colloquial contraction of では; in formal contexts (meetings, speeches), prefer では.</div>
 </div>
-<div class="ex">
-<div class="wrong" lang="ja">✗ では、また あした。</div>
-<div class="right" lang="ja">✓ じゃ、また あした。</div>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">formal (では in casual context)</span> <span lang="ja">では、また あした。</span></div>
+<div class="variant-row"><span class="variant-label">casual contraction (じゃ)</span> <span lang="ja">じゃ、また あした。</span></div>
 <div class="en">じゃ is the CASUAL contraction of では (&#x27;well then, see you&#x27;). For friends/peers, じゃ is more natural. では sounds formal/stiff in casual goodbyes. Choose based on register.</div>
 </div>
-<div class="ex">
-<div class="wrong" lang="ja">✗ では、また あした。 (in casual goodbye)</div>
-<div class="right" lang="ja">✓ じゃ、また あした。</div>
+<div class="ex variant-pair">
+<div class="variant-row"><span class="variant-label">formal (では in casual context)</span> <span lang="ja">では、また あした。 (in casual goodbye)</span></div>
+<div class="variant-row"><span class="variant-label">casual contraction (じゃ)</span> <span lang="ja">じゃ、また あした。</span></div>
 <div class="en">じゃ is the casual contraction of では. For friends/peers, じゃ. では sounds formal/stiff in conversation. Match register to relationship.</div>
 </div>
 <h2>Wrong / corrected pairs</h2>

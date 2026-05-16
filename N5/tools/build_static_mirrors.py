@@ -86,6 +86,14 @@ INLINE_CSS = """
   .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
   .wrong { color: #a33; }
   .right { color: var(--green-soft); }
+  /* BUG-011: register-variant entries — neutral framing (no strike/check) */
+  .variant-pair { border-left-color: #a66a1f; }
+  .variant-row { display: flex; align-items: baseline; gap: 0.5em; margin: 0.2em 0; }
+  .variant-label { display: inline-block; background: #f7efe0; color: #a66a1f; border-radius: 3px; padding: 1px 6px; font-size: 0.78em; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  @media (prefers-color-scheme: dark) {
+    .variant-pair { border-left-color: #d6a062; }
+    .variant-label { background: #3a2f1f; color: #f0c890; }
+  }
   .muted { color: var(--muted); font-size: 0.92em; }
   .index-section { margin-bottom: 1.4rem; }
   .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
@@ -271,25 +279,67 @@ def _render_examples(examples: list) -> str:
 
 
 def _render_common_mistakes(cms: list) -> str:
+    """Render common_mistakes section.
+
+    BUG-011 (2026-05-16): entries with `kind: "register_variant"` are NOT
+    errors — both forms are grammatically valid, differing in register /
+    formality / pragmatic context. They render with neutral framing
+    (no ✗/✓, no strike-through), using `label_a` / `label_b` as register
+    tags. Other entries render as the legacy wrong/right pair.
+    """
     if not cms:
         return ""
-    out = ["<h2>Common mistakes</h2>"]
-    for cm in cms:
-        if not isinstance(cm, dict):
-            continue
-        wrong = cm.get("wrong") or ""
-        right = cm.get("right") or ""
-        why = cm.get("why") or ""
-        if not (wrong or right):
-            continue
-        out.append('<div class="ex">')
-        if wrong:
-            out.append(f'<div class="wrong" lang="ja">✗ {_esc(wrong)}</div>')
-        if right:
-            out.append(f'<div class="right" lang="ja">✓ {_esc(right)}</div>')
-        if why:
-            out.append(f'<div class="en">{_esc(why)}</div>')
-        out.append("</div>")
+
+    # Split into traditional errors vs register variants for clearer section
+    # presentation.
+    errors = [c for c in cms if isinstance(c, dict) and c.get("kind") != "register_variant"]
+    variants = [c for c in cms if isinstance(c, dict) and c.get("kind") == "register_variant"]
+
+    out: list[str] = []
+
+    if errors:
+        out.append("<h2>Common mistakes</h2>")
+        for cm in errors:
+            wrong = cm.get("wrong") or ""
+            right = cm.get("right") or ""
+            why = cm.get("why") or ""
+            if not (wrong or right):
+                continue
+            out.append('<div class="ex">')
+            if wrong:
+                out.append(f'<div class="wrong" lang="ja">✗ {_esc(wrong)}</div>')
+            if right:
+                out.append(f'<div class="right" lang="ja">✓ {_esc(right)}</div>')
+            if why:
+                out.append(f'<div class="en">{_esc(why)}</div>')
+            out.append("</div>")
+
+    if variants:
+        out.append("<h2>Register variants — both forms are correct</h2>")
+        out.append('<p class="muted">These forms differ in register, formality, or pragmatic context — not in grammaticality. Pick by context.</p>')
+        for cm in variants:
+            form_a = cm.get("wrong") or ""
+            form_b = cm.get("right") or ""
+            label_a = cm.get("label_a") or "Form A"
+            label_b = cm.get("label_b") or "Form B"
+            why = cm.get("why") or ""
+            if not (form_a or form_b):
+                continue
+            out.append('<div class="ex variant-pair">')
+            if form_a:
+                out.append(
+                    f'<div class="variant-row"><span class="variant-label">{_esc(label_a)}</span> '
+                    f'<span lang="ja">{_esc(form_a)}</span></div>'
+                )
+            if form_b:
+                out.append(
+                    f'<div class="variant-row"><span class="variant-label">{_esc(label_b)}</span> '
+                    f'<span lang="ja">{_esc(form_b)}</span></div>'
+                )
+            if why:
+                out.append(f'<div class="en">{_esc(why)}</div>')
+            out.append("</div>")
+
     return "\n".join(out)
 
 

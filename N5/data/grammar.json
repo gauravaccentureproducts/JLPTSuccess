@@ -8419,7 +8419,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         }
       ],
       "contrasts": [
@@ -19968,7 +19971,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         },
         {
           "wrong": "どうして 行きますか。 (asking method)",
@@ -20348,7 +20354,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         },
         {
           "wrong": "これは いくつですか。",
@@ -20737,7 +20746,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         },
         {
           "wrong": "りんごは いくらですか。 (when asking quantity, not price)",
@@ -21136,7 +21148,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         },
         {
           "wrong": "いま なんじか ですか。",
@@ -21497,7 +21512,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         },
         {
           "wrong": "きょうは なんようびすか。",
@@ -21872,7 +21890,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "confirmation-seeker (〜ね)",
+          "label_b": "neutral question (〜か)"
         },
         {
           "wrong": "たんじょうびは なんがつなんにちが ですか。",
@@ -27156,7 +27177,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "explicit-sequence (てから)",
+          "label_b": "neutral connective (〜て)"
         }
       ],
       "contrasts": [
@@ -28038,7 +28062,10 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "friendly softener (with ね)",
+          "label_b": "neutral polite request"
         },
         {
           "wrong": "ちょっと まって！(used to a customer)",
@@ -42284,7 +42311,10 @@
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "formal-rigid (たくありません)",
+          "label_b": "natural polite (たくないです)"
         },
         {
           "wrong": "食べたくない です。",
@@ -43146,7 +43176,10 @@
           "why": "Plain form 行く is casual; polite form 行きます is for formal contexts (reports, customer interactions, strangers). Match register to context. Mixing plain dictionary form with formal frame sounds informal.",
           "category": "register",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "casual plain (行く in formal context)",
+          "label_b": "polite (行きます)"
         }
       ],
       "contrasts": [
@@ -45675,7 +45708,10 @@
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "kind": "register_variant",
+          "label_a": "polite full (三時 三十分)",
+          "label_b": "casual (三時はん)"
         },
         {
           "wrong": "いま 3時 半です。",
@@ -50878,7 +50914,10 @@
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "kind": "register_variant",
+          "label_a": "formal (しかし in casual context)",
+          "label_b": "casual (でも)"
         },
         {
           "wrong": "テストは むずかしかったです。でも、できました。",
@@ -50886,7 +50925,10 @@
           "why": "しかし = FORMAL 'but/however' (written, presentation, business). でも = CASUAL 'but'. Both are correct semantically; しかし is the right register for formal contexts (news articles, essays). The example reads as more formal — しかし fits.",
           "category": "register",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "casual (でも)",
+          "label_b": "formal (しかし)"
         },
         {
           "wrong": "テストは むずかしかったです。でも、できました。 (in formal writing)",
@@ -50894,7 +50936,10 @@
           "why": "Formal writing prefers しかし over でも. でも is conversational; しかし is the news/essay register. Match the surrounding sentence's formality.",
           "category": "conjugation",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "casual (でも in formal context)",
+          "label_b": "formal (しかし)"
         }
       ],
       "contrasts": [
@@ -51245,7 +51290,10 @@
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "kind": "register_variant",
+          "label_a": "casual contraction (じゃ in formal context)",
+          "label_b": "formal (では)"
         },
         {
           "wrong": "では、また あした。",
@@ -51253,7 +51301,10 @@
           "why": "じゃ is the CASUAL contraction of では ('well then, see you'). For friends/peers, じゃ is more natural. では sounds formal/stiff in casual goodbyes. Choose based on register.",
           "category": "register",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "formal (では in casual context)",
+          "label_b": "casual contraction (じゃ)"
         },
         {
           "wrong": "では、また あした。 (in casual goodbye)",
@@ -51261,7 +51312,10 @@
           "why": "じゃ is the casual contraction of では. For friends/peers, じゃ. では sounds formal/stiff in conversation. Match register to relationship.",
           "category": "conjugation",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "formal (では in casual context)",
+          "label_b": "casual contraction (じゃ)"
         }
       ],
       "contrasts": [
@@ -52212,7 +52266,10 @@
           "category": "register",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12",
-          "bug_007_fix_2026_05_16": true
+          "bug_007_fix_2026_05_16": true,
+          "kind": "register_variant",
+          "label_a": "formal full form (けれども)",
+          "label_b": "casual contraction (けど)"
         },
         {
           "wrong": "むずかしいですけど、おもしろい。 (mixed registers)",
@@ -63370,7 +63427,10 @@
           "why": "Casual register: だろう (plain form). Polite register: でしょう. Match register to context — using でしょう in a casual diary or text-message sounds overly formal.",
           "category": "particle",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "polite (でしょう in casual context)",
+          "label_b": "casual plain (だろう)"
         }
       ],
       "contrasts": [
@@ -63785,7 +63845,10 @@
           "why": "Polite register uses ですね (copula です + ね). Casual is だね (plain だ + ね). For formal contexts (work, strangers), the polite form ですね is required.",
           "category": "particle",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "casual plain (だね in formal context)",
+          "label_b": "polite (ですね)"
         }
       ],
       "contrasts": [
@@ -70146,7 +70209,10 @@
           "why": "Obligation: V-ない (drop い + くて) + は + いけない → なくては いけない. The form しないと いけない is a SEPARATE construction (ない + と + いけない = 'must do' via different derivation). Both are valid N5 but n5-173 specifically uses なくてはいけない.",
           "category": "verb_class",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "n5-175 pattern (ないといけない)",
+          "label_b": "n5-173 pattern (なくてはいけない)"
         }
       ],
       "contrasts": [
@@ -71392,7 +71458,10 @@
           "why": "なくちゃ is the SUPER-CASUAL contraction of なくては. なくてはいけない → なくてはならない → なくちゃ (casual + drop the いけない). Used in spoken Japanese among friends. For polite contexts, the full form is required.",
           "category": "register",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "full form (なくては in casual context)",
+          "label_b": "casual contraction (なくちゃ)"
         },
         {
           "wrong": "もう 行かなくては。 (with friends, casual context)",
@@ -71400,7 +71469,10 @@
           "why": "Casual contraction of なくては → なくちゃ. For friends/peers, なくちゃ is more natural. The full なくてはいけない sounds overly formal in casual conversation.",
           "category": "register",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "full form (なくては in casual context)",
+          "label_b": "casual contraction (なくちゃ)"
         }
       ],
       "contrasts": [
@@ -72638,7 +72710,10 @@
           "category_provenance": "heuristic_categorized",
           "provenance": "native_teacher_review_2026_05_13",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "audit_wave": "g3-format-fix-2026-05-13"
+          "audit_wave": "g3-format-fix-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "casual contraction (って in formal context)",
+          "label_b": "formal quotation (と)"
         },
         {
           "wrong": "「あした 来る」と 言いました。",
@@ -72646,7 +72721,10 @@
           "why": "って is the CASUAL contraction of と言って/と (quotation marker). In casual conversation, 「あした来る」って言ってた replaces 「あした来る」と言いました. Both are correct; choose by register.",
           "category": "register",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "audit_wave": "issue-112-phase4-2026-05-12",
+          "kind": "register_variant",
+          "label_a": "formal quotation (と)",
+          "label_b": "casual contraction (って)"
         },
         {
           "wrong": "「あした 来る」と 言いました。 (in casual conversation)",
@@ -72654,7 +72732,10 @@
           "why": "って is the casual contraction of と (quotation marker). For casual contexts (friend conversations, casual diary), って. For formal/written contexts, と. Match register.",
           "category": "verb_class",
           "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "audit_wave": "issue-112-phase5-2026-05-13",
+          "kind": "register_variant",
+          "label_a": "formal quotation (と in casual context)",
+          "label_b": "casual contraction (って)"
         }
       ],
       "contrasts": [

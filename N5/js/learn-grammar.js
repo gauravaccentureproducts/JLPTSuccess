@@ -512,13 +512,32 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
   `;
   }).join('');
 
-  const mistakeItems = mistakes.map(m => `
-    <li>
-      <div><span class="wrong">${renderJa(m.wrong)}</span></div>
-      <div><span class="right">${renderJa(m.right)}</span></div>
-      <span class="why">${esc(m.why)}</span>
-    </li>
-  `).join('');
+  // BUG-011 (2026-05-16): entries tagged `kind: "register_variant"` carry
+  // two grammatically-valid forms differing in register, formality, or
+  // pragmatic context — NOT one wrong + one right. Render them with
+  // neutral "Form A / Form B" presentation (no strike-through, no green
+  // check), with register labels when present. Entries without `kind`
+  // fall through to the legacy wrong/right rendering.
+  const mistakeItems = mistakes.map(m => {
+    if (m.kind === 'register_variant') {
+      const labelA = m.label_a ? `<span class="variant-label">${esc(m.label_a)}</span>` : '';
+      const labelB = m.label_b ? `<span class="variant-label">${esc(m.label_b)}</span>` : '';
+      return `
+        <li class="variant-pair">
+          <div class="variant-row">${labelA}<span class="variant-form">${renderJa(m.wrong)}</span></div>
+          <div class="variant-row">${labelB}<span class="variant-form">${renderJa(m.right)}</span></div>
+          <span class="why">${esc(m.why)}</span>
+        </li>
+      `;
+    }
+    return `
+      <li>
+        <div><span class="wrong">${renderJa(m.wrong)}</span></div>
+        <div><span class="right">${renderJa(m.right)}</span></div>
+        <span class="why">${esc(m.why)}</span>
+      </li>
+    `;
+  }).join('');
 
   // IMP-WAVE1 (UI audit fix, 2026-05-11): render wrong_corrected_pair
   // list. This is the categorized-error catalog authored across grammar
