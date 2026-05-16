@@ -1366,6 +1366,335 @@ def build_listening(sitemap_urls: list[str]) -> tuple[int, int, int]:
     return written, unchanged, len(items)
 
 
+# ----- Meta-route renderer (Stage 6) -----
+
+
+def _markdown_to_html(text: str) -> str:
+    """Minimal Markdown→HTML for static meta pages.
+
+    Handles: headings (#..######), unordered lists (-, *), ordered lists (1.),
+    paragraphs, inline links [text](url), inline code `..`, bold **..**,
+    italic *..*, horizontal rules ---, and code fences ```.
+
+    Doesn't try to be a full Markdown engine — just renders the meta-page
+    .md files (CHANGELOG / PRIVACY / NOTICES) readably for non-JS clients.
+    """
+    lines = text.split("\n")
+    out: list[str] = []
+    in_code = False
+    in_ul = False
+    in_ol = False
+    para_lines: list[str] = []
+
+    def flush_para():
+        nonlocal para_lines
+        if para_lines:
+            joined = " ".join(p.strip() for p in para_lines if p.strip())
+            if joined:
+                out.append(f"<p>{_render_inline(joined)}</p>")
+            para_lines = []
+
+    def close_lists():
+        nonlocal in_ul, in_ol
+        if in_ul:
+            out.append("</ul>")
+            in_ul = False
+        if in_ol:
+            out.append("</ol>")
+            in_ol = False
+
+    def _render_inline(s: str) -> str:
+        # Escape first, then re-introduce markdown markers
+        s = html.escape(s)
+        # links [text](url)
+        s = re.sub(
+            r"\[([^\]]+)\]\(([^)]+)\)",
+            lambda m: f'<a href="{m.group(2)}">{m.group(1)}</a>',
+            s,
+        )
+        # inline code
+        s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+        # bold
+        s = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
+        # italics (single *)
+        s = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", s)
+        return s
+
+    for raw in lines:
+        line = raw.rstrip()
+        # Code fences
+        if line.startswith("```"):
+            flush_para()
+            close_lists()
+            if in_code:
+                out.append("</code></pre>")
+                in_code = False
+            else:
+                out.append('<pre><code>')
+                in_code = True
+            continue
+        if in_code:
+            out.append(html.escape(raw))
+            continue
+
+        # Horizontal rule
+        if line.strip() in ("---", "***", "___"):
+            flush_para()
+            close_lists()
+            out.append("<hr>")
+            continue
+
+        # Headings
+        m = re.match(r"^(#{1,6})\s+(.+)$", line)
+        if m:
+            flush_para()
+            close_lists()
+            level = len(m.group(1))
+            out.append(f"<h{level}>{_render_inline(m.group(2))}</h{level}>")
+            continue
+
+        # Unordered list
+        m = re.match(r"^[-*]\s+(.+)$", line)
+        if m:
+            flush_para()
+            if in_ol:
+                out.append("</ol>")
+                in_ol = False
+            if not in_ul:
+                out.append("<ul>")
+                in_ul = True
+            out.append(f"<li>{_render_inline(m.group(1))}</li>")
+            continue
+
+        # Ordered list
+        m = re.match(r"^\d+[.)]\s+(.+)$", line)
+        if m:
+            flush_para()
+            if in_ul:
+                out.append("</ul>")
+                in_ul = False
+            if not in_ol:
+                out.append("<ol>")
+                in_ol = True
+            out.append(f"<li>{_render_inline(m.group(1))}</li>")
+            continue
+
+        # Blank line ends paragraph + lists
+        if not line.strip():
+            flush_para()
+            close_lists()
+            continue
+
+        # Otherwise accumulate paragraph text
+        close_lists()
+        para_lines.append(line)
+
+    flush_para()
+    close_lists()
+    if in_code:
+        out.append("</code></pre>")
+    return "\n".join(out)
+
+
+# Per-meta-route config:
+#   slug = the on-disk dir name (also the URL segment)
+#   spa_route = the SPA hash route (canonical target)
+#   source_md = optional .md file in /N5/ to render as body
+#   depth = directory depth from /N5/ (always 1 for these top-level routes)
+#   title = HTML <title>
+#   description = meta description
+#   interactive_note = override for the meta-banner sub-text
+#   stub_body_html = optional pre-rendered HTML for routes without an .md source
+META_ROUTES: list[dict] = [
+    {
+        "slug": "home",
+        "spa_route": "#/home",
+        "source_md": "README.md",
+        "title": "JLPT N5 Tutor — Home",
+        "description": "Browser-based static web app for JLPT N5: grammar, vocab, kanji, reading, and listening. No server. No accounts. No third-party scripts.",
+    },
+    {
+        "slug": "changelog",
+        "spa_route": "#/changelog",
+        "source_md": "CHANGELOG.md",
+        "title": "Changelog — JLPT N5 Tutor",
+        "description": "Version history and release notes for the JLPT N5 Tutor app.",
+    },
+    {
+        "slug": "privacy",
+        "spa_route": "#/privacy",
+        "source_md": "PRIVACY.md",
+        "title": "Privacy — JLPT N5 Tutor",
+        "description": "Privacy posture for JLPT N5 Tutor: no telemetry, no third-party scripts, no accounts.",
+    },
+    {
+        "slug": "notices",
+        "spa_route": "#/notices",
+        "source_md": "NOTICES.md",
+        "title": "Attribution & Notices — JLPT N5 Tutor",
+        "description": "Open-source dependencies, content attribution, and licence notices for JLPT N5 Tutor.",
+    },
+    {
+        "slug": "feedback",
+        "spa_route": "#/feedback",
+        "title": "Feedback — JLPT N5 Tutor",
+        "description": "Send feedback about JLPT N5 Tutor. The interactive feedback form is in the SPA route.",
+        "interactive_note": " — the in-app feedback form requires JavaScript. You can also email feedback directly via the link below.",
+        "stub_body_html": (
+            "<p>The interactive feedback form lives in the SPA route at "
+            '<a href="../#/feedback">/N5/#/feedback</a>. It collects no telemetry; '
+            "submissions are stored on-device until you choose to send them.</p>"
+            "<p>If JavaScript is disabled, you can still reach the maintainer:</p>"
+            "<ul>"
+            "<li>GitHub issues: <a href=\"https://github.com/gauravaccentureproducts/JLPTSuccess/issues\">github.com/gauravaccentureproducts/JLPTSuccess/issues</a></li>"
+            "<li>Repository discussions: <a href=\"https://github.com/gauravaccentureproducts/JLPTSuccess/discussions\">github.com/gauravaccentureproducts/JLPTSuccess/discussions</a></li>"
+            "</ul>"
+        ),
+    },
+    {
+        "slug": "settings",
+        "spa_route": "#/settings",
+        "title": "Settings — JLPT N5 Tutor",
+        "description": "Settings for JLPT N5 Tutor: locale (EN / HI), audio voice, theme, accessibility.",
+        "interactive_note": " — settings are stored in your browser's localStorage and require JavaScript to apply.",
+        "stub_body_html": (
+            "<p>Settings live in the SPA route at <a href=\"../#/settings\">/N5/#/settings</a>. They include:</p>"
+            "<ul>"
+            "<li>Locale: English / हिन्दी</li>"
+            "<li>Audio voice (where multiple speakers are available)</li>"
+            "<li>Theme (system / light / dark)</li>"
+            "<li>Accessibility: font size, motion-reduction, contrast</li>"
+            "<li>Reset (clears localStorage / SRS state)</li>"
+            "</ul>"
+            "<p class=\"muted\">Settings cannot be modified from this static mirror — JavaScript is required to read / write localStorage.</p>"
+        ),
+    },
+    {
+        "slug": "test",
+        "spa_route": "#/test",
+        "title": "Test mode — JLPT N5 Tutor",
+        "description": "Interactive test mode for JLPT N5: timed drills, MCQ + sentence-order + cloze.",
+        "interactive_note": " — test mode is interactive (timed, scored) and requires JavaScript.",
+        "stub_body_html": (
+            "<p>The interactive test mode lives at <a href=\"../#/test\">/N5/#/test</a>. It supports:</p>"
+            "<ul>"
+            "<li>Timed drills (configurable per-mondai time budget)</li>"
+            "<li>Mixed question types: MCQ, sentence-order, cloze, listening</li>"
+            "<li>Wrong-answer review (linked to <a href=\"../#/missed\">/N5/#/missed</a>)</li>"
+            "<li>Full mock-test sittings (linked to <a href=\"../#/sitting\">/N5/#/sitting</a>)</li>"
+            "</ul>"
+            "<p>The content (questions, choices, explanations) is fully static in <code>data/questions.json</code> and <code>data/drills_auto.json</code> — only the test-running UI requires JavaScript.</p>"
+        ),
+    },
+    {
+        "slug": "sitting",
+        "spa_route": "#/sitting",
+        "title": "Mock-test sitting — JLPT N5 Tutor",
+        "description": "Full mock-test sitting for JLPT N5: simulated 105-minute exam with mondai 1-5.",
+        "interactive_note": " — mock-test sittings require JavaScript for the timer, score tracking, and pause/resume.",
+        "stub_body_html": (
+            "<p>Mock-test sittings live at <a href=\"../#/sitting\">/N5/#/sitting</a>. A sitting simulates the real JLPT N5 exam timing and mondai mix.</p>"
+            "<p>For per-passage / per-drill content browsing without JavaScript, see "
+            "<a href=\"../reading/\">/N5/reading/</a> and <a href=\"../listening/\">/N5/listening/</a>.</p>"
+        ),
+    },
+    {
+        "slug": "missed",
+        "spa_route": "#/missed",
+        "title": "Wrong-answer review — JLPT N5 Tutor",
+        "description": "Browse and re-attempt questions you got wrong. Personal SRS history, stored on-device only.",
+        "interactive_note": " — your missed-answer history is in localStorage and requires JavaScript to read.",
+        "stub_body_html": (
+            "<p>The wrong-answer-review surface at <a href=\"../#/missed\">/N5/#/missed</a> reads your personal history from browser localStorage.</p>"
+            "<p>The history is stored on-device only — never sent to any server, never visible to anyone outside your browser. A static mirror cannot show it for that reason.</p>"
+        ),
+    },
+    {
+        "slug": "summary",
+        "spa_route": "#/summary",
+        "title": "Progress dashboard — JLPT N5 Tutor",
+        "description": "Personal progress dashboard for JLPT N5: SRS state, recent attempts, mastery estimates.",
+        "interactive_note": " — your progress data is in localStorage and requires JavaScript to read.",
+        "stub_body_html": (
+            "<p>The progress dashboard at <a href=\"../#/summary\">/N5/#/summary</a> reads your personal SRS state from browser localStorage.</p>"
+            "<p>The data is stored on-device only — never sent to any server. A static mirror cannot show it for that reason.</p>"
+            "<p>For raw content statistics (corpus counts, lesson coverage), see the <a href=\"../README.md\">README</a> and the per-surface indexes:</p>"
+            "<ul>"
+            "<li><a href=\"../learn/grammar/\">/N5/learn/grammar/</a> — 178 patterns</li>"
+            "<li><a href=\"../learn/vocab/\">/N5/learn/vocab/</a> — 970 unique forms / 1009 sense entries</li>"
+            "<li><a href=\"../kanji/\">/N5/kanji/</a> — 106 kanji</li>"
+            "<li><a href=\"../reading/\">/N5/reading/</a> — 54 passages</li>"
+            "<li><a href=\"../listening/\">/N5/listening/</a> — 50 drills</li>"
+            "</ul>"
+        ),
+    },
+]
+
+
+def build_meta(sitemap_urls: list[str]) -> tuple[int, int, int]:
+    """Stage 6 — meta-route mirrors at /N5/<slug>/index.html.
+
+    Returns (written, unchanged, total).
+    """
+    written = 0
+    unchanged = 0
+
+    for cfg in META_ROUTES:
+        slug = cfg["slug"]
+        spa_route = cfg["spa_route"]
+        body_html = ""
+        if cfg.get("source_md"):
+            md_path = ROOT / cfg["source_md"]
+            if md_path.exists():
+                md_text = md_path.read_text(encoding="utf-8")
+                body_html = _markdown_to_html(md_text)
+        if not body_html and cfg.get("stub_body_html"):
+            body_html = cfg["stub_body_html"]
+        if not body_html:
+            body_html = f'<p class="muted">No static content available for this route. <a href="../{spa_route}">Open in the SPA</a>.</p>'
+
+        # The HTML emitted by _markdown_to_html uses h1..h6; if it leads with
+        # an h1, we don't want to duplicate it via the page-template h1. Strip
+        # a leading h1 from body_html and use it as the page h1.
+        h1_match = re.match(r"\s*<h1>(.*?)</h1>\s*", body_html, re.S)
+        page_h1 = cfg.get("title", slug)
+        if h1_match:
+            page_h1 = re.sub(r"<.*?>", "", h1_match.group(1))
+            body_html = body_html[h1_match.end():]
+
+        canonical = N5_BASE + spa_route
+        spa_url = canonical
+        mirror_url = f"{N5_BASE}{slug}/"
+
+        breadcrumb = [("Home", "../#/home"), (cfg.get("title", slug).split(" — ")[0], "")]
+
+        html_text = _build_page(
+            lang="en",
+            title_tag=cfg.get("title", slug),
+            h1=page_h1,
+            description=cfg.get("description", ""),
+            canonical_url=canonical,
+            spa_url=spa_url,
+            body_html=body_html,
+            depth=1,
+            og_title=cfg.get("title", slug),
+            breadcrumb=breadcrumb,
+            interactive_note=cfg.get(
+                "interactive_note",
+                " (the interactive version offers additional features that require JavaScript).",
+            ),
+        )
+
+        out_path = ROOT / slug / "index.html"
+        if _write_if_changed(out_path, html_text):
+            written += 1
+        else:
+            unchanged += 1
+        sitemap_urls.append(mirror_url)
+
+    return written, unchanged, len(META_ROUTES)
+
+
 # ----- Sitemap + robots.txt -----
 
 
@@ -1443,10 +1772,10 @@ def main() -> int:
         summary.append(("listening", w, u, t))
         print(f"Stage 5 (listening): wrote {w}, unchanged {u}, total {t} drills (+1 index).")
 
-    # Stage 6 (meta) lands in the next commit.
-    for stage in ("meta",):
-        if stage in stages:
-            print(f"Stage {stage}: not yet implemented (planned per BUG-010 staged rollout).")
+    if "meta" in stages:
+        w, u, t = build_meta(sitemap_urls)
+        summary.append(("meta", w, u, t))
+        print(f"Stage 6 (meta): wrote {w}, unchanged {u}, total {t} meta routes.")
 
     # Always rebuild sitemap + robots from the accumulated urls of the
     # stages we built. (When more stages are added, their URLs will be

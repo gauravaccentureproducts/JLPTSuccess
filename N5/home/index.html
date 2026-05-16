@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JLPT N5 Tutor — Home</title>
+<meta name="description" content="Browser-based static web app for JLPT N5: grammar, vocab, kanji, reading, and listening. No server. No accounts. No third-party scripts.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/home">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/home">
+<meta property="og:title" content="JLPT N5 Tutor — Home">
+<meta property="og:description" content="Browser-based static web app for JLPT N5: grammar, vocab, kanji, reading, and listening. No server. No accounts. No third-party scripts.">
+<meta property="og:site_name" content="JLPT N5 Tutor">
+<meta property="og:image" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JLPT N5 Tutor — Home">
+<meta name="twitter:description" content="Browser-based static web app for JLPT N5: grammar, vocab, kanji, reading, and listening. No server. No accounts. No third-party scripts.">
+<style>
+  :root { --green: #14452a; --green-soft: #1a5c38; --bg: #ffffff; --bg-soft: #f6f8f6; --text: #1a1a1a; --muted: #555; --border: #ddd; }
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--text); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", sans-serif; max-width: 760px; margin: 0 auto; padding: 1rem; line-height: 1.6; }
+  a { color: var(--green); }
+  a:hover { color: var(--green-soft); }
+  h1 { font-size: 1.6em; margin: 0.5rem 0; line-height: 1.3; }
+  h2 { font-size: 1.18em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; margin-top: 2rem; }
+  h3 { font-size: 1.05em; margin-top: 1.4rem; }
+  code { background: #f0f3f0; padding: 0.05em 0.35em; border-radius: 3px; font-size: 0.92em; }
+  .meta-banner { background: var(--bg-soft); border-left: 3px solid var(--green); padding: 0.75rem 1rem; font-size: 0.92em; margin: 0 0 1.5rem 0; }
+  .meta-banner a { font-weight: 600; }
+  .lang-tag { display: inline-block; background: #eef; border: 1px solid #ccd; border-radius: 3px; padding: 0 0.4em; font-size: 0.8em; color: #336; margin-right: 0.45em; vertical-align: 1px; }
+  .ex { margin: 0.8em 0; padding: 0.5em 0.7em; background: #fafbfa; border-left: 2px solid #e4ebe5; border-radius: 0 4px 4px 0; }
+  .ex .ja { font-size: 1.05em; }
+  .ex .en { color: var(--muted); font-size: 0.93em; margin-top: 0.2em; }
+  .wrong { color: #a33; }
+  .right { color: var(--green-soft); }
+  .muted { color: var(--muted); font-size: 0.92em; }
+  .index-section { margin-bottom: 1.4rem; }
+  .index-section h3 { margin: 1rem 0 0.4rem 0; color: var(--green-soft); }
+  .index-card { display: block; padding: 0.5em 0.7em; border: 1px solid #e0e6e0; border-radius: 4px; margin: 0.3em 0; text-decoration: none; color: inherit; }
+  .index-card:hover { background: var(--bg-soft); }
+  .index-card .label { font-weight: 600; color: var(--green); }
+  .index-card .gloss { color: var(--muted); font-size: 0.9em; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--muted); }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1a1d1b; --bg-soft: #232826; --text: #e7eae8; --muted: #a5aba8; --border: #383d3a; }
+    code { background: #2a2f2c; }
+    .ex { background: #1f2320; border-left-color: #2c3530; }
+    .index-card { border-color: #2c3530; }
+    .meta-banner { background: #232826; }
+    .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
+  }
+</style>
+
+<script>
+(function(){
+  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/home"; };
+  // Bot-friendly: only redirect after delay, and skip redirect when
+  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
+  // inspect the static surface directly).
+  try {
+    var q = location.search || '';
+    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
+    setTimeout(goToSPA, 1500);
+  } catch (e) { /* never fail the static render on JS error */ }
+})();
+</script>
+
+</head>
+<body>
+<p class="meta-banner">
+  <strong>Static read-only mirror.</strong>
+  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/home">Open the interactive version</a> (the interactive version offers additional features that require JavaScript).
+</p>
+<h1>JLPT N5 Tutor</h1>
+<p><a href="https://img.shields.io/badge/License-MIT-blue.svg">![License: MIT</a>](../LICENSE) <a href="https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg">![Content: CC BY-SA 4.0</a>](CONTENT-LICENSE.md) <a href="https://img.shields.io/badge/JLPT-N5-14452a.svg">![JLPT Level: N5</a>](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/) <a href="https://img.shields.io/badge/PWA-installable-brightgreen.svg">![PWA</a>](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/) <a href="https://img.shields.io/badge/locales-EN%20%C2%B7%20HI-blueviolet.svg">![Locales: EN · HI</a>](docs/TRANSLATING.md) <a href="https://img.shields.io/badge/privacy-no%20telemetry-success.svg">![Privacy: no telemetry</a>](PRIVACY.md)</p>
+<p>&gt; <strong>No login · No tracking · Works offline · Open source · 100% on-device · Free, no ads, no paywall.</strong></p>
+<p>Browser-based static web app for studying JLPT N5: grammar, vocabulary, kanji, reading, and listening. <strong>No server. No accounts. No third-party scripts.</strong> Author-side build tools (Python) live under <code>/tools/</code>; the learner runs only the browser.</p>
+<h2>Documentation</h2>
+<p>ISSUE-047 (audit round-5): the docs live in this directory. Quick map:</p>
+<p>| Doc | Purpose | |---|---| | <a href="specifications/JLPT-N5-Current-Implementation-Spec.md"><code>specifications/JLPT-N5-Current-Implementation-Spec.md</code></a> | The authoritative living spec — what the app actually does today (<strong>v1.12.50</strong>). | | <a href="CHANGELOG.md"><code>CHANGELOG.md</code></a> | User-visible release notes (currently at <strong>v1.12.50</strong>, post round-9). | | <a href="AUDIO.md"><code>AUDIO.md</code></a> | Audio pipeline (multi-provider auto-fallback: VOICEVOX → edge-tts → gtts). | | <a href="docs/SELF-HOST.md"><code>docs/SELF-HOST.md</code></a> / <a href="docs/SELF-HOST.hi.md"><code>docs/SELF-HOST.hi.md</code></a> | Fork → brand → deploy guide for institutional / school adopters (niche N3). | | <a href="docs/TRANSLATING.md"><code>docs/TRANSLATING.md</code></a> | Translator-contributor on-ramp for Hindi (niche N1; corpus-wide Hindi review <strong>complete</strong> at LLM-persona-Q33 quality bar — see CHANGELOG v1.12.40-50). | | <a href="docs/NATIVE-AUDIO-WORKFLOW.md"><code>docs/NATIVE-AUDIO-WORKFLOW.md</code></a> | How to swap synthesized audio for native-speaker recordings. | | <a href="docs/UNIFIED-REVIEW-QUEUE-DESIGN.md"><code>docs/UNIFIED-REVIEW-QUEUE-DESIGN.md</code></a> | Cross-skill FSRS-4.5 review queue design (round-9 IMP-092). | | <a href="prompts/N5Improvement.txt"><code>prompts/N5Improvement.txt</code></a> | Audit-only prompt that drives every audit round. Canonical strategic positioning + anti-items list. | | <a href="feedback/n5-audit-2026-05-04.xlsx"><code>feedback/n5-audit-2026-05-04.xlsx</code></a> | Cumulative audit tracker (rounds 1-9). <strong>219 Done / 3 Avoid / 0 Open / 0 Open Questions.</strong> | | <a href="feedback/audit-round9-2026-05-06.md"><code>feedback/audit-round9-2026-05-06.md</code></a> | Round-9 audit report (Sections 0-7, 27 findings registered). Historical snapshot. | | <a href="PRIVACY.md"><code>PRIVACY.md</code></a> | Privacy contract — no telemetry, no third-party scripts, no PII. | | <a href="CONTENT-LICENSE.md"><code>CONTENT-LICENSE.md</code></a> | CC BY-SA 4.0 for the educational content corpus. | | <a href="NOTICES.md"><code>NOTICES.md</code></a> | Third-party content attributions (KanjiVG, Inter, Noto Sans JP, <strong>VOICEVOX speakers</strong>). | | <a href="../LICENSE"><code>../LICENSE</code></a> | MIT for the source code. | | <a href="../CONTRIBUTING.md"><code>../CONTRIBUTING.md</code></a> | Contribution workflow + anti-features list. |</p>
+<h2>Storage (privacy)</h2>
+<p>All learner state lives in browser <strong>localStorage</strong> under the namespace <code>jlpt-n5-tutor:*</code> (e.g. <code>jlpt-n5-tutor:settings</code>, <code>jlpt-n5-tutor:history</code>). No cookies, no IndexedDB, no third-party scripts, no remote API calls. The only writable storage is the user&#x27;s own browser. To audit, open DevTools → Application → Storage → Local Storage. The CI invariant <strong>JA-37</strong> enforces that <code>js/storage.js</code> and <code>PRIVACY.md</code> agree on the namespace; doc-vs-code drift fails the release gate.</p>
+<h2>Run locally</h2>
+<p>Open <code>index.html</code> in a modern browser (Chrome, Edge, Firefox).</p>
+<p>&gt; Some browsers block <code>file://</code> JSON fetches. If pages stay blank, serve over HTTP: &gt; ``<code> &gt; python -m http.server 8000 &gt; </code>`` &gt; Then open http://localhost:8000.</p>
+<h2>Deploy to GitHub Pages</h2>
+<ol>
+<li>Commit and push this folder (or its parent repo) to GitHub.</li>
+<li><strong>Settings → Pages → Source</strong> = <code>main</code> branch, root folder (or <code>/docs</code> if you nest the app under that).</li>
+<li>After the first build (~30 seconds), visit <code>https://&lt;your-user&gt;.github.io/&lt;repo&gt;/N5/</code> (or wherever the app lives in your repo). The canonical deploy of this repo is at <code>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/</code>.</li>
+<li>Verify the four chapters load: Learn, Test, Drill, Summary. Take a quick test, miss something, and confirm the Drill badge updates and Chapter 3 / 4 reflect it.</li>
+</ol>
+<p>The app uses <strong>only relative paths</strong> and <strong>hash routing</strong> (<code>#/learn</code>, <code>#/test</code>, …), so it works without any path-rewriting on GitHub Pages - no <code>404.html</code> fallback, no <code>gh-pages</code> action, nothing else needed.</p>
+<p>A <strong>service worker</strong> (<code>sw.js</code>) is included and pre-caches the app shell + all data files. After your first online visit, the app continues to work offline. Bump <code>CACHE_VERSION</code> in <code>sw.js</code> when shipping a release so old caches get evicted.</p>
+<h2>File map</h2>
+<pre><code>
+/index.html                            entry point
+/sw.js                                 service worker (offline cache)
+/manifest.webmanifest                  PWA manifest
+/css/main.css                          styling
+/js/                                   app logic (one module per surface / mode)
+  app.js storage.js furigana.js i18n.js shortcuts.js search.js pwa.js levels.js
+  learn.js test.js papers.js review.js summary.js drill.js diagnostic.js
+  reading.js listening.js kanji.js kanji-popover.js home.js feedback.js changelog.js
+  kosoado.js wa-vs-ga.js verb-class.js te-form.js particle-pairs.js counters.js
+  content-protect.js settings.js normalize.js
+/data/                                 JSON consumed by the app
+  grammar.json questions.json
+  vocab.json kanji.json reading.json listening.json
+  n5_kanji_whitelist.json n5_vocab_whitelist.json n5_kanji_readings.json
+  dokkai_kanji_exception.json audio_manifest.json
+  papers/manifest.json                   live counts: 29 papers, 426 questions
+                                         (4 per-section + chokai virtual aggregator)
+                                         + combined_sections + full_mock_papers
+  papers/{moji,goi,bunpou,dokkai}/paper-{1..7}.json
+                                         per-section layout: 6 full papers of 15 questions
+                                         + 1 short paper of 10 questions = 100 Q (102 for dokkai).
+                                         The short paper is intentional - it captures the residual
+                                         items after the section&#x27;s primary 6 papers are filled to
+                                         15 each. Do not &quot;rebalance&quot; by redistributing.
+  audio_manifest.json                    711 grammar/reading audio (gtts)
+  audio_manifest_voice.json              47 listening audio (VOICEVOX multi-voice)
+/audio/                                MP3 files (grammar examples, reading, listening)
+/svg/kanji/                            stroke-order SVGs (one per N5 kanji)
+/locales/                              UI translations: en, hi (closed set per JA-39)
+/fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
+/tests/                                Playwright specs (p0-smoke, visual-regression with 76 baselines)
+/tools/                                Python scripts run by the content author only
+  check_content_integrity.py           83 release-blocker invariants
+  check_design_system.py               8 D-rules (Muji-flat spec compliance)
+  lint_content.py
+  build_spec.py build_audio.py
+  build_listening_audio_multivoice_2026_05_07.py    multi-provider listening render
+  fix_*.py                             versioned fixers (one per release)
+/docs/N5-syllabus-methodology.md       N5 scope + source citations + authoring conventions
+verification.md                        cross-source audit of N5 content
+TASKS.md                               task list (mirrors session TodoWrite)
+JLPT N5 Tutor - Functional Spec.docx               full functional spec
+</code></pre>
+<h2>Content authoring workflow</h2>
+<ol>
+<li>Edit rich content directly in the JSON files (single source of truth):</li>
+</ol>
+<p>- <code>data/grammar.json</code> (178 patterns) - <code>data/vocab.json</code> (1009 entries) - <code>data/kanji.json</code> (106 entries) - <code>data/reading.json</code> / <code>data/listening.json</code> / <code>data/questions.json</code> - <code>data/papers/{moji,goi,bunpou,dokkai}/*.json</code> (paper questions)</p>
+<ol>
+<li>Edit scope whitelists in <code>data/n5_*_whitelist.json</code> if adding to N5 scope.</li>
+<li>Edit <code>docs/N5-syllabus-methodology.md</code> if changing methodology, source citations, or authoring conventions.</li>
+<li>Lint for out-of-scope kanji + vocab tokens:</li>
+</ol>
+<p>``<code> python tools/lint_content.py </code>``</p>
+<ol>
+<li>Run integrity + design checks (release blockers):</li>
+</ol>
+<p>``<code> python tools/check_content_integrity.py     # 48 invariants python tools/check_design_system.py         # 8 D-rules </code>``</p>
+<ol>
+<li>(Optional) Re-render listening audio with multi-voice VOICEVOX:</li>
+</ol>
+<p>``<code> # Prereq: VOICEVOX engine on :50021 + ffmpeg in PATH python tools/build_listening_audio_multivoice_2026_05_07.py </code>``</p>
+<ol>
+<li>(Optional) Regenerate the spec docx:</li>
+</ol>
+<p>``<code> python tools/build_spec.py </code>``</p>
+<p>The learner never runs any of these scripts - they are author-side only.</p>
+<h2>Authoring conventions</h2>
+<h3>Vocabulary whitelist exemptions</h3>
+<p>The <code>data/n5_vocab_whitelist.json</code> lookup is the source of truth for &quot;what counts as N5 vocabulary.&quot; Two classes of items are intentionally excluded from the whitelist:</p>
+<ol>
+<li><strong>Personal names</strong> (e.g., マリア, ヤマダ, スズキ, たなか, アンナ) - universally exempted from textbook vocabulary lists. Names appear in passages and questions but never in the whitelist; CI does not flag this. If you add a new passage with a new personal name, do NOT add the name to the whitelist.</li>
+<li><strong>Place names with no compound logic</strong> (e.g., スペイン, アメリカ, メキシコ) - country names already in the whitelist are fine. Compound forms like スペイン人 / アメリカ人 are tracked since they&#x27;re useful learner vocabulary. Don&#x27;t bulk-add every conceivable place name.</li>
+</ol>
+<p>Where to add: append the new term to <code>data/n5_vocab_whitelist.json</code> (sorted alphabetically) and run <code>python tools/check_content_integrity.py</code> to confirm the JA-13 / JA-15 / JA-16 invariants still pass.</p>
+<h3>Spacing policy in passages</h3>
+<p>Insert a single space at every word boundary in <code>ja</code> text - particles, kanji compounds, demonstrative + noun, etc. The corpus is consistently spaced; new content must match.</p>
+<ul>
+<li>✓ <code>わたしは とうきょうの 大学で 日本語を べんきょうしています。</code></li>
+<li>✗ <code>わたしは とうきょうの大学で 日本語を べんきょうしています。</code> (missing space before 大学)</li>
+</ul>
+<p>Exceptions: spaces are NOT inserted within a single compound (e.g., <code>日本語</code> stays as one token; do not split as <code>日本 語</code>).</p>
+<h3>N4 grammar leakage</h3>
+<p>N5 passages must use only N5 grammar markers. The two patterns most likely to slip through are:</p>
+<ul>
+<li><strong>〜と conditional</strong> (<code>Verb-dict + と + comma + result-clause</code>) - this is N4 (Genki II L18, Minna I L23). Use te-form imperative or split into two sentences instead.</li>
+<li><strong>Potential form</strong> (<code>Verb-stem + える/られる</code>) - this is N4 (Genki II L13). Use <code>Verb-dict + ことが できる</code> instead.</li>
+</ul>
+<p>The <code>JA-21</code> content-integrity invariant catches both heuristically. Passages that intentionally include borderline late-N5 grammar should set <code>tier: &quot;late_n5&quot;</code> to opt out of the strict check.</p>
+<h3>Kanji reading display convention</h3>
+<p><code>data/n5_kanji_readings.json</code> stores both <code>on</code> and <code>kun</code> readings as <strong>hiragana</strong> (e.g., 高 → on <code>[&quot;こう&quot;]</code>, kun <code>[&quot;たか&quot;]</code>). This is a deliberate choice - the traditional pedagogical convention is on-yomi in katakana / kun in hiragana, but uniform-hiragana is simpler to render, easier to compare for invariant checks (JA-22 dedup, JA-24 i-adj-primary-kun), and the on/kun distinction is already conveyed via the labelled fields. UI surfaces that want the typographic split can apply it at render time. Closes OPEN-4 from <code>feedback/MASTER-TASK-LIST.md</code>.</p>
+<h3>Counter-numeral display convention</h3>
+<p>The corpus standardises on <strong>arabic numeral + counter</strong> with the counter as kanji when it is in the N5 whitelist (e.g., <code>7時</code>, <code>5本</code>, <code>3人</code>, <code>100円</code>) and as kana when it is not (e.g., <code>1かい</code>, <code>8ふん</code>, <code>1ぱい</code> since 階 / 分 / 杯 are out-of-scope). Survey of the corpus 2026-05-01: 194 occurrences arabic+N5-kanji, 43 arabic+kana, 34 kanji+kanji (legacy), 29 kanji+kana (legacy). The arabic-first style dominates and is the going-forward convention. The remaining ~30 kanji+kanji occurrences (e.g., <code>二人</code>) appear inside passage prose where the kanji-form is natural reading-text style and don&#x27;t need normalisation. Closes OPEN-5 from <code>feedback/MASTER-TASK-LIST.md</code>.</p>
+<h3>Furigana mode</h3>
+<p>The app exposes a binary on/off furigana toggle (Settings panel). The <code>feedback/jlpt-n5-tutor-ux-developer-brief2.md</code> §4.1 originally called for a 3-mode toggle (always / known-only-hide / never), but Pass-13 native-teacher review concluded that auto-furigana produces wrong context-dependent readings (大学 = だいがく vs 大[おお]+学[がく]) and the feature was dropped. In-scope kanji render plain; out-of-scope words are authored in kana. The 3-mode requirement is formally dropped - see <code>js/settings.js</code> line 119 + <code>verification.md</code> Pass 13. Closes OPEN-8 from <code>feedback/MASTER-TASK-LIST.md</code>.</p>
+<h2>Spec</h2>
+<p>See <a href="JLPT%20N5%20Grammar%20Tutor%20%E2%80%93%20Functional%20Spec.docx"><code>JLPT N5 Grammar Tutor – Functional Spec.docx</code></a> for the full functional specification, including content rules, UX requirements, data model, and acceptance criteria.</p>
+<h2>Status</h2>
+<p>All Phase 1 features implemented and verified end-to-end in a browser preview:</p>
+<ul>
+<li>Chapter 1 Learn (TOC + 7-block detail + Mark-as-known)</li>
+<li>Chapter 2 Test (MCQ + dropdown + sentence-ordering, visible-but-disabled Submit, instant scoring, per-distractor explanations)</li>
+<li>Chapter 3 Review (weak-pattern cards driven by rolling-history threshold)</li>
+<li>Chapter 4 Summary (stats + category heatmap + reset)</li>
+<li>Drill mode (SRS engine with 1d / 3d / 7d / 14d boxes + immediate feedback + graduation)</li>
+<li>First-run Diagnostic (10 questions across categories, seeds SRS without affecting test history)</li>
+<li>Furigana toggle with N5-kanji ruby annotation (pragmatic single-pick readings)</li>
+<li>Service worker for offline capability</li>
+</ul>
+<p>Content (current as of v1.12.29): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in <code>grammar.json</code> · 1041 vocabulary entries in <code>vocab.json</code> · 106 N5 kanji in <code>kanji.json</code> (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 40 reading passages in <code>reading.json</code> · 40 listening items in <code>listening.json</code> · 290 mock-test questions in <code>questions.json</code> · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time - when in doubt, run <code>python tools/check_content_integrity.py</code> which derives them from the live data files. See <code>TASKS.md</code> for outstanding work.</p>
+<footer>
+  <p><a href="../#/home">Home</a> · JLPT N5 Tutor</p>
+  <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
+  
+</footer>
+</body>
+</html>
