@@ -358,7 +358,7 @@ report("CHECK-23", "Half-applied ウ音便 keigo", hits, details="\n".join(sampl
 # doubling completes a recognized vocab form.
 BAD_DOUBLES = ["ですです", "ますます", "がが", "をを", "にに"]
 # Exemption set: documented within-word + particle adjacencies
-EXEMPT_CONTEXTS = ["なにに", "えいがが", "おととい", "おととし", "そっか", "ですで"]
+EXEMPT_CONTEXTS = ["なにに", "えいがが", "おととい", "おととし", "そっか", "ですで", "けがが"]
 hits = 0
 samples = []
 def scan_examples(items, id_key, ex_key="examples"):
@@ -442,6 +442,29 @@ for fname, data in [("grammar", G), ("vocab", V), ("kanji", KE), ("reading", R),
                 samples.append(f"  {fname}: '{bad}' x{cnt}")
 report("CHECK-29", "Self-incriminating fallback marks", hits, details="\n".join(samples) if samples else "")
 
+# CHECK-30 (added 2026-05-14 per A47 / F.12): VOICEVOX renderer must strip
+# bunsetsu spaces from display text before passing to OpenJTalk. Without
+# this, inter-bunsetsu pauses inserted by OpenJTalk devoice trailing
+# particles (the n5-008.8 を-inaudible class). Source-code regression
+# guard — checks the renderer file's contents, not the rendered audio.
+hits = 0
+samples = []
+import pathlib as _pl
+_rp = _pl.Path("tools/build_audio_voicevox.py")
+if _rp.exists():
+    _src = _rp.read_text(encoding="utf-8")
+    _strips = ('replace(" ", "")' in _src or "replace(' ', '')" in _src)
+    if not _strips:
+        hits = 1
+        samples.append("  tools/build_audio_voicevox.py: no whitespace-strip call before /audio_query")
+else:
+    # If the renderer was renamed/moved, this check needs updating —
+    # surface as a finding so the maintainer can re-wire it.
+    hits = 1
+    samples.append("  tools/build_audio_voicevox.py: file not found (renamed? check is stale)")
+report("CHECK-30", "VOICEVOX renderer strips bunsetsu spaces (A47/F.12 guard)",
+       hits, details="\n".join(samples) if samples else "")
+
 # Summary
 print("\n" + "=" * 60)
 if findings:
@@ -450,5 +473,5 @@ if findings:
         print(f"  {c} ({cnt}): {n}")
     sys.exit(1)
 else:
-    print("PHASE-0 RESULT: PASS (all 29 checks at expected values)")
+    print("PHASE-0 RESULT: PASS (all 30 checks at expected values)")
     sys.exit(0)

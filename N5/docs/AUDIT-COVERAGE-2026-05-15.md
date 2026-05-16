@@ -274,6 +274,46 @@ bunsetsu+particle in the corpus may have weakened audio.
 
 **CI invariant added:** None directly for this class — it's a
 renderer-source check, not a data check. The Phase-0 check in
-N5Improvement is the regression guard. Adding a future JA-NN data-side
-invariant (file-size proxy: any grammar audio file >40% larger than
-its sibling's median is flagged) is a candidate for the next cycle.
+N5Improvement is the regression guard.
+
+**JA-91 attempted (2026-05-14) and REVERTED per D.9.26 discipline:**
+tested two file-size proxy variants for a data-side regression
+guard:
+
+1. **Global bytes/char threshold** (file size ÷ stripped-text char
+   count): rejected — short sentences with commas dominate the high
+   end (4 chars + comma → 5500 bytes/char) producing 17+ legitimate-
+   content false positives. Threshold cannot be set without flagging
+   normal short utterances.
+2. **Within-pattern 1.4× median**: rejected — flags 65 legitimate
+   long-sentence examples (`コーヒーは すきですが、おちゃは
+   すきじゃありません。` etc.). Long sentences in a pattern with a
+   mix of short and long examples WILL exceed 1.4× the median; this
+   is normal corpus variation, not the bug.
+3. **Char-normalized vs corpus median, char≥10 filter**: rejected —
+   flags 14 sentences with Japanese commas (`、`) which produce
+   legitimate prosodic pauses. False-positive rate on the bug
+   class is high.
+
+**Why no deterministic guard is possible:** the bunsetsu-space
+inserted-pause class produces audio with the SAME characteristics
+as legitimate `、`-comma-pause audio (longer file, inserted pauses
+in the phoneme stream). Without comparing pre-strip vs post-strip
+renders side-by-side (which requires the engine), no static check
+on the final MP3 can distinguish "legitimate prosodic pause from
+comma" from "spurious pause from stripped-but-unrendered space."
+
+**Downgraded to audit-time Phase-1 sample:** during accuracy audits,
+listen to 5-10 random grammar example MP3s, verify every displayed
+kana audible. If ANY are inaudible → re-render via the patched
+script (already in place). Phase-0 source-code check guards against
+the renderer regressing AGAIN; manual sampling guards against
+future TTS-engine-side regressions.
+
+**Bonus finding (deferred for follow-up):** the top outlier in the
+char-normalized proxy was `n5-017.4: 何（なに）で 来ましたか。`
+(4228 bytes/char vs 2307 median). The `（なに）` is furigana
+parenthesization — VOICEVOX may be reading the parens aloud as
+"kakko nani kakko" instead of treating them as ruby annotations.
+This is a SEPARATE failure class (not bunsetsu-space-related);
+file as a new finding next cycle.
