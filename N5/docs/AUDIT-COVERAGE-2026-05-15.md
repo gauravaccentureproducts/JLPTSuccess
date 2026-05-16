@@ -1121,6 +1121,83 @@ these to hard CI gates is queued.
 
 ---
 
+## ADDENDUM 2026-05-17 (Part 8) — BUG-020..022 close-out (kanji corpus data quality)
+
+A native-teacher audit of `kanji.json` on 2026-05-17 surfaced 3
+bug classes parallel to BUG-014..019's vocab-corpus issues. All
+fixed in one batch. CI 97 → 100 invariants (+3: JA-100, JA-101,
+JA-102).
+
+### Bugs addressed
+
+**BUG-020 (Medium/P2)** — BUG-017's vocab-side fix didn't propagate
+to kanji.json. Compounds 週末 (in 週) and 国籍 (in 国) still
+displayed OOS kanji 末 and 籍. Resolution: option (c) from the
+bug description — removed the OOS-kanji compounds + their auto-
+derived examples (cleanest pedagogical fix; 末/籍 are N4 anyway).
+JA-100 validation surfaced one more case (手紙 in 手 — 紙 is OOS);
+removed in the same pass. **CI gate:** JA-100.
+
+**BUG-021 (Medium/P2)** — `primary_reading` set to on-yomi for 6
+kanji whose standalone N5 use is the kun-yomi: 人 (にん→ひと),
+中 (ちゅう→なか), 外 (がい→そと), 東 (とう→ひがし),
+車 (しゃ→くるま), 国 (こく→くに). On-yomi remains in the `on` array
+and audio_yomi map; only the canonical-association field flipped.
+Each entry carries `primary_reading_provenance` audit-trail.
+**CI gate:** JA-102 (locks these 6 specific kanji).
+
+**BUG-022 (Low/P3)** — `examples[]` field-name inconsistency:
+374 `form` + 20 `lemma` + 14 dual. Migrated all to `form` only;
+dropped `lemma`. Provenance signal stays in `auto_derived` +
+`vocab_id`. Same class as BUG-015 (vocab counter schema).
+**CI gate:** JA-101.
+
+### Coverage at this checkpoint
+
+CI invariants: 100 (was 97; +3 from JA-100..102). The previously-
+reserved JA-91..95 remain unwired per prior addenda.
+
+### Class lineage
+
+BUG-020..022 are a "kanji-corpus quality" family — parallel to
+BUG-014..019's "vocab-corpus quality" family. The two families
+together cover the **content / schema / coverage** layers across
+both the kanji and vocab corpora. Reading, listening, and authentic
+corpora would presumably have their own bug families discoverable
+by an analogous audit pass; queued as future work.
+
+### What this resolution does NOT yet cover
+
+- **Other corpora audits** (reading.json, listening.json,
+  authentic.json, questions.json) — no native-teacher pass yet
+  documented for those surfaces.
+- **OOS kanji in OTHER kanji.json fields** — JA-100 currently
+  covers `n5_compounds` + `examples`. `sentences`, `mnemonic`,
+  `etymology` may also carry OOS kanji that's not yet gated.
+  Future audit pass.
+- **Cross-corpus form-shape divergence** is currently ACCEPTED
+  (kanji.json kanji forms vs vocab.json kana forms is intentional
+  pedagogy). A future iteration could introduce a `display_form` /
+  `canonical_form` split if pedagogical needs diverge further.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.22 (4 subsections covering
+  BUG-020/021/022 + meta-lesson on per-corpus audit passes).
+- ✓ N5Improvement prompt: 3 new Section-10 anti-items.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx`: BUG-020/021/022 all
+  Status=Fixed. Summary: Total=22, Fixed=22, New=0.
+
+### Final state — all 22 user-reported bugs closed
+
+The bug-roster table now extends to BUG-022 (the kanji-corpus
+batch). vocab.json: 995 entries (unchanged this batch).
+kanji.json: 106 entries (count unchanged; 3 compounds + 2 auto-
+examples removed; field migration on 32 examples).
+
+---
+
 ## ADDENDUM 2026-05-16 (Part 7) — BUG-019 close-out (BUG-018 heuristic miss)
 
 A native-teacher re-audit immediately after BUG-018's close-out

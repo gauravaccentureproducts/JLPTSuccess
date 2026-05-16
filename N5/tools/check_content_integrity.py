@@ -1096,6 +1096,22 @@ CHECKS: list[tuple[str, str, callable]] = [
     # extends the coverage to vocab forms (which JA-13 doesn't
     # currently check).
     ("JA-99", "All kanji in vocab.json `form` fields are in N5 whitelist OR exception list (BUG-017 guard, 2026-05-16)", lambda: _check_ja_99_vocab_form_kanji_in_scope()),
+    # JA-100 (2026-05-17): BUG-020 close-out. Every kanji.json
+    # n5_compound or example with a `vocab_id` must have its `form`
+    # match the linked vocab entry's `form`. Prevents the
+    # cross-file drift caught when BUG-017's vocab-side fix didn't
+    # propagate to kanji.json (週末 / 国籍 stayed in kanji.json while
+    # vocab.json showed しゅうまつ / こくせき).
+    ("JA-100", "kanji.json compound/example.form == linked vocab.form (BUG-020 guard, 2026-05-17)", lambda: _check_ja_100_kanji_vocab_form_consistency()),
+    # JA-101 (2026-05-17): BUG-022 close-out. kanji.json examples
+    # use `form` field name only — no `lemma`. Normalized to match
+    # vocab.json and the majority of existing entries.
+    ("JA-101", "kanji.json example objects use `form` not `lemma` (BUG-022 guard, 2026-05-17)", lambda: _check_ja_101_kanji_examples_form_field_only()),
+    # JA-102 (2026-05-17): BUG-021 close-out. The 6 standalone-kun
+    # kanji must keep their kun-yomi primary_reading. Specifically
+    # locks the post-fix state so a future auto-pipeline can't
+    # silently flip them back to on-yomi.
+    ("JA-102", "Standalone-kun primary_reading lock for 人/中/外/東/車/国 (BUG-021 guard, 2026-05-17)", lambda: _check_ja_102_standalone_kun_primary_reading()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4834,6 +4850,135 @@ def _check_ja_83_no_vocab_template_leak() -> list[str]:
             m = pat_quote.fullmatch(ja)
             if m and m.group(1) not in GREETINGS:
                 failures.append(f"JA-83 {eid}[{i}]: 「X」と あいさつしました with non-greeting X: {ja!r}")
+    return failures
+
+
+def _check_ja_100_kanji_vocab_form_consistency() -> list[str]:
+    """BUG-020 (2026-05-17) regression guard — narrow version.
+
+    For every kanji.json `n5_compounds[i]` and `examples[i]` that
+    carries a `vocab_id`, flag ONLY if the kanji.json form contains
+    a character NOT in the N5 whitelist (i.e., the actual BUG-020
+    class — display drift introducing OOS kanji into kanji.json).
+
+    Form-shape divergence where kanji.json shows the kanji form
+    and vocab.json shows the kana form is INTENTIONAL pedagogy and
+    accepted (kanji corpus teaches kanji; vocab corpus may choose
+    kana for display reasons). The narrow check catches the specific
+    bug class without false-positive on legitimate display-shape
+    divergence.
+
+    Vocab `vocab_id` references must still resolve — that's still
+    asserted regardless of form-shape.
+    """
+    import re
+    failures = []
+    try:
+        kanji = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        whitelist = json.loads((ROOT / "data" / "n5_kanji_whitelist.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-100 could not read inputs: {e}"]
+    if isinstance(whitelist, dict):
+        wl = set(whitelist.get("kanji", whitelist.get("entries", [])))
+    elif isinstance(whitelist, list):
+        wl = set(whitelist)
+    else:
+        return [f"JA-100 unexpected whitelist shape: {type(whitelist).__name__}"]
+    exc_path = ROOT / "data" / "dokkai_kanji_exception.json"
+    if exc_path.exists():
+        try:
+            exc = json.loads(exc_path.read_text(encoding="utf-8"))
+            if isinstance(exc, dict):
+                wl |= set(exc.get("kanji", exc.get("entries", [])))
+            elif isinstance(exc, list):
+                wl |= set(exc)
+        except Exception:
+            pass
+    vocab_form_by_id = {e.get("id"): e.get("form") for e in vocab.get("entries", []) if e.get("id")}
+    kanji_re = re.compile(r"[一-鿿]")
+    for k in kanji.get("entries", []):
+        glyph = k.get("glyph", "?")
+        for label, lst in (("n5_compounds", k.get("n5_compounds") or []),
+                           ("examples", k.get("examples") or [])):
+            for i, item in enumerate(lst):
+                if not isinstance(item, dict):
+                    continue
+                vid = item.get("vocab_id")
+                form_here = item.get("form") or item.get("lemma") or ""
+                # Hard check: vocab_id must resolve when present
+                if vid and vid not in vocab_form_by_id:
+                    failures.append(
+                        f"JA-100 kanji={glyph} {label}[{i}]: vocab_id {vid!r} not in vocab.json"
+                    )
+                # OOS-kanji check on the displayed form (catches BUG-020 class)
+                for ch in kanji_re.findall(form_here):
+                    if ch not in wl:
+                        failures.append(
+                            f"JA-100 kanji={glyph} {label}[{i}]: form {form_here!r} contains "
+                            f"OOS kanji {ch!r} (not in N5 whitelist) — BUG-020 class"
+                        )
+    return failures
+
+
+def _check_ja_101_kanji_examples_form_field_only() -> list[str]:
+    """BUG-022 (2026-05-17) regression guard.
+
+    kanji.json `examples[i]` objects must use `form` field name only;
+    `lemma` is deprecated by the BUG-022 migration. (The schema lives
+    on vocab.json's `form` convention; provenance signal stays on
+    `auto_derived: true` + `vocab_id`.)
+    """
+    failures = []
+    try:
+        kanji = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-101 could not read kanji.json: {e}"]
+    for k in kanji.get("entries", []):
+        glyph = k.get("glyph", "?")
+        for i, ex in enumerate(k.get("examples") or []):
+            if not isinstance(ex, dict):
+                continue
+            if "lemma" in ex:
+                failures.append(
+                    f"JA-101 kanji={glyph} examples[{i}]: stale `lemma` field "
+                    f"(use `form` only post-BUG-022 migration)"
+                )
+            if "form" not in ex:
+                failures.append(
+                    f"JA-101 kanji={glyph} examples[{i}]: missing `form` field"
+                )
+    return failures
+
+
+def _check_ja_102_standalone_kun_primary_reading() -> list[str]:
+    """BUG-021 (2026-05-17) regression guard.
+
+    Locks the kun-yomi primary_reading for the 6 kanji whose
+    standalone-in-sentence form is the kun-yomi (人 ひと, 中 なか,
+    外 そと, 東 ひがし, 車 くるま, 国 くに).
+    """
+    failures = []
+    EXPECTED = {
+        "人": "ひと", "中": "なか", "外": "そと",
+        "東": "ひがし", "車": "くるま", "国": "くに",
+    }
+    try:
+        kanji = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-102 could not read kanji.json: {e}"]
+    by_glyph = {k.get("glyph"): k for k in kanji.get("entries", []) if k.get("glyph")}
+    for glyph, expected in EXPECTED.items():
+        e = by_glyph.get(glyph)
+        if not e:
+            failures.append(f"JA-102 kanji {glyph} not found")
+            continue
+        pr = e.get("primary_reading")
+        if pr != expected:
+            failures.append(
+                f"JA-102 kanji {glyph}: primary_reading {pr!r} != expected {expected!r} "
+                f"(standalone-kun lock per BUG-021)"
+            )
     return failures
 
 

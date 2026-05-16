@@ -2217,6 +2217,36 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT assume a fix in one corpus propagates to the others — run
+  a cross-corpus grep after every corpus-level rename / reschema.
+  Caught 2026-05-17 as BUG-020 — BUG-017's vocab-side fix renamed
+  週末/国籍 to kana but kanji.json still showed 週末/国籍 in its
+  n5_compounds and auto-derived examples, exposing OOS kanji
+  (末, 籍) in the kanji corpus. JA-100 catches the class (any kanji
+  compound/example with vocab_id must not contain OOS kanji).
+  Resolution path picked at N5: remove the OOS compounds entirely
+  (cleaner than maintaining a kanji-vs-kana dual display). The
+  same JA-100 check then surfaced one more case (手紙 in 手) not
+  in the original bug report. See F.22.1 in the procedure manual."
+- "Do NOT set primary_reading to on-yomi when the standalone N5 use
+  is kun-yomi. Caught 2026-05-17 as BUG-021 on 6 kanji
+  (人/中/外/東/車/国 — all had on-yomi as primary even though
+  standalone-in-sentence use is kun-yomi: ひと/なか/そと/ひがし/くるま/くに).
+  The on-yomi appearing only as compound suffix/prefix should not
+  be the canonical association. Authoring rule: ask 'does the
+  kanji ever appear ALONE in an N5 sentence? If yes, which yomi?'
+  — that's primary_reading. JA-102 locks the 6 cases. Defensible
+  on-yomi-primary entries that stay: 時/社/駅 (compound-only or
+  both equal at N5). See F.22.2."
+- "Do NOT let two authoring pipelines emit the same conceptual
+  field under different key names. Caught 2026-05-17 as BUG-022 —
+  kanji.json examples had `form` (374 hand-curated) vs `lemma`
+  (20 auto-derived) vs both (14). Provenance was already captured
+  in `auto_derived: true`, making the dual key names redundant.
+  Authoring rule: normalize at the merge point; pick one canonical
+  key name aligned with the rest of the corpus schema. JA-101
+  enforces `form` only. Same class as BUG-015 (vocab counter
+  field). See F.22.3."
 - "Do NOT apply a template like 'X が あります。' to vocab examples
   without semantic filtering — bare-template applications produce
   semantic-nonsense Japanese for time words (一月が あります = 'There is
