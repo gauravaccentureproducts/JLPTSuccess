@@ -2217,6 +2217,55 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT apply a template like 'X が あります。' to vocab examples
+  without semantic filtering — bare-template applications produce
+  semantic-nonsense Japanese for time words (一月が あります = 'There is
+  January'), abstract nouns (外国語が あります), and bare locations.
+  Caught 2026-05-16 as BUG-014 (19 entries). Authoring rule: classify
+  the noun BEFORE applying the template; use the natural frame for
+  the noun's type (time → に-anchor with EVENT-が-あります; location →
+  with-qualifier-frame; concrete → eat/buy/possession frame; abstract
+  → drop あります entirely). CI gate: JA-96 strict regex against the
+  bare template. See F.21.1 in the procedure manual."
+- "Do NOT let a field carry inconsistent type shapes across entries
+  (string OR dict OR null with no schema discriminator). Caught
+  2026-05-16 as BUG-015 — vocab `counter` had 3 types (111 string,
+  204 dict, 694 null) plus `counter_register` was doubly-overloaded
+  (string register-hint OR dict counter-word metadata). Fix: pick
+  ONE canonical shape per field, migrate all entries, RENAME any
+  field whose name has been overloaded with two different semantics
+  (N5 moved counter-word metadata to a new isolated
+  `counter_word_metadata` field). CI gate per JA-97. See F.21.2."
+- "Do NOT ship a corpus where a pedagogically-required field is set
+  on only a fraction of the entities that need it. Caught 2026-05-16
+  as BUG-016 — `transitivity` was on 22 of 132 verbs (17%). Missing
+  values silently default to null, leaving downstream consumers
+  without the classification (transitivity governs particle choice
+  — を for transitive, に/が for intransitive). Authoring rule:
+  require 100% coverage for the entity type the field applies to;
+  source values from a canonical reference (JMdict vt/vi tags,
+  Genki, Tobira); always emit `<field>_provenance` for audit trail.
+  CI gate per JA-98 (closed-enum + non-null). See F.21.3."
+- "Do NOT let kanji that's NOT in the level whitelist appear in any
+  user-visible display field (vocab `form`, example `ja`, kanji
+  `compounds`). Caught 2026-05-16 as BUG-017 — 倍, 籍, 末 were in
+  vocab forms but absent from N5 whitelist. Fix options: (a) add
+  to whitelist if level-scope, (b) replace form with kana
+  (conservative), (c) add to dokkai_kanji_exception list. N5 chose
+  (b). Caution: form-renames may COLLIDE with pre-existing kana
+  entries (週末→しゅうまつ collided with existing しゅうまつ); the
+  fix script must check for collisions and dedup if found. CI gate
+  per JA-99 (vocab.form kanji-in-scope). See F.21.4."
+- "Do NOT keep duplicate vocab entries across sections with subset
+  glosses — they inflate the corpus count and show the same word
+  twice in SRS / flashcard queues. Caught 2026-05-16 as BUG-018
+  (10 cases). Distinguish polysemy (legitimate; keep split — は as
+  tooth/leaf/topic-marker, きる as cut/wear) from subset-duplicates
+  (drop). Heuristic: same form + reading + subset gloss = drop.
+  When dropping: pick canonical by gloss-completeness with cross-
+  corpus-reference-count as tiebreaker; merge unique examples /
+  collocations; rewrite cross-refs in 7 other corpora; update
+  count locks. See F.21.5."
 - "Do NOT label LLM-assigned content review as `review_status:
   \"native_reviewed\"` — the value implies human-native review when
   read at the point of use (UI badges, audit dashboards, third-party

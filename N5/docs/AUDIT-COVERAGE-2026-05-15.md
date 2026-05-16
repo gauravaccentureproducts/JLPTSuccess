@@ -1121,6 +1121,137 @@ these to hard CI gates is queued.
 
 ---
 
+## ADDENDUM 2026-05-16 (Part 6) — BUG-014..018 close-out (vocab data quality)
+
+A native-teacher re-audit on 2026-05-16 surfaced 5 vocab-corpus
+data-quality bugs (BUG-014 through BUG-018) spanning the three
+operational layers of content / schema / coverage. All fixed in one
+batch on 2026-05-16. CI invariants JA-96 through JA-99 added to
+prevent regression. Vocab corpus now at 998 entries (was 1009;
+-10 from BUG-018 dedup, -1 from BUG-017 collision merge with a
+pre-existing kana entry).
+
+### Bugs addressed
+
+**BUG-014 (High/P1)** — Template-generated semantic-nonsense
+examples. 19 entries had a bare `<form>が あります。` template
+applied to time words, abstract nouns, and bare locations.
+Resolution: replaced each with a natural-frame example matching
+the noun type (time → に-anchor; location → with-qualifier;
+concrete → eat/buy/possession; abstract → drop あります frame).
+**CI gate:** JA-96.
+
+**BUG-015 (Medium/P2)** — Counter / counter_register schema
+inconsistency. 3 shapes (string / dict / null) across 1009 entries.
+counter_register field was doubly-overloaded (register hint vs
+counter-word metadata). Resolution: normalized to
+`counter: null | {kanji, reading}`; `counter_register: null` (deprecated);
+moved 16 counter-word metadata entries to new
+`counter_word_metadata` field. **CI gate:** JA-97.
+
+**BUG-016 (Medium/P2)** — Transitivity coverage gap. 22 of 132
+verbs declared (17%); 110 N5-core verbs (食べる, 飲む, 行く, 会う,
+する, …) had no classification. Resolution: classified all 132
+with closed enum {transitive, intransitive, contact}; provenance
+field `transitivity_provenance` records the source. **CI gate:** JA-98.
+
+**BUG-017 (Medium/P2)** — 3 OOS kanji in vocab forms
+(倍, 籍, 末). Resolution: replaced forms with kana (conservative
+N5 path); IDs kept stable. Edge case: 週末→しゅうまつ rename
+collided with a pre-existing しゅうまつ entry, requiring follow-on
+dedup. **CI gate:** JA-99 (any kanji in vocab `form` must be in
+N5 whitelist or exception list).
+
+**BUG-018 (Low/P3)** — 10 cross-section duplicate vocab entries
+with subset glosses. Resolution: picked canonical section per
+form, merged unique data, dropped duplicates, rewrote 75
+cross-corpus references. Plus 1 additional dedup from the
+BUG-017 collision. Net: vocab 1009 → 998. Locks updated:
+JA-56 (1009→998), JA-67 (24→25 below-floor — 道 lost one usage),
+JA-47 (CONTENT-LICENSE.md count claim 1009→998).
+
+### Coverage summary at this checkpoint
+
+CI invariants: 97 (was 93; +4 from JA-96..99). The 5 previously-
+reserved invariants JA-91..95 remain documented but not yet wired
+(per the BUG-003..009 addendum).
+
+Phase-0 regression blocks added: 0 explicit new ones (the new CI
+gates cover the regression-detection role directly).
+
+### Class lineage
+
+This is a different shape from the BUG-002 → BUG-007 → BUG-011 →
+BUG-013 recurring class. BUG-014..018 are 5 distinct vocab-corpus
+quality bugs surfaced by one native-teacher audit pass on
+2026-05-16, each closed in the same batch. The procedure manual's
+new §F.21 organizes them under the three operational layers
+(content / schema / coverage) so an Nx-builder can scan for the
+same anti-patterns in their corpus.
+
+### What this resolution does NOT yet cover
+
+- **Extension of JA-99 to other display surfaces.** Currently
+  covers `vocab.form` only. Future work: extend to
+  `examples[].ja`, `kanji.compounds`, `listening.script_ja`, etc.
+- **Polysemy taxonomy.** The dedup criterion ("same form + reading
+  + subset gloss = drop; otherwise polysemy") was applied
+  manually. A future audit could formalize the taxonomy with a
+  dictionary-based decision tree.
+- **Source-of-truth integration for transitivity.** The
+  classification used N5 pedagogical convention; a future pass
+  should cross-check against JMdict's vt/vi tags as a regression
+  guard.
+- **Vocab-corpus mirror count.** Static-mirror count dropped from
+  971 to 969 unique forms after dedup. The sitemap.xml reflects
+  this automatically; the BUG-010 mirror generator's mirror-presence
+  Phase-0 check continues to pass against the new count.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.21 (6 subsections covering
+  the 5 bug classes + a meta-lesson on schema/coverage/content
+  layers).
+- ✓ Accuracy prompt: no new A-category added (the bug classes are
+  captured at the F.21 layer in the procedure manual + Section-10
+  anti-items in the improvement prompt; the audit-prompt's existing
+  A-categories already cover adjacent ground).
+- ✓ N5Improvement prompt: 5 new Section-10 anti-items (one per bug)
+  with detection patterns.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported Bugs"
+  sheet: BUG-014..018 all marked Fixed. Summary: Total=18,
+  Fixed=18, New=0. **All 18 user-reported bugs closed.**
+
+### Final state — all 18 user-reported bugs closed
+
+| # | Severity | Summary |
+|---|---|---|
+| BUG-001 | High/P2 | Static mirrors for SPA hash routes (grammar) |
+| BUG-002 | High/P1 | Verb-class particle disambiguation |
+| BUG-003 | Critical/P1 | n5-098 explanation + 10 translations |
+| BUG-004 | Critical/P1 | 911 pitch_marks.mora corrections |
+| BUG-005 | High/P1 | n5-166 ex[5] JA/EN cross-contamination |
+| BUG-006 | High/P1 | 10 pattern-instance contaminations |
+| BUG-007 | High/P1 | 11 RIGHT/WRONG-framed alternatives (WHY rewrites) |
+| BUG-008 | Medium/P2 | n5-004 folk-linguistic "intransitive" |
+| BUG-009 | Medium/P2 | n5-003 ex[6] uses は not が |
+| BUG-010 | High/P1 | Static mirrors for ALL surfaces |
+| BUG-011 | High/P1 | Schema-level register-variant migration (flag added) |
+| BUG-012 | Medium/P2 | Provenance-label disambiguation (review_status rename) |
+| BUG-013 | High/P1 | Schema-level register-variant follow-on (key rename) |
+| BUG-014 | High/P1 | 19 vocab template-nonsense examples |
+| BUG-015 | Medium/P2 | counter schema normalization |
+| BUG-016 | Medium/P2 | Transitivity coverage for 110 verbs |
+| BUG-017 | Medium/P2 | 3 OOS kanji in vocab forms |
+| BUG-018 | Low/P3 | 10 cross-section duplicate vocab entries |
+
+CI invariants live: 97 (was 93). New: JA-96 (BUG-014), JA-97
+(BUG-015), JA-98 (BUG-016), JA-99 (BUG-017). The previously-
+documented-but-unwired JA-91..95 remain queued.
+
+---
+
 ## ADDENDUM 2026-05-16 (Part 5) — BUG-013 close-out
 
 A user-reported re-audit of BUG-011 caught that the schema

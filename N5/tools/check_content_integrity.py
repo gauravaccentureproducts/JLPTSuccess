@@ -903,7 +903,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     # frozen contracts so future edits cannot silently violate them.
     ("JA-54", "Every grammar pattern essay totals >=500 chars (Tofugu-bar; 2026-05-12)", lambda: _check_ja_54_essay_min_length()),
     ("JA-55", "Every grammar pattern essay has all 6 sub-fields (intro/why/pitfalls/contrasts/practice/cultural_context; 2026-05-12)", lambda: _check_ja_55_essay_schema()),
-    ("JA-56", "Corpus sizes locked at 178/1009/106/54/50 (Section-10 anti-items #1-4; 2026-05-12)", lambda: _check_ja_56_corpus_size_locks()),
+    ("JA-56", "Corpus sizes locked at 178/998/106/54/50 (Section-10 anti-items #1-4; updated 2026-05-16 for BUG-018 dedup + BUG-017 collision fix, was 1009 before)", lambda: _check_ja_56_corpus_size_locks()),
     ("JA-57", "No LH/HL pitch notation in vocab.json (use {mora, drop} integer; anti-item #11; 2026-05-12)", lambda: _check_ja_57_no_lh_pitch_notation()),
     ("JA-58", "No 'JLPT.jp official' citations (JEES 出題基準 discontinued 2010; anti-item #12; 2026-05-12)", lambda: _check_ja_58_no_jlpt_jp_current_citation()),
     ("JA-59", "No competitive gamification (no XP/leaderboard/badge/achievement keys or files; anti-item #5 refined; 2026-05-12)", lambda: _check_ja_59_no_gamification_state()),
@@ -927,7 +927,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     # (the genuinely-singleton N5 kanji: 力 + 23 with exactly 1 vocab).
     # Locking the count prevents accidental vocab deletions from
     # silently dropping more kanji below the floor.
-    ("JA-67", "Density-3 below-floor count locked at 24 (kanji->vocab union method; 2026-05-13)", lambda: _check_ja_67_density3_floor_lock()),
+    ("JA-67", "Density-3 below-floor count locked at 25 (kanji->vocab union method; 2026-05-13, updated 2026-05-16 +1 from BUG-018 dedup losing one 道 vocab usage)", lambda: _check_ja_67_density3_floor_lock()),
     # JA-68 (2026-05-13): cache-version 3-place sync. index.html CSS
     # `?v=`, index.html JS `?v=`, and sw.js CACHE_VERSION must all
     # match. Forgotten bumps in any one breaks the cache-bust on
@@ -1072,6 +1072,30 @@ CHECKS: list[tuple[str, str, callable]] = [
     # pass auto-fixed 22 disagreements, validated 810 matches, marked
     # 177 not-in-reference as 'unverified'.
     ("JA-90", "Vocab pitch_accent.drop validated vs kanjium reference (2026-05-15)", lambda: _check_ja_90_pitch_accent_reference_agreement()),
+    # JA-96 (2026-05-16): BUG-014 close-out. Catches the bare
+    # `<form>が あります。` / `<form>が います。` template-nonsense
+    # pattern in vocab.json examples (e.g., 「一月が あります。」 —
+    # grammatically possible but semantically nonsensical Japanese).
+    # The corpus had 19 such cases; replacement landed in commit ?
+    # (see fix_bug_014_vocab_template_nonsense_2026_05_16.py).
+    # Numbers JA-91..95 are RESERVED for previously-documented but
+    # not-yet-wired invariants (per the BUG-003..009 audit-coverage
+    # addendum); JA-96 is the next available slot.
+    ("JA-96", "No bare '<form> が あります/います' template examples in vocab.json (BUG-014 guard, 2026-05-16)", lambda: _check_ja_96_no_bare_arimasu_template()),
+    # JA-97 (2026-05-16): BUG-015 close-out. Locks the canonical counter
+    # schema after the 2026-05-16 normalization migrated 111 legacy
+    # string-pair entries + isolated 16 counter-word metadata cases.
+    ("JA-97", "vocab.json counter is null OR {kanji,reading} dict; counter_register null; counter_word_metadata isolated to counter-word entries (BUG-015 guard, 2026-05-16)", lambda: _check_ja_97_counter_schema_canonical()),
+    # JA-98 (2026-05-16): BUG-016 close-out. Every verb POS in vocab
+    # must carry a transitivity classification from a closed enum.
+    ("JA-98", "Every vocab verb has transitivity in {transitive, intransitive, contact} (BUG-016 guard, 2026-05-16)", lambda: _check_ja_98_verb_transitivity_coverage()),
+    # JA-99 (2026-05-16): BUG-017 close-out. Every kanji that appears
+    # in any vocab `form` must be in n5_kanji_whitelist.json or
+    # explicitly listed in dokkai_kanji_exception.json. Build fails
+    # otherwise. JA-13 catches OOS kanji in grammar examples; this
+    # extends the coverage to vocab forms (which JA-13 doesn't
+    # currently check).
+    ("JA-99", "All kanji in vocab.json `form` fields are in N5 whitelist OR exception list (BUG-017 guard, 2026-05-16)", lambda: _check_ja_99_vocab_form_kanji_in_scope()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -3088,7 +3112,7 @@ def _check_ja_52_grammar_contrasts_floor() -> list[str]:
 
 _CORPUS_LOCKS = {
     ("data/grammar.json",   "patterns", 178),
-    ("data/vocab.json",     "entries",  1009),
+    ("data/vocab.json",     "entries",  998),   # was 1009; BUG-018 dedup dropped 10 cross-section duplicates + BUG-017 collision merge dropped 1 more (週末 form-rename collided with pre-existing しゅうまつ entry) (2026-05-16)
     ("data/reading.json",   "passages", 54),
     ("data/listening.json", "items",    50),
 }
@@ -3607,7 +3631,10 @@ def _check_ja_67_density3_floor_lock() -> list[str]:
     Density-3 measurement.
     """
     failures: list[str] = []
-    LOCKED_COUNT = 24  # below-floor count at the lock point (commit d7eaf43)
+    LOCKED_COUNT = 25  # below-floor count at the lock point (commit d7eaf43);
+                       # +1 on 2026-05-16 from BUG-018 dedup (道 lost one of its
+                       # two vocab usages when n5.vocab.23-transport.道 was
+                       # dropped in favor of n5.vocab.13-locations-and-places-.道)
     try:
         V = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))["entries"]
         K = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))["entries"]
@@ -4807,6 +4834,186 @@ def _check_ja_83_no_vocab_template_leak() -> list[str]:
             m = pat_quote.fullmatch(ja)
             if m and m.group(1) not in GREETINGS:
                 failures.append(f"JA-83 {eid}[{i}]: 「X」と あいさつしました with non-greeting X: {ja!r}")
+    return failures
+
+
+def _check_ja_99_vocab_form_kanji_in_scope() -> list[str]:
+    """BUG-017 (2026-05-16) regression guard.
+
+    Every kanji character appearing in any vocab.json `form` field
+    must be in `data/n5_kanji_whitelist.json` OR explicitly listed in
+    `data/dokkai_kanji_exception.json`. JA-13 already enforces this
+    for grammar example sentences, but vocab `form` fields were not
+    previously covered — the BUG-017 audit found 3 OOS kanji
+    (倍, 籍, 末) had slipped through.
+
+    The fix migrated those 3 entries to kana forms; this check
+    prevents regression.
+    """
+    import re
+    failures = []
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        whitelist = json.loads((ROOT / "data" / "n5_kanji_whitelist.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-99 could not read inputs: {e}"]
+    # n5_kanji_whitelist.json may be a list of kanji strings or a dict;
+    # handle both.
+    if isinstance(whitelist, dict):
+        whitelist_set = set(whitelist.get("kanji", whitelist.get("entries", [])))
+    elif isinstance(whitelist, list):
+        whitelist_set = set(whitelist)
+    else:
+        return [f"JA-99 unexpected whitelist shape: {type(whitelist).__name__}"]
+    # Optional exception list
+    exception_set: set[str] = set()
+    exc_path = ROOT / "data" / "dokkai_kanji_exception.json"
+    if exc_path.exists():
+        try:
+            exc = json.loads(exc_path.read_text(encoding="utf-8"))
+            if isinstance(exc, dict):
+                exception_set = set(exc.get("kanji", exc.get("entries", [])))
+            elif isinstance(exc, list):
+                exception_set = set(exc)
+        except Exception:
+            pass
+    allowed = whitelist_set | exception_set
+    kanji_re = re.compile(r"[一-鿿]")
+    for e in vocab.get("entries", []):
+        eid = e.get("id", "?")
+        form = e.get("form") or ""
+        for ch in kanji_re.findall(form):
+            if ch not in allowed:
+                failures.append(
+                    f"JA-99 {eid}: kanji {ch!r} in form {form!r} not in N5 whitelist or exception list"
+                )
+    return failures
+
+
+def _check_ja_98_verb_transitivity_coverage() -> list[str]:
+    """BUG-016 (2026-05-16) regression guard.
+
+    Pre-fix only 22 of 132 verbs declared `transitivity`. Most N5-core
+    verbs (食べる, 飲む, 買う, 会う, 行く, …) lacked the classification.
+    Without explicit classification, particle assignment (を for
+    transitive, に/が/と for intransitive/contact) is silent at the
+    data layer — downstream tools have to infer it.
+
+    Post-fix: 132 of 132 verbs declared. Closed enum:
+      - "transitive"   (他動詞 — takes を)
+      - "intransitive" (自動詞 — does not take を)
+      - "contact"      (encounter / mutual-action — takes に;
+                        currently 会う only, reserved for the
+                        small set per BUG-008 lesson)
+    """
+    failures = []
+    ALLOWED = {"transitive", "intransitive", "contact"}
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-98 could not read vocab.json: {e}"]
+    for e in vocab.get("entries", []):
+        pos = (e.get("pos") or "")
+        if not pos.startswith("verb"):
+            continue
+        eid = e.get("id", "?")
+        form = e.get("form", "?")
+        t = e.get("transitivity")
+        if t is None:
+            failures.append(f"JA-98 {eid} ({form}): missing transitivity field")
+        elif t not in ALLOWED:
+            failures.append(
+                f"JA-98 {eid} ({form}): transitivity {t!r} not in closed enum {sorted(ALLOWED)}"
+            )
+    return failures
+
+
+def _check_ja_97_counter_schema_canonical() -> list[str]:
+    """BUG-015 (2026-05-16) regression guard.
+
+    Pre-fix the vocab.json corpus had three inconsistent shapes for
+    `counter` (string / dict / null) plus a doubly-overloaded
+    `counter_register` field (string register hint OR dict counter-word
+    metadata). Migration landed in
+    tools/fix_bug_015_counter_schema_2026_05_16.py.
+
+    Post-fix canonical schema:
+      counter:                   null   OR  dict {kanji, reading}
+      counter_register:          null  (deprecated; reading lives in counter)
+      counter_word_metadata:     null/absent  OR  dict (counter-word entries only)
+    """
+    failures = []
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-97 could not read vocab.json: {e}"]
+    for e in vocab.get("entries", []):
+        eid = e.get("id", "?")
+        c = e.get("counter")
+        cr = e.get("counter_register")
+        # counter: null OR dict {kanji, reading}
+        if c is not None:
+            if not isinstance(c, dict):
+                failures.append(
+                    f"JA-97 {eid}: counter must be null or dict {{kanji,reading}}; got {type(c).__name__}"
+                )
+            elif not (isinstance(c.get("kanji"), str) and isinstance(c.get("reading"), str)):
+                failures.append(
+                    f"JA-97 {eid}: counter dict missing kanji or reading; got {sorted(c.keys())}"
+                )
+        # counter_register: must be null (deprecated)
+        if cr is not None:
+            failures.append(
+                f"JA-97 {eid}: counter_register must be null (deprecated by BUG-015 migration); got {type(cr).__name__}"
+            )
+    return failures
+
+
+def _check_ja_96_no_bare_arimasu_template() -> list[str]:
+    """BUG-014 (2026-05-16) regression guard.
+
+    A naive template "<form>が あります。" / "<form>が います。" was
+    applied to 19 vocab entries during corpus authoring, producing
+    semantically-nonsense Japanese (e.g., 「一月が あります。」 — "There is
+    January.") for time words, abstract nouns, and bare locations.
+
+    Replacement landed in tools/fix_bug_014_vocab_template_nonsense_2026_05_16.py.
+    This check is the regression guard: any vocab example whose JA is
+    exactly the headword followed by が あります / が います (with
+    optional terminator/whitespace) is flagged.
+
+    The check is intentionally STRICT — only the bare 'X が あります。'
+    shape is flagged. Examples that wrap the headword in a location
+    qualifier ('えきの 前に Xが あります。'), a time anchor
+    ('七月に Xが あります。'), or any other surrounding context are
+    accepted: the が-あります frame works fine for events at a time/place;
+    the bug was specifically the bare standalone template.
+    """
+    import re
+    failures = []
+    try:
+        vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-96 could not read vocab.json: {e}"]
+    for e in vocab.get("entries", []):
+        eid = e.get("id", "?")
+        form = (e.get("form") or "").strip()
+        if not form:
+            continue
+        # Strict pattern: optional whitespace + form + optional whitespace
+        # + が + optional whitespace + あります|います + optional 。
+        pat = re.compile(
+            r"^\s*" + re.escape(form) + r"\s*が\s*(?:あります|います)\s*。?\s*$"
+        )
+        for i, ex in enumerate(e.get("examples", []) or []):
+            if not isinstance(ex, dict):
+                continue
+            ja = (ex.get("ja") or "").strip()
+            if pat.fullmatch(ja):
+                failures.append(
+                    f"JA-96 {eid}[{i}]: bare '<form>が あります' template "
+                    f"(BUG-014 class): {ja!r}"
+                )
     return failures
 
 

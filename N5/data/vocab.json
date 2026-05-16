@@ -52,8 +52,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "frequent_patterns": [
@@ -127,8 +130,11 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -218,8 +224,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -533,7 +542,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "सभी (आदर)",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 1676,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -788,8 +800,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -851,8 +866,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -924,8 +942,11 @@
       "register_origin_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "frequent_patterns": [
@@ -997,8 +1018,11 @@
       "pitch_accent_provenance": "kanjium_lookup",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "frequent_patterns": [
@@ -1052,7 +1076,10 @@
       },
       "register": "respectful",
       "gloss_hi": "पिता (आदर)",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 3470,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -1110,7 +1137,10 @@
       },
       "register": "respectful",
       "gloss_hi": "माँ (आदर)",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 2483,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -1170,7 +1200,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 27407,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -1245,7 +1278,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 1662,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -1315,7 +1351,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 1825,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -1380,7 +1419,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 1987,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
@@ -1472,8 +1514,11 @@
       "frequent_patterns_provenance": "auto_derived",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
@@ -1531,8 +1576,11 @@
       "collocations_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "frequent_patterns": [
@@ -1619,8 +1667,11 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -1684,8 +1735,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -1747,8 +1801,11 @@
       "frequent_patterns_provenance": "auto_derived",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -1809,8 +1866,11 @@
       "frequent_patterns_provenance": "auto_derived",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
@@ -1872,8 +1932,11 @@
       },
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "long_vowel_pair": "n5.vocab.2-people-family.おじさん",
@@ -1953,8 +2016,11 @@
       },
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "long_vowel_pair": "n5.vocab.2-people-family.おばさん",
@@ -2032,8 +2098,11 @@
       },
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "long_vowel_pair": "n5.vocab.2-people-family.おじいさん",
@@ -2116,8 +2185,11 @@
       "frequent_patterns_provenance": "auto_derived",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "long_vowel_pair": "n5.vocab.2-people-family.おばあさん",
@@ -2162,7 +2234,10 @@
         "source": "kanjium-8a0cdaa1-exact"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 487,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -2247,8 +2322,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
@@ -2309,8 +2387,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
@@ -2374,8 +2455,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "frequent_patterns": [
@@ -2452,8 +2536,11 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "人",
-      "counter_register": "にん",
+      "counter": {
+        "kanji": "人",
+        "reading": "にん"
+      },
+      "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "frequent_patterns": [
@@ -2500,7 +2587,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "वयस्क",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 1146,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -2569,7 +2659,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "दोस्त",
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 19010,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -2659,7 +2752,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "人",
+      "counter": {
+        "kanji": "人",
+        "reading": "人"
+      },
       "frequency_rank": 557,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -3885,7 +3981,10 @@
         ]
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 10971,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -8120,15 +8219,7 @@
         "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "Generic counter 1-thing uses kun-stem ひと- (1-10: ひと/ふた/みっ/よっ/いつ/むっ/なな/やっ/ここの/とお)",
-        "register_pair": {
-          "casual_alt": "一個 (いっこ)",
-          "formal_same": "一品 (いっぴん — for goods)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8145,7 +8236,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "Generic counter 1-thing uses kun-stem ひと- (1-10: ひと/ふた/みっ/よっ/いつ/むっ/なな/やっ/ここの/とお)",
+        "register_pair": {
+          "casual_alt": "一個 (いっこ)",
+          "formal_same": "一品 (いっぴん — for goods)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.二つ",
@@ -8266,15 +8366,7 @@
         "ひとり 三つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "3-things; kun-stem mit-tsu (1-10 are kun).",
-        "register_pair": {
-          "casual_alt": "みっつ",
-          "formal_same": "三個 (さんこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8283,7 +8375,16 @@
       "frequent_patterns": [
         "n5-108"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "3-things; kun-stem mit-tsu (1-10 are kun).",
+        "register_pair": {
+          "casual_alt": "みっつ",
+          "formal_same": "三個 (さんこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.四つ",
@@ -8334,15 +8435,7 @@
         "ひとり 四つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "4-things; kun-stem yot-tsu.",
-        "register_pair": {
-          "casual_alt": "よっつ",
-          "formal_same": "四個 (よんこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8357,7 +8450,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "4-things; kun-stem yot-tsu.",
+        "register_pair": {
+          "casual_alt": "よっつ",
+          "formal_same": "四個 (よんこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.五つ",
@@ -8408,15 +8510,7 @@
         "ひとり 五つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "5-things; kun-stem itsu-tsu.",
-        "register_pair": {
-          "casual_alt": "いつつ",
-          "formal_same": "五個 (ごこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8437,7 +8531,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "5-things; kun-stem itsu-tsu.",
+        "register_pair": {
+          "casual_alt": "いつつ",
+          "formal_same": "五個 (ごこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.六つ",
@@ -8488,15 +8591,7 @@
         "ひとり 六つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "6-things; kun-stem mut-tsu.",
-        "register_pair": {
-          "casual_alt": "むっつ",
-          "formal_same": "六個 (ろっこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8511,7 +8606,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "6-things; kun-stem mut-tsu.",
+        "register_pair": {
+          "casual_alt": "むっつ",
+          "formal_same": "六個 (ろっこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.七つ",
@@ -8562,15 +8666,7 @@
         "ひとり 七つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "7-things; kun-stem nana-tsu.",
-        "register_pair": {
-          "casual_alt": "ななつ",
-          "formal_same": "七個 (ななこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8585,7 +8681,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "7-things; kun-stem nana-tsu.",
+        "register_pair": {
+          "casual_alt": "ななつ",
+          "formal_same": "七個 (ななこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.八つ",
@@ -8636,15 +8741,7 @@
         "ひとり 八つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "8-things; kun-stem yat-tsu.",
-        "register_pair": {
-          "casual_alt": "やっつ",
-          "formal_same": "八個 (はっこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8659,7 +8756,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "8-things; kun-stem yat-tsu.",
+        "register_pair": {
+          "casual_alt": "やっつ",
+          "formal_same": "八個 (はっこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.九つ",
@@ -8710,15 +8816,7 @@
         "ひとり 九つ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "9-things; kun-stem kokono-tsu.",
-        "register_pair": {
-          "casual_alt": "ここのつ",
-          "formal_same": "九個 (きゅうこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -8733,7 +8831,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "9-things; kun-stem kokono-tsu.",
+        "register_pair": {
+          "casual_alt": "ここのつ",
+          "formal_same": "九個 (きゅうこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.十",
@@ -8785,15 +8892,7 @@
         "ひとり 十"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "つ",
-        "irregular": true,
-        "note": "10-things; kun reading is to-o (only number with no -tsu).",
-        "register_pair": {
-          "casual_alt": "とお",
-          "formal_same": "十個 (じゅっこ)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
@@ -8809,7 +8908,16 @@
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "つ",
+        "irregular": true,
+        "note": "10-things; kun reading is to-o (only number with no -tsu).",
+        "register_pair": {
+          "casual_alt": "とお",
+          "formal_same": "十個 (じゅっこ)"
+        }
+      }
     },
     {
       "id": "n5.vocab.8-native-counters-series.いくつ",
@@ -8999,15 +9107,7 @@
         "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "にん",
-        "irregular": true,
-        "note": "1-person uses irregular kun-reading ひとり (NOT いちにん). Standard for politeness.",
-        "register_pair": {
-          "casual_alt": "一人 (ひとり)",
-          "formal_same": "一名 (いちめい — very formal contexts only)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -9024,7 +9124,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "にん",
+        "irregular": true,
+        "note": "1-person uses irregular kun-reading ひとり (NOT いちにん). Standard for politeness.",
+        "register_pair": {
+          "casual_alt": "一人 (ひとり)",
+          "formal_same": "一名 (いちめい — very formal contexts only)"
+        }
+      }
     },
     {
       "id": "n5.vocab.9-counters-common.二人",
@@ -9083,15 +9192,7 @@
         "rule": "between_voiceless"
       },
       "devoiced_vowels_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "にん",
-        "irregular": true,
-        "note": "2-person uses irregular kun-reading ふたり (NOT ににん). Standard.",
-        "register_pair": {
-          "casual_alt": "二人 (ふたり)",
-          "formal_same": "二名 (にめい)"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -9105,7 +9206,16 @@
       ],
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "にん",
+        "irregular": true,
+        "note": "2-person uses irregular kun-reading ふたり (NOT ににん). Standard.",
+        "register_pair": {
+          "casual_alt": "二人 (ふたり)",
+          "formal_same": "二名 (にめい)"
+        }
+      }
     },
     {
       "id": "n5.vocab.9-counters-common.まい",
@@ -9205,7 +9315,10 @@
         "confidence": "high",
         "source": "kanjium-8a0cdaa1-exact"
       },
-      "counter": "冊",
+      "counter": {
+        "kanji": "冊",
+        "reading": "冊"
+      },
       "gloss_hi": "किताब",
       "gloss_provenance": {
         "en": "machine_translated",
@@ -9644,7 +9757,10 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "階",
+      "counter": {
+        "kanji": "階",
+        "reading": "階"
+      },
       "counter_provenance": "native_reviewed",
       "frequent_patterns": [
         "n5-110",
@@ -9714,7 +9830,10 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "counter": "階",
+      "counter": {
+        "kanji": "階",
+        "reading": "階"
+      },
       "counter_provenance": "native_reviewed",
       "frequent_patterns": [
         "n5-110",
@@ -10024,6 +10143,15 @@
           "ja": "かべの とけいは 五時です。",
           "translation_en": "The wall clock shows 5 o'clock.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "かべに 大きい とけいが かかって います。",
+          "translation_en": "There is a large clock on the wall."
+        },
+        {
+          "ja": "父から とけいを もらいました。",
+          "translation_en": "I received a watch from my father.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -10078,7 +10206,10 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "watch, clock",
+      "bug_018_merged_from": "n5.vocab.21-clothing-and-accessor.とけい",
+      "bug_018_merged_from_section": "21. Clothing and Accessories"
     },
     {
       "id": "n5.vocab.10-time-general.今",
@@ -11611,15 +11742,7 @@
         "一日が おわる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "にち",
-        "irregular": false,
-        "note": "1-day. Calendar usage: ついたち for 1st of month.",
-        "register_pair": {
-          "casual_alt": "いちにち",
-          "formal_same": "一日"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "kango",
       "register_origin_provenance": "auto_derived",
@@ -11639,7 +11762,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "にち",
+        "irregular": false,
+        "note": "1-day. Calendar usage: ついたち for 1st of month.",
+        "register_pair": {
+          "casual_alt": "いちにち",
+          "formal_same": "一日"
+        }
+      }
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.二日",
@@ -11690,15 +11822,7 @@
         "二日が おわる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "にち",
-        "irregular": true,
-        "note": "2 days / 2nd of month. Irregular kun reading.",
-        "register_pair": {
-          "casual_alt": "ふつか",
-          "formal_same": "二日"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -11720,7 +11844,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "にち",
+        "irregular": true,
+        "note": "2 days / 2nd of month. Irregular kun reading.",
+        "register_pair": {
+          "casual_alt": "ふつか",
+          "formal_same": "二日"
+        }
+      }
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.三日",
@@ -11777,15 +11910,7 @@
         "n5-162"
       ],
       "frequent_patterns_provenance": "auto_derived",
-      "counter_register": {
-        "counter": "にち",
-        "irregular": true,
-        "note": "3 days / 3rd of month. Irregular kun.",
-        "register_pair": {
-          "casual_alt": "みっか",
-          "formal_same": "三日"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "devoiced_vowels": {
         "positions": [],
@@ -11797,7 +11922,16 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "にち",
+        "irregular": true,
+        "note": "3 days / 3rd of month. Irregular kun.",
+        "register_pair": {
+          "casual_alt": "みっか",
+          "formal_same": "三日"
+        }
+      }
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.四日",
@@ -11848,15 +11982,7 @@
         "四日が おわる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter_register": {
-        "counter": "にち",
-        "irregular": true,
-        "note": "4 days / 4th of month. Irregular kun.",
-        "register_pair": {
-          "casual_alt": "よっか",
-          "formal_same": "四日"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -11876,7 +12002,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "にち",
+        "irregular": true,
+        "note": "4 days / 4th of month. Irregular kun.",
+        "register_pair": {
+          "casual_alt": "よっか",
+          "formal_same": "四日"
+        }
+      }
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.五日",
@@ -13236,6 +13371,19 @@
           "ja": "しゅうまつは 友だちと 出かけます。",
           "translation_en": "I go out with friends on weekends.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "しゅうまつに りょこうに 行きます。",
+          "translation_en": "I go on a trip on the weekend."
+        },
+        {
+          "ja": "しゅうまつは いそがしいです。",
+          "translation_en": "Weekends are busy."
+        },
+        {
+          "ja": "しゅうまつは うちで 休みます。",
+          "translation_en": "I rest at home on the weekend.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -13275,7 +13423,8 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_017_collision_merged_from": "n5.vocab.11-time-days-weeks-month.週末"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.月",
@@ -13367,8 +13516,9 @@
           "translation_en": "January is cold."
         },
         {
-          "ja": "一月が あります。",
-          "translation_en": "There is January."
+          "ja": "一月に やすみが あります。",
+          "translation_en": "There's a holiday in January.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "一月は とても さむいです。",
@@ -13438,8 +13588,9 @@
           "translation_en": "My birthday is in February."
         },
         {
-          "ja": "二月が あります。",
-          "translation_en": "There is February."
+          "ja": "二月は バレンタインの つきです。",
+          "translation_en": "February is the month of Valentine's.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "二月は さむくて ゆきが ふります。",
@@ -13871,8 +14022,9 @@
           "translation_en": "August is hot."
         },
         {
-          "ja": "八月が あります。",
-          "translation_en": "There is August."
+          "ja": "八月に なつまつりが あります。",
+          "translation_en": "There's a summer festival in August.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "八月は とても あついです。",
@@ -14013,8 +14165,9 @@
           "translation_en": "October is cool."
         },
         {
-          "ja": "十月が あります。",
-          "translation_en": "There is October."
+          "ja": "十月に うんどうかいが あります。",
+          "translation_en": "There's a sports day in October.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "十月は うんどうかいの きせつです。",
@@ -14229,8 +14382,9 @@
           "translation_en": "I traveled last month."
         },
         {
-          "ja": "先月が あります。",
-          "translation_en": "There is last month."
+          "ja": "先月 はじめて すしを 食べました。",
+          "translation_en": "Last month I ate sushi for the first time.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "先月から 日本語を 始めました。",
@@ -14437,8 +14591,9 @@
           "translation_en": "We meet once a month."
         },
         {
-          "ja": "毎月が あります。",
-          "translation_en": "There is every month."
+          "ja": "毎月 おかねを ちょきんします。",
+          "translation_en": "I save money every month.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "毎月 はじめに かいぎが あります。",
@@ -14724,8 +14879,9 @@
           "translation_en": "Next year I will become a university student."
         },
         {
-          "ja": "来年が あります。",
-          "translation_en": "There is next year."
+          "ja": "来年 日本へ 行きたいです。",
+          "translation_en": "I want to go to Japan next year.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "来年 大学を そつぎょうします。",
@@ -15703,6 +15859,19 @@
           "ja": "すぐ 行きます。 待って いて ください。",
           "translation_en": "I'll come right away — please wait.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "すぐ 行きます。",
+          "translation_en": "I'll go right away."
+        },
+        {
+          "ja": "すぐ 学校へ 行きます。",
+          "translation_en": "I go to school soon."
+        },
+        {
+          "ja": "すぐ こたえて ください。",
+          "translation_en": "Please answer right away.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -15754,7 +15923,10 @@
       "verb_class": "godan",
       "verb_class_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "soon",
+      "bug_018_merged_from": "n5.vocab.33-adverbs.すぐ",
+      "bug_018_merged_from_section": "33. Adverbs"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もう",
@@ -15775,6 +15947,11 @@
         {
           "ja": "もう ばんごはんを 食べました。",
           "translation_en": "I have already eaten dinner.",
+          "provenance": "llm_curated"
+        },
+        {
+          "ja": "もう すこし 待って ください。",
+          "translation_en": "Please wait a little more.",
           "provenance": "llm_curated"
         }
       ],
@@ -15859,7 +16036,10 @@
       "verb_class": "godan",
       "verb_class_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "already",
+      "bug_018_merged_from": "n5.vocab.33-adverbs.もう",
+      "bug_018_merged_from_section": "33. Adverbs"
     },
     {
       "id": "n5.vocab.12-time-frequency-sequen.もうすぐ",
@@ -16391,6 +16571,19 @@
           "ja": "食べる 前に 手を あらいます。",
           "translation_en": "Before eating, I wash my hands.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "えきの 前で 会いましょう。",
+          "translation_en": "Let's meet in front of the station."
+        },
+        {
+          "ja": "学校の 前に コンビニが あります。",
+          "translation_en": "There is a convenience store in front of the school."
+        },
+        {
+          "ja": "駅の 前で 会いましょう。",
+          "translation_en": "Let's meet in front of the station.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -16438,7 +16631,10 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "front",
+      "bug_018_merged_from": "n5.vocab.13-locations-and-places-.前",
+      "bug_018_merged_from_section": "13. Locations and Places (general)"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.ところ",
@@ -16570,7 +16766,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "部屋",
+      "counter": {
+        "kanji": "部屋",
+        "reading": "部屋"
+      },
       "frequency_rank": 30191,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -17563,8 +17762,9 @@
           "translation_en": "I buy stamps at the post office."
         },
         {
-          "ja": "ゆうびんきょくが あります。",
-          "translation_en": "There is post office."
+          "ja": "えきの 前に ゆうびんきょくが あります。",
+          "translation_en": "There's a post office in front of the station.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "ゆうびんきょくで きってを 買いました。",
@@ -17809,7 +18009,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "दुकान",
-      "counter": "軒",
+      "counter": {
+        "kanji": "軒",
+        "reading": "軒"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -18287,8 +18490,9 @@
           "translation_en": "I buy flowers at the florist."
         },
         {
-          "ja": "はなやが あります。",
-          "translation_en": "There is flower shop."
+          "ja": "うちの ちかくに はなやが あります。",
+          "translation_en": "There's a flower shop near my house.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "はなやで 花を 三本 買いました。",
@@ -18894,8 +19098,9 @@
           "translation_en": "I watch movies at the theater."
         },
         {
-          "ja": "えいがかんが あります。",
-          "translation_en": "There is movie theater."
+          "ja": "ちかくに えいがかんは ありますか。",
+          "translation_en": "Is there a movie theater nearby?",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "えいがかんは えきの ちかくに あります。",
@@ -19836,6 +20041,19 @@
           "ja": "この 道を まっすぐ 行って ください。",
           "translation_en": "Please go straight along this road.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "この 道は あぶないです。",
+          "translation_en": "This road is dangerous."
+        },
+        {
+          "ja": "道で 子どもが あそんで います。",
+          "translation_en": "Children are playing on the road."
+        },
+        {
+          "ja": "道が とても こんで います。",
+          "translation_en": "The road is very crowded.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -19893,7 +20111,10 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "road",
+      "bug_018_merged_from": "n5.vocab.23-transport.道",
+      "bug_018_merged_from_section": "23. Transport"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.とおり",
@@ -20053,7 +20274,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "पुल",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 12320,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -20588,75 +20812,6 @@
         "auth.signs.shita"
       ],
       "authentic_refs_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.13-locations-and-places-.前",
-      "form": "前",
-      "reading": "まえ",
-      "gloss": "front",
-      "section": "13. Locations and Places (general)",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "えきの 前で 会いましょう。",
-          "translation_en": "Let's meet in front of the station."
-        },
-        {
-          "ja": "学校の 前に コンビニが あります。",
-          "translation_en": "There is a convenience store in front of the school."
-        },
-        {
-          "ja": "駅の 前で 会いましょう。",
-          "translation_en": "Let's meet in front of the station.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "पहले / सामने",
-      "frequency_rank": 101,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 2,
-        "drop": 1,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "前に いく",
-        "前で あう",
-        "前から くる",
-        "前の まえに",
-        "前が ある",
-        "前は ちかい",
-        "前まで あるく",
-        "前に つく"
-      ],
-      "collocations_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
       "frequent_patterns": [
         "n5-001",
         "n5-002",
@@ -22366,8 +22521,9 @@
           "translation_en": "They grow rice in the rice field."
         },
         {
-          "ja": "田が あります。",
-          "translation_en": "There is rice field."
+          "ja": "秋に 田の こめを かります。",
+          "translation_en": "In autumn we harvest the rice from the fields.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "田は あおく ひろがって います。",
@@ -23853,8 +24009,9 @@
           "translation_en": "I drink water."
         },
         {
-          "ja": "水が あります。",
-          "translation_en": "There is water."
+          "ja": "水を 一ぱい ください。",
+          "translation_en": "Please give me a glass of water.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "水を コップに 入れて ください。",
@@ -24109,7 +24266,10 @@
         ]
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "匹",
+      "counter": {
+        "kanji": "匹",
+        "reading": "匹"
+      },
       "frequency_rank": 33328,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24173,7 +24333,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "匹",
+      "counter": {
+        "kanji": "匹",
+        "reading": "匹"
+      },
       "frequency_rank": 5957,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24254,7 +24417,10 @@
         ]
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "counter": "羽",
+      "counter": {
+        "kanji": "羽",
+        "reading": "羽"
+      },
       "frequency_rank": 2268,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24337,7 +24503,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "匹",
+      "counter": {
+        "kanji": "匹",
+        "reading": "匹"
+      },
       "frequency_rank": 24193,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24388,7 +24557,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "頭",
+      "counter": {
+        "kanji": "頭",
+        "reading": "頭"
+      },
       "frequency_rank": 6866,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24463,7 +24635,10 @@
         ]
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "頭",
+      "counter": {
+        "kanji": "頭",
+        "reading": "頭"
+      },
       "frequency_rank": 7592,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24608,7 +24783,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "मुर्गी",
-      "counter": "羽",
+      "counter": {
+        "kanji": "羽",
+        "reading": "羽"
+      },
       "frequency_rank": 34080,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -24678,7 +24856,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "हाथी",
-      "counter": "頭",
+      "counter": {
+        "kanji": "頭",
+        "reading": "頭"
+      },
       "frequency_rank": 9582,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -25397,7 +25578,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "टिफ़िन",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "pitch_accent": {
         "mora": 5,
         "drop": 0,
@@ -25467,7 +25651,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "मिठाई / नाश्ता",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 14610,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -25517,8 +25704,9 @@
           "translation_en": "I eat bread in the morning."
         },
         {
-          "ja": "パンが あります。",
-          "translation_en": "There is bread."
+          "ja": "パンを 三つ 買いました。",
+          "translation_en": "I bought three pieces of bread.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "まいあさ パンと たまごを 食べます。",
@@ -25539,7 +25727,10 @@
         "source": "kanjium-8a0cdaa1-exact"
       },
       "pitch_accent_provenance": "llm_curated+mora_corrected",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 1744,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -25603,7 +25794,10 @@
         ]
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 36590,
       "frequency_rank_source": "leeds_corpus_substring_proxy",
       "frequency_rank_provenance": "auto_extracted",
@@ -26090,7 +26284,10 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "llm_curated",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 9883,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -26158,7 +26355,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "संतरा",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 9702,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -26287,7 +26487,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "स्ट्रॉबेरी",
-      "counter": "粒",
+      "counter": {
+        "kanji": "粒",
+        "reading": "粒"
+      },
       "frequency_rank": 12762,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -26747,7 +26950,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "प्याज़",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 24636,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -26817,7 +27023,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "आलू",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 18631,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -26886,7 +27095,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "टमाटर",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 5207,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -27079,8 +27291,9 @@
           "translation_en": "Rice is the staple food in Japan."
         },
         {
-          "ja": "こめが あります。",
-          "translation_en": "There is uncooked rice."
+          "ja": "日本人は まいにち こめを 食べます。",
+          "translation_en": "Japanese people eat rice every day.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "こめを 一キロ 買いました。",
@@ -28297,7 +28510,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "केक",
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "frequency_rank": 3434,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -28344,8 +28560,9 @@
           "translation_en": "Ice cream is delicious in summer."
         },
         {
-          "ja": "アイスクリームが あります。",
-          "translation_en": "There is ice cream."
+          "ja": "あついから アイスクリームを 食べたいです。",
+          "translation_en": "Since it's hot, I want to eat ice cream.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "なつは アイスクリームを 毎日 食べます。",
@@ -28932,7 +29149,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "जूस",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 5382,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -29074,7 +29294,10 @@
         "source": "kanjium-8a0cdaa1-exact"
       },
       "pitch_accent_provenance": "llm_curated+mora_corrected",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 2162,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -29136,7 +29359,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "वाइन",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 2154,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -29280,7 +29506,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "थाली (आदर)",
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -31338,7 +31567,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "कोट",
-      "counter": "着",
+      "counter": {
+        "kanji": "着",
+        "reading": "着"
+      },
       "frequency_rank": 4409,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -31476,7 +31708,10 @@
         "confidence": "high",
         "source": "kanjium-8a0cdaa1-exact"
       },
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "gloss_hi": "शर्ट",
       "frequency_rank": 5699,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -31674,7 +31909,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "पतलून",
-      "counter": "着",
+      "counter": {
+        "kanji": "着",
+        "reading": "着"
+      },
       "frequency_rank": 8667,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -31747,7 +31985,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "स्कर्ट",
-      "counter": "着",
+      "counter": {
+        "kanji": "着",
+        "reading": "着"
+      },
       "frequency_rank": 7681,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -31951,7 +32192,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "जूते",
-      "counter": "足",
+      "counter": {
+        "kanji": "足",
+        "reading": "足"
+      },
       "frequency_rank": 21022,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -32023,7 +32267,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "मोज़े",
-      "counter": "足",
+      "counter": {
+        "kanji": "足",
+        "reading": "足"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 2,
@@ -32098,7 +32345,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "रूमाल",
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "frequency_rank": 14745,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -32371,82 +32621,6 @@
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
-      "id": "n5.vocab.21-clothing-and-accessor.とけい",
-      "form": "とけい",
-      "reading": "とけい",
-      "gloss": "watch, clock",
-      "section": "21. Clothing and Accessories",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "とけいを 見ます。",
-          "translation_en": "I look at my watch."
-        },
-        {
-          "ja": "かべに 大きい とけいが かかって います。",
-          "translation_en": "There is a large clock on the wall."
-        },
-        {
-          "ja": "父から とけいを もらいました。",
-          "translation_en": "I received a watch from my father.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "घड़ी",
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 0,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-by-reading"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "frequency_rank": 6000,
-      "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "とけいを かう",
-        "とけいを つかう",
-        "あたらしい とけい",
-        "たかい とけい",
-        "とけいを ください",
-        "とけいは どこ",
-        "とけいを みる",
-        "やすい とけい"
-      ],
-      "collocations_provenance": "llm_curated",
-      "frequent_patterns": [
-        "n5-008",
-        "n5-011",
-        "n5-060",
-        "n5-090",
-        "n5-091",
-        "n5-106",
-        "n5-110",
-        "n5-118",
-        "n5-125",
-        "n5-131",
-        "n5-146",
-        "n5-154"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "devoiced_vowels": {
-        "positions": [],
-        "note": "no high-vowel devoicing",
-        "rule": "no_devoicing"
-      },
-      "devoiced_vowels_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
       "id": "n5.vocab.21-clothing-and-accessor.ボタン",
       "form": "ボタン",
       "reading": "ボタン",
@@ -32616,7 +32790,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "छाता",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 13385,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -32953,7 +33130,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "टिकट",
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "frequency_rank": 38270,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -33035,7 +33215,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "डाक टिकट",
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -33120,7 +33303,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "पोस्टकार्ड",
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "frequency_rank": 13334,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -33292,7 +33478,10 @@
         "やすい てがみ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "通",
+      "counter": {
+        "kanji": "通",
+        "reading": "通"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -33571,7 +33760,10 @@
         "confidence": "high",
         "source": "kanjium-8a0cdaa1-exact"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "gloss_hi": "गाड़ी",
       "collocations": [
         "車に乗る",
@@ -33632,7 +33824,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "मोटरकार",
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 2,
@@ -33718,7 +33913,10 @@
         "やすい じてんしゃ"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 2,
@@ -33865,7 +34063,10 @@
         "やすい バス"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 1019,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -33937,7 +34138,10 @@
         "やすい タクシー"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 2727,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -34243,7 +34447,10 @@
         "hi": "native_reviewed"
       },
       "gloss_hi": "हवाई जहाज़",
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 2,
@@ -34367,80 +34574,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.23-transport.道",
-      "form": "道",
-      "reading": "みち",
-      "gloss": "road",
-      "section": "23. Transport",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "この 道は あぶないです。",
-          "translation_en": "This road is dangerous."
-        },
-        {
-          "ja": "道で 子どもが あそんで います。",
-          "translation_en": "Children are playing on the road."
-        },
-        {
-          "ja": "道が とても こんで います。",
-          "translation_en": "The road is very crowded.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "रास्ता",
-      "collocations": [
-        "道を歩く",
-        "道を渡る",
-        "道に迷う"
-      ],
-      "pitch_accent": {
-        "mora": 2,
-        "drop": 0,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "frequency_rank": 484,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations_provenance": "auto_derived",
-      "devoiced_vowels": {
-        "positions": [],
-        "note": "no standard devoicing — voiced m",
-        "rule": "no_devoicing"
-      },
-      "devoiced_vowels_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "authentic_refs": [
-        "auth.signs.michi"
-      ],
-      "authentic_refs_provenance": "auto_derived",
       "frequent_patterns": [
         "n5-001",
         "n5-002",
@@ -34830,7 +34963,10 @@
         "やすい しけん"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "回",
+      "counter": {
+        "kanji": "回",
+        "reading": "回"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -34970,7 +35106,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "問",
+      "counter": {
+        "kanji": "問",
+        "reading": "問"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 0,
@@ -35053,7 +35192,10 @@
         "こたえを しる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "問",
+      "counter": {
+        "kanji": "問",
+        "reading": "問"
+      },
       "frequency_rank": 10381,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -35168,6 +35310,19 @@
           "ja": "この ことばの いみが わかりません。",
           "translation_en": "I don't understand this word.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "日本語の ことばを ならいます。",
+          "translation_en": "I learn Japanese words."
+        },
+        {
+          "ja": "やさしい ことばで 話して ください。",
+          "translation_en": "Please speak in simple words."
+        },
+        {
+          "ja": "日本語の ことばを ノートに 書きます。",
+          "translation_en": "I write Japanese words in my notebook.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -35213,7 +35368,10 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "word",
+      "bug_018_merged_from": "n5.vocab.37-common-nouns-miscella.ことば",
+      "bug_018_merged_from_section": "37. Common Nouns - Miscellaneous"
     },
     {
       "id": "n5.vocab.24-school-and-study.じ",
@@ -35653,7 +35811,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "文",
+      "counter": {
+        "kanji": "文",
+        "reading": "文"
+      },
       "frequency_rank": 5964,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -36007,7 +36168,10 @@
         "confidence": "high",
         "source": "kanjium-8a0cdaa1-exact"
       },
-      "counter": "冊",
+      "counter": {
+        "kanji": "冊",
+        "reading": "冊"
+      },
       "gloss_hi": "किताब",
       "gloss_provenance": {
         "en": "machine_translated",
@@ -36135,7 +36299,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "冊",
+      "counter": {
+        "kanji": "冊",
+        "reading": "冊"
+      },
       "pitch_accent": {
         "mora": 2,
         "drop": 1,
@@ -36207,7 +36374,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "冊",
+      "counter": {
+        "kanji": "冊",
+        "reading": "冊"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -36355,7 +36525,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "frequency_rank": 12126,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -36433,7 +36606,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 0,
@@ -36499,7 +36675,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 15114,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -36644,7 +36823,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 4399,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -36712,7 +36894,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "冊",
+      "counter": {
+        "kanji": "冊",
+        "reading": "冊"
+      },
       "frequency_rank": 2363,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -36920,7 +37105,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "脚",
+      "counter": {
+        "kanji": "脚",
+        "reading": "脚"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -36996,7 +37184,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "脚",
+      "counter": {
+        "kanji": "脚",
+        "reading": "脚"
+      },
       "frequency_rank": 13438,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -37147,7 +37338,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "pitch_accent": {
         "mora": 2,
         "drop": 1,
@@ -37228,7 +37422,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -37267,84 +37464,6 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.24-school-and-study.え",
-      "form": "え",
-      "reading": "え",
-      "gloss": "picture, drawing",
-      "section": "24. School and Study",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "きれいな えを かきました。",
-          "translation_en": "I drew a pretty picture."
-        },
-        {
-          "ja": "子どもが きれいな えを かきました。",
-          "translation_en": "The child drew a beautiful picture."
-        },
-        {
-          "ja": "子どもが きれいな えを かきました。",
-          "translation_en": "The child drew a beautiful picture.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_hi": "चित्र",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "frequency_rank": 712,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 1,
-        "drop": 1,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "えを かう",
-        "えを つかう",
-        "あたらしい え",
-        "たかい え",
-        "えを ください",
-        "えは どこ",
-        "えを みる",
-        "やすい え"
-      ],
-      "collocations_provenance": "llm_curated",
-      "counter": {
-        "kanji": "枚",
-        "reading": "まい"
-      },
-      "counter_provenance": "auto_derived",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "long_vowel_pair": "n5.vocab.39-function-filler-expre.ええ",
-      "long_vowel_pair_note": "え (picture, 1-mora) vs ええ (yes / what?, 2-mora long え). Length determines noun vs interjection.",
-      "long_vowel_pair_provenance": "native_reviewed",
-      "long_vowel_pair_audit_wave": "imp-165-minimal-pairs-2026-05-13",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
@@ -37438,6 +37557,19 @@
           "ja": "電気を けして ください。",
           "translation_en": "Please turn off the light.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "でんきを つけます。",
+          "translation_en": "I turn on the light."
+        },
+        {
+          "ja": "出る とき 電気を けして ください。",
+          "translation_en": "Please turn off the light when you leave."
+        },
+        {
+          "ja": "へやの 電気が つきません。",
+          "translation_en": "The light in the room doesn't turn on.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -37483,7 +37615,10 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "light",
+      "bug_018_merged_from": "n5.vocab.26-house-and-furniture.電気",
+      "bug_018_merged_from_section": "26. House and Furniture"
     },
     {
       "id": "n5.vocab.24-school-and-study.電話",
@@ -38662,8 +38797,9 @@
           "translation_en": "I study a foreign language."
         },
         {
-          "ja": "外国語が あります。",
-          "translation_en": "There is foreign language."
+          "ja": "外国語を まいにち べんきょうします。",
+          "translation_en": "I study a foreign language every day.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "外国語を ふたつ はなせます。",
@@ -39552,7 +39688,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 2856,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -39850,7 +39989,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 2294,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40183,73 +40325,6 @@
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
-      "id": "n5.vocab.26-house-and-furniture.電気",
-      "form": "電気",
-      "reading": "でんき",
-      "gloss": "light",
-      "section": "26. House and Furniture",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "でんきを つけます。",
-          "translation_en": "I turn on the light."
-        },
-        {
-          "ja": "出る とき 電気を けして ください。",
-          "translation_en": "Please turn off the light when you leave."
-        },
-        {
-          "ja": "へやの 電気が つきません。",
-          "translation_en": "The light in the room doesn't turn on.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_hi": "बिजली / लाइट",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "frequency_rank": 1512,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 1,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "電気を つける",
-        "電気を けす",
-        "電気だい",
-        "電気スタンド",
-        "電気の ひかり",
-        "電気が きれる"
-      ],
-      "collocations_provenance": "llm_curated",
-      "register_origin": "kango",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
       "id": "n5.vocab.26-house-and-furniture.せっけん",
       "form": "せっけん",
       "reading": "せっけん",
@@ -40424,7 +40499,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "frequency_rank": 7509,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40570,7 +40648,10 @@
         "en": "machine_translated",
         "hi": "native_reviewed"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 478,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40641,7 +40722,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 1920,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40709,7 +40793,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 1406,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40777,7 +40864,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "frequency_rank": 1423,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -40856,7 +40946,10 @@
         "えいがを しる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "本",
+      "counter": {
+        "kanji": "本",
+        "reading": "本"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 1,
@@ -41007,7 +41100,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "曲",
+      "counter": {
+        "kanji": "曲",
+        "reading": "曲"
+      },
       "frequency_rank": 6567,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -41066,6 +41162,10 @@
           "ja": "かべに 大きな えが あります。",
           "translation_en": "There is a big picture on the wall.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "きれいな えを かきました。",
+          "translation_en": "I drew a pretty picture."
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -41113,7 +41213,10 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "picture, drawing",
+      "bug_018_merged_from": "n5.vocab.24-school-and-study.え",
+      "bug_018_merged_from_section": "24. School and Study"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.ピアノ",
@@ -41143,7 +41246,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "台",
+      "counter": {
+        "kanji": "台",
+        "reading": "台"
+      },
       "frequency_rank": 2331,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -41334,7 +41440,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "contact",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.言う",
@@ -41416,7 +41524,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.行く",
@@ -41586,7 +41696,9 @@
       "false_friends_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うたう",
@@ -41652,7 +41764,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おもう",
@@ -41726,7 +41840,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.買う",
@@ -41825,7 +41941,9 @@
         "auth.shop.kau"
       ],
       "authentic_refs_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.書く",
@@ -41899,7 +42017,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.聞く",
@@ -41987,7 +42107,9 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.きる",
@@ -42145,7 +42267,9 @@
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しる",
@@ -42216,7 +42340,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すむ",
@@ -42290,7 +42416,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.立つ",
@@ -42371,7 +42499,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる",
@@ -42439,7 +42569,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とる.2",
@@ -42507,7 +42639,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.なく",
@@ -42579,7 +42713,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.飲む",
@@ -42673,7 +42809,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.入る",
@@ -42836,7 +42974,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.話す",
@@ -42918,7 +43058,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はしる",
@@ -42987,7 +43129,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はたらく",
@@ -43057,7 +43201,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まつ",
@@ -43140,7 +43286,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もつ",
@@ -43220,7 +43368,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.休む",
@@ -43293,7 +43443,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.読む",
@@ -43387,7 +43539,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたる",
@@ -43465,7 +43619,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.分かる",
@@ -43534,7 +43690,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おわる",
@@ -43606,7 +43764,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はじまる",
@@ -43774,7 +43934,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.うる",
@@ -43843,7 +44005,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.おす",
@@ -43913,7 +44077,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.およぐ",
@@ -43979,7 +44145,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく",
@@ -44059,7 +44227,9 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ひく.2",
@@ -44135,7 +44305,9 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.よぶ",
@@ -44202,7 +44374,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とぶ",
@@ -44280,7 +44454,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.こまる",
@@ -44355,7 +44531,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ならぶ",
@@ -44430,7 +44608,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のぼる",
@@ -44501,7 +44681,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.わたす",
@@ -44576,7 +44758,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ぬぐ",
@@ -44651,7 +44835,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.あらう",
@@ -44721,7 +44907,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.いそぐ",
@@ -44796,7 +44984,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.しぬ",
@@ -44875,7 +45065,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すう",
@@ -44946,7 +45138,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ちがう",
@@ -45012,7 +45206,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つかう",
@@ -45098,7 +45294,9 @@
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.つく",
@@ -45278,7 +45476,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.はる",
@@ -45360,7 +45560,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.まがる",
@@ -45435,7 +45637,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.みがく",
@@ -45505,7 +45709,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もっていく",
@@ -45579,7 +45785,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.もってくる",
@@ -45654,7 +45862,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.あく",
@@ -46070,7 +46280,9 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ふる",
@@ -46150,7 +46362,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.くもる",
@@ -46225,7 +46439,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.なくす",
@@ -46305,7 +46521,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.のる",
@@ -46379,7 +46597,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.すわる",
@@ -46461,7 +46681,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.たのむ",
@@ -46536,7 +46758,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.とまる",
@@ -46713,7 +46937,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.さく",
@@ -46791,7 +47017,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.かかる",
@@ -46861,7 +47089,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.さす",
@@ -46936,7 +47166,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.けす",
@@ -47147,7 +47379,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.食べる",
@@ -47270,7 +47504,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.見る",
@@ -47370,7 +47606,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.ねる",
@@ -47466,7 +47704,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おきる",
@@ -47960,7 +48200,9 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おぼえる",
@@ -48036,7 +48278,9 @@
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.わすれる",
@@ -48103,7 +48347,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かりる",
@@ -48182,7 +48428,9 @@
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.こたえる",
@@ -48260,7 +48508,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.出かける",
@@ -48334,7 +48584,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.かける",
@@ -48405,7 +48657,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.きる",
@@ -48656,7 +48910,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.はじめる",
@@ -48815,7 +49071,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.あびる",
@@ -48883,7 +49141,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.いれる",
@@ -49046,7 +49306,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.きえる",
@@ -49285,7 +49547,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.つかれる",
@@ -49363,7 +49627,9 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.生まれる",
@@ -49442,7 +49708,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おりる",
@@ -49521,7 +49789,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.しめる.2",
@@ -49676,7 +49946,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.する",
@@ -49791,7 +50063,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.来る",
@@ -49930,7 +50204,9 @@
       "false_friends_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.べんきょうする",
@@ -49990,7 +50266,9 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.けっこんする",
@@ -50066,7 +50344,9 @@
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "pitch_accent_audit_wave": "v1-mechanical-mora-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.さんぽする",
@@ -50133,7 +50413,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.りょこうする",
@@ -50200,7 +50482,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.れんしゅうする",
@@ -50265,7 +50549,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.しつもんする",
@@ -50334,7 +50620,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.しごとする",
@@ -50400,7 +50688,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.電話する",
@@ -50467,7 +50757,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.コピーする",
@@ -50534,7 +50826,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.そうじする",
@@ -50601,7 +50895,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.せんたくする",
@@ -50670,7 +50966,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.29-verbs-irregular-and-v.かいものする",
@@ -50737,7 +51035,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.ある",
@@ -50849,7 +51149,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.いる.2",
@@ -50936,7 +51238,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.やる",
@@ -51016,7 +51320,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.あげる",
@@ -51089,7 +51395,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.もらう",
@@ -51171,7 +51479,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.くれる",
@@ -51244,7 +51554,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かす",
@@ -51322,7 +51634,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.30-verbs-existence-and-p.かえす",
@@ -51401,7 +51715,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.31-adjectives.大きい",
@@ -57779,110 +58095,6 @@
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
-      "id": "n5.vocab.33-adverbs.もう",
-      "form": "もう",
-      "reading": "もう",
-      "gloss": "already",
-      "section": "33. Adverbs",
-      "pos": "adverb",
-      "examples": [
-        {
-          "ja": "もう ばんごはんを 食べました。",
-          "translation_en": "I've already eaten dinner."
-        },
-        {
-          "ja": "もう いっぱい いかがですか。",
-          "translation_en": "Would you like another cup?"
-        },
-        {
-          "ja": "もう すこし 待って ください。",
-          "translation_en": "Please wait a little more.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "पहले से ही",
-      "frequency_rank": 154,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 2,
-        "drop": 1,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact",
-        "alternates": [
-          0
-        ]
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "もうすぐ",
-        "もうすこし",
-        "もういちど",
-        "いもうとは",
-        "いもうとを",
-        "もう いちど",
-        "もう たべた",
-        "もう おわった",
-        "もう はじまった",
-        "もう だいじょうぶ",
-        "もう おそい"
-      ],
-      "collocations_provenance": "llm_curated",
-      "frequent_patterns": [
-        "n5-023",
-        "n5-026",
-        "n5-050",
-        "n5-060",
-        "n5-063",
-        "n5-067",
-        "n5-071",
-        "n5-074",
-        "n5-104",
-        "n5-118",
-        "n5-126",
-        "n5-150",
-        "n5-151",
-        "n5-154",
-        "n5-155",
-        "n5-158",
-        "n5-170",
-        "n5-173",
-        "n5-175",
-        "n5-176"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "pragmatic_functions": [
-        {
-          "function": "already",
-          "gloss": "already",
-          "context": "もう食べました = already ate"
-        },
-        {
-          "function": "no-longer",
-          "gloss": "no longer (with negative)",
-          "context": "もう食べません = no longer eat"
-        },
-        {
-          "function": "one-more",
-          "gloss": "one more / another",
-          "context": "もう一杯 = one more cup"
-        }
-      ],
-      "pragmatic_functions_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "verb_class": "godan",
-      "verb_class_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
       "id": "n5.vocab.33-adverbs.もうすこし",
       "form": "もうすこし",
       "reading": "もうすこし",
@@ -58259,78 +58471,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.33-adverbs.すぐ",
-      "form": "すぐ",
-      "reading": "すぐ",
-      "gloss": "soon",
-      "section": "33. Adverbs",
-      "pos": "adverb",
-      "examples": [
-        {
-          "ja": "すぐ 行きます。",
-          "translation_en": "I'll go right away."
-        },
-        {
-          "ja": "すぐ 学校へ 行きます。",
-          "translation_en": "I go to school soon."
-        },
-        {
-          "ja": "すぐ こたえて ください。",
-          "translation_en": "Please answer right away.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "तुरंत",
-      "frequency_rank": 441,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 2,
-        "drop": 1,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-by-reading"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "すぐ きてください",
-        "すぐ おわる",
-        "すぐ かえる",
-        "すぐ わかる",
-        "すぐ つく",
-        "すぐ ちかく"
-      ],
-      "collocations_provenance": "llm_curated",
-      "frequent_patterns": [
-        "n5-070",
-        "n5-118",
-        "n5-121"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "devoiced_vowels": {
-        "positions": [],
-        "note": "no devoicing - voiced g",
-        "rule": "no_devoicing"
-      },
-      "devoiced_vowels_provenance": "llm_curated",
-      "false_friends": [
-        "いま",
-        "もうすぐ"
-      ],
-      "false_friends_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "verb_class": "godan",
-      "verb_class_provenance": "auto_derived",
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
@@ -58910,149 +59050,6 @@
       ],
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.33-adverbs.どうも",
-      "form": "どうも",
-      "reading": "どうも",
-      "gloss": "thanks, indeed",
-      "section": "33. Adverbs",
-      "pos": "expression",
-      "examples": [
-        {
-          "ja": "どうも ありがとう。",
-          "translation_en": "Thank you very much."
-        },
-        {
-          "ja": "どうも ありがとうございます。",
-          "translation_en": "Thank you very much."
-        },
-        {
-          "ja": "どうも すみませんでした。",
-          "translation_en": "I'm really sorry.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_hi": "धन्यवाद",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "frequency_rank": 1188,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 1,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "pitch_accent_provenance": "llm_curated",
-      "collocations": [
-        "どうもと いいます",
-        "どうもと おもいます",
-        "どうも、 ね",
-        "どうも、 よ",
-        "どうもを つかう",
-        "「どうも」"
-      ],
-      "collocations_provenance": "llm_curated",
-      "pragmatic_functions": [
-        {
-          "function": "thanks-abbreviated",
-          "gloss": "thanks",
-          "context": "abbreviated どうもありがとう"
-        },
-        {
-          "function": "casual-greeting",
-          "gloss": "quick hello / hey / oh",
-          "context": "between acquaintances; can sub for こんにちは casually"
-        },
-        {
-          "function": "apology-intensifier",
-          "gloss": "very (sorry)",
-          "context": "どうもすみません = I'm very sorry — どうも adds depth"
-        },
-        {
-          "function": "general-intensifier",
-          "gloss": "somehow / really",
-          "context": "どうも変だ = something's really off / どうも分からない = I just don't get it"
-        }
-      ],
-      "pragmatic_functions_provenance": "native_reviewed",
-      "register": "casual",
-      "register_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-152"
-      ],
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.33-adverbs.どうぞよろしく",
-      "form": "どうぞよろしく",
-      "reading": "どうぞよろしく",
-      "gloss": "please treat me well",
-      "section": "33. Adverbs",
-      "pos": "expression",
-      "examples": [
-        {
-          "ja": "どうぞよろしく おねがいします。",
-          "translation_en": "Pleased to meet you."
-        },
-        {
-          "ja": "「どうぞよろしく」と 言いました。",
-          "translation_en": "(I) said \"please treat me well\"."
-        },
-        {
-          "ja": "これから どうぞよろしく。",
-          "translation_en": "Please treat me well from now on.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_hi": "मिलकर ख़ुशी हुई",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "pitch_accent": {
-        "mora": 7,
-        "drop": 0,
-        "confidence": "low",
-        "source": "rule-phrase-lemma-not-in-lexicon"
-      },
-      "pitch_accent_provenance": "llm_curated",
-      "frequency_rank": 3928,
-      "frequency_rank_source": "section_band_estimate",
-      "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "どうぞよろしくと いいます",
-        "どうぞよろしくと おもいます",
-        "どうぞよろしく、 ね",
-        "どうぞよろしく、 よ",
-        "どうぞよろしくを つかう",
-        "「どうぞよろしく」"
-      ],
-      "collocations_provenance": "llm_curated",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-152",
-        "n5-149",
-        "n5-150",
-        "n5-151"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
@@ -63489,6 +63486,11 @@
           "ja": "本日は どうぞよろしく お願いします。",
           "translation_en": "Pleased to meet you today.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "これから どうぞよろしく。",
+          "translation_en": "Please treat me well from now on.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -63531,7 +63533,10 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "please treat me well",
+      "bug_018_merged_from": "n5.vocab.33-adverbs.どうぞよろしく",
+      "bug_018_merged_from_section": "33. Adverbs"
     },
     {
       "id": "n5.vocab.36-greetings-and-set-phr.おげんきですか",
@@ -63758,6 +63763,15 @@
           "ja": "どうも すみません。",
           "translation_en": "I'm really sorry.",
           "provenance": "llm_curated"
+        },
+        {
+          "ja": "どうも ありがとう。",
+          "translation_en": "Thank you very much."
+        },
+        {
+          "ja": "どうも すみませんでした。",
+          "translation_en": "I'm really sorry.",
+          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -63810,7 +63824,10 @@
       ],
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_alt_dropped_section": "thanks, indeed",
+      "bug_018_merged_from": "n5.vocab.33-adverbs.どうも",
+      "bug_018_merged_from_section": "33. Adverbs"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.もの",
@@ -64005,73 +64022,6 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.37-common-nouns-miscella.ことば",
-      "form": "ことば",
-      "reading": "ことば",
-      "gloss": "word",
-      "section": "37. Common Nouns - Miscellaneous",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "日本語の ことばを ならいます。",
-          "translation_en": "I learn Japanese words."
-        },
-        {
-          "ja": "やさしい ことばで 話して ください。",
-          "translation_en": "Please speak in simple words."
-        },
-        {
-          "ja": "日本語の ことばを ノートに 書きます。",
-          "translation_en": "I write Japanese words in my notebook.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_hi": "शब्द / भाषा",
-      "gloss_provenance": {
-        "hi": "native_reviewed",
-        "en": "native_reviewed"
-      },
-      "frequency_rank": 2803,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 3,
-        "drop": 3,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-by-reading"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "日本ごの ことば",
-        "むずかしい ことば",
-        "きれいな ことば",
-        "ことばの いみ",
-        "ことばを ならう",
-        "やさしい ことば"
-      ],
-      "collocations_provenance": "llm_curated",
-      "register_origin": "wago",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
@@ -64402,7 +64352,10 @@
         "もんだいを しる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "問",
+      "counter": {
+        "kanji": "問",
+        "reading": "問"
+      },
       "pitch_accent": {
         "mora": 4,
         "drop": 0,
@@ -64554,7 +64507,10 @@
         "りょこうを しる"
       ],
       "collocations_provenance": "llm_curated",
-      "counter": "回",
+      "counter": {
+        "kanji": "回",
+        "reading": "回"
+      },
       "pitch_accent": {
         "mora": 3,
         "drop": 0,
@@ -65193,8 +65149,9 @@
           "translation_en": "I studied abroad in Japan."
         },
         {
-          "ja": "りゅうがくが あります。",
-          "translation_en": "There is study abroad."
+          "ja": "来年 りゅうがくを したいです。",
+          "translation_en": "I want to do study abroad next year.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "兄は アメリカに りゅうがくして います。",
@@ -66322,7 +66279,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "個",
+      "counter": {
+        "kanji": "個",
+        "reading": "個"
+      },
       "pitch_accent": {
         "mora": 2,
         "drop": 0,
@@ -67024,7 +66984,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "枚",
+      "counter": {
+        "kanji": "枚",
+        "reading": "枚"
+      },
       "frequency_rank": 5689,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -67641,8 +67604,9 @@
           "translation_en": "Last night I went to bed late."
         },
         {
-          "ja": "ゆうべが あります。",
-          "translation_en": "There is last night."
+          "ja": "ゆうべの えいがは おもしろかったです。",
+          "translation_en": "Last night's movie was interesting.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "ゆうべは おそく まで しごとを しました。",
@@ -68169,7 +68133,10 @@
         "hi": "native_reviewed",
         "en": "native_reviewed"
       },
-      "counter": "コマ",
+      "counter": {
+        "kanji": "コマ",
+        "reading": "コマ"
+      },
       "frequency_rank": 1177,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
@@ -69937,15 +69904,7 @@
         "n5-151"
       ],
       "frequent_patterns_provenance": "auto_derived",
-      "counter_register": {
-        "counter": "はい",
-        "irregular": false,
-        "note": "1-cup. Sound-change: い+ぱい (rendaku-like geminate after い).",
-        "register_pair": {
-          "casual_alt": "いっぱい",
-          "formal_same": "一杯"
-        }
-      },
+      "counter_register": null,
       "counter_register_provenance": "llm_curated",
       "devoiced_vowels": {
         "positions": [],
@@ -69957,7 +69916,16 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "counter_word_metadata": {
+        "counter": "はい",
+        "irregular": false,
+        "note": "1-cup. Sound-change: い+ぱい (rendaku-like geminate after い).",
+        "register_pair": {
+          "casual_alt": "いっぱい",
+          "formal_same": "一杯"
+        }
+      }
     },
     {
       "id": "n5.vocab.28-verbs-group-2-verbs.おくれる",
@@ -70032,7 +70000,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.24-school-and-study.おしらせ",
@@ -70722,7 +70692,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.24-school-and-study.たんご",
@@ -70737,8 +70709,9 @@
           "translation_en": "I memorize Japanese vocabulary."
         },
         {
-          "ja": "たんごが あります。",
-          "translation_en": "There is vocabulary word."
+          "ja": "あたらしい たんごを ノートに 書きます。",
+          "translation_en": "I write new vocabulary in my notebook.",
+          "bug_014_fix_2026_05_16": true
         },
         {
           "ja": "毎日 新しい たんごを おぼえます。",
@@ -70860,7 +70833,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "transitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.33-adverbs.べつべつ",
@@ -71470,7 +71445,7 @@
     },
     {
       "id": "n5.vocab.9-counters-common.倍",
-      "form": "倍",
+      "form": "ばい",
       "reading": "ばい",
       "gloss": "times / -fold (counter for multiplicative)",
       "section": "9. Counters (Common)",
@@ -71485,7 +71460,7 @@
           "translation_en": "The Japanese-language students became three times (in number)."
         },
         {
-          "ja": "その 二倍 ください。",
+          "ja": "その 二ばい ください。",
           "translation_en": "Please give me twice that.",
           "provenance": "llm_curated"
         }
@@ -71530,7 +71505,8 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_017_fix_2026_05_16": true
     },
     {
       "id": "n5.vocab.13-locations-and-places-.出口",
@@ -71605,7 +71581,7 @@
     },
     {
       "id": "n5.vocab.25-languages-and-countri.国籍",
-      "form": "国籍",
+      "form": "こくせき",
       "reading": "こくせき",
       "gloss": "nationality",
       "section": "25. Languages and Countries",
@@ -71620,7 +71596,7 @@
           "translation_en": "My nationality is India."
         },
         {
-          "ja": "国籍は どこですか。",
+          "ja": "こくせきは どこですか。",
           "translation_en": "What is your nationality?",
           "provenance": "llm_curated"
         }
@@ -71672,7 +71648,8 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_017_fix_2026_05_16": true
     },
     {
       "id": "n5.vocab.10-time-general.後",
@@ -71822,78 +71799,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "n5.vocab.11-time-days-weeks-month.週末",
-      "form": "週末",
-      "reading": "しゅうまつ",
-      "gloss": "weekend",
-      "section": "11. Time - Days, Weeks, Months, Years",
-      "pos": "noun",
-      "examples": [
-        {
-          "ja": "しゅうまつに りょこうに 行きます。",
-          "translation_en": "I go on a trip on the weekend."
-        },
-        {
-          "ja": "しゅうまつは いそがしいです。",
-          "translation_en": "Weekends are busy."
-        },
-        {
-          "ja": "週末は うちで 休みます。",
-          "translation_en": "I rest at home on the weekend.",
-          "provenance": "llm_curated"
-        }
-      ],
-      "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "सप्ताहांत",
-      "frequency_rank": 2763,
-      "frequency_rank_source": "leeds_corpus_internet_jp",
-      "frequency_rank_provenance": "auto_extracted",
-      "pitch_accent": {
-        "mora": 4,
-        "drop": 0,
-        "confidence": "high",
-        "source": "kanjium-8a0cdaa1-exact"
-      },
-      "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "しゅうまつが ある",
-        "しゅうまつに いく",
-        "しゅうまつまで まつ",
-        "しゅうまつから はじまる",
-        "いま しゅうまつ",
-        "しゅうまつは はやい",
-        "しゅうまつを まつ",
-        "しゅうまつが おわる"
-      ],
-      "collocations_provenance": "llm_curated",
-      "register_origin": "kango",
-      "register_origin_provenance": "auto_derived",
-      "register": "neutral",
-      "register_provenance": "auto_derived",
-      "devoiced_vowel": true,
-      "devoiced_vowel_provenance": "auto_derived",
-      "frequent_patterns": [
-        "n5-001",
-        "n5-002",
-        "n5-003",
-        "n5-004",
-        "n5-005",
-        "n5-006",
-        "n5-007",
-        "n5-008",
-        "n5-074"
-      ],
-      "frequent_patterns_provenance": "auto_derived",
-      "frequent_patterns_basis": "pos_heuristic",
-      "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.31-adjectives.いい",
@@ -72287,7 +72195,9 @@
         "ございます"
       ],
       "readings_provenance": "v2_migration_2026_05_13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "transitivity": "intransitive",
+      "transitivity_provenance": "n5_pedagogical_convention_bug_016_fix"
     },
     {
       "id": "n5.vocab.39-function-filler-expre.じゃあ",
