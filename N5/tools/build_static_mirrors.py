@@ -51,6 +51,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 GRAMMAR = DATA_DIR / "grammar.json"
 VOCAB = DATA_DIR / "vocab.json"
+KANJI = DATA_DIR / "kanji.json"
 
 # Live deploy base — used in canonical + og:url. Trailing slash matters.
 SITE_BASE = "https://gauravaccentureproducts.github.io/JLPTSuccess/"
@@ -711,6 +712,235 @@ def build_vocab(sitemap_urls: list[str]) -> tuple[int, int, int]:
     return written, unchanged, len(form_order)
 
 
+# ----- Kanji renderer (Stage 3) -----
+
+
+def _render_kanji_examples(examples: list) -> str:
+    if not examples:
+        return ""
+    out = ["<h2>Compound examples</h2><ul>"]
+    seen = set()
+    for ex in examples:
+        if not isinstance(ex, dict):
+            continue
+        form = ex.get("form") or ex.get("lemma") or ""
+        reading = ex.get("reading") or ""
+        gloss = ex.get("gloss") or ""
+        if not form or form in seen:
+            continue
+        seen.add(form)
+        bits = [f'<span lang="ja"><strong>{_esc(form)}</strong></span>']
+        if reading:
+            bits.append(f'<span class="muted" lang="ja">({_esc(reading)})</span>')
+        if gloss:
+            bits.append(f'— {_esc(gloss)}')
+        out.append(f'<li>{" ".join(bits)}</li>')
+    out.append("</ul>")
+    return "\n".join(out)
+
+
+def _render_kanji_sentences(sentences: list) -> str:
+    if not sentences:
+        return ""
+    out = ["<h2>Example sentences</h2>"]
+    for s in sentences:
+        if not isinstance(s, dict):
+            continue
+        ja = s.get("ja") or ""
+        en = s.get("translation_en") or s.get("en") or ""
+        if not ja:
+            continue
+        out.append('<div class="ex">')
+        out.append(f'<div class="ja" lang="ja"><span class="lang-tag">JA</span>{_esc(ja)}</div>')
+        if en:
+            out.append(f'<div class="en"><span class="lang-tag">EN</span>{_esc(en)}</div>')
+        out.append("</div>")
+    return "\n".join(out)
+
+
+def build_kanji(sitemap_urls: list[str]) -> tuple[int, int, int]:
+    """Stage 3 — kanji mirrors at /kanji/<glyph>/index.html.
+
+    Returns (written, unchanged, total).
+    """
+    k = json.loads(KANJI.read_text(encoding="utf-8"))
+    entries = k.get("entries", [])
+
+    out_root = ROOT / "kanji"
+    written = 0
+    unchanged = 0
+
+    for e in entries:
+        glyph = e.get("glyph")
+        if not glyph:
+            continue
+        meanings = e.get("meanings") or []
+        meanings_hi = e.get("meanings_hi") or []
+        on_yomi = e.get("on") or []
+        kun_yomi = e.get("kun") or []
+        stroke_count = e.get("stroke_count")
+        primary_reading = e.get("primary_reading") or ""
+        radical = e.get("radical") or {}
+        mnemonic = e.get("mnemonic") or {}
+
+        gloss_summary = ", ".join(meanings[:3]) if meanings else glyph
+        desc = (f"Kanji {glyph} — " + gloss_summary)[:155]
+
+        body_parts: list[str] = []
+        # Glyph display block
+        body_parts.append(
+            f'<p style="text-align:center; font-size:5em; line-height:1; margin:0.5rem 0;" lang="ja">{_esc(glyph)}</p>'
+        )
+        if meanings:
+            body_parts.append(
+                f'<p style="text-align:center; font-size:1.1em;"><span class="lang-tag">EN</span>{_esc(", ".join(meanings))}</p>'
+            )
+        if meanings_hi:
+            body_parts.append(
+                f'<p style="text-align:center;" lang="hi"><span class="lang-tag">HI</span>{_esc(", ".join(meanings_hi))}</p>'
+            )
+
+        # Readings
+        readings_parts: list[str] = []
+        if on_yomi:
+            readings_parts.append(
+                f'<p><strong>On (音読み):</strong> <span lang="ja">{_esc("、 ".join(on_yomi))}</span></p>'
+            )
+        if kun_yomi:
+            readings_parts.append(
+                f'<p><strong>Kun (訓読み):</strong> <span lang="ja">{_esc("、 ".join(kun_yomi))}</span></p>'
+            )
+        if readings_parts:
+            body_parts.append("<h2>Readings</h2>" + "\n".join(readings_parts))
+
+        # Stroke count + radical
+        meta_lines: list[str] = []
+        if stroke_count is not None:
+            meta_lines.append(f"Stroke count: <strong>{_esc(stroke_count)}</strong>")
+        if isinstance(radical, dict):
+            r_g = radical.get("glyph") or radical.get("form") or ""
+            r_m = radical.get("meaning") or ""
+            if r_g:
+                meta_lines.append(
+                    f'Radical: <span lang="ja">{_esc(r_g)}</span>'
+                    + (f" ({_esc(r_m)})" if r_m else "")
+                )
+        if meta_lines:
+            body_parts.append(
+                "<h2>Stroke / radical</h2><p>" + " · ".join(meta_lines) + "</p>"
+            )
+
+        # Mnemonic (multi-locale dict)
+        if isinstance(mnemonic, dict):
+            mn_en = mnemonic.get("en") or ""
+            mn_hi = mnemonic.get("hi") or ""
+            if mn_en or mn_hi:
+                body_parts.append("<h2>Mnemonic</h2>")
+                if mn_en:
+                    body_parts.append(f'<p><span class="lang-tag">EN</span>{_esc(mn_en)}</p>')
+                if mn_hi:
+                    body_parts.append(f'<p lang="hi"><span class="lang-tag">HI</span>{_esc(mn_hi)}</p>')
+
+        # Examples / compounds
+        body_parts.append(_render_kanji_examples(e.get("examples") or []))
+        body_parts.append(_render_kanji_sentences(e.get("sentences") or []))
+
+        # Lookalikes (visually similar kanji)
+        lookalikes = e.get("lookalikes") or []
+        if lookalikes:
+            body_parts.append("<h2>Visually similar</h2>")
+            for la in lookalikes[:6]:
+                if not isinstance(la, dict):
+                    continue
+                la_g = la.get("glyph") or la.get("kanji") or ""
+                la_note = la.get("note") or la.get("difference") or ""
+                if la_g:
+                    la_encoded = _encode_url_segment(la_g)
+                    body_parts.append(
+                        f'<p>'
+                        f'<a href="../{la_encoded}/" style="font-size:1.4em;" lang="ja">{_esc(la_g)}</a>'
+                        + (f" — {_esc(la_note)}" if la_note else "")
+                        + "</p>"
+                    )
+
+        body = "\n".join(x for x in body_parts if x)
+        glyph_encoded = _encode_url_segment(glyph)
+        canonical = f"{N5_BASE}#/kanji/{glyph_encoded}"
+        mirror_url = f"{N5_BASE}kanji/{glyph_encoded}/"
+
+        title_tag = f"{glyph} — JLPT N5 Kanji ({gloss_summary})"
+        breadcrumb = [("Home", "../../#/home"), ("Kanji", "../index.html"), (glyph, "")]
+        footer_meta = ""
+        if primary_reading:
+            footer_meta = f'<p>Primary reading: <span lang="ja">{_esc(primary_reading)}</span></p>'
+
+        html_text = _build_page(
+            lang="en",
+            title_tag=title_tag,
+            h1=f"{glyph} — {gloss_summary}",
+            description=desc,
+            canonical_url=canonical,
+            spa_url=canonical,
+            body_html=body,
+            depth=2,
+            og_title=f"{glyph} — JLPT N5 Kanji",
+            breadcrumb=breadcrumb,
+            footer_meta_html=footer_meta,
+        )
+
+        out_path = out_root / glyph / "index.html"
+        if _write_if_changed(out_path, html_text):
+            written += 1
+        else:
+            unchanged += 1
+        sitemap_urls.append(mirror_url)
+
+    # Kanji index — order by lesson_order
+    idx_items = sorted(entries, key=lambda x: (x.get("lesson_order") or 999, x.get("frequency_rank") or 999))
+    idx_parts: list[str] = []
+    idx_parts.append(
+        f'<p>Static index of all {len(entries)} JLPT N5 kanji, in lesson order. Each entry links to a read-only mirror; the interactive version (stroke-order animation, drills, SRS) is at the SPA route.</p>'
+    )
+    idx_parts.append('<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:0.5em; margin:1em 0;">')
+    for e in idx_items:
+        glyph = e.get("glyph")
+        if not glyph:
+            continue
+        gloss_summary = ", ".join((e.get("meanings") or [])[:2])
+        glyph_encoded = _encode_url_segment(glyph)
+        idx_parts.append(
+            f'<a class="index-card" href="{glyph_encoded}/" style="text-align:center;">'
+            f'<span class="label" style="font-size:1.8em; display:block;" lang="ja">{_esc(glyph)}</span>'
+            f'<span class="gloss">{_esc(gloss_summary)}</span>'
+            f'</a>'
+        )
+    idx_parts.append("</div>")
+    idx_body = "\n".join(idx_parts)
+
+    idx_canonical = f"{N5_BASE}#/kanji"
+    idx_path = out_root / "index.html"
+    idx_html = _build_page(
+        lang="en",
+        title_tag="N5 Kanji — All 106 Characters (static index)",
+        h1="N5 Kanji — All 106 Characters",
+        description=f"All {len(entries)} JLPT N5 kanji in lesson order. Static index for non-JS clients.",
+        canonical_url=idx_canonical,
+        spa_url=idx_canonical,
+        body_html=idx_body,
+        depth=1,
+        og_title="N5 Kanji — All 106 Characters",
+        breadcrumb=[("Home", "../#/home"), ("Kanji", "")],
+        footer_meta_html=f"<p>{len(entries)} kanji indexed.</p>",
+    )
+    if _write_if_changed(idx_path, idx_html):
+        written += 1
+    else:
+        unchanged += 1
+    sitemap_urls.append(f"{N5_BASE}kanji/")
+
+    return written, unchanged, len(entries)
+
+
 # ----- Sitemap + robots.txt -----
 
 
@@ -773,8 +1003,13 @@ def main() -> int:
         summary.append(("vocab", w, u, t))
         print(f"Stage 2 (vocab): wrote {w}, unchanged {u}, total {t} unique forms (+1 index).")
 
-    # Stages 3-6 land in subsequent commits per BUG-010 staged rollout.
-    for stage in ("kanji", "reading", "listening", "meta"):
+    if "kanji" in stages:
+        w, u, t = build_kanji(sitemap_urls)
+        summary.append(("kanji", w, u, t))
+        print(f"Stage 3 (kanji): wrote {w}, unchanged {u}, total {t} kanji (+1 index).")
+
+    # Stages 4-6 land in subsequent commits per BUG-010 staged rollout.
+    for stage in ("reading", "listening", "meta"):
         if stage in stages:
             print(f"Stage {stage}: not yet implemented (planned per BUG-010 staged rollout).")
 
