@@ -2217,6 +2217,19 @@ Mandatory entries for this richness-first cycle:
   `tools/build_lesson_html_mirrors.py`. For Nx levels: build the
   mirror generator on Day 1; cover every content surface (grammar,
   vocab, kanji, reading). See F.16 in the procedure manual."
+- "Do NOT default to narrow-scope CI gates when strict-equality is
+  the natural shape. Caught 2026-05-17 as BUG-023 (inverse of
+  BUG-020). When BUG-020 was fixed, JA-100 was wired as a narrow
+  OOS-kanji-only check (the form-shape divergence between kanji.json
+  kanji forms and vocab.json kana forms was deemed 'intentional
+  pedagogy' and accepted). A re-audit one day later found 5 cases
+  of the inverse class — kanji.json kanji forms ↔ vocab.json kana
+  forms where the kanji IS in scope (友だち/手/上手/足/目). The
+  narrow check missed all 5. Resolution: tighten JA-100 to strict
+  form-equality. Lesson for Nx: start with the strict gate; loosen
+  with documented exceptions only if a real false-positive surfaces.
+  The narrow-scope-by-default approach cost an extra audit cycle.
+  See F.22.1 'TIGHTENING' subsection in the procedure manual."
 - "Do NOT assume a fix in one corpus propagates to the others — run
   a cross-corpus grep after every corpus-level rename / reschema.
   Caught 2026-05-17 as BUG-020 — BUG-017's vocab-side fix renamed

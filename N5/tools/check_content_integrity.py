@@ -1096,13 +1096,19 @@ CHECKS: list[tuple[str, str, callable]] = [
     # extends the coverage to vocab forms (which JA-13 doesn't
     # currently check).
     ("JA-99", "All kanji in vocab.json `form` fields are in N5 whitelist OR exception list (BUG-017 guard, 2026-05-16)", lambda: _check_ja_99_vocab_form_kanji_in_scope()),
-    # JA-100 (2026-05-17): BUG-020 close-out. Every kanji.json
-    # n5_compound or example with a `vocab_id` must have its `form`
-    # match the linked vocab entry's `form`. Prevents the
-    # cross-file drift caught when BUG-017's vocab-side fix didn't
-    # propagate to kanji.json (週末 / 国籍 stayed in kanji.json while
-    # vocab.json showed しゅうまつ / こくせき).
-    ("JA-100", "kanji.json compound/example.form == linked vocab.form (BUG-020 guard, 2026-05-17)", lambda: _check_ja_100_kanji_vocab_form_consistency()),
+    # JA-100 (2026-05-17): BUG-020 + BUG-023 close-out. Every
+    # kanji.json compound/example with a `vocab_id` must have its
+    # `form` equal the linked vocab.form EXACTLY. Catches both
+    # directions of drift:
+    #   - BUG-020 case: kanji.json kanji form ↔ vocab.json kana
+    #     form (BUG-017 propagation failure; OOS kanji exposure)
+    #   - BUG-023 case: kanji.json kanji form ↔ vocab.json kana
+    #     form when the kanji IS in scope (vocab.json was the
+    #     laggard; native textbooks all teach the kanji form)
+    # First wired as narrow OOS-only check; tightened to strict
+    # equality after the BUG-023 audit demonstrated the looser
+    # check missed a real bug class.
+    ("JA-100", "kanji.json compound/example.form == linked vocab.form STRICT (BUG-020 + BUG-023 guard, 2026-05-17)", lambda: _check_ja_100_kanji_vocab_form_consistency()),
     # JA-101 (2026-05-17): BUG-022 close-out. kanji.json examples
     # use `form` field name only — no `lemma`. Normalized to match
     # vocab.json and the majority of existing entries.
@@ -4854,49 +4860,36 @@ def _check_ja_83_no_vocab_template_leak() -> list[str]:
 
 
 def _check_ja_100_kanji_vocab_form_consistency() -> list[str]:
-    """BUG-020 (2026-05-17) regression guard — narrow version.
+    """BUG-020 + BUG-023 (2026-05-17) regression guard — STRICT version.
 
     For every kanji.json `n5_compounds[i]` and `examples[i]` that
-    carries a `vocab_id`, flag ONLY if the kanji.json form contains
-    a character NOT in the N5 whitelist (i.e., the actual BUG-020
-    class — display drift introducing OOS kanji into kanji.json).
+    carries a `vocab_id`, assert TWO things:
 
-    Form-shape divergence where kanji.json shows the kanji form
-    and vocab.json shows the kana form is INTENTIONAL pedagogy and
-    accepted (kanji corpus teaches kanji; vocab corpus may choose
-    kana for display reasons). The narrow check catches the specific
-    bug class without false-positive on legitimate display-shape
-    divergence.
+    1. The vocab_id resolves (linked vocab entry exists).
+    2. The kanji.json `form` equals the linked vocab.json `form`
+       EXACTLY.
 
-    Vocab `vocab_id` references must still resolve — that's still
-    asserted regardless of form-shape.
+    First wired as narrow OOS-only check post-BUG-020. The BUG-023
+    audit demonstrated the narrow check missed a real bug class:
+    kanji.json showed kanji forms (友だち, 手, 上手, 足, 目) while
+    vocab.json had kana-only forms (ともだち, て, じょうず, あし, め)
+    — all 5 kanji are in scope, so the narrow check accepted this
+    as "intentional pedagogy". It wasn't; standard N5 textbooks
+    teach those words with kanji.
+
+    Strict equality catches both bug directions:
+      BUG-020: kanji.json kanji form → vocab.json kana form (OOS
+               kanji in kanji corpus; vocab.json was right)
+      BUG-023: kanji.json kanji form → vocab.json kana form (kanji
+               IS in scope; vocab.json was wrong)
     """
-    import re
     failures = []
     try:
         kanji = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
         vocab = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
-        whitelist = json.loads((ROOT / "data" / "n5_kanji_whitelist.json").read_text(encoding="utf-8"))
     except Exception as e:
         return [f"JA-100 could not read inputs: {e}"]
-    if isinstance(whitelist, dict):
-        wl = set(whitelist.get("kanji", whitelist.get("entries", [])))
-    elif isinstance(whitelist, list):
-        wl = set(whitelist)
-    else:
-        return [f"JA-100 unexpected whitelist shape: {type(whitelist).__name__}"]
-    exc_path = ROOT / "data" / "dokkai_kanji_exception.json"
-    if exc_path.exists():
-        try:
-            exc = json.loads(exc_path.read_text(encoding="utf-8"))
-            if isinstance(exc, dict):
-                wl |= set(exc.get("kanji", exc.get("entries", [])))
-            elif isinstance(exc, list):
-                wl |= set(exc)
-        except Exception:
-            pass
     vocab_form_by_id = {e.get("id"): e.get("form") for e in vocab.get("entries", []) if e.get("id")}
-    kanji_re = re.compile(r"[一-鿿]")
     for k in kanji.get("entries", []):
         glyph = k.get("glyph", "?")
         for label, lst in (("n5_compounds", k.get("n5_compounds") or []),
@@ -4905,19 +4898,19 @@ def _check_ja_100_kanji_vocab_form_consistency() -> list[str]:
                 if not isinstance(item, dict):
                     continue
                 vid = item.get("vocab_id")
+                if not vid:
+                    continue  # entries without vocab_id are unlinked, can't cross-check
                 form_here = item.get("form") or item.get("lemma") or ""
-                # Hard check: vocab_id must resolve when present
-                if vid and vid not in vocab_form_by_id:
+                expected = vocab_form_by_id.get(vid)
+                if expected is None:
                     failures.append(
                         f"JA-100 kanji={glyph} {label}[{i}]: vocab_id {vid!r} not in vocab.json"
                     )
-                # OOS-kanji check on the displayed form (catches BUG-020 class)
-                for ch in kanji_re.findall(form_here):
-                    if ch not in wl:
-                        failures.append(
-                            f"JA-100 kanji={glyph} {label}[{i}]: form {form_here!r} contains "
-                            f"OOS kanji {ch!r} (not in N5 whitelist) — BUG-020 class"
-                        )
+                elif form_here != expected:
+                    failures.append(
+                        f"JA-100 kanji={glyph} {label}[{i}]: form {form_here!r} != "
+                        f"linked vocab.form {expected!r} (vocab_id={vid})"
+                    )
     return failures
 
 

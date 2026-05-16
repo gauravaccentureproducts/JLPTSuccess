@@ -1121,6 +1121,77 @@ these to hard CI gates is queued.
 
 ---
 
+## ADDENDUM 2026-05-17 (Part 9) — BUG-023 close-out (inverse of BUG-020)
+
+A re-audit of kanji.json ↔ vocab.json cross-file integrity one day
+after BUG-020/021/022 closed surfaced 5 mismatches in the OPPOSITE
+direction. BUG-020's fix script + the narrow JA-100 invariant
+addressed kanji.json kanji forms with OOS-kanji content. BUG-023
+catches the symmetric case: kanji.json kanji forms with IN-SCOPE
+kanji content, but vocab.json still has kana-only forms for the
+same vocab_id.
+
+### Bug addressed
+
+**BUG-023 (Medium/P2)** — 5 cross-file form mismatches where the
+kanji ARE in N5 whitelist:
+
+| Kanji entry | kanji.json form | vocab.json form (was) | vocab.json form (now) |
+|---|---|---|---|
+| 友 compound[0] | 友だち | ともだち | **友だち** |
+| 手 compound[0] | 手 | て | **手** |
+| 手 compound[?] | 上手 | じょうず | **上手** |
+| 足 compound[0] | 足 | あし | **足** |
+| 目 compound[0] | 目 | め | **目** |
+
+(Plus 上's compound for 上手 was also updated to match — caught
+by the strict JA-100 during validation.)
+
+Resolution: vocab.json form upgraded from kana to kanji (the inverse
+of BUG-020's "remove kanji from kanji.json" approach). All 5 kanji
+are in scope; the kana-only forms were just an inconsistency from
+earlier authoring. IDs kept stable for cross-corpus reference
+preservation.
+
+**CI invariant JA-100 TIGHTENED** from narrow-OOS-only to strict
+form-equality. The original narrow scope was the wrong call — it
+accepted "intentional form-shape divergence" but missed real bug
+class. Strict equality is the correct default; OOS-kanji compounds
+are removed (BUG-020 pattern), in-scope kana-only vocab forms are
+upgraded (BUG-023 pattern). Either way, the two corpora match.
+
+### Lesson — default to strict CI gates
+
+The BUG-020 → BUG-023 round-trip cost an extra audit cycle because
+the initial JA-100 was too loose. Procedure manual F.22.1 now
+explicitly warns: **start with strict gates; loosen only when a
+real false-positive surfaces with documentation.** Narrow-scope-
+by-default is a footgun — the false negatives don't ring CI bells
+but they ARE bugs.
+
+### Coverage at this checkpoint
+
+CI invariants: 100 (unchanged this batch; JA-100 was tightened, not
+added). The previously-reserved JA-91..95 remain unwired per prior
+addenda.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.22.1 extended with the
+  TIGHTENING subsection covering the BUG-023 follow-up lesson.
+- ✓ N5Improvement prompt: 1 new Section-10 anti-item on
+  "default to strict-equality CI gates, not narrow-scope ones".
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `feedback/n5-audit-2026-05-04.xlsx`: BUG-023 Status=Fixed.
+  Summary: Total=23, Fixed=23, New=0.
+
+### Final state — all 23 user-reported bugs closed
+
+vocab.json: 995 entries (form-field changes on 5 entries; count
+unchanged). kanji.json: 106 entries (1 compound form aligned on 上).
+
+---
+
 ## ADDENDUM 2026-05-17 (Part 8) — BUG-020..022 close-out (kanji corpus data quality)
 
 A native-teacher audit of `kanji.json` on 2026-05-17 surfaced 3

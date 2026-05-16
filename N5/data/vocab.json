@@ -2632,7 +2632,7 @@
     },
     {
       "id": "n5.vocab.2-people-family.ともだち",
-      "form": "ともだち",
+      "form": "友だち",
       "reading": "ともだち",
       "gloss": "friend",
       "section": "2. People - Family",
@@ -2720,7 +2720,9 @@
         "auth.signs.tomodachi"
       ],
       "authentic_refs_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "form_was_kana_pre_bug_023": "ともだち",
+      "bug_023_fix_2026_05_17": true
     },
     {
       "id": "n5.vocab.3-people-roles.学生",
@@ -3798,7 +3800,7 @@
     },
     {
       "id": "n5.vocab.4-body-parts.め",
-      "form": "め",
+      "form": "目",
       "reading": "め",
       "gloss": "eye",
       "section": "4. Body Parts",
@@ -3873,7 +3875,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "form_was_kana_pre_bug_023": "め",
+      "bug_023_fix_2026_05_17": true
     },
     {
       "id": "n5.vocab.4-body-parts.みみ",
@@ -4161,7 +4165,7 @@
     },
     {
       "id": "n5.vocab.4-body-parts.て",
-      "form": "て",
+      "form": "手",
       "reading": "て",
       "gloss": "hand",
       "section": "4. Body Parts",
@@ -4227,11 +4231,13 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "form_was_kana_pre_bug_023": "て",
+      "bug_023_fix_2026_05_17": true
     },
     {
       "id": "n5.vocab.4-body-parts.あし",
-      "form": "あし",
+      "form": "足",
       "reading": "あし",
       "gloss": "leg, foot",
       "section": "4. Body Parts",
@@ -4304,7 +4310,9 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "form_was_kana_pre_bug_023": "あし",
+      "bug_023_fix_2026_05_17": true
     },
     {
       "id": "n5.vocab.4-body-parts.おなか",
@@ -56323,7 +56331,7 @@
     },
     {
       "id": "n5.vocab.32-adjectives.じょうず",
-      "form": "じょうず",
+      "form": "上手",
       "reading": "じょうず",
       "gloss": "skilled",
       "section": "32. な-Adjectives",
@@ -56385,7 +56393,9 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "form_was_kana_pre_bug_023": "じょうず",
+      "bug_023_fix_2026_05_17": true
     },
     {
       "id": "n5.vocab.32-adjectives.へた",
