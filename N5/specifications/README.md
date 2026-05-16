@@ -4,7 +4,7 @@ This folder holds the functional and implementation specifications for the JLPT 
 
 ## Read this first
 
-**`JLPT-N5-Current-Implementation-Spec.md`** - the **authoritative living spec**. Describes what the app actually is today (v1.12.32, round-4 close-out, 2026-05-05). If you need ground truth for any decision or hand-off, start here.
+**`JLPT-N5-Current-Implementation-Spec.md`** - the **authoritative living spec**. Describes what the app actually is today (v1.12.32, round-4 close-out, 2026-05-05; CI invariants reference section added 2026-05-17 covering all 91 wired JA-NN rules). If you need ground truth for any decision or hand-off, start here.
 
 **Strategic positioning (post-2026-05-06 narrowing):** primary niche is N1 (Hindi-medium JLPT prep - India is the 5th-largest JLPT country with ~50K applicants/year and no dedicated Hindi-native prep app); secondary niche is N2 (privacy / no-account / offline). The 5-locale shell (en/vi/id/ne/zh) was narrowed to en+hi on 2026-05-06 per the IMP-096 architectural decision; vi/id/ne/zh markets are saturated by established native-language competitors. The audit prompt at `../prompts/N5Improvement.txt` carries the canonical niche framing. Do NOT chase Bunpou grammar-review depth or WaniKani kanji-mnemonic depth - these are documented anti-niches per `Q13` in `../feedback/n5-audit-2026-05-04.xlsx`.
 
@@ -41,4 +41,5 @@ The current-implementation spec captures the post-migration state in full.
 - App behavior changed → update `JLPT-N5-Current-Implementation-Spec.md` and bump its "Last updated" header.
 - Audit found a drift between spec and reality → fix the spec to match reality (the spec follows the implementation, not the other way around).
 - Strategic direction changed (niche pivot, positioning) → update both `JLPT-N5-Current-Implementation-Spec.md` (§22 Out of scope, §23 Roadmap) AND `prompts/N5Improvement.txt` (the strategic-framing intro).
+- **New CI invariant added** to `tools/check_content_integrity.py` → mirror it in `JLPT-N5-Current-Implementation-Spec.md` §25 (CI invariants reference) in the same commit. The script is the source of truth; §25 is its human-readable index — keep them in sync.
 - Historical files should never be edited.
