@@ -1,51 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ISSUE-038 (audit round-5) + IMP-142 refresh (richness audit, 2026-05-09):
-  static sitemap covering the N5 sub-app routes. Hash-routed routes
-  (#/...) are NOT separately listed because search engines treat the
-  fragment as ephemeral; the canonical URL is the index.html itself.
-  Anchored routes are mentioned in the description meta + JSON-LD
-  schema in index.html for crawlers that parse hash routes (Googlebot
-  does, since 2018).
-
-  Locale alternates kept in sync with JA-39 invariant: locale set is
-  exactly {en, hi}. Previous draft listed vi/id/ne/zh which the
-  locale-narrowing pass (2026-05-06) made stale.
-
-  Update lastmod when index.html or the data corpora change
-  materially.
--->
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <url>
-    <loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <!-- Locale alternates aligned with JA-39 (en + hi only). The
-         runtime auto-detects via navigator.language; these alternates
-         tell search engines which version to surface to which user. -->
-    <xhtml:link rel="alternate" hreflang="en"
-                href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
-    <xhtml:link rel="alternate" hreflang="hi"
-                href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/?lc=hi"/>
-    <xhtml:link rel="alternate" hreflang="x-default"
-                href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"/>
-  </url>
-
-  <url>
-    <loc>https://gauravaccentureproducts.github.io/JLPTSuccess/</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/PRIVACY.md</loc>
-    <lastmod>2026-05-13</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-001/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-002/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-003/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-004/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-005/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-006/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-007/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-008/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-009/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-010/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-011/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-013/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-014/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-015/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-016/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-017/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-018/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-019/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-021/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-023/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-024/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-025/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-026/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-027/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-028/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-029/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-030/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-031/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-033/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-034/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-035/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-036/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-037/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-038/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-039/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-040/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-041/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-042/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-043/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-044/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-045/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-046/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-048/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-049/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-050/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-051/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-052/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-053/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-054/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-055/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-056/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-057/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-058/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-059/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-060/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-061/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-062/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-063/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-064/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-065/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-066/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-067/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-068/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-069/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-070/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-071/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-072/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-073/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-074/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-075/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-076/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-077/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-078/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-079/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-080/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-081/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-082/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-083/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-084/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-085/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-086/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-087/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-088/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-089/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-090/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-091/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-092/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-093/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-094/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-095/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-096/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-097/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-098/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-099/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-100/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-101/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-102/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-103/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-104/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-105/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-106/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-107/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-108/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-109/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-110/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-111/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-112/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-113/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-114/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-115/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-116/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-117/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-118/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-119/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-120/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-121/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-122/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-123/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-124/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-125/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-126/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-127/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-129/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-130/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-131/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-132/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-133/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-134/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-135/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-136/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-137/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-142/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-143/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-144/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-145/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-146/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-147/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-148/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-149/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-150/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-151/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-152/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-153/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-154/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-155/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-156/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-157/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-158/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-159/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-160/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-161/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-162/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-163/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-164/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-165/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-166/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-167/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-168/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-169/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-170/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-171/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-172/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-173/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-174/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-175/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-176/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-177/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-178/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-179/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-180/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-181/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-182/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-183/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-184/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-185/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-186/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-187/</loc></url>
+  <url><loc>https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/grammar/n5-188/</loc></url>
 </urlset>
