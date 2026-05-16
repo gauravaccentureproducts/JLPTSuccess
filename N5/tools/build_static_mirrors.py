@@ -52,6 +52,8 @@ DATA_DIR = ROOT / "data"
 GRAMMAR = DATA_DIR / "grammar.json"
 VOCAB = DATA_DIR / "vocab.json"
 KANJI = DATA_DIR / "kanji.json"
+READING = DATA_DIR / "reading.json"
+LISTENING = DATA_DIR / "listening.json"
 
 # Live deploy base — used in canonical + og:url. Trailing slash matters.
 SITE_BASE = "https://gauravaccentureproducts.github.io/JLPTSuccess/"
@@ -941,6 +943,429 @@ def build_kanji(sitemap_urls: list[str]) -> tuple[int, int, int]:
     return written, unchanged, len(entries)
 
 
+# ----- Reading renderer (Stage 4) -----
+
+
+def _render_reading_questions(questions: list) -> str:
+    if not questions:
+        return ""
+    out = ["<h2>Comprehension questions</h2>"]
+    for i, q in enumerate(questions, 1):
+        if not isinstance(q, dict):
+            continue
+        prompt_ja = q.get("prompt_ja") or q.get("prompt") or ""
+        choices = q.get("choices") or []
+        correct = q.get("correctAnswer") or ""
+        expl_en = q.get("explanation_en") or ""
+        expl_hi = q.get("explanation_hi") or ""
+        out.append(f'<div class="ex">')
+        out.append(f'<p><strong>Q{i}.</strong> <span lang="ja">{_esc(prompt_ja)}</span></p>')
+        if choices:
+            out.append("<ol>")
+            for c in choices:
+                marker = " ✓" if c == correct else ""
+                cls = ' class="right"' if c == correct else ""
+                out.append(f'<li{cls} lang="ja">{_esc(c)}{marker}</li>')
+            out.append("</ol>")
+        if expl_en:
+            out.append(f'<p class="en"><span class="lang-tag">EN</span>{_esc(expl_en)}</p>')
+        if expl_hi:
+            out.append(f'<p lang="hi"><span class="lang-tag">HI</span>{_esc(expl_hi)}</p>')
+        out.append("</div>")
+    return "\n".join(out)
+
+
+def build_reading(sitemap_urls: list[str]) -> tuple[int, int, int]:
+    """Stage 4 — reading-passage mirrors at /reading/<id>/index.html.
+
+    Returns (written, unchanged, total).
+    """
+    r = json.loads(READING.read_text(encoding="utf-8"))
+    passages = r.get("passages", [])
+
+    out_root = ROOT / "reading"
+    written = 0
+    unchanged = 0
+
+    for p in passages:
+        pid = p.get("id")
+        if not pid:
+            continue
+        title_ja = p.get("title_ja") or pid
+        topic = p.get("topic") or ""
+        level = p.get("level") or ""
+        mondai = p.get("mondai")
+        ja_text = p.get("ja") or ""
+        summary = p.get("summary") or ""
+        summary_hi = p.get("summary_hi") or ""
+        translation_natural = p.get("translation_natural") or ""
+        translation_literal = p.get("translation_literal") or ""
+        cultural_context = p.get("cultural_context") or ""
+
+        body_parts: list[str] = []
+        # Meta
+        meta_bits: list[str] = []
+        if topic:
+            meta_bits.append(f"Topic: {_esc(topic)}")
+        if level:
+            meta_bits.append(f"Level: {_esc(level)}")
+        if mondai is not None:
+            meta_bits.append(f"Mondai: {_esc(mondai)}")
+        if meta_bits:
+            body_parts.append('<p class="muted">' + " · ".join(meta_bits) + "</p>")
+
+        if summary:
+            body_parts.append(f'<p><span class="lang-tag">EN</span>{_esc(summary)}</p>')
+        if summary_hi:
+            body_parts.append(f'<p lang="hi"><span class="lang-tag">HI</span>{_esc(summary_hi)}</p>')
+
+        # Passage text
+        body_parts.append("<h2>Passage</h2>")
+        body_parts.append(f'<div class="ex" lang="ja" style="font-size:1.08em; line-height:1.85;">{_esc(ja_text)}</div>')
+
+        # Translations
+        if translation_natural:
+            body_parts.append("<h2>Translation (natural)</h2>")
+            body_parts.append(f'<p>{_esc(translation_natural)}</p>')
+        if translation_literal and translation_literal != translation_natural:
+            body_parts.append("<h3>Translation (literal)</h3>")
+            body_parts.append(f'<p class="muted">{_esc(translation_literal)}</p>')
+
+        # Cultural context
+        if cultural_context:
+            body_parts.append("<h2>Cultural context</h2>")
+            body_parts.append(f'<p>{_esc(cultural_context)}</p>')
+
+        # Questions
+        body_parts.append(_render_reading_questions(p.get("questions") or []))
+
+        # Vocab used (cross-links)
+        vocab_used = p.get("vocab_used") or []
+        if vocab_used:
+            body_parts.append("<h2>Vocab used</h2><p>")
+            links = []
+            for vid in vocab_used[:30]:
+                if not isinstance(vid, str):
+                    continue
+                # vid shape: "n5.vocab.<section>.<form>" — extract form (last segment)
+                form = vid.rsplit(".", 1)[-1] if "." in vid else vid
+                form_encoded = _encode_url_segment(form)
+                links.append(
+                    f'<a href="../../learn/vocab/{form_encoded}/" lang="ja">{_esc(form)}</a>'
+                )
+            body_parts.append(" · ".join(links))
+            body_parts.append("</p>")
+
+        # Kanji used (cross-links)
+        kanji_used = p.get("kanji_used") or []
+        if kanji_used:
+            body_parts.append("<h2>Kanji used</h2><p>")
+            links = []
+            for g in kanji_used[:30]:
+                if not isinstance(g, str):
+                    continue
+                g_encoded = _encode_url_segment(g)
+                links.append(
+                    f'<a href="../../kanji/{g_encoded}/" lang="ja" style="font-size:1.2em; margin-right:0.4em;">{_esc(g)}</a>'
+                )
+            body_parts.append(" ".join(links))
+            body_parts.append("</p>")
+
+        body = "\n".join(x for x in body_parts if x)
+
+        canonical = f"{N5_BASE}#/reading/{_encode_url_segment(pid)}"
+        mirror_url = f"{N5_BASE}reading/{_encode_url_segment(pid)}/"
+
+        desc = (summary or topic or title_ja)[:155]
+
+        breadcrumb = [("Home", "../../#/home"), ("Reading", "../index.html"), (title_ja, "")]
+        footer_meta = f'<p>Passage ID: <code>{_esc(pid)}</code></p>'
+
+        html_text = _build_page(
+            lang="en",
+            title_tag=f"{title_ja} — JLPT N5 Reading ({topic or 'Passage'})",
+            h1=title_ja,
+            description=desc,
+            canonical_url=canonical,
+            spa_url=canonical,
+            body_html=body,
+            depth=2,
+            og_title=f"{title_ja} — JLPT N5 Reading",
+            breadcrumb=breadcrumb,
+            footer_meta_html=footer_meta,
+        )
+
+        out_path = out_root / pid / "index.html"
+        if _write_if_changed(out_path, html_text):
+            written += 1
+        else:
+            unchanged += 1
+        sitemap_urls.append(mirror_url)
+
+    # Reading index — group by mondai
+    by_mondai: dict[int | str, list[dict]] = {}
+    mondai_order: list[int | str] = []
+    for p in passages:
+        m = p.get("mondai") if p.get("mondai") is not None else "Other"
+        if m not in by_mondai:
+            by_mondai[m] = []
+            mondai_order.append(m)
+        by_mondai[m].append(p)
+    mondai_order_sorted = sorted(mondai_order, key=lambda x: (isinstance(x, str), x))
+
+    idx_parts: list[str] = []
+    idx_parts.append(
+        f'<p>Static index of all {len(passages)} JLPT N5 reading (dokkai) passages, grouped by mondai. Each links to a read-only mirror; the interactive version (audio playback, timed mode) is at the SPA route.</p>'
+    )
+    for m in mondai_order_sorted:
+        idx_parts.append('<section class="index-section">')
+        idx_parts.append(f'<h3>Mondai {_esc(m)}</h3>')
+        for p in by_mondai[m]:
+            pid = p.get("id")
+            title = p.get("title_ja") or pid
+            topic = p.get("topic") or ""
+            idx_parts.append(
+                f'<a class="index-card" href="{_esc(pid)}/">'
+                f'<span class="label" lang="ja">{_esc(title)}</span> — '
+                f'<span class="gloss">{_esc(topic)}</span>'
+                f'</a>'
+            )
+        idx_parts.append("</section>")
+    idx_body = "\n".join(idx_parts)
+
+    idx_canonical = f"{N5_BASE}#/reading"
+    idx_path = out_root / "index.html"
+    idx_html = _build_page(
+        lang="en",
+        title_tag="N5 Reading — All Passages (static index)",
+        h1="N5 Reading — All Passages",
+        description=f"All {len(passages)} JLPT N5 reading passages (dokkai), grouped by mondai.",
+        canonical_url=idx_canonical,
+        spa_url=idx_canonical,
+        body_html=idx_body,
+        depth=1,
+        og_title="N5 Reading — All Passages",
+        breadcrumb=[("Home", "../#/home"), ("Reading", "")],
+        footer_meta_html=f"<p>{len(passages)} passages indexed.</p>",
+    )
+    if _write_if_changed(idx_path, idx_html):
+        written += 1
+    else:
+        unchanged += 1
+    sitemap_urls.append(f"{N5_BASE}reading/")
+
+    return written, unchanged, len(passages)
+
+
+# ----- Listening renderer (Stage 5) -----
+
+
+def _render_listening_questions(questions: list) -> str:
+    """Listening items may have a `question` (single) or `questions` (list)."""
+    if not questions:
+        return ""
+    out = ["<h2>Question</h2>"]
+    for q in questions if isinstance(questions, list) else [questions]:
+        if not isinstance(q, dict):
+            continue
+        prompt = q.get("prompt_ja") or q.get("prompt") or q.get("question") or ""
+        choices = q.get("choices") or []
+        correct = q.get("correctAnswer") or q.get("correct") or ""
+        expl_en = q.get("explanation_en") or q.get("explanation") or ""
+        expl_hi = q.get("explanation_hi") or ""
+        if prompt:
+            out.append(f'<p><span lang="ja">{_esc(prompt)}</span></p>')
+        if choices:
+            out.append("<ol>")
+            for c in choices:
+                marker = " ✓" if c == correct else ""
+                cls = ' class="right"' if c == correct else ""
+                out.append(f'<li{cls} lang="ja">{_esc(c)}{marker}</li>')
+            out.append("</ol>")
+        if expl_en:
+            out.append(f'<p class="en"><span class="lang-tag">EN</span>{_esc(expl_en)}</p>')
+        if expl_hi:
+            out.append(f'<p lang="hi"><span class="lang-tag">HI</span>{_esc(expl_hi)}</p>')
+    return "\n".join(out)
+
+
+def build_listening(sitemap_urls: list[str]) -> tuple[int, int, int]:
+    """Stage 5 — listening drill mirrors at /listening/<id>/index.html."""
+    L = json.loads(LISTENING.read_text(encoding="utf-8"))
+    items = L.get("items", []) or L.get("drills", []) or L.get("entries", [])
+
+    out_root = ROOT / "listening"
+    written = 0
+    unchanged = 0
+
+    for it in items:
+        iid = it.get("id")
+        if not iid:
+            continue
+        title_ja = it.get("title_ja") or it.get("title") or iid
+        topic = it.get("topic") or it.get("format") or it.get("format_type") or ""
+        mondai = it.get("mondai")
+        level = it.get("level") or ""
+        # listening.json uses `script_ja` for the transcript; reading.json uses `ja`.
+        transcript = (
+            it.get("script_ja")
+            or it.get("transcript")
+            or it.get("script")
+            or it.get("ja")
+            or ""
+        )
+        summary = it.get("summary") or it.get("description") or it.get("cultural_context") or ""
+        summary_hi = it.get("summary_hi") or ""
+
+        body_parts: list[str] = []
+        meta_bits: list[str] = []
+        fmt_bits = []
+        for f in (it.get("format"), it.get("format_type")):
+            if f and f not in fmt_bits:
+                fmt_bits.append(f)
+        if fmt_bits:
+            meta_bits.append(f"Format: {_esc(' · '.join(fmt_bits))}")
+        if topic and topic not in (it.get("format"), it.get("format_type")):
+            meta_bits.append(f"Topic: {_esc(topic)}")
+        if level:
+            meta_bits.append(f"Level: {_esc(level)}")
+        if mondai is not None:
+            meta_bits.append(f"Mondai: {_esc(mondai)}")
+        if meta_bits:
+            body_parts.append('<p class="muted">' + " · ".join(meta_bits) + "</p>")
+
+        if summary:
+            body_parts.append(f'<p><span class="lang-tag">EN</span>{_esc(summary)}</p>')
+        if summary_hi:
+            body_parts.append(f'<p lang="hi"><span class="lang-tag">HI</span>{_esc(summary_hi)}</p>')
+
+        # Audio: link only — static mirror won't auto-play.
+        audio = it.get("audio") or ""
+        if audio:
+            body_parts.append(
+                f'<p class="muted">Audio: <a href="../../{_esc(audio)}">{_esc(audio)}</a> (open in the SPA for embedded player + replay UI).</p>'
+            )
+
+        if transcript:
+            body_parts.append("<h2>Transcript</h2>")
+            body_parts.append(f'<div class="ex" lang="ja" style="font-size:1.05em; line-height:1.85;">{_esc(transcript)}</div>')
+
+        # Question: listening.json uses INLINE prompt_ja/choices/correctAnswer
+        # (single question per drill). reading.json uses a `questions` list.
+        # Handle both shapes.
+        qs = it.get("questions")
+        if not qs:
+            inline_q = {
+                k: v for k, v in {
+                    "prompt_ja": it.get("prompt_ja"),
+                    "choices": it.get("choices"),
+                    "correctAnswer": it.get("correctAnswer"),
+                    "explanation_en": it.get("explanation_en"),
+                    "explanation_hi": it.get("explanation_hi"),
+                }.items() if v
+            }
+            qs = [inline_q] if inline_q else []
+        body_parts.append(_render_listening_questions(qs))
+
+        # Cross-links
+        vocab_used = it.get("vocab_used") or []
+        if vocab_used:
+            body_parts.append("<h2>Vocab used</h2><p>")
+            links = []
+            for vid in vocab_used[:20]:
+                if not isinstance(vid, str):
+                    continue
+                form = vid.rsplit(".", 1)[-1] if "." in vid else vid
+                links.append(
+                    f'<a href="../../learn/vocab/{_encode_url_segment(form)}/" lang="ja">{_esc(form)}</a>'
+                )
+            body_parts.append(" · ".join(links))
+            body_parts.append("</p>")
+
+        body = "\n".join(x for x in body_parts if x)
+
+        canonical = f"{N5_BASE}#/listening/{_encode_url_segment(iid)}"
+        mirror_url = f"{N5_BASE}listening/{_encode_url_segment(iid)}/"
+        desc = (summary or topic or title_ja)[:155]
+        breadcrumb = [("Home", "../../#/home"), ("Listening", "../index.html"), (title_ja, "")]
+        footer_meta = f'<p>Item ID: <code>{_esc(iid)}</code></p>'
+
+        html_text = _build_page(
+            lang="en",
+            title_tag=f"{title_ja} — JLPT N5 Listening",
+            h1=title_ja,
+            description=desc,
+            canonical_url=canonical,
+            spa_url=canonical,
+            body_html=body,
+            depth=2,
+            og_title=f"{title_ja} — JLPT N5 Listening",
+            breadcrumb=breadcrumb,
+            footer_meta_html=footer_meta,
+        )
+
+        out_path = out_root / iid / "index.html"
+        if _write_if_changed(out_path, html_text):
+            written += 1
+        else:
+            unchanged += 1
+        sitemap_urls.append(mirror_url)
+
+    # Listening index — group by mondai
+    by_mondai: dict[int | str, list[dict]] = {}
+    mondai_order: list[int | str] = []
+    for it in items:
+        m = it.get("mondai") if it.get("mondai") is not None else "Other"
+        if m not in by_mondai:
+            by_mondai[m] = []
+            mondai_order.append(m)
+        by_mondai[m].append(it)
+    mondai_order_sorted = sorted(mondai_order, key=lambda x: (isinstance(x, str), x))
+
+    idx_parts: list[str] = []
+    idx_parts.append(
+        f'<p>Static index of all {len(items)} JLPT N5 listening drills, grouped by mondai. Audio playback requires the SPA route.</p>'
+    )
+    for m in mondai_order_sorted:
+        idx_parts.append('<section class="index-section">')
+        idx_parts.append(f'<h3>Mondai {_esc(m)}</h3>')
+        for it in by_mondai[m]:
+            iid = it.get("id")
+            title = it.get("title_ja") or it.get("title") or iid
+            topic = it.get("topic") or ""
+            idx_parts.append(
+                f'<a class="index-card" href="{_esc(iid)}/">'
+                f'<span class="label" lang="ja">{_esc(title)}</span> — '
+                f'<span class="gloss">{_esc(topic)}</span>'
+                f'</a>'
+            )
+        idx_parts.append("</section>")
+    idx_body = "\n".join(idx_parts)
+
+    idx_canonical = f"{N5_BASE}#/listening"
+    idx_path = out_root / "index.html"
+    idx_html = _build_page(
+        lang="en",
+        title_tag="N5 Listening — All Drills (static index)",
+        h1="N5 Listening — All Drills",
+        description=f"All {len(items)} JLPT N5 listening drills, grouped by mondai.",
+        canonical_url=idx_canonical,
+        spa_url=idx_canonical,
+        body_html=idx_body,
+        depth=1,
+        og_title="N5 Listening — All Drills",
+        breadcrumb=[("Home", "../#/home"), ("Listening", "")],
+        footer_meta_html=f"<p>{len(items)} drills indexed.</p>",
+    )
+    if _write_if_changed(idx_path, idx_html):
+        written += 1
+    else:
+        unchanged += 1
+    sitemap_urls.append(f"{N5_BASE}listening/")
+
+    return written, unchanged, len(items)
+
+
 # ----- Sitemap + robots.txt -----
 
 
@@ -1008,8 +1433,18 @@ def main() -> int:
         summary.append(("kanji", w, u, t))
         print(f"Stage 3 (kanji): wrote {w}, unchanged {u}, total {t} kanji (+1 index).")
 
-    # Stages 4-6 land in subsequent commits per BUG-010 staged rollout.
-    for stage in ("reading", "listening", "meta"):
+    if "reading" in stages:
+        w, u, t = build_reading(sitemap_urls)
+        summary.append(("reading", w, u, t))
+        print(f"Stage 4 (reading): wrote {w}, unchanged {u}, total {t} passages (+1 index).")
+
+    if "listening" in stages:
+        w, u, t = build_listening(sitemap_urls)
+        summary.append(("listening", w, u, t))
+        print(f"Stage 5 (listening): wrote {w}, unchanged {u}, total {t} drills (+1 index).")
+
+    # Stage 6 (meta) lands in the next commit.
+    for stage in ("meta",):
         if stage in stages:
             print(f"Stage {stage}: not yet implemented (planned per BUG-010 staged rollout).")
 
