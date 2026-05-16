@@ -24,7 +24,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 VOCAB = "data/vocab.json"
 GRAMMAR = "data/grammar.json"
-KANJIUM_CACHE = "not-required/tools-archive/_cache_kanjium_accents.txt"
+KANJIUM_CACHE = "external-data/_cache_kanjium_accents.txt"
 
 VOCAB_BAK = "data/vocab.json.bak_2026_05_13_v1_pitch_fix"
 GRAMMAR_BAK = "data/grammar.json.bak_2026_05_13_g1_meaning_ja_fix"

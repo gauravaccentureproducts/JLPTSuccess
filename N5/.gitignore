@@ -36,7 +36,13 @@ test-results/
 # requires a lock file, and the playwright-p0-smoke workflow could not run.
 audit_out.json
 
-# Tools-archive caches (regenerable from upstream URLs; not committed)
+# External-data caches (regenerable from upstream URLs; not committed).
+# Path moved out of not-required/ on 2026-05-16 — per hygiene policy,
+# anything active code reads must live outside not-required/.
+external-data/_cache_*.txt
+external-data/_cache_*.json
+# Legacy paths retained for one release cycle in case stale local
+# checkouts still write to the old location.
 not-required/tools-archive/_cache_*.txt
 not-required/tools-archive/_cache_*.json
 

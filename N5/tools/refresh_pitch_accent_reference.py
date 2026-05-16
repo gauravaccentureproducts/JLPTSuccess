@@ -32,7 +32,7 @@ KANJIUM_URL = (
     f"https://raw.githubusercontent.com/mifunetoshiro/kanjium/"
     f"{KANJIUM_COMMIT_SHA}/data/source_files/raw/accents.txt"
 )
-CACHE = Path("not-required/external-data/kanjium_accents_raw.txt")
+CACHE = Path("external-data/kanjium_accents_raw.txt")
 VOCAB = Path("data/vocab.json")
 OUT = Path("data/n5_pitch_accent_reference.json")
 
