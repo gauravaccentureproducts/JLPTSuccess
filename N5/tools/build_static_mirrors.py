@@ -40,7 +40,9 @@ import argparse
 import html
 import io
 import json
+import re
 import sys
+import urllib.parse
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
@@ -48,6 +50,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 GRAMMAR = DATA_DIR / "grammar.json"
+VOCAB = DATA_DIR / "vocab.json"
 
 # Live deploy base — used in canonical + og:url. Trailing slash matters.
 SITE_BASE = "https://gauravaccentureproducts.github.io/JLPTSuccess/"
@@ -456,6 +459,258 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
     return written, unchanged, len(patterns)
 
 
+# ----- Vocab renderer (Stage 2) -----
+
+
+def _encode_url_segment(s: str) -> str:
+    """Percent-encode a single URL path segment (e.g. a vocab form)."""
+    return urllib.parse.quote(s or "", safe="")
+
+
+def _render_vocab_examples(examples: list) -> str:
+    if not examples:
+        return ""
+    out = ["<h2>Examples</h2>"]
+    for ex in examples:
+        if not isinstance(ex, dict):
+            continue
+        ja = ex.get("ja") or ""
+        en = ex.get("translation_en") or ex.get("en") or ""
+        if not ja:
+            continue
+        out.append('<div class="ex">')
+        out.append(f'<div class="ja" lang="ja"><span class="lang-tag">JA</span>{_esc(ja)}</div>')
+        if en:
+            out.append(f'<div class="en"><span class="lang-tag">EN</span>{_esc(en)}</div>')
+        out.append("</div>")
+    return "\n".join(out)
+
+
+def _render_vocab_entry_block(e: dict) -> str:
+    """Render one vocab entry (one sense). Multiple senses share a form page."""
+    form = e.get("form") or ""
+    reading = e.get("reading") or ""
+    gloss = e.get("gloss") or ""
+    gloss_hi = e.get("gloss_hi") or ""
+    pos = e.get("pos") or ""
+    section = e.get("section") or ""
+    register = e.get("register") or ""
+    counter = e.get("counter") or ""
+
+    parts: list[str] = ['<article class="vocab-sense">']
+    # Sense heading: pos · reading
+    head_bits = []
+    if pos:
+        head_bits.append(f'<code>{_esc(pos)}</code>')
+    if reading and reading != form:
+        head_bits.append(f'<span class="lang-tag">読</span><span lang="ja">{_esc(reading)}</span>')
+    if head_bits:
+        parts.append(f'<p class="muted">{" · ".join(head_bits)}</p>')
+
+    if gloss:
+        parts.append(f'<p><span class="lang-tag">EN</span>{_esc(gloss)}</p>')
+    if gloss_hi:
+        parts.append(f'<p><span class="lang-tag">HI</span><span lang="hi">{_esc(gloss_hi)}</span></p>')
+
+    meta_bits = []
+    if section:
+        meta_bits.append(f"Section: {_esc(section)}")
+    if register and register != "neutral":
+        meta_bits.append(f"Register: {_esc(register)}")
+    if counter:
+        meta_bits.append(f"Counter: <code lang=\"ja\">{_esc(counter)}</code>")
+    pa = e.get("pitch_accent") or {}
+    if isinstance(pa, dict) and pa.get("mora") is not None and pa.get("drop") is not None:
+        meta_bits.append(
+            f"Pitch: mora={_esc(pa.get('mora'))}, drop={_esc(pa.get('drop'))}"
+        )
+    if meta_bits:
+        parts.append('<p class="muted">' + " · ".join(meta_bits) + "</p>")
+
+    cols = e.get("collocations") or []
+    if cols:
+        parts.append("<h3>Common collocations</h3><ul>")
+        for c in cols[:10]:
+            if isinstance(c, str) and c:
+                parts.append(f'<li lang="ja">{_esc(c)}</li>')
+        parts.append("</ul>")
+
+    parts.append(_render_vocab_examples(e.get("examples") or []))
+
+    fp = e.get("frequent_patterns") or []
+    if isinstance(fp, list) and fp:
+        links = []
+        for pid in fp[:8]:
+            if isinstance(pid, str) and pid:
+                links.append(
+                    f'<a href="../../grammar/{_esc(pid)}/"><code>{_esc(pid)}</code></a>'
+                )
+        if links:
+            parts.append("<h3>Often appears with</h3><p>" + " · ".join(links) + "</p>")
+
+    parts.append("</article>")
+    return "\n".join(parts)
+
+
+def build_vocab(sitemap_urls: list[str]) -> tuple[int, int, int]:
+    """Stage 2 — vocab mirrors. One static page per unique form.
+
+    36 forms in the corpus have multiple sense entries (e.g., か, は, あの,
+    人). All senses for a given form land on the same static page so a
+    learner / reader sees every meaning.
+
+    Returns (written, unchanged, total_forms).
+    """
+    v = json.loads(VOCAB.read_text(encoding="utf-8"))
+    entries = v.get("entries", [])
+
+    # Group entries by form (preserves first-seen order for stable index)
+    by_form: dict[str, list[dict]] = {}
+    form_order: list[str] = []
+    for e in entries:
+        form = e.get("form")
+        if not form:
+            continue
+        if form not in by_form:
+            by_form[form] = []
+            form_order.append(form)
+        by_form[form].append(e)
+
+    out_root = ROOT / "learn" / "vocab"
+    written = 0
+    unchanged = 0
+
+    for form in form_order:
+        senses = by_form[form]
+        # Use the first sense's reading + gloss as page summary
+        primary = senses[0]
+        reading = primary.get("reading") or form
+        gloss = primary.get("gloss") or ""
+        # If multiple senses, append a count hint to title
+        sense_hint = f" ({len(senses)} senses)" if len(senses) > 1 else ""
+
+        # Page body: render each sense in sequence
+        body_parts: list[str] = []
+        body_parts.append(
+            f'<p class="muted">Reading: <span lang="ja">{_esc(reading)}</span></p>'
+        )
+        if len(senses) > 1:
+            body_parts.append(
+                f'<p class="muted">This form has {len(senses)} sense entries in the corpus. All shown below.</p>'
+            )
+        for idx, e in enumerate(senses):
+            if len(senses) > 1:
+                body_parts.append(f'<h2>Sense {idx + 1}</h2>')
+            body_parts.append(_render_vocab_entry_block(e))
+        body = "\n".join(body_parts)
+
+        form_encoded = _encode_url_segment(form)
+        canonical = f"{N5_BASE}#/learn/vocab/{form_encoded}"
+        mirror_url = f"{N5_BASE}learn/vocab/{form_encoded}/"
+
+        desc = (gloss or form)[:155]
+
+        breadcrumb = [
+            ("Home", "../../../#/home"),
+            ("Vocab", "../index.html"),
+            (form, ""),
+        ]
+        footer_meta = ""
+        if primary.get("section"):
+            footer_meta = (
+                f'<p>Section: <code>{_esc(primary.get("section"))}</code>'
+                + (f' · POS: <code>{_esc(primary.get("pos") or "")}</code>' if primary.get("pos") else "")
+                + "</p>"
+            )
+
+        html_text = _build_page(
+            lang="en",
+            title_tag=f"{form} ({reading}) — JLPT N5 Vocab{sense_hint}",
+            h1=f"{form}" + (f" — {reading}" if reading != form else ""),
+            description=desc,
+            canonical_url=canonical,
+            spa_url=canonical,
+            body_html=body,
+            depth=3,
+            og_title=f"{form} — JLPT N5 Vocab",
+            breadcrumb=breadcrumb,
+            footer_meta_html=footer_meta,
+        )
+
+        # Path on disk uses raw form chars (modern filesystems handle Unicode).
+        out_path = out_root / form / "index.html"
+        if _write_if_changed(out_path, html_text):
+            written += 1
+        else:
+            unchanged += 1
+
+        sitemap_urls.append(mirror_url)
+
+    # Vocab index, grouped by section
+    by_section: dict[str, list[str]] = {}
+    section_order: list[str] = []
+    for form in form_order:
+        primary = by_form[form][0]
+        section = primary.get("section") or "Other"
+        if section not in by_section:
+            by_section[section] = []
+            section_order.append(section)
+        by_section[section].append(form)
+
+    # Sort sections by the leading integer when present
+    def _section_sort_key(s: str) -> tuple:
+        m = re.match(r"^\s*(\d+)\s*[.\-]", s)
+        return (0, int(m.group(1))) if m else (1, s)
+
+    section_order_sorted = sorted(section_order, key=_section_sort_key)
+
+    idx_parts: list[str] = []
+    idx_parts.append(
+        f'<p>Static index of all {len(form_order)} unique vocabulary forms ({len(entries)} sense entries) for JLPT N5. Forms with multiple senses share one page; the interactive version (drills, SRS, audio) is at the SPA route.</p>'
+    )
+    for section in section_order_sorted:
+        idx_parts.append('<section class="index-section">')
+        idx_parts.append(f'<h3>{_esc(section)}</h3>')
+        for form in by_section[section]:
+            primary = by_form[form][0]
+            reading = primary.get("reading") or form
+            gloss = (primary.get("gloss") or "")[:60]
+            form_encoded = _encode_url_segment(form)
+            label_reading = f" ({reading})" if reading != form else ""
+            idx_parts.append(
+                f'<a class="index-card" href="{form_encoded}/">'
+                f'<span class="label" lang="ja">{_esc(form)}</span>'
+                f'<span class="muted">{_esc(label_reading)}</span> — '
+                f'<span class="gloss">{_esc(gloss)}</span>'
+                f'</a>'
+            )
+        idx_parts.append("</section>")
+    idx_body = "\n".join(idx_parts)
+
+    idx_canonical = f"{N5_BASE}#/learn/vocab"
+    idx_path = out_root / "index.html"
+    idx_html = _build_page(
+        lang="en",
+        title_tag="N5 Vocabulary — All Words (static index)",
+        h1="N5 Vocabulary — All Words",
+        description=f"All {len(form_order)} unique N5 vocabulary forms ({len(entries)} sense entries), grouped by section.",
+        canonical_url=idx_canonical,
+        spa_url=idx_canonical,
+        body_html=idx_body,
+        depth=2,
+        og_title="N5 Vocabulary — All Words",
+        breadcrumb=[("Home", "../../#/home"), ("Vocab", "")],
+        footer_meta_html=f"<p>{len(form_order)} forms / {len(entries)} sense entries indexed.</p>",
+    )
+    if _write_if_changed(idx_path, idx_html):
+        written += 1
+    else:
+        unchanged += 1
+    sitemap_urls.append(f"{N5_BASE}learn/vocab/")
+
+    return written, unchanged, len(form_order)
+
+
 # ----- Sitemap + robots.txt -----
 
 
@@ -513,9 +768,13 @@ def main() -> int:
         summary.append(("grammar", w, u, t))
         print(f"Stage 1 (grammar): wrote {w}, unchanged {u}, total {t} patterns (+1 index).")
 
-    # Stages 2-6 land in subsequent commits per BUG-010 staged rollout.
-    # The function stubs below will be implemented as each stage is built.
-    for stage in ("vocab", "kanji", "reading", "listening", "meta"):
+    if "vocab" in stages:
+        w, u, t = build_vocab(sitemap_urls)
+        summary.append(("vocab", w, u, t))
+        print(f"Stage 2 (vocab): wrote {w}, unchanged {u}, total {t} unique forms (+1 index).")
+
+    # Stages 3-6 land in subsequent commits per BUG-010 staged rollout.
+    for stage in ("kanji", "reading", "listening", "meta"):
         if stage in stages:
             print(f"Stage {stage}: not yet implemented (planned per BUG-010 staged rollout).")
 
