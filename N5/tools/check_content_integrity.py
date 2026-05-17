@@ -1179,6 +1179,21 @@ CHECKS: list[tuple[str, str, callable]] = [
     # (CONTENT-LICENSE.md) and JA-107 (version.json), extended to the
     # AUDIO.md user-facing doc surface.
     ("JA-112", "AUDIO.md 'N listening items use M distinct VOICEVOX speakers' matches live data (BUG-050 charitable guard, 2026-05-17)", lambda: _check_ja_112_audio_md_listening_counts()),
+    # JA-114 (2026-05-17): listening.json pacing_status closed-enum
+    # check. After the BUG-048/049 close-out (commit 47d1edc), every
+    # item has a measured pacing_morae_per_min + a status reflecting
+    # its position in the JLPT N5 target band. Lock the field's
+    # value-domain so future regressions (null / new ad-hoc strings)
+    # are blocked at CI.
+    ("JA-114", "listening.json pacing_status ∈ {in_range, too_slow, too_fast, no_audio, unmeasured} (BUG-048/049 follow-up, 2026-05-17)", lambda: _check_ja_114_pacing_status_enum()),
+    # JA-115 (2026-05-17): README.md "Content" section count claims
+    # must match live corpus sizes. JA-112's prose-pattern lock
+    # extended to the README — same Cross-Artifact Sync Protocol
+    # INV-4 class, fourth instance alongside JA-47 (CONTENT-LICENSE.md),
+    # JA-107 (version.json), JA-112 (AUDIO.md). Prior README state
+    # carried "1041 vocab / 40 reading / 40 listening" against live
+    # 995 / 54 / 50 — drift caught and corrected in this same commit.
+    ("JA-115", "README.md 'Content' section counts match live data (extends JA-47/107/112 to README surface, 2026-05-17)", lambda: _check_ja_115_readme_counts()),
     # JA-113 (2026-05-17): meta-route static-mirror freshness check.
     # For each markdown-sourced meta route (home / changelog / privacy /
     # notices), the static-mirror HTML at /N5/<slug>/index.html must
@@ -5114,6 +5129,141 @@ def _check_ja_106_format_type_enum() -> list[str]:
             failures.append(
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
+            )
+    return failures
+
+
+def _check_ja_115_readme_counts() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-4 enforcement, README surface
+    (2026-05-17).
+
+    README.md's "Content" section carries user-facing count claims:
+        "N grammar patterns ... M vocabulary entries ... K N5 kanji ...
+         R reading passages ... L listening items ... Q mock-test
+         questions ... 28 audited papers ... totalling P questions"
+
+    Each numeric claim must match the live data. Companion to JA-47
+    (CONTENT-LICENSE.md), JA-107 (version.json), JA-112 (AUDIO.md).
+    Coverage of the INV-4 class extends to the four primary
+    user-facing surfaces where corpus counts surface in prose.
+
+    Anchored on the canonical phrasing in the README's "Content" line.
+    If the line is rephrased, the regex must be updated in lockstep
+    (matches JA-112's contract).
+    """
+    failures: list[str] = []
+    try:
+        text = (ROOT / "README.md").read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-115 could not read README.md: {e}"]
+
+    # Live counts
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+        v = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+        k = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+        r = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+        l = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+        q = json.loads((ROOT / "data" / "questions.json").read_text(encoding="utf-8"))
+        papers_m = json.loads(
+            (ROOT / "data" / "papers" / "manifest.json").read_text(encoding="utf-8")
+        )
+    except Exception as e:
+        return [f"JA-115 could not read one or more data files: {e}"]
+
+    live = {
+        "grammar": len(g.get("patterns") or []),
+        "vocab": len(v.get("entries") or []),
+        "kanji": len(k.get("entries") or []),
+        "reading": len(r.get("passages") or []),
+        "listening": len(l.get("items") or []),
+        "questions": len(q.get("questions") or []),
+        "papers": papers_m.get("totalPapers"),
+        "paper_questions": papers_m.get("totalQuestions"),
+    }
+
+    # Anchored patterns. Each tuple = (regex, live_key, label).
+    PATTERNS = [
+        (r"(\d+)\s+grammar patterns", "grammar", "grammar patterns"),
+        (r"(\d+)\s+vocabulary entries", "vocab", "vocabulary entries"),
+        (r"(\d+)\s+N5 kanji", "kanji", "N5 kanji"),
+        (r"(\d+)\s+reading passages", "reading", "reading passages"),
+        (r"(\d+)\s+listening items", "listening", "listening items"),
+        (r"(\d+)\s+mock-test questions", "questions", "mock-test questions"),
+        (r"(\d+)\s+audited papers", "papers", "audited papers"),
+        (r"totalling\s+(\d+)\s+questions", "paper_questions", "paper questions"),
+    ]
+
+    # Search only the "Content (current as of ..." block. Limit scope to
+    # ~2000 chars after "Content (current as of" to avoid matching
+    # historical CHANGELOG / TASKS-style passages.
+    anchor = re.search(r"Content\s*\(current as of[^)]+\)", text)
+    if not anchor:
+        return [
+            "JA-115 README.md no longer contains the 'Content (current as of "
+            "...)' anchor. If the section was intentionally rephrased, update "
+            "JA-115's anchor regex."
+        ]
+    scope_start = anchor.start()
+    scope_end = min(len(text), scope_start + 2000)
+    scope = text[scope_start:scope_end]
+
+    for pat, key, label in PATTERNS:
+        m = re.search(pat, scope, re.IGNORECASE)
+        if not m:
+            failures.append(
+                f"JA-115 README.md 'Content' section missing the "
+                f"'{label}' count claim (pattern: {pat!r}). If the prose "
+                f"was rephrased, update JA-115's regex."
+            )
+            continue
+        n_claimed = int(m.group(1))
+        n_live = live.get(key)
+        if n_live is None:
+            failures.append(
+                f"JA-115 README.md '{label}' lookup failed for key {key!r}"
+            )
+            continue
+        if n_claimed != n_live:
+            failures.append(
+                f"JA-115 README.md claims {n_claimed} {label} but live "
+                f"count is {n_live} (drift)"
+            )
+    return failures
+
+
+def _check_ja_114_pacing_status_enum() -> list[str]:
+    """BUG-048/049 follow-up (2026-05-17) regression guard.
+
+    Lock listening.json `pacing_status` to a closed enum:
+        {in_range, too_slow, too_fast, no_audio, unmeasured}
+
+    After the BUG-048/049 close-out (commit 47d1edc) every item has
+    a measured pacing_morae_per_min + a status field reflecting its
+    position in the JLPT N5 target band 180-240 mpm. This invariant
+    prevents the field from drifting back to null (the BUG-048
+    starting state) or accumulating new ad-hoc values from future
+    pipeline changes.
+
+    Same class as JA-106 / JA-111 (closed-enum on a corpus field
+    where the value-domain is small and stable).
+    """
+    failures: list[str] = []
+    ALLOWED = {"in_range", "too_slow", "too_fast", "no_audio", "unmeasured"}
+    try:
+        L = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-114 could not read listening.json: {e}"]
+    for it in L.get("items", []):
+        iid = it.get("id", "?")
+        if "pacing_status" not in it:
+            failures.append(f"JA-114 {iid}: missing required `pacing_status` field")
+            continue
+        v = it.get("pacing_status")
+        if v not in ALLOWED:
+            failures.append(
+                f"JA-114 {iid}: pacing_status {v!r} not in "
+                f"{sorted(ALLOWED)}"
             )
     return failures
 

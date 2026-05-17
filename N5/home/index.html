@@ -152,7 +152,7 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
 <ol>
 <li>Edit rich content directly in the JSON files (single source of truth):</li>
 </ol>
-<p>- <code>data/grammar.json</code> (178 patterns) - <code>data/vocab.json</code> (1009 entries) - <code>data/kanji.json</code> (106 entries) - <code>data/reading.json</code> / <code>data/listening.json</code> / <code>data/questions.json</code> - <code>data/papers/{moji,goi,bunpou,dokkai}/*.json</code> (paper questions)</p>
+<p>- <code>data/grammar.json</code> (178 patterns) - <code>data/vocab.json</code> (995 entries — post-BUG-018/019/024 dedup 2026-05-16/17) - <code>data/kanji.json</code> (106 entries) - <code>data/reading.json</code> / <code>data/listening.json</code> / <code>data/questions.json</code> - <code>data/papers/{moji,goi,bunpou,dokkai}/*.json</code> (paper questions)</p>
 <ol>
 <li>Edit scope whitelists in <code>data/n5_*_whitelist.json</code> if adding to N5 scope.</li>
 <li>Edit <code>docs/N5-syllabus-methodology.md</code> if changing methodology, source citations, or authoring conventions.</li>
@@ -214,7 +214,7 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
 <li>Furigana toggle with N5-kanji ruby annotation (pragmatic single-pick readings)</li>
 <li>Service worker for offline capability</li>
 </ul>
-<p>Content (current as of v1.12.29): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in <code>grammar.json</code> · 1041 vocabulary entries in <code>vocab.json</code> · 106 N5 kanji in <code>kanji.json</code> (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 40 reading passages in <code>reading.json</code> · 40 listening items in <code>listening.json</code> · 290 mock-test questions in <code>questions.json</code> · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time - when in doubt, run <code>python tools/check_content_integrity.py</code> which derives them from the live data files. See <code>TASKS.md</code> for outstanding work.</p>
+<p>Content (current as of v1.15.5; counts auto-verified by JA-115 / JA-107 / JA-47): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in <code>grammar.json</code> · 995 vocabulary entries in <code>vocab.json</code> (post-BUG-018/019/024 dedup 2026-05-16/17; original 1041 reduced to 995 over 4 dedup passes) · 106 N5 kanji in <code>kanji.json</code> (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 54 reading passages in <code>reading.json</code> · 50 listening items in <code>listening.json</code> · 290 mock-test questions in <code>questions.json</code> · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time - when in doubt, run <code>python tools/check_content_integrity.py</code> which derives them from the live data files. See <code>TASKS.md</code> for outstanding work.</p>
 <footer>
   <p><a href="../#/home">Home</a> · JLPT N5 Tutor</p>
   <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>

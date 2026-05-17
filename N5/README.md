@@ -115,7 +115,7 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
 
 1. Edit rich content directly in the JSON files (single source of truth):
    - `data/grammar.json` (178 patterns)
-   - `data/vocab.json` (1009 entries)
+   - `data/vocab.json` (995 entries — post-BUG-018/019/024 dedup 2026-05-16/17)
    - `data/kanji.json` (106 entries)
    - `data/reading.json` / `data/listening.json` / `data/questions.json`
    - `data/papers/{moji,goi,bunpou,dokkai}/*.json` (paper questions)
@@ -199,4 +199,4 @@ All Phase 1 features implemented and verified end-to-end in a browser preview:
 - Furigana toggle with N5-kanji ruby annotation (pragmatic single-pick readings)
 - Service worker for offline capability
 
-Content (current as of v1.12.29): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in `grammar.json` · 1041 vocabulary entries in `vocab.json` · 106 N5 kanji in `kanji.json` (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 40 reading passages in `reading.json` · 40 listening items in `listening.json` · 290 mock-test questions in `questions.json` · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time - when in doubt, run `python tools/check_content_integrity.py` which derives them from the live data files. See `TASKS.md` for outstanding work.
+Content (current as of v1.15.5; counts auto-verified by JA-115 / JA-107 / JA-47): 178 grammar patterns across 5 super-categories (32 fine-grained categories) in `grammar.json` · 995 vocabulary entries in `vocab.json` (post-BUG-018/019/024 dedup 2026-05-16/17; original 1041 reduced to 995 over 4 dedup passes) · 106 N5 kanji in `kanji.json` (every entry has stroke order + 1-3 example compounds + 1-2 example sentences) · 54 reading passages in `reading.json` · 50 listening items in `listening.json` · 290 mock-test questions in `questions.json` · 28 audited papers (7 per section × 4 sections, 6 papers of 15 questions plus 1 short paper of 10 questions per section) totalling 402 questions across moji / goi / bunpou / dokkai. Counts drift over time - when in doubt, run `python tools/check_content_integrity.py` which derives them from the live data files. See `TASKS.md` for outstanding work.

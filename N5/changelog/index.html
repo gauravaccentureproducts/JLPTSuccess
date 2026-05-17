@@ -84,6 +84,33 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (JA-114 + JA-115 wired; README counts corrected)</h2>
+<p>User-visible: the README&#x27;s &quot;Content&quot; section now correctly states <strong>995 vocabulary entries · 54 reading passages · 50 listening items</strong> (was stale at 1041 / 40 / 40 — pre-dedup era values from v1.12.29). Pending- items pass batch 2.</p>
+<h3>What landed</h3>
+<p><strong>(1) JA-114 — listening.json <code>pacing_status</code> closed-enum lock</strong></p>
+<p>After the BUG-048/049 close-out (commit <code>47d1edc</code>) every listening item has a measured pacing_morae_per_min + a status reflecting its position in the JLPT N5 target band. JA-114 locks the field&#x27;s value-domain at <code>{in_range, too_slow, too_fast, no_audio, unmeasured}</code> so future regressions (null re-introduction or new ad-hoc strings from pipeline changes) are blocked at CI.</p>
+<p>Same drift class as JA-106 (reading.json format_type) and JA-111 (listening.json format_type) — closed-enum on a corpus field where the value-domain is small and stable.</p>
+<p><strong>(2) JA-115 — README.md &quot;Content&quot; section count claims match live data</strong></p>
+<p>Fourth instance of the Cross-Artifact Sync Protocol INV-4 class: JA-47 (CONTENT-LICENSE.md), JA-107 (version.json), JA-112 (AUDIO.md), <strong>JA-115 (README.md)</strong> — the four user-facing surfaces where corpus counts appear in prose are now all locked.</p>
+<p>The README&#x27;s &quot;Content (current as of v1.12.29): ...&quot; line was caught stale during the pre-commit verification: - &quot;1041 vocabulary entries&quot; — DRIFT (live: 995, post-BUG-018/019/024) - &quot;40 reading passages&quot; — DRIFT (live: 54) - &quot;40 listening items&quot; — DRIFT (live: 50) - Other counts: correct</p>
+<p>Fixed in this same commit: README&#x27;s content line rewritten with current counts; &quot;current as of v1.12.29&quot; → &quot;current as of v1.15.5; counts auto-verified by JA-115 / JA-107 / JA-47&quot;. Also fixed the vocab.json inline count <code>(1009 entries)</code> → <code>(995 entries)</code> on the &quot;Edit rich content&quot; list. JA-115 anchors on &quot;Content (current as of ...)&quot; and checks 8 sub-patterns: grammar / vocab / kanji / reading / listening / mock-test questions / audited papers / paper questions.</p>
+<p><strong>(3) Pre-session untracked files resolved</strong></p>
+<p>(landed in <code>407ef64</code>, the prior commit of this batch)</p>
+<ul>
+<li><code>tests/*.pdf</code> added to N5/.gitignore (handles the n5-008.pdf test</li>
+</ul>
+<p>artifact + future visual-proofing PDFs)</p>
+<ul>
+<li><code>tools/build_test_scenarios_workbook.py</code> moved to</li>
+</ul>
+<p><code>not-required/tools-archive/</code> with prominent DEPRECATED docstring + <code>sys.exit(&quot;DEPRECATED...&quot;)</code> guard (would otherwise overwrite the 402-scenario xlsx if run)</p>
+<h3>CI invariants</h3>
+<p>Total live: <strong>113</strong> (was 111; +2 from JA-114 + JA-115). <code>cross_artifact_sync_report.py</code> exits CLEAN.</p>
+<h3>Files touched (Rule 5 atomic-commit discipline)</h3>
+<p>- N5/README.md (3 stale counts corrected; &quot;current as of&quot; version bumped + JA-115 reference added) - N5/tools/check_content_integrity.py (JA-114 + JA-115 check functions + registry entries) - N5/specifications/JLPT-N5-Current-Implementation-Spec.md (§25.1 rows for JA-114 + JA-115; section-header count bumped 111→113; next-free JA-NN = 116) - N5/CHANGELOG.md (this entry) - N5/changelog/index.html (meta-mirror regen — JA-113 would have failed otherwise; the discipline JA-113 enforces, applied to its own follow-on commit)</p>
+<h3>Verification</h3>
+<p>- python tools/check_content_integrity.py → PASS all 113 invariants - python tools/cross_artifact_sync_report.py → EXIT: CLEAN - Bug tracker: 53 / 53 Fixed / 0 Open (unchanged)</p>
+<hr>
 <h2>Unreleased - 2026-05-17 (JA-113 wired — meta-route static-mirror freshness CI guard)</h2>
 <p>Governance / CI release. No user-visible changes. Wires a new CI invariant (JA-113) that prevents the recurring drift class observed 3 times in the 2026-05-17 session: maintainer edits a markdown source under <code>N5/</code> (CHANGELOG.md, PRIVACY.md, etc.) but forgets to re-run <code>tools/build_static_mirrors.py --stages meta</code>, leaving the static mirror at <code>N5/&lt;route&gt;/index.html</code> showing stale content for non-JS crawlers.</p>
 <h3>Drift instances caught in this session (the reason JA-113 was wired)</h3>

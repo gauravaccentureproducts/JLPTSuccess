@@ -775,7 +775,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-113; gaps for retired / reserved slots) that the
+(JA-1 through JA-115; gaps for retired / reserved slots) that the
 script runs against every release. The script is the source of truth;
 this section is its human-readable index.
 
@@ -794,12 +794,13 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **102 named JA-NN rules** (the runtime
+Currently wired invariants: **104 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 111/111 at this checkpoint, post 2026-05-17 meta-route
-static-mirror freshness wire-up which added JA-113 — caught a
-recurring drift class observed 3× in the same session).
+reports 113/113 at this checkpoint, post 2026-05-17 batch which
+added JA-113 (meta-mirror freshness), JA-114 (pacing_status enum),
+JA-115 (README count claims) — extending the INV-4 / INV-7 classes
+to additional surfaces).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -929,6 +930,8 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-105 | reading.json `vocab_preview` is a list of vocab_id strings; each ID resolves against vocab.json (BUG-045 guard; embedded-dict denormalization shape rejected to avoid stale-snapshot drift) | 2026-05-17 |
 | JA-109 | Procedure manual + prompts → `tools/*.py` script references resolve to actual files on disk (Cross-Artifact Sync Protocol INV-10 guard; scope: N5 prompts + AUDIT-COVERAGE-*.md only — the cross-level procedure manual is intentionally excluded because its script refs are abstract Nx-builder targets) | 2026-05-17 |
 | JA-113 | Meta-route static mirrors (`home/`, `changelog/`, `privacy/`, `notices/`) reflect the latest H1/H2 from their source markdown (README.md / CHANGELOG.md / PRIVACY.md / NOTICES.md). Cross-Artifact Sync Protocol INV-7 extension — derived-mirror freshness vs source. Wired after 3 instances of the meta-route mirror drift class in the 2026-05-17 session. | 2026-05-17 |
+| JA-114 | listening.json `pacing_status ∈ {in_range, too_slow, too_fast, no_audio, unmeasured}` — strict closed enum (BUG-048/049 follow-up). Same class as JA-106 / JA-111 (closed-enum on a corpus field where the value-domain is small and stable). | 2026-05-17 |
+| JA-115 | README.md "Content (current as of ...)" section count claims (`N grammar patterns`, `M vocabulary entries`, `K N5 kanji`, etc.) match live data. Fourth instance of Cross-Artifact Sync Protocol INV-4 class alongside JA-47 (CONTENT-LICENSE.md), JA-107 (version.json), JA-112 (AUDIO.md). | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -1016,7 +1019,7 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-114). Reserved slots (JA-42..46, JA-80,
+   (currently next free = JA-116). Reserved slots (JA-42..46, JA-80,
    JA-91..95) must NOT be reused.
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is

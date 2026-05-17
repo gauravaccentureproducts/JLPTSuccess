@@ -2,6 +2,87 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (JA-114 + JA-115 wired; README counts corrected)
+
+User-visible: the README's "Content" section now correctly states **995
+vocabulary entries · 54 reading passages · 50 listening items** (was
+stale at 1041 / 40 / 40 — pre-dedup era values from v1.12.29). Pending-
+items pass batch 2.
+
+### What landed
+
+**(1) JA-114 — listening.json `pacing_status` closed-enum lock**
+
+After the BUG-048/049 close-out (commit `47d1edc`) every listening
+item has a measured pacing_morae_per_min + a status reflecting its
+position in the JLPT N5 target band. JA-114 locks the field's
+value-domain at `{in_range, too_slow, too_fast, no_audio, unmeasured}`
+so future regressions (null re-introduction or new ad-hoc strings
+from pipeline changes) are blocked at CI.
+
+Same drift class as JA-106 (reading.json format_type) and JA-111
+(listening.json format_type) — closed-enum on a corpus field where
+the value-domain is small and stable.
+
+**(2) JA-115 — README.md "Content" section count claims match live data**
+
+Fourth instance of the Cross-Artifact Sync Protocol INV-4 class:
+JA-47 (CONTENT-LICENSE.md), JA-107 (version.json), JA-112 (AUDIO.md),
+**JA-115 (README.md)** — the four user-facing surfaces where corpus
+counts appear in prose are now all locked.
+
+The README's "Content (current as of v1.12.29): ..." line was caught
+stale during the pre-commit verification:
+  - "1041 vocabulary entries" — DRIFT (live: 995, post-BUG-018/019/024)
+  - "40 reading passages" — DRIFT (live: 54)
+  - "40 listening items" — DRIFT (live: 50)
+  - Other counts: correct
+
+Fixed in this same commit: README's content line rewritten with current
+counts; "current as of v1.12.29" → "current as of v1.15.5; counts
+auto-verified by JA-115 / JA-107 / JA-47". Also fixed the vocab.json
+inline count `(1009 entries)` → `(995 entries)` on the "Edit rich
+content" list. JA-115 anchors on "Content (current as of ...)" and
+checks 8 sub-patterns: grammar / vocab / kanji / reading / listening /
+mock-test questions / audited papers / paper questions.
+
+**(3) Pre-session untracked files resolved**
+
+(landed in `407ef64`, the prior commit of this batch)
+- `tests/*.pdf` added to N5/.gitignore (handles the n5-008.pdf test
+  artifact + future visual-proofing PDFs)
+- `tools/build_test_scenarios_workbook.py` moved to
+  `not-required/tools-archive/` with prominent DEPRECATED docstring +
+  `sys.exit("DEPRECATED...")` guard (would otherwise overwrite the
+  402-scenario xlsx if run)
+
+### CI invariants
+
+Total live: **113** (was 111; +2 from JA-114 + JA-115).
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+  - N5/README.md (3 stale counts corrected; "current as of" version
+    bumped + JA-115 reference added)
+  - N5/tools/check_content_integrity.py (JA-114 + JA-115 check
+    functions + registry entries)
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25.1 rows for JA-114 + JA-115; section-header count bumped
+    111→113; next-free JA-NN = 116)
+  - N5/CHANGELOG.md (this entry)
+  - N5/changelog/index.html (meta-mirror regen — JA-113 would have
+    failed otherwise; the discipline JA-113 enforces, applied to
+    its own follow-on commit)
+
+### Verification
+
+  - python tools/check_content_integrity.py → PASS all 113 invariants
+  - python tools/cross_artifact_sync_report.py → EXIT: CLEAN
+  - Bug tracker: 53 / 53 Fixed / 0 Open (unchanged)
+
+---
+
 ## Unreleased - 2026-05-17 (JA-113 wired — meta-route static-mirror freshness CI guard)
 
 Governance / CI release. No user-visible changes. Wires a new CI
