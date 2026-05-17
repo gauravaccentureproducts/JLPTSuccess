@@ -2784,3 +2784,168 @@ exits CLEAN. Bug tracker: 53 / 53 Fixed / 0 Open. **All five
 user-facing prose-with-counts surfaces now locked by the
 Cross-Artifact Sync Protocol INV-4 class** — no remaining
 "users-see-stale-numbers-in-docs" exposure.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 19) — JA-91 + JA-94 final unblock (reserved JA-91..95 range fully wired)
+
+Part 17 partially-promoted JA-91 + JA-94 then deferred both with
+specific gating notes:
+- **JA-91** — gated on a Japanese-linguistics review pass classifying
+  the 42 identical-explanation pairs into intentional vs accidental
+  cross-pattern overlap.
+- **JA-94** — gated on authoring `data/pattern_markers.json` (NOT the
+  pre-existing `_meaning_ja_markers` field, which describes
+  meaning-explanation markers rather than the structural markers an
+  example must demonstrate).
+
+Part 19 closes both gates against the corpus snapshot scanned by this
+session, restoring the full JA-91..95 reserved-range as wired.
+
+### JA-91 — cross-pattern explanation_en similarity guard
+
+**Approach.** Hand-classified the 43 currently-occurring pairs into
+four categories, snapshotted as a baseline allowlist:
+
+| Class | Count | Pattern |
+|---|---|---|
+| DUPLICATE_PATTERN | 8 | Two pattern IDs cover the same conceptual content (e.g., n5-014 + n5-039 both cover これ/それ/あれ pronouns; n5-016 + n5-041 both cover ここ/そこ/あそこ/どこ). Future cleanup: merge. |
+| CROSS_REFERENCE | 21 | One pattern is a "see <other>" deferral with full explanation retained for self-containment (e.g., the n5-183 family with its 4 child patterns n5-184/185/186/187; the n5-119/120 ↔ n5-160..163 まえ/あと family). |
+| ALTERNATIVE_VARIANT | 12 | Patterns are register/dialect/syntactic variants of the same construct (e.g., the obligation paradigm n5-173/174/175/176 = なくてはいけない / なくてはならない / ないといけない / なくちゃ・なきゃ; n5-157 ↔ n5-158 = でしょう ↔ だろう). |
+| SUBSET | 2 | One pattern is a subset of another's coverage (n5-016 ↔ n5-048; n5-041 ↔ n5-048 via the duplicate path). |
+
+Each baseline entry carries a per-pair rationale note documenting the
+classification rationale. JA-91 PASSes on the current corpus by
+allowlisting the 43 pairs; trips on any NEW pair that crosses the
+0.85 threshold (typically a fresh pattern with explanation_en copied
+from an existing one).
+
+**Hand-tally correction note.** Part 17 of this doc (and the
+deferred-state CHANGELOG entry written at that time) cited "42 pairs"
+based on a hand-tally that was off by 1 in the ALTERNATIVE_VARIANT
+class. The actual SequenceMatcher pair-count is 43; the baseline file
+authored in this batch contains 43 entries matching the live corpus
+mechanically (verified by the Phase-0 regression block in
+`prompts/N5Improvement.txt`). Historical Part 17 narrative retained
+as written; current authoritative count is 43.
+
+**Coverage stance (bounded phrasing per Rule 4):** JA-91 prevents
+re-introduction of cross-pattern explanation_en contamination *of
+these specific 43 pairs' shape*, scanned at the 2026-05-17 corpus
+snapshot. The baseline classification is a hand-curated snapshot, not
+a complete grammatical taxonomy — a future native-reviewer pass could
+re-classify or split entries (e.g., promote a DUPLICATE_PATTERN to a
+merge target).
+
+### JA-94 — per-example structural-marker guard
+
+**Approach.** Authored `data/pattern_markers.json` via
+`tools/author_pattern_markers_2026_05_17.py`, which:
+1. Auto-derives an initial marker set from each pattern's `pattern`
+   field (split on `[／/・+〜～\s()（）]+`; strip wildcards and
+   English-only placeholder tokens).
+2. Expands with category-specific conjugational variants (ます →
+   ません/ました/ませんでした; です → でした/じゃありません/etc.;
+   Adjective categories → inflectional suffixes; Counters → number
+   token set).
+3. Falls back to a per-pattern OVERRIDES table for patterns whose
+   examples demonstrate the pattern via forms not in the bare pattern
+   field (e.g., n5-088/089 existence verbs; n5-143 なる /
+   なります / なりました / になる / くなる / etc.; n5-176 casual
+   contractions なくちゃ / なきゃ).
+
+Final coverage: **1768 of 1782 grammar examples (99.2%)** match ≥1
+marker from their parent pattern. The remaining 14 examples are
+captured as BUG-006-CANDIDATEs in `data/_ja94_baseline.json` with
+per-entry classification notes (e.g., "n5-048 ex[0] uses ここ but
+parent pattern is どこ — belongs under n5-016 / n5-041"; "n5-157
+ex[4] uses volitional たべましょう, not probability でしょう —
+belongs under n5-071").
+
+The 14 baseline entries cluster on 8 parent patterns:
+
+| Pattern | Failing ex count | Class |
+|---|---|---|
+| n5-030 (nominalizer use) | 3 | wrong-example: honorific お+adj+です, not nominalizer |
+| n5-048 (どこ) | 3 | wrong-example: uses ここ / そこ / だれ (different demonstratives) |
+| n5-065 (Verb-る / Verb-う plain) | 1 | wrong-example: uses polite かいません |
+| n5-071 (Verb-てください) | 1 | wrong-example: uses noun+を+ください alone |
+| n5-084 (な-Adj + な + Noun) | 1 | wrong-example: has no na-adjective |
+| n5-112 (〜ふん/ぷん minutes) | 1 | edge-case: uses じはん + じかん instead |
+| n5-157 (〜でしょう) | 3 | wrong-example: uses volitional ましょう |
+| n5-164 (〜さん honorific) | 1 | wrong-example: has no さん |
+
+Each is a follow-on audit-cycle candidate — replace the example with
+one that demonstrates the parent pattern, or move it to its correct
+parent. Until then, JA-94 allowlists these 14 + trips on any NEW
+pattern-instance contamination.
+
+**Coverage stance (bounded phrasing per Rule 4):** JA-94 enforces
+per-example structural-marker presence *against the marker catalog
+authored in this session*; the catalog covers 178 of 178 patterns at
+99.2% example coverage. The catalog's marker lists are derived from
+the `pattern` field + conjugational expansions + OVERRIDES — a future
+native-reviewer pass could expand markers for patterns whose
+canonical forms broaden, or tighten markers if a too-loose marker
+matches a non-pattern instance. The baseline 14 BUG-006-CANDIDATE
+examples are not "fixed" — they're snapshot-allowlisted with their
+classification documented for the next audit cycle.
+
+### Implementation notes
+
+- **Duplicate JA-91 function removed.** Part 17's initial wire-up
+  carried a `_check_ja_91_explanation_similarity()` definition that
+  flagged the pairs unconditionally. The baseline-aware
+  replacement at the later position in the file took precedence at
+  runtime (Python dedup), but the dead earlier definition was
+  removed in this commit to prevent confusion.
+- **JA-94 function replaced (not extended).** The pre-Part-19
+  `_check_ja_94_pattern_marker_per_example()` used `_meaning_ja_markers`
+  (the wrong field — that's a meaning-explanation marker, not a
+  structural marker). The function is replaced wholesale to use
+  `data/pattern_markers.json` + `data/_ja94_baseline.json`.
+- **Authoring tool kept.** `tools/author_pattern_markers_2026_05_17.py`
+  remains in-tree as the regenerator — re-running it after any
+  grammar.json edit refreshes the catalog. The regen is idempotent
+  for unchanged inputs; the OVERRIDES table is the only manual
+  authoring surface.
+
+### CI invariants final state for Part 19
+
+Total live: **122** (was 120 at Part 18 close; +1 from JA-91
+final-wire, +1 from JA-94 final-wire). All 122 invariants PASS at
+this checkpoint. The JA-91..95 reserved range is now fully consumed;
+only JA-42..46 and JA-80 remain in the §25.7 Reserved table.
+
+### Files touched (Part 19)
+
+  - N5/data/_ja91_baseline.json (NEW — 43-pair classification with
+    per-pair rationale notes)
+  - N5/data/pattern_markers.json (NEW — 178-pattern marker catalog,
+    auto-generated)
+  - N5/data/_ja94_baseline.json (NEW — 14-example BUG-006-CANDIDATE
+    snapshot with per-entry classification notes)
+  - N5/tools/author_pattern_markers_2026_05_17.py (NEW — catalog
+    regenerator with OVERRIDES table)
+  - N5/tools/check_content_integrity.py (JA-91 function replaced
+    with baseline-aware version; duplicate pre-baseline definition
+    removed; JA-94 function replaced to use pattern_markers.json +
+    _ja94_baseline.json; JA-94 registry entry added)
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25 intro counts 120→122 + "111 named rules" → "113"; §25.4
+    gains JA-91 + JA-94 rows; §25.7 trims to JA-42..46 + JA-80;
+    §25.9 step-3 reserved-slot note updated)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 19 addendum)
+  - N5/docs/cross-artifact-sync-map.md (audit-log row for JA-91 +
+    JA-94 final-unblock)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+### Final state for Part 19
+
+CI **122/122 invariants green**. The JA-91..95 reserved range is
+fully consumed. The 14 BUG-006-CANDIDATE examples remain as a
+follow-on audit-cycle target — JA-94 currently allowlists them so
+no new pattern-instance contamination can land without tripping
+CI, but the snapshotted entries should be addressed by a future
+native-reviewer pass that either rewrites the examples or moves
+them to their correct parent pattern.

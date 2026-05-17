@@ -127,6 +127,7 @@ A_NN_CATEGORIES = [
     ("A58", "PROVENANCE-LABEL DISAMBIGUATION (HUMAN vs AI REVIEW)", "JA-35 closed-enum; BUG-012 lineage."),
     ("A59", "READING.JSON BATCH-DRIFT — 6 FIELD DIVERGENCES (BUG-041..046)", "JA-104/105/106 lock; F.23 lessons."),
     ("A60", "LISTENING.JSON MIGRATION DRIFT — 7 FIELD DIVERGENCES (BUG-047..053)", "JA-110/111 lock; F.24 lessons."),
+    ("A63", "JA-91 + JA-94 FINAL UNBLOCK — baseline-allowlist pattern for invariants that can't reach 0 false-positives mechanically", "JA-91 (43-pair cross-pattern explanation similarity baseline) + JA-94 (14-example BUG-006-CANDIDATE baseline against the 178-pattern structural-markers catalog). Methodology: snapshot legitimate-case set into data/_jaNN_baseline.json with classification notes; CI trips on NEW drift only. Same shape as JA-67 Density-3 below-floor lock; A63 documents the broader pattern for future reserved-invariant promotions."),
 ]
 
 # --- 18 Phase-0 regression blocks (N5Improvement) → tab K ---
@@ -149,6 +150,7 @@ PHASE0_BLOCKS = [
     ("P0-static-mirror", "Phase-0 Static-mirror coverage regression block (added 2026-05-16)"),
     ("P0-reading-batch-drift", "Phase-0 Reading.json batch-drift regression block (added 2026-05-17)"),
     ("P0-listening-migration", "Phase-0 Listening.json migration-drift regression block (added 2026-05-17)"),
+    ("P0-ja91-ja94-baseline", "Phase-0 JA-91 + JA-94 baseline-stability regression block (added 2026-05-17)"),
 ]
 
 # --- 15 FP-NN false-positive class entries → tab K ---

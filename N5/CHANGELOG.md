@@ -2,7 +2,89 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
-## Unreleased - 2026-05-17 (BUG-050 round-3 close-out: spec §7.3 sample drift; JA-119 wired)
+## Unreleased - 2026-05-17 (JA-91 + JA-94 final unblock: reserved JA-91..95 range fully wired)
+
+Not user-visible at runtime — corpus and rendered surfaces unchanged.
+Internal: closes the final two reserved invariant slots from the
+JA-91..95 range, bringing CI from 120 → 122 invariants green and
+locking two contamination guards that BUG-003 and BUG-006 (round-9
+audit) had each filed against the corpus.
+
+### JA-91 — cross-pattern explanation_en similarity guard (BUG-003)
+
+The corpus has 43 grammar-pattern pairs whose `explanation_en` strings
+match each other at ≥0.85 Levenshtein similarity. Hand-classification
+identified each as legitimate cross-coverage rather than contamination:
+
+- **DUPLICATE_PATTERN ×8** — two pattern IDs cover the same concept
+  (e.g., n5-014 + n5-039 both = これ/それ/あれ pronouns).
+- **CROSS_REFERENCE ×21** — one pattern defers to another (the n5-183
+  family with 4 child patterns; the n5-119/120 ↔ n5-160..163 まえ/あと
+  family).
+- **ALTERNATIVE_VARIANT ×12** — register / dialect / syntactic variants
+  of one construct (the obligation paradigm n5-173..176 = なくては
+  いけない / ならない / ないと / なくちゃ・なきゃ; n5-157 ↔ n5-158 =
+  でしょう ↔ だろう).
+- **SUBSET ×2** — one pattern subset of another's coverage.
+
+The 43 pairs are snapshotted in `data/_ja91_baseline.json` with per-pair
+rationale notes. JA-91 trips on any NEW pair beyond the baseline —
+typically signaling a fresh pattern with explanation copied/contaminated
+from an existing one.
+
+### JA-94 — per-example structural-marker guard (BUG-006)
+
+Authored `data/pattern_markers.json` (178-pattern catalog) via
+`tools/author_pattern_markers_2026_05_17.py`. The authoring derives an
+initial marker set from each pattern's `pattern` field, expands with
+category-specific conjugational variants (ます → ません / ました; です
+→ でした / じゃありません; な-Adj → な / じゃない / だった), and
+applies a per-pattern OVERRIDES table for patterns whose canonical
+forms aren't in the bare pattern field (n5-088 / 089 existence verbs;
+n5-143 なる inflectional family; n5-176 casual contractions; etc.).
+
+Final coverage: **1768 of 1782 grammar examples (99.2%)** match ≥1
+marker from their parent pattern. The 14 remaining BUG-006-CANDIDATE
+wrong-example failures cluster on 8 parent patterns (n5-030, n5-048,
+n5-065, n5-071, n5-084, n5-112, n5-157, n5-164) and are snapshotted in
+`data/_ja94_baseline.json` with per-entry classification notes
+("n5-048 ex[0] uses ここ but parent pattern is どこ — belongs under
+n5-016 / n5-041"; "n5-157 ex[4] uses volitional たべましょう, not
+probability でしょう — belongs under n5-071"; etc.). These 14 remain
+as a follow-on audit-cycle target — JA-94 currently allowlists them
+so no NEW pattern-instance contamination can land without tripping
+CI, but the snapshotted entries should be addressed by a future
+native-reviewer pass that either rewrites the examples or moves them
+to their correct parent pattern.
+
+### CI invariants final state for this batch
+
+- **Total live: 122** (+2 from JA-91 final-wire + JA-94 final-wire).
+- The JA-91..95 reserved range is **fully consumed**; only JA-42..46
+  and JA-80 remain in the §25.7 Reserved table.
+- All 122 invariants PASS on the current corpus.
+- `cross_artifact_sync_report.py` exits CLEAN.
+- Bug tracker: 53 / 53 Fixed / 0 Open (unchanged this batch — JA-91
+  and JA-94 are governance / prospective-guard wirings, not bug
+  close-outs).
+
+### Files touched
+
+- `N5/data/_ja91_baseline.json` (NEW)
+- `N5/data/pattern_markers.json` (NEW)
+- `N5/data/_ja94_baseline.json` (NEW)
+- `N5/tools/author_pattern_markers_2026_05_17.py` (NEW)
+- `N5/tools/check_content_integrity.py` (JA-91 + JA-94 final-wire;
+  duplicate pre-baseline JA-91 function removed)
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` (§25
+  intro counts 120 → 122; §25.4 gains JA-91 + JA-94 rows; §25.7
+  trims to JA-42..46 + JA-80; §25.9 step-3 reserved-slot note
+  updated)
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` (Part 19 addendum)
+- `N5/docs/cross-artifact-sync-map.md` (audit-log row)
+- `N5/CHANGELOG.md` (this entry)
+
+## 2026-05-17 (BUG-050 round-3 close-out: spec §7.3 sample drift; JA-119 wired)
 
 User-visible: the implementation spec's §7.3 "version.json - build
 stamp" sample now shows the **current** corpus counts (v1.15.5,

@@ -779,11 +779,12 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-119; gaps for retired / reserved slots, two of which
-— JA-91 and JA-94 — were partially-promoted on 2026-05-17 then
-deferred again with specific gating notes; see §25.7 for the current
-status) that the script runs against every release. The script is the
-source of truth; this section is its human-readable index.
+(JA-1 through JA-119; gaps for retired / reserved slots — JA-42..46
+and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
+2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
+JA-91 and JA-94) that the script runs against every release. The
+script is the source of truth; this section is its human-readable
+index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
 `N5/`). On a clean corpus the script prints `PASS: all NN invariants
@@ -800,23 +801,24 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **111 named JA-NN rules** (the runtime
+Currently wired invariants: **113 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 120/120 at this checkpoint, post the 2026-05-17 BUG-050
-round-3 close-out which added JA-119 — spec §7.3 sample
-version.json must match live data — making the implementation
-spec the FIFTH user-facing prose-with-counts surface locked by
-the Cross-Artifact Sync Protocol INV-4 class. JA-91 and JA-94
-stay Reserved with specific gating notes; see §25.7. 6 of 10
-INV-N classes hard-wired at CI; 3 INV-N classes (INV-1 / INV-2 /
-INV-8) backed by commit-time git hooks; 1 INV-N out of scope.
+reports 122/122 at this checkpoint, post the 2026-05-17 final
+unblock of JA-91 (cross-pattern explanation_en similarity guard,
+backed by `data/_ja91_baseline.json` 43-pair classification) and
+JA-94 (per-example structural-marker presence, backed by
+`data/pattern_markers.json` 178-pattern catalog + 14-example
+`data/_ja94_baseline.json` BUG-006-CANDIDATE allowlist) — the
+JA-91..95 reserved range is now fully wired. 6 of 10 INV-N classes
+hard-wired at CI; 3 INV-N classes (INV-1 / INV-2 / INV-8) backed
+by commit-time git hooks; 1 INV-N out of scope.
 
-Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
-**JA-91 through JA-95**. These slots are documented in the
-`AUDIT-COVERAGE-2026-05-15.md` addenda as ready-to-wire follow-ons
-from prior bug batches — they exist as Phase-0 regression-block
-scripts in `prompts/N5Improvement.txt` rather than as hard CI gates.
+Reserved / not-yet-wired: **JA-42 through JA-46** and **JA-80**.
+These slots are documented in the `AUDIT-COVERAGE-2026-05-15.md`
+addenda as ready-to-wire follow-ons from prior bug batches — they
+exist as Phase-0 regression-block scripts in
+`prompts/N5Improvement.txt` rather than as hard CI gates.
 
 ### 25.1 Schema & field validation
 
@@ -948,6 +950,8 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-92 | No `translation_en` string repeated in 10+ grammar examples (parallel to JA-81 which catches the JA-side boilerplate; BUG-003/005 lineage). Wired 2026-05-17 from the reserved JA-91..95 range. | 2026-05-17 |
 | JA-93 | Vocab.json `pitch_marks` total mora count matches `count_morae(reading)` for every entry that carries pitch_marks. BUG-004 lineage; algorithmic mora-count guard preserved from `not-required/tools-archive/fix_issue_074_pacing_audit_2026_05_06.py`. Wired 2026-05-17. | 2026-05-17 |
 | JA-95 | Particle-pattern alignment: for grammar patterns in category "Particles" whose `pattern` field is a single-character particle (は, が, を, etc., ≤ 2 chars), every example's `ja` must contain that particle. BUG-009 lineage. First-run wire-up caught n5-028 ex[5] (の particle) using は instead — fixed inline 2026-05-17 (ja `父は 先生です。` → `わたしの 父は 先生です。`). Wired 2026-05-17. | 2026-05-17 |
+| JA-91 | No NEW cross-pattern `explanation_en` similarity ≥0.85 (Levenshtein-style SequenceMatcher ratio) beyond the 43-pair baseline. BUG-003 contamination guard. Final-unblocked 2026-05-17 with `data/_ja91_baseline.json` carrying the 43 currently-occurring pairs classified into DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2 (each with a per-pair rationale note). JA-91 trips on any NEW similar-explanation pair — typically signaling a fresh pattern was added with explanation_en copied/contaminated from an existing pattern. To register a deliberate cross-ref / variant, add the pair to the baseline with a classification. | 2026-05-17 |
+| JA-94 | Every grammar example's `ja` contains ≥1 structural marker from its parent pattern's marker list in `data/pattern_markers.json` (178-pattern catalog auto-derived by `tools/author_pattern_markers_2026_05_17.py` — covers 99.2% of 1782 examples). The 14 remaining BUG-006-CANDIDATE wrong-example failures are snapshotted in `data/_ja94_baseline.json` with per-entry classification notes. BUG-006 pattern-instance contamination guard. Final-unblocked 2026-05-17. JA-94 trips on any NEW example added that doesn't demonstrate its parent pattern; expand the OVERRIDES table in the authoring tool if the form is genuinely canonical, or rewrite/move the example if it's BUG-006-class wrong. | 2026-05-17 |
 | JA-119 | Spec §7.3 sample `version.json` block (a JSON example shown to developers) must match the live `data/version.json` `counts` field exactly. Cross-Artifact Sync Protocol INV-4 — fifth surface locked alongside JA-47 (CONTENT-LICENSE.md) / JA-107 (version.json) / JA-112 (AUDIO.md) / JA-115 (README.md). Wired after BUG-050 was filed three times against the actual version.json file even though the file was clean — auditor was reading the stale v1.12.50-era sample in the spec (vocab 1041, listening 47, etc.) and mistaking it for current state. | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
@@ -986,8 +990,11 @@ Currently implemented as Phase-0 regression-block scripts in
 | JA-45 | Reserved | — |
 | JA-46 | Reserved | — |
 | JA-80 | (attempted then retired — heuristic meaning_ja substring check had 19 false positives; semantic comparison stays in manual-review domain) | 2026-05-13 |
-| JA-91 | Cross-pattern `explanation_en` similarity (Levenshtein ≥0.85 = contamination candidate). **Partial-promoted then deferred 2026-05-17**: current corpus has 42 pairs of exactly-identical explanations across patterns with related coverage (e.g., n5-014 vs n5-039 both about これ/それ/あれ pronouns). Without a way to mechanically distinguish "intentional cross-pattern" from "accidental contamination", the check would fire on 42 false-positive pairs or need an authored allowlist. Gated on a Japanese-linguistics review pass classifying the 42 pairs. | BUG-003 |
-| JA-94 | Every grammar example contains ≥1 pattern-defining marker (from `data/pattern_markers.json`). **Partial-promoted then deferred 2026-05-17**: requires a `data/pattern_markers.json` file authored by a Japanese-linguistic expert (NOT `_meaning_ja_markers` which describes the meaning explanation, not the syntactic markers a learner needs in every example). For n5-001 (〜です／〜ます) the structural markers would be `['です','ます','でした','ました','じゃありません','ではありません',...]`. ~3-5 hours of authoring per the round-9 audit estimate. | BUG-006 |
+
+**JA-91 + JA-94 final-unblocked 2026-05-17** (moved out of Reserved
+into §25.4):
+- JA-91 — backed by `data/_ja91_baseline.json` (43-pair classification across DUPLICATE_PATTERN ×8 / CROSS_REFERENCE ×21 / ALTERNATIVE_VARIANT ×12 / SUBSET ×2); trips on NEW pairs only.
+- JA-94 — backed by `data/pattern_markers.json` (178-pattern structural-markers catalog authored by `tools/author_pattern_markers_2026_05_17.py`, 99.2% coverage of 1782 examples) + `data/_ja94_baseline.json` (14-example BUG-006-CANDIDATE allowlist).
 
 ### 25.8 Class-and-bug lineage
 
@@ -1033,10 +1040,10 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-120). Reserved slots (JA-42..46, JA-80,
-   JA-91, JA-94) must NOT be reused. (JA-92 / JA-93 / JA-95 / JA-119
-   were wired 2026-05-17; JA-91 + JA-94 stay reserved with specific
-   gating notes — see §25.7.)
+   (currently next free = JA-120). Reserved slots (JA-42..46, JA-80)
+   must NOT be reused. (JA-91 / JA-92 / JA-93 / JA-94 / JA-95 / JA-119
+   were all wired 2026-05-17 — the JA-91..95 range is fully consumed;
+   see §25.4 rows.)
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is
    incomplete.

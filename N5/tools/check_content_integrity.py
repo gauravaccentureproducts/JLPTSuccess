@@ -1219,38 +1219,31 @@ CHECKS: list[tuple[str, str, callable]] = [
     # which scans git log for commit subjects mentioning the BUG-NNN
     # (including range patterns like "BUG-041 through BUG-046").
     ("JA-118", "every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell (INV-9 promotion to Wired, 2026-05-17)", lambda: _check_ja_118_bug_fix_commit_link()),
-    # JA-91..95 (2026-05-17, end-of-session): partial promotion. Of
-    # the 5 reserved slots, 3 are wired now (JA-92 / JA-93 / JA-95);
-    # 2 stay Reserved with specific gating notes:
-    #
-    #   JA-91 — cross-pattern explanation_en similarity ≥0.85: the
-    #     current corpus has 42 pairs of EXACTLY-identical (ratio
-    #     1.000) explanations across patterns that share related
-    #     coverage (e.g., n5-014 vs n5-039 both about これ/それ/あれ
-    #     pronouns). Without a way to mechanically distinguish
-    #     "intentional cross-pattern" from "accidental contamination"
-    #     (the BUG-003 bug class), this check would either fire on
-    #     42 false-positive pairs or need an authored allowlist.
-    #     Deferred until a Japanese-linguistics review pass classifies
-    #     the 42 pairs as intentional-shared vs contamination.
-    #
-    #   JA-94 — pattern-defining-marker presence per example: requires
-    #     a `data/pattern_markers.json` file (NOT `_meaning_ja_markers`
-    #     — those describe the meaning explanation, not the syntactic
-    #     pattern markers a learner needs to see in every example).
-    #     For n5-001 (〜です／〜ます), syntactic markers would be
-    #     ['です', 'ます', 'でした', 'ました', 'じゃありません', '〜で
-    #     はありません', ...] — a structural-markers catalog that
-    #     doesn't currently exist. Author it (Japanese-linguistic
-    #     expertise needed; ~3-5 hours of work per the round-9 audit
-    #     estimate) to unblock JA-94.
-    #
+    # JA-91 (2026-05-17 final unblock): cross-pattern explanation_en
+    # similarity ≥0.85 Levenshtein. Initial wire-up surfaced 43 pairs;
+    # hand-classified into 4 categories (DUPLICATE_PATTERN ×8,
+    # CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2) and
+    # snapshotted in data/_ja91_baseline.json. JA-91 now allowlists
+    # the 43 baseline pairs and trips on any NEW pair that crosses
+    # the threshold (i.e., a fresh pattern with explanation similar
+    # to existing — would be BUG-003 contamination class).
+    ("JA-91", "no NEW cross-pattern explanation_en similarity ≥0.85 beyond the 43-pair baseline in data/_ja91_baseline.json (BUG-003 contamination guard, 2026-05-17 final unblock)", lambda: _check_ja_91_explanation_similarity()),
     # JA-92: no EN sentence repeated in 10+ grammar examples (parallel
     # to JA-81 which catches the JA side; BUG-003/005 lineage).
     ("JA-92", "no EN translation_en repeated in 10+ grammar examples (BUG-003/005 boilerplate guard, 2026-05-17 wire-up)", lambda: _check_ja_92_en_boilerplate()),
     # JA-93: pitch_marks total mora == count_mora(form) per vocab
     # entry (BUG-004 lineage).
     ("JA-93", "vocab.json pitch_marks total mora == count_mora(form) (BUG-004 algorithmic mora-count guard, 2026-05-17 wire-up)", lambda: _check_ja_93_pitch_marks_mora()),
+    # JA-94 (2026-05-17 final unblock): BUG-006 pattern-instance
+    # contamination guard. Every grammar example's `ja` must
+    # contain ≥1 structural marker from its parent pattern's
+    # marker list in data/pattern_markers.json (authored via
+    # tools/author_pattern_markers_2026_05_17.py — 99.2% coverage
+    # of 1782 examples). The remaining 14 BUG-006-CANDIDATE
+    # wrong-example failures are snapshotted in
+    # data/_ja94_baseline.json. JA-94 trips on any NEW pattern-
+    # instance contamination beyond that baseline.
+    ("JA-94", "every grammar example contains ≥1 structural marker from data/pattern_markers.json beyond the 14-example baseline in data/_ja94_baseline.json (BUG-006 pattern-instance contamination guard, 2026-05-17 final unblock)", lambda: _check_ja_94_pattern_marker_per_example()),
     # JA-95: particle-pattern alignment for particle-category patterns
     # (BUG-009 lineage). Every example of a Particles-category pattern
     # must use the pattern's named particle. First-run wire-up surfaced
@@ -5205,54 +5198,6 @@ def _check_ja_106_format_type_enum() -> list[str]:
     return failures
 
 
-def _check_ja_91_explanation_similarity() -> list[str]:
-    """BUG-003 cross-pattern contamination guard (2026-05-17 wire-up).
-
-    For every pair of grammar patterns (i, j), compute SequenceMatcher
-    ratio() on their explanation_en. Flag any pair with ratio ≥ 0.85
-    as a candidate cross-contamination (BUG-003 lineage: an
-    explanation that was copy-pasted between patterns without
-    rewriting).
-
-    Calibrated against current corpus: 0 pairs ≥ 0.85 (verified
-    pre-wire-up). Future patterns that introduce similar text will
-    trip CI immediately.
-
-    Performance: 178 patterns → ~15,750 pairs. SequenceMatcher.
-    quick_ratio() pre-filter brings the count to ~1-3% before the
-    real ratio computation; total ~0.5-1s on stdlib.
-    """
-    import difflib
-    failures: list[str] = []
-    try:
-        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
-    except Exception as e:
-        return [f"JA-91 could not read grammar.json: {e}"]
-    patterns = [(p.get("id"), p.get("explanation_en", ""))
-                for p in g.get("patterns") or []
-                if isinstance(p.get("explanation_en"), str) and p.get("explanation_en", "").strip()]
-    THRESHOLD = 0.85
-    for i in range(len(patterns)):
-        id_i, txt_i = patterns[i]
-        for j in range(i + 1, len(patterns)):
-            id_j, txt_j = patterns[j]
-            sm = difflib.SequenceMatcher(None, txt_i, txt_j, autojunk=False)
-            # Quick filter: if quick_ratio (cheap upper bound) is below
-            # threshold, no chance the real ratio crosses it.
-            if sm.quick_ratio() < THRESHOLD:
-                continue
-            if sm.real_quick_ratio() < THRESHOLD:
-                continue
-            r = sm.ratio()
-            if r >= THRESHOLD:
-                failures.append(
-                    f"JA-91 cross-pattern explanation_en similarity "
-                    f"{id_i} vs {id_j}: ratio={r:.3f} ≥ {THRESHOLD} "
-                    f"(BUG-003 contamination candidate)"
-                )
-    return failures
-
-
 def _check_ja_92_en_boilerplate() -> list[str]:
     """BUG-003/005 boilerplate guard on EN side (2026-05-17 wire-up).
 
@@ -5360,56 +5305,187 @@ def _check_ja_93_pitch_marks_mora() -> list[str]:
 
 
 def _check_ja_94_pattern_marker_per_example() -> list[str]:
-    """BUG-006 pattern-marker guard (2026-05-17 wire-up).
+    """BUG-006 pattern-marker guard (2026-05-17 final unblock).
 
     Every grammar example's `ja` field must contain ≥1 marker from
-    the parent pattern's `_meaning_ja_markers` list (which is
-    populated on all 178 patterns since JA-75's install in
-    cdef185-era commits).
+    its parent pattern's structural-markers list, as catalogued in
+    `data/pattern_markers.json`. Markers are STRUCTURAL (particles,
+    conjugational endings, characteristic tokens) rather than the
+    pre-existing meaning-explanation markers — this is the
+    invariant that BUG-006 deserved.
 
-    BUG-006 caught 10 pattern-instance contamination cases where an
-    example didn't demonstrate its parent pattern; this invariant
-    prevents re-introduction.
+    Authoring pipeline:
+      - `tools/author_pattern_markers_2026_05_17.py` derives markers
+        from each pattern's `pattern` field + category-specific
+        conjugational expansions + per-pattern OVERRIDES, reaching
+        99.2% coverage of the 1782 grammar examples.
+      - The remaining 14 examples (BUG-006-CANDIDATE class — wrong
+        example doesn't demonstrate parent pattern) are snapshotted
+        in `data/_ja94_baseline.json` as an allowlist, with a per-
+        entry note explaining the classification + suggested fix.
 
-    Skips patterns where _meaning_ja_markers is absent (defensive)
-    and examples where the markers are entirely punctuation-only
-    (effectively-empty marker set).
+    JA-94 PASSes against the current corpus. It trips on:
+      (a) a new grammar example added that contains no marker for
+          its parent pattern — usually a copy-paste contamination
+          to fix in the example.
+      (b) a markers-catalog edit that drops a marker still used by
+          an example — fix by re-adding the marker.
+
+    To extend the allowlist (new BUG-006-CANDIDATE found post-
+    snapshot), add a `{pattern_id, ex_index, ja, note}` entry to
+    the baseline; do NOT silently expand pattern_markers.json
+    unless the form is genuinely canonical for the pattern.
     """
     failures: list[str] = []
     try:
         g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
     except Exception as e:
         return [f"JA-94 could not read grammar.json: {e}"]
+    markers_path = ROOT / "data" / "pattern_markers.json"
+    if not markers_path.exists():
+        return [
+            f"JA-94 markers catalog missing: {markers_path}. Run "
+            f"`python tools/author_pattern_markers_2026_05_17.py` "
+            f"from the N5/ directory to (re-)author it."
+        ]
+    try:
+        markers_doc = json.loads(markers_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-94 could not read pattern_markers.json: {e}"]
+    markers_by_pid = markers_doc.get("patterns") or {}
+    baseline_path = ROOT / "data" / "_ja94_baseline.json"
+    if not baseline_path.exists():
+        return [
+            f"JA-94 baseline file missing: {baseline_path}. The "
+            f"baseline carries the 14 currently-acceptable "
+            f"BUG-006-CANDIDATE wrong-example failures."
+        ]
+    try:
+        baseline_doc = json.loads(baseline_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-94 could not read baseline: {e}"]
+    baseline_allowlist: set[tuple[str, int]] = set()
+    for entry in baseline_doc.get("baseline_failing_examples") or []:
+        pid = entry.get("pattern_id")
+        idx = entry.get("ex_index")
+        if isinstance(pid, str) and isinstance(idx, int):
+            baseline_allowlist.add((pid, idx))
     for p in g.get("patterns") or []:
-        pid = p.get("id", "?")
-        markers = p.get("_meaning_ja_markers") or []
-        # Filter empty / whitespace markers
+        pid = p.get("id")
+        if not isinstance(pid, str):
+            continue
+        markers = markers_by_pid.get(pid) or []
         markers = [m for m in markers if isinstance(m, str) and m.strip()]
         if not markers:
             continue
-        # Also include the `pattern` field token itself as a marker —
-        # many patterns are identified by particle/structure tokens
-        # that appear directly in examples.
-        pattern_token = p.get("pattern")
-        if isinstance(pattern_token, str) and pattern_token.strip():
-            # Strip 〜 / wildcard chars
-            for m in re.split(r"[／\s]+", pattern_token):
-                m = m.strip().replace("〜", "").replace("～", "")
-                if m and len(m) >= 1:
-                    markers.append(m)
         for i, ex in enumerate(p.get("examples") or []):
             if not isinstance(ex, dict):
                 continue
             ja = ex.get("ja", "")
             if not isinstance(ja, str) or not ja:
                 continue
+            if (pid, i) in baseline_allowlist:
+                continue
             if not any(m in ja for m in markers):
                 failures.append(
-                    f"JA-94 {pid} ex[{i}]: ja={ja[:50]!r} contains "
-                    f"none of the parent pattern's markers "
-                    f"{markers[:6]!r} (BUG-006 pattern-instance "
-                    f"contamination candidate)"
+                    f"JA-94 NEW pattern-instance contamination "
+                    f"{pid} ex[{i}]: ja={ja[:60]!r} contains none "
+                    f"of the parent pattern's structural markers "
+                    f"(first 6: {markers[:6]!r}). Either (a) the "
+                    f"example doesn't demonstrate the parent pattern "
+                    f"— rewrite or move it; or (b) the form is "
+                    f"genuinely canonical but not yet captured — "
+                    f"expand the OVERRIDES table in "
+                    f"tools/author_pattern_markers_2026_05_17.py "
+                    f"and regenerate. To allowlist as a "
+                    f"BUG-006-CANDIDATE, add an entry to "
+                    f"data/_ja94_baseline.json (with a note)."
                 )
+    return failures
+
+
+def _check_ja_91_explanation_similarity() -> list[str]:
+    """BUG-003 cross-pattern contamination guard (2026-05-17 final unblock).
+
+    For every pair of grammar patterns (i, j), compute SequenceMatcher
+    ratio() on their explanation_en. Pairs with ratio ≥ 0.85 are
+    candidates for contamination.
+
+    The 2026-05-17 audit classified the corpus's 43 currently-occurring
+    pairs into:
+      DUPLICATE_PATTERN ×8 (same concept, two IDs)
+      CROSS_REFERENCE ×21 (one pattern defers to another)
+      ALTERNATIVE_VARIANT ×12 (register / dialect / syntactic variants)
+      SUBSET ×2 (one pattern subset of another's coverage)
+
+    All 43 are baselined in data/_ja91_baseline.json. JA-91 PASSes
+    on the current corpus by allowlisting them. It trips on any
+    NEW pair that wasn't in the baseline — typically signaling a
+    fresh pattern was added with explanation_en copied/contaminated
+    from an existing pattern.
+
+    To add a new pattern with a known-intentional similarity to an
+    existing one, add the (pattern_a, pattern_b) tuple to the
+    baseline AND classify it (see _meta.classification_legend in
+    the baseline file).
+    """
+    import difflib
+    failures: list[str] = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-91 could not read grammar.json: {e}"]
+    # Load baseline allowlist
+    baseline_path = ROOT / "data" / "_ja91_baseline.json"
+    if not baseline_path.exists():
+        return [
+            f"JA-91 baseline file missing: {baseline_path}. Either "
+            f"author it (see _meta in similar baseline files) or "
+            f"disable JA-91 registry entry. The baseline carries the "
+            f"43 currently-acceptable similarity pairs and their "
+            f"classification."
+        ]
+    try:
+        baseline_data = json.loads(baseline_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-91 could not read baseline: {e}"]
+    # Normalize each pair to a frozenset of (a, b) for order-independent
+    # membership testing
+    baseline_pairs = set()
+    for entry in baseline_data.get("baseline_pairs") or []:
+        pair = entry.get("pair") or []
+        if len(pair) == 2:
+            baseline_pairs.add(frozenset(pair))
+    patterns = [(p.get("id"), p.get("explanation_en", ""))
+                for p in g.get("patterns") or []
+                if isinstance(p.get("explanation_en"), str) and p.get("explanation_en", "").strip()]
+    THRESHOLD = 0.85
+    for i in range(len(patterns)):
+        id_i, txt_i = patterns[i]
+        for j in range(i + 1, len(patterns)):
+            id_j, txt_j = patterns[j]
+            sm = difflib.SequenceMatcher(None, txt_i, txt_j, autojunk=False)
+            if sm.quick_ratio() < THRESHOLD:
+                continue
+            if sm.real_quick_ratio() < THRESHOLD:
+                continue
+            r = sm.ratio()
+            if r < THRESHOLD:
+                continue
+            # Check baseline
+            if frozenset([id_i, id_j]) in baseline_pairs:
+                continue
+            failures.append(
+                f"JA-91 NEW cross-pattern explanation_en similarity "
+                f"{id_i} vs {id_j}: ratio={r:.3f} ≥ {THRESHOLD}. "
+                f"Either (a) the new pattern is a legitimate "
+                f"cross-ref / variant of an existing one — add the "
+                f"pair to data/_ja91_baseline.json with classification "
+                f"(DUPLICATE_PATTERN / CROSS_REFERENCE / "
+                f"ALTERNATIVE_VARIANT / SUBSET), or (b) the new "
+                f"pattern's explanation accidentally duplicates an "
+                f"existing one — rewrite the explanation."
+            )
     return failures
 
 

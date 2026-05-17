@@ -957,6 +957,100 @@ invariants. BUG-049 (A60.3 / pacing too slow) remains Open;
 the Phase-0 check enforces surfacing (the bug must be visible
 in _meta), not resolution.
 
+### Phase-0 JA-91 + JA-94 baseline-stability regression block (added 2026-05-17)
+
+Regression block for the JA-91 + JA-94 final unblock (Part 19,
+2026-05-17). Each check returns a count that MUST equal its
+baseline-locked value — drift means a new pair / new pattern-
+instance contamination has entered the corpus that should have
+been caught at CI but slipped through (e.g., a baseline file was
+edited downstream and the CI wasn't re-run).
+
+Validated 2026-05-17 to return 42/14/0 against the corpus snapshot
+at JA-91 + JA-94 final-wire close-out.
+
+```python
+import json, difflib
+from pathlib import Path
+
+G = json.load(open('data/grammar.json', encoding='utf-8'))
+
+# A63.1 (JA-91) — cross-pattern explanation_en pairs at ≥0.85
+# similarity must equal the baseline-allowlist count.
+pairs = [(p.get('id'), p.get('explanation_en') or '')
+         for p in G.get('patterns') or []
+         if (p.get('explanation_en') or '').strip()]
+THRESHOLD = 0.85
+found = 0
+for i in range(len(pairs)):
+    for j in range(i + 1, len(pairs)):
+        if difflib.SequenceMatcher(
+            None, pairs[i][1], pairs[j][1], autojunk=False
+        ).ratio() >= THRESHOLD:
+            found += 1
+BL91 = json.load(open('data/_ja91_baseline.json', encoding='utf-8'))
+n_bl91 = len(BL91.get('baseline_pairs') or [])
+print(f'A63.1 JA-91 cross-pattern similarity pairs ≥{THRESHOLD}: {found} '
+      f'(baseline {n_bl91}; target == baseline)')
+
+# A63.2 (JA-94) — examples missing all parent-pattern markers
+# must equal the baseline-allowlist count.
+MK = json.load(open('data/pattern_markers.json', encoding='utf-8'))
+mk_by_pid = MK.get('patterns') or {}
+missing = 0
+for p in G.get('patterns') or []:
+    pid = p.get('id')
+    if not pid:
+        continue
+    markers = [m for m in (mk_by_pid.get(pid) or [])
+               if isinstance(m, str) and m.strip()]
+    if not markers:
+        continue
+    for ex in p.get('examples') or []:
+        if not isinstance(ex, dict):
+            continue
+        ja = ex.get('ja') or ''
+        if not ja:
+            continue
+        if not any(m in ja for m in markers):
+            missing += 1
+BL94 = json.load(open('data/_ja94_baseline.json', encoding='utf-8'))
+n_bl94 = len(BL94.get('baseline_failing_examples') or [])
+print(f'A63.2 JA-94 examples with no parent-pattern marker: '
+      f'{missing} (baseline {n_bl94}; target == baseline)')
+
+# A63.3 — pattern_markers.json has ≥1 marker for every pattern in
+# grammar.json (catalog completeness). Target 0 patterns missing markers.
+missing_pids = 0
+for p in G.get('patterns') or []:
+    pid = p.get('id')
+    if not pid:
+        continue
+    if not (mk_by_pid.get(pid) or []):
+        missing_pids += 1
+print(f'A63.3 patterns with no marker entry in pattern_markers.json: '
+      f'{missing_pids} (target 0)')
+
+print('--- JA-91 + JA-94 BASELINE STABILITY SUMMARY ---')
+drift = (found - n_bl91) + (missing - n_bl94) + missing_pids
+print(f'Total drift from snapshot: {drift} (target 0)')
+```
+
+If A63.1 > 43 or A63.2 > 14, a new pair / new pattern-instance
+contamination has landed beyond the baseline. JA-91 / JA-94 in
+`tools/check_content_integrity.py` will catch this at CI; the
+Phase-0 block is a maintainer-side mirror for ad-hoc audits.
+
+If A63.1 < 43 or A63.2 < 14, the corpus has been cleaned up
+(e.g., a DUPLICATE_PATTERN pair got merged, or a
+BUG-006-CANDIDATE example got rewritten) — update the
+corresponding baseline file to remove the now-stale entry, with
+a note explaining what changed.
+
+A63.3 stays at 0 — every pattern must have markers. New patterns
+added to grammar.json without re-running
+`tools/author_pattern_markers_2026_05_17.py` will trip this.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

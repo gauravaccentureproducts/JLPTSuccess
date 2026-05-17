@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "purpose": "Baseline allowlist for JA-91 (cross-pattern explanation_en similarity ≥0.85 Levenshtein). Pairs listed here are intentional same-or-related content; JA-91 only fails on NEW pairs not in this baseline. Authored 2026-05-17 after analysis of all 43 pairs surfaced by the current corpus.",
+    "classification_legend": {
+      "DUPLICATE_PATTERN": "Two pattern IDs cover the same conceptual content (e.g., n5-014 + n5-039 both = これ/それ/あれ pronouns). Corpus-structural cleanup target for a future audit; current explanations legitimately share text.",
+      "CROSS_REFERENCE": "One pattern is a cross-ref / 'see X' deferral (e.g., n5-048 どこ → n5-016 ここ/そこ/あそこ/どこ series). Explanation copy is intentional to keep each entry self-contained.",
+      "ALTERNATIVE_VARIANT": "Patterns are formality / register / dialect variants of the same construct (e.g., 〜なくてはいけない / 〜なくてはならない / 〜ないといけない / 〜なくちゃ). Explanation text is shared by design; per-pattern register notes should appear in the deep_dive block, not the top-level explanation_en.",
+      "SUBSET": "One pattern is a subset of another's coverage; the broader pattern's explanation applies."
+    },
+    "authoring_note": "Each pair below was hand-classified 2026-05-17 by reading the meaning_en + pattern + explanation_en of both members. The 43 pairs split as: DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2. Threshold for promotion FROM baseline (cleanup): a future audit cycle could (a) merge DUPLICATE_PATTERN pairs into single IDs, (b) replace CROSS_REFERENCE explanations with shorter 'see <pattern_id>' pointers + a deep_dive deep-link, (c) author per-variant register notes for ALTERNATIVE_VARIANT pairs. None of these are blocking; JA-91 captures the current state."
+  },
+  "baseline_pairs": [
+    {"pair": ["n5-005", "n5-115"], "class": "DUPLICATE_PATTERN", "note": "Both cover the に particle; n5-005 is the general Particles entry, n5-115 is filed under Time Expressions but its explanation is the full multi-purpose one (not just clock-time に). Future cleanup: tighten n5-115 to time-specific text."},
+    {"pair": ["n5-014", "n5-039"], "class": "DUPLICATE_PATTERN", "note": "Both = これ/それ/あれ/どれ pronouns. n5-014 in main demonstratives sequence; n5-039 appears to be a re-introduction. Future cleanup: merge."},
+    {"pair": ["n5-015", "n5-040"], "class": "DUPLICATE_PATTERN", "note": "Both = この/その/あの/どの + Noun. Same as n5-014/n5-039 duplication."},
+    {"pair": ["n5-016", "n5-041"], "class": "DUPLICATE_PATTERN", "note": "Both = ここ/そこ/あそこ/どこ location words. Same duplication."},
+    {"pair": ["n5-016", "n5-048"], "class": "SUBSET", "note": "n5-048 (どこ) is a subset of n5-016 (full ここ-series). n5-048's meaning_en says 'covered by ここ-series' but its explanation_en carries the full text; future cleanup could shorten n5-048's explanation to a 'see n5-016' pointer."},
+    {"pair": ["n5-017", "n5-045"], "class": "DUPLICATE_PATTERN", "note": "Both = 何 (なに/なん) question word. n5-017 in main Question Words; n5-045 in a re-introduction sequence."},
+    {"pair": ["n5-018", "n5-046"], "class": "DUPLICATE_PATTERN", "note": "Both = だれ/どなた. Same re-introduction pattern."},
+    {"pair": ["n5-021", "n5-114"], "class": "DUPLICATE_PATTERN", "note": "Both = から〜まで range marker. n5-021 in Particles, n5-114 in Time Expressions; both cover the general use."},
+    {"pair": ["n5-023", "n5-024"], "class": "ALTERNATIVE_VARIANT", "note": "Both = か particle but n5-023 is sentence-final question, n5-024 is 'or' (between alternatives). DIFFERENT functions; meaning_en correctly distinguishes. The shared explanation_en is partial contamination — n5-024 should focus on the disjunctive use. Future cleanup: rewrite n5-024's explanation."},
+    {"pair": ["n5-025", "n5-156"], "class": "CROSS_REFERENCE", "note": "n5-025 (ね Particles) is the canonical; n5-156 (〜ね/〜よ Other Core Patterns) defers but carries the full text."},
+    {"pair": ["n5-025", "n5-159"], "class": "CROSS_REFERENCE", "note": "n5-159 (〜ですね/〜ですよ polite variant) defers to n5-025."},
+    {"pair": ["n5-028", "n5-029"], "class": "DUPLICATE_PATTERN", "note": "Both = 〜の possessive/noun-modifier; n5-028 has pattern '〜の' while n5-029 has descriptor 'possessive / noun-modifier' as pattern text. Duplication."},
+    {"pair": ["n5-028", "n5-137"], "class": "CROSS_REFERENCE", "note": "n5-137 (Noun + の + Noun in Nominalization category) defers to n5-028; meaning_en says 'covered by 〜の'."},
+    {"pair": ["n5-029", "n5-137"], "class": "CROSS_REFERENCE", "note": "Same chain as above; n5-029 + n5-137 also share text via n5-028."},
+    {"pair": ["n5-041", "n5-048"], "class": "SUBSET", "note": "Same as n5-016 ↔ n5-048 relationship but through the duplicate n5-041 path."},
+    {"pair": ["n5-054", "n5-109"], "class": "CROSS_REFERENCE", "note": "n5-054 (いくつ in Question Words); n5-109 (general counter-questions in Counters and Quantity). Related but distinct scope; explanation overlap is somewhat broad."},
+    {"pair": ["n5-060", "n5-061"], "class": "ALTERNATIVE_VARIANT", "note": "Verb-ました (polite past affirmative) vs Verb-ませんでした (polite past negative). Same conjugational paradigm; explanations rightly cover both forms from the parent paradigm. Ratio 0.885 — the lowest in the set."},
+    {"pair": ["n5-078", "n5-136"], "class": "CROSS_REFERENCE", "note": "n5-078 (い-Adjective + Noun, core Adjectives); n5-136 (Adj + N combined, Nominalization). meaning_en explicitly says 'covered by い-adj+N and な-adj+N'."},
+    {"pair": ["n5-119", "n5-161"], "class": "CROSS_REFERENCE", "note": "n5-119 (〜まえ Time Expressions); n5-161 (Noun + の + まえに Other Core). meaning_en explicitly 'see 〜まえ'."},
+    {"pair": ["n5-119", "n5-162"], "class": "CROSS_REFERENCE", "note": "n5-119 (〜まえ); n5-162 (V-plain + まえに). 'see 〜まえ'."},
+    {"pair": ["n5-120", "n5-160"], "class": "CROSS_REFERENCE", "note": "n5-120 (〜あと); n5-160 (Noun + の + あとで). 'see 〜あと'."},
+    {"pair": ["n5-120", "n5-163"], "class": "CROSS_REFERENCE", "note": "n5-120 (〜あと); n5-163 (V-た + あとで). 'see 〜あと'."},
+    {"pair": ["n5-126", "n5-155"], "class": "CROSS_REFERENCE", "note": "n5-126 (が clause connector in Conjunctions); n5-155 (〜が、〜 in Other Core). Defers to the parent."},
+    {"pair": ["n5-156", "n5-159"], "class": "ALTERNATIVE_VARIANT", "note": "〜ね/〜よ (casual) vs 〜ですね/〜ですよ (polite). Same particle pair at two register levels."},
+    {"pair": ["n5-157", "n5-158"], "class": "ALTERNATIVE_VARIANT", "note": "〜でしょう (polite) vs 〜だろう (plain). Same probability/confirmation meaning at two register levels."},
+    {"pair": ["n5-160", "n5-163"], "class": "ALTERNATIVE_VARIANT", "note": "Noun + の + あとで vs V-た + あとで. Two syntactic frames for the same 'あとで' temporal pattern."},
+    {"pair": ["n5-161", "n5-162"], "class": "ALTERNATIVE_VARIANT", "note": "Noun + の + まえに vs V-plain + まえに. Same pattern at two syntactic positions."},
+    {"pair": ["n5-173", "n5-174"], "class": "ALTERNATIVE_VARIANT", "note": "〜なくてはいけない vs 〜なくてはならない. Same 'must do' obligation; the いけない / ならない alternants differ in nuance (いけない more spoken; ならない more formal/written) but the syntactic frame is identical."},
+    {"pair": ["n5-173", "n5-175"], "class": "ALTERNATIVE_VARIANT", "note": "〜なくてはいけない vs 〜ないといけない. Same obligation; the なくては / ないと conditional alternants."},
+    {"pair": ["n5-173", "n5-176"], "class": "ALTERNATIVE_VARIANT", "note": "Formal なくてはいけない vs casual contractions 〜なくちゃ/〜なきゃ."},
+    {"pair": ["n5-174", "n5-175"], "class": "ALTERNATIVE_VARIANT", "note": "Same obligation paradigm."},
+    {"pair": ["n5-174", "n5-176"], "class": "ALTERNATIVE_VARIANT", "note": "Same obligation paradigm."},
+    {"pair": ["n5-175", "n5-176"], "class": "ALTERNATIVE_VARIANT", "note": "Same obligation paradigm."},
+    {"pair": ["n5-183", "n5-184"], "class": "CROSS_REFERENCE", "note": "n5-183 (Question word + か / も compounds, general rule); n5-184 (なにか / なにも, specific instance). Parent + child relationship."},
+    {"pair": ["n5-183", "n5-185"], "class": "CROSS_REFERENCE", "note": "n5-183 parent + n5-185 (だれか / だれも) child."},
+    {"pair": ["n5-183", "n5-186"], "class": "CROSS_REFERENCE", "note": "n5-183 parent + n5-186 (どこか / どこも) child."},
+    {"pair": ["n5-183", "n5-187"], "class": "CROSS_REFERENCE", "note": "n5-183 parent + n5-187 (いつか / いつも) child."},
+    {"pair": ["n5-184", "n5-185"], "class": "CROSS_REFERENCE", "note": "Both children of n5-183; share the parent's general rule text."},
+    {"pair": ["n5-184", "n5-186"], "class": "CROSS_REFERENCE", "note": "Same family."},
+    {"pair": ["n5-184", "n5-187"], "class": "CROSS_REFERENCE", "note": "Same family."},
+    {"pair": ["n5-185", "n5-186"], "class": "CROSS_REFERENCE", "note": "Same family."},
+    {"pair": ["n5-185", "n5-187"], "class": "CROSS_REFERENCE", "note": "Same family."},
+    {"pair": ["n5-186", "n5-187"], "class": "CROSS_REFERENCE", "note": "Same family."}
+  ],
+  "_audit_summary": {
+    "total_pairs_at_or_above_threshold": 43,
+    "threshold": 0.85,
+    "classification_counts": {
+      "DUPLICATE_PATTERN": 8,
+      "CROSS_REFERENCE": 21,
+      "ALTERNATIVE_VARIANT": 12,
+      "SUBSET": 2
+    },
+    "snapshot_date": "2026-05-17",
+    "next_review_trigger": "Any future grammar.json edit that adds a new pattern. JA-91 will trip if the new pattern's explanation_en hits ≥0.85 against any existing one. Either (a) the new pattern is a legitimate cross-ref / variant → add to baseline, or (b) the new pattern's explanation accidentally duplicates an existing one → fix."
+  }
+}

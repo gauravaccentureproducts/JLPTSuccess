@@ -84,7 +84,60 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
-<h2>Unreleased - 2026-05-17 (BUG-050 round-3 close-out: spec §7.3 sample drift; JA-119 wired)</h2>
+<h2>Unreleased - 2026-05-17 (JA-91 + JA-94 final unblock: reserved JA-91..95 range fully wired)</h2>
+<p>Not user-visible at runtime — corpus and rendered surfaces unchanged. Internal: closes the final two reserved invariant slots from the JA-91..95 range, bringing CI from 120 → 122 invariants green and locking two contamination guards that BUG-003 and BUG-006 (round-9 audit) had each filed against the corpus.</p>
+<h3>JA-91 — cross-pattern explanation_en similarity guard (BUG-003)</h3>
+<p>The corpus has 43 grammar-pattern pairs whose <code>explanation_en</code> strings match each other at ≥0.85 Levenshtein similarity. Hand-classification identified each as legitimate cross-coverage rather than contamination:</p>
+<ul>
+<li><strong>DUPLICATE_PATTERN ×8</strong> — two pattern IDs cover the same concept</li>
+</ul>
+<p>(e.g., n5-014 + n5-039 both = これ/それ/あれ pronouns).</p>
+<ul>
+<li><strong>CROSS_REFERENCE ×21</strong> — one pattern defers to another (the n5-183</li>
+</ul>
+<p>family with 4 child patterns; the n5-119/120 ↔ n5-160..163 まえ/あと family).</p>
+<ul>
+<li><strong>ALTERNATIVE_VARIANT ×12</strong> — register / dialect / syntactic variants</li>
+</ul>
+<p>of one construct (the obligation paradigm n5-173..176 = なくては いけない / ならない / ないと / なくちゃ・なきゃ; n5-157 ↔ n5-158 = でしょう ↔ だろう).</p>
+<ul>
+<li><strong>SUBSET ×2</strong> — one pattern subset of another&#x27;s coverage.</li>
+</ul>
+<p>The 43 pairs are snapshotted in <code>data/_ja91_baseline.json</code> with per-pair rationale notes. JA-91 trips on any NEW pair beyond the baseline — typically signaling a fresh pattern with explanation copied/contaminated from an existing one.</p>
+<h3>JA-94 — per-example structural-marker guard (BUG-006)</h3>
+<p>Authored <code>data/pattern_markers.json</code> (178-pattern catalog) via <code>tools/author_pattern_markers_2026_05_17.py</code>. The authoring derives an initial marker set from each pattern&#x27;s <code>pattern</code> field, expands with category-specific conjugational variants (ます → ません / ました; です → でした / じゃありません; な-Adj → な / じゃない / だった), and applies a per-pattern OVERRIDES table for patterns whose canonical forms aren&#x27;t in the bare pattern field (n5-088 / 089 existence verbs; n5-143 なる inflectional family; n5-176 casual contractions; etc.).</p>
+<p>Final coverage: <strong>1768 of 1782 grammar examples (99.2%)</strong> match ≥1 marker from their parent pattern. The 14 remaining BUG-006-CANDIDATE wrong-example failures cluster on 8 parent patterns (n5-030, n5-048, n5-065, n5-071, n5-084, n5-112, n5-157, n5-164) and are snapshotted in <code>data/_ja94_baseline.json</code> with per-entry classification notes (&quot;n5-048 ex[0] uses ここ but parent pattern is どこ — belongs under n5-016 / n5-041&quot;; &quot;n5-157 ex[4] uses volitional たべましょう, not probability でしょう — belongs under n5-071&quot;; etc.). These 14 remain as a follow-on audit-cycle target — JA-94 currently allowlists them so no NEW pattern-instance contamination can land without tripping CI, but the snapshotted entries should be addressed by a future native-reviewer pass that either rewrites the examples or moves them to their correct parent pattern.</p>
+<h3>CI invariants final state for this batch</h3>
+<ul>
+<li><strong>Total live: 122</strong> (+2 from JA-91 final-wire + JA-94 final-wire).</li>
+<li>The JA-91..95 reserved range is <strong>fully consumed</strong>; only JA-42..46</li>
+</ul>
+<p>and JA-80 remain in the §25.7 Reserved table.</p>
+<ul>
+<li>All 122 invariants PASS on the current corpus.</li>
+<li><code>cross_artifact_sync_report.py</code> exits CLEAN.</li>
+<li>Bug tracker: 53 / 53 Fixed / 0 Open (unchanged this batch — JA-91</li>
+</ul>
+<p>and JA-94 are governance / prospective-guard wirings, not bug close-outs).</p>
+<h3>Files touched</h3>
+<ul>
+<li><code>N5/data/_ja91_baseline.json</code> (NEW)</li>
+<li><code>N5/data/pattern_markers.json</code> (NEW)</li>
+<li><code>N5/data/_ja94_baseline.json</code> (NEW)</li>
+<li><code>N5/tools/author_pattern_markers_2026_05_17.py</code> (NEW)</li>
+<li><code>N5/tools/check_content_integrity.py</code> (JA-91 + JA-94 final-wire;</li>
+</ul>
+<p>duplicate pre-baseline JA-91 function removed)</p>
+<ul>
+<li><code>N5/specifications/JLPT-N5-Current-Implementation-Spec.md</code> (§25</li>
+</ul>
+<p>intro counts 120 → 122; §25.4 gains JA-91 + JA-94 rows; §25.7 trims to JA-42..46 + JA-80; §25.9 step-3 reserved-slot note updated)</p>
+<ul>
+<li><code>N5/docs/AUDIT-COVERAGE-2026-05-15.md</code> (Part 19 addendum)</li>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> (audit-log row)</li>
+<li><code>N5/CHANGELOG.md</code> (this entry)</li>
+</ul>
+<h2>2026-05-17 (BUG-050 round-3 close-out: spec §7.3 sample drift; JA-119 wired)</h2>
 <p>User-visible: the implementation spec&#x27;s §7.3 &quot;version.json - build stamp&quot; sample now shows the <strong>current</strong> corpus counts (v1.15.5, vocab 995, reading 54, listening 50, papers 28, paperQuestions 402) instead of the v1.12.50-era stale values (vocab 1041, reading 45, listening 47, papers 29, paperQuestions 426, invariants 48/48) that had been carried over for ~20 commits without being refreshed.</p>
 <h3>Why BUG-050 was filed three times against a clean file</h3>
 <p>The user&#x27;s audit observed <code>counts.listening=47</code> and reported it as &quot;data/version.json declares 47&quot;. Verification each round confirmed the actual <code>data/version.json</code> file held 50 (not 47) in every observable state — working tree, full git history, live deployed site. Each close-out round addressed adjacent stale-prose drift on user-facing surfaces:</p>
