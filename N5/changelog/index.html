@@ -84,6 +84,81 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (Pending batch 3: INV-6 / INV-7 / INV-9 → Wired; JA-116/117/118 + Fix Commit back-fill)</h2>
+<p>Governance / CI release. No user-visible changes. Promotes the last three &quot;Partial&quot; Cross-Artifact Sync Protocol invariants to <strong>Wired</strong>. With these three wire-ups, <strong>6 of 10 INV-N classes are now hard-enforced at CI</strong>; the remaining 3 are pure commit-time tooling (pre-commit hooks / PR-title parsers — outside the corpus-content CI domain); 1 stays out of scope (no API).</p>
+<h3>JA-116 — INV-6 promotion: prompts ↔ xlsx coverage check</h3>
+<p>Every A-NN audit category, every Phase-0 regression block, and every FP-NN false-positive class in <code>N5/prompts/*</code> must have ≥1 matching xlsx scenario row. The check auto-extracts the structured items from the prompt sources and word-boundary-searches the xlsx (all 14 specialist tabs + scenarios + notes + tools columns).</p>
+<p><strong>Real drift caught on first run:</strong> A5 (&quot;Wrong kanji usage&quot;) had no matching xlsx row. Root cause: the b466293 prompt↔xlsx sync used substring-match (<code>&quot;A5&quot; in &quot;A55&quot;</code> → True), so when prior commits had already mentioned &quot;A55&quot; / &quot;A50&quot; / etc., A5 was falsely skipped. Fixed inline in this commit: A-115 scenario added to tab A; the sync script&#x27;s match logic upgraded from substring to word-boundary regex so re-runs are safe.</p>
+<h3>JA-117 — INV-7 extension: passage_id / pattern_id cross-corpus refs</h3>
+<p>Two cross-corpus reference classes that were previously relying on manual checks:</p>
+<p>- kanji.json <code>entries[<em>].reading_passages[</em>].passage_id</code> → reading.json passage IDs (363 refs) - reading.json <code>passages[<em>].grammar_footnotes[</em>].pattern_id</code> + nested <code>patterns[*].pattern_id</code> → grammar.json pattern IDs (319 refs)</p>
+<p>All 682 references verified to resolve. INV-7 now has 7 wired invariants covering audio / vocab_id / _meta refs / kanji↔vocab form / vocab_preview / meta-mirror freshness / cross-corpus IDs — the canonical cross-file reference fields are fully locked.</p>
+<h3>JA-118 — INV-9 promotion: closed-bug → fix-commit link</h3>
+<p>Every Fixed-status row in the xlsx User Reported Bugs sheet must have a non-empty Fix Commit cell. The check verifies the link; the companion tool <code>tools/populate_bug_fix_commits_2026_05_17.py</code> (also new) scans git log for commit subjects mentioning each BUG-NNN (including range patterns like &quot;BUG-041 through BUG-046&quot; or &quot;BUG-041..046&quot;) and back-fills the column.</p>
+<p>Wire-up state: all 53 Fixed bugs back-filled on this commit with their authoritative fix-commit SHA + ISO date. Future fixes need to set Fix Commit either manually or via re-running the back-fill tool.</p>
+<h3>Cross-Artifact Sync Protocol INV-N state summary (end-of-session)</h3>
+<p>| INV | Description | Status | |---|---|---| | INV-1 | bug-fix touches test or annotates &quot;no test&quot; | Convention only | | INV-2 | spec change references code | Convention only | | INV-3 | code API change updates docs | <strong>Out of scope</strong> (no API) | | INV-4 | data counts ↔ version.json / docs | <strong>Wired</strong> (JA-47 / 107 / 112 / 115) | | INV-5 | UI strings ↔ all locales | <strong>Wired</strong> (JA-108) | | INV-6 | prompts ↔ xlsx coverage | <strong>Wired</strong> (JA-116) ← promoted this commit | | INV-7 | cross-file references resolve | <strong>Wired</strong> (JA-15/17/82/100/105/113/117) ← promoted this commit | | INV-8 | CHANGELOG completeness | Convention only | | INV-9 | closed-bug → fix-commit link | <strong>Wired</strong> (JA-118) ← promoted this commit | | INV-10 | procedure-manual / prompt → script refs | <strong>Wired</strong> (JA-109) |</p>
+<p>Wired: <strong>6</strong> · Convention: <strong>3</strong> · Out of scope: <strong>1</strong>.</p>
+<h3>CI invariants</h3>
+<p>Total live: <strong>116</strong> (was 113; +3 from JA-116 / JA-117 / JA-118). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker: 53 / 53 Fixed / 0 Open (unchanged); all Fix Commit cells populated.</p>
+<h3>Files touched (Rule 5 atomic-commit discipline)</h3>
+<ul>
+<li><code>N5/tools/check_content_integrity.py</code> — JA-116 + JA-117 + JA-118</li>
+</ul>
+<p>check functions + registry entries</p>
+<ul>
+<li><code>N5/tools/populate_bug_fix_commits_2026_05_17.py</code> (NEW) — git-log</li>
+</ul>
+<p>scanner + xlsx column-fill tool</p>
+<ul>
+<li><code>N5/tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py</code> —</li>
+</ul>
+<p>substring → word-boundary match fix (the bug that hid A5)</p>
+<ul>
+<li><code>N5/tools/cross_artifact_sync_report.py</code> — INV_MAPPING updated</li>
+</ul>
+<p>with all wired/convention/OOS counts post-promotions</p>
+<ul>
+<li><code>N5/specifications/test-scenarios-by-specialist-perspective.xlsx</code></li>
+</ul>
+<p>— A-115 scenario row added (the missing A5 coverage); Fix Commit + Fix Date columns added; 53 Fixed bugs back-filled</p>
+<ul>
+<li><code>N5/specifications/JLPT-N5-Current-Implementation-Spec.md</code> — §25.1</li>
+</ul>
+<p>rows for JA-116/117/118; §25.10 INV→JA matrix updated with all promotions; section-header count bumped 113→116; next-free JA-NN = 119; summary text rewritten with end-of-session totals</p>
+<ul>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> — audit-log rows for the 3</li>
+</ul>
+<p>promotions; INV-6 / INV-7 / INV-9 rows updated; &quot;Strategy&quot; section rewritten with end-of-session distribution</p>
+<ul>
+<li><code>N5/CHANGELOG.md</code> — this entry</li>
+<li><code>N5/changelog/index.html</code> — meta-mirror regen (JA-113 would have</li>
+</ul>
+<p>failed without it; the discipline JA-113 enforces, applied)</p>
+<h3>Verification</h3>
+<ul>
+<li>python tools/check_content_integrity.py → PASS all 116 invariants</li>
+<li>python tools/cross_artifact_sync_report.py → EXIT: CLEAN, distribution</li>
+</ul>
+<p>Wired 6 / Partial 0 / Convention 3 / OOS 1</p>
+<ul>
+<li>Bug tracker: 53 / 53 Fixed / 0 Open with 100% Fix Commit coverage</li>
+<li>sync-script idempotent; populate-fix-commits tool idempotent</li>
+</ul>
+<h3>Remaining out-of-reach (this session)</h3>
+<ul>
+<li>INV-1 / INV-2 / INV-8: need git pre-commit hooks or PR-title</li>
+</ul>
+<p>parsers, not corpus-content CI checks. Pure commit-time tooling.</p>
+<ul>
+<li>JA-91..95 reserved slots: gated on <code>pattern_markers.json</code> +</li>
+</ul>
+<p>particle-list data files being authored.</p>
+<ul>
+<li>Audio Phase-2 VOICEVOX re-render at speed_scale=1.00 (cleaner</li>
+</ul>
+<p>audio than the ffmpeg-atempo post-processing from 47d1edc): needs VOICEVOX install on maintainer&#x27;s machine; ~30min.</p>
+<hr>
 <h2>Unreleased - 2026-05-17 (JA-114 + JA-115 wired; README counts corrected)</h2>
 <p>User-visible: the README&#x27;s &quot;Content&quot; section now correctly states <strong>995 vocabulary entries · 54 reading passages · 50 listening items</strong> (was stale at 1041 / 40 / 40 — pre-dedup era values from v1.12.29). Pending- items pass batch 2.</p>
 <h3>What landed</h3>

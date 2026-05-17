@@ -775,7 +775,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-115; gaps for retired / reserved slots) that the
+(JA-1 through JA-118; gaps for retired / reserved slots) that the
 script runs against every release. The script is the source of truth;
 this section is its human-readable index.
 
@@ -794,13 +794,16 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **104 named JA-NN rules** (the runtime
+Currently wired invariants: **107 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 113/113 at this checkpoint, post 2026-05-17 batch which
-added JA-113 (meta-mirror freshness), JA-114 (pacing_status enum),
-JA-115 (README count claims) — extending the INV-4 / INV-7 classes
-to additional surfaces).
+reports 116/116 at this checkpoint, post 2026-05-17 end-of-session
+batch which added JA-116 (INV-6 prompts↔xlsx coverage), JA-117
+(INV-7 passage_id + pattern_id cross-corpus), JA-118 (INV-9 closed-
+bug fix-commit link) — promoting INV-6 / INV-7 / INV-9 from Partial
+to Wired. 6 of 10 INV-N classes now hard-wired; 3 remain
+convention-only (need git pre-commit hooks rather than corpus-content
+CI checks); 1 out of scope (no API).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -932,6 +935,9 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-113 | Meta-route static mirrors (`home/`, `changelog/`, `privacy/`, `notices/`) reflect the latest H1/H2 from their source markdown (README.md / CHANGELOG.md / PRIVACY.md / NOTICES.md). Cross-Artifact Sync Protocol INV-7 extension — derived-mirror freshness vs source. Wired after 3 instances of the meta-route mirror drift class in the 2026-05-17 session. | 2026-05-17 |
 | JA-114 | listening.json `pacing_status ∈ {in_range, too_slow, too_fast, no_audio, unmeasured}` — strict closed enum (BUG-048/049 follow-up). Same class as JA-106 / JA-111 (closed-enum on a corpus field where the value-domain is small and stable). | 2026-05-17 |
 | JA-115 | README.md "Content (current as of ...)" section count claims (`N grammar patterns`, `M vocabulary entries`, `K N5 kanji`, etc.) match live data. Fourth instance of Cross-Artifact Sync Protocol INV-4 class alongside JA-47 (CONTENT-LICENSE.md), JA-107 (version.json), JA-112 (AUDIO.md). | 2026-05-17 |
+| JA-116 | Every A-NN audit category / Phase-0 regression block / FP-NN false-positive class in `N5/prompts/*` has ≥1 matching xlsx scenario row (auto-extracted; word-boundary match). Cross-Artifact Sync Protocol INV-6 promotion to Wired (2026-05-17). | 2026-05-17 |
+| JA-117 | Cross-corpus `passage_id` (kanji.json `entries[*].reading_passages[*].passage_id` → reading.json, 363 refs) + `pattern_id` (reading.json `passages[*].grammar_footnotes[*].pattern_id` + nested, 319 refs → grammar.json) resolve to actual entries. Cross-Artifact Sync Protocol INV-7 extension; promotes INV-7 to Wired. | 2026-05-17 |
+| JA-118 | Every Fixed-status row in xlsx User Reported Bugs has a non-empty Fix Commit cell. Cross-Artifact Sync Protocol INV-9 promotion to Wired (2026-05-17). Companion tool: `tools/populate_bug_fix_commits_2026_05_17.py` (scans git log for commit subjects mentioning each BUG-NNN, supports range patterns). | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -1019,7 +1025,7 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-116). Reserved slots (JA-42..46, JA-80,
+   (currently next free = JA-119). Reserved slots (JA-42..46, JA-80,
    JA-91..95) must NOT be reused.
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is
@@ -1055,17 +1061,16 @@ contract.
 | INV-1 | Bug-fix commit touches a test file or annotates "no test" | Commit-message convention; no pre-commit hook | Convention only |
 | INV-2 | Spec change references corresponding code change; new-field spec adds test | §25.8 lineage table tracks bug-class history | Convention only |
 | INV-3 | Code public-API change updates API docs | N/A — project has no traditional API (static SPA + content corpus) | Out of scope |
-| INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-107** (`version.json.counts` ↔ live data) + **JA-47** (CONTENT-LICENSE.md ↔ live data) | Wired (hard CI) |
+| INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-47** (CONTENT-LICENSE.md), **JA-107** (version.json), **JA-112** (AUDIO.md), **JA-115** (README.md) — 4 user-facing surfaces covered | Wired (hard CI) |
 | INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | Wired (hard CI) |
-| INV-6 | Prompt change includes a regression test of golden output | No hard wiring (LLM-consumed; "golden output" not deterministic) | Convention only |
-| INV-7 | Cross-file references resolve | JA-15 (audio), JA-17 (vocab_id in grammar), JA-82 (_meta.see_also / consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs), **JA-113** (meta-route mirror freshness vs source markdown — added 2026-05-17 after 3 drift instances) | Partial |
-| INV-8 | CHANGELOG entry names every dependent updated | Markdown prose; no parser-side enforcement | Convention only |
-| INV-9 | Closed bug links to fix commit + regression test | §25.8 lineage table; xlsx "User Reported Bugs" Fix Commit column | Partial |
+| INV-6 | Prompt change includes a regression test of golden output | **JA-116** (every A-NN / Phase-0 / FP-NN in prompts has ≥1 matching xlsx scenario row; auto-extracted, asserted at CI) | Wired (hard CI; promoted 2026-05-17 from Convention) |
+| INV-7 | Cross-file references resolve | JA-15 (audio), JA-17 (vocab_id in grammar), JA-82 (_meta.see_also / consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs), JA-113 (meta-mirror freshness), **JA-117** (passage_id kanji↔reading + pattern_id reading↔grammar — 363+319 refs all resolve) | Wired (hard CI; promoted 2026-05-17 from Partial) |
+| INV-8 | CHANGELOG entry names every dependent updated | Markdown prose; needs git pre-commit hook to enforce (outside CI-content domain) | Convention only |
+| INV-9 | Closed bug links to fix commit + regression test | **JA-118** (every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell); companion tool `tools/populate_bug_fix_commits_2026_05_17.py` scans git log to back-fill | Wired (hard CI; promoted 2026-05-17 from Partial) |
 | INV-10 | Procedure-manual / prompt → script references resolve | **JA-109** (scope: N5 prompts + AUDIT-COVERAGE only; cross-level procedure manual excluded because its refs are abstract Nx targets) | Wired (hard CI) |
 
-**Wired (hard CI):** 3 invariants — INV-4 / INV-5 / INV-10.
-**Partial:** 2 — INV-7 / INV-9 (multiple JA-NN cover sub-cases).
-**Convention only:** 4 — INV-1 / INV-2 / INV-6 / INV-8.
+**Wired (hard CI):** 6 invariants — INV-4 / INV-5 / INV-6 / INV-7 / INV-9 / INV-10.
+**Convention only:** 3 — INV-1 / INV-2 / INV-8 (need git pre-commit hooks / PR-title parsers, outside CI-content domain).
 **Out of scope:** 1 — INV-3 (no traditional API).
 
 When a future audit cycle promotes a convention-only INV to a hard

@@ -1194,6 +1194,31 @@ CHECKS: list[tuple[str, str, callable]] = [
     # carried "1041 vocab / 40 reading / 40 listening" against live
     # 995 / 54 / 50 — drift caught and corrected in this same commit.
     ("JA-115", "README.md 'Content' section counts match live data (extends JA-47/107/112 to README surface, 2026-05-17)", lambda: _check_ja_115_readme_counts()),
+    # JA-116 (2026-05-17): Cross-Artifact Sync Protocol INV-6 promotion
+    # Partial → Wired. Every A-NN audit category in the accuracy prompt,
+    # every Phase-0 regression block in N5Improvement, and every FP-NN
+    # false-positive class in the accuracy prompt must have ≥1 matching
+    # xlsx scenario row (named explicitly in any scenario's
+    # Scenario / Notes / Tools column). Prevents prompts↔xlsx drift
+    # that the b466293 bulk sync had to close manually.
+    ("JA-116", "every A-NN / Phase-0 / FP-NN in prompts has ≥1 matching xlsx scenario row (INV-6 promotion to Wired, 2026-05-17)", lambda: _check_ja_116_prompt_xlsx_coverage()),
+    # JA-117 (2026-05-17): Cross-Artifact Sync Protocol INV-7
+    # extension. Every cross-corpus passage_id reference (kanji.json
+    # `.entries[*].reading_passages[*].passage_id`) resolves to a
+    # passage in reading.json; every pattern_id reference (reading.
+    # json `.passages[*].grammar_footnotes[*].pattern_id` + nested
+    # `.patterns[*].pattern_id`) resolves to a pattern in
+    # grammar.json. Promotes the passage_id / pattern_id sub-case of
+    # INV-7 (cross-file references resolve) from Partial → Wired.
+    ("JA-117", "cross-corpus passage_id (kanji↔reading) + pattern_id (reading↔grammar) refs resolve (INV-7 extension, 2026-05-17)", lambda: _check_ja_117_cross_corpus_id_refs()),
+    # JA-118 (2026-05-17): Cross-Artifact Sync Protocol INV-9
+    # promotion Partial → Wired. Every Fixed-status row in the User
+    # Reported Bugs sheet must have a non-empty Fix Commit cell
+    # (commit SHA or explicit "(unattributable)" annotation).
+    # Companion populated via tools/populate_bug_fix_commits_2026_05_17.py
+    # which scans git log for commit subjects mentioning the BUG-NNN
+    # (including range patterns like "BUG-041 through BUG-046").
+    ("JA-118", "every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell (INV-9 promotion to Wired, 2026-05-17)", lambda: _check_ja_118_bug_fix_commit_link()),
     # JA-113 (2026-05-17): meta-route static-mirror freshness check.
     # For each markdown-sourced meta route (home / changelog / privacy /
     # notices), the static-mirror HTML at /N5/<slug>/index.html must
@@ -5130,6 +5155,279 @@ def _check_ja_106_format_type_enum() -> list[str]:
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
             )
+    return failures
+
+
+def _check_ja_118_bug_fix_commit_link() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-9 promotion to Wired (2026-05-17).
+
+    Every Fixed (or Closed) row in the User Reported Bugs sheet must
+    have a non-empty Fix Commit cell. Acceptable values:
+      - A git commit SHA (short or long form)
+      - The explicit annotation "(unattributable)" — used when no
+        commit references the BUG-NNN ID (e.g., bug was filed and
+        closed in the same trackerless session before commits)
+      - Any non-empty string containing "commit", "SHA", or a
+        7+-char hex token (defensive — allows informal references)
+
+    Re-populate via `python tools/populate_bug_fix_commits_2026_05_17.py`
+    which scans git log for commit subjects mentioning each BUG-NNN
+    (including range patterns like "BUG-041 through BUG-046" or
+    "BUG-041..046").
+
+    Skips gracefully if openpyxl is unavailable (CI environment
+    without openpyxl) — a missing dep is not drift.
+    """
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        return []
+    import openpyxl
+    failures: list[str] = []
+    XLSX = ROOT / "specifications" / "test-scenarios-by-specialist-perspective.xlsx"
+    if not XLSX.exists():
+        return [f"JA-118 xlsx missing: {XLSX}"]
+    try:
+        wb = openpyxl.load_workbook(XLSX, read_only=True, data_only=True)
+    except Exception as e:
+        return [f"JA-118 could not open xlsx: {e}"]
+    if "User Reported Bugs" not in wb.sheetnames:
+        return [f"JA-118 'User Reported Bugs' sheet missing"]
+    sh = wb["User Reported Bugs"]
+
+    # Locate columns by header row 3
+    headers = {}
+    for c in range(1, sh.max_column + 1):
+        v = sh.cell(row=3, column=c).value
+        if isinstance(v, str):
+            headers[v.strip()] = c
+    status_col = headers.get("Status")
+    fix_commit_col = headers.get("Fix Commit")
+    if status_col is None:
+        return [f"JA-118 'Status' header not found in xlsx"]
+    if fix_commit_col is None:
+        return [f"JA-118 'Fix Commit' header not found in xlsx — run "
+                f"tools/populate_bug_fix_commits_2026_05_17.py to add it"]
+
+    for r in range(4, sh.max_row + 1):
+        bid = sh.cell(row=r, column=1).value
+        if not bid:
+            continue
+        status = sh.cell(row=r, column=status_col).value
+        if status not in ("Fixed", "Closed"):
+            continue
+        commit_cell = sh.cell(row=r, column=fix_commit_col).value
+        if not commit_cell or (isinstance(commit_cell, str) and not commit_cell.strip()):
+            # Resolve bug ID
+            if isinstance(bid, str) and bid.startswith("="):
+                bid_resolved = f"BUG-{r-3:03d}"
+            else:
+                bid_resolved = str(bid)
+            failures.append(
+                f"JA-118 {bid_resolved}: Status={status!r} but Fix Commit "
+                f"is empty. Run `python tools/populate_bug_fix_commits_"
+                f"2026_05_17.py` to back-fill, or set explicitly."
+            )
+    return failures
+
+
+def _check_ja_117_cross_corpus_id_refs() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-7 extension (2026-05-17).
+
+    Two cross-corpus reference classes were previously relying on
+    manual checks:
+
+      - kanji.json `.entries[*].reading_passages[*].passage_id` →
+        reading.json passage IDs (363 refs)
+      - reading.json `.passages[*].grammar_footnotes[*].pattern_id`
+        + nested `.patterns[*].pattern_id` → grammar.json pattern IDs
+        (319 refs)
+
+    JA-117 verifies every such reference resolves to an actual entry
+    in the target corpus. Companion to JA-15 (audio refs), JA-17
+    (vocab_id in grammar examples), JA-82 (_meta.see_also /
+    consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview
+    refs), JA-113 (mirror freshness vs source) — six wired
+    invariants now under INV-7.
+
+    INV-7 promoted to Wired (fully covered for the canonical
+    cross-corpus reference fields).
+    """
+    failures: list[str] = []
+    try:
+        k_data = json.loads((ROOT / "data" / "kanji.json").read_text(encoding="utf-8"))
+        r_data = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+        g_data = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-117 could not read corpus files: {e}"]
+
+    reading_ids = {p.get("id") for p in r_data.get("passages") or [] if p.get("id")}
+    pattern_ids = {p.get("id") for p in g_data.get("patterns") or [] if p.get("id")}
+
+    # Pass 1: kanji.json passage_id → reading.json
+    for entry in k_data.get("entries") or []:
+        glyph = entry.get("glyph", "?")
+        for rp in entry.get("reading_passages") or []:
+            if not isinstance(rp, dict):
+                continue
+            pid = rp.get("passage_id")
+            if pid is None:
+                continue
+            if pid not in reading_ids:
+                failures.append(
+                    f"JA-117 kanji.json entry '{glyph}' references "
+                    f"reading passage_id {pid!r} which does not exist "
+                    f"in reading.json"
+                )
+
+    # Pass 2: reading.json pattern_id → grammar.json
+    for passage in r_data.get("passages") or []:
+        rid = passage.get("id", "?")
+        for fn in passage.get("grammar_footnotes") or []:
+            if not isinstance(fn, dict):
+                continue
+            # Direct .pattern_id
+            pid = fn.get("pattern_id")
+            if pid is not None and pid not in pattern_ids:
+                failures.append(
+                    f"JA-117 reading.json passage '{rid}' grammar_footnote "
+                    f"references pattern_id {pid!r} which does not exist "
+                    f"in grammar.json"
+                )
+            # Nested .patterns[*].pattern_id
+            for sub in fn.get("patterns") or []:
+                if not isinstance(sub, dict):
+                    continue
+                pid2 = sub.get("pattern_id")
+                if pid2 is not None and pid2 not in pattern_ids:
+                    failures.append(
+                        f"JA-117 reading.json passage '{rid}' grammar_"
+                        f"footnote.patterns[] references pattern_id "
+                        f"{pid2!r} which does not exist in grammar.json"
+                    )
+    return failures
+
+
+def _check_ja_116_prompt_xlsx_coverage() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-6 promotion to Wired (2026-05-17).
+
+    Every structured item in N5/prompts/ — A-NN audit category in the
+    accuracy prompt, Phase-0 regression block in N5Improvement, FP-NN
+    false-positive class in the accuracy prompt — must be named in
+    ≥1 scenario row of the test-scenarios xlsx (anywhere in any tab's
+    Scenario / Notes / Tools columns; case-insensitive substring).
+
+    The b466293 sync (2026-05-17) added 134 scenarios to cover every
+    such item; this invariant prevents the coverage from drifting
+    when prompts are extended in future audit cycles. New A-NN or
+    new Phase-0 block must come with a scenario row added in the
+    same commit.
+
+    Tries openpyxl import; if unavailable (CI environment without
+    openpyxl) the check skips gracefully — a missing dep is not
+    drift.
+    """
+    try:
+        import openpyxl  # noqa: F401
+    except ImportError:
+        return []
+
+    import openpyxl
+    failures: list[str] = []
+
+    # Extract the structured items from the prompts
+    accuracy = (ROOT / "prompts" / "Japanese language Accuracy check.txt")
+    improvement = (ROOT / "prompts" / "N5Improvement.txt")
+    if not accuracy.exists() or not improvement.exists():
+        return [f"JA-116 prompts directory missing one of the required files"]
+
+    try:
+        acc_text = accuracy.read_text(encoding="utf-8")
+        imp_text = improvement.read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-116 could not read prompts: {e}"]
+
+    # A-NN audit categories (e.g., "A1. Incorrect grammar")
+    a_codes = set(re.findall(r"^(A\d+)\.", acc_text, re.M))
+    # FP-NN false-positive classes (e.g., "FP-1. ウ音便 ...")
+    fp_codes = set(re.findall(r"^(FP-\d+)\.", acc_text, re.M))
+    # Phase-0 blocks (e.g., "### Phase-0 Grammar (run mechanically ...)")
+    # Tokenize by the FIRST 30 chars of the block heading after the
+    # "Phase-0 " token — that's the distinctive identifier.
+    phase0_titles = re.findall(r"^### (Phase-0[^\n]+)$", imp_text, re.M)
+    # Extract a stable identifier per block: the words after "Phase-0 "
+    # up to the first " (" or end-of-line.
+    phase0_ids = set()
+    for title in phase0_titles:
+        m = re.match(r"Phase-0\s+([^\(]+?)(?:\s*\(|$)", title)
+        if m:
+            phase0_ids.add(m.group(1).strip())
+
+    # Now load the xlsx and collect every text-cell across all
+    # specialist tabs (limited to non-header rows).
+    XLSX = ROOT / "specifications" / "test-scenarios-by-specialist-perspective.xlsx"
+    if not XLSX.exists():
+        return [f"JA-116 xlsx missing: {XLSX}"]
+    try:
+        wb = openpyxl.load_workbook(XLSX, read_only=True, data_only=True)
+    except Exception as e:
+        return [f"JA-116 could not open xlsx: {e}"]
+
+    SPECIALIST_TABS = [
+        "A. Japanese language", "B. JLPT format", "C. Hindi locale",
+        "D. UX design", "E. Accessibility", "F. Security",
+        "G. Privacy and legal", "H. Performance", "I. Data engineering",
+        "J. Pedagogy", "K. QA testing", "L. Cultural ethical",
+        "M. Operations", "N. End-user POV",
+    ]
+    all_text = []
+    for tab_name in SPECIALIST_TABS:
+        if tab_name not in wb.sheetnames:
+            continue
+        sh = wb[tab_name]
+        for row in sh.iter_rows(min_row=5, values_only=True):
+            for cell in row:
+                if isinstance(cell, str):
+                    all_text.append(cell)
+    combined = "\n".join(all_text)
+
+    # Check each code / Phase-0 id appears in the combined xlsx text.
+    # A-NN match: use word-boundary regex to avoid false negatives
+    # (e.g., "A1" being matched inside "A100").
+    missing_a = []
+    for code in sorted(a_codes, key=lambda x: int(x[1:])):
+        # Match the literal "A<NN>" as a word (not as part of A<NNN>+)
+        pat = re.compile(rf"\b{code}\b")
+        if not pat.search(combined):
+            missing_a.append(code)
+    missing_fp = []
+    for code in sorted(fp_codes, key=lambda x: int(x[3:])):
+        pat = re.compile(rf"\b{code}\b")
+        if not pat.search(combined):
+            missing_fp.append(code)
+    missing_p0 = []
+    for pid in sorted(phase0_ids):
+        # Match the Phase-0 identifier (case-insensitive substring;
+        # the xlsx scenarios use the full block-title phrase)
+        if pid.lower() not in combined.lower():
+            missing_p0.append(pid)
+
+    for code in missing_a:
+        failures.append(
+            f"JA-116 accuracy prompt audit category {code} has no "
+            f"matching xlsx scenario row (run tools/sync_test_scenarios_"
+            f"with_prompts_feedback_2026_05_17.py to add coverage)"
+        )
+    for code in missing_fp:
+        failures.append(
+            f"JA-116 accuracy prompt false-positive class {code} has no "
+            f"matching xlsx scenario row"
+        )
+    for pid in missing_p0:
+        failures.append(
+            f"JA-116 N5Improvement Phase-0 block 'Phase-0 {pid}' has no "
+            f"matching xlsx scenario row"
+        )
     return failures
 
 

@@ -172,18 +172,19 @@ block in `prompts/N5Improvement.txt` if not yet hard-CI).
 | INV-3 | Code public-API change updates API docs | N/A — project has no traditional API (static SPA + content corpus) | Out of scope for this project |
 | INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-107** (version.json.counts ↔ live data) + **JA-47** (CONTENT-LICENSE.md counts ↔ live data) | WIRED 2026-05-17 |
 | INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | WIRED 2026-05-17 |
-| INV-6 | Prompt change includes a regression test of golden output | Partial: every documented item (A-NN audit categories, Phase-0 regression blocks, FP-NN false-positive classes) and every audit-doc in feedback/ + feedback/closed/ has explicit xlsx representation as of 2026-05-17. Future work: extract-and-verify CI invariant that re-parses prompts and asserts xlsx coverage. | Partial (promoted 2026-05-17 from Convention) |
-| INV-7 | Cross-file references resolve | JA-15 (audio refs), JA-17 (vocab_id in grammar examples), JA-82 (`_meta.see_also` / `_meta.consumers`), JA-100 (kanji↔vocab form STRICT), JA-105 (vocab_preview vocab_id refs), **JA-113** (meta-route mirror reflects source markdown's latest heading — added 2026-05-17 after 3 instances of the drift class) | Partial; passage_id and pattern_id cross-corpus still relying on manual checks |
+| INV-6 | Prompt change includes a regression test of golden output | **JA-116** (every A-NN / Phase-0 / FP-NN in prompts has ≥1 matching xlsx scenario row; auto-extracted, asserted at CI). The 2026-05-17 wire-up caught a real drift instance — A5 was missing from xlsx due to a substring-match bug in the b466293 sync (`"A5" in "A55"` was True); fixed inline. | **Wired** (promoted 2026-05-17 from Partial) |
+| INV-7 | Cross-file references resolve | JA-15 (audio refs), JA-17 (vocab_id in grammar examples), JA-82 (`_meta.see_also` / `_meta.consumers`), JA-100 (kanji↔vocab form STRICT), JA-105 (vocab_preview vocab_id refs), JA-113 (meta-route mirror reflects source markdown's latest heading), **JA-117** (passage_id kanji↔reading + pattern_id reading↔grammar — 363 + 319 refs all resolve, added 2026-05-17) | **Wired** (promoted 2026-05-17 from Partial after JA-117 covered the canonical remaining cross-corpus ID fields) |
 | INV-8 | CHANGELOG entry names every dependent updated | None hard-wired (CHANGELOG is markdown prose) | Convention; future: pre-commit hook parsing |
-| INV-9 | Closed bug links to fix commit + regression test (or "no test — reason") | Section 25.8 lineage table tracks this; Excel "User Reported Bugs" Fix Commit column | Manual; semi-tooled via xlsx |
+| INV-9 | Closed bug links to fix commit + regression test (or "no test — reason") | **JA-118** (every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell). Companion tool `tools/populate_bug_fix_commits_2026_05_17.py` scans git log for commit subjects mentioning each BUG-NNN (including range patterns like "BUG-041 through BUG-046"); all 53 Fixed bugs populated on 2026-05-17 wire-up. | **Wired** (promoted 2026-05-17 from Partial) |
 | INV-10 | Procedure-manual script/tool references resolve | **JA-109** (procedure manual + prompts → script references resolve) | WIRED 2026-05-17 |
 
-**Strategy:** the 3 invariants we can mechanically enforce
-(INV-4 / INV-5 / INV-10) became hard CI gates on 2026-05-17.
-The 4 convention-only invariants (INV-1 / INV-2 / INV-6 /
-INV-8) remain commit-discipline + future-tooling targets.
-INV-3 is out of scope (no API). INV-7 / INV-9 have partial
-coverage with manual back-fill.
+**Strategy update (2026-05-17 end-of-session):** 6 of 10 INVs now
+hard-wired (INV-4 / INV-5 / INV-6 / INV-7 / INV-9 / INV-10).
+The 3 convention-only invariants (INV-1 / INV-2 / INV-8) remain
+commit-discipline + future-tooling targets — they require git
+pre-commit hooks or PR-title parsers rather than corpus-content
+CI checks, so they live outside `check_content_integrity.py`'s
+domain. INV-3 stays Out of Scope (project has no traditional API).
 
 ## Commit-time checklist (the 8-step loop)
 
@@ -309,7 +310,10 @@ markdown source's latest H1/H2.
 | 2026-05-17 | BUG-050 charitable close-out — AUDIO.md count + speaker drift | — | JA-112 | AUDIO.md "47 listening items" → "50 items / 6 speakers"; speaker-table character names corrected | 5d14cde |
 | 2026-05-17 | BUG-048 + BUG-049 close-out — listening pacing refresh + ffmpeg atempo | — | — | 50 items re-measured; 39 ffmpeg atempo tempo-changes; ALL items in target band 180-240 mpm; bug tracker 53/53 Fixed/0 Open | 47d1edc |
 | 2026-05-17 | changelog/index.html static-mirror regen | — | — | meta-route mirror drift after CHANGELOG.md edits in 5d14cde + 47d1edc | 360eb74 |
-| 2026-05-17 | Meta-route static-mirror freshness CI guard | — | JA-113 | (no drift this commit — JA-113 wired prospectively to prevent recurrence of the meta-route mirror drift class observed 3× this session) | (this commit) |
+| 2026-05-17 | Meta-route static-mirror freshness CI guard | — | JA-113 | (no drift this commit — JA-113 wired prospectively to prevent recurrence of the meta-route mirror drift class observed 3× this session) | 481e9ad |
+| 2026-05-17 | 2 untracked files resolved | — | — | n5-008.pdf gitignored; build_test_scenarios_workbook.py moved to not-required/tools-archive/ with DEPRECATED guard | 407ef64 |
+| 2026-05-17 | JA-114 (pacing_status enum) + JA-115 (README counts) | — | JA-114, JA-115 | README "1041 vocab / 40 reading / 40 listening" → 995 / 54 / 50 (stale v1.12.29-era counts caught by JA-115's first run) | c1c7107 |
+| 2026-05-17 | INV-6 promotion + INV-7 extension + INV-9 promotion | INV-6 → Wired, INV-7 → Wired, INV-9 → Wired | JA-116, JA-117, JA-118 | A5 missing scenario row (substring-match bug in b466293 sync — `"A5" in "A55"` was True); 53 Fixed bugs back-filled with Fix Commit links | (this commit) |
 
 Each future cross-artifact ripple gets a row here so future
 auditors can trace which sync hops landed when.

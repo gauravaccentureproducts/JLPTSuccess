@@ -47,6 +47,7 @@ Run: python tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py
 from __future__ import annotations
 
 import io
+import re
 import sys
 from pathlib import Path
 
@@ -387,7 +388,11 @@ def main() -> int:
         # Build the row
         sid = f"A-{next_a:03d}"
         # Skip if any existing row references this code in Scenario or Notes
-        already = any(code in ref for ref in a_refs if isinstance(ref, str))
+        # Word-boundary match — avoid substring false-positives where
+        # e.g. "A55" causes "A5" to be skipped. (This bug was caught
+        # 2026-05-17 by JA-116; A5 was the only victim — fixed in
+        # commit that introduced JA-116.)
+        already = any(re.search(rf"\b{re.escape(code)}\b", ref) for ref in a_refs if isinstance(ref, str))
         if already:
             continue
         scenario = f"Accuracy prompt audit category {code}: {title}"

@@ -2,6 +2,126 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (Pending batch 3: INV-6 / INV-7 / INV-9 → Wired; JA-116/117/118 + Fix Commit back-fill)
+
+Governance / CI release. No user-visible changes. Promotes the last
+three "Partial" Cross-Artifact Sync Protocol invariants to **Wired**.
+With these three wire-ups, **6 of 10 INV-N classes are now
+hard-enforced at CI**; the remaining 3 are pure commit-time tooling
+(pre-commit hooks / PR-title parsers — outside the corpus-content
+CI domain); 1 stays out of scope (no API).
+
+### JA-116 — INV-6 promotion: prompts ↔ xlsx coverage check
+
+Every A-NN audit category, every Phase-0 regression block, and every
+FP-NN false-positive class in `N5/prompts/*` must have ≥1 matching
+xlsx scenario row. The check auto-extracts the structured items from
+the prompt sources and word-boundary-searches the xlsx (all 14
+specialist tabs + scenarios + notes + tools columns).
+
+**Real drift caught on first run:** A5 ("Wrong kanji usage") had no
+matching xlsx row. Root cause: the b466293 prompt↔xlsx sync used
+substring-match (`"A5" in "A55"` → True), so when prior commits had
+already mentioned "A55" / "A50" / etc., A5 was falsely skipped. Fixed
+inline in this commit: A-115 scenario added to tab A; the sync
+script's match logic upgraded from substring to word-boundary regex
+so re-runs are safe.
+
+### JA-117 — INV-7 extension: passage_id / pattern_id cross-corpus refs
+
+Two cross-corpus reference classes that were previously relying on
+manual checks:
+
+  - kanji.json `entries[*].reading_passages[*].passage_id` → reading.json
+    passage IDs (363 refs)
+  - reading.json `passages[*].grammar_footnotes[*].pattern_id` + nested
+    `patterns[*].pattern_id` → grammar.json pattern IDs (319 refs)
+
+All 682 references verified to resolve. INV-7 now has 7 wired
+invariants covering audio / vocab_id / _meta refs / kanji↔vocab
+form / vocab_preview / meta-mirror freshness / cross-corpus IDs —
+the canonical cross-file reference fields are fully locked.
+
+### JA-118 — INV-9 promotion: closed-bug → fix-commit link
+
+Every Fixed-status row in the xlsx User Reported Bugs sheet must have
+a non-empty Fix Commit cell. The check verifies the link; the
+companion tool `tools/populate_bug_fix_commits_2026_05_17.py` (also
+new) scans git log for commit subjects mentioning each BUG-NNN
+(including range patterns like "BUG-041 through BUG-046" or
+"BUG-041..046") and back-fills the column.
+
+Wire-up state: all 53 Fixed bugs back-filled on this commit with their
+authoritative fix-commit SHA + ISO date. Future fixes need to set
+Fix Commit either manually or via re-running the back-fill tool.
+
+### Cross-Artifact Sync Protocol INV-N state summary (end-of-session)
+
+| INV | Description | Status |
+|---|---|---|
+| INV-1 | bug-fix touches test or annotates "no test" | Convention only |
+| INV-2 | spec change references code | Convention only |
+| INV-3 | code API change updates docs | **Out of scope** (no API) |
+| INV-4 | data counts ↔ version.json / docs | **Wired** (JA-47 / 107 / 112 / 115) |
+| INV-5 | UI strings ↔ all locales | **Wired** (JA-108) |
+| INV-6 | prompts ↔ xlsx coverage | **Wired** (JA-116) ← promoted this commit |
+| INV-7 | cross-file references resolve | **Wired** (JA-15/17/82/100/105/113/117) ← promoted this commit |
+| INV-8 | CHANGELOG completeness | Convention only |
+| INV-9 | closed-bug → fix-commit link | **Wired** (JA-118) ← promoted this commit |
+| INV-10 | procedure-manual / prompt → script refs | **Wired** (JA-109) |
+
+Wired: **6** · Convention: **3** · Out of scope: **1**.
+
+### CI invariants
+
+Total live: **116** (was 113; +3 from JA-116 / JA-117 / JA-118).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker: 53 / 53 Fixed / 0 Open (unchanged); all Fix Commit cells populated.
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+- `N5/tools/check_content_integrity.py` — JA-116 + JA-117 + JA-118
+  check functions + registry entries
+- `N5/tools/populate_bug_fix_commits_2026_05_17.py` (NEW) — git-log
+  scanner + xlsx column-fill tool
+- `N5/tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py` —
+  substring → word-boundary match fix (the bug that hid A5)
+- `N5/tools/cross_artifact_sync_report.py` — INV_MAPPING updated
+  with all wired/convention/OOS counts post-promotions
+- `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`
+  — A-115 scenario row added (the missing A5 coverage); Fix Commit
+  + Fix Date columns added; 53 Fixed bugs back-filled
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` — §25.1
+  rows for JA-116/117/118; §25.10 INV→JA matrix updated with all
+  promotions; section-header count bumped 113→116; next-free
+  JA-NN = 119; summary text rewritten with end-of-session totals
+- `N5/docs/cross-artifact-sync-map.md` — audit-log rows for the 3
+  promotions; INV-6 / INV-7 / INV-9 rows updated; "Strategy"
+  section rewritten with end-of-session distribution
+- `N5/CHANGELOG.md` — this entry
+- `N5/changelog/index.html` — meta-mirror regen (JA-113 would have
+  failed without it; the discipline JA-113 enforces, applied)
+
+### Verification
+
+- python tools/check_content_integrity.py → PASS all 116 invariants
+- python tools/cross_artifact_sync_report.py → EXIT: CLEAN, distribution
+  Wired 6 / Partial 0 / Convention 3 / OOS 1
+- Bug tracker: 53 / 53 Fixed / 0 Open with 100% Fix Commit coverage
+- sync-script idempotent; populate-fix-commits tool idempotent
+
+### Remaining out-of-reach (this session)
+
+- INV-1 / INV-2 / INV-8: need git pre-commit hooks or PR-title
+  parsers, not corpus-content CI checks. Pure commit-time tooling.
+- JA-91..95 reserved slots: gated on `pattern_markers.json` +
+  particle-list data files being authored.
+- Audio Phase-2 VOICEVOX re-render at speed_scale=1.00 (cleaner
+  audio than the ffmpeg-atempo post-processing from 47d1edc):
+  needs VOICEVOX install on maintainer's machine; ~30min.
+
+---
+
 ## Unreleased - 2026-05-17 (JA-114 + JA-115 wired; README counts corrected)
 
 User-visible: the README's "Content" section now correctly states **995

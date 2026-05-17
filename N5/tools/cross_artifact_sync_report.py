@@ -112,12 +112,12 @@ INV_MAPPING = [
     ("INV-1",  "Bug-fix commit touches test or annotates 'no test'", "convention", []),
     ("INV-2",  "Spec change references corresponding code change", "convention", []),
     ("INV-3",  "Code public-API change updates API docs", "oos", []),
-    ("INV-4",  "Data-file count changes update version.json AND CHANGELOG", "wired", ["JA-107", "JA-47"]),
+    ("INV-4",  "Data-file count changes update version.json AND CHANGELOG", "wired", ["JA-47", "JA-107", "JA-112", "JA-115"]),
     ("INV-5",  "UI string change propagates to all locales", "wired", ["JA-108"]),
-    ("INV-6",  "Prompt change includes regression test of golden output", "partial", ["xlsx coverage 2026-05-17"]),
-    ("INV-7",  "Cross-file references resolve", "partial", ["JA-15", "JA-17", "JA-82", "JA-100", "JA-105"]),
+    ("INV-6",  "Prompt change includes regression test of golden output", "wired", ["JA-116"]),
+    ("INV-7",  "Cross-file references resolve", "wired", ["JA-15", "JA-17", "JA-82", "JA-100", "JA-105", "JA-113", "JA-117"]),
     ("INV-8",  "CHANGELOG entry names every dependent updated", "convention", []),
-    ("INV-9",  "Closed bug links to fix commit + regression test", "partial", ["spec §25.8"]),
+    ("INV-9",  "Closed bug links to fix commit + regression test", "wired", ["JA-118"]),
     ("INV-10", "Procedure-manual script/tool references resolve", "wired", ["JA-109"]),
 ]
 
