@@ -15,8 +15,14 @@
        the -elem/-attr directives.
        script-src omits 'unsafe-inline' so any inline-script regression
        fails fast. Per OQ-3 in spec supplement §B.9. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';">
-    <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none';">
+    <!-- NOTE: frame-ancestors + X-Frame-Options removed from <meta> per
+         browser-spec — both are IGNORED when delivered via meta (only
+         honored as HTTP headers). On GitHub Pages (static-hosted, no HTTP
+         header config), clickjacking protection cannot be set client-side.
+         The other CSP directives + Permissions-Policy + Referrer-Policy
+         ARE honored via meta and remain in place. See PRIVACY.md /
+         NOTICES.md for the documented static-hosting security limitation. -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
   <title>JLPT N5</title>

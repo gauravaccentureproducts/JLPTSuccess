@@ -1,0 +1,285 @@
+{
+  "summary": {
+    "pass": 53,
+    "fail": 1,
+    "skip": 1,
+    "total": 55
+  },
+  "results": [
+    {
+      "id": "UI-5.1.1",
+      "status": "PASS",
+      "note": "Home shows N5 card"
+    },
+    {
+      "id": "UI-5.1.2",
+      "status": "PASS",
+      "note": "N4 card hidden per Rule 1"
+    },
+    {
+      "id": "UI-5.3.1",
+      "status": "PASS",
+      "note": "Grammar listing shows 0 pattern refs"
+    },
+    {
+      "id": "UI-5.3.2",
+      "status": "PASS",
+      "note": "Per-pattern detail renders (n5-001)"
+    },
+    {
+      "id": "UI-5.3.3",
+      "status": "PASS",
+      "note": "178 patterns in data (matches spec)"
+    },
+    {
+      "id": "UI-5.4.1",
+      "status": "PASS",
+      "note": "Vocab page renders (771 chars)"
+    },
+    {
+      "id": "UI-5.4.2",
+      "status": "PASS",
+      "note": "995 vocab entries (matches spec)"
+    },
+    {
+      "id": "UI-5.5.1",
+      "status": "PASS",
+      "note": "Kanji index renders (1007 chars)"
+    },
+    {
+      "id": "UI-5.5.2",
+      "status": "PASS",
+      "note": "106 kanji entries (matches spec)"
+    },
+    {
+      "id": "UI-5.6.1",
+      "status": "PASS",
+      "note": "Reading index renders (1194 chars)"
+    },
+    {
+      "id": "UI-5.6.2",
+      "status": "PASS",
+      "note": "54 passages (matches spec)"
+    },
+    {
+      "id": "UI-5.7.1",
+      "status": "PASS",
+      "note": "Listening index renders (771 chars)"
+    },
+    {
+      "id": "UI-5.7.2",
+      "status": "PASS",
+      "note": "50 items (matches spec)"
+    },
+    {
+      "id": "UI-5.8.1",
+      "status": "PASS",
+      "note": "Papers index renders"
+    },
+    {
+      "id": "UI-5.8.2",
+      "status": "PASS",
+      "note": "Mock test route renders"
+    },
+    {
+      "id": "UI-5.9.1",
+      "status": "PASS",
+      "note": "Drill page renders (787 chars)"
+    },
+    {
+      "id": "UI-5.10.1",
+      "status": "PASS",
+      "note": "Review page renders (1001 chars)"
+    },
+    {
+      "id": "UI-5.10.a",
+      "status": "PASS",
+      "note": "Missed-answers page renders (701 chars)"
+    },
+    {
+      "id": "UI-5.11.1",
+      "status": "PASS",
+      "note": "Progress / summary renders (672 chars)"
+    },
+    {
+      "id": "UI-5.12.1",
+      "status": "PASS",
+      "note": "Settings page renders (1995 chars)"
+    },
+    {
+      "id": "UI-5.13.1",
+      "status": "PASS",
+      "note": "Full mock-paper sitting renders (1329 chars)"
+    },
+    {
+      "id": "UI-5.14.1",
+      "status": "PASS",
+      "note": "Daily review queue renders (1025 chars)"
+    },
+    {
+      "id": "UI-5.16.1",
+      "status": "PASS",
+      "note": "PRIVACY viewer renders (4381 chars)"
+    },
+    {
+      "id": "UI-5.16.2",
+      "status": "PASS",
+      "note": "NOTICES viewer renders (18440 chars)"
+    },
+    {
+      "id": "UI-MM-1",
+      "status": "PASS",
+      "note": "home mirror renders (13937 chars, title='JLPT N5 Tutor — Home')"
+    },
+    {
+      "id": "UI-MM-2",
+      "status": "PASS",
+      "note": "changelog mirror renders (293970 chars, title='Changelog — JLPT N5 Tutor')"
+    },
+    {
+      "id": "UI-MM-3",
+      "status": "PASS",
+      "note": "privacy mirror renders (3855 chars, title='Privacy — JLPT N5 Tutor')"
+    },
+    {
+      "id": "UI-MM-4",
+      "status": "PASS",
+      "note": "notices mirror renders (18181 chars, title='Attribution & Notices — JLPT N5 Tutor')"
+    },
+    {
+      "id": "UI-MM-5a",
+      "status": "PASS",
+      "note": "grammar n5-001 mirror (canonical) renders (1983 chars, title='〜です／〜ます — JLPT N5 Grammar')"
+    },
+    {
+      "id": "UI-MM-5b",
+      "status": "PASS",
+      "note": "grammar n5-001 mirror (legacy /lessons/) renders (1976 chars, title='〜です／〜ます — JLPT N5 Grammar')"
+    },
+    {
+      "id": "UI-MM-6",
+      "status": "PASS",
+      "note": "reading mirror renders (1816 chars, title='じこしょうかい — JLPT N5 Reading (self-introduc')"
+    },
+    {
+      "id": "UI-MM-7",
+      "status": "PASS",
+      "note": "listening mirror renders (1029 chars, title='どこで 会いますか — JLPT N5 Listening')"
+    },
+    {
+      "id": "UI-MM-8",
+      "status": "PASS",
+      "note": "vocab 私 mirror (URL-encoded) renders (654 chars, title='私 (わたし) — JLPT N5 Vocab')"
+    },
+    {
+      "id": "UI-MM-9",
+      "status": "PASS",
+      "note": "kanji 一 mirror (URL-encoded) renders (647 chars, title='一 — JLPT N5 Kanji (one)')"
+    },
+    {
+      "id": "UI-MM-10",
+      "status": "PASS",
+      "note": "grammar index mirror renders (11814 chars, title='N5 Grammar — All Patterns (static index)')"
+    },
+    {
+      "id": "UI-MM-11",
+      "status": "PASS",
+      "note": "vocab index mirror renders (21395 chars, title='N5 Vocabulary — All Words (static index)')"
+    },
+    {
+      "id": "UI-MM-12",
+      "status": "PASS",
+      "note": "kanji index mirror renders (1615 chars, title='N5 Kanji — All 106 Characters (static in')"
+    },
+    {
+      "id": "UI-MM-13",
+      "status": "PASS",
+      "note": "reading index mirror renders (1538 chars, title='N5 Reading — All Passages (static index)')"
+    },
+    {
+      "id": "UI-MM-14",
+      "status": "PASS",
+      "note": "listening index mirror renders (992 chars, title='N5 Listening — All Drills (static index)')"
+    },
+    {
+      "id": "UI-SEO-1",
+      "status": "PASS",
+      "note": "sitemap.xml served, 10 URLs"
+    },
+    {
+      "id": "UI-SEO-2",
+      "status": "PASS",
+      "note": "robots.txt served (104 chars)"
+    },
+    {
+      "id": "UI-A11Y-1",
+      "status": "PASS",
+      "note": "<html lang='en'>"
+    },
+    {
+      "id": "UI-A11Y-2",
+      "status": "PASS",
+      "note": "Skip-link present (WCAG 2.4.1 Level A)"
+    },
+    {
+      "id": "UI-A11Y-3",
+      "status": "PASS",
+      "note": "<title>: JLPT N5"
+    },
+    {
+      "id": "UI-A11Y-4",
+      "status": "PASS",
+      "note": "<main> landmark present"
+    },
+    {
+      "id": "UI-A11Y-5",
+      "status": "PASS",
+      "note": "aria-live region: polite"
+    },
+    {
+      "id": "UI-SEC-1",
+      "status": "PASS",
+      "note": "CSP comprehensive (301 chars, frame-ancestors present)"
+    },
+    {
+      "id": "UI-SEC-2",
+      "status": "PASS",
+      "note": "X-Frame-Options: DENY"
+    },
+    {
+      "id": "UI-SW-1",
+      "status": "PASS",
+      "note": "navigator.serviceWorker available"
+    },
+    {
+      "id": "UI-SW-2",
+      "status": "PASS",
+      "note": "SW registered, scope=http://127.0.0.1:8765/"
+    },
+    {
+      "id": "UI-AUD-1",
+      "status": "PASS",
+      "note": "MP3 reachable via HTTP"
+    },
+    {
+      "id": "UI-AUD-2",
+      "status": "PASS",
+      "note": "audio_manifest.json: 8 entries"
+    },
+    {
+      "id": "UI-I18N-1",
+      "status": "SKIP",
+      "note": "Locale switch not in DOM (may be in Settings)"
+    },
+    {
+      "id": "UI-I18N-2",
+      "status": "PASS",
+      "note": "Locale parity: 20 keys in both EN+HI"
+    },
+    {
+      "id": "UI-LOG-1",
+      "status": "FAIL",
+      "note": "20 SEVERE console errors"
+    }
+  ]
+}
