@@ -2284,6 +2284,111 @@ A59. READING.JSON BATCH-DRIFT — 6 FIELD DIVERGENCES BETWEEN
      BUG-041..046 close-out in
      `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`.
 
+A60. LISTENING.JSON MIGRATION DRIFT — 7 FIELD DIVERGENCES
+     AFTER 2026-05-12 VOICEVOX MIGRATION (BUG-047..053,
+     added 2026-05-17; locked by JA-110, JA-111)
+
+     listening.json's 50 items underwent a round-9 migration
+     from edge-tts to VOICEVOX on 2026-05-12. The migration
+     updated `audio_render_meta` on every item (provider,
+     speaker IDs, rendered_at) but left other fields stale:
+
+     A60.1 MULTI-SOURCE DRIFT ON A SINGLE ATTRIBUTION FIELD
+       (BUG-047)
+       All 50 items declared `voice_planned.engine="edge-tts"`
+       (the pre-migration plan) AND
+       `audio_render_meta.voice_provider="voicevox"` (the
+       post-migration reality). Fix: drop `voice_planned`
+       (audio_render_meta is canonical per option (b) of the
+       bug); UI in listening.js updated to read from
+       audio_render_meta. Lock: JA-110.
+
+     A60.2 AUDIT-STATUS FIELDS DRIFT BEHIND DATA (BUG-048)
+       Items 041-047 had `pacing_status="no_audio"` but
+       `audio_render_meta.rendered_at` set; items 048-050
+       had `voice_variety_status=None` despite render done.
+       Audio existed; the status fields claimed otherwise.
+       Fix: refresh status fields to reflect actual render
+       state ("unmeasured" for items with audio but no
+       pacing measurement; "rendered" for voice_variety on
+       items 048-050).
+
+     A60.3 OPERATIONAL DEFERRAL THAT NEEDS CORPUS-LEVEL
+       SURFACING (BUG-049, status STAYS OPEN this batch)
+       26/50 items had pacing_morae_per_min below the JLPT
+       N5 target band 180-240 (mean 160.2 mpm). Some items
+       5× slower than exam pace. Fix needs VOICEVOX re-render
+       at speed_scale ~1.3 (~30 min budget); deferred. Surface:
+       _meta.pacing_fix_status block in listening.json carries
+       the bug ID, observed distribution, fix action, target
+       band. Authoring rule: corpus-level deferred actions
+       go in _meta.*_fix_status blocks (durable), not just
+       trackers (session-scoped).
+
+     A60.4 ALREADY-FIXED COUNT DRIFT (BUG-050)
+       version.json.counts.listening declared 47 vs actual
+       50. Already-fixed in commit cdef185 (Cross-Artifact
+       Sync Protocol install — Rule 5) when JA-107 was wired
+       and the vocab 1009→995 drift was also corrected.
+
+     A60.5 DUAL-FIELD REDUNDANCY — THIRD INSTANCE (BUG-051)
+       format and format_type were 1:1 bijective on all 50
+       items (task↔task_understanding, etc.). Same pattern
+       as BUG-044 (reading.json format_type ↔ format_role)
+       and BUG-047 (voice_planned ↔ audio_render_meta).
+       Fix: drop `format`; format_type is canonical with
+       closed enum {task_understanding, point_understanding,
+       utterance_expression, immediate_response}. JS consumers
+       in listening.js + search.js updated. Lock: JA-111.
+
+     A60.6 PLAN-DOCUMENT DRIFT AFTER EXECUTION (BUG-052)
+       _meta.voice_variety_plan described VOICEVOX as future
+       work ("to be authored when VOICEVOX is installed")
+       even though the render had executed. Fix: rewrite as
+       past-tense completion record with
+       status="completed_2026_05_12"; capture observed-vs-
+       target voice distribution; mark legacy 2026-05-07
+       plan as superseded.
+
+     A60.7 REFERENCE-DATA INACCURACY IN METADATA CATALOG
+       (BUG-053)
+       voicevox_speaker_catalog had wrong character→ID
+       mappings: ID 8 listed as "hau-tsumugi" but actually
+       春日部つむぎ (hau-tsumugi is ID 10 雨晴はう); ID 11
+       listed as "shirakami-kotaro" but actually 玄野武宏;
+       ID 13 mis-filed under "12" as "aoyama-ryusei". Plus
+       voice variety target 8 only met at 6 (IDs 14 + 53
+       planned but never rendered). Fix: rewrite catalog
+       with corrected mappings derived from
+       audio_render_meta.voices_used on the actual rendered
+       items; include observed-distribution + unmet-target
+       note.
+
+     DETECTION SIGNAL (same meta-class as A59):
+     listening.json's 7 divergent fields all clustered around
+     the 2026-05-12 VOICEVOX migration — fields that were
+     touched by the migration got refreshed; fields that
+     weren't, didn't. The split lines up cleanly with "what
+     the migration script touched" vs "what it should have."
+
+     GENERALIZED OPERATIONAL RULE (extends A59's
+     same-shape audit rule): after ANY corpus-level migration
+     or batch-mod pass, run a same-shape audit not just on
+     data items but on EVERY field that references the
+     migrated state — _meta blocks, audit-status fields,
+     sibling fields with overlapping semantics, plan
+     documents, metadata catalogs. The audit must run BEFORE
+     the migration batch merges, not after a downstream
+     consumer breaks.
+
+     Cross-reference: procedure manual §F.24 (full meta-class
+     write-up); fix script
+     `tools/fix_bugs_047_to_053_listening_json_2026_05_17.py`;
+     status-update script
+     `tools/mark_bugs_047_to_053_fixed_2026_05_17.py`;
+     BUG-047..053 close-out in
+     `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`.
+
 ============================================================
 WHAT IS OUT OF SCOPE — DO NOT FLAG
 ============================================================
@@ -3230,5 +3335,99 @@ What this batch does NOT close:
 
 Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 11 addendum
 (2026-05-17); procedure manual §F.23; close-out tracker in
+`N5/specifications/test-scenarios-by-specialist-perspective.xlsx`.
+============================================================
+
+---
+2026-05-17 ADDENDUM — BUG-047 through BUG-053 close-out (listening.json VOICEVOX migration drift)
+============================================================
+Seven user-reported bugs on listening.json, all manifestations
+of the SAME meta-class as BUG-041..046 (corpus-migration drift)
+but on a different corpus and triggered by a different
+migration event (2026-05-12 VOICEVOX render). Documented as
+audit category A60 (with .1..7 sub-classes); procedure manual
+§F.24 captures the cross-corpus generalization of §F.23.
+
+Corpus-side fixes applied (fix script:
+`tools/fix_bugs_047_to_053_listening_json_2026_05_17.py`):
+  - 50 items: `voice_planned` field dropped (audio_render_meta
+    is now the canonical source for engine + speaker info).
+    BUG-047 / A60.1.
+  - 7 items (041-047): `pacing_status` refreshed from
+    "no_audio" → "unmeasured" (audio IS rendered; pacing just
+    not measured). BUG-048 / A60.2.
+  - 3 items (048-050): `voice_variety_status` refreshed from
+    None → "rendered". BUG-048 / A60.2.
+  - _meta.pacing_fix_status block added documenting BUG-049
+    (26/50 too-slow items; needs audio re-render at speed_scale
+    ~1.3). Surface-only; bug stays Open in this batch. A60.3.
+  - BUG-050 already-fixed in commit cdef185 (Rule-5 install
+    bumped version.json.counts.listening alongside the vocab
+    1009→995 fix). A60.4.
+  - 50 items: `format` field dropped; `format_type` (closed
+    enum) is canonical. BUG-051 / A60.5.
+  - _meta.voice_variety_plan rewritten as past-tense completion
+    record (status="completed_2026_05_12"); legacy
+    _meta.voice_variety_plan_2026_05_07 marked superseded.
+    BUG-052 / A60.6.
+  - _meta.voice_variety_plan.voicevox_speaker_catalog rewritten
+    with corrected character→ID mappings; observed-distribution
+    + unmet-target note added. BUG-053 / A60.7.
+
+JS source updates (in the same commit):
+  - `N5/js/listening.js` — voice-attribution surface (F-10
+    legal-vetting requirement) re-wired to read from
+    audio_render_meta; FORMATS map rekeyed to format_type;
+    byFormat grouping uses format_type.
+  - `N5/js/search.js` — listening haystack and gloss use
+    format_type (was reading the dropped `format` field).
+
+Minified `js/min/*.js` regenerated via
+`tools/build_min_js.py`. Static mirrors regenerated via
+`tools/build_static_mirrors.py` (50 listening pages rewritten).
+
+CI invariants wired this batch:
+  - JA-110: listening.json items deprecate legacy
+    `voice_planned` (BUG-047 guard). Strict "field absent"
+    check.
+  - JA-111: listening.json items use only `format_type` (not
+    `format`); format_type ∈ {task_understanding,
+    point_understanding, utterance_expression,
+    immediate_response} — closed enum. BUG-051 guard.
+
+Additional CI change: JA-13 SKIP_SUBTREE_FIELDS extended with
+`voice_variety_plan` + `pacing_fix_status` +
+`voice_variety_plan_2026_05_07` (same rationale as the prior
+audio_render_meta + public_domain_refs exemptions — rendering
+metadata with kanji beyond N5, not learner-facing content).
+
+CI count at this checkpoint: 107 → 109 (+2). Total wired
+invariants: JA-1..JA-90 + JA-96..JA-111 (109; JA-91..JA-95
+remain reserved, JA-80 retired). All 109 green post-fix
+against the current listening.json snapshot.
+
+What this batch does NOT close:
+  - BUG-049 (26/50 items pacing too slow) stays Open. The fix
+    needs an audio re-render at speed_scale ~1.3, which
+    requires VOICEVOX installed on the maintainer's machine
+    (~30 min budget). Surfaced via _meta.pacing_fix_status so
+    future audit cycles can pick it up.
+  - The voice-variety diversity target (8 distinct speakers)
+    remains unmet at 6 observed (IDs 14 冥鳴ひまり + 53
+    ナースロボ＿タイプＴ planned but never rendered).
+    Documented in _meta.voice_variety_plan.unmet_target_note.
+
+Bounded-coverage phrasing reminder: A60 covers the SEVEN
+specific migration-drift manifestations surfaced by the
+2026-05-17 audit against the listening.json corpus snapshot
+of 50 items. A future migration (e.g., another TTS provider
+swap, or a transcript-alignment pass) may surface adjacent
+shapes. The CI invariants JA-110 / JA-111 prevent re-
+introduction of THESE specific patterns; the generalized
+operational rule in §F.24.7 is the cross-cutting preventive.
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 13
+addendum (2026-05-17); procedure manual §F.24; close-out
+tracker in
 `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`.
 ============================================================

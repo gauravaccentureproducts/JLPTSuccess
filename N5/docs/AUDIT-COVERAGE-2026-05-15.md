@@ -1896,3 +1896,154 @@ addresses the patterns described above for THIS commit's
 scope; future drift in unrelated artifact classes may surface
 and would be addressed under the same Rule 5 discipline in
 subsequent batches.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 13) — BUG-047..053 close-out (listening.json VOICEVOX migration drift)
+
+Seven user-reported bugs on `data/listening.json`, all
+manifestations of the SAME meta-class as BUG-041..046 (corpus-
+migration drift) but on a different corpus (listening, not
+reading) and triggered by a different migration event
+(2026-05-12 edge-tts → VOICEVOX render rather than a phased
+authoring batch). One bug (BUG-049) stays Open because it
+needs an audio re-render outside this batch's resource budget.
+One bug (BUG-050) was already-fixed in commit cdef185 (Rule-5
+install). Five bugs (BUG-047/048/051/052/053) close in this
+batch.
+
+### Bugs addressed (7 instances of one meta-class)
+
+| ID | Sev/Pri | Subject | Disposition |
+|---|---|---|---|
+| BUG-047 | Medium/P2 | voice_planned.engine="edge-tts" contradicts audio_render_meta.voice_provider="voicevox" on all 50 items | Fixed (voice_planned dropped; JS UI re-wired to audio_render_meta) |
+| BUG-048 | Medium/P2 | pacing_status / voice_variety_status stale for items 41-50 | Fixed (7 pacing → "unmeasured", 3 voice_variety → "rendered") |
+| BUG-049 | Major/P2 | 26/50 items pacing too slow (mean 160 mpm vs 200-220 target) | **Open — surface-only**, needs audio re-render. _meta.pacing_fix_status block added. |
+| BUG-050 | Medium/P2 | version.json.counts.listening=47 vs actual 50 | Already-fixed in cdef185 (Rule-5 install commit; JA-107 locks) |
+| BUG-051 | Medium/P3 | format and format_type 1:1 redundant | Fixed (format dropped; format_type canonical) |
+| BUG-052 | Low/P4 | _meta.voice_variety_plan describes VOICEVOX as future work | Fixed (rewritten as past-tense completion record) |
+| BUG-053 | Low/P4 | voicevox_speaker_catalog has wrong character→ID mappings; voice variety 6 observed of 8 target | Fixed (catalog rewritten; observed-distribution + unmet-target note added) |
+
+### CI invariants added (2 hard CI gates)
+
+- **JA-110** — listening.json items deprecate legacy
+  `voice_planned`. Strict "field absent" check. Locks BUG-047.
+- **JA-111** — listening.json items drop legacy `format`;
+  `format_type` ∈ {task_understanding, point_understanding,
+  utterance_expression, immediate_response} strict closed enum.
+  Locks BUG-051.
+
+Additional CI change: JA-13 SKIP_SUBTREE_FIELDS extended with
+`voice_variety_plan`, `pacing_fix_status`, and
+`voice_variety_plan_2026_05_07` (same rationale as the existing
+`audio_render_meta` + `public_domain_refs` exemptions — these
+are rendering metadata + plan documents with kanji beyond N5,
+not learner-facing content).
+
+### Phase-0 regression coverage (additional 5 checks)
+
+Two of the seven manifestations are hard CI gates above (JA-110
+A60.1, JA-111 A60.5). The other five remain Phase-0 regression
+checks in `N5/prompts/N5Improvement.txt` because they enforce
+corpus-state hygiene rather than schema invariants:
+
+- **A60.2** — no item has audit-status field that contradicts
+  audio_render_meta.rendered_at.
+- **A60.3** — _meta.pacing_fix_status must be surfaced (BUG-049
+  visibility).
+- **A60.5** (format_type enum, also covered by JA-111).
+- **A60.6** — _meta.voice_variety_plan.status must be
+  'completed_*' (no future-tense framing).
+- **A60.7** — voicevox_speaker_catalog ID 8 maps to 春日部つむぎ
+  (sentinel check on the most-mis-mapped ID).
+
+Combined Phase-0 + CI coverage = all seven manifestations
+guarded against re-introduction on the current snapshot.
+
+### JS source updates (UI / search consumers)
+
+- `N5/js/listening.js` — voice-attribution surface (F-10
+  legal-vetting requirement, audit round-5) re-wired: reads
+  from `audio_render_meta.voice_provider` and
+  `audio_render_meta.voice_planned_for_engine.{F,M}.character`
+  instead of the dropped `voice_planned` field. FORMATS map
+  rekeyed from short keys (task/point/utterance/response) to
+  format_type values (task_understanding /
+  point_understanding / utterance_expression /
+  immediate_response). byFormat grouping + per-item label
+  lookup updated.
+- `N5/js/search.js` — listening haystack + gloss now read
+  `format_type` (was reading the dropped `format` field).
+- Minified `js/min/listening.js` + `js/min/search.js`
+  regenerated via `npm run build:js`
+  (`tools/build_min_js.py`).
+- Static mirrors regenerated via
+  `tools/build_static_mirrors.py` — 50 listening pages
+  rewritten to reflect the new format_type → label rendering.
+
+### Coverage of the fix
+
+- Items scanned: 50 (the full listening corpus).
+- Scan method: per-bug fix function in
+  `tools/fix_bugs_047_to_053_listening_json_2026_05_17.py` with
+  in-process counting; bug-tracker status updates via
+  `tools/mark_bugs_047_to_053_fixed_2026_05_17.py`.
+- Findings per bug: see Bugs Addressed table above.
+- Post-fix regression: all 7 Phase-0 checks report 0; both
+  new CI invariants pass; total wired CI invariants 109/109
+  green.
+
+### Meta-lesson (added to procedure manual §F.24.7)
+
+The 7 BUG-047..053 bugs are NOT a separate class from
+BUG-041..046; they're the SAME class (corpus-migration drift)
+on a different corpus + a different migration. The generalized
+operational rule (extending §F.23.7): **after any corpus-
+level migration or batch-modification pass, run a same-shape
+audit not just on data items but on EVERY field that
+references the migrated state** — _meta blocks, audit-status
+fields, sibling fields with overlapping semantics, plan
+documents, metadata catalogs. The audit must run BEFORE the
+migration batch merges, not after a downstream consumer
+breaks. The 2026-05-12 VOICEVOX migration script only touched
+`audio_render_meta`; the 7 drift instances all sit in OTHER
+fields that the migration script should have touched (or
+should have caused a CI failure if not touched).
+
+### Documentation propagation (Rule 4 of the protocol)
+
+- ✓ Procedure manual `JLPT Common/`: §F.24 added (7 sub-classes
+  + §F.24.7 generalized meta-lesson extending §F.23.7).
+- ✓ Accuracy prompt `Japanese language Accuracy check.txt`:
+  audit category A60 added with .1..7 sub-classes; 2026-05-17
+  ADDENDUM block appended documenting the close-out + CI
+  invariants wired.
+- ✓ N5Improvement prompt: 6 new Section-10 anti-items + new
+  Phase-0 regression block (validated 0/0/0/0/0/0/0).
+- ✓ Implementation spec `JLPT-N5-Current-Implementation-Spec.md`:
+  §25.1 + §25.4 rows for JA-110/111; §25.8 lineage table
+  extended.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `specifications/test-scenarios-by-specialist-perspective.xlsx`
+  "User Reported Bugs" sheet: BUG-047/048/050/051/052/053
+  marked Fixed; BUG-049 stays Open with action note. Totals:
+  53 bugs / 52 Fixed / 1 Open.
+- ✓ N5/CHANGELOG.md: Unreleased entry naming all dependents.
+
+### Coverage at this checkpoint
+
+CI invariants live: 109 (was 107; +2 from JA-110/111).
+JA-91..95 remain reserved; JA-80 remains retired.
+
+### Final state for Part 13
+
+CI 109/109 invariants green. cross_artifact_sync_report.py
+exits CLEAN. listening.json schema cleaned (voice_planned and
+format dropped; format_type closed enum; audit-status fields
+refreshed; _meta plan/catalog rewritten). UI consumers updated.
+Bug tracker: 1 of 53 bugs Open (BUG-049 pacing, awaiting
+audio re-render). Bounded-coverage note: the wired invariants
+prevent re-introduction of THESE specific drift shapes; future
+TTS migrations / transcript-alignment passes / audit-pass
+runs may surface adjacent patterns and would be addressed
+under the same Rule-5 same-shape-audit discipline.

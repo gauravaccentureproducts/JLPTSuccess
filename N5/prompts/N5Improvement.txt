@@ -864,6 +864,99 @@ respectively at release time. The other three (A59.2, A59.3,
 A59.6) remain Phase-0 checks because they are corpus-state
 hygiene rather than schema invariants.
 
+### Phase-0 Listening.json migration-drift regression block (added 2026-05-17)
+
+Regression block for the 7 BUG-047..053 manifestations on
+listening.json. Each check returns a count that MUST be 0 on
+the post-fix corpus. Non-zero means migration drift has
+re-entered (typically when a new TTS migration / transcript-
+alignment / audit-pass lands without same-shape audit of
+sibling fields).
+
+Validated 2026-05-17 to return 0/0/0/0/0/0 against the corpus
+snapshot at BUG-053 close-out (50 items).
+
+```python
+import json
+from pathlib import Path
+
+L = json.load(open('data/listening.json', encoding='utf-8'))
+items = L.get('items', [])
+meta = L.get('_meta', {})
+
+# A60.1 (BUG-047) — no item carries legacy `voice_planned` field
+n_legacy_vp = sum(1 for it in items if 'voice_planned' in it)
+print(f'A60.1 listening legacy `voice_planned` field: {n_legacy_vp} (target 0)')
+
+# A60.2 (BUG-048) — no item has audit-status field that contradicts
+# audio_render_meta.rendered_at. Specifically: if rendered_at is set
+# then pacing_status must NOT be 'no_audio' and voice_variety_status
+# must NOT be None.
+n_audit_drift = 0
+for it in items:
+    arm = it.get('audio_render_meta', {})
+    if not arm.get('rendered_at'):
+        continue
+    if it.get('pacing_status') == 'no_audio':
+        n_audit_drift += 1
+    if it.get('voice_variety_status') is None:
+        n_audit_drift += 1
+print(f'A60.2 listening audit-status drift (rendered but status stale): {n_audit_drift} (target 0)')
+
+# A60.5 (BUG-051) — no item carries legacy `format` field; format_type required
+ALLOWED_FT = {'task_understanding', 'point_understanding',
+              'utterance_expression', 'immediate_response'}
+n_legacy_fmt = sum(1 for it in items if 'format' in it)
+n_bad_ft = sum(
+    1 for it in items
+    if it.get('format_type') not in ALLOWED_FT
+)
+print(f'A60.5 listening legacy `format` field: {n_legacy_fmt} (target 0)')
+print(f'A60.5 listening format_type out-of-enum or missing: {n_bad_ft} (target 0)')
+
+# A60.6 (BUG-052) — _meta.voice_variety_plan.status must be 'completed_*'
+vvp = meta.get('voice_variety_plan', {}) or {}
+n_plan_stale = 0
+status = vvp.get('status', '')
+if not str(status).startswith('completed'):
+    n_plan_stale = 1
+print(f'A60.6 listening _meta.voice_variety_plan stale (no completed status): {n_plan_stale} (target 0)')
+
+# A60.7 (BUG-053) — voicevox_speaker_catalog ID 8 must map to 春日部つむぎ
+# (not "hau-tsumugi" — that's a different speaker, ID 10).
+catalog = vvp.get('voicevox_speaker_catalog', {}) or {}
+n_catalog_wrong = 0
+s8 = catalog.get('8') or catalog.get(8)
+if isinstance(s8, dict):
+    char = s8.get('character', '')
+elif isinstance(s8, str):
+    char = s8
+else:
+    char = ''
+if '春日部つむぎ' not in str(char):
+    n_catalog_wrong += 1
+print(f'A60.7 listening voicevox_speaker_catalog ID-8 wrong: {n_catalog_wrong} (target 0)')
+
+# A60.3 (BUG-049) — pacing_fix_status must be surfaced in _meta
+# (this stays Open even when present; we just enforce surfacing)
+n_pacing_unsurfaced = 0 if meta.get('pacing_fix_status') else 1
+print(f'A60.3 listening _meta.pacing_fix_status not surfaced: {n_pacing_unsurfaced} (target 0)')
+
+print('--- BUG-047..053 REGRESSION SUMMARY ---')
+total = (n_legacy_vp + n_audit_drift + n_legacy_fmt + n_bad_ft
+         + n_plan_stale + n_catalog_wrong + n_pacing_unsurfaced)
+print(f'Total regressions: {total} (target 0)')
+```
+
+If any count is non-zero, migration drift has re-entered
+listening.json. Two of the seven (A60.1 = JA-110 and A60.5 =
+JA-111) are also hard CI gates; the others remain Phase-0
+because they are corpus-state hygiene (audit-status freshness,
+plan-completion stamps, catalog-accuracy) rather than schema
+invariants. BUG-049 (A60.3 / pacing too slow) remains Open;
+the Phase-0 check enforces surfacing (the bug must be visible
+in _meta), not resolution.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
@@ -2633,6 +2726,71 @@ Mandatory entries for this richness-first cycle:
   §'Phase-0 Reading.json batch-drift regression block') catches the
   six specific shapes on reading.json. See §F.23.7 in the procedure
   manual for the cross-corpus generalization."
+- "Do NOT carry both a pre-migration plan field AND a
+  post-migration result field for the same attribute on the same
+  record. The 2026-05-12 VOICEVOX migration on listening.json
+  updated audio_render_meta.voice_provider to 'voicevox' but never
+  touched voice_planned.engine which stayed at 'edge-tts' across
+  all 50 items — the UI mis-attributed every audio clip to the
+  wrong vendor for 5 days. Rule: when a migration replaces a
+  planning field, drop the plan field in the same commit. CI gate
+  JA-110 locks. See A60.1 in the accuracy prompt + §F.24.1 in the
+  procedure manual. User-reported BUG-047."
+- "Do NOT let audit-status fields drift behind the data they
+  describe. Listening.json items 041-047 had pacing_status=
+  'no_audio' while audio_render_meta.rendered_at was set — the
+  audio existed but the audit field claimed otherwise. Items
+  048-050 had voice_variety_status=None despite render done.
+  Rule: any code path that produces a side effect (audio render,
+  transcript alignment, pitch analysis, etc.) must update the
+  corresponding status field IN THE SAME PASS. Don't ship 'produce
+  side effect' and 'update status' as separate steps; they will
+  drift. See A60.2 + §F.24.2. User-reported BUG-048."
+- "When a corpus-level fix needs heavier resources than the
+  current batch can spend (e.g., audio re-render requires a local
+  VOICEVOX install ~30 min), surface the deferred fix INSIDE the
+  data file — not just in the bug tracker. Listening.json's
+  BUG-049 fix (re-render 26 too-slow items at speed_scale ~1.3)
+  was surfaced as _meta.pacing_fix_status with the bug ID,
+  current pacing distribution, target band, and required fix
+  action. Trackers are session-scoped; data files are durable.
+  Rule: '_meta.*_fix_status' blocks for deferred-but-known
+  issues. See A60.3 + §F.24.3. User-reported BUG-049 (Open)."
+- "MIGRATION-DRIFT META-RULE (extends the BATCH-DRIFT rule
+  above): after any corpus-level migration or batch-modification
+  pass, run a same-shape audit not just on data items but on
+  EVERY field that references the migrated state — _meta blocks,
+  audit-status fields, sibling fields with overlapping semantics,
+  plan documents, and metadata catalogs. The audit must run
+  BEFORE the migration batch merges, not after a downstream
+  consumer breaks. BUG-047..053 demonstrated this on a single
+  corpus (listening.json) with a single migration (VOICEVOX
+  2026-05-12): 7 distinct fields drifted because the migration
+  script only touched audio_render_meta, leaving voice_planned /
+  pacing_status / voice_variety_status / _meta.voice_variety_plan
+  / voicevox_speaker_catalog / format / format_type out of sync.
+  Phase-0 listening migration-drift regression block (this
+  prompt) catches these specific shapes. See §F.24.7."
+- "Do NOT let _meta plan documents stay in future-tense after
+  the plan executes. listening.json _meta.voice_variety_plan
+  described VOICEVOX as 'to be authored when VOICEVOX is
+  installed' even though the render had completed (per
+  audio_render_meta on every item). Plan-block schema: add an
+  explicit 'status' field ('planned' / 'in_progress' /
+  'completed_<date>' / 'deprecated_<date>'). Forces the
+  question at every commit. See A60.6 + §F.24.5.
+  User-reported BUG-052."
+- "Do NOT hand-author metadata catalogs that mirror an external
+  system's enumeration. listening.json's voicevox_speaker_catalog
+  had ID 8 labeled 'hau-tsumugi' but VOICEVOX ID 8 is actually
+  春日部つむぎ; 'hau-tsumugi' is the romaji gloss for ID 10
+  雨晴はう. Three of seven IDs were mis-mapped because the
+  catalog was copy-pasted from a non-canonical source. Rule:
+  derive catalogs from upstream (VOICEVOX /speakers endpoint;
+  the audio_render_meta.voices_used field on actual rendered
+  items). If hand-authoring is unavoidable, add a 'verified
+  against <source> on <date>' stamp + a CI check that
+  re-derives. See A60.7 + §F.24.6. User-reported BUG-053."
 
 Plus other audit-discovered "we considered and decided no" items.
 

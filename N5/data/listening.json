@@ -3,7 +3,6 @@
     {
       "id": "n5.listen.001",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "どこで 会いますか",
       "audio": "audio/listening/n5.listen.001.mp3",
@@ -60,18 +59,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "audio_render_meta": {
         "voice_provider": "voicevox",
@@ -353,12 +340,13 @@
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.002",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "何を 買いますか",
       "audio": "audio/listening/n5.listen.002.mp3",
@@ -421,18 +409,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "audio_render_meta": {
         "voice_provider": "voicevox",
@@ -699,12 +675,13 @@
         "description": "small shop interior (light pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.003",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "何時に 出ますか",
       "audio": "audio/listening/n5.listen.003.mp3",
@@ -755,18 +732,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "audio_render_meta": {
         "voice_provider": "voicevox",
@@ -1032,12 +997,13 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.004",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "のみものを えらぶ",
       "audio": "audio/listening/n5.listen.004.mp3",
@@ -1093,18 +1059,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Japanese cafés default to hot drinks — staff will ask あつい (atsui, hot)? if you order a coffee/tea without specifying. Saying つめたい (cold) explicitly avoids ambiguity.",
       "cultural_context_provenance": "native_reviewed",
@@ -1394,12 +1348,13 @@
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.005",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "おくれた りゆう",
       "audio": "audio/listening/n5.listen.005.mp3",
@@ -1454,18 +1409,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "audio_render_meta": {
         "voice_provider": "voicevox",
@@ -1807,12 +1750,13 @@
         "description": "classroom student murmur (moderate pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.006",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "本は どこですか",
       "audio": "audio/listening/n5.listen.006.mp3",
@@ -1867,18 +1811,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Japanese librarians/clerks often gesture with あの たな (over there shelf) plus 上/下 (top/bottom). Confirming with question intonation (上ですか?) before reaching is polite.",
       "cultural_context_provenance": "native_reviewed",
@@ -2169,12 +2101,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.007",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "すきな きせつ",
       "audio": "audio/listening/n5.listen.007.mp3",
@@ -2205,18 +2138,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Seasonal preference is a common conversational icebreaker in Japan. あき (autumn) is widely loved for the moderate weather and 旬 seasonal foods (栗, 柿, さつまいも). Saying 〜が一番好きです is the standard preference structure.",
       "cultural_context_provenance": "native_reviewed",
@@ -2510,12 +2431,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.008",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "たんじょうびに ほしい もの",
       "audio": "audio/listening/n5.listen.008.mp3",
@@ -2570,18 +2492,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Birthday gift conversations: the asker often suggests likely gifts (本ですか? とけいですか?). The respondent gracefully redirects (いいえ, 新しい〜が ほしいです) without seeming demanding.",
       "cultural_context_provenance": "native_reviewed",
@@ -2865,12 +2775,13 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.009",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "時間を 聞く",
       "audio": "audio/listening/n5.listen.009.mp3",
@@ -2894,13 +2805,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Asking strangers for the time: open with すみません (excuse me) before すみません, 今 何時ですか? Maintaining brief eye contact and a small bow on receipt is conventional.",
       "cultural_context_provenance": "native_reviewed",
@@ -3049,12 +2953,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.010",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "きっぷを 買う",
       "audio": "audio/listening/n5.listen.010.mp3",
@@ -3078,13 +2983,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-KeitaNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Train ticket purchase at まどぐち (window): standard pattern — destination + 大人 (adult) X枚, 子供 (child) Y枚. Card readers are everywhere; tourists often use IC cards (Suica/PASMO) instead.",
       "cultural_context_provenance": "native_reviewed",
@@ -3235,12 +3133,13 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.011",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "ていねいに ことわる",
       "audio": "audio/listening/n5.listen.011.mp3",
@@ -3264,13 +3163,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Refusing food politely: いいえ、けっこうです (no thank you) is the standard polite refusal. Adding もう おなかが いっぱいです (already full) softens the refusal further. Just いりません (don't need) is too direct.",
       "cultural_context_provenance": "native_reviewed",
@@ -3459,12 +3351,13 @@
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.012",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "あさの あいさつ",
       "audio": "audio/listening/n5.listen.012.mp3",
@@ -3488,13 +3381,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-DaichiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Morning teacher greeting: おはようございます (good morning, polite) is the standard form for school/work; おはよう (casual) only with peers. A small bow accompanies it.",
       "cultural_context_provenance": "native_reviewed",
@@ -3648,12 +3534,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.013",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "何時に 会いますか",
       "audio": "audio/listening/n5.listen.013.mp3",
@@ -3696,18 +3583,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Setting a meeting time: 何時に 会いますか? is the standard ask. Arriving 5 minutes early is normal in Japan; arriving on the dot is acceptable; even 1 minute late requires a brief すみません.",
       "cultural_context_provenance": "native_reviewed",
@@ -3925,12 +3800,13 @@
         "description": "classroom student murmur (moderate pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.014",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "どこで まちますか",
       "audio": "audio/listening/n5.listen.014.mp3",
@@ -3973,18 +3849,6 @@
           "speaker": "female"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Stations have multiple exits (出口). 北の出口 (north exit), 東口 (east exit), or specific 中央口 (central). Always confirming the specific exit avoids 30-min searches in major stations.",
       "cultural_context_provenance": "native_reviewed",
@@ -4168,12 +4032,13 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.015",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "店で 何を 買いますか",
       "audio": "audio/listening/n5.listen.015.mp3",
@@ -4216,18 +4081,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Family shopping conversation pattern: parent asks 何を 買いますか?, child lists items with quantities and counters (りんごを 三つ, ぎゅうにゅうを 一本). Counters are mandatory in Japanese shopping speech.",
       "cultural_context_provenance": "native_reviewed",
@@ -4455,12 +4308,13 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.016",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "だれと 行きますか",
       "audio": "audio/listening/n5.listen.016.mp3",
@@ -4503,18 +4357,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Schedule changes are normal: ですから (therefore) introduces the new plan. The pattern いそがしい (busy) → ですから 〜 (therefore X) is common.",
       "cultural_context_provenance": "native_reviewed",
@@ -4747,12 +4589,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.017",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "先生は いつ 来ますか",
       "audio": "audio/listening/n5.listen.017.mp3",
@@ -4795,18 +4638,6 @@
           "speaker": "female"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Late arrivals: たぶん (probably / maybe) softens the time prediction. 道が こんで います (the road is congested) is the most common reason given for delay; weather second.",
       "cultural_context_provenance": "native_reviewed",
@@ -5021,12 +4852,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.018",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "どうやって 行きますか",
       "audio": "audio/listening/n5.listen.018.mp3",
@@ -5069,18 +4901,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Travel verb 何で 行きますか? asks about transport mode (literally \"by what?\"). Standard answers: 電車で / バスで / 車で / 飛行機で (by train/bus/car/plane).",
       "cultural_context_provenance": "native_reviewed",
@@ -5273,12 +5093,13 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.019",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "しゅくだいが ない りゆう",
       "audio": "audio/listening/n5.listen.019.mp3",
@@ -5321,18 +5142,6 @@
           "speaker": "student"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "School excuse pattern: a brief すみません (apology) opens; 〜が いたかった (was sick) is the most common reason; teachers often accept without further question for small lapses.",
       "cultural_context_provenance": "native_reviewed",
@@ -5580,12 +5389,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.020",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "本は いくらでしたか",
       "audio": "audio/listening/n5.listen.020.mp3",
@@ -5628,18 +5438,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Price commentary: 高いですね (its expensive) is a common conversational acknowledgment, not a complaint. Even when expensive, でも、おもしろい (but its interesting) softens the cost into a justification.",
       "cultural_context_provenance": "native_reviewed",
@@ -5852,12 +5650,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.021",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "としょかんの 時間",
       "audio": "audio/listening/n5.listen.021.mp3",
@@ -5888,18 +5687,6 @@
           "speaker": "teacher"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Library hours change between weekdays and weekends — typical Japanese pattern: weekday 9-5, Saturday 1-4, Sunday closed. School libraries differ from public libraries.",
       "cultural_context_provenance": "native_reviewed",
@@ -6085,12 +5872,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.022",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "あしたの てんき",
       "audio": "audio/listening/n5.listen.022.mp3",
@@ -6127,18 +5915,6 @@
           "speaker": "female"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Weather small talk: 〜の 天気は どうですか? is the standard ask. Tomorrow weather (あしたの 天気) is the most common topic, followed by この 週末 (this weekend).",
       "cultural_context_provenance": "native_reviewed",
@@ -6375,12 +6151,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.023",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "しゅくだいは 何よう日",
       "audio": "audio/listening/n5.listen.023.mp3",
@@ -6423,18 +6200,6 @@
           "speaker": "female"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Homework due-dates: 火よう日 / 木よう日 (Tuesday / Thursday) — Japanese teachers often give M-W-F or T-Th cycles. ありますか? confirms whether a particular day has homework.",
       "cultural_context_provenance": "native_reviewed",
@@ -6634,12 +6399,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.024",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "きょう だれが 来ますか",
       "audio": "audio/listening/n5.listen.024.mp3",
@@ -6676,18 +6442,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Hosting visitors: listing arrivals chronologically (父の 先生 + 母の 友だち + 父も). わかりました (understood) acknowledges the schedule.",
       "cultural_context_provenance": "native_reviewed",
@@ -6872,12 +6626,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.025",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "あさの 先生への あいさつ",
       "audio": "audio/listening/n5.listen.025.mp3",
@@ -6902,13 +6657,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Morning school greeting: standard expected response is おはようございます (good morning, polite). A casual おはよう would be inappropriate to a teacher.",
       "cultural_context_provenance": "native_reviewed",
@@ -7084,12 +6832,13 @@
         "description": "classroom student murmur (moderate pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.026",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "店で コーヒーを たのむ",
       "audio": "audio/listening/n5.listen.026.mp3",
@@ -7114,13 +6863,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-KeitaNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Café ordering: すみません (excuse me) opens, then [item]を ください (please give me X) or [item]を おねがいします (Id like X). Both work; おねがいします is slightly more polite.",
       "cultural_context_provenance": "native_reviewed",
@@ -7258,12 +7000,13 @@
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.027",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "のみものを ていねいに ことわる",
       "audio": "audio/listening/n5.listen.027.mp3",
@@ -7288,13 +7031,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Drink refusal politely: いいえ、けっこうです (no thank you, polite) or ありがとう、でも (thank you, but...) softens. Direct いりません (dont need) is too blunt.",
       "cultural_context_provenance": "native_reviewed",
@@ -7441,12 +7177,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.028",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "先生の へやに 入る",
       "audio": "audio/listening/n5.listen.028.mp3",
@@ -7471,13 +7208,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-DaichiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Entering a teacher's room or superior's office: しつれいします ('I beg your pardon' / 'excuse me for intruding') — said when entering and again when leaving. For casual contexts (friend's home), おじゃまします is the equivalent. Distinguishing the two registers is a core N5 pragmatics skill.",
       "cultural_context_provenance": "native_reviewed",
@@ -7622,12 +7352,13 @@
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
       "audit_wave": "accuracy-audit-f1-fix-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.029",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "食べる まえ",
       "audio": "audio/listening/n5.listen.029.mp3",
@@ -7652,13 +7383,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Before eating: いただきます (mandatory in Japan; literally \"I humbly receive\"). Said with palms joined or hands together briefly. Skipping it is socially rude even in casual settings.",
       "cultural_context_provenance": "native_reviewed",
@@ -7822,12 +7546,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.030",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "みちを 聞く",
       "audio": "audio/listening/n5.listen.030.mp3",
@@ -7852,13 +7577,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-KeitaNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Asking directions: すみません (excuse me) → 〜へ 行きたいです (Id like to go to X) → 道が わかりません (I dont know the way). The askee will often gesture and walk you part of the way.",
       "cultural_context_provenance": "native_reviewed",
@@ -8019,12 +7737,13 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.031",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "プレゼントを えらぶ",
       "script_ja": "男の人と 女の人が 話して います。男の人は 何を 買いますか。\n女：たんじょうびに 何を あげますか。\n男：本が いいかな。\n女：ぼうしも きれいですよ。\n男：そうですね。じゃ、ぼうしに します。",
@@ -8073,18 +7792,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Gift selection conversation pattern: 何が いいですか? (whats good?) → 〜が いいと 思います (I think X is good). Department stores have dedicated gift floors with wrapping included.",
       "cultural_context_provenance": "native_reviewed",
@@ -8340,12 +8047,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.032",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "週まつの よてい",
       "script_ja": "二人が 話して います。男の人は 土よう日に 何を しますか。\n女：土よう日、何を しますか。\n男：友だちと えいがを 見に 行きます。\n女：日よう日も 出かけますか。\n男：日よう日は いえで 休みます。",
@@ -8394,18 +8102,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Doctor visit: 一週間 (one week) of medication is a common prescription length. お大事に (take care / get well soon) is the standard parting from medical staff.",
       "cultural_context_provenance": "native_reviewed",
@@ -8599,12 +8295,13 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.033",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "ホテルの へや",
       "script_ja": "じょうけい：ホテルの フロントで。\n女：すみません、いま 何かい いますか。\n男：今、五かいに います。\n女：レストランは どこですか。\n男：レストランは 一かいに あります。",
@@ -8653,18 +8350,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Class scheduling: 月よう日と 水よう日 (Monday and Wednesday) — Japanese university classes often run on alternating days. 〜時から 〜時まで (from X to Y) is the standard time-range pattern.",
       "cultural_context_provenance": "native_reviewed",
@@ -8874,12 +8559,13 @@
         "description": "restaurant dining ambience (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.034",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "あさの じゅんび",
       "script_ja": "母と 子どもが 話して います。子どもは あさ、まず 何を しますか。\n母：はやく かおを あらって。\n子：はい。あさごはんは。\n母：かおを あらってから 食べます。",
@@ -8922,18 +8608,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Restaurant order checks: ぜんぶで 〜円 (X yen total) closes the bill. Tipping does not exist in Japan — paying the exact bill amount or with bills/coins is normal.",
       "cultural_context_provenance": "native_reviewed",
@@ -9150,12 +8824,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.035",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "学生の こくせき",
       "script_ja": "女の学生が 話して います。\nわたしの クラスには 二十人 います。日本人は 五人です。中国人は 四人で、かんこく人も 四人 います。アメリカ人は 二人です。",
@@ -9186,18 +8861,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Birthday party invitation: いっしょに ケーキを 食べませんか? (wont you eat cake with us?) — the negative-question form (-ませんか) is the standard polite invitation.",
       "cultural_context_provenance": "native_reviewed",
@@ -9429,12 +9092,13 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.036",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "りょこうの 日にち",
       "script_ja": "男の人が しごとの あとで 話して います。\n来月の 七日から 九日まで、おおさかに 行きます。三日間の りょこうです。新かんせんで 行きます。",
@@ -9465,18 +9129,6 @@
           "speaker": "male"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-AoiNeural",
-          "F": "ja-JP-AoiNeural",
-          "男": "ja-JP-DaichiNeural",
-          "M": "ja-JP-DaichiNeural",
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Lost-and-found at stations: えきいん (station staff) handle lost items. 落とし物 (lost item) is the formal term; 忘れ物 (forgotten thing) for things left on trains.",
       "cultural_context_provenance": "native_reviewed",
@@ -9703,12 +9355,13 @@
         "description": "office room tone (light pink noise + faint HVAC)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.037",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "本の ねだん",
       "script_ja": "店員が 話して います。\nこの 本は 千五百円です。あの 大きい 本は 二千円です。きょうは セールで、ぜんぶ 半分の ねだんです。",
@@ -9739,18 +9392,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "女": "ja-JP-NanamiNeural",
-          "F": "ja-JP-NanamiNeural",
-          "男": "ja-JP-KeitaNeural",
-          "M": "ja-JP-KeitaNeural",
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Train delays: 電車が おくれて (the train is delayed) — train staff often issue a 遅延証明書 (delay certificate) so commuters can present it to teachers/employers.",
       "cultural_context_provenance": "native_reviewed",
@@ -9961,12 +9602,13 @@
         "description": "small shop interior (light pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.038",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "ともだちの いえに 入る",
       "script_ja": "（ともだちの いえに 入る とき）",
@@ -9991,13 +9633,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Asking about hobbies: しゅみは 何ですか? is the standard small-talk question. Common N5-level answers: スポーツ, おんがく, りょこう, りょうり (cooking).",
       "cultural_context_provenance": "native_reviewed",
@@ -10162,12 +9797,13 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.039",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "店を 出る とき",
       "script_ja": "じょうけい：ごはんを 食べた あとで、お金を はらいました。店を 出る とき、何と 言いますか。",
@@ -10192,13 +9828,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-DaichiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Apartment-search vocabulary: 駅から ちかい (close to the station), へやが 大きい (big rooms), 家ちんは X円 (rent is Y) — these are the standard housing-search criteria in Japanese.",
       "cultural_context_provenance": "native_reviewed",
@@ -10403,12 +10032,13 @@
         "description": "small shop interior (light pink noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.040",
       "mondai": 3,
-      "format": "utterance",
       "format_type": "utterance_expression",
       "title_ja": "よるの あいさつ",
       "script_ja": "（よる、ともだちの いえで あった とき）",
@@ -10432,13 +10062,6 @@
           "speaker": "narrator"
         }
       ],
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
       "voice_variety_status": "rendered",
       "cultural_context": "Gift exchange: もらう (receive) for things given to you, あげる (give) for things you give to others, くれる (give to me/us) for things others give to you. The trio is mandatory N5 vocabulary.",
       "cultural_context_provenance": "native_reviewed",
@@ -10598,12 +10221,13 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.041",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "いえに かえります",
@@ -10618,14 +10242,7 @@
       "explanation_en": "When a colleague says 'お先に失礼します' (leaving work first), the standard reply is 'お疲れさまでした' (you've worked hard). 'はじめまして' is a first-meeting greeting; 'ごちそうさまでした' is for after meals.",
       "explanation_hi": "कार्यालय छोड़ते समय \"お先に失礼します\" का जवाब \"お疲れさまでした\" — सहकर्मी की मेहनत की पहचान। अन्य विकल्प (पहली बार मिलना, खाने के बाद) ग़लत संदर्भ हैं।",
       "cultural_context": "जापानी कार्यस्थल में \"お先に失礼します\" (पहले निकलने के लिए विनती) कहना अनिवार्य शिष्टाचार है — दूसरों को बता देना कि आप पहले जा रहे हैं। बिना यह कहे चले जाना अशिष्ट माना जाता है। साथी इसका उत्तर \"お疲れさまでした\" (आपने मेहनत की) से देते हैं।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -10802,12 +10419,14 @@
         "description": "home room tone (very quiet brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.042",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "ありがとう",
@@ -10821,14 +10440,7 @@
       "correctAnswer": "ありがとうございます。",
       "explanation_en": "Standard reply when someone congratulates you on your birthday: 'thank you'. 'すみません' apologises; 'いただきます' is said before eating.",
       "explanation_hi": "जन्मदिन की बधाई पर मानक उत्तर \"ありがとうございます\" (धन्यवाद)। \"すみません\" क्षमा माँगना है, \"いただきます\" खाने से पहले बोलते हैं — ग़लत।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-KeitaNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -10994,12 +10606,14 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.043",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "みち を きく",
@@ -11013,14 +10627,7 @@
       "correctAnswer": "まっすぐ いって、みぎに まがって ください。",
       "explanation_en": "When asked 'where is the station?' the natural reply is directions ('go straight then turn right'). The other options state distance or count tickets but don't answer 'where'.",
       "explanation_hi": "स्टेशन का रास्ता पूछने पर सीधा उत्तर दिशा-निर्देश है। दूरी या टिकट की संख्या बताना सवाल का जवाब नहीं।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11187,12 +10794,14 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.044",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "いただきます",
@@ -11207,14 +10816,7 @@
       "explanation_en": "When invited 'won't you eat lunch with me?', the warm acceptance is 'sounds good, let's eat'. 'もう食べました' (already ate) is technically a refusal but more abrupt; 'いってきます' (I'm off) is wrong context entirely.",
       "explanation_hi": "दोपहर का भोजन साथ करने का निमंत्रण मिला है। गर्मजोशी से स्वीकार: \"いいですね、たべましょう\" (अच्छा, चलते हैं)। \"もう食べました\" अधिक रूखा होगा; \"いってきます\" बिलकुल अलग संदर्भ।",
       "cultural_context": "जापान में लंच का साथ खाना सहकर्मी-संबंध बनाने का तरीक़ा है। निमंत्रण ठुकराने पर \"もう食べました\" (पहले ही खा लिया) कहना भी विनम्र है, पर साथ खाने से रिश्ते बेहतर होते हैं।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-DaichiNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11401,12 +11003,14 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.045",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "おはよう",
@@ -11421,14 +11025,7 @@
       "explanation_en": "Greeting echoes greeting: 'good morning' is met with 'good morning'. 'おやすみなさい' is good-night; 'さようなら' is goodbye.",
       "explanation_hi": "अभिवादन की प्रतिक्रिया अभिवादन ही है: \"おはよう\" → \"おはよう\"। शुभ-रात्रि या अलविदा संदर्भ-विरुद्ध।",
       "cultural_context": "日本में \"おはようございます\" (विनम्र) कार्यालय में लगभग 11 बजे तक प्रयोग होता है — हिंदी में जैसे दोपहर तक \"नमस्ते\" कह सकते हैं। दिन के बाद \"こんにちは\" शुरू होता है।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-NanamiNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11582,12 +11179,14 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.046",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "きょうしつで",
@@ -11602,14 +11201,7 @@
       "explanation_en": "When asked to lend a pen, the natural reply is 'yes, here you go' ('どうぞ' = please take it). 'わかりました' (understood) doesn't fit a request for an object; 'いいえ、けっこうです' (no thank you) refuses.",
       "explanation_hi": "पेन उधार माँगने पर उत्तर: \"はい、どうぞ\" (हाँ, लीजिए)। \"わかりました\" वस्तु के अनुरोध पर फ़िट नहीं; \"けっこうです\" मना करना है।",
       "cultural_context": "\"どうぞ\" (कृपया, यहाँ है) — जापानी संस्कृति का बहुत महत्वपूर्ण शब्द। केवल वस्तु देते समय ही नहीं, अंदर आने के लिए, बैठने के लिए, खाने के लिए — हर मेहमानवाज़ी संकेत में प्रयोग होता है।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-KeitaNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11770,12 +11362,14 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.047",
       "mondai": 4,
-      "format": "response",
       "format_type": "immediate_response",
       "review_status": "ai_quality_reviewed",
       "title_ja": "たすけて くれて",
@@ -11790,14 +11384,7 @@
       "explanation_en": "When someone apologises 'sorry', the gracious reply is 'no, it's fine'. 'おねがいします' (please) is unrelated; 'こちらこそ' (likewise) fits 'thank you' contexts.",
       "explanation_hi": "क्षमा-निवेदन (\"すみませんでした\") का दयालु उत्तर: \"いいえ、だいじょうぶです\" (नहीं, ठीक है)। \"おねがいします\" अनुरोध है; \"こちらこそ\" धन्यवाद के संदर्भ में।",
       "cultural_context": "जापानी क्षमा-संस्कृति में \"いいえ\" (नहीं) से ज़्यादा महत्वपूर्ण है \"だいじょうぶ\" (ठीक है) जोड़ना। \"इसकी ज़रूरत नहीं थी\" का भाव — हिंदी \"कोई बात नहीं\" के समान।",
-      "pacing_status": "no_audio",
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "narrator": "ja-JP-AoiNeural"
-        }
-      },
+      "pacing_status": "unmeasured",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11958,12 +11545,14 @@
         "description": "generic room tone (subtle brown noise)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.048",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "カフェでの あいづち",
       "audio": "audio/listening/n5.listen.048.mp3",
@@ -12015,15 +11604,6 @@
         }
       ],
       "transcript_timing_provenance": "mora_proportional",
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "M": "ja-JP-KeitaNeural",
-          "F": "ja-JP-NanamiNeural"
-        }
-      },
       "audio_render_meta": {
         "voice_provider": "voicevox",
         "voices_used": [
@@ -12230,12 +11810,15 @@
         "description": "light cafe murmur (pink noise base)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "voice_variety_status": "rendered",
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.049",
       "mondai": 2,
-      "format": "point",
       "format_type": "point_understanding",
       "title_ja": "えーと、あの…",
       "audio": "audio/listening/n5.listen.049.mp3",
@@ -12287,15 +11870,6 @@
         }
       ],
       "transcript_timing_provenance": "mora_proportional",
-      "voice_planned": {
-        "primary": "ja-JP-AoiNeural",
-        "secondary": "ja-JP-DaichiNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "M": "ja-JP-DaichiNeural",
-          "F": "ja-JP-AoiNeural"
-        }
-      },
       "audio_render_meta": {
         "voice_provider": "voicevox",
         "voices_used": [
@@ -12521,12 +12095,15 @@
         "description": "station platform rumble (brown noise low-end)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "voice_variety_status": "rendered",
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     },
     {
       "id": "n5.listen.050",
       "mondai": 1,
-      "format": "task",
       "format_type": "task_understanding",
       "title_ja": "びょういんで",
       "audio": "audio/listening/n5.listen.050.mp3",
@@ -12584,15 +12161,6 @@
         }
       ],
       "transcript_timing_provenance": "mora_proportional",
-      "voice_planned": {
-        "primary": "ja-JP-NanamiNeural",
-        "secondary": "ja-JP-KeitaNeural",
-        "engine": "edge-tts",
-        "speaker_role_map": {
-          "M": "ja-JP-KeitaNeural",
-          "F": "ja-JP-NanamiNeural"
-        }
-      },
       "audio_render_meta": {
         "voice_provider": "voicevox",
         "voices_used": [
@@ -12819,7 +12387,11 @@
         "description": "clinic / waiting room (very quiet)",
         "rendered_at": "2026-05-12T20:00:00+00:00"
       },
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_047_fix_2026_05_17": true,
+      "voice_variety_status": "rendered",
+      "bug_048_fix_2026_05_17": true,
+      "bug_051_fix_2026_05_17": true
     }
   ],
   "_meta": {
@@ -12851,18 +12423,62 @@
       }
     },
     "voice_variety_plan": {
-      "note": "ISSUE-062 / ISSUE-089 / ISSUE-090 round-9 plan (2026-05-06): voice variety target ≥4 distinct voices across 47 items + 2 voices per dialogue item. Audit was deferred 3× for budget; this plan uses VOICEVOX free tier (8 voices, multi-character) which costs nothing — only ~4-6hr to install on the maintainer's machine. Once VOICEVOX runs, the per-item voice_planned IDs drive a re-render script (tools/render_listening_audio_voicevox.py — to be authored when VOICEVOX is installed).",
+      "status": "completed_2026_05_12",
+      "note": "BUG-052/053 fix 2026-05-17 — VOICEVOX migration COMPLETED on 2026-05-12 (per audio_render_meta.rendered_at on all 50 items). 6 distinct VOICEVOX speakers observed in production vs the 8 target; see voicevox_speaker_catalog below for the *corrected* speaker_id → character mappings (the prior catalog had wrong character names: ID 8 was labeled 'hau-tsumugi' but is actually 春日部つむぎ; ID 11 was 'shirakami-kotaro' but is actually 玄野武宏; ID 13 was filed under '12' as 'aoyama-ryusei' but the correct ID is 13).",
       "target_voices": 8,
+      "observed_distinct_voices": 6,
       "target_dialogue_voices_per_item": 2,
       "voicevox_speaker_catalog": {
-        "2": "shikoku-metan-normal",
-        "3": "zundamon-normal",
-        "8": "hau-tsumugi-normal",
-        "14": "mei-hima-normal",
-        "11": "shirakami-kotaro-normal",
-        "12": "aoyama-ryusei-normal",
-        "53": "kenshin-takahiro-normal",
-        "20": "mochiko-san-normal"
+        "2": {
+          "character": "四国めたん",
+          "romaji": "shikoku-metan",
+          "style": "ノーマル"
+        },
+        "3": {
+          "character": "ずんだもん",
+          "romaji": "zundamon",
+          "style": "ノーマル"
+        },
+        "8": {
+          "character": "春日部つむぎ",
+          "romaji": "kasukabe-tsumugi",
+          "style": "ノーマル"
+        },
+        "10": {
+          "character": "雨晴はう",
+          "romaji": "amehare-hau",
+          "style": "ノーマル"
+        },
+        "11": {
+          "character": "玄野武宏",
+          "romaji": "kurono-takehiro",
+          "style": "ノーマル"
+        },
+        "13": {
+          "character": "青山龍星",
+          "romaji": "aoyama-ryusei",
+          "style": "ノーマル"
+        },
+        "14": {
+          "character": "冥鳴ひまり",
+          "romaji": "meimei-himari",
+          "style": "ノーマル",
+          "render_status": "not_used"
+        },
+        "53": {
+          "character": "ナースロボ＿タイプＴ",
+          "romaji": "nurse-robo-type-T",
+          "style": "ノーマル",
+          "render_status": "not_used"
+        }
+      },
+      "observed_speaker_distribution": {
+        "voicevox-speaker-8-春日部つむぎ-ノーマル": 25,
+        "voicevox-speaker-2-四国めたん-ノーマル": 17,
+        "voicevox-speaker-11-玄野武宏-ノーマル": 12,
+        "voicevox-speaker-10-雨晴はう-ノーマル": 8,
+        "voicevox-speaker-3-ずんだもん-ノーマル": 6,
+        "voicevox-speaker-13-青山龍星-ノーマル": 6
       },
       "speaker_label_classification": {
         "male_hints": [
@@ -12879,45 +12495,12 @@
           "女",
           "母"
         ],
-        "other (staff/teacher/etc.)": "rotates across voicevox 20/11/14"
+        "other_staff_teacher_etc": "rotates across voicevox 11 / 13 / 10"
       },
-      "render_command_template": "Once VOICEVOX is installed (localhost:50021), run:\n  for item in listening.items:\n    for line, speaker in zip(item.lines, item.voice_planned):\n      audio = curl -X POST localhost:50021/audio_query?speaker={voice} ...\n      audio = curl -X POST localhost:50021/synthesis?speaker={voice} ...\n      append to item.audio file",
-      "speakers_planned_distribution": {
-        "男": {
-          "11": 9
-        },
-        "女": {
-          "2": 8
-        },
-        "店員": {
-          "20": 1
-        },
-        "先生": {
-          "20": 1
-        },
-        "学生": {
-          "11": 1
-        },
-        "_narration": {
-          "20": 4,
-          "11": 4,
-          "2": 4,
-          "12": 5,
-          "3": 5,
-          "53": 5,
-          "8": 5,
-          "14": 3
-        },
-        "じょうけい": {
-          "20": 2
-        },
-        "母": {
-          "2": 1
-        },
-        "子": {
-          "20": 1
-        }
-      }
+      "unmet_target_note": "Target was 8 distinct VOICEVOX speakers; the 2026-05-12 render used 6 (the 14 冥鳴ひまり and 53 ナースロボ＿タイプＴ slots from the original plan were dropped during the render pass; the cause is unrecorded). Future iteration: re-render a subset of items using the 2 missing speakers to hit the diversity target. Tracked under the BUG-053 follow-up.",
+      "supersedes": "voice_variety_plan_2026_05_07",
+      "render_command_historical": "Render was completed via tools/build_audio_voicevox.py on 2026-05-12 against VOICEVOX engine running at localhost:50021. The audio_render_meta.voicevox_engine_version field on each item records the exact engine build used.",
+      "bug_052_053_fix_2026_05_17": true
     },
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "voice_variety_plan_2026_05_07": {
@@ -12931,8 +12514,28 @@
       "voice_count": 4,
       "plan_authored_by": "tools/fix_issue_062_voice_variety_2026_05_07.py",
       "render_step": "Run python tools/build_audio_voicevox.py --provider edge-tts on a machine with network access to speech.platform.bing.com to render the MP3s per voice_planned. Idempotent — only re-renders items whose voice_planned changed.",
-      "render_status": "pending_user_machine_execution"
+      "render_status": "pending_user_machine_execution",
+      "superseded_by": "voice_variety_plan (2026-05-12 VOICEVOX render)",
+      "superseded_at": "2026-05-17"
     },
-    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
+    "pacing_fix_status": {
+      "bug": "BUG-049",
+      "status": "open_awaiting_re_render",
+      "filed": "2026-05-17",
+      "issue": "Pacing systematically too slow: 26/50 items below the JLPT N5 target band of 180-240 mora/min. Mean observed = 160.2 mpm; some items (e.g. n5.listen.012) around 38 mpm — roughly 5× slower than exam pace.",
+      "fix_action_required": "Re-render the 26 too-slow items at audio_render_meta.speed_scale ~1.3 (currently 1.0 by default). VOICEVOX must be running locally; ~30 min budget.",
+      "current_distribution": {
+        "too_slow": 26,
+        "in_range": 12,
+        "too_fast": 2,
+        "unmeasured": 10
+      },
+      "mean_mpm_observed": 160.2,
+      "target_mpm_band": [
+        180,
+        240
+      ]
+    }
   }
 }

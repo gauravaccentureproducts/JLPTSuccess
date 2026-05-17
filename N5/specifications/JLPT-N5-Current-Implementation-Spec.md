@@ -775,7 +775,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-109; gaps for retired / reserved slots) that the
+(JA-1 through JA-111; gaps for retired / reserved slots) that the
 script runs against every release. The script is the source of truth;
 this section is its human-readable index.
 
@@ -794,12 +794,13 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **98 named JA-NN rules** (the runtime
+Currently wired invariants: **100 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 107/107 at this checkpoint, post Cross-Artifact Sync
-Protocol install 2026-05-17, which added JA-107/108/109 wiring
-INV-4 / INV-5 / INV-10 of the protocol).
+reports 109/109 at this checkpoint, post BUG-047..053 listening
+close-out 2026-05-17, which added JA-110/111 — the latest +2 in
+the migration-drift class lineage that started with BUG-041..046
+on reading.json a few hours prior).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -838,6 +839,8 @@ Closed-enum checks, required-field presence, type sanity.
 | JA-106 | reading.json `format_type ∈ {null, schedule_table, menu_list, notice}` strict closed enum (BUG-044 guard; the `comprehension` value was bleed from `format_role` and is no longer permitted on `format_type`) | 2026-05-17 |
 | JA-107 | `data/version.json.counts` declared values equal the actual array length of the referenced corpus file (Cross-Artifact Sync Protocol INV-4 guard; companion to JA-47 which covers the CONTENT-LICENSE.md side) | 2026-05-17 |
 | JA-108 | `locales/*.json` key-set parity across all locale files (Cross-Artifact Sync Protocol INV-5 guard; strict full-key equality including `_meta` block) | 2026-05-17 |
+| JA-110 | listening.json items deprecate legacy `voice_planned` field; `audio_render_meta` is the canonical engine + speaker source post the 2026-05-12 VOICEVOX migration (BUG-047 guard) | 2026-05-17 |
+| JA-111 | listening.json items drop legacy `format` field; `format_type` ∈ {task_understanding, point_understanding, utterance_expression, immediate_response} strict closed enum (BUG-051 guard) | 2026-05-17 |
 
 ### 25.2 Scope discipline (N5 whitelist + OOS guards)
 
@@ -989,12 +992,16 @@ Cross-reference table:
 | JA-107 | (drift discovered during Rule-5 install) | `version.json.counts.vocab` carried the pre-dedup 1009 value while `vocab.json` had been reduced to 995 entries (residue of BUG-018/019/024 dedup batches that didn't propagate to the version manifest); fixed in the same commit as the JA-107 wiring |
 | JA-108 | (governance) | Cross-Artifact Sync Protocol INV-5; the en.json `_meta` block was missing (asymmetric with hi.json) and 6 chokai_detail keys were missing from hi.json; both gaps closed in the install commit |
 | JA-109 | (governance) | Cross-Artifact Sync Protocol INV-10; N5Improvement.txt referenced a deleted script (`tools/register_dev_issue_list_deferrals_2026_05_05.py`); reference updated to the still-extant `tools/register_audit_2026_05_12.py` in the install commit |
+| JA-110 | BUG-047 | listening.json `voice_planned.engine="edge-tts"` contradicted `audio_render_meta.voice_provider="voicevox"` on all 50 items after the 2026-05-12 VOICEVOX migration; voice_planned dropped (audio_render_meta canonical); JS UI re-wired |
+| JA-111 | BUG-051 | listening.json `format` and `format_type` were 1:1 redundant across all 50 items; format dropped; format_type canonical (closed enum). Same dual-field-redundancy class as JA-106 (BUG-044) |
 | JA-64 (tightened) | BUG-011 + BUG-013 | Register-variant common_mistakes schema migration |
 | JA-35 (extended enum) | BUG-012 | `review_status` provenance disambiguation |
 
-For the full bug-class lineage (BUG-001 through BUG-046) and the
+For the full bug-class lineage (BUG-001 through BUG-053) and the
 authoring rules that prevent recurrence, see Appendix F (sections
-F.15 through F.23) of `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+F.15 through F.24) of `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+BUG-049 (pacing too slow on 26/50 listening items) stays Open
+this batch; needs audio re-render at VOICEVOX speed_scale ~1.3.
 
 ### 25.9 Adding a new invariant — workflow
 
@@ -1006,7 +1013,7 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-110). Reserved slots (JA-42..46, JA-80,
+   (currently next free = JA-112). Reserved slots (JA-42..46, JA-80,
    JA-91..95) must NOT be reused.
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is

@@ -14,14 +14,18 @@ let session = null;
 // 課題理解 / ポイント理解 / 発話表現 are official JLPT format names; the
 // kanji 課 解 達 表 現 are not in the N5 catalog, but these labels are
 // authentic JLPT taxonomy and the kana gloss is shown alongside.
+// BUG-051 fix 2026-05-17: keyed by format_type (the canonical
+// descriptive field) after dropping the redundant `format` short-name.
+// Locked by JA-111. Pre-fix the schema carried both fields with a 1:1
+// bijection — format="task" ↔ format_type="task_understanding", etc.
 const FORMATS = {
-  task:      'かだいりかい (タスクりかい)',
-  point:     'ポイントりかい',
-  utterance: 'はつわひょうげん',
+  task_understanding:   'かだいりかい (タスクりかい)',
+  point_understanding:  'ポイントりかい',
+  utterance_expression: 'はつわひょうげん',
   // ISSUE-057 (audit round-7): mondai-4 即時応答 (immediate response).
   // Distinct from utterance/発話表現 (mondai-3). Three short replies,
   // pick the most natural rejoinder.
-  response:  'そくじおうとう',
+  immediate_response:   'そくじおうとう',
 };
 
 async function loadBank() {
@@ -84,8 +88,10 @@ function renderIndex(container) {
     `;
     return;
   }
+  // BUG-051 fix 2026-05-17: group by format_type (canonical field)
+  // instead of the dropped `format` short-name. Locked by JA-111.
   const byFormat = items.reduce((acc, x) => {
-    (acc[x.format] = acc[x.format] || []).push(x);
+    (acc[x.format_type] = acc[x.format_type] || []).push(x);
     return acc;
   }, {});
   container.innerHTML = `
@@ -178,7 +184,7 @@ function renderItem(container) {
         <span><a id="listening-back" href="#/listening">← ${renderJa('リストに もどる')}</a></span>
       </div>
       <h2>${it.title_ja ? renderJa(it.title_ja) : esc(it.id)}</h2>
-      <p class="muted small">${renderJa('けいしき')}: ${renderJa(FORMATS[it.format] || it.format)}</p>
+      <p class="muted small">${renderJa('けいしき')}: ${renderJa(FORMATS[it.format_type] || it.format_type)}</p>
       <div class="listening-audio">
         ${it.audio ? `
           <audio id="listening-audio-${esc(it.id)}" controls preload="none" src="${esc(it.audio)}">Audio</audio>
@@ -204,21 +210,31 @@ function renderItem(container) {
           ` : ''}
         ` : `<p class="muted small">${renderJa('おんせいファイルは まだ ありません。')}</p>`}
       </div>
-      ${it.voice_planned ? (() => {
-        // F-10 (legal-vetting 2026-05-11): surface synthetic-voice provenance
-        // on the playback UI per audit recommendation (was only in NOTICES.md
-        // + audio_render_meta). Strip the ja-JP-...Neural wrapper for a
-        // friendly speaker label; engine identifier stays as-is.
-        const friendly = v => v ? String(v).replace(/^ja-JP-/, '').replace(/Neural$/, '') : '';
-        const p = friendly(it.voice_planned.primary);
-        const s = friendly(it.voice_planned.secondary);
-        const engine = it.voice_planned.engine || 'TTS';
-        const names = [p, s].filter(Boolean).join(' · ');
+      ${(() => {
+        // F-10 (legal-vetting 2026-05-11): surface synthetic-voice
+        // provenance on the playback UI.
+        // BUG-047 fix 2026-05-17: read from audio_render_meta (the
+        // canonical post-render record) instead of the stale
+        // voice_planned field. Pre-fix every item carried
+        // voice_planned.engine="edge-tts" even though
+        // audio_render_meta.voice_provider="voicevox" — Cross-Artifact
+        // Sync Protocol INV-7 drift. voice_planned has now been
+        // dropped from listening.json (per JA-110); engine + speaker
+        // names resolve from audio_render_meta.voice_provider +
+        // audio_render_meta.voice_planned_for_engine.{F,M}.character.
+        const arm = it.audio_render_meta;
+        if (!arm) return '';
+        const vpfe = arm.voice_planned_for_engine || {};
+        const f = (vpfe.F && vpfe.F.character) || '';
+        const m = (vpfe.M && vpfe.M.character) || '';
+        const engine = arm.voice_provider || '';
+        if (!f && !m && !engine) return '';
+        const names = [f, m].filter(Boolean).join(' · ');
         const label = (typeof t === 'function' ? t('listening.voices_label') : 'Voices') || 'Voices';
         return `<p class="muted xs listening-voice-attribution">
           ${esc(label)}: ${esc(names)} (${esc(engine)})
         </p>`;
-      })() : ''}
+      })()}
       ${it.prompt_ja ? `<p>${renderJa(it.prompt_ja)}</p>` : ''}
       ${(() => {
         // IMP-WAVE4 (UI audit fix, 2026-05-11): listening_strategy_hints —

@@ -1155,6 +1155,22 @@ CHECKS: list[tuple[str, str, callable]] = [
     # Catches script-rename / -removal drift where the manual
     # still tells builders to run a vanished file.
     ("JA-109", "procedure manual + prompts → script references resolve (INV-10 guard, 2026-05-17)", lambda: _check_ja_109_script_references_resolve()),
+    # JA-110 (2026-05-17): BUG-047 close-out. listening.json items
+    # must NOT carry the legacy `voice_planned` field. The
+    # audio_render_meta block is the canonical source for engine +
+    # speaker info post the 2026-05-12 VOICEVOX migration. Pre-fix
+    # all 50 items declared voice_planned.engine="edge-tts" while
+    # audio_render_meta.voice_provider="voicevox" — same dual-field
+    # drift class as BUG-044 (reading.json format_type vs
+    # format_role) and BUG-051 (listening.json format vs format_type).
+    ("JA-110", "listening.json items deprecate legacy `voice_planned` (BUG-047 guard, 2026-05-17)", lambda: _check_ja_110_no_voice_planned()),
+    # JA-111 (2026-05-17): BUG-051 close-out. listening.json items
+    # must NOT carry the legacy `format` field; `format_type` is the
+    # canonical descriptive field with closed enum
+    # {task_understanding, point_understanding, utterance_expression,
+    # immediate_response}. Same dual-field drift class as BUG-044
+    # and BUG-047.
+    ("JA-111", "listening.json drops legacy `format`; `format_type` ∈ closed enum (BUG-051 guard, 2026-05-17)", lambda: _check_ja_111_format_type_only()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -1284,7 +1300,30 @@ def _check_ja_13_no_out_of_scope_kanji_in_data() -> list[str]:
                            # like 場所 / 時間 / 場面 (N4+ kanji) since those
                            # appear in the verified-correct meaning_ja text.
                            # Internal metadata; never user-facing.
-                           "_meaning_ja_markers"}
+                           "_meaning_ja_markers",
+                           # BUG-052/053 fix 2026-05-17: voice_variety_plan
+                           # in listening.json _meta carries the VOICEVOX
+                           # speaker_catalog (春日部つむぎ / 玄野武宏 / 雨晴は
+                           # う / 青山龍星 / etc.) and explanatory prose
+                           # about the 2026-05-12 render. Same rationale as
+                           # audio_render_meta (line 1282) and
+                           # public_domain_refs (line 1294) — provenance /
+                           # rendering metadata with kanji beyond N5, never
+                           # learner-facing. The audio player UI displays
+                           # only the role label, never the character name.
+                           "voice_variety_plan",
+                           # BUG-049 fix 2026-05-17 (surface-only): the
+                           # pacing_fix_status block carries the queued-
+                           # action description for the slow-pacing
+                           # re-render, including the human-readable
+                           # explanation with example item IDs. Same
+                           # rationale as voice_variety_plan.
+                           "pacing_fix_status",
+                           # BUG-052 fix 2026-05-17: the legacy
+                           # voice_variety_plan_2026_05_07 block is
+                           # marked superseded but kept for history;
+                           # exempt for the same rationale.
+                           "voice_variety_plan_2026_05_07"}
     # ISSUE-056 + 2026-05-06 locale narrowing (IMP-096): locale-suffixed
     # translation fields. The values are translations into hi (Hindi).
     # Pattern: <basename>_<locale> for locale ∈ {hi}. The pre-narrowing
@@ -5054,6 +5093,74 @@ def _check_ja_106_format_type_enum() -> list[str]:
             failures.append(
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
+            )
+    return failures
+
+
+def _check_ja_110_no_voice_planned() -> list[str]:
+    """BUG-047 (2026-05-17) regression guard.
+
+    listening.json items must NOT carry the legacy `voice_planned`
+    field. The audio_render_meta block is the canonical source for
+    engine + speaker info post the 2026-05-12 VOICEVOX migration.
+    Pre-fix every item declared voice_planned.engine="edge-tts" even
+    though audio_render_meta.voice_provider="voicevox" — exactly the
+    dual-field drift class that BUG-044 / BUG-051 also instantiate.
+    """
+    failures: list[str] = []
+    try:
+        l = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-110 could not read listening.json: {e}"]
+    for it in l.get("items", []):
+        iid = it.get("id", "?")
+        if "voice_planned" in it:
+            failures.append(
+                f"JA-110 {iid}: legacy `voice_planned` field still present "
+                f"(deprecated per BUG-047; read from audio_render_meta.voice_"
+                f"planned_for_engine + audio_render_meta.voice_provider instead)"
+            )
+    return failures
+
+
+def _check_ja_111_format_type_only() -> list[str]:
+    """BUG-051 (2026-05-17) regression guard.
+
+    listening.json items must NOT carry the legacy `format` field;
+    `format_type` is the canonical descriptive field. Closed enum:
+    {task_understanding, point_understanding, utterance_expression,
+    immediate_response}.
+
+    Same dual-field-redundancy class as BUG-044 (reading.json
+    format_type vs format_role) and BUG-047 (listening.json
+    voice_planned vs audio_render_meta).
+    """
+    failures: list[str] = []
+    ALLOWED = {
+        "task_understanding",
+        "point_understanding",
+        "utterance_expression",
+        "immediate_response",
+    }
+    try:
+        l = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-111 could not read listening.json: {e}"]
+    for it in l.get("items", []):
+        iid = it.get("id", "?")
+        if "format" in it:
+            failures.append(
+                f"JA-111 {iid}: legacy `format` field still present "
+                f"(deprecated per BUG-051; use `format_type` only)"
+            )
+        ft = it.get("format_type")
+        if ft is None:
+            failures.append(
+                f"JA-111 {iid}: missing required `format_type` field"
+            )
+        elif ft not in ALLOWED:
+            failures.append(
+                f"JA-111 {iid}: format_type {ft!r} not in {sorted(ALLOWED)}"
             )
     return failures
 

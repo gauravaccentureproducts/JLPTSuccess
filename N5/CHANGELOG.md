@@ -2,6 +2,149 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (BUG-047..053 listening.json VOICEVOX migration drift fix)
+
+Maintenance / data-quality release. Listening drill audio playback
+now correctly attributes audio to VOICEVOX (was mis-attributing to
+edge-tts due to a stale field). No new content; underlying audio
+files unchanged from the 2026-05-12 VOICEVOX render.
+
+### BUG-047..053 close-out (listening.json)
+
+Seven user-reported bugs surfaced as the same meta-class as
+BUG-041..046 (corpus-migration drift) but on a different corpus
+(listening, not reading) and triggered by a different migration
+event (2026-05-12 edge-tts → VOICEVOX render). Fix script:
+`tools/fix_bugs_047_to_053_listening_json_2026_05_17.py`.
+
+  - **BUG-047** (Fixed) — voice_planned.engine="edge-tts" on all 50
+    items contradicted audio_render_meta.voice_provider="voicevox".
+    The voice-attribution UI in the listening detail page was
+    showing the wrong vendor. Fix: drop voice_planned (audio_render
+    _meta is canonical); UI re-wired to read from
+    audio_render_meta.voice_provider +
+    audio_render_meta.voice_planned_for_engine.{F,M}.character.
+  - **BUG-048** (Fixed) — audit-status fields stale on items 41-50:
+    7 items had pacing_status="no_audio" + 3 had
+    voice_variety_status=None despite audio_render_meta.rendered_at
+    being set on all 10. Refreshed to "unmeasured" (pacing) and
+    "rendered" (voice_variety) to match actual render state.
+  - **BUG-049** (Open) — 26/50 items pacing systematically too
+    slow: mean 160.2 mpm vs JLPT N5 target 180-240; some items 5×
+    slower than exam pace. Surface-only fix: _meta.pacing_fix_status
+    block added documenting the bug ID, observed distribution, and
+    required action (audio re-render at speed_scale ~1.3 — needs
+    VOICEVOX install on maintainer's machine). Bug stays Open in
+    the tracker.
+  - **BUG-050** (Already-Fixed by cdef185) — version.json.counts.
+    listening declared 47 vs actual 50. Resolved in the Cross-Artifact
+    Sync Protocol install commit (Rule-5) when version.json was
+    bumped alongside the vocab 1009→995 drift fix. JA-107 (INV-4)
+    locks the count parity.
+  - **BUG-051** (Fixed) — format and format_type were 1:1
+    bijective (task↔task_understanding etc.). Same dual-field
+    redundancy class as BUG-044 (reading) and BUG-047. Fix: drop
+    format; format_type canonical with closed enum.
+  - **BUG-052** (Fixed) — _meta.voice_variety_plan described
+    VOICEVOX as "to be authored when VOICEVOX is installed" even
+    though the render had completed on 2026-05-12. Rewrote as
+    past-tense completion record (status="completed_2026_05_12");
+    captured observed-vs-target voice distribution; marked legacy
+    voice_variety_plan_2026_05_07 as superseded.
+  - **BUG-053** (Fixed) — voicevox_speaker_catalog had wrong
+    character→ID mappings (ID 8 was listed as "hau-tsumugi" but
+    is actually 春日部つむぎ; ID 11 was "shirakami-kotaro" but is
+    玄野武宏; ID 13 was mis-filed under "12"). Rewrote catalog from
+    audio_render_meta.voices_used (the upstream truth). Voice
+    variety target 8 only met at 6 in the actual render; documented
+    as unmet_target_note.
+
+### CI invariants added (2 hard CI gates)
+
+  - **JA-110** — listening.json items deprecate legacy
+    `voice_planned`. Strict "field absent" check (BUG-047 guard).
+  - **JA-111** — listening.json drops legacy `format`; format_type
+    ∈ {task_understanding, point_understanding, utterance_expression,
+    immediate_response} strict closed enum (BUG-051 guard).
+
+Additional CI change: JA-13 SKIP_SUBTREE_FIELDS extended with
+`voice_variety_plan`, `pacing_fix_status`, and
+`voice_variety_plan_2026_05_07` (same rationale as the existing
+audio_render_meta + public_domain_refs exemptions — rendering
+metadata, not learner-facing content).
+
+Total CI invariants live: 109 (was 107).
+
+### JS / UI updates
+
+  - `N5/js/listening.js` — voice-attribution surface (F-10 legal-
+    vetting requirement) re-wired from voice_planned to
+    audio_render_meta. FORMATS map rekeyed from short keys to
+    format_type values. byFormat grouping uses format_type.
+  - `N5/js/search.js` — listening haystack + gloss read format_type
+    (was reading the dropped `format` field).
+  - Minified `js/min/listening.js` + `js/min/search.js` regenerated
+    via `npm run build:js`.
+  - Static mirrors: 50 listening pages regenerated via
+    `tools/build_static_mirrors.py` (reflect format_type → label
+    rendering).
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+Data + JS:
+  - `N5/data/listening.json` — voice_planned dropped (50 items);
+    audit-status fields refreshed (10 items); format dropped (50
+    items); _meta.voice_variety_plan rewritten; _meta.pacing_fix_
+    status added.
+  - `N5/js/listening.js`, `N5/js/search.js` — consumer updates.
+  - `N5/js/min/listening.js`, `N5/js/min/search.js` — minified
+    regenerated.
+  - 50× `N5/listening/<id>/index.html` — static mirrors regen.
+
+CI tooling:
+  - `N5/tools/check_content_integrity.py` — 2 new check functions
+    + 2 registry entries + skip-list extension.
+  - `N5/tools/fix_bugs_047_to_053_listening_json_2026_05_17.py`
+    (NEW) — the per-bug fix functions.
+  - `N5/tools/mark_bugs_047_to_053_fixed_2026_05_17.py` (NEW) —
+    xlsx status updater.
+
+Governance docs (Rule 4 propagation):
+  - `JLPT Common/procedure-manual-build-next-jlpt-level.md` — §F.24
+    added (7 sub-classes + §F.24.7 cross-corpus generalization
+    of §F.23.7).
+  - `N5/prompts/Japanese language Accuracy check.txt` — audit
+    category A60 added (.1..7 sub-classes); 2026-05-17 ADDENDUM
+    block appended.
+  - `N5/prompts/N5Improvement.txt` — Phase-0 listening migration-
+    drift regression block (7 checks, validated 0/0/0/0/0/0/0); 6
+    new Section-10 anti-items.
+  - `N5/docs/AUDIT-COVERAGE-2026-05-15.md` — Part 13 addendum.
+  - `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` —
+    §25.1 + §25.4 rows for JA-110/111; §25.8 lineage extended;
+    section-header counts bumped.
+  - `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`
+    "User Reported Bugs" sheet — 6 rows marked Fixed; BUG-049
+    stays Open.
+  - `N5/CHANGELOG.md` — this entry.
+
+### Coverage of the fix
+
+CI: 109/109 invariants green post-fix.
+`cross_artifact_sync_report.py` exits CLEAN. 1 of 53 user-reported
+bugs Open (BUG-049 pacing — surface-only this batch, awaiting
+audio re-render at VOICEVOX speed_scale ~1.3 on the maintainer's
+machine).
+
+Bounded-coverage note (per writing discipline): JA-110 / JA-111
+prevent re-introduction of THESE specific drift shapes. Future
+TTS migrations, transcript-alignment passes, or audit-pass runs
+may surface adjacent patterns; the generalized §F.24.7 operational
+rule (run same-shape audit on EVERY field that references migrated
+state, not just data items) is the cross-cutting preventive.
+
+---
+
 ## Unreleased - 2026-05-17 (Cross-Artifact Sync Protocol install + version.json drift fix)
 
 Governance + tooling release. No learner-facing content changes; the

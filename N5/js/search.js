@@ -47,8 +47,11 @@ async function loadBank() {
         haystack: ((p.id||'') + ' ' + (p.title_ja||'') + ' ' + (p.ja||'') + ' ' + (p.topic||'')).toLowerCase(),
       })),
       listening: (l.items || []).map(it => ({
-        id: it.id, label: it.title_ja || it.id, gloss: it.format_type || it.format || '',
-        haystack: ((it.id||'') + ' ' + (it.title_ja||'') + ' ' + (it.script_ja||'') + ' ' + (it.format||'')).toLowerCase(),
+        // BUG-051 fix 2026-05-17: format field dropped (1:1 redundant
+        // with format_type per the bug); haystack + gloss now read
+        // from format_type only. Locked by JA-111.
+        id: it.id, label: it.title_ja || it.id, gloss: it.format_type || '',
+        haystack: ((it.id||'') + ' ' + (it.title_ja||'') + ' ' + (it.script_ja||'') + ' ' + (it.format_type||'')).toLowerCase(),
       })),
     };
   } catch {
