@@ -3604,3 +3604,150 @@ authoring tools
 `tools/render_listening_phase2_voicevox_1_00_2026_05_17.py` +
 `tools/apply_phase2_rubberband_chained_items_2026_05_17.py`.
 ============================================================
+
+============================================================
+A65. Multi-role specialist-review-by-tab methodology.
+     (Methodology — added 2026-05-17, AUDIT-COVERAGE Part 23.)
+
+A single auditor playing every required specialist role (Native
+Japanese teacher, JLPT exam expert, Native Hindi teacher,
+Security engineer, Privacy/legal lawyer, Performance engineer,
+Data engineer, Pedagogy specialist, QA engineer, Cultural
+reviewer, UX designer, Accessibility engineer, Operations
+engineer, End-user POV proxy) can systematically run all 720+
+test-scenarios across the 15-tab xlsx by:
+
+  1. Per-tab pass: identify the Owner-column role for each
+     scenario; apply specialist judgment with explicit credible-
+     source references (Genki I, Minna I, NHK accent dictionary,
+     JEES samples, Hindi Vyakaran, OpenSSF Scorecard, WCAG spec,
+     GDPR/DPDP/COPPA legal texts, CC-BY-SA terms, etc.)
+  2. Run agent-side checks where possible: grep, data inspection,
+     CI invariant lookup, file-presence verification.
+  3. File NR-{ROLE}-NNN bugs for findings; fix in same commit.
+  4. Stamp each scenario with bounded-honest result classification
+     (see F.28.3 in procedure manual).
+
+Bounded-honest stamping vocabulary (replaces bare "PASS" where
+appropriate):
+  - PASS — verified by runnable check / CI invariant
+  - PASS (limited verification) — code-grep / data-inspection
+    only; no runtime / visual / user verification
+  - PASS (architectural) — verified via architecture-level
+    reasoning (e.g., static-only hosting → no POST endpoints)
+  - PASS (per JEES sample paper) — verified against credible
+    source, not exhaustively
+  - PASS (spot-check; full review deferred) — sampled, not
+    exhaustively native-reviewer-reviewed
+  - PASS — with finding (intentional design) — surfaced a quirk
+    that is design-justified
+  - PASS (computed; not browser-measured) — file-size math, not
+    device-measured
+  - PASS (vacuous — no <X>) — N/A given posture
+  - Manual — deferred (<reason>) — needs runtime / user /
+    specialist
+  - Skipped — external — external tool not installed locally
+  - Skipped — no learner data — needs accumulated telemetry
+  - Blocked — depends on <X> — dependent artifact not shipped
+
+Brutal-honesty re-audit pattern: after a pass with stricter-
+classification stamps lands, re-execute deep scans (full corpus,
+not 30-sample) and re-classify previously-PASS stamps where the
+original PASS rested on less-than-runtime verification. The
+honest re-stamping is itself a deliverable.
+
+The N5 session 2026-05-17 surfaced 16 NR-* bugs across 5 batches:
+  NR-001..005 (Japanese): 5 native-teacher findings
+  NR-HI-001..003 (Hindi) + NR-JE-001 (JLPT): 4 native + exam-expert
+  NR-SEC-001..002, NR-LIC-001, NR-DATA-001: 4 specialist-sweep
+  NR-DATA-002: 1 brutal-honesty deep audit (caught retired-ID
+    cross-reference that 30-sample missed)
+  NR-UI-001: 1 Selenium UI test (caught meta-tag-ignored class
+    that source-only review missed)
+All 16 closed in the same commit chain as filed.
+
+Bounded-coverage phrasing reminder: A65 documents methodology
+*against the 15-tab xlsx + corpus state at 2026-05-17 corpus
+snapshot*. Future corpus growth or new tab additions may
+require role-coverage extension or new specialist tabs.
+
+CI invariants at this checkpoint: 122 (unchanged — A65/A66 are
+methodology + UI-test wiring, not new content invariants). All
+122 green post-NR-UI-001 fix.
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 23 addendum
+(2026-05-17); procedure-manual §F.28 / §F.29; spec §25.x
+specialist-review row TBD; tools/file_native_review_bugs_2026_05_17.py,
+tools/fix_hindi_jlpt_review_bugs_2026_05_17.py,
+tools/fix_specialist_review_bugs_2026_05_17.py,
+tools/brutal_honesty_audit_2026_05_17.py,
+tools/file_brutal_honesty_findings_2026_05_17.py.
+============================================================
+
+============================================================
+A66. Selenium UI test class — E2E coverage of every functional
+     surface in spec §5 + static-mirror routes + a11y + security
+     headers + Service Worker + audio + i18n + console health.
+     (Test class — added 2026-05-17, AUDIT-COVERAGE Part 23.)
+
+End-to-end UI testing via Selenium 4 (headless Chrome,
+Selenium Manager auto-driver). 55 scenarios covering:
+
+  - Spec §5.1-5.16 functional routes (Home / Learn hub / per-
+    module routes / Mock Test / Practice / Review / Missed /
+    Summary / Settings / Sitting / Today / Privacy / Notices)
+  - Static-mirror routes (14): /home/, /changelog/, /privacy/,
+    /notices/, /learn/grammar/<id>/, /lessons/<id>.html
+    (legacy), /reading/<id>/, /listening/<id>/,
+    /learn/vocab/<form>/ (URL-encoded), /kanji/<glyph>/ (URL-
+    encoded), + 5 index pages
+  - SEO: sitemap.xml + robots.txt
+  - Accessibility: <html lang>, skip-link, <title>, <main>
+    landmark, aria-live
+  - Security: CSP comprehensive, X-Frame-Options (the latter now
+    documented as ignored-by-meta per NR-UI-001)
+  - PWA: Service Worker API + registration
+  - Audio: MP3 reachability + audio_manifest.json
+  - i18n: locale-switch DOM + locales/{en,hi}.json key parity
+  - Console health: 0 SEVERE console errors
+
+NR-UI-001 lesson (critical):
+  Browser-spec defense-in-depth security directives that are
+  HTTP-header-only and IGNORED via <meta>:
+    - CSP `frame-ancestors`
+    - X-Frame-Options
+  Both throw SEVERE console errors when present in <meta>.
+  Cosmetic meta-tag fixes are misleading — they look like
+  protection in source but provide none in runtime.
+  ALWAYS verify security-header effectiveness via runtime
+  browser check (Selenium console-log capture), not just
+  source-code inspection.
+
+Static-hosting limitation: GitHub Pages does not expose HTTP-
+header config; clickjacking defense via meta is structurally
+unavailable. Move to a host that exposes header rules
+(Cloudflare Pages / Netlify _headers / Vercel headers JSON)
+if clickjacking defense is needed.
+
+Test runner: `python tools/ui_test_suite_2026_05_17.py`
+(serves from local HTTP server matching production URL
+structure; reads results into tools/ui_test_results_2026_05_17.json
++ stamps the xlsx "UI Tests" tab).
+
+Reusable: future Nx builders fork the runner with updated
+RUN_DATE constant + per-Nx route list.
+
+Bounded-coverage phrasing reminder: A66 verifies 55 scenarios
+*served from a local HTTP server matching production URL
+structure*. Not verified by this class: cross-browser variance
+(BrowserStack workflow handles), visual regression (Playwright
+workflow handles), mobile-device behavior (BrowserStack
+mobile), screen-reader-specific announcements (manual
+runtime test).
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 23 addendum;
+procedure-manual §F.29; test-scenarios xlsx "UI Tests" tab
+(NEW 2026-05-17); tools/ui_test_suite_2026_05_17.py;
+tools/add_ui_tests_tab_2026_05_17.py;
+tools/dump_console_errors.py.
+============================================================

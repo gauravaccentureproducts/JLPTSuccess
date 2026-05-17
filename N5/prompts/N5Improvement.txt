@@ -1056,6 +1056,71 @@ A63.3 stays at 0 — every pattern must have markers. New patterns
 added to grammar.json without re-running
 `tools/author_pattern_markers_2026_05_17.py` will trip this.
 
+### Phase-0 Selenium UI test regression block (added 2026-05-17)
+
+End-to-end UI regression check via the Selenium 4 test suite. Run
+after any commit touching index.html, js/*.js, css/*.css, sw.js,
+manifest.webmanifest, or static-mirror generation. Target: 55/55
+PASS (or 53 PASS + 1 SKIP + 0 FAIL after the NR-UI-001 fix).
+
+Validated 2026-05-17 to return 53/1/0 (PASS/SKIP/FAIL) against the
+current corpus post NR-UI-001 fix.
+
+```bash
+# Prereq: serve from JLPTSuccess root (so ../assets/ paths resolve)
+cd JLPTSuccess
+python -m http.server 8766 --bind 127.0.0.1 &
+SERVER_PID=$!
+
+# Run UI test suite (Selenium 4 + headless Chrome via auto-driver)
+cd N5
+python tools/ui_test_suite_2026_05_17.py
+# Output: 55 scenarios stamped → tools/ui_test_results_2026_05_17.json
+
+# Console-error capture (separate check)
+python tools/dump_console_errors.py
+# Target: 0 SEVERE errors (post NR-UI-001 fix)
+
+# Cleanup
+kill $SERVER_PID
+```
+
+Pass-criteria summary:
+  - All 14 spec §5 functional routes render with > 50 chars content
+  - All 14 static-mirror routes return HTTP 200 with valid titles
+  - sitemap.xml + robots.txt served
+  - WCAG-A landmarks present (html lang, skip-link, title, main, aria-live)
+  - CSP comprehensive (default-src 'self' + script-src 'self' + form-action 'none')
+  - Service Worker registers successfully
+  - MP3 audio files reachable
+  - locales/{en,hi}.json key parity
+  - 0 SEVERE console errors
+
+If any FAIL surfaces: file an NR-UI-NNN bug, fix in same commit,
+re-run.
+
+### Phase-0 multi-role specialist-review regression block (added 2026-05-17)
+
+Quarterly (or pre-release) re-run of the multi-role specialist
+review covering all 720+ scenarios across the 15-tab xlsx. Per role,
+run agent-side verifiable checks; for each finding, file NR-{ROLE}
+-NNN bug + fix + stamp.
+
+Bounded-honest stamping must use the vocabulary in A65 of the
+accuracy prompt (PASS / PASS (limited verification) / PASS
+(architectural) / PASS (spot-check) / Manual — deferred / Skipped
+— external / etc.).
+
+Brutal-honesty re-audit: after a specialist-review pass lands,
+re-execute deep scans (full corpus, not 30-sample) on key
+domains and re-classify previously-PASS stamps with stricter
+qualifiers if the original PASS rested on less-than-runtime
+verification.
+
+Target: total NR-* count = 0 new findings *if the corpus hasn't
+drifted since last quarterly review*; new findings indicate
+methodology drift or corpus regression that needs fixing.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

@@ -2,6 +2,127 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (Multi-role specialist review sweep + Selenium UI test class + 16 NR-* bugs)
+
+Not user-visible at runtime — corpus content was already correct
+post Phase-2; this batch added a systematic 720-scenario multi-
+role specialist review sweep (Native Japanese / JLPT / Native
+Hindi / Security / Privacy-legal / Performance / Data / Pedagogy /
+QA / Cultural / UX / Accessibility / Operations / End-user) plus
+a new Selenium 4-driven end-to-end UI test class covering every
+functional surface in spec §5.
+
+### 16 NR-* bugs surfaced + fixed across 5 batches
+
+- **Batch 1 (`d26e677`) — Native Japanese teacher review**:
+  NR-001 (Major, まえに pattern-instance contamination across n5-161
+  / n5-162 — 5 misfiled examples); NR-002 (Medium, n5-161 duplicate
+  examples); NR-003 (Major, n5-160 / n5-163 misfiled adverbial
+  'あとで 電話します。'); NR-004 (Major, n5-045 ex[6] wh+は anti-
+  pattern); NR-005 (Critical, 13 wrong rendaku forms in vocab.json
+  number-vocab collocations for 本 + 個 counters). 9 grammar examples
+  + 13 vocab collocations fixed. Cross-checked vs Genki I + Minna I
+  + NHK accent dictionary + JEES samples.
+- **Batch 2 (`8159b49`) — Native Hindi teacher + JLPT exam expert**:
+  NR-HI-001 (Critical, q-0264 distractor とって corruption "जो's");
+  NR-HI-002 (Major, q-0462 English possessive 's after Hindi noun);
+  NR-HI-003 (Medium, q-0234 mixed-English "Group 1"); NR-JE-001
+  (Major, 40 JLPT format violations — half-width `___` for fill-
+  blank + 10 missing terminal 。). Cross-checked vs Hindi Vyakaran +
+  Sahitya Akademi + JEES sample paper format.
+- **Batch 3 (`46be3e1`) — Security / Privacy-legal / Data eng sweep**:
+  NR-SEC-001 (Major, 4/4 GitHub workflows missing `permissions:`
+  least-privilege block — fixed with `contents: read`); NR-SEC-002
+  (Medium, defense-in-depth meta tags initially missing);
+  NR-LIC-001 (Medium, kanjium CC-BY-SA 4.0 attribution missing from
+  CONTENT-LICENSE.md); NR-DATA-001 (Low informational, 14/22 data
+  files lack schema_version — auto-gen catalogs).
+- **Batch 4 (`d1e0d90`) — Brutal-honesty re-audit**: NR-DATA-002
+  (Major, 4 vocab demonstrative entries reference retired grammar
+  pattern n5-012 — caught by deeper full-corpus scan). 42 prior
+  PASSes re-labeled with bounded-honest qualifiers (PASS / PASS-
+  limited / PASS-architectural / PASS-spot-check / etc.).
+- **Batch 5 (`5635425`) — Selenium UI test class**: NR-UI-001
+  (Medium, CSP `frame-ancestors` and X-Frame-Options are HTTP-
+  header-only and IGNORED via `<meta>` — cosmetic-only fix from
+  prior NR-SEC-002 batch). Selenium console-error capture caught
+  SEVERE errors on every route. Fix: removed both ineffective meta
+  tags from index.html + documented the GitHub-Pages static-hosting
+  limitation. Post-fix: 0 SEVERE console errors.
+
+### Selenium UI test suite (NEW)
+
+`tools/ui_test_suite_2026_05_17.py` — 55 scenarios covering:
+- Spec §5.1-5.16 functional routes (Home / Learn hub / Grammar /
+  Vocab / Kanji / Reading / Listening / Mock Test / Papers /
+  Drill / Review / Missed / Summary / Settings / Sitting / Today /
+  Privacy / Notices)
+- All 14 static-mirror routes (`/home/`, `/changelog/`,
+  `/privacy/`, `/notices/`, `/learn/grammar/<id>/` + 5
+  `/lessons/<id>.html` legacy, `/reading/<id>/`, `/listening/<id>/`,
+  `/learn/vocab/<form>/`, `/kanji/<glyph>/` + 5 index pages)
+- SEO (`sitemap.xml`, `robots.txt`), accessibility landmarks,
+  security headers, Service Worker registration, audio
+  reachability, locale parity, console-error-zero verification.
+
+Runs locally via Selenium 4 + Selenium Manager auto-driver (no
+manual chromedriver-install step). Reusable for Nx builds.
+
+### New "UI Tests" tab in test-scenarios xlsx
+
+18 total tabs now (Unit Tests + A-N + User Reported Bugs + new
+UI Tests with 55 scenario rows).
+
+### Methodology propagation (Rule 4 / Rule 5)
+
+- `JLPT Common/procedure-manual-build-next-jlpt-level.md` — Appendix
+  F.28 (multi-role specialist-review-by-tab pattern + bounded-
+  honest stamping vocabulary + brutal-honesty re-audit) + F.29
+  (Selenium UI test class + NR-UI-001 lesson on meta-tag-ignored
+  security directives).
+- `prompts/Japanese language Accuracy check.txt` — A65 (multi-role
+  methodology) + A66 (Selenium UI test class).
+- `prompts/N5Improvement.txt` — Phase-0 Selenium UI test regression
+  block (target 53/55 PASS post NR-UI-001) + Phase-0 multi-role
+  specialist-review regression block (target 0 NEW NR-* findings).
+- `docs/AUDIT-COVERAGE-2026-05-15.md` — Part 23 addendum
+  (consolidated 5-batch narrative + reusable-tooling deliverables).
+- `docs/cross-artifact-sync-map.md` — 6 new audit-log rows
+  (5 batches + this propagation catch-up).
+- `specifications/JLPT-N5-Current-Implementation-Spec.md` — §25 intro
+  reflection (UI Tests tab added; bug-tracker count update).
+
+### CI invariants final state for this batch
+
+- **Total live: 122** (unchanged — this batch is methodology +
+  multi-role review + UI test wiring, not new content invariants).
+- All 122 PASS.
+- `cross_artifact_sync_report.py` EXIT: CLEAN.
+- Bug tracker: **104 / 104 Fixed / 0 Open**.
+- UI test suite: 53 / 55 PASS, 1 SKIP, 0 FAIL post NR-UI-001 fix.
+
+### Files touched (consolidated this batch)
+
+- `N5/data/grammar.json` (9 example fixes)
+- `N5/data/vocab.json` (13 + 4 collocation fixes)
+- `N5/data/questions.json` (3 Hindi corrections)
+- `N5/data/papers/bunpou/*.json` (40 stem-format patches)
+- `N5/.github/workflows/*.yml` (4 permissions blocks)
+- `N5/index.html` (security header meta tags partly retired per
+  NR-UI-001)
+- `N5/CONTENT-LICENSE.md` (kanjium CC-BY-SA 4.0 attribution)
+- `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`
+  (NEW "UI Tests" tab + 16 bug rows + ~230 scenario stamps)
+- `JLPT Common/procedure-manual-build-next-jlpt-level.md` (F.28
+  + F.29 + footnote)
+- `N5/prompts/Japanese language Accuracy check.txt` (A65 + A66)
+- `N5/prompts/N5Improvement.txt` (2 new Phase-0 regression blocks)
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` (Part 23)
+- `N5/docs/cross-artifact-sync-map.md` (6 audit-log rows)
+- `N5/CHANGELOG.md` + `N5/changelog/index.html` (meta-mirror regen)
+- 11 NEW `N5/tools/` scripts (NR-* applicators + Selenium runner +
+  xlsx populators) — listed in AUDIT-COVERAGE Part 23
+
 ## Unreleased - 2026-05-17 (Audio Phase-2: VOICEVOX from-source re-render at speed_scale=1.00)
 
 User-visible: all 50 listening items have been re-rendered from

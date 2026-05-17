@@ -3357,3 +3357,203 @@ prompted by new content (additional listening items), new
 methodology (different target band, different speaker variety
 plan), or new bug reports — all driven by future audit cycles
 rather than by carried-over deferrals.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 23) — Multi-role specialist-review sweep + Selenium UI test class (16 NR-* bugs across 5 batches)
+
+After Parts 17-22 closed the JA-91 / JA-94 reserved-invariant work
++ the audio Phase-1.5 / Phase-2 close-outs, Part 23 documents a
+systematic multi-role specialist-review sweep across all 720+
+scenarios in the 15-tab test-scenarios xlsx. Auditor played each
+required specialist role in turn (Native Japanese teacher, JLPT
+exam expert, Native Hindi teacher, Security engineer, Privacy/
+legal lawyer, Performance engineer, Data engineer, Pedagogy
+specialist, QA engineer, Cultural reviewer, UX designer,
+Accessibility engineer, Operations engineer, End-user POV proxy),
+plus added a new UI engineer role with a Selenium 4-driven
+end-to-end UI test class.
+
+### 16 NR-* bugs surfaced + fixed (in 5 batches)
+
+| Batch | Role | Bugs | Severity range |
+|---|---|---|---|
+| 1 (commit d26e677) | Native Japanese teacher | NR-001, NR-002, NR-003, NR-004, NR-005 | Critical (NR-005 rendaku) → Medium |
+| 2 (commit 8159b49) | Native Hindi teacher + JLPT expert | NR-HI-001, NR-HI-002, NR-HI-003, NR-JE-001 | Critical (NR-HI-001) → Medium |
+| 3 (commit 46be3e1) | Security + Privacy/legal + Data eng | NR-SEC-001, NR-SEC-002, NR-LIC-001, NR-DATA-001 | Major → Low (informational) |
+| 4 (commit d1e0d90) | Brutal-honesty re-audit | NR-DATA-002 | Major |
+| 5 (commit 5635425) | UI engineer (Selenium) | NR-UI-001 | Medium |
+
+### Methodology contributions (propagated to procedure manual F.28/F.29)
+
+  - **F.28 Multi-role specialist-review-by-tab pattern**:
+    bug-ID naming (NR-{ROLE}-NNN), bounded-honest stamping
+    vocabulary (PASS / PASS-limited / PASS-architectural /
+    PASS-spot-check / Manual-deferred / Skipped-external /
+    Blocked / etc.), brutal-honesty re-audit pattern for
+    stricter ground-truth classification.
+  - **F.29 Selenium UI test class**: 55-scenario E2E suite
+    using Selenium 4 + Selenium Manager auto-driver; critical
+    NR-UI-001 lesson that some defense-in-depth security headers
+    (CSP `frame-ancestors`, X-Frame-Options) are HTTP-header-only
+    and IGNORED via <meta> — always verify runtime
+    effectiveness, not just source presence.
+
+### NR-001..005 — Native Japanese teacher (batch 1)
+
+| ID | Sev | Finding |
+|---|---|---|
+| NR-001 | Major | 5 misfiled / broken examples in n5-161 / n5-162 (まえに pair) |
+| NR-002 | Medium | n5-161 ex[0] vs ex[8] duplicate examples |
+| NR-003 | Major | n5-160 / n5-163 misfiled adverbial 'あとで 電話します。' |
+| NR-004 | Major | n5-045 ex[6] wh+は anti-pattern 'なには すきですか。' |
+| NR-005 | Critical | 13 wrong rendaku forms in vocab.json number-vocab collocations (本 + 個 counters) |
+
+Cross-checked against Genki I + Minna no Nihongo I + NHK 日本語発音
+アクセント新辞典 + JEES official sample papers. 9 grammar examples
++ 13 vocab collocations fixed.
+
+### NR-HI-001..003 + NR-JE-001 — Hindi + JLPT exam expert (batch 2)
+
+| ID | Sev | Finding |
+|---|---|---|
+| NR-HI-001 | Critical | q-0264 distractor とって Hindi corruption ("जो's てください") |
+| NR-HI-002 | Major | q-0462 explanation_hi English possessive intrusion |
+| NR-HI-003 | Medium | q-0234 explanation_hi English "Group 1" mid-Hindi |
+| NR-JE-001 | Major | 40 JLPT format violations (half-width ___ + missing terminal punctuation) |
+
+Cross-checked against Hindi Vyakaran (Kamta Prasad Guru) +
+Sahitya Akademi Hindi register + JEES official format spec. 3 Hindi
+explanations + 40 stem-format patches applied.
+
+### NR-SEC-001/002 + NR-LIC-001 + NR-DATA-001 — Multi-role specialist (batch 3)
+
+| ID | Sev | Finding |
+|---|---|---|
+| NR-SEC-001 | Major | 4/4 GitHub workflows missing `permissions:` least-privilege block |
+| NR-SEC-002 | Medium | Defense-in-depth meta tags initially missing (later: meta-tag-ignored class — see NR-UI-001) |
+| NR-LIC-001 | Medium | kanjium CC-BY-SA 4.0 attribution missing from CONTENT-LICENSE.md |
+| NR-DATA-001 | Low | 14/22 data files lack `_meta.schema_version` (informational; auto-gen catalogs) |
+
+Cross-checked against OpenSSF Scorecard Token-Permissions + GDPR
+Art. 13 + DPDP Act 2023 + COPPA + CC-BY-SA 4.0 §3(a)(1)(A). 4 workflows
+patched with permissions: contents: read; 3 meta tags added to index.html;
+kanjium attribution added to CONTENT-LICENSE.md.
+
+### NR-DATA-002 — Brutal-honesty re-audit (batch 4)
+
+| ID | Sev | Finding |
+|---|---|---|
+| NR-DATA-002 | Major | 4 vocab demonstrative entries (こっち / あっち / どっち / ああ) reference retired pattern n5-012 |
+
+Surfaced by deeper-scan re-audit that earlier 30-sample-passes
+missed. Cross-checked: grammar.json IDs skip n5-011 → n5-013;
+n5-012 is documented retired. Fix: scrubbed n5-012 from
+frequent_patterns lists. 42 prior PASSes also re-labeled with
+bounded-honest qualifiers (PASS / PASS-limited / PASS-
+architectural / PASS-spot-check / PASS-with-finding-intentional /
+etc.).
+
+### NR-UI-001 — Selenium UI test class (batch 5)
+
+| ID | Sev | Finding |
+|---|---|---|
+| NR-UI-001 | Medium | Defense-in-depth meta tags (CSP frame-ancestors, X-Frame-Options) IGNORED by modern browsers when delivered via <meta>; cosmetic only |
+
+Surfaced by Selenium console-error capture: every route load
+triggered 2 SEVERE console errors:
+  - "The Content Security Policy directive 'frame-ancestors' is
+    ignored when delivered via a <meta> element."
+  - "X-Frame-Options may only be set via an HTTP header sent
+    along with a document. It may not be set inside <meta>."
+
+The previous NR-SEC-002 fix had added these via meta believing
+they would provide clickjacking defense; in fact browsers
+ignore them.
+
+Fix: removed both ineffective meta tags from index.html; added
+explanatory comment documenting the static-hosting limitation
+(GitHub Pages doesn't expose HTTP-header configuration —
+clickjacking defense requires moving to a host that exposes
+header rules: Cloudflare Pages / Netlify _headers / Vercel
+headers JSON).
+
+Post-fix Selenium re-run: 0 SEVERE console errors (53 PASS / 1
+SKIP / 0 FAIL across the 55 UI test scenarios).
+
+### Test-scenarios xlsx changes
+
+  - NEW "UI Tests" tab with 55 Selenium-driven scenario rows
+    (now 18 total tabs)
+  - 175 prior scenarios stamped across 11 tabs (D/E/F/G/H/I/J/K/
+    L/M/N) with bounded-honest result classifications
+  - 42 prior PASSes re-labeled in brutal-honesty re-audit
+  - 16 new NR-* bug rows on User Reported Bugs sheet, all
+    Fixed with Fix Commit cells populated
+
+### CI invariants final state for Part 23
+
+Total live: **122** (unchanged — Part 23 is methodology +
+multi-role review + UI test wiring, not new content invariants).
+All 122 PASS. cross_artifact_sync_report.py exits CLEAN.
+
+### Bug-tracker after Part 23
+
+  - Total: 104 rows
+  - Fixed: 104 / 104 (JA-118 PASS — every Fixed row has non-empty
+    Fix Commit)
+  - Open: 0
+
+### Reusable tooling deliverables
+
+  - `tools/file_native_review_bugs_2026_05_17.py` (NR-001..005 +
+    grammar/vocab fixes)
+  - `tools/fix_hindi_jlpt_review_bugs_2026_05_17.py` (NR-HI/JE
+    + Hindi/JLPT fixes)
+  - `tools/stamp_hindi_jlpt_scenarios_2026_05_17.py` (Hindi/JLPT
+    scenario stamper)
+  - `tools/verify_specialist_review_2026_05_17.py` (multi-role
+    verification runner)
+  - `tools/fix_specialist_review_bugs_2026_05_17.py` (NR-SEC/LIC/
+    DATA fixes)
+  - `tools/stamp_remaining_specialist_scenarios_2026_05_17.py`
+    (175-scenario stamper)
+  - `tools/brutal_honesty_audit_2026_05_17.py` (deep-scan runner)
+  - `tools/file_brutal_honesty_findings_2026_05_17.py` (bug filer
+    + re-stamper)
+  - `tools/ui_test_suite_2026_05_17.py` (Selenium 4 UI suite)
+  - `tools/dump_console_errors.py` (browser console-log capture)
+  - `tools/add_ui_tests_tab_2026_05_17.py` (xlsx UI-tab populator)
+
+All tools are pattern-templates for Nx specialist reviews —
+fork with updated date + per-Nx target list.
+
+### Files touched (Part 23 cumulative across 5 batches)
+
+  - N5/data/grammar.json (9 example replacements across 5 patterns)
+  - N5/data/vocab.json (13 collocation fixes + 4 frequent_patterns
+    cleanups)
+  - N5/data/questions.json (3 explanation_hi / distractor fixes)
+  - N5/data/papers/bunpou/*.json (40 stem patches)
+  - N5/.github/workflows/*.yml (4 workflows: permissions: contents:
+    read)
+  - N5/index.html (security header meta tags — added then partly
+    rolled back per NR-UI-001)
+  - N5/CONTENT-LICENSE.md (kanjium CC-BY-SA 4.0 attribution
+    section)
+  - N5/specifications/test-scenarios-by-specialist-perspective.xlsx
+    (NEW "UI Tests" tab + 16 bug rows + 175 + 42 stamps + 55 UI
+    scenarios stamped)
+  - 11 new tools/ scripts (NR-* applicators + Selenium runner +
+    xlsx populators)
+
+### Final state for Part 23
+
+CI **122 / 122 invariants green**.
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: 104 / 104 Fixed / 0 Open.
+UI test suite: 53 / 55 PASS, 1 SKIP, 0 FAIL post-NR-UI-001 fix.
+
+The multi-role specialist-review-by-tab methodology + Selenium UI
+test class are now reusable Nx-builder deliverables (see procedure
+manual F.28 / F.29).

@@ -821,6 +821,18 @@ allowlisted exceptions. 6 of 10 INV-N classes hard-wired at CI;
 3 INV-N classes (INV-1 / INV-2 / INV-8) backed by commit-time
 git hooks; 1 INV-N out of scope.
 
+**Test-scenarios xlsx coverage** (post 2026-05-17 Part 23 sweep):
+18 tabs total — Overview + Unit Tests + 14 specialist tabs
+(A through N) + User Reported Bugs + NEW **UI Tests** tab.
+The UI Tests tab carries 55 Selenium-driven end-to-end scenarios
+covering every spec §5 functional surface + 14 static-mirror
+routes + sitemap + robots.txt + a11y landmarks + security headers
++ Service Worker + audio reachability + locale parity + 0-SEVERE-
+console-error verification. Bug tracker: **104 / 104 Fixed / 0
+Open** (16 NR-* bugs filed + fixed across 5 specialist-review
+batches on 2026-05-17). See `AUDIT-COVERAGE-2026-05-15.md` Part 23
+for the consolidated narrative + reusable Nx tooling deliverables.
+
 Reserved / not-yet-wired: **JA-42 through JA-46** and **JA-80**.
 These slots are documented in the `AUDIT-COVERAGE-2026-05-15.md`
 addenda as ready-to-wire follow-ons from prior bug batches — they

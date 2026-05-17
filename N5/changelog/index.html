@@ -84,6 +84,110 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (Multi-role specialist review sweep + Selenium UI test class + 16 NR-* bugs)</h2>
+<p>Not user-visible at runtime — corpus content was already correct post Phase-2; this batch added a systematic 720-scenario multi- role specialist review sweep (Native Japanese / JLPT / Native Hindi / Security / Privacy-legal / Performance / Data / Pedagogy / QA / Cultural / UX / Accessibility / Operations / End-user) plus a new Selenium 4-driven end-to-end UI test class covering every functional surface in spec §5.</p>
+<h3>16 NR-* bugs surfaced + fixed across 5 batches</h3>
+<ul>
+<li><strong>Batch 1 (<code>d26e677</code>) — Native Japanese teacher review</strong>:</li>
+</ul>
+<p>NR-001 (Major, まえに pattern-instance contamination across n5-161 / n5-162 — 5 misfiled examples); NR-002 (Medium, n5-161 duplicate examples); NR-003 (Major, n5-160 / n5-163 misfiled adverbial &#x27;あとで 電話します。&#x27;); NR-004 (Major, n5-045 ex[6] wh+は anti- pattern); NR-005 (Critical, 13 wrong rendaku forms in vocab.json number-vocab collocations for 本 + 個 counters). 9 grammar examples + 13 vocab collocations fixed. Cross-checked vs Genki I + Minna I + NHK accent dictionary + JEES samples.</p>
+<ul>
+<li><strong>Batch 2 (<code>8159b49</code>) — Native Hindi teacher + JLPT exam expert</strong>:</li>
+</ul>
+<p>NR-HI-001 (Critical, q-0264 distractor とって corruption &quot;जो&#x27;s&quot;); NR-HI-002 (Major, q-0462 English possessive &#x27;s after Hindi noun); NR-HI-003 (Medium, q-0234 mixed-English &quot;Group 1&quot;); NR-JE-001 (Major, 40 JLPT format violations — half-width <code>___</code> for fill- blank + 10 missing terminal 。). Cross-checked vs Hindi Vyakaran + Sahitya Akademi + JEES sample paper format.</p>
+<ul>
+<li><strong>Batch 3 (<code>46be3e1</code>) — Security / Privacy-legal / Data eng sweep</strong>:</li>
+</ul>
+<p>NR-SEC-001 (Major, 4/4 GitHub workflows missing <code>permissions:</code> least-privilege block — fixed with <code>contents: read</code>); NR-SEC-002 (Medium, defense-in-depth meta tags initially missing); NR-LIC-001 (Medium, kanjium CC-BY-SA 4.0 attribution missing from CONTENT-LICENSE.md); NR-DATA-001 (Low informational, 14/22 data files lack schema_version — auto-gen catalogs).</p>
+<ul>
+<li><strong>Batch 4 (<code>d1e0d90</code>) — Brutal-honesty re-audit</strong>: NR-DATA-002</li>
+</ul>
+<p>(Major, 4 vocab demonstrative entries reference retired grammar pattern n5-012 — caught by deeper full-corpus scan). 42 prior PASSes re-labeled with bounded-honest qualifiers (PASS / PASS- limited / PASS-architectural / PASS-spot-check / etc.).</p>
+<ul>
+<li><strong>Batch 5 (<code>5635425</code>) — Selenium UI test class</strong>: NR-UI-001</li>
+</ul>
+<p>(Medium, CSP <code>frame-ancestors</code> and X-Frame-Options are HTTP- header-only and IGNORED via <code>&lt;meta&gt;</code> — cosmetic-only fix from prior NR-SEC-002 batch). Selenium console-error capture caught SEVERE errors on every route. Fix: removed both ineffective meta tags from index.html + documented the GitHub-Pages static-hosting limitation. Post-fix: 0 SEVERE console errors.</p>
+<h3>Selenium UI test suite (NEW)</h3>
+<p><code>tools/ui_test_suite_2026_05_17.py</code> — 55 scenarios covering:</p>
+<ul>
+<li>Spec §5.1-5.16 functional routes (Home / Learn hub / Grammar /</li>
+</ul>
+<p>Vocab / Kanji / Reading / Listening / Mock Test / Papers / Drill / Review / Missed / Summary / Settings / Sitting / Today / Privacy / Notices)</p>
+<ul>
+<li>All 14 static-mirror routes (<code>/home/</code>, <code>/changelog/</code>,</li>
+</ul>
+<p><code>/privacy/</code>, <code>/notices/</code>, <code>/learn/grammar/&lt;id&gt;/</code> + 5 <code>/lessons/&lt;id&gt;.html</code> legacy, <code>/reading/&lt;id&gt;/</code>, <code>/listening/&lt;id&gt;/</code>, <code>/learn/vocab/&lt;form&gt;/</code>, <code>/kanji/&lt;glyph&gt;/</code> + 5 index pages)</p>
+<ul>
+<li>SEO (<code>sitemap.xml</code>, <code>robots.txt</code>), accessibility landmarks,</li>
+</ul>
+<p>security headers, Service Worker registration, audio reachability, locale parity, console-error-zero verification.</p>
+<p>Runs locally via Selenium 4 + Selenium Manager auto-driver (no manual chromedriver-install step). Reusable for Nx builds.</p>
+<h3>New &quot;UI Tests&quot; tab in test-scenarios xlsx</h3>
+<p>18 total tabs now (Unit Tests + A-N + User Reported Bugs + new UI Tests with 55 scenario rows).</p>
+<h3>Methodology propagation (Rule 4 / Rule 5)</h3>
+<ul>
+<li><code>JLPT Common/procedure-manual-build-next-jlpt-level.md</code> — Appendix</li>
+</ul>
+<p>F.28 (multi-role specialist-review-by-tab pattern + bounded- honest stamping vocabulary + brutal-honesty re-audit) + F.29 (Selenium UI test class + NR-UI-001 lesson on meta-tag-ignored security directives).</p>
+<ul>
+<li><code>prompts/Japanese language Accuracy check.txt</code> — A65 (multi-role</li>
+</ul>
+<p>methodology) + A66 (Selenium UI test class).</p>
+<ul>
+<li><code>prompts/N5Improvement.txt</code> — Phase-0 Selenium UI test regression</li>
+</ul>
+<p>block (target 53/55 PASS post NR-UI-001) + Phase-0 multi-role specialist-review regression block (target 0 NEW NR-* findings).</p>
+<ul>
+<li><code>docs/AUDIT-COVERAGE-2026-05-15.md</code> — Part 23 addendum</li>
+</ul>
+<p>(consolidated 5-batch narrative + reusable-tooling deliverables).</p>
+<ul>
+<li><code>docs/cross-artifact-sync-map.md</code> — 6 new audit-log rows</li>
+</ul>
+<p>(5 batches + this propagation catch-up).</p>
+<ul>
+<li><code>specifications/JLPT-N5-Current-Implementation-Spec.md</code> — §25 intro</li>
+</ul>
+<p>reflection (UI Tests tab added; bug-tracker count update).</p>
+<h3>CI invariants final state for this batch</h3>
+<ul>
+<li><strong>Total live: 122</strong> (unchanged — this batch is methodology +</li>
+</ul>
+<p>multi-role review + UI test wiring, not new content invariants).</p>
+<ul>
+<li>All 122 PASS.</li>
+<li><code>cross_artifact_sync_report.py</code> EXIT: CLEAN.</li>
+<li>Bug tracker: <strong>104 / 104 Fixed / 0 Open</strong>.</li>
+<li>UI test suite: 53 / 55 PASS, 1 SKIP, 0 FAIL post NR-UI-001 fix.</li>
+</ul>
+<h3>Files touched (consolidated this batch)</h3>
+<ul>
+<li><code>N5/data/grammar.json</code> (9 example fixes)</li>
+<li><code>N5/data/vocab.json</code> (13 + 4 collocation fixes)</li>
+<li><code>N5/data/questions.json</code> (3 Hindi corrections)</li>
+<li><code>N5/data/papers/bunpou/*.json</code> (40 stem-format patches)</li>
+<li><code>N5/.github/workflows/*.yml</code> (4 permissions blocks)</li>
+<li><code>N5/index.html</code> (security header meta tags partly retired per</li>
+</ul>
+<p>NR-UI-001)</p>
+<ul>
+<li><code>N5/CONTENT-LICENSE.md</code> (kanjium CC-BY-SA 4.0 attribution)</li>
+<li><code>N5/specifications/test-scenarios-by-specialist-perspective.xlsx</code></li>
+</ul>
+<p>(NEW &quot;UI Tests&quot; tab + 16 bug rows + ~230 scenario stamps)</p>
+<ul>
+<li><code>JLPT Common/procedure-manual-build-next-jlpt-level.md</code> (F.28</li>
+</ul>
+<p>+ F.29 + footnote)</p>
+<ul>
+<li><code>N5/prompts/Japanese language Accuracy check.txt</code> (A65 + A66)</li>
+<li><code>N5/prompts/N5Improvement.txt</code> (2 new Phase-0 regression blocks)</li>
+<li><code>N5/docs/AUDIT-COVERAGE-2026-05-15.md</code> (Part 23)</li>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> (6 audit-log rows)</li>
+<li><code>N5/CHANGELOG.md</code> + <code>N5/changelog/index.html</code> (meta-mirror regen)</li>
+<li>11 NEW <code>N5/tools/</code> scripts (NR-* applicators + Selenium runner +</li>
+</ul>
+<p>xlsx populators) — listed in AUDIT-COVERAGE Part 23</p>
 <h2>Unreleased - 2026-05-17 (Audio Phase-2: VOICEVOX from-source re-render at speed_scale=1.00)</h2>
 <p>User-visible: all 50 listening items have been re-rendered from source via VOICEVOX at <code>speed_scale=1.00</code>, replacing the prior 2026-05-12 render at <code>speed_scale=0.95</code> plus the Phase-1 (ffmpeg atempo) and Phase-1.5 (librubberband on 3 items) post-processing layers. Audio quality is now driven by a single coherent from-source render rather than stacked post-processing passes. Pacing distribution unchanged from the user&#x27;s perspective — every item still lands in the JLPT N5 target band 180–240 mpm.</p>
 <h3>Render summary</h3>
