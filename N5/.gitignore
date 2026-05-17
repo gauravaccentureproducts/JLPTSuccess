@@ -57,3 +57,9 @@ not-required/tools-archive/_cache_*.json
 **/*.backup
 **/*.backup_*
 .commit_msg.tmp
+
+# Test artifacts — PDF printouts of grammar / vocab / kanji pages used
+# for visual proofing during native-teacher review. Not source; not
+# part of the shipped surface. Added 2026-05-17 (had an untracked
+# n5-008.pdf in tests/ from a prior visual-proofing session).
+tests/*.pdf
