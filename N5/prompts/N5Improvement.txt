@@ -771,6 +771,99 @@ If any count is non-zero, run `python tools/build_static_mirrors.py`
 to regenerate. The tool is idempotent — re-running on a fully-
 covered corpus produces 0 written / 1373 unchanged.
 
+### Phase-0 Reading.json batch-drift regression block (added 2026-05-17)
+
+Regression block for the 6 BUG-041..046 manifestations on
+reading.json. Each check returns a count that MUST be 0 on the
+post-fix corpus. Non-zero means batch-drift has re-entered the
+corpus (typically via a new passage authored against pre-fix
+conventions without re-validation).
+
+Validated 2026-05-17 to return 0/0/0/0/0/0/0 against the corpus
+snapshot at BUG-046 close-out (54 passages).
+
+```python
+import json
+from pathlib import Path
+
+R = json.load(open('data/reading.json', encoding='utf-8'))
+passages = R.get('passages', [])
+
+# A59.1 (BUG-041) — no passage carries legacy `level` field
+n_legacy_level = sum(1 for p in passages if 'level' in p)
+print(f'A59.1 reading legacy `level` field: {n_legacy_level} (target 0)')
+
+# A59.1 (BUG-041) — every passage has `difficulty` ∈ {easy, medium, hard}
+# OR difficulty is intentionally absent for info-search passages
+ENUM = {'easy', 'medium', 'hard'}
+n_bad_diff = sum(
+    1 for p in passages
+    if 'difficulty' in p and p['difficulty'] not in ENUM
+)
+print(f'A59.1 reading difficulty out-of-enum: {n_bad_diff} (target 0)')
+
+# A59.2 (BUG-042) — `summary` must NOT contain `(` (no inline EN/HI parens)
+n_mixed_summary = sum(
+    1 for p in passages
+    if p.get('summary') and '(' in p.get('summary', '')
+)
+print(f'A59.2 reading summary inline parenthetical: {n_mixed_summary} (target 0)')
+
+# A59.3 (BUG-043) — _meta.schema_additions must mention `difficulty`,
+# and the `format_type` enum description must NOT list `comprehension`
+# (i.e., the value belongs under `format_role`, not `format_type`).
+# A naive `'comprehension' not in meta` check produces a false-positive
+# because the substring appears legitimately inside the format_role
+# enum description; scope the check to the parenthesized format_type
+# enum specifically.
+import re as _re
+meta = R.get('_meta', {}).get('schema_additions', '')
+_ft = _re.search(r'format_type[^()]*\(([^)]*)\)', meta)
+_ft_section = _ft.group(1) if _ft else ''
+meta_ok_difficulty = 'difficulty' in meta
+meta_ft_no_comp = 'comprehension' not in _ft_section
+n_meta_drift = 0 if (meta_ok_difficulty and meta_ft_no_comp) else 1
+print(f'A59.3 reading _meta.schema_additions drift: {n_meta_drift} (target 0)')
+
+# A59.4 (BUG-044) — format_type must be in closed enum
+FT_ENUM = {None, 'schedule_table', 'menu_list', 'notice'}
+n_bad_ft = sum(
+    1 for p in passages
+    if 'format_type' in p and p['format_type'] not in FT_ENUM
+)
+print(f'A59.4 reading format_type out-of-enum: {n_bad_ft} (target 0)')
+
+# A59.5 (BUG-045) — vocab_preview must be list of strings (Shape A only)
+n_bad_vp = sum(
+    1 for p in passages
+    if isinstance(p.get('vocab_preview'), list)
+    and any(not isinstance(x, str) for x in p['vocab_preview'])
+)
+print(f'A59.5 reading vocab_preview Shape-B (list of dicts): {n_bad_vp} (target 0)')
+
+# A59.6 (BUG-046) — passage `ja` must not contain わたし (use 私)
+n_kana_pronoun = sum(
+    1 for p in passages
+    if 'わたし' in (p.get('ja') or '')
+)
+print(f'A59.6 reading わたし kana-pronoun: {n_kana_pronoun} (target 0)')
+
+print('--- BUG-041..046 REGRESSION SUMMARY ---')
+total = (n_legacy_level + n_bad_diff + n_mixed_summary + n_meta_drift
+         + n_bad_ft + n_bad_vp + n_kana_pronoun)
+print(f'Total regressions: {total} (target 0)')
+```
+
+If any count is non-zero, batch-drift has re-entered reading.json.
+Run a same-shape audit across the most-recently-added passages —
+the divergence typically clusters in the newest batch.
+
+CI invariants JA-104 (difficulty enum), JA-105 (vocab_preview
+shape), JA-106 (format_type enum) lock A59.1 / A59.5 / A59.4
+respectively at release time. The other three (A59.2, A59.3,
+A59.6) remain Phase-0 checks because they are corpus-state
+hygiene rather than schema invariants.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
@@ -2465,6 +2558,81 @@ Mandatory entries for this richness-first cycle:
   example for strict particle-introducing patterns. See A54 in the
   accuracy prompt + F.17.6 in the procedure manual. User-reported
   BUG-009."
+- "Do NOT use a single enum field to carry multiple semantic axes.
+  reading.json's `level` field carried `easy`/`medium` (difficulty)
+  alongside `N5` (JLPT level — already implied by corpus filename)
+  alongside `info-search` (passage type — already in `format_role`).
+  When a field's values span 3+ unrelated meanings, decompose; each
+  meaning gets its own field with a closed enum. Fixed 2026-05-17 by
+  renaming to `difficulty` with closed enum {easy, medium, hard}. CI
+  gate JA-104 locks the closed enum. See A59.1 in the accuracy prompt
+  + §F.23.1 in the procedure manual. User-reported BUG-041."
+- "Do NOT inline multiple languages in one field with positional
+  delimiters. reading.json's `summary` carried JA+EN+HI as
+  `'じこしょうかい (self-introduction विषय परिचय)।'` on 45 passages —
+  with HI ALSO present in `summary_hi`, so the inline HI was a
+  double-encoding. Locale-specific content goes in locale-suffixed
+  fields (`summary`, `summary_en`, `summary_hi`); never positional
+  inline. Sub-rule for parsing: when normalizing multi-locale strings,
+  the terminator-character class must accept punctuation from EVERY
+  locale present (Devanagari danda `।`, Japanese full-stop `。`, ASCII
+  `.`) — a Japanese-only regex matched 0 of 45 entries on first run.
+  See A59.2 in the accuracy prompt + §F.23.2 in the procedure manual.
+  User-reported BUG-042."
+- "Do NOT let `_meta.schema_additions` drift from the actual schema
+  after a fix lands. `_meta` is loaded by consumers — treat it as
+  data, not documentation. When a fix changes a field's shape, update
+  `_meta` in the same commit. The 2026-05-17 reading.json batch had
+  `_meta.schema_additions` listing `format_type=comprehension` AFTER
+  BUG-044 had removed that value — stale text shipped because the
+  prior 5 fixes weren't propagated to the self-description.
+  See A59.3 in the accuracy prompt + §F.23.3 in the procedure manual.
+  User-reported BUG-043."
+- "Do NOT carry two fields with overlapping semantics on the same
+  record. reading.json carried both `format_type` and `format_role`;
+  for 9 passages both held `'comprehension'` — a passage TYPE that
+  belongs in `format_role`. `format_type`'s real semantic is the
+  visual SUBTYPE of info-search passages (`schedule_table` /
+  `menu_list` / `notice`). When two fields' definitions overlap,
+  write a 1-sentence definition for each using only the words
+  'this means X and ONLY X'; if you can't, collapse. CI gate JA-106
+  locks `format_type ∈ {null, schedule_table, menu_list, notice}`.
+  See A59.4 in the accuracy prompt + §F.23.4 in the procedure manual.
+  User-reported BUG-044."
+- "Do NOT embed denormalized copies of referenced data when an ID
+  reference suffices. reading.json's `vocab_preview` was a list of
+  vocab_id STRINGS on 45 passages and a list of DICTS (vocab_id,
+  form, reading, gloss) on 9 — the dict form denormalized info
+  already in vocab.json, risking stale-snapshot drift if vocab.json
+  changed but the embedded copy didn't. Prefer ID-references; let
+  consumers resolve. CI gate JA-105 locks vocab_preview as
+  list[str]. See A59.5 in the accuracy prompt + §F.23.5 in the
+  procedure manual. User-reported BUG-045."
+- "Do NOT leave high-frequency morphemes in inconsistent forms across
+  the corpus when the level whitelist allows the kanji form AND
+  standard textbooks teach it in kanji. reading.json had 45 passages
+  using わたし (kana) and 9 using 私 (kanji) — both legal under the
+  whitelist, but the inconsistency overclaims kanji exposure in
+  pedagogical surfaces. When a policy change is made mid-corpus
+  (e.g., 'standardize on kanji form'), back-migrate ALL prior entries
+  BEFORE merging the new batch. See A59.6 in the accuracy prompt +
+  §F.23.6 in the procedure manual. User-reported BUG-046."
+- "BATCH-DRIFT META-RULE: after any 'add N new entries' pass on a
+  corpus that has prior entries, run a same-shape audit against the
+  prior batch — for every field on the new entries, does the field
+  exist on the prior entries with the same value-shape, enum, and
+  locale split? Reading.json's 9 newest passages diverged from the
+  prior 45 across SIX fields simultaneously (BUG-041..046); the
+  shared cause was that the original conventions were never captured
+  as machine-enforceable invariants, so the permissive schema
+  absorbed the drift silently. Detection signal: if `corpus[i]` and
+  `corpus[j]` differ on a field's shape/value-class AND the split
+  lines up with entry-creation order (or with any other metadata
+  facet — author / source / batch ID), suspect batch-drift, not
+  random noise. Phase-0 batch-drift regression block (this prompt,
+  §'Phase-0 Reading.json batch-drift regression block') catches the
+  six specific shapes on reading.json. See §F.23.7 in the procedure
+  manual for the cross-corpus generalization."
 
 Plus other audit-discovered "we considered and decided no" items.
 

@@ -775,7 +775,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-102; gaps for retired / reserved slots) that the
+(JA-1 through JA-106; gaps for retired / reserved slots) that the
 script runs against every release. The script is the source of truth;
 this section is its human-readable index.
 
@@ -794,10 +794,11 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **92 named JA-NN rules** (the runtime
+Currently wired invariants: **95 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 101/101 at this checkpoint).
+reports 104/104 at this checkpoint, post BUG-041..046 close-out
+2026-05-17).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -831,6 +832,9 @@ Closed-enum checks, required-field presence, type sanity.
 | JA-97 | vocab.json `counter` is null OR `{kanji, reading}` dict; `counter_register` null; `counter_word_metadata` isolated to counter-word entries (BUG-015 guard) | 2026-05-16 |
 | JA-98 | Every vocab verb has `transitivity` in {transitive, intransitive, contact} (BUG-016 guard) | 2026-05-16 |
 | JA-101 | kanji.json example objects use `form` not `lemma` (BUG-022 guard) | 2026-05-17 |
+| JA-104 | reading.json passages use `difficulty` (not legacy `level`); `difficulty ∈ {easy, medium, hard}` strict-equality (BUG-041 guard) | 2026-05-17 |
+| JA-105 | reading.json `vocab_preview` is a list of vocab_id strings; embedded-dict shape rejected (BUG-045 guard) | 2026-05-17 |
+| JA-106 | reading.json `format_type ∈ {null, schedule_table, menu_list, notice}` strict closed enum (BUG-044 guard; the `comprehension` value was bleed from `format_role` and is no longer permitted on `format_type`) | 2026-05-17 |
 
 ### 25.2 Scope discipline (N5 whitelist + OOS guards)
 
@@ -916,6 +920,7 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-90 | Vocab `pitch_accent.drop` validated vs kanjium reference (810 high-confidence matches, 199 unverified) | 2026-05-15 |
 | JA-100 | kanji.json compound/example.form == linked vocab.form **STRICT** (BUG-020 OOS + BUG-023 in-scope drift; tightened from narrow to strict 2026-05-17) | 2026-05-17 |
 | JA-103 | kanji.json `n5_compounds`: `(form, reading)` tuple unique within each kanji entry (BUG-024 guard; legitimate polysemy with different readings — e.g., 一日 ついたち vs いちにち — PASSES) | 2026-05-17 |
+| JA-105 | reading.json `vocab_preview` is a list of vocab_id strings; each ID resolves against vocab.json (BUG-045 guard; embedded-dict denormalization shape rejected to avoid stale-snapshot drift) | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -974,12 +979,15 @@ Cross-reference table:
 | JA-101 | BUG-022 | kanji.json examples `lemma` vs `form` schema split |
 | JA-102 | BUG-021 | `primary_reading` set to on-yomi for kun-yomi-standalone kanji |
 | JA-103 | BUG-024 | Duplicate compounds within kanji.json (subset-gloss duplicates auto-derived from pre-dedup vocab.json) |
+| JA-104 | BUG-041 | Reading.json `level` field carried 4 mixed-semantics values; renamed to `difficulty` with closed enum |
+| JA-105 | BUG-045 | Reading.json `vocab_preview` had two shapes (list-of-strings vs list-of-dicts) across authoring batches; normalized to list-of-vocab_id-strings |
+| JA-106 | BUG-044 | Reading.json `format_type` and `format_role` both held the passage-type value `"comprehension"` on the same passages; `format_type` re-scoped to info-search visual subtype enum |
 | JA-64 (tightened) | BUG-011 + BUG-013 | Register-variant common_mistakes schema migration |
 | JA-35 (extended enum) | BUG-012 | `review_status` provenance disambiguation |
 
-For the full bug-class lineage (BUG-001 through BUG-023) and the
+For the full bug-class lineage (BUG-001 through BUG-046) and the
 authoring rules that prevent recurrence, see Appendix F (sections
-F.15 through F.22) of `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+F.15 through F.23) of `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
 
 ### 25.9 Adding a new invariant — workflow
 
@@ -991,7 +999,7 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-103). Reserved slots (JA-42..46, JA-80,
+   (currently next free = JA-107). Reserved slots (JA-42..46, JA-80,
    JA-91..95) must NOT be reused.
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is

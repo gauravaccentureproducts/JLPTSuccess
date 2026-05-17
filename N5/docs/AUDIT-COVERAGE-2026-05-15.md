@@ -1610,3 +1610,123 @@ process failure beyond doubt. The schema is now stable:
 - ✓ Excel `feedback/n5-audit-2026-05-04.xlsx` "User Reported
   Bugs" sheet: BUG-013 marked Fixed; Summary updated:
   Total=13 / Fixed=13 / New=0.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 11) — BUG-041..046 close-out (reading.json batch-drift)
+
+A user-reported audit of `data/reading.json` on 2026-05-17
+surfaced six divergences between the original 45-passage batch
+(`n5.read.001..045`) and the later 9-passage batch
+(`n5.read.046..054`). All six were uniform within each batch —
+the signature of batch-drift (an authoring-convention change
+that landed mid-corpus without being captured as a CI invariant)
+rather than random authoring noise. None of the six had
+existing JA-* invariants because the affected fields were
+schema-permissive.
+
+### Bugs addressed (6 manifestations of one meta-class)
+
+| ID | Sev/Pri | Subject | Affected passages |
+|---|---|---|---|
+| BUG-041 | Medium/P2 | `level` field carried 4 mixed-semantics values (`easy`/`medium`/`N5`/`info-search`); renamed to `difficulty` with closed enum {easy, medium, hard} | 41 migrated |
+| BUG-042 | Medium/P2 | `summary` field mixed JA+EN+HI inline on 45 passages (HI was already in `summary_hi` — double-encoded); normalized to JA-only, EN extracted to `summary_en_extracted` | 45 normalized |
+| BUG-043 | Low/P3 | `_meta.schema_additions` was stale: listed `format_type=comprehension` (which BUG-044 was removing) and omitted `format_type=notice` (which IS present) | 1 _meta block rewritten |
+| BUG-044 | Medium/P2 | `format_type` and `format_role` both held `"comprehension"` on 9 passages (passage TYPE belongs in `format_role`); `format_type` re-scoped to info-search visual subtype only | 9 format_type fields dropped |
+| BUG-045 | Medium/P2 | `vocab_preview` was list-of-strings on 45 passages and list-of-dicts (denormalized form/reading/gloss) on 9 — drift risk if vocab.json changes; normalized to list-of-vocab_id-strings | 9 normalized |
+| BUG-046 | Low/P3 | 45 passages used わたし (kana); 9 used 私 (kanji); N5 whitelist allows both but inconsistency overclaims kanji exposure; standardized on 私 | 23 passages, 26 replacements |
+
+### CI invariants added (3 wired)
+
+- **JA-104** — every reading.json passage carries `difficulty` (not
+  `level`); `difficulty ∈ {easy, medium, hard}` strict-equality.
+  Locks BUG-041 / A59.1.
+- **JA-105** — every reading.json `vocab_preview` is a list of
+  vocab_id strings (not list of dicts). Locks BUG-045 / A59.5.
+- **JA-106** — every reading.json `format_type ∈ {null,
+  schedule_table, menu_list, notice}`; strict closed enum.
+  Locks BUG-044 / A59.4.
+
+### Phase-0 regression coverage (3 additional checks)
+
+Three of the six manifestations are corpus-state hygiene
+rather than schema invariants, so they live in the Phase-0
+regression block (in `N5/prompts/N5Improvement.txt`, §"Phase-0
+Reading.json batch-drift regression block") rather than as CI
+gates:
+
+- **A59.2** — `summary` field must not contain `(` (no inline
+  parenthetical EN/HI).
+- **A59.3** — `_meta.schema_additions` must mention `difficulty`
+  AND must not list `comprehension` inside the format_type enum
+  description (scoped regex check; loose substring would
+  false-positive on the legitimate format_role enum).
+- **A59.6** — passage `ja` text must not contain わたし (post-
+  migration; kanji form 私 required).
+
+Combined Phase-0 + CI coverage = all 6 manifestations locked
+against re-introduction on the current corpus.
+
+### Coverage of the fix
+
+- Passages scanned: 54 (the full corpus).
+- Scan method: per-bug fix function in
+  `tools/fix_bugs_041_to_046_reading_json_2026_05_17.py` with
+  in-process counting; CI re-run after; Phase-0 block validated
+  to return 0/0/0/0/0/0/0.
+- Findings (each bug): see "Bugs addressed" table above for
+  counts per manifestation.
+- Post-fix regression: all 7 Phase-0 checks report 0; all 3 new
+  CI invariants pass; total wired CI invariants 104/104 green
+  against the post-fix corpus snapshot.
+
+### Meta-lesson (added to procedure manual §F.23.7)
+
+The six bugs were ONE pattern, not six: a later authoring batch
+used different conventions from an earlier batch. Detection
+signal — divergent fields cluster cleanly by batch boundary
+(not by random distribution). Operational rule for future
+"add N new entries" passes: run a same-shape audit against the
+prior batch before merging — every field on the new entries
+must match the prior entries' value-shape, enum, locale split,
+and reference form. Permissive schemas absorb drift silently;
+capture each field's convention as a strict-shape CI invariant
+AT INTRODUCTION.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: §F.23 added (6 sub-classes
+  + §F.23.7 meta-lesson on batch-drift detection).
+- ✓ Accuracy prompt `Japanese language Accuracy check.txt`:
+  audit category A59 added with .1..6 sub-classes; 2026-05-17
+  ADDENDUM block appended documenting the close-out and CI
+  invariants wired.
+- ✓ N5Improvement prompt: 7 new Section-10 anti-items (one per
+  BUG-041..046 + a BATCH-DRIFT META-RULE summary); new Phase-0
+  regression block (validated 0/0/0/0/0/0/0).
+- ✓ Implementation spec `JLPT-N5-Current-Implementation-Spec.md`:
+  Section 25 entries for JA-104, JA-105, JA-106 added.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `specifications/test-scenarios-by-specialist-perspective.xlsx`
+  "User Reported Bugs" sheet: BUG-041..046 marked Fixed.
+  Summary: Total=46, Fixed=46, New=0.
+
+### Coverage at this checkpoint
+
+CI invariants live: 104 (was 101; +3 from JA-104/105/106).
+JA-91..95 remain reserved (unwired) per prior addenda; JA-80
+remains retired.
+
+### Final state — all 46 user-reported bugs closed against the corpus snapshot scanned
+
+reading.json: 54 passages (count unchanged; field-level
+migrations applied to the affected subsets). The corpus is
+internally consistent on each of the six previously-divergent
+fields against the 2026-05-17 snapshot. Bounded-coverage
+note (per writing discipline): future authoring batches that
+introduce new fields on a subset of passages may re-create
+batch-drift; the 7-check Phase-0 block and the 3 new CI
+invariants catch the SPECIFIC shapes addressed here, not
+arbitrary future divergences. The "same-shape audit at merge
+time" operational rule (§F.23.7) is the cross-cutting
+preventive — adopt it for every new authoring batch.

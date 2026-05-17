@@ -2172,6 +2172,118 @@ E8. ABOVE-TARGET-LEVEL KANJI IN ENGLISH COMMENTARY FIELDS (added 2026-05-13)
     `explanation_en` and `public_domain_refs.pattern_role` for
     above-N5 kanji manually.
 
+A59. READING.JSON BATCH-DRIFT — 6 FIELD DIVERGENCES BETWEEN
+     AUTHORING BATCHES (BUG-041..046, added 2026-05-17;
+     locked by JA-104, JA-105, JA-106)
+
+     reading.json's 54 passages were authored in two batches:
+     the original 45 (`n5.read.001..045`) and a later batch of 9
+     (`n5.read.046..054`). The later batch used DIFFERENT
+     conventions across 6 fields. Both batches passed the
+     existing JA-* invariants because the schema was permissive
+     for those fields. The drift signature: divergences cluster
+     by batch (not random), and every divergent field on the new
+     batch differs from the prior batch — pointing to an
+     authoring-convention change that wasn't captured as a
+     contract.
+
+     The 6 manifestations (each becomes a sub-audit when the
+     pattern shows up on a future corpus):
+
+     A59.1 LEGACY ENUM FIELD WITH MIXED SEMANTICS (BUG-041)
+       Field `level` carried 4 mixed-semantics values across the
+       corpus: `easy` / `medium` (intended use — difficulty),
+       `N5` (the JLPT level, redundant with the corpus filename),
+       `info-search` (a passage TYPE, redundant with
+       `format_role`). One field cannot mean "difficulty AND
+       JLPT-level AND passage-type." Decompose. Fix: rename to
+       `difficulty`; closed enum {easy, medium, hard}; map "N5"
+       → "medium" for the 9 newest passages. Drop "info-search"
+       (already in `format_role`). Lock: JA-104.
+
+     A59.2 MULTI-LANGUAGE INLINE FIELD (BUG-042)
+       Field `summary` carried mixed JA + EN + HI on 45 passages
+       in the shape `"じこしょうかい (self-introduction विषय
+       परिचय)।"` and JA-only on 9. HI was ALREADY in
+       `summary_hi`, so the inline HI was a double-encoding.
+       Fix: normalize `summary` to JA-only; move parenthetical
+       EN to `summary_en_extracted`. Authoring rule:
+       locale-specific content uses locale-suffixed fields, not
+       positional in-field delimiters.
+       SUB-LESSON (regex/parsing): the 45 mixed summaries
+       terminated with Devanagari danda `।` (U+0964), not the
+       Japanese full-stop `。`. A normalizer regex written with
+       only `。` matched 0 of 45 entries. When string-parsing
+       multi-locale data, the terminator class must include
+       every locale's punctuation, not just the "primary."
+
+     A59.3 _META DOCUMENTATION DRIFT (BUG-043)
+       `_meta.schema_additions` did not list `format_type:
+       "notice"` (a value actually present in the data) and
+       still referenced a `comprehension` format_type that
+       BUG-044 was removing. `_meta` is loaded by consumers —
+       treat it as data, not documentation. Fix: rewrite
+       `_meta.schema_additions` to match post-fix shape. Rule:
+       when a fix changes a field's shape, update `_meta` in
+       the same commit.
+
+     A59.4 CONCEPTUAL FIELD DUPLICATION ACROSS TWO KEY NAMES
+       (BUG-044)
+       Both `format_type` and `format_role` co-existed on
+       passages. For 9 passages, both held `"comprehension"` —
+       a passage TYPE, which belongs in `format_role`.
+       `format_type`'s intended use is the info-search visual
+       SUBTYPE (`schedule_table` / `menu_list` / `notice`).
+       Fix: keep `format_type` for the narrow subtype semantic;
+       drop the bleed value from comprehension passages. Lock:
+       JA-106 (`format_type ∈ {null, schedule_table, menu_list,
+       notice}`).
+
+     A59.5 FIELD-SHAPE DIVERGENCE — LIST OF STRINGS vs LIST OF
+       OBJECTS (BUG-045)
+       `vocab_preview` was a list of vocab_id STRINGS on 45
+       passages (Shape A) and a list of DICTS `[{vocab_id,
+       form, reading, gloss}, ...]` on 9 (Shape B). Shape B
+       denormalized info already in vocab.json — risking
+       stale-snapshot drift. Fix: normalize to Shape A
+       (list of vocab_id strings). Consumers resolve
+       form/reading/gloss via vocab.json. Rule: prefer
+       ID-references over embedded copies when the referenced
+       data lives elsewhere. Lock: JA-105.
+
+     A59.6 PRONOUN-FORM INCONSISTENCY ON CANONICAL TEXT
+       (BUG-046)
+       45 passages used わたし (kana); 9 used 私 (kanji). The
+       N5 whitelist includes 私. The newer batch had implicitly
+       standardized on kanji; the older 45 hadn't been
+       back-migrated. Fix: string-replace わたし → 私 on the
+       older 45 (26 replacements across 23 passages); update
+       each passage's `kanji_used` to include 私. Authoring
+       rule: when a policy change is made mid-corpus, propagate
+       to ALL prior entries before merging the new batch.
+
+     DETECTION SIGNAL (the meta-class): if `corpus[i]` has a
+     field set with one shape/value-class and `corpus[j]` has
+     the same field with a different shape/value-class, AND the
+     split lines up cleanly with entry-creation order (or with
+     any other metadata facet — author / source / batch ID),
+     suspect batch-drift. Random authoring noise spreads across
+     the corpus; batch-drift clusters.
+
+     OPERATIONAL RULE: after any "add N new entries" pass on a
+     corpus that has prior entries, run a same-shape audit
+     against the prior batch — for every field on the new
+     entries, does the field exist on the prior entries with
+     the same value-shape, enum, locale split? The audit
+     catches the drift at merge time, not 6 months later when a
+     downstream consumer breaks.
+
+     Cross-reference: procedure manual §F.23 (full meta-class
+     write-up); fix script
+     `tools/fix_bugs_041_to_046_reading_json_2026_05_17.py`;
+     BUG-041..046 close-out in
+     `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`.
+
 ============================================================
 WHAT IS OUT OF SCOPE — DO NOT FLAG
 ============================================================
@@ -3046,4 +3158,77 @@ section): A49-A55 cover the specific bug shapes surfaced by the
 snapshot. A future native-teacher pass or a future-Nx authoring
 batch may surface adjacent shapes; the category list is expected
 to grow, not "complete".
+============================================================
+
+---
+2026-05-17 ADDENDUM — BUG-041 through BUG-046 close-out (reading.json batch-drift)
+============================================================
+Six user-reported bugs, all manifestations of ONE meta-class:
+reading.json's first 45 passages (`n5.read.001..045`, original
+authoring batch) and last 9 passages (`n5.read.046..054`, later
+batch) used DIFFERENT conventions across 6 fields. Documented
+as audit category A59 (with .1..6 sub-classes); procedure
+manual §F.23 captures the cross-level meta-lesson.
+
+Corpus-side fixes applied (fix script:
+`tools/fix_bugs_041_to_046_reading_json_2026_05_17.py`):
+  - 41 passages migrated from `level` → `difficulty` (closed
+    enum {easy, medium, hard}); "N5" → "medium"; "info-search"
+    dropped (redundant with `format_role`). BUG-041 / A59.1.
+  - 45 passages: `summary` normalized JA-only; mixed-language
+    parenthetical EN extracted to `summary_en_extracted`.
+    BUG-042 / A59.2. Regex fix: terminator character class
+    `[。।.]?` (broadened from `。?` to accept Devanagari danda).
+  - `_meta.schema_additions` rewritten to reflect post-fix
+    schema (difficulty, locale-split summary, vocab_preview
+    shape, format_type enum). BUG-043 / A59.3.
+  - 9 passages: redundant `format_type="comprehension"` removed
+    (passage type belongs in `format_role`). BUG-044 / A59.4.
+  - 9 passages: `vocab_preview` Shape B (list of dicts)
+    normalized to Shape A (list of vocab_id strings).
+    BUG-045 / A59.5.
+  - 23 passages: わたし → 私 string-replaced (26 total
+    replacements); `kanji_used` arrays updated to include 私.
+    BUG-046 / A59.6.
+
+CI invariants wired this batch:
+  - JA-104: reading.json passages use `difficulty` (not
+    `level`); closed enum {easy, medium, hard} — locks
+    BUG-041.
+  - JA-105: reading.json `vocab_preview` is list of vocab_id
+    strings (not list of dicts) — locks BUG-045.
+  - JA-106: reading.json `format_type ∈ {null, schedule_table,
+    menu_list, notice}` — locks BUG-044.
+
+CI count at this checkpoint: 101 → 104 (+3). Total wired
+invariants: JA-1..JA-90 + JA-96..JA-106 (104; JA-91..JA-95
+remain reserved, JA-80 retired). All 104 green post-fix
+against the current reading.json snapshot.
+
+Bounded-coverage phrasing reminder: A59 covers the SIX
+specific batch-drift manifestations surfaced by the 2026-05-17
+audit against the reading.json corpus snapshot of 54 passages.
+A future authoring batch (e.g., adding passages 055+) may
+surface NEW shape-divergences not in this list. The CI
+invariants JA-104..106 prevent re-introduction of these
+specific patterns; they do not catch unrelated future drift.
+
+What this batch does NOT close:
+  - Cross-corpus consistency: reading.json `vocab_used` is
+    cross-checked against vocab.json by JA-82 (reference
+    resolution); content-equality of glosses for embedded
+    references would need an additional invariant when the
+    Shape-B denormalization pattern recurs.
+  - Format_type enum may need extension if future passages
+    add new info-search visual subtypes (e.g., transit board,
+    receipt). New value → broaden JA-106's allowlist; same
+    closed-enum discipline applies.
+  - The 9-passage batch (`n5.read.046..054`) may have ADDITIONAL
+    conventions not yet detected — every passage authored
+    after the 45-passage stable corpus should be re-audited
+    for fields that weren't on the prior 45.
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 11 addendum
+(2026-05-17); procedure manual §F.23; close-out tracker in
+`N5/specifications/test-scenarios-by-specialist-perspective.xlsx`.
 ============================================================
