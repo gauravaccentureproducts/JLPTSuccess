@@ -2047,3 +2047,108 @@ prevent re-introduction of THESE specific drift shapes; future
 TTS migrations / transcript-alignment passes / audit-pass
 runs may surface adjacent patterns and would be addressed
 under the same Rule-5 same-shape-audit discipline.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 14) — Test-scenario sync with prompts/ + feedback/ (Rule 5 INV-6 promotion)
+
+User directive 2026-05-17: every info in `N5/prompts/` +
+`N5/feedback/` should be present in the test-scenarios xlsx.
+This addendum documents the bulk sync that closes the gap the
+2026-05-17 cross-artifact sync map flagged (`INV-6` was
+"convention only — prompts → scenarios not enforced"; this
+addendum moves it toward "partial" coverage by adding
+explicit cross-reference rows).
+
+### Scope (per user-chosen Option 1: structured items + audit-doc summaries)
+
+- **60 A-NN audit categories** from
+  `prompts/Japanese language Accuracy check.txt` → one
+  scenario per category in tab A (Japanese language). 57
+  appended; 3 already existed (A55/A57/A58 from prior BUG
+  batches).
+- **18 Phase-0 regression blocks** from
+  `prompts/N5Improvement.txt` → one scenario each in tab K
+  (QA testing). All 18 appended.
+- **15 FP-NN false-positive class entries** from accuracy
+  prompt → one scenario each in tab K. All 15 appended.
+- **42 audit-doc summary scenarios** from `feedback/` (17
+  current docs) + `feedback/closed/` (22 closed docs) + 3
+  prompt-file summaries (`LegalVetting.txt` × 2 cross-links
+  + `LocaleTransitionEnHi.txt`).
+
+### Distribution by tab
+
+| Tab | New rows | Type |
+|---|---|---|
+| A. Japanese language | 73 | 57 A-NN + 16 audit-doc summaries |
+| B. JLPT format | 1 | paper-files-audit summary |
+| C. Hindi locale | 3 | hindi-audit + locale-transition + LocaleTransitionEnHi summary |
+| D. UX design | 4 | ui-testing-plan + homepage-update + 2 UX-developer-brief summaries |
+| F. Security | 4 | 3 legal-vetting summaries + LegalVetting.txt prompt summary |
+| G. Privacy and legal | 1 | LegalVetting.txt (privacy slant cross-link) |
+| I. Data engineering | 6 | data-files / coverage-comparison / reference-markdowns summaries + voicevox-integration |
+| J. Pedagogy | 4 | richness-audit + consolidated-audit + dossier-followup + audit-round9 |
+| K. QA testing | 34 | 18 Phase-0 + 15 FP-NN + 1 llm-audit-validation summary |
+| M. Operations | 4 | MASTER-TASK-LIST + infrastructure-audit + developer-brief (EN/JA) |
+
+Total new scenarios: **134** (was 268; now 402).
+Unit Tests (Auto-runnable) derived sheet refreshed: **93 → 111** rows
+(18 new Phase-0 entries are Auto; FP / audit-doc summaries are
+Manual review per their nature).
+
+### Idempotency
+
+The sync tool
+`tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py`
+is idempotent: every new row has a unique ID, and the tool
+skips items whose code (A-NN / P0-* / FP-NN / doc name) is
+already referenced in any existing row's Scenario or Notes
+column. Re-running on the post-sync corpus adds 0 rows.
+
+### Coverage at this checkpoint
+
+CI invariants: 109 (unchanged — this is a doc/scenario sync,
+not a new CI invariant batch). cross_artifact_sync_report.py
+exits CLEAN.
+
+INV-6 (prompts → test-scenarios) status promoted from
+**Convention only** → **Partial**: every documented item
+(A-NN / Phase-0 / FP-NN) and every audit-doc has explicit
+xlsx representation. The remaining gap to "Wired" is a
+parsability check (e.g., a CI invariant that re-extracts
+A-NN from the accuracy prompt and verifies every code has at
+least one row in the xlsx). That promotion is queued for a
+future audit cycle.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: NOT updated this batch.
+  This is a project-internal artifact-sync operation, not a
+  cross-level methodology learning. The 9-class concept lives
+  in N5's cross-artifact-sync-map.md; abstracting it into the
+  procedure manual can wait for a Nx-level adoption that
+  surfaces a need.
+- ✓ Accuracy prompt: NOT updated this batch (no new audit
+  category surfaced; A-NN categories are the SOURCE of this
+  sync, not its target).
+- ✓ N5Improvement prompt: NOT updated this batch (Phase-0
+  blocks are the SOURCE, not the target).
+- ✓ This AUDIT-COVERAGE doc: Part 14 addendum above.
+- ✓ Implementation spec `JLPT-N5-Current-Implementation-Spec.md`:
+  NOT updated this batch (no new CI invariants; §25 unchanged).
+- ✓ `N5/CHANGELOG.md`: Unreleased entry below.
+- ✓ `N5/docs/cross-artifact-sync-map.md`: audit-log row added.
+
+### Final state for Part 14
+
+CI 109/109 invariants green. 402 specialist scenarios across
+14 tabs (was 268; +134). Every A-NN audit category, every
+Phase-0 regression block, every FP-NN false-positive class,
+and every audit doc in prompts/ + feedback/ + feedback/closed/
+has explicit xlsx representation. INV-6 promoted from
+Convention → Partial. Bounded-coverage note: the sync covers
+the EXISTING content of those folders as of the 2026-05-17
+snapshot; future audit docs added to feedback/ will need a
+re-run of the sync tool to be picked up. The tool is
+idempotent so the re-run cost is minimal.

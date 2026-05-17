@@ -172,7 +172,7 @@ block in `prompts/N5Improvement.txt` if not yet hard-CI).
 | INV-3 | Code public-API change updates API docs | N/A — project has no traditional API (static SPA + content corpus) | Out of scope for this project |
 | INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-107** (version.json.counts ↔ live data) + **JA-47** (CONTENT-LICENSE.md counts ↔ live data) | WIRED 2026-05-17 |
 | INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | WIRED 2026-05-17 |
-| INV-6 | Prompt change includes a regression test of golden output | None hard-wired (prompts are LLM-consumed; "golden output" not deterministic) | Convention only; future: snapshot test of prompt sections |
+| INV-6 | Prompt change includes a regression test of golden output | Partial: every documented item (A-NN audit categories, Phase-0 regression blocks, FP-NN false-positive classes) and every audit-doc in feedback/ + feedback/closed/ has explicit xlsx representation as of 2026-05-17. Future work: extract-and-verify CI invariant that re-parses prompts and asserts xlsx coverage. | Partial (promoted 2026-05-17 from Convention) |
 | INV-7 | Cross-file references resolve | JA-15 (audio refs), JA-17 (vocab_id in grammar examples), JA-82 (`_meta.see_also` / `_meta.consumers`), JA-100 (kanji↔vocab form STRICT), JA-105 (vocab_preview vocab_id refs) | Partial; passage_id and pattern_id cross-corpus still relying on manual checks |
 | INV-8 | CHANGELOG entry names every dependent updated | None hard-wired (CHANGELOG is markdown prose) | Convention; future: pre-commit hook parsing |
 | INV-9 | Closed bug links to fix commit + regression test (or "no test — reason") | Section 25.8 lineage table tracks this; Excel "User Reported Bugs" Fix Commit column | Manual; semi-tooled via xlsx |
@@ -296,7 +296,10 @@ links.
 
 | Date | Change | INV-N added | JA-NN added | Drift fixed | Commit |
 |---|---|---|---|---|---|
-| 2026-05-17 | Protocol install batch (Rule 5 adopted) | INV-4, INV-5, INV-10 wired | JA-107, JA-108, JA-109 | version.json.counts.vocab 1009 → 995 | (this commit) |
+| 2026-05-17 | Protocol install batch (Rule 5 adopted) | INV-4, INV-5, INV-10 wired | JA-107, JA-108, JA-109 | version.json.counts.vocab 1009 → 995 | cdef185 |
+| 2026-05-17 | Static-mirror drift + not-required cleanup | — | — | learn/vocab/index.html (BUG-023 leftover) + changelog/index.html (post-cdef185 mirror); 7 not-required/ deletions | f96475b |
+| 2026-05-17 | BUG-047..053 listening.json VOICEVOX migration drift | — | JA-110, JA-111 | voice_planned dropped (50 items); audit-status fields (10 items); format dropped (50 items); _meta voice_variety_plan + voicevox_speaker_catalog rewritten | 04bd8f4 |
+| 2026-05-17 | Test-scenarios sync with prompts/ + feedback/ | INV-6 → Partial | — | (no data drift; +134 specialist scenarios added across 14 tabs to make prompt/feedback coverage explicit) | (this commit) |
 
 Each future cross-artifact ripple gets a row here so future
 auditors can trace which sync hops landed when.

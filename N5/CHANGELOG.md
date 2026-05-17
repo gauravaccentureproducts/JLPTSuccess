@@ -2,6 +2,98 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (Test-scenarios sync with prompts/ + feedback/)
+
+Governance / audit-trail release. No content changes for end
+users; this batch makes the existing-corpus coverage of every
+audit-prompt category, Phase-0 regression block, false-positive
+class, and audit document explicit in the test-scenarios xlsx —
+closing the gap the Cross-Artifact Sync Protocol's INV-6 flagged.
+
+### Scope
+
+Per user directive ("every info in prompts/ + feedback/ should be
+present in test scenarios") and chosen Option 1 (structured items
++ audit-doc summaries):
+
+- **60 A-NN audit categories** from `prompts/Japanese language
+  Accuracy check.txt` → tab A (Japanese language). 57 appended;
+  3 already mapped via prior BUG batches (A55/A57/A58).
+- **18 Phase-0 regression blocks** from `prompts/N5Improvement.txt`
+  → tab K (QA testing). All 18 appended as Auto test type.
+- **15 FP-NN false-positive class entries** from the accuracy
+  prompt → tab K. All 15 appended as Manual review.
+- **42 audit-doc summary scenarios** from `feedback/` (17 current
+  + 22 closed/) + 3 prompt-file summaries (LegalVetting ×2 +
+  LocaleTransitionEnHi).
+
+Tools added:
+  - `N5/tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py`
+    (NEW; idempotent — re-running on the post-sync corpus adds 0
+    rows because every new ID is unique).
+
+### Counts
+
+| Tab | Pre-sync | Post-sync | Delta |
+|---|---|---|---|
+| A. Japanese language | 41 | 114 | +73 |
+| B. JLPT format | 18 | 19 | +1 |
+| C. Hindi locale | 18 | 21 | +3 |
+| D. UX design | 23 | 27 | +4 |
+| E. Accessibility | 18 | 18 | 0 |
+| F. Security | 19 | 23 | +4 |
+| G. Privacy and legal | 15 | 16 | +1 |
+| H. Performance | 24 | 24 | 0 |
+| I. Data engineering | 20 | 26 | +6 |
+| J. Pedagogy | 16 | 20 | +4 |
+| K. QA testing | 18 | 52 | +34 |
+| L. Cultural ethical | 11 | 11 | 0 |
+| M. Operations | 10 | 14 | +4 |
+| N. End-user POV | 17 | 17 | 0 |
+| **TOTAL** | **268** | **402** | **+134** |
+
+Unit Tests (Auto-runnable) derived sheet refreshed: **93 → 111**
+rows (18 Phase-0 blocks are Auto type; FP-NN + audit-doc summaries
+are Manual review per their nature).
+
+### INV-6 promotion
+
+Cross-Artifact Sync Protocol INV-6 ("Prompt change includes
+regression test of golden output") moved from **Convention only**
+to **Partial** in §25.10 of the implementation spec, the
+cross-artifact-sync-map.md INV table, and the
+`cross_artifact_sync_report.py` status output. The remaining gap
+to "Wired" is a parsability check (a CI invariant that re-extracts
+A-NN / Phase-0 / FP-NN from the prompts and asserts each has at
+least one matching xlsx row) — queued for a future audit cycle.
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+- `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`
+  — 134 new scenario rows + Unit Tests sheet refresh
+- `N5/tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py`
+  (NEW) — the bulk sync tool
+- `N5/tools/cross_artifact_sync_report.py` — INV-6 status updated
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` — Part 14 addendum
+- `N5/docs/cross-artifact-sync-map.md` — audit-log row + INV-6 row
+- `N5/CHANGELOG.md` — this entry
+
+### Coverage at this checkpoint
+
+CI: 109/109 invariants green post-sync.
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker: 53 / 52 Fixed / 1 Open (BUG-049 still awaiting audio
+re-render — no change this batch).
+
+Bounded-coverage note (per writing discipline): the sync covers
+the EXISTING content of `prompts/` + `feedback/` as of the
+2026-05-17 snapshot. Future audit docs added to those folders
+will need a re-run of `tools/sync_test_scenarios_with_prompts_
+feedback_2026_05_17.py` to be picked up. The tool is idempotent
+so re-runs cost nothing on the already-synced subset.
+
+---
+
 ## Unreleased - 2026-05-17 (BUG-047..053 listening.json VOICEVOX migration drift fix)
 
 Maintenance / data-quality release. Listening drill audio playback
