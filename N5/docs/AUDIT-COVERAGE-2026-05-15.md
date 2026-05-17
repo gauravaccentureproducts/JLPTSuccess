@@ -3217,3 +3217,143 @@ pattern IDs remain unchanged; only `explanation_en` prose and
 follow-on item from Part 19's queue, and stays deferred on
 local VOICEVOX install (agent-side environment gap; not a
 correctness or coverage blocker).
+
+*Note added in Part 22 (2026-05-17):* the VOICEVOX-install
+deferral above is now resolved — see Part 22 below for the
+full Phase-2 close-out.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 22) — Audio Phase-2 close-out: VOICEVOX re-render at speed_scale=1.00
+
+Part 17's audio handoff doc + Part 20's Phase-1.5 close-out
+deferred a full VOICEVOX re-render at `speed_scale=1.00` as the
+broader-scope quality lift over the Phase-1 + Phase-1.5
+post-processing layers. The deferral was gated on local VOICEVOX
+install; with VOICEVOX (v0.25.2 CPU) now installed on the
+maintainer's machine, Part 22 closes Phase-2.
+
+### What Part 22 delivered
+
+- **Full from-source VOICEVOX re-render** of all 50 listening
+  items at `speed_scale=1.00` (raised from the 2026-05-12
+  baseline of 0.95).
+- **Audio metadata refresh**: every item's `audio_render_meta`
+  carries `phase2_voicevox_rerender_2026_05_17: True`, updated
+  `rendered_at`, `speed_scale: 1.00`. The Phase-1 / Phase-1.5
+  fields (`post_render_tempo_change_2026_05_17`,
+  `post_render_tempo_method`, `phase15_method_change_2026_05_17`)
+  were cleared at the start of Phase-2 and only re-set where
+  the post-render pacing pass actually needed them.
+- **6-speaker variety preserved**: same speakers as the
+  2026-05-12 render (Tsumugi / Kurono / Metan / Zundamon / Hau
+  / Aoyama); same per-item assignment.
+- **Pacing band achieved**: 50/50 items in target band 180–240
+  mpm post-render-and-adjustment. Mean 214.5 mpm; min 190.4;
+  max 237.3.
+
+### Pacing distribution post-Phase-2
+
+The fresh VOICEVOX render at speed_scale=1.00 produced audio
+ranging from way-too-fast (item n5.listen.045 at 478 mpm raw —
+very short utterance + short articulation pause) to within band
+straight from VOICEVOX. The post-render pacing refresh applied
+ffmpeg `atempo` (single-pass for factor ≥ 0.5, chained for factor
+< 0.5) to bring out-of-band items into the JLPT N5 target band.
+
+**Adjustment distribution (50 items):**
+
+| Method | Count | Notes |
+|---|---|---|
+| Direct VOICEVOX (no post-processing) | 16 | Rendered in band; no atempo applied |
+| `ffmpeg-atempo` single-pass | 29 | Factor in [0.5, 2.0] range |
+| `ffmpeg-rubberband` single-pass | 5 | Replaced chained atempo (factor < 0.5) — same quality-upgrade pattern as Phase-1.5 |
+
+The 5 librubberband items are n5.listen.010, 041, 044, 045, 047 —
+each authored as a single-pass rubberband swap-in for the
+chained-atempo adjustment that would otherwise have stacked two
+windowing/overlap-add passes.
+
+### Procedure
+
+1. **VOICEVOX engine launched** via PowerShell `Start-Process` (the
+   WinGet `Links\VOICEVOX.exe` symlink failed via Bash with an
+   Electron ICU descriptor error; PowerShell `Start-Process` against
+   the real install path under `WinGet/Packages/...` worked). Engine
+   came up on `localhost:50021` at v0.25.2 with 43 speakers loaded.
+2. **Phase-2 renderer** `tools/render_listening_phase2_voicevox_1_00_
+   2026_05_17.py` ran serially through 50 items × ~5 segments each.
+   Wall-clock: 697s (~12 min). Each segment uses VOICEVOX's
+   `audio_query` + `synthesis` two-step API at speedScale=1.00.
+3. **Pacing refresh** `tools/refresh_listening_pacing_2026_05_17.py
+   --apply-speedup` re-measured all 50 items against the new audio,
+   applied ffmpeg atempo to 34 items needing band adjustment, and
+   re-measured post-adjustment.
+4. **Chained-atempo → rubberband swap** `tools/apply_phase2_
+   rubberband_chained_items_2026_05_17.py` re-rendered the 5
+   sub-0.5-factor items from VOICEVOX and applied single-pass
+   librubberband at the target factor, replacing the chained atempo.
+5. **Final pacing pass** (no `--apply` flag) refreshed measurements
+   to capture the rubberband output's actual durations.
+6. **CI green**: `python tools/check_content_integrity.py` returned
+   PASS all 122 invariants.
+
+### What Phase-2 superseded
+
+The Phase-1 + Phase-1.5 post-processing chain (atempo on 39 items,
+rubberband on 3 of those) was a workaround for the 2026-05-12
+render at speed_scale=0.95 being slightly out of band on many items
++ extremely out of band on the 3 "too-fast" items. Phase-2's
+from-source re-render at speed_scale=1.00 lets every item start
+closer to its target pace; post-processing is now applied to
+fewer items (34 vs 39), and the chained-atempo class is retired
+again (this time via Part 22's same Phase-1.5 pattern).
+
+In practice, the perceptual quality lift is marginal — Phase-1 +
+Phase-1.5 already produced acceptable audio. Phase-2's real value
+is **provenance**: every item is now a clean from-source render at
+a single coherent speed_scale, with adjustments applied only where
+the VOICEVOX engine's per-speaker articulation timing pushed an
+item out of band.
+
+### CI invariants final state for Part 22
+
+Total live: **122** (unchanged from Part 21; this batch is
+audio-content + audio-metadata, not new schema invariants).
+- JA-114 (pacing_status closed enum): PASS (all 50 in_range).
+- JA-110 (no voice_planned legacy field): PASS.
+- JA-111 (format_type closed enum): PASS.
+- JA-112 (AUDIO.md "N items use M speakers"): PASS (50 / 6).
+- `cross_artifact_sync_report.py` exits CLEAN.
+
+### Files touched (Part 22)
+
+  - N5/audio/listening/n5.listen.{001..050}.mp3 (50 primaries
+    re-rendered from VOICEVOX at speed_scale=1.00)
+  - N5/audio/listening/n5.listen.{001..050}.slow.mp3 (50 .slow
+    companions regenerated at single-pass atempo=0.7)
+  - N5/data/listening.json (per-item audio_render_meta refresh
+    + _meta.phase2_voicevox_rerender_2026_05_17 added +
+    pacing_morae_per_min re-measured)
+  - N5/tools/render_listening_phase2_voicevox_1_00_2026_05_17.py
+    (NEW — Phase-2 renderer, derived from the 6speakers script
+    with speedScale 0.95 → 1.00)
+  - N5/tools/apply_phase2_rubberband_chained_items_2026_05_17.py
+    (NEW — Phase-2 follow-on rubberband swap for the 5 sub-0.5
+    factor items)
+  - N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md (rewritten from
+    runbook to COMPLETED status)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 22 addendum)
+  - N5/docs/cross-artifact-sync-map.md (audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+### Final state for Part 22
+
+CI **122/122 invariants green**. All 50 listening items in target
+band 180–240 mpm. Phase-2 retired the deferred VOICEVOX-install
+gate from Parts 17 / 20 / 21. Bug tracker: 53 / 53 Fixed / 0 Open.
+**No remaining queued audio work.** Future audio churn would be
+prompted by new content (additional listening items), new
+methodology (different target band, different speaker variety
+plan), or new bug reports — all driven by future audit cycles
+rather than by carried-over deferrals.

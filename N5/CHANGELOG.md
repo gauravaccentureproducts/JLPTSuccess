@@ -2,6 +2,92 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (Audio Phase-2: VOICEVOX from-source re-render at speed_scale=1.00)
+
+User-visible: all 50 listening items have been re-rendered from
+source via VOICEVOX at `speed_scale=1.00`, replacing the prior
+2026-05-12 render at `speed_scale=0.95` plus the Phase-1 (ffmpeg
+atempo) and Phase-1.5 (librubberband on 3 items) post-processing
+layers. Audio quality is now driven by a single coherent
+from-source render rather than stacked post-processing passes.
+Pacing distribution unchanged from the user's perspective — every
+item still lands in the JLPT N5 target band 180–240 mpm.
+
+### Render summary
+
+- **Engine**: VOICEVOX v0.25.2 (CPU edition)
+- **Speed scale**: 1.00 (raised from 0.95)
+- **Items rendered**: 50 / 50, wall-clock 697s (~12 min)
+- **Speakers preserved**: same 6 distinct voices as the 2026-05-12
+  render (春日部つむぎ, 玄野武宏, 四国めたん, ずんだもん,
+  雨晴はう, 青山龍星). Per-item speaker assignment unchanged.
+- **Final pacing**: 50/50 in_range. Mean 214.5 mpm; min 190.4;
+  max 237.3 — well centered in the 180–240 target band.
+
+### Post-render adjustment distribution
+
+The fresh speed_scale=1.00 render produced 16 items in band straight
+from VOICEVOX. The remaining 34 items needed ffmpeg post-processing
+to land in band:
+
+| Method | Count | Notes |
+|---|---|---|
+| Direct VOICEVOX (no atempo applied) | 16 | In band from raw render |
+| `ffmpeg-atempo` single-pass | 29 | Factor in [0.5, 2.0] |
+| `ffmpeg-rubberband` single-pass | 5 | Replaced chained atempo at factor < 0.5 (same quality pattern as Phase-1.5) |
+
+The 5 rubberband items are `n5.listen.010 / 041 / 044 / 045 / 047`
+— each authored as a single-pass librubberband swap-in for the
+chained `atempo=0.5,atempo=X` that the pacing refresh would
+otherwise have applied. Same quality rationale as the prior
+Phase-1.5 (commit `c79c02e`): rubberband preserves transients
+better than chained atempo at sub-0.5 slowdown factors.
+
+### What this batch retired
+
+- **Phase-2's deferred-on-VOICEVOX-install status** carried over
+  from Part 17, Part 20, and Part 21 audit-coverage doc addenda.
+  With VOICEVOX installed on the maintainer's machine, Phase-2
+  was executable agent-side.
+- The 2026-05-12 render at speed_scale=0.95 + Phase-1 atempo
+  post-processing layer (commit `47d1edc`) on the 50 audio
+  primaries.
+- The Phase-1.5 rubberband replacement (commit `c79c02e`) on the
+  3 chained-atempo items (n5.listen.041 / 044 / 045) — those
+  items are now part of the Phase-2 re-render + new rubberband
+  application at adjusted factors.
+
+### What this batch did NOT change
+
+- Pattern count (178 — no schema changes).
+- Bug tracker (53 / 53 Fixed / 0 Open — Phase-2 is a quality
+  upgrade, not a bug close-out).
+- Listening item count (50). Item scripts (`script_ja`) unchanged.
+- CI invariant count (122/122 still). All audio-class invariants
+  (JA-110 / JA-111 / JA-112 / JA-114) PASS.
+
+### Files touched
+
+- `N5/audio/listening/n5.listen.{001..050}.mp3` (50 primaries
+  re-rendered from VOICEVOX at speed_scale=1.00)
+- `N5/audio/listening/n5.listen.{001..050}.slow.mp3` (50 .slow
+  companions regenerated at single-pass atempo=0.7)
+- `N5/data/listening.json` (audio_render_meta refresh on every
+  item + `_meta.phase2_voicevox_rerender_2026_05_17` block)
+- `N5/tools/render_listening_phase2_voicevox_1_00_2026_05_17.py`
+  (NEW — Phase-2 renderer; derived from the 6speakers script
+  with speedScale 0.95 → 1.00)
+- `N5/tools/apply_phase2_rubberband_chained_items_2026_05_17.py`
+  (NEW — Phase-2 follow-on librubberband swap for sub-0.5 items)
+- `N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` (rewritten from
+  runbook to COMPLETED status)
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` (Part 22 addendum)
+- `N5/docs/cross-artifact-sync-map.md` (audit-log row)
+- `N5/CHANGELOG.md` (this entry)
+
+CI invariants final state: **122 / 122 green**.
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+
 ## Unreleased - 2026-05-17 (JA-91 + JA-94 Phase A + Phase B resolution: empty both baselines)
 
 User-visible: 14 grammar examples rewritten + 33 grammar-pattern
