@@ -1124,6 +1124,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     # that BUG-024 reported. Different readings (e.g., 一日 with ついたち
     # vs いちにち) are legitimate polysemy and pass the check.
     ("JA-103", "kanji.json n5_compounds: (form, reading) tuple unique within each entry (BUG-024 guard, 2026-05-17)", lambda: _check_ja_103_kanji_compound_form_reading_unique()),
+    # JA-104 (2026-05-17): BUG-041 close-out. reading.json passages use
+    # `difficulty` field (not legacy `level`). Closed enum {easy,
+    # medium, hard} or absent (info-search passages).
+    ("JA-104", "reading.json passages use `difficulty` field (not legacy `level`); closed enum {easy,medium,hard} (BUG-041 guard, 2026-05-17)", lambda: _check_ja_104_reading_difficulty()),
+    # JA-105 (2026-05-17): BUG-045 close-out. vocab_preview is a list
+    # of vocab_id strings, never a list of dicts.
+    ("JA-105", "reading.json vocab_preview is list of vocab_id strings (BUG-045 guard, 2026-05-17)", lambda: _check_ja_105_vocab_preview_shape()),
+    # JA-106 (2026-05-17): BUG-044 close-out. format_type is null on
+    # non-info-search passages; on info-search passages it's in
+    # {schedule_table, menu_list, notice}. Never "comprehension".
+    ("JA-106", "reading.json format_type ∈ {null, schedule_table, menu_list, notice} (BUG-044 guard, 2026-05-17)", lambda: _check_ja_106_format_type_enum()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -4947,6 +4958,83 @@ def _check_ja_101_kanji_examples_form_field_only() -> list[str]:
                 failures.append(
                     f"JA-101 kanji={glyph} examples[{i}]: missing `form` field"
                 )
+    return failures
+
+
+def _check_ja_104_reading_difficulty() -> list[str]:
+    """BUG-041 (2026-05-17) regression guard.
+
+    reading.json passages: `level` field is RETIRED. Replaced by
+    `difficulty` from closed enum {easy, medium, hard} OR absent
+    (for info-search passages whose type is in format_role).
+    """
+    failures = []
+    ALLOWED = {"easy", "medium", "hard"}
+    try:
+        r = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-104 could not read reading.json: {e}"]
+    for p in r.get("passages", []):
+        pid = p.get("id", "?")
+        if "level" in p:
+            failures.append(f"JA-104 {pid}: stale `level` field present (use `difficulty` per BUG-041)")
+        d = p.get("difficulty")
+        if d is not None and d not in ALLOWED:
+            failures.append(f"JA-104 {pid}: difficulty {d!r} not in closed enum {sorted(ALLOWED)}")
+    return failures
+
+
+def _check_ja_105_vocab_preview_shape() -> list[str]:
+    """BUG-045 (2026-05-17) regression guard.
+
+    reading.json `vocab_preview` is a list of vocab_id strings only,
+    never a list of dicts.
+    """
+    failures = []
+    try:
+        r = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-105 could not read reading.json: {e}"]
+    for p in r.get("passages", []):
+        pid = p.get("id", "?")
+        vp = p.get("vocab_preview")
+        if vp is None:
+            continue
+        if not isinstance(vp, list):
+            failures.append(f"JA-105 {pid}: vocab_preview must be a list; got {type(vp).__name__}")
+            continue
+        for i, item in enumerate(vp):
+            if not isinstance(item, str):
+                failures.append(
+                    f"JA-105 {pid}: vocab_preview[{i}] must be a string vocab_id; got {type(item).__name__}"
+                )
+    return failures
+
+
+def _check_ja_106_format_type_enum() -> list[str]:
+    """BUG-044 (2026-05-17) regression guard.
+
+    reading.json `format_type` field: must be null OR in
+    {schedule_table, menu_list, notice}. The legacy "comprehension"
+    value is RETIRED — it was a redundant duplicate of
+    format_role="comprehension".
+    """
+    failures = []
+    ALLOWED = {"schedule_table", "menu_list", "notice"}
+    try:
+        r = json.loads((ROOT / "data" / "reading.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-106 could not read reading.json: {e}"]
+    for p in r.get("passages", []):
+        pid = p.get("id", "?")
+        ft = p.get("format_type")
+        if ft is None:
+            continue
+        if ft not in ALLOWED:
+            failures.append(
+                f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
+                f"'comprehension' retired per BUG-044)"
+            )
     return failures
 
 

@@ -2,10 +2,9 @@
   "passages": [
     {
       "id": "n5.read.001",
-      "level": "easy",
       "topic": "self-introduction",
       "title_ja": "じこしょうかい",
-      "ja": "わたしは アンナです。アメリカから 来ました。今、とうきょうの 大学で 日本語を べんきょうしています。しゅみは えいがを 見ることです。どうぞ よろしく おねがいします。",
+      "ja": "私は アンナです。アメリカから 来ました。今、とうきょうの 大学で 日本語を べんきょうしています。しゅみは えいがを 見ることです。どうぞ よろしく おねがいします。",
       "audio": "audio/reading/n5.read.001.mp3",
       "questions": [
         {
@@ -48,7 +47,8 @@
         "本",
         "来",
         "見",
-        "語"
+        "語",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.25-languages-and-countri.アメリカ",
@@ -66,7 +66,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "じこしょうかい (self-introduction विषय का छोटा अनुच्छेद)।",
+      "summary": "じこしょうかい",
       "vocab_preview": [
         "n5.vocab.25-languages-and-countri.アメリカ",
         "n5.vocab.34-conjunctions.から",
@@ -215,14 +215,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "self-introduction विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.002",
-      "level": "easy",
       "topic": "daily routine",
       "title_ja": "まいにちの せいかつ",
-      "ja": "わたしは 毎日 6時に おきます。あさごはんを 食べてから、しごとに 行きます。しごとは 9時から 5時までです。うちに かえってから、テレビを 見ます。10時に ねます。",
+      "ja": "私は 毎日 6時に おきます。あさごはんを 食べてから、しごとに 行きます。しごとは 9時から 5時までです。うちに かえってから、テレビを 見ます。10時に ねます。",
       "audio": "audio/reading/n5.read.002.mp3",
       "questions": [
         {
@@ -278,7 +281,8 @@
         "毎",
         "行",
         "見",
-        "食"
+        "食",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.12-time-frequency-sequen.毎日",
@@ -289,7 +293,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "まいにちの せいかつ (daily routine विषय का छोटा अनुच्छेद)।",
+      "summary": "まいにちの せいかつ",
       "vocab_preview": [
         "n5.vocab.12-time-frequency-sequen.毎日",
         "n5.vocab.16-food-and-drink-genera.あさごはん",
@@ -436,11 +440,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "daily routine विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.003",
-      "level": "easy",
       "topic": "weekend plan",
       "title_ja": "しゅうまつの よてい",
       "ja": "あした、ともだちと えいがを 見に 行きます。えいがの あとで、レストランで ばんごはんを 食べます。とても たのしみです。",
@@ -493,7 +500,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "しゅうまつの よてい (weekend plan विषय का छोटा अनुच्छेद)।",
+      "summary": "しゅうまつの よてい",
       "vocab_preview": [
         "n5.vocab.10-time-general.あした",
         "n5.vocab.2-people-family.ともだち",
@@ -629,11 +636,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "weekend plan विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.004",
-      "level": "medium",
       "topic": "shopping",
       "title_ja": "コンビニで",
       "ja": "きのう、コンビニで パンと コーヒーを 買いました。パンは 200円で、コーヒーは 150円でした。ぜんぶで 350円でした。やすかったです。",
@@ -686,7 +695,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "コンビニで (shopping विषय का छोटा अनुच्छेद)।",
+      "summary": "コンビニで",
       "vocab_preview": [
         "n5.vocab.10-time-general.きのう",
         "n5.vocab.13-locations-and-places-.コンビニ",
@@ -806,14 +815,16 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "shopping विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.005",
-      "level": "medium",
       "topic": "family",
       "title_ja": "わたしの かぞく",
-      "ja": "わたしの かぞくは 4人です。父と 母と あにが います。父は 先生で、母は いしゃです。あには 大学生です。わたしは こうこうせいです。みんな げんきです。",
+      "ja": "私の かぞくは 4人です。父と 母と あにが います。父は 先生で、母は いしゃです。あには 大学生です。私は こうこうせいです。みんな げんきです。",
       "audio": "audio/reading/n5.read.005.mp3",
       "questions": [
         {
@@ -870,7 +881,8 @@
         "学",
         "母",
         "父",
-        "生"
+        "生",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.2-people-family.かぞく",
@@ -887,7 +899,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの かぞく (family विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの かぞく",
       "vocab_preview": [
         "n5.vocab.2-people-family.かぞく",
         "n5.vocab.1-people-pronouns-and-se.人",
@@ -1016,11 +1028,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "family विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.006",
-      "level": "medium",
       "topic": "weather",
       "title_ja": "きょうの てんき",
       "ja": "今日は とても さむいです。あさは あめが ふっていました。今は ふっていませんが、まだ さむいです。あした、ゆきが ふると おもいます。",
@@ -1077,7 +1092,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "きょうの てんき (weather विषय का छोटा अनुच्छेद)।",
+      "summary": "きょうの てんき",
       "vocab_preview": [
         "n5.vocab.10-time-general.今日",
         "n5.vocab.33-adverbs.とても",
@@ -1207,11 +1222,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "weather विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.007",
-      "level": "info-search",
       "topic": "schedule",
       "title_ja": "としょかんの おしらせ",
       "ja": "としょかんの 時間\nげつようび 〜 きんようび：9:00 〜 21:00\nどようび：10:00 〜 18:00\nにちようび：休み\n本は 二週間まで かりる ことが できます。",
@@ -1269,7 +1286,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 6,
-      "summary": "としょかんの おしらせ (schedule विषय का छोटा अनुच्छेद)।",
+      "summary": "としょかんの おしらせ",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.としょかん",
         "n5.vocab.10-time-general.時間",
@@ -1419,14 +1436,15 @@
         }
       ],
       "reflection_prompts_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "schedule विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.008",
-      "level": "medium",
       "topic": "transport",
       "title_ja": "学校へ",
-      "ja": "わたしの うちから 学校まで 30分くらい かかります。まず、うちから えきまで あるきます。10分くらいです。そして、でんしゃに のります。20分で 学校に つきます。",
+      "ja": "私の うちから 学校まで 30分くらい かかります。まず、うちから えきまで あるきます。10分くらいです。そして、でんしゃに のります。20分で 学校に つきます。",
       "audio": "audio/reading/n5.read.008.mp3",
       "questions": [
         {
@@ -1464,7 +1482,8 @@
       "kanji_used": [
         "分",
         "学",
-        "校"
+        "校",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.34-conjunctions.から",
@@ -1477,7 +1496,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "学校へ (transport विषय का छोटा अनुच्छेद)।",
+      "summary": "学校へ",
       "vocab_preview": [
         "n5.vocab.34-conjunctions.から",
         "n5.vocab.13-locations-and-places-.学校",
@@ -1606,14 +1625,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "transport विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.009",
-      "level": "easy",
       "topic": "hobby",
       "title_ja": "わたしの しゅみ",
-      "ja": "わたしの しゅみは スポーツです。毎日 あさ こうえんで はしります。土曜日は ともだちと サッカーを します。とても たのしいです。",
+      "ja": "私の しゅみは スポーツです。毎日 あさ こうえんで はしります。土曜日は ともだちと サッカーを します。とても たのしいです。",
       "audio": "audio/reading/n5.read.009.mp3",
       "questions": [
         {
@@ -1652,7 +1674,8 @@
         "土",
         "日",
         "曜",
-        "毎"
+        "毎",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.37-common-nouns-miscella.しゅみ",
@@ -1668,7 +1691,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの しゅみ (hobby विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの しゅみ",
       "vocab_preview": [
         "n5.vocab.37-common-nouns-miscella.しゅみ",
         "n5.vocab.37-common-nouns-miscella.スポーツ",
@@ -1788,14 +1811,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "hobby विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.010",
-      "level": "easy",
       "topic": "school",
       "title_ja": "わたしの きょうしつ",
-      "ja": "わたしの きょうしつには つくえが 25こ あります。いすも 25こ あります。先生の つくえは おおきいです。まどから こうえんが 見えます。きれいな きょうしつです。",
+      "ja": "私の きょうしつには つくえが 25こ あります。いすも 25こ あります。先生の つくえは おおきいです。まどから こうえんが 見えます。きれいな きょうしつです。",
       "audio": "audio/reading/n5.read.010.mp3",
       "questions": [
         {
@@ -1833,7 +1859,8 @@
       "kanji_used": [
         "先",
         "生",
-        "見"
+        "見",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.13-locations-and-places-.きょうしつ",
@@ -1847,7 +1874,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの きょうしつ (school विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの きょうしつ",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.きょうしつ",
         "n5.vocab.24-school-and-study.つくえ",
@@ -1958,11 +1985,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "school विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.011",
-      "level": "easy",
       "topic": "food",
       "title_ja": "きょうの ひるごはん",
       "ja": "今日の おひるごはんは ラーメンと サラダでした。ラーメンは あつかったですが、おいしかったです。サラダは すこし からかったです。コーヒーも 飲みました。",
@@ -2017,7 +2047,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "きょうの ひるごはん (food विषय का छोटा अनुच्छेद)।",
+      "summary": "きょうの ひるごはん",
       "vocab_preview": [
         "n5.vocab.10-time-general.今日",
         "n5.vocab.16-food-and-drink-genera.ひるごはん",
@@ -2159,11 +2189,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "food विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.012",
-      "level": "easy",
       "topic": "shopping",
       "title_ja": "本やで",
       "ja": "きのう ほんやで 日本語の 本を 2さつ 買いました。ぜんぶで 1,500円でした。うちに かえってから よみました。むずかしかったですが、おもしろかったです。",
@@ -2221,7 +2253,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "本やで (shopping विषय का छोटा अनुच्छेद)।",
+      "summary": "本やで",
       "vocab_preview": [
         "n5.vocab.10-time-general.きのう",
         "n5.vocab.13-locations-and-places-.ほんや",
@@ -2345,11 +2377,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "shopping विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.013",
-      "level": "medium",
       "topic": "travel",
       "title_ja": "きょうとへの りょこう",
       "ja": "せんしゅう かぞくと きょうとに 行きました。きょうとは 古い まちです。きれいな おてらが たくさん あります。おみやげに おかしを 買いました。とても たのしい りょこうでした。",
@@ -2423,7 +2457,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "きょうとへの りょこう (travel विषय का छोटा अनुच्छेद)।",
+      "summary": "きょうとへの りょこう",
       "vocab_preview": [
         "n5.vocab.2-people-family.かぞく",
         "n5.vocab.31-adjectives.古い",
@@ -2562,11 +2596,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "travel विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.014",
-      "level": "medium",
       "topic": "shopping",
       "title_ja": "あたらしい ふく",
       "ja": "きのう デパートで あたらしい ふくを 買いました。シャツは 3,000円で、ズボンは 5,000円でした。ぜんぶで 8,000円でした。すこし たかかったですが、とても きれいです。",
@@ -2623,7 +2659,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "あたらしい ふく (shopping विषय का छोटा अनुच्छेद)।",
+      "summary": "あたらしい ふく",
       "vocab_preview": [
         "n5.vocab.10-time-general.きのう",
         "n5.vocab.13-locations-and-places-.デパート",
@@ -2738,11 +2774,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "shopping विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.015",
-      "level": "easy",
       "topic": "weather",
       "title_ja": "はる",
       "ja": "今は 4月です。だんだん あたたかく なりました。こうえんに さくらが さきました。土曜日に 母と さくらを 見に 行きます。",
@@ -2800,7 +2838,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "はる (weather विषय का छोटा अनुच्छेद)।",
+      "summary": "はる",
       "vocab_preview": [
         "n5.vocab.10-time-general.今",
         "n5.vocab.11-time-days-weeks-month.月",
@@ -2925,11 +2963,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "weather विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.016",
-      "level": "medium",
       "topic": "health",
       "title_ja": "びょうきです",
       "ja": "きのうから あたまが いたいです。せきも すこし 出ます。今日は 学校を 休んで、うちで ねます。あした、いしゃに 行きます。はやく げんきに なりたいです。",
@@ -2990,7 +3030,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "びょうきです (health विषय का छोटा अनुच्छेद)।",
+      "summary": "びょうきです",
       "vocab_preview": [
         "n5.vocab.10-time-general.きのう",
         "n5.vocab.34-conjunctions.から",
@@ -3120,11 +3160,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "health विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.017",
-      "level": "info-search",
       "topic": "food",
       "title_ja": "カフェの メニュー",
       "ja": "メニュー\nコーヒー：300円\nおちゃ：250円\nケーキ：500円\nサンドイッチ：600円\nセット (コーヒー＋ケーキ)：700円",
@@ -3175,7 +3217,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 6,
-      "summary": "カフェの メニュー (schedule विषय का छोटा अनुच्छेद)।",
+      "summary": "カフェの メニュー",
       "vocab_preview": [
         "n5.vocab.18-drinks.コーヒー",
         "n5.vocab.22-money-and-shopping.円",
@@ -3328,14 +3370,15 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "topic_audit_wave": "accuracy-audit-f3-fix-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "schedule विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.018",
-      "level": "medium",
       "topic": "study",
       "title_ja": "日本語の べんきょう",
-      "ja": "わたしは 1年前から 日本語を べんきょうしています。毎日 30分くらい べんきょうします。かんじは むずかしいですが、ひらがなは かんたんです。来年 日本に 行きたいです。",
+      "ja": "私は 1年前から 日本語を べんきょうしています。毎日 30分くらい べんきょうします。かんじは むずかしいですが、ひらがなは かんたんです。来年 日本に 行きたいです。",
       "audio": "audio/reading/n5.read.018.mp3",
       "questions": [
         {
@@ -3379,7 +3422,8 @@
         "来",
         "毎",
         "行",
-        "語"
+        "語",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.11-time-days-weeks-month.年",
@@ -3400,7 +3444,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "日本語の べんきょう (study विषय का छोटा अनुच्छेद)।",
+      "summary": "日本語の べんきょう",
       "vocab_preview": [
         "n5.vocab.11-time-days-weeks-month.年",
         "n5.vocab.12-time-frequency-sequen.前",
@@ -3529,11 +3573,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "study विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.019",
-      "level": "easy",
       "topic": "weekend",
       "title_ja": "せんしゅうの 日よう日",
       "ja": "せんしゅうの 日曜日に、ともだちと うみに 行きました。天気は とても よかったです。およぎました。さかなも 見ました。とても たのしかったです。",
@@ -3589,7 +3636,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "せんしゅうの 日よう日 (weekend विषय का छोटा अनुच्छेद)।",
+      "summary": "せんしゅうの 日よう日",
       "vocab_preview": [
         "n5.vocab.11-time-days-weeks-month.日曜日",
         "n5.vocab.2-people-family.ともだち",
@@ -3709,14 +3756,16 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "weekend विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.020",
-      "level": "medium",
       "topic": "school",
       "title_ja": "わたしの 先生",
-      "ja": "わたしの 日本語の 先生は たなか先生です。たなか先生は とても しんせつです。いつも にこにこ しています。じゅぎょうは おもしろいです。みんな たなか先生が すきです。",
+      "ja": "私の 日本語の 先生は たなか先生です。たなか先生は とても しんせつです。いつも にこにこ しています。じゅぎょうは おもしろいです。みんな たなか先生が すきです。",
       "audio": "audio/reading/n5.read.020.mp3",
       "questions": [
         {
@@ -3756,7 +3805,8 @@
         "日",
         "本",
         "生",
-        "語"
+        "語",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.25-languages-and-countri.日本語",
@@ -3772,7 +3822,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの 先生 (school विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの 先生",
       "vocab_preview": [
         "n5.vocab.25-languages-and-countri.日本語",
         "n5.vocab.3-people-roles.先生",
@@ -3903,11 +3953,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "school विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.021",
-      "level": "info-search",
       "topic": "schedule",
       "title_ja": "ひこうきの じかん",
       "ja": "とうきょうから おおさかまで ひこうきが あります。\nあさ：6時、7時、8時\nひる：12時、13時\nよる：18時、19時、20時\n時間：1時間\nおとな：25,000円\n子ども：12,500円",
@@ -3965,7 +4018,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 6,
-      "summary": "ひこうきの じかん (schedule विषय का छोटा अनुच्छेद)।",
+      "summary": "ひこうきの じかん",
       "vocab_preview": [
         "n5.vocab.34-conjunctions.から",
         "n5.vocab.23-transport.ひこうき",
@@ -4139,11 +4192,12 @@
         }
       ],
       "reflection_prompts_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "schedule विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.022",
-      "level": "easy",
       "topic": "weekend",
       "title_ja": "きのうの ばん",
       "ja": "きのうの よる、うちで 母と りょうりを しました。カレーを つくりました。とても おいしかったです。父も あにも 「おいしい」と 言いました。",
@@ -4202,7 +4256,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "きのうの ばん (weekend विषय का छोटा अनुच्छेद)।",
+      "summary": "きのうの ばん",
       "vocab_preview": [
         "n5.vocab.10-time-general.きのう",
         "n5.vocab.10-time-general.よる",
@@ -4342,11 +4396,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "weekend विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.023",
-      "level": "medium",
       "topic": "transport",
       "title_ja": "バスていの おしらせ",
       "ja": "バスの じかん\n月曜日 〜 金曜日：8:00、10:00、12:00、14:00、16:00、18:00\n土曜日：9:00、12:00、15:00\n日曜日：休み\n大人：300円　子ども：150円",
@@ -4408,7 +4464,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "バスていの おしらせ (transport विषय का छोटा अनुच्छेद)।",
+      "summary": "バスていの おしらせ",
       "vocab_preview": [
         "n5.vocab.23-transport.バス",
         "n5.vocab.11-time-days-weeks-month.月曜日",
@@ -4565,14 +4621,16 @@
         }
       ],
       "reflection_prompts_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "transport विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.024",
-      "level": "easy",
       "topic": "people",
       "title_ja": "わたしの 友だち",
-      "ja": "わたしの ともだちは マリアさんです。スペイン人です。今、とうきょうの 大学で べんきょうしています。マリアさんは 日本語が とても じょうずです。",
+      "ja": "私の ともだちは マリアさんです。スペイン人です。今、とうきょうの 大学で べんきょうしています。マリアさんは 日本語が とても じょうずです。",
       "audio": "audio/reading/n5.read.024.mp3",
       "questions": [
         {
@@ -4614,7 +4672,8 @@
         "学",
         "日",
         "本",
-        "語"
+        "語",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.2-people-family.ともだち",
@@ -4628,7 +4687,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの 友だち (people विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの 友だち",
       "vocab_preview": [
         "n5.vocab.2-people-family.ともだち",
         "n5.vocab.25-languages-and-countri.スペイン人",
@@ -4759,14 +4818,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "people विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.025",
-      "level": "medium",
       "topic": "daily routine",
       "title_ja": "土よう日の あさ",
-      "ja": "土曜日の あさ、わたしは はやく おきます。7時に おきて、こうえんで さんぽします。それから、うちで あさごはんを 食べます。よみたい 本も よみます。土曜日が 大すきです。",
+      "ja": "土曜日の あさ、私は はやく おきます。7時に おきて、こうえんで さんぽします。それから、うちで あさごはんを 食べます。よみたい 本も よみます。土曜日が 大すきです。",
       "audio": "audio/reading/n5.read.025.mp3",
       "questions": [
         {
@@ -4808,7 +4870,8 @@
         "時",
         "曜",
         "本",
-        "食"
+        "食",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.11-time-days-weeks-month.土曜日",
@@ -4822,7 +4885,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "土よう日の あさ (daily routine विषय का छोटा अनुच्छेद)।",
+      "summary": "土よう日の あさ",
       "vocab_preview": [
         "n5.vocab.11-time-days-weeks-month.土曜日",
         "n5.vocab.10-time-general.あさ",
@@ -4977,11 +5040,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "daily routine विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.026",
-      "level": "easy",
       "topic": "shopping",
       "title_ja": "くだものを かいに",
       "ja": "やおやで くだものを 買いました。りんごを 3つと、バナナを 5本 買いました。ぜんぶで 700円でした。とても やすかったです。",
@@ -5037,7 +5103,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "くだものを かいに (shopping विषय का छोटा अनुच्छेद)।",
+      "summary": "くだものを かいに",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.やおや",
         "n5.vocab.17-food-items.くだもの",
@@ -5165,11 +5231,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "shopping विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.027",
-      "level": "medium",
       "topic": "request",
       "title_ja": "友だちからの メモ",
       "ja": "ヤマダさんへ\nあした 1時に えきの まえで 会いましょう。いっしょに カフェで おちゃを 飲みませんか。それから、デパートで かいものを しましょう。\nスズキより",
@@ -5225,7 +5293,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "友だちからの メモ (request विषय का छोटा अनुच्छेद)।",
+      "summary": "友だちからの メモ",
       "vocab_preview": [
         "n5.vocab.10-time-general.あした",
         "n5.vocab.26-house-and-furniture.いま",
@@ -5381,14 +5449,16 @@
         }
       ],
       "reflection_prompts_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "request विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.028",
-      "level": "medium",
       "topic": "room",
       "title_ja": "わたしの へや",
-      "ja": "わたしの へやは あまり 大きくないです。ベッドと つくえと いすが あります。本だなには たくさんの 本が あります。まどから にわが 見えます。とても しずかな へやです。",
+      "ja": "私の へやは あまり 大きくないです。ベッドと つくえと いすが あります。本だなには たくさんの 本が あります。まどから にわが 見えます。とても しずかな へやです。",
       "audio": "audio/reading/n5.read.028.mp3",
       "questions": [
         {
@@ -5426,7 +5496,8 @@
       "kanji_used": [
         "大",
         "本",
-        "見"
+        "見",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.13-locations-and-places-.へや",
@@ -5444,7 +5515,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの へや (room विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの へや",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.へや",
         "n5.vocab.12-time-frequency-sequen.あまり",
@@ -5581,11 +5652,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "room विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.029",
-      "level": "easy",
       "topic": "weather",
       "title_ja": "なつ",
       "ja": "なつは とても あついです。毎日 30どより 高いです。よる、エアコンを つけて ねます。なつ休みに うみに 行きたいです。",
@@ -5641,7 +5715,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "なつ (weather विषय का छोटा अनुच्छेद)।",
+      "summary": "なつ",
       "vocab_preview": [
         "n5.vocab.14-nature-and-weather.なつ",
         "n5.vocab.33-adverbs.とても",
@@ -5779,11 +5853,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "weather विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.030",
-      "level": "medium",
       "topic": "directions",
       "title_ja": "ゆうびんきょくへの 行きかた",
       "ja": "えきの 出口を 出て、まっすぐ 行きます。はじめの しんごうを 右に まがります。100メートルくらい あるいて ください。左に ゆうびんきょくが あります。あいています：月〜金の 9時から 17時まで。",
@@ -5847,7 +5923,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "ゆうびんきょくへの 行きかた (directions विषय का छोटा अनुच्छेद)।",
+      "summary": "ゆうびんきょくへの 行きかた",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.出口",
         "n5.vocab.33-adverbs.まっすぐ",
@@ -5992,14 +6068,16 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "directions विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.031",
-      "level": "easy",
       "topic": "animals",
       "title_ja": "わたしの いぬ",
-      "ja": "わたしの いえには 大きい 白い いぬが います。名前は シロです。シロは 五さいです。まいにち、あさと よる、こうえんで シロと さんぽします。シロは ボールが だいすきです。よく いっしょに あそびます。",
+      "ja": "私の いえには 大きい 白い いぬが います。名前は シロです。シロは 五さいです。まいにち、あさと よる、こうえんで シロと さんぽします。シロは ボールが だいすきです。よく いっしょに あそびます。",
       "questions": [
         {
           "prompt_ja": "シロは 何さいですか。",
@@ -6039,7 +6117,8 @@
         "前",
         "名",
         "大",
-        "白"
+        "白",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.31-adjectives.大きい",
@@ -6059,7 +6138,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの いぬ (animals विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの いぬ",
       "vocab_preview": [
         "n5.vocab.31-adjectives.大きい",
         "n5.vocab.20-colors.白い",
@@ -6200,14 +6279,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "animals विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.032",
-      "level": "medium",
       "topic": "work",
       "title_ja": "アルバイト",
-      "ja": "わたしは 大学生です。月よう日と 水よう日と 金よう日に カフェで アルバイトを して います。じかんは 五時から 九時までです。しごとは たのしいですが、ときどき つかれます。お金を ためて、来年 日本に 行きたいです。",
+      "ja": "私は 大学生です。月よう日と 水よう日と 金よう日に カフェで アルバイトを して います。じかんは 五時から 九時までです。しごとは たのしいですが、ときどき つかれます。お金を ためて、来年 日本に 行きたいです。",
       "questions": [
         {
           "prompt_ja": "アルバイトは いつですか。",
@@ -6256,7 +6338,8 @@
         "水",
         "生",
         "行",
-        "金"
+        "金",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.13-locations-and-places-.大学",
@@ -6279,7 +6362,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "アルバイト (work विषय का छोटा अनुच्छेद)।",
+      "summary": "アルバイト",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.大学",
         "n5.vocab.11-time-days-weeks-month.月",
@@ -6450,14 +6533,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "work विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.033",
-      "level": "easy",
       "topic": "weather",
       "title_ja": "とうきょうの あき",
-      "ja": "とうきょうの あきは とても きれいです。木の はが あかや きいろに なります。すずしくて、さんぽが たのしいです。ゆうがた、そらが あかく なります。とりの こえも 聞こえます。あきは わたしの すきな きせつです。",
+      "ja": "とうきょうの あきは とても きれいです。木の はが あかや きいろに なります。すずしくて、さんぽが たのしいです。ゆうがた、そらが あかく なります。とりの こえも 聞こえます。あきは 私の すきな きせつです。",
       "questions": [
         {
           "prompt_ja": "ゆうがた、そらは どう なりますか。",
@@ -6494,7 +6580,8 @@
       "audio": "audio/reading/n5.read.033.mp3",
       "kanji_used": [
         "木",
-        "聞"
+        "聞",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.14-nature-and-weather.あき",
@@ -6512,7 +6599,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "とうきょうの あき (weather विषय का छोटा अनुच्छेद)।",
+      "summary": "とうきょうの あき",
       "vocab_preview": [
         "n5.vocab.14-nature-and-weather.あき",
         "n5.vocab.33-adverbs.とても",
@@ -6662,14 +6749,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "weather विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.034",
-      "level": "easy",
       "topic": "family",
       "title_ja": "友だちからの てがみ",
-      "ja": "やまださんへ\nおげんきですか。わたしは げんきです。あした 学校で パーティーが あります。三時から 五時までです。先生も 来ます。たのしいですから、来て ください。\nたなか",
+      "ja": "やまださんへ\nおげんきですか。私は げんきです。あした 学校で パーティーが あります。三時から 五時までです。先生も 来ます。たのしいですから、来て ください。\nたなか",
       "questions": [
         {
           "prompt_ja": "パーティーは いつ ありますか。",
@@ -6712,7 +6802,8 @@
         "時",
         "来",
         "校",
-        "生"
+        "生",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.12-time-frequency-sequen.まだ",
@@ -6731,7 +6822,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "友だちからの てがみ (family विषय का छोटा अनुच्छेद)।",
+      "summary": "友だちからの てがみ",
       "vocab_preview": [
         "n5.vocab.12-time-frequency-sequen.まだ",
         "n5.vocab.36-greetings-and-set-phr.おげんきですか",
@@ -6902,14 +6993,17 @@
         }
       ],
       "reflection_prompts_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "family विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.035",
-      "level": "easy",
       "topic": "food",
       "title_ja": "すきな たべもの",
-      "ja": "わたしは 日本の りょうりが だいすきです。とくに、すしと てんぷらが すきです。日よう日に よく レストランへ 行きます。きのうは 母と いっしょに ラーメンを 食べました。とても おいしかったです。",
+      "ja": "私は 日本の りょうりが だいすきです。とくに、すしと てんぷらが すきです。日よう日に よく レストランへ 行きます。きのうは 母と いっしょに ラーメンを 食べました。とても おいしかったです。",
       "questions": [
         {
           "prompt_ja": "とくに すきな りょうりは 何ですか。",
@@ -6964,7 +7058,8 @@
         "本",
         "母",
         "行",
-        "食"
+        "食",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.25-languages-and-countri.日本",
@@ -6985,7 +7080,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "すきな たべもの (food विषय का छोटा अनुच्छेद)।",
+      "summary": "すきな たべもの",
       "vocab_preview": [
         "n5.vocab.25-languages-and-countri.日本",
         "n5.vocab.37-common-nouns-miscella.りょうり",
@@ -7133,14 +7228,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "food विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.036",
-      "level": "medium",
       "topic": "school",
       "title_ja": "学校の しゅくだい",
-      "ja": "わたしの 学校は 月よう日から 金よう日までです。まいにち しゅくだいが あります。しゅくだいは 日本語と すうがくです。日本語の しゅくだいは ながいですが、おもしろいです。すうがくは むずかしいです。土よう日と 日よう日は 学校が 休みですから、しゅくだいも すこしです。",
+      "ja": "私の 学校は 月よう日から 金よう日までです。まいにち しゅくだいが あります。しゅくだいは 日本語と すうがくです。日本語の しゅくだいは ながいですが、おもしろいです。すうがくは むずかしいです。土よう日と 日よう日は 学校が 休みですから、しゅくだいも すこしです。",
       "questions": [
         {
           "prompt_ja": "学校は いつまでですか。",
@@ -7184,7 +7282,8 @@
         "本",
         "校",
         "語",
-        "金"
+        "金",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.13-locations-and-places-.学校",
@@ -7202,7 +7301,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "学校の しゅくだい (school विषय का छोटा अनुच्छेद)।",
+      "summary": "学校の しゅくだい",
       "vocab_preview": [
         "n5.vocab.13-locations-and-places-.学校",
         "n5.vocab.11-time-days-weeks-month.月",
@@ -7356,14 +7455,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "school विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.037",
-      "level": "medium",
       "topic": "transport",
       "title_ja": "電車の おくれ",
-      "ja": "今日 わたしは 七時に いえを 出ました。でも、電車が おくれて、八時十分に 学校に つきました。先生に「すみません」と 言いました。先生は「だいじょうぶです」と 言いました。あしたは はやく 出ます。",
+      "ja": "今日 私は 七時に いえを 出ました。でも、電車が おくれて、八時十分に 学校に つきました。先生に「すみません」と 言いました。先生は「だいじょうぶです」と 言いました。あしたは はやく 出ます。",
       "questions": [
         {
           "prompt_ja": "今日 何時に いえを 出ましたか。",
@@ -7413,7 +7515,8 @@
         "生",
         "言",
         "車",
-        "電"
+        "電",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.10-time-general.今日",
@@ -7433,7 +7536,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "電車の おくれ (transport विषय का छोटा अनुच्छेद)।",
+      "summary": "電車の おくれ",
       "vocab_preview": [
         "n5.vocab.10-time-general.今日",
         "n5.vocab.7-numbers.七",
@@ -7601,14 +7704,17 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "transport विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.038",
-      "level": "easy",
       "topic": "hobby",
       "title_ja": "わたしの しゅみ",
-      "ja": "わたしの しゅみは ピアノです。五さいから ピアノを ならって います。今は 一週間に 二かい、ピアノきょうしつに 行きます。先生は とても しんせつです。来月、コンサートで ピアノを ひきます。たのしみです。",
+      "ja": "私の しゅみは ピアノです。五さいから ピアノを ならって います。今は 一週間に 二かい、ピアノきょうしつに 行きます。先生は とても しんせつです。来月、コンサートで ピアノを ひきます。たのしみです。",
       "questions": [
         {
           "prompt_ja": "いつから ピアノを ならって いますか。",
@@ -7654,7 +7760,8 @@
         "生",
         "行",
         "週",
-        "間"
+        "間",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.37-common-nouns-miscella.しゅみ",
@@ -7676,7 +7783,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "わたしの しゅみ (hobby विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの しゅみ",
       "vocab_preview": [
         "n5.vocab.37-common-nouns-miscella.しゅみ",
         "n5.vocab.26-house-and-furniture.ピアノ",
@@ -7837,11 +7944,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "hobby विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.039",
-      "level": "info-search",
       "topic": "shopping",
       "title_ja": "本やの セール",
       "ja": "本やの おしらせ\n大セール！\n日にち：八月一日から 八月七日まで\n時間：あさ 十時から よる 八時まで\n本は ぜんぶ 半分の ねだんです。\n日本語の 本も えいごの 本も あります。\nぜひ 来て ください！",
@@ -7919,7 +8029,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 6,
-      "summary": "本やの セール (shopping विषय का छोटा अनुच्छेद)।",
+      "summary": "本やの セール",
       "vocab_preview": [
         "n5.vocab.9-counters-common.本",
         "n5.vocab.24-school-and-study.おしらせ",
@@ -8120,14 +8230,15 @@
         }
       ],
       "reflection_prompts_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "shopping विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.040",
-      "level": "easy",
       "topic": "nature",
       "title_ja": "こうえんの さんぽ",
-      "ja": "土よう日の あさ、わたしは こうえんに 行きました。こうえんには 大きい 木が たくさん あります。子どもたちが ボールで あそんで いました。おじいさんは ベンチで 本を 読んで いました。とりの こえも 聞こえました。きれいな あさでした。",
+      "ja": "土よう日の あさ、私は こうえんに 行きました。こうえんには 大きい 木が たくさん あります。子どもたちが ボールで あそんで いました。おじいさんは ベンチで 本を 読んで いました。とりの こえも 聞こえました。きれいな あさでした。",
       "questions": [
         {
           "prompt_ja": "土よう日の あさ、どこに 行きましたか。",
@@ -8171,7 +8282,8 @@
         "本",
         "聞",
         "行",
-        "読"
+        "読",
+        "私"
       ],
       "vocab_used": [
         "n5.vocab.11-time-days-weeks-month.日",
@@ -8191,7 +8303,7 @@
       ],
       "review_status": "ai_quality_reviewed",
       "mondai": 4,
-      "summary": "こうえんの さんぽ (nature विषय का छोटा अनुच्छेद)।",
+      "summary": "こうえんの さんぽ",
       "vocab_preview": [
         "n5.vocab.11-time-days-weeks-month.日",
         "n5.vocab.10-time-general.あさ",
@@ -8340,17 +8452,20 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "easy",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "nature विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.041",
-      "level": "medium",
       "topic": "restaurant",
       "tier": "core_n5",
       "mondai": 5,
       "review_status": "ai_quality_reviewed",
       "title_ja": "レストランで",
-      "ja": "きのうの 七時に、ともだちの たなかさんと えきの ちかくの レストランへ いきました。たなかさんは からい りょうりが すきです。それで、たなかさんは カレーを たのみました。わたしは からい りょうりが あまり すきじゃありません。それで、わたしは ハンバーグと サラダを たのみました。りょうりは とても おいしかったです。サラダの やさいは あたらしくて、おいしかったです。あとで、コーヒーと ケーキも のみました。みせの ひとは しんせつでした。また、らいしゅうも いきたいです。",
+      "ja": "きのうの 七時に、ともだちの たなかさんと えきの ちかくの レストランへ いきました。たなかさんは からい りょうりが すきです。それで、たなかさんは カレーを たのみました。私は からい りょうりが あまり すきじゃありません。それで、私は ハンバーグと サラダを たのみました。りょうりは とても おいしかったです。サラダの やさいは あたらしくて、おいしかったです。あとで、コーヒーと ケーキも のみました。みせの ひとは しんせつでした。また、らいしゅうも いきたいです。",
       "questions": [
         {
           "id": "n5.read.041.q1",
@@ -8383,7 +8498,7 @@
           "explanation_hi_provenance": "native_reviewed"
         }
       ],
-      "summary": "レストランで (restaurant विषय का छोटा अनुच्छेद)।",
+      "summary": "レストランで",
       "cultural_context": "Restaurants near train stations (えきの ちかくの レストラン) are a defining feature of Japanese urban life. Ekimae (駅前, \"in front of the station\") restaurants cater to commuters meeting up after work — quick service, modest prices, and located within a 2-minute walk of the ticket gates.",
       "format_role": "narrative",
       "summary_hi": "स्टेशन के पास के रेस्तरां जापानी शहरी जीवन का प्रमुख हिस्सा — एकीमाए (駅前) रेस्तरां कमर्शियल।",
@@ -8549,7 +8664,8 @@
       "cultural_callout_provenance": "auto_derived",
       "kanji_used": [
         "七",
-        "時"
+        "時",
+        "私"
       ],
       "time_target_seconds": {
         "reading_seconds": 98,
@@ -8607,17 +8723,20 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "restaurant विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.042",
-      "level": "medium",
       "topic": "leisure",
       "tier": "core_n5",
       "mondai": 5,
       "review_status": "ai_quality_reviewed",
       "title_ja": "しゅうまつの しゅみ",
-      "ja": "わたしの しゅみは おんがくを きくことと、えを かくことです。しゅうまつは いつも うちで すきな おんがくを ききます。それから、こうえんへ いって、こうえんで えを かきます。こうえんは しずかで、いろいろな はなが きれいに さいています。えを かくのは たのしいですが、わたしは じょうずじゃありません。もっと れんしゅうしたいです。らいげつの 日曜日に、ともだちと いっしょに あたらしい びじゅつかんへ いきます。ゆうめいな がいこくの えが たくさん あるそうです。たのしみに しています。",
+      "ja": "私の しゅみは おんがくを きくことと、えを かくことです。しゅうまつは いつも うちで すきな おんがくを ききます。それから、こうえんへ いって、こうえんで えを かきます。こうえんは しずかで、いろいろな はなが きれいに さいています。えを かくのは たのしいですが、私は じょうずじゃありません。もっと れんしゅうしたいです。らいげつの 日曜日に、ともだちと いっしょに あたらしい びじゅつかんへ いきます。ゆうめいな がいこくの えが たくさん あるそうです。たのしみに しています。",
       "questions": [
         {
           "id": "n5.read.042.q1",
@@ -8650,7 +8769,7 @@
           "explanation_hi_provenance": "native_reviewed"
         }
       ],
-      "summary": "しゅうまつの しゅみ (leisure विषय का छोटा अनुच्छेद)।",
+      "summary": "しゅうまつの しゅみ",
       "format_role": "narrative",
       "summary_hi": "सप्ताहांत के शौक़ — संगीत सुनना और पार्क में चित्र बनाना; पार्क शांत, फूल खिले हुए।",
       "summary_hi_provenance": "native_reviewed",
@@ -8816,7 +8935,8 @@
       "cultural_callout_provenance": "auto_derived",
       "kanji_used": [
         "日",
-        "曜"
+        "曜",
+        "私"
       ],
       "time_target_seconds": {
         "reading_seconds": 101,
@@ -8870,11 +8990,14 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "leisure विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.043",
-      "level": "medium",
       "topic": "health",
       "tier": "core_n5",
       "mondai": 5,
@@ -8913,7 +9036,7 @@
           "explanation_hi_provenance": "native_reviewed"
         }
       ],
-      "summary": "びょういんへ いきました (health विषय का छोटा अनुच्छेद)।",
+      "summary": "びょういんへ いきました",
       "cultural_context": "Visiting the doctor (病院 / clinic) for a cold (かぜ) or fever (ねつ) is normal preventive care in Japan, not just for emergencies. The doctor will likely prescribe medication, recommend rest at home, and issue a 診断書 (medical certificate) if you need to skip work. National Health Insurance covers 70% of costs; you pay 30% on the spot. Pharmacies (薬局) are next door to the clinic.",
       "cultural_context_provenance": "native_reviewed",
       "format_role": "narrative",
@@ -9154,11 +9277,13 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "health विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.044",
-      "level": "medium",
       "topic": "calendar",
       "tier": "core_n5",
       "mondai": 5,
@@ -9197,7 +9322,7 @@
           "explanation_hi_provenance": "llm_curated"
         }
       ],
-      "summary": "らいしゅうの よてい (calendar विषय का छोटा अनुच्छेद)।",
+      "summary": "らいしゅうの よてい",
       "cultural_context": "Mother's birthday gift culture: in Japan, flowers (花) — typically carnations or roses — and a department-store-wrapped item (デパートでプレゼント) are the formal pattern. Mother's Day (母の日) is the second Sunday of May; carnations are the traditional Mother's Day flower (the colour signals different meanings: red for living mothers, white for remembrance). Birthday gifts overlap with this convention.",
       "cultural_context_provenance": "native_reviewed",
       "format_role": "narrative",
@@ -9437,17 +9562,19 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "summary_en_extracted": "calendar विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.045",
-      "level": "medium",
       "topic": "occupation",
       "tier": "core_n5",
       "mondai": 5,
       "review_status": "ai_quality_reviewed",
       "title_ja": "わたしの しごと",
-      "ja": "わたしは とうきょうの ぎんこうで はたらいています。まいあさ 八時半に いえを 出て、九時に かいしゃへ いきます。いえから かいしゃまで でんしゃで 三十ぷん かかります。しごとは あさ 九時から ゆうがた 六時までです。ひるごはんは かいしゃの ちかくの しょくどうで どうりょうと たべます。しごとは いそがしいですが、おもしろくて、たのしいです。どうりょうの みなさんは とても しんせつです。しゅうまつは ともだちと あって、おちゃを のんで、いろいろな はなしを します。",
+      "ja": "私は とうきょうの ぎんこうで はたらいています。まいあさ 八時半に いえを 出て、九時に かいしゃへ いきます。いえから かいしゃまで でんしゃで 三十ぷん かかります。しごとは あさ 九時から ゆうがた 六時までです。ひるごはんは かいしゃの ちかくの しょくどうで どうりょうと たべます。しごとは いそがしいですが、おもしろくて、たのしいです。どうりょうの みなさんは とても しんせつです。しゅうまつは ともだちと あって、おちゃを のんで、いろいろな はなしを します。",
       "questions": [
         {
           "id": "n5.read.045.q1",
@@ -9480,7 +9607,7 @@
           "explanation_hi_provenance": "llm_curated"
         }
       ],
-      "summary": "わたしの しごと (occupation विषय का छोटा अनुच्छेद)।",
+      "summary": "わたしの しごと",
       "cultural_context": "Japanese banking (銀行) employees follow a traditional salaryman routine: leave home ~8:30 AM, commute by train (~30 minutes), arrive at the office by 9 AM, paper-based work, lunch at 12-1, work until 6-7 PM. Major banks (メガバンク): Mitsubishi UFJ (三菱UFJ), Sumitomo Mitsui (三井住友), Mizuho (みずほ). Bank teller (窓口担当) is a typical entry-level role; rotation across branches is standard for early-career staff.",
       "cultural_context_provenance": "native_reviewed",
       "format_role": "narrative",
@@ -9675,7 +9802,8 @@
         "出",
         "十",
         "半",
-        "時"
+        "時",
+        "私"
       ],
       "time_target_seconds": {
         "reading_seconds": 97,
@@ -9723,16 +9851,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_046_fix_2026_05_17": true,
+      "summary_en_extracted": "occupation विषय का छोटा अनुच्छेद"
     },
     {
       "id": "n5.read.046",
-      "level": "N5",
       "topic": "geography",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "いろいろな 国",
       "ja": "日本の 東に アメリカが あります。日本の 西に 中国が あります。日本には 山も 川も 田も あります。北の 山は ふじ山です。とても 高くて、きれいです。私は 来年 ふじ山に 行きたいです。",
       "translation_literal": "To the east of Japan there is America. To the west of Japan there is China. In Japan there are mountains, rivers, and rice fields. The northern mountain is Mt. Fuji. It is very tall and beautiful. I want to go to Mt. Fuji next year.",
@@ -9785,62 +9915,14 @@
         "n5.vocab.11-time-days-weeks-month.来年"
       ],
       "vocab_preview": [
-        {
-          "form": "日本",
-          "reading": "にほん / にっぽん",
-          "gloss": "Japan",
-          "gloss_hi": "जापान",
-          "vocab_id": "n5.vocab.25-languages-and-countri.日本"
-        },
-        {
-          "form": "アメリカ",
-          "reading": "アメリカ",
-          "gloss": "America",
-          "gloss_hi": "अमेरिका",
-          "vocab_id": "n5.vocab.25-languages-and-countri.アメリカ"
-        },
-        {
-          "form": "中国",
-          "reading": "ちゅうごく",
-          "gloss": "China",
-          "gloss_hi": "चीन",
-          "vocab_id": "n5.vocab.25-languages-and-countri.中国"
-        },
-        {
-          "form": "北",
-          "reading": "きた",
-          "gloss": "north",
-          "gloss_hi": "उत्तर",
-          "vocab_id": "n5.vocab.13-locations-and-places-.北"
-        },
-        {
-          "form": "とても",
-          "reading": "とても",
-          "gloss": "very",
-          "gloss_hi": "बहुत",
-          "vocab_id": "n5.vocab.33-adverbs.とても"
-        },
-        {
-          "form": "きれい",
-          "reading": "きれい",
-          "gloss": "pretty, clean",
-          "gloss_hi": "सुंदर / साफ़",
-          "vocab_id": "n5.vocab.32-adjectives.きれい"
-        },
-        {
-          "form": "れい",
-          "reading": "れい",
-          "gloss": "example",
-          "gloss_hi": "उदाहरण",
-          "vocab_id": "n5.vocab.24-school-and-study.れい"
-        },
-        {
-          "form": "来年",
-          "reading": "らいねん",
-          "gloss": "next year",
-          "gloss_hi": "अगला वर्ष",
-          "vocab_id": "n5.vocab.11-time-days-weeks-month.来年"
-        }
+        "n5.vocab.25-languages-and-countri.日本",
+        "n5.vocab.25-languages-and-countri.アメリカ",
+        "n5.vocab.25-languages-and-countri.中国",
+        "n5.vocab.13-locations-and-places-.北",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.32-adjectives.きれい",
+        "n5.vocab.24-school-and-study.れい",
+        "n5.vocab.11-time-days-weeks-month.来年"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -9984,16 +10066,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.047",
-      "level": "N5",
       "topic": "daily",
       "mondai": 4,
       "tier": "late_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "えきの ちかくの みせ",
       "ja": "私の いえの ちかくに、新しい 駅が あります。駅の 出口を 出て、ひだりに あるくと、安い 店が あります。その 店で 入口に 立って いる おじさんは いつも しんせつです。道の むこうにも 大きい 店が あります。そこは 高いですが、いろいろな ものが あります。",
       "translation_literal": "Near my house, there is a new station. Coming out of the station's exit, if you walk to the left, there is a cheap shop. The man standing at the entrance of that shop is always kind. Across the road there is also a large shop. It is expensive, but it has various things.",
@@ -10047,90 +10131,18 @@
         "n5.vocab.32-adjectives.いろいろ"
       ],
       "vocab_preview": [
-        {
-          "form": "ちかく",
-          "reading": "ちかく",
-          "gloss": "near",
-          "gloss_hi": "पास",
-          "vocab_id": "n5.vocab.13-locations-and-places-.ちかく"
-        },
-        {
-          "form": "新しい",
-          "reading": "あたらしい",
-          "gloss": "new",
-          "gloss_hi": "नया",
-          "vocab_id": "n5.vocab.31-adjectives.新しい"
-        },
-        {
-          "form": "左",
-          "reading": "ひだり",
-          "gloss": "left",
-          "gloss_hi": "बाएँ",
-          "vocab_id": "n5.vocab.13-locations-and-places-.左"
-        },
-        {
-          "form": "おじさん",
-          "reading": "おじさん",
-          "gloss": "uncle, middle-aged man",
-          "gloss_hi": "चाचा / अधेड़ पुरुष",
-          "vocab_id": "n5.vocab.2-people-family.おじさん"
-        },
-        {
-          "form": "三",
-          "reading": "さん",
-          "gloss": "three",
-          "gloss_hi": "तीन",
-          "vocab_id": "n5.vocab.7-numbers.三"
-        },
-        {
-          "form": "いつも",
-          "reading": "いつも",
-          "gloss": "always",
-          "gloss_hi": "हमेशा",
-          "vocab_id": "n5.vocab.12-time-frequency-sequen.いつも"
-        },
-        {
-          "form": "いつ",
-          "reading": "いつ",
-          "gloss": "when",
-          "gloss_hi": "कब",
-          "vocab_id": "n5.vocab.6-question-words.いつ"
-        },
-        {
-          "form": "しんせつ",
-          "reading": "しんせつ",
-          "gloss": "kind",
-          "gloss_hi": "दयालु",
-          "vocab_id": "n5.vocab.32-adjectives.しんせつ"
-        },
-        {
-          "form": "むこう",
-          "reading": "むこう",
-          "gloss": "over there, beyond",
-          "gloss_hi": "उस पार",
-          "vocab_id": "n5.vocab.13-locations-and-places-.むこう"
-        },
-        {
-          "form": "こう",
-          "reading": "こう",
-          "gloss": "like this",
-          "gloss_hi": "इस तरह",
-          "vocab_id": "n5.vocab.5-demonstratives.こう"
-        },
-        {
-          "form": "大きい",
-          "reading": "おおきい",
-          "gloss": "big",
-          "gloss_hi": "बड़ा",
-          "vocab_id": "n5.vocab.31-adjectives.大きい"
-        },
-        {
-          "form": "いろいろ",
-          "reading": "いろいろ",
-          "gloss": "various",
-          "gloss_hi": "विविध",
-          "vocab_id": "n5.vocab.32-adjectives.いろいろ"
-        }
+        "n5.vocab.13-locations-and-places-.ちかく",
+        "n5.vocab.31-adjectives.新しい",
+        "n5.vocab.13-locations-and-places-.左",
+        "n5.vocab.2-people-family.おじさん",
+        "n5.vocab.7-numbers.三",
+        "n5.vocab.12-time-frequency-sequen.いつも",
+        "n5.vocab.6-question-words.いつ",
+        "n5.vocab.32-adjectives.しんせつ",
+        "n5.vocab.13-locations-and-places-.むこう",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.31-adjectives.大きい",
+        "n5.vocab.32-adjectives.いろいろ"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -10310,16 +10322,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.048",
-      "level": "N5",
       "topic": "communication",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "友だちへの てがみ",
       "ja": "ともだちの 山田さんへ\nおげんきですか。私は げんきです。\nあなたの 電話番号を おしえて ください。\nいっしょに 話したい ことが たくさん あります。\nてがみを 書いて くれて、ありがとう。\nたなかより",
       "translation_literal": "To my friend Mr. Yamada,\nHow are you? I am well.\nPlease tell me your phone number.\nThere are many things I want to talk about with you.\nThank you for writing me a letter.\nFrom Tanaka",
@@ -10369,90 +10383,18 @@
         "n5.vocab.13-locations-and-places-.中"
       ],
       "vocab_preview": [
-        {
-          "form": "ともだち",
-          "reading": "ともだち",
-          "gloss": "friend",
-          "gloss_hi": "दोस्त",
-          "vocab_id": "n5.vocab.2-people-family.ともだち"
-        },
-        {
-          "form": "三",
-          "reading": "さん",
-          "gloss": "three",
-          "gloss_hi": "तीन",
-          "vocab_id": "n5.vocab.7-numbers.三"
-        },
-        {
-          "form": "おげんきですか",
-          "reading": "おげんきですか",
-          "gloss": "how are you?",
-          "gloss_hi": "आप कैसे हैं?",
-          "vocab_id": "n5.vocab.36-greetings-and-set-phr.おげんきですか"
-        },
-        {
-          "form": "げんき",
-          "reading": "げんき",
-          "gloss": "healthy, energetic",
-          "gloss_hi": "स्वस्थ / जोश में",
-          "vocab_id": "n5.vocab.32-adjectives.げんき"
-        },
-        {
-          "form": "あなた",
-          "reading": "あなた",
-          "gloss": "you",
-          "gloss_hi": "आप",
-          "vocab_id": "n5.vocab.1-people-pronouns-and-se.あなた"
-        },
-        {
-          "form": "電話番号",
-          "reading": "でんわばんごう",
-          "gloss": "phone number",
-          "gloss_hi": "फ़ोन नंबर",
-          "vocab_id": "n5.vocab.24-school-and-study.電話番号"
-        },
-        {
-          "form": "いっしょに",
-          "reading": "いっしょに",
-          "gloss": "together",
-          "gloss_hi": "साथ में",
-          "vocab_id": "n5.vocab.33-adverbs.いっしょに"
-        },
-        {
-          "form": "下",
-          "reading": "した",
-          "gloss": "under, below",
-          "gloss_hi": "नीचे",
-          "vocab_id": "n5.vocab.13-locations-and-places-.下"
-        },
-        {
-          "form": "たくさん",
-          "reading": "たくさん",
-          "gloss": "many, a lot",
-          "gloss_hi": "बहुत सारे",
-          "vocab_id": "n5.vocab.33-adverbs.たくさん"
-        },
-        {
-          "form": "てがみ",
-          "reading": "てがみ",
-          "gloss": "letter",
-          "gloss_hi": "पत्र",
-          "vocab_id": "n5.vocab.22-money-and-shopping.てがみ"
-        },
-        {
-          "form": "ありがとう",
-          "reading": "ありがとう",
-          "gloss": "thanks",
-          "gloss_hi": "धन्यवाद",
-          "vocab_id": "n5.vocab.36-greetings-and-set-phr.ありがとう"
-        },
-        {
-          "form": "中",
-          "reading": "なか",
-          "gloss": "inside, middle",
-          "gloss_hi": "अंदर / बीच",
-          "vocab_id": "n5.vocab.13-locations-and-places-.中"
-        }
+        "n5.vocab.2-people-family.ともだち",
+        "n5.vocab.7-numbers.三",
+        "n5.vocab.36-greetings-and-set-phr.おげんきですか",
+        "n5.vocab.32-adjectives.げんき",
+        "n5.vocab.1-people-pronouns-and-se.あなた",
+        "n5.vocab.24-school-and-study.電話番号",
+        "n5.vocab.33-adverbs.いっしょに",
+        "n5.vocab.13-locations-and-places-.下",
+        "n5.vocab.33-adverbs.たくさん",
+        "n5.vocab.22-money-and-shopping.てがみ",
+        "n5.vocab.36-greetings-and-set-phr.ありがとう",
+        "n5.vocab.13-locations-and-places-.中"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -10588,16 +10530,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.049",
-      "level": "N5",
       "topic": "weather",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "雨の あとの 外",
       "ja": "今日は あさから 雨でした。私は うちの 中で 本を 読んで いました。\nひるごはんの 後で、雨が やみました。空が とても きれいでした。\n外に 出て、こうえんに 行きました。こうえんには きれいな 花が たくさん さいて いました。\nはるは 大すきです。",
       "translation_literal": "Today it was raining from the morning. I was reading a book inside the house. After lunch, the rain stopped. The sky was very beautiful. I went outside and went to the park. In the park many beautiful flowers were blooming. I love spring.",
@@ -10653,90 +10597,18 @@
         "n5.vocab.7-numbers.三"
       ],
       "vocab_preview": [
-        {
-          "form": "今",
-          "reading": "いま",
-          "gloss": "now",
-          "gloss_hi": "अभी",
-          "vocab_id": "n5.vocab.10-time-general.今"
-        },
-        {
-          "form": "今日",
-          "reading": "きょう",
-          "gloss": "today",
-          "gloss_hi": "आज",
-          "vocab_id": "n5.vocab.10-time-general.今日"
-        },
-        {
-          "form": "あさ",
-          "reading": "あさ",
-          "gloss": "morning",
-          "gloss_hi": "सुबह",
-          "vocab_id": "n5.vocab.10-time-general.あさ"
-        },
-        {
-          "form": "ひるごはん",
-          "reading": "ひるごはん",
-          "gloss": "lunch",
-          "gloss_hi": "दोपहर का खाना",
-          "vocab_id": "n5.vocab.16-food-and-drink-genera.ひるごはん"
-        },
-        {
-          "form": "ひる",
-          "reading": "ひる",
-          "gloss": "noon, daytime",
-          "gloss_hi": "दोपहर",
-          "vocab_id": "n5.vocab.10-time-general.ひる"
-        },
-        {
-          "form": "ごはん",
-          "reading": "ごはん",
-          "gloss": "rice, meal",
-          "gloss_hi": "भात / भोजन",
-          "vocab_id": "n5.vocab.16-food-and-drink-genera.ごはん"
-        },
-        {
-          "form": "とても",
-          "reading": "とても",
-          "gloss": "very",
-          "gloss_hi": "बहुत",
-          "vocab_id": "n5.vocab.33-adverbs.とても"
-        },
-        {
-          "form": "きれい",
-          "reading": "きれい",
-          "gloss": "pretty, clean",
-          "gloss_hi": "सुंदर / साफ़",
-          "vocab_id": "n5.vocab.32-adjectives.きれい"
-        },
-        {
-          "form": "こうえん",
-          "reading": "こうえん",
-          "gloss": "park",
-          "gloss_hi": "पार्क",
-          "vocab_id": "n5.vocab.13-locations-and-places-.こうえん"
-        },
-        {
-          "form": "こう",
-          "reading": "こう",
-          "gloss": "like this",
-          "gloss_hi": "इस तरह",
-          "vocab_id": "n5.vocab.5-demonstratives.こう"
-        },
-        {
-          "form": "たくさん",
-          "reading": "たくさん",
-          "gloss": "many, a lot",
-          "gloss_hi": "बहुत सारे",
-          "vocab_id": "n5.vocab.33-adverbs.たくさん"
-        },
-        {
-          "form": "三",
-          "reading": "さん",
-          "gloss": "three",
-          "gloss_hi": "तीन",
-          "vocab_id": "n5.vocab.7-numbers.三"
-        }
+        "n5.vocab.10-time-general.今",
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.10-time-general.あさ",
+        "n5.vocab.16-food-and-drink-genera.ひるごはん",
+        "n5.vocab.10-time-general.ひる",
+        "n5.vocab.16-food-and-drink-genera.ごはん",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.32-adjectives.きれい",
+        "n5.vocab.13-locations-and-places-.こうえん",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.33-adverbs.たくさん",
+        "n5.vocab.7-numbers.三"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -10892,16 +10764,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.050",
-      "level": "N5",
       "topic": "workplace",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "会社の 男の人と 女の人",
       "ja": "私の 会社には、男の 社員が 二十人と、女の 社員が 三十人 います。\n中山さんは 大きい 男の人で、力が とても つよいです。\n小川さんは 小さい 女の人ですが、とても げんきです。\n会社の みんなは いつも 大きい こえで 話します。\nいっしょに しごとを するのは たのしいです。",
       "translation_literal": "At my company, there are twenty male employees and thirty female employees. Mr. Nakayama is a large man and is very strong. Ms. Ogawa is a small woman, but she is very energetic. Everyone at the company always speaks in a loud voice. It is enjoyable to work together.",
@@ -10960,90 +10834,18 @@
         "n5.vocab.31-adjectives.たのしい"
       ],
       "vocab_preview": [
-        {
-          "form": "三",
-          "reading": "さん",
-          "gloss": "three",
-          "gloss_hi": "तीन",
-          "vocab_id": "n5.vocab.7-numbers.三"
-        },
-        {
-          "form": "大きい",
-          "reading": "おおきい",
-          "gloss": "big",
-          "gloss_hi": "बड़ा",
-          "vocab_id": "n5.vocab.31-adjectives.大きい"
-        },
-        {
-          "form": "とても",
-          "reading": "とても",
-          "gloss": "very",
-          "gloss_hi": "बहुत",
-          "vocab_id": "n5.vocab.33-adverbs.とても"
-        },
-        {
-          "form": "つよい",
-          "reading": "つよい",
-          "gloss": "strong",
-          "gloss_hi": "मज़बूत",
-          "vocab_id": "n5.vocab.31-adjectives.つよい"
-        },
-        {
-          "form": "小さい",
-          "reading": "ちいさい",
-          "gloss": "small",
-          "gloss_hi": "छोटा",
-          "vocab_id": "n5.vocab.31-adjectives.小さい"
-        },
-        {
-          "form": "げんき",
-          "reading": "げんき",
-          "gloss": "healthy, energetic",
-          "gloss_hi": "स्वस्थ / जोश में",
-          "vocab_id": "n5.vocab.32-adjectives.げんき"
-        },
-        {
-          "form": "みんな",
-          "reading": "みんな / みな",
-          "gloss": "everyone / all (みんな more colloquial; みな more formal - both function as inclusive \"everyone\")",
-          "gloss_hi": "सब / सभी",
-          "vocab_id": "n5.vocab.1-people-pronouns-and-se.みんな"
-        },
-        {
-          "form": "いつも",
-          "reading": "いつも",
-          "gloss": "always",
-          "gloss_hi": "हमेशा",
-          "vocab_id": "n5.vocab.12-time-frequency-sequen.いつも"
-        },
-        {
-          "form": "いつ",
-          "reading": "いつ",
-          "gloss": "when",
-          "gloss_hi": "कब",
-          "vocab_id": "n5.vocab.6-question-words.いつ"
-        },
-        {
-          "form": "いっしょに",
-          "reading": "いっしょに",
-          "gloss": "together",
-          "gloss_hi": "साथ में",
-          "vocab_id": "n5.vocab.33-adverbs.いっしょに"
-        },
-        {
-          "form": "しごと",
-          "reading": "しごと",
-          "gloss": "work, job",
-          "gloss_hi": "काम / नौकरी",
-          "vocab_id": "n5.vocab.37-common-nouns-miscella.しごと"
-        },
-        {
-          "form": "たのしい",
-          "reading": "たのしい",
-          "gloss": "fun, enjoyable",
-          "gloss_hi": "मज़ेदार",
-          "vocab_id": "n5.vocab.31-adjectives.たのしい"
-        }
+        "n5.vocab.7-numbers.三",
+        "n5.vocab.31-adjectives.大きい",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.31-adjectives.つよい",
+        "n5.vocab.31-adjectives.小さい",
+        "n5.vocab.32-adjectives.げんき",
+        "n5.vocab.1-people-pronouns-and-se.みんな",
+        "n5.vocab.12-time-frequency-sequen.いつも",
+        "n5.vocab.6-question-words.いつ",
+        "n5.vocab.33-adverbs.いっしょに",
+        "n5.vocab.37-common-nouns-miscella.しごと",
+        "n5.vocab.31-adjectives.たのしい"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -11218,16 +11020,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.051",
-      "level": "N5",
       "topic": "shopping",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "やすい かいもの",
       "ja": "きょうの 午前、私は スーパーで かいものを しました。りんごが 一つ 百円で、四つ 買いました。パンは 二百円でした。ぜんぶで 千円ぐらい でした。たくさんの ものが 買えて、うれしかったです。",
       "translation_literal": "This morning, I went shopping at the supermarket. Apples were 100 yen each, and I bought four. Bread was 200 yen. In total, it was about 1000 yen. I was happy that I could buy many things.",
@@ -11279,90 +11083,18 @@
         "n5.vocab.7-numbers.三"
       ],
       "vocab_preview": [
-        {
-          "form": "今日",
-          "reading": "きょう",
-          "gloss": "today",
-          "gloss_hi": "आज",
-          "vocab_id": "n5.vocab.10-time-general.今日"
-        },
-        {
-          "form": "午前",
-          "reading": "ごぜん",
-          "gloss": "A.M.",
-          "gloss_hi": "पूर्वाह्न (A.M.)",
-          "vocab_id": "n5.vocab.10-time-general.午前"
-        },
-        {
-          "form": "スーパー",
-          "reading": "スーパー",
-          "gloss": "supermarket",
-          "gloss_hi": "सुपरमार्केट",
-          "vocab_id": "n5.vocab.13-locations-and-places-.スーパー"
-        },
-        {
-          "form": "かい",
-          "reading": "かい",
-          "gloss": "floor of a building (e.g., 3-かい = 3rd floor)",
-          "gloss_hi": "मंज़िल-गणक",
-          "vocab_id": "n5.vocab.9-counters-common.かい"
-        },
-        {
-          "form": "りんご",
-          "reading": "りんご",
-          "gloss": "apple",
-          "gloss_hi": "सेब",
-          "vocab_id": "n5.vocab.17-food-items.りんご"
-        },
-        {
-          "form": "一つ",
-          "reading": "ひとつ",
-          "gloss": "one (thing)",
-          "gloss_hi": "एक (वस्तु)",
-          "vocab_id": "n5.vocab.8-native-counters-series.一つ"
-        },
-        {
-          "form": "四つ",
-          "reading": "よっつ",
-          "gloss": "four",
-          "gloss_hi": "चार",
-          "vocab_id": "n5.vocab.8-native-counters-series.四つ"
-        },
-        {
-          "form": "今",
-          "reading": "いま",
-          "gloss": "now",
-          "gloss_hi": "अभी",
-          "vocab_id": "n5.vocab.10-time-general.今"
-        },
-        {
-          "form": "ぜんぶ",
-          "reading": "ぜんぶ",
-          "gloss": "all",
-          "gloss_hi": "सब",
-          "vocab_id": "n5.vocab.33-adverbs.ぜんぶ"
-        },
-        {
-          "form": "ぐらい",
-          "reading": "ぐらい / くらい",
-          "gloss": "about, approximately (ぐらい more common after voiced sounds; くらい elsewhere - particle of estimate)",
-          "gloss_hi": "लगभग",
-          "vocab_id": "n5.vocab.35-particles-functional-.ぐらい"
-        },
-        {
-          "form": "たくさん",
-          "reading": "たくさん",
-          "gloss": "many, a lot",
-          "gloss_hi": "बहुत सारे",
-          "vocab_id": "n5.vocab.33-adverbs.たくさん"
-        },
-        {
-          "form": "三",
-          "reading": "さん",
-          "gloss": "three",
-          "gloss_hi": "तीन",
-          "vocab_id": "n5.vocab.7-numbers.三"
-        }
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.10-time-general.午前",
+        "n5.vocab.13-locations-and-places-.スーパー",
+        "n5.vocab.9-counters-common.かい",
+        "n5.vocab.17-food-items.りんご",
+        "n5.vocab.8-native-counters-series.一つ",
+        "n5.vocab.8-native-counters-series.四つ",
+        "n5.vocab.10-time-general.今",
+        "n5.vocab.33-adverbs.ぜんぶ",
+        "n5.vocab.35-particles-functional-.ぐらい",
+        "n5.vocab.33-adverbs.たくさん",
+        "n5.vocab.7-numbers.三"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -11477,16 +11209,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.052",
-      "level": "N5",
       "topic": "school",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "友だちとの じゅぎょう",
       "ja": "友だちと いっしょに 学校で べんきょうを します。私たちは 何でも いっしょに します。あさは 上の きょうしつで 日本ごの じゅぎょう、ごごは 下の きょうしつで えいごの じゅぎょう です。まいにち とても たのしいです。",
       "translation_literal": "I study with my friend at school. We do everything together. In the morning, we have Japanese class in the upper classroom; in the afternoon, English class in the lower classroom. Every day is very enjoyable.",
@@ -11537,90 +11271,18 @@
         "n5.vocab.31-adjectives.たのしい"
       ],
       "vocab_preview": [
-        {
-          "form": "いっしょに",
-          "reading": "いっしょに",
-          "gloss": "together",
-          "gloss_hi": "साथ में",
-          "vocab_id": "n5.vocab.33-adverbs.いっしょに"
-        },
-        {
-          "form": "べんきょう",
-          "reading": "べんきょう",
-          "gloss": "study",
-          "gloss_hi": "पढ़ाई",
-          "vocab_id": "n5.vocab.24-school-and-study.べんきょう"
-        },
-        {
-          "form": "今日",
-          "reading": "きょう",
-          "gloss": "today",
-          "gloss_hi": "आज",
-          "vocab_id": "n5.vocab.10-time-general.今日"
-        },
-        {
-          "form": "私たち",
-          "reading": "わたしたち",
-          "gloss": "we",
-          "gloss_hi": "हम",
-          "vocab_id": "n5.vocab.1-people-pronouns-and-se.私たち"
-        },
-        {
-          "form": "何で",
-          "reading": "なんで",
-          "gloss": "why, by what means",
-          "gloss_hi": "क्यों / किस से",
-          "vocab_id": "n5.vocab.6-question-words.何で"
-        },
-        {
-          "form": "きょうしつ",
-          "reading": "きょうしつ",
-          "gloss": "classroom",
-          "gloss_hi": "कक्षा",
-          "vocab_id": "n5.vocab.13-locations-and-places-.きょうしつ"
-        },
-        {
-          "form": "じゅぎょう",
-          "reading": "じゅぎょう",
-          "gloss": "class, lesson",
-          "gloss_hi": "कक्षा / पाठ",
-          "vocab_id": "n5.vocab.24-school-and-study.じゅぎょう"
-        },
-        {
-          "form": "えいご",
-          "reading": "えいご",
-          "gloss": "English (language)",
-          "gloss_hi": "अंग्रेज़ी (भाषा)",
-          "vocab_id": "n5.vocab.25-languages-and-countri.えいご"
-        },
-        {
-          "form": "毎日",
-          "reading": "まいにち",
-          "gloss": "every day",
-          "gloss_hi": "हर दिन",
-          "vocab_id": "n5.vocab.12-time-frequency-sequen.毎日"
-        },
-        {
-          "form": "まい",
-          "reading": "まい",
-          "gloss": "counter for flat objects",
-          "gloss_hi": "पतली वस्तु-गणक",
-          "vocab_id": "n5.vocab.9-counters-common.まい"
-        },
-        {
-          "form": "とても",
-          "reading": "とても",
-          "gloss": "very",
-          "gloss_hi": "बहुत",
-          "vocab_id": "n5.vocab.33-adverbs.とても"
-        },
-        {
-          "form": "たのしい",
-          "reading": "たのしい",
-          "gloss": "fun, enjoyable",
-          "gloss_hi": "मज़ेदार",
-          "vocab_id": "n5.vocab.31-adjectives.たのしい"
-        }
+        "n5.vocab.33-adverbs.いっしょに",
+        "n5.vocab.24-school-and-study.べんきょう",
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.1-people-pronouns-and-se.私たち",
+        "n5.vocab.6-question-words.何で",
+        "n5.vocab.13-locations-and-places-.きょうしつ",
+        "n5.vocab.24-school-and-study.じゅぎょう",
+        "n5.vocab.25-languages-and-countri.えいご",
+        "n5.vocab.12-time-frequency-sequen.毎日",
+        "n5.vocab.9-counters-common.まい",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.31-adjectives.たのしい"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -11738,16 +11400,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.053",
-      "level": "N5",
       "topic": "health",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "はしった あと",
       "ja": "私は きょう こうえんで 長い 時間 はしりました。いまは 足が とても いたいです。手も つかれました。目も つかれて、なにも 見たくないです。あしたは ゆっくり 休もうと おもいます。",
       "translation_literal": "I ran for a long time at the park today. Now my feet hurt very much. My hands are also tired. My eyes are tired too, and I don't want to look at anything. Tomorrow I plan to rest slowly.",
@@ -11798,90 +11462,18 @@
         "n5.vocab.31-adjectives.おもい"
       ],
       "vocab_preview": [
-        {
-          "form": "今日",
-          "reading": "きょう",
-          "gloss": "today",
-          "gloss_hi": "आज",
-          "vocab_id": "n5.vocab.10-time-general.今日"
-        },
-        {
-          "form": "こうえん",
-          "reading": "こうえん",
-          "gloss": "park",
-          "gloss_hi": "पार्क",
-          "vocab_id": "n5.vocab.13-locations-and-places-.こうえん"
-        },
-        {
-          "form": "こう",
-          "reading": "こう",
-          "gloss": "like this",
-          "gloss_hi": "इस तरह",
-          "vocab_id": "n5.vocab.5-demonstratives.こう"
-        },
-        {
-          "form": "時間",
-          "reading": "じかん",
-          "gloss": "time, hour",
-          "gloss_hi": "समय",
-          "vocab_id": "n5.vocab.10-time-general.時間"
-        },
-        {
-          "form": "今",
-          "reading": "いま",
-          "gloss": "now",
-          "gloss_hi": "अभी",
-          "vocab_id": "n5.vocab.10-time-general.今"
-        },
-        {
-          "form": "とても",
-          "reading": "とても",
-          "gloss": "very",
-          "gloss_hi": "बहुत",
-          "vocab_id": "n5.vocab.33-adverbs.とても"
-        },
-        {
-          "form": "いたい",
-          "reading": "いたい",
-          "gloss": "painful",
-          "gloss_hi": "दर्द भरा",
-          "vocab_id": "n5.vocab.31-adjectives.いたい"
-        },
-        {
-          "form": "かれ",
-          "reading": "かれ",
-          "gloss": "he, him (boyfriend - more advanced sense)",
-          "gloss_hi": "वह (पुरुष)",
-          "vocab_id": "n5.vocab.1-people-pronouns-and-se.かれ"
-        },
-        {
-          "form": "あした",
-          "reading": "あした",
-          "gloss": "tomorrow",
-          "gloss_hi": "कल (आगामी)",
-          "vocab_id": "n5.vocab.10-time-general.あした"
-        },
-        {
-          "form": "あし",
-          "reading": "あし",
-          "gloss": "leg, foot",
-          "gloss_hi": "पैर",
-          "vocab_id": "n5.vocab.4-body-parts.あし"
-        },
-        {
-          "form": "ゆっくり",
-          "reading": "ゆっくり",
-          "gloss": "slowly",
-          "gloss_hi": "धीरे-धीरे",
-          "vocab_id": "n5.vocab.33-adverbs.ゆっくり"
-        },
-        {
-          "form": "おもい",
-          "reading": "おもい",
-          "gloss": "heavy",
-          "gloss_hi": "भारी",
-          "vocab_id": "n5.vocab.31-adjectives.おもい"
-        }
+        "n5.vocab.10-time-general.今日",
+        "n5.vocab.13-locations-and-places-.こうえん",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.10-time-general.時間",
+        "n5.vocab.10-time-general.今",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.31-adjectives.いたい",
+        "n5.vocab.1-people-pronouns-and-se.かれ",
+        "n5.vocab.10-time-general.あした",
+        "n5.vocab.4-body-parts.あし",
+        "n5.vocab.33-adverbs.ゆっくり",
+        "n5.vocab.31-adjectives.おもい"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -11995,16 +11587,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     },
     {
       "id": "n5.read.054",
-      "level": "N5",
       "topic": "travel",
       "mondai": 4,
       "tier": "core_n5",
       "format_role": "comprehension",
-      "format_type": "comprehension",
       "title_ja": "みなみへの りょこう",
       "ja": "来月、私は かぞくと 南の しまへ りょこうに 行きます。しまは とても 長くて、うみが きれいです。一万円ぐらいで 行けます。みなみは あつくて、たのしいでしょう。はやく 行きたいです。",
       "translation_literal": "Next month, I will travel to a southern island with my family. The island is very long, and the sea is beautiful. We can go for about 10,000 yen. The south will probably be hot and fun. I want to go quickly.",
@@ -12055,90 +11649,18 @@
         "n5.vocab.13-locations-and-places-.北"
       ],
       "vocab_preview": [
-        {
-          "form": "来月",
-          "reading": "らいげつ",
-          "gloss": "next month",
-          "gloss_hi": "अगला महीना",
-          "vocab_id": "n5.vocab.11-time-days-weeks-month.来月"
-        },
-        {
-          "form": "かぞく",
-          "reading": "かぞく",
-          "gloss": "family",
-          "gloss_hi": "परिवार",
-          "vocab_id": "n5.vocab.2-people-family.かぞく"
-        },
-        {
-          "form": "南",
-          "reading": "みなみ",
-          "gloss": "south",
-          "gloss_hi": "दक्षिण",
-          "vocab_id": "n5.vocab.13-locations-and-places-.南"
-        },
-        {
-          "form": "りょこう",
-          "reading": "りょこう",
-          "gloss": "travel",
-          "gloss_hi": "यात्रा",
-          "vocab_id": "n5.vocab.37-common-nouns-miscella.りょこう"
-        },
-        {
-          "form": "こう",
-          "reading": "こう",
-          "gloss": "like this",
-          "gloss_hi": "इस तरह",
-          "vocab_id": "n5.vocab.5-demonstratives.こう"
-        },
-        {
-          "form": "とても",
-          "reading": "とても",
-          "gloss": "very",
-          "gloss_hi": "बहुत",
-          "vocab_id": "n5.vocab.33-adverbs.とても"
-        },
-        {
-          "form": "うみ",
-          "reading": "うみ",
-          "gloss": "sea, ocean",
-          "gloss_hi": "समुद्र",
-          "vocab_id": "n5.vocab.14-nature-and-weather.うみ"
-        },
-        {
-          "form": "きれい",
-          "reading": "きれい",
-          "gloss": "pretty, clean",
-          "gloss_hi": "सुंदर / साफ़",
-          "vocab_id": "n5.vocab.32-adjectives.きれい"
-        },
-        {
-          "form": "一万",
-          "reading": "いちまん",
-          "gloss": "ten thousand",
-          "gloss_hi": "दस हज़ार",
-          "vocab_id": "n5.vocab.7-numbers.一万"
-        },
-        {
-          "form": "ぐらい",
-          "reading": "ぐらい / くらい",
-          "gloss": "about, approximately (ぐらい more common after voiced sounds; くらい elsewhere - particle of estimate)",
-          "gloss_hi": "लगभग",
-          "vocab_id": "n5.vocab.35-particles-functional-.ぐらい"
-        },
-        {
-          "form": "たのしい",
-          "reading": "たのしい",
-          "gloss": "fun, enjoyable",
-          "gloss_hi": "मज़ेदार",
-          "vocab_id": "n5.vocab.31-adjectives.たのしい"
-        },
-        {
-          "form": "北",
-          "reading": "きた",
-          "gloss": "north",
-          "gloss_hi": "उत्तर",
-          "vocab_id": "n5.vocab.13-locations-and-places-.北"
-        }
+        "n5.vocab.11-time-days-weeks-month.来月",
+        "n5.vocab.2-people-family.かぞく",
+        "n5.vocab.13-locations-and-places-.南",
+        "n5.vocab.37-common-nouns-miscella.りょこう",
+        "n5.vocab.5-demonstratives.こう",
+        "n5.vocab.33-adverbs.とても",
+        "n5.vocab.14-nature-and-weather.うみ",
+        "n5.vocab.32-adjectives.きれい",
+        "n5.vocab.7-numbers.一万",
+        "n5.vocab.35-particles-functional-.ぐらい",
+        "n5.vocab.31-adjectives.たのしい",
+        "n5.vocab.13-locations-and-places-.北"
       ],
       "review_status": "ai_quality_reviewed",
       "cultural_context_provenance": "llm_curated",
@@ -12264,14 +11786,18 @@
       ],
       "reflection_prompts_provenance": "llm_curated",
       "paragraph_summary_provenance": "auto_derived_template",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "difficulty": "medium",
+      "bug_041_fix_2026_05_17": true,
+      "bug_044_fix_2026_05_17": true,
+      "bug_045_fix_2026_05_17": true
     }
   ],
   "_meta": {
     "last_audit": "Pass-15-reading 2026-05-01",
     "audit_doc": "feedback/jlpt-n5-reading-feedback.md",
     "fixes_applied": "5 CRITICAL (1.1-1.5), 5 HIGH (2.1-2.5 incl. 8 rendering mismatches), 6 MEDIUM (3.1 vocab fix; 3.2/3/4 tier flags; 3.5 format_role; 3.6 format_type), 4 LOW (1 actionable, 3 accepted/documented). Acceptance §6 native-review gate for 1.4/1.5/2.1 still pending.",
-    "schema_additions": "passages[].tier (core_n5|late_n5|info_search), passages[].format_type (info-search only: schedule_table|menu_list), passages[].questions[].format_role (primary|extra).",
+    "schema_additions": "passages[].tier (core_n5|late_n5|info_search), passages[].difficulty (easy|medium|hard — BUG-041 fix replaced legacy `level` field), passages[].format_type (info-search only: schedule_table|menu_list|notice), passages[].format_role (passage type: self_intro|narrative|info_search|comprehension|primary), passages[].questions[].format_role (primary|extra) — per-question priority. passages[].summary is JA-only (per BUG-042); summary_en for English (if extracted from legacy mixed-language entries); summary_hi for Hindi. passages[].vocab_preview is a list of vocab_id strings (per BUG-045 normalization).",
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
   }
