@@ -8166,7 +8166,7 @@
         "attaches_to": [],
         "conjugations": []
       },
-      "explanation_en": "か at the END of a sentence makes it a question - works with yes/no AND wh-questions (どこ, なに, etc.). Between two nouns (Aか B), it means 'A or B'. Don't add a question mark in writing - か already signals the question.",
+      "explanation_en": "Sentence-final か turns any sentence into a question — works equally with yes / no (これは ほんですか) and wh-frames (なにを たべますか). The written convention omits the question mark in standard Japanese (か itself does the job). The mid-sentence Aか Bか 'A or B' use lives at the sibling entry n5-024.",
       "examples": [
         {
           "ja": "あなたは がくせいですか。",
@@ -8584,7 +8584,7 @@
         "attaches_to": [],
         "conjugations": []
       },
-      "explanation_en": "か at the END of a sentence makes it a question - works with yes/no AND wh-questions (どこ, なに, etc.). Between two nouns (Aか B), it means 'A or B'. Don't add a question mark in writing - か already signals the question.",
+      "explanation_en": "Mid-sentence か connects nouns or noun phrases as 'X or Y': コーヒーか おちゃ (coffee or tea), 月よう日か 火よう日 (Monday or Tuesday). The か's are typically placed after EACH alternative (Aか Bか), though dropping the final か in casual speech is common. Sentence-final か (the question particle) is the sibling entry n5-023.",
       "examples": [
         {
           "form": "noun か noun",
@@ -10766,7 +10766,7 @@
           }
         ]
       },
-      "explanation_en": "の links nouns. Can mean possession (わたしの = 'my'), classification (日本語の = 'Japanese (language) X'), or general modification.",
+      "explanation_en": "Re-presentation of the noun-linking particle の (canonical entry: n5-028). This entry frames の under its three roles individually — possession (わたしの = 'mine'), classification (日本語の しんぶん = 'Japanese newspaper'), and apposition / modification — for learners studying the noun-modifier system in isolation.",
       "examples": [
         {
           "ja": "日本語の 先生です。",
@@ -11334,8 +11334,8 @@
           "audio": "audio/grammar/n5-030.3.mp3"
         },
         {
-          "ja": "ごりょうしんは おげんきですか。",
-          "translation_en": "Are your parents well?",
+          "ja": "うんどうするのは きもちが いいです。",
+          "translation_en": "Exercising feels good.",
           "source": "vocab.n5.vocab.2-people-family.りょうしん.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -11367,8 +11367,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "そふは げんきです。",
-          "translation_en": "My grandfather is healthy.",
+          "ja": "ピアノを ひくのが すきです。",
+          "translation_en": "I like playing the piano.",
           "source": "vocab.n5.vocab.2-people-family.そふ.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -11393,8 +11393,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "おばさんは 花が すきです。",
-          "translation_en": "My aunt likes flowers.",
+          "ja": "えいがを みるのが たのしいです。",
+          "translation_en": "Watching movies is fun.",
           "source": "vocab.n5.vocab.2-people-family.おばさん.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -14800,7 +14800,7 @@
           }
         ]
       },
-      "explanation_en": "The こ/そ/あ/ど pronouns refer to OBJECTS (or abstract things). これ = near speaker, それ = near listener, あれ = far from both, どれ = which one (question). They stand alone - DON'T put a noun after them. For 'this book' use この (n5-015), not これ.",
+      "explanation_en": "Re-introduction entry for the kosoado-pronoun set, parallel to n5-014. The four-way deixis system (こ near speaker / そ near listener / あ far from both / ど which) carries across pronouns, adjectival modifiers, and locations — this entry highlights the standalone-pronoun use; the adjectival counterpart appears at n5-015 / n5-040 and the locational counterpart at n5-016 / n5-041.",
       "examples": [
         {
           "ja": "これは ほんです。",
@@ -15221,7 +15221,7 @@
           }
         ]
       },
-      "explanation_en": "Use この/その/あの/どの directly before a noun. Mirrors これ/それ/あれ/どれ exactly but ALWAYS followed by a noun: この ほん = 'this book', あの 人 = 'that person'.",
+      "explanation_en": "Adjectival counterpart to the n5-014 pronoun series: paired with a following noun rather than standing alone. Re-introduced in the kosoado-paradigm sequence as the modifier-form sibling of n5-015. Same こ/そ/あ/ど four-way deixis applies; the noun is obligatory, no particle intervenes between modifier and noun.",
       "examples": [
         {
           "ja": "この ほんを よみました。",
@@ -15723,7 +15723,7 @@
           }
         ]
       },
-      "explanation_en": "Same こ/そ/あ/ど logic but for LOCATIONS. Take は, が, に, で, から, まで etc. as needed. ここ/そこ/あそこ are statements; どこ asks 'where?'. With も + negative: どこにも いきません = 'I'm going nowhere'.",
+      "explanation_en": "Locational counterpart to the kosoado-pronoun set, parallel to n5-016. While n5-014 / n5-039 cover object pronouns, this entry pairs with location particles (に, で, から, まで). The どこ member also takes question-word が to form 'where is X?' queries; see n5-048 for どこ in isolation as a question-word.",
       "examples": [
         {
           "ja": "ここは としょかんです。",
@@ -17394,7 +17394,7 @@
           }
         ]
       },
-      "explanation_en": "なに and なん both mean 'what'. The pronunciation depends on what follows: なん before です, ですか, でしょう, and counters (なんじ, なんにん, なんさい); なに before を, が, も, は. Memorize the pattern. なんで means 'how/why' (informal); なぜ is the formal 'why'.",
+      "explanation_en": "Re-introduction of the question word for things, parallel to n5-017. The dual reading なに/なん is conditioned by the following sound: なん before です / ですか / でしょう and most counters (なんじ, なんにん); なに before particles を / が / も / は. Pair with question particle か at sentence end.",
       "examples": [
         {
           "ja": "なにを たべますか。",
@@ -17773,7 +17773,7 @@
           }
         ]
       },
-      "explanation_en": "だれ is the standard 'who'. どなた is more polite - used with strangers, customers, or in formal settings. Question words asking for new information take が, not は: だれが きましたか, never だれは.",
+      "explanation_en": "Re-introduction of the question word for people, parallel to n5-018. The register split is the key point: だれ is the everyday form; どなた elevates the register for strangers, customers, and formal contexts. Like other wh-words at N5, takes が (never は) when asking about new information.",
       "examples": [
         {
           "ja": "だれが きましたか。",
@@ -18175,12 +18175,12 @@
           }
         ]
       },
-      "explanation_en": "Same こ/そ/あ/ど logic but for LOCATIONS. Take は, が, に, で, から, まで etc. as needed. ここ/そこ/あそこ are statements; どこ asks 'where?'. With も + negative: どこにも いきません = 'I'm going nowhere'.",
+      "explanation_en": "The 'where' member of the kosoado-location series, isolated for question-word indexing. Full series treatment at n5-016 / n5-041. どこ takes the same particles as the statement forms ここ / そこ / あそこ (に, で, から, まで) and pairs with sentence-final か to form 'where' questions.",
       "examples": [
         {
-          "ja": "ここは としょかんです。",
+          "ja": "ぎんこうは どこですか。",
           "form": "affirmative",
-          "translation_en": "Here is the library.",
+          "translation_en": "Where is the bank?",
           "vocab_ids": [
             "n5.vocab.13-locations-and-places-.としょかん",
             "n5.vocab.5-demonstratives.ここ",
@@ -18201,9 +18201,9 @@
           "audio": "audio/grammar/n5-048.0.mp3"
         },
         {
-          "ja": "そこに ねこが います。",
+          "ja": "どこで パンを かいますか。",
           "form": "affirmative",
-          "translation_en": "There is a cat there.",
+          "translation_en": "Where do you buy bread?",
           "vocab_ids": [
             "n5.vocab.5-demonstratives.そこ",
             "n5.vocab.15-animals.ねこ",
@@ -18326,8 +18326,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "だれが きましたか。",
-          "translation_en": "Who came?",
+          "ja": "あなたの くには どこですか。",
+          "translation_en": "Where is your country?",
           "source": "vocab.n5.vocab.2-people-family.お父さん.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -22921,7 +22921,7 @@
           }
         ]
       },
-      "explanation_en": "ました replaces ます to form the polite past affirmative.",
+      "explanation_en": "Polite affirmative past: ます → ました. The ま base stays; only the suffix changes. たべました = 'ate'; いきました = 'went'. This is the polite-register counterpart to plain past V-た (e.g., たべた); the negative counterpart is the sibling entry n5-061.",
       "examples": [
         {
           "ja": "きのう えいがを みました。",
@@ -23389,7 +23389,7 @@
           }
         ]
       },
-      "explanation_en": "ませんでした replaces ます to form the polite past negative.",
+      "explanation_en": "Polite negative past: ます → ませんでした. Three morphemes stack — ません (polite negative) + でした (was). たべませんでした = 'did not eat'. Learners often shorten incorrectly to ませんだ — the でした segment is fixed and obligatory. Affirmative sibling: n5-060.",
       "examples": [
         {
           "ja": "きのうは ばんごはんを たべませんでした。",
@@ -25184,8 +25184,8 @@
           "audio": "audio/grammar/n5-065.3.mp3"
         },
         {
-          "ja": "わたしは ねこを かいません。",
-          "translation_en": "I don't have a cat.",
+          "ja": "ともだちと えいがを みる。",
+          "translation_en": "[I] watch a movie with a friend. (casual)",
           "source": "vocab.n5.vocab.5-demonstratives.あれ.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [],
@@ -28039,9 +28039,9 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "みずを ください。",
+          "ja": "もう いちど せつめいして ください。",
           "form": "request-direct",
-          "translation_en": "Please give me water.",
+          "translation_en": "Please explain once more.",
           "provenance": "llm_curated",
           "vocab_ids": [
             "n5.vocab.35-particles-functional-.を"
@@ -33477,8 +33477,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "日曜日に へやを そうじします。",
-          "translation_en": "I clean my room on Sundays.",
+          "ja": "べんりな きかいです。",
+          "translation_en": "It's a convenient machine.",
           "source": "vocab.n5.vocab.29-verbs-irregular-and-v.そうじする.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -43911,7 +43911,7 @@
           }
         ]
       },
-      "explanation_en": "いくつ asks 'how many' using the native ひと-counter system. Also used to politely ask age (especially of children).",
+      "explanation_en": "Counter-question vocabulary set: いくつ (how many, native ひと-counter), いくら (how much, money / quantity), なんにん (how many people), なんまい (how many flat objects), なんぼん (how many cylindrical), なんさつ (how many books), なんかい (how many times), and friends. Each question matches its target's counter class — choose by what's being counted. n5-054 covers いくつ in isolation.",
       "examples": [
         {
           "ja": "りんごは いくつ ありますか。",
@@ -45315,9 +45315,9 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "ごじはん から いちじかん べんきょうしました。",
+          "ja": "じゅっぷん やすみました。",
           "form": "half-past-duration",
-          "translation_en": "I studied for an hour from 5:30.",
+          "translation_en": "I rested for 10 minutes.",
           "provenance": "llm_curated",
           "vocab_ids": [
             "n5.vocab.24-school-and-study.べんきょう",
@@ -45981,7 +45981,7 @@
           }
         ]
       },
-      "explanation_en": "から marks start, まで marks end. Paired, they express a range - time, place, or distance.",
+      "explanation_en": "Time-axis instance of the paired range marker from n5-021. The same から (starting point) + まで (ending point) frame applies, with the example set narrowed to clock-time, dates, and durations (e.g., 9時から 5時まで). The non-time uses — distances, places, sequences of items — sit at the parent entry n5-021.",
       "examples": [
         {
           "ja": "9時から 5時まで しごとです。",
@@ -46484,7 +46484,7 @@
           }
         ]
       },
-      "explanation_en": "に has four core uses at N5: (1) location of EXISTENCE with ある／いる, (2) specific point in TIME (7時に, げつようびに), (3) DESTINATION with movement verbs (いく, くる, かえる), (4) RECIPIENT of giving / sending verbs (あげる, おくる, でんわする). Compare carefully with で (location of ACTION) and へ (purely directional).",
+      "explanation_en": "When に attaches to a specific clock-time expression (7時に, 9時はんに, 何時に), it pins the action to that instant. This is the TIME sub-use of the multi-purpose particle に — see n5-005 for the full breakdown including existence-location, destination, and recipient uses. With time, に attaches only to fixed points (clock-time, dates, weekdays — not generic time words like きょう or いま).",
       "examples": [
         {
           "ja": "7時に おきます。",
@@ -55789,7 +55789,7 @@
           }
         ]
       },
-      "explanation_en": "い-adjectives modify nouns directly, no particles needed. Keep the い: 高い 山 = 'tall mountain'.",
+      "explanation_en": "Combined-category entry for adjective-noun modification. Covers both い-adjective + noun (adjective placed directly, no particle, keep the い: 高い 山) and な-adjective + noun (linker な required: しずかな まち). See n5-078 for the い-adjective sub-rule and n5-084 for the な-adjective sub-rule with the obligatory な linker.",
       "examples": [
         {
           "ja": "高い 山が 見えます。",
@@ -56251,7 +56251,7 @@
           }
         ]
       },
-      "explanation_en": "の links nouns. Can mean possession (わたしの = 'my'), classification (日本語の = 'Japanese (language) X'), or general modification.",
+      "explanation_en": "The noun-linking particle の treated under the Nominalization category. Same surface form as n5-028 (possessive / noun-modifier); listed here because the resulting 'X の Y' phrase functions as a noun unit. See n5-028 for the full role breakdown; this entry's scope is the noun-phrase-building function specifically.",
       "examples": [
         {
           "ja": "これは わたしの 本です。",
@@ -62032,7 +62032,7 @@
           }
         ]
       },
-      "explanation_en": "が at end of a clause (after です/ます or plain) means 'but' as a softening connector. Often introduces a contrast or extends thought.",
+      "explanation_en": "Mid-sentence clause connector が — see n5-126 for the function. This entry highlights the WRITING convention: a comma typically follows the clause containing が (X です が、 Y). The softening tone makes it gentler than でも at clause-start, which is why dialogue and personal narrative favor mid-sentence が over でも.",
       "examples": [
         {
           "ja": "コーヒーは すきですが、おちゃは すきじゃありません。",
@@ -62452,7 +62452,7 @@
           }
         ]
       },
-      "explanation_en": "ね at sentence-end seeks agreement or shared feeling - 'isn't it?', 'right?'. Used when the speaker assumes the listener has the same view.",
+      "explanation_en": "Paired sentence-final particles ね and よ presented together in the Other Core Patterns category. ね (canonical n5-025) seeks agreement; よ (n5-026 sibling) informs the listener of new info. Together they cover speaker-listener stance management. See the canonical entries for register and tone details.",
       "examples": [
         {
           "ja": "いい てんきですね。",
@@ -62854,7 +62854,7 @@
           }
         ]
       },
-      "explanation_en": "でしょう = polite probability ('probably') or seeking agreement ('right?'). Borderline N5/N4.",
+      "explanation_en": "Polite-register probability marker — 'probably', 'I suppose', or seeking light agreement ('right?'). Attaches to plain-form predicates: あした 雨でしょう, おもしろいでしょう. The intonation distinguishes assertion (falling) from confirmation (rising). Casual / plain register counterpart: だろう (n5-158).",
       "examples": [
         {
           "ja": "あした 雨でしょう。",
@@ -62956,8 +62956,8 @@
           "audio": "audio/grammar/n5-157.3.mp3"
         },
         {
-          "ja": "おなかが すいたから、なにか たべましょう。",
-          "translation_en": "I'm hungry, so let's eat something.",
+          "ja": "あの えいがは おもしろい でしょう。",
+          "translation_en": "That movie is probably interesting.",
           "source": "vocab.n5.vocab.4-body-parts.おなか.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -62989,8 +62989,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "四時に あいましょう。",
-          "translation_en": "Let's meet at four o'clock.",
+          "ja": "電車は こんで いる でしょう。",
+          "translation_en": "The train is probably crowded.",
           "source": "vocab.n5.vocab.7-numbers.四.examples[0]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -63009,8 +63009,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "てつだいましょうか。",
-          "translation_en": "Shall I help?",
+          "ja": "この もんだいは むずかしい でしょう。",
+          "translation_en": "This problem is probably difficult.",
           "source": "vocab.n5.vocab.9-counters-common.だい.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -63286,7 +63286,7 @@
           }
         ]
       },
-      "explanation_en": "でしょう = polite probability ('probably') or seeking agreement ('right?'). Borderline N5/N4.",
+      "explanation_en": "Plain-register counterpart of でしょう (n5-157): same probability / mild assertion sense, dropped formality. Speech-typical, less common in writing where でしょう dominates. Contracts further in very casual speech to だろ. The compound past たろう ('it must have been') also derives from this base.",
       "examples": [
         {
           "ja": "あした 雨だろう。",
@@ -63724,7 +63724,7 @@
           }
         ]
       },
-      "explanation_en": "ね at sentence-end seeks agreement or shared feeling - 'isn't it?', 'right?'. Used when the speaker assumes the listener has the same view.",
+      "explanation_en": "Polite-register version of the ね / よ pair: stack the particle after です rather than directly on a plain-form predicate. Function is unchanged from n5-025 / n5-026 — confirmation (ね) and assertion (よ) — but the です-prefix raises the register to match the rest of the polite-speech context.",
       "examples": [
         {
           "ja": "いい てんきですね。",
@@ -64147,7 +64147,7 @@
           }
         ]
       },
-      "explanation_en": "あと = 'after'. Noun + の + あとで; Verb-PAST + あとで. Verb is PAST here (opposite of まえに).",
+      "explanation_en": "Noun-frame instance of あと ('after'): noun + の + あとで. Parent entry n5-120 lists both frames; this entry isolates the noun-frame. The で is the means / time particle marking 'doing X after Y' — semantically distinct from まえに's に.",
       "examples": [
         {
           "ja": "しごとの あとで のみに 行きました。",
@@ -64632,7 +64632,7 @@
           }
         ]
       },
-      "explanation_en": "まえ = 'before'. Noun + の + まえ(に); Verb-plain (NON-PAST) + まえに. Note: verb stays NON-PAST even when the meaning is 'before doing X (in the past)'.",
+      "explanation_en": "Noun-frame instance of まえ ('before'): noun + の + まえ(に). Parent entry n5-119 covers both noun-frame and verb-frame uses; this entry isolates the noun-frame for syllabus sequencing. The trailing に is the time-locative particle (n5-005 / n5-115) attaching to the まえ phrase as a whole.",
       "examples": [
         {
           "ja": "ごはんの まえに てを あらいます。",
@@ -65089,7 +65089,7 @@
           }
         ]
       },
-      "explanation_en": "まえ = 'before'. Noun + の + まえ(に); Verb-plain (NON-PAST) + まえに. Note: verb stays NON-PAST even when the meaning is 'before doing X (in the past)'.",
+      "explanation_en": "Verb-frame instance of まえ ('before'): verb-plain (NON-PAST) + まえに. The verb stays NON-PAST even when describing past 'before doing X' — this is the key trip-up vs the English 'before [past]'. Parent entry n5-119 covers both frames; n5-161 is the parallel noun-frame entry.",
       "examples": [
         {
           "ja": "出かける まえに、しんぶんを 読みます。",
@@ -65568,7 +65568,7 @@
           }
         ]
       },
-      "explanation_en": "あと = 'after'. Noun + の + あとで; Verb-PAST + あとで. Verb is PAST here (opposite of まえに).",
+      "explanation_en": "Verb-frame instance of あと ('after'): verb-PAST (た-form) + あとで. The PAST verb-form is obligatory here, mirror-image of まえに's NON-PAST requirement. Parent entry n5-120; the noun-frame sibling is n5-160.",
       "examples": [
         {
           "ja": "しごとが おわった あとで、 のみに 行きました。",
@@ -66225,8 +66225,8 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "ホテルは どこに ありますか。",
-          "translation_en": "Where is the hotel?",
+          "ja": "たなかさんは げんきですか。",
+          "translation_en": "Is Tanaka-san well?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.みなさん.examples[1]",
           "provenance": "auto_xref_vocab_corpus",
           "vocab_ids": [
@@ -70025,7 +70025,7 @@
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.",
+      "explanation_en": "Obligation expression at the formal-spoken register: negative-て + は + いけない, literally 'not doing won't do', idiomatically 'must do'. Common in news broadcasts, lectures, and polite directives. Stacks with な-adj and noun via the じゃ negative chain: しずかじゃ なくては いけない = 'must be quiet'. Variants at n5-174 (formal-written) / n5-175 (conditional-frame) / n5-176 (casual contraction).",
       "examples": [
         {
           "ja": "まいにち べんきょうしなくては いけない。",
@@ -70522,7 +70522,7 @@
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.",
+      "explanation_en": "Formal-written register variant of the obligation paradigm. Negative-て + は + ならない, literally 'not doing won't become (acceptable)', idiomatically 'must do'. Dominant in legal text, government notices, written instructions. Spoken-register counterpart: n5-173 (いけない); conditional-frame: n5-175; casual contractions: n5-176.",
       "examples": [
         {
           "ja": "しゅくだいを しなくては ならない。",
@@ -70925,7 +70925,7 @@
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.",
+      "explanation_en": "Conditional-frame variant of the obligation paradigm: plain negative + と + いけない, literally 'if you don't do, won't do'. The と here is the conditional connective. Slightly more conversational than the なくては frames (n5-173 / n5-174). All four — n5-173, n5-174, n5-175, n5-176 — express identical functional meaning at different register or syntactic frames.",
       "examples": [
         {
           "ja": "はやく かえらないと いけない。",
@@ -71399,7 +71399,7 @@
           }
         ]
       },
-      "explanation_en": "Negative て-form + は + いけない = 'must do' (lit. 'not doing won't work'). Casual contraction: 〜なくちゃ.",
+      "explanation_en": "Casual contractions of the obligation expression: なくては → なくちゃ; なければ → なきゃ. The trailing いけない / ならない is OFTEN dropped, so the contraction alone (たべなくちゃ, いかなきゃ) carries the full 'must' meaning. Highly informal — friend-to-friend and inner-monologue speech only. Formal counterparts: n5-173 / n5-174 / n5-175.",
       "examples": [
         {
           "ja": "もう 行かなくちゃ。",
@@ -74729,7 +74729,7 @@
           }
         ]
       },
-      "explanation_en": "Pattern: question word + か = 'some-' (indefinite). + も + affirmative = 'every-'. + も + negative = 'no-'.",
+      "explanation_en": "Indefinite-thing instance of the parent rule at n5-183. なにか = 'something' (positive context, indefinite reference); なにも = 'nothing' (always paired with negative predicate; なにも たべません = 'I don't eat anything'). The か→indefinite, も→universal-or-negative mapping is consistent across the kosoado family.",
       "examples": [
         {
           "ja": "なにか たべたいです。",
@@ -75110,7 +75110,7 @@
           }
         ]
       },
-      "explanation_en": "Pattern: question word + か = 'some-' (indefinite). + も + affirmative = 'every-'. + も + negative = 'no-'.",
+      "explanation_en": "Indefinite-person instance of the parent rule at n5-183. だれか = 'someone' (positive context); だれも = 'no one' (negative predicate required; だれも きません = 'no one comes'). Note: with positive predicate, だれも is rare in modern usage — the 'everyone' sense often goes to みんな instead.",
       "examples": [
         {
           "ja": "だれか いますか。",
@@ -75542,7 +75542,7 @@
           }
         ]
       },
-      "explanation_en": "Pattern: question word + か = 'some-' (indefinite). + も + affirmative = 'every-'. + も + negative = 'no-'.",
+      "explanation_en": "Indefinite-place instance of the parent rule at n5-183. どこか = 'somewhere'; どこも + negative = 'nowhere' (どこにも いきません). The locative particle (に, で) often surfaces between どこ and も in negative contexts — どこにも instead of just どこも.",
       "examples": [
         {
           "ja": "どこかへ いきたいです。",
@@ -75979,7 +75979,7 @@
           }
         ]
       },
-      "explanation_en": "Pattern: question word + か = 'some-' (indefinite). + も + affirmative = 'every-'. + も + negative = 'no-'.",
+      "explanation_en": "Indefinite-time instance of the parent rule at n5-183, with a register twist: いつか = 'someday / sometime'; いつも = 'always' (POSITIVE universal, not paired with negation like なにも / だれも). This is the one member of the family where +も + positive predicate is the dominant usage.",
       "examples": [
         {
           "ja": "いつか にほんへ いきたいです。",

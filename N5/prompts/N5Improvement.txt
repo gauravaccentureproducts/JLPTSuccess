@@ -959,15 +959,16 @@ in _meta), not resolution.
 
 ### Phase-0 JA-91 + JA-94 baseline-stability regression block (added 2026-05-17)
 
-Regression block for the JA-91 + JA-94 final unblock (Part 19,
-2026-05-17). Each check returns a count that MUST equal its
-baseline-locked value — drift means a new pair / new pattern-
-instance contamination has entered the corpus that should have
-been caught at CI but slipped through (e.g., a baseline file was
-edited downstream and the CI wasn't re-run).
+Regression block for the JA-91 + JA-94 final unblock + Phase A/B
+resolution (Parts 19 + 21, 2026-05-17). After Phase A (replaced 14
+BUG-006-CANDIDATE examples) and Phase B (rewrote 33 explanations
+covering 43 pairs), both baselines are EMPTY and these checks must
+return 0/0/0 — non-zero means a NEW pair / NEW pattern-instance
+contamination has entered the corpus and CI should have already
+caught it (this block is a maintainer-side mirror).
 
-Validated 2026-05-17 to return 42/14/0 against the corpus snapshot
-at JA-91 + JA-94 final-wire close-out.
+Validated 2026-05-17 to return 0/0/0 against the corpus snapshot
+post Phase A + Phase B.
 
 ```python
 import json, difflib
@@ -1036,16 +1037,20 @@ drift = (found - n_bl91) + (missing - n_bl94) + missing_pids
 print(f'Total drift from snapshot: {drift} (target 0)')
 ```
 
-If A63.1 > 43 or A63.2 > 14, a new pair / new pattern-instance
-contamination has landed beyond the baseline. JA-91 / JA-94 in
-`tools/check_content_integrity.py` will catch this at CI; the
-Phase-0 block is a maintainer-side mirror for ad-hoc audits.
+If A63.1 > 0 or A63.2 > 0, a new pair / new pattern-instance
+contamination has landed beyond the empty resolved baseline.
+JA-91 / JA-94 in `tools/check_content_integrity.py` will catch
+this at CI; the Phase-0 block is a maintainer-side mirror for
+ad-hoc audits.
 
-If A63.1 < 43 or A63.2 < 14, the corpus has been cleaned up
-(e.g., a DUPLICATE_PATTERN pair got merged, or a
-BUG-006-CANDIDATE example got rewritten) — update the
-corresponding baseline file to remove the now-stale entry, with
-a note explaining what changed.
+If a NEW legitimate-overlap pair is intentionally introduced
+(e.g., a new pattern that necessarily duplicates wording with an
+existing one), add it to `data/_ja91_baseline.json.baseline_pairs`
+with a classification — Phase B's resolution work documents the
+authored alternative: re-author the deferring side's explanation
+to diverge from the canonical text (see commit history for
+`tools/apply_ja91_explanation_rewrites_2026_05_17.py` as a
+worked example).
 
 A63.3 stays at 0 — every pattern must have markers. New patterns
 added to grammar.json without re-running

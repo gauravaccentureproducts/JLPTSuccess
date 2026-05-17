@@ -2,6 +2,118 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (JA-91 + JA-94 Phase A + Phase B resolution: empty both baselines)
+
+User-visible: 14 grammar examples rewritten + 33 grammar-pattern
+explanation paragraphs rewritten. Functional coverage is unchanged —
+the 178 patterns each still cover what they covered before, and the
+14 replaced examples still demonstrate N5-appropriate Japanese. The
+visible change is that learners encountering n5-030 (nominalizer の),
+n5-048 (どこ), n5-065 (plain-form verbs), n5-071 (Verb-てください),
+n5-084 (な-Adj + な + Noun), n5-112 (〜ふん/ぷん minutes), n5-157
+(〜でしょう), and n5-164 (〜さん) now see examples that actually
+demonstrate those patterns (rather than borrowed examples from
+adjacent patterns), and 30+ entries (the deferring sides of the
+prior 43 cross-pattern explanation pairs) have explanations that
+explicitly name their relationship to the canonical entry rather
+than restating the canonical text verbatim.
+
+### Phase A — 14 BUG-006-CANDIDATE example replacements
+
+Each was a wrong-pattern example (the example didn't demonstrate
+the parent pattern at all). Replaced with parent-pattern-
+demonstrating examples:
+
+| Pattern | Index | New ja | New en |
+|---|---|---|---|
+| n5-030 | 4 | うんどうするのは きもちが いいです。 | Exercising feels good. |
+| n5-030 | 5 | ピアノを ひくのが すきです。 | I like playing the piano. |
+| n5-030 | 6 | えいがを みるのが たのしいです。 | Watching movies is fun. |
+| n5-048 | 0 | ぎんこうは どこですか。 | Where is the bank? |
+| n5-048 | 1 | どこで パンを かいますか。 | Where do you buy bread? |
+| n5-048 | 6 | あなたの くには どこですか。 | Where is your country? |
+| n5-065 | 4 | ともだちと えいがを みる。 | [I] watch a movie with a friend. (casual) |
+| n5-071 | 7 | もう いちど せつめいして ください。 | Please explain once more. |
+| n5-084 | 5 | べんりな きかいです。 | It's a convenient machine. |
+| n5-112 | 8 | じゅっぷん やすみました。 | I rested for 10 minutes. |
+| n5-157 | 4 | あの えいがは おもしろい でしょう。 | That movie is probably interesting. |
+| n5-157 | 5 | 電車は こんで いる でしょう。 | The train is probably crowded. |
+| n5-157 | 6 | この もんだいは むずかしい でしょう。 | This problem is probably difficult. |
+| n5-164 | 6 | たなかさんは げんきですか。 | Is Tanaka-san well? |
+
+`data/_ja94_baseline.json` now carries empty
+`baseline_failing_examples`; JA-94 enforces marker-presence
+unconditionally across all 1782 examples.
+
+### Phase B — 33 explanation_en rewrites covering 43 prior pairs
+
+The 43 prior JA-91 baseline pairs (DUPLICATE_PATTERN ×8,
+CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2) were
+addressed via explanation rewrites:
+
+- **DUPLICATE_PATTERN** — rewrote the "re-introduction" side (n5-039
+  / n5-040 / n5-041 / n5-045 / n5-046 / n5-114 / n5-115 / n5-029)
+  to use distinct framing (kosoado-paradigm sequencing, time-axis
+  instance, noun-modifier system) so each diverges from its
+  canonical entry's text.
+- **CROSS_REFERENCE** — rewrote the deferring side as a focused
+  sub-scope entry that explicitly points at the parent (e.g.,
+  n5-137 → Nominalization framing of の; n5-184/185/186/187 →
+  indefinite-X instance entries of the n5-183 parent rule;
+  n5-160/161/162/163 → frame-specific instances of あと/まえ).
+- **ALTERNATIVE_VARIANT** — rewrote BOTH sides of each pair with
+  register / syntactic-frame distinguishing prose (e.g., n5-173
+  spoken-formal vs n5-174 written-formal vs n5-175 conditional-
+  frame vs n5-176 casual-contraction obligation; n5-157 polite-
+  register でしょう vs n5-158 plain-register だろう).
+- **SUBSET** — rewrote n5-048 as the 'where' question-word entry
+  pointing at the full n5-016 / n5-041 series.
+
+Total: 33 patterns rewritten (some sat at two classifications).
+Verification (in `tools/apply_ja91_explanation_rewrites_2026_05_17.py`):
+all 43 prior pairs now fall below the 0.85 similarity threshold;
+zero NEW pairs were introduced by the rewrites.
+`data/_ja91_baseline.json` now carries empty `baseline_pairs`;
+JA-91 enforces the threshold unconditionally.
+
+### CI invariants final state for this batch
+
+- **Total live: 122** (unchanged from prior — Phase A + Phase B
+  are content-side resolutions, not new invariants).
+- Both JA-91 and JA-94 now run with EMPTY baselines.
+- `cross_artifact_sync_report.py` exits CLEAN.
+- Bug tracker: 53 / 53 Fixed / 0 Open (unchanged).
+- The "follow-on audit-cycle targets" from the prior JA-91 +
+  JA-94 unblock batch are RESOLVED without merging patterns or
+  rewriting structurally; pattern count stays at 178.
+
+### Audio Phase-2 status
+
+Phase-2 (VOICEVOX re-render at speed_scale=1.00) remains the only
+queued item from the prior JA-91+JA-94 follow-on list. Stays
+deferred on local VOICEVOX install (agent-side environment gap;
+not a correctness or coverage blocker — Phase-1.5 closed the
+sub-0.5-factor artifact gap with librubberband).
+
+### Files touched
+
+- `N5/data/grammar.json` (14 example replacements + 33
+  explanation_en rewrites)
+- `N5/data/grammar.json.bak_2026_05_17_pre_phaseA_B` (NEW backup)
+- `N5/data/_ja91_baseline.json` (emptied + meta updated)
+- `N5/data/_ja94_baseline.json` (emptied + meta updated)
+- `N5/tools/apply_bug006_candidate_fixes_2026_05_17.py` (NEW)
+- `N5/tools/apply_ja91_explanation_rewrites_2026_05_17.py` (NEW)
+- `N5/tools/check_content_integrity.py` (JA-91 + JA-94 registry
+  description text updated to reflect RESOLVED state)
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md`
+  (§25 intro + §25.4 + §25.7 updates)
+- `N5/prompts/N5Improvement.txt` (Phase-0 regression block target
+  values updated from 43/14 to 0/0)
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` (Part 21 addendum)
+- `N5/docs/cross-artifact-sync-map.md` (audit-log row)
+- `N5/CHANGELOG.md` (this entry)
+
 ## Unreleased - 2026-05-17 (Audio Phase-1.5: rubberband replaces chained atempo on 3 items)
 
 Audio-quality upgrade for the 3 listening items whose Phase-1

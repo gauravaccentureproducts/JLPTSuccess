@@ -1219,31 +1219,35 @@ CHECKS: list[tuple[str, str, callable]] = [
     # which scans git log for commit subjects mentioning the BUG-NNN
     # (including range patterns like "BUG-041 through BUG-046").
     ("JA-118", "every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell (INV-9 promotion to Wired, 2026-05-17)", lambda: _check_ja_118_bug_fix_commit_link()),
-    # JA-91 (2026-05-17 final unblock): cross-pattern explanation_en
-    # similarity ≥0.85 Levenshtein. Initial wire-up surfaced 43 pairs;
-    # hand-classified into 4 categories (DUPLICATE_PATTERN ×8,
-    # CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2) and
-    # snapshotted in data/_ja91_baseline.json. JA-91 now allowlists
-    # the 43 baseline pairs and trips on any NEW pair that crosses
-    # the threshold (i.e., a fresh pattern with explanation similar
-    # to existing — would be BUG-003 contamination class).
-    ("JA-91", "no NEW cross-pattern explanation_en similarity ≥0.85 beyond the 43-pair baseline in data/_ja91_baseline.json (BUG-003 contamination guard, 2026-05-17 final unblock)", lambda: _check_ja_91_explanation_similarity()),
+    # JA-91 (2026-05-17 final unblock + Phase B resolution): cross-pattern
+    # explanation_en similarity ≥0.85 Levenshtein. Initial wire-up surfaced
+    # 43 pairs (DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21,
+    # ALTERNATIVE_VARIANT ×12, SUBSET ×2); Phase B (2026-05-17) addressed
+    # each by rewriting the deferring side's explanation_en so it diverges
+    # from the canonical (or both sides, for ALTERNATIVE_VARIANT pairs).
+    # data/_ja91_baseline.json now carries an EMPTY baseline_pairs array
+    # — JA-91 enforces the threshold unconditionally on the current
+    # corpus. The empty-baseline file is retained as a RESOLVED snapshot
+    # documenting the prior pair set and its classification legend.
+    ("JA-91", "no cross-pattern explanation_en similarity ≥0.85; data/_ja91_baseline.json carries empty baseline (BUG-003 contamination guard, 2026-05-17 Phase B resolution)", lambda: _check_ja_91_explanation_similarity()),
     # JA-92: no EN sentence repeated in 10+ grammar examples (parallel
     # to JA-81 which catches the JA side; BUG-003/005 lineage).
     ("JA-92", "no EN translation_en repeated in 10+ grammar examples (BUG-003/005 boilerplate guard, 2026-05-17 wire-up)", lambda: _check_ja_92_en_boilerplate()),
     # JA-93: pitch_marks total mora == count_mora(form) per vocab
     # entry (BUG-004 lineage).
     ("JA-93", "vocab.json pitch_marks total mora == count_mora(form) (BUG-004 algorithmic mora-count guard, 2026-05-17 wire-up)", lambda: _check_ja_93_pitch_marks_mora()),
-    # JA-94 (2026-05-17 final unblock): BUG-006 pattern-instance
-    # contamination guard. Every grammar example's `ja` must
-    # contain ≥1 structural marker from its parent pattern's
+    # JA-94 (2026-05-17 final unblock + Phase A resolution): BUG-006
+    # pattern-instance contamination guard. Every grammar example's
+    # `ja` must contain ≥1 structural marker from its parent pattern's
     # marker list in data/pattern_markers.json (authored via
-    # tools/author_pattern_markers_2026_05_17.py — 99.2% coverage
-    # of 1782 examples). The remaining 14 BUG-006-CANDIDATE
-    # wrong-example failures are snapshotted in
-    # data/_ja94_baseline.json. JA-94 trips on any NEW pattern-
-    # instance contamination beyond that baseline.
-    ("JA-94", "every grammar example contains ≥1 structural marker from data/pattern_markers.json beyond the 14-example baseline in data/_ja94_baseline.json (BUG-006 pattern-instance contamination guard, 2026-05-17 final unblock)", lambda: _check_ja_94_pattern_marker_per_example()),
+    # tools/author_pattern_markers_2026_05_17.py — 178-pattern catalog).
+    # Initial wire-up surfaced 14 BUG-006-CANDIDATE wrong-example
+    # failures; Phase A (2026-05-17) replaced each example with a
+    # parent-pattern-demonstrating one. data/_ja94_baseline.json now
+    # carries an EMPTY baseline_failing_examples array — JA-94 enforces
+    # marker-presence unconditionally on every example (1782 of 1782).
+    # The empty-baseline file is retained as a RESOLVED snapshot.
+    ("JA-94", "every grammar example contains ≥1 structural marker from data/pattern_markers.json; data/_ja94_baseline.json carries empty baseline (BUG-006 pattern-instance contamination guard, 2026-05-17 Phase A resolution)", lambda: _check_ja_94_pattern_marker_per_example()),
     # JA-95: particle-pattern alignment for particle-category patterns
     # (BUG-009 lineage). Every example of a Particles-category pattern
     # must use the pattern's named particle. First-run wire-up surfaced

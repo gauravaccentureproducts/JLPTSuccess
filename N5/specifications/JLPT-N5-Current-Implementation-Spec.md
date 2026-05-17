@@ -805,14 +805,21 @@ Currently wired invariants: **113 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
 reports 122/122 at this checkpoint, post the 2026-05-17 final
-unblock of JA-91 (cross-pattern explanation_en similarity guard,
-backed by `data/_ja91_baseline.json` 43-pair classification) and
-JA-94 (per-example structural-marker presence, backed by
-`data/pattern_markers.json` 178-pattern catalog + 14-example
-`data/_ja94_baseline.json` BUG-006-CANDIDATE allowlist) — the
-JA-91..95 reserved range is now fully wired. 6 of 10 INV-N classes
-hard-wired at CI; 3 INV-N classes (INV-1 / INV-2 / INV-8) backed
-by commit-time git hooks; 1 INV-N out of scope.
+unblock of JA-91 + JA-94 AND their Phase A / Phase B resolution
+(2026-05-17, same day) — both invariants now run with EMPTY
+baselines, enforcing unconditionally against the current corpus:
+- JA-91: all 43 prior cross-pattern explanation_en similarity
+  pairs (DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21,
+  ALTERNATIVE_VARIANT ×12, SUBSET ×2) resolved via Phase B
+  explanation_en rewrites on the deferring side; baseline file
+  carries empty `baseline_pairs` as RESOLVED snapshot.
+- JA-94: all 14 prior BUG-006-CANDIDATE wrong-example failures
+  resolved via Phase A example replacements; baseline file
+  carries empty `baseline_failing_examples` as RESOLVED snapshot.
+The JA-91..95 reserved range is now fully wired with no
+allowlisted exceptions. 6 of 10 INV-N classes hard-wired at CI;
+3 INV-N classes (INV-1 / INV-2 / INV-8) backed by commit-time
+git hooks; 1 INV-N out of scope.
 
 Reserved / not-yet-wired: **JA-42 through JA-46** and **JA-80**.
 These slots are documented in the `AUDIT-COVERAGE-2026-05-15.md`
@@ -950,8 +957,8 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-92 | No `translation_en` string repeated in 10+ grammar examples (parallel to JA-81 which catches the JA-side boilerplate; BUG-003/005 lineage). Wired 2026-05-17 from the reserved JA-91..95 range. | 2026-05-17 |
 | JA-93 | Vocab.json `pitch_marks` total mora count matches `count_morae(reading)` for every entry that carries pitch_marks. BUG-004 lineage; algorithmic mora-count guard preserved from `not-required/tools-archive/fix_issue_074_pacing_audit_2026_05_06.py`. Wired 2026-05-17. | 2026-05-17 |
 | JA-95 | Particle-pattern alignment: for grammar patterns in category "Particles" whose `pattern` field is a single-character particle (は, が, を, etc., ≤ 2 chars), every example's `ja` must contain that particle. BUG-009 lineage. First-run wire-up caught n5-028 ex[5] (の particle) using は instead — fixed inline 2026-05-17 (ja `父は 先生です。` → `わたしの 父は 先生です。`). Wired 2026-05-17. | 2026-05-17 |
-| JA-91 | No NEW cross-pattern `explanation_en` similarity ≥0.85 (Levenshtein-style SequenceMatcher ratio) beyond the 43-pair baseline. BUG-003 contamination guard. Final-unblocked 2026-05-17 with `data/_ja91_baseline.json` carrying the 43 currently-occurring pairs classified into DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2 (each with a per-pair rationale note). JA-91 trips on any NEW similar-explanation pair — typically signaling a fresh pattern was added with explanation_en copied/contaminated from an existing pattern. To register a deliberate cross-ref / variant, add the pair to the baseline with a classification. | 2026-05-17 |
-| JA-94 | Every grammar example's `ja` contains ≥1 structural marker from its parent pattern's marker list in `data/pattern_markers.json` (178-pattern catalog auto-derived by `tools/author_pattern_markers_2026_05_17.py` — covers 99.2% of 1782 examples). The 14 remaining BUG-006-CANDIDATE wrong-example failures are snapshotted in `data/_ja94_baseline.json` with per-entry classification notes. BUG-006 pattern-instance contamination guard. Final-unblocked 2026-05-17. JA-94 trips on any NEW example added that doesn't demonstrate its parent pattern; expand the OVERRIDES table in the authoring tool if the form is genuinely canonical, or rewrite/move the example if it's BUG-006-class wrong. | 2026-05-17 |
+| JA-91 | No cross-pattern `explanation_en` similarity ≥0.85 (Levenshtein-style SequenceMatcher ratio). BUG-003 contamination guard. Wired 2026-05-17 + Phase B resolution same day: all 43 prior pairs (DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2) addressed via explanation_en rewrites on the deferring side (or both sides for ALTERNATIVE_VARIANT) so each falls below the threshold. `data/_ja91_baseline.json` now carries empty `baseline_pairs` as a RESOLVED snapshot documenting the prior pair set + classification legend. JA-91 enforces the threshold unconditionally; trips on any newly-introduced similar-explanation pair. | 2026-05-17 |
+| JA-94 | Every grammar example's `ja` contains ≥1 structural marker from its parent pattern's marker list in `data/pattern_markers.json` (178-pattern catalog auto-derived by `tools/author_pattern_markers_2026_05_17.py`). BUG-006 pattern-instance contamination guard. Wired 2026-05-17 + Phase A resolution same day: all 14 prior BUG-006-CANDIDATE wrong-example failures replaced with parent-pattern-demonstrating examples (n5-030 ×3 / n5-048 ×3 / n5-065 ×1 / n5-071 ×1 / n5-084 ×1 / n5-112 ×1 / n5-157 ×3 / n5-164 ×1). `data/_ja94_baseline.json` now carries empty `baseline_failing_examples` as a RESOLVED snapshot. JA-94 enforces marker-presence unconditionally across all 1782 examples; trips on any newly-added example that doesn't demonstrate its parent pattern. | 2026-05-17 |
 | JA-119 | Spec §7.3 sample `version.json` block (a JSON example shown to developers) must match the live `data/version.json` `counts` field exactly. Cross-Artifact Sync Protocol INV-4 — fifth surface locked alongside JA-47 (CONTENT-LICENSE.md) / JA-107 (version.json) / JA-112 (AUDIO.md) / JA-115 (README.md). Wired after BUG-050 was filed three times against the actual version.json file even though the file was clean — auditor was reading the stale v1.12.50-era sample in the spec (vocab 1041, listening 47, etc.) and mistaking it for current state. | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
@@ -991,10 +998,11 @@ Currently implemented as Phase-0 regression-block scripts in
 | JA-46 | Reserved | — |
 | JA-80 | (attempted then retired — heuristic meaning_ja substring check had 19 false positives; semantic comparison stays in manual-review domain) | 2026-05-13 |
 
-**JA-91 + JA-94 final-unblocked 2026-05-17** (moved out of Reserved
-into §25.4):
-- JA-91 — backed by `data/_ja91_baseline.json` (43-pair classification across DUPLICATE_PATTERN ×8 / CROSS_REFERENCE ×21 / ALTERNATIVE_VARIANT ×12 / SUBSET ×2); trips on NEW pairs only.
-- JA-94 — backed by `data/pattern_markers.json` (178-pattern structural-markers catalog authored by `tools/author_pattern_markers_2026_05_17.py`, 99.2% coverage of 1782 examples) + `data/_ja94_baseline.json` (14-example BUG-006-CANDIDATE allowlist).
+**JA-91 + JA-94 final-unblocked + fully resolved 2026-05-17** (moved
+out of Reserved into §25.4 row entries; both run with EMPTY baselines
+post-Phase-A and Phase-B same-day):
+- JA-91 — `data/_ja91_baseline.json` was authored with 43 pairs (DUPLICATE_PATTERN ×8 / CROSS_REFERENCE ×21 / ALTERNATIVE_VARIANT ×12 / SUBSET ×2); Phase B rewrote the deferring side of each pair so all 43 fell below the 0.85 threshold. The baseline file is retained with `baseline_pairs: []` as a RESOLVED snapshot.
+- JA-94 — `data/pattern_markers.json` (178-pattern structural-markers catalog) + Phase A's 14 wrong-example replacements (in n5-030 / n5-048 / n5-065 / n5-071 / n5-084 / n5-112 / n5-157 / n5-164). The baseline file is retained with `baseline_failing_examples: []` as a RESOLVED snapshot.
 
 ### 25.8 Class-and-bug lineage
 

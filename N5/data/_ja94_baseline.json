@@ -1,33 +1,19 @@
 {
   "_meta": {
-    "purpose": "Baseline allowlist for JA-94 (pattern-marker presence per grammar example). After authoring data/pattern_markers.json with 99.2% coverage (1768 of 1782 examples), 14 examples remain that don't contain any marker from their parent pattern. Each is a candidate BUG-006-class issue (the example doesn't demonstrate the parent pattern at all) — but cleaning them up requires authored replacements, deferred to a future audit cycle. JA-94 allowlists the 14 baseline cases and trips on any NEW pattern-instance contamination.",
+    "purpose": "Baseline allowlist for JA-94 (per-example structural-marker presence). RESOLVED 2026-05-17 (Phase A) — all 14 prior BUG-006-CANDIDATE entries addressed via example replacement. JA-94 enforces marker-presence unconditionally; this file's baseline_failing_examples array is empty and serves as a RESOLVED snapshot.",
     "classification_legend": {
       "BUG-006-CANDIDATE": "The example's `ja` doesn't contain any structural marker for the parent pattern. Most likely the example was incorrectly filed under this pattern; the right fix is to either (a) replace the example with one that demonstrates the parent pattern, or (b) move the example to its correct pattern (if it demonstrates a different pattern's structure)."
     },
     "snapshot_date": "2026-05-17",
-    "next_review_trigger": "Any grammar.json edit that adds new examples. JA-94 will trip if a new example doesn't contain ≥1 marker. Either (a) the new example is a legitimate demonstration via a non-canonical form → expand the pattern's markers in data/pattern_markers.json, or (b) the new example is BUG-006-class wrong → fix the example."
+    "next_review_trigger": "Any grammar.json edit that adds new examples. JA-94 will trip if a new example doesn't contain ≥1 marker. Either (a) the new example is a legitimate demonstration via a non-canonical form → expand the pattern's markers in data/pattern_markers.json, or (b) the new example is BUG-006-class wrong → fix the example.",
+    "resolution_date": "2026-05-17"
   },
-  "baseline_failing_examples": [
-    {"pattern_id": "n5-030", "ex_index": 4, "ja": "ごりょうしんは おげんきですか。", "note": "Parent pattern 'nominalizer in basic use' but example uses honorific お+adj+です, not a nominalizer. Possibly mis-filed; the example fits Honorifics or Adjectives instead."},
-    {"pattern_id": "n5-030", "ex_index": 5, "ja": "そふは げんきです。", "note": "Same class as ex[4] — no nominalizer pattern demonstrated."},
-    {"pattern_id": "n5-030", "ex_index": 6, "ja": "おばさんは 花が すきです。", "note": "Same class — no nominalizer; this is a が-particle preference statement."},
-    {"pattern_id": "n5-048", "ex_index": 0, "ja": "ここは としょかんです。", "note": "Parent pattern is どこ but example uses ここ (a different demonstrative). Mis-filed; belongs under n5-016 / n5-041 (ここ-series)."},
-    {"pattern_id": "n5-048", "ex_index": 1, "ja": "そこに ねこが います。", "note": "Same — example uses そこ, not どこ."},
-    {"pattern_id": "n5-048", "ex_index": 6, "ja": "だれが きましたか。", "note": "Same — example uses だれ (a different question word). Belongs under n5-018 / n5-046 (だれ patterns)."},
-    {"pattern_id": "n5-065", "ex_index": 4, "ja": "わたしは ねこを かいません。", "note": "Parent pattern Verb-る / Verb-う (plain dictionary form) but example uses polite negative かいません. Wrong example; should demonstrate plain dictionary form."},
-    {"pattern_id": "n5-071", "ex_index": 7, "ja": "みずを ください。", "note": "Parent pattern Verb-てください but example uses noun+を+ください alone (no V-te). Belongs under the 〜をください pattern (n5-149)."},
-    {"pattern_id": "n5-084", "ex_index": 5, "ja": "日曜日に へやを そうじします。", "note": "Parent pattern な-Adjective + な + Noun but example has no na-adjective. Mis-filed."},
-    {"pattern_id": "n5-112", "ex_index": 8, "ja": "ごじはん から いちじかん べんきょうしました。", "note": "Parent pattern 〜ふん/ぷん (minutes) but example uses じはん (5:30) and じかん (1 hour), no ふん/ぷん. Edge case — uses related time units. Could fit n5-113 (〜じはん) or n5-122 (〜じかん)."},
-    {"pattern_id": "n5-157", "ex_index": 4, "ja": "おなかが すいたから、なにか たべましょう。", "note": "Parent pattern 〜でしょう but example uses volitional たべましょう (a different ましょう pattern). Mis-filed; belongs under n5-071 (volitional ましょう)."},
-    {"pattern_id": "n5-157", "ex_index": 5, "ja": "四時に あいましょう。", "note": "Same class — uses volitional ましょう, not probability でしょう."},
-    {"pattern_id": "n5-157", "ex_index": 6, "ja": "てつだいましょうか。", "note": "Same — volitional ましょうか, not probability でしょう."},
-    {"pattern_id": "n5-164", "ex_index": 6, "ja": "ホテルは どこに ありますか。", "note": "Parent pattern 〜さん (honorific suffix) but example has no さん. Mis-filed; belongs under existence-with-ある (n5-089) or どこ (n5-048)."}
-  ],
+  "baseline_failing_examples": [],
   "_audit_summary": {
     "total_examples_scanned": 1782,
-    "examples_failing_marker_check": 14,
-    "coverage_pct": 99.2,
-    "patterns_with_failures": 8,
-    "follow_on_target": "A future audit cycle should walk this list and either replace each example with a proper pattern-demonstrating one, or move it to the correct parent pattern. Until then, JA-94 allowlists them — no NEW pattern-instance contamination can land without tripping CI."
+    "examples_failing_marker_check": 0,
+    "coverage_pct": 100.0,
+    "patterns_with_failures": 0,
+    "follow_on_target": "RESOLVED 2026-05-17 (Phase A): all 14 BUG-006-CANDIDATE examples replaced with parent-pattern-demonstrating ones. JA-94 now enforces marker-presence unconditionally on the current corpus."
   }
 }

@@ -3075,3 +3075,145 @@ for this corpus snapshot. Audio Phase-2 (full VOICEVOX re-render
 at speed_scale=1.00) remains an optional broader-scope quality
 upgrade, no longer required to close the sub-0.5-factor artifact
 gap.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 21) — JA-91 + JA-94 Phase A + Phase B resolution: both baselines emptied
+
+Part 19 final-unblocked JA-91 + JA-94 with non-empty baseline
+allowlists (43 pairs and 14 examples respectively) snapshotted as
+"follow-on audit-cycle targets". Part 21 closes the follow-on:
+**Phase A** addressed JA-94's 14 BUG-006-CANDIDATE wrong examples
+by replacing each with a parent-pattern-demonstrating example;
+**Phase B** addressed JA-91's 43 cross-pattern explanation pairs
+by rewriting the deferring side's `explanation_en` so each pair's
+SequenceMatcher ratio drops below the 0.85 threshold. Both
+baselines now hold empty arrays as RESOLVED snapshots; JA-91 and
+JA-94 enforce their invariants unconditionally on the current
+corpus.
+
+### Phase A — 14 BUG-006-CANDIDATE example replacements
+
+Each of the 14 prior wrong-pattern examples in JA-94's baseline
+was replaced with a new example demonstrating the parent pattern's
+canonical structure:
+
+| Pattern | Ex idx | Old ja | New ja | Pattern role |
+|---|---|---|---|---|
+| n5-030 (nominalizer の) | 4 | `ごりょうしんは おげんきですか。` | `うんどうするのは きもちが いいです。` | V + の as subject |
+| n5-030 | 5 | `そふは げんきです。` | `ピアノを ひくのが すきです。` | V + のが + adj |
+| n5-030 | 6 | `おばさんは 花が すきです。` | `えいがを みるのが たのしいです。` | V + のが + adj |
+| n5-048 (どこ) | 0 | `ここは としょかんです。` | `ぎんこうは どこですか。` | どこ as predicate |
+| n5-048 | 1 | `そこに ねこが います。` | `どこで パンを かいますか。` | どこ + で particle |
+| n5-048 | 6 | `だれが きましたか。` | `あなたの くには どこですか。` | どこ predicate Q |
+| n5-065 (Verb-る / Verb-う plain) | 4 | `わたしは ねこを かいません。` | `ともだちと えいがを みる。` | plain みる |
+| n5-071 (Verb-てください) | 7 | `みずを ください。` | `もう いちど せつめいして ください。` | V-て + ください |
+| n5-084 (な-Adj + な + Noun) | 5 | `日曜日に へやを そうじします。` | `べんりな きかいです。` | な-adj + な + N |
+| n5-112 (〜ふん/ぷん minutes) | 8 | `ごじはん から いちじかん べんきょうしました。` | `じゅっぷん やすみました。` | じゅっぷん counter |
+| n5-157 (〜でしょう probability) | 4 | `おなかが すいたから、なにか たべましょう。` | `あの えいがは おもしろい でしょう。` | adj + でしょう |
+| n5-157 | 5 | `四時に あいましょう。` | `電車は こんで いる でしょう。` | clause + でしょう |
+| n5-157 | 6 | `てつだいましょうか。` | `この もんだいは むずかしい でしょう。` | adj + でしょう |
+| n5-164 (〜さん honorific) | 6 | `ホテルは どこに ありますか。` | `たなかさんは げんきですか。` | 〜さん predicate |
+
+All 14 replacements verified corpus-clean (no JA-81 boilerplate
+collisions). JA-94 marker-presence check passes on every new
+example. Applied via `tools/apply_bug006_candidate_fixes_2026_05_17.py`.
+
+### Phase B — 33 explanation_en rewrites covering 43 pairs
+
+The 43 prior JA-91 baseline pairs were addressed via explanation
+rewrites on the deferring side (for DUPLICATE_PATTERN / CROSS_
+REFERENCE / SUBSET) or on both sides (for ALTERNATIVE_VARIANT,
+where each variant gained register-distinguishing prose).
+
+**Rewrite strategy by class:**
+
+- **DUPLICATE_PATTERN ×8** (rewrite the duplicate / "re-introduction"
+  side): n5-115 → focuses on time-marker sub-use of the multi-purpose
+  に; n5-039/040/041 → kosoado-paradigm framing emphasizing the
+  re-introduction sequencing; n5-045/046 → re-introduction notes
+  with register-split emphasis on どなた and の-particle reading
+  rules; n5-114 → time-axis-instance framing of the から〜まで range
+  marker; n5-029 → noun-modifier-system framing of the の particle.
+
+- **CROSS_REFERENCE ×21** (rewrite the deferring side): n5-137 →
+  Nominalization-category framing of の; n5-109 → counter-question
+  vocabulary set; n5-136 → combined-category adjective-noun rule;
+  n5-160/161/162/163 → frame-specific (noun vs verb) instances of
+  あと/まえ; n5-155 → writing-convention emphasis on mid-sentence
+  が; n5-156/159 → particle-pair framings of ね/よ at two registers;
+  n5-184/185/186/187 → indefinite-X instance entries for the n5-183
+  parent rule.
+
+- **ALTERNATIVE_VARIANT ×12** (rewrite both sides per pair, with
+  register-distinguishing focus): n5-023 = question vs n5-024 = "or"
+  conjunction; n5-060 affirmative-past base mechanics vs n5-061
+  three-morpheme-stack negative mechanics; n5-156/159 particle-pair
+  framing (already addressed in CR rewrite); n5-157 polite-register
+  vs n5-158 plain-register probability; n5-160/161/162/163 frame-
+  specific (covered in CR rewrite); n5-173 spoken-formal vs n5-174
+  written-formal vs n5-175 conditional-frame vs n5-176 casual-
+  contraction obligation expressions.
+
+- **SUBSET ×2** (rewrite n5-048): focused 'where' question-word
+  framing pointing at the parent n5-016 / n5-041 series.
+
+Total rewrites: 33 patterns (some patterns sat at two
+classifications, e.g., n5-156 appears in CR + AV; n5-029 in DUP +
+CR — counted once each). Average length growth per rewrite:
+~120 chars, reflecting the addition of explicit class / scope /
+parent-reference prose.
+
+**Verification:** Applied via `tools/apply_ja91_explanation_
+rewrites_2026_05_17.py`, which (a) writes the rewrites, (b)
+re-checks every prior baseline pair's similarity against the 0.85
+threshold, (c) scans for NEW pairs that may have crossed the
+threshold from the rewrites. Result: all 43 prior pairs drop below
+0.85; zero NEW pairs cross. Baseline emptied; JA-91 PASSes
+unconditionally.
+
+### CI invariants final state for Part 21
+
+Total live: **122** (unchanged from Part 20; Phase A + Phase B
+are content-side resolutions, not new invariants). Both
+JA-91 and JA-94 now run with empty baselines.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Files touched (Part 21)
+
+  - N5/data/grammar.json (14 example replacements + 33
+    explanation_en rewrites)
+  - N5/data/grammar.json.bak_2026_05_17_pre_phaseA_B (NEW backup
+    of pre-Phase-A/B state)
+  - N5/data/_ja91_baseline.json (baseline_pairs emptied + meta
+    updated to RESOLVED)
+  - N5/data/_ja94_baseline.json (baseline_failing_examples
+    emptied + meta updated to RESOLVED)
+  - N5/tools/apply_bug006_candidate_fixes_2026_05_17.py (NEW
+    one-shot replacement script)
+  - N5/tools/apply_ja91_explanation_rewrites_2026_05_17.py (NEW
+    one-shot rewrite script with built-in verification)
+  - N5/tools/check_content_integrity.py (JA-91 + JA-94 registry
+    description text updated to reflect RESOLVED state)
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25 intro updated; §25.4 JA-91 + JA-94 rows updated to
+    RESOLVED; §25.7 deferred-block update)
+  - N5/prompts/N5Improvement.txt (Phase-0 JA-91 + JA-94
+    regression block target values updated from 43/14 to 0/0)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 21 addendum)
+  - N5/docs/cross-artifact-sync-map.md (audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+### Final state for Part 21
+
+CI **122/122 invariants green**. JA-91 + JA-94 both run with
+empty baselines, enforcing their invariants unconditionally
+against the current corpus. The "follow-on audit-cycle targets"
+that Part 19 enumerated (43 pairs + 14 examples) are RESOLVED
+without merging patterns or rewriting structurally. The 178
+pattern IDs remain unchanged; only `explanation_en` prose and
+14 example sentences have been authored. Audio Phase-2
+(VOICEVOX speed_scale=1.00 re-render) remains the only
+follow-on item from Part 19's queue, and stays deferred on
+local VOICEVOX install (agent-side environment gap; not a
+correctness or coverage blocker).
