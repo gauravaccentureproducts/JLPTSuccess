@@ -47,18 +47,31 @@ Builders auto-detect what's available; fall back order on the listening
 module is **VOICEVOX → edge-tts → gTTS**. Grammar defaults to VOICEVOX
 (post-2026-05-12); reading defaults to gTTS.
 
-## Listening multi-voice plan (round-9 actual)
+## Listening multi-voice plan (round-9 plan + 2026-05-12 actual; counts refreshed 2026-05-17 post-BUG-052/053)
 
-47 listening items use 4 distinct VOICEVOX speakers in rotation, with
+50 listening items use 6 distinct VOICEVOX speakers in rotation, with
 speaker-role mapping from `script_ja` line prefixes (男 / 女 / narrator
-/ 店員 / 先生 / 学生 / 母 / A / B / F / M):
+/ 店員 / 先生 / 学生 / 母 / A / B / F / M).
 
-| Speaker | VOICEVOX ID | Role bucket | Use |
-|---------|-------------|-------------|-----|
-| 四国めたん ノーマル (Shikoku Metan) | 2  | Female (warm) | Default 女 / F / 学生 / 店員 |
-| 春日部つむぎ ノーマル (Hau Tsumugi) | 8  | Female (upbeat) | Alt 女 / 母 / narrator |
-| 白上虎太郎 ふつう (Shirakami Kotaro) | 11 | Male (younger) | Default 男 / M / A / 学生 |
-| 青山龍星 ノーマル (Aoyama Ryusei)    | 13 | Male (deeper) | Alt 男 / 先生 / B / narrator |
+The original round-9 plan (2026-05-06) targeted 8 speakers across 47
+items; the actual 2026-05-12 render landed 6 speakers across 50 items
+(IDs 14 冥鳴ひまり + 53 ナースロボ＿タイプＴ from the plan were not
+used in the render — see `data/listening.json._meta.voice_variety_plan`
+for the corrected speaker catalog and the unmet-target note). Earlier
+revisions of this table had wrong character→ID mappings (e.g., ID 11
+labeled "Shirakami Kotaro" — incorrect; VOICEVOX 11 is actually 玄野武宏 /
+Kurono Takehiro). The table below is derived from
+`audio_render_meta.voices_used` on the actual rendered items as of
+2026-05-17.
+
+| Speaker | VOICEVOX ID | Items rendered | Role bucket | Use |
+|---------|-------------|---:|-------------|-----|
+| 春日部つむぎ ノーマル (Kasukabe Tsumugi)  |  8 | 25 | Female (upbeat) | Default 女 / F / 学生 / 店員 |
+| 四国めたん ノーマル (Shikoku Metan)        |  2 | 17 | Female (warm)   | Alt 女 / 母 / narrator |
+| 玄野武宏 ノーマル (Kurono Takehiro)        | 11 | 12 | Male (warm)     | Default 男 / M / A / 学生 |
+| 雨晴はう ノーマル (Amehare Hau)            | 10 |  8 | Female (calm)   | Alt 女 / narrator |
+| ずんだもん ノーマル (Zundamon)              |  3 |  6 | Other (cute)    | Cameo / 学生 / narrator |
+| 青山龍星 ノーマル (Aoyama Ryusei)          | 13 |  6 | Male (deeper)   | Alt 男 / 先生 / B / narrator |
 
 Voice rotation is deterministic per item (seeded by `id`) so re-renders
 are reproducible. `speed_scale = 1.30` puts narration in the JLPT-N5
@@ -123,7 +136,9 @@ One-time setup (per machine):
 Then run the builders:
 
 ```sh
-# Round-9 multi-voice listening render (VOICEVOX, all 47 items):
+# Multi-voice listening render via VOICEVOX (2026-05-12 production run
+# covers all 50 items at the corrected 6-speaker catalog; the round-9
+# 47-item / 4-speaker numbers in earlier docs are obsolete):
 python tools/build_listening_audio_multivoice_2026_05_07.py
 
 # Or the older one-tool-fits-all batch (any-backend wins):

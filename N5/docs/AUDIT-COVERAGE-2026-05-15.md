@@ -2152,3 +2152,151 @@ the EXISTING content of those folders as of the 2026-05-17
 snapshot; future audit docs added to feedback/ will need a
 re-run of the sync tool to be picked up. The tool is
 idempotent so the re-run cost is minimal.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 15) — BUG-050 close-out (charitable interpretation: AUDIO.md drift, not version.json)
+
+User re-audit on 2026-05-17 surfaced BUG-050 with the
+description "version.json declares counts.listening=47" /
+"STATUS: UNCHANGED from previous report". Deep verification
+established the literal claim is false; the real drift lives
+in `N5/AUDIO.md` (and per BUG-053-class character-name
+mismatches in the same doc's speaker table). This addendum
+captures the verification trail + the charitable-close fix.
+
+### Verification trail (BUG-050 as literally written)
+
+| Source checked | counts.listening | Match expected (50)? |
+|---|---|---|
+| Working tree `N5/data/version.json` | 50 | ✅ |
+| `git show HEAD:N5/data/version.json` | 50 | ✅ |
+| `git show HEAD~3:N5/data/version.json` | 50 | ✅ |
+| `git show HEAD~5:N5/data/version.json` | 50 | ✅ |
+| `git show HEAD~10:N5/data/version.json` | 50 | ✅ |
+| Live deployed: `curl https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/version.json` | 50 | ✅ |
+| `N5/data/listening.json` items array length | 50 | ✅ |
+| JA-107 (`version.json.counts` ↔ live data) | PASS | ✅ |
+| `cross_artifact_sync_report.py` exit | CLEAN | ✅ |
+
+`counts.listening = 50` in every observable state; "47" never
+appeared in version.json. The re-audit's claim does not match
+observable reality.
+
+### Real drift located: AUDIO.md
+
+Repo-wide grep for "47" near "listening" surfaced legitimately
+stale claims in `N5/AUDIO.md`:
+
+  - Line 52: `"47 listening items use 4 distinct VOICEVOX
+    speakers in rotation"` — should be **50 items / 6 speakers**
+    per the actual 2026-05-12 VOICEVOX render (locked by
+    audio_render_meta.voices_used on every item).
+  - Lines 58-61 (speaker table): wrong character→ID
+    mappings — same BUG-053 class:
+      - ID 8 was labeled "Hau Tsumugi" (actually 雨晴はう /
+        Amehare Hau is ID 10; ID 8 is 春日部つむぎ / Kasukabe
+        Tsumugi)
+      - ID 11 was labeled "Shirakami Kotaro" — incorrect;
+        VOICEVOX 11 is 玄野武宏 / Kurono Takehiro
+      - ID 13's character name (青山龍星 Aoyama Ryusei) was
+        correct; only kept it as-is.
+      - Two speakers from the actual render were missing
+        entirely from the table: ID 3 ずんだもん / Zundamon
+        and ID 10 雨晴はう / Amehare Hau.
+  - Line 126 (code block comment): "Round-9 multi-voice
+    listening render (VOICEVOX, all 47 items):" — historically
+    accurate for round-9 (47-item baseline) but reads as
+    current instruction; rephrased to clarify production state.
+
+The user's bug report likely observed AUDIO.md's "47 listening
+items" claim and mis-attributed the location to version.json.
+The drift IS real, just in a different file than named.
+
+### Fix applied
+
+1. `N5/AUDIO.md` lines 50-55 rewritten: header reflects post-
+   2026-05-12 state; prose claim now reads "50 listening
+   items use 6 distinct VOICEVOX speakers"; explanatory para
+   added covering the original-plan-vs-actual delta.
+2. `N5/AUDIO.md` lines 56-61 (speaker table) rewritten: 6 rows
+   matching the live audio_render_meta.voices_used; character
+   names corrected per the BUG-053 catalog; "Items rendered"
+   column added with the live per-speaker count.
+3. `N5/AUDIO.md` line 126 (code-block comment) rephrased to
+   document the 2026-05-12 production run rather than the
+   stale round-9 47-item baseline.
+
+### CI invariant added (1 hard CI gate)
+
+- **JA-112** — AUDIO.md's "N listening items use M distinct
+  VOICEVOX speakers" claim must match the live data: N ==
+  len(listening.json.items); M == |distinct
+  audio_render_meta.voices_used|. Third instance of the INV-4
+  cross-artifact sync protocol class (alongside JA-47 for
+  CONTENT-LICENSE.md and JA-107 for version.json), extended
+  to the AUDIO.md user-facing doc surface. The regex anchors on
+  the canonical prose pattern; if the pattern is intentionally
+  rephrased, the regex must be updated in lockstep.
+
+### Process lesson — re-audit triage
+
+When a re-audit's literal claim conflicts with observable
+state, check ADJACENT artifacts before closing as
+not-a-bug. BUG-050's literal claim ("47" in version.json) was
+false, but treating it as not-a-bug would have left the real
+drift (47 in AUDIO.md) untouched until a future audit found
+it. The "charitable interpretation" pattern: assume the user
+observed a real drift but mis-located it; verify the literal
+claim; then search the doc neighborhood for the actual
+matching value. AUDIO.md was 2 grep-hops away from
+version.json (the line 52 claim contains the same "47" value
+the bug description quoted).
+
+### Coverage at this checkpoint
+
+CI invariants: 110 (was 109; +1 from JA-112). JA-91..95
+remain reserved; JA-80 remains retired.
+
+Cross-Artifact Sync Protocol INV-4 (data-file count changes
+update version.json AND CHANGELOG) now has THREE wired
+guards: JA-47 (CONTENT-LICENSE.md), JA-107 (version.json),
+JA-112 (AUDIO.md). Coverage is broader than the protocol
+text originally specified — every user-facing count claim
+across the project's doc surface that mentions live data is
+now locked, not just the public version.json.
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: NOT updated. The lesson
+  (re-audit triage / charitable interpretation) is general
+  but doesn't yet warrant an F.NN section; if the pattern
+  recurs across Nx levels, abstract it then.
+- ✓ Accuracy prompt + N5Improvement: NOT updated. The
+  Phase-0 listening migration-drift regression block already
+  covers the speaker-catalog class (A60.7); JA-112 is the new
+  hard gate.
+- ✓ Implementation spec `JLPT-N5-Current-Implementation-Spec.md`:
+  §25.1 row for JA-112; §25.8 lineage row; section-header
+  count bumped to 110.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `User Reported Bugs` sheet: BUG-050 marked Fixed
+  with charitable-interpretation note. Totals: 53 / 51 Fixed /
+  2 Open (BUG-048 awaiting pacing measurement + BUG-049
+  awaiting audio re-render).
+- ✓ N5/CHANGELOG.md: Unreleased entry below.
+
+### Final state for Part 15
+
+CI 110/110 invariants green. `cross_artifact_sync_report.py`
+exits CLEAN. AUDIO.md count claims + speaker-table character
+names match live data. JA-112 locks regression. Bug tracker
+moves from 3 Open → 2 Open (BUG-048 PARTIAL + BUG-049
+UNCHANGED remain — both require audio-side work outside this
+batch's scope). Bounded-coverage note: JA-112's regex is
+anchored on a single canonical prose pattern in AUDIO.md;
+other count claims (e.g., "1782 grammar examples" in
+multiple docs) are NOT yet locked — future drift on those
+specific phrasings would not trip JA-112. Extending coverage
+to additional prose patterns is queued behind the next user-
+reported instance.

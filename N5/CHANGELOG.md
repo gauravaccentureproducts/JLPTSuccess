@@ -2,6 +2,105 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (BUG-050 charitable close-out — AUDIO.md count + speaker-table drift; JA-112 wired)
+
+User-visible: the `AUDIO.md` developer doc now correctly states
+**50 listening items use 6 distinct VOICEVOX speakers** (was
+incorrectly "47 items / 4 speakers" — pre-2026-05-12 round-9
+baseline carried over after the actual 2026-05-12 VOICEVOX render
+landed 50 items / 6 speakers). Speaker-attribution table in
+AUDIO.md also corrected (same character-name-mismatch class as
+BUG-053 / `_meta.voicevox_speaker_catalog`).
+
+### BUG-050 close-out (charitable interpretation)
+
+User re-audit on 2026-05-17 filed BUG-050 with the description
+"version.json declares counts.listening=47". Deep verification
+across working tree + full git history (HEAD..HEAD~10) + live
+deployed site (https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/version.json)
+established `counts.listening = 50` in every observable state;
+JA-107 has been PASSing since `cdef185`. The literal claim was
+false.
+
+**Real drift located:** `N5/AUDIO.md` line 52 carried the stale
+prose claim *"47 listening items use 4 distinct VOICEVOX speakers
+in rotation"*, plus the speaker-attribution table had wrong
+character→ID mappings (BUG-053 class). The user's bug report
+appears to have observed AUDIO.md's "47" and mis-located the
+drift to version.json. Charitable interpretation: the drift IS
+real, just in a different file than named.
+
+  - `N5/AUDIO.md` lines 50-65 rewritten (header + prose claim +
+    speaker table — 50 items, 6 speakers, corrected character
+    names: 春日部つむぎ at ID 8 / 玄野武宏 at ID 11 / etc., plus
+    the previously-missing ID 3 ずんだもん and ID 10 雨晴はう
+    rows added)
+  - `N5/AUDIO.md` line 126 (code-block comment) rephrased from
+    "round-9 multi-voice listening render (VOICEVOX, all 47
+    items)" to clarify it documents the 2026-05-12 production run
+    rather than the obsolete 47-item baseline.
+
+### CI invariant added
+
+  - **JA-112** — `AUDIO.md` "N listening items use M distinct
+    VOICEVOX speakers" claim matches live data: N ==
+    len(listening.json.items); M == |distinct
+    audio_render_meta.voices_used|. Third instance of the
+    Cross-Artifact Sync Protocol INV-4 class (alongside JA-47 for
+    CONTENT-LICENSE.md and JA-107 for version.json), extended to
+    the AUDIO.md user-facing doc surface.
+
+Total CI invariants live: **110** (was 109).
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+  - `N5/AUDIO.md` — line 50-65 (claim + speaker table) + line 126
+    (code-block comment)
+  - `N5/tools/check_content_integrity.py` — new check function
+    `_check_ja_112_audio_md_listening_counts()` + registry entry
+  - `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`
+    — BUG-050 marked Fixed; description + title appended with
+    charitable-interpretation close-out note
+  - `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` —
+    §25.1 row for JA-112; §25.8 lineage row; section-header count
+    bumped 109→110; next-free JA-NN = 113
+  - `N5/docs/AUDIT-COVERAGE-2026-05-15.md` — Part 15 addendum
+  - `N5/CHANGELOG.md` — this entry
+
+### Coverage of the fix
+
+CI: 110/110 invariants green post-fix.
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker: 53 / **51 Fixed / 2 Open**:
+  - **BUG-048** (Open, PARTIAL) — field-state contradiction was
+    fixed in `04bd8f4`; actual pacing **measurement** still
+    pending (all 10 items 041-050 have `pacing_morae_per_min=null`).
+  - **BUG-049** (Open) — 26/50 items pacing too slow; needs
+    audio re-render at VOICEVOX speed_scale ~1.3. Depends on
+    BUG-048 measurement for accurate count.
+
+Bounded-coverage note (per writing discipline): JA-112 anchors on
+a single canonical prose pattern in AUDIO.md ("N listening items
+use M distinct VOICEVOX speakers"). Other count claims elsewhere
+in the project's docs (e.g., "1782 grammar examples", "999
+vocab entries") are NOT yet locked by this invariant — future
+drift on those phrasings would not trip JA-112. Extending coverage
+is queued behind the next user-reported instance.
+
+### Process lesson captured
+
+When a user-filed bug's literal claim conflicts with observable
+state, check ADJACENT artifacts before closing as not-a-bug.
+Treating BUG-050 as "false positive, close" would have left the
+real AUDIO.md drift untouched until a future audit re-found it.
+**Charitable interpretation pattern:** assume the user observed
+a real drift but mis-located it; verify the literal claim; then
+search the doc neighborhood for the actual matching value. (Full
+write-up: AUDIT-COVERAGE-2026-05-15.md Part 15 "Process lesson —
+re-audit triage" section.)
+
+---
+
 ## Unreleased - 2026-05-17 (Test-scenarios sync with prompts/ + feedback/)
 
 Governance / audit-trail release. No content changes for end

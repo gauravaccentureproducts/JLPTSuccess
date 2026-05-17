@@ -1171,6 +1171,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     # immediate_response}. Same dual-field drift class as BUG-044
     # and BUG-047.
     ("JA-111", "listening.json drops legacy `format`; `format_type` ∈ closed enum (BUG-051 guard, 2026-05-17)", lambda: _check_ja_111_format_type_only()),
+    # JA-112 (2026-05-17): BUG-050 close-out (charitable interpretation).
+    # AUDIO.md count claims ("N listening items use M distinct VOICEVOX
+    # speakers") must match the live data — N == len(listening.json.items),
+    # M == distinct count in audio_render_meta.voices_used across items.
+    # Same INV-4 (cross-artifact sync protocol) drift class as JA-47
+    # (CONTENT-LICENSE.md) and JA-107 (version.json), extended to the
+    # AUDIO.md user-facing doc surface.
+    ("JA-112", "AUDIO.md 'N listening items use M distinct VOICEVOX speakers' matches live data (BUG-050 charitable guard, 2026-05-17)", lambda: _check_ja_112_audio_md_listening_counts()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -5093,6 +5101,80 @@ def _check_ja_106_format_type_enum() -> list[str]:
             failures.append(
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
+            )
+    return failures
+
+
+def _check_ja_112_audio_md_listening_counts() -> list[str]:
+    """BUG-050 (charitable interpretation, 2026-05-17) regression guard.
+
+    AUDIO.md carries a user-facing claim "N listening items use M
+    distinct VOICEVOX speakers in rotation". Both N and M must match
+    the live data:
+      - N == len(listening.json.items)
+      - M == |distinct values in union of audio_render_meta.voices_used
+              across all items|
+
+    BUG-050 was filed as "version.json declares counts.listening=47"
+    but every observable instance of version.json (working tree, git
+    history HEAD..HEAD~10, live deployed site) has shown 50. JA-107
+    locks the version.json side. The "47" the bug report observed was
+    AUDIO.md line 52's stale prose claim — this invariant catches that
+    class going forward.
+
+    Same INV-4 (cross-artifact sync protocol) drift class as JA-47
+    (CONTENT-LICENSE.md counts) and JA-107 (version.json counts);
+    extended to the AUDIO.md user-facing doc surface.
+    """
+    failures: list[str] = []
+    try:
+        text = (ROOT / "AUDIO.md").read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-112 could not read AUDIO.md: {e}"]
+    try:
+        L = json.loads((ROOT / "data" / "listening.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-112 could not read listening.json: {e}"]
+
+    live_item_count = len(L.get("items", []) or [])
+    speakers: set[str] = set()
+    for it in L.get("items", []) or []:
+        for v in (it.get("audio_render_meta") or {}).get("voices_used") or []:
+            speakers.add(v)
+    live_speaker_count = len(speakers)
+
+    # Match the canonical claim shape. The regex is anchored on the
+    # specific prose pattern AUDIO.md uses; it skips historical
+    # references inside fenced code blocks or commits/changelog entries.
+    # Line 52 shape: "N listening items use M distinct VOICEVOX speakers"
+    pattern = re.compile(
+        r"(\d+)\s+listening items use\s+(\d+)\s+distinct VOICEVOX speakers",
+        re.IGNORECASE,
+    )
+    matches = pattern.findall(text)
+    if not matches:
+        # If the canonical claim was rephrased, that's information
+        # drift too — surface it.
+        failures.append(
+            "JA-112 AUDIO.md no longer contains the canonical "
+            "'N listening items use M distinct VOICEVOX speakers' claim. "
+            "If the claim was intentionally rephrased, update JA-112's "
+            "regex to match the new shape."
+        )
+        return failures
+
+    for n_str, m_str in matches:
+        n = int(n_str)
+        m = int(m_str)
+        if n != live_item_count:
+            failures.append(
+                f"JA-112 AUDIO.md claims {n} listening items but "
+                f"live count is {live_item_count} (drift)"
+            )
+        if m != live_speaker_count:
+            failures.append(
+                f"JA-112 AUDIO.md claims {m} distinct VOICEVOX "
+                f"speakers but live count is {live_speaker_count} (drift)"
             )
     return failures
 
