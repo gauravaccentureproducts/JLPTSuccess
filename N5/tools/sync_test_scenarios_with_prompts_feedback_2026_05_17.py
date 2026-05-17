@@ -173,8 +173,8 @@ FP_ENTRIES = [
 # Tuple: (tab, doc_path_rel, summary_title, summary_body)
 AUDIT_DOCS = [
     # === feedback/ (current) ===
-    ("A", "feedback/_n5_richness_audit_20260509.txt", "n5 richness audit 2026-05-09 — depth-over-width assessment",
-     "Cross-cutting richness audit (2026-05-09). Assesses whether N5 corpus depth (collocations, pitch-accent, examples, authentic-content, contrasts, common_mistakes) meets the Tofugu / Bunpro / Genki bar on existing entries before any width additions are considered."),
+    ("A", "not-required/_n5_richness_audit_20260509.txt", "n5 richness audit 2026-05-09 — depth-over-width assessment (superseded; moved to not-required/ 2026-05-17)",
+     "Cross-cutting richness audit (2026-05-09). Assesses whether N5 corpus depth (collocations, pitch-accent, examples, authentic-content, contrasts, common_mistakes) meets the Tofugu / Bunpro / Genki bar on existing entries before any width additions are considered. NOTE 2026-05-17: file moved to not-required/ — explicitly superseded by n5-richness-audit-2026-05-12.md which states 'the corpus has already absorbed the 2026-05-09 audit fully'. Scenario kept as historical pointer."),
     ("A", "feedback/accuracy-audit-run4-2026-05-13.md", "Accuracy audit run-4 2026-05-13 — bootstrap-with-wrong-state class",
      "4th accuracy audit cycle (2026-05-13). Caught n5-166 set-greetings meaning_ja contamination that 3 native-teacher + 3 accuracy audits missed. Lesson: install scripts that bootstrap from data inherit any contamination already present. JA-71/75 lock; JA-80 attempted then retired."),
     ("A", "feedback/audit-drift-findings-2026-05-12.md", "Audit-drift findings 2026-05-12 — drift between prompt CURRENT STATE and live data",
