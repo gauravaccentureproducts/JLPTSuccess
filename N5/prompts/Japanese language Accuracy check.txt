@@ -3480,27 +3480,127 @@ When NOT to use baseline-allowlist:
     signal — the invariant itself is too strict and needs a
     refinement, not allowlisting at scale.
 
-Bounded-coverage phrasing reminder: JA-91's baseline allowlists 43
-specific cross-pattern pairs *in the corpus snapshot scanned
-2026-05-17*. JA-94's baseline allowlists 14 specific BUG-006-
-CANDIDATE wrong-example failures *against the markers catalog
-authored 2026-05-17*. A future native-reviewer pass could (a)
-merge DUPLICATE_PATTERN pairs into single IDs, (b) shorten
-CROSS_REFERENCE explanations to deep-link pointers, (c) author
-per-variant register notes for ALTERNATIVE_VARIANT pairs, or (d)
-rewrite/move the 14 BUG-006-CANDIDATE examples to their correct
-parent patterns. None of these are blocking; JA-91 + JA-94
-capture the current state and lock no-drift forward.
+**Status update (2026-05-17 Phase A + Phase B resolution — Parts 19
+and 21 of AUDIT-COVERAGE):** the baselines that A63 originally
+documented (43 cross-pattern pairs for JA-91, 14
+BUG-006-CANDIDATE examples for JA-94) were both *resolved* the same
+day:
 
-CI count at this checkpoint: 120 → 122 (+2 from JA-91 final-wire
-+ JA-94 final-wire). Total wired invariants: JA-1..JA-90 +
+  - **Phase A** rewrote each of the 14 wrong-example failures into
+    parent-pattern-demonstrating examples (n5-030 / n5-048 / n5-065 /
+    n5-071 / n5-084 / n5-112 / n5-157 / n5-164). JA-94 now enforces
+    marker-presence on every example unconditionally;
+    `data/_ja94_baseline.json` baseline_failing_examples is `[]`.
+  - **Phase B** rewrote the deferring side's explanation_en on 33
+    patterns covering all 43 prior pairs (DUPLICATE_PATTERN ×8 →
+    diverged via re-introduction framing; CROSS_REFERENCE ×21 →
+    deferring side rewritten as focused sub-scope entry pointing at
+    parent; ALTERNATIVE_VARIANT ×12 → both sides rewritten with
+    register / syntactic-frame distinguishing prose; SUBSET ×2 →
+    n5-048 rewritten as focused 'where' question-word entry).
+    JA-91 now enforces the 0.85 threshold unconditionally;
+    `data/_ja91_baseline.json` baseline_pairs is `[]`.
+
+Both baseline files retain their classification legend + _meta as
+RESOLVED snapshots documenting the prior pair set. A63's
+methodology note (baseline-allowlist pattern) stays relevant — the
+two specific applications it documented are resolved, but the
+*pattern* (allowlist a known finite set of legitimate cases, trip
+on NEW drift only) remains the recommended path for future
+reserved-invariant promotions where the detector mechanically
+surfaces legitimate corpus structure mixed with genuine bugs.
+
+Bounded-coverage phrasing reminder: JA-91 + JA-94 each previously
+allowlisted a specific finite set of items snapshotted at the
+2026-05-17 corpus state; both lists are now empty after Phase A +
+Phase B resolution. JA-91 + JA-94 continue to enforce no-drift
+forward on the live corpus. Future native-reviewer passes can still
+file fixes against patterns the rewrites only TEXT-diverged (e.g.,
+the 8 DUPLICATE_PATTERN pairs still cover the same conceptual
+content under two IDs — a future merge audit could collapse them
+structurally), but those are corpus-restructuring audits, not
+JA-91/JA-94 blockers.
+
+CI count at this checkpoint: 122 (unchanged from final-wire +
+Phase A/B resolution). Total wired invariants: JA-1..JA-90 +
 JA-91..JA-95 + JA-96..JA-119 (122; JA-80 retired). The JA-91..JA-95
-reserved range is now fully consumed. All 122 green post-wire
-against the current corpus snapshot.
+reserved range is now fully consumed AND both reserved-range
+allowlists are RESOLVED with empty baselines.
 
 Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 19 addendum
-(2026-05-17); spec §25.4 JA-91 + JA-94 rows; data files
+(initial unblock with non-empty baselines) + Part 21 addendum
+(Phase A + Phase B resolution to empty baselines, 2026-05-17);
+spec §25.4 JA-91 + JA-94 rows + §25.7 deferred-block (now both
+referencing RESOLVED state); data files
 `data/_ja91_baseline.json` + `data/pattern_markers.json` +
-`data/_ja94_baseline.json`; authoring tool
-`tools/author_pattern_markers_2026_05_17.py`.
+`data/_ja94_baseline.json`; authoring tools
+`tools/author_pattern_markers_2026_05_17.py`,
+`tools/apply_bug006_candidate_fixes_2026_05_17.py`,
+`tools/apply_ja91_explanation_rewrites_2026_05_17.py`.
+============================================================
+
+============================================================
+A64. Audio Phase-2 close-out — full VOICEVOX from-source re-render
+     at unified speed_scale supersedes stacked post-processing.
+     (Methodology — added 2026-05-17, AUDIT-COVERAGE Part 22.)
+
+Phases 1 + 1.5 (commits 47d1edc + c79c02e) applied
+post-processing layers (ffmpeg-atempo + librubberband on 3
+chained items) to bring the 2026-05-12 VOICEVOX render at
+speed_scale=0.95 into the JLPT N5 target band 180-240 mpm. Both
+shipped — Phase-2 was the broader-scope upgrade that was
+deferred pending local VOICEVOX install.
+
+With VOICEVOX installed agent-side, Phase-2 ran (commit cdd0e6d):
+  - Full from-source re-render of all 50 listening items at
+    speed_scale=1.00 (raised from 0.95). 6 distinct speakers
+    preserved; per-item speaker assignment unchanged.
+  - Post-render pacing pass applied ffmpeg-atempo to 34 items
+    needing band adjustment.
+  - 5 items (sub-0.5 factor) had chained-atempo replaced with
+    single-pass librubberband — same quality-upgrade pattern as
+    Phase-1.5.
+  - Final distribution: 50/50 in_range; mean 214.5 mpm; 16
+    direct VOICEVOX / 29 single-pass atempo / 5 single-pass
+    rubberband.
+
+Methodology lesson: stacked post-processing layers (atempo on a
+0.95-baseline render with chained atempo for extreme cases)
+work AND ship, but they accumulate provenance complexity.
+A from-source re-render at a unified speed_scale + minimal
+per-item post-processing is cleaner — every item is a single
+TTS render with at most one adjustment filter, not a cascade
+of compensations.
+
+When to invoke Phase-2-style re-render (vs continued
+post-processing):
+  (a) The TTS engine is locally available (no API quota / no
+      install-gating).
+  (b) The baseline speed_scale was clearly suboptimal for the
+      target band (e.g., > 30% of items needed adjustment).
+  (c) Provenance value of "one render, one filter" justifies
+      the wall-clock cost (Phase-2 took ~12 min on 50 items).
+
+When NOT to re-render:
+  - The current ship state passes CI + auditory review.
+  - The TTS engine is API-gated and quota-expensive.
+  - The post-processing footprint is genuinely small (e.g.,
+    < 10% of items adjusted, none at extreme factors).
+
+Bounded-coverage phrasing reminder: Phase-2 retired the chained-
+atempo artifact class *for this corpus snapshot at the 6-speaker
+voice plan*. A future corpus growth (e.g., 100 items, new
+speakers) might re-introduce the class — the methodology
+generalizes; the specific resolution snapshot does not.
+
+CI count unchanged at 122; this is an audio-content +
+audio-metadata batch, not new schema invariants. All audio-class
+invariants pass (JA-110 / JA-111 / JA-112 / JA-114).
+
+Cross-reference: AUDIO-PHASE2-VOICEVOX-RERENDER.md (rewritten
+2026-05-17 from runbook to COMPLETED status with full phase
+timeline); AUDIT-COVERAGE-2026-05-15.md Part 22 addendum;
+authoring tools
+`tools/render_listening_phase2_voicevox_1_00_2026_05_17.py` +
+`tools/apply_phase2_rubberband_chained_items_2026_05_17.py`.
 ============================================================

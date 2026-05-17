@@ -235,13 +235,20 @@ design-system rules green · audit tracker 219 Done / 3 Avoid / 0 Open /
 - **Hindi (niche-N1):** 100 % `meaning_hi` / `gloss_hi` /
   `meanings_hi` / `summary_hi` / `explanation_hi` / `l1_notes.hi`
   across all surfaces, native_reviewed at LLM-persona Q33 quality bar.
-- **Audio (round-9):** 47 listening items rendered with **VOICEVOX
-  0.25.2 multi-voice** (4 distinct speakers: Shikoku Metan, Shirakami
-  Kotaro, Hau Tsumugi, Aoyama Ryusei), `speed_scale=1.30` putting
-  pace in JLPT-N5 target band 180–240 morae/min. Grammar (631) and
-  reading (40) on gTTS. Truncation guard
+- **Audio (current, post-Phase-2 2026-05-17):** **50 listening items**
+  rendered with **VOICEVOX 0.25.2 multi-voice** at `speed_scale=1.00`
+  via from-source Phase-2 re-render (commit `cdd0e6d`). **6 distinct
+  speakers** (春日部つむぎ / 玄野武宏 / 四国めたん / ずんだもん /
+  雨晴はう / 青山龍星) rotated deterministically per item, role-aware
+  speaker mapping by `script_ja` line prefix. Pacing post-render +
+  post-processing: 50 / 50 in target band 180–240 mpm; mean 214.5;
+  16 items direct from VOICEVOX, 29 with single-pass `ffmpeg-atempo`,
+  5 with single-pass `ffmpeg-rubberband` (factor < 0.5).
+  Grammar (1782) on VOICEVOX (round-10 flip from gTTS, 2026-05-12).
+  Reading (54) on gTTS. Truncation guard
   (`tools/fix_truncated_audio_2026_05_07.py`) closed 9 mid-sentence
-  clipped clips. **718 / 718 audio files on disk (100 %).**
+  clipped clips. **All audio files on disk (100 %).** Phase timeline
+  in `docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md`.
 - **PWA / SRS:** Installable, offline-first, **FSRS-4.5** (replaced
   SM-2) unified across grammar + vocab + kanji in a single daily
   review queue.

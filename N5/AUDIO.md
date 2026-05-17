@@ -6,13 +6,13 @@ and the chokai virtual mock paper. **All audio is generated offline at
 build time and committed to the repo** — the runtime never makes a
 TTS API call.
 
-## Current state (2026-05-14, post-A47 sweep)
+## Current state (2026-05-17, post-Phase-2 VOICEVOX re-render)
 
 | Module    | Total declared | On disk | Backend (actual) | Voices |
 |-----------|----------------|---------|------------------|--------|
 | Grammar   | 1782           | 1782 (100%) | **VOICEVOX 0.25.2** | 1 (春日部つむぎ, speaker 8) |
 | Reading   | 54             | 54 (100%)   | gTTS                  | 1 |
-| Listening | 50             | 50 (100%)   | **VOICEVOX 0.25.2**   | **4** (rotating) |
+| Listening | 50             | 50 (100%)   | **VOICEVOX 0.25.2**   | **6** (rotating) |
 | Kanji per-yomi | 259       | 259 (100%)  | **VOICEVOX 0.25.2**   | 1 (春日部つむぎ, speaker 8) |
 | **Total** | **2145**       | **2145 (100%)** | VOICEVOX-dominant | — |
 
@@ -74,8 +74,14 @@ Kurono Takehiro). The table below is derived from
 | 青山龍星 ノーマル (Aoyama Ryusei)          | 13 |  6 | Male (deeper)   | Alt 男 / 先生 / B / narrator |
 
 Voice rotation is deterministic per item (seeded by `id`) so re-renders
-are reproducible. `speed_scale = 1.30` puts narration in the JLPT-N5
-target band of **180–240 morae/min**.
+are reproducible. **Current speed_scale (Phase-2, 2026-05-17): 1.00**
+— close to native conversational pace; out-of-band items get
+per-item ffmpeg post-processing (single-pass `atempo` for factor in
+[0.5, 2.0]; single-pass `rubberband` for factor < 0.5) to land them
+in the JLPT-N5 target band of **180–240 morae/min**. See
+`docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` for the full phase history
+(2026-05-12 render at 0.95 → Phase-1 atempo `47d1edc` → Phase-1.5
+rubberband `c79c02e` → Phase-2 from-source re-render `cdd0e6d`).
 
 Each rendered file's metadata is captured in
 `data/audio_manifest_voice.json` and inlined into the per-item
@@ -85,11 +91,21 @@ Each rendered file's metadata is captured in
 "audio_render_meta": {
   "voice_provider": "voicevox",
   "voicevox_engine_version": "0.25.2",
-  "voices_used": ["shikoku-metan-normal", "shirakami-kotaro-futsu"],
-  "speed_scale": 1.30,
-  "rendered_at": "2026-05-07T01:01:51+00:00"
+  "voices_used": [
+    "voicevox-speaker-8-春日部つむぎ-ノーマル",
+    "voicevox-speaker-11-玄野武宏-ノーマル"
+  ],
+  "speed_scale": 1.00,
+  "rendered_at": "2026-05-17T18:30:00+00:00",
+  "phase2_voicevox_rerender_2026_05_17": true,
+  "post_render_tempo_change_2026_05_17": 0.95,
+  "post_render_tempo_method": "ffmpeg-atempo"
 }
 ```
+
+Post-render tempo fields are only present on the 34 items where the
+fresh VOICEVOX render landed outside target band; 16 items have no
+post-processing fields.
 
 ## Builder scripts
 
