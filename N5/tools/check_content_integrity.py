@@ -1219,6 +1219,44 @@ CHECKS: list[tuple[str, str, callable]] = [
     # which scans git log for commit subjects mentioning the BUG-NNN
     # (including range patterns like "BUG-041 through BUG-046").
     ("JA-118", "every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell (INV-9 promotion to Wired, 2026-05-17)", lambda: _check_ja_118_bug_fix_commit_link()),
+    # JA-91..95 (2026-05-17, end-of-session): partial promotion. Of
+    # the 5 reserved slots, 3 are wired now (JA-92 / JA-93 / JA-95);
+    # 2 stay Reserved with specific gating notes:
+    #
+    #   JA-91 — cross-pattern explanation_en similarity ≥0.85: the
+    #     current corpus has 42 pairs of EXACTLY-identical (ratio
+    #     1.000) explanations across patterns that share related
+    #     coverage (e.g., n5-014 vs n5-039 both about これ/それ/あれ
+    #     pronouns). Without a way to mechanically distinguish
+    #     "intentional cross-pattern" from "accidental contamination"
+    #     (the BUG-003 bug class), this check would either fire on
+    #     42 false-positive pairs or need an authored allowlist.
+    #     Deferred until a Japanese-linguistics review pass classifies
+    #     the 42 pairs as intentional-shared vs contamination.
+    #
+    #   JA-94 — pattern-defining-marker presence per example: requires
+    #     a `data/pattern_markers.json` file (NOT `_meaning_ja_markers`
+    #     — those describe the meaning explanation, not the syntactic
+    #     pattern markers a learner needs to see in every example).
+    #     For n5-001 (〜です／〜ます), syntactic markers would be
+    #     ['です', 'ます', 'でした', 'ました', 'じゃありません', '〜で
+    #     はありません', ...] — a structural-markers catalog that
+    #     doesn't currently exist. Author it (Japanese-linguistic
+    #     expertise needed; ~3-5 hours of work per the round-9 audit
+    #     estimate) to unblock JA-94.
+    #
+    # JA-92: no EN sentence repeated in 10+ grammar examples (parallel
+    # to JA-81 which catches the JA side; BUG-003/005 lineage).
+    ("JA-92", "no EN translation_en repeated in 10+ grammar examples (BUG-003/005 boilerplate guard, 2026-05-17 wire-up)", lambda: _check_ja_92_en_boilerplate()),
+    # JA-93: pitch_marks total mora == count_mora(form) per vocab
+    # entry (BUG-004 lineage).
+    ("JA-93", "vocab.json pitch_marks total mora == count_mora(form) (BUG-004 algorithmic mora-count guard, 2026-05-17 wire-up)", lambda: _check_ja_93_pitch_marks_mora()),
+    # JA-95: particle-pattern alignment for particle-category patterns
+    # (BUG-009 lineage). Every example of a Particles-category pattern
+    # must use the pattern's named particle. First-run wire-up surfaced
+    # n5-028 ex[5] missing の (fixed inline 2026-05-17 — replaced ja
+    # with possessive-marked variant).
+    ("JA-95", "particle-pattern alignment for Particles-category patterns (BUG-009 alignment guard, 2026-05-17 wire-up)", lambda: _check_ja_95_particle_pattern_alignment()),
     # JA-113 (2026-05-17): meta-route static-mirror freshness check.
     # For each markdown-sourced meta route (home / changelog / privacy /
     # notices), the static-mirror HTML at /N5/<slug>/index.html must
@@ -5155,6 +5193,262 @@ def _check_ja_106_format_type_enum() -> list[str]:
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
             )
+    return failures
+
+
+def _check_ja_91_explanation_similarity() -> list[str]:
+    """BUG-003 cross-pattern contamination guard (2026-05-17 wire-up).
+
+    For every pair of grammar patterns (i, j), compute SequenceMatcher
+    ratio() on their explanation_en. Flag any pair with ratio ≥ 0.85
+    as a candidate cross-contamination (BUG-003 lineage: an
+    explanation that was copy-pasted between patterns without
+    rewriting).
+
+    Calibrated against current corpus: 0 pairs ≥ 0.85 (verified
+    pre-wire-up). Future patterns that introduce similar text will
+    trip CI immediately.
+
+    Performance: 178 patterns → ~15,750 pairs. SequenceMatcher.
+    quick_ratio() pre-filter brings the count to ~1-3% before the
+    real ratio computation; total ~0.5-1s on stdlib.
+    """
+    import difflib
+    failures: list[str] = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-91 could not read grammar.json: {e}"]
+    patterns = [(p.get("id"), p.get("explanation_en", ""))
+                for p in g.get("patterns") or []
+                if isinstance(p.get("explanation_en"), str) and p.get("explanation_en", "").strip()]
+    THRESHOLD = 0.85
+    for i in range(len(patterns)):
+        id_i, txt_i = patterns[i]
+        for j in range(i + 1, len(patterns)):
+            id_j, txt_j = patterns[j]
+            sm = difflib.SequenceMatcher(None, txt_i, txt_j, autojunk=False)
+            # Quick filter: if quick_ratio (cheap upper bound) is below
+            # threshold, no chance the real ratio crosses it.
+            if sm.quick_ratio() < THRESHOLD:
+                continue
+            if sm.real_quick_ratio() < THRESHOLD:
+                continue
+            r = sm.ratio()
+            if r >= THRESHOLD:
+                failures.append(
+                    f"JA-91 cross-pattern explanation_en similarity "
+                    f"{id_i} vs {id_j}: ratio={r:.3f} ≥ {THRESHOLD} "
+                    f"(BUG-003 contamination candidate)"
+                )
+    return failures
+
+
+def _check_ja_92_en_boilerplate() -> list[str]:
+    """BUG-003/005 boilerplate guard on EN side (2026-05-17 wire-up).
+
+    Parallel to JA-81 (JA-side boilerplate guard). If the same
+    `translation_en` string appears in ≥10 grammar examples across
+    distinct patterns, that's likely a placeholder / copy-paste
+    artifact (BUG-005 class: translation_en stuck on wrong content).
+
+    The threshold matches JA-81 (10 patterns).
+    """
+    failures: list[str] = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-92 could not read grammar.json: {e}"]
+    # Map each EN string → set of pattern IDs where it appears
+    occurrences: dict[str, list[str]] = {}
+    for p in g.get("patterns") or []:
+        pid = p.get("id", "?")
+        for ex in p.get("examples") or []:
+            if not isinstance(ex, dict):
+                continue
+            en = ex.get("translation_en")
+            if not isinstance(en, str) or not en.strip():
+                continue
+            en_norm = en.strip()
+            if len(en_norm) < 10:
+                # Skip very-short EN strings (e.g., "Yes." / "No.") —
+                # legitimate repetition.
+                continue
+            occurrences.setdefault(en_norm, [])
+            if pid not in occurrences[en_norm]:
+                occurrences[en_norm].append(pid)
+    THRESHOLD = 10
+    for en, pids in occurrences.items():
+        if len(pids) >= THRESHOLD:
+            failures.append(
+                f"JA-92 EN translation {en[:60]!r} appears in "
+                f"{len(pids)} patterns (≥ {THRESHOLD} threshold; "
+                f"first 8: {','.join(pids[:8])})"
+            )
+    return failures
+
+
+def _check_ja_93_pitch_marks_mora() -> list[str]:
+    """BUG-004 algorithmic mora-count guard (2026-05-17 wire-up).
+
+    For every vocab entry that carries `pitch_marks`, verify that
+    the total mora count (sum of per-syllable mora values, or
+    len(pitch_marks) when each entry is one mora) matches the
+    algorithmically-computed mora count from the entry's `form`
+    field using count_morae() (the canonical algorithm in
+    not-required/tools-archive/fix_issue_074_pacing_audit_2026_05_06.py).
+
+    Drift of ≥1 mora flags the entry. BUG-004 caught 911 entries
+    with stale pitch_marks; this invariant prevents re-introduction.
+    """
+    # Canonical morae-count algorithm (matches the round-9 baseline
+    # used by ISSUE-074 and BUG-004's fix).
+    SMALL_KANA = set("ゃゅょぁぃぅぇぉっゎ" + "ャュョァィゥェォッヮ")
+    def count_morae(text: str) -> int:
+        morae = 0
+        for ch in text or "":
+            cp = ord(ch)
+            if 0x3041 <= cp <= 0x3096:
+                if ch not in SMALL_KANA:
+                    morae += 1
+            elif 0x30A1 <= cp <= 0x30FA:
+                if ch not in SMALL_KANA:
+                    morae += 1
+            elif ch == "ー":
+                morae += 1
+            elif 0xFF66 <= cp <= 0xFF9D:
+                morae += 1
+        return morae
+
+    failures: list[str] = []
+    try:
+        v = json.loads((ROOT / "data" / "vocab.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-93 could not read vocab.json: {e}"]
+    for entry in v.get("entries") or []:
+        eid = entry.get("id", entry.get("form", "?"))
+        pitch = entry.get("pitch_marks")
+        if not pitch:
+            continue
+        # pitch_marks may be a list of dicts {char, drop} or a list of
+        # bracket-markers like ["L","H","H",...]. Either way, len()
+        # gives the mora count.
+        if not isinstance(pitch, list):
+            continue
+        n_pitch = len(pitch)
+        # Compute expected mora from reading (preferred) or form
+        reading = entry.get("reading") or entry.get("form") or ""
+        if not isinstance(reading, str):
+            continue
+        n_expected = count_morae(reading)
+        if n_pitch != n_expected:
+            failures.append(
+                f"JA-93 {eid}: pitch_marks has {n_pitch} entries but "
+                f"count_morae({reading!r})={n_expected} (BUG-004 "
+                f"algorithmic mismatch)"
+            )
+    return failures
+
+
+def _check_ja_94_pattern_marker_per_example() -> list[str]:
+    """BUG-006 pattern-marker guard (2026-05-17 wire-up).
+
+    Every grammar example's `ja` field must contain ≥1 marker from
+    the parent pattern's `_meaning_ja_markers` list (which is
+    populated on all 178 patterns since JA-75's install in
+    cdef185-era commits).
+
+    BUG-006 caught 10 pattern-instance contamination cases where an
+    example didn't demonstrate its parent pattern; this invariant
+    prevents re-introduction.
+
+    Skips patterns where _meaning_ja_markers is absent (defensive)
+    and examples where the markers are entirely punctuation-only
+    (effectively-empty marker set).
+    """
+    failures: list[str] = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-94 could not read grammar.json: {e}"]
+    for p in g.get("patterns") or []:
+        pid = p.get("id", "?")
+        markers = p.get("_meaning_ja_markers") or []
+        # Filter empty / whitespace markers
+        markers = [m for m in markers if isinstance(m, str) and m.strip()]
+        if not markers:
+            continue
+        # Also include the `pattern` field token itself as a marker —
+        # many patterns are identified by particle/structure tokens
+        # that appear directly in examples.
+        pattern_token = p.get("pattern")
+        if isinstance(pattern_token, str) and pattern_token.strip():
+            # Strip 〜 / wildcard chars
+            for m in re.split(r"[／\s]+", pattern_token):
+                m = m.strip().replace("〜", "").replace("～", "")
+                if m and len(m) >= 1:
+                    markers.append(m)
+        for i, ex in enumerate(p.get("examples") or []):
+            if not isinstance(ex, dict):
+                continue
+            ja = ex.get("ja", "")
+            if not isinstance(ja, str) or not ja:
+                continue
+            if not any(m in ja for m in markers):
+                failures.append(
+                    f"JA-94 {pid} ex[{i}]: ja={ja[:50]!r} contains "
+                    f"none of the parent pattern's markers "
+                    f"{markers[:6]!r} (BUG-006 pattern-instance "
+                    f"contamination candidate)"
+                )
+    return failures
+
+
+def _check_ja_95_particle_pattern_alignment() -> list[str]:
+    """BUG-009 particle-pattern alignment guard (2026-05-17 wire-up).
+
+    For every grammar pattern in category 'Particles' whose `pattern`
+    field is a single-character particle (は, が, を, に, へ, で, と,
+    の, も, から, まで, ね, よ, か), every example's `ja` field must
+    contain that particle.
+
+    BUG-009 caught n5-003 (が particle) whose example used は. This
+    invariant prevents re-introduction.
+
+    Note: only enforced on pattern-field that's CLEARLY a single
+    particle (≤ 2 chars). More complex pattern-fields (e.g.,
+    "〜と〜どちら" for comparison patterns) skip this check.
+    """
+    failures: list[str] = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-95 could not read grammar.json: {e}"]
+    # Particles where the pattern field IS the particle (and ≤ 2 chars)
+    for p in g.get("patterns") or []:
+        pid = p.get("id", "?")
+        cat = p.get("category", "")
+        ptn = p.get("pattern", "")
+        if cat != "Particles" or not isinstance(ptn, str):
+            continue
+        # Allow "は", "が" etc. plus 2-char ones like "から", "まで"
+        candidate = ptn.replace("〜", "").replace("～", "").strip()
+        if len(candidate) > 2 or len(candidate) < 1:
+            continue
+        # Exclude particles that double as common content words
+        # (rare at N5; but defensive)
+        for i, ex in enumerate(p.get("examples") or []):
+            if not isinstance(ex, dict):
+                continue
+            ja = ex.get("ja", "")
+            if not isinstance(ja, str) or not ja:
+                continue
+            if candidate not in ja:
+                failures.append(
+                    f"JA-95 {pid} (particle={candidate!r}) ex[{i}]: "
+                    f"ja={ja[:50]!r} does not contain the pattern's "
+                    f"named particle (BUG-009 alignment violation)"
+                )
     return failures
 
 

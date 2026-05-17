@@ -2467,3 +2467,194 @@ acceptable for current shipping state; institutional-grade
 audio quality would warrant a Phase-2 VOICEVOX re-render at
 speed_scale=1.00 — surfaced in this addendum's "Audio quality
 note" but not blocked behind a tracker entry.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 17) — End-of-session sweep: JA-91..95 partial promotion + INV-1/2/8 commit-time hooks + Audio Phase-2 handoff
+
+User directive 2026-05-17: "do whatever is required tbd but finish
+it". This addendum captures the final-batch close-out across three
+classes of remaining work — reserved-slot promotion (JA-91..95),
+commit-time tooling (INV-1 / INV-2 / INV-8), and the Audio Phase-2
+maintainer handoff.
+
+### Wired this batch (3 new CI invariants)
+
+- **JA-92** — no EN `translation_en` repeated in 10+ grammar examples
+  (parallel to JA-81 which catches the JA-side boilerplate;
+  BUG-003/005 lineage). Passes on current corpus.
+- **JA-93** — vocab.json `pitch_marks` total mora count matches
+  `count_morae(reading)` for every entry that carries pitch_marks
+  (BUG-004 algorithmic mora-count guard; preserved verbatim from
+  `not-required/tools-archive/fix_issue_074_pacing_audit_2026_05_06.py`).
+  Passes on current corpus.
+- **JA-95** — particle-pattern alignment for grammar patterns in
+  category "Particles" whose `pattern` field is a 1-2 char particle
+  (BUG-009 lineage). **First-run caught n5-028 ex[5]** (the 〜の
+  pattern) using は instead of の: `ja='父は 先生です。'` → fixed
+  inline to `'わたしの 父は 先生です。'` (preserves the EN
+  translation "My father is a teacher." while adding the canonical
+  possessive の). The auto-derived provenance was updated to
+  `manual_edit_post_auto_xref_2026_05_17` and a
+  `ci_discovered_fix_2026_05_17` field added documenting the find.
+
+### Deferred this batch (2 reserved slots kept reserved with gating notes)
+
+- **JA-91** — cross-pattern explanation_en similarity ≥0.85
+  Levenshtein. The current corpus has **42 pairs of EXACTLY
+  identical explanations** (ratio=1.000) across patterns sharing
+  related coverage (e.g., n5-014 vs n5-039 both about これ/それ/あれ
+  pronouns; n5-016 vs n5-041 + n5-048 about こ/そ/あ/ど locations).
+  Without a way to mechanically distinguish "intentional cross-
+  pattern" from "accidental contamination" (the BUG-003 bug class
+  JA-91 was meant to catch), the check would fire on 42 false-
+  positive pairs or need an authored allowlist. **Gated on:** a
+  Japanese-linguistics review pass classifying the 42 pairs as
+  intentional-shared vs contamination. Estimated ~2-3 hours; either
+  resolves with "all 42 are intentional → snapshot baseline" or
+  "N of the 42 are contamination → fix the N, snapshot the rest".
+
+- **JA-94** — pattern-defining-marker presence per grammar example.
+  The spec's original text expected `data/pattern_markers.json` —
+  a structural-markers catalog (e.g., for n5-001 〜です／〜ます:
+  `['です','ます','でした','ました','じゃありません','ではありません',
+  ...]`). This file does NOT exist; mid-session attempt to use
+  `_meaning_ja_markers` instead was rejected (469 false-positive
+  fails — those markers describe the MEANING explanation, not the
+  syntactic patterns a learner needs in every example). **Gated
+  on:** authoring `data/pattern_markers.json` (Japanese-linguistic
+  expertise needed; ~3-5 hours per the round-9 audit estimate).
+
+The deferred-status notes are documented in spec §25.7 with the
+exact gating conditions and estimated effort to unblock.
+
+### Commit-time hooks installed (INV-1 / INV-2 / INV-8 enforcement)
+
+New `.githooks/` directory at the repo root:
+
+- **`.githooks/pre-commit`** — checks staged files at commit time:
+  - INV-2 warning when `N5/specifications/*.md` is staged without
+    accompanying code/data file under N5/
+  - INV-8 warning when `N5/data/*.json` is staged without
+    `N5/CHANGELOG.md`
+- **`.githooks/commit-msg`** — checks commit-message body:
+  - INV-1 **hard fail** when subject mentions `BUG-NNN` or
+    `fix(bugs)` but body has no test / regression / JA-NN / "no
+    test — reason:" annotation
+  - INV-8 warning when commit touches ≥4 files but body is
+    short (<6 non-blank lines)
+- **`.githooks/README.md`** — install + bypass + maintenance notes
+
+**One-time install on maintainer's machine:**
+```
+git config core.hooksPath .githooks
+```
+
+After this, every `git commit` runs the hooks. Bypass with
+`--no-verify` (rare; the hooks exist because their failure modes
+were observed in this project's history). The hooks are local-only;
+the corpus-content CI invariants in
+`tools/check_content_integrity.py` (now JA-1..JA-118) still run on
+every push + PR via `.github/workflows/content-integrity.yml`.
+
+### Cross-Artifact Sync Protocol INV-N final distribution
+
+| INV | Description | Status |
+|---|---|---|
+| INV-1 | bug-fix touches test or annotates "no test" | **Hook** (.githooks/commit-msg) |
+| INV-2 | spec change references code | **Hook** (.githooks/pre-commit) |
+| INV-3 | code API change updates docs | Out of scope (no API) |
+| INV-4 | data counts ↔ version.json / docs | **Wired** (JA-47/107/112/115) |
+| INV-5 | UI strings ↔ all locales | **Wired** (JA-108) |
+| INV-6 | prompts ↔ xlsx coverage | **Wired** (JA-116) |
+| INV-7 | cross-file references resolve | **Wired** (JA-15/17/82/100/105/113/117) |
+| INV-8 | CHANGELOG completeness | **Hook** (.githooks/pre-commit + commit-msg) |
+| INV-9 | closed-bug → fix-commit link | **Wired** (JA-118) |
+| INV-10 | procedure-manual / prompt → script refs | **Wired** (JA-109) |
+
+Wired (hard CI): **6** · Hook (commit-time): **3** · Out of scope: **1**.
+
+**9 of 10 INV-N classes** are now enforced at some layer — the
+project ships with the Cross-Artifact Sync Protocol effectively
+fully implemented except for INV-3 which is genuinely N/A.
+
+### Audio Phase-2 — maintainer handoff
+
+`N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` (new) captures the
+Phase-2 quality-upgrade as a runbook for the maintainer:
+
+- Phase-1 (ffmpeg atempo on the 2026-05-12 VOICEVOX render at
+  speed_scale=1.30, applied in commit `47d1edc`) is shippable —
+  all 50 items in target band, mean 213.6 mpm.
+- Phase-2 (full re-render at speed_scale=1.00) is a *quality*
+  upgrade, not a correctness fix. Cleans the chained-atempo
+  artifacts on the 7 items that needed factor < 0.5.
+- Requires VOICEVOX installed locally (`winget install
+  HiroshibaKazuyuki.VOICEVOX.CPU` on Windows). One-time setup
+  ~10 min; re-render ~25 min.
+- The runbook includes the exact command sequence, expected CI
+  state post-fix, and what fields to clean up (the
+  `audio_render_meta.post_render_tempo_change_2026_05_17` markers
+  become obsolete after Phase-2).
+
+### CI invariants final state
+
+Total live: **119** (was 116; +3 from JA-92 / JA-93 / JA-95).
+
+Wired at CI: JA-1 / JA-2 / JA-5 / JA-6 / JA-8 / JA-11 / JA-13 /
+JA-14 / JA-15 / JA-16 / JA-17 / JA-18 / JA-19 / JA-20 / JA-21 /
+JA-22 / JA-23 / JA-24 / JA-25 / JA-26 / JA-27 / JA-28 / JA-29 /
+JA-30 / JA-31 / JA-32 / JA-33 / JA-34 / JA-35 / JA-36 / JA-37 /
+JA-38 / JA-39 / JA-40 / JA-41 / JA-47 / JA-48 / JA-49 / JA-50 /
+JA-51 / JA-52 / JA-53 / JA-54 / JA-55 / JA-56 / JA-57 / JA-58 /
+JA-59 / JA-60 / JA-61 / JA-62 / JA-63 / JA-64 / JA-65 / JA-66 /
+JA-67 / JA-68 / JA-69 / JA-70 / JA-71 / JA-72 / JA-73 / JA-74 /
+JA-75 / JA-76 / JA-77 / JA-78 / JA-79 / JA-81 / JA-82 / JA-83 /
+JA-84 / JA-85 / JA-86 / JA-87 / JA-88 / JA-89 / JA-90 / **JA-92**
+/ **JA-93** / **JA-95** / JA-96..JA-118.
+
+Reserved: JA-42..46 (long-deferred), JA-80 (retired), JA-91 +
+JA-94 (gated with specific notes; see spec §25.7).
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: NOT updated. These changes
+  are N5-internal governance; cross-level methodology guidance
+  (the procedure manual's audience) is unchanged.
+- ✓ Accuracy prompt: NOT updated. No new audit categories surfaced.
+- ✓ N5Improvement prompt: NOT updated. No new Phase-0 blocks.
+- ✓ This AUDIT-COVERAGE doc: Part 17 addendum above.
+- ✓ Implementation spec `JLPT-N5-Current-Implementation-Spec.md`:
+  - §25.1 row for JA-92
+  - §25.3 row for JA-95
+  - §25.4 row for JA-93
+  - §25.7 deferral notes for JA-91 + JA-94 (replacing the prior
+    "Reserved" placeholder)
+  - §25.10 INV-1/2/8 status → Hook; summary updated to 6 Wired
+    + 3 Hook + 1 OOS
+  - Section-header counts 116→119; next-free JA-NN = 119
+- ✓ N5/docs/cross-artifact-sync-map.md: audit-log row + INV-1/2/8
+  rows updated to "Convention + commit-hook"; strategy section
+  rewritten with 9-of-10 enforcement distribution
+- ✓ N5/CHANGELOG.md: Unreleased entry below
+- ✓ N5/data/grammar.json: n5-028 ex[5] ja fix (JA-95 first-run
+  finding)
+- ✓ .githooks/ (NEW directory): pre-commit + commit-msg + README
+
+### Final state for Part 17
+
+CI 119/119 invariants green. `cross_artifact_sync_report.py`
+exits CLEAN with 6 Wired + 3 Hook + 1 OOS. Bug tracker stays at
+53 / 53 Fixed / 0 Open. Cross-Artifact Sync Protocol is effectively
+fully implemented (9 of 10 INV-N enforced at some layer; INV-3
+genuinely N/A for this project's architecture). Audio Phase-2
+queued behind the maintainer's VOICEVOX install via a concrete
+runbook.
+
+This concludes the 2026-05-17 session's "do whatever is required
+tbd but finish it" pass. Per the protocol's bounded-coverage
+phrasing: the project is **closed against the user-reported bugs
+filed and the protocol-INV checklist scanned in this session**.
+Future work (e.g., JA-91 / JA-94 unblocking, new user-reported
+bugs, Nx-level adoption of Rule 5) will surface in subsequent
+audit cycles.

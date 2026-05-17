@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# commit-msg hook: INV-1 + INV-8 commit-message-side enforcement.
+#
+# INV-1: bug-fix commits touch a test OR annotate "no test — reason"
+# INV-8: CHANGELOG / fix commits name every dependent updated (the
+#        Rule-5 atomic-commit discipline — see N5/docs/
+#        cross-artifact-sync-map.md)
+#
+# Bypass: git commit --no-verify (rarely correct).
+
+set -uo pipefail
+MSG_FILE="$1"
+MSG="$(cat "$MSG_FILE")"
+
+# Color helpers
+if [ -t 2 ]; then
+  RED=$'\033[0;31m'; YELLOW=$'\033[0;33m'; RESET=$'\033[0m'
+else
+  RED=''; YELLOW=''; RESET=''
+fi
+fail() { echo "${RED}HOOK FAIL: $1${RESET}" >&2; exit 1; }
+warn() { echo "${YELLOW}HOOK WARN: $1${RESET}" >&2; }
+
+# Subject line = first line
+SUBJECT="$(echo "$MSG" | head -1)"
+
+# ============================================================
+# INV-1: bug-fix commit subject mentions BUG-NNN → require test
+#        signal in the commit body OR explicit "no test" annotation.
+# ============================================================
+if echo "$SUBJECT" | grep -qiE 'BUG-[0-9]+|fix\(bugs?\)'; then
+  # Look for test/regression signals in the message body
+  if echo "$MSG" | grep -qiE 'no test|skipping test|reason:|JA-[0-9]+|regression test|tests/|spec\.js|check_content_integrity|Phase-0|test-scenarios'; then
+    : # OK — message documents test coverage or explicit skip
+  else
+    fail "INV-1: commit subject mentions BUG-NNN / fix(bugs) but the message body doesn't reference a test, regression check, JA-NN invariant, Phase-0 block, or 'no test — reason: ...' annotation. Either add the test, or document the skip-reason. Bypass: git commit --no-verify (rare)."
+  fi
+fi
+
+# ============================================================
+# INV-8: large multi-file commits should list dependents.
+#        Heuristic: if the commit touches ≥4 files AND the message
+#        body is short (<6 non-blank lines after the subject), warn.
+# ============================================================
+N_FILES="$(git diff --cached --name-only | wc -l | tr -d ' \t')"
+BODY_LINES="$(echo "$MSG" | tail -n +3 | grep -vE '^\s*$' | wc -l | tr -d ' \t')"
+if [ "$N_FILES" -ge 4 ] && [ "$BODY_LINES" -lt 6 ]; then
+  warn "INV-8: this commit touches $N_FILES files but the message body is short ($BODY_LINES non-blank lines). Multi-file commits should name every dependent updated (per Rule-5 atomic-commit discipline). Run 'git diff --cached --stat' to review."
+fi
+
+exit 0

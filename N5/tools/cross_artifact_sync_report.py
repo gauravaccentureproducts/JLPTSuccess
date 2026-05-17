@@ -107,16 +107,18 @@ ARTIFACT_CLASSES = [
 ]
 
 
-# INV-N → JA-NN mapping. Status one of {wired, partial, convention, oos}.
+# INV-N → JA-NN mapping. Status one of {wired, hook, oos}.
+# "hook" = enforced at commit-time via .githooks/ (install with
+# `git config core.hooksPath .githooks`).
 INV_MAPPING = [
-    ("INV-1",  "Bug-fix commit touches test or annotates 'no test'", "convention", []),
-    ("INV-2",  "Spec change references corresponding code change", "convention", []),
+    ("INV-1",  "Bug-fix commit touches test or annotates 'no test'", "hook", [".githooks/commit-msg"]),
+    ("INV-2",  "Spec change references corresponding code change", "hook", [".githooks/pre-commit"]),
     ("INV-3",  "Code public-API change updates API docs", "oos", []),
     ("INV-4",  "Data-file count changes update version.json AND CHANGELOG", "wired", ["JA-47", "JA-107", "JA-112", "JA-115"]),
     ("INV-5",  "UI string change propagates to all locales", "wired", ["JA-108"]),
     ("INV-6",  "Prompt change includes regression test of golden output", "wired", ["JA-116"]),
     ("INV-7",  "Cross-file references resolve", "wired", ["JA-15", "JA-17", "JA-82", "JA-100", "JA-105", "JA-113", "JA-117"]),
-    ("INV-8",  "CHANGELOG entry names every dependent updated", "convention", []),
+    ("INV-8",  "CHANGELOG entry names every dependent updated", "hook", [".githooks/pre-commit", ".githooks/commit-msg"]),
     ("INV-9",  "Closed bug links to fix commit + regression test", "wired", ["JA-118"]),
     ("INV-10", "Procedure-manual script/tool references resolve", "wired", ["JA-109"]),
 ]
@@ -202,22 +204,20 @@ def emit_text_report(verbose: bool) -> int:
     # INV-N invariant matrix
     print("PROTOCOL INVARIANTS (INV-1..INV-10 status)")
     print("-" * 72)
-    wired = partial = convention = oos = 0
+    wired = hook = oos = 0
     for inv, desc, status, jas in INV_MAPPING:
         label = ", ".join(jas) if jas else "—"
         print(f"  {inv:<8} {status:<11} {desc}")
         print(f"           via: {label}")
         if status == "wired":
             wired += 1
-        elif status == "partial":
-            partial += 1
-        elif status == "convention":
-            convention += 1
+        elif status == "hook":
+            hook += 1
         elif status == "oos":
             oos += 1
     print()
-    print(f"  Wired (hard CI): {wired}    Partial: {partial}    "
-          f"Convention only: {convention}    Out of scope: {oos}")
+    print(f"  Wired (hard CI): {wired}    Hook (commit-time): {hook}    "
+          f"Out of scope: {oos}")
     print()
 
     print("=" * 72)

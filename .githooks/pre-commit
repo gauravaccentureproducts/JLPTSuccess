@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+# Pre-commit hook implementing INV-1 / INV-2 / INV-8 of the
+# Cross-Artifact Sync Protocol (BINDING Rule 5).
+#
+# INV-1: bug-fix commits touch a test file (or annotate "no test")
+# INV-2: spec change references corresponding code change
+# INV-8: CHANGELOG entry names every dependent updated
+#
+# These are commit-time checks that complement the CI invariants
+# (JA-1..JA-118 in tools/check_content_integrity.py). Install via:
+#
+#   git config core.hooksPath .githooks
+#
+# Bypass (rarely correct):  git commit --no-verify
+#
+# All checks operate on staged changes (git diff --cached).
+
+set -uo pipefail
+
+# Resolve the project root (the directory that contains .githooks/)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Color helpers (skip if not a TTY)
+if [ -t 1 ]; then
+  RED=$'\033[0;31m'; YELLOW=$'\033[0;33m'; GREEN=$'\033[0;32m'; RESET=$'\033[0m'
+else
+  RED=''; YELLOW=''; GREEN=''; RESET=''
+fi
+
+fail() { echo "${RED}HOOK FAIL: $1${RESET}" >&2; exit 1; }
+warn() { echo "${YELLOW}HOOK WARN: $1${RESET}" >&2; }
+ok()   { echo "${GREEN}HOOK OK:   $1${RESET}" >&2; }
+
+# Collect staged-file list (one path per line)
+STAGED_FILES="$(git diff --cached --name-only)"
+
+if [ -z "$STAGED_FILES" ]; then
+  exit 0  # Nothing staged
+fi
+
+# Get the commit message (the editor hook will run after this; for
+# the pre-commit hook we don't have the final message yet — so INV-1
+# and INV-8's commit-message-side enforcement runs in a commit-msg
+# hook below. The pre-commit hook handles the staged-files side.)
+
+# ============================================================
+# INV-1 — bug-fix commits touch a test or annotate "no test"
+# ============================================================
+# Heuristic: if any staged file path mentions "BUG-NNN" OR
+# N5/data/*.json is modified to mark a bug Fixed in the xlsx, then
+# at least one of:
+#   - N5/tools/check_content_integrity.py (new CI invariant), OR
+#   - N5/tools/fix_bugs_*.py (a fix script with regression coverage), OR
+#   - N5/tests/* (Playwright / unit test), OR
+#   - N5/prompts/N5Improvement.txt (Phase-0 regression block), OR
+#   - N5/specifications/test-scenarios-by-specialist-perspective.xlsx
+#     (test-scenario row added)
+# must also be staged. If none of those are present, surface as a
+# WARNING (not a hard fail — sometimes a bug close requires no new
+# test, and the commit message can document that).
+
+# The commit-msg hook below does the message-side check; here we
+# just track whether the staged-file set includes a "fix" signal.
+STAGED_LIST="$STAGED_FILES"
+HAS_TEST_FILE=0
+echo "$STAGED_LIST" | grep -qE '(N5/tools/check_content_integrity\.py|N5/tools/fix_bugs?_.*\.py|N5/tests/|N5/prompts/N5Improvement\.txt|specifications/test-scenarios-by-specialist-perspective\.xlsx)' && HAS_TEST_FILE=1
+
+# ============================================================
+# INV-2 — spec change references code
+# ============================================================
+# If any N5/specifications/*.md file is staged, at least one .py or
+# .js or .json file under N5/ should also be staged. Spec changes
+# without an accompanying code change are flagged (sometimes
+# legitimate — e.g., adding documentation prose with no behavior
+# change — but worth surfacing).
+SPEC_CHANGED=0
+CODE_CHANGED=0
+echo "$STAGED_LIST" | grep -qE '^N5/specifications/.*\.md$' && SPEC_CHANGED=1
+echo "$STAGED_LIST" | grep -qE '^N5/(tools|js|css|data|locales)/' && CODE_CHANGED=1
+if [ "$SPEC_CHANGED" = "1" ] && [ "$CODE_CHANGED" = "0" ]; then
+  warn "INV-2: a spec file under N5/specifications/ is staged but no code/data file is. If the spec change is doc-only, annotate the commit message with 'spec-only:' or 'doc-only:'. If it should be backed by a code change, stage that change."
+fi
+
+# ============================================================
+# INV-8 — CHANGELOG entry coverage (basic shape check)
+# ============================================================
+# If any N5/data/*.json is staged AND it's NOT just a backup file,
+# require that N5/CHANGELOG.md also be staged (unless the commit
+# message annotates 'chore(housekeep):' or 'docs(mirrors):' etc).
+DATA_CHANGED=0
+echo "$STAGED_LIST" | grep -qE '^N5/data/.*\.json$' && DATA_CHANGED=1
+CHANGELOG_CHANGED=0
+echo "$STAGED_LIST" | grep -qE '^N5/CHANGELOG\.md$' && CHANGELOG_CHANGED=1
+# Only fail if data changed but CHANGELOG didn't. This is a soft
+# enforcement (warning, not block) because some data edits are
+# correctly tracked elsewhere (e.g., bug-tracker xlsx entries cover
+# the change record).
+if [ "$DATA_CHANGED" = "1" ] && [ "$CHANGELOG_CHANGED" = "0" ]; then
+  warn "INV-8: a file under N5/data/ is staged but N5/CHANGELOG.md is not. If the data change is user-visible, add a CHANGELOG entry. If it's a backup/regen/internal-only change, the commit message should say so."
+fi
+
+# All checks passed (or only warnings). Let the commit proceed.
+exit 0

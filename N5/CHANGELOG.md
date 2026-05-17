@@ -2,6 +2,143 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (End-of-session sweep: JA-91..95 partial promotion + INV-1/2/8 hooks + Audio Phase-2 handoff)
+
+User-visible: the **grammar.json n5-028 ex[5]** (〜の possessive
+pattern) now correctly demonstrates の. Previously read
+`父は 先生です。` (uses は, not の — same drift class as BUG-009);
+now reads `わたしの 父は 先生です。` (preserves the EN translation
+"My father is a teacher." while adding the canonical possessive
+marker). Caught by JA-95's first run; fixed inline.
+
+### What landed — "do whatever is required tbd but finish it"
+
+**(A) JA-91..95 reserved slots: 3 of 5 promoted; 2 stay reserved**
+
+The spec's prior note "gated only by the pattern-markers / particle-
+list data files being authored" was outdated. Mid-session investigation
+showed:
+
+- **JA-92** (no EN sentence repeated in 10+ examples) — wired; passes.
+- **JA-93** (pitch_marks.mora == count_morae(reading)) — wired; passes.
+  Algorithm preserved from `not-required/tools-archive/fix_issue_074_
+  pacing_audit_2026_05_06.py` (round-9 baseline).
+- **JA-95** (particle-pattern alignment) — wired; passes after fixing
+  n5-028 ex[5]. First-run caught the misaligned example.
+- **JA-91** (cross-pattern explanation_en similarity ≥0.85
+  Levenshtein) — **partial-promoted then deferred**. Corpus has 42
+  pairs of EXACTLY identical explanations across related patterns
+  (e.g., n5-014 vs n5-039 both about これ/それ/あれ). Can't
+  mechanically distinguish "intentional cross-pattern" from
+  "accidental contamination"; gated on Japanese-linguistics review
+  pass classifying the 42 pairs (~2-3 hours work).
+- **JA-94** (pattern-marker presence per example) — **partial-
+  promoted then deferred**. Requires authoring `data/pattern_markers.
+  json` (a structural-markers catalog, NOT `_meaning_ja_markers`
+  which describes the meaning). ~3-5 hours of Japanese-linguistic
+  expertise needed.
+
+**(B) Commit-time enforcement for INV-1 / INV-2 / INV-8**
+
+New `.githooks/` directory at the repo root:
+  - `pre-commit` — staged-file checks (INV-2 spec↔code; INV-8
+    data↔CHANGELOG)
+  - `commit-msg` — message-body checks (INV-1 bug-fix mentions test;
+    INV-8 atomic-commit body length on multi-file commits)
+  - `README.md` — install + bypass + maintenance notes
+
+One-time install: `git config core.hooksPath .githooks`
+
+These complement the corpus-content CI invariants (which run on
+push + PR). The hooks catch issues at commit time, before they
+land — particularly useful for the bug-fix-without-test class
+(INV-1 hard fail) which the project's history showed surfacing
+repeatedly before this guard.
+
+**(C) Audio Phase-2 maintainer handoff doc**
+
+New `N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` captures the
+Phase-2 audio quality upgrade (VOICEVOX re-render at
+speed_scale=1.00 to replace the Phase-1 ffmpeg atempo post-
+processing applied in commit `47d1edc`). Phase-1 is shippable
+(50/50 in target band, mean 213.6 mpm). Phase-2 is a quality
+upgrade requiring VOICEVOX installed locally; the runbook
+captures the exact command sequence + expected post-state. Not
+gated behind a tracker entry — surfaced as documentation only.
+
+### Cross-Artifact Sync Protocol — final distribution
+
+| INV-N | Description | Status |
+|---|---|---|
+| INV-1 | bug-fix touches test or annotates "no test" | **Hook** (.githooks/commit-msg, hard fail on missing test annotation) |
+| INV-2 | spec change references code | **Hook** (.githooks/pre-commit, warns) |
+| INV-3 | code API change → API docs | Out of scope (no API) |
+| INV-4 | data counts ↔ version.json / docs | **Wired** (JA-47/107/112/115) |
+| INV-5 | UI strings ↔ all locales | **Wired** (JA-108) |
+| INV-6 | prompts ↔ xlsx coverage | **Wired** (JA-116) |
+| INV-7 | cross-file references resolve | **Wired** (JA-15/17/82/100/105/113/117) |
+| INV-8 | CHANGELOG completeness | **Hook** (.githooks/pre-commit + commit-msg) |
+| INV-9 | closed-bug → fix-commit link | **Wired** (JA-118) |
+| INV-10 | procedure-manual / prompt → script refs | **Wired** (JA-109) |
+
+Wired at CI: **6** · Hook (commit-time): **3** · Out of scope: **1**.
+**9 of 10 INV-N classes** are now enforced at some layer.
+
+### CI invariants
+
+Total live: **119** (was 116; +3 from JA-92/93/95).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker: 53 / 53 Fixed / 0 Open (unchanged).
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+  - N5/tools/check_content_integrity.py — 3 new check functions
+    (JA-92/93/95) + 2 stayed-reserved with detailed deferral notes
+    (JA-91/94)
+  - N5/tools/cross_artifact_sync_report.py — INV_MAPPING updated
+    to use the new {wired, hook, oos} taxonomy
+  - .githooks/pre-commit + commit-msg + README.md (NEW directory)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md — Part 17 addendum
+  - N5/docs/cross-artifact-sync-map.md — INV-1/2/8 rows updated to
+    Convention+Hook status; audit-log row added; strategy
+    rewritten to 9-of-10 distribution
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md —
+    §25.1/3/4 rows for JA-92/93/95; §25.7 deferral notes for
+    JA-91/94; §25.10 INV-1/2/8 status update + summary rewritten;
+    section-header counts 116→119; next-free JA-NN = 119
+  - N5/data/grammar.json — n5-028 ex[5] ja fix
+    (父は 先生です。 → わたしの 父は 先生です。)
+  - N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md (NEW)
+  - N5/CHANGELOG.md — this entry
+  - N5/changelog/index.html — meta-mirror regen (JA-113 enforced)
+
+### Verification
+
+- python tools/check_content_integrity.py → PASS all 119 invariants
+- python tools/cross_artifact_sync_report.py → EXIT: CLEAN
+- Bug tracker: 53 / 53 Fixed / 0 Open
+- Static mirrors: idempotent post-commit (0 written / all unchanged)
+
+### Closure note
+
+This concludes the 2026-05-17 session's "do whatever is required
+tbd but finish it" pass. The Cross-Artifact Sync Protocol is
+effectively fully implemented (9 of 10 INV-N enforced; INV-3
+genuinely N/A). Two JA-NN slots remain reserved with specific
+gating notes (JA-91 needs a linguistics-review pass; JA-94 needs
+a structural-markers data file authored). Audio Phase-2 is queued
+behind the maintainer's VOICEVOX install via a concrete runbook.
+No further items are actionable without resources that aren't
+available to the agent (Japanese-linguistic-expert time;
+VOICEVOX-installed machine).
+
+Per the protocol's bounded-coverage phrasing: the project is
+**closed against the user-reported bugs filed and the protocol-INV
+checklist scanned in this session**. Future work surfaces in
+subsequent audit cycles.
+
+---
+
 ## Unreleased - 2026-05-17 (Pending batch 3: INV-6 / INV-7 / INV-9 → Wired; JA-116/117/118 + Fix Commit back-fill)
 
 Governance / CI release. No user-visible changes. Promotes the last

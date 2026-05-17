@@ -775,9 +775,11 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-118; gaps for retired / reserved slots) that the
-script runs against every release. The script is the source of truth;
-this section is its human-readable index.
+(JA-1 through JA-118; gaps for retired / reserved slots, two of which
+— JA-91 and JA-94 — were partially-promoted on 2026-05-17 then
+deferred again with specific gating notes; see §25.7 for the current
+status) that the script runs against every release. The script is the
+source of truth; this section is its human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
 `N5/`). On a clean corpus the script prints `PASS: all NN invariants
@@ -794,16 +796,15 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **107 named JA-NN rules** (the runtime
+Currently wired invariants: **110 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 116/116 at this checkpoint, post 2026-05-17 end-of-session
-batch which added JA-116 (INV-6 prompts↔xlsx coverage), JA-117
-(INV-7 passage_id + pattern_id cross-corpus), JA-118 (INV-9 closed-
-bug fix-commit link) — promoting INV-6 / INV-7 / INV-9 from Partial
-to Wired. 6 of 10 INV-N classes now hard-wired; 3 remain
-convention-only (need git pre-commit hooks rather than corpus-content
-CI checks); 1 out of scope (no API).
+reports 119/119 at this checkpoint, post the 2026-05-17 final
+batch which added JA-92 / JA-93 / JA-95 from the previously-
+reserved JA-91..95 slot range. JA-91 and JA-94 stay Reserved with
+specific gating notes; see §25.7. 6 of 10 INV-N classes hard-wired
+at CI; 3 INV-N classes (INV-1 / INV-2 / INV-8) now backed by
+commit-time git hooks (see `.githooks/`); 1 INV-N out of scope.
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -938,6 +939,9 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-116 | Every A-NN audit category / Phase-0 regression block / FP-NN false-positive class in `N5/prompts/*` has ≥1 matching xlsx scenario row (auto-extracted; word-boundary match). Cross-Artifact Sync Protocol INV-6 promotion to Wired (2026-05-17). | 2026-05-17 |
 | JA-117 | Cross-corpus `passage_id` (kanji.json `entries[*].reading_passages[*].passage_id` → reading.json, 363 refs) + `pattern_id` (reading.json `passages[*].grammar_footnotes[*].pattern_id` + nested, 319 refs → grammar.json) resolve to actual entries. Cross-Artifact Sync Protocol INV-7 extension; promotes INV-7 to Wired. | 2026-05-17 |
 | JA-118 | Every Fixed-status row in xlsx User Reported Bugs has a non-empty Fix Commit cell. Cross-Artifact Sync Protocol INV-9 promotion to Wired (2026-05-17). Companion tool: `tools/populate_bug_fix_commits_2026_05_17.py` (scans git log for commit subjects mentioning each BUG-NNN, supports range patterns). | 2026-05-17 |
+| JA-92 | No `translation_en` string repeated in 10+ grammar examples (parallel to JA-81 which catches the JA-side boilerplate; BUG-003/005 lineage). Wired 2026-05-17 from the reserved JA-91..95 range. | 2026-05-17 |
+| JA-93 | Vocab.json `pitch_marks` total mora count matches `count_morae(reading)` for every entry that carries pitch_marks. BUG-004 lineage; algorithmic mora-count guard preserved from `not-required/tools-archive/fix_issue_074_pacing_audit_2026_05_06.py`. Wired 2026-05-17. | 2026-05-17 |
+| JA-95 | Particle-pattern alignment: for grammar patterns in category "Particles" whose `pattern` field is a single-character particle (は, が, を, etc., ≤ 2 chars), every example's `ja` must contain that particle. BUG-009 lineage. First-run wire-up caught n5-028 ex[5] (の particle) using は instead — fixed inline 2026-05-17 (ja `父は 先生です。` → `わたしの 父は 先生です。`). Wired 2026-05-17. | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -975,11 +979,8 @@ Currently implemented as Phase-0 regression-block scripts in
 | JA-45 | Reserved | — |
 | JA-46 | Reserved | — |
 | JA-80 | (attempted then retired — heuristic meaning_ja substring check had 19 false positives; semantic comparison stays in manual-review domain) | 2026-05-13 |
-| JA-91 | Cross-pattern `explanation_en` similarity (Levenshtein ≥0.85 = contamination candidate) | BUG-003 |
-| JA-92 | Per-example JA-content-word ∩ EN-content-word > 0 (catches translation_en stuck on one string) | BUG-003 / BUG-005 |
-| JA-93 | `pitch_marks.mora == count_mora(form)` for every entry (hard gate) | BUG-004 |
-| JA-94 | Every grammar example contains ≥1 pattern-defining marker (from `data/pattern_markers.json`) | BUG-006 |
-| JA-95 | Particle-pattern alignment for every particle-introducing pattern (≥30% example coverage of the named particle) | BUG-009 |
+| JA-91 | Cross-pattern `explanation_en` similarity (Levenshtein ≥0.85 = contamination candidate). **Partial-promoted then deferred 2026-05-17**: current corpus has 42 pairs of exactly-identical explanations across patterns with related coverage (e.g., n5-014 vs n5-039 both about これ/それ/あれ pronouns). Without a way to mechanically distinguish "intentional cross-pattern" from "accidental contamination", the check would fire on 42 false-positive pairs or need an authored allowlist. Gated on a Japanese-linguistics review pass classifying the 42 pairs. | BUG-003 |
+| JA-94 | Every grammar example contains ≥1 pattern-defining marker (from `data/pattern_markers.json`). **Partial-promoted then deferred 2026-05-17**: requires a `data/pattern_markers.json` file authored by a Japanese-linguistic expert (NOT `_meaning_ja_markers` which describes the meaning explanation, not the syntactic markers a learner needs in every example). For n5-001 (〜です／〜ます) the structural markers would be `['です','ます','でした','ました','じゃありません','ではありません',...]`. ~3-5 hours of authoring per the round-9 audit estimate. | BUG-006 |
 
 ### 25.8 Class-and-bug lineage
 
@@ -1026,7 +1027,9 @@ When closing a bug class that warrants a CI gate:
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
    (currently next free = JA-119). Reserved slots (JA-42..46, JA-80,
-   JA-91..95) must NOT be reused.
+   JA-91, JA-94) must NOT be reused. (JA-92 / JA-93 / JA-95 were
+   wired 2026-05-17 from the prior JA-91..95 reservation; JA-91 +
+   JA-94 stay reserved with specific gating notes — see §25.7.)
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is
    incomplete.
@@ -1058,20 +1061,28 @@ contract.
 
 | INV | Description | Implementation | Status |
 |---|---|---|---|
-| INV-1 | Bug-fix commit touches a test file or annotates "no test" | Commit-message convention; no pre-commit hook | Convention only |
-| INV-2 | Spec change references corresponding code change; new-field spec adds test | §25.8 lineage table tracks bug-class history | Convention only |
+| INV-1 | Bug-fix commit touches a test file or annotates "no test" | **`.githooks/commit-msg`** (rejects bug-fix commit messages that lack a test / regression / JA-NN / "no test — reason" annotation). Install: `git config core.hooksPath .githooks`. | Convention + commit-hook (2026-05-17) |
+| INV-2 | Spec change references corresponding code change; new-field spec adds test | **`.githooks/pre-commit`** (warns when a `N5/specifications/*.md` is staged without an accompanying code/data file under `N5/`). Install via `git config core.hooksPath .githooks`. | Convention + commit-hook (2026-05-17) |
 | INV-3 | Code public-API change updates API docs | N/A — project has no traditional API (static SPA + content corpus) | Out of scope |
 | INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-47** (CONTENT-LICENSE.md), **JA-107** (version.json), **JA-112** (AUDIO.md), **JA-115** (README.md) — 4 user-facing surfaces covered | Wired (hard CI) |
 | INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | Wired (hard CI) |
 | INV-6 | Prompt change includes a regression test of golden output | **JA-116** (every A-NN / Phase-0 / FP-NN in prompts has ≥1 matching xlsx scenario row; auto-extracted, asserted at CI) | Wired (hard CI; promoted 2026-05-17 from Convention) |
 | INV-7 | Cross-file references resolve | JA-15 (audio), JA-17 (vocab_id in grammar), JA-82 (_meta.see_also / consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs), JA-113 (meta-mirror freshness), **JA-117** (passage_id kanji↔reading + pattern_id reading↔grammar — 363+319 refs all resolve) | Wired (hard CI; promoted 2026-05-17 from Partial) |
-| INV-8 | CHANGELOG entry names every dependent updated | Markdown prose; needs git pre-commit hook to enforce (outside CI-content domain) | Convention only |
+| INV-8 | CHANGELOG entry names every dependent updated | **`.githooks/pre-commit` + `commit-msg`** (pre-commit warns when `N5/data/*.json` is staged without `N5/CHANGELOG.md`; commit-msg warns on multi-file commits with short messages). Install via `git config core.hooksPath .githooks`. | Convention + commit-hook (2026-05-17) |
 | INV-9 | Closed bug links to fix commit + regression test | **JA-118** (every Fixed row in xlsx User Reported Bugs has a non-empty Fix Commit cell); companion tool `tools/populate_bug_fix_commits_2026_05_17.py` scans git log to back-fill | Wired (hard CI; promoted 2026-05-17 from Partial) |
 | INV-10 | Procedure-manual / prompt → script references resolve | **JA-109** (scope: N5 prompts + AUDIT-COVERAGE only; cross-level procedure manual excluded because its refs are abstract Nx targets) | Wired (hard CI) |
 
 **Wired (hard CI):** 6 invariants — INV-4 / INV-5 / INV-6 / INV-7 / INV-9 / INV-10.
-**Convention only:** 3 — INV-1 / INV-2 / INV-8 (need git pre-commit hooks / PR-title parsers, outside CI-content domain).
+**Convention + commit-hook:** 3 — INV-1 / INV-2 / INV-8 (commit-time enforcement via `.githooks/`; install with `git config core.hooksPath .githooks`).
 **Out of scope:** 1 — INV-3 (no traditional API).
+
+**Note:** 9 of 10 INV-N classes are now enforced either at CI-time
+(hard gate, runs on push + PR via
+`.github/workflows/content-integrity.yml`) or at commit-time
+(soft gate, runs locally via `.githooks/` if the maintainer has
+installed the hook directory). The remaining 1 (INV-3 = API docs)
+has no enforcement because the project has no traditional API
+surface — static SPA + content corpus only.
 
 When a future audit cycle promotes a convention-only INV to a hard
 CI invariant, add the JA-NN row to the appropriate subsection above

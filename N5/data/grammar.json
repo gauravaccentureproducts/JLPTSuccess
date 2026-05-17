@@ -10447,10 +10447,10 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "父は 先生です。",
+          "ja": "わたしの 父は 先生です。",
           "translation_en": "My father is a teacher.",
           "source": "vocab.n5.vocab.2-people-family.父.examples[0]",
-          "provenance": "auto_xref_vocab_corpus",
+          "provenance": "manual_edit_post_auto_xref_2026_05_17",
           "vocab_ids": [
             "n5.vocab.3-people-roles.先生",
             "n5.vocab.35-particles-functional-.は"
@@ -10464,7 +10464,8 @@
           ],
           "audio": "audio/grammar/n5-028.5.mp3",
           "form": "affirmative",
-          "form_provenance": "auto_derived_form_2026_05_13"
+          "form_provenance": "auto_derived_form_2026_05_13",
+          "ci_discovered_fix_2026_05_17": "JA-95 wire-up surfaced this example as missing the possessive の (parent pattern n5-028 = 〜の particle). Original ja '父は 先生です。' demonstrated は-predicate but not の; replaced with 'わたしの 父は 先生です。' which preserves the EN translation \"My father is a teacher.\" while adding the canonical の. Same drift class as BUG-009; caught proactively by JA-95."
         },
         {
           "ja": "あの 男の 人は 先生です。",
