@@ -173,7 +173,7 @@ block in `prompts/N5Improvement.txt` if not yet hard-CI).
 | INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-107** (version.json.counts ↔ live data) + **JA-47** (CONTENT-LICENSE.md counts ↔ live data) | WIRED 2026-05-17 |
 | INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | WIRED 2026-05-17 |
 | INV-6 | Prompt change includes a regression test of golden output | Partial: every documented item (A-NN audit categories, Phase-0 regression blocks, FP-NN false-positive classes) and every audit-doc in feedback/ + feedback/closed/ has explicit xlsx representation as of 2026-05-17. Future work: extract-and-verify CI invariant that re-parses prompts and asserts xlsx coverage. | Partial (promoted 2026-05-17 from Convention) |
-| INV-7 | Cross-file references resolve | JA-15 (audio refs), JA-17 (vocab_id in grammar examples), JA-82 (`_meta.see_also` / `_meta.consumers`), JA-100 (kanji↔vocab form STRICT), JA-105 (vocab_preview vocab_id refs) | Partial; passage_id and pattern_id cross-corpus still relying on manual checks |
+| INV-7 | Cross-file references resolve | JA-15 (audio refs), JA-17 (vocab_id in grammar examples), JA-82 (`_meta.see_also` / `_meta.consumers`), JA-100 (kanji↔vocab form STRICT), JA-105 (vocab_preview vocab_id refs), **JA-113** (meta-route mirror reflects source markdown's latest heading — added 2026-05-17 after 3 instances of the drift class) | Partial; passage_id and pattern_id cross-corpus still relying on manual checks |
 | INV-8 | CHANGELOG entry names every dependent updated | None hard-wired (CHANGELOG is markdown prose) | Convention; future: pre-commit hook parsing |
 | INV-9 | Closed bug links to fix commit + regression test (or "no test — reason") | Section 25.8 lineage table tracks this; Excel "User Reported Bugs" Fix Commit column | Manual; semi-tooled via xlsx |
 | INV-10 | Procedure-manual script/tool references resolve | **JA-109** (procedure manual + prompts → script references resolve) | WIRED 2026-05-17 |
@@ -289,8 +289,13 @@ JA-109 will require the file to exist.
 
 **Editing User-Facing Docs?** → Ensure documented behavior
 matches code + UI (JA-47 enforces count-claim alignment for
-CONTENT-LICENSE.md). Update CHANGELOG. Refresh any cross-doc
-links.
+CONTENT-LICENSE.md; JA-112 for AUDIO.md). Update CHANGELOG.
+Refresh any cross-doc links. **If the doc has a meta-route
+static mirror** (README.md → home/, CHANGELOG.md → changelog/,
+PRIVACY.md → privacy/, NOTICES.md → notices/), run
+`python tools/build_static_mirrors.py --stages meta` in the
+same commit; JA-113 enforces the mirror's freshness against the
+markdown source's latest H1/H2.
 
 ## Audit log
 
@@ -299,7 +304,12 @@ links.
 | 2026-05-17 | Protocol install batch (Rule 5 adopted) | INV-4, INV-5, INV-10 wired | JA-107, JA-108, JA-109 | version.json.counts.vocab 1009 → 995 | cdef185 |
 | 2026-05-17 | Static-mirror drift + not-required cleanup | — | — | learn/vocab/index.html (BUG-023 leftover) + changelog/index.html (post-cdef185 mirror); 7 not-required/ deletions | f96475b |
 | 2026-05-17 | BUG-047..053 listening.json VOICEVOX migration drift | — | JA-110, JA-111 | voice_planned dropped (50 items); audit-status fields (10 items); format dropped (50 items); _meta voice_variety_plan + voicevox_speaker_catalog rewritten | 04bd8f4 |
-| 2026-05-17 | Test-scenarios sync with prompts/ + feedback/ | INV-6 → Partial | — | (no data drift; +134 specialist scenarios added across 14 tabs to make prompt/feedback coverage explicit) | (this commit) |
+| 2026-05-17 | Test-scenarios sync with prompts/ + feedback/ | INV-6 → Partial | — | (no data drift; +134 specialist scenarios added across 14 tabs to make prompt/feedback coverage explicit) | b466293 |
+| 2026-05-17 | Redundant feedback/ files → not-required/; trim legacy xlsx sheet | — | — | audio-coverage-gaps.json + _n5_richness_audit_20260509.txt moved; "User Reported Bugs" sheet dropped from legacy n5-audit-2026-05-04.xlsx | 8c57f2e |
+| 2026-05-17 | BUG-050 charitable close-out — AUDIO.md count + speaker drift | — | JA-112 | AUDIO.md "47 listening items" → "50 items / 6 speakers"; speaker-table character names corrected | 5d14cde |
+| 2026-05-17 | BUG-048 + BUG-049 close-out — listening pacing refresh + ffmpeg atempo | — | — | 50 items re-measured; 39 ffmpeg atempo tempo-changes; ALL items in target band 180-240 mpm; bug tracker 53/53 Fixed/0 Open | 47d1edc |
+| 2026-05-17 | changelog/index.html static-mirror regen | — | — | meta-route mirror drift after CHANGELOG.md edits in 5d14cde + 47d1edc | 360eb74 |
+| 2026-05-17 | Meta-route static-mirror freshness CI guard | — | JA-113 | (no drift this commit — JA-113 wired prospectively to prevent recurrence of the meta-route mirror drift class observed 3× this session) | (this commit) |
 
 Each future cross-artifact ripple gets a row here so future
 auditors can trace which sync hops landed when.

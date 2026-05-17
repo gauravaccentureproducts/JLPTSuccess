@@ -2,6 +2,108 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (JA-113 wired — meta-route static-mirror freshness CI guard)
+
+Governance / CI release. No user-visible changes. Wires a new CI
+invariant (JA-113) that prevents the recurring drift class observed
+3 times in the 2026-05-17 session: maintainer edits a markdown source
+under `N5/` (CHANGELOG.md, PRIVACY.md, etc.) but forgets to re-run
+`tools/build_static_mirrors.py --stages meta`, leaving the static
+mirror at `N5/<route>/index.html` showing stale content for non-JS
+crawlers.
+
+### Drift instances caught in this session (the reason JA-113 was wired)
+
+| Commit | Source edit | Mirror regen | Followed-up by |
+|---|---|---|---|
+| `cdef185` | CHANGELOG.md (Rule-5 install entry) | NOT regen'd in same commit | `f96475b` (drift fix) |
+| `5d14cde` + `47d1edc` | CHANGELOG.md (BUG-050 + BUG-048/049 entries) | NOT regen'd in same commit | `360eb74` (drift fix) |
+
+After observing the same drift class twice in adjacent commits,
+wiring a CI invariant is cheaper than continuing to catch it
+manually. JA-113 closes that loop.
+
+### JA-113 behavior
+
+For each markdown-sourced meta route, JA-113 extracts the FIRST H1/H2
+heading from the source markdown (which is the latest entry for
+CHANGELOG-style time-ordered docs, or the canonical top header for
+static reference docs) and verifies it appears in the mirror HTML.
+Routes checked:
+
+  - `home/index.html` ↔ `README.md`
+  - `changelog/index.html` ↔ `CHANGELOG.md`
+  - `privacy/index.html` ↔ `PRIVACY.md`
+  - `notices/index.html` ↔ `NOTICES.md`
+
+The 6 stub-body meta routes (feedback / settings / test / sitting /
+missed / summary) have no source-of-truth markdown — they're
+hand-authored stub HTML in `META_ROUTES` of build_static_mirrors.py —
+so they're out of JA-113's scope. Drift in those would be visible at
+build_static_mirrors.py runtime instead.
+
+### Regression-test evidence
+
+JA-113 was regression-tested before commit by injecting a phantom
+"## Unreleased - 2026-05-17 (PHANTOM JA-113 REGRESSION TEST PHRASE)"
+H2 into CHANGELOG.md and re-running the CI. Expected output:
+
+```
+JA-113 changelog/index.html does not contain the latest heading
+from CHANGELOG.md: 'Unreleased - 2026-05-17 (PHANTOM JA-113
+REGRESSION TEST PHRASE)'. Run `python tools/build_static_mirrors.py
+--stages meta` to regenerate the mirror.
+FAIL: 1 integrity violation(s)
+```
+
+Observed: matches exactly. After restoring CHANGELOG.md, the CI
+returned to 111/111 green.
+
+### Cross-Artifact Sync Protocol INV status
+
+INV-7 (cross-file references resolve) coverage extended: JA-113 is
+the 6th invariant under INV-7 alongside JA-15 (audio), JA-17
+(vocab_id), JA-82 (_meta refs), JA-100 (kanji↔vocab form), JA-105
+(vocab_preview refs). INV-7 stays at "Partial" overall because
+`passage_id` and `pattern_id` cross-corpus references are still
+relying on manual checks — a future audit cycle could promote those
+to wired.
+
+Updated `cross-artifact-sync-map.md`'s per-class cheatsheet for
+"Editing User-Facing Docs?" — now explicitly mentions running
+`tools/build_static_mirrors.py --stages meta` for docs that have
+meta-route mirrors.
+
+### Total CI invariants live: 111 (was 110).
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+- `N5/tools/check_content_integrity.py` — `_check_ja_113_*` function +
+  registry entry
+- `N5/docs/cross-artifact-sync-map.md` — audit-log row + INV-7 row
+  updated to list JA-113 + per-class cheatsheet for "Editing
+  User-Facing Docs?" updated
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` —
+  §25.4 row for JA-113; §25.8 lineage row; §25.10 INV-7 row updated;
+  section-header count bumped 110→111; next-free JA-NN = 114
+- `N5/CHANGELOG.md` — this entry
+
+### Coverage of the fix
+
+CI: 111/111 green post-wire-up.
+`cross_artifact_sync_report.py`: EXIT CLEAN.
+Bug tracker: 53 / 53 Fixed / 0 Open (unchanged).
+Sync-script idempotent.
+
+Bounded-coverage note: JA-113 catches drift in the 4 markdown-
+sourced meta routes only; the 6 stub-body routes have no source-of-
+truth markdown so the drift class doesn't apply to them. JA-113 is
+a heuristic check (first H1/H2 must appear in mirror) — false
+negatives possible if a heading is edited in-place without text
+change, but the common drift case (new entry added) is caught.
+
+---
+
 ## Unreleased - 2026-05-17 (BUG-048 + BUG-049 close-out — listening pacing refresh; ALL 50 items in target band; tracker hits zero open)
 
 User-visible: every JLPT N5 listening drill now plays at JLPT exam pace

@@ -84,6 +84,49 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (JA-113 wired — meta-route static-mirror freshness CI guard)</h2>
+<p>Governance / CI release. No user-visible changes. Wires a new CI invariant (JA-113) that prevents the recurring drift class observed 3 times in the 2026-05-17 session: maintainer edits a markdown source under <code>N5/</code> (CHANGELOG.md, PRIVACY.md, etc.) but forgets to re-run <code>tools/build_static_mirrors.py --stages meta</code>, leaving the static mirror at <code>N5/&lt;route&gt;/index.html</code> showing stale content for non-JS crawlers.</p>
+<h3>Drift instances caught in this session (the reason JA-113 was wired)</h3>
+<p>| Commit | Source edit | Mirror regen | Followed-up by | |---|---|---|---| | <code>cdef185</code> | CHANGELOG.md (Rule-5 install entry) | NOT regen&#x27;d in same commit | <code>f96475b</code> (drift fix) | | <code>5d14cde</code> + <code>47d1edc</code> | CHANGELOG.md (BUG-050 + BUG-048/049 entries) | NOT regen&#x27;d in same commit | <code>360eb74</code> (drift fix) |</p>
+<p>After observing the same drift class twice in adjacent commits, wiring a CI invariant is cheaper than continuing to catch it manually. JA-113 closes that loop.</p>
+<h3>JA-113 behavior</h3>
+<p>For each markdown-sourced meta route, JA-113 extracts the FIRST H1/H2 heading from the source markdown (which is the latest entry for CHANGELOG-style time-ordered docs, or the canonical top header for static reference docs) and verifies it appears in the mirror HTML. Routes checked:</p>
+<p>- <code>home/index.html</code> ↔ <code>README.md</code> - <code>changelog/index.html</code> ↔ <code>CHANGELOG.md</code> - <code>privacy/index.html</code> ↔ <code>PRIVACY.md</code> - <code>notices/index.html</code> ↔ <code>NOTICES.md</code></p>
+<p>The 6 stub-body meta routes (feedback / settings / test / sitting / missed / summary) have no source-of-truth markdown — they&#x27;re hand-authored stub HTML in <code>META_ROUTES</code> of build_static_mirrors.py — so they&#x27;re out of JA-113&#x27;s scope. Drift in those would be visible at build_static_mirrors.py runtime instead.</p>
+<h3>Regression-test evidence</h3>
+<p>JA-113 was regression-tested before commit by injecting a phantom &quot;## Unreleased - 2026-05-17 (PHANTOM JA-113 REGRESSION TEST PHRASE)&quot; H2 into CHANGELOG.md and re-running the CI. Expected output:</p>
+<pre><code>
+JA-113 changelog/index.html does not contain the latest heading
+from CHANGELOG.md: &#x27;Unreleased - 2026-05-17 (PHANTOM JA-113
+REGRESSION TEST PHRASE)&#x27;. Run `python tools/build_static_mirrors.py
+--stages meta` to regenerate the mirror.
+FAIL: 1 integrity violation(s)
+</code></pre>
+<p>Observed: matches exactly. After restoring CHANGELOG.md, the CI returned to 111/111 green.</p>
+<h3>Cross-Artifact Sync Protocol INV status</h3>
+<p>INV-7 (cross-file references resolve) coverage extended: JA-113 is the 6th invariant under INV-7 alongside JA-15 (audio), JA-17 (vocab_id), JA-82 (_meta refs), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs). INV-7 stays at &quot;Partial&quot; overall because <code>passage_id</code> and <code>pattern_id</code> cross-corpus references are still relying on manual checks — a future audit cycle could promote those to wired.</p>
+<p>Updated <code>cross-artifact-sync-map.md</code>&#x27;s per-class cheatsheet for &quot;Editing User-Facing Docs?&quot; — now explicitly mentions running <code>tools/build_static_mirrors.py --stages meta</code> for docs that have meta-route mirrors.</p>
+<h3>Total CI invariants live: 111 (was 110).</h3>
+<h3>Files touched (Rule 5 atomic-commit discipline)</h3>
+<ul>
+<li><code>N5/tools/check_content_integrity.py</code> — <code>_check_ja_113_*</code> function +</li>
+</ul>
+<p>registry entry</p>
+<ul>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> — audit-log row + INV-7 row</li>
+</ul>
+<p>updated to list JA-113 + per-class cheatsheet for &quot;Editing User-Facing Docs?&quot; updated</p>
+<ul>
+<li><code>N5/specifications/JLPT-N5-Current-Implementation-Spec.md</code> —</li>
+</ul>
+<p>§25.4 row for JA-113; §25.8 lineage row; §25.10 INV-7 row updated; section-header count bumped 110→111; next-free JA-NN = 114</p>
+<ul>
+<li><code>N5/CHANGELOG.md</code> — this entry</li>
+</ul>
+<h3>Coverage of the fix</h3>
+<p>CI: 111/111 green post-wire-up. <code>cross_artifact_sync_report.py</code>: EXIT CLEAN. Bug tracker: 53 / 53 Fixed / 0 Open (unchanged). Sync-script idempotent.</p>
+<p>Bounded-coverage note: JA-113 catches drift in the 4 markdown- sourced meta routes only; the 6 stub-body routes have no source-of- truth markdown so the drift class doesn&#x27;t apply to them. JA-113 is a heuristic check (first H1/H2 must appear in mirror) — false negatives possible if a heading is edited in-place without text change, but the common drift case (new entry added) is caught.</p>
+<hr>
 <h2>Unreleased - 2026-05-17 (BUG-048 + BUG-049 close-out — listening pacing refresh; ALL 50 items in target band; tracker hits zero open)</h2>
 <p>User-visible: every JLPT N5 listening drill now plays at JLPT exam pace (180–240 morae/min target band). The 2026-05-12 VOICEVOX render at speed_scale=1.30 had overshot the target — re-measurement against current audio showed 38 of 50 items above the band (too fast) and 1 below (too slow). ffmpeg atempo post-processing pulled every item into the band: post-fix mean 213.6 mpm (exactly target midpoint), 50/50 in_range, 0 out-of-band.</p>
 <h3>BUG-048 + BUG-049 close-out (listening pacing)</h3>

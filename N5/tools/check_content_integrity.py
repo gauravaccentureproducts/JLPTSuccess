@@ -1179,6 +1179,19 @@ CHECKS: list[tuple[str, str, callable]] = [
     # (CONTENT-LICENSE.md) and JA-107 (version.json), extended to the
     # AUDIO.md user-facing doc surface.
     ("JA-112", "AUDIO.md 'N listening items use M distinct VOICEVOX speakers' matches live data (BUG-050 charitable guard, 2026-05-17)", lambda: _check_ja_112_audio_md_listening_counts()),
+    # JA-113 (2026-05-17): meta-route static-mirror freshness check.
+    # For each markdown-sourced meta route (home / changelog / privacy /
+    # notices), the static-mirror HTML at /N5/<slug>/index.html must
+    # contain the latest H1/H2 heading from the source markdown. Catches
+    # the recurring drift class where a maintainer edits the source
+    # markdown (CHANGELOG.md / PRIVACY.md / etc.) but forgets to re-run
+    # `tools/build_static_mirrors.py --stages meta` in the same commit.
+    # Three instances of this drift class were observed in this session
+    # (cdef185 / 47d1edc CHANGELOG.md edits without mirror regen);
+    # JA-113 prevents recurrence. Same Rule-5 INV-7 (cross-file
+    # references resolve) class, extended from data-references to
+    # derived-mirror freshness.
+    ("JA-113", "meta-route static mirrors (home/changelog/privacy/notices) reflect latest markdown heading (mirror-freshness guard, 2026-05-17)", lambda: _check_ja_113_meta_mirror_freshness()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -5102,6 +5115,86 @@ def _check_ja_106_format_type_enum() -> list[str]:
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
             )
+    return failures
+
+
+def _check_ja_113_meta_mirror_freshness() -> list[str]:
+    """Meta-route static-mirror freshness guard (2026-05-17).
+
+    For each markdown-sourced meta route, verify the latest H1/H2
+    heading text from the source markdown appears in the static-mirror
+    HTML. Catches the drift class where the source markdown was
+    updated but `tools/build_static_mirrors.py` wasn't re-run.
+
+    Routes checked (markdown-sourced; the 6 stub-body routes don't
+    apply since they have no source-of-truth markdown):
+
+      - home      → README.md
+      - changelog → CHANGELOG.md
+      - privacy   → PRIVACY.md
+      - notices   → NOTICES.md
+
+    Detection logic: extract the FIRST H1 / H2 from the markdown
+    (which for CHANGELOG-style time-ordered docs is the latest entry;
+    for static reference docs is the canonical top header).
+    HTML-escape it and check whether it appears in the mirror.
+
+    This is a fast-and-lightweight check, not a full HTML-vs-HTML
+    diff — false negatives possible (e.g., heading edited in-place
+    without text change), but the common case (new entry added or
+    heading text changed) is caught.
+
+    Rule-5 INV-7 class extension: cross-file references resolve →
+    derived-mirror reflects source.
+    """
+    failures: list[str] = []
+    routes = [
+        ("home", "README.md"),
+        ("changelog", "CHANGELOG.md"),
+        ("privacy", "PRIVACY.md"),
+        ("notices", "NOTICES.md"),
+    ]
+    import html as _html
+    for slug, source_md in routes:
+        src_path = ROOT / source_md
+        mirror_path = ROOT / slug / "index.html"
+        if not src_path.exists():
+            failures.append(f"JA-113 source markdown missing: {source_md}")
+            continue
+        if not mirror_path.exists():
+            failures.append(f"JA-113 static mirror missing: {slug}/index.html")
+            continue
+        try:
+            src_text = src_path.read_text(encoding="utf-8")
+            mirror_text = mirror_path.read_text(encoding="utf-8")
+        except Exception as e:
+            failures.append(f"JA-113 could not read {slug}: {e}")
+            continue
+        # Extract the FIRST H2 (## …) from the source markdown.
+        # CHANGELOG-style time-ordered: most recent entry is first.
+        # If no H2, fall back to first H1.
+        h_match = re.search(r"^##\s+(.+?)\s*$", src_text, re.M)
+        if not h_match:
+            h_match = re.search(r"^#\s+(.+?)\s*$", src_text, re.M)
+        if not h_match:
+            continue  # Markdown has no headings; skip
+        heading_text = h_match.group(1).strip()
+        # Try direct match, then HTML-escaped, then with inline-code
+        # backticks stripped (the builder renders `foo` as <code>foo</code>).
+        candidates = [
+            heading_text,
+            _html.escape(heading_text),
+            re.sub(r"`([^`]+)`", r"\1", heading_text),
+            _html.escape(re.sub(r"`([^`]+)`", r"\1", heading_text)),
+        ]
+        if any(c in mirror_text for c in candidates):
+            continue
+        failures.append(
+            f"JA-113 {slug}/index.html does not contain the latest "
+            f"heading from {source_md}: {heading_text!r}. "
+            f"Run `python tools/build_static_mirrors.py --stages meta` "
+            f"to regenerate the mirror."
+        )
     return failures
 
 

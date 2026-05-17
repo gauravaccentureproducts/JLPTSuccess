@@ -775,7 +775,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-112; gaps for retired / reserved slots) that the
+(JA-1 through JA-113; gaps for retired / reserved slots) that the
 script runs against every release. The script is the source of truth;
 this section is its human-readable index.
 
@@ -794,13 +794,12 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **101 named JA-NN rules** (the runtime
+Currently wired invariants: **102 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 110/110 at this checkpoint, post BUG-050 charitable close-out
-2026-05-17 which added JA-112 — AUDIO.md count-claim consistency
-with live data — as the third instance of the INV-4 cross-artifact
-sync class alongside JA-47 / JA-107).
+reports 111/111 at this checkpoint, post 2026-05-17 meta-route
+static-mirror freshness wire-up which added JA-113 — caught a
+recurring drift class observed 3× in the same session).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -929,6 +928,7 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-103 | kanji.json `n5_compounds`: `(form, reading)` tuple unique within each kanji entry (BUG-024 guard; legitimate polysemy with different readings — e.g., 一日 ついたち vs いちにち — PASSES) | 2026-05-17 |
 | JA-105 | reading.json `vocab_preview` is a list of vocab_id strings; each ID resolves against vocab.json (BUG-045 guard; embedded-dict denormalization shape rejected to avoid stale-snapshot drift) | 2026-05-17 |
 | JA-109 | Procedure manual + prompts → `tools/*.py` script references resolve to actual files on disk (Cross-Artifact Sync Protocol INV-10 guard; scope: N5 prompts + AUDIT-COVERAGE-*.md only — the cross-level procedure manual is intentionally excluded because its script refs are abstract Nx-builder targets) | 2026-05-17 |
+| JA-113 | Meta-route static mirrors (`home/`, `changelog/`, `privacy/`, `notices/`) reflect the latest H1/H2 from their source markdown (README.md / CHANGELOG.md / PRIVACY.md / NOTICES.md). Cross-Artifact Sync Protocol INV-7 extension — derived-mirror freshness vs source. Wired after 3 instances of the meta-route mirror drift class in the 2026-05-17 session. | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -996,6 +996,7 @@ Cross-reference table:
 | JA-110 | BUG-047 | listening.json `voice_planned.engine="edge-tts"` contradicted `audio_render_meta.voice_provider="voicevox"` on all 50 items after the 2026-05-12 VOICEVOX migration; voice_planned dropped (audio_render_meta canonical); JS UI re-wired |
 | JA-111 | BUG-051 | listening.json `format` and `format_type` were 1:1 redundant across all 50 items; format dropped; format_type canonical (closed enum). Same dual-field-redundancy class as JA-106 (BUG-044) |
 | JA-112 | BUG-050 (charitable interpretation) | AUDIO.md claimed "47 listening items use 4 distinct VOICEVOX speakers" — stale prose carried over after 2026-05-12 VOICEVOX render (live: 50 items / 6 speakers). Bug-report description mis-located the drift to version.json (which has been 50 in every observable instance); AUDIO.md was the actual stale source. Speaker-table character names also corrected (same drift class as BUG-053). |
+| JA-113 | (governance — recurring drift caught in 2026-05-17 session) | Three instances observed in one session of CHANGELOG.md edits not propagating to the changelog/index.html static mirror in the same commit (cdef185 → f96475b correction; 5d14cde + 47d1edc → 360eb74 correction). Pattern: maintainer edits markdown source under N5/ but doesn't re-run `tools/build_static_mirrors.py --stages meta`. JA-113 prospectively catches the class for home/changelog/privacy/notices routes. |
 | JA-64 (tightened) | BUG-011 + BUG-013 | Register-variant common_mistakes schema migration |
 | JA-35 (extended enum) | BUG-012 | `review_status` provenance disambiguation |
 
@@ -1015,7 +1016,7 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-113). Reserved slots (JA-42..46, JA-80,
+   (currently next free = JA-114). Reserved slots (JA-42..46, JA-80,
    JA-91..95) must NOT be reused.
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is
@@ -1054,7 +1055,7 @@ contract.
 | INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-107** (`version.json.counts` ↔ live data) + **JA-47** (CONTENT-LICENSE.md ↔ live data) | Wired (hard CI) |
 | INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | Wired (hard CI) |
 | INV-6 | Prompt change includes a regression test of golden output | No hard wiring (LLM-consumed; "golden output" not deterministic) | Convention only |
-| INV-7 | Cross-file references resolve | JA-15 (audio), JA-17 (vocab_id in grammar), JA-82 (_meta.see_also / consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs) | Partial |
+| INV-7 | Cross-file references resolve | JA-15 (audio), JA-17 (vocab_id in grammar), JA-82 (_meta.see_also / consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs), **JA-113** (meta-route mirror freshness vs source markdown — added 2026-05-17 after 3 drift instances) | Partial |
 | INV-8 | CHANGELOG entry names every dependent updated | Markdown prose; no parser-side enforcement | Convention only |
 | INV-9 | Closed bug links to fix commit + regression test | §25.8 lineage table; xlsx "User Reported Bugs" Fix Commit column | Partial |
 | INV-10 | Procedure-manual / prompt → script references resolve | **JA-109** (scope: N5 prompts + AUDIT-COVERAGE only; cross-level procedure manual excluded because its refs are abstract Nx targets) | Wired (hard CI) |
