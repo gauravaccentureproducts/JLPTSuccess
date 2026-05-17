@@ -2949,3 +2949,129 @@ no new pattern-instance contamination can land without tripping
 CI, but the snapshotted entries should be addressed by a future
 native-reviewer pass that either rewrites the examples or moves
 them to their correct parent pattern.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 20) — Audio Phase-1.5: rubberband replaces chained atempo on 3 listening items
+
+Part 17's audio-Phase-2 handoff document deferred a full VOICEVOX
+re-render at `speed_scale=1.00` (gated on VOICEVOX install on the
+maintainer's machine) as a quality upgrade over the Phase-1
+chained-atempo post-processing. Part 20 closes a narrower scope of
+that gap: the **3 specific items** that required a 2-pass
+`atempo=0.5,atempo=X` chain (factors below 0.5, where ffmpeg
+`atempo`'s single-filter range bottoms out) — replaced with
+single-pass ffmpeg `rubberband` filter (libRubberBand,
+PSOLA/phase-vocoder time-stretching) at the same effective factor.
+
+### Items processed (3)
+
+| Item | Factor | Phase-1 chain | Phase-1.5 method | Pacing post-replace |
+|---|---|---|---|---|
+| n5.listen.041 | 0.4811 | `atempo=0.5,atempo=0.9622` | `rubberband=tempo=0.4811` | 227.3 mpm (was 218.3) |
+| n5.listen.044 | 0.4872 | `atempo=0.5,atempo=0.9744` | `rubberband=tempo=0.4872` | 216.8 mpm (was 215.5) |
+| n5.listen.045 | 0.4760 | `atempo=0.5,atempo=0.9520` | `rubberband=tempo=0.4760` | 222.8 mpm (was 220.6) |
+
+All 3 land within the JLPT N5 target band 180–240 mpm. The
+post-Phase-1.5 measurement was performed by
+`tools/refresh_listening_pacing_2026_05_17.py` after the in-place
+audio swap.
+
+### Procedure
+
+1. **Source retrieval.** Pre-Phase-1 audio (the 2026-05-12
+   VOICEVOX render at `speed_scale=1.30`, before the BUG-048
+   ffmpeg-atempo close-out) was retrieved from git history via
+   `git show 47d1edc^:N5/audio/listening/n5.listen.<id>.mp3`
+   for each of the 3 IDs.
+2. **Rubberband re-process.** Each source ran through
+   `ffmpeg -i <src> -filter:a "rubberband=tempo=<factor>" -vn <dst>`
+   at the same effective factor that Phase-1 had targeted via the
+   chain. ffmpeg confirmed `librubberband` enabled in the build
+   (`-filters | grep rubberband`).
+3. **In-place replacement.** New primaries copied over
+   `N5/audio/listening/n5.listen.{041,044,045}.mp3`. Companion
+   `.slow.mp3` files (0.7× variant used as the "slow playback"
+   option in the listening UI) regenerated from the new primary
+   via single-pass `atempo=0.7` (no chaining needed; 0.7 is in
+   single-filter range).
+4. **Pacing re-measurement.**
+   `tools/refresh_listening_pacing_2026_05_17.py` re-ran;
+   `pacing_morae_per_min` stored values updated to the new
+   measurements. All 50 items remain `pacing_status: in_range`.
+5. **Metadata update.**
+   `tools/apply_phase15_rubberband_2026_05_17.py` flipped each of
+   the 3 items' `audio_render_meta.post_render_tempo_method` from
+   `"ffmpeg-atempo"` to `"ffmpeg-rubberband"` and added
+   `audio_render_meta.phase15_method_change_2026_05_17` with the
+   factor + rationale.
+
+### Why rubberband > chained atempo at factor < 0.5
+
+`atempo` uses time-domain PSOLA but at sub-0.5 factors needs to
+chain two passes. Each pass introduces independent
+windowing/overlap-add artifacts; chaining compounds the smearing
+on consonant transients (most audible on sibilants and stops).
+`rubberband` uses a frequency-domain phase-vocoder with iterative
+phase-locking, single-pass for any factor in [0.1, 10.0]. At
+factors near 0.5, the perceptual difference is small; below 0.5
+where the atempo chain takes effect, rubberband retains more of
+the original transient detail.
+
+### Doc drift fix in this batch
+
+The doc `docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` previously cited
+"7 items with slowdown factors below 0.5" — actual count was 3
+(hand-tally error at original authoring time, when the post-Phase-1
+listening.json had 39 atempo-adjusted items overall). All 4
+occurrences corrected in this batch; Phase-1.5 close-out note
+added to the doc head to retire the chained-atempo artifact gap
+that Phase-2 had originally targeted as its narrowest justification.
+
+### Phase-2 status post-Phase-1.5
+
+Phase-2 (full VOICEVOX re-render at `speed_scale=1.00`) remains
+**optional**, not required. The original tightest motivation
+("clean up chained-atempo artifacts on 3 items") is now addressed
+by Phase-1.5. Phase-2 would now serve as a broader quality lift on
+the remaining 36 atempo-adjusted items (factors 0.5–1.0,
+single-pass) where the perceptual quality difference vs from-source
+render is smaller and harder to notice. The doc
+`docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` retains the run procedure
+for when the maintainer chooses to install VOICEVOX.
+
+### CI invariants final state for Part 20
+
+Total live: **122** (unchanged from Part 19; no new invariants in
+this batch — it's an audio-content quality update, not a schema
+change). All 122 invariants PASS post-replacement.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Files touched (Part 20)
+
+  - N5/audio/listening/n5.listen.041.mp3 (rubberband replacement)
+  - N5/audio/listening/n5.listen.041.slow.mp3 (regen at 0.7×)
+  - N5/audio/listening/n5.listen.044.mp3 (rubberband replacement)
+  - N5/audio/listening/n5.listen.044.slow.mp3 (regen at 0.7×)
+  - N5/audio/listening/n5.listen.045.mp3 (rubberband replacement)
+  - N5/audio/listening/n5.listen.045.slow.mp3 (regen at 0.7×)
+  - N5/data/listening.json (audio_render_meta.post_render_tempo_method
+    flipped on 3 items + phase15_method_change_2026_05_17 added;
+    pacing_morae_per_min re-measured)
+  - N5/tools/apply_phase15_rubberband_2026_05_17.py (NEW one-shot
+    metadata flipper)
+  - N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md (7→3 drift fix +
+    Phase-1.5 close-out note in doc head)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 20 addendum)
+  - N5/docs/cross-artifact-sync-map.md (audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+### Final state for Part 20
+
+CI **122/122 invariants green**. All 50 listening items in target
+band 180–240 mpm. 3 chained-atempo items now use single-pass
+librubberband; the chained-atempo artifact class is **retired**
+for this corpus snapshot. Audio Phase-2 (full VOICEVOX re-render
+at speed_scale=1.00) remains an optional broader-scope quality
+upgrade, no longer required to close the sub-0.5-factor artifact
+gap.

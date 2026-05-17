@@ -2,15 +2,26 @@
 
 **Status as of 2026-05-17:** Phase-1 (ffmpeg atempo post-processing
 on the 2026-05-12 VOICEVOX render at speed_scale=1.30) shipped in
-commit `47d1edc`. All 50 listening items are now in the JLPT N5
-target band 180–240 mpm; mean 213.6. BUG-048 and BUG-049 are
-closed. CI passes.
+commit `47d1edc`. **Phase-1.5** (ffmpeg `rubberband` filter
+single-pass replacement for the 3 chained-atempo items, n5.listen.
+041 / 044 / 045) shipped in the JA-91+JA-94 follow-on batch.
+All 50 listening items are now in the JLPT N5 target band 180–240
+mpm; mean 213.6. BUG-048 and BUG-049 are closed. CI passes.
+
+**Phase-1.5 superseded the chained-atempo quality concern** that
+this doc was originally written to defer. With librubberband
+single-pass time-stretching applied at factors 0.476–0.487 on the
+3 items that previously needed `atempo=0.5,atempo=X` chains, the
+chained-atempo artifact class is now retired. Phase-2 (full
+VOICEVOX re-render at speed_scale=1.00) remains optional as a
+broader quality lift, but is no longer required to close the
+sub-0.5-factor artifact gap.
 
 **Phase-2 is a quality upgrade, not a correctness fix.** Phase-1
-is shippable. Phase-2 cleans up the audio-processing artifacts
-introduced by the chained ffmpeg atempo applied to 7 items with
-slowdown factors below 0.5 (a 2-pass `atempo=0.5,atempo=...`
-chain).
++ Phase-1.5 are shippable. Phase-2 would clean up the smaller
+audio-processing footprint on the remaining 36 items that were
+adjusted via single-pass atempo (factors 0.5–1.0), where the
+quality difference is smaller and harder to perceive.
 
 ## Why Phase-2 exists
 
@@ -21,14 +32,14 @@ pacing was wildly above the target band — mean ~295 mpm vs target
 
 ffmpeg's `atempo` filter handles tempo change with pitch
 preservation (PSOLA-style algorithms). At factors in [0.5, 2.0]
-single-pass, quality is near-transparent for speech. The 7 items
+single-pass, quality is near-transparent for speech. The 3 items
 that needed factor < 0.5 were chained `atempo=0.5,atempo=X` to
 reach effective factors of 0.476–0.499 — quality is still
 intelligible but has slightly more processing artifacts than
 single-pass.
 
 A from-source VOICEVOX re-render at `speed_scale=1.00` would
-produce cleaner audio for those 7 items (and arguably for the
+produce cleaner audio for those 3 items (and arguably for the
 other 32 slowed-down items too — VOICEVOX's native pace control
 is higher fidelity than post-hoc atempo on the rendered MP3).
 
@@ -85,7 +96,7 @@ git commit -m "audio: Phase-2 — VOICEVOX re-render at speed_scale=1.00
 
 Replaces the 2026-05-12 render at 1.30 + ffmpeg atempo
 post-processing (47d1edc) with a from-source VOICEVOX render at
-1.00. Cleaner audio quality, especially on the 7 items that
+1.00. Cleaner audio quality, especially on the 3 items that
 previously needed chained atempo (factor < 0.5).
 
 Pacing distribution unchanged: 50/50 in target band 180-240 mpm

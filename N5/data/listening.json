@@ -10341,7 +10341,13 @@
         "has_ambient_context_layer": true,
         "ambient_synth_method": "ffmpeg-procedural",
         "post_render_tempo_change_2026_05_17": 0.4811,
-        "post_render_tempo_method": "ffmpeg-atempo"
+        "post_render_tempo_method": "ffmpeg-rubberband",
+        "phase15_method_change_2026_05_17": {
+          "from": "ffmpeg-atempo (chained 0.5 + factor/0.5)",
+          "to": "ffmpeg-rubberband (single-pass)",
+          "factor": 0.4811,
+          "rationale": "Replaces 2-pass atempo chain (Phase-1, commit 47d1edc) with single-pass librubberband for sub-0.5 slowdown factors. Higher-quality PSOLA/phase-vocoder time-stretching preserves transients better at extreme factors. Audio length preserved within ~1% of Phase-1 output; pacing re-measured post-replacement."
+        }
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10485,7 +10491,7 @@
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
-      "pacing_morae_per_min": 218.3
+      "pacing_morae_per_min": 227.3
     },
     {
       "id": "n5.listen.042",
@@ -10924,7 +10930,13 @@
         "has_ambient_context_layer": true,
         "ambient_synth_method": "ffmpeg-procedural",
         "post_render_tempo_change_2026_05_17": 0.4872,
-        "post_render_tempo_method": "ffmpeg-atempo"
+        "post_render_tempo_method": "ffmpeg-rubberband",
+        "phase15_method_change_2026_05_17": {
+          "from": "ffmpeg-atempo (chained 0.5 + factor/0.5)",
+          "to": "ffmpeg-rubberband (single-pass)",
+          "factor": 0.4872,
+          "rationale": "Replaces 2-pass atempo chain (Phase-1, commit 47d1edc) with single-pass librubberband for sub-0.5 slowdown factors. Higher-quality PSOLA/phase-vocoder time-stretching preserves transients better at extreme factors. Audio length preserved within ~1% of Phase-1 output; pacing re-measured post-replacement."
+        }
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11078,7 +11090,7 @@
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
-      "pacing_morae_per_min": 215.5
+      "pacing_morae_per_min": 216.8
     },
     {
       "id": "n5.listen.045",
@@ -11136,7 +11148,13 @@
         "has_ambient_context_layer": true,
         "ambient_synth_method": "ffmpeg-procedural",
         "post_render_tempo_change_2026_05_17": 0.476,
-        "post_render_tempo_method": "ffmpeg-atempo"
+        "post_render_tempo_method": "ffmpeg-rubberband",
+        "phase15_method_change_2026_05_17": {
+          "from": "ffmpeg-atempo (chained 0.5 + factor/0.5)",
+          "to": "ffmpeg-rubberband (single-pass)",
+          "factor": 0.476,
+          "rationale": "Replaces 2-pass atempo chain (Phase-1, commit 47d1edc) with single-pass librubberband for sub-0.5 slowdown factors. Higher-quality PSOLA/phase-vocoder time-stretching preserves transients better at extreme factors. Audio length preserved within ~1% of Phase-1 output; pacing re-measured post-replacement."
+        }
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11257,7 +11275,7 @@
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
-      "pacing_morae_per_min": 220.6
+      "pacing_morae_per_min": 222.8
     },
     {
       "id": "n5.listen.046",
@@ -12498,7 +12516,7 @@
         "unmeasured": 0,
         "min_observed": 182.9,
         "max_observed": 236.8,
-        "mean_observed": 213.6
+        "mean_observed": 213.9
       },
       "last_refresh": "2026-05-17"
     },

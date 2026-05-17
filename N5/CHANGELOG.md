@@ -2,6 +2,64 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (Audio Phase-1.5: rubberband replaces chained atempo on 3 items)
+
+Audio-quality upgrade for the 3 listening items whose Phase-1
+slowdown was implemented via a 2-pass `atempo=0.5,atempo=X` chain
+(factors 0.476–0.487, sub-0.5-pass territory). Phase-1.5 replaces
+the chain with `ffmpeg` `rubberband` filter (libRubberBand
+PSOLA/phase-vocoder) at the same effective factor, single-pass.
+Pacing remains in target band 180–240 mpm post-replacement;
+artifact footprint on those 3 items is reduced (the chained
+atempo had double-stage smearing on consonant transients that
+rubberband single-pass avoids).
+
+### Items affected
+
+| Item | Factor | Phase-1 method | Phase-1.5 method | Pacing (mpm) |
+|---|---|---|---|---|
+| n5.listen.041 | 0.4811 | `atempo=0.5,atempo=0.9622` | `rubberband=tempo=0.4811` | 227.3 (was 218.3) |
+| n5.listen.044 | 0.4872 | `atempo=0.5,atempo=0.9744` | `rubberband=tempo=0.4872` | 216.8 (was 215.5) |
+| n5.listen.045 | 0.4760 | `atempo=0.5,atempo=0.9520` | `rubberband=tempo=0.4760` | 222.8 (was 220.6) |
+
+All 3 land within the JLPT N5 target band (180–240 mpm). The
+remaining 36 atempo-adjusted items (factors 0.5–1.0) stay on
+single-pass `atempo` — quality difference vs rubberband at those
+factors is marginal and not worth the re-render churn.
+
+### Audio metadata updates
+
+For each of the 3 items, `audio_render_meta`:
+- `post_render_tempo_method` flipped from `"ffmpeg-atempo"` to
+  `"ffmpeg-rubberband"`.
+- `phase15_method_change_2026_05_17` added — records the from/to
+  method, the factor, and the rationale.
+
+### Doc drift fix
+
+`docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` previously cited
+"7 items with slowdown factors below 0.5" — actual count was 3
+(hand-tally error at authoring time). All 4 occurrences corrected
+in this batch; Phase-1.5 close-out note added to the doc head.
+
+### Files touched
+
+- `N5/audio/listening/n5.listen.{041,044,045}.mp3` (rubberband
+  replacements)
+- `N5/audio/listening/n5.listen.{041,044,045}.slow.mp3`
+  (regenerated from new primary at single-pass `atempo=0.7`)
+- `N5/data/listening.json` (audio_render_meta updates +
+  re-measured `pacing_morae_per_min`)
+- `N5/tools/apply_phase15_rubberband_2026_05_17.py` (NEW —
+  one-shot metadata flipper)
+- `N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md` (7→3 correction +
+  Phase-1.5 close-out note)
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` (Part 20 addendum)
+- `N5/docs/cross-artifact-sync-map.md` (audit-log row)
+- `N5/CHANGELOG.md` (this entry)
+
+CI invariants unchanged at 122/122 green.
+
 ## Unreleased - 2026-05-17 (JA-91 + JA-94 final unblock: reserved JA-91..95 range fully wired)
 
 Not user-visible at runtime — corpus and rendered surfaces unchanged.

@@ -84,6 +84,50 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (Audio Phase-1.5: rubberband replaces chained atempo on 3 items)</h2>
+<p>Audio-quality upgrade for the 3 listening items whose Phase-1 slowdown was implemented via a 2-pass <code>atempo=0.5,atempo=X</code> chain (factors 0.476–0.487, sub-0.5-pass territory). Phase-1.5 replaces the chain with <code>ffmpeg</code> <code>rubberband</code> filter (libRubberBand PSOLA/phase-vocoder) at the same effective factor, single-pass. Pacing remains in target band 180–240 mpm post-replacement; artifact footprint on those 3 items is reduced (the chained atempo had double-stage smearing on consonant transients that rubberband single-pass avoids).</p>
+<h3>Items affected</h3>
+<p>| Item | Factor | Phase-1 method | Phase-1.5 method | Pacing (mpm) | |---|---|---|---|---| | n5.listen.041 | 0.4811 | <code>atempo=0.5,atempo=0.9622</code> | <code>rubberband=tempo=0.4811</code> | 227.3 (was 218.3) | | n5.listen.044 | 0.4872 | <code>atempo=0.5,atempo=0.9744</code> | <code>rubberband=tempo=0.4872</code> | 216.8 (was 215.5) | | n5.listen.045 | 0.4760 | <code>atempo=0.5,atempo=0.9520</code> | <code>rubberband=tempo=0.4760</code> | 222.8 (was 220.6) |</p>
+<p>All 3 land within the JLPT N5 target band (180–240 mpm). The remaining 36 atempo-adjusted items (factors 0.5–1.0) stay on single-pass <code>atempo</code> — quality difference vs rubberband at those factors is marginal and not worth the re-render churn.</p>
+<h3>Audio metadata updates</h3>
+<p>For each of the 3 items, <code>audio_render_meta</code>:</p>
+<ul>
+<li><code>post_render_tempo_method</code> flipped from <code>&quot;ffmpeg-atempo&quot;</code> to</li>
+</ul>
+<p><code>&quot;ffmpeg-rubberband&quot;</code>.</p>
+<ul>
+<li><code>phase15_method_change_2026_05_17</code> added — records the from/to</li>
+</ul>
+<p>method, the factor, and the rationale.</p>
+<h3>Doc drift fix</h3>
+<p><code>docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md</code> previously cited &quot;7 items with slowdown factors below 0.5&quot; — actual count was 3 (hand-tally error at authoring time). All 4 occurrences corrected in this batch; Phase-1.5 close-out note added to the doc head.</p>
+<h3>Files touched</h3>
+<ul>
+<li><code>N5/audio/listening/n5.listen.{041,044,045}.mp3</code> (rubberband</li>
+</ul>
+<p>replacements)</p>
+<ul>
+<li><code>N5/audio/listening/n5.listen.{041,044,045}.slow.mp3</code></li>
+</ul>
+<p>(regenerated from new primary at single-pass <code>atempo=0.7</code>)</p>
+<ul>
+<li><code>N5/data/listening.json</code> (audio_render_meta updates +</li>
+</ul>
+<p>re-measured <code>pacing_morae_per_min</code>)</p>
+<ul>
+<li><code>N5/tools/apply_phase15_rubberband_2026_05_17.py</code> (NEW —</li>
+</ul>
+<p>one-shot metadata flipper)</p>
+<ul>
+<li><code>N5/docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md</code> (7→3 correction +</li>
+</ul>
+<p>Phase-1.5 close-out note)</p>
+<ul>
+<li><code>N5/docs/AUDIT-COVERAGE-2026-05-15.md</code> (Part 20 addendum)</li>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> (audit-log row)</li>
+<li><code>N5/CHANGELOG.md</code> (this entry)</li>
+</ul>
+<p>CI invariants unchanged at 122/122 green.</p>
 <h2>Unreleased - 2026-05-17 (JA-91 + JA-94 final unblock: reserved JA-91..95 range fully wired)</h2>
 <p>Not user-visible at runtime — corpus and rendered surfaces unchanged. Internal: closes the final two reserved invariant slots from the JA-91..95 range, bringing CI from 120 → 122 invariants green and locking two contamination guards that BUG-003 and BUG-006 (round-9 audit) had each filed against the corpus.</p>
 <h3>JA-91 — cross-pattern explanation_en similarity guard (BUG-003)</h3>
