@@ -37,7 +37,7 @@ These are listed in `.claude/settings.local.json`. The user has stated they don'
 
 Settings enforcement: `**/*.bak*`, `**/*.backup*`, `**/*_backup_*`, `**/backups/**` are denied for `Write`, `Edit`, `Bash(rm/mv/cp ...)` and `PowerShell(Remove-Item/Move-Item/Copy-Item ...)`. If a deny rule fires when you needed to act, explain the situation to the user and ask — don't try to work around the deny.
 
-## Documentation propagation (BINDING — set 2026-05-15)
+## Documentation propagation (BINDING — set 2026-05-15; extended 2026-05-17)
 
 **Whenever an audit cycle, fix batch, methodology change, new CI invariant, or new false-positive class is produced, you MUST update — without being asked, as part of the same commit:**
 
@@ -47,6 +47,8 @@ Settings enforcement: `**/*.bak*`, `**/*.backup*`, `**/*_backup_*`, `**/backups/
 4. `N5/docs/AUDIT-COVERAGE-YYYY-MM-DD.md` (coverage matrix + future-review section)
 
 See the parent `JLPTSuccess/.claude/CLAUDE.md` Rule 4 for the full specification, including the "ask yourself per-file" commit pattern, the mechanical-change exception, **and the writing-discipline-for-audit-docs bullet** (added 2026-05-15: every audit doc must use bounded phrasing — "every X in the corpus scanned" not "every X"; "0 findings against the N patterns scanned" not "0 findings"; "saturated against current pattern set" not "saturated"; "JA-NN prevents re-introduction of these specific patterns" not "JA-NN locks the gain"). The full rewrite table lives in `prompts/Japanese language Accuracy check.txt` → WRITING DISCIPLINE FOR AUDIT DOCS section.
+
+**Rule 5 (set 2026-05-17) generalizes Rule 4 from "4 doc files" to 9 artifact classes:** Specifications / Code / Data / UI / Bug tracker / Test scenarios / Prompts / Procedure manuals / User-facing docs. Whenever ONE artifact changes, every OTHER artifact that references or implements the changed thing must update in the same commit. The dependency matrix + INV-N invariant catalog + commit-time checklist live in `N5/docs/cross-artifact-sync-map.md`. Rule 4's 4-file propagation is the special case for audit-cycle / methodology changes; Rule 5 covers every other change class (data shape, code surface, UI string, bug close-out, prompt edit, etc.). See the parent CLAUDE.md Rule 5 for the full specification including exit conditions (CLEAN EXIT / POLICY BLOCK / OSCILLATION / CAP).
 
 ## Commit workflow (BINDING — set 2026-05-11)
 

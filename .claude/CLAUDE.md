@@ -59,6 +59,42 @@ Whenever an audit cycle, fix batch, methodology change, new CI invariant, new fa
 
 **Writing discipline for audit docs (added 2026-05-15):** every audit-coverage, reconciliation, or native-teacher report MUST use bounded phrasing — never absolutist phrasing — when describing coverage. Prefer "every X *in the corpus snapshot scanned*" over "every X"; prefer "0 findings *against the N patterns scanned*" over "0 findings"; prefer "addressed for M of N items in scope" over "RESOLVED"; prefer "closed against currently-observed values" over "closed enum"; prefer "JA-NN prevents re-introduction of *these specific patterns*" over "JA-NN locks the gain"; prefer "saturated *against this prompt's pattern set*" over "saturated" or "converged"; prefer "CI invariants at this checkpoint" over "Final CI count". A future JLPT exam, native reviewer, or institutional adopter reads audit docs as quality-coverage claims; terminal/absolutist language overclaims and breaks the trust contract when an item-class outside our audited scope surfaces. The full rewrite table + a Phase-0 regression check live in `N5/prompts/Japanese language Accuracy check.txt` (WRITING DISCIPLINE FOR AUDIT DOCS section) and `N5/prompts/N5Improvement.txt` (Phase-0 Audit-doc writing-discipline scan).
 
+### Rule 5 - Cross-artifact synchronization protocol (set 2026-05-17)
+
+**Generalizes Rule 4 from "the 4 doc-propagation files" to a 9-class artifact set.** Rule 4 still applies — when an audit cycle / fix batch / methodology change produces a learning, the 4 docs (procedure manual, accuracy prompt, N5Improvement, audit-coverage) must update in the same commit. Rule 5 extends this to every artifact class in the project, triggered on every change (not just audit-cycle changes).
+
+**The 9 synced artifact classes:**
+
+1. **Specifications** — `N5/specifications/JLPT-N5-Current-Implementation-Spec.md`, ADRs, schema definitions, acceptance criteria.
+2. **Code** — `N5/js/*`, `N5/tools/*`, `.github/workflows/*`, build scripts, migration helpers.
+3. **Data / content** — `N5/data/*.json` (grammar / vocab / kanji / reading / listening / questions / papers / version), `N5/locales/*.json`, fixtures.
+4. **UI** — `N5/index.html`, `N5/learn/**/index.html`, `N5/kanji/**/index.html`, `N5/reading/**/index.html`, etc.; rendered surfaces, copy strings, accessibility attributes, themes.
+5. **Bug tracker** — `N5/specifications/test-scenarios-by-specialist-perspective.xlsx` "User Reported Bugs" sheet (BUG-NNN canonical).
+6. **Test scenarios** — same xlsx 14 category tabs (A. Japanese language..N. End-user POV); `tools/check_content_integrity.py` (104 JA-NN invariants); Playwright + axe-core P0 smoke suite.
+7. **Prompts** — `N5/prompts/Japanese language Accuracy check.txt`, `N5/prompts/N5Improvement.txt`, system prompts, autonomous-loop prompts.
+8. **Procedure manuals** — `JLPT Common/procedure-manual-build-next-jlpt-level.md` (submodule), runbooks, deploy playbooks.
+9. **User-facing docs** — `N5/README.md`, `N5/README.hi.md`, `N5/CHANGELOG.md`, `N5/PRIVACY.md`, `N5/NOTICES.md`, `N5/CONTENT-LICENSE.md`, `N5/AUDIO.md`, `N5/SELFHOST.md`, `N5/TASKS.md`, plus `N5/docs/*`.
+
+**The sync trigger:** whenever ONE artifact changes (the SOURCE), before committing, every OTHER artifact that references or implements the changed thing (DEPENDENTS) must be updated in the same change set. Atomicity is required — either all dependents update or none do. The dependency matrix + commit-time checklist + INV-N invariant catalog live in `N5/docs/cross-artifact-sync-map.md` (the operational handbook for this rule).
+
+**Sync invariants currently wired** (subset of the protocol's INV-1..INV-10):
+
+- INV-4 → **JA-107** (`version.json.counts` ↔ live data corpus sizes)
+- INV-5 → **JA-108** (`N5/locales/*.json` key-set parity across all locales)
+- INV-7 → JA-15 (audio refs) + JA-17 (vocab_id refs) + JA-82 (`_meta.see_also` refs) + JA-100 (kanji↔vocab form) — partial coverage; passage_id/pattern_id cross-corpus refs not yet enforced
+- INV-10 → **JA-109** (procedure manual + prompts → script references resolve to actual files)
+- INV-9 → Section 25.8 of implementation spec (every closed-bug invariant lineage tabulated)
+
+**Practical commit pattern (Rule 5 extension to Rule 4's pattern):** when wrapping up ANY substantive change, before writing the commit message, walk the 9 artifact classes above and ask per-class: "did my change touch this class, or does my change require an update in this class?" If yes, edit it in this commit; if no, skip. The commit message must name every artifact class touched. The structured-report emitter at `tools/cross_artifact_sync_report.py` automates the walk for tooling-friendly contexts; for human-driven changes the checklist lives in `N5/docs/cross-artifact-sync-map.md`.
+
+**Exit conditions** (per the protocol):
+- CLEAN EXIT — every dependent updated, all CI invariants pass, CHANGELOG documents the ripple.
+- POLICY BLOCK — a required update would violate a binding rule (e.g., touching `/N4/` is blocked by Rule 1). Surface, do not partial-sync.
+- OSCILLATION — two iterations cannot reach consistency. Surface and stop.
+- CAP — 30 cross-artifact iterations in one change. Surface for review.
+
+**Existing drift is fixed in the same change set** (per the protocol): if propagating a fresh change reveals pre-existing drift in any artifact class, fix it inside this commit. Drift compounds — letting one slip means the next change inherits the gap.
+
 ## Operational notes
 
 - Live URL: https://gauravaccentureproducts.github.io/JLPTSuccess/

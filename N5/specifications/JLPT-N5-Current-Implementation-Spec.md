@@ -775,7 +775,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-106; gaps for retired / reserved slots) that the
+(JA-1 through JA-109; gaps for retired / reserved slots) that the
 script runs against every release. The script is the source of truth;
 this section is its human-readable index.
 
@@ -794,11 +794,12 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **95 named JA-NN rules** (the runtime
+Currently wired invariants: **98 named JA-NN rules** (the runtime
 total may also count auxiliary sub-checks; the registry-counted
 named invariants are listed exhaustively below; runtime CI count
-reports 104/104 at this checkpoint, post BUG-041..046 close-out
-2026-05-17).
+reports 107/107 at this checkpoint, post Cross-Artifact Sync
+Protocol install 2026-05-17, which added JA-107/108/109 wiring
+INV-4 / INV-5 / INV-10 of the protocol).
 
 Reserved / not-yet-wired: **JA-42 through JA-46**, **JA-80**,
 **JA-91 through JA-95**. These slots are documented in the
@@ -835,6 +836,8 @@ Closed-enum checks, required-field presence, type sanity.
 | JA-104 | reading.json passages use `difficulty` (not legacy `level`); `difficulty ∈ {easy, medium, hard}` strict-equality (BUG-041 guard) | 2026-05-17 |
 | JA-105 | reading.json `vocab_preview` is a list of vocab_id strings; embedded-dict shape rejected (BUG-045 guard) | 2026-05-17 |
 | JA-106 | reading.json `format_type ∈ {null, schedule_table, menu_list, notice}` strict closed enum (BUG-044 guard; the `comprehension` value was bleed from `format_role` and is no longer permitted on `format_type`) | 2026-05-17 |
+| JA-107 | `data/version.json.counts` declared values equal the actual array length of the referenced corpus file (Cross-Artifact Sync Protocol INV-4 guard; companion to JA-47 which covers the CONTENT-LICENSE.md side) | 2026-05-17 |
+| JA-108 | `locales/*.json` key-set parity across all locale files (Cross-Artifact Sync Protocol INV-5 guard; strict full-key equality including `_meta` block) | 2026-05-17 |
 
 ### 25.2 Scope discipline (N5 whitelist + OOS guards)
 
@@ -921,6 +924,7 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-100 | kanji.json compound/example.form == linked vocab.form **STRICT** (BUG-020 OOS + BUG-023 in-scope drift; tightened from narrow to strict 2026-05-17) | 2026-05-17 |
 | JA-103 | kanji.json `n5_compounds`: `(form, reading)` tuple unique within each kanji entry (BUG-024 guard; legitimate polysemy with different readings — e.g., 一日 ついたち vs いちにち — PASSES) | 2026-05-17 |
 | JA-105 | reading.json `vocab_preview` is a list of vocab_id strings; each ID resolves against vocab.json (BUG-045 guard; embedded-dict denormalization shape rejected to avoid stale-snapshot drift) | 2026-05-17 |
+| JA-109 | Procedure manual + prompts → `tools/*.py` script references resolve to actual files on disk (Cross-Artifact Sync Protocol INV-10 guard; scope: N5 prompts + AUDIT-COVERAGE-*.md only — the cross-level procedure manual is intentionally excluded because its script refs are abstract Nx-builder targets) | 2026-05-17 |
 
 ### 25.5 Locale parity & i18n
 
@@ -982,6 +986,9 @@ Cross-reference table:
 | JA-104 | BUG-041 | Reading.json `level` field carried 4 mixed-semantics values; renamed to `difficulty` with closed enum |
 | JA-105 | BUG-045 | Reading.json `vocab_preview` had two shapes (list-of-strings vs list-of-dicts) across authoring batches; normalized to list-of-vocab_id-strings |
 | JA-106 | BUG-044 | Reading.json `format_type` and `format_role` both held the passage-type value `"comprehension"` on the same passages; `format_type` re-scoped to info-search visual subtype enum |
+| JA-107 | (drift discovered during Rule-5 install) | `version.json.counts.vocab` carried the pre-dedup 1009 value while `vocab.json` had been reduced to 995 entries (residue of BUG-018/019/024 dedup batches that didn't propagate to the version manifest); fixed in the same commit as the JA-107 wiring |
+| JA-108 | (governance) | Cross-Artifact Sync Protocol INV-5; the en.json `_meta` block was missing (asymmetric with hi.json) and 6 chokai_detail keys were missing from hi.json; both gaps closed in the install commit |
+| JA-109 | (governance) | Cross-Artifact Sync Protocol INV-10; N5Improvement.txt referenced a deleted script (`tools/register_dev_issue_list_deferrals_2026_05_05.py`); reference updated to the still-extant `tools/register_audit_2026_05_12.py` in the install commit |
 | JA-64 (tightened) | BUG-011 + BUG-013 | Register-variant common_mistakes schema migration |
 | JA-35 (extended enum) | BUG-012 | `review_status` provenance disambiguation |
 
@@ -999,7 +1006,7 @@ When closing a bug class that warrants a CI gate:
 2. **Register the rule.** Add a `("JA-NN", "description", lambda: ...)`
    tuple to the registry list near the top of `main()`.
 3. **Pick the next free number.** Use the highest existing JA-NN + 1
-   (currently next free = JA-107). Reserved slots (JA-42..46, JA-80,
+   (currently next free = JA-110). Reserved slots (JA-42..46, JA-80,
    JA-91..95) must NOT be reused.
 4. **Validate on the current corpus** — run the script. The new
    invariant must PASS on the post-fix corpus, otherwise the fix is
@@ -1014,6 +1021,50 @@ sub-scope checks. The BUG-020 → BUG-023 round-trip demonstrated that
 narrow-by-default gates miss real bug classes — false negatives don't
 ring CI bells, but they're still bugs. Loosen only with documented
 exceptions when a real false positive surfaces.
+
+### 25.10 Cross-Artifact Sync Protocol — INV↔JA mapping (added 2026-05-17)
+
+BINDING Rule 5 (`JLPTSuccess/.claude/CLAUDE.md`) installs the
+Cross-Artifact Synchronization Protocol — when ONE artifact changes,
+every OTHER artifact that references the changed thing updates in
+the same commit. The protocol defines INV-1..INV-10 as build-time
+guards; this subsection maps each INV-N to its concrete JA-NN
+implementation in `tools/check_content_integrity.py` or to its
+current convention-only / partial / out-of-scope status.
+
+The operational handbook (concrete file map per artifact class,
+dependency matrix, commit-time checklist) lives in
+`N5/docs/cross-artifact-sync-map.md`. This section is the spec-side
+contract.
+
+| INV | Description | Implementation | Status |
+|---|---|---|---|
+| INV-1 | Bug-fix commit touches a test file or annotates "no test" | Commit-message convention; no pre-commit hook | Convention only |
+| INV-2 | Spec change references corresponding code change; new-field spec adds test | §25.8 lineage table tracks bug-class history | Convention only |
+| INV-3 | Code public-API change updates API docs | N/A — project has no traditional API (static SPA + content corpus) | Out of scope |
+| INV-4 | Data-file count changes update version.json AND CHANGELOG | **JA-107** (`version.json.counts` ↔ live data) + **JA-47** (CONTENT-LICENSE.md ↔ live data) | Wired (hard CI) |
+| INV-5 | UI string change propagates to all locales | **JA-108** (`locales/*.json` key-set parity) | Wired (hard CI) |
+| INV-6 | Prompt change includes a regression test of golden output | No hard wiring (LLM-consumed; "golden output" not deterministic) | Convention only |
+| INV-7 | Cross-file references resolve | JA-15 (audio), JA-17 (vocab_id in grammar), JA-82 (_meta.see_also / consumers), JA-100 (kanji↔vocab form), JA-105 (vocab_preview refs) | Partial |
+| INV-8 | CHANGELOG entry names every dependent updated | Markdown prose; no parser-side enforcement | Convention only |
+| INV-9 | Closed bug links to fix commit + regression test | §25.8 lineage table; xlsx "User Reported Bugs" Fix Commit column | Partial |
+| INV-10 | Procedure-manual / prompt → script references resolve | **JA-109** (scope: N5 prompts + AUDIT-COVERAGE only; cross-level procedure manual excluded because its refs are abstract Nx targets) | Wired (hard CI) |
+
+**Wired (hard CI):** 3 invariants — INV-4 / INV-5 / INV-10.
+**Partial:** 2 — INV-7 / INV-9 (multiple JA-NN cover sub-cases).
+**Convention only:** 4 — INV-1 / INV-2 / INV-6 / INV-8.
+**Out of scope:** 1 — INV-3 (no traditional API).
+
+When a future audit cycle promotes a convention-only INV to a hard
+CI invariant, add the JA-NN row to the appropriate subsection above
+AND update the Status column here. The convention→partial→wired
+progression is the recommended promotion path.
+
+The structured-report emitter `tools/cross_artifact_sync_report.py`
+rolls up this matrix at runtime and exits 0 (CLEAN) when all wired
+invariants are green. The text output names each INV-N's status and
+links to the JA-NN gates that implement it; the `--json` mode emits
+the same data as a machine-readable payload for CI pipelines.
 
 ---
 

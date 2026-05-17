@@ -1730,3 +1730,169 @@ invariants catch the SPECIFIC shapes addressed here, not
 arbitrary future divergences. The "same-shape audit at merge
 time" operational rule (§F.23.7) is the cross-cutting
 preventive — adopt it for every new authoring batch.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 12) — Cross-Artifact Sync Protocol install (Rule 5 adoption)
+
+Adopts a governance protocol that generalizes BINDING Rule 4
+(propagation across 4 doc files for audit cycles) into a 9-class
+artifact-sync rule applicable to every commit. When ONE artifact
+class changes (Spec / Code / Data / UI / Bug tracker / Test
+scenarios / Prompts / Procedure manuals / User-facing docs),
+every OTHER artifact that references or implements the changed
+thing must be updated in the same commit. The protocol defines
+INV-1..INV-10 as build-time guards; this batch wires 3 of those
+into hard CI invariants and documents the others as
+convention-only / partial / out-of-scope.
+
+### Governance changes
+
+- **`JLPTSuccess/.claude/CLAUDE.md`** — BINDING Rule 5 added.
+  Lists the 9 artifact classes mapped to their concrete file
+  paths in this repo; references the operational handbook at
+  `N5/docs/cross-artifact-sync-map.md`; codifies the
+  "fix-existing-drift-in-the-same-change-set" principle and the
+  4 exit conditions (CLEAN EXIT / POLICY BLOCK / OSCILLATION /
+  CAP at 30 iterations).
+- **`N5/.claude/CLAUDE.md`** — Documentation propagation section
+  extended to note Rule 5 generalizes Rule 4. Rule 4's
+  audit-cycle 4-file propagation is preserved as the special
+  case for methodology / audit batches; Rule 5 covers every
+  other change class.
+- **`N5/docs/cross-artifact-sync-map.md`** — NEW operational
+  handbook (300+ lines). Enumerates each of the 9 artifact
+  classes with concrete file paths; concrete dependency matrix
+  for this project; INV-1..10 → JA-NN mapping; 8-step
+  commit-time loop; per-class "what to remember" cheatsheet;
+  audit-log table for tracking future protocol-driven changes.
+
+### CI invariants wired (3 hard CI gates)
+
+- **JA-107** (INV-4) — `data/version.json.counts` declared values
+  must equal the actual array length of the referenced corpus
+  file. Companion to JA-47 (CONTENT-LICENSE.md side). Catches
+  release-stamp drift where a dedup/migration reduces a corpus
+  but version.json stays at the old number.
+- **JA-108** (INV-5) — `N5/locales/*.json` key-set parity
+  across all locale files. Strict full-key equality including
+  `_meta` block. Catches UI translation drift where a new
+  surface ships with EN copy only.
+- **JA-109** (INV-10) — every `tools/<name>.py` reference in
+  N5 prompts + AUDIT-COVERAGE docs must resolve to a real file.
+  Scope decision: the cross-level procedure manual is excluded
+  (its script refs are abstract Nx-builder targets, by design).
+
+### Drift discovered + fixed in the same commit (per protocol)
+
+The protocol's "drift compounds — fix existing drift in the same
+change set" principle surfaced three pre-existing issues during
+the install audit:
+
+1. **`data/version.json.counts.vocab` 1009 → 995** (INV-4 drift).
+   The BUG-018/019/024 dedup batches reduced vocab.json from
+   1009 → 995 entries but version.json (consumed by app footer
+   + sw.js CACHE_VERSION derivation) was never updated. Fixed
+   in this commit; `builtAt` bumped to 2026-05-17. cacheVersion
+   bump deferred to the next release commit (no js/css/sw
+   change in the install batch).
+2. **`N5/locales/en.json` missing `_meta` block** (INV-5 drift).
+   `hi.json` carried a provenance/review_status/note metadata
+   block; en.json did not. Mirrored to en.json (with en-specific
+   values per the user's "Add `_meta` to en.json" decision).
+3. **`N5/locales/hi.json` missing 6 chokai_detail keys** (INV-5
+   drift). `en.json` had 6 chokai_detail keys (back_to_list,
+   correct, next_label, script_label, show_script, wrong) that
+   intentionally carry Japanese text (in-app pedagogy convention);
+   hi.json simply lacked these keys entirely. Mirrored verbatim
+   to hi.json — the convention is locale-independent.
+4. **`N5/prompts/N5Improvement.txt` referenced deleted script**
+   (INV-10 drift). The "Reference implementation" callout cited
+   tools/register_dev_issue_list_deferrals_2026_05_05.py (kept
+   here as plain prose with no backticks so JA-109 doesn't try
+   to resolve the deleted path) which had been removed in a
+   tools-cleanup pass. Updated to point at
+   `tools/register_audit_2026_05_12.py` (same idempotency
+   pattern).
+
+### New tool: `tools/cross_artifact_sync_report.py`
+
+A structured-report emitter that runs the integrity check, rolls
+up the 9-class artifact inventory, and prints the INV-1..10
+status matrix. Two modes:
+
+- `python tools/cross_artifact_sync_report.py` — human-readable
+  text report; exit 0 on CLEAN, non-zero on DRIFT.
+- `python tools/cross_artifact_sync_report.py --json` — JSON
+  payload for tooling consumption.
+
+Validated 2026-05-17 against the post-install corpus:
+artifact-class inventory clean (all 9 classes have files
+present), CI 107/107 green, EXIT: CLEAN.
+
+### Coverage at this checkpoint
+
+CI invariants live: 107 (was 104; +3 from JA-107/108/109
+wiring INV-4 / INV-5 / INV-10).
+JA-91..95 remain reserved; JA-80 remains retired.
+
+Wired (hard CI) — 3 of 10 INV-N. Partial — 2 of 10 (INV-7
+cross-file refs has 5 JA-NN sub-cases; INV-9 closed-bug-lineage
+relies on §25.8 of the implementation spec + xlsx columns).
+Convention only — 4 of 10 (INV-1 bug-fix-touches-test,
+INV-2 spec-references-code, INV-6 prompt-golden-output,
+INV-8 CHANGELOG-completeness).
+Out of scope — 1 of 10 (INV-3 API docs; the project has no
+traditional API surface — static SPA + content corpus).
+
+The convention→partial→wired promotion path is the recommended
+direction for future audit cycles. Each promotion should land
+in a single commit alongside the new JA-NN check function +
+spec §25 entry + this AUDIT-COVERAGE doc update.
+
+### Documentation propagation (Rule 4 of the protocol applied to its own install)
+
+- ✓ Procedure manual `JLPT Common/`: NOT updated in this commit.
+  Rationale: this protocol-install is N5-governance + tooling,
+  not a methodology learning that transfers to Nx levels. The
+  cross-level procedure manual stays focused on
+  Japanese-content-quality methodology. If future Nx adoption
+  surfaces a need for cross-level sync-protocol guidance, this
+  decision will be revisited and §F.24 (or later) authored
+  at that point.
+- ✓ Accuracy prompt: NOT updated in this commit (no new audit
+  category surfaced — JA-107/108/109 are governance invariants,
+  not Japanese-language accuracy checks).
+- ✓ N5Improvement prompt: 1 reference update (deleted-script ref
+  replaced with current script). No new Section-10 anti-items
+  for the install itself — Rule 5 IS the new governance, not an
+  N5-corpus-quality anti-item.
+- ✓ This AUDIT-COVERAGE doc: Part 12 addendum above.
+- ✓ Implementation spec `JLPT-N5-Current-Implementation-Spec.md`:
+  §25.1 + §25.4 JA-107/108/109 rows added; §25.8 lineage table
+  extended; new §25.10 subsection added (Cross-Artifact Sync
+  Protocol INV↔JA mapping).
+- ✓ Parent `.claude/CLAUDE.md`: BINDING Rule 5 added.
+- ✓ N5 `.claude/CLAUDE.md`: Documentation-propagation section
+  extended.
+- ✓ NEW `N5/docs/cross-artifact-sync-map.md`: operational
+  handbook.
+- ✓ NEW `N5/tools/cross_artifact_sync_report.py`: structured
+  reporter.
+- ✓ `N5/CHANGELOG.md`: entry naming all 11 dependent files
+  touched.
+- ✓ `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`:
+  rows added to K. QA testing tab for sync-drift detection
+  scenarios.
+
+### Final state for Part 12
+
+CI 107/107 invariants green. `cross_artifact_sync_report.py`
+exits CLEAN. version.json.counts now matches live data
+(vocab 995). en.json/hi.json key-parity established (including
+`_meta` block on both sides). All `tools/*.py` references in
+N5 governance docs resolve. Bounded-coverage note: this install
+addresses the patterns described above for THIS commit's
+scope; future drift in unrelated artifact classes may surface
+and would be addressed under the same Rule 5 discipline in
+subsequent batches.

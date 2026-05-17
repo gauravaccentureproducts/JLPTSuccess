@@ -2677,9 +2677,13 @@ ID assignment rules:
   the sheet. Inspect the sheet first; do NOT reuse IDs.
 - IMP IDs continue from the highest existing `IMP-NNN`.
 - Reference implementation:
-  `tools/register_dev_issue_list_deferrals_2026_05_05.py`
+  `tools/register_audit_2026_05_12.py`
   pattern — `wb = openpyxl.load_workbook(XLSX, read_only=True)`,
   iterate Items rows ≥ 5, collect existing IDs, take max(NNN)+1.
+  (Prior reference tools/register_dev_issue_list_deferrals_2026_05_05.py
+  was removed in a tools-cleanup pass — left here as plain prose
+  (no backticks) so JA-109 doesn't try to resolve the deleted path.
+  The same idempotency pattern is preserved in register_audit_2026_05_12.py.)
 
 Decision-field defaults:
 - **Fix** — action this cycle. Default for Section 5 P1/P2

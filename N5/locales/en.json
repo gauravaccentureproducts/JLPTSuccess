@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "provenance": "project_authored",
+    "review_status": "shipped",
+    "note": "Canonical EN UI strings. Reference for locale-parity check JA-108 (INV-5 of cross-artifact sync protocol, added 2026-05-17). When adding a new key, mirror it to every other locale in the same commit; the chokai_detail listening labels intentionally carry Japanese text rather than English glosses, matching the in-app pedagogy that those screens display kana labels regardless of UI locale."
+  },
   "app": {
     "title": "JLPT N5 study material",
     "tagline": "Learn. Test. Review. Master."

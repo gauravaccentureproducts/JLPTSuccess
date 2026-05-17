@@ -2,6 +2,113 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (Cross-Artifact Sync Protocol install + version.json drift fix)
+
+Governance + tooling release. No learner-facing content changes; the
+fix targets a stale corpus count in `data/version.json` and installs
+a 9-class artifact-sync protocol (BINDING Rule 5) that prevents this
+class of drift from recurring.
+
+### Cross-Artifact Sync Protocol installed (BINDING Rule 5)
+
+Adopts a project-wide governance protocol generalizing the existing
+Rule 4 (4-doc propagation for audit cycles) into a 9-class
+artifact-sync rule. When ONE artifact class changes (Spec / Code /
+Data / UI / Bug tracker / Test scenarios / Prompts / Procedure
+manuals / User-facing docs), every OTHER artifact that references
+or implements the changed thing updates in the same commit. The
+protocol defines INV-1..INV-10 as build-time guards; this release
+wires INV-4 / INV-5 / INV-10 as hard CI invariants and documents
+the others as convention-only / partial / out-of-scope.
+
+The operational handbook (concrete file map per artifact class,
+dependency matrix, commit-time checklist) lives in
+`docs/cross-artifact-sync-map.md`. The spec-side INV↔JA mapping
+lives in §25.10 of the implementation spec.
+
+### CI invariants added (3 hard CI gates)
+
+- **JA-107** (INV-4) — `data/version.json.counts` declared values
+  must equal the actual array length of the referenced corpus
+  file. Companion to JA-47 (CONTENT-LICENSE.md counts). Catches
+  release-stamp drift after dedup/migration passes.
+- **JA-108** (INV-5) — `locales/*.json` strict full-key parity
+  across all locales (including `_meta` block). Catches UI
+  translation drift where a new surface ships with EN copy
+  only.
+- **JA-109** (INV-10) — every `tools/<name>.py` script reference
+  in the N5 prompts + AUDIT-COVERAGE docs must resolve to a real
+  file. (Scope decision: cross-level procedure manual excluded
+  because its script refs are abstract Nx-builder targets, by
+  design.)
+
+Total CI invariants live: 107 (was 104).
+
+### Drift fixed in the same commit (per the protocol's compound-drift rule)
+
+- **`data/version.json.counts.vocab` 1009 → 995.** Residue of
+  BUG-018/019/024 dedup batches (2026-05-16/17) that reduced
+  `vocab.json` from 1009 → 995 entries but never propagated to
+  the version manifest. `builtAt` bumped to 2026-05-17.
+  `cacheVersion` bump deferred to the next js/css/sw release —
+  this batch is doc + tooling only, so a SW cache invalidation
+  is not warranted.
+- **`locales/en.json`** — added `_meta` block (asymmetric with
+  hi.json before this fix).
+- **`locales/hi.json`** — added 6 chokai_detail keys that were
+  present on EN side: back_to_list, correct, next_label,
+  script_label, show_script, wrong (these intentionally carry
+  Japanese kana text — in-app pedagogy convention regardless of
+  UI locale).
+- **`prompts/N5Improvement.txt`** — "Reference implementation"
+  callout retargeted from the deleted
+  `tools/register_dev_issue_list_deferrals_2026_05_05.py` to the
+  still-extant `tools/register_audit_2026_05_12.py` (same
+  idempotent registration pattern).
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+- `JLPTSuccess/.claude/CLAUDE.md` — BINDING Rule 5 added.
+- `N5/.claude/CLAUDE.md` — Documentation-propagation section
+  extended to reference Rule 5.
+- `N5/docs/cross-artifact-sync-map.md` — NEW (operational
+  handbook).
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` — Part 12 addendum.
+- `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` —
+  §25.1 (JA-107/108 rows), §25.4 (JA-109 row), §25.8 lineage
+  table updated, NEW §25.10 subsection (INV↔JA mapping table).
+- `N5/specifications/test-scenarios-by-specialist-perspective.xlsx` —
+  rows added to K. QA testing tab for sync-drift detection
+  scenarios.
+- `N5/tools/check_content_integrity.py` — 3 new check functions
+  + 3 new registry entries.
+- `N5/tools/cross_artifact_sync_report.py` — NEW (structured
+  report emitter).
+- `N5/data/version.json` — vocab count 1009 → 995; builtAt
+  bumped.
+- `N5/locales/en.json` — _meta block added.
+- `N5/locales/hi.json` — 6 chokai_detail keys added.
+- `N5/prompts/N5Improvement.txt` — script-ref retargeted.
+- `N5/CHANGELOG.md` — this entry.
+
+### Coverage of the fix
+
+CI: 107/107 invariants green post-install (was 104/104 green
+pre-install — the 3 new JA-NN gates pass on the same corpus
+snapshot after the in-commit drift fixes landed).
+`cross_artifact_sync_report.py` exits CLEAN.
+
+Bounded-coverage note (per writing discipline): the wired
+invariants prevent re-introduction of THESE specific drift
+shapes (count drift on version.json, locale-key parity gaps,
+unresolved script references in N5 governance docs). The
+4 convention-only INV-N (bug-fix-test, spec-code, prompt-golden,
+CHANGELOG-completeness) remain commit-discipline targets —
+future audit cycles may promote them to hard CI gates following
+the convention→partial→wired progression documented in §25.10.
+
+---
+
 ## v1.15.5 - 2026-05-14 (Autonomous bug-fix audit pass — ISSUE-001/002 closed)
 
 Maintenance / audit-cycle release. No learner-facing content changes; the

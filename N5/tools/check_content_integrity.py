@@ -1135,6 +1135,26 @@ CHECKS: list[tuple[str, str, callable]] = [
     # non-info-search passages; on info-search passages it's in
     # {schedule_table, menu_list, notice}. Never "comprehension".
     ("JA-106", "reading.json format_type ∈ {null, schedule_table, menu_list, notice} (BUG-044 guard, 2026-05-17)", lambda: _check_ja_106_format_type_enum()),
+    # JA-107 (2026-05-17): Cross-Artifact Sync Protocol INV-4 — every
+    # count in data/version.json.counts equals the actual length of
+    # the referenced corpus file. Catches release-stamp drift where
+    # a dedup/migration reduces a corpus but version.json (consumed
+    # by app footer + sw.js CACHE_VERSION) isn't updated. Companion
+    # to JA-47 (CONTENT-LICENSE.md side).
+    ("JA-107", "version.json.counts equal live data array lengths (INV-4 guard, 2026-05-17)", lambda: _check_ja_107_version_json_counts()),
+    # JA-108 (2026-05-17): Cross-Artifact Sync Protocol INV-5 — every
+    # UI string key in locales/en.json must exist in every other
+    # locale file (currently hi.json). Catches UI translation drift
+    # where a new surface ships with EN copy and the HI/JA pass is
+    # forgotten.
+    ("JA-108", "locales/*.json key-set parity across all locales (INV-5 guard, 2026-05-17)", lambda: _check_ja_108_locale_key_parity()),
+    # JA-109 (2026-05-17): Cross-Artifact Sync Protocol INV-10 —
+    # every `tools/<name>.py` script reference in the governance
+    # docs (procedure manual, accuracy prompt, N5Improvement,
+    # AUDIT-COVERAGE) must resolve to an actual file on disk.
+    # Catches script-rename / -removal drift where the manual
+    # still tells builders to run a vanished file.
+    ("JA-109", "procedure manual + prompts → script references resolve (INV-10 guard, 2026-05-17)", lambda: _check_ja_109_script_references_resolve()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -5035,6 +5055,218 @@ def _check_ja_106_format_type_enum() -> list[str]:
                 f"JA-106 {pid}: format_type {ft!r} not in {sorted(ALLOWED)} (legacy "
                 f"'comprehension' retired per BUG-044)"
             )
+    return failures
+
+
+def _check_ja_107_version_json_counts() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-4 enforcement (2026-05-17).
+
+    Every count declared in `data/version.json.counts` must equal the
+    actual array length in the corresponding live corpus file.
+    Catches the failure class where dedup / migration passes reduce
+    a corpus but version.json (read by app footer + sw.js
+    CACHE_VERSION derivation) stays at the old number.
+
+    Companion to JA-47 (CONTENT-LICENSE.md counts ↔ live data).
+    JA-47 enforces the legal-attribution side; JA-107 enforces the
+    public build-stamp side.
+    """
+    failures: list[str] = []
+    try:
+        version = json.loads((ROOT / "data" / "version.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-107 could not read version.json: {e}"]
+    counts = version.get("counts") or {}
+    if not isinstance(counts, dict):
+        return [f"JA-107 version.json.counts is not a dict: got {type(counts).__name__}"]
+
+    # Map declared keys to (corpus filename, container key).
+    SOURCES = {
+        "grammar": ("grammar.json", "patterns"),
+        "vocab": ("vocab.json", "entries"),
+        "kanji": ("kanji.json", "entries"),
+        "reading": ("reading.json", "passages"),
+        "listening": ("listening.json", "items"),
+        "questions": ("questions.json", "questions"),
+    }
+    for key, declared in counts.items():
+        if key in SOURCES:
+            fname, container = SOURCES[key]
+            try:
+                data = json.loads((ROOT / "data" / fname).read_text(encoding="utf-8"))
+            except Exception as e:
+                failures.append(f"JA-107 could not read data/{fname} for {key} count: {e}")
+                continue
+            actual = len(data.get(container) or [])
+            if declared != actual:
+                failures.append(
+                    f"JA-107 version.json.counts.{key}={declared} but "
+                    f"data/{fname}.{container} has {actual} entries (drift; "
+                    f"INV-4 violation)"
+                )
+        elif key in {"papers", "paperQuestions"}:
+            # Both come from data/papers/manifest.json's totalPapers/totalQuestions.
+            try:
+                manifest = json.loads(
+                    (ROOT / "data" / "papers" / "manifest.json").read_text(encoding="utf-8")
+                )
+            except Exception as e:
+                failures.append(f"JA-107 could not read data/papers/manifest.json for {key}: {e}")
+                continue
+            manifest_key = "totalPapers" if key == "papers" else "totalQuestions"
+            actual = manifest.get(manifest_key)
+            if declared != actual:
+                failures.append(
+                    f"JA-107 version.json.counts.{key}={declared} but "
+                    f"data/papers/manifest.json.{manifest_key}={actual} (drift; "
+                    f"INV-4 violation)"
+                )
+        else:
+            # Unknown count key — surface as a warning so we maintain the
+            # explicit-source-mapping discipline.
+            failures.append(
+                f"JA-107 version.json.counts.{key} has no source mapping in JA-107; "
+                f"add the corpus file to SOURCES dict in _check_ja_107_*"
+            )
+    return failures
+
+
+def _check_ja_108_locale_key_parity() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-5 enforcement (2026-05-17).
+
+    Every UI string key in `locales/en.json` must exist in every
+    other locale file (`locales/hi.json` currently) and vice-versa.
+    Catches the failure class where a new UI surface lands with EN
+    copy only, and the HI translator pass is "queued" then forgotten.
+
+    Strictness: full key-set equality. The `_meta` key is included
+    (per the 2026-05-17 install decision to mirror it to en.json
+    rather than exempt it) so locale-internal metadata stays
+    parity-balanced too.
+    """
+    failures: list[str] = []
+    locales_dir = ROOT / "locales"
+    if not locales_dir.exists():
+        return [f"JA-108 locales/ directory missing at {locales_dir}"]
+
+    locale_files = sorted(locales_dir.glob("*.json"))
+    if len(locale_files) < 2:
+        return []  # Single-locale project; parity is trivially satisfied.
+
+    def _flatten(d: dict, prefix: str = "") -> set[str]:
+        keys: set[str] = set()
+        for k, v in d.items():
+            kp = f"{prefix}.{k}" if prefix else k
+            if isinstance(v, dict):
+                keys |= _flatten(v, kp)
+            else:
+                keys.add(kp)
+        return keys
+
+    loaded: dict[str, set[str]] = {}
+    for lf in locale_files:
+        try:
+            d = json.loads(lf.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-108 could not read {lf.name}: {e}")
+            continue
+        loaded[lf.stem] = _flatten(d)
+
+    if len(loaded) < 2:
+        return failures
+
+    # Compare every pair.
+    reference_name, reference_keys = next(iter(loaded.items()))
+    for other_name, other_keys in list(loaded.items())[1:]:
+        missing_in_other = reference_keys - other_keys
+        missing_in_ref = other_keys - reference_keys
+        for k in sorted(missing_in_other):
+            failures.append(
+                f"JA-108 key {k!r} present in {reference_name}.json but missing from "
+                f"{other_name}.json (INV-5 violation)"
+            )
+        for k in sorted(missing_in_ref):
+            failures.append(
+                f"JA-108 key {k!r} present in {other_name}.json but missing from "
+                f"{reference_name}.json (INV-5 violation)"
+            )
+    return failures
+
+
+def _check_ja_109_script_references_resolve() -> list[str]:
+    """Cross-Artifact Sync Protocol INV-10 enforcement (2026-05-17).
+
+    Every reference to a `tools/<name>.py` script in the **N5-specific
+    governance docs** — accuracy prompt, N5Improvement prompt, and
+    audit-coverage doc — must resolve to an actual file on disk.
+    Catches the failure class where a fix script is renamed / removed
+    but the N5 docs still tell future operators to run it.
+
+    Scope decisions for v1 (2026-05-17):
+
+    * **Excluded:** `JLPT Common/procedure-manual-build-next-jlpt-level.md`.
+      That doc lives in its own submodule and intentionally references
+      abstract Nx-builder script names (e.g., `tools/build_data.py`,
+      `tools/heuristic_audit.py`) that the cross-level methodology
+      prescribes a future Nx builder *port and adapt* — not files that
+      must exist in N5/tools/. The procedure manual has its own
+      doc-integrity discipline; tracking the abstract-vs-concrete
+      reference policy belongs there, not in N5's CI.
+
+    * **Included:** every `tools/...py` reference in the three N5
+      docs above. These reference real N5 fix/audit scripts and
+      must stay aligned with what actually exists.
+
+    Other path references (audio files, data files, schemas) are out
+    of scope — those are caught by JA-15 / JA-82 / other invariants.
+    """
+    failures: list[str] = []
+    DOCS = [
+        ROOT / "prompts" / "Japanese language Accuracy check.txt",
+        ROOT / "prompts" / "N5Improvement.txt",
+    ]
+    # Also scan the most recent AUDIT-COVERAGE-*.md (open-ended date suffix).
+    docs_dir = ROOT / "docs"
+    if docs_dir.exists():
+        for f in sorted(docs_dir.glob("AUDIT-COVERAGE-*.md")):
+            DOCS.append(f)
+
+    # Match `tools/<name>.py` and `N5/tools/<name>.py` patterns inside
+    # backticks (the project's canonical script-reference syntax).
+    # Avoid the wildcard `tools/*.py` (literal asterisk; not a real
+    # filename) and avoid bash glob substitutions.
+    SCRIPT_RE = re.compile(r"`((?:N5/)?tools/[A-Za-z0-9_\-./]+\.py)`")
+
+    seen: set[tuple[str, str]] = set()  # (doc_relpath, script_path) — dedupe
+    for doc in DOCS:
+        if not doc.exists():
+            failures.append(f"JA-109 governance doc missing: {doc}")
+            continue
+        try:
+            text = doc.read_text(encoding="utf-8")
+        except Exception as e:
+            failures.append(f"JA-109 could not read {doc}: {e}")
+            continue
+        for m in SCRIPT_RE.finditer(text):
+            path = m.group(1)
+            # Skip wildcard / glob refs.
+            if "*" in path:
+                continue
+            doc_label = doc.name
+            if (doc_label, path) in seen:
+                continue
+            seen.add((doc_label, path))
+            # Resolve path relative to ROOT (N5/).
+            # `N5/tools/...py` → strip N5/ prefix since ROOT is already N5/.
+            rel = path
+            if rel.startswith("N5/"):
+                rel = rel[len("N5/"):]
+            candidate = ROOT / rel
+            if not candidate.exists():
+                failures.append(
+                    f"JA-109 {doc_label} references {path!r} but file does not exist "
+                    f"at {candidate} (INV-10 violation)"
+                )
     return failures
 
 
