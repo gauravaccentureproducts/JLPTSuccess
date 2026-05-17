@@ -18,6 +18,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   bstack:
     # Gate 1: opt-in repo variable. Without this, the job never starts.

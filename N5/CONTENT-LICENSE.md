@@ -163,3 +163,23 @@ coupled and travel together.
 (`tools/audit_provenance.py`) runs as part of the content-integrity
 gate (CI). If you spot a provenance issue, file an issue with the
 specific question ID and we'll fix it within the next release.*
+
+### kanjium pitch-accent reference
+
+Pitch-accent data (`pitch_accent.mora` + `pitch_accent.drop` on
+vocab.json entries with `pitch_accent.source` starting with
+`kanjium-...`) is derived from the kanjium project's pitch-accent
+database, licensed under CC-BY-SA 4.0
+(<https://creativecommons.org/licenses/by-sa/4.0/>). Source
+project: <https://github.com/mifunetoshiro/kanjium>. The
+specific commit hash for each entry is embedded in the
+`pitch_accent.source` field (e.g., `kanjium-8a0cdaa1-exact`).
+
+Local modifications: 199 entries marked `pitch_accent.confidence`
+as `unverified` or `low` where the kanjium dataset did not
+carry an exact match or where the entry is a phrase-level lemma
+(greetings, set expressions) that kanjium doesn't cover. These
+entries fall back to a heuristic-derived conservative value
+(typically heiban drop=0) and are explicitly tagged for future
+native-reviewer verification.
+
