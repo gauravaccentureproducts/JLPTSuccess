@@ -2,6 +2,116 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (BUG-050 round-3 close-out: spec §7.3 sample drift; JA-119 wired)
+
+User-visible: the implementation spec's §7.3 "version.json - build
+stamp" sample now shows the **current** corpus counts (v1.15.5,
+vocab 995, reading 54, listening 50, papers 28, paperQuestions 402)
+instead of the v1.12.50-era stale values (vocab 1041, reading 45,
+listening 47, papers 29, paperQuestions 426, invariants 48/48) that
+had been carried over for ~20 commits without being refreshed.
+
+### Why BUG-050 was filed three times against a clean file
+
+The user's audit observed `counts.listening=47` and reported it as
+"data/version.json declares 47". Verification each round confirmed
+the actual `data/version.json` file held 50 (not 47) in every
+observable state — working tree, full git history, live deployed
+site. Each close-out round addressed adjacent stale-prose drift on
+user-facing surfaces:
+
+- **Round 1** (`5d14cde`) — fixed AUDIO.md line 52 ("47 listening
+  items use 4 distinct VOICEVOX speakers"). JA-112 wired. Real but
+  not the source the user observed.
+- **Round 2** (`bbea337`) — back-filled Fix Commit links on the 53
+  Fixed bugs as part of INV-9 promotion. JA-118 wired. Orthogonal
+  to BUG-050's actual content.
+- **Round 3** (this commit) — **located the actual source**: spec
+  §7.3 carried a SAMPLE `version.json` JSON block showing
+  `"listening": 47` (along with `"vocab": 1041`, etc.) from a
+  v1.12.50-era snapshot. The block's framing reads as authoritative
+  ("Single source of truth for build counts:"), so the auditor
+  naturally read the sample's values as current state.
+
+### Fix applied
+
+1. **Spec §7.3 sample updated** to current values (v1.15.5, vocab
+   995, reading 54, listening 50, papers 28, paperQuestions 402).
+   The stale `invariants: 48/48` field — which lived in the sample
+   but no longer lives in the live `version.json` (moved to
+   `data/build_metadata.json` per IMP-002) — removed entirely; a
+   prose sentence below the block clarifies where the CI invariant
+   count actually lives now.
+2. **Drift note added** below the §7.3 sample block explaining
+   that the sample MUST match the live file (per JA-119) and that
+   the prior stale state caused BUG-050's repeated confused
+   re-reports.
+
+### JA-119 wired (fifth-surface coverage of Cross-Artifact Sync Protocol INV-4)
+
+The "user-facing prose-with-counts" drift class is now locked
+across all five surfaces a maintainer or auditor is likely to
+read for ground truth:
+
+| Surface | Invariant |
+|---|---|
+| `N5/CONTENT-LICENSE.md` | JA-47 |
+| `N5/data/version.json` (vs live array lengths) | JA-107 |
+| `N5/AUDIO.md` | JA-112 |
+| `N5/README.md` | JA-115 |
+| `N5/specifications/JLPT-N5-Current-Implementation-Spec.md` §7.3 sample | **JA-119** |
+
+JA-119 parses the spec §7.3 fenced JSON block and compares its
+`counts` field key-by-key against the live `data/version.json.counts`.
+Drift on any key trips CI immediately. The check also flags
+missing keys (sample doesn't list a count that live data has) and
+extra keys (sample lists a count that's not in live data —
+catches the `invariants` deprecation cleanly).
+
+### Process lesson — "charitable interpretation" is iterative
+
+When a user-filed bug's literal claim conflicts with observable
+state, check ADJACENT artifacts. The 2026-05-17 BUG-050 saga
+demonstrates the pattern is ITERATIVE: round 1 found one adjacent
+stale surface, round 3 found the actual source. Both fixes were
+valuable; round 1 didn't fail because it missed the ULTIMATE source,
+it just hadn't walked the doc neighborhood far enough.
+
+After this commit, the "doc neighborhood" is mechanically locked
+via five JA-NN invariants. A future bug-class against a sixth
+prose-with-counts surface would point at a surface not yet locked,
+which becomes the next promotion target.
+
+### CI invariants final state
+
+Total live: **120** (was 119; +1 from JA-119).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker: **53 / 53 Fixed / 0 Open**.
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§7.3 sample fixed; §25.1 JA-119 row; §25.10 INV-4 line
+    extended to 5 surfaces; counts 119→120; next-free 120)
+  - N5/tools/check_content_integrity.py (JA-119 check function +
+    registry entry)
+  - N5/tools/cross_artifact_sync_report.py (INV-4 INV_MAPPING
+    extended with JA-119)
+  - N5/specifications/test-scenarios-by-specialist-perspective.xlsx
+    (BUG-050 marked Fixed round-3; title + description updated)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (Part 18 addendum)
+  - N5/docs/cross-artifact-sync-map.md (audit-log row for round-3)
+  - N5/CHANGELOG.md (this entry)
+  - N5/changelog/index.html (meta-mirror regen — JA-113 enforced)
+
+### Verification
+
+- python tools/check_content_integrity.py → PASS all 120 invariants
+- python tools/cross_artifact_sync_report.py → EXIT: CLEAN
+- Bug tracker: 53 / 53 Fixed / 0 Open
+
+---
+
 ## Unreleased - 2026-05-17 (End-of-session sweep: JA-91..95 partial promotion + INV-1/2/8 hooks + Audio Phase-2 handoff)
 
 User-visible: the **grammar.json n5-028 ex[5]** (〜の possessive

@@ -320,7 +320,8 @@ markdown source's latest H1/H2.
 | 2026-05-17 | 2 untracked files resolved | — | — | n5-008.pdf gitignored; build_test_scenarios_workbook.py moved to not-required/tools-archive/ with DEPRECATED guard | 407ef64 |
 | 2026-05-17 | JA-114 (pacing_status enum) + JA-115 (README counts) | — | JA-114, JA-115 | README "1041 vocab / 40 reading / 40 listening" → 995 / 54 / 50 (stale v1.12.29-era counts caught by JA-115's first run) | c1c7107 |
 | 2026-05-17 | INV-6 promotion + INV-7 extension + INV-9 promotion | INV-6 → Wired, INV-7 → Wired, INV-9 → Wired | JA-116, JA-117, JA-118 | A5 missing scenario row (substring-match bug in b466293 sync — `"A5" in "A55"` was True); 53 Fixed bugs back-filled with Fix Commit links | bbea337 |
-| 2026-05-17 | Final batch — JA-91..95 partial promotion + INV-1/2/8 commit-time hooks + Audio Phase-2 maintainer doc | INV-1/2/8 → Convention+Hook | JA-92, JA-93, JA-95 (JA-91 + JA-94 stay reserved with gating notes) | n5-028 ex[5] ja `父は 先生です。` → `わたしの 父は 先生です。` (JA-95 first-run caught the possessive-の omission) | (this commit) |
+| 2026-05-17 | Final batch — JA-91..95 partial promotion + INV-1/2/8 commit-time hooks + Audio Phase-2 maintainer doc | INV-1/2/8 → Convention+Hook | JA-92, JA-93, JA-95 (JA-91 + JA-94 stay reserved with gating notes) | n5-028 ex[5] ja `父は 先生です。` → `わたしの 父は 先生です。` (JA-95 first-run caught the possessive-の omission) | 9c5efa7 |
+| 2026-05-17 | BUG-050 round-3 close-out — spec §7.3 sample version.json drift | INV-4 fifth-surface coverage | JA-119 | Spec §7.3 sample carried v1.12.50-era values (vocab 1041, reading 45, listening 47, papers 29, paperQuestions 426, invariants 48/48) — auditor read this as authoritative current state and re-filed BUG-050 three times against the actual file. Sample updated to current values; JA-119 locks future drift. | (this commit) |
 
 Each future cross-artifact ripple gets a row here so future
 auditors can trace which sync hops landed when.

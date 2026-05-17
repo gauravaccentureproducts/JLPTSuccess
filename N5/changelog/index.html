@@ -84,6 +84,49 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (BUG-050 round-3 close-out: spec §7.3 sample drift; JA-119 wired)</h2>
+<p>User-visible: the implementation spec&#x27;s §7.3 &quot;version.json - build stamp&quot; sample now shows the <strong>current</strong> corpus counts (v1.15.5, vocab 995, reading 54, listening 50, papers 28, paperQuestions 402) instead of the v1.12.50-era stale values (vocab 1041, reading 45, listening 47, papers 29, paperQuestions 426, invariants 48/48) that had been carried over for ~20 commits without being refreshed.</p>
+<h3>Why BUG-050 was filed three times against a clean file</h3>
+<p>The user&#x27;s audit observed <code>counts.listening=47</code> and reported it as &quot;data/version.json declares 47&quot;. Verification each round confirmed the actual <code>data/version.json</code> file held 50 (not 47) in every observable state — working tree, full git history, live deployed site. Each close-out round addressed adjacent stale-prose drift on user-facing surfaces:</p>
+<ul>
+<li><strong>Round 1</strong> (<code>5d14cde</code>) — fixed AUDIO.md line 52 (&quot;47 listening</li>
+</ul>
+<p>items use 4 distinct VOICEVOX speakers&quot;). JA-112 wired. Real but not the source the user observed.</p>
+<ul>
+<li><strong>Round 2</strong> (<code>bbea337</code>) — back-filled Fix Commit links on the 53</li>
+</ul>
+<p>Fixed bugs as part of INV-9 promotion. JA-118 wired. Orthogonal to BUG-050&#x27;s actual content.</p>
+<ul>
+<li><strong>Round 3</strong> (this commit) — <strong>located the actual source</strong>: spec</li>
+</ul>
+<p>§7.3 carried a SAMPLE <code>version.json</code> JSON block showing <code>&quot;listening&quot;: 47</code> (along with <code>&quot;vocab&quot;: 1041</code>, etc.) from a v1.12.50-era snapshot. The block&#x27;s framing reads as authoritative (&quot;Single source of truth for build counts:&quot;), so the auditor naturally read the sample&#x27;s values as current state.</p>
+<h3>Fix applied</h3>
+<ol>
+<li><strong>Spec §7.3 sample updated</strong> to current values (v1.15.5, vocab</li>
+</ol>
+<p>995, reading 54, listening 50, papers 28, paperQuestions 402). The stale <code>invariants: 48/48</code> field — which lived in the sample but no longer lives in the live <code>version.json</code> (moved to <code>data/build_metadata.json</code> per IMP-002) — removed entirely; a prose sentence below the block clarifies where the CI invariant count actually lives now.</p>
+<ol>
+<li><strong>Drift note added</strong> below the §7.3 sample block explaining</li>
+</ol>
+<p>that the sample MUST match the live file (per JA-119) and that the prior stale state caused BUG-050&#x27;s repeated confused re-reports.</p>
+<h3>JA-119 wired (fifth-surface coverage of Cross-Artifact Sync Protocol INV-4)</h3>
+<p>The &quot;user-facing prose-with-counts&quot; drift class is now locked across all five surfaces a maintainer or auditor is likely to read for ground truth:</p>
+<p>| Surface | Invariant | |---|---| | <code>N5/CONTENT-LICENSE.md</code> | JA-47 | | <code>N5/data/version.json</code> (vs live array lengths) | JA-107 | | <code>N5/AUDIO.md</code> | JA-112 | | <code>N5/README.md</code> | JA-115 | | <code>N5/specifications/JLPT-N5-Current-Implementation-Spec.md</code> §7.3 sample | <strong>JA-119</strong> |</p>
+<p>JA-119 parses the spec §7.3 fenced JSON block and compares its <code>counts</code> field key-by-key against the live <code>data/version.json.counts</code>. Drift on any key trips CI immediately. The check also flags missing keys (sample doesn&#x27;t list a count that live data has) and extra keys (sample lists a count that&#x27;s not in live data — catches the <code>invariants</code> deprecation cleanly).</p>
+<h3>Process lesson — &quot;charitable interpretation&quot; is iterative</h3>
+<p>When a user-filed bug&#x27;s literal claim conflicts with observable state, check ADJACENT artifacts. The 2026-05-17 BUG-050 saga demonstrates the pattern is ITERATIVE: round 1 found one adjacent stale surface, round 3 found the actual source. Both fixes were valuable; round 1 didn&#x27;t fail because it missed the ULTIMATE source, it just hadn&#x27;t walked the doc neighborhood far enough.</p>
+<p>After this commit, the &quot;doc neighborhood&quot; is mechanically locked via five JA-NN invariants. A future bug-class against a sixth prose-with-counts surface would point at a surface not yet locked, which becomes the next promotion target.</p>
+<h3>CI invariants final state</h3>
+<p>Total live: <strong>120</strong> (was 119; +1 from JA-119). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker: <strong>53 / 53 Fixed / 0 Open</strong>.</p>
+<h3>Files touched (Rule 5 atomic-commit discipline)</h3>
+<p>- N5/specifications/JLPT-N5-Current-Implementation-Spec.md (§7.3 sample fixed; §25.1 JA-119 row; §25.10 INV-4 line extended to 5 surfaces; counts 119→120; next-free 120) - N5/tools/check_content_integrity.py (JA-119 check function + registry entry) - N5/tools/cross_artifact_sync_report.py (INV-4 INV_MAPPING extended with JA-119) - N5/specifications/test-scenarios-by-specialist-perspective.xlsx (BUG-050 marked Fixed round-3; title + description updated) - N5/docs/AUDIT-COVERAGE-2026-05-15.md (Part 18 addendum) - N5/docs/cross-artifact-sync-map.md (audit-log row for round-3) - N5/CHANGELOG.md (this entry) - N5/changelog/index.html (meta-mirror regen — JA-113 enforced)</p>
+<h3>Verification</h3>
+<ul>
+<li>python tools/check_content_integrity.py → PASS all 120 invariants</li>
+<li>python tools/cross_artifact_sync_report.py → EXIT: CLEAN</li>
+<li>Bug tracker: 53 / 53 Fixed / 0 Open</li>
+</ul>
+<hr>
 <h2>Unreleased - 2026-05-17 (End-of-session sweep: JA-91..95 partial promotion + INV-1/2/8 hooks + Audio Phase-2 handoff)</h2>
 <p>User-visible: the <strong>grammar.json n5-028 ex[5]</strong> (〜の possessive pattern) now correctly demonstrates の. Previously read <code>父は 先生です。</code> (uses は, not の — same drift class as BUG-009); now reads <code>わたしの 父は 先生です。</code> (preserves the EN translation &quot;My father is a teacher.&quot; while adding the canonical possessive marker). Caught by JA-95&#x27;s first run; fixed inline.</p>
 <h3>What landed — &quot;do whatever is required tbd but finish it&quot;</h3>

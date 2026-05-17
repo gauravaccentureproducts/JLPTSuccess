@@ -1257,6 +1257,15 @@ CHECKS: list[tuple[str, str, callable]] = [
     # n5-028 ex[5] missing の (fixed inline 2026-05-17 — replaced ja
     # with possessive-marked variant).
     ("JA-95", "particle-pattern alignment for Particles-category patterns (BUG-009 alignment guard, 2026-05-17 wire-up)", lambda: _check_ja_95_particle_pattern_alignment()),
+    # JA-119 (2026-05-17): BUG-050 round-3 close-out. The spec's §7.3
+    # example block (a sample version.json shown to developers) must
+    # match the live data/version.json content for the count fields.
+    # Previously stale at v1.12.50-era values (vocab 1041, reading 45,
+    # listening 47, etc.) which caused multiple confused re-reports
+    # of BUG-050 against the actual file. Same Cross-Artifact Sync
+    # Protocol INV-4 class as JA-47 / JA-107 / JA-112 / JA-115 —
+    # fifth surface where corpus counts surface in prose.
+    ("JA-119", "spec §7.3 sample version.json matches live data/version.json counts (BUG-050 round-3 guard, 2026-05-17)", lambda: _check_ja_119_spec_version_sample()),
     # JA-113 (2026-05-17): meta-route static-mirror freshness check.
     # For each markdown-sourced meta route (home / changelog / privacy /
     # notices), the static-mirror HTML at /N5/<slug>/index.html must
@@ -5401,6 +5410,95 @@ def _check_ja_94_pattern_marker_per_example() -> list[str]:
                     f"{markers[:6]!r} (BUG-006 pattern-instance "
                     f"contamination candidate)"
                 )
+    return failures
+
+
+def _check_ja_119_spec_version_sample() -> list[str]:
+    """BUG-050 round-3 close-out (2026-05-17).
+
+    The implementation spec §7.3 ('version.json - build stamp')
+    carries a sample JSON block showing the file's shape with
+    illustrative count values. The sample must match the live
+    data/version.json count fields exactly — stale sample values
+    have been observed to confuse maintainers + auditors who read
+    the spec and mistake the example for the actual current state
+    (BUG-050 was filed 3 times this session against the actual file
+    even though the file was clean; the user was reading the spec
+    sample which carried stale v1.12.50-era values).
+
+    Implementation: locate the §7.3 fenced JSON block, parse its
+    `counts` object, and compare each key to data/version.json.
+
+    Same Cross-Artifact Sync Protocol INV-4 class as JA-47
+    (CONTENT-LICENSE.md), JA-107 (version.json itself), JA-112
+    (AUDIO.md), JA-115 (README.md). The fifth user-facing
+    prose-with-counts surface, now locked.
+    """
+    failures: list[str] = []
+    SPEC = ROOT / "specifications" / "JLPT-N5-Current-Implementation-Spec.md"
+    VERSION = ROOT / "data" / "version.json"
+    if not SPEC.exists():
+        return [f"JA-119 spec file missing: {SPEC}"]
+    if not VERSION.exists():
+        return [f"JA-119 version.json missing: {VERSION}"]
+    try:
+        spec_text = SPEC.read_text(encoding="utf-8")
+        version_data = json.loads(VERSION.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-119 read failed: {e}"]
+
+    # Locate §7.3 — find the heading then take the next fenced ```json block
+    h_match = re.search(r"^###\s+7\.3\s+`version\.json`", spec_text, re.M)
+    if not h_match:
+        return [
+            "JA-119 spec §7.3 'version.json - build stamp' heading not "
+            "found. If the section was renumbered, update JA-119's "
+            "anchor regex."
+        ]
+    after_heading = spec_text[h_match.end():]
+    fence_match = re.search(r"```json\s*\n(.+?)```", after_heading, re.S)
+    if not fence_match:
+        return [
+            "JA-119 spec §7.3 has no `json fenced code block in the "
+            "next ~2000 chars after the heading. Update JA-119 if the "
+            "sample was moved to a different code-fence language."
+        ]
+    sample_text = fence_match.group(1)
+    # Parse the sample as JSON (strip JSON5-ish indent quirks if any)
+    try:
+        sample = json.loads(sample_text)
+    except json.JSONDecodeError as e:
+        return [
+            f"JA-119 spec §7.3 sample is not valid JSON: {e}. "
+            f"Sample text:\n{sample_text[:300]}"
+        ]
+    sample_counts = sample.get("counts") or {}
+    live_counts = version_data.get("counts") or {}
+
+    # Every count key in the sample must match the live value exactly.
+    # New live counts that aren't yet in the sample → spec is stale.
+    for key, live_v in live_counts.items():
+        sample_v = sample_counts.get(key)
+        if sample_v is None:
+            failures.append(
+                f"JA-119 spec §7.3 sample missing 'counts.{key}' "
+                f"(live = {live_v}). Update the sample."
+            )
+            continue
+        if sample_v != live_v:
+            failures.append(
+                f"JA-119 spec §7.3 sample 'counts.{key}={sample_v}' "
+                f"does not match live 'counts.{key}={live_v}'. "
+                f"Update the sample to current values."
+            )
+    # Extra keys in sample that aren't live → also drift
+    for key in sample_counts:
+        if key not in live_counts:
+            failures.append(
+                f"JA-119 spec §7.3 sample has 'counts.{key}' which is "
+                f"NOT in live version.json. Remove from sample or add "
+                f"to live counts."
+            )
     return failures
 
 
