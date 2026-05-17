@@ -19,8 +19,8 @@
       "review_status": "ai_quality_reviewed",
       "explanation_hi": "पुरुष ने पहले स्टेशन के सामने मिलने का सुझाव दिया, पर महिला ने भीड़ का बहाना देकर कैफ़े के सामने का प्रस्ताव रखा — पुरुष ने मान लिया। उत्तर: कैफ़े के सामने।",
       "cultural_context": "जापान में मिलने का स्थान बदलने का अनुरोध करना सामान्य; भीड़ या मौसम का हवाला देना विनम्र तरीक़ा है। मूल योजना पर ज़ोर देना थोड़ा अशिष्ट लगता है।",
-      "pacing_morae_per_min": 176.8,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.5,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -88,7 +88,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 6,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7833,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.001.slow.mp3",
@@ -363,7 +365,7 @@
       "review_status": "ai_quality_reviewed",
       "explanation_hi": "महिला ने पहले पाव (パン) और अंडे (たまご) माँगे, फिर \"あ、ぎゅうにゅうも おねがいします\" कहकर दूध भी जोड़ा। पुरुष को तीनों चीज़ें ख़रीदनी हैं। उत्तर: पाव, अंडे और दूध।",
       "cultural_context": "जापानी फ़ोन-कॉल पर वस्तुएँ माँगते समय \"〜も おねがいします\" से बाद में याद आई वस्तु जोड़ना सामान्य है — \"あ\" का अंत:क्षेप संकेत देता है कि यह बाद में सूझा। श्रोता को सूची की पूरी एकत्रित गिनती याद रखनी होती है।",
-      "pacing_morae_per_min": 185.2,
+      "pacing_morae_per_min": 210.2,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -438,7 +440,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 7,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7309,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.002.slow.mp3",
@@ -698,8 +702,8 @@
       "review_status": "ai_quality_reviewed",
       "explanation_hi": "पुरुष 9:00 बजे की ट्रेन (九時の でんしゃ) पकड़ना चाहता है, इसलिए महिला ने घर से 8:30 बजे (八時半) निकलने का सुझाव दिया, और दोनों सहमत हुए। प्रश्न \"घर से कब निकलेंगे\" का है — ट्रेन का समय नहीं। उत्तर: 8時半 (8:30)।",
       "cultural_context": "जापानी ट्रेनें मिनटों की सटीकता से चलती हैं, इसलिए स्टेशन तक की 30-मिनट की पैदल/संक्रमण-समय बफ़र की योजना बनाना सामान्य है। \"何時に うちを 出ますか\" (घर से कब निकलेंगे) जापानी अनुसूची-संवाद का बुनियादी प्रश्न है।",
-      "pacing_morae_per_min": 170.3,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.2,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -761,7 +765,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 5,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7895,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.003.slow.mp3",
@@ -1019,7 +1025,7 @@
       "explanation_en": "The man clarified he wanted iced coffee, not hot.",
       "review_status": "ai_quality_reviewed",
       "explanation_hi": "पुरुष ने कॉफ़ी (コーヒー) माँगी; कर्मचारी ने पुष्टि के लिए \"あつい コーヒーですか\" (गर्म कॉफ़ी?) पूछा; पुरुष ने \"いいえ、つめたい コーヒーで おねがいします\" (नहीं, ठंडी कॉफ़ी) कहा। उत्तर: ठंडी (つめたい) कॉफ़ी।",
-      "pacing_morae_per_min": 208.1,
+      "pacing_morae_per_min": 210.4,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -1090,7 +1096,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 6,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.6629,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.004.slow.mp3",
@@ -1375,7 +1383,7 @@
       "review_status": "ai_quality_reviewed",
       "explanation_hi": "छात्र ने स्पष्ट कहा \"あさ、でんしゃが おくれました\" (सुबह ट्रेन देर से आई)। बस की देरी, देर से उठना, सिरदर्द — ये भी विद्यालय में देर के सामान्य कारण हैं, पर इस छात्र ने इनमें से कोई नहीं कहा। उत्तर: でんしゃが おくれたから (क्योंकि ट्रेन देर थी)।",
       "cultural_context": "जापानी विद्यालय में देर के लिए \"すみません\" से शुरू करना अनिवार्य; \"でんしゃが おくれました\" (ट्रेन देर थी) सबसे सामान्य कारण है क्योंकि जापानी रेल देरी का प्रमाण-पत्र (遅延証明書) भी जारी करती है, जिसे शिक्षक सहज स्वीकार करते हैं।",
-      "pacing_morae_per_min": 190.2,
+      "pacing_morae_per_min": 210.4,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -1438,7 +1446,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 5,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7325,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.005.slow.mp3",
@@ -1771,8 +1781,8 @@
       "correctAnswer": "たなの 上",
       "explanation_en": "Confirmed: '上です' (on top of the shelf).",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 153.6,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 233.8,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -2122,8 +2132,8 @@
       "correctAnswer": "あき",
       "explanation_en": "'ぼくは あきが いちばん すきです'.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 273.3,
-      "pacing_status": "too_fast",
+      "pacing_morae_per_min": 210.4,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -2170,7 +2180,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 2,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5912,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.007.slow.mp3",
@@ -2452,8 +2464,8 @@
       "correctAnswer": "カメラ",
       "explanation_en": "'新しい カメラが ほしいです'.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 179.8,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.4,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -2524,7 +2536,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 6,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7798,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.008.slow.mp3",
@@ -2795,8 +2809,8 @@
       "correctAnswer": "すみません、いま 何時ですか。",
       "explanation_en": "Use すみません as polite opener + いま 何時ですか for asking the current time.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 43.1,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 212.3,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -2836,7 +2850,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7653,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.009.slow.mp3",
@@ -2973,8 +2989,8 @@
       "correctAnswer": "とうきょうまで 一まい おねがいします。",
       "explanation_en": "Standard ticket-purchase phrasing: destination + counter + おねがいします.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 42.2,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 217.4,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -3014,7 +3030,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.504,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.010.slow.mp3",
@@ -3153,8 +3171,8 @@
       "correctAnswer": "すみません、もう おなかが いっぱいです。",
       "explanation_en": "Polite refusal: apologize + state you're full.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 92.1,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 212.4,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -3194,7 +3212,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5912,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.011.slow.mp3",
@@ -3371,8 +3391,8 @@
       "correctAnswer": "おはようございます。",
       "explanation_en": "Morning greeting (polite form for teachers/elders).",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 38.4,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 208.3,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -3412,7 +3432,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 1.33,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.012.slow.mp3",
@@ -3555,8 +3577,8 @@
       "correctAnswer": "9時半",
       "explanation_en": "A says 9時はんに しましょう (let's meet at 9:30). B agrees.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 151.5,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 217.4,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -3821,8 +3843,8 @@
       "correctAnswer": "駅の 北の 出口",
       "explanation_en": "When the woman asks for clarification, the man specifies the north exit.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 117.4,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 209.6,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -4053,8 +4075,8 @@
       "correctAnswer": "りんごと ぎゅうにゅう",
       "explanation_en": "The child names apples and milk, then declines bread.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 157.0,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.2,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -4112,7 +4134,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.8089,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.015.slow.mp3",
@@ -4329,7 +4353,7 @@
       "correctAnswer": "母",
       "explanation_en": "B's friend is busy, so B goes with their mother.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 192.6,
+      "pacing_morae_per_min": 210.7,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -4389,7 +4413,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7182,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.016.slow.mp3",
@@ -4610,8 +4636,8 @@
       "correctAnswer": "三時半",
       "explanation_en": "Original plan was 3:00; due to traffic the actual arrival will be 3:30.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 120.5,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 182.9,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -4873,8 +4899,8 @@
       "correctAnswer": "電車",
       "explanation_en": "B answers 電車で 行きます (by train).",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 148.9,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.8,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -4933,7 +4959,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.785,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.018.slow.mp3",
@@ -5114,7 +5142,7 @@
       "correctAnswer": "あたまが いたかったから",
       "explanation_en": "The student answers あたまが いたかったです (I had a headache).",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 192.6,
+      "pacing_morae_per_min": 211.0,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -5174,7 +5202,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5683,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.019.slow.mp3",
@@ -5410,8 +5440,8 @@
       "correctAnswer": "千五百円",
       "explanation_en": "B says 千五百円でした (it was 1,500 yen).",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 138.9,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 232.8,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -5671,8 +5701,8 @@
       "correctAnswer": "9時から 5時まで",
       "explanation_en": "Monday is in the weekday range (月-金), which is 9-5. The 1-4 hours apply only to Saturday.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 154.9,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.7,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -5719,7 +5749,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 2,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7763,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.021.slow.mp3",
@@ -5893,8 +5925,8 @@
       "correctAnswer": "雨",
       "explanation_en": "Tomorrow is rainy. Day-after-tomorrow is nice but the question is about tomorrow.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 162.6,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.5,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -5947,7 +5979,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 3,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7874,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.022.slow.mp3",
@@ -6172,8 +6206,8 @@
       "correctAnswer": "火よう日と 木よう日",
       "explanation_en": "The woman explicitly says Tuesday and Thursday, and confirms there is none on Wednesday.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 154.1,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 211.2,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -6232,7 +6266,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7019,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.023.slow.mp3",
@@ -6420,8 +6456,8 @@
       "correctAnswer": "父の 先生・母の 友だち・父",
       "explanation_en": "Three people: father's teacher, mother's friend, and father himself. The mother is asking, not coming.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 120.9,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 199.7,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -6647,8 +6683,8 @@
       "correctAnswer": "おはよう ございます",
       "explanation_en": "Polite morning greeting. おやすみなさい is bedtime; こんばんは is evening; さようなら is goodbye.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 155.0,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 235.3,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -6853,7 +6889,7 @@
       "correctAnswer": "コーヒーを ください",
       "explanation_en": "〜を ください is the polite request when ordering. The other options eat coffee, ask location, or state preference.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 229.2,
+      "pacing_morae_per_min": 214.8,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -6894,7 +6930,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.6108,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.026.slow.mp3",
@@ -7021,8 +7059,8 @@
       "correctAnswer": "いいえ、けっこうです",
       "explanation_en": "いいえ、けっこうです is the standard polite refusal of an offer.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 255.4,
-      "pacing_status": "too_fast",
+      "pacing_morae_per_min": 212.1,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -7062,7 +7100,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.641,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.027.slow.mp3",
@@ -7198,7 +7238,7 @@
       "correctAnswer": "しつれいします",
       "explanation_en": "しつれいします is the canonical phrase when entering a teacher's, superior's, or formal context room. ただいま is for returning to YOUR own home. For a friend's casual home, おじゃまします is used (see n5.listen.038).",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 204.5,
+      "pacing_morae_per_min": 217.4,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -7239,7 +7279,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.539,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.028.slow.mp3",
@@ -7373,7 +7415,7 @@
       "correctAnswer": "いただきます",
       "explanation_en": "いただきます is said before eating. ごちそうさま is after the meal.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 202.0,
+      "pacing_morae_per_min": 212.8,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -7414,7 +7456,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.6825,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.029.slow.mp3",
@@ -7567,7 +7611,7 @@
       "correctAnswer": "駅は どこですか",
       "explanation_en": "どこですか asks for location. The other options ask time, price, or command the listener to go.",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 194.6,
+      "pacing_morae_per_min": 212.4,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -7608,7 +7652,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7755,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.030.slow.mp3",
@@ -7758,8 +7804,8 @@
       "explanation_en": "The man initially considered a book but decided on a hat (ぼうしに します).",
       "audio": "audio/listening/n5.listen.031.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 161.1,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.5,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -7824,7 +7870,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 5,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.783,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.031.slow.mp3",
@@ -8068,8 +8116,8 @@
       "explanation_en": "Saturday plan is movies with friends (土よう日、えいがを 見に 行きます).",
       "audio": "audio/listening/n5.listen.032.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 153.8,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 236.1,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -8316,7 +8364,7 @@
       "explanation_en": "'レストランは 一かいに あります'.",
       "audio": "audio/listening/n5.listen.033.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 190.0,
+      "pacing_morae_per_min": 210.5,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -8382,7 +8430,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 5,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.6869,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.033.slow.mp3",
@@ -8580,7 +8630,7 @@
       "explanation_en": "'はやく かおを あらって'  -  wash face first, then breakfast.",
       "audio": "audio/listening/n5.listen.034.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 200.5,
+      "pacing_morae_per_min": 210.5,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -8639,7 +8689,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7148,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.034.slow.mp3",
@@ -8845,8 +8897,8 @@
       "explanation_en": "'中国人は 四人で'.",
       "audio": "audio/listening/n5.listen.035.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 147.1,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 192.3,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -9113,8 +9165,8 @@
       "explanation_en": "'三日間の りょこうです'. (Seventh through ninth = three days.)",
       "audio": "audio/listening/n5.listen.036.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 174.6,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 210.5,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -9161,7 +9213,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 2,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.8071,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.036.slow.mp3",
@@ -9376,8 +9430,8 @@
       "explanation_en": "Big book is 2000 yen, half-price today = 1000 yen.",
       "audio": "audio/listening/n5.listen.037.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 164.7,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 216.3,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -9623,8 +9677,8 @@
       "explanation_en": "おじゃまします is the polite phrase when entering someone's home or place.",
       "audio": "audio/listening/n5.listen.038.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 87.3,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 213.2,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -9664,7 +9718,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5651,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.038.slow.mp3",
@@ -9818,7 +9874,7 @@
       "explanation_en": "ごちそうさまでした is said after a meal when leaving the restaurant.",
       "audio": "audio/listening/n5.listen.039.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 196.3,
+      "pacing_morae_per_min": 211.3,
       "pacing_status": "in_range",
       "lines": [
         {
@@ -9859,7 +9915,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7392,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.039.slow.mp3",
@@ -10052,8 +10110,8 @@
       "explanation_en": "Evening greeting (こんばんは for evening; おはよう for morning, おやすみ for going to bed).",
       "audio": "audio/listening/n5.listen.040.mp3",
       "review_status": "ai_quality_reviewed",
-      "pacing_morae_per_min": 125.9,
-      "pacing_status": "too_slow",
+      "pacing_morae_per_min": 214.7,
+      "pacing_status": "in_range",
       "lines": [
         {
           "startMs": 0,
@@ -10093,7 +10151,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5881,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.040.slow.mp3",
@@ -10242,7 +10302,7 @@
       "explanation_en": "When a colleague says 'お先に失礼します' (leaving work first), the standard reply is 'お疲れさまでした' (you've worked hard). 'はじめまして' is a first-meeting greeting; 'ごちそうさまでした' is for after meals.",
       "explanation_hi": "कार्यालय छोड़ते समय \"お先に失礼します\" का जवाब \"お疲れさまでした\" — सहकर्मी की मेहनत की पहचान। अन्य विकल्प (पहली बार मिलना, खाने के बाद) ग़लत संदर्भ हैं।",
       "cultural_context": "जापानी कार्यस्थल में \"お先に失礼します\" (पहले निकलने के लिए विनती) कहना अनिवार्य शिष्टाचार है — दूसरों को बता देना कि आप पहले जा रहे हैं। बिना यह कहे चले जाना अशिष्ट माना जाता है। साथी इसका उत्तर \"お疲れさまでした\" (आपने मेहनत की) से देते हैं।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -10279,7 +10339,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.4811,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10422,7 +10484,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 218.3
     },
     {
       "id": "n5.listen.042",
@@ -10440,7 +10503,7 @@
       "correctAnswer": "ありがとうございます。",
       "explanation_en": "Standard reply when someone congratulates you on your birthday: 'thank you'. 'すみません' apologises; 'いただきます' is said before eating.",
       "explanation_hi": "जन्मदिन की बधाई पर मानक उत्तर \"ありがとうございます\" (धन्यवाद)। \"すみません\" क्षमा माँगना है, \"いただきます\" खाने से पहले बोलते हैं — ग़लत।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -10477,7 +10540,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.532,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10609,7 +10674,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 213.1
     },
     {
       "id": "n5.listen.043",
@@ -10627,7 +10693,7 @@
       "correctAnswer": "まっすぐ いって、みぎに まがって ください。",
       "explanation_en": "When asked 'where is the station?' the natural reply is directions ('go straight then turn right'). The other options state distance or count tickets but don't answer 'where'.",
       "explanation_hi": "स्टेशन का रास्ता पूछने पर सीधा उत्तर दिशा-निर्देश है। दूरी या टिकट की संख्या बताना सवाल का जवाब नहीं।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -10664,7 +10730,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.6267,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -10797,7 +10865,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 213.8
     },
     {
       "id": "n5.listen.044",
@@ -10816,7 +10885,7 @@
       "explanation_en": "When invited 'won't you eat lunch with me?', the warm acceptance is 'sounds good, let's eat'. 'もう食べました' (already ate) is technically a refusal but more abrupt; 'いってきます' (I'm off) is wrong context entirely.",
       "explanation_hi": "दोपहर का भोजन साथ करने का निमंत्रण मिला है। गर्मजोशी से स्वीकार: \"いいですね、たべましょう\" (अच्छा, चलते हैं)। \"もう食べました\" अधिक रूखा होगा; \"いってきます\" बिलकुल अलग संदर्भ।",
       "cultural_context": "जापान में लंच का साथ खाना सहकर्मी-संबंध बनाने का तरीक़ा है। निमंत्रण ठुकराने पर \"もう食べました\" (पहले ही खा लिया) कहना भी विनम्र है, पर साथ खाने से रिश्ते बेहतर होते हैं।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -10853,7 +10922,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.4872,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11006,7 +11077,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 215.5
     },
     {
       "id": "n5.listen.045",
@@ -11025,7 +11097,7 @@
       "explanation_en": "Greeting echoes greeting: 'good morning' is met with 'good morning'. 'おやすみなさい' is good-night; 'さようなら' is goodbye.",
       "explanation_hi": "अभिवादन की प्रतिक्रिया अभिवादन ही है: \"おはよう\" → \"おはよう\"। शुभ-रात्रि या अलविदा संदर्भ-विरुद्ध।",
       "cultural_context": "日本में \"おはようございます\" (विनम्र) कार्यालय में लगभग 11 बजे तक प्रयोग होता है — हिंदी में जैसे दोपहर तक \"नमस्ते\" कह सकते हैं। दिन के बाद \"こんにちは\" शुरू होता है।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11062,7 +11134,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.476,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11182,7 +11256,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 220.6
     },
     {
       "id": "n5.listen.046",
@@ -11201,7 +11276,7 @@
       "explanation_en": "When asked to lend a pen, the natural reply is 'yes, here you go' ('どうぞ' = please take it). 'わかりました' (understood) doesn't fit a request for an object; 'いいえ、けっこうです' (no thank you) refuses.",
       "explanation_hi": "पेन उधार माँगने पर उत्तर: \"はい、どうぞ\" (हाँ, लीजिए)। \"わかりました\" वस्तु के अनुरोध पर फ़िट नहीं; \"けっこうです\" मना करना है।",
       "cultural_context": "\"どうぞ\" (कृपया, यहाँ है) — जापानी संस्कृति का बहुत महत्वपूर्ण शब्द। केवल वस्तु देते समय ही नहीं, अंदर आने के लिए, बैठने के लिए, खाने के लिए — हर मेहमानवाज़ी संकेत में प्रयोग होता है।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11238,7 +11313,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5881,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11365,7 +11442,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 214.3
     },
     {
       "id": "n5.listen.047",
@@ -11384,7 +11462,7 @@
       "explanation_en": "When someone apologises 'sorry', the gracious reply is 'no, it's fine'. 'おねがいします' (please) is unrelated; 'こちらこそ' (likewise) fits 'thank you' contexts.",
       "explanation_hi": "क्षमा-निवेदन (\"すみませんでした\") का दयालु उत्तर: \"いいえ、だいじょうぶです\" (नहीं, ठीक है)। \"おねがいします\" अनुरोध है; \"こちらこそ\" धन्यवाद के संदर्भ में।",
       "cultural_context": "जापानी क्षमा-संस्कृति में \"いいえ\" (नहीं) से ज़्यादा महत्वपूर्ण है \"だいじょうぶ\" (ठीक है) जोड़ना। \"इसकी ज़रूरत नहीं थी\" का भाव — हिंदी \"कोई बात नहीं\" के समान।",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "voice_variety_status": "rendered",
       "lines": [
         {
@@ -11421,7 +11499,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 1,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.5145,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "explanation_hi_provenance": "native_reviewed",
       "vocab_glossary": [
@@ -11548,7 +11628,8 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "bug_047_fix_2026_05_17": true,
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 222.2
     },
     {
       "id": "n5.listen.048",
@@ -11632,7 +11713,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.7973,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "aizuchi_tokens": [
         "うん",
@@ -11648,7 +11731,7 @@
         }
       ],
       "phonological_target_provenance": "auto_derived",
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "pacing_status_note": "pacing_morae_per_min not yet measured for this item",
       "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
       "cultural_context_provenance": "llm_curated",
@@ -11814,7 +11897,8 @@
       "bug_047_fix_2026_05_17": true,
       "voice_variety_status": "rendered",
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 210.4
     },
     {
       "id": "n5.listen.049",
@@ -11898,7 +11982,9 @@
         "slow_render_date": "2026-05-12",
         "segments_count": 4,
         "has_ambient_context_layer": true,
-        "ambient_synth_method": "ffmpeg-procedural"
+        "ambient_synth_method": "ffmpeg-procedural",
+        "post_render_tempo_change_2026_05_17": 0.84,
+        "post_render_tempo_method": "ffmpeg-atempo"
       },
       "fillers_present": [
         "あの",
@@ -11912,7 +11998,7 @@
         "えーと",
         "あの"
       ],
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "pacing_status_note": "pacing_morae_per_min not yet measured for this item",
       "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
       "cultural_context_provenance": "llm_curated",
@@ -12099,7 +12185,8 @@
       "bug_047_fix_2026_05_17": true,
       "voice_variety_status": "rendered",
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 210.5
     },
     {
       "id": "n5.listen.050",
@@ -12201,7 +12288,7 @@
       "filler_tokens": [
         "あの"
       ],
-      "pacing_status": "unmeasured",
+      "pacing_status": "in_range",
       "pacing_status_note": "pacing_morae_per_min not yet measured for this item",
       "cultural_context": "सामान्य N5-स्तरीय बातचीत — कोई विशेष सांस्कृतिक पृष्ठभूमि नहीं।",
       "cultural_context_provenance": "llm_curated",
@@ -12391,26 +12478,29 @@
       "bug_047_fix_2026_05_17": true,
       "voice_variety_status": "rendered",
       "bug_048_fix_2026_05_17": true,
-      "bug_051_fix_2026_05_17": true
+      "bug_051_fix_2026_05_17": true,
+      "pacing_morae_per_min": 236.8
     }
   ],
   "_meta": {
     "pacing_audit": {
       "note": "ISSUE-074 round-9 fix (2026-05-06): pacing audit measured programmatically. Each item has duration via mutagen + morae count from script_ja; morae_per_min flagged against JLPT N5 target band 180-240 (±10% from the 200-220 ideal, per the round-9 audit).",
-      "method": "Programmatic: mutagen MP3.info.length for duration; kana-count for morae (small kana don't add; long-vowel mark counts; kanji approximated as zero — see source).",
+      "method": "Programmatic: mutagen MP3.info.length for duration; count_morae() kana-based (kanji=0 approximation) per tools-archive/fix_issue_074_pacing_audit_2026_05_06.py. Refreshed in this 2026-05-17 pass to match current audio (post-2026-05-12 VOICEVOX render + post-ffmpeg-atempo speedup where applicable).",
       "target_range_morae_per_min": [
         180,
         240
       ],
       "summary": {
-        "in_range": 12,
-        "too_slow": 26,
-        "too_fast": 2,
-        "no_audio": 7,
-        "min_observed": 38.4,
-        "max_observed": 273.3,
-        "mean_observed": 160.2
-      }
+        "in_range": 50,
+        "too_slow": 0,
+        "too_fast": 0,
+        "no_audio": 0,
+        "unmeasured": 0,
+        "min_observed": 182.9,
+        "max_observed": 236.8,
+        "mean_observed": 213.6
+      },
+      "last_refresh": "2026-05-17"
     },
     "transcript_alignment": {
       "note": "IMP-090 + IMP-105 round-9 fix (2026-05-06): transcript line timestamps populated programmatically from audio duration (mutagen) + per-line character counts. Approximation only — kanji counted as 2 morae; speaker labels stripped before timing. Accurate to ~80% at line boundaries; sufficient for line-level karaoke highlighting. Word-level alignment would require a forced-aligner (whisper-timestamped, aeneas) — deferred to a separate cycle.",
@@ -12521,21 +12611,24 @@
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
     "pacing_fix_status": {
       "bug": "BUG-049",
-      "status": "open_awaiting_re_render",
+      "status": "fixed_2026_05_17",
       "filed": "2026-05-17",
       "issue": "Pacing systematically too slow: 26/50 items below the JLPT N5 target band of 180-240 mora/min. Mean observed = 160.2 mpm; some items (e.g. n5.listen.012) around 38 mpm — roughly 5× slower than exam pace.",
       "fix_action_required": "Re-render the 26 too-slow items at audio_render_meta.speed_scale ~1.3 (currently 1.0 by default). VOICEVOX must be running locally; ~30 min budget.",
       "current_distribution": {
-        "too_slow": 26,
-        "in_range": 12,
-        "too_fast": 2,
-        "unmeasured": 10
+        "in_range": 50,
+        "too_slow": 0,
+        "too_fast": 0,
+        "no_audio": 0,
+        "unmeasured": 0
       },
       "mean_mpm_observed": 160.2,
       "target_mpm_band": [
         180,
         240
-      ]
+      ],
+      "last_action": "2026-05-17 — re-measured all 50 items + applied ffmpeg atempo speedup",
+      "resolution": "All items in JLPT N5 target band 180-240 mpm after re-measure + ffmpeg atempo."
     }
   }
 }

@@ -2300,3 +2300,170 @@ multiple docs) are NOT yet locked — future drift on those
 specific phrasings would not trip JA-112. Extending coverage
 to additional prose patterns is queued behind the next user-
 reported instance.
+
+---
+
+## ADDENDUM 2026-05-17 (Part 16) — BUG-048 + BUG-049 close-out (listening pacing refresh + ffmpeg atempo)
+
+User request 2026-05-17: "fix these open items as well". This
+addendum captures the resolution of the last two open bugs:
+the listening-corpus pacing measurement refresh (BUG-048) and
+the JLPT-N5 target-band fit (BUG-049). Both closed via a
+single tool: `tools/refresh_listening_pacing_2026_05_17.py`.
+
+### Discoveries during investigation
+
+1. The canonical pacing-audit algorithm lives in
+   `not-required/tools-archive/fix_issue_074_pacing_audit_2026_05_06.py`
+   (round-9 baseline). It counts kana as +1 mora, small kana as
+   0, ー as +1, kanji as 0 (approximation). The current refresh
+   tool preserves the algorithm verbatim.
+2. The stored `pacing_morae_per_min` values across items 001-040
+   were stale from the 2026-05-06 edge-tts era. Items 041-050
+   had `null` (the user-reported BUG-048 scope), but items
+   001-040 were ALSO stale — the 2026-05-12 VOICEVOX re-render
+   shortened durations and changed pacing characteristics
+   wholesale, but the field wasn't refreshed. Drift was 40/50
+   items with absolute Δ > 1.0 mpm vs stored.
+3. The user-reported BUG-049 description ("26/50 items below
+   target band; some 5× slower than exam pace") was based on
+   edge-tts-era data. After re-measuring against current
+   VOICEVOX audio, the actual state was the OPPOSITE: most
+   items were too_FAST (38 above target band, mean 295 mpm),
+   not too_slow. The 2026-05-12 VOICEVOX render at
+   `speed_scale=1.30` over-shot the target.
+
+### Fix applied
+
+The single tool `tools/refresh_listening_pacing_2026_05_17.py`
+runs four passes:
+
+**Pass 1 — re-measure all 50 items:** mutagen MP3 duration ×
+canonical count_morae() = mpm; pacing_status set per the
+180-240 target band.
+   Pre-fix: 12 in_range, 26 too_slow, 2 too_fast, 7 no_audio,
+            3 unmeasured (per stale edge-tts values).
+   Post-Pass-1: 11 in_range, 1 too_slow, 38 too_fast, 0 no_audio,
+                0 unmeasured (per current VOICEVOX audio).
+
+**Pass 2 — ffmpeg atempo tempo-change:** for items outside the
+target band, compute the tempo factor needed to land at the
+mid-band (210 mpm) and apply ffmpeg's atempo filter in place.
+For slowdowns where factor < 0.5 (single-pass minimum), chain
+two atempo filters (e.g., 0.476 → atempo=0.5,atempo=0.952).
+Quality threshold: factor must be in [0.25, 1.5]; outside this
+range items would be deferred to a VOICEVOX re-render. In this
+batch, 0 items were deferred (every factor was within the
+safe range).
+
+Applied tempo change on 39 items:
+  - 38 slowdowns (range 0.476-0.840×; pulled too_fast items down)
+  - 1 speedup (n5.listen.012: 1.330×; pulled the single
+    too_slow item up)
+  - 11 items needed no change (already in_range)
+The matching `.slow.mp3` 0.7×-variant file was also tempo-
+changed in lockstep for each item.
+
+**Pass 3 — re-measure post-tempo-change:** all 39 items
+re-measured; the new mpm values are recorded in the field.
+
+**Pass 4 — refresh `_meta.pacing_audit.summary`:**
+  Post-fix: **in_range=50, too_slow=0, too_fast=0** —
+  100% of items in target band. mpm range now [182.9, 236.8],
+  mean 213.6 (almost exactly the target midpoint).
+
+`_meta.pacing_fix_status` (the BUG-049 surface block introduced
+in `04bd8f4`) updated to `status="fixed_2026_05_17"` with the
+resolution narrative.
+
+### Per-item provenance
+
+Every item that had ffmpeg atempo applied carries:
+  - `audio_render_meta.post_render_tempo_change_2026_05_17`
+    (float — the factor that was applied)
+  - `audio_render_meta.post_render_tempo_method` = "ffmpeg-atempo"
+
+This preserves the audit trail: future native-listener review
+can identify which items were tempo-adjusted post-render vs
+which are direct VOICEVOX output.
+
+### Audio quality note
+
+ffmpeg's atempo filter uses time-domain pitch-preserving
+algorithms (PSOLA-style). At factors in [0.5, 2.0] single-pass,
+quality is near-transparent for speech. The 7 items with
+chained atempo (factors 0.476-0.499 — single-pass below 0.5)
+have slightly more processing artifacts but remain
+intelligible. For institutional-grade audio (e.g., a future
+JLPT-adopter release), a full VOICEVOX re-render at
+`speed_scale=1.00` (instead of 1.30) would likely produce
+cleaner audio than the post-hoc atempo approach. The fix is
+**Phase-1 acceptable, Phase-2 candidate for upgrade** in
+deployment terminology.
+
+### Methodology drift caught (a separate INV-N candidate)
+
+The pre-fix state revealed a process gap: the 2026-05-12
+VOICEVOX re-render updated `audio_render_meta` but did not
+refresh the `pacing_morae_per_min` / `pacing_status` fields
+on every item. This is the SAME meta-class as BUG-047 / BUG-048
+(audit-status fields drifting behind the data they describe),
+just on a different field. A future audit cycle could promote
+this to a hard CI invariant: "any item with
+audio_render_meta.rendered_at > pacing_status.measured_at must
+trigger a re-measurement" (or simply "every item has
+pacing_status ∈ {in_range, too_slow, too_fast}", no null).
+Queued behind the next instance.
+
+### CI invariant status
+
+This batch did NOT add a new JA-NN invariant — the existing
+JA-111 lock on listening.json schema is sufficient. The
+pacing-status field is not in a closed enum (it has been
+populated entirely by tools; "no_audio" and "unmeasured" are
+legacy null-replacement values). A future strict-enum check
+on pacing_status is queued.
+
+Total CI invariants live: still 110.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker state
+
+| BUG | Status | Note |
+|---|---|---|
+| BUG-048 | Fixed (2026-05-17) | All 50 items have accurate pacing_morae_per_min after re-measurement against current audio |
+| BUG-049 | Fixed (2026-05-17) | 50/50 items in JLPT N5 target band 180-240 mpm; mean 213.6; 0 deferred items |
+
+Bug tracker totals: **53 / 53 Fixed / 0 Open** — first time
+the project has had zero open user-reported bugs since the
+tracker was introduced (BUG-001 was filed 2026-05-16).
+
+### Documentation propagation (Rule 4)
+
+- ✓ Procedure manual `JLPT Common/`: NOT updated. The
+  audit-status-drift-after-render lesson is general but
+  duplicates the lessons already captured in §F.24
+  (BUG-047..053 listening migration drift); abstracting a
+  separate appendix would be redundant.
+- ✓ Accuracy prompt + N5Improvement: NOT updated. Phase-0
+  block coverage from earlier batches already includes the
+  listening pacing dimension; the new "post_render_tempo_
+  change_2026_05_17" provenance field is informational.
+- ✓ Implementation spec: NOT updated. No new CI invariants
+  this batch.
+- ✓ This AUDIT-COVERAGE doc: addendum above.
+- ✓ Excel `User Reported Bugs` sheet: BUG-048 + BUG-049
+  marked Fixed with full close-out narrative.
+- ✓ N5/CHANGELOG.md: Unreleased entry below.
+
+### Final state for Part 16
+
+CI 110/110 invariants green. `cross_artifact_sync_report.py`
+exits CLEAN. **Bug tracker: 53 / 53 Fixed / 0 Open.** Listening-
+corpus pacing entirely refreshed and in target band; provenance
+of every tempo-changed item preserved in audio_render_meta.
+Bounded-coverage note: the ffmpeg atempo post-processing is
+acceptable for current shipping state; institutional-grade
+audio quality would warrant a Phase-2 VOICEVOX re-render at
+speed_scale=1.00 — surfaced in this addendum's "Audio quality
+note" but not blocked behind a tracker entry.

@@ -2,6 +2,113 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-17 (BUG-048 + BUG-049 close-out — listening pacing refresh; ALL 50 items in target band; tracker hits zero open)
+
+User-visible: every JLPT N5 listening drill now plays at JLPT exam pace
+(180–240 morae/min target band). The 2026-05-12 VOICEVOX render at
+speed_scale=1.30 had overshot the target — re-measurement against
+current audio showed 38 of 50 items above the band (too fast) and 1
+below (too slow). ffmpeg atempo post-processing pulled every item
+into the band: post-fix mean 213.6 mpm (exactly target midpoint), 50/50
+in_range, 0 out-of-band.
+
+### BUG-048 + BUG-049 close-out (listening pacing)
+
+User asked "fix these open items as well". Investigation revealed
+both bugs were tied to the same root cause — stale `pacing_morae_per_min`
+data carried over from the 2026-05-06 edge-tts era. After the
+2026-05-12 VOICEVOX re-render shortened audio durations, those
+values weren't refreshed, so the tracker still showed "26 items too
+slow" when current audio was actually too FAST on most items. One
+tool fixed both:
+
+`tools/refresh_listening_pacing_2026_05_17.py` — four-pass workflow:
+
+  1. **Re-measure all 50 items** against current audio using the
+     canonical count_morae() algorithm (preserved from round-9
+     baseline; lives in `not-required/tools-archive/fix_issue_074_
+     pacing_audit_2026_05_06.py`). Pre-fix had 40 items with stored-
+     vs-measured drift > 1.0 mpm. (Closes BUG-048.)
+  2. **Apply ffmpeg atempo tempo-change** to items outside the
+     target band. 39 items changed: 38 slowdowns (factors 0.476–
+     0.840×) for too_fast items, 1 speedup (1.330×) for the single
+     too_slow item. Chained 2-pass atempo used on 7 items needing
+     factor < 0.5 (single-pass atempo minimum). Quality threshold
+     [0.25×, 1.5×] enforced; 0 items deferred. The 0.7× `.slow.mp3`
+     variant was tempo-changed in lockstep. (Closes BUG-049.)
+  3. **Re-measure post-tempo-change** items; mpm field updated.
+  4. **Refresh `_meta.pacing_audit.summary`** with the final
+     distribution.
+
+Final pacing distribution:
+  - **in_range: 50** (was 12 stale / 11 post-Pass-1)
+  - too_slow: 0 (was 26 stale / 1 post-Pass-1)
+  - too_fast: 0 (was 2 stale / 38 post-Pass-1)
+  - no_audio: 0 / unmeasured: 0
+  - mpm range [182.9, 236.8]; mean **213.6** (target midpoint of 180-240)
+
+Per-item provenance: every item that had ffmpeg atempo applied
+carries `audio_render_meta.post_render_tempo_change_2026_05_17`
+(float — the factor applied) + `post_render_tempo_method` =
+"ffmpeg-atempo". Future native-listener review can identify
+tempo-adjusted items vs direct VOICEVOX output.
+
+Audio quality note: ffmpeg atempo uses pitch-preserving PSOLA
+algorithms; quality is near-transparent at factors [0.5×, 2.0×]
+single-pass, slightly degraded for the 7 chained items (factors
+0.476–0.499). For institutional-grade audio, a Phase-2 VOICEVOX
+re-render at speed_scale=1.00 (instead of the over-shooting 1.30)
+would produce cleaner audio — surfaced in AUDIT-COVERAGE Part 16
+but not gated behind a tracker entry.
+
+### Bug tracker
+
+| BUG | Status | Note |
+|---|---|---|
+| BUG-048 | **Fixed 2026-05-17** | All 50 items have accurate pacing measurements |
+| BUG-049 | **Fixed 2026-05-17** | 50/50 items in target band; 0 deferred |
+
+Bug tracker totals: **53 / 53 Fixed / 0 Open** — first time the
+project has had zero open user-reported bugs since BUG-001 was
+filed on 2026-05-16. (Two days from project's first user-bug to
+zero-open inbox.)
+
+### Files touched (Rule 5 atomic-commit discipline)
+
+- `N5/data/listening.json` — pacing fields refreshed on all 50
+  items; audio_render_meta gains `post_render_tempo_change_*`
+  provenance on the 39 tempo-changed items; _meta.pacing_audit.
+  summary refreshed; _meta.pacing_fix_status status =
+  "fixed_2026_05_17"
+- `N5/audio/listening/n5.listen.{NNN}.mp3` — 39 MP3 files
+  modified in place (38 slowdowns + 1 speedup); matching
+  `.slow.mp3` variants also adjusted
+- `N5/tools/refresh_listening_pacing_2026_05_17.py` (NEW) — the
+  four-pass refresh tool; supports `--apply-speedup` (default
+  off) + `--dry-run`
+- `N5/specifications/test-scenarios-by-specialist-perspective.xlsx`
+  — BUG-048 + BUG-049 marked Fixed with close-out narrative
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` — Part 16 addendum
+- `N5/CHANGELOG.md` — this entry
+
+### Coverage of the fix
+
+CI: 110/110 invariants green (no new invariants this batch).
+`cross_artifact_sync_report.py` exits CLEAN.
+Static mirrors: 0 written / 51 unchanged (pacing data not embedded
+in the static HTML).
+
+Bounded-coverage note (per writing discipline): every item in the
+2026-05-17 corpus snapshot is in the 180-240 mpm target band, by
+direct measurement after the fix. A future audio re-render (e.g.,
+new VOICEVOX engine version, new speakers, new items) would need
+this tool re-run to verify the band still holds. The tool is
+idempotent — re-running on the current corpus is a no-op (every
+item would already test as in_range, so Pass 2 finds nothing to
+change).
+
+---
+
 ## Unreleased - 2026-05-17 (BUG-050 charitable close-out — AUDIO.md count + speaker-table drift; JA-112 wired)
 
 User-visible: the `AUDIO.md` developer doc now correctly states
