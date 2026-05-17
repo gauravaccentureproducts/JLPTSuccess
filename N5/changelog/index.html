@@ -84,6 +84,83 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-17 (Cross-Artifact Sync Protocol install + version.json drift fix)</h2>
+<p>Governance + tooling release. No learner-facing content changes; the fix targets a stale corpus count in <code>data/version.json</code> and installs a 9-class artifact-sync protocol (BINDING Rule 5) that prevents this class of drift from recurring.</p>
+<h3>Cross-Artifact Sync Protocol installed (BINDING Rule 5)</h3>
+<p>Adopts a project-wide governance protocol generalizing the existing Rule 4 (4-doc propagation for audit cycles) into a 9-class artifact-sync rule. When ONE artifact class changes (Spec / Code / Data / UI / Bug tracker / Test scenarios / Prompts / Procedure manuals / User-facing docs), every OTHER artifact that references or implements the changed thing updates in the same commit. The protocol defines INV-1..INV-10 as build-time guards; this release wires INV-4 / INV-5 / INV-10 as hard CI invariants and documents the others as convention-only / partial / out-of-scope.</p>
+<p>The operational handbook (concrete file map per artifact class, dependency matrix, commit-time checklist) lives in <code>docs/cross-artifact-sync-map.md</code>. The spec-side INV↔JA mapping lives in §25.10 of the implementation spec.</p>
+<h3>CI invariants added (3 hard CI gates)</h3>
+<ul>
+<li><strong>JA-107</strong> (INV-4) — <code>data/version.json.counts</code> declared values</li>
+</ul>
+<p>must equal the actual array length of the referenced corpus file. Companion to JA-47 (CONTENT-LICENSE.md counts). Catches release-stamp drift after dedup/migration passes.</p>
+<ul>
+<li><strong>JA-108</strong> (INV-5) — <code>locales/*.json</code> strict full-key parity</li>
+</ul>
+<p>across all locales (including <code>_meta</code> block). Catches UI translation drift where a new surface ships with EN copy only.</p>
+<ul>
+<li><strong>JA-109</strong> (INV-10) — every <code>tools/&lt;name&gt;.py</code> script reference</li>
+</ul>
+<p>in the N5 prompts + AUDIT-COVERAGE docs must resolve to a real file. (Scope decision: cross-level procedure manual excluded because its script refs are abstract Nx-builder targets, by design.)</p>
+<p>Total CI invariants live: 107 (was 104).</p>
+<h3>Drift fixed in the same commit (per the protocol&#x27;s compound-drift rule)</h3>
+<ul>
+<li><strong><code>data/version.json.counts.vocab</code> 1009 → 995.</strong> Residue of</li>
+</ul>
+<p>BUG-018/019/024 dedup batches (2026-05-16/17) that reduced <code>vocab.json</code> from 1009 → 995 entries but never propagated to the version manifest. <code>builtAt</code> bumped to 2026-05-17. <code>cacheVersion</code> bump deferred to the next js/css/sw release — this batch is doc + tooling only, so a SW cache invalidation is not warranted.</p>
+<ul>
+<li><strong><code>locales/en.json</code></strong> — added <code>_meta</code> block (asymmetric with</li>
+</ul>
+<p>hi.json before this fix).</p>
+<ul>
+<li><strong><code>locales/hi.json</code></strong> — added 6 chokai_detail keys that were</li>
+</ul>
+<p>present on EN side: back_to_list, correct, next_label, script_label, show_script, wrong (these intentionally carry Japanese kana text — in-app pedagogy convention regardless of UI locale).</p>
+<ul>
+<li><strong><code>prompts/N5Improvement.txt</code></strong> — &quot;Reference implementation&quot;</li>
+</ul>
+<p>callout retargeted from the deleted <code>tools/register_dev_issue_list_deferrals_2026_05_05.py</code> to the still-extant <code>tools/register_audit_2026_05_12.py</code> (same idempotent registration pattern).</p>
+<h3>Files touched (Rule 5 atomic-commit discipline)</h3>
+<ul>
+<li><code>JLPTSuccess/.claude/CLAUDE.md</code> — BINDING Rule 5 added.</li>
+<li><code>N5/.claude/CLAUDE.md</code> — Documentation-propagation section</li>
+</ul>
+<p>extended to reference Rule 5.</p>
+<ul>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> — NEW (operational</li>
+</ul>
+<p>handbook).</p>
+<ul>
+<li><code>N5/docs/AUDIT-COVERAGE-2026-05-15.md</code> — Part 12 addendum.</li>
+<li><code>N5/specifications/JLPT-N5-Current-Implementation-Spec.md</code> —</li>
+</ul>
+<p>§25.1 (JA-107/108 rows), §25.4 (JA-109 row), §25.8 lineage table updated, NEW §25.10 subsection (INV↔JA mapping table).</p>
+<ul>
+<li><code>N5/specifications/test-scenarios-by-specialist-perspective.xlsx</code> —</li>
+</ul>
+<p>rows added to K. QA testing tab for sync-drift detection scenarios.</p>
+<ul>
+<li><code>N5/tools/check_content_integrity.py</code> — 3 new check functions</li>
+</ul>
+<p>+ 3 new registry entries.</p>
+<ul>
+<li><code>N5/tools/cross_artifact_sync_report.py</code> — NEW (structured</li>
+</ul>
+<p>report emitter).</p>
+<ul>
+<li><code>N5/data/version.json</code> — vocab count 1009 → 995; builtAt</li>
+</ul>
+<p>bumped.</p>
+<ul>
+<li><code>N5/locales/en.json</code> — _meta block added.</li>
+<li><code>N5/locales/hi.json</code> — 6 chokai_detail keys added.</li>
+<li><code>N5/prompts/N5Improvement.txt</code> — script-ref retargeted.</li>
+<li><code>N5/CHANGELOG.md</code> — this entry.</li>
+</ul>
+<h3>Coverage of the fix</h3>
+<p>CI: 107/107 invariants green post-install (was 104/104 green pre-install — the 3 new JA-NN gates pass on the same corpus snapshot after the in-commit drift fixes landed). <code>cross_artifact_sync_report.py</code> exits CLEAN.</p>
+<p>Bounded-coverage note (per writing discipline): the wired invariants prevent re-introduction of THESE specific drift shapes (count drift on version.json, locale-key parity gaps, unresolved script references in N5 governance docs). The 4 convention-only INV-N (bug-fix-test, spec-code, prompt-golden, CHANGELOG-completeness) remain commit-discipline targets — future audit cycles may promote them to hard CI gates following the convention→partial→wired progression documented in §25.10.</p>
+<hr>
 <h2>v1.15.5 - 2026-05-14 (Autonomous bug-fix audit pass — ISSUE-001/002 closed)</h2>
 <p>Maintenance / audit-cycle release. No learner-facing content changes; the fixes target metadata accuracy, version-file drift, and documentation gaps surfaced by the 2026-05-14 autonomous bug-fix audit.</p>
 <h3>ISSUE-001 — Whitelist count drift (RESOLVED-ALREADY-CLEAN)</h3>
