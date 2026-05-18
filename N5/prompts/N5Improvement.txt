@@ -1121,6 +1121,50 @@ Target: total NR-* count = 0 new findings *if the corpus hasn't
 drifted since last quarterly review*; new findings indicate
 methodology drift or corpus regression that needs fixing.
 
+### Phase-0 Paper-question grammarPatternId/rationale regression block (added 2026-05-18)
+
+CI-enforced via JA-120/121/122 (introduced 2026-05-18). The
+maintainer-side Phase-0 mirror runs these checks before any
+paper-bank edit lands:
+
+1. **grammarPatternId ↔ correct-particle alignment (PAPER-001)**
+   For every bunpou Mondai 1 question whose `correctIndex`
+   resolves to a single Japanese particle, the
+   `grammarPatternId` field must reference the canonical n5-NNN
+   pattern for that particle (mapping in A67 of accuracy prompt).
+   Expected: 0 mismatches.
+
+2. **No commit-message-style meta-fix history in rationales
+   (PAPER-003)**
+   For every paper question, the `rationale` and `rationale_hi`
+   fields must NOT contain the trigger phrases listed in A68
+   (auto_inferred, previously tagged, Stem now anchored, replaces
+   colloquial, replaces ので per, the original option, was dropped
+   because, replaced with, patched to, fix:).
+   Expected: 0 trigger hits.
+
+3. **No English-pattern fragments in rationale_hi (PAPER-004)**
+   For every paper question, the `rationale_hi` field must NOT
+   contain the trigger fragments listed in A69 (apostrophe-s
+   possessive, English contractions like "मैं'm", mojibake like
+   "यहाँre" or "o'घड़ी", untranslated English filler like " yet,"
+   or " lot " or " have जाना").
+   Expected: 0 trigger hits.
+
+Bounded-coverage framing for the regression block:
+  - "JA-120 prevents re-introduction of *these specific mis-tags*
+    where correct-particle ↔ pattern_id map is canonical" — not
+    "JA-120 prevents all grammarPatternId errors".
+  - "JA-121 prevents re-introduction of *the trigger substring set*"
+    — not "JA-121 prevents all meta-fix history".
+  - "JA-122 prevents re-introduction of *the trigger fragment set*"
+    — not "JA-122 prevents all unnatural Hindi".
+
+Source: PAPER-001..004 close-out (2026-05-18); fix scripts
+tools/fix_paper_bugs_2026_05_18.py and
+tools/fix_paper_bugs_part2_2026_05_18.py; procedure-manual §F.30;
+accuracy prompt §A67/A68/A69; AUDIT-COVERAGE Part 24.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

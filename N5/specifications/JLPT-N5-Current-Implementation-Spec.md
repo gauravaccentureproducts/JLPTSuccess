@@ -779,12 +779,13 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-119; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-122; gaps for retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
-JA-91 and JA-94) that the script runs against every release. The
-script is the source of truth; this section is its human-readable
-index.
+JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
+PAPER-001..004 close-out, see §25.4 rows) that the script runs against
+every release. The script is the source of truth; this section is its
+human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
 `N5/`). On a clean corpus the script prints `PASS: all NN invariants
@@ -972,6 +973,9 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-91 | No cross-pattern `explanation_en` similarity ≥0.85 (Levenshtein-style SequenceMatcher ratio). BUG-003 contamination guard. Wired 2026-05-17 + Phase B resolution same day: all 43 prior pairs (DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21, ALTERNATIVE_VARIANT ×12, SUBSET ×2) addressed via explanation_en rewrites on the deferring side (or both sides for ALTERNATIVE_VARIANT) so each falls below the threshold. `data/_ja91_baseline.json` now carries empty `baseline_pairs` as a RESOLVED snapshot documenting the prior pair set + classification legend. JA-91 enforces the threshold unconditionally; trips on any newly-introduced similar-explanation pair. | 2026-05-17 |
 | JA-94 | Every grammar example's `ja` contains ≥1 structural marker from its parent pattern's marker list in `data/pattern_markers.json` (178-pattern catalog auto-derived by `tools/author_pattern_markers_2026_05_17.py`). BUG-006 pattern-instance contamination guard. Wired 2026-05-17 + Phase A resolution same day: all 14 prior BUG-006-CANDIDATE wrong-example failures replaced with parent-pattern-demonstrating examples (n5-030 ×3 / n5-048 ×3 / n5-065 ×1 / n5-071 ×1 / n5-084 ×1 / n5-112 ×1 / n5-157 ×3 / n5-164 ×1). `data/_ja94_baseline.json` now carries empty `baseline_failing_examples` as a RESOLVED snapshot. JA-94 enforces marker-presence unconditionally across all 1782 examples; trips on any newly-added example that doesn't demonstrate its parent pattern. | 2026-05-17 |
 | JA-119 | Spec §7.3 sample `version.json` block (a JSON example shown to developers) must match the live `data/version.json` `counts` field exactly. Cross-Artifact Sync Protocol INV-4 — fifth surface locked alongside JA-47 (CONTENT-LICENSE.md) / JA-107 (version.json) / JA-112 (AUDIO.md) / JA-115 (README.md). Wired after BUG-050 was filed three times against the actual version.json file even though the file was clean — auditor was reading the stale v1.12.50-era sample in the spec (vocab 1041, listening 47, etc.) and mistaking it for current state. | 2026-05-17 |
+| JA-120 | Paper bunpou Mondai-1 `grammarPatternId` matches canonical particle pattern (PAPER-001 drift guard). For every Mondai 1 question in `data/papers/bunpou/paper-*.json` whose `correctIndex` resolves to a single Japanese particle (the canonical 21-entry map: は→n5-002, が→n5-003, を→n5-004, に→n5-005, へ→n5-006, で→n5-007, と→n5-008, から→n5-009, まで→n5-010, や→n5-011, も→n5-013, か→n5-023, ね→n5-025, よ→n5-026, の→n5-028, だけ→n5-033, ぐらい/くらい→n5-035, ごろ→n5-036, など→n5-037, ずつ→n5-038, より→n5-095), the `grammarPatternId` must reference that pattern. Caught 30+ questions tagged `n5-013` (も) regardless of actual answer particle. Wired 2026-05-18. | 2026-05-18 |
+| JA-121 | Paper-question `rationale` / `rationale_hi` free of commit-message-style meta-fix history (PAPER-003 drift guard). Substring-scans 12 trigger phrases (`auto_inferred`, `previously tagged`, `prior version was`, `Stem now anchored`, `Stem now includes`, `replaces colloquial`, `replaces ので per`, `the original option`, `was dropped because`, `replaced with`, `patched to`, `fix:`). Distractor-analysis content preserved by design (no trigger overlap). Wired 2026-05-18. | 2026-05-18 |
+| JA-122 | Paper-question `rationale_hi` free of English-pattern fragments (PAPER-004 drift guard). Substring-scans 17 trigger fragments covering apostrophe-s possessive (`'s घर`, `दोस्त's`, `माता's`), English contractions (`मैं'm`, `मैं'll`), mojibake artifacts (`यहाँre`, `वहाँre`, `o'घड़ी`, `o'क्लॉक`), and untranslated English filler (` yet,`, `है yet`, ` lot `, `I am `, ` have जाना`). Wired 2026-05-18. | 2026-05-18 |
 
 ### 25.5 Locale parity & i18n
 

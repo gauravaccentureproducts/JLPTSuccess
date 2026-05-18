@@ -26,8 +26,8 @@
       "mondai": 3,
       "rationale_hi": "समय + に।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-005",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -83,17 +83,17 @@
         "が"
       ],
       "correctIndex": 2,
-      "rationale": "direction. (Note: に would also be grammatically valid for a motion-verb destination at N5, so it has been replaced with で as a clearly-wrong distractor: 学校で 行きます would mark 学校 as the location of the going-action, which is ungrammatical.)",
+      "rationale": "Direction particle へ marks the goal of a motion verb (学校へ行きます = go toward school).",
       "kbSourceId": "Q94",
       "passage_text": "たなかさんの 一日\nわたしは まいにち あさ 六時 [ 1 ] おきます。 七時ごろ [ 2 ] あさごはんを 食べます。 あさごはんは いつも パン [ 3 ] ぎゅうにゅうです。 ８時に いえを 出て、電車で 学校 [ 4 ] 行きます。 学校は 九時 [ 5 ] 三時までです。",
       "passage_label": "Passage A",
       "blank_number": 4,
       "id": "bunpou-7.4",
       "mondai": 3,
-      "rationale_hi": "दिशा। (नोट: に होता भी होना grammatically मान्य के लिए गति-क्रिया गंतव्य में N5, इसलिए यह के पास है रहा replaced के साथ で के रूप में clearly-ग़लत विकर्षक: 学校で 行きます होता सूचित करता है 学校 के रूप में स्थान का जा रहा है-क्रिया-कर्म, जो है अव्याकरणिक.)",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "दिशा-सूचक कण へ गति-क्रिया के लक्ष्य को चिह्नित करता है (学校へ行きます = स्कूल की ओर जाना)।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_18",
+      "grammarPatternId": "n5-006",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -114,8 +114,8 @@
       "mondai": 3,
       "rationale_hi": "9 बजे से / 9 बजे शुरू।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-009",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -136,8 +136,8 @@
       "mondai": 3,
       "rationale_hi": "すき लेता है が।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-003",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -171,15 +171,15 @@
         "ピアノは すき"
       ],
       "correctIndex": 1,
-      "rationale": "「ピアノきょうしつ」 (compound noun, no の) - に行きます target. (The original option 4 「ピアノを 買い」 was dropped because Verb-stem + に+行く is grammatically valid, making it a structurally-correct second answer; replaced with 「ピアノは すき」 which is broken before に行きます.)",
+      "rationale": "「ピアノきょうしつ」 (compound noun, no の) — に行きます takes the destination directly.",
       "kbSourceId": "Q98",
       "passage_text": "わたしの しゅみ\nわたしは おんがく [ 1 ] すきです。 まいにち、 学校から かえってから、いえで ピアノを 一時間 [ 2 ]。 にちようびは 友だちと いっしょに [ 3 ] に 行きます。 友だち も ピアノが じょうずですから、 とても たのしいです。 こんしゅうは いそがしくて、ピアノを ひく 時間 [ 4 ] ありませんでした。 来週は ぜったいに 一日 [ 5 ] ひきたいと おもいます。",
       "passage_label": "Passage B",
       "blank_number": 3,
       "id": "bunpou-7.8",
       "mondai": 3,
-      "rationale_hi": "「ピアノきょうしつ」 (compound संज्ञा, नहीं の) - に行きます लक्ष्य। ( मूल विकल्प 4 「ピアノを 買い」 था हटाया क्योंकि क्रिया-तना + に+行く है grammatically मान्य, making यह संरचनात्मक रूप से-सही second उत्तर; replaced के साथ 「ピアノは すき」 जो है टूटा पहले に行きます.)",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "「ピアノきょうしつ」 (समासी संज्ञा, बीच में の नहीं) — に行きます गंतव्य को सीधे ग्रहण करता है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_18",
       "grammarPatternId": "n5-119",
       "grammarPatternId_provenance": "auto_inferred"
     },
@@ -202,8 +202,8 @@
       "mondai": 3,
       "rationale_hi": "समय + が + ありません (नहीं समय)।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-003",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",

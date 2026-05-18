@@ -23,8 +23,8 @@
       "mondai": 1,
       "rationale_hi": "「~ては いけません」 व्यक्त करता है निषेध।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-104",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-075",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -42,8 +42,8 @@
       "mondai": 1,
       "rationale_hi": "て-रूप के लिए क्रमिक।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-069",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-070",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -60,7 +60,9 @@
       "id": "bunpou-4.3",
       "mondai": 1,
       "rationale_hi": "समानांतर विशेषण विधेय।",
-      "rationale_hi_provenance": "native_reviewed"
+      "rationale_hi_provenance": "native_reviewed",
+      "grammarPatternId": "n5-079",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -78,8 +80,8 @@
       "mondai": 1,
       "rationale_hi": "श्रृंखला-बद्ध い-adj विधेय।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-083",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -97,8 +99,8 @@
       "mondai": 1,
       "rationale_hi": "कारण-जोड़क। けど (विकल्प 3) और が (विकल्प 4) रियायत-सूचक (\"यद्यपि\") हैं, कारणात्मक नहीं; वे तर्क को उलट देते।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-009",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -116,8 +118,8 @@
       "mondai": 1,
       "rationale_hi": "भूत-विशेषण के साथ कारण-जोड़क। けど (विकल्प 2) और が (विकल्प 3) रियायत-सूचक हैं; वे तर्क को उलट देते।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-009",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -135,8 +137,8 @@
       "mondai": 1,
       "rationale_hi": "पहले करते हुए X।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-119",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-162",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -154,8 +156,8 @@
       "mondai": 1,
       "rationale_hi": "बाद करते हुए X।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-119",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-163",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -173,8 +175,8 @@
       "mondai": 1,
       "rationale_hi": "अभ्यासगत वर्तमान।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-001",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-058",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -209,10 +211,10 @@
       "kbSourceId": "Q56",
       "id": "bunpou-4.11",
       "mondai": 1,
-      "rationale_hi": "सूची के साथ や...など। や〜などを 'X, Y, आदि.' non-संपूर्ण सूची। विकर्षक: を यहाँ कर्म-सूचक (already follows blank); へ है दिशा (नहीं गंतव्य यहाँ); に है प्राप्तकर्ता/समय।",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-011",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "や〜など सूची-संरचना: 'X, Y, इत्यादि' (अधूरी सूची)। विकर्षक: を यहाँ कर्म-सूचक है (रिक्त के पहले से ही है); へ दिशा है (यहाँ गंतव्य नहीं); に प्राप्तकर्ता/समय है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_18",
+      "grammarPatternId": "n5-037",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -230,8 +232,8 @@
       "mondai": 1,
       "rationale_hi": "कर्ता का い-adj विधेय।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-092",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-003",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -249,8 +251,8 @@
       "mondai": 1,
       "rationale_hi": "कर्ता का अकर्मक 来る।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-003",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -268,8 +270,8 @@
       "mondai": 1,
       "rationale_hi": "सूची के लिए どちら तुलना।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-049",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-008",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -287,8 +289,8 @@
       "mondai": 1,
       "rationale_hi": "तुलना より।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-049",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-095",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     }
   ]
 }

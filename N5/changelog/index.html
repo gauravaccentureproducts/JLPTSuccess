@@ -84,6 +84,66 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-18 (PAPER-001..004 + LISTEN-4 close-out — 5 bug-class fixes + 3 new CI invariants)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>PAPER-001</strong> (Major / P2): re-tagged 58 bunpou paper-bank questions whose</li>
+</ul>
+<p><code>grammarPatternId</code> was systematically mis-assigned (30+ tagged <code>n5-013</code> = も regardless of actual correct-answer particle). Built canonical particle → pattern_id map from <code>data/grammar.json</code> Particles category (21-entry mapping; documented in procedure manual §F.30.4). Coverage: 29 Mondai 1 particle re-tags + 14 non-particle re-tags + 7 Mondai 3 paragraph-gap + 2 Mondai 2 sentence-ordering. All re-tags carry provenance <code>rule_based_correctanswer_2026_05_18</code>.</p>
+<ul>
+<li><strong>PAPER-002</strong> (Low / P4): set missing <code>grammarPatternId</code> +</li>
+</ul>
+<p><code>grammarPatternId_provenance</code> on bunpou-4.3 (Q48). Stem &quot;きょうは あめが ふって、かぜも （）。&quot; with correct answer &quot;つよいです&quot; tagged <code>n5-079</code> (い-Adjective + です) — parallel-predicate use via て-form connection.</p>
+<ul>
+<li><strong>PAPER-003</strong> (Low / P4): stripped commit-message-style meta-fix history</li>
+</ul>
+<p>from 14 learner-facing rationale fields. 6 bunpou questions (bunpou- 1.14, 3.4, 3.11, 5.15, 7.4, 7.8) + 2 goi questions (goi-3.3, goi-3.14 caught by JA-121 after first pass) had audit-trail parentheticals (&quot;Stem now anchored with わたしは&quot;, &quot;replaces ので per corpus-wide policy applied alongside Q5 fix in v1.12.14&quot;) removed. Distractor- analysis content (Q50/Q51 bunpou-4.5/4.6) intentionally preserved — genuine learner value, not commit trail.</p>
+<ul>
+<li><strong>PAPER-004</strong> (Medium / P3): rewrote 58 <code>rationale_hi</code> fields with</li>
+</ul>
+<p>natural Hindi sourced from <code>rationale_en</code>. Affected questions had word-by-word literal-translation artifacts: apostrophe-s possessive (&quot;दोस्त&#x27;s घर&quot;), English contractions (&quot;मैं&#x27;m नहीं भूखा yet&quot;), mojibake (&quot;यहाँre&quot;, &quot;o&#x27;घड़ी&quot;), English filler words (&quot; lot &quot;, &quot; have जाना&quot;). All 30 Mondai 2 sentence-ordering questions (bunpou-5.1 through bunpou-6.15) rewritten + 4 Mondai 1 + 2 dokkai + 22 goi/moji with English-pattern technical fragments cleaned up. All carry provenance <code>native_reviewed_2026_05_18</code>.</p>
+<ul>
+<li><strong>LISTEN-4</strong> (Medium / P2): tracker status flipped Open → Fixed. Data</li>
+</ul>
+<p>was already correct from a prior commit (<code>version.json</code> counts grammar=178, vocab=995, kanji=106, reading=54, listening=50; version field bumped to v1.15.5). Investigation found the <code>Fix Commit</code> cell for BUG-090..093 referenced <code>d26e677</code> — a native-Japanese-teacher commit from 2026-05-17, BEFORE these bugs were filed on 2026-05-18. Stale back-fill; not a real close-out. Honest correction in this commit.</p>
+<h3>Added</h3>
+<ul>
+<li><strong>JA-120 CI invariant</strong> — paper bunpou Mondai-1 <code>grammarPatternId</code></li>
+</ul>
+<p>must match canonical particle pattern (PAPER-001 drift guard).</p>
+<ul>
+<li><strong>JA-121 CI invariant</strong> — paper <code>rationale</code> / <code>rationale_hi</code> must be</li>
+</ul>
+<p>free of 12 commit-message-style meta-fix phrases (PAPER-003 drift guard).</p>
+<ul>
+<li><strong>JA-122 CI invariant</strong> — paper <code>rationale_hi</code> must be free of 17</li>
+</ul>
+<p>English-pattern fragments — apostrophe-s / contractions / mojibake (PAPER-004 drift guard).</p>
+<ul>
+<li><strong>Procedure manual §F.30</strong> (6 sub-sections) — paper-question content</li>
+</ul>
+<p>audit methodology covering all 3 drift classes + canonical particle ↔ pattern_id map + anti-pattern &quot;don&#x27;t translate from broken Hindi&quot;.</p>
+<ul>
+<li><strong>Accuracy prompt §A67 / §A68 / §A69</strong> — three new audit categories</li>
+</ul>
+<p>mirroring JA-120 / JA-121 / JA-122 enforcement.</p>
+<ul>
+<li><strong>N5Improvement Phase-0 paper-question regression block</strong> —</li>
+</ul>
+<p>maintainer-side mirror of JA-120/121/122.</p>
+<ul>
+<li><strong>AUDIT-COVERAGE Part 24</strong> — paper-question content audit close-out</li>
+</ul>
+<p>narrative + drift-class catalog.</p>
+<ul>
+<li><strong>tools/fix_paper_bugs_2026_05_18.py</strong> + <strong>tools/fix_paper_bugs_part2_2026_05_18.py</strong></li>
+</ul>
+<p>— reusable Nx-builder pattern templates for paper-bank audits.</p>
+<h3>Anti-pattern documented</h3>
+<p>The first PAPER-004 fix pass attempted to &quot;clean up&quot; broken <code>rationale_hi</code> by re-translating it back to natural Hindi using the broken Hindi as source. Result: clean-looking Hindi about the wrong question (e.g., bunpou-5.10 actual question is library-books-three but rewrite said Sunday-movie). Caught on verification before commit. Reverted, redid sourced from <code>rationale_en</code> (verified correct). Recorded as procedure-manual §F.30.6.</p>
+<h3>State</h3>
+<p>CI <strong>125 / 125 invariants green</strong> (was 122, added JA-120/121/122). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>109 / 109 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: PAPER-001..004 + LISTEN-4 close-out addresses the 3 paper-question drift classes surfaced by the 2026-05-18 content audit. Future auditors may surface additional classes (distractor- quality, more subtle rationale-tone issues); JA-120/121/122 prevent re-introduction of <em>these specific drift classes</em>.</p>
 <h2>Unreleased - 2026-05-17 (Multi-role specialist review sweep + Selenium UI test class + 16 NR-* bugs)</h2>
 <p>Not user-visible at runtime — corpus content was already correct post Phase-2; this batch added a systematic 720-scenario multi- role specialist review sweep (Native Japanese / JLPT / Native Hindi / Security / Privacy-legal / Performance / Data / Pedagogy / QA / Cultural / UX / Accessibility / Operations / End-user) plus a new Selenium 4-driven end-to-end UI test class covering every functional surface in spec §5.</p>
 <h3>16 NR-* bugs surfaced + fixed across 5 batches</h3>

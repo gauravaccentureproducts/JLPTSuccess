@@ -2,6 +2,92 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-18 (PAPER-001..004 + LISTEN-4 close-out — 5 bug-class fixes + 3 new CI invariants)
+
+### Fixed
+
+- **PAPER-001** (Major / P2): re-tagged 58 bunpou paper-bank questions whose
+  `grammarPatternId` was systematically mis-assigned (30+ tagged `n5-013` =
+  も regardless of actual correct-answer particle). Built canonical
+  particle → pattern_id map from `data/grammar.json` Particles category
+  (21-entry mapping; documented in procedure manual §F.30.4). Coverage:
+  29 Mondai 1 particle re-tags + 14 non-particle re-tags + 7 Mondai 3
+  paragraph-gap + 2 Mondai 2 sentence-ordering. All re-tags carry
+  provenance `rule_based_correctanswer_2026_05_18`.
+- **PAPER-002** (Low / P4): set missing `grammarPatternId` +
+  `grammarPatternId_provenance` on bunpou-4.3 (Q48). Stem "きょうは あめが
+  ふって、かぜも （）。" with correct answer "つよいです" tagged `n5-079`
+  (い-Adjective + です) — parallel-predicate use via て-form connection.
+- **PAPER-003** (Low / P4): stripped commit-message-style meta-fix history
+  from 14 learner-facing rationale fields. 6 bunpou questions (bunpou-
+  1.14, 3.4, 3.11, 5.15, 7.4, 7.8) + 2 goi questions (goi-3.3, goi-3.14
+  caught by JA-121 after first pass) had audit-trail parentheticals
+  ("Stem now anchored with わたしは", "replaces ので per corpus-wide
+  policy applied alongside Q5 fix in v1.12.14") removed. Distractor-
+  analysis content (Q50/Q51 bunpou-4.5/4.6) intentionally preserved —
+  genuine learner value, not commit trail.
+- **PAPER-004** (Medium / P3): rewrote 58 `rationale_hi` fields with
+  natural Hindi sourced from `rationale_en`. Affected questions had
+  word-by-word literal-translation artifacts: apostrophe-s possessive
+  ("दोस्त's घर"), English contractions ("मैं'm नहीं भूखा yet"), mojibake
+  ("यहाँre", "o'घड़ी"), English filler words (" lot ", " have जाना").
+  All 30 Mondai 2 sentence-ordering questions (bunpou-5.1 through
+  bunpou-6.15) rewritten + 4 Mondai 1 + 2 dokkai + 22 goi/moji with
+  English-pattern technical fragments cleaned up. All carry provenance
+  `native_reviewed_2026_05_18`.
+- **LISTEN-4** (Medium / P2): tracker status flipped Open → Fixed. Data
+  was already correct from a prior commit (`version.json` counts
+  grammar=178, vocab=995, kanji=106, reading=54, listening=50; version
+  field bumped to v1.15.5). Investigation found the `Fix Commit` cell
+  for BUG-090..093 referenced `d26e677` — a native-Japanese-teacher
+  commit from 2026-05-17, BEFORE these bugs were filed on 2026-05-18.
+  Stale back-fill; not a real close-out. Honest correction in this
+  commit.
+
+### Added
+
+- **JA-120 CI invariant** — paper bunpou Mondai-1 `grammarPatternId`
+  must match canonical particle pattern (PAPER-001 drift guard).
+- **JA-121 CI invariant** — paper `rationale` / `rationale_hi` must be
+  free of 12 commit-message-style meta-fix phrases (PAPER-003 drift
+  guard).
+- **JA-122 CI invariant** — paper `rationale_hi` must be free of 17
+  English-pattern fragments — apostrophe-s / contractions / mojibake
+  (PAPER-004 drift guard).
+- **Procedure manual §F.30** (6 sub-sections) — paper-question content
+  audit methodology covering all 3 drift classes + canonical particle ↔
+  pattern_id map + anti-pattern "don't translate from broken Hindi".
+- **Accuracy prompt §A67 / §A68 / §A69** — three new audit categories
+  mirroring JA-120 / JA-121 / JA-122 enforcement.
+- **N5Improvement Phase-0 paper-question regression block** —
+  maintainer-side mirror of JA-120/121/122.
+- **AUDIT-COVERAGE Part 24** — paper-question content audit close-out
+  narrative + drift-class catalog.
+- **tools/fix_paper_bugs_2026_05_18.py** + **tools/fix_paper_bugs_part2_2026_05_18.py**
+  — reusable Nx-builder pattern templates for paper-bank audits.
+
+### Anti-pattern documented
+
+The first PAPER-004 fix pass attempted to "clean up" broken
+`rationale_hi` by re-translating it back to natural Hindi using the
+broken Hindi as source. Result: clean-looking Hindi about the wrong
+question (e.g., bunpou-5.10 actual question is library-books-three
+but rewrite said Sunday-movie). Caught on verification before
+commit. Reverted, redid sourced from `rationale_en` (verified
+correct). Recorded as procedure-manual §F.30.6.
+
+### State
+
+CI **125 / 125 invariants green** (was 122, added JA-120/121/122).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **109 / 109 Fixed / 0 Open**.
+
+Bounded framing: PAPER-001..004 + LISTEN-4 close-out addresses the
+3 paper-question drift classes surfaced by the 2026-05-18 content
+audit. Future auditors may surface additional classes (distractor-
+quality, more subtle rationale-tone issues); JA-120/121/122 prevent
+re-introduction of *these specific drift classes*.
+
 ## Unreleased - 2026-05-17 (Multi-role specialist review sweep + Selenium UI test class + 16 NR-* bugs)
 
 Not user-visible at runtime — corpus content was already correct

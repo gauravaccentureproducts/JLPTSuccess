@@ -23,8 +23,8 @@
       "mondai": 1,
       "rationale_hi": "い-adj विधेय।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-080",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-079",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -42,8 +42,8 @@
       "mondai": 1,
       "rationale_hi": "あまり + नकारात्मक।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-147",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-080",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -61,8 +61,8 @@
       "mondai": 1,
       "rationale_hi": "भूत い-adj।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-104",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-081",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -74,14 +74,14 @@
         "しずかでした"
       ],
       "correctIndex": 0,
-      "rationale": "あまり + neg construction. しずかじゃ ありません is the clean N5 polite-negative な-adj form (replaces colloquial 「しずかじゃない」+です from a prior version).",
+      "rationale": "あまり + negative construction. しずかじゃありません is the polite-negative form of な-adjective しずか.",
       "kbSourceId": "Q34",
       "id": "bunpou-3.4",
       "mondai": 1,
-      "rationale_hi": "あまり + नकारात्मक रचना। しずかじゃ ありません यहाँ साफ़ N5 विनम्र-नकारात्मक な-adj रूप (की जगह लेता है colloquial 「しずかじゃない」+です से पूर्व संस्करण)।",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-085",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "あまり + नकारात्मक संरचना। しずかじゃありません, な-विशेषण しずか का विनम्र-नकारात्मक रूप है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_18",
+      "grammarPatternId": "n5-086",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -99,8 +99,8 @@
       "mondai": 1,
       "rationale_hi": "な-adj + な + संज्ञा।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-143",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-084",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -118,8 +118,8 @@
       "mondai": 1,
       "rationale_hi": "बारिश → नहीं जाना।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-001",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-059",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -156,8 +156,8 @@
       "mondai": 1,
       "rationale_hi": "वर्तमान समय, जा रहा है घर।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-001",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-058",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -175,8 +175,8 @@
       "mondai": 1,
       "rationale_hi": "चाहना को आराम।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-001",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-104",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -194,8 +194,8 @@
       "mondai": 1,
       "rationale_hi": "何か।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-023",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -207,12 +207,12 @@
         "にん"
       ],
       "correctIndex": 2,
-      "rationale": "三 + さつ (counter for books). Stem now includes the numeral 三 so the counter has something to attach to (prior version was structurally broken).",
+      "rationale": "三 + さつ — さつ is the counter for bound objects like books.",
       "kbSourceId": "Q41",
       "id": "bunpou-3.11",
       "mondai": 1,
-      "rationale_hi": "三 + さつ (किताबों का काउंटर)। तना में अब अंक 三 शामिल है ताकि काउंटर को कुछ जुड़ने को मिले (पिछला संस्करण संरचनात्मक रूप से टूटा हुआ था)।",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "三 + さつ — さつ, किताबों जैसी जिल्द वाली वस्तुओं के लिए गिनती-शब्द (काउंटर) है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_18",
       "grammarPatternId": "n5-108",
       "grammarPatternId_provenance": "auto_inferred"
     },
@@ -232,8 +232,8 @@
       "mondai": 1,
       "rationale_hi": "ている के लिए जारी क्रिया-कर्म।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-094",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-072",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -251,8 +251,8 @@
       "mondai": 1,
       "rationale_hi": "て-रूप + から (बाद करते हुए)।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-069",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-076",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -270,8 +270,8 @@
       "mondai": 1,
       "rationale_hi": "विनम्र अनुरोध।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-149",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-071",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     },
     {
       "type": "mcq",
@@ -289,8 +289,8 @@
       "mondai": 1,
       "rationale_hi": "अनुमति + प्रश्न।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-001",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": "n5-074",
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
     }
   ]
 }

@@ -3751,3 +3751,135 @@ procedure-manual §F.29; test-scenarios xlsx "UI Tests" tab
 tools/add_ui_tests_tab_2026_05_17.py;
 tools/dump_console_errors.py.
 ============================================================
+
+============================================================
+A67. Paper-question grammarPatternId mis-tag scan (PAPER-001).
+     (Audit category — added 2026-05-18, AUDIT-COVERAGE Part 24.)
+
+For every Mondai 1 paper question (data/papers/bunpou/paper-*.json)
+whose `correctIndex` resolves to a single Japanese particle, the
+`grammarPatternId` field MUST reference the canonical n5-NNN
+pattern for that particle. Mismatches indicate an early auto-
+tag pass that assigned default-tag (e.g., n5-013 = も) regardless
+of the actual answer particle. The drift is silent at quiz time
+(question plays correctly) but breaks study-plan grouping,
+pattern-frequency analytics, and "review weak particles"
+recommendation.
+
+Canonical particle ↔ pattern_id map (read from grammar.json
+Particles category, single-char pattern field):
+
+  は → n5-002    が → n5-003    を → n5-004    に → n5-005
+  へ → n5-006    で → n5-007    と → n5-008    から → n5-009
+  まで → n5-010   や → n5-011    も → n5-013    か → n5-023
+  ね → n5-025    よ → n5-026    の → n5-028    だけ → n5-033
+  ぐらい/くらい → n5-035        ごろ → n5-036    など → n5-037
+  ずつ → n5-038    より → n5-095 (comparison)
+
+For non-particle Mondai 1 questions (verb/adj/copula form,
+counter, te-form, comparison construction, etc.), per-stem
+context-based manual mapping is required.
+
+For Mondai 2 sentence-ordering and Mondai 3 paragraph-gap, tag
+by the central structural pattern OR the specific particle/form
+filling the blank — whichever the question primarily tests.
+
+Provenance: set grammarPatternId_provenance =
+"rule_based_correctanswer_<YYYY_MM_DD>".
+
+CI invariant: JA-120 (paper bunpou Mondai-1 grammarPatternId
+matches canonical particle pattern, PAPER-001 drift guard,
+2026-05-18).
+
+Bounded-coverage phrasing: A67 verifies particle-Q ↔
+pattern_id alignment *for Mondai 1 questions where
+correctIndex resolves to a single particle in the canonical
+map*. Non-particle Q (verb/adj/copula form) and Mondai 2/3
+require manual review; A67 does not auto-verify those.
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 24;
+procedure-manual §F.30; spec §25.x;
+tools/fix_paper_bugs_2026_05_18.py.
+============================================================
+
+============================================================
+A68. Paper-rationale meta-fix-history scan (PAPER-003).
+     (Audit category — added 2026-05-18, AUDIT-COVERAGE Part 24.)
+
+For every paper question, the learner-facing `rationale` and
+`rationale_hi` fields MUST NOT contain commit-message-style
+meta-fix history. Substring scan triggers on:
+
+  - auto_inferred, previously tagged, prior version was
+  - Stem now anchored, Stem now includes
+  - replaces colloquial, replaces ので per
+  - the original option, was dropped because,
+    replaced with, patched to, fix:
+
+These phrases describe corpus maintenance — appropriate for
+commit messages, inappropriate for the post-answer screen
+that learners actually see.
+
+Fix protocol: strip the meta-fix parenthetical / sentence;
+keep only the learner-facing concept explanation. Move audit-
+trail content to commit message or a separate
+rationale_revision_note field. KEEP distractor-analysis
+content even if it looks meta (e.g., "(option 3 is concessive,
+not causal — would invert the logic)") — that's genuine
+learner value.
+
+CI invariant: JA-121 (paper rationale / rationale_hi free of
+commit-message-style meta-fix history, PAPER-003 drift guard,
+2026-05-18).
+
+Bounded-coverage phrasing: A68 prevents re-introduction of
+*these specific bad-phrase substrings*. Stylistically poor or
+verbose rationales that don't contain the trigger phrases pass.
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 24;
+procedure-manual §F.30; tools/fix_paper_bugs_2026_05_18.py.
+============================================================
+
+============================================================
+A69. Paper-rationale_hi natural-Hindi scan (PAPER-004).
+     (Audit category — added 2026-05-18, AUDIT-COVERAGE Part 24.)
+
+For every paper question, the learner-facing `rationale_hi`
+field MUST be natural Hindi — not word-by-word literal
+translation of `rationale_en`. Substring scan triggers on:
+
+  - Apostrophe-s possessive: 's घर, 's दिन, दोस्त's,
+    माता's — non-existent in Devanagari grammar
+  - English contractions inline: मैं'm, मैं'have, मैं'll,
+    मैं't — half-translated artifacts
+  - Mojibake: यहाँre, वहाँre, Iहाँ, o'घड़ी, o'क्लॉक
+    (English apostrophe + Hindi script glued together)
+  - Untranslated English filler: " yet,", "है yet", " lot ",
+    "I am ", " have जाना", " have रहा"
+
+Fix protocol: source from rationale_en (verified correct),
+translate naturally into Hindi. Test: "Would a Hindi-speaking
+N5 learner read this fluently?" Keep Japanese tokens as-is
+(do not transliterate to Devanagari). Particle names stay as
+Japanese characters. Set
+rationale_hi_provenance = "native_reviewed_<YYYY_MM_DD>".
+
+CRITICAL anti-pattern: do NOT translate from the broken
+rationale_hi back into clean Hindi. The broken Hindi may itself
+be a wrong translation (different sentence than the question's
+actual stem). Always source from rationale_en + verify against
+the actual stem + correct answer + choices.
+
+CI invariant: JA-122 (paper rationale_hi free of English-
+pattern fragments — apostrophe-s / contractions / mojibake,
+PAPER-004 drift guard, 2026-05-18).
+
+Bounded-coverage phrasing: A69 catches *automated English-
+fragment detection* — the trigger substring set. Legitimate
+technical fragments (e.g., "sub-が-suki", "X-jin") and
+Japanese-token + Romanized particle references remain by
+design. Stylistically-stiff-but-grammatical Hindi passes.
+
+Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 24;
+procedure-manual §F.30; tools/fix_paper_bugs_part2_2026_05_18.py.
+============================================================

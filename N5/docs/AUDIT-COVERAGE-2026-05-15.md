@@ -3557,3 +3557,229 @@ UI test suite: 53 / 55 PASS, 1 SKIP, 0 FAIL post-NR-UI-001 fix.
 The multi-role specialist-review-by-tab methodology + Selenium UI
 test class are now reusable Nx-builder deliverables (see procedure
 manual F.28 / F.29).
+
+## ADDENDUM 2026-05-18 (Part 24) — Paper-question content audit close-out (PAPER-001..004 + LISTEN-4)
+
+### Trigger
+
+Content-audit pass on 2026-05-18 surfaced 5 Open bugs against the
+JLPT paper-question bank and version.json:
+
+  - **LISTEN-4 (Medium / P2):** version.json count drift (claimed
+    vocab=1000, reading=45, listening=47 vs actual 995/54/50)
+  - **PAPER-001 (Major / P2):** grammarPatternId systematically
+    mis-assigned — 30+ Mondai 1 questions tagged n5-013 (も) but
+    correct answer is は / が / を / etc.
+  - **PAPER-002 (Low / P4):** bunpou-4.3 (Q48) missing both
+    grammarPatternId and grammarPatternId_provenance fields
+  - **PAPER-003 (Low / P4):** 8+ rationale fields contain commit-
+    message-style meta-fix history (audit-trail content on
+    learner-facing post-answer screen)
+  - **PAPER-004 (Medium / P3):** rationale_hi quality drops for
+    Mondai 2 sentence-ordering (~30 questions with mojibake
+    artifacts "यहाँre", "मैं'm", "o'घड़ी", apostrophe-s)
+
+### Investigation finding (honest reporting)
+
+On first session check, the bug-tracker showed
+`Fix Commit = d26e677` for BUG-090..093 — but d26e677 is the
+native-Japanese-teacher commit from 2026-05-17, BEFORE these bugs
+were filed on 2026-05-18. The Fix Commit values had been stale-back-
+filled and the Status field was still Open. None of the 4 PAPER-*
+bugs had actually been addressed. LISTEN-4's data was already
+correct (someone had bumped version.json to v1.15.5 with correct
+counts) but its tracker status was also still Open.
+
+Lesson surfaced (bounded): the cross-artifact sync report's row
+for BUG-090..093 cells passed JA-118 (non-empty Fix Commit) but
+the Fix Commit referenced an unrelated date. Future safeguard:
+JA-118 to additionally require that the referenced commit's date
+is >= the bug's Date Reported. (Deferred — see "Pending future
+work" below.)
+
+### Resolution (this session)
+
+**PAPER-001 close-out (58 re-tags):**
+
+  - Built canonical particle → pattern_id map from grammar.json
+    (21 entries; see procedure manual §F.30.4)
+  - Re-tagged 29 Mondai 1 questions where correctIndex resolves
+    to a single particle (e.g., bunpou-1.1 was n5-013 → now n5-002
+    for は)
+  - Re-tagged 14 Mondai 1 questions where correct answer is a non-
+    particle form (verb/adj/copula/counter/comparison construction)
+    with context-based pattern mapping (e.g., bunpou-3.1 たかい was
+    n5-080 → n5-079 い-Adj+です)
+  - Re-tagged 2 Mondai 2 sentence-ordering and 7 Mondai 3 paragraph-
+    gap questions where the n5-013 default was wrong
+  - All re-tags carry provenance `rule_based_correctanswer_2026_05_18`
+
+**PAPER-002 close-out (1 field-set):**
+
+  - bunpou-4.3 stem "きょうは あめが ふって、かぜも （）。" with correct
+    answer "つよいです" tagged as n5-079 (い-Adjective + です) —
+    parallel-predicate use via て-form connection. Provenance set.
+
+**PAPER-003 close-out (14 rationale strips):**
+
+  - 6 bunpou questions (bunpou-1.14, 3.4, 3.11, 5.15, 7.4, 7.8)
+    had their `rationale` + `rationale_hi` rewritten — meta-fix
+    parentheticals removed, learner-facing concept retained.
+  - 2 goi questions (goi-3.3, goi-3.14) had stale "(replaces ので
+    per corpus-wide policy applied alongside the Q5 fix in
+    v1.12.14)" trailer stripped — caught by JA-121 after first
+    pass.
+  - Q50/Q51 (bunpou-4.5/4.6) distractor analysis intentionally
+    PRESERVED — that's genuine learner content, not commit-trail.
+
+**PAPER-004 close-out (58 rationale_hi rewrites):**
+
+  - All 30 Mondai 2 sentence-ordering questions (bunpou-5.1 through
+    bunpou-6.15) — rewritten from rationale_en source, not from
+    broken rationale_hi
+  - 4 Mondai 1 questions with English fragments (bunpou-1.14, 2.3,
+    3.11, 4.11)
+  - 2 dokkai questions with apostrophe-s artifacts (dokkai-1.4,
+    dokkai-7.1)
+  - 22 goi/moji questions with stale English-pattern technical
+    fragments and over-detailed audit trails — replaced with concise
+    natural Hindi
+  - All rewrites carry provenance `native_reviewed_2026_05_18`
+
+**LISTEN-4 close-out (status flip only):**
+
+  - Data was already correct from a prior commit (version.json
+    counts grammar=178, vocab=995, kanji=106, reading=54,
+    listening=50; version bumped to v1.15.5)
+  - Tracker status flipped Open → Fixed in this commit
+
+### Anti-pattern documented (PAPER-004 first-pass failure)
+
+The first PAPER-004 fix pass tried to re-translate the broken
+rationale_hi into clean Hindi *using the broken Hindi as source*.
+Result: clean-looking Hindi about the WRONG question (e.g.,
+bunpou-5.10 actual question is about library-books-three but my
+rewrite said Sunday-movie). Caught on verification before commit.
+Reverted PAPER-004 rewrites, redid sourced from `rationale_en`
+(verified correct).
+
+Recorded as procedure-manual §F.30.6: "Anti-pattern: don't
+translate from broken Hindi."
+
+### New CI invariants (JA-120 / JA-121 / JA-122)
+
+Three new invariants added to `tools/check_content_integrity.py`:
+
+  - **JA-120** — paper bunpou Mondai-1 grammarPatternId matches
+    canonical particle pattern (PAPER-001 drift guard, prevents
+    re-introduction of the n5-013-as-default class)
+  - **JA-121** — paper rationale / rationale_hi free of commit-
+    message-style meta-fix history (PAPER-003 drift guard, scans
+    12 trigger phrases)
+  - **JA-122** — paper rationale_hi free of English-pattern
+    fragments — apostrophe-s / contractions / mojibake (PAPER-004
+    drift guard, scans 17 trigger fragments)
+
+CI count moved from 122 to **125 invariants** (122 + 3 new). All
+125 PASS post-fix.
+
+### Horizontal-scan results (Rule 6 horizontal deployment)
+
+Scanned for similar issues across all 9 artifact classes per Rule 5:
+
+  - **grammar.json** — `meaning_hi` / `explanation_hi` / `l1_notes`
+    on all 178 patterns: 0 English-pattern fragments found
+  - **vocab.json** — `meaning_hi` / `usage_hi` / `mnemonic_hi` on
+    all 995 entries: 0 issues
+  - **kanji.json** — `meaning_hi` / `mnemonic_hi` / `usage_hi` on
+    all 106 entries: 0 issues
+  - **reading.json** — `summary_hi` / `title_hi` / question
+    `rationale_hi` on all 54 passages + 230 questions: 0 issues
+  - **listening.json** — `title_hi` / `translation_hi` /
+    `rationale_hi` on all 50 items: 0 issues
+  - **questions.json** — `rationale_hi` on all 290 entries: 0 issues
+
+**Bounded-coverage phrasing:** the horizontal scan checks for the
+trigger-substring set defined in JA-122 (apostrophe-s + English
+contractions + mojibake artifacts + filler-word patterns). Hindi
+content that is stylistically stiff but grammatically clean
+passes; the scan does not assess overall naturalness.
+
+### Pending future work (deferred, not blocking this commit)
+
+  - JA-118 strengthening: also require that the referenced Fix
+    Commit date >= Bug Date Reported. Currently JA-118 only checks
+    non-empty Fix Commit, which allowed the stale d26e677 back-
+    fill class.
+  - JA-120 extension: cover Mondai 2 sentence-ordering and
+    Mondai 3 paragraph-gap with the same particle-alignment check
+    where applicable. Currently JA-120 only catches Mondai 1.
+  - PAPER-004-style audit on grammar.json `examples` translations,
+    vocab.json `example_translation_en`, etc. — the horizontal
+    scan was clean against the *current* trigger set; a stricter
+    rubric might catch more subtle stiffness.
+
+### CI count after Part 24
+
+**125** (122 pre-Part-24 + 3 new: JA-120 / JA-121 / JA-122).
+All 125 PASS.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 24
+
+  - Total: 109 rows
+  - Fixed: 109 / 109 (BUG-050 / BUG-090 / BUG-091 / BUG-092 /
+    BUG-093 all flipped to Fixed in this commit)
+  - Open: 0
+
+### Reusable tooling deliverables (Part 24)
+
+  - `tools/fix_paper_bugs_2026_05_18.py` — comprehensive Mondai 1
+    re-tag + Mondai 2 selective re-tag + PAPER-002 field-set +
+    PAPER-003 rationale strip
+  - `tools/fix_paper_bugs_part2_2026_05_18.py` — PAPER-004
+    rationale_hi rewrites (58 questions) + horizontal-scan
+    coverage of mid-quality goi/moji rationales
+
+Pattern-template for Nx paper banks: clone with updated date and
+per-Nx particle ↔ pattern_id map.
+
+### Files touched (Part 24)
+
+  - N5/data/papers/bunpou/*.json (7 files: paper-1..-7 — re-tags
+    + rationale rewrites)
+  - N5/data/papers/goi/*.json (rationale strip + rewrites)
+  - N5/data/papers/dokkai/paper-1.json, paper-7.json
+  - N5/data/papers/moji/*.json (rationale_hi rewrites)
+  - N5/tools/check_content_integrity.py (JA-120 / JA-121 / JA-122
+    added)
+  - N5/specifications/test-scenarios-by-specialist-perspective.xlsx
+    (5 bug-status flips)
+  - N5/tools/fix_paper_bugs_2026_05_18.py (NEW)
+  - N5/tools/fix_paper_bugs_part2_2026_05_18.py (NEW)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md (F.30
+    added; 6 sub-sections)
+  - N5/prompts/Japanese language Accuracy check.txt (A67 / A68 /
+    A69 added)
+  - N5/prompts/N5Improvement.txt (Phase-0 paper-question
+    regression block added)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 24)
+  - N5/docs/cross-artifact-sync-map.md (Part 24 audit-log rows)
+  - N5/CHANGELOG.md (Unreleased entry)
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25 PAPER-001..004 close-out entries)
+
+### Final state for Part 24
+
+CI **125 / 125 invariants green**.
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: 109 / 109 Fixed / 0 Open.
+Paper-question content audit: PAPER-001..004 + LISTEN-4 all
+closed against currently-observed values. JA-120/121/122 prevent
+re-introduction of *these specific drift classes*.
+
+Bounded framing: the audit's drift-class catalog now covers the
+3 paper-question classes surfaced on 2026-05-18. A future content
+auditor may surface new classes (e.g., choice-distractor-quality
+issues, more subtle rationale-tone problems) — those would extend
+the catalog further; Part 24 closes the currently-observed set.

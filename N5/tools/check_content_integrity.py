@@ -1276,6 +1276,25 @@ CHECKS: list[tuple[str, str, callable]] = [
     # references resolve) class, extended from data-references to
     # derived-mirror freshness.
     ("JA-113", "meta-route static mirrors (home/changelog/privacy/notices) reflect latest markdown heading (mirror-freshness guard, 2026-05-17)", lambda: _check_ja_113_meta_mirror_freshness()),
+    # JA-120 / JA-121 / JA-122 (2026-05-18): PAPER-001..004 close-out.
+    # JA-120 — paper bunpou Mondai 1 questions must have a grammarPatternId
+    # that matches the canonical particle pattern for their correct answer.
+    # PAPER-001 caught 60+ questions where an early auto-tag pass set every
+    # ambiguous question to n5-013 (も) regardless of the actual particle.
+    # JA-121 — paper rationale / rationale_hi fields must not contain
+    # commit-message-style meta-fix phrases (e.g., "auto_inferred",
+    # "Stem now anchored", "(was X)", "replaces ... per policy"). PAPER-003
+    # caught 6 questions where the learner-facing rationale was contaminated
+    # with audit-trail text intended for commit messages.
+    # JA-122 — paper rationale_hi fields must not contain English-pattern
+    # fragments (apostrophe-s possessive, English contractions, "yet" / "lot"
+    # leakage, mojibake artifacts like "यहाँre" / "o'घड़ी"). PAPER-004 caught
+    # 30+ questions in Mondai 2 sentence-ordering whose rationale_hi was a
+    # word-by-word literal translation of the English rationale rather than
+    # natural Hindi.
+    ("JA-120", "paper bunpou Mondai-1 grammarPatternId matches canonical particle pattern (PAPER-001 drift guard, 2026-05-18)", lambda: _check_ja_120_paper_pattern_id_matches_correct_particle()),
+    ("JA-121", "paper rationale / rationale_hi free of commit-message-style meta-fix history (PAPER-003 drift guard, 2026-05-18)", lambda: _check_ja_121_no_meta_fix_history_in_rationale()),
+    ("JA-122", "paper rationale_hi free of English-pattern fragments (apostrophe-s / contractions / mojibake; PAPER-004 drift guard, 2026-05-18)", lambda: _check_ja_122_no_english_pattern_fragments_in_rationale_hi()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6751,6 +6770,153 @@ def _check_ja_81_no_boilerplate_leak() -> list[str]:
                 f"{ja[:50]!r} in {','.join(pids[:8])}"
                 + (f"... and {len(pids)-8} more" if len(pids) > 8 else "")
             )
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-120 / JA-121 / JA-122 (2026-05-18): PAPER-001..004 close-out invariants
+# ---------------------------------------------------------------------------
+
+def _check_ja_120_paper_pattern_id_matches_correct_particle() -> list[str]:
+    """For every bunpou Mondai 1 question whose correct-answer cell is a
+    single Japanese particle, the question's grammarPatternId must reference
+    the canonical n5-NNN pattern for that particle.
+
+    PAPER-001 (2026-05-18) caught 60+ bunpou questions where the
+    `grammarPatternId` field had been auto-set to `n5-013` (も) by an early
+    bulk-tag pass but the actual correct answer is は / が / を / に / で
+    / etc. The mismatch is invisible at quiz time (the question still plays
+    correctly) but breaks downstream consumers: study-plan grouping,
+    pattern-frequency analytics, "review weak particles" recommendation.
+    This invariant prevents re-introduction of the same drift class.
+    """
+    PARTICLE_TO_PATTERN = {
+        "は": "n5-002", "が": "n5-003", "を": "n5-004", "に": "n5-005",
+        "へ": "n5-006", "で": "n5-007", "と": "n5-008", "から": "n5-009",
+        "まで": "n5-010", "や": "n5-011", "も": "n5-013", "か": "n5-023",
+        "ね": "n5-025", "よ": "n5-026", "の": "n5-028", "だけ": "n5-033",
+        "ぐらい": "n5-035", "くらい": "n5-035", "ごろ": "n5-036",
+        "など": "n5-037", "ずつ": "n5-038", "より": "n5-095",
+    }
+    import re as _re
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-120 could not parse {fp.name}: {e}")
+            continue
+        for q in d.get("questions", []):
+            qid = q.get("id", "")
+            if not qid.startswith("bunpou-") or q.get("mondai") != 1:
+                continue
+            correct_idx = q.get("correctIndex", -1)
+            choices = q.get("choices", [])
+            if not (0 <= correct_idx < len(choices)):
+                continue
+            correct_text = _re.sub(r"<[^>]+>", "", str(choices[correct_idx])).strip()
+            if correct_text not in PARTICLE_TO_PATTERN:
+                continue  # non-particle Q — different test scope
+            expected = PARTICLE_TO_PATTERN[correct_text]
+            actual = q.get("grammarPatternId", "<missing>")
+            if actual != expected:
+                failures.append(
+                    f"JA-120 {fp.name} {qid}: correct={correct_text!r} "
+                    f"expects grammarPatternId={expected} but got {actual} "
+                    f"(PAPER-001 drift guard)"
+                )
+    return failures
+
+
+def _check_ja_121_no_meta_fix_history_in_rationale() -> list[str]:
+    """Paper-question `rationale` and `rationale_hi` fields must not contain
+    commit-message-style meta-fix history (e.g., "replaces ... from a prior
+    version", "Stem now anchored with X", "(was Y)", "auto_inferred",
+    "previously tagged"). Learners see the rationale on the post-answer
+    screen; commit-trail content is inappropriate for that surface.
+
+    PAPER-003 (2026-05-18) caught 6 questions with this drift class.
+    """
+    BAD_PHRASES = [
+        "auto_inferred",
+        "previously tagged",
+        "prior version was",
+        "Stem now anchored",
+        "Stem now includes",
+        "replaces colloquial",
+        "replaces ので per",
+        "the original option",
+        "was dropped because",
+        "replaced with",
+        "patched to",
+        "fix:",
+    ]
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-121 could not parse {fp.name}: {e}")
+            continue
+        for q in d.get("questions", []):
+            qid = q.get("id", "")
+            for field in ("rationale", "rationale_hi"):
+                v = str(q.get(field, "") or "")
+                for phrase in BAD_PHRASES:
+                    if phrase in v:
+                        failures.append(
+                            f"JA-121 {fp.name} {qid}.{field}: contains "
+                            f"meta-fix phrase {phrase!r} (PAPER-003 drift guard)"
+                        )
+                        break  # one finding per field is enough
+    return failures
+
+
+def _check_ja_122_no_english_pattern_fragments_in_rationale_hi() -> list[str]:
+    """Paper-question `rationale_hi` fields must not contain obvious
+    English-pattern fragments: apostrophe-s possessive ("दोस्त's"), English
+    contractions inside Hindi ("मैं'm", "है yet"), or mojibake artifacts
+    ("यहाँre", "o'घड़ी"). These all indicate word-by-word literal translation
+    rather than natural Hindi.
+
+    PAPER-004 (2026-05-18) caught 30+ questions in Mondai 2 sentence-ordering
+    with these artifacts. Rationale_hi is a learner-facing Hindi explanation
+    surface; it must read as natural Hindi, not transliterated English.
+    """
+    BAD_PATTERNS = [
+        "'s घर", "'s दिन", "दोस्त's", "माता's",      # apostrophe-s possessive
+        "मैं'm", "मैं'have", "मैं'll", "मैं't",        # English contractions
+        "यहाँre", "वहाँre", "Iहाँ", "Iम ",            # mojibake artifacts
+        "o'घड़ी", "o'क्लॉक",                          # English apostrophe in time
+        " yet,", " yet.", "है yet",                  # untranslated yet
+        " lot ", "I am ", " have जाना", " have रहा", # English-pattern verb fragments
+    ]
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-122 could not parse {fp.name}: {e}")
+            continue
+        for q in d.get("questions", []):
+            qid = q.get("id", "")
+            rh = str(q.get("rationale_hi", "") or "")
+            for bad in BAD_PATTERNS:
+                if bad in rh:
+                    failures.append(
+                        f"JA-122 {fp.name} {qid}.rationale_hi: contains "
+                        f"English-pattern fragment {bad!r} (PAPER-004 drift guard)"
+                    )
+                    break
     return failures
 
 
