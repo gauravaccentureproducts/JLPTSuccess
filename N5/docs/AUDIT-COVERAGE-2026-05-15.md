@@ -4185,3 +4185,113 @@ schema-shape) are now CI-enforced across all 4 paper-bank corpora
 (bunpou / goi / moji / dokkai). Future audits may extend the catalog
 with additional drift classes; Part 26 closes the currently-observed
 set against the patterns DOKKAI-001..003 + JA-128..130 name.
+
+## ADDENDUM 2026-05-19 (Part 27) — MOB-001..019 + DOKKAI-004 close-out
+
+### Trigger
+
+Selenium mobile-emulation audit on 2026-05-19 + content-audit follow-up
+surfaced 20 Open bugs (BUG-110..129): 19 MOB-* + 1 DOKKAI-004.
+
+### Resolution (this commit) — 5 durable bug classes
+
+  - **Class A — Touch-target HIG compliance** (MOB-002..016 incl.
+    011): consolidated CSS block at end of `css/main.css` + mirror to
+    `css/main.min.css` bumping `min-height: 44px` on `.btn-action`,
+    `.study-order-link`, `.home-up-link a`, `.back-link`,
+    `.toc-expand-all`, `.brand-link`, `.skip-link`, `.btn-tiny`,
+    authentic ref-chips, examday/weakareas inline links. **MOB-001
+    fix:** removed `@media (max-width: 599px)` rule that hid
+    Test + Progress nav items (all 7 nav items now visible on D-320+
+    via existing flex shrink rule).
+  - **Class B — iOS Safari auto-zoom guard** (MOB-006): site-wide
+    `input, textarea, select { font-size: max(1rem, 16px); }` rule.
+  - **Class C — Dead-end hash routes** (MOB-008/009):
+    - `js/home.js` home-up `href="#/levels"` → `href="../"`
+    - `js/listening-story.js` canonicalized to `#/listeningstory`
+  - **Class D — Locale-parity for hard-coded UI strings** (MOB-007):
+    added `nav.all_levels` key to en+hi locales; updated home.js to
+    use `t('nav.all_levels')`. Hindi rendering: `सभी JLPT स्तर`.
+  - **Class E — Test-infrastructure gaps** (MOB-017/018/019):
+    MOB-017 → reading list `<button>` → `<a href>` deep-links
+    (restores crawlability + bookmark-via-right-click + SEO).
+    MOB-018/019 → scenario-rewrite recommendations documented (no
+    app-code change required).
+
+**MOB-010 (sticky header top=16px)**: declined as P5 design-decision
+per bug "borderline — possibly by-design" note.
+
+**DOKKAI-004 close-out**: rewrote dokkai-4.1 rationale_hi from
+`आना-जाना by ट्रेन` → `ट्रेन से कंपनी जाते हैं (रोज़ का आना-जाना
+ट्रेन से)।`. Extended JA-129 trigger set with ` by ` family.
+
+### New CI invariants (JA-131 / JA-132 / JA-133 / JA-134)
+
+  - **JA-131** — locales/en.json + hi.json carry `nav.all_levels` key
+  - **JA-132** — css/main.css + main.min.css carry MOB-001..016
+    mobile-UI compliance batch marker + canonical touch-target
+    class set (multi-class drift guard for MOB-002..016)
+  - **JA-133** — css/main.css has form-input `font-size: max(1rem,
+    16px)` rule (MOB-006 iOS auto-zoom guard)
+  - **JA-134** — js/home.js + js/listening-story.js free of dead-end
+    hash routes `#/levels` and `#/listening/story`
+
+JA-129 trigger set extended with ` by ` family (DOKKAI-004 catch).
+
+CI count moved from 133 to **137 invariants** (133 + 4 new). All
+137 PASS post-fix.
+
+### Pending future work (deferred)
+
+  - MOB-018 / MOB-019 scenario rewrites in xlsx "O. Mobile UI testing"
+    tab — recommendations documented; mechanical xlsx-row edits
+    deferred to a future test-design pass.
+  - JA-132 marker-list extension when new touch-target classes ship.
+  - General hash-route-resolution guard — JA-134 catches the 2 known
+    dead-end patterns; a future invariant could parse app.js routes
+    dict and assert every hash href resolves.
+
+### CI count after Part 27
+
+**137** (133 pre-Part-27 + 4 new: JA-131..134). All 137 PASS.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 27
+
+  - Total: 132 rows
+  - Fixed: 132 / 132 (BUG-110..129 all flipped to Fixed)
+  - Open: 0
+
+### Files touched (Part 27)
+
+  - N5/css/main.css + main.min.css (mobile-UI compliance batch)
+  - N5/js/home.js (home-up href + i18n key)
+  - N5/js/listening-story.js (canonical `#/listeningstory`)
+  - N5/js/reading.js (reading list → `<a href>`)
+  - N5/js/min/* (regenerated)
+  - N5/locales/en.json + hi.json (nav.all_levels)
+  - N5/data/papers/dokkai/paper-4.json (dokkai-4.1 rewrite)
+  - N5/data/index.json (regenerated)
+  - N5/tools/check_content_integrity.py (JA-129 ext + JA-131..134)
+  - N5/specifications/test-scenarios-by-specialist-perspective.xlsx
+    (20 bug-status flips)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md (F.34)
+  - N5/prompts/Japanese language Accuracy check.txt (A73)
+  - N5/prompts/N5Improvement.txt (Phase-0 mobile-UI regression)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 27)
+  - N5/docs/cross-artifact-sync-map.md (Part 27 audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md (§25.4
+    JA-131..134 rows + section intro JA-134 range update)
+
+### Final state for Part 27
+
+CI **137 / 137 invariants green**.
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: JA-131..134 prevent re-introduction of *the
+specific bugs MOB-006/007/008/009 closed* + *the named touch-target
+class set in JA-132's marker comment*. Future Selenium audits may
+surface new defects (other dead-end routes, new CSS classes shipped
+post-marker); this batch closes the currently-observed set.

@@ -6,7 +6,7 @@
 // auto-play in sequence — like a single immersive listening
 // session, not 50 disconnected drills.
 //
-// Route: #/listening/story[/<context>]
+// Route: #/listeningstory[/<context>]
 //   no context:  picker page (pick a story)
 //   <context>:   chained player (auto-play next on each completion)
 //
@@ -70,7 +70,7 @@ function renderPicker(container, items) {
       const list = groups.get(c) || [];
       const label = CONTEXT_LABEL[c] || { en: c, ja: c };
       return `
-        <a class="listening-story-card" href="#/listening/story/${esc(c)}">
+        <a class="listening-story-card" href="#/listeningstory/${esc(c)}">
           <h3>
             <span lang="ja">${esc(label.ja)}</span>
             <span class="muted small"> · ${esc(label.en)}</span>
@@ -96,7 +96,7 @@ function renderPicker(container, items) {
 function renderChain(container, items, ctx) {
   const list = items.filter(it => (it.ambient_context || 'general') === ctx);
   if (!list.length) {
-    container.innerHTML = `<p>No clips for "${esc(ctx)}". <a href="#/listening/story">Pick another.</a></p>`;
+    container.innerHTML = `<p>No clips for "${esc(ctx)}". <a href="#/listeningstory">Pick another.</a></p>`;
     return;
   }
   const label = CONTEXT_LABEL[ctx] || { en: ctx, ja: ctx };
@@ -126,7 +126,7 @@ function renderChain(container, items, ctx) {
 
   container.innerHTML = `
     <article class="listening-story-chain">
-      <a class="back-link" href="#/listening/story">← Pick another story</a>
+      <a class="back-link" href="#/listeningstory">← Pick another story</a>
       <h2>
         <span lang="ja">${esc(label.ja)}</span>
         <span class="muted small"> · ${esc(label.en)}</span>

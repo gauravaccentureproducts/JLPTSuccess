@@ -1313,6 +1313,15 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-128", "no `passage_text` on paper questions; canonical text lives in passages[label].text (DOKKAI-001 drift guard, 2026-05-18)", lambda: _check_ja_128_no_passage_text_on_paper_questions()),
     ("JA-129", "paper rationale_hi free of untranslated English temporal/quantity fragments (\" ago\" / \" yet\" / \" lot\") (DOKKAI-002 drift guard, 2026-05-18)", lambda: _check_ja_129_no_untranslated_english_temporal_in_rationale_hi()),
     ("JA-130", "every paper question has grammarPatternId key; null requires not_applicable_* provenance (DOKKAI-003 schema-shape guard, 2026-05-18)", lambda: _check_ja_130_paper_questions_have_grammarPatternId_key()),
+    # JA-131..134 (2026-05-19): MOB-001..019 mobile-UI close-out invariants.
+    # JA-131 — locale parity for the nav.all_levels key used by home-up link.
+    # JA-132 — MOB-* CSS compliance batch (touch-target rules) remains in main.css + main.min.css.
+    # JA-133 — form input font-size >=16px (iOS Safari auto-zoom guard).
+    # JA-134 — no dead-end hash-route references in js/home.js or js/listening-story.js.
+    ("JA-131", "locales/{en,hi}.json carry nav.all_levels key (MOB-007 drift guard, 2026-05-19)", lambda: _check_ja_131_locale_all_levels_key_parity()),
+    ("JA-132", "css/main.css + main.min.css carry MOB-001..016 mobile-UI compliance batch (MOB-002/003/004/005/011/012/013/014/015/016 drift guard, 2026-05-19)", lambda: _check_ja_132_touch_target_css_rules_present()),
+    ("JA-133", "css/main.css has input/textarea/select font-size>=16px rule (MOB-006 iOS auto-zoom guard, 2026-05-19)", lambda: _check_ja_133_form_input_font_size_rule()),
+    ("JA-134", "js/home.js + js/listening-story.js free of dead-end hash routes #/levels and #/listening/story (MOB-008/009 drift guard, 2026-05-19)", lambda: _check_ja_134_no_dead_end_hash_routes()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6792,6 +6801,136 @@ def _check_ja_81_no_boilerplate_leak() -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# JA-131..134 (2026-05-19): MOB-001..019 mobile-UI close-out invariants
+# ---------------------------------------------------------------------------
+
+def _check_ja_131_locale_all_levels_key_parity() -> list[str]:
+    """MOB-007 (BUG-116) drift guard. The 'nav.all_levels' i18n key must
+    exist in EVERY locale (en + hi) — used by the home-up link
+    rendered in js/home.js. Catches the locale-parity gap where the
+    EN string is hard-coded and a Hindi-locale user sees untranslated
+    English on the home page.
+
+    Same shape as JA-108 (locale-parity for the full key-set); JA-131
+    is a narrower invariant that explicitly names this key because
+    its absence shipped to production once already (MOB-007).
+    """
+    failures: list[str] = []
+    locales_dir = ROOT / "locales"
+    for loc in ("en", "hi"):
+        fp = locales_dir / f"{loc}.json"
+        if not fp.exists():
+            failures.append(f"JA-131 locales/{loc}.json missing")
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception as e:
+            failures.append(f"JA-131 locales/{loc}.json parse error: {e}")
+            continue
+        nav = d.get("nav", {})
+        if "all_levels" not in nav or not nav["all_levels"]:
+            failures.append(f"JA-131 locales/{loc}.json missing nav.all_levels key (MOB-007 drift)")
+    return failures
+
+
+def _check_ja_132_touch_target_css_rules_present() -> list[str]:
+    """MOB-002..016 (BUG-111..125) drift guard. The mobile-UI compliance
+    CSS batch added in css/main.css (and css/main.min.css) must remain
+    in place. Specifically: the 'MOB-001..016 mobile UI compliance
+    batch' comment header AND a min-height:44px rule on the canonical
+    set of touch-target classes (.btn-action, .study-order-link,
+    .home-up-link a, .toc-expand-all, .brand-link, .skip-link,
+    .btn-tiny).
+
+    Trip condition: if any maintainer accidentally removes the
+    compliance block (e.g., via a CSS-cleanup pass), every previously-
+    closed MOB-* bug would silently re-regress. JA-132 catches this
+    structural removal.
+    """
+    failures: list[str] = []
+    css_files = ["css/main.css", "css/main.min.css"]
+    REQUIRED_MARKERS = [
+        "MOB-001..016",  # comment header
+        ".btn-action",
+        ".study-order-link",
+        ".home-up-link",
+        ".toc-expand-all",
+        ".brand-link",
+        ".skip-link",
+        ".btn-tiny",
+    ]
+    for css_rel in css_files:
+        fp = ROOT / css_rel
+        if not fp.exists():
+            failures.append(f"JA-132 {css_rel} missing")
+            continue
+        text = fp.read_text(encoding="utf-8")
+        for marker in REQUIRED_MARKERS:
+            if marker not in text:
+                failures.append(f"JA-132 {css_rel} missing marker {marker!r} (MOB-* CSS regression)")
+    return failures
+
+
+def _check_ja_133_form_input_font_size_rule() -> list[str]:
+    """MOB-006 (BUG-115) drift guard. css/main.css must contain a CSS
+    rule that sets font-size >= 16px on input/textarea/select to
+    prevent iOS Safari auto-zoom on focus.
+
+    Trip condition: removal of the rule OR replacement with < 16px.
+    """
+    failures: list[str] = []
+    fp = ROOT / "css" / "main.css"
+    if not fp.exists():
+        return ["JA-133 css/main.css missing"]
+    text = fp.read_text(encoding="utf-8")
+    import re as _re
+    # Look for a rule that targets all 3 selectors together AND sets font-size >= 16px
+    # The compliance batch uses: input,\n textarea,\n select { font-size: max(1rem, 16px); }
+    if "max(1rem, 16px)" not in text:
+        # Loose fallback: any input,textarea,select rule with font-size:16px
+        if not _re.search(r"input\s*,\s*textarea\s*,\s*select.*?font-size\s*:\s*(?:16px|1rem|max\(1rem)", text, _re.DOTALL):
+            failures.append(
+                "JA-133 css/main.css missing input/textarea/select font-size:16px rule "
+                "(MOB-006 iOS auto-zoom guard)"
+            )
+    return failures
+
+
+def _check_ja_134_no_dead_end_hash_routes() -> list[str]:
+    """MOB-008/009 (BUG-117/118) drift guard. Every internal hash-route
+    reference in js/home.js + js/listening-story.js must:
+      (a) point to a route that exists in js/app.js routes dict, OR
+      (b) point to a path-routed URL (../ or /JLPTSuccess/...).
+
+    Specifically catches:
+      - js/home.js using '#/levels' (silent redirect to diagnostic)
+      - js/listening-story.js using '#/listening/story' (silent
+        redirect to listening index)
+
+    Both were the MOB-008/009 bug shapes. Post-fix: home.js uses '../'
+    directly; listening-story.js uses canonical '#/listeningstory'.
+    """
+    failures: list[str] = []
+    home_js = ROOT / "js" / "home.js"
+    if home_js.exists():
+        text = home_js.read_text(encoding="utf-8")
+        if 'href="#/levels"' in text:
+            failures.append(
+                'JA-134 js/home.js uses href="#/levels" (silently redirects to root; '
+                'should be href="../" per MOB-009 fix)'
+            )
+    story_js = ROOT / "js" / "listening-story.js"
+    if story_js.exists():
+        text = story_js.read_text(encoding="utf-8")
+        if '"#/listening/story' in text:
+            failures.append(
+                'JA-134 js/listening-story.js uses "#/listening/story..." '
+                '(silently redirects to listening index; should be "#/listeningstory..." per MOB-008 fix)'
+            )
+    return failures
+
+
+# ---------------------------------------------------------------------------
 # JA-128 / JA-129 / JA-130 (2026-05-18): DOKKAI-001..003 close-out invariants
 # ---------------------------------------------------------------------------
 
@@ -6843,7 +6982,10 @@ def _check_ja_129_no_untranslated_english_temporal_in_rationale_hi() -> list[str
         " ago ", " ago.", " ago,", " ago)", " ago]",
         " yet ", " yet.", " yet,", " yet)",
         " lot ", " lot.", " lot,",
-        # Conservative: skip " before " and " then " — both can appear
+        # DOKKAI-004 (BUG-129, 2026-05-19) extension: " by " in
+        # Devanagari context — caught dokkai-4.1 and goi-7.1.
+        " by ", " by.", " by,", " by)", " by]",
+        # Conservative: still skip " before " and " then " — both can appear
         # legitimately in technical fragments like "ष-form" or in
         # romanized Japanese grammatical terms.
     ]

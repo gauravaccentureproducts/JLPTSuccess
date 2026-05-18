@@ -7339,3 +7339,130 @@ html[data-protect="on"][data-blur="true"] body::before {
 .pd-link:hover {
   text-decoration: underline;
 }
+
+
+/* ============================================================================
+ * MOB-001..016 mobile UI compliance batch (BUG-110..128, 2026-05-19)
+ *
+ * Bumps interactive elements to Apple HIG 44px minimum touch-target
+ * height and fixes related mobile-UX issues surfaced by the
+ * Selenium D-360 mobile-emulation audit.
+ *
+ * Scope (per-bug):
+ *   MOB-001 — restore Test + Progress nav items on mobile (was display:none)
+ *   MOB-002 — .study-order-link (10 home cards, was 328x34 → ≥44 high)
+ *   MOB-003, MOB-016 — .btn-action (was min-height 36 → 44)
+ *   MOB-004 — .home-up-link a + .back-link (was 15-20px tall)
+ *   MOB-005 — .toc-expand-all, .toc-collapse-all (was 36 → 44)
+ *   MOB-006 — form input font-size ≥16px (iOS Safari auto-zoom guard)
+ *   MOB-011 — authentic-card-*-refs + .btn-tiny (Pronounce buttons)
+ *   MOB-012 — .brand-link (header logo doubles as home-up link)
+ *   MOB-013 — .skip-link (was 41 → ≥44 when revealed)
+ *   MOB-014 — generic in-body anchors with explicit href
+ *   MOB-015 — examday/weakareas "See full bank →" inline links
+ *
+ * Each rule is additive (no override of existing layout) and gated
+ * to mobile breakpoints where appropriate so desktop dense layouts
+ * are preserved.
+ * ============================================================================ */
+
+/* MOB-001 — keep all 7 primary-nav items visible on mobile.
+ * Restores Test + Progress at mobile widths. The 5×45=225px floor at
+ * D-320 is met by the existing flex:1 1 0 + font-size:11px shrink rule
+ * at @media(max-width:380px); test+summary fit alongside the other 5. */
+@media (max-width: 599px) {
+  .primary-nav a[data-route="test"],
+  .primary-nav a[data-route="summary"] {
+    display: inline-flex !important;
+  }
+}
+
+/* MOB-002, MOB-003, MOB-016 — tap-target compliance for HOME interactives */
+.study-order-link {
+  min-height: 44px;
+  padding-block: 12px;
+}
+.btn-action {
+  min-height: 44px;
+}
+
+/* MOB-004 — back-navigation + home-up link touch-target compliance.
+ * Was: bare inline anchors with default line-height (15-20px).
+ * Now: 44px minimum tap area; visual sizing unchanged via padding. */
+.home-up-link a,
+.home-up-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 10px;
+}
+.back-link,
+.pattern-detail .back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 10px;
+}
+
+/* MOB-005 — listening section expand/collapse buttons */
+.toc-expand-all,
+.toc-collapse-all {
+  min-height: 44px;
+}
+
+/* MOB-006 — iOS Safari auto-zoom guard: every form control must render
+ * at >=16px font-size on focus, or Safari zooms into the page.
+ * Header #search-input already uses 16px; this rule covers feedback
+ * form (4 controls) + any future form. */
+input,
+textarea,
+select {
+  font-size: max(1rem, 16px);
+}
+
+/* MOB-011 — authentic-items page interactive elements.
+ * Inline ref-chips intentionally dense; bump their tap target via
+ * padding (not min-height, which would break the chip-row layout).
+ * For Pronounce buttons (.btn-tiny), bump to full 44px tap target. */
+.btn-tiny {
+  min-height: 44px;
+  padding-block: 8px;
+}
+.authentic-card-kanji-refs a,
+.authentic-card-vocab-refs a,
+.authentic-card-grammar-refs a {
+  display: inline-block;
+  padding: 10px 6px;
+  margin: 2px;
+  min-width: 44px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* MOB-012 — header brand-link (logo + wordmark) must be tappable
+ * (doubles as up-level link to /JLPTSuccess/ root). */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 8px;
+}
+
+/* MOB-013 — skip-link tap target when revealed via :focus */
+.skip-link,
+.skip-link:focus {
+  min-height: 44px;
+  padding-block: 10px;
+}
+
+/* MOB-014 / MOB-015 — generic in-body anchors that act as nav surfaces
+ * (changelog archive link, examday/weakareas "See full bank →"). The
+ * narrow trigger ("display in a .muted .small span") doesn't apply
+ * everywhere, so target the explicit class pattern. */
+.changelog-page a[href$=".md"],
+.examday-page .muted a,
+.weakareas-page .muted a {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: 12px;
+}

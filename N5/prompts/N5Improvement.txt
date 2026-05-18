@@ -1253,6 +1253,52 @@ tools/fix_dokkai_bugs_horizontal_2026_05_18.py; procedure-manual
 §F.33 (3 schema-discipline classes A/B/C); accuracy prompt §A72;
 AUDIT-COVERAGE Part 26.
 
+### Phase-0 mobile-UI regression block (added 2026-05-19)
+
+CI-enforced via JA-131..134 (introduced 2026-05-19). Maintainer-
+side Phase-0 mirror runs these checks before any UI-touching commit:
+
+1. **nav.all_levels locale parity (MOB-007 / JA-131)**
+   locales/en.json + locales/hi.json both carry the key with
+   non-empty values. Expected: 0 missing-key results.
+
+2. **MOB-001..016 CSS compliance batch present (JA-132)**
+   css/main.css + main.min.css both contain the marker comment
+   'MOB-001..016 mobile UI compliance batch' AND `min-height:
+   44px` rules on .btn-action, .study-order-link, .home-up-link a,
+   .toc-expand-all, .brand-link, .skip-link, .btn-tiny. Expected:
+   0 missing markers/rules.
+
+3. **Form-input font-size ≥16px (MOB-006 / JA-133)**
+   css/main.css has `input,textarea,select { font-size: max(1rem,
+   16px); }` (or equivalent). iOS Safari auto-zoom guard. Expected:
+   the rule is present.
+
+4. **No dead-end hash routes (MOB-008/009 / JA-134)**
+   js/home.js does NOT use `href="#/levels"` (must be `../`).
+   js/listening-story.js does NOT use `"#/listening/story..."`
+   (must be `#/listeningstory...`). Expected: 0 dead-end refs.
+
+Bounded-coverage framing:
+  - "JA-132 catches *the named touch-target class set*" — additions
+    require explicit marker-list updates in both check_content_
+    integrity.py AND the CSS marker comment.
+  - "JA-133 catches *the specific max(1rem, 16px) rule shape*" —
+    other syntactic forms that satisfy the 16px floor (e.g.,
+    `font-size: 1rem` if base font is 16px) may slip past depending
+    on minifier output.
+  - "JA-134 catches *the 2 specific dead-end patterns*" — a general
+    "every hash href resolves" check would need parsing app.js
+    routes dict; deferred.
+
+After any UI / CSS / JS change, re-run:
+  python tools/build_min_js.py  # regen js/min/ bundle
+  python tools/check_content_integrity.py  # verify 137/137
+
+Source: MOB-001..019 + DOKKAI-004 close-out (2026-05-19);
+procedure-manual §F.34 (5 mobile-UI defect classes A-E); accuracy
+prompt §A73; AUDIT-COVERAGE Part 27.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

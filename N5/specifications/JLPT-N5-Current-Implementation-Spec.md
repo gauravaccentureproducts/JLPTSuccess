@@ -779,15 +779,16 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-130; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-134; gaps for retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
 JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
 PAPER-001..004 close-out; JA-123..127 wired on 2026-05-18 from
 LLM-001..005 + REG-001 close-out; JA-128 / JA-129 / JA-130 wired on
-2026-05-18 from DOKKAI-001..003 close-out — see §25.4 rows) that the
-script runs against every release. The script is the source of truth;
-this section is its human-readable index.
+2026-05-18 from DOKKAI-001..003 close-out; JA-131..134 wired on
+2026-05-19 from MOB-001..019 + DOKKAI-004 close-out — see §25.4
+rows) that the script runs against every release. The script is the
+source of truth; this section is its human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
 `N5/`). On a clean corpus the script prints `PASS: all NN invariants
@@ -986,6 +987,10 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-128 | No paper question may carry a `passage_text` field — canonical text lives in `passages[label].text` at the paper top-level, referenced via the `passage_label` foreign key. DOKKAI-001 (BUG-107) drift guard — caught 102 dokkai questions with redundant per-question copies (12 of which had already drifted via a leading `> ` markdown-blockquote prefix on one copy but not the other) + 10 bunpou Mondai-3 questions (horizontal sweep). Same drift-risk class as KANJI-001/004 / VOCAB-002 / LISTEN-001 (data in two places → drift). INV-PAPER-A. Wired 2026-05-18. | 2026-05-18 |
 | JA-129 | Paper `rationale_hi` must be free of untranslated English temporal/quantity markers. Trigger substrings: ` ago `, ` ago.`, ` ago,`, ` ago)`, ` ago]`, ` yet `, ` yet.`, ` yet,`, ` yet)`, ` lot `, ` lot.`, ` lot,`. DOKKAI-002 (BUG-108) drift guard — extends JA-122 PAPER-004 fragment scan (apostrophe-s / contractions / mojibake) to cover temporal-marker carry-overs. Caught dokkai-1.1 (the original target) + goi-7.1 (horizontal sweep). Conservative: skips ` before ` and ` then ` which can appear in legitimate technical glossing. INV-PAPER-B. Wired 2026-05-18. | 2026-05-18 |
 | JA-130 | Every paper question has `grammarPatternId` as a key. When the value is `null`, `grammarPatternId_provenance` must start with `not_applicable_` documenting the reason (e.g., `not_applicable_comprehension` for dokkai, `not_applicable_vocab` for goi, `not_applicable_orthography` for moji). DOKKAI-003 (BUG-109) schema-shape guard — same always-a-key-sometimes-null pattern as VOCAB-002 counter-field (BUG-015 close-out). Caught 24 missing in dokkai + 11 in goi + 72 in moji (83 horizontal-sweep fills) = 107 questions total brought to schema consistency. INV-PAPER-C. Wired 2026-05-18. | 2026-05-18 |
+| JA-131 | `locales/en.json` + `locales/hi.json` both carry the `nav.all_levels` key. MOB-007 (BUG-116) drift guard — caught a hard-coded English literal `← All JLPT levels` in `js/home.js` that stayed English when locale=hi. Fix: added the key to both locales (Hindi: `सभी JLPT स्तर`) + updated home.js to use `t('nav.all_levels')`. Same shape as JA-108 (broader locale-key-set parity); JA-131 is the narrower invariant for this specific key. INV-MOB-D. Wired 2026-05-19. | 2026-05-19 |
+| JA-132 | `css/main.css` AND `css/main.min.css` both carry the MOB-001..016 mobile-UI compliance batch — marker comment `MOB-001..016 mobile UI compliance batch` AND `min-height: 44px` rules on `.btn-action`, `.study-order-link`, `.home-up-link a`, `.toc-expand-all`, `.brand-link`, `.skip-link`, `.btn-tiny`. MOB-002/003/004/005/011/012/013/014/015/016 (BUG-111..125) drift guard — catches accidental removal during a CSS-cleanup pass. INV-MOB-A. Wired 2026-05-19. | 2026-05-19 |
+| JA-133 | `css/main.css` contains the rule `input, textarea, select { font-size: max(1rem, 16px); }` (or equivalent ≥16px font-size on these selectors). MOB-006 (BUG-115) iOS Safari auto-zoom guard — when a focused form control has font-size < 16px, iOS Safari zooms the viewport and leaves the page zoomed-in. INV-MOB-B. Wired 2026-05-19. | 2026-05-19 |
+| JA-134 | `js/home.js` must NOT use `href="#/levels"` (silently redirects to root then triggers first-run onboarding to `#/diagnostic`); should use `href="../"` directly. `js/listening-story.js` must NOT use `"#/listening/story..."` references (silently redirects to listening index because the router maps `listeningstory` (no slash)); should use canonical `#/listeningstory...`. MOB-008/009 (BUG-117/118) drift guard. INV-MOB-C. Wired 2026-05-19. | 2026-05-19 |
 
 ### 25.5 Locale parity & i18n
 

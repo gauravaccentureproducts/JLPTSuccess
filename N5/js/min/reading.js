@@ -1,8 +1,8 @@
 import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t as g}from"./i18n.js";const y={easy:"\u3084\u3055\u3057\u3044",medium:"\u3075\u3064\u3046","info-search":"\u3058\u3087\u3046\u307B\u3046\u3051\u3093\u3055\u304F"},v={"self-introduction":"\u3058\u3053\u3057\u3087\u3046\u304B\u3044","daily routine":"\u307E\u3044\u306B\u3061\u306E \u305B\u3044\u304B\u3064","weekend plan":"\u3057\u3085\u3046\u307E\u3064\u306E \u3088\u3066\u3044",weekend:"\u3057\u3085\u3046\u307E\u3064",shopping:"\u304B\u3044\u3082\u306E",family:"\u304B\u305E\u304F",weather:"\u3066\u3093\u304D",schedule:"\u3088\u3066\u3044",transport:"\u3053\u3046\u3064\u3046",hobby:"\u3057\u3085\u307F",school:"\u5B66\u6821",food:"\u305F\u3079\u3082\u306E",travel:"\u308A\u3087\u3053\u3046",health:"\u3051\u3093\u3053\u3046",study:"\u3079\u3093\u304D\u3087\u3046",people:"\u3072\u3068",request:"\u304A\u306D\u304C\u3044",room:"\u3078\u3084",directions:"\u307F\u3061\u3042\u3093\u306A\u3044"};let $=null,d=null;async function b(){return $||($=await(await fetch("data/reading.json")).json(),$)}function j(n){d={passage:!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode?{...n,questions:(n.questions||[]).filter(r=>r.format_role==="primary"||!r.format_role)}:n,phase:"read",answers:{},idx:0}}async function I(n,e){await b();const l=e?decodeURIComponent(e):"";if(l){const r=($.passages||[]).find(t=>t.id===l);if(r)return(!d||d.passage?.id!==r.id)&&j(r),_(n)}return d?_(n):f(n)}function f(n){const e=$.passages||[],o=!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode,r=e.map(t=>`
       <li>
-        <button class="reading-pick" data-id="${a(t.id)}">
+        <a class="reading-pick" href="#/reading/${encodeURIComponent(t.id)}" data-id="${a(t.id)}">
           <span class="reading-title"><strong>${i(t.title_ja)}</strong></span>
-        </button>
+        </a>
       </li>
     `).join("");n.innerHTML=`
     <h2>${i("\u3069\u3063\u304B\u3044 \u308C\u3093\u3057\u3085\u3046")}</h2>

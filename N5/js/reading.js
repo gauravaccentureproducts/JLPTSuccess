@@ -97,12 +97,16 @@ function renderIndex(container) {
   // appear inside the passage view - keeping the index uncluttered lets
   // learners self-assess "do I remember what this passage was about?"
   // before clicking through.
+  // MOB-017 (BUG-126, 2026-05-19): reading list items now use <a href>
+  // deep-links (was <button> with data-id + onclick). Restores
+  // crawlability + bookmark-via-right-click + SEO; matches the
+  // #/learn/grammar deep-link pattern (178 <a href='#/learn/n5-XXX'>).
   const items = passages.map(p => {
     return `
       <li>
-        <button class="reading-pick" data-id="${esc(p.id)}">
+        <a class="reading-pick" href="#/reading/${encodeURIComponent(p.id)}" data-id="${esc(p.id)}">
           <span class="reading-title"><strong>${renderJa(p.title_ja)}</strong></span>
-        </button>
+        </a>
       </li>
     `;
   }).join('');

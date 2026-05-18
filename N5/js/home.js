@@ -354,7 +354,7 @@ export async function renderHome(container) {
   container.innerHTML = `
     <section class="home-syllabus">
       <p class="home-up-link">
-        <a href="#/levels">← All JLPT levels</a>
+        <a href="../">← ${t('nav.all_levels')}</a>
       </p>
       ${resumeStrip}
 

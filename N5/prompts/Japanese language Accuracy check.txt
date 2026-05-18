@@ -4067,3 +4067,81 @@ Cross-reference: AUDIT-COVERAGE Part 26; procedure-manual §F.33;
 tools/fix_dokkai_bugs_2026_05_18.py;
 tools/fix_dokkai_bugs_horizontal_2026_05_18.py.
 ============================================================
+
+============================================================
+A73. Mobile-UI compliance — 5 durable classes (MOB-001..019 +
+     DOKKAI-004 close-out). (Audit category — added 2026-05-19,
+     AUDIT-COVERAGE Part 27.)
+
+Mobile-UI audit via Selenium with device-metrics emulation
+(D-360 = 360x800 mobile-emulated). Five durable defect classes
+documented in procedure manual F.34 + CI-enforced via JA-131..134.
+
+Class A — Touch-target HIG compliance (CI: JA-132)
+  Every interactive element rendered at mobile viewport must meet
+  Apple HIG minimum touch-target size of 44x44 px (or padding
+  equivalent). The MOB-* batch fixed: .btn-action, .study-order-
+  link, .home-up-link a, .back-link, .toc-expand-all,
+  .toc-collapse-all, .brand-link, .skip-link, .btn-tiny, authentic-
+  card-{kanji,vocab,grammar}-refs, examday/weakareas inline links.
+  Single consolidated CSS block at end of css/main.css (+ minified
+  mirror) with marker comment 'MOB-001..016 mobile UI compliance
+  batch'. JA-132 catches removal during CSS-cleanup passes.
+
+Class B — iOS Safari form-input auto-zoom (CI: JA-133)
+  Form controls (input, textarea, select) must render at
+  font-size ≥16px or iOS Safari auto-zooms the viewport on focus
+  and leaves the page zoomed until user pinches back out.
+  Canonical rule: input,textarea,select { font-size: max(1rem,
+  16px); }. The max() form satisfies both HIG (for users with
+  non-default rem sizing) AND the 16px iOS threshold. Don't use
+  maximum-scale=1 on viewport meta — worse for accessibility.
+
+Class C — Dead-end hash routes (CI: JA-134)
+  Every internal hash-route href must point to a route that exists
+  in the router's routes dict OR a path-routed sibling URL. Trip
+  cases caught in MOB-008/009: '#/listening/story' (router maps
+  no-slash 'listeningstory' so the slash form silently redirected
+  to listening index) and '#/levels' (router redirected to root
+  but on first-run, onboarding logic kicked the user to
+  '#/diagnostic'). Canonicalize hrefs to the working form.
+
+Class D — Locale-parity for hard-coded UI strings (CI: JA-131)
+  UI strings rendered from JS template literals must go through
+  t('key') i18n lookup, never hard-coded. The hard-coded string
+  is correct in the default locale but stays English when user
+  switches to hi (or future locales). MOB-007 caught the home-up
+  link '← All JLPT levels' literal in js/home.js. Fix: add the
+  key to every supported locale + update JS to use t().
+  Regenerate minified JS bundle so production picks up the change.
+
+Class E — Test-infrastructure / scenario-design gaps
+  Mobile-UI tests can fail spuriously due to test-framework
+  limitations rather than app defects. MOB-018: Selenium 4 +
+  Chrome 148 mobile-emulation makes window.scrollTo a no-op —
+  footer-reachability scenarios need Appium or window-size-only
+  emulation. MOB-019: audio-UI scenarios target index pages but
+  audio loads only after item-tap — scenarios need to navigate
+  INTO an item before asserting. Fix lives in test scenarios
+  (xlsx 'O. Mobile UI testing' tab), not app code.
+
+DOKKAI-004 (BUG-129) — same English-fragment carry-over class as
+DOKKAI-002. Rewrote dokkai-4.1 rationale_hi from 'आना-जाना by
+ट्रेन' to natural Hindi. Extended JA-129 trigger set with ' by '
+family substrings.
+
+Bounded-coverage phrasing:
+  - "JA-131..134 prevent re-introduction of *the specific bugs
+    MOB-006/007/008/009 closed*" — not "all mobile-UI defects".
+  - "JA-132 catches *the named touch-target class set in the marker
+    comment*" — extension to additional classes requires explicit
+    marker-list updates.
+  - "Selenium mobile-emulation footer-reachability is *not
+    Selenium-testable in current Chrome*" — Manual / Appium
+    fallback documented.
+
+Cross-reference: AUDIT-COVERAGE Part 27; procedure-manual §F.34;
+tools/build_min_js.py (regenerate js/min/ after locale or JS edits);
+tools/build_llm_surfaces_2026_05_18.py (regenerate data/index.json
+after data mutation).
+============================================================

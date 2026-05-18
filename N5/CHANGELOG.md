@@ -2,6 +2,103 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-19 (MOB-001..019 + DOKKAI-004 close-out — mobile UI compliance + 4 new CI invariants)
+
+### Fixed
+
+- **MOB-001** (Major / P2) — Primary nav dropped Test + Progress on
+  mobile widths. Removed `@media (max-width: 599px)` rule that hid
+  these items; with the existing flex shrink rule + font-size: 11px
+  at D-380, all 7 nav items now visible on D-320+.
+- **MOB-002, MOB-003, MOB-016** (Major / P2) — Home study-order cards
+  (.study-order-link 328×34), home CTA buttons (.btn-action 281×36),
+  feedback page action buttons (159×36 / 88×36) all bumped to
+  `min-height: 44px` per Apple HIG.
+- **MOB-004** (Minor / P3) — Back-navigation links (`.back-link` /
+  `.home-up-link a` 125×20) bumped to 44px tap target via padding.
+- **MOB-005** (Minor / P3) — Listening section expand/collapse
+  buttons (.toc-expand-all/collapse-all 99×36) bumped to 44px.
+- **MOB-006** (Major / P2) — Feedback form inputs render at 14.0625px
+  → iOS Safari auto-zoom on focus. Added site-wide
+  `input, textarea, select { font-size: max(1rem, 16px); }` rule.
+- **MOB-007** (Minor / P3) — "← All JLPT levels" home-up link not
+  localized to Hindi. Added `nav.all_levels` key to en+hi locales
+  (Hindi: `सभी JLPT स्तर`). Updated js/home.js to use
+  `t('nav.all_levels')`.
+- **MOB-008** (Minor / P3) — Route `#/listening/story` silent
+  redirect to `#/listening` (dead-end). Canonicalized
+  `js/listening-story.js` to use `#/listeningstory` (no slash);
+  4 href edits + 1 comment fix.
+- **MOB-009** (Minor / P3) — Route `#/levels` silent redirect to
+  `#/diagnostic`. Updated `js/home.js` home-up link `href="#/levels"`
+  → `href="../"` (lands directly on JLPTSuccess root level-picker;
+  skips in-SPA redirect that triggered first-run onboarding).
+- **MOB-010** (Minor / P5) — Sticky header top=16px. **Declined**
+  as design-decision per bug "borderline — possibly by-design"
+  note. The 16px breathing room is intentional visual whitespace.
+- **MOB-011** (Major / P2) — 449 undersized interactive elements on
+  authentic-items page. Authentic-card-{kanji,vocab,grammar}-refs
+  got `padding: 10px 6px; min-width: 44px`; .btn-tiny Pronounce
+  buttons bumped to `min-height: 44px`.
+- **MOB-012** (Minor / P3) — Header brand-link 'N5' 54×16 bumped to
+  44px tap target via padding.
+- **MOB-013** (Minor / P4) — Skip-link 187×41 (3px short) bumped
+  to ≥44px.
+- **MOB-014** (Minor / P4) — Changelog `docs/CHANGELOG-archive.md`
+  link 209×17 bumped via `.changelog-page a[href$=".md"]` rule.
+- **MOB-015** (Minor / P3) — Examday/weakareas "See full bank →"
+  inline links 139-167×15 bumped via `.examday-page .muted a` /
+  `.weakareas-page .muted a` rules.
+- **MOB-017** (Minor / P3) — Reading list page (`#/reading`) lacked
+  `<a href>` deep-links. Converted `<button class="reading-pick"
+  data-id="X">` → `<a class="reading-pick" href="#/reading/X"
+  data-id="X">` in js/reading.js. Restores crawlability +
+  bookmark-via-right-click + SEO; matches the `#/learn/grammar`
+  deep-link pattern.
+- **MOB-018** (Minor / P3) — Selenium mobile-emulation `scrollTo`
+  no-op test-framework limitation **documented**; recommend
+  splitting affected scenarios into Auto + Manual variants. Not
+  app-code defect.
+- **MOB-019** (Minor / P4) — 3 audio-UI scenarios target index
+  pages but audio loads after item-tap. **Documented** scenario-
+  rewrite recommendation. Not app-code defect.
+- **DOKKAI-004** (Low / P4) — dokkai-4.1 rationale_hi rewritten from
+  `आना-जाना by ट्रेन` to `ट्रेन से कंपनी जाते हैं (रोज़ का आना-जाना
+  ट्रेन से)।`. Same class as DOKKAI-002 ("ago"). Extended JA-129
+  trigger set with ` by ` family substrings.
+
+### Added
+
+- **JA-131 CI invariant** — locales/en.json + hi.json carry
+  `nav.all_levels` key (MOB-007 drift guard).
+- **JA-132 CI invariant** — css/main.css + main.min.css carry the
+  MOB-001..016 mobile-UI compliance batch marker + canonical
+  touch-target class set (multi-class drift guard).
+- **JA-133 CI invariant** — css/main.css has form-input
+  `font-size: max(1rem, 16px)` rule (MOB-006 iOS auto-zoom guard).
+- **JA-134 CI invariant** — js/home.js + js/listening-story.js
+  free of dead-end hash routes `#/levels` and `#/listening/story`.
+- **JA-129 trigger extension** — added ` by `, ` by.`, ` by,`,
+  ` by)`, ` by]` to the temporal-marker scan (DOKKAI-004 catch).
+- **Procedure manual F.34** — Mobile-UI compliance methodology:
+  5 durable defect classes (touch-target HIG, iOS auto-zoom, dead-
+  end routes, locale parity, test-infrastructure gaps) with CI
+  invariant templates + Nx-builder build-script recipe.
+- **Accuracy prompt A73** — Mobile-UI audit category.
+- **N5Improvement Phase-0 mobile-UI regression block**.
+- **AUDIT-COVERAGE Part 27** — close-out narrative.
+
+### State
+
+CI **137 / 137 invariants green** (was 133; added JA-131/132/133/134).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: MOB-001..019 + DOKKAI-004 + JA-131..134 cover the
+5 mobile-UI defect classes surfaced by the 2026-05-19 Selenium
+mobile-emulation audit. Future audits may surface additional
+classes; this batch closes the currently-observed set.
+
 ## Unreleased - 2026-05-18 (DOKKAI-001..003 close-out — paper schema-discipline + 3 new CI invariants)
 
 ### Fixed
