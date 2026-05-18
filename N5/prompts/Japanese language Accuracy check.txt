@@ -3996,3 +3996,74 @@ Cross-reference: AUDIT-COVERAGE Part 25; procedure-manual §F.32;
 tools/fix_reg_001_2026_05_18.py;
 tools/fix_reg_001_d6_migrations_2026_05_18.py.
 ============================================================
+
+============================================================
+A72. Paper-question schema-discipline — 3 durable classes
+     (DOKKAI-001..003 close-out). (Audit category — added
+     2026-05-18, AUDIT-COVERAGE Part 26.)
+
+For every paper-bank file (data/papers/<category>/*.json), three
+schema-discipline classes must hold. Each maps to a CI invariant
+introduced in this batch.
+
+Class A — Single source of truth for passages (CI: JA-128)
+  Paper questions MUST NOT carry passage_text. The canonical text
+  lives in passages[].text at the paper top-level. Questions
+  reference passages via passage_label foreign key. Renderer joins
+  at display time. Catches the redundancy-then-drift class where
+  the same passage is stored in 2 places and one copy gets a fix
+  the other doesn't (12 of 102 dokkai questions had drifted via a
+  leading "> " markdown-blockquote prefix on one copy but not the
+  other).
+
+  When a paper-bank exists WITHOUT passages[] (e.g., bunpou
+  Mondai-3 paragraph gap-fills that only have passage_text per
+  question), the fix is to CREATE passages[] from the unique
+  passage_text values + their passage_label keys, then drop
+  passage_text. The bunpou/paper-7.json file went through this
+  migration in the 2026-05-18 close-out.
+
+Class B — English-fragment temporal markers in rationale_hi
+  (CI: JA-129, extends JA-122)
+  Paper rationale_hi MUST be free of untranslated English temporal
+  or quantity markers. Trigger set: " ago ", " ago.", " ago,",
+  " ago)", " ago]", " yet ", " yet.", " yet,", " yet)", " lot ",
+  " lot.", " lot,". Carry-over from word-by-word translation where
+  the Hindi sentence-order pattern made these English words fall
+  through untranslated. Rewrite with target-language idiom: "पहले"
+  for ago/before, "अभी तक नहीं" for "not yet", etc.
+
+  Conservative: " before " and " then " are NOT in the trigger
+  set because they can appear in legitimate Romanized technical
+  glossing (e.g., grammatical-pattern references). False-positive
+  risk on the trigger set is more harmful than letting through a
+  few more cases that JA-122 / native review would catch.
+
+Class C — Schema-shape: explicit-null vs missing-key (CI: JA-130)
+  Every paper question MUST have grammarPatternId as a key. When
+  the question doesn't test a specific grammar pattern (dokkai
+  comprehension / goi vocabulary / moji orthography), set value to
+  null AND set provenance to a typed not_applicable_<reason> value:
+
+    - dokkai comprehension: "not_applicable_comprehension"
+    - goi vocabulary: "not_applicable_vocab"
+    - moji orthography: "not_applicable_orthography"
+
+  Distinguishes "not yet assigned" from "intentionally absent —
+  not applicable to this question type". Same always-a-key-
+  sometimes-null pattern as VOCAB-002 counter-field (BUG-015).
+
+Bounded-coverage phrasing:
+  - "JA-128 prevents *passage_text on paper questions*" — not
+    "all paper-data redundancy". Other redundant fields slip past.
+  - "JA-129 catches *the trigger set above*" — not "all
+    untranslated English". JA-122 covers apostrophe-s + mojibake;
+    JA-129 adds temporal markers. The combined set is the guard.
+  - "JA-130 enforces *presence + documented null*" — not
+    "correct value of grammarPatternId". JA-120 catches Mondai-1
+    particle alignment; broader correctness is per-entry judgment.
+
+Cross-reference: AUDIT-COVERAGE Part 26; procedure-manual §F.33;
+tools/fix_dokkai_bugs_2026_05_18.py;
+tools/fix_dokkai_bugs_horizontal_2026_05_18.py.
+============================================================

@@ -1306,6 +1306,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-125", "data/index.json size_bytes match actual file sizes (LLM-003 / INV-LLM-3 guard, 2026-05-18)", lambda: _check_ja_125_data_index_corpus_sizes_match()),
     ("JA-126", "7 LLM-005 summary pages + llms.txt (root + N5) all exist (LLM-005 close-out, 2026-05-18)", lambda: _check_ja_126_summary_pages_exist()),
     ("JA-127", "no wrong_corrected_pair w/ error_category=register has self-contradicting wrong-field parenthetical (REG-001 D6 guard, 2026-05-18)", lambda: _check_ja_127_register_variant_no_wrong_right_with_register_why()),
+    # JA-128..130 (2026-05-18): DOKKAI-001..003 close-out invariants.
+    # JA-128 — paper questions must NOT carry passage_text (single-source-of-truth via passages[label].text).
+    # JA-129 — paper rationale_hi free of " ago" / " yet" / " lot" untranslated English temporal/quantity markers.
+    # JA-130 — every paper question has grammarPatternId as a key (may be null with documented "not_applicable_<reason>" provenance).
+    ("JA-128", "no `passage_text` on paper questions; canonical text lives in passages[label].text (DOKKAI-001 drift guard, 2026-05-18)", lambda: _check_ja_128_no_passage_text_on_paper_questions()),
+    ("JA-129", "paper rationale_hi free of untranslated English temporal/quantity fragments (\" ago\" / \" yet\" / \" lot\") (DOKKAI-002 drift guard, 2026-05-18)", lambda: _check_ja_129_no_untranslated_english_temporal_in_rationale_hi()),
+    ("JA-130", "every paper question has grammarPatternId key; null requires not_applicable_* provenance (DOKKAI-003 schema-shape guard, 2026-05-18)", lambda: _check_ja_130_paper_questions_have_grammarPatternId_key()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6781,6 +6788,124 @@ def _check_ja_81_no_boilerplate_leak() -> list[str]:
                 f"{ja[:50]!r} in {','.join(pids[:8])}"
                 + (f"... and {len(pids)-8} more" if len(pids) > 8 else "")
             )
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-128 / JA-129 / JA-130 (2026-05-18): DOKKAI-001..003 close-out invariants
+# ---------------------------------------------------------------------------
+
+def _check_ja_128_no_passage_text_on_paper_questions() -> list[str]:
+    """DOKKAI-001 (BUG-107) drift guard. Paper questions must NOT carry
+    a `passage_text` field — the canonical source is `passages[label].text`
+    at the paper top-level, referenced via `passage_label` foreign key.
+
+    Catches the data-redundancy + drift class where the same passage is
+    stored on every question AND in the passages[] block, with the
+    "> " markdown-blockquote prefix occasionally drifting between the
+    two copies.
+    """
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            if "passage_text" in q:
+                failures.append(
+                    f"JA-128 {fp.relative_to(ROOT)} {q.get('id')} carries `passage_text` field — "
+                    f"should be removed (canonical text lives in passages[].text via passage_label foreign key)"
+                )
+    return failures
+
+
+def _check_ja_129_no_untranslated_english_temporal_in_rationale_hi() -> list[str]:
+    """DOKKAI-002 (BUG-108) drift guard — extends the JA-122 PAPER-004
+    fragment scan to cover untranslated English temporal markers that
+    snuck through (the "ago" class).
+
+    Trigger substrings:
+      - " ago " / " ago," / " ago." / " ago)" — ago in non-bracket context
+      - " yet " / " yet." / " yet," / " yet)" — yet (in similar class)
+      - " before " - covered by Hindi "पहले" naturally
+      - " lot " — quantity filler
+
+    Caught dokkai-1.1 (Q1) `भूत-सकारात्मक रूप (आया एक महीना ago)।` and
+    goi-7.1 `यहाँ के लिए 1 वर्ष = आया 1 वर्ष ago।` in the 2026-05-18
+    sweep — both rewritten with natural Hindi using `पहले`.
+    """
+    failures: list[str] = []
+    TRIGGERS = [
+        " ago ", " ago.", " ago,", " ago)", " ago]",
+        " yet ", " yet.", " yet,", " yet)",
+        " lot ", " lot.", " lot,",
+        # Conservative: skip " before " and " then " — both can appear
+        # legitimately in technical fragments like "ष-form" or in
+        # romanized Japanese grammatical terms.
+    ]
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            rh = str(q.get("rationale_hi", "") or "")
+            for trig in TRIGGERS:
+                if trig in rh:
+                    failures.append(
+                        f"JA-129 {fp.relative_to(ROOT)} {q.get('id')}.rationale_hi contains "
+                        f"untranslated English temporal fragment {trig!r} (DOKKAI-002 class)"
+                    )
+                    break
+    return failures
+
+
+def _check_ja_130_paper_questions_have_grammarPatternId_key() -> list[str]:
+    """DOKKAI-003 (BUG-109) drift guard. Every paper question must carry
+    `grammarPatternId` as a key — value MAY be null when the question
+    tests comprehension / vocab / orthography rather than a specific
+    grammar pattern. When null, `grammarPatternId_provenance` must name
+    the reason ("not_applicable_comprehension" / "not_applicable_vocab"
+    / "not_applicable_orthography" / etc.).
+
+    Same schema-shape pattern as VOCAB-002 counter-field (always a key,
+    sometimes null). Prevents "missing field" vs "null value" ambiguity
+    for downstream consumers.
+    """
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            qid = q.get("id", "?")
+            if "grammarPatternId" not in q:
+                failures.append(
+                    f"JA-130 {fp.relative_to(ROOT)} {qid} is missing `grammarPatternId` key "
+                    f"(must be present, may be null with documented provenance)"
+                )
+                continue
+            gpid = q.get("grammarPatternId")
+            if gpid is None:
+                # Null requires a typed-not-applicable provenance
+                prov = q.get("grammarPatternId_provenance", "")
+                if not prov.startswith("not_applicable"):
+                    failures.append(
+                        f"JA-130 {fp.relative_to(ROOT)} {qid} has grammarPatternId=null but "
+                        f"provenance={prov!r} does not document the reason "
+                        f"(expected 'not_applicable_<reason>')"
+                    )
     return failures
 
 

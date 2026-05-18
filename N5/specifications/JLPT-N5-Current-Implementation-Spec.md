@@ -779,14 +779,15 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-127; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-130; gaps for retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
 JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
-PAPER-001..004 close-out; JA-123 / JA-124 / JA-125 / JA-126 / JA-127
-wired on 2026-05-18 from LLM-001..005 + REG-001 close-out — see §25.4
-rows) that the script runs against every release. The script is the
-source of truth; this section is its human-readable index.
+PAPER-001..004 close-out; JA-123..127 wired on 2026-05-18 from
+LLM-001..005 + REG-001 close-out; JA-128 / JA-129 / JA-130 wired on
+2026-05-18 from DOKKAI-001..003 close-out — see §25.4 rows) that the
+script runs against every release. The script is the source of truth;
+this section is its human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
 `N5/`). On a clean corpus the script prints `PASS: all NN invariants
@@ -982,6 +983,9 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-125 | Every entry in `data/index.json` has `size_bytes` matching the actual on-disk file size. LLM-003 (BUG-096) drift guard — same INV-4 / JA-107 corpus-count drift class extended to the new corpus discovery catalog. INV-LLM-3. Wired 2026-05-18. | 2026-05-18 |
 | JA-126 | The 7 LLM-005 (BUG-105) thin summary pages (`home.html`, `grammar.html`, `vocabulary.html`, `kanji.html`, `reading.html`, `listening.html`, `test.html`) all exist at the N5 root, plus `llms.txt` exists at both `/JLPTSuccess/` (root) and `/JLPTSuccess/N5/` for crawler discovery. INV-LLM-5. Wired 2026-05-18. | 2026-05-18 |
 | JA-127 | No entry in `wrong_corrected_pair` with `error_category == "register"` may have a wrong-field parenthetical naming the register the form is appropriate for. REG-001 (BUG-106) D6 self-contradiction guard. Trip phrases: `(formal)`, `(in formal context)`, `(in formal speech)`, `(polite)`, `(in polite contexts)`, `(casual)`, `(in casual conversation)`, `(among friends)`, `(with intimates)`, `(acceptable in X)`. Internally contradictory entries (the wrong form is annotated as appropriate to a register) must migrate to `common_mistakes` with `kind: register_variant`. INV-REG-D6. Wired 2026-05-18 — first run after the n5-046 close-out caught 5 more entries (n5-097/102/127/173/179) all migrated in the same commit. | 2026-05-18 |
+| JA-128 | No paper question may carry a `passage_text` field — canonical text lives in `passages[label].text` at the paper top-level, referenced via the `passage_label` foreign key. DOKKAI-001 (BUG-107) drift guard — caught 102 dokkai questions with redundant per-question copies (12 of which had already drifted via a leading `> ` markdown-blockquote prefix on one copy but not the other) + 10 bunpou Mondai-3 questions (horizontal sweep). Same drift-risk class as KANJI-001/004 / VOCAB-002 / LISTEN-001 (data in two places → drift). INV-PAPER-A. Wired 2026-05-18. | 2026-05-18 |
+| JA-129 | Paper `rationale_hi` must be free of untranslated English temporal/quantity markers. Trigger substrings: ` ago `, ` ago.`, ` ago,`, ` ago)`, ` ago]`, ` yet `, ` yet.`, ` yet,`, ` yet)`, ` lot `, ` lot.`, ` lot,`. DOKKAI-002 (BUG-108) drift guard — extends JA-122 PAPER-004 fragment scan (apostrophe-s / contractions / mojibake) to cover temporal-marker carry-overs. Caught dokkai-1.1 (the original target) + goi-7.1 (horizontal sweep). Conservative: skips ` before ` and ` then ` which can appear in legitimate technical glossing. INV-PAPER-B. Wired 2026-05-18. | 2026-05-18 |
+| JA-130 | Every paper question has `grammarPatternId` as a key. When the value is `null`, `grammarPatternId_provenance` must start with `not_applicable_` documenting the reason (e.g., `not_applicable_comprehension` for dokkai, `not_applicable_vocab` for goi, `not_applicable_orthography` for moji). DOKKAI-003 (BUG-109) schema-shape guard — same always-a-key-sometimes-null pattern as VOCAB-002 counter-field (BUG-015 close-out). Caught 24 missing in dokkai + 11 in goi + 72 in moji (83 horizontal-sweep fills) = 107 questions total brought to schema consistency. INV-PAPER-C. Wired 2026-05-18. | 2026-05-18 |
 
 ### 25.5 Locale parity & i18n
 

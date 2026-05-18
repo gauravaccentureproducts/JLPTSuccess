@@ -2,6 +2,76 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-18 (DOKKAI-001..003 close-out — paper schema-discipline + 3 new CI invariants)
+
+### Fixed
+
+- **DOKKAI-001 / BUG-107** (Medium / P2) — passage_text was duplicated
+  across two storage locations in every dokkai paper file (passages[]
+  top-level + every question[].passage_text). 12 of 102 dokkai
+  questions had already-drifted copies (leading `> ` markdown-
+  blockquote prefix on one copy but not the other). Removed
+  passage_text from all 102 dokkai questions (single source of truth =
+  passages[label].text, referenced via passage_label foreign key);
+  normalized 40 passages[].text entries by stripping the `> ` prefix.
+  **Horizontal sweep:** bunpou/paper-7.json had the same drift class
+  (10 Mondai-3 paragraph-gap questions with stray passage_text but
+  no passages[] block); created passages[] with 2 canonical entries +
+  dropped 10 passage_text fields.
+- **DOKKAI-002 / BUG-108** (Low / P3) — dokkai-1.1 rationale_hi
+  contained untranslated English "ago" (`भूत-सकारात्मक रूप (आया एक
+  महीना ago)।`); rewritten to `भूत-सकारात्मक: एक महीना पहले आया (अब
+  यहाँ रह रहा है)।`. **Horizontal sweep:** JA-129 scan caught goi-7.1
+  with the same English-fragment class (`आया 1 वर्ष ago।` → `यहाँ एक
+  साल से = एक साल पहले आया।`). Both carry provenance
+  `native_reviewed_2026_05_18`.
+- **DOKKAI-003 / BUG-109** (Low / P4) — grammarPatternId field was
+  present on 78/102 dokkai questions, absent on 24, with no documented
+  convention. Set grammarPatternId=null + grammarPatternId_provenance=
+  "not_applicable_comprehension" on the 24 dokkai entries. **Horizontal
+  sweep:** 83 more non-dokkai questions missing the field — 11 goi
+  (provenance `not_applicable_vocab`) + 72 moji (provenance
+  `not_applicable_orthography`) all filled. All 412 paper questions
+  (102 dokkai + 105 goi + 105 moji + 100 bunpou) now have
+  grammarPatternId as a guaranteed key, matching VOCAB-002's "counter
+  is always a key, sometimes null" pattern.
+
+### Added
+
+- **JA-128 CI invariant** — paper questions must NOT carry
+  passage_text field; canonical text lives in passages[label].text
+  via passage_label foreign key (DOKKAI-001 drift guard).
+- **JA-129 CI invariant** — paper rationale_hi must be free of
+  untranslated English temporal/quantity markers (` ago `, ` yet `,
+  ` lot `, + punctuated variants); extends the JA-122 fragment-scan
+  set (DOKKAI-002 drift guard).
+- **JA-130 CI invariant** — every paper question has
+  grammarPatternId as a key; when value is null, provenance must
+  start with `not_applicable_` documenting the reason (DOKKAI-003
+  schema-shape guard).
+- **Procedure manual F.33** — Paper-question schema-discipline:
+  3 durable invariants (Class A single source of truth for passages;
+  Class B English-fragment temporal markers; Class C explicit-null
+  schema-shape). Reusable Nx-builder pattern.
+- **Accuracy prompt A72** — Paper-question schema-discipline audit
+  category.
+- **N5Improvement Phase-0 dokkai-schema regression block**.
+- **AUDIT-COVERAGE Part 26** — Close-out narrative.
+- **tools/fix_dokkai_bugs_2026_05_18.py** + **tools/fix_dokkai_bugs_
+  horizontal_2026_05_18.py** — Reusable fix-script templates.
+
+### State
+
+CI **133 / 133 invariants green** (was 130; added JA-128/129/130).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **112 / 112 Fixed / 0 Open**.
+
+Bounded framing: DOKKAI-001..003 + JA-128..130 cover the 3 schema-
+discipline classes surfaced by the 2026-05-18 dokkai audit. The
+horizontal sweep expanded scope to all 4 paper categories (bunpou /
+goi / moji / dokkai). Future audits may surface additional schema-
+shape drift classes; this batch closes the currently-observed set.
+
 ## Unreleased - 2026-05-18 (LLM-001..005 + REG-001 close-out — 6 crawler-accessibility + register-conflation bugs + 5 new CI invariants)
 
 ### Added

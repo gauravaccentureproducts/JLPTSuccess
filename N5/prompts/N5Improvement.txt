@@ -1213,6 +1213,46 @@ scripts tools/fix_reg_001_2026_05_18.py +
 tools/fix_reg_001_d6_migrations_2026_05_18.py; procedure-manual
 §F.31 + §F.32; accuracy prompt §A70/A71; AUDIT-COVERAGE Part 25.
 
+### Phase-0 dokkai-schema regression block (added 2026-05-18)
+
+CI-enforced via JA-128..130 (introduced 2026-05-18). Maintainer-
+side Phase-0 mirror runs these checks across all 4 paper categories:
+
+1. **No passage_text on paper questions (DOKKAI-001 / JA-128)**
+   Every paper question MUST NOT carry passage_text. Canonical
+   text lives in passages[label].text. Catches the redundancy-
+   then-drift class (12 of 102 dokkai had drifted via "> " prefix
+   on one copy but not the other). Expected: 0 questions with
+   passage_text across all paper files.
+
+2. **No untranslated English temporal markers in rationale_hi
+   (DOKKAI-002 / JA-129)**
+   Paper rationale_hi free of " ago", " yet", " lot" (+ punctuated
+   variants). Same English-fragment class as JA-122 (PAPER-004).
+   Expected: 0 trigger hits.
+
+3. **grammarPatternId always-a-key with documented null
+   (DOKKAI-003 / JA-130)**
+   Every paper question has grammarPatternId as a key. When null,
+   provenance starts with not_applicable_ documenting the reason.
+   Expected: 0 missing keys + 0 undocumented nulls.
+
+Bounded-coverage framing:
+  - "JA-128 prevents *passage_text on paper questions*" — not all
+    paper-data redundancy classes.
+  - "JA-129 catches *the trigger substring set*" — not "all
+    untranslated English". Combined with JA-122 covers the most
+    common fragment classes; subtler stiff Hindi slips past.
+  - "JA-130 enforces *schema-shape consistency*" — not pattern-
+    correctness. JA-120 covers Mondai-1 particle alignment; the
+    broader value-correctness check is per-entry native review.
+
+Source: DOKKAI-001..003 close-out (2026-05-18); fix scripts
+tools/fix_dokkai_bugs_2026_05_18.py +
+tools/fix_dokkai_bugs_horizontal_2026_05_18.py; procedure-manual
+§F.33 (3 schema-discipline classes A/B/C); accuracy prompt §A72;
+AUDIT-COVERAGE Part 26.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
