@@ -1,0 +1,44 @@
+# JLPTSuccess
+> Free, on-device, privacy-preserving JLPT (Japanese Language Proficiency Test) study material.
+> Bilingual (English + Hindi). No login. No tracking. Works offline.
+> Open source: https://github.com/gauravaccentureproducts/JLPTSuccess
+
+## Levels
+- **N5** (live): https://gauravaccentureproducts.github.io/JLPTSuccess/N5/  ·  static syllabus summary: https://gauravaccentureproducts.github.io/JLPTSuccess/N5/home.html
+- N4..N1: planned (work paused)
+
+## What is JLPTSuccess?
+A hash-routed Progressive Web App that bundles a complete N5 study corpus:
+grammar (178 patterns), vocabulary (995 entries), kanji
+(106 characters), reading (54
+dokkai passages), listening (50 drills with
+VOICEVOX audio), and mock papers (28 packs,
+402 questions). Content licensed CC BY-SA 4.0;
+code MIT.
+
+## How to read this site programmatically
+- **Static per-entity HTML mirrors** at `/N5/learn/grammar/<id>/`,
+  `/N5/learn/vocab/<form>/`, `/N5/learn/kanji/<glyph>/`, `/N5/reading/<id>/`,
+  `/N5/listening/<id>/`, `/N5/papers/<paper-id>/`. Server-rendered HTML; no
+  JS required.
+- **Static summary pages**: `/N5/home.html`, `/N5/grammar.html`,
+  `/N5/vocabulary.html`, `/N5/kanji.html`, `/N5/reading.html`,
+  `/N5/listening.html`, `/N5/test.html`.
+- **Corpus JSON** at `/N5/data/*.json`. Catalog: `/N5/data/index.json`.
+- **Sitemap**: `/N5/sitemap.xml` (≥1400 URLs).
+- **Robots**: `/N5/robots.txt`.
+
+## Canonical URLs
+The SPA hash routes (e.g. `/N5/#/learn/grammar/n5-008`) and the
+path-routed static mirrors (e.g. `/N5/learn/grammar/n5-008/`) deliver
+the same content. The hash-route is canonical for human users (linked
+via `<link rel="canonical">` from each mirror); the static path is
+canonical for crawler / LLM access.
+
+## License
+- Code: MIT.
+- Content (corpus): CC BY-SA 4.0.
+- See https://gauravaccentureproducts.github.io/JLPTSuccess/N5/CONTENT-LICENSE.md and https://gauravaccentureproducts.github.io/JLPTSuccess/N5/NOTICES.md.
+
+## Contact
+GitHub Issues: https://github.com/gauravaccentureproducts/JLPTSuccess/issues

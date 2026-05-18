@@ -3883,3 +3883,116 @@ design. Stylistically-stiff-but-grammatical Hindi passes.
 Cross-reference: AUDIT-COVERAGE-2026-05-15.md Part 24;
 procedure-manual §F.30; tools/fix_paper_bugs_part2_2026_05_18.py.
 ============================================================
+
+============================================================
+A70. LLM / search-crawler accessibility — 8-surface canonical set
+     (LLM-001..005 close-out). (Audit category — added 2026-05-18,
+     AUDIT-COVERAGE Part 25.)
+
+For a hash-routed SPA on static hosting (GitHub Pages,
+Cloudflare Pages, Netlify), per-entity content is invisible to
+LLM web-fetch tools and search crawlers — fragments don't
+travel in HTTP requests, so the server returns the SPA shell
+for every URL. The 8-surface canonical set documented in
+procedure manual §F.31 makes the corpus discoverable:
+
+  1. Per-entity static mirrors at /Nx/learn/<module>/<id>/
+     index.html (one HTML page per grammar pattern / vocab /
+     kanji / passage / drill / paper). Server-rendered; no JS
+     required to read.
+  2. Per-module index landing at /Nx/learn/<module>/index.html
+     ("all 178 grammar patterns" / etc. listing pages).
+  3. Thin summary pages at /Nx/<slug>.html (7 files: home /
+     grammar / vocabulary / kanji / reading / listening / test).
+  4. Site-level sitemap at /Nx/sitemap.xml (≥1000 URLs).
+  5. Corpus discovery JSON at /Nx/data/index.json (per-file
+     URL, size_bytes, mtime, content_type, schema_version,
+     item_count, description).
+  6. LLM-discovery TXT at /llms.txt (root) + /Nx/llms.txt
+     (Markdown-formatted per llms.txt community-draft spec).
+  7. robots.txt at /Nx/robots.txt + /robots.txt (sitemap
+     reference, allow crawling).
+  8. noscript fallback in /Nx/index.html (path-routed nav,
+     never hash routes).
+
+CI invariants (N5 numbering):
+  - JA-123 — per-paper mirror coverage (LLM-001)
+  - JA-124 — sitemap.xml ≥1000 URLs floor (LLM-002)
+  - JA-125 — data/index.json size_bytes drift guard (LLM-003)
+  - JA-126 — 7 summary pages + llms.txt presence (LLM-005)
+
+Build script: tools/build_llm_surfaces_2026_05_18.py (8 stages).
+Re-run after any data/* change.
+
+Bounded-coverage phrasing: A70 verifies *the 8-surface canonical
+set exists*. A more sophisticated audit (locale-specific sitemap
+variants, JSON-LD structured data, schema.org markup) would
+extend beyond this set.
+
+Cross-reference: AUDIT-COVERAGE Part 25; procedure-manual §F.31;
+tools/build_llm_surfaces_2026_05_18.py.
+============================================================
+
+============================================================
+A71. Register-variant vs grammar-error distinction — 6 defect
+     classes (D1..D6) per REG-001 close-out. (Audit category —
+     added 2026-05-18, AUDIT-COVERAGE Part 25.)
+
+A grammatical register CHOICE between two correct forms (e.g.,
+だれ vs どなた, けど vs けれど, わかってる vs わかります) must NOT
+be framed as WRONG/RIGHT in wrong_corrected_pair. Both forms are
+grammatical; the choice is register, not correctness. The right
+schema is register_variant nested in common_mistakes with
+form_a / form_b / label_a / label_b fields.
+
+Six defect classes (per procedure manual §F.32.1):
+
+  D1 — WRONG/RIGHT framing on a register choice
+  D2 — Conflated semantics in "alternatives" list (e.g. identity
+       vs description presented as register equivalents)
+  D3 — Formality vs elevation conflation (sentence-level
+       formality ≠ referent-elevation 尊敬)
+  D4 — Out-of-Nx-scope item taught as canonical (no scope_note)
+  D5 — Kana form of whitelist kanji (JA-100 violation)
+  D6 — Self-contradicting annotation: ✗ line annotated as
+       appropriate to a register
+
+The register_variant schema:
+
+  kind: register_variant
+  form_a, form_b: both grammatical forms
+  label_a, label_b: register descriptors (neutral / honorific /
+                    casual / formal / etc.)
+  why: explanation
+  category: register
+  scope_note: optional, flag out-of-Nx-scope
+
+CI invariant: JA-127 (REG-001 D6 self-contradiction guard) —
+scans wrong_corrected_pair entries with error_category=register
+for parentheticals like "(formal)" / "(in casual conversation)"
+in the wrong-field.
+
+Sweep procedure (D1..D6 across the whole corpus): documented in
+procedure manual §F.32.4. SWEEP-6 (D6 class) is the easiest to
+automate via JA-127. SWEEP-1 surfaces candidates but each needs
+per-entry native-speaker triage. SWEEP-2..5 deferred to native-
+speaker review sessions.
+
+REG-001 close-out (2026-05-18) — fixed 6 entries:
+n5-046.wcp[1] (the original REG-001 target) +
+n5-097.wcp[1] / n5-102.wcp[2] / n5-127.wcp[0] / n5-173.wcp[1] /
+n5-179.wcp[1] (D6 hits caught by JA-127 on first run).
+
+SWEEP-1 candidate report at
+docs/REG-001-SWEEP-1-candidates_2026_05_18.md surfaces 84
+remaining entries for native-speaker triage as REG-002..NN
+follow-up filings.
+
+Bounded-coverage phrasing: A71 + JA-127 catch the D6 marker-
+phrase set. D1..D5 classes need per-entry review. A creatively
+phrased D6 violation without these markers slips past.
+
+Cross-reference: AUDIT-COVERAGE Part 25; procedure-manual §F.32;
+tools/fix_reg_001_2026_05_18.py;
+tools/fix_reg_001_d6_migrations_2026_05_18.py.
+============================================================

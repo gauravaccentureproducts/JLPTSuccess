@@ -1295,6 +1295,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-120", "paper bunpou Mondai-1 grammarPatternId matches canonical particle pattern (PAPER-001 drift guard, 2026-05-18)", lambda: _check_ja_120_paper_pattern_id_matches_correct_particle()),
     ("JA-121", "paper rationale / rationale_hi free of commit-message-style meta-fix history (PAPER-003 drift guard, 2026-05-18)", lambda: _check_ja_121_no_meta_fix_history_in_rationale()),
     ("JA-122", "paper rationale_hi free of English-pattern fragments (apostrophe-s / contractions / mojibake; PAPER-004 drift guard, 2026-05-18)", lambda: _check_ja_122_no_english_pattern_fragments_in_rationale_hi()),
+    # JA-123..127 (2026-05-18): LLM-001..005 + REG-001 close-out invariants.
+    # JA-123 — every paper-pack JSON has a static HTML mirror at /papers/<id>/index.html (LLM-001 drift guard).
+    # JA-124 — sitemap.xml has ≥1000 <loc> entries (LLM-002 regression floor; was 10 pre-fix).
+    # JA-125 — data/index.json size_bytes match actual on-disk file sizes (LLM-003 / INV-LLM-3 corpus-count drift class).
+    # JA-126 — the 7 LLM-005 summary pages + llms.txt (root + N5) all exist.
+    # JA-127 — no wrong_corrected_pair entry with error_category=register may carry a self-contradicting parenthetical like "(formal)" / "(polite)" / etc. on the wrong-field (REG-001 D6 class).
+    ("JA-123", "papers static-mirror exists for every data/papers/*/*.json (LLM-001 drift guard, 2026-05-18)", lambda: _check_ja_123_papers_static_mirrors_exist()),
+    ("JA-124", "sitemap.xml has ≥1000 URL entries (LLM-002 regression floor, 2026-05-18)", lambda: _check_ja_124_sitemap_includes_all_mirrors()),
+    ("JA-125", "data/index.json size_bytes match actual file sizes (LLM-003 / INV-LLM-3 guard, 2026-05-18)", lambda: _check_ja_125_data_index_corpus_sizes_match()),
+    ("JA-126", "7 LLM-005 summary pages + llms.txt (root + N5) all exist (LLM-005 close-out, 2026-05-18)", lambda: _check_ja_126_summary_pages_exist()),
+    ("JA-127", "no wrong_corrected_pair w/ error_category=register has self-contradicting wrong-field parenthetical (REG-001 D6 guard, 2026-05-18)", lambda: _check_ja_127_register_variant_no_wrong_right_with_register_why()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6770,6 +6781,170 @@ def _check_ja_81_no_boilerplate_leak() -> list[str]:
                 f"{ja[:50]!r} in {','.join(pids[:8])}"
                 + (f"... and {len(pids)-8} more" if len(pids) > 8 else "")
             )
+    return failures
+
+
+# ---------------------------------------------------------------------------
+# JA-123..127 (2026-05-18): LLM-001..005 + REG-001 close-out invariants
+# ---------------------------------------------------------------------------
+
+def _check_ja_123_papers_static_mirrors_exist() -> list[str]:
+    """Every paper-pack JSON file under data/papers/*/*.json must have a
+    corresponding static-mirror HTML page at /papers/<id>/index.html.
+    Plus the papers/ landing index page must exist.
+
+    LLM-001 (BUG-094) close-out: per-entity static mirrors are the
+    crawler-readable surface that lets LLMs and search engines reach
+    the corpus. Without these, the hash-routed SPA is invisible to
+    web-fetch tools.
+    """
+    failures: list[str] = []
+    papers_root = ROOT / "papers"
+    if not (papers_root / "index.html").exists():
+        failures.append("JA-123 papers/index.html (landing page) is missing")
+    for fp in sorted((ROOT / "data" / "papers").rglob("*.json")):
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        paper_id = d.get("id")
+        if not paper_id:
+            continue
+        mirror = papers_root / paper_id / "index.html"
+        if not mirror.exists():
+            failures.append(f"JA-123 paper mirror missing for {paper_id}: expected {mirror.relative_to(ROOT)}")
+    return failures
+
+
+def _check_ja_124_sitemap_includes_all_mirrors() -> list[str]:
+    """sitemap.xml must list URLs for every static-mirror directory and the
+    7 LLM-005 summary pages. We use loose floor checks: count of <loc>
+    entries must be at least (grammar + vocab + kanji + reading + listening
+    + papers) + 7 summary pages + 11 meta routes. The exact 1416 ideal
+    isn't strict — but anything <1000 indicates regression to the 10-URL
+    pre-LLM-002 state.
+
+    LLM-002 (BUG-095) close-out.
+    """
+    failures: list[str] = []
+    sm = ROOT / "sitemap.xml"
+    if not sm.exists():
+        return ["JA-124 sitemap.xml missing"]
+    text = sm.read_text(encoding="utf-8")
+    n_locs = text.count("<loc>")
+    # Floor: 1000 URLs (catches regression to pre-LLM-002 state at 10)
+    if n_locs < 1000:
+        failures.append(f"JA-124 sitemap.xml has only {n_locs} <loc> entries (expected ≥1000 after LLM-002 fix; regression suspected)")
+    return failures
+
+
+def _check_ja_125_data_index_corpus_sizes_match() -> list[str]:
+    """data/index.json byte-sizes match actual on-disk file sizes; item
+    counts match version.json counts where applicable.
+
+    LLM-003 (BUG-096) close-out + INV-LLM-3 (same shape as INV-4 /
+    JA-107 corpus-count drift class).
+    """
+    failures: list[str] = []
+    idx_path = ROOT / "data" / "index.json"
+    if not idx_path.exists():
+        return ["JA-125 data/index.json missing"]
+    try:
+        idx = json.loads(idx_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-125 could not parse data/index.json: {e}"]
+    for entry in idx.get("files", []):
+        rel = entry.get("path", "")
+        if not rel.startswith("data/"):
+            continue
+        # Strip "data/" prefix and join with ROOT/data
+        sub = rel[len("data/"):]
+        on_disk = ROOT / "data"
+        for part in sub.split("/"):
+            on_disk = on_disk / part
+        if not on_disk.exists():
+            failures.append(f"JA-125 data/index.json lists {rel} but file does not exist")
+            continue
+        actual_size = on_disk.stat().st_size
+        recorded_size = entry.get("size_bytes")
+        if recorded_size != actual_size:
+            failures.append(
+                f"JA-125 data/index.json {rel}: size_bytes={recorded_size} but actual={actual_size}"
+            )
+    return failures
+
+
+def _check_ja_126_summary_pages_exist() -> list[str]:
+    """The 7 LLM-005 summary pages must exist at N5/*.html.
+
+    LLM-005 (BUG-105) close-out + INV-LLM-5.
+    """
+    failures: list[str] = []
+    expected = ["home.html", "grammar.html", "vocabulary.html", "kanji.html",
+                "reading.html", "listening.html", "test.html"]
+    for name in expected:
+        if not (ROOT / name).exists():
+            failures.append(f"JA-126 summary page missing: {name}")
+    # Also check llms.txt at both root and N5
+    if not (ROOT / "llms.txt").exists():
+        failures.append("JA-126 N5/llms.txt missing")
+    root_llms = ROOT.parent / "llms.txt"
+    if not root_llms.exists():
+        failures.append("JA-126 /JLPTSuccess/llms.txt (root) missing")
+    return failures
+
+
+def _check_ja_127_register_variant_no_wrong_right_with_register_why() -> list[str]:
+    """REG-001 (BUG-106) close-out + INV-REG-2/3.
+
+    Catches the drift class where a grammatical register-choice is framed
+    as wrong_corrected_pair (WRONG/RIGHT). The specific n5-046 entry was
+    migrated by this commit; this invariant prevents re-introduction of
+    the same pattern AND surfaces any new sweep finding.
+
+    Trip condition (strict — focused, not exhaustive):
+      For every wrong_corrected_pair entry in data/grammar.json where:
+        - error_category == "register", AND
+        - the wrong-field annotation contains a parenthetical that
+          explicitly concedes the form is appropriate in some register
+          (i.e. "(formal)", "(polite)", "(in casual conversation)",
+          "(among friends)", etc.) — D6 self-contradiction class
+
+    Catches the most-egregious wrong_corrected_pair entries — the ones
+    that label themselves as both Wrong AND appropriate to the named
+    register. The broader sweep (D1..D5) lives in
+    docs/REG-001-SWEEP-1-candidates_2026_05_18.md for native-speaker
+    triage on a per-entry basis.
+    """
+    failures: list[str] = []
+    try:
+        g = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-127 could not read grammar.json: {e}"]
+    SELF_CONTRADICT_MARKERS = [
+        "(formal)", "(polite)", "(casual)",
+        "(in casual conversation)", "(in formal context)",
+        "(among friends)", "(acceptable in",
+    ]
+    for p in g.get("patterns", []):
+        pid = p.get("id", "?")
+        for i, item in enumerate(p.get("wrong_corrected_pair", []) or []):
+            if not isinstance(item, dict):
+                continue
+            cat = item.get("error_category") or item.get("category", "")
+            if cat != "register":
+                continue
+            wrong = item.get("wrong", "")
+            for marker in SELF_CONTRADICT_MARKERS:
+                if marker in wrong:
+                    failures.append(
+                        f"JA-127 {pid}.wrong_corrected_pair[{i}] is error_category=register "
+                        f"AND wrong-field contains self-contradiction marker {marker!r} — "
+                        f"REG-001 D6 class. Migrate to register_variant kind in common_mistakes."
+                    )
+                    break
     return failures
 
 

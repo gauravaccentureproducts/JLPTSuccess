@@ -84,6 +84,106 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-18 (LLM-001..005 + REG-001 close-out — 6 crawler-accessibility + register-conflation bugs + 5 new CI invariants)</h2>
+<h3>Added</h3>
+<ul>
+<li><strong>Per-paper static mirrors</strong> at <code>/N5/papers/&lt;paper-id&gt;/index.html</code> for</li>
+</ul>
+<p>all 28 paper packs + landing page at <code>/N5/papers/index.html</code>. Each mirror server-renders the full question bank (stem, choices, correct answer, rationale) without requiring JavaScript. LLM-001 / BUG-094 close-out.</p>
+<ul>
+<li><strong>7 thin LLM-005 summary pages</strong> at `/N5/{home,grammar,vocabulary,</li>
+</ul>
+<p>kanji,reading,listening,test}.html<code> — one-page-per-module summaries pulling counts from </code>data/version.json`. Crawler bookmark targets.</p>
+<ul>
+<li><strong>Corpus discovery catalog</strong> at <code>/N5/data/index.json</code> with 39 entries</li>
+</ul>
+<p>enumerating every data file with URL, size_bytes, last_modified, content_type, schema_version, item_count, description. Single programmatic entry point for LLMs / scripts wanting to read the corpus in bulk. LLM-003 / BUG-096 close-out.</p>
+<ul>
+<li><strong>llms.txt</strong> at <code>/JLPTSuccess/llms.txt</code> (root) + <code>/JLPTSuccess/N5/llms.txt</code></li>
+</ul>
+<p>— Markdown-formatted discovery file for LLM crawlers per the llms.txt community-draft format. LLM-005 / BUG-105 close-out.</p>
+<ul>
+<li><strong>Root-level robots.txt</strong> at <code>/JLPTSuccess/robots.txt</code> with sitemap</li>
+</ul>
+<p>reference.</p>
+<ul>
+<li><strong>Root index.html footer link</strong> to static-summary entry points.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li><strong>LLM-002 / BUG-095</strong> — <code>/N5/sitemap.xml</code> regenerated from 10 URL</li>
+</ul>
+<p>entries (meta routes only) to <strong>1589 URL entries</strong> covering every static-mirror directory, the 7 summary pages, the 11 meta routes, and the paper mirrors.</p>
+<ul>
+<li><strong>LLM-004 / BUG-097</strong> — N5/index.html <code>&lt;noscript&gt;</code> block expanded</li>
+</ul>
+<p>with path-routed navigation (no hash routes) including links to all 7 summary pages, per-entity static indexes, data/index.json, and site meta. Stale counts corrected: <code>45 reading</code> → <code>54 reading</code>, <code>47 listening</code> → <code>50 listening</code>. Counts pulled from version.json at build time (drift-resistant via JA-125 + JA-107).</p>
+<ul>
+<li><strong>REG-001 / BUG-106</strong> — n5-046.wrong_corrected_pair[1]</li>
+</ul>
+<p>(やまださんは だれ ですか) migrated to common_mistakes register_variant with form_a/form_b/label_a/label_b schema. Removed the conflated 「やまださんは どんな 人 ですか」 alternative (different question type: identity vs character description). Added scope_note marking どなた as N4-N3 vocabulary. JA-127 D6 guard added; first run caught 5 more entries with the same &quot;(in formal context)&quot; self-contradiction pattern (n5-097, n5-102, n5-127, n5-173, n5-179) — all migrated to register_variant.</p>
+<h3>CI invariants (125 → 130)</h3>
+<ul>
+<li><strong>JA-123</strong> — every <code>data/papers/<em>/</em>.json</code> has a corresponding</li>
+</ul>
+<p><code>/papers/&lt;id&gt;/index.html</code> static mirror (LLM-001 drift guard).</p>
+<ul>
+<li><strong>JA-124</strong> — <code>sitemap.xml</code> has ≥1000 <code>&lt;loc&gt;</code> entries (LLM-002</li>
+</ul>
+<p>regression floor; catches reversion to 10-URL pre-fix state).</p>
+<ul>
+<li><strong>JA-125</strong> — every entry in <code>data/index.json</code> has <code>size_bytes</code></li>
+</ul>
+<p>matching actual on-disk file size (LLM-003 / INV-LLM-3; same drift class as INV-4 / JA-107 version.json count drift).</p>
+<ul>
+<li><strong>JA-126</strong> — the 7 LLM-005 summary pages + llms.txt (at both</li>
+</ul>
+<p><code>/JLPTSuccess/</code> root and <code>/JLPTSuccess/N5/</code>) all exist.</p>
+<ul>
+<li><strong>JA-127</strong> — no <code>wrong_corrected_pair</code> entry with</li>
+</ul>
+<p><code>error_category == &quot;register&quot;</code> may have a wrong-field parenthetical naming the register the form is appropriate for (REG-001 D6 guard; &quot;(formal)&quot; / &quot;(in casual conversation)&quot; / etc. — internally contradictory).</p>
+<h3>Deferred (documented, not fixed in this commit)</h3>
+<ul>
+<li><strong>REG-002..NN</strong> — 84 SWEEP-1 candidates surfaced by REG-001</li>
+</ul>
+<p>keyword-based scan; each needs per-entry native-speaker triage to classify as register-variant / genuine-error / pragmatic- mismatch. Listed at <code>docs/REG-001-SWEEP-1-candidates_2026_05_18.md</code>.</p>
+<ul>
+<li><strong>SWEEP-2..5</strong> — D2/D3/D4/D5 defect classes (semantic conflation,</li>
+</ul>
+<p>formality-vs-elevation, out-of-N5-scope-as-canonical, kana-of- whitelist-kanji) — native-speaker review sessions, not this batch.</p>
+<ul>
+<li><strong>LLM-005 build-script CI integration</strong> — `tools/build_llm_surfaces</li>
+</ul>
+<p>_2026_05_18.py<code> is a one-shot runner; wiring into </code>.github/workflows/` for auto-regen on push is a follow-up TODO.</p>
+<h3>Documentation (Rule 4/5)</h3>
+<ul>
+<li><strong>Procedure manual F.31</strong> — 8-surface LLM / search-crawler</li>
+</ul>
+<p>accessibility canonical set; build-script architecture; CI invariant template; common pitfalls; bounded-coverage phrasing.</p>
+<ul>
+<li><strong>Procedure manual F.32</strong> — register-variant vs grammar-error 6</li>
+</ul>
+<p>defect classes (D1..D6); register_variant schema; CI invariant; sweep procedure.</p>
+<ul>
+<li><strong>Accuracy prompt A70 / A71</strong> — LLM-accessibility audit category +</li>
+</ul>
+<p>register-conflation audit category.</p>
+<ul>
+<li><strong>N5Improvement Phase-0 LLM-surfaces</strong> + <strong>Phase-0 register-variant</strong></li>
+</ul>
+<p>regression blocks.</p>
+<ul>
+<li><strong>AUDIT-COVERAGE Part 25</strong> — close-out narrative + new drift-class</li>
+</ul>
+<p>catalog entries.</p>
+<ul>
+<li><strong>Cross-artifact sync-map</strong> — Part 25 audit-log row.</li>
+<li><strong>Spec §25.4</strong> — JA-123..127 rows added; section intro updated.</li>
+</ul>
+<h3>State</h3>
+<p>CI <strong>130 / 130 invariants green</strong>. <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>109 / 109 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: this batch closes the 6 LLM-<em> + REG-</em> bugs surfaced on 2026-05-18. Future audits may extend the catalog (locale-specific sitemap variants, JSON-LD structured data, schema.org markup, etc.) — JA-123..127 prevent re-introduction of <em>the surface gaps this batch addresses</em>.</p>
 <h2>Unreleased - 2026-05-18 (PAPER-001..004 + LISTEN-4 close-out — 5 bug-class fixes + 3 new CI invariants)</h2>
 <h3>Fixed</h3>
 <ul>

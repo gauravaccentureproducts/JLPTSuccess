@@ -779,13 +779,14 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-122; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-127; gaps for retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
 JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
-PAPER-001..004 close-out, see §25.4 rows) that the script runs against
-every release. The script is the source of truth; this section is its
-human-readable index.
+PAPER-001..004 close-out; JA-123 / JA-124 / JA-125 / JA-126 / JA-127
+wired on 2026-05-18 from LLM-001..005 + REG-001 close-out — see §25.4
+rows) that the script runs against every release. The script is the
+source of truth; this section is its human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
 `N5/`). On a clean corpus the script prints `PASS: all NN invariants
@@ -976,6 +977,11 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-120 | Paper bunpou Mondai-1 `grammarPatternId` matches canonical particle pattern (PAPER-001 drift guard). For every Mondai 1 question in `data/papers/bunpou/paper-*.json` whose `correctIndex` resolves to a single Japanese particle (the canonical 21-entry map: は→n5-002, が→n5-003, を→n5-004, に→n5-005, へ→n5-006, で→n5-007, と→n5-008, から→n5-009, まで→n5-010, や→n5-011, も→n5-013, か→n5-023, ね→n5-025, よ→n5-026, の→n5-028, だけ→n5-033, ぐらい/くらい→n5-035, ごろ→n5-036, など→n5-037, ずつ→n5-038, より→n5-095), the `grammarPatternId` must reference that pattern. Caught 30+ questions tagged `n5-013` (も) regardless of actual answer particle. Wired 2026-05-18. | 2026-05-18 |
 | JA-121 | Paper-question `rationale` / `rationale_hi` free of commit-message-style meta-fix history (PAPER-003 drift guard). Substring-scans 12 trigger phrases (`auto_inferred`, `previously tagged`, `prior version was`, `Stem now anchored`, `Stem now includes`, `replaces colloquial`, `replaces ので per`, `the original option`, `was dropped because`, `replaced with`, `patched to`, `fix:`). Distractor-analysis content preserved by design (no trigger overlap). Wired 2026-05-18. | 2026-05-18 |
 | JA-122 | Paper-question `rationale_hi` free of English-pattern fragments (PAPER-004 drift guard). Substring-scans 17 trigger fragments covering apostrophe-s possessive (`'s घर`, `दोस्त's`, `माता's`), English contractions (`मैं'm`, `मैं'll`), mojibake artifacts (`यहाँre`, `वहाँre`, `o'घड़ी`, `o'क्लॉक`), and untranslated English filler (` yet,`, `है yet`, ` lot `, `I am `, ` have जाना`). Wired 2026-05-18. | 2026-05-18 |
+| JA-123 | Every `data/papers/*/*.json` paper-pack file has a corresponding static HTML mirror at `/papers/<id>/index.html`, plus the `papers/index.html` landing page. LLM-001 (BUG-094) drift guard — without per-paper mirrors, LLM crawlers and search engines cannot read paper content (hash-routed SPA shell returns same page for every URL). Cross-Artifact Sync Protocol INV-LLM-1. Wired 2026-05-18. | 2026-05-18 |
+| JA-124 | `sitemap.xml` has ≥1000 `<loc>` entries — regression floor for LLM-002 (BUG-095) close-out. Pre-fix state was 10 meta-route URLs only; post-fix is 1589 URLs covering every static mirror + 7 summary pages + 11 meta routes + paper mirrors. INV-LLM-2. Wired 2026-05-18. | 2026-05-18 |
+| JA-125 | Every entry in `data/index.json` has `size_bytes` matching the actual on-disk file size. LLM-003 (BUG-096) drift guard — same INV-4 / JA-107 corpus-count drift class extended to the new corpus discovery catalog. INV-LLM-3. Wired 2026-05-18. | 2026-05-18 |
+| JA-126 | The 7 LLM-005 (BUG-105) thin summary pages (`home.html`, `grammar.html`, `vocabulary.html`, `kanji.html`, `reading.html`, `listening.html`, `test.html`) all exist at the N5 root, plus `llms.txt` exists at both `/JLPTSuccess/` (root) and `/JLPTSuccess/N5/` for crawler discovery. INV-LLM-5. Wired 2026-05-18. | 2026-05-18 |
+| JA-127 | No entry in `wrong_corrected_pair` with `error_category == "register"` may have a wrong-field parenthetical naming the register the form is appropriate for. REG-001 (BUG-106) D6 self-contradiction guard. Trip phrases: `(formal)`, `(in formal context)`, `(in formal speech)`, `(polite)`, `(in polite contexts)`, `(casual)`, `(in casual conversation)`, `(among friends)`, `(with intimates)`, `(acceptable in X)`. Internally contradictory entries (the wrong form is annotated as appropriate to a register) must migrate to `common_mistakes` with `kind: register_variant`. INV-REG-D6. Wired 2026-05-18 — first run after the n5-046 close-out caught 5 more entries (n5-097/102/127/173/179) all migrated in the same commit. | 2026-05-18 |
 
 ### 25.5 Locale parity & i18n
 

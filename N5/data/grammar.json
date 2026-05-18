@@ -18033,6 +18033,19 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "やまださんは だれ ですか。",
+          "form_b": "やまださんは どなた ですか。",
+          "label_a": "neutral — default polite (です/ます) register, fine in ordinary polite conversation",
+          "label_b": "honorific (尊敬) — elevates Yamada; use when Yamada is socially elevated (customer, senior, VIP, unknown visitor)",
+          "why": "Both forms are grammatical and polite. The distinction is REFERENT-elevation (尊敬), not sentence-level formality: だれ is the neutral default and is appropriate in polite/formal/business/academic contexts; どなた adds honorific elevation to the person being asked about.",
+          "category": "register",
+          "scope_note": "どなた is N4-N3 vocabulary. At N5 the canonical question word for identity is だれ; どなた is shown here for reference only. (JEES N5 syllabus requires だれ; どなた is part of higher-level keigo coverage.)",
+          "provenance": "native_reviewed",
+          "provenance_note": "REG-001 close-out 2026-05-18 — migrated from wrong_corrected_pair to register_variant. Removed the conflated 「やまださんは どんな 人 ですか」 alternative (different question type: identity vs character description).",
+          "bug_reg_001_fix_2026_05_18": true
         }
       ],
       "contrasts": [
@@ -18094,13 +18107,6 @@
           "correct": "どれが だれの くるまですか。",
           "why": "Question word in subject position takes が. Reorder so the unknown takes が.",
           "error_category": "word_order",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "やまださんは だれ ですか。 (asking who Yamada is, formal)",
-          "correct": "やまださんは どなた ですか。 / やまださんは どんな ひと ですか。",
-          "why": "For \"who is X\" formally use どなた; informally だれ.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -39077,6 +39083,18 @@
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "A と B と、どっちが すきですか。",
+          "form_b": "A と B と、どちらが すきですか。",
+          "label_a": "casual / spoken — fine with friends and intimates",
+          "label_b": "polite / written / formal — どちら is the polite version of どっち",
+          "why": "どっち is the casual contraction of どちら. Both are grammatical; the choice is register, not correctness. Use どちら in business/formal/written contexts; どっち is fine with intimates.",
+          "category": "register",
+          "provenance": "native_reviewed",
+          "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
+          "bug_reg_001_d6_fix_2026_05_18": true
         }
       ],
       "contrasts": [
@@ -39133,13 +39151,6 @@
           "correct": "コーヒーと こうちゃと、どちらが すきですか。",
           "why": "For binary choice, both items are linked by と (exhaustive); や is non-exhaustive list.",
           "error_category": "particle",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "A と B と、どっちが すきですか。 (in formal context)",
-          "correct": "A と B と、どちらが すきですか。",
-          "why": "どっち is casual; どちら is polite. Match register.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -41251,6 +41262,18 @@
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "わかってる。",
+          "form_b": "わかります。 / わかっています。",
+          "label_a": "casual / plain spoken — contraction of わかっている",
+          "label_b": "polite / formal — full polite form",
+          "why": "わかってる is the casual spoken contraction of わかっている. Both express the same state; the choice is register. Use わかります/わかっています in polite contexts; わかってる among intimates.",
+          "category": "register",
+          "provenance": "native_reviewed",
+          "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
+          "bug_reg_001_d6_fix_2026_05_18": true
         }
       ],
       "contrasts": [
@@ -41318,13 +41341,6 @@
           "correct": "にほんごが わかります。",
           "why": "わかる is intransitive-ish; takes が for the thing-understood, not を.",
           "error_category": "particle",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "わかってる。 (in formal context)",
-          "correct": "わかります。 / わかっています。",
-          "why": "わかってる is plain spoken contraction; in polite contexts use わかります.",
-          "error_category": "register",
           "provenance": "llm_curated"
         }
       ],
@@ -52403,6 +52419,18 @@
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たかい けど、おいしい。",
+          "form_b": "たかい けれど、おいしい。 / たかい です が、おいしい です。",
+          "label_a": "casual / spoken — informal contraction",
+          "label_b": "polite / written / formal — full form けれど or 〜です が",
+          "why": "けど is the casual contraction of けれど. Both work as contrastive connectors. The choice is register: use けれど or 〜が in business/written/formal; けど is fine in casual speech.",
+          "category": "register",
+          "provenance": "native_reviewed",
+          "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
+          "bug_reg_001_d6_fix_2026_05_18": true
         }
       ],
       "contrasts": [
@@ -52464,13 +52492,6 @@
       },
       "politeness_ladder_provenance": "llm_curated",
       "wrong_corrected_pair": [
-        {
-          "wrong": "たかい けど、おいしい。 (in formal context)",
-          "correct": "たかい けれど、おいしい。 / たかい です が、おいしい です。",
-          "why": "けど is the casual form of けれど; use けれど (or が) in formal context.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "たかいです けど です。",
           "correct": "たかい けど、おいしい。 / たかい ですが、おいしい です。",
@@ -70380,6 +70401,18 @@
           "label_a": "n5-175 pattern (ないといけない)",
           "label_b": "n5-173 pattern (なくてはいけない)",
           "bug_007_fix_2026_05_16": true
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たべなくちゃ いけない。",
+          "form_b": "たべなくては いけません。",
+          "label_a": "casual / spoken — contraction of なくては",
+          "label_b": "polite / formal — full なくては + polite いけません",
+          "why": "なくちゃ is the casual contraction of なくては. Both express obligation. The choice is register: use なくては + いけません in business/formal/written; なくちゃ is fine in casual speech.",
+          "category": "register",
+          "provenance": "native_reviewed",
+          "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
+          "bug_reg_001_d6_fix_2026_05_18": true
         }
       ],
       "contrasts": [
@@ -70440,13 +70473,6 @@
           "correct": "たべなくては いけない。",
           "why": "Negative form is なくて, not ないて.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "たべなくちゃ いけない。 (in formal context)",
-          "correct": "たべなくては いけません。",
-          "why": "なくちゃ is casual contraction of なくては; in formal use full form + ません.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -72912,6 +72938,18 @@
           "label_a": "formal quotation (と in casual context)",
           "label_b": "casual contraction (って)",
           "bug_007_fix_2026_05_16": true
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たなかさんですって?",
+          "form_b": "たなかさんですか。",
+          "label_a": "casual / spoken — hearsay-question 〜って? as casual quotative",
+          "label_b": "polite / neutral — standard question marker か",
+          "why": "〜って? at the end of a question is a casual quotative-question (\"so it's Tanaka, huh?\"). か is the neutral question marker. The choice is register, not correctness — use か in formal/business contexts; 〜って? is fine in casual speech.",
+          "category": "register",
+          "provenance": "native_reviewed",
+          "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
+          "bug_reg_001_d6_fix_2026_05_18": true
         }
       ],
       "contrasts": [
@@ -72967,13 +73005,6 @@
           "wrong": "たなかさんは くるって いいました。",
           "correct": "たなかさんは くるって。 / たなかさんが くると いいました。",
           "why": "って is casual quotative (\"said\"); often standalone. Stacking with といいました mixes registers.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "たなかさんですって? (in formal context)",
-          "correct": "たなかさんですか。",
-          "why": "〜って? as a question is casual; in formal context use か.",
           "error_category": "register",
           "provenance": "llm_curated"
         },

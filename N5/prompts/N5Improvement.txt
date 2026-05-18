@@ -1165,6 +1165,54 @@ tools/fix_paper_bugs_2026_05_18.py and
 tools/fix_paper_bugs_part2_2026_05_18.py; procedure-manual §F.30;
 accuracy prompt §A67/A68/A69; AUDIT-COVERAGE Part 24.
 
+### Phase-0 LLM-surfaces + register-variant regression block (added 2026-05-18)
+
+CI-enforced via JA-123..127 (introduced 2026-05-18). Maintainer-
+side Phase-0 mirror runs these checks before any release:
+
+1. **Per-paper static mirror coverage (LLM-001 / JA-123)**
+   Every data/papers/*/*.json must have a corresponding
+   /papers/<id>/index.html. The papers/ landing page must exist.
+   Expected: 0 missing mirrors.
+
+2. **Sitemap floor (LLM-002 / JA-124)**
+   sitemap.xml has ≥1000 <loc> entries. Current state: 1589 URLs.
+   Floor at 1000 catches regression to pre-fix 10-URL state.
+
+3. **data/index.json size_bytes integrity (LLM-003 / JA-125)**
+   Every entry's size_bytes matches actual on-disk file size.
+   Must regenerate data/index.json after any data/* mutation.
+   Expected: 0 byte-size mismatches.
+
+4. **7 summary pages + llms.txt presence (LLM-005 / JA-126)**
+   /N5/{home,grammar,vocabulary,kanji,reading,listening,test}.html
+   + /JLPTSuccess/llms.txt + /JLPTSuccess/N5/llms.txt all exist.
+   Expected: 0 missing files.
+
+5. **REG-001 D6 self-contradiction guard (REG-001 / JA-127)**
+   No wrong_corrected_pair entry with error_category=register
+   may have a self-contradicting parenthetical in the wrong-field
+   ("(formal)" / "(polite)" / "(in casual conversation)" / etc.).
+   Trip markers listed in A71 of accuracy prompt.
+   Expected: 0 hits.
+
+Bounded-coverage framing:
+  - "JA-123 prevents *paper-mirror coverage gaps*" — not "every
+    LLM-accessibility concern".
+  - "JA-124 floor catches *the 10-URL pre-fix regression*" — not
+    "every sitemap quality issue". A sitemap with 1000 stale or
+    incorrect URLs passes JA-124 but would fail other checks.
+  - "JA-125 catches *byte-size drift*" — a same-byte-size content
+    change still slips through.
+  - "JA-127 catches *the D6 marker phrase set*" — D1..D5 register
+    conflations need per-entry native-speaker triage.
+
+Source: LLM-001..005 + REG-001 close-out (2026-05-18); build
+script tools/build_llm_surfaces_2026_05_18.py (8 stages); fix
+scripts tools/fix_reg_001_2026_05_18.py +
+tools/fix_reg_001_d6_migrations_2026_05_18.py; procedure-manual
+§F.31 + §F.32; accuracy prompt §A70/A71; AUDIT-COVERAGE Part 25.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

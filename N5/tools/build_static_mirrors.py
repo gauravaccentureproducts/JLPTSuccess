@@ -1753,9 +1753,28 @@ def build_meta(sitemap_urls: list[str]) -> tuple[int, int, int]:
 
 
 def write_sitemap(sitemap_urls: list[str]) -> bool:
-    """Write /N5/sitemap.xml from accumulated URLs. Returns True if file changed."""
+    """Write /N5/sitemap.xml from accumulated URLs. Returns True if file changed.
+
+    2026-05-18 — LLM-002 (BUG-095) close-out wired the full per-entity
+    sitemap (1589 URLs) via tools/build_llm_surfaces_2026_05_18.py.
+    To avoid this script overwriting the larger sitemap when run with
+    only a subset of stages (e.g. --stages meta), we merge in the
+    existing sitemap rather than overwriting unconditionally. This
+    preserves URLs from stages that weren't run in the current call.
+    """
     # Sort + dedupe for deterministic output (idempotent re-runs).
-    urls = sorted(set(sitemap_urls))
+    urls = set(sitemap_urls)
+
+    # Merge in existing URLs from the on-disk sitemap, so a partial-stages
+    # run doesn't truncate URLs from stages that weren't requested this call.
+    sitemap_path = ROOT / "sitemap.xml"
+    if sitemap_path.exists():
+        import re as _re
+        existing = sitemap_path.read_text(encoding="utf-8")
+        for m in _re.finditer(r"<loc>(.*?)</loc>", existing):
+            urls.add(m.group(1))
+
+    urls = sorted(urls)
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
@@ -1763,7 +1782,7 @@ def write_sitemap(sitemap_urls: list[str]) -> bool:
     lines.append("</urlset>")
     lines.append("")
     content = "\n".join(lines)
-    return _write_if_changed(ROOT / "sitemap.xml", content)
+    return _write_if_changed(sitemap_path, content)
 
 
 def write_robots() -> bool:
