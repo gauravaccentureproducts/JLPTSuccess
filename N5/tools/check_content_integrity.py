@@ -1328,6 +1328,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     # future MOB-008/009-class introductions without per-pattern
     # hardcoding.
     ("JA-135", "every #/X hash-route href in js/*.js resolves to a route in app.js routes dict (MOB-008/009 generalization, 2026-05-19)", lambda: _check_ja_135_all_hash_hrefs_resolve_to_routes()),
+    # JA-136 (2026-05-19): GOI-001 copy-paste-content-mismatch guard.
+    # No two questions in the same paper file may share a byte-
+    # identical rationale_hi value longer than 30 chars. Catches the
+    # GOI-001-class copy-paste where goi-6.11 rationale_hi was a
+    # verbatim copy of goi-6.12's (about a different question topic).
+    ("JA-136", "no rationale_hi shared verbatim by 2+ questions within the same paper (GOI-001 copy-paste guard, 2026-05-19)", lambda: _check_ja_136_rationale_hi_unique_within_paper()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6902,6 +6908,52 @@ def _check_ja_133_form_input_font_size_rule() -> list[str]:
     return failures
 
 
+def _check_ja_136_rationale_hi_unique_within_paper() -> list[str]:
+    """GOI-001 (BUG-130, 2026-05-19) drift guard. No two questions within
+    the same paper file may share a byte-identical `rationale_hi` value
+    longer than 30 characters.
+
+    GOI-001 caught goi-6.11's rationale_hi being a verbatim copy-paste
+    of goi-6.12's (about age) on a phone-call stem — a hard learner-
+    facing breakage. The original bug spec proposed "rationale_hi must
+    share at least one Japanese token with stem/correctAnswer" but
+    that's too strict in practice (dictionary-form ↔ polite-form
+    variation produces ~100 false positives across the existing corpus,
+    most legitimate references).
+
+    The narrower-but-defensible invariant: cross-question duplication
+    within the same paper file is always suspicious. Token-overlap-
+    based mismatch detection is left to manual review (no CI guard).
+
+    Threshold of 30 chars excludes trivially-short shared phrases (e.g.,
+    a 1-line "Hindi-mirror-of-formula" rationale that legitimately
+    repeats across multiple questions testing the same form).
+    """
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        seen: dict[str, list[str]] = {}
+        for q in d.get("questions", []):
+            rh = (q.get("rationale_hi") or "").strip()
+            if not rh or len(rh) < 30:
+                continue
+            qid = q.get("id", "?")
+            seen.setdefault(rh, []).append(qid)
+        for rh, qids in seen.items():
+            if len(qids) > 1:
+                failures.append(
+                    f"JA-136 {fp.relative_to(ROOT)}: rationale_hi shared verbatim by {len(qids)} "
+                    f"questions ({', '.join(qids)}) — copy-paste suspected (GOI-001 class)"
+                )
+    return failures
+
+
 def _check_ja_135_all_hash_hrefs_resolve_to_routes() -> list[str]:
     """MOB-008/009 follow-up (2026-05-19) — general hash-route-resolution
     guard. Extends JA-134 from "2 specific known dead-end patterns"
@@ -7372,6 +7424,15 @@ def _check_ja_121_no_meta_fix_history_in_rationale() -> list[str]:
         "replaced with",
         "patched to",
         "fix:",
+        # GOI-002 / GOI-003 (BUG-131/132, 2026-05-19) extensions:
+        # commit-trail / meta-doc-pointer phrases caught in goi/paper-6.
+        "Hence the rewording",
+        "rewording from a prior",
+        "from a prior version",
+        "documented at vocabulary_n5.md",
+        "documented at",
+        "does not bear on",
+        "test point this question",
     ]
     failures: list[str] = []
     paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))

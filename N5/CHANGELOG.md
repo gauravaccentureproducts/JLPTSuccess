@@ -2,6 +2,65 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-19 (GOI-001..003 close-out — goi-paper-6 rationale content discipline + 1 new CI invariant)
+
+### Fixed
+
+- **GOI-001** (Major / P2) — goi-6.11 (phone-call paraphrase) had its
+  rationale_hi as a verbatim copy-paste of goi-6.12's (about 二十さい
+  / age). Hindi-speaking learners answering the phone-call question
+  would see an explanation about ages instead. Rewrote rationale_hi
+  in natural Hindi about phone-call paraphrase
+  (`「電話を かけて + 一時間 話した」 = 「電話で 話した」`). Provenance
+  set to `native_reviewed_2026_05_19`.
+- **GOI-002** (Low / P4) — goi-6.14 rationale ended with "Hence the
+  rewording from a prior version" — same anti-pattern as PAPER-003
+  (JA-121 class), new trigger phrase. Trimmed both rationale and
+  rationale_hi to the first sentence (the legitimate learner-facing
+  content): `高かった (was expensive) ↔ たくさん お金を 払った (paid
+  a lot of money).`.
+- **GOI-003** (Low / P4) — goi-6.12 rationale ended with meta-doc
+  pointer ("documented at vocabulary_n5.md ... does not bear on the
+  time-reference test point this question targets"). Replaced with
+  direct pedagogical content: `Note: 二十さい is read はたち, not
+  にじゅっさい — a special on-yomi exception shared with 二十日
+  (はつか).`. Mirror in rationale_hi.
+
+### Added
+
+- **JA-136 CI invariant** — no rationale_hi shared verbatim by 2+
+  questions within the same paper file (>30 chars threshold).
+  GOI-001 copy-paste guard. Rejected the bug spec's stricter
+  token-overlap proposal (~100 false positives from dictionary-form
+  ↔ polite-form variation); cross-question duplication is the
+  narrower-but-defensible proxy.
+- **JA-121 trigger set extended** — 7 new phrases catching
+  GOI-002/003 patterns: "Hence the rewording", "rewording from a
+  prior", "from a prior version", "documented at vocabulary_n5.md",
+  "documented at", "does not bear on", "test point this question".
+- **Procedure manual F.35** — Rationale content-discipline:
+  Class A (copy-paste content-mismatch) + Class B (meta-content in
+  learner-facing rationale). Complements F.30/F.33/F.34 to form the
+  5-invariant family on paper-question rationale fields (JA-121/122/
+  129/130/136).
+- **Accuracy prompt A74** — Rationale content-discipline audit
+  category.
+- **N5Improvement Phase-0 rationale-content regression block**.
+- **AUDIT-COVERAGE Part 28** — Close-out narrative.
+
+### State
+
+CI **139 / 139 invariants green** (was 138; added JA-136 + JA-121
+trigger extension).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: GOI-001..003 + JA-136 + JA-121-extension cover the
+2 rationale-content defect classes surfaced by the 2026-05-19 goi
+paper-6 audit. Subtler defects (semantically-wrong-but-coherent
+rationale, misleading framing without trigger phrases) remain in
+manual-review territory.
+
 ## Unreleased - 2026-05-19 (MOB-001..019 + DOKKAI-004 close-out — mobile UI compliance + 4 new CI invariants)
 
 ### Fixed

@@ -4296,3 +4296,121 @@ specific bugs MOB-006/007/008/009 closed* + *the named touch-target
 class set in JA-132's marker comment*. Future Selenium audits may
 surface new defects (other dead-end routes, new CSS classes shipped
 post-marker); this batch closes the currently-observed set.
+
+## ADDENDUM 2026-05-19 (Part 28) — GOI-001..003 close-out
+
+### Trigger
+
+Content-audit pass on goi/paper-6.json surfaced 3 rationale-content
+defects in 15 questions (Q76-Q90):
+
+  - **GOI-001 (Major / P2)** — goi-6.11 rationale_hi is a verbatim
+    copy-paste of goi-6.12's (about 二十さい/age), unrelated to
+    goi-6.11's phone-call stem. Hard learner-facing breakage.
+  - **GOI-002 (Low / P4)** — goi-6.14 rationale ends with "Hence
+    the rewording from a prior version" — same anti-pattern as
+    PAPER-003 / JA-121, new trigger phrase.
+  - **GOI-003 (Low / P4)** — goi-6.12 rationale ends with
+    "documented at vocabulary_n5.md but does not bear on the
+    time-reference test point this question targets" — meta-doc
+    pointer + question-authoring framing, not pedagogy.
+
+### Resolution (this commit)
+
+  - **GOI-001**: rewrote goi-6.11 rationale_hi from copy-pasted
+    age-topic text to natural Hindi about the phone-call
+    paraphrase (`「電話を かけて + 一時間 話した」 = 「電話で
+    話した」`). Provenance: `native_reviewed_2026_05_19`.
+  - **GOI-002**: trimmed goi-6.14 rationale to first sentence
+    (`高かった (was expensive) ↔ たくさん お金を 払った (paid a
+    lot of money).`). Mirror in rationale_hi.
+  - **GOI-003**: replaced meta-doc pointer in goi-6.12 with direct
+    pedagogical note (`Note: 二十さい is read はたち, not にじゅっさい
+    — a special on-yomi exception shared with 二十日 (はつか).`).
+    Mirror in rationale_hi.
+
+### New CI invariants
+
+  - **JA-136** — no rationale_hi shared verbatim by 2+ questions
+    within the same paper file (>30 chars threshold). GOI-001
+    copy-paste guard. Rejected the bug spec's stricter token-
+    overlap proposal because ~100 false positives on the existing
+    corpus (dictionary-form ↔ polite-form variation).
+  - **JA-121 trigger set extended** — added 7 new phrases catching
+    GOI-002/003 patterns: `"Hence the rewording"`, `"rewording
+    from a prior"`, `"from a prior version"`, `"documented at
+    vocabulary_n5.md"`, `"documented at"`, `"does not bear on"`,
+    `"test point this question"`.
+
+CI count moved from 138 to **139 invariants** (138 + 1 new JA-136).
+All 139 PASS post-fix.
+
+### Horizontal-scan results
+
+  - Cross-question rationale_hi duplication scan (>30 chars) across
+    all paper files: 0 remaining duplicates after the GOI-001 fix.
+  - JA-121 extended trigger set scan: 0 additional hits beyond the
+    3 GOI-* targets.
+
+### Anti-pattern documented (procedure manual F.35)
+
+F.35 (Rationale content-discipline) — 2 durable classes:
+  - Class A: Copy-paste content-mismatch (JA-136)
+  - Class B: Meta-content in learner-facing rationale (JA-121-extension)
+
+Combined with F.30 (PAPER-001..004) + F.33 (DOKKAI-001..003), the
+5-invariant family (JA-121/122/129/136 + JA-130) covers the rationale-
+content defect classes observed across 4 paper-bank corpora.
+
+### Pending future work (deferred)
+
+  - Token-overlap-based content-mismatch invariant (the bug spec's
+    original recommendation) requires morphological stemming —
+    deferred until kuromoji integration. JA-136 (cross-question
+    duplication) is the narrower-but-defensible proxy in the
+    meantime.
+  - Subtler meta-content phrasings not in the JA-121 trigger set
+    remain in manual-review territory.
+
+### CI count after Part 28
+
+**139** (138 pre-Part-28 + 1 new: JA-136). All 139 PASS.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 28
+
+  - Total: 132 rows (129 pre-Part-28 + 3 new GOI-* bugs filed AND
+    closed in this commit)
+  - Fixed: 132 / 132 (BUG-130/131/132 all flipped to Fixed)
+  - Open: 0
+
+### Files touched (Part 28)
+
+  - N5/data/papers/goi/paper-6.json (3 rationale rewrites)
+  - N5/data/index.json (regenerated for size-drift)
+  - N5/tools/check_content_integrity.py (JA-136 + JA-121 extension)
+  - N5/specifications/test-scenarios-by-specialist-perspective.xlsx
+    (3 bug rows added + 3 status flips)
+  - N5/tools/fix_goi_bugs_2026_05_19.py (NEW)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md (F.35)
+  - N5/prompts/Japanese language Accuracy check.txt (A74)
+  - N5/prompts/N5Improvement.txt (Phase-0 rationale-content)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 28)
+  - N5/docs/cross-artifact-sync-map.md (Part 28 audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+  - N5/specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25.4 JA-136 row + section intro JA-136 range update)
+
+### Final state for Part 28
+
+CI **139 / 139 invariants green**.
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: JA-136 prevents re-introduction of *cross-question
+rationale_hi byte-identical duplication within the same paper*.
+The bug spec's stricter token-overlap proposal was rejected for
+false-positive rate; a future morphology-aware invariant could
+revive it. JA-121 extended trigger set covers *the specific phrases
+named in F.35.2*; subtler meta-content phrasings remain in manual-
+review territory.

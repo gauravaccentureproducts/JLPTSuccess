@@ -4145,3 +4145,74 @@ tools/build_min_js.py (regenerate js/min/ after locale or JS edits);
 tools/build_llm_surfaces_2026_05_18.py (regenerate data/index.json
 after data mutation).
 ============================================================
+
+============================================================
+A74. Rationale content-discipline — copy-paste mismatch +
+     meta-content (GOI-001..003 close-out). (Audit category —
+     added 2026-05-19, AUDIT-COVERAGE Part 28.)
+
+Two durable rationale-content defect classes complement F.30
+(PAPER-001..004), F.33 (DOKKAI-001..003), and F.34.4 (Class D
+locale-parity). CI-enforced via JA-136 + JA-121 trigger extension.
+
+Class A — Copy-paste content-mismatch (CI: JA-136)
+  A question's rationale_hi is byte-identical to a neighboring
+  question's rationale_hi — copy-pasted during authoring and the
+  rewrite for the specific question topic was missed. Hindi-locale
+  learners see explanations about completely different topics.
+
+  GOI-001 example: goi-6.11 (phone-call paraphrase) carried
+  rationale_hi byte-identical to goi-6.12's (about 二十さい/age).
+  Hindi-speaking learners answering the phone-call question saw
+  age content.
+
+  Invariant: rationale_hi values >30 chars must be unique within
+  the same paper file. Threshold excludes legitimately-shared
+  short rationales (single-line "Hindi mirror of formula" patterns).
+
+  Rejected: bug spec's stricter token-overlap invariant (rationale_hi
+  must share ≥1 Japanese token with stem_html OR correctAnswer)
+  produced ~100 false positives on existing corpus — mostly
+  dictionary-form ↔ polite-form variation (友だちと vs ともだち,
+  すき vs すきです, わかる vs わかります). Semantic token equivalence
+  requires morphological stemming; falls back to manual review.
+
+Class B — Meta-content in learner-facing rationale (CI: JA-121 extended)
+  Extension of F.30.2 (PAPER-003 meta-fix history). Same anti-
+  pattern with new trigger phrases caught in goi-6:
+
+    - GOI-002: "Hence the rewording from a prior version" —
+      commit-trail framing.
+    - GOI-003: "documented at vocabulary_n5.md ... does not bear
+      on the time-reference test point this question targets" —
+      meta-documentation pointer + question-authoring framing.
+
+  JA-121 trigger set extended 2026-05-19 with: "Hence the rewording",
+  "rewording from a prior", "from a prior version", "documented at
+  vocabulary_n5.md", "documented at", "does not bear on", "test point
+  this question".
+
+Fix protocol (both classes):
+  - Class A: rewrite rationale_hi from rationale_en (verified
+    correct) + actual stem; do NOT translate from broken rationale_hi.
+  - Class B: drop meta sentence entirely OR rewrite as direct
+    pedagogical content if the information is useful (the goi-6.12
+    はたち special-reading note was reworked, not deleted).
+  - Provenance: native_reviewed_<YYYY_MM_DD>.
+
+The combined 5-invariant family on paper-question rationale fields:
+  - JA-121 — no meta-fix history (PAPER-003 + GOI-002/003 extended)
+  - JA-122 — no English-pattern fragments in Hindi (PAPER-004)
+  - JA-129 — no untranslated temporal markers (DOKKAI-002/004)
+  - JA-130 — grammarPatternId schema-shape (DOKKAI-003)
+  - JA-136 — no cross-question rationale_hi duplication (GOI-001)
+
+Bounded-coverage phrasing:
+  - "JA-136 catches *byte-identical rationale_hi duplication
+    within a paper file*" — not "all content-mismatch".
+  - "JA-121 (extended) catches *the named trigger phrase set*" —
+    subtler meta-content phrasings still need per-entry review.
+
+Cross-reference: AUDIT-COVERAGE Part 28; procedure-manual §F.35;
+tools/fix_goi_bugs_2026_05_19.py.
+============================================================

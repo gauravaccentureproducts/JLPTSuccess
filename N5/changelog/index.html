@@ -84,6 +84,44 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-19 (GOI-001..003 close-out — goi-paper-6 rationale content discipline + 1 new CI invariant)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>GOI-001</strong> (Major / P2) — goi-6.11 (phone-call paraphrase) had its</li>
+</ul>
+<p>rationale_hi as a verbatim copy-paste of goi-6.12&#x27;s (about 二十さい / age). Hindi-speaking learners answering the phone-call question would see an explanation about ages instead. Rewrote rationale_hi in natural Hindi about phone-call paraphrase (<code>「電話を かけて + 一時間 話した」 = 「電話で 話した」</code>). Provenance set to <code>native_reviewed_2026_05_19</code>.</p>
+<ul>
+<li><strong>GOI-002</strong> (Low / P4) — goi-6.14 rationale ended with &quot;Hence the</li>
+</ul>
+<p>rewording from a prior version&quot; — same anti-pattern as PAPER-003 (JA-121 class), new trigger phrase. Trimmed both rationale and rationale_hi to the first sentence (the legitimate learner-facing content): <code>高かった (was expensive) ↔ たくさん お金を 払った (paid a lot of money).</code>.</p>
+<ul>
+<li><strong>GOI-003</strong> (Low / P4) — goi-6.12 rationale ended with meta-doc</li>
+</ul>
+<p>pointer (&quot;documented at vocabulary_n5.md ... does not bear on the time-reference test point this question targets&quot;). Replaced with direct pedagogical content: <code>Note: 二十さい is read はたち, not にじゅっさい — a special on-yomi exception shared with 二十日 (はつか).</code>. Mirror in rationale_hi.</p>
+<h3>Added</h3>
+<ul>
+<li><strong>JA-136 CI invariant</strong> — no rationale_hi shared verbatim by 2+</li>
+</ul>
+<p>questions within the same paper file (&gt;30 chars threshold). GOI-001 copy-paste guard. Rejected the bug spec&#x27;s stricter token-overlap proposal (~100 false positives from dictionary-form ↔ polite-form variation); cross-question duplication is the narrower-but-defensible proxy.</p>
+<ul>
+<li><strong>JA-121 trigger set extended</strong> — 7 new phrases catching</li>
+</ul>
+<p>GOI-002/003 patterns: &quot;Hence the rewording&quot;, &quot;rewording from a prior&quot;, &quot;from a prior version&quot;, &quot;documented at vocabulary_n5.md&quot;, &quot;documented at&quot;, &quot;does not bear on&quot;, &quot;test point this question&quot;.</p>
+<ul>
+<li><strong>Procedure manual F.35</strong> — Rationale content-discipline:</li>
+</ul>
+<p>Class A (copy-paste content-mismatch) + Class B (meta-content in learner-facing rationale). Complements F.30/F.33/F.34 to form the 5-invariant family on paper-question rationale fields (JA-121/122/ 129/130/136).</p>
+<ul>
+<li><strong>Accuracy prompt A74</strong> — Rationale content-discipline audit</li>
+</ul>
+<p>category.</p>
+<ul>
+<li><strong>N5Improvement Phase-0 rationale-content regression block</strong>.</li>
+<li><strong>AUDIT-COVERAGE Part 28</strong> — Close-out narrative.</li>
+</ul>
+<h3>State</h3>
+<p>CI <strong>139 / 139 invariants green</strong> (was 138; added JA-136 + JA-121 trigger extension). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>132 / 132 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: GOI-001..003 + JA-136 + JA-121-extension cover the 2 rationale-content defect classes surfaced by the 2026-05-19 goi paper-6 audit. Subtler defects (semantically-wrong-but-coherent rationale, misleading framing without trigger phrases) remain in manual-review territory.</p>
 <h2>Unreleased - 2026-05-19 (MOB-001..019 + DOKKAI-004 close-out — mobile UI compliance + 4 new CI invariants)</h2>
 <h3>Fixed</h3>
 <ul>
@@ -189,7 +227,7 @@
 <li><strong>AUDIT-COVERAGE Part 27</strong> — close-out narrative.</li>
 </ul>
 <h3>State</h3>
-<p>CI <strong>137 / 137 invariants green</strong> (was 133; added JA-131/132/133/134). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>132 / 132 Fixed / 0 Open</strong>.</p>
+<p>CI <strong>137 / 137 invariants green</strong> (was 133; added JA-131/132/133/134). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>129 / 129 Fixed / 0 Open</strong>.</p>
 <p>Bounded framing: MOB-001..019 + DOKKAI-004 + JA-131..134 cover the 5 mobile-UI defect classes surfaced by the 2026-05-19 Selenium mobile-emulation audit. Future audits may surface additional classes; this batch closes the currently-observed set.</p>
 <h2>Unreleased - 2026-05-18 (DOKKAI-001..003 close-out — paper schema-discipline + 3 new CI invariants)</h2>
 <h3>Fixed</h3>

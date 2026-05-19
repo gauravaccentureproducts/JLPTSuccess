@@ -1299,6 +1299,39 @@ Source: MOB-001..019 + DOKKAI-004 close-out (2026-05-19);
 procedure-manual §F.34 (5 mobile-UI defect classes A-E); accuracy
 prompt §A73; AUDIT-COVERAGE Part 27.
 
+### Phase-0 rationale-content regression block (added 2026-05-19)
+
+CI-enforced via JA-136 + JA-121 trigger extension (introduced
+2026-05-19). Maintainer-side Phase-0 mirror runs:
+
+1. **No cross-question rationale_hi duplication within same paper
+   (GOI-001 / JA-136)**
+   For each paper file, group questions by rationale_hi value; any
+   value (>30 chars) shared by 2+ questions is a copy-paste
+   suspect. Expected: 0 cross-question duplicates.
+
+2. **No meta-content trigger phrases in rationale (GOI-002/003 /
+   JA-121 extended)**
+   Trigger phrases: "Hence the rewording", "rewording from a
+   prior", "from a prior version", "documented at
+   vocabulary_n5.md", "documented at", "does not bear on", "test
+   point this question". Catches commit-trail + meta-doc-pointer
+   framing in learner-facing rationale. Expected: 0 hits.
+
+Bounded-coverage framing:
+  - "JA-136 catches *byte-identical duplication*" — semantic
+    near-duplicates (paraphrased copy-paste) slip past.
+  - "JA-121 extended catches *the trigger phrase set*" — creative
+    rephrasings of meta-content still need manual review.
+  - "Token-overlap content-mismatch deferred" — bug spec's original
+    stricter proposal rejected for false-positive rate; future
+    morphology-aware invariant could revive it.
+
+Source: GOI-001..003 close-out (2026-05-19); fix script
+tools/fix_goi_bugs_2026_05_19.py; procedure-manual §F.35 (Class A
+copy-paste content-mismatch + Class B meta-content); accuracy
+prompt §A74; AUDIT-COVERAGE Part 28.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
