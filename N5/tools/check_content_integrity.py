@@ -1322,6 +1322,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-132", "css/main.css + main.min.css carry MOB-001..016 mobile-UI compliance batch (MOB-002/003/004/005/011/012/013/014/015/016 drift guard, 2026-05-19)", lambda: _check_ja_132_touch_target_css_rules_present()),
     ("JA-133", "css/main.css has input/textarea/select font-size>=16px rule (MOB-006 iOS auto-zoom guard, 2026-05-19)", lambda: _check_ja_133_form_input_font_size_rule()),
     ("JA-134", "js/home.js + js/listening-story.js free of dead-end hash routes #/levels and #/listening/story (MOB-008/009 drift guard, 2026-05-19)", lambda: _check_ja_134_no_dead_end_hash_routes()),
+    # JA-135 (2026-05-19): general hash-route-resolution guard.
+    # Extends JA-134 from "2 specific known patterns" to "every hash-href
+    # in js/*.js resolves to a route in app.js's routes dict". Catches
+    # future MOB-008/009-class introductions without per-pattern
+    # hardcoding.
+    ("JA-135", "every #/X hash-route href in js/*.js resolves to a route in app.js routes dict (MOB-008/009 generalization, 2026-05-19)", lambda: _check_ja_135_all_hash_hrefs_resolve_to_routes()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6894,6 +6900,77 @@ def _check_ja_133_form_input_font_size_rule() -> list[str]:
                 "(MOB-006 iOS auto-zoom guard)"
             )
     return failures
+
+
+def _check_ja_135_all_hash_hrefs_resolve_to_routes() -> list[str]:
+    """MOB-008/009 follow-up (2026-05-19) — general hash-route-resolution
+    guard. Extends JA-134 from "2 specific known dead-end patterns"
+    to "every internal hash-route href in js/*.js resolves to a route
+    handler in app.js OR points at an explicit redirect path".
+
+    Parses app.js to extract the routes-dict keys (the canonical set of
+    valid route names), then greps every js/*.js file for hash-route
+    hrefs (`href="#/X"` or `href='#/X'` or `` `#/X` `` in template
+    literals) and asserts the first path segment exists in the routes
+    dict.
+
+    Trip cases caught:
+      - href="#/listening/story" while router only maps "listeningstory"
+        (the MOB-008 pattern; JA-134 covers this specifically but
+        JA-135 catches future analogues without per-pattern
+        hardcoding).
+      - href="#/X" where X is not in routes dict (new dead-end
+        introductions).
+
+    Skips:
+      - js/app.js itself (route definitions; would match itself)
+      - js/min/* (minified output; source-of-truth is js/*.js)
+      - Hash-only fragments (href="#" without a path) — non-routing
+        hash anchors.
+      - href="#/" (root) — handled by parseRoute default-to-home.
+      - Anchors with non-route-prefixed hashes (e.g., href="#footnote-1") — anchors within page, not routes.
+    """
+    import re as _re
+    failures: list[str] = []
+
+    app_js = ROOT / "js" / "app.js"
+    if not app_js.exists():
+        return ["JA-135 js/app.js missing"]
+
+    # Extract routes-dict keys from app.js. Pattern: `routes = { name: renderName, ... }`
+    # Look for the routes-dict block — heuristic: 30+ entries with `: render` mapping.
+    app_text = app_js.read_text(encoding="utf-8")
+    # Match all `key: render<X>,` patterns in app.js
+    routes = set(_re.findall(r"^\s*(\w+)\s*:\s*render\w+", app_text, _re.MULTILINE))
+    # Also add 'home' and other special-cased routes
+    routes.update({"home", "diagnostic"})
+    if len(routes) < 10:
+        return [f"JA-135 could not extract routes from app.js (found {len(routes)} entries; expected >=30)"]
+
+    # Scan every js/*.js file (skip min/) for hash-route hrefs
+    for js_fp in sorted((ROOT / "js").glob("*.js")):
+        if js_fp.name == "app.js":
+            continue  # routes defined here
+        text = js_fp.read_text(encoding="utf-8")
+        # Match href="#/X..." or href='#/X...' or `#/X...` in template literals
+        # First path segment of the hash route
+        for m in _re.finditer(r'''href\s*=\s*['"`]#/(\w+)''', text):
+            route_name = m.group(1)
+            if route_name not in routes:
+                failures.append(
+                    f"JA-135 {js_fp.name}: href=\"#/{route_name}/...\" but '{route_name}' "
+                    f"is not in app.js routes dict (dead-end hash route — MOB-008/009 class)"
+                )
+        # Also catch template literals `#/X...`
+        for m in _re.finditer(r'`#/(\w+)', text):
+            route_name = m.group(1)
+            if route_name not in routes:
+                failures.append(
+                    f"JA-135 {js_fp.name}: template literal `#/{route_name}/...` but '{route_name}' "
+                    f"is not in app.js routes dict (dead-end hash route — MOB-008/009 class)"
+                )
+    # Dedupe
+    return list(dict.fromkeys(failures))
 
 
 def _check_ja_134_no_dead_end_hash_routes() -> list[str]:

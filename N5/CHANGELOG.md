@@ -92,7 +92,7 @@ All user-visible changes to the JLPT N5 study material site.
 
 CI **137 / 137 invariants green** (was 133; added JA-131/132/133/134).
 `cross_artifact_sync_report.py` exits CLEAN.
-Bug tracker **132 / 132 Fixed / 0 Open**.
+Bug tracker **129 / 129 Fixed / 0 Open**.
 
 Bounded framing: MOB-001..019 + DOKKAI-004 + JA-131..134 cover the
 5 mobile-UI defect classes surfaced by the 2026-05-19 Selenium

@@ -779,15 +779,15 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-134; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-135; gaps for retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
 JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
 PAPER-001..004 close-out; JA-123..127 wired on 2026-05-18 from
 LLM-001..005 + REG-001 close-out; JA-128 / JA-129 / JA-130 wired on
 2026-05-18 from DOKKAI-001..003 close-out; JA-131..134 wired on
-2026-05-19 from MOB-001..019 + DOKKAI-004 close-out — see §25.4
-rows) that the script runs against every release. The script is the
+2026-05-19 from MOB-001..019 + DOKKAI-004 close-out; JA-135 wired
+2026-05-19 as MOB-008/009 generalization — see §25.4 rows) that the script runs against every release. The script is the
 source of truth; this section is its human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
@@ -991,6 +991,7 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-132 | `css/main.css` AND `css/main.min.css` both carry the MOB-001..016 mobile-UI compliance batch — marker comment `MOB-001..016 mobile UI compliance batch` AND `min-height: 44px` rules on `.btn-action`, `.study-order-link`, `.home-up-link a`, `.toc-expand-all`, `.brand-link`, `.skip-link`, `.btn-tiny`. MOB-002/003/004/005/011/012/013/014/015/016 (BUG-111..125) drift guard — catches accidental removal during a CSS-cleanup pass. INV-MOB-A. Wired 2026-05-19. | 2026-05-19 |
 | JA-133 | `css/main.css` contains the rule `input, textarea, select { font-size: max(1rem, 16px); }` (or equivalent ≥16px font-size on these selectors). MOB-006 (BUG-115) iOS Safari auto-zoom guard — when a focused form control has font-size < 16px, iOS Safari zooms the viewport and leaves the page zoomed-in. INV-MOB-B. Wired 2026-05-19. | 2026-05-19 |
 | JA-134 | `js/home.js` must NOT use `href="#/levels"` (silently redirects to root then triggers first-run onboarding to `#/diagnostic`); should use `href="../"` directly. `js/listening-story.js` must NOT use `"#/listening/story..."` references (silently redirects to listening index because the router maps `listeningstory` (no slash)); should use canonical `#/listeningstory...`. MOB-008/009 (BUG-117/118) drift guard. INV-MOB-C. Wired 2026-05-19. | 2026-05-19 |
+| JA-135 | Every internal `href="#/X"` hash-route reference in `js/*.js` (excluding `js/app.js` and `js/min/*`) must point to a route whose name appears in app.js's routes dict (extracted via regex on the canonical `name: render<X>` mapping). General hash-route-resolution guard — extends JA-134 from "2 specific known patterns" to "every internal hash-href resolves". Catches future MOB-008/009-class dead-end introductions without per-pattern hardcoding. INV-MOB-C-EXT. Wired 2026-05-19. | 2026-05-19 |
 
 ### 25.5 Locale parity & i18n
 

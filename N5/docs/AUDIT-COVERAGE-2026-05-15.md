@@ -4258,8 +4258,9 @@ CI count moved from 133 to **137 invariants** (133 + 4 new). All
 
 ### Bug-tracker after Part 27
 
-  - Total: 132 rows
-  - Fixed: 132 / 132 (BUG-110..129 all flipped to Fixed)
+  - Total: 129 rows (109 pre-Part-27 + 20 new MOB-* + DOKKAI-004
+    bugs filed AND closed in this commit)
+  - Fixed: 129 / 129 (BUG-110..129 all flipped to Fixed)
   - Open: 0
 
 ### Files touched (Part 27)
@@ -4288,7 +4289,7 @@ CI count moved from 133 to **137 invariants** (133 + 4 new). All
 
 CI **137 / 137 invariants green**.
 cross_artifact_sync_report.py EXIT: CLEAN.
-Bug tracker: **132 / 132 Fixed / 0 Open**.
+Bug tracker: **129 / 129 Fixed / 0 Open**.
 
 Bounded framing: JA-131..134 prevent re-introduction of *the
 specific bugs MOB-006/007/008/009 closed* + *the named touch-target

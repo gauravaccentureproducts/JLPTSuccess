@@ -1,0 +1,982 @@
+[
+  {
+    "scenario_id": "O-X-rootnav",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "/ resolves to home content",
+    "expected": "hash starts with #/home or home text present",
+    "actual": "hash=#/diagnostic, home-text-detected=True",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-010",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Primary nav has 9 links",
+    "expected": "learn/grammar, learn/vocab, kanji, reading, listening, test, sitting, missed, summary",
+    "actual": "found 9/9; missing=[]",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-015",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Search input font-size >= 16px",
+    "expected": ">= 16px",
+    "actual": "16px",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-021",
+    "device": "D-360",
+    "route": "",
+    "status": "FAIL",
+    "title": "All nav links >= 44x44 px",
+    "expected": "min(w,h) >= 44 for every a[data-route]",
+    "actual": "2 undersized: test=0x0, summary=0x0",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-018",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Locale toggle is touch-friendly",
+    "expected": "w/h >= 44px, label EN or HI",
+    "actual": "w=44, h=44, label=HI",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-017",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Locale toggle persists across reload",
+    "expected": "lang changes on click + persists after reload",
+    "actual": "clicked=True, initial=en, after=hi, after-reload=hi",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-lang",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "<html lang> reflects + changes on locale toggle",
+    "expected": "lang ∈ {en, hi} and changes after toggle",
+    "actual": "before=hi, after=en",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-012",
+    "device": "D-360",
+    "route": "",
+    "status": "FAIL",
+    "title": "Header sticky on long scroll",
+    "expected": "header.top ~ 0 with position sticky/fixed",
+    "actual": "top=16, position=sticky",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-err404",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Invalid route handled gracefully",
+    "expected": "non-blank fallback (404 message or home redirect)",
+    "actual": "children=1, text_preview=← All JLPT levels\n\nSYLLABUS\n\n01\n\nGrammar\n\n178 patterns\n\nBasic sentence structure",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-corrupt",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Corrupt localStorage recovery",
+    "expected": "App still loads + renders",
+    "actual": "skeleton-cleared=True, #app children=1",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-home",
+    "device": "D-360",
+    "route": "#/home",
+    "status": "PASS",
+    "title": "Route #/home renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-learn",
+    "device": "D-360",
+    "route": "#/learn",
+    "status": "PASS",
+    "title": "Route #/learn renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=5, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-learn_grammar",
+    "device": "D-360",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "Route #/learn/grammar renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=10, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-learn_vocab",
+    "device": "D-360",
+    "route": "#/learn/vocab",
+    "status": "PASS",
+    "title": "Route #/learn/vocab renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-kanji",
+    "device": "D-360",
+    "route": "#/kanji",
+    "status": "PASS",
+    "title": "Route #/kanji renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=5, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-reading",
+    "device": "D-360",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "Route #/reading renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=4, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-listening",
+    "device": "D-360",
+    "route": "#/listening",
+    "status": "PASS",
+    "title": "Route #/listening renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=8, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-listening_story",
+    "device": "D-360",
+    "route": "#/listening/story",
+    "status": "PASS",
+    "title": "Route #/listening/story renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=8, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-test",
+    "device": "D-360",
+    "route": "#/test",
+    "status": "PASS",
+    "title": "Route #/test renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=9, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-sitting",
+    "device": "D-360",
+    "route": "#/sitting",
+    "status": "PASS",
+    "title": "Route #/sitting renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-missed",
+    "device": "D-360",
+    "route": "#/missed",
+    "status": "PASS",
+    "title": "Route #/missed renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-summary",
+    "device": "D-360",
+    "route": "#/summary",
+    "status": "PASS",
+    "title": "Route #/summary renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=2, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-settings",
+    "device": "D-360",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "Route #/settings renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=7, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-changelog",
+    "device": "D-360",
+    "route": "#/changelog",
+    "status": "PASS",
+    "title": "Route #/changelog renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-privacy",
+    "device": "D-360",
+    "route": "#/privacy",
+    "status": "PASS",
+    "title": "Route #/privacy renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-notices",
+    "device": "D-360",
+    "route": "#/notices",
+    "status": "PASS",
+    "title": "Route #/notices renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-feedback",
+    "device": "D-360",
+    "route": "#/feedback",
+    "status": "PASS",
+    "title": "Route #/feedback renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-diagnostic",
+    "device": "D-360",
+    "route": "#/diagnostic",
+    "status": "PASS",
+    "title": "Route #/diagnostic renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=2, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-drill",
+    "device": "D-360",
+    "route": "#/drill",
+    "status": "PASS",
+    "title": "Route #/drill renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=2, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-examday",
+    "device": "D-360",
+    "route": "#/examday",
+    "status": "PASS",
+    "title": "Route #/examday renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-papers",
+    "device": "D-360",
+    "route": "#/papers",
+    "status": "PASS",
+    "title": "Route #/papers renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-review",
+    "device": "D-360",
+    "route": "#/review",
+    "status": "PASS",
+    "title": "Route #/review renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=5, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-weakareas",
+    "device": "D-360",
+    "route": "#/weakareas",
+    "status": "PASS",
+    "title": "Route #/weakareas renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-strategy",
+    "device": "D-360",
+    "route": "#/strategy",
+    "status": "PASS",
+    "title": "Route #/strategy renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-levels",
+    "device": "D-360",
+    "route": "#/levels",
+    "status": "PASS",
+    "title": "Route #/levels renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-mining",
+    "device": "D-360",
+    "route": "#/mining",
+    "status": "PASS",
+    "title": "Route #/mining renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-r-authentic",
+    "device": "D-360",
+    "route": "#/authentic",
+    "status": "PASS",
+    "title": "Route #/authentic renders (skeleton clears, content present)",
+    "expected": "skeleton hidden, #app has children",
+    "actual": "skeleton-cleared=True, #app children=1, error-text-detected=False",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-f-home",
+    "device": "D-360",
+    "route": "#/home",
+    "status": "FAIL",
+    "title": "Footer reachable on #/home",
+    "expected": "footer in viewport after scrollTo bottom",
+    "actual": "top=3020, bottom=3297, innerHeight=800, inview=False",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-f-learn_grammar",
+    "device": "D-360",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "Footer reachable on #/learn/grammar",
+    "expected": "footer in viewport after scrollTo bottom",
+    "actual": "top=459, bottom=736, innerHeight=800, inview=True",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-f-kanji",
+    "device": "D-360",
+    "route": "#/kanji",
+    "status": "FAIL",
+    "title": "Footer reachable on #/kanji",
+    "expected": "footer in viewport after scrollTo bottom",
+    "actual": "top=4960, bottom=5237, innerHeight=800, inview=False",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-f-reading",
+    "device": "D-360",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "Footer reachable on #/reading",
+    "expected": "footer in viewport after scrollTo bottom",
+    "actual": "top=459, bottom=736, innerHeight=800, inview=True",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-f-settings",
+    "device": "D-360",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "Footer reachable on #/settings",
+    "expected": "footer in viewport after scrollTo bottom",
+    "actual": "top=459, bottom=736, innerHeight=800, inview=True",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-a-listening",
+    "device": "D-360",
+    "route": "#/listening",
+    "status": "FAIL",
+    "title": "Audio UI present on #/listening",
+    "expected": ">= 1 audio element or play-button",
+    "actual": "audio=0, buttons=0",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-a-listening_story",
+    "device": "D-360",
+    "route": "#/listening/story",
+    "status": "FAIL",
+    "title": "Audio UI present on #/listening/story",
+    "expected": ">= 1 audio element or play-button",
+    "actual": "audio=0, buttons=0",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-a-reading",
+    "device": "D-360",
+    "route": "#/reading",
+    "status": "FAIL",
+    "title": "Audio UI present on #/reading",
+    "expected": ">= 1 audio element or play-button",
+    "actual": "audio=0, buttons=0",
+    "severity": "Minor"
+  },
+  {
+    "scenario_id": "O-S-k-grid",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Kanji grid items >= 44x44",
+    "expected": "all kanji grid items meet HIG minimum",
+    "actual": "0/106 undersized",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-g-count",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Grammar list shows pattern entries",
+    "expected": "≥ 50 pattern entries (~178 total in N5)",
+    "actual": "found 180 candidate items",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-S-s-controls",
+    "device": "D-360",
+    "route": "",
+    "status": "PASS",
+    "title": "Settings has interactive controls",
+    "expected": "≥ 2 form controls in settings route",
+    "actual": "found 22 input/select/button/switch",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-home",
+    "device": "D-320",
+    "route": "#/home",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/home",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-learn_grammar",
+    "device": "D-320",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/grammar",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-learn_vocab",
+    "device": "D-320",
+    "route": "#/learn/vocab",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/vocab",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-kanji",
+    "device": "D-320",
+    "route": "#/kanji",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/kanji",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-reading",
+    "device": "D-320",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/reading",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-listening",
+    "device": "D-320",
+    "route": "#/listening",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/listening",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-test",
+    "device": "D-320",
+    "route": "#/test",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/test",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-settings",
+    "device": "D-320",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/settings",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-missed",
+    "device": "D-320",
+    "route": "#/missed",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/missed",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-320-summary",
+    "device": "D-320",
+    "route": "#/summary",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/summary",
+    "expected": "scrollWidth <= innerWidth (320)",
+    "actual": "scrollWidth = 320, innerWidth = 320",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-home",
+    "device": "D-360",
+    "route": "#/home",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/home",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-learn_grammar",
+    "device": "D-360",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/grammar",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-learn_vocab",
+    "device": "D-360",
+    "route": "#/learn/vocab",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/vocab",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-kanji",
+    "device": "D-360",
+    "route": "#/kanji",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/kanji",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-reading",
+    "device": "D-360",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/reading",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-listening",
+    "device": "D-360",
+    "route": "#/listening",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/listening",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-test",
+    "device": "D-360",
+    "route": "#/test",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/test",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-settings",
+    "device": "D-360",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/settings",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-missed",
+    "device": "D-360",
+    "route": "#/missed",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/missed",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-360-summary",
+    "device": "D-360",
+    "route": "#/summary",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/summary",
+    "expected": "scrollWidth <= innerWidth (360)",
+    "actual": "scrollWidth = 360, innerWidth = 360",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-home",
+    "device": "D-375",
+    "route": "#/home",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/home",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-learn_grammar",
+    "device": "D-375",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/grammar",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-learn_vocab",
+    "device": "D-375",
+    "route": "#/learn/vocab",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/vocab",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-kanji",
+    "device": "D-375",
+    "route": "#/kanji",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/kanji",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-reading",
+    "device": "D-375",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/reading",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-listening",
+    "device": "D-375",
+    "route": "#/listening",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/listening",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-test",
+    "device": "D-375",
+    "route": "#/test",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/test",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-settings",
+    "device": "D-375",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/settings",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-missed",
+    "device": "D-375",
+    "route": "#/missed",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/missed",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-375-summary",
+    "device": "D-375",
+    "route": "#/summary",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/summary",
+    "expected": "scrollWidth <= innerWidth (375)",
+    "actual": "scrollWidth = 375, innerWidth = 375",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-home",
+    "device": "D-414",
+    "route": "#/home",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/home",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-learn_grammar",
+    "device": "D-414",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/grammar",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-learn_vocab",
+    "device": "D-414",
+    "route": "#/learn/vocab",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/vocab",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-kanji",
+    "device": "D-414",
+    "route": "#/kanji",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/kanji",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-reading",
+    "device": "D-414",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/reading",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-listening",
+    "device": "D-414",
+    "route": "#/listening",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/listening",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-test",
+    "device": "D-414",
+    "route": "#/test",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/test",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-settings",
+    "device": "D-414",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/settings",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-missed",
+    "device": "D-414",
+    "route": "#/missed",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/missed",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-414-summary",
+    "device": "D-414",
+    "route": "#/summary",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/summary",
+    "expected": "scrollWidth <= innerWidth (414)",
+    "actual": "scrollWidth = 414, innerWidth = 414",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-home",
+    "device": "D-768",
+    "route": "#/home",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/home",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-learn_grammar",
+    "device": "D-768",
+    "route": "#/learn/grammar",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/grammar",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-learn_vocab",
+    "device": "D-768",
+    "route": "#/learn/vocab",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/learn/vocab",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-kanji",
+    "device": "D-768",
+    "route": "#/kanji",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/kanji",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-reading",
+    "device": "D-768",
+    "route": "#/reading",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/reading",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-listening",
+    "device": "D-768",
+    "route": "#/listening",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/listening",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-test",
+    "device": "D-768",
+    "route": "#/test",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/test",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-settings",
+    "device": "D-768",
+    "route": "#/settings",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/settings",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-missed",
+    "device": "D-768",
+    "route": "#/missed",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/missed",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  },
+  {
+    "scenario_id": "O-X-hs-D-768-summary",
+    "device": "D-768",
+    "route": "#/summary",
+    "status": "PASS",
+    "title": "No horizontal scroll on #/summary",
+    "expected": "scrollWidth <= innerWidth (768)",
+    "actual": "scrollWidth = 768, innerWidth = 768",
+    "severity": "Major"
+  }
+]
