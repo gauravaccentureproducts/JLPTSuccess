@@ -1,0 +1,1278 @@
+{
+  "scan_root": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\N5",
+  "scanned_files": 444,
+  "candidates_total": 77,
+  "movable": [
+    "tools/accuracy_audit_2026_05_13_fixes.py",
+    "tools/add_recording_directions_2026_05_07.py",
+    "tools/add_sync_drift_scenarios_2026_05_17.py",
+    "tools/audit_listening_kanji_readings_explore_2026_05_08.py",
+    "tools/audit_remaining_fills_2026_05_13.py",
+    "tools/backfill_goi_004_006_commit_2026_05_21.py",
+    "tools/correct_audit_drift_2026_05_13.py",
+    "tools/fix_bug_013_rename_variant_keys_2026_05_16.py",
+    "tools/fix_bug_019_dedup_more_vocab_2026_05_16.py",
+    "tools/fix_bug_023_vocab_kanji_forms_2026_05_17.py",
+    "tools/fix_bug_024_kanji_compound_dups_2026_05_17.py",
+    "tools/fix_bugs_039_040_test_scenarios_followup_2026_05_17.py",
+    "tools/fix_ts_bugs_test_scenarios_2026_05_17.py",
+    "tools/jce_3_reading_grammar_footnotes_2026_05_08.py",
+    "tools/jce_7_kanji_stroke_mistakes_2026_05_08.py",
+    "tools/legal_audit_2026_05_13_remediation.py",
+    "tools/register_audit_2026_05_13.py",
+    "tools/run_test_scenarios_2026_05_17.py",
+    "tools/trim_legacy_xlsx_2026_05_17.py",
+    "tools/update_test_scenarios_bug_linkage_2026_05_17.py",
+    "tools/vocab_depth_fills_2026_05_13.py"
+  ],
+  "keep_with_references": [
+    {
+      "file": "tools/add_ui_tests_tab_2026_05_17.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3526
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3751
+        }
+      ]
+    },
+    {
+      "file": "tools/apply_bug006_candidate_fixes_2026_05_17.py",
+      "ref_count": 4,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1048
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3120
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3192
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3538
+        }
+      ]
+    },
+    {
+      "file": "tools/apply_ja91_explanation_rewrites_2026_05_17.py",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1016
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 1049
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3194
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3539
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1052
+        }
+      ]
+    },
+    {
+      "file": "tools/apply_phase15_rubberband_2026_05_17.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1108
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3003
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3061
+        }
+      ]
+    },
+    {
+      "file": "tools/apply_phase2_rubberband_chained_items_2026_05_17.py",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 937
+        },
+        {
+          "path": "docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md",
+          "line": 64
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3341
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 326
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3605
+        }
+      ]
+    },
+    {
+      "file": "tools/audit_listening_audio_readings_2026_05_08.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "tools/audit_listening_kanji_readings_explore_2026_05_08.py",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "file": "tools/audit_rationale_overlap_2026_05_21.py",
+      "ref_count": 11,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 9426
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 121
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4889
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4948
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4967
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 5084
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 346
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 4313
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1368
+        },
+        {
+          "path": "specifications/JLPT-N5-Current-Implementation-Spec.md",
+          "line": 1024
+        }
+      ]
+    },
+    {
+      "file": "tools/author_pattern_markers_2026_05_17.py",
+      "ref_count": 15,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1151
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 1189
+        },
+        {
+          "path": "data/pattern_markers.json",
+          "line": 4
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2843
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2907
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2928
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 328
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3537
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1057
+        },
+        {
+          "path": "specifications/JLPT-N5-Current-Implementation-Spec.md",
+          "line": 1005
+        }
+      ]
+    },
+    {
+      "file": "tools/brutal_honesty_audit_2026_05_17.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3521
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3683
+        }
+      ]
+    },
+    {
+      "file": "tools/build_listening_audio_multivoice_2026_05_07.py",
+      "ref_count": 17,
+      "first_refs": [
+        {
+          "path": "AUDIO.md",
+          "line": 117
+        },
+        {
+          "path": "AUDIO.md",
+          "line": 158
+        },
+        {
+          "path": "AUDIO.md",
+          "line": 210
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 3322
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 3355
+        },
+        {
+          "path": "NOTICES.md",
+          "line": 39
+        },
+        {
+          "path": "NOTICES.md",
+          "line": 85
+        },
+        {
+          "path": "README.md",
+          "line": 106
+        },
+        {
+          "path": "README.md",
+          "line": 136
+        },
+        {
+          "path": "TASKS.md",
+          "line": 268
+        }
+      ]
+    },
+    {
+      "file": "tools/build_llm_surfaces_2026_05_18.py",
+      "ref_count": 22,
+      "first_refs": [
+        {
+          "path": ".github/workflows/regen-llm-surfaces.yml",
+          "line": 11
+        },
+        {
+          "path": ".github/workflows/regen-llm-surfaces.yml",
+          "line": 25
+        },
+        {
+          "path": ".github/workflows/regen-llm-surfaces.yml",
+          "line": 33
+        },
+        {
+          "path": ".github/workflows/regen-llm-surfaces.yml",
+          "line": 39
+        },
+        {
+          "path": ".github/workflows/regen-llm-surfaces.yml",
+          "line": 62
+        },
+        {
+          "path": ".github/workflows/regen-llm-surfaces.yml",
+          "line": 79
+        },
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 8761
+        },
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 9253
+        },
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 9438
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 130
+        }
+      ]
+    },
+    {
+      "file": "tools/build_unit_tests_sheet_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 220
+        }
+      ]
+    },
+    {
+      "file": "tools/cleanup_orphan_audio_2026_05_03.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "AUDIO.md",
+          "line": 120
+        },
+        {
+          "path": "feedback/MASTER-TASK-LIST.md",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "file": "tools/file_brutal_honesty_findings_2026_05_17.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3522
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3684
+        }
+      ]
+    },
+    {
+      "file": "tools/file_goi_004_006_bugs_2026_05_21.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 84
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 5063
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 347
+        }
+      ]
+    },
+    {
+      "file": "tools/file_native_review_bugs_2026_05_17.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3509
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3680
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_011_register_variants_2026_05_16.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7053
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_012_review_status_rename_2026_05_16.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7170
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_014_vocab_template_nonsense_2026_05_16.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7415
+        },
+        {
+          "path": "tools/check_content_integrity.py",
+          "line": 1080
+        },
+        {
+          "path": "tools/check_content_integrity.py",
+          "line": 6749
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_015_counter_schema_2026_05_16.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7416
+        },
+        {
+          "path": "tools/check_content_integrity.py",
+          "line": 6707
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_016_verb_transitivity_2026_05_16.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7417
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_017_oos_kanji_vocab_forms_2026_05_16.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7418
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_018_dedup_vocab_sections_2026_05_16.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7419
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_020_kanji_oos_compounds_2026_05_16.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7622
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_021_primary_reading_kun_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7623
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bug_022_kanji_examples_form_field_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7624
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bugs_023_to_038_test_scenarios_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "tools/stamp_remaining_specialist_scenarios_2026_05_17.py",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bugs_041_to_046_reading_json_2026_05_17.py",
+      "ref_count": 4,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 7861
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 1674
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 2283
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3279
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_bugs_047_to_053_listening_json_2026_05_17.py",
+      "ref_count": 6,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 8090
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 2061
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 2150
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 1988
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 2386
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3352
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_dokkai_bugs_2026_05_18.py",
+      "ref_count": 8,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 9040
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 535
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4140
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4163
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 339
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 4067
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1251
+        },
+        {
+          "path": "tools/fix_dokkai_bugs_horizontal_2026_05_18.py",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_dokkai_bugs_horizontal_2026_05_18.py",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4143
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4164
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 339
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 4068
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1252
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_dokkai_mojibake_2026_05_21.py",
+      "ref_count": 7,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 46
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 88
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 5062
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 347
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 4323
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1378
+        },
+        {
+          "path": "tools/flip_goi_004_006_fixed_2026_05_21.py",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_goi_004_006_2026_05_21.py",
+      "ref_count": 8,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 86
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 5061
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 347
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 4323
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1378
+        },
+        {
+          "path": "tools/flip_goi_004_006_fixed_2026_05_21.py",
+          "line": 44
+        },
+        {
+          "path": "tools/flip_goi_004_006_fixed_2026_05_21.py",
+          "line": 57
+        },
+        {
+          "path": "tools/flip_goi_004_006_fixed_2026_05_21.py",
+          "line": 69
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_goi_bugs_2026_05_19.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4394
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 4217
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1331
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_hindi_jlpt_review_bugs_2026_05_17.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3511
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3681
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_paper_bugs_2026_05_18.py",
+      "ref_count": 7,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 716
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3737
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3758
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 337
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3802
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3840
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1164
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_paper_bugs_part2_2026_05_18.py",
+      "ref_count": 6,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 716
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3740
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3759
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 337
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3884
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1165
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_reg_001_2026_05_18.py",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3948
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3971
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 338
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3996
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1212
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_reg_001_d6_migrations_2026_05_18.py",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3950
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3972
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 338
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3997
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1213
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_specialist_review_bugs_2026_05_17.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3517
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3682
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_truncated_audio_2026_05_07.py",
+      "ref_count": 14,
+      "first_refs": [
+        {
+          "path": "AUDIO.md",
+          "line": 119
+        },
+        {
+          "path": "AUDIO.md",
+          "line": 169
+        },
+        {
+          "path": "AUDIO.md",
+          "line": 180
+        },
+        {
+          "path": "AUDIO.md",
+          "line": 274
+        },
+        {
+          "path": "TASKS.md",
+          "line": 249
+        },
+        {
+          "path": "docs/NATIVE-AUDIO-WORKFLOW.md",
+          "line": 148
+        },
+        {
+          "path": "docs/RECORDING-BRIEF.ja.md",
+          "line": 255
+        },
+        {
+          "path": "docs/RECORDING-BRIEF.ja.md",
+          "line": 362
+        },
+        {
+          "path": "docs/RECORDING-BRIEF.md",
+          "line": 282
+        },
+        {
+          "path": "docs/RECORDING-BRIEF.md",
+          "line": 389
+        }
+      ]
+    },
+    {
+      "file": "tools/fix_user_bugs_003_to_009_2026_05_16.py",
+      "ref_count": 2,
+      "first_refs": [
+        {
+          "path": "C:\\Users\\gaurav.l.srivastava\\Documents\\VS Code\\JLPT\\JLPTSuccess\\JLPT Common\\procedure-manual-build-next-jlpt-level.md",
+          "line": 6712
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3230
+        }
+      ]
+    },
+    {
+      "file": "tools/flip_goi_004_006_fixed_2026_05_21.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 90
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 5064
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 347
+        }
+      ]
+    },
+    {
+      "file": "tools/mark_bugs_047_to_053_fixed_2026_05_17.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 2152
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 1990
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 2388
+        }
+      ]
+    },
+    {
+      "file": "tools/populate_bug_fix_commits_2026_05_17.py",
+      "ref_count": 9,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1491
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 1527
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2759
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 178
+        },
+        {
+          "path": "specifications/JLPT-N5-Current-Implementation-Spec.md",
+          "line": 1000
+        },
+        {
+          "path": "specifications/JLPT-N5-Current-Implementation-Spec.md",
+          "line": 1157
+        },
+        {
+          "path": "tools/check_content_integrity.py",
+          "line": 1218
+        },
+        {
+          "path": "tools/check_content_integrity.py",
+          "line": 5711
+        },
+        {
+          "path": "tools/check_content_integrity.py",
+          "line": 5748
+        }
+      ]
+    },
+    {
+      "file": "tools/refresh_audio_manifest_skipped_2026_05_03.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "AUDIO.md",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "file": "tools/refresh_listening_pacing_2026_05_17.py",
+      "ref_count": 13,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1770
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 1831
+        },
+        {
+          "path": "docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md",
+          "line": 55
+        },
+        {
+          "path": "docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md",
+          "line": 70
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2312
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2338
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2977
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2999
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3288
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "file": "tools/register_audit_2026_05_12.py",
+      "ref_count": 6,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 2252
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 1815
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 3261
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 3267
+        },
+        {
+          "path": "specifications/JLPT-N5-Current-Implementation-Spec.md",
+          "line": 1090
+        },
+        {
+          "path": "tools/add_sync_drift_scenarios_2026_05_17.py",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "file": "tools/render_listening_phase2_voicevox_1_00_2026_05_17.py",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 934
+        },
+        {
+          "path": "docs/AUDIO-PHASE2-VOICEVOX-RERENDER.md",
+          "line": 48
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3338
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 326
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3604
+        }
+      ]
+    },
+    {
+      "file": "tools/stamp_hindi_jlpt_scenarios_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3513
+        }
+      ]
+    },
+    {
+      "file": "tools/stamp_remaining_specialist_scenarios_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3519
+        }
+      ]
+    },
+    {
+      "file": "tools/sweep1_triage_2026_05_19.py",
+      "ref_count": 3,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4591
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 4602
+        },
+        {
+          "path": "docs/cross-artifact-sync-map.md",
+          "line": 343
+        }
+      ]
+    },
+    {
+      "file": "tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py",
+      "ref_count": 4,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 1529
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 1982
+        },
+        {
+          "path": "CHANGELOG.md",
+          "line": 2025
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 2103
+        }
+      ]
+    },
+    {
+      "file": "tools/ui_test_results_2026_05_17.json",
+      "ref_count": 5,
+      "first_refs": [
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3734
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1078
+        },
+        {
+          "path": "tools/add_ui_tests_tab_2026_05_17.py",
+          "line": 20
+        },
+        {
+          "path": "tools/add_ui_tests_tab_2026_05_17.py",
+          "line": 168
+        },
+        {
+          "path": "tools/ui_test_suite_2026_05_17.py",
+          "line": 496
+        }
+      ]
+    },
+    {
+      "file": "tools/ui_test_suite_2026_05_17.py",
+      "ref_count": 10,
+      "first_refs": [
+        {
+          "path": "CHANGELOG.md",
+          "line": 791
+        },
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3524
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3732
+        },
+        {
+          "path": "prompts/Japanese language Accuracy check.txt",
+          "line": 3750
+        },
+        {
+          "path": "prompts/N5Improvement.txt",
+          "line": 1077
+        },
+        {
+          "path": "tools/add_ui_tests_tab_2026_05_17.py",
+          "line": 2
+        },
+        {
+          "path": "tools/add_ui_tests_tab_2026_05_17.py",
+          "line": 151
+        },
+        {
+          "path": "tools/add_ui_tests_tab_2026_05_17.py",
+          "line": 198
+        },
+        {
+          "path": "tools/add_ui_tests_tab_2026_05_17.py",
+          "line": 209
+        },
+        {
+          "path": "tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "file": "tools/verify_specialist_review_2026_05_17.py",
+      "ref_count": 1,
+      "first_refs": [
+        {
+          "path": "docs/AUDIT-COVERAGE-2026-05-15.md",
+          "line": 3515
+        }
+      ]
+    }
+  ]
+}
