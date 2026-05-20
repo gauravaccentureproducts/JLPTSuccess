@@ -4723,3 +4723,135 @@ scanned — the 54 register_variant entries from SWEEP-1 already
 carry `label_b` + `scope_note` where the form is OOS keigo;
 pattern-level scope documents the rest. JA-129 trigger extension
 proven safe by 0-hit pre-deployment scan against the full corpus.
+
+## ADDENDUM 2026-05-19 (Part 31) — Tier 3: SWEEP-2 + SWEEP-3 audits (both clean)
+
+### Trigger
+
+User-requested Tier 3 of the REG-001 native-Japanese-teacher work:
+SWEEP-2 (semantically-distinct forms presented as register-
+equivalents) and SWEEP-3 (formality vs elevation conflation in
+labels/explanations).
+
+### SWEEP-2 results — CLEAN
+
+Audited all 54 register_variant entries + all `wrong_corrected_pair`
+entries with multi-alternative `correct` fields. Checking: do
+form_a and form_b (or wrong/correct alternatives) refer to the
+SAME proposition / question type, just in different register?
+
+  - **54 register_variant entries: 0 violations.** All entries
+    pair semantically-equivalent forms. Borderline case
+    n5-069[3] (てから vs 〜て: explicit-sequence vs neutral
+    connective) has accurate labels + the `why` field honestly
+    notes "register / emphasis choice" — emphasis-variation
+    within the same proposition, not semantic divergence.
+  - **3 wcp candidates with multi-alternative `correct` fields:**
+    - n5-024[0] (coffee-or-tea question structure): `corrects`
+      offer two syntactic ways to express the same OR-choice
+      question. Semantically equivalent.
+    - n5-051[1] (why-question with stray か): `corrects` offer
+      なぜですか / どうしてですか — both mean "why?". Synonyms,
+      semantically equivalent.
+    - n5-152[0] (casual thanks intensity): `corrects` offer
+      ありがとう / どうも. Both express thanks at the same
+      casual level. Semantically equivalent.
+  - **0 actual SWEEP-2 D2 violations** in the wcp entries.
+
+The original REG-001 D2 fix (n5-046's どんな 人 alternative removed)
+was the only instance of the conflated-semantics class; post-fix,
+the corpus is clean against this defect pattern.
+
+### SWEEP-3 results — CLEAN
+
+Scanned register_variant entries for formality/elevation/intimacy
+conflation. Trigger: `form_b` contains an actually-elevation keigo
+verb (尊敬: なさる / いらっしゃる / くださる / ご覧になる / 召し上がる;
+謙譲: いただく / 拝見 / 参る / 申し上 / 伺う / 存じ) AND `label_b`
+does NOT mention 尊敬/謙譲/honorific/humble/elevation/keigo/higher-
+respect — i.e., labels the form only as "formal"/"polite" when it
+should specify elevation.
+
+  - **1 candidate flagged** by trigger: n5-097[cm-3] (どっち vs
+    どちら). Manual review: どちら is a polite/formal interrogative,
+    not strictly 尊敬-elevation. The existing label "polite /
+    written / formal" is ACCURATE for どちら as used in this
+    context (Of A or B, which do you like?). The trigger was a
+    false positive from over-broad keigo keyword matching.
+  - **0 actual SWEEP-3 violations.**
+
+The 21 A-class migrations from SWEEP-1 (Tier 1) consistently use
+explicit elevation labels — "honorific (尊敬)", "humble (謙譲)",
+"higher-respect", "elevates the X" — never confusing the axes.
+
+### No code changes from Tier 3
+
+Both sweeps return clean. No grammar.json modifications. This is a
+documentation-only commit recording the audit outcome.
+
+### Pending future work (deferred — all of these need actual native-speaker input, not LLM-with-reference)
+
+  - **Native-speaker re-verification** of all 21 A-class
+    migrations (Tier 1) marked with `llm_curated_with_reference_*`
+    provenance — eventual conversion to `native_reviewed` after
+    human review.
+  - **Orthography-policy decision** (SWEEP-5 surfaced in Part 29)
+    — needs maintainer input. Current corpus uses kana-first for
+    whitelist kanji at N5 level; the REG-001 D5 assumption that
+    kanji-first is the policy conflicts with documented practice.
+  - **Token-overlap content-mismatch invariant** (GOI-001 follow-
+    up) — pending morphological-stemming integration to revive
+    the stricter rationale_hi ↔ stem/correctAnswer check that
+    JA-136 currently approximates via cross-question duplication.
+  - **LLM-005 build-script CI integration** into
+    `.github/workflows/` — automation TODO.
+
+### CI count after Part 31
+
+**139** (unchanged — Tier 3 is audit-only, 0 code changes, 0 new
+invariants).
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 31
+
+  - Total: 132 rows (unchanged — no new bug filings)
+  - Fixed: 132 / 132 (unchanged)
+  - Open: 0
+
+### Files touched (Part 31)
+
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 31)
+  - N5/docs/cross-artifact-sync-map.md (Part 31 audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+No `grammar.json` / `check_content_integrity.py` / data changes —
+documentation-only commit recording the clean audit result.
+
+### Final state for Part 31
+
+CI **139 / 139 invariants green** (unchanged).
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **132 / 132 Fixed / 0 Open**.
+
+REG-001 SWEEP series status:
+  - **SWEEP-1** Tier 1: 21 A migrations + 15 C recategorizations
+    + 1 B-escape — closed in commit 8c06567.
+  - **SWEEP-4** Tier 2: clean — no actionable items beyond
+    SWEEP-1's coverage. Closed in commit 7059ba7.
+  - **SWEEP-2** Tier 3: clean — 0 violations after audit of
+    54 register_variant entries + 3 wcp multi-correct candidates.
+    Closed in this commit.
+  - **SWEEP-3** Tier 3: clean — 0 violations. The 1 trigger
+    candidate (n5-097 どちら) was a false positive; existing
+    "polite / formal" label is accurate. Closed in this commit.
+  - **SWEEP-5** declined-with-reason (Part 29) — corpus convention
+    conflicts with bug spec; surfaced as policy item.
+  - **SWEEP-6** (the JA-127 D6 self-contradiction guard) — already
+    closed in earlier batches (REG-001 close-out + 5 D6 follow-ups
+    + Tier 1 B-escape n5-125[0]).
+
+All 6 sweeps closed-against-currently-observed-values or declined-
+with-reason. Honest-provenance flag
+`llm_curated_with_reference_genki_minna_jees_2026_05_19` remains
+on Tier 1's 21 A migrations — surfaced marker for future actual-
+native-speaker re-verification.

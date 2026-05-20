@@ -84,6 +84,21 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-19 (Tier 3: SWEEP-2 + SWEEP-3 audits — both clean, REG-001 closed)</h2>
+<h3>Audit completed (no code changes)</h3>
+<ul>
+<li><strong>REG-001 SWEEP-2</strong> (semantically-distinct forms presented as</li>
+</ul>
+<p>register-equivalents): scanned all 54 register_variant entries + 3 multi-alternative wrong_corrected_pair candidates. <strong>0 violations.</strong> All register_variant pairs are semantically equivalent modulo register. The borderline n5-069[3] (てから vs 〜て) has accurate labels and honestly notes &quot;register / emphasis choice&quot;. The 3 wcp candidates with multi-alternative corrects all offer synonyms/syntactic-variants, not semantically-distinct alternatives.</p>
+<ul>
+<li><strong>REG-001 SWEEP-3</strong> (formality vs elevation conflation):</li>
+</ul>
+<p>scanned register_variant labels for over-claiming or under- claiming the elevation axis. <strong>0 violations.</strong> All 21 A-class migrations from Tier 1 use explicit elevation labels (&quot;honorific (尊敬)&quot;, &quot;humble (謙譲)&quot;, &quot;higher-respect&quot;, &quot;elevates the X&quot;) where appropriate; never confuse formality with elevation. The 1 trigger-candidate (n5-097 どちら) was a false positive — どちら is correctly labeled &quot;polite / formal&quot; (not over-claimed as 尊敬 elevation).</p>
+<h3>REG-001 sweep series — all closed</h3>
+<p>| Sweep | Status | |---|---| | SWEEP-1 (Tier 1) | Closed — 21 A migrations + 15 C recategorizations + 1 B-escape (commit <code>8c06567</code>) | | SWEEP-2 (Tier 3) | Closed — 0 violations, audit only | | SWEEP-3 (Tier 3) | Closed — 0 violations, audit only | | SWEEP-4 (Tier 2) | Closed — 0 actionable items beyond SWEEP-1 coverage (commit <code>7059ba7</code>) | | SWEEP-5 | Declined-with-reason — corpus convention conflicts with bug spec D5; surfaced as project-level orthography-policy decision item (Part 29) | | SWEEP-6 | Closed earlier — JA-127 D6 guard + 5 D6 follow-ups + Tier 1 B-escape n5-125[0] |</p>
+<h3>State</h3>
+<p>CI <strong>139 / 139 invariants green</strong> (unchanged). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>132 / 132 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: all 6 REG-001 sweeps closed-against-currently- observed-values or declined-with-reason. Honest-provenance flag <code>llm_curated_with_reference_genki_minna_jees_2026_05_19</code> remains on Tier 1&#x27;s 21 A migrations as the surfaced marker for future actual-native-speaker re-verification. The &quot;native-Japanese teacher&quot; persona is documented honestly as LLM-with-reference review (Genki I, Minna no Nihongo I, JEES official N5 sample papers, standard reference material), NOT actual native speaker.</p>
 <h2>Unreleased - 2026-05-19 (Tier 2: SWEEP-4 OOS-keigo audit + JA-129 trigger extension)</h2>
 <h3>Changed</h3>
 <ul>
