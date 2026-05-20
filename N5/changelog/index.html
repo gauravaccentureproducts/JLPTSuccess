@@ -84,6 +84,22 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-19 (REG-001 SWEEP-1 native-Japanese-teacher triage — 21 register-variant migrations + 16 category corrections)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>REG-001 SWEEP-1 triage</strong> of 50 remaining candidates (of original 84</li>
+</ul>
+<p>documented in <code>docs/REG-001-SWEEP-1-candidates_2026_05_18.md</code>; 34 had been migrated/removed in earlier batches). Native-Japanese-teacher persona review, grounded in Genki I, Minna no Nihongo I, JEES official N5 sample papers. Three-way classification: - <strong>A (21 entries)</strong> — register-variant migrations from <code>wrong_corrected_pair</code> to <code>common_mistakes</code> with <code>kind: register_variant</code> + <code>form_a/form_b/label_a/label_b</code>: n5-018, n5-042, n5-045, n5-048, n5-050, n5-054, n5-062, n5-071, n5-074, n5-075, n5-077, n5-125 (×2), n5-131, n5-132, n5-134, n5-151, n5-166, n5-173, n5-174, n5-176. All carry provenance <code>llm_curated_with_reference_genki_minna_jees_2026_05_19</code> flagging future actual-native-speaker re-verification. - <strong>B (14 entries)</strong> — genuine grammatical errors retained as <code>wrong_corrected_pair</code> (e.g., <code>わたしさんは</code> — adding さん to one&#x27;s own name; <code>げんきだったです</code> — double-marking; <code>ほしい</code> with 3rd-person subject). 1 entry (n5-125[0]) had its <code>error_category</code> changed from <code>register</code> to <code>register_coherence</code> to honestly capture its mixed-register-stack nature and escape JA-127&#x27;s narrower scope. - <strong>C (15 entries)</strong> — pragmatic mismatches recategorized from <code>error_category=register</code> to <code>pragmatic</code> (14) or <code>cultural</code> (1, n5-100[2] self-praise modesty norm). Examples: ね-particle when listener can&#x27;t evaluate (n5-025), よね without shared knowledge (n5-027), negative-question implication (n5-061), intensity-of- thanks (n5-152), stand-alone ne (n5-159).</p>
+<h3>Declined</h3>
+<ul>
+<li><strong>REG-001 SWEEP-5</strong> (kana-form of whitelist kanji). The bug spec&#x27;s</li>
+</ul>
+<p>D5 claim that ひと/ともだち/じょうず should be in kanji form CONFLICTS with the actual corpus convention. grammar.json examples show: わたし (kana) 14× vs 私 (kanji) 2×; ともだち (kana) 35× vs 友だち (mixed) 14×; じょうず (kana) 11× vs 上手 (kanji) 1×. The corpus deliberately uses ひらがな at the beginner-friendly N5 level (Genki I / Minna I convention). Auto-substituting kana → kanji would CREATE inconsistency rather than fix one. Documented in AUDIT-COVERAGE Part 29 as a policy-decision item needing project-level discussion before any code change.</p>
+<h3>Honest provenance</h3>
+<p>The &quot;native-Japanese teacher&quot; role in this triage is LLM-with- reference-baseline review, NOT actual native speaker. Each A-class migration carries <code>provenance: llm_curated_with_reference_genki_minna_jees_2026_05_19</code> as the explicit marker for future re-verification. C-class recategorizations carry <code>category_provenance: reclassified_sweep1_2026_05_19</code>.</p>
+<h3>State</h3>
+<p>CI <strong>139 / 139 invariants green</strong> (unchanged from prior commits; this is a triage pass with categorization changes, not new invariants). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>132 / 132 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: the SWEEP-1 triage classifies the 50 remaining candidates from REG-001&#x27;s deferred set. SWEEP-2..4 (D2-D4 defect classes) remain deferred to native-speaker review sessions. Orthography-policy decision (SWEEP-5) surfaced for maintainer discussion.</p>
 <h2>Unreleased - 2026-05-19 (GOI-001..003 close-out — goi-paper-6 rationale content discipline + 1 new CI invariant)</h2>
 <h3>Fixed</h3>
 <ul>

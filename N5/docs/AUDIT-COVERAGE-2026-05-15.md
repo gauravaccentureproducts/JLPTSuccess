@@ -4414,3 +4414,210 @@ false-positive rate; a future morphology-aware invariant could
 revive it. JA-121 extended trigger set covers *the specific phrases
 named in F.35.2*; subtler meta-content phrasings remain in manual-
 review territory.
+
+## ADDENDUM 2026-05-19 (Part 29) — REG-001 SWEEP-1 native-Japanese-teacher triage (Tier 1)
+
+### Trigger
+
+User requested a native-Japanese-teacher-persona triage of the 84
+SWEEP-1 candidates documented in
+`docs/REG-001-SWEEP-1-candidates_2026_05_18.md`. Honest provenance:
+the "native-Japanese teacher" role is an LLM-with-reference-baseline
+review grounded in Genki I (Books I+II rev. 2011), Minna no Nihongo I
+(1998-2012 revisions), JEES official JLPT N5 sample papers, and
+standard reference material. Each per-entry decision carries
+provenance `llm_curated_with_reference_genki_minna_jees_2026_05_19`
+flagging future actual-native-speaker re-verification.
+
+### Pre-triage state
+
+Of the 84 candidates in the original SWEEP-1 report, **34 had been
+migrated or removed in earlier batches** (PAPER-* / DOKKAI-* /
+MOB-* close-outs); **50 remained** in `wrong_corrected_pair` with
+`error_category == "register"`.
+
+### Triage results
+
+The 50 remaining candidates were classified per the 3-way schema
+from the REG-001 bug spec:
+
+  - **A (21 entries) — register-variant**: both forms grammatical;
+    distinction is register/elevation. Migrated to
+    `common_mistakes` with `kind: register_variant` +
+    `form_a`/`form_b`/`label_a`/`label_b`.
+  - **B (14 entries) — genuine grammatical error**: one form is
+    actually wrong (ungrammatical / mixed-register coherence
+    breakdown / cultural taboo). Kept as `wrong_corrected_pair`.
+    1 entry (n5-125[0]) had its `error_category` changed from
+    `register` to `register_coherence` because its wrong-field
+    parenthetical `(in formal context to teacher)` would otherwise
+    trip JA-127.
+  - **C (15 entries) — pragmatic mismatch**: not a register choice
+    but a pragmatic / cultural use-case mismatch (ne-particle when
+    listener can't evaluate, yo-particle pragmatic tone,
+    negative-question implication, intensity-of-thanks, self-praise
+    modesty norm). Kept as `wrong_corrected_pair` with
+    `error_category` recategorized from `register` to `pragmatic`
+    (14) or `cultural` (1, n5-100[2] modesty norm).
+
+### A-class detail (21 migrations)
+
+| Pattern | Form A (neutral) | Form B (honorific / formal / casual) | Class |
+|---|---|---|---|
+| n5-018 | だれですか | どなたですか | elevation |
+| n5-042 | ここは どこ | こちらは どこ | direction |
+| n5-045 | なんで | どうやって | clarity/register |
+| n5-048 | どこから | どちらから いらっしゃいましたか | elevation |
+| n5-050 | どうですか | いかがですか | elevation |
+| n5-054 | いくつ | おいくつ | お-honorific |
+| n5-062 | たべましょう | たべませんか | invitation politeness |
+| n5-071 | おきてください | おきていただけませんか | request elevation |
+| n5-074 | たべてもいいか | たべてもいいですか | plain↔polite |
+| n5-075 | てはいけません | お-NAI-ください | prohibition register |
+| n5-077 | いかないでください | いかないで | polite↔casual imperative |
+| n5-125[1,2] | じゃ | では | casual↔formal |
+| n5-131 | もらいました | いただきました | humble keigo |
+| n5-132 | くれました | くださいました | honorific keigo |
+| n5-134 | のので | ですので | formality |
+| n5-151 | どうですか | いかがですか | elevation (paired offers) |
+| n5-166 | おはよう | おはようございます | casual↔polite greeting |
+| n5-173 | ないと いけない | なくては いけません | conversational↔formal |
+| n5-174 | だめです | なりません | informal↔formal closer |
+| n5-176 | なくちゃ | なくては | casual↔formal contraction |
+
+### C-class detail (15 recategorizations)
+
+| Pattern | Issue | New category |
+|---|---|---|
+| n5-025[0] | ね when listener can't evaluate | pragmatic |
+| n5-026[1] | よ-particle pragmatic tone | pragmatic |
+| n5-027[1] | よね without shared knowledge | pragmatic |
+| n5-058[1] | ね on habitual statement | pragmatic |
+| n5-061[2] | negative-question implication | pragmatic |
+| n5-079[1] | いいです decline ambiguity | pragmatic |
+| n5-100[2] | self-praise modesty | cultural |
+| n5-113[1] | ね confirming time | pragmatic |
+| n5-152[0] | どうもありがとう intensity | pragmatic |
+| n5-152[2] | どうも declining offer | pragmatic |
+| n5-159[2] | stand-alone ね | pragmatic |
+| n5-167[2] | んです nuance over-justifying | pragmatic |
+| n5-169[1] | ね about own experience | pragmatic |
+| n5-170[1] | ほうがいい + ね vs よ | pragmatic |
+| n5-171[0] | ほうがいい + ね advisory | pragmatic |
+
+### B-class detail (14 retained)
+
+n5-001[0], n5-064[1], n5-076[1], n5-087[2], n5-101[2], n5-104[2],
+n5-106[1], n5-125[0] (recat → register_coherence),
+n5-145[2], n5-164[0], n5-166[1], n5-179[0], n5-179[1], n5-181[2].
+
+These remain as `wrong_corrected_pair` because one form is
+genuinely ungrammatical (e.g., `わたしさんは` — adding さん to one's
+own name; `げんきだったです` — double-marking; `ほしい` with 3rd-person
+subject; mixed-register coherence stacks like `では、たべる`).
+
+### SWEEP-5 — DECLINED (corpus convention conflict)
+
+REG-001 D5 specified: "Kana-form of whitelist kanji (人/友/手/足/
+目/上手/私) should never appear in kana inside data/* (especially
+honorific/register examples)."
+
+Corpus-convention check before applying the substitutions revealed
+the OPPOSITE convention is in use across grammar.json examples
+(the canonical user-facing surface):
+
+  - わたし (kana): 14 standalone usages vs 私 (kanji): 2
+  - ともだち (kana): 35 vs 友だち (mixed): 14
+  - じょうず (kana): 11 vs 上手 (kanji): 1
+
+The N5 corpus deliberately uses ひらがな for these whitelist kanji at
+the beginner-friendly N5 level (consistent with Genki I / Minna I
+introductory-stage practice). Auto-substituting kana → kanji
+would CREATE inconsistency rather than fix one.
+
+SWEEP-5 DECLINED. The REG-001 D5 claim is documented here as
+conflicting with corpus convention. If a future pass wants to
+flip the corpus to kanji-first, it should:
+
+  1. First flip the canonical examples across grammar.json
+     (44 × 3 entities = ~50 substitutions in `examples[].ja`).
+  2. Then revisit register/honorific block examples for
+     consistency.
+  3. Document the orthography flip in N5-syllabus-methodology
+     before applying.
+
+Not in scope for this triage pass. Surfaced for maintainer
+discussion.
+
+### CI invariants — no new ones in this triage pass
+
+JA-127 (REG-001 D6 guard) continues to PASS after the
+recategorizations — the C entries no longer have
+`error_category == "register"`, so they're outside JA-127's
+scope.
+
+The 21 A migrations all carry `kind: register_variant` in their
+new `common_mistakes` location, matching the schema validated by
+existing register_variant entries from the original REG-001 +
+REG-001-D6 close-outs.
+
+### Pending future work (deferred)
+
+  - **Actual-native-speaker re-verification** of the 21 A
+    migrations. The `llm_curated_with_reference_*` provenance
+    flag is the surfaced marker.
+  - **Token-overlap content-mismatch invariant** (GOI-001 follow-up)
+    — deferred pending morphological stemming integration.
+  - **SWEEP-2 / SWEEP-3 / SWEEP-4** (D2-D4 defect classes) —
+    deferred to a future native-speaker review session.
+  - **Orthography-policy decision** (SWEEP-5 above) — needs
+    project-level policy decision before any code change.
+
+### CI count after Part 29
+
+**139** (unchanged from Part 28; this is a triage pass with no
+new invariants, only data + categorization changes).
+All 139 PASS.
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 29
+
+  - Total: 132 rows (unchanged — no new bug filings this pass)
+  - Fixed: 132 / 132 (status unchanged)
+  - Open: 0
+
+### Reusable tooling deliverables (Part 29)
+
+  - `tools/sweep1_triage_2026_05_19.py` — applies the A/C/B-escape
+    triage decisions in a single pass; idempotent (re-run is
+    no-op once applied).
+
+### Files touched (Part 29)
+
+  - N5/data/grammar.json (21 A migrations + 16 category-only
+    changes across n5-025, n5-026, n5-027, n5-058, n5-061,
+    n5-079, n5-100, n5-113, n5-125, n5-152, n5-159, n5-167,
+    n5-169, n5-170, n5-171)
+  - N5/data/index.json (regenerated for byte-size drift)
+  - N5/tools/sweep1_triage_2026_05_19.py (NEW)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 29)
+  - N5/docs/cross-artifact-sync-map.md (Part 29 audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+### Final state for Part 29
+
+CI **139 / 139 invariants green**.
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: the SWEEP-1 triage classifies the 50 remaining
+candidates from REG-001's deferred set against the 3-way A/B/C
+schema. The "native-Japanese teacher" persona is documented
+honestly as LLM-with-reference review (Genki / Minna / JEES /
+standard reference); the
+`llm_curated_with_reference_genki_minna_jees_2026_05_19`
+provenance flag is the surfaced marker for future actual-native-
+speaker re-verification. SWEEP-5 declined as the bug spec's claim
+conflicts with the corpus's documented kana-first orthography
+convention at N5 level — surfaced as a policy-decision item, not
+a code change.

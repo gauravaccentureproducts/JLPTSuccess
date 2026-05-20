@@ -7110,6 +7110,18 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase3-2026-05-12"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "せんせい、だれですか。",
+          "form_b": "せんせい、どなたですか。",
+          "label_a": "neutral — default polite",
+          "label_b": "honorific (尊敬) — elevates the unknown person",
+          "why": "Both forms are grammatical. The distinction is referent-elevation: だれ is the neutral default; どなた adds honorific elevation. With a teacher present, the honorific form is preferred but the neutral form is not ungrammatical.",
+          "category": "register",
+          "scope_note": "どなた is N4-N3 vocabulary. At N5 the canonical form is だれ; どなた shown for reference.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -7165,13 +7177,6 @@
       },
       "politeness_ladder_provenance": "llm_curated",
       "wrong_corrected_pair": [
-        {
-          "wrong": "せんせい、だれですか。 (asking the teacher politely)",
-          "correct": "せんせい、どなたですか。",
-          "why": "どなた is the polite form of だれ; use it when speaking to/about superiors.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "だれは きましたか。",
           "correct": "だれが きましたか。",
@@ -9355,8 +9360,10 @@
           "wrong": "いい てんきです ね。 (about your own observation, no agreement sought)",
           "correct": "いい てんきです。",
           "why": "ね seeks agreement / shared perception. If listener cannot evaluate, ね sounds odd.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "がくせいですね。 (asking about listener)",
@@ -9777,8 +9784,10 @@
           "wrong": "がくせいですよ。 (in formal context to teacher)",
           "correct": "がくせいです。",
           "why": "よ has assertive tone; can sound presumptuous to seniors. In formal context omit it.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "たべますよか。",
@@ -10210,8 +10219,10 @@
           "wrong": "がくせい です よね。 (about your own status)",
           "correct": "がくせい です。",
           "why": "よね assumes shared knowledge; for facts only you know, drop it.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "たべます よね か。",
@@ -16436,6 +16447,17 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "ここは どこ ですか。",
+          "form_b": "こちらは どこ ですか。",
+          "label_a": "neutral spatial — direct location reference",
+          "label_b": "polite spatial — こちら elevates the place / direction",
+          "why": "Both forms are grammatical. ここ asks plainly about location. こちら is the polite-direction form (also used for selection and politeness in business contexts).",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -16487,13 +16509,6 @@
         "cultural_context": "こちら/そちら/あちら/どちら (polite directions/options) — service workers default to こちら for \"this way please\" and どちら for \"which one (polite)\". Using これ/それ to a customer is impolite; use the こちら series in any service context. Typical contexts: service_industry, business_polite."
       },
       "wrong_corrected_pair": [
-        {
-          "wrong": "こちらは どこ ですか。 (asking where you are, casually)",
-          "correct": "ここは どこ ですか。",
-          "why": "こちら is polite/direction; for plain spatial use ここ.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "どちらは ペンですか。 (asking \"which is the pen\")",
           "correct": "どちらが ペンですか。",
@@ -17629,6 +17644,17 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "なんで にほんへ きましたか。",
+          "form_b": "どうやって にほんへ きましたか。",
+          "label_a": "casual / spoken — multifunction (why? / by what means?)",
+          "label_b": "polite / formal — clear by-what-means",
+          "why": "なんで is ambiguous between 'why' and 'by what means' and casual. どうやって is the unambiguous and more formal 'how / by what means'. Both grammatical; the choice is register-plus-clarity.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -17692,13 +17718,6 @@
           "correct": "なにを たべますか。",
           "why": "Before bare を/が (no counter), 何 reads なに.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "なんで にほんへ きましたか。 (asked formally)",
-          "correct": "どうやって にほんへ きましたか。",
-          "why": "なんで is casual/multifunction (why? / by what means?); use どうやって for clear \"by what means\" in formal.",
-          "error_category": "register",
           "provenance": "llm_curated"
         }
       ],
@@ -18464,6 +18483,18 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "どこから きましたか。",
+          "form_b": "どちらから いらっしゃいましたか。",
+          "label_a": "neutral — default polite (です/ます register)",
+          "label_b": "honorific (尊敬) — どちら + irassyaru",
+          "why": "Both forms are grammatical. どこから is the neutral polite form; どちらから いらっしゃいましたか uses honorific keigo (どちら + 尊敬 verb いらっしゃる) appropriate when speaking to/about a senior.",
+          "category": "register",
+          "scope_note": "いらっしゃいました is N4-N3 keigo; どちら is also higher-register vocab.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -18520,13 +18551,6 @@
           "correct": "どこに すんでいますか。",
           "why": "いきます = \"go (motion)\"; すんでいます = \"live (residence)\". Different verbs for different questions.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "どこから きましたか。 (asking origin politely)",
-          "correct": "どちらから いらっしゃいましたか。",
-          "why": "In formal contexts use どちら + irassyaru; どこ is neutral.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -19259,6 +19283,18 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "コーヒー、どうですか。",
+          "form_b": "コーヒー、いかがですか。",
+          "label_a": "neutral polite — for friends, peers, neutral contexts",
+          "label_b": "honorific (尊敬) — elevates the addressee",
+          "why": "Both are polite. どう is the neutral polite question; いかが is its honorific variant used with seniors, customers, formal contexts.",
+          "category": "register",
+          "scope_note": "いかが is N4 vocabulary; included here for reference.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -19315,13 +19351,6 @@
       },
       "politeness_ladder_provenance": "llm_curated",
       "wrong_corrected_pair": [
-        {
-          "wrong": "コーヒー どう ですか。 (in formal context to client)",
-          "correct": "コーヒー、いかがですか。",
-          "why": "いかが is the polite form of どう; use it with seniors/clients.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "どうは いいですか。",
           "correct": "どうですか。",
@@ -20813,6 +20842,17 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "おとうさんは いくつ ですか。",
+          "form_b": "おとうさんは おいくつですか。",
+          "label_a": "neutral polite — common age question",
+          "label_b": "honorific — お-prefix elevates the question",
+          "why": "Both forms are grammatical. The お-prefix on いくつ is honorific (美化語/尊敬). When asking about a senior's age, the お-prefixed form is preferred but the plain form is not ungrammatical.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -20878,13 +20918,6 @@
           "correct": "りんごは いくつ ありますか。",
           "why": "いくつ takes no particle.",
           "error_category": "particle",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "おとうさんは いくつ ですか。 (asking parent's age in formal context)",
-          "correct": "おとうさんは おいくつですか。",
-          "why": "For polite age-asking add お (oikutsu).",
-          "error_category": "register",
           "provenance": "llm_curated"
         }
       ],
@@ -22472,8 +22505,10 @@
           "wrong": "わたしは まいにち がっこうへ いきますね。",
           "correct": "わたしは まいにち がっこうへ いきます。",
           "why": "Habitual statement of fact does not need ね; ね seeks agreement and softens declarations.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "たべるます。",
@@ -23759,8 +23794,10 @@
           "wrong": "きのう たべませんでした か。 (rising)",
           "correct": "きのう たべましたか。 (with なに or asking confirmation)",
           "why": "Negative-question form often implies \"did you not eat?\" expecting yes; use carefully.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         }
       ],
       "politeness_ladder": {
@@ -24090,6 +24127,17 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "あした たべましょう。",
+          "form_b": "あした たべませんか。",
+          "label_a": "directive-volitional — assumes addressee agrees",
+          "label_b": "polite invitation — softer, open question",
+          "why": "Both grammatical. ましょう is the volitional 'let's' that presupposes shared willingness; ませんか is the polite invitation that lets the listener decline. With strangers ませんか is the safer choice; with close friends ましょう is fine.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -24146,13 +24194,6 @@
           "correct": "いっしょに たべましょう。",
           "why": "ましょう replaces ます; do not stack them.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "あした たべましょう。 (to a stranger)",
-          "correct": "あした たべませんか。",
-          "why": "ましょう is \"let's\" (assumes agreement); 〜ませんか is more polite invitation to a stranger.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -28146,6 +28187,18 @@
           "category": "register",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "おきてください。",
+          "form_b": "おきていただけませんか。",
+          "label_a": "neutral polite request — standard て-ください",
+          "label_b": "higher-respect request — ていただけませんか",
+          "why": "Both grammatical. てください is the standard polite request. ていただけませんか layers the humble verb いただく onto a negative-question to lower the imposition; appropriate when asking a senior or in formal contexts.",
+          "category": "register",
+          "scope_note": "ていただけませんか is N4 keigo; shown here for register-ladder reference.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -28202,13 +28255,6 @@
           "correct": "たべてください。",
           "why": "Group-2 drops る to make て-form: 食べる→食べて (not 食べるて).",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "おきてください。 (in commanding tone to a senior)",
-          "correct": "おきていただけませんか。",
-          "why": "〜てください is request, but to seniors use higher-respect 〜ていただけませんか.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -29431,6 +29477,17 @@
           "category": "register",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たべてもいいか。",
+          "form_b": "たべてもいいですか。",
+          "label_a": "casual — plain か with intimates",
+          "label_b": "polite — です-question for non-intimate contexts",
+          "why": "Both grammatical. The casual plain-form か question is fine with close friends or family; the です-question is the polite form needed when addressing teachers, seniors, or strangers.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -29499,13 +29556,6 @@
       ],
       "authentic_citations_provenance": "llm_curated",
       "wrong_corrected_pair": [
-        {
-          "wrong": "たべてもいいか。 (to teacher)",
-          "correct": "たべてもいいですか。",
-          "why": "Permission-asking to a senior must keep です; dropping です is too casual.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "たべるても いいです。",
           "correct": "たべても いいです。",
@@ -29878,6 +29928,18 @@
           "category": "register",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たべてはいけません。",
+          "form_b": "おたべに ならないでください。 / ごえんりょください。",
+          "label_a": "neutral polite prohibition — direct てはいけません",
+          "label_b": "higher-respect — keigo softer alternatives for customer/senior context",
+          "why": "Both grammatical. てはいけません is the standard polite prohibition; for customer-facing or higher-formality contexts, keigo alternatives (お+ない-form+ください or ご遠慮ください) are gentler.",
+          "category": "register",
+          "scope_note": "おたべにならないでください and ごえんりょください are N4 keigo; shown for register-ladder reference.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -29951,13 +30013,6 @@
           "correct": "たばこを すっては いけません。",
           "why": "Group-1 verb すう→すって (with promotion). Do not produce すいて.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "たべて は いけない。 (to a customer)",
-          "correct": "おたべに ならないでください。 / ごえんりょください。",
-          "why": "てはいけない is direct prohibition, too blunt for customers; use polite ごえんりょください.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -30721,6 +30776,17 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "いかないでください。",
+          "form_b": "いかないで。",
+          "label_a": "polite — ないでください, standard form",
+          "label_b": "casual — bare ないで, with intimates",
+          "why": "Both grammatical. ないでください is the polite imperative; bare ないで is its casual form acceptable among intimates (family, close friends).",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -30781,13 +30847,6 @@
           "correct": "たべないで ください。",
           "why": "Negative request uses ないで, not なくて. なくて is for reasons/causes.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "いかないでください。 (to a friend casually)",
-          "correct": "いかないで。",
-          "why": "Plain casual register drops ください: ないで alone is fine with intimates.",
-          "error_category": "register",
           "provenance": "llm_curated"
         }
       ],
@@ -31628,8 +31687,10 @@
           "wrong": "いいです。 (about an offer, intent: no thanks)",
           "correct": "けっこうです。 / だいじょうぶです。",
           "why": "いいです can mean \"good\" OR \"no thanks\" depending on context — risky in offers. Use けっこう/だいじょうぶ for clarity.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "たかかったです。 (negative intent)",
@@ -40501,8 +40562,10 @@
           "wrong": "わたしは じょうずです。 (about myself)",
           "correct": "わたしは あまり じょうずじゃありません。",
           "why": "Calling oneself 上手 is culturally arrogant; use modest じょうずじゃありません or まだまだ.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "cultural",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         }
       ],
       "politeness_ladder": {
@@ -45915,8 +45978,10 @@
           "wrong": "にじはん ぐらい です ね。",
           "correct": "にじはん ぐらい です。",
           "why": "Confirming time to listener can use ね; depends on shared context.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "よじ はんから しちじ はんまで。",
@@ -51455,6 +51520,28 @@
           "kind": "register_variant",
           "label_a": "formal (では in casual context)",
           "label_b": "casual contraction (じゃ)"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "では、また あした。",
+          "form_b": "じゃ、また あした。",
+          "label_a": "formal — では",
+          "label_b": "casual — じゃ contraction",
+          "why": "Both forms are grammatical. では is the formal opener; じゃ is its casual contraction used among friends.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "じゃ、せんせい。",
+          "form_b": "では、せんせい。",
+          "label_a": "casual — じゃ contraction of では",
+          "label_b": "formal — full では",
+          "why": "Both forms exist; じゃ is the casual contraction of では. With a teacher (senior) the full では is more appropriate.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -51510,22 +51597,10 @@
           "wrong": "では、たべる。 (in formal context to teacher)",
           "correct": "では、いただきます。 / それでは、はじめます。",
           "why": "では is formal \"well then\"; pair with formal continuation.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "じゃ、せんせい。 (to a teacher)",
-          "correct": "では、せんせい。",
-          "why": "じゃ is the casual contraction of では; use では in formal contexts.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "では、また あした。 (to a friend)",
-          "correct": "じゃ、また あした。",
-          "why": "では is formal; among friends じゃ is more natural.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "register_coherence",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "B"
         }
       ],
       "politeness_ladder": {
@@ -53747,6 +53822,18 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "せんせいに プレゼントを もらいました。",
+          "form_b": "せんせいから プレゼントを いただきました。",
+          "label_a": "neutral polite — もらう, standard form",
+          "label_b": "humble (謙譲) — いただく + から marks the elevated giver",
+          "why": "Both forms are grammatical. もらう is the neutral receiving-verb; いただく is the humble equivalent used when the giver is socially elevated (teacher, senior, customer).",
+          "category": "register",
+          "scope_note": "いただく as humble-receiving is N4 keigo; included for register-ladder reference.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -53813,13 +53900,6 @@
           "correct": "ともだちに/から ほんを もらいました。",
           "why": "もらう = receive; あげる = give. Direction matters.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "せんせいに プレゼントを もらいました。 (about teacher → student)",
-          "correct": "せんせいから プレゼントを いただきました。",
-          "why": "Receiving from a senior uses humble いただく.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -54205,6 +54285,18 @@
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "せんせい が ほんを くれました。",
+          "form_b": "せんせい が ほんを くださいました。",
+          "label_a": "neutral polite — くれる, standard form",
+          "label_b": "honorific (尊敬) — くださる, elevates the giver",
+          "why": "Both forms are grammatical. くれる is the neutral receiving-verb (subject = giver, recipient = me/in-group). くださる is its honorific form elevating the giver — appropriate when the giver is a senior.",
+          "category": "register",
+          "scope_note": "くださる is N4 keigo (尊敬); included for register-ladder reference.",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -54271,13 +54363,6 @@
           "correct": "はは が プレゼントを くれました。",
           "why": "Mother → me (in-group) = くれる. あげる would mean mother gave to OTHERS.",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "せんせい が ほんを くれました。",
-          "correct": "せんせい が ほんを くださいました。",
-          "why": "Senior (先生) giving to me = honorific くださる (くださいました).",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -55197,6 +55282,17 @@
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "おそいので、 いきません。",
+          "form_b": "おそいですので、 いきません。",
+          "label_a": "standard — plain form + ので",
+          "label_b": "heavier formal — です + ので (extra-polite)",
+          "why": "Both forms exist. The standard usage is plain-form + ので. The ですので variant is heavier formal register used in business or extra-careful speech; not ungrammatical but rarer.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -55270,13 +55366,6 @@
           "correct": "がくせいなので、 やすいです。",
           "why": "After noun, ので requires な: N + な + ので.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "おそいですので、 いきません。",
-          "correct": "おそいので、 いきません。",
-          "why": "ので takes plain form on the left in standard usage. ですので exists but is heavier.",
-          "error_category": "register",
           "provenance": "llm_curated"
         }
       ],
@@ -60648,6 +60737,18 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "コーヒーは どう ですか。",
+          "form_b": "コーヒーは いかがですか。",
+          "label_a": "neutral polite — どう",
+          "label_b": "honorific (尊敬) — いかが, elevates the addressee",
+          "why": "Both polite. どう is the neutral question word; いかが is its honorific variant used with seniors, customers, formal contexts.",
+          "category": "register",
+          "scope_note": "いかが is N4 honorific vocab; same pair as n5-050 (paired offers).",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -60705,13 +60806,6 @@
           "correct": "コーヒーは いかがですか。",
           "why": "です + か already terminates; do not append だ.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "コーヒーは どう ですか。 (in formal context to senior)",
-          "correct": "コーヒーは いかがですか。",
-          "why": "いかが is polite version of どう; use with seniors.",
-          "error_category": "register",
           "provenance": "llm_curated"
         },
         {
@@ -61125,8 +61219,10 @@
           "wrong": "どうもありがとう。 (intent: a casual thanks to friend)",
           "correct": "ありがとう。 / どうも。",
           "why": "どうもありがとう is mid-formality; pure casual is どうも or ありがとう.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "すみません どうも おねがいします どうぞ。",
@@ -61139,8 +61235,10 @@
           "wrong": "どうも、いいです。 (declining offer politely)",
           "correct": "いいえ、けっこうです。",
           "why": "For polite refusal use いいえ + けっこう/だいじょうぶ; どうも is too short.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         }
       ],
       "authentic_citations": [
@@ -64096,8 +64194,10 @@
           "wrong": "たかいですね、いいです。",
           "correct": "たかいですね。",
           "why": "Stand-alone ね is a complete utterance (rising tone seeks agreement).",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         }
       ],
       "authentic_citations": [
@@ -67247,6 +67347,17 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "おはよう。",
+          "form_b": "おはようございます。",
+          "label_a": "casual — bare おはよう with intimates",
+          "label_b": "polite — full おはようございます",
+          "why": "Both are valid morning greetings. おはよう alone is casual (family, close friends, peers at the same level); おはようございます is the polite form for workplace, teachers, strangers.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -67330,13 +67441,6 @@
           "wrong": "ごちそうさまだ。",
           "correct": "ごちそうさま。 / ごちそうさまでした。",
           "why": "Set phrase; standard polite form is ごちそうさまでした (after meal).",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "おはよう ございます。 (between intimates, casual time)",
-          "correct": "おはよう。",
-          "why": "おはようございます is polite; おはよう alone for casual.",
           "error_category": "register",
           "provenance": "llm_curated"
         }
@@ -67728,8 +67832,10 @@
           "wrong": "がくせいなんです。 (intent: I am a student — neutral)",
           "correct": "がくせいです。",
           "why": "〜んです adds explanatory nuance; use plain です for neutral statement. Overusing んです sounds like over-justifying.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         }
       ],
       "authentic_citations": [
@@ -68616,8 +68722,10 @@
           "wrong": "いったことが ありますね。 (about your own experience)",
           "correct": "いったことが あります。",
           "why": "ね about your own experience implies seeking listener confirmation, which is odd.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "いったの ことがあります。",
@@ -69020,8 +69128,10 @@
           "wrong": "たべない ほうがいい です ね。 (commanding)",
           "correct": "たべない ほうがいいですよ。",
           "why": "Advisory uses よ (informing) more than ね (seeking agreement).",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "たべた ほうが いい だ。",
@@ -69497,8 +69607,10 @@
           "wrong": "たべない ほうが いいですね。 (commanding tone)",
           "correct": "たべない ほうが いいですよ。",
           "why": "Advice typically uses よ (informing); ね (agreement-seeking) sounds odd here.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "error_category": "pragmatic",
+          "provenance": "llm_curated",
+          "category_provenance": "reclassified_sweep1_2026_05_19",
+          "reg_001_sweep1_class": "C"
         },
         {
           "wrong": "たべないて ほうがいい。",
@@ -70413,6 +70525,17 @@
           "provenance": "native_reviewed",
           "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
           "bug_reg_001_d6_fix_2026_05_18": true
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たべないと いけない。",
+          "form_b": "たべなくては いけません。",
+          "label_a": "spoken / informal — ないと いけない, common in conversation",
+          "label_b": "formal / written — なくては いけません, more formal closer",
+          "why": "Both forms express obligation and are grammatical. ないと いけない is the conversational variant; なくては いけません is the more formal/written form.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -70473,13 +70596,6 @@
           "correct": "たべなくては いけない。",
           "why": "Negative form is なくて, not ないて.",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
-          "wrong": "たべないと いけない。 (intent: in formal context)",
-          "correct": "たべなくては いけません。",
-          "why": "ないと-いけない and なくては-いけない overlap; なくては is more formal.",
-          "error_category": "register",
           "provenance": "llm_curated"
         }
       ],
@@ -70807,6 +70923,17 @@
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たべなくては だめです。",
+          "form_b": "たべなくては なりません。",
+          "label_a": "informal-polite — だめです, more colloquial",
+          "label_b": "formal — なりません, standard written/business closer",
+          "why": "Both forms express obligation and are grammatical. だめです is more conversational; なりません is the standard formal closer used in business or written register.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -70858,13 +70985,6 @@
         "cultural_context": "〜なければならない — formal variant of 〜なくてはいけない. Slightly more academic / official. Both express \"must do\". Typical contexts: formal_obligation."
       },
       "wrong_corrected_pair": [
-        {
-          "wrong": "たべなくては だめです。",
-          "correct": "たべなくては なりません。",
-          "why": "Standard formal closer is なりません. だめ is more casual.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "たべないて はならない。",
           "correct": "たべなくては ならない。",
@@ -71669,6 +71789,17 @@
           "kind": "register_variant",
           "label_a": "full form (なくては in casual context)",
           "label_b": "casual contraction (なくちゃ)"
+        },
+        {
+          "kind": "register_variant",
+          "form_a": "たべなくちゃ いけません。",
+          "form_b": "たべなくては いけません。",
+          "label_a": "casual contraction — なくちゃ is a spoken contraction of なくては",
+          "label_b": "formal full form — なくては",
+          "why": "Both express the same obligation. なくちゃ is the casual spoken contraction of なくては; in formal speech the full form is required.",
+          "category": "register",
+          "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
+          "reg_001_sweep1_class": "A"
         }
       ],
       "contrasts": [
@@ -71720,13 +71851,6 @@
         "cultural_context": "〜なきゃ — ultra-contracted \"must do\" (drop いけない / ならない entirely). \"もう行かなきゃ\" = \"I gotta go\". Very casual; signals time pressure / monologue. Typical contexts: ultra_casual, monologue."
       },
       "wrong_corrected_pair": [
-        {
-          "wrong": "たべなくちゃ いけません。 (in formal speech)",
-          "correct": "たべなくては いけません。",
-          "why": "なくちゃ is casual contraction; in formal use なくては.",
-          "error_category": "register",
-          "provenance": "llm_curated"
-        },
         {
           "wrong": "たべないきゃ。",
           "correct": "たべなきゃ。",
