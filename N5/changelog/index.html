@@ -84,6 +84,21 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-19 (Tier 2: SWEEP-4 OOS-keigo audit + JA-129 trigger extension)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>JA-129 trigger set extended</strong> with <code> before </code> / <code> then </code> family</li>
+</ul>
+<p>substrings. Deferred from Part 26 close-out pending native-speaker false-positive review. Pre-deployment scan across all paper + grammar/vocab/kanji/reading/listening corpora found <strong>0 hits</strong> in Devanagari context — no legitimate &quot;ष-form&quot; / Romanized grammatical glossing uses these substrings. Safe to add.</p>
+<h3>Audit completed (no code changes needed)</h3>
+<ul>
+<li><strong>REG-001 SWEEP-4</strong> (out-of-N5-scope items taught as canonical</li>
+</ul>
+<p>without <code>scope_note</code>) — scanned grammar.json for どなた / なさる / いただく / ご覧になる / 召し上がる / いらっしゃる / ございます / かしこまりました / 存じる / 申す / 伺う / くださる / どちらから / いかが / おいくつ / ご遠慮ください across <code>examples[].ja</code>, <code>wrong_corrected_pair</code>, <code>common_mistakes</code>. <strong>Result: CLEAN.</strong> - 54 register_variant entries (from SWEEP-1 migrations) all carry <code>label_b</code> + <code>scope_note</code> where the form is OOS keigo - 28 incidental mentions in <code>why</code> discussion fields are documented at the pattern level (n5-018/046/050/149/151/166 all have the OOS term in their <code>pattern</code> field; the patterns themselves teach the keigo contrast) - Examples scan: 0 OOS-in-<code>examples[].ja</code> without pattern-level documentation</p>
+<h3>State</h3>
+<p>CI <strong>139 / 139 invariants green</strong> (unchanged; JA-129 extension is in-place trigger set update, not a new invariant). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>132 / 132 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: Tier 2 work closes cleanly. JA-129 trigger extension proven safe by 0-hit pre-deployment scan. SWEEP-4 finding documented as already-covered by SWEEP-1 migrations + pattern-level scope documentation.</p>
+<p>Deferred to native-speaker review (Tier 3 if requested): SWEEP-2 (semantically-distinct forms as register-equivalents), SWEEP-3 (formality vs elevation conflation), and the orthography-policy decision surfaced in Part 29 SWEEP-5.</p>
 <h2>Unreleased - 2026-05-19 (REG-001 SWEEP-1 native-Japanese-teacher triage — 21 register-variant migrations + 16 category corrections)</h2>
 <h3>Changed</h3>
 <ul>

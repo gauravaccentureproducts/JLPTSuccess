@@ -2,6 +2,51 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-19 (Tier 2: SWEEP-4 OOS-keigo audit + JA-129 trigger extension)
+
+### Changed
+
+- **JA-129 trigger set extended** with ` before ` / ` then ` family
+  substrings. Deferred from Part 26 close-out pending native-speaker
+  false-positive review. Pre-deployment scan across all paper +
+  grammar/vocab/kanji/reading/listening corpora found **0 hits**
+  in Devanagari context — no legitimate "ष-form" / Romanized
+  grammatical glossing uses these substrings. Safe to add.
+
+### Audit completed (no code changes needed)
+
+- **REG-001 SWEEP-4** (out-of-N5-scope items taught as canonical
+  without `scope_note`) — scanned grammar.json for どなた / なさる /
+  いただく / ご覧になる / 召し上がる / いらっしゃる / ございます /
+  かしこまりました / 存じる / 申す / 伺う / くださる / どちらから / いかが /
+  おいくつ / ご遠慮ください across `examples[].ja`,
+  `wrong_corrected_pair`, `common_mistakes`. **Result: CLEAN.**
+  - 54 register_variant entries (from SWEEP-1 migrations) all
+    carry `label_b` + `scope_note` where the form is OOS keigo
+  - 28 incidental mentions in `why` discussion fields are
+    documented at the pattern level (n5-018/046/050/149/151/166
+    all have the OOS term in their `pattern` field; the patterns
+    themselves teach the keigo contrast)
+  - Examples scan: 0 OOS-in-`examples[].ja` without pattern-level
+    documentation
+
+### State
+
+CI **139 / 139 invariants green** (unchanged; JA-129 extension is
+in-place trigger set update, not a new invariant).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: Tier 2 work closes cleanly. JA-129 trigger
+extension proven safe by 0-hit pre-deployment scan. SWEEP-4
+finding documented as already-covered by SWEEP-1 migrations +
+pattern-level scope documentation.
+
+Deferred to native-speaker review (Tier 3 if requested):
+SWEEP-2 (semantically-distinct forms as register-equivalents),
+SWEEP-3 (formality vs elevation conflation), and the
+orthography-policy decision surfaced in Part 29 SWEEP-5.
+
 ## Unreleased - 2026-05-19 (REG-001 SWEEP-1 native-Japanese-teacher triage — 21 register-variant migrations + 16 category corrections)
 
 ### Changed

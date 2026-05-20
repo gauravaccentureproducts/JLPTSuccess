@@ -7114,9 +7114,14 @@ def _check_ja_129_no_untranslated_english_temporal_in_rationale_hi() -> list[str
         # DOKKAI-004 (BUG-129, 2026-05-19) extension: " by " in
         # Devanagari context — caught dokkai-4.1 and goi-7.1.
         " by ", " by.", " by,", " by)", " by]",
-        # Conservative: still skip " before " and " then " — both can appear
-        # legitimately in technical fragments like "ष-form" or in
-        # romanized Japanese grammatical terms.
+        # 2026-05-19 Tier-2 native-teacher review extension: ` before ` /
+        # ` then ` proven safe to add. False-positive scan across all paper
+        # corpora + grammar/vocab/kanji/reading/listening rationale_hi /
+        # meaning_hi / explanation_hi found 0 hits in Devanagari context;
+        # no legitimate "ष-form" / Romanized-grammatical glossings using
+        # these substrings exist in the current corpus. Extension is safe.
+        " before ", " before.", " before,", " before)",
+        " then ", " then.", " then,", " then)",
     ]
     paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
     for fp in paper_files:

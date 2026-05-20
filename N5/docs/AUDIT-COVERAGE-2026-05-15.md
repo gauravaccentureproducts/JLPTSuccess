@@ -4621,3 +4621,105 @@ speaker re-verification. SWEEP-5 declined as the bug spec's claim
 conflicts with the corpus's documented kana-first orthography
 convention at N5 level — surfaced as a policy-decision item, not
 a code change.
+
+## ADDENDUM 2026-05-19 (Part 30) — Tier 2: SWEEP-4 (OOS-keigo scope_note audit) + JA-129 trigger extension
+
+### Trigger
+
+User-requested Tier 2 of the REG-001 native-Japanese-teacher work:
+SWEEP-4 (out-of-N5-scope items taught as canonical without
+`scope_note`) + JA-129 false-positive review for ` before ` and
+` then ` triggers (deferred from Part 26).
+
+### SWEEP-4 results
+
+Scanned `grammar.json` for occurrences of OOS-keigo terms
+(どなた, なさる, いただく, ご覧になる, 召し上がる, いらっしゃる,
+ございます, かしこまりました, 存じる, 申す, 申し上げ, 伺う, くださる,
+どちらから, いかが, おいくつ, ご遠慮ください, etc.) across:
+
+  - `examples[].ja` — **0 hits without pattern-level documentation**
+    (any OOS term in an example is in a pattern whose `pattern` field
+    documents that term, so the scope is clear at the pattern level)
+  - `wrong_corrected_pair` / `common_mistakes` discussion fields —
+    **0 missing-scope_note** when filtered to:
+      - register_variant entries with `form_b` containing an OOS term
+        (all 54 such entries have `label_b` documenting the register
+        + `scope_note` where the term is out-of-pattern)
+      - non-register_variant entries where the OOS term is the focus
+        (in `wrong` / `correct` fields) AND the term is not in the
+        pattern's own `pattern` field
+  - 28 incidental mentions in `why` fields exist but documented at
+    the pattern level (the patterns that mention these terms are
+    explicitly the patterns teaching them — n5-018 / n5-046 だれ/どなた,
+    n5-050 / n5-151 どう/いかが, n5-149 ください/くださる, n5-166 set greetings)
+
+**SWEEP-4 result: CLEAN.** No `scope_note` additions needed. The
+register-variant migrations from SWEEP-1 already established
+scope_note + label_b coverage at the entry level; pattern-level
+scope is sufficient for the remaining discussion-field mentions.
+
+### JA-129 false-positive review — `before` / `then` triggers
+
+Deferred from Part 26 per "Conservative: skip ` before ` and
+` then ` — both can appear legitimately in technical fragments
+like 'ष-form' or romanized Japanese grammatical terms".
+
+Scanned all paper + grammar/vocab/kanji/reading/listening corpora
+for ` before ` / ` then ` (+ punctuated variants) in Devanagari
+context (preceded/followed by Devanagari characters within 15-30
+chars). **Result: 0 hits.** No legitimate technical glossing uses
+these substrings in the current corpus.
+
+**Decision: extend JA-129 trigger set** with ` before `,
+` before.`, ` before,`, ` before)`, ` then `, ` then.`, ` then,`,
+` then)`. Catches the carry-over class (same shape as ` ago ` /
+` by `) without breaking existing legitimate content.
+
+### Pending future work (deferred)
+
+  - **SWEEP-2** (D2 semantically-distinct forms presented as
+    register-equivalents) — needs native-speaker review of pairs
+    like だれ vs どんな 人 (identity vs description), どこ vs
+    どんな ところ, etc.
+  - **SWEEP-3** (D3 formality vs elevation conflation) — needs
+    native-speaker review distinguishing sentence-formality
+    (plain/です・ます/文語), referent-elevation (尊敬/謙譲), and
+    intimacy in patterns that mix these concepts.
+  - **Orthography-policy decision** (SWEEP-5 surfaced in Part 29)
+    — needs maintainer input.
+
+### CI count after Part 30
+
+**139** (unchanged — JA-129 trigger set extension reuses the
+existing JA-129 invariant; no new JA-N added).
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 30
+
+  - Total: 132 rows (unchanged — no new bug filings)
+  - Fixed: 132 / 132 (unchanged)
+  - Open: 0
+
+### Files touched (Part 30)
+
+  - N5/tools/check_content_integrity.py (JA-129 trigger set
+    extended with ` before ` and ` then ` families)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 30)
+  - N5/docs/cross-artifact-sync-map.md (Part 30 audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+No `grammar.json` changes — SWEEP-4 found 0 actionable items
+beyond what SWEEP-1 already covered.
+
+### Final state for Part 30
+
+CI **139 / 139 invariants green**.
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: SWEEP-4 closed cleanly against the corpus snapshot
+scanned — the 54 register_variant entries from SWEEP-1 already
+carry `label_b` + `scope_note` where the form is OOS keigo;
+pattern-level scope documents the rest. JA-129 trigger extension
+proven safe by 0-hit pre-deployment scan against the full corpus.
