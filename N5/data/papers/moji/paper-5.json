@@ -9,7 +9,7 @@
   "questions": [
     {
       "type": "mcq",
-      "stem_html": "__おんな__ の 学生が きました。",
+      "stem_html": "<u>おんな</u> の 学生が きました。",
       "choices": [
         "母",
         "安",
@@ -28,26 +28,26 @@
     },
     {
       "type": "mcq",
-      "stem_html": "うちには __こども__ が ふたり います。",
+      "stem_html": "うちには <u>こども</u> が ふたり います。",
       "choices": [
         "子ども",
         "字ども",
         "小ども",
-        "子供"
+        "子分"
       ],
       "correctIndex": 0,
-      "rationale": "子ども is selected here because it follows this corpus's N5-only-kanji policy (供 is N4). Both 子供 and 子ども are standard in modern Japanese, and on the actual JLPT both forms appear; the choice between them is a corpus-internal scope rule, not a correctness rule.",
+      "rationale": "子ども (こども - child). The other options use the kanji 子 with non-words (字 'character' / 小 'small') that don't combine with ども to form valid Japanese words. 子分 (こぶん 'underling / follower') is a real Japanese word but rare at N5 scope and unrelated to the meaning required by the stem (うちには ... が ふたり います = 'there are two ... at home'). Note: 子供 is also a valid spelling of こども but uses the kanji 供 which is N4 and outside the N5 whitelist.",
       "kbSourceId": "Q62",
       "id": "moji-5.2",
       "mondai": 2,
-      "rationale_hi": "子ども यहाँ चयनित है क्योंकि यह इस संग्रह की N5-केवल-कान्जी नीति का पालन करता है (供 N4 है)। 子供 और 子ども दोनों आधुनिक जापानी में मानक हैं, और वास्तविक JLPT पर दोनों रूप मिल सकते हैं; इनमें से चुनाव संग्रह-नीतिगत है।",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-013",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "子ども (こども - बच्चा)। अन्य विकल्प 子 कान्जी का प्रयोग ग़ैर-शब्दों (字 'अक्षर' / 小 'छोटा') के साथ करते हैं जो ども के साथ मिलकर सही जापानी शब्द नहीं बनाते। 子分 (こぶん 'अनुयायी / चेला') असली जापानी शब्द है पर N5 दायरे में दुर्लभ है और प्रश्न-वाक्य के अर्थ (उच्चित्र: 'घर में दो ... हैं') से मेल नहीं खाता। नोट: 子供 भी こども की मान्य वर्तनी है पर कान्जी 供 N4 है जो N5 श्वेत-सूची से बाहर है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "__にほん__ に すんで います。",
+      "stem_html": "<u>にほん</u> に すんで います。",
       "choices": [
         "日本",
         "月本",
@@ -66,7 +66,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__にほんご__ で 話します。",
+      "stem_html": "<u>にほんご</u> で 話します。",
       "choices": [
         "日本後",
         "月本語",
@@ -85,7 +85,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__がいこく__ で しごとを して います。",
+      "stem_html": "<u>がいこく</u> で しごとを して います。",
       "choices": [
         "外国",
         "内国",
@@ -104,7 +104,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "きょうは __なんようび__ ですか。",
+      "stem_html": "きょうは <u>なんようび</u> ですか。",
       "choices": [
         "木曜日",
         "何曜日",
@@ -123,7 +123,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "きょうは __かようび__ です。",
+      "stem_html": "きょうは <u>かようび</u> です。",
       "choices": [
         "金曜日",
         "火曜日",
@@ -142,7 +142,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__もくようび__ に テストが あります。",
+      "stem_html": "<u>もくようび</u> に テストが あります。",
       "choices": [
         "火曜日",
         "水曜日",
@@ -161,7 +161,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__きょう__ は とても いい てんきです。",
+      "stem_html": "<u>きょう</u> は とても いい てんきです。",
       "choices": [
         "今月",
         "今年",
@@ -180,7 +180,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__らいねん__ に だいがくに いきます。",
+      "stem_html": "<u>らいねん</u> に だいがくに いきます。",
       "choices": [
         "毎年",
         "今年",
@@ -199,7 +199,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__せんしゅう__ えいがを 見ました。",
+      "stem_html": "<u>せんしゅう</u> えいがを 見ました。",
       "choices": [
         "毎週",
         "来週",
@@ -218,7 +218,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__まいにち__ にほんごを 話します。",
+      "stem_html": "<u>まいにち</u> にほんごを 話します。",
       "choices": [
         "来日",
         "毎日",
@@ -237,7 +237,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__ごぜん__ じゅうじに あいましょう。",
+      "stem_html": "<u>ごぜん</u> じゅうじに あいましょう。",
       "choices": [
         "午前",
         "午後",
@@ -256,7 +256,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__ごご__ に 友だちが きます。",
+      "stem_html": "<u>ごご</u> に 友だちが きます。",
       "choices": [
         "午前",
         "午後",
@@ -275,7 +275,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__でんしゃ__ の なかで 本を 読みます。",
+      "stem_html": "<u>でんしゃ</u> の なかで 本を 読みます。",
       "choices": [
         "田車",
         "雨車",

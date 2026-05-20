@@ -9,7 +9,7 @@
   "questions": [
     {
       "type": "mcq",
-      "stem_html": "ねる まえに おふろに __はいります__。",
+      "stem_html": "ねる まえに おふろに <u>はいります</u>。",
       "choices": [
         "立ります",
         "出ります",
@@ -28,7 +28,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "先生が きょうしつに 来たので、学生が __たちます__。",
+      "stem_html": "先生が きょうしつに 来たので、学生が <u>たちます</u>。",
       "choices": [
         "立ちます",
         "起ちます",
@@ -40,14 +40,14 @@
       "kbSourceId": "Q92",
       "id": "moji-7.2",
       "mondai": 2,
-      "rationale_hi": "立ちます (खड़ा होना — たつ का रोज़मर्रा N5 अर्थ)। अन्य रूप 起ちます / 経ちます / 建ちます भी असली जापानी क्रियाएँ हैं जो たちます पढ़ी जाती हैं (उठना / समय बीतना / इमारत खड़ी होना), पर वे N3+ दायरे में हैं। व्यापक-अनुभव वाले छात्र इन वैकल्पिक कान्जी से परिचित हो सकते हैं।",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-039",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "立ちます (खड़ा होना — たつ का रोज़मर्रा N5 अर्थ)। अन्य रूप 起ちます / 経ちます / 建ちます भी असली जापानी क्रियाएँ हैं जो たちます पढ़ी जाती हैं (उठना / समय बीतना / इमारत खड़ी होना), पर वे N3+ दायरे में हैं। व्यापक-अनुभव वाले छात्र इन वैकल्पिक कान्जी से परिचित हो सकते हैं; पर N5 स्तर पर \"शिक्षक के आने पर छात्र खड़े होते हैं\" के लिए 立 ही एकमात्र सही उत्तर है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "つかれたから すこし __やすみます__。",
+      "stem_html": "つかれたから すこし <u>やすみます</u>。",
       "choices": [
         "体みます",
         "休みます",
@@ -66,7 +66,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "先生が なまえを __いいます__。",
+      "stem_html": "先生が なまえを <u>いいます</u>。",
       "choices": [
         "謂います",
         "云います",
@@ -85,7 +85,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "みせで やさいを __かいます__。",
+      "stem_html": "みせで やさいを <u>かいます</u>。",
       "choices": [
         "飼います",
         "買います",
@@ -104,7 +104,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "この とけいは とても __たかい__ です。",
+      "stem_html": "この とけいは とても <u>たかい</u> です。",
       "choices": [
         "多い",
         "長い",
@@ -118,12 +118,12 @@
       "mondai": 2,
       "rationale_hi": "高い।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "この レストランは __やすい__ です。",
+      "stem_html": "この レストランは <u>やすい</u> です。",
       "choices": [
         "寄い",
         "易い",
@@ -142,7 +142,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "この かわは とても __ながい__ です。",
+      "stem_html": "この かわは とても <u>ながい</u> です。",
       "choices": [
         "永い",
         "長い",
@@ -150,18 +150,18 @@
         "高い"
       ],
       "correctIndex": 1,
-      "rationale": "長い.",
+      "rationale": "長い (long — the everyday N5 sense of ながい for physical or temporal length). The distractor 永い is also a real reading of ながい meaning \"eternal / everlasting\" (N3+ scope; used in literary contexts like 永い眠り \"eternal sleep\"). For a river, only 長い is natural.",
       "kbSourceId": "Q98",
       "id": "moji-7.8",
       "mondai": 2,
-      "rationale_hi": "長い।",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "長い (लंबा — ながい का रोज़मर्रा N5 अर्थ, भौतिक या कालिक लम्बाई के लिए)। विकर्षक 永い भी ながい का असली पठन है जिसका अर्थ \"शाश्वत / सनातन\" है (N3+ दायरा; साहित्यिक संदर्भों में 永い眠り \"शाश्वत निद्रा\" जैसा प्रयोग)। नदी के लिए केवल 長い स्वाभाविक है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "__しろい__ ねこが います。",
+      "stem_html": "<u>しろい</u> ねこが います。",
       "choices": [
         "白い",
         "百い",
@@ -180,7 +180,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__なまえ__ を ここに かいて ください。",
+      "stem_html": "<u>なまえ</u> を ここに かいて ください。",
       "choices": [
         "名前",
         "名先",

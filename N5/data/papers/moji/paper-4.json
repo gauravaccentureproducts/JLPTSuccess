@@ -23,8 +23,8 @@
       "mondai": 1,
       "rationale_hi": "古 (ふる) + い।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
@@ -42,8 +42,8 @@
       "mondai": 1,
       "rationale_hi": "高 (たか) + い।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-080",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
@@ -61,8 +61,8 @@
       "mondai": 1,
       "rationale_hi": "安 (やす) + い।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
@@ -80,8 +80,8 @@
       "mondai": 1,
       "rationale_hi": "白 (しろ) + い।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
@@ -99,12 +99,12 @@
       "mondai": 1,
       "rationale_hi": "長 (なが) + い।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "あの __がくせい__ は とても しんせつです。",
+      "stem_html": "あの <u>がくせい</u> は とても しんせつです。",
       "choices": [
         "学先",
         "字生",
@@ -123,7 +123,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__せんせい__ に しつもんを しました。",
+      "stem_html": "<u>せんせい</u> に しつもんを しました。",
       "choices": [
         "先成",
         "先正",
@@ -137,12 +137,12 @@
       "mondai": 2,
       "rationale_hi": "先生 (शिक्षक) — N5 शब्दावली।",
       "rationale_hi_provenance": "native_reviewed_2026_05_18",
-      "grammarPatternId": "n5-028",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "__がっこう__ で にほんごを べんきょうします。",
+      "stem_html": "<u>がっこう</u> で にほんごを べんきょうします。",
       "choices": [
         "字交",
         "字校",
@@ -161,7 +161,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "うちの 父は とても __ちから__ が つよいです。",
+      "stem_html": "うちの 父は とても <u>ちから</u> が つよいです。",
       "choices": [
         "力",
         "刀",
@@ -180,7 +180,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "この えいがは __おとな__ から 子どもまで みんな たのしめます。",
+      "stem_html": "この えいがは <u>おとな</u> から 子どもまで みんな たのしめます。",
       "choices": [
         "大人",
         "太人",
@@ -192,14 +192,14 @@
       "kbSourceId": "Q55",
       "id": "moji-4.10",
       "mondai": 2,
-      "rationale_hi": "大人 (おとな — वयस्क)। 熟字訓 (जुकुजिकुन, अर्थ-आधारित संयुक्त पठन): कान्जी 大 और 人 अलग-अलग N5 हैं, पर संयुक्त पठन おとな अनियमित है।",
-      "rationale_hi_provenance": "native_reviewed_2026_05_18",
-      "grammarPatternId": "n5-041",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "大人 (おとな — वयस्क)। 熟字訓 (जुकुजिकुन, अर्थ-आधारित संयुक्त पठन): कान्जी 大 और 人 अलग-अलग N5 हैं, पर संयुक्त पठन おとな अनियमित है। यह यौगिक vocabulary_n5.md में N5 शब्दावली प्रविष्टि के रूप में दर्ज है; अनियमित-पठन का यह पैटर्न N5 परिवार/उम्र-संबंधी शब्दावली के लिए मानक है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "うちの __ちち__ は かいしゃいんです。",
+      "stem_html": "うちの <u>ちち</u> は かいしゃいんです。",
       "choices": [
         "母",
         "兄",
@@ -218,7 +218,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__はは__ は 学校の 先生です。",
+      "stem_html": "<u>はは</u> は 学校の 先生です。",
       "choices": [
         "父",
         "妹",
@@ -237,7 +237,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "ごはんの まえに __て__ を あらいます。",
+      "stem_html": "ごはんの まえに <u>て</u> を あらいます。",
       "choices": [
         "千",
         "毛",
@@ -256,7 +256,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__ひと__ が おおぜい います。",
+      "stem_html": "<u>ひと</u> が おおぜい います。",
       "choices": [
         "入",
         "人",
@@ -270,12 +270,12 @@
       "mondai": 2,
       "rationale_hi": "人 (व्यक्ति)।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-108",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "__おとこ__ の こが あそんで います。",
+      "stem_html": "<u>おとこ</u> の こが あそんで います。",
       "choices": [
         "文",
         "田",

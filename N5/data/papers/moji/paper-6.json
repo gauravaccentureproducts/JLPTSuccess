@@ -9,7 +9,7 @@
   "questions": [
     {
       "type": "mcq",
-      "stem_html": "__でんわ__ で 友だちと 話します。",
+      "stem_html": "<u>でんわ</u> で 友だちと 話します。",
       "choices": [
         "電語",
         "田話",
@@ -28,7 +28,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "きのう __くるま__ を 買いました。",
+      "stem_html": "きのう <u>くるま</u> を 買いました。",
       "choices": [
         "中",
         "東",
@@ -47,7 +47,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "がっこうへ いく __みち__ で 友だちに あいました。",
+      "stem_html": "がっこうへ いく <u>みち</u> で 友だちに あいました。",
       "choices": [
         "道",
         "通",
@@ -59,14 +59,14 @@
       "kbSourceId": "Q78",
       "id": "moji-6.3",
       "mondai": 2,
-      "rationale_hi": "道 (みち — रास्ता)। 道 N5 श्वेत-सूचीबद्ध कान्जी है। विकर्षक 通 / 路 / 行 अर्थ-परिवार के विकल्प हैं जो प्रायः N4+ शब्दावली में दिखते हैं।",
-      "rationale_hi_provenance": "native_reviewed_2026_05_18",
-      "grammarPatternId": "n5-188",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "道 (みち — रास्ता)। 道 N5 श्वेत-सूचीबद्ध कान्जी है (श्वेत-सूची पंक्ति 98) और vocabulary_n5.md में दर्ज है। विकर्षक 通 / 路 / 行 अर्थ-परिवार के विकल्प हैं जो प्रायः N4+ शब्दावली में दिखते हैं (通る / 通り 'गुजरना', 道路 / 路上 'सड़क', 行く 'जाना')। इस अर्थ-विकर्षक डिज़ाइन से जाँचा जाता है कि छात्र विशेष रूप से 道 को पहचानता है या केवल 'रास्ता / दिशा' अर्थ-क्षेत्र को।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "__えき__ で 友だちと あいました。",
+      "stem_html": "<u>えき</u> で 友だちと あいました。",
       "choices": [
         "駅",
         "馬",
@@ -85,7 +85,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "__みせ__ は えきの まえに あります。",
+      "stem_html": "<u>みせ</u> は えきの まえに あります。",
       "choices": [
         "占",
         "居",
@@ -104,7 +104,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "ばんごはんを いまから __たべます__。",
+      "stem_html": "ばんごはんを いまから <u>たべます</u>。",
       "choices": [
         "飯べます",
         "飲べます",
@@ -123,7 +123,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "パーティーで ジュースを __のみ__ました。",
+      "stem_html": "パーティーで ジュースを <u>のみ</u>ました。",
       "choices": [
         "飯みます",
         "食みます",
@@ -137,12 +137,12 @@
       "mondai": 2,
       "rationale_hi": "飲む (のむ — पीना)। 飲 N5 है; विकर्षक अलग संदर्भों में दृश्य/ध्वन्यात्मक समानता रखते हैं।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-058",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "ニュースを テレビで __みます__。",
+      "stem_html": "ニュースを テレビで <u>みます</u>。",
       "choices": [
         "視ます",
         "観ます",
@@ -156,12 +156,12 @@
       "mondai": 2,
       "rationale_hi": "N5 मानक 見ます।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-147",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "おんがくを __ききます__。",
+      "stem_html": "おんがくを <u>ききます</u>。",
       "choices": [
         "効きます",
         "聞きます",
@@ -180,7 +180,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "にほんごで __はなします__。",
+      "stem_html": "にほんごで <u>はなします</u>。",
       "choices": [
         "離します",
         "放します",
@@ -199,7 +199,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "まいばん 本を __よみます__。",
+      "stem_html": "まいばん 本を <u>よみます</u>。",
       "choices": [
         "詠みます",
         "読みます",
@@ -218,7 +218,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "てがみを __かきます__。",
+      "stem_html": "てがみを <u>かきます</u>。",
       "choices": [
         "描きます",
         "書きます",
@@ -237,7 +237,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "あした 友だちが いえに __きます__。",
+      "stem_html": "あした 友だちが いえに <u>きます</u>。",
       "choices": [
         "来ます",
         "起ます",
@@ -251,12 +251,12 @@
       "mondai": 2,
       "rationale_hi": "来ます (को आना)।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-118",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "まいあさ 八時に がっこうへ __いきます__。",
+      "stem_html": "まいあさ 八時に がっこうへ <u>いきます</u>。",
       "choices": [
         "生きます",
         "行きます",
@@ -270,12 +270,12 @@
       "mondai": 2,
       "rationale_hi": "行きます।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-076",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
-      "stem_html": "まいあさ 七時に いえを __でます__。",
+      "stem_html": "まいあさ 七時に いえを <u>でます</u>。",
       "choices": [
         "出ます",
         "入ます",
@@ -289,8 +289,8 @@
       "mondai": 2,
       "rationale_hi": "出ます।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-118",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     }
   ]
 }

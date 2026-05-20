@@ -42,8 +42,8 @@
       "mondai": 1,
       "rationale_hi": "前 (まえ)।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-108",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
@@ -87,20 +87,20 @@
       "type": "mcq",
       "stem_html": "私の いえは まちの <u>北</u> に あります。",
       "choices": [
-        "ひがし",
         "きた",
-        "みなみ",
-        "にし"
+        "きだ",
+        "ほく",
+        "ぼく"
       ],
-      "correctIndex": 1,
-      "rationale": "北 (きた).",
+      "correctIndex": 0,
+      "rationale": "北 = きた (kun-yomi, used standalone or as a direction word). The on-yomi ホク appears in compounds like 北西 (ほくせい northwest) and 北部 (ほくぶ northern part) but not standalone. The distractors きだ / ぼく are voicing-variant traps with no real attestation; ほく is the real on-yomi but is wrong for the standalone use here.",
       "kbSourceId": "Q35",
       "id": "moji-3.5",
       "mondai": 1,
-      "rationale_hi": "北 (きた)।",
-      "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-067",
-      "grammarPatternId_provenance": "auto_inferred"
+      "rationale_hi": "北 = きた (कुन-योमी, अकेले या दिशा-शब्द के रूप में उपयोग)। ओन-योमी ホク 北西 (ほくせい पश्चिमोत्तर) / 北部 (ほくぶ उत्तरी भाग) जैसे यौगिकों में आती है पर अकेले नहीं। विकर्षक きだ / ぼく रेंदाकु-वैरिएंट जाल हैं जिनका कोई वास्तविक प्रमाण नहीं; ほく असली ओन-योमी है पर यहाँ अकेले प्रयोग के लिए ग़लत है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",
@@ -118,8 +118,8 @@
       "mondai": 1,
       "rationale_hi": "山 (やま)।",
       "rationale_hi_provenance": "native_reviewed",
-      "grammarPatternId": "n5-078",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId": null,
+      "grammarPatternId_provenance": "not_applicable_orthography"
     },
     {
       "type": "mcq",

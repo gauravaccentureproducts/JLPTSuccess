@@ -1342,6 +1342,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     # JA-139 — Devanagari letter embedded inside JP word (GOI-006 mojibake guard).
     ("JA-137", "no off-by-one rationale_hi shift (0 token overlap own / ≥2 token overlap next-question) (GOI-001/004 drift guard, 2026-05-21)", lambda: _check_ja_137_no_off_by_one_rationale_hi_shift()),
     ("JA-139", "no Devanagari letter embedded inside JP-character word in rationale_hi (GOI-006 mojibake guard, 2026-05-21)", lambda: _check_ja_139_no_devanagari_embedded_in_japanese_word()),
+    # JA-140..JA-143 (2026-05-21): MOJI-001 / MOJI-002 / MOJI-005 /
+    # MOJI-006 close-out invariants.
+    # JA-140 — moji stem_html uses HTML <u>X</u>, not markdown __X__.
+    # JA-141 — moji grammarPatternId non-null + auto_inferred is forbidden.
+    # JA-142 — no over-literal Hindi 'के पास है पढ़ते हुए' in rationale_hi.
+    # JA-143 — rationale and rationale_hi character counts within ~30%
+    #           (catches MOJI-006-class content-coverage truncation).
+    ("JA-140", "moji stem_html uses HTML <u>...</u> emphasis wrapper (not markdown __...__) (MOJI-001 drift guard, 2026-05-21)", lambda: _check_ja_140_moji_stem_emphasis_uniform_html()),
+    ("JA-141", "moji grammarPatternId non-null must not have provenance=auto_inferred (MOJI-002 drift guard, 2026-05-21)", lambda: _check_ja_141_moji_grammar_pattern_id_no_auto_inferred()),
+    ("JA-142", "no over-literal Hindi 'के पास है पढ़ते हुए' in rationale_hi (MOJI-005 word-by-word translation guard, 2026-05-21)", lambda: _check_ja_142_no_word_by_word_hi_has_reading()),
+    ("JA-143", "rationale / rationale_hi character-count parity within ~0.6×–2.0× ratio (MOJI-006 content-coverage truncation guard, 2026-05-21)", lambda: _check_ja_143_en_hi_rationale_length_parity()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -7645,6 +7656,173 @@ def _check_ja_122_no_english_pattern_fragments_in_rationale_hi() -> list[str]:
                         f"English-pattern fragment {bad!r} (PAPER-004 drift guard)"
                     )
                     break
+    return failures
+
+
+def _check_ja_140_moji_stem_emphasis_uniform_html() -> list[str]:
+    """MOJI-001 (BUG-139, 2026-05-21) drift guard. Every moji-* question
+    `stem_html` must use HTML `<u>...</u>` as the emphasis wrapper, not
+    markdown `__...__`. The corpus-wide convention is HTML for both
+    Mondai 1 (reading-of-kanji) AND Mondai 2 (kanji-for-kana) — picked
+    because the field name is `stem_html` and the rendering target is
+    a web UI; mixing two conventions causes render-fragility on either
+    rule-set's renderer.
+
+    Trip: any moji-* question whose `stem_html` contains the markdown
+    double-underscore wrapper `__X__`.
+    """
+    import re as _re
+    PAT = _re.compile(r"__[^_]+__")
+    failures: list[str] = []
+    moji_dir = ROOT / "data" / "papers" / "moji"
+    if not moji_dir.exists():
+        return failures
+    for fp in sorted(moji_dir.glob("paper-*.json")):
+        if ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            qid = q.get("id", "")
+            if not qid.startswith("moji-"):
+                continue
+            stem = q.get("stem_html", "") or ""
+            if PAT.search(stem):
+                failures.append(
+                    f"JA-140 {fp.name} {qid}.stem_html: uses markdown "
+                    f"`__X__` emphasis; corpus convention is HTML <u>X</u> "
+                    f"(MOJI-001 drift guard, 2026-05-21)"
+                )
+    return failures
+
+
+def _check_ja_141_moji_grammar_pattern_id_no_auto_inferred() -> list[str]:
+    """MOJI-002 (BUG-140, 2026-05-21) drift guard. Moji-category
+    questions must have grammarPatternId=null with
+    grammarPatternId_provenance="not_applicable_orthography" in nearly
+    all cases (moji tests orthography, not grammar). Specifically:
+    NO moji question may have grammarPatternId non-null AND
+    grammarPatternId_provenance == "auto_inferred" — that combination
+    is the anti-pattern that produced 28 spurious pattern tags from
+    surface-token similarity (e.g., 'こども' → n5-013 because も appears,
+    not because the question tests も-particle usage).
+
+    If a moji question legitimately tests a grammar pattern (vanishingly
+    rare), it must carry an explicit manual-review provenance like
+    `native_reviewed_YYYY_MM_DD`, not `auto_inferred`.
+    """
+    failures: list[str] = []
+    moji_dir = ROOT / "data" / "papers" / "moji"
+    if not moji_dir.exists():
+        return failures
+    for fp in sorted(moji_dir.glob("paper-*.json")):
+        if ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            qid = q.get("id", "")
+            if not qid.startswith("moji-"):
+                continue
+            pid = q.get("grammarPatternId")
+            prov = q.get("grammarPatternId_provenance", "")
+            if pid is not None and prov == "auto_inferred":
+                failures.append(
+                    f"JA-141 {fp.name} {qid}: grammarPatternId={pid!r} with "
+                    f"provenance='auto_inferred' — moji tests orthography, "
+                    f"not grammar; auto_inferred IDs are surface-token "
+                    f"artifacts (MOJI-002 drift guard, 2026-05-21)"
+                )
+    return failures
+
+
+def _check_ja_142_no_word_by_word_hi_has_reading() -> list[str]:
+    """MOJI-005 (BUG-143, 2026-05-21) drift guard. No rationale_hi
+    may contain the over-literal Hindi rendering of "has reading":
+    `के पास है पढ़ते हुए`. This phrase comes from word-by-word mapping
+    of English "has reading" rather than the natural Hindi construction
+    "X का पठन Y है". Same defect class as DOKKAI-002 (ago) /
+    DOKKAI-004 (by) / PAPER-004 (yet/lot).
+    """
+    BAD_PHRASE = "के पास है पढ़ते हुए"
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json" or ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            rh = q.get("rationale_hi", "") or ""
+            if BAD_PHRASE in rh:
+                failures.append(
+                    f"JA-142 {fp.relative_to(ROOT)} {q.get('id')}.rationale_hi: "
+                    f"contains over-literal phrase {BAD_PHRASE!r}; use natural "
+                    f"'X का पठन Y है' construction instead (MOJI-005 drift guard, "
+                    f"2026-05-21)"
+                )
+    return failures
+
+
+def _check_ja_143_en_hi_rationale_length_parity() -> list[str]:
+    """MOJI-006 (BUG-144, 2026-05-21) drift guard. Rationale and
+    rationale_hi character counts should be within ~30% of each other
+    (after accounting for Hindi's ~1.3× expansion ratio vs English).
+    Flags entries where one is significantly truncated relative to the
+    other — content-coverage parity, not translation-quality.
+
+    Trip condition: for any question with both rationale and
+    rationale_hi populated:
+      - rationale length >= 80 chars AND
+      - either rationale_hi is shorter than rationale × 0.6  (HI lost content)
+        OR rationale_hi is longer than rationale × 2.0 (EN dropped content)
+
+    The 0.6 floor is intentionally generous: HI is normally ~1.3× longer
+    than EN, so 0.6× means HI has roughly half the content density of EN —
+    a clear truncation signal. 2.0× catches the inverse where EN lost
+    content that HI kept.
+
+    Skipped: questions where rationale or rationale_hi is missing /
+    empty / one-token (length < 40 chars) — those are pre-existing
+    minimalist rationales not covered by this content-parity check.
+    """
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json" or ".bak" in fp.name:
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            r_en = (q.get("rationale", "") or "").strip()
+            r_hi = (q.get("rationale_hi", "") or "").strip()
+            if len(r_en) < 80:  # minimalist rationales not in scope
+                continue
+            if len(r_hi) < 40:  # missing/one-token HI also not in scope here
+                continue
+            ratio = len(r_hi) / len(r_en) if len(r_en) > 0 else 0
+            if ratio < 0.6:
+                failures.append(
+                    f"JA-143 {fp.relative_to(ROOT)} {q.get('id')}: "
+                    f"rationale_hi/{len(r_hi)}c is < 60% of rationale/{len(r_en)}c "
+                    f"(ratio={ratio:.2f}); HI may be truncated (MOJI-006 class, "
+                    f"2026-05-21)"
+                )
+            elif ratio > 2.0:
+                failures.append(
+                    f"JA-143 {fp.relative_to(ROOT)} {q.get('id')}: "
+                    f"rationale_hi/{len(r_hi)}c is > 200% of rationale/{len(r_en)}c "
+                    f"(ratio={ratio:.2f}); EN may be truncated (MOJI-006 inverse, "
+                    f"2026-05-21)"
+                )
     return failures
 
 
