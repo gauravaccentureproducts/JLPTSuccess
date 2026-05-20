@@ -4993,3 +4993,111 @@ multi-day audit session (Parts 24-31) now have either:
   - Path-forward status (native-speaker doc with options)
 
 No "pending future work" items remain in zombie deferred state.
+
+## ADDENDUM 2026-05-21 (Part 33) — GOI-004..006 close-out + horizontal mojibake sweep
+
+### Scope
+
+Three goi-corpus rationale-content bugs filed BUG-133..135 as part of the
+second goi sweep iteration (after Part 28 closed GOI-001..003). All 3 fixed
+in the same audit cycle. **A corpus-wide horizontal sweep on the same drift
+class (JA-139) surfaced 2 ADDITIONAL same-class mojibake instances in dokkai
+that the original goi-only filing missed; all 5 fixes shipped in one batch.**
+
+### Bugs closed (Part 33)
+
+| Bug ID  | Drift class             | Where                                  | Fix                                                      | Provenance              |
+|---------|--------------------------|----------------------------------------|----------------------------------------------------------|-------------------------|
+| BUG-133 | Off-by-one rationale_hi shift | goi-7.6 + goi-7.7                  | Rewrote both rationale_hi for their actual stems         | native_reviewed_2026_05_21 |
+| BUG-134 | Fix-history in rationale | 7 fields across goi-1.5/1.10/3.15/4.6/5.4/7.7/7.8 | Stripped fix-history sentences; kept paraphrase pedagogy | native_reviewed_2026_05_21 |
+| BUG-135 | Mixed-script mojibake    | goi-7.4 (+ horiz: dokkai-2.11, dokkai-3.4) | Replaced 「あमारी / ぐらि」 with intended JP tokens; rewrote Hindi | native_reviewed_2026_05_21 |
+
+### Horizontal-deployment finding (operational rule reinforced)
+
+The original GOI-006 bug listed exactly one mojibake hit (goi-7.4). After
+sharpening JA-139's detector to exclude sentence-end danda + hyphen-separated
+cross-script terms, a corpus-wide run surfaced **2 more hits in dokkai**:
+
+  - `data/papers/dokkai/paper-2.json` dokkai-2.11.rationale_hi: 「一時間ぐらि」 → 「一時間ぐらい」
+  - `data/papers/dokkai/paper-3.json` dokkai-3.4.rationale_hi: 「あमारी 上手では」 → 「あまり 上手では」
+
+Operational rule (added to procedure-manual §F.37): **every per-bug fix runs
+a corpus-wide detector pass BEFORE declaring the class closed.** One-shot
+fixes leak; "horizontal deployment" is part of the fix commit, not a
+follow-up commit. This generalizes Rule 6 of CLAUDE.md from "grep for the
+same anti-pattern" to "run the new CI invariant against the full corpus."
+
+### CI invariants added (Part 33)
+
+  - **JA-137** — no off-by-one rationale_hi shift (narrow signal: 0 token
+    overlap with own stem AND ≥2 token overlap with next-Q stem). False-
+    positive rate <1%; sharper than the strict broad-overlap detector
+    (~21% FP) rejected in Part 28.
+  - **JA-139** — no Devanagari letter embedded inside a JP-character word
+    in rationale_hi. Detector: regex `[ぁ-ゖァ-ヺ一-鿿][ऀ-ॣ०-ॿ]`,
+    excluding danda U+0964 / double-danda U+0965 / hyphen-separated
+    cross-script terms.
+
+JA-121 trigger set extended in place with 11 additional phrases
+("replaces the prior", "replaces the previous", "previous version",
+"prior version", "Strict-N5:", "in v1.", "policy applied at",
+"no longer appears", "पिछले संस्करण", "पुराने", "की जगह लेता"). **No
+new JA-NN minted** — the existing JA-121 detector's intent already covered
+the class. Operational rule documented in procedure-manual §F.37.3:
+extend in place when the underlying anti-pattern is unchanged; mint a new
+JA-NN only when the anti-pattern itself is new.
+
+### Files touched (Part 33)
+
+  - data/papers/goi/paper-1.json (goi-1.5 + goi-1.10 rationale strips)
+  - data/papers/goi/paper-3.json (goi-3.15 rationale strip)
+  - data/papers/goi/paper-4.json (goi-4.6 rationale strip)
+  - data/papers/goi/paper-5.json (goi-5.4 rationale strip)
+  - data/papers/goi/paper-7.json (goi-7.4 mojibake + goi-7.6 + goi-7.7 shift + goi-7.7 + goi-7.8 strips)
+  - data/papers/dokkai/paper-2.json (dokkai-2.11 mojibake — horizontal-deployment finding)
+  - data/papers/dokkai/paper-3.json (dokkai-3.4 mojibake — horizontal-deployment finding)
+  - data/index.json (regenerated; JA-125 byte-size parity guard restored)
+  - tools/check_content_integrity.py (JA-137 + JA-139 added; JA-121 trigger extended)
+  - tools/fix_goi_004_006_2026_05_21.py (NEW)
+  - tools/fix_dokkai_mojibake_2026_05_21.py (NEW)
+  - tools/file_goi_004_006_bugs_2026_05_21.py (NEW)
+  - tools/flip_goi_004_006_fixed_2026_05_21.py (NEW)
+  - specifications/test-scenarios-by-specialist-perspective.xlsx (BUG-133..135 Fixed)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md (F.37 added)
+  - prompts/Japanese language Accuracy check.txt (A75 added)
+  - prompts/N5Improvement.txt (Phase-0 mixed-script + off-by-one + extended-fix-history block added)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 33)
+  - docs/cross-artifact-sync-map.md (Part 33 audit-log row)
+  - CHANGELOG.md (Unreleased entry)
+  - specifications/JLPT-N5-Current-Implementation-Spec.md (§25.4 JA-137/JA-139 rows + count update to 141)
+
+### Final state for Part 33
+
+CI **141 / 141 invariants green** (was 139; +JA-137 +JA-139; JA-121 extended in place).
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **135 / 135 Fixed / 0 Open**.
+
+### Bounded-coverage phrasing for Part 33
+
+  - "JA-137 catches *the narrow off-by-one shift signal (0 own + ≥2 next
+    overlap)*" — broader same-question token-overlap divergence stays
+    advisory in `tools/audit_rationale_overlap_2026_05_21.py`.
+  - "JA-139 catches *Devanagari-inside-kana mojibake (excluding
+    sentence-end danda and hyphen-separated cross-script terms)*" —
+    full-line mojibake / encoding-double-pass artifacts need separate
+    detectors not yet wired.
+  - "JA-121 (extended) trigger set covers *these 22 specific phrases as
+    of 2026-05-21*" — paraphrased meta-commentary still slips past;
+    extend the set as new phrasings surface.
+  - "Horizontal-deployment sweep surfaced 2 dokkai instances that
+    goi-only filing missed; all 5 (3 GOI + 2 dokkai) fixed in this
+    batch" — generalizes Rule 6 horizontal-deployment to **CI-invariant
+    corpus-wide pass as part of the fix commit**.
+
+### Same drift-class lineage (Part 33)
+
+| Class | First seen | Next sighting | Lesson |
+|-------|-----------|--------------|--------|
+| Mixed-script mojibake | GOI-006 (goi-7.4, 2026-05-21) | dokkai-2.11 + dokkai-3.4 same day via JA-139 sweep | Always run corpus-wide before claim of closure |
+| Off-by-one rationale_hi shift | GOI-001 (goi-6.11, 2026-05-19) | GOI-004 (goi-7.6 + goi-7.7, 2026-05-21) | First fix is the sample, not the close |
+| Fix-history in rationale | PAPER-003 + GOI-002 + GOI-003 (2026-05-18..19) | GOI-005 (7 fields across 5 papers, 2026-05-21) | Phrase-list detectors miss synonyms; extend trigger set each time |

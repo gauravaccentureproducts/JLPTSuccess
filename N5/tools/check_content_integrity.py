@@ -1334,6 +1334,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     # GOI-001-class copy-paste where goi-6.11 rationale_hi was a
     # verbatim copy of goi-6.12's (about a different question topic).
     ("JA-136", "no rationale_hi shared verbatim by 2+ questions within the same paper (GOI-001 copy-paste guard, 2026-05-19)", lambda: _check_ja_136_rationale_hi_unique_within_paper()),
+    # JA-137 / JA-139 (2026-05-21): GOI-004 + GOI-006 close-out invariants.
+    # (JA-138 is the JA-121 trigger-set extension; no separate invariant —
+    # it reuses the existing JA-121 entry with new trigger phrases added in
+    # the BAD_PHRASES list inside _check_ja_121_no_meta_fix_history_in_rationale.)
+    # JA-137 — off-by-one rationale_hi shift detector (GOI-004 guard).
+    # JA-139 — Devanagari letter embedded inside JP word (GOI-006 mojibake guard).
+    ("JA-137", "no off-by-one rationale_hi shift (0 token overlap own / ≥2 token overlap next-question) (GOI-001/004 drift guard, 2026-05-21)", lambda: _check_ja_137_no_off_by_one_rationale_hi_shift()),
+    ("JA-139", "no Devanagari letter embedded inside JP-character word in rationale_hi (GOI-006 mojibake guard, 2026-05-21)", lambda: _check_ja_139_no_devanagari_embedded_in_japanese_word()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6908,6 +6916,126 @@ def _check_ja_133_form_input_font_size_rule() -> list[str]:
     return failures
 
 
+def _check_ja_137_no_off_by_one_rationale_hi_shift() -> list[str]:
+    """GOI-004 (BUG-133, 2026-05-21) drift guard. Off-by-one
+    rationale_hi misalignment — rationale_hi's Japanese content-tokens
+    match the NEXT question's stem/choices more strongly than they
+    match the OWN question's. This is the exact shift caught in
+    goi-7.6 → goi-7.7 → goi-7.8 (and earlier in goi-6.11 in GOI-001).
+
+    Trip condition (narrower than the advisory tool's
+    token-overlap check): rationale_hi has 0 Japanese-token
+    overlap with own stem/choices AND ≥2 token overlap with the
+    next-question's stem/choices. The narrow signal targets ONLY
+    the off-by-one shift pattern; broader content-mismatch (where
+    the rationale_hi discusses a topic entirely unrelated to ANY
+    neighboring question) needs morphological-stemming analysis
+    (advisory tool `tools/audit_rationale_overlap_2026_05_21.py`).
+
+    Why the narrow signal works at CI time:
+      - Off-by-one shifts produce HIGH next-Q overlap (≥2 content
+        tokens with the next question) AND ZERO own-Q overlap
+        — the discriminating pattern is asymmetric, not the
+        absolute overlap rate.
+      - Random false positives (legit dictionary-form references,
+        kana↔kanji orthography variation, paraphrase rationales)
+        DON'T produce ZERO own-Q + ≥2 next-Q overlap; they
+        produce moderate own-Q overlap.
+      - The threshold ≥2 next-Q tokens distinguishes shift from
+        coincidental single-token overlap.
+    """
+    import re as _re
+    JP_TOKEN_PAT = _re.compile(r"[ぁ-ゖァ-ヺ一-鿿]{2,}")
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        questions = d.get("questions", [])
+        for i, q in enumerate(questions):
+            rh = q.get("rationale_hi", "") or ""
+            if not rh:
+                continue
+            rh_toks = set(JP_TOKEN_PAT.findall(rh))
+            if not rh_toks:
+                continue
+            # Own stem + choices
+            own_text = (q.get("stem_html", "") or "") + " " + " ".join(
+                str(c) for c in q.get("choices", []) or []
+            )
+            own_toks = set(JP_TOKEN_PAT.findall(own_text))
+            # Next question stem + choices (within same paper)
+            if i + 1 >= len(questions):
+                continue
+            nq = questions[i + 1]
+            next_text = (nq.get("stem_html", "") or "") + " " + " ".join(
+                str(c) for c in nq.get("choices", []) or []
+            )
+            next_toks = set(JP_TOKEN_PAT.findall(next_text))
+            own_overlap = len(rh_toks & own_toks)
+            next_overlap = len(rh_toks & next_toks)
+            # Off-by-one signal: 0 own + ≥2 next
+            if own_overlap == 0 and next_overlap >= 2:
+                failures.append(
+                    f"JA-137 {fp.relative_to(ROOT)} {q.get('id')}: "
+                    f"rationale_hi has 0 token overlap with own stem/choices "
+                    f"but {next_overlap} tokens overlap with next question "
+                    f"({nq.get('id')}) — off-by-one shift suspected (GOI-001/004 class)"
+                )
+    return failures
+
+
+def _check_ja_139_no_devanagari_embedded_in_japanese_word() -> list[str]:
+    """GOI-006 (BUG-135, 2026-05-21) drift guard. No rationale_hi
+    may have a Devanagari letter (U+0900-U+0963 OR U+0966-U+097F —
+    excludes the dandas U+0964 ।  / U+0965 ॥ which are legitimate
+    Hindi sentence-end punctuation) embedded IMMEDIATELY after
+    a kana or CJK ideograph character.
+
+    Trip condition: regex `[ぁ-ゖァ-ヺ一-鿿][\\u0900-\\u0963\\u0966-\\u097F]`
+    matches in rationale_hi, AND the match is not preceded by a
+    hyphen (to allow legitimate cross-script technical terms like
+    "い-विशेषण" / "な-विशेषण").
+
+    Caught the goi-7.4 「あमारी ありません」 mojibake (kana あ +
+    Devanagari मा + Devanagari ी — a search-and-replace artifact
+    that mangled what should have been the kana word あまく).
+    Same class as the "यहाँre" mojibake (PAPER-004) and
+    "by ट्रेन" (DOKKAI-004) but a structural detector that catches
+    embedding inside a word, not just specific substrings.
+    """
+    import re as _re
+    # JP char + Devanagari letter (not danda)
+    PAT = _re.compile(r"[ぁ-ゖァ-ヺ一-鿿][ऀ-ॣ०-ॿ]")
+    failures: list[str] = []
+    paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))
+    for fp in paper_files:
+        if fp.name == "manifest.json":
+            continue
+        try:
+            d = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for q in d.get("questions", []):
+            rh = q.get("rationale_hi", "") or ""
+            for m in PAT.finditer(rh):
+                # Allow the hyphenated cross-script-term case
+                if m.start() > 0 and rh[m.start() - 1] == "-":
+                    continue
+                ctx = rh[max(0, m.start() - 10) : m.start() + 15]
+                failures.append(
+                    f"JA-139 {fp.relative_to(ROOT)} {q.get('id')}.rationale_hi: "
+                    f"Devanagari letter embedded immediately after JP char in {m.group()!r} (ctx={ctx!r}) — "
+                    f"mojibake suspected (GOI-006 class)"
+                )
+                break  # one finding per question is enough
+    return failures
+
+
 def _check_ja_136_rationale_hi_unique_within_paper() -> list[str]:
     """GOI-001 (BUG-130, 2026-05-19) drift guard. No two questions within
     the same paper file may share a byte-identical `rationale_hi` value
@@ -7438,6 +7566,21 @@ def _check_ja_121_no_meta_fix_history_in_rationale() -> list[str]:
         "documented at",
         "does not bear on",
         "test point this question",
+        # GOI-005 (BUG-134, 2026-05-21) extensions:
+        # commit-trail / replacement-history phrases caught in goi-1.5,
+        # goi-1.10, goi-3.15, goi-4.6, goi-5.4, goi-7.7, goi-7.8.
+        "replaces the prior",
+        "replaces the previous",
+        "previous version",
+        "prior version",
+        "Strict-N5:",
+        "in v1.",
+        "policy applied at",
+        "no longer appears",
+        # Hindi-side equivalents:
+        "पिछले संस्करण",
+        "पुराने",
+        "की जगह लेता",
     ]
     failures: list[str] = []
     paper_files = sorted((ROOT / "data" / "papers").rglob("*.json"))

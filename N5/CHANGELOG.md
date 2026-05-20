@@ -2,6 +2,112 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-21 (GOI-004..006 close-out + horizontal mojibake sweep — 3 goi-paper rationale bugs + 2 dokkai horizontal-deployment fixes + 2 new CI invariants)
+
+### Fixed
+
+- **BUG-133 (GOI-004) — Off-by-one rationale_hi shift goi-7.6 → goi-7.7.**
+  `data/papers/goi/paper-7.json` questions goi-7.6 (Q96) and goi-7.7
+  (Q97) had their rationale_hi shifted by one: goi-7.6 carried
+  goi-7.7's じょうずに 話す Hindi content; goi-7.7 carried goi-7.8's
+  しゅくだいを 出す Hindi content. (English rationale was correct on
+  both; only Hindi shifted.) goi-7.8 itself was unaffected. Rewrote
+  both Hindi strings as natural Hindi about their actual stems
+  (ゆうがた/夕方 paraphrase + じょうずに 話す paraphrase). Provenance
+  flipped to `native_reviewed_2026_05_21`. Same drift class as
+  GOI-001 (goi-6.11); first fix surfaced as sample, second fix is
+  the actual close.
+- **BUG-134 (GOI-005) — 7 rationale fields carried fix-history /
+  version-references / replacement-history.** Sweep across
+  `data/papers/goi/paper-{1,3,4,5,7}.json` for phrases like
+  "replaces the prior", "replaces the previous", "Strict-N5:",
+  "in v1.X", "policy applied at", "previous version", and Hindi
+  "पिछले संस्करण" / "पुराने" / "की जगह लेता". 7 hits: goi-1.5,
+  goi-1.10, goi-3.15, goi-4.6, goi-5.4, goi-7.7, goi-7.8.
+  Stripped the fix-history sentences; kept only the actual
+  paraphrase pedagogy. Hindi mirrors stripped where present.
+- **BUG-135 (GOI-006) — mixed-script Devanagari-inside-kana mojibake
+  in goi-7.4 rationale_hi.** The token 「あमारी ありません」 mixed
+  kana あ + Devanagari ma + Devanagari ī as a single word —
+  invalid Japanese, invalid Hindi, garbled the polite-negative
+  paraphrase point. Replaced with 「あまく ありません」 and rewrote
+  the surrounding Hindi. Provenance `native_reviewed_2026_05_21`.
+- **Horizontal-deployment finding (JA-139 sweep).** After sharpening
+  JA-139's detector to exclude sentence-end danda (U+0964/U+0965)
+  + hyphen-separated cross-script terms, a corpus-wide pass surfaced
+  **2 more same-class mojibake in dokkai that the goi-only filing
+  missed**:
+  - `data/papers/dokkai/paper-2.json` dokkai-2.11.rationale_hi:
+    「一時間ぐらि」 → 「一時間ぐらい」 (rewritten as natural Hindi)
+  - `data/papers/dokkai/paper-3.json` dokkai-3.4.rationale_hi:
+    「あमारी 上手では ありません」 → 「あमारी 上手では ありません」
+    rewritten as natural Hindi (mojibake あमारी → あまり).
+
+  Both fixed in this batch via `tools/fix_dokkai_mojibake_2026_05_21.py`.
+  Operational rule generalized in procedure-manual §F.37: every
+  per-bug fix runs a corpus-wide CI-invariant pass BEFORE declaring
+  the class closed. One-shot fixes leak.
+
+### Added
+
+- **JA-137** — CI invariant catching the **narrow off-by-one
+  rationale_hi shift signal**: 0 token overlap with own stem AND
+  ≥2 overlap with next-question's stem. False-positive rate <1%
+  (vs ~21% for the broad token-overlap detector explicitly rejected
+  in Part 28). Sharper detector → cleaner CI gate.
+- **JA-139** — CI invariant catching **mixed-script Devanagari-
+  inside-kana mojibake in rationale_hi**: regex
+  `[ぁ-ゖァ-ヺ一-鿿][ऀ-ॣ०-ॿ]` (excluding danda U+0964/U+0965 and
+  hyphen-separated cross-script terms like 「い-विशेषण」).
+- **JA-121 trigger set extended** with 11 additional phrases:
+  "replaces the prior", "replaces the previous", "previous version",
+  "prior version", "Strict-N5:", "in v1.", "policy applied at",
+  "no longer appears", "पिछले संस्करण", "पुराने", "की जगह लेता".
+  **No new JA-NN minted** — existing JA-121 detector's name and
+  intent already covered the class. Operational rule from §F.37.3:
+  extend in place when the underlying anti-pattern is unchanged.
+- **Procedure manual F.37** — 3 drift classes A/B/C (mixed-script
+  mojibake + off-by-one shift + extended fix-history) +
+  horizontal-deployment operational rule + same-drift-class
+  lineage table for Nx-builder prediction.
+- **Accuracy prompt A75** — full 7-invariant family on paper-
+  question rationale fields documented (JA-121/122/129/130/136/
+  137/139).
+- **N5Improvement Phase-0 block** — maintainer-side mirror of
+  mixed-script + off-by-one + extended-fix-history checks (runs
+  pre-release, asserts 0 hits on the live corpus).
+- **AUDIT-COVERAGE Part 33** — close-out narrative + horizontal-
+  deployment finding + bounded-coverage phrasing.
+
+### Tooling
+
+- `tools/file_goi_004_006_bugs_2026_05_21.py` — files BUG-133/134/135
+  in xlsx tracker.
+- `tools/fix_goi_004_006_2026_05_21.py` — applies all 3 GOI-004/005/
+  006 fixes to data/papers/goi/*.json.
+- `tools/fix_dokkai_mojibake_2026_05_21.py` — applies the 2
+  horizontal-deployment dokkai mojibake fixes.
+- `tools/flip_goi_004_006_fixed_2026_05_21.py` — flips BUG-133/134/
+  135 to Fixed in xlsx tracker with fix-notes.
+- `tools/check_content_integrity.py` extended: `_check_ja_137_*` +
+  `_check_ja_139_*` added; JA-121 BAD_PHRASES list extended with the
+  11 new triggers.
+
+### State
+
+CI **141 / 141 invariants green** (was 139; +JA-137 +JA-139; JA-121
+extended in place).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **135 / 135 Fixed / 0 Open**.
+
+Bounded framing: this batch closes 3 rationale-content bugs in goi
+paper-7 + horizontal-deployment captures of 2 additional dokkai
+instances that the original goi-only filing would have missed. The
+new invariants prevent re-introduction of *these specific patterns*
+(mixed-script mojibake / narrow off-by-one shift / 22 named
+trigger phrases); they do NOT claim universal coverage of all
+mojibake / all content-mismatch / all meta-commentary classes.
+
 ## Unreleased - 2026-05-21 (4-class batch closure: codify-policy + advisory-tool + CI-workflow + path-forward-doc)
 
 ### Added

@@ -1332,6 +1332,54 @@ tools/fix_goi_bugs_2026_05_19.py; procedure-manual §F.35 (Class A
 copy-paste content-mismatch + Class B meta-content); accuracy
 prompt §A74; AUDIT-COVERAGE Part 28.
 
+### Phase-0 mixed-script + off-by-one + extended-fix-history regression block (added 2026-05-21)
+
+CI-enforced via JA-137 + JA-139 + JA-121 trigger extension
+(introduced 2026-05-21). Maintainer-side Phase-0 mirror runs:
+
+1. **No mixed-script Devanagari-inside-kana mojibake in rationale_hi
+   (GOI-006 / JA-139)**
+   For every paper question, scan rationale_hi for the regex
+   `[ぁ-ゖァ-ヺ一-鿿][\x{0900}-\x{0963}\x{0966}-\x{097F}]` — Devanagari
+   letter (excluding danda U+0964 and double-danda U+0965) immediately
+   following a kana/CJK character. Hyphenated cross-script terms like
+   「い-विशेषण」 excluded by the hyphen boundary. Expected: 0 hits.
+
+2. **No off-by-one rationale_hi shift across consecutive Qs (GOI-001/004 / JA-137)**
+   For every paper question, compute token overlap of rationale_hi with
+   own stem+answer AND next-question's stem+answer. Flag any question
+   where own_overlap == 0 AND next_overlap >= 2. False-positive rate
+   <1%. Expected: 0 hits.
+
+3. **No extended fix-history phrases in rationale (GOI-005 / JA-121 extended)**
+   Trigger phrases extended 2026-05-21: "replaces the prior", "replaces
+   the previous", "previous version", "prior version", "Strict-N5:",
+   "in v1.", "policy applied at", "no longer appears", "पिछले संस्करण",
+   "पुराने", "की जगह लेता". Catches version-references + replacement-
+   history + policy cross-references in learner-facing rationale.
+   Expected: 0 hits.
+
+Bounded-coverage framing:
+  - "JA-139 catches *Devanagari-inside-kana mojibake*" — full-line
+    garbled-text mojibake and encoding-double-pass artifacts need
+    separate detectors not yet wired.
+  - "JA-137 catches *the narrow off-by-one shift signal (0 own + ≥2
+    next overlap)*" — broader same-question divergence still requires
+    the advisory tool tools/audit_rationale_overlap_2026_05_21.py.
+  - "JA-121 extended trigger set covers *these 22 specific phrases as
+    of 2026-05-21*" — paraphrased meta-commentary still slips past.
+  - Horizontal-deployment finding: the goi-only sweep that filed
+    GOI-006 missed 2 dokkai mojibake instances; only the corpus-wide
+    JA-139 pass found them. **Always run the detector corpus-wide
+    before declaring the class closed** — the lesson generalized in
+    procedure-manual §F.37.
+
+Source: GOI-004..006 close-out (2026-05-21); fix scripts
+tools/fix_goi_004_006_2026_05_21.py + tools/fix_dokkai_mojibake_2026_05_21.py;
+procedure-manual §F.37 (Class A mixed-script mojibake + Class B
+off-by-one shift + Class C extended fix-history); accuracy prompt
+§A75; AUDIT-COVERAGE Part 33.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

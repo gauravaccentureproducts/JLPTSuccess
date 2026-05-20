@@ -4216,3 +4216,113 @@ Bounded-coverage phrasing:
 Cross-reference: AUDIT-COVERAGE Part 28; procedure-manual §F.35;
 tools/fix_goi_bugs_2026_05_19.py.
 ============================================================
+
+A75. Mixed-script mojibake + off-by-one rationale_hi shift +
+     extended fix-history strip (GOI-004..006 close-out).
+     (Audit category — added 2026-05-21, AUDIT-COVERAGE Part 33.)
+
+Three durable rationale-content defect classes from the second
+goi-corpus sweep iteration. Each had a sibling instance elsewhere
+in the corpus that the original single-fix sweep missed — the
+operational lesson is "horizontal-deployment sweep is part of the
+fix commit, not a follow-up." CI-enforced via JA-137 + JA-139 +
+JA-121 trigger extension. Combines with A74 to form a 7-invariant
+family on paper-question rationale fields.
+
+Class A — Mixed-script Devanagari-inside-kana mojibake (CI: JA-139)
+  A rationale_hi token mixes scripts inside a single word: kana
+  あ + Devanagari ma + Devanagari ī as one unit (「あमारी」), or
+  kana ぐら + Devanagari ī (「ぐらि」). Likely cause: an earlier
+  search-and-replace or transliteration pass substituted kana
+  with closest-glyph Devanagari without script-boundary check.
+
+  GOI-006 example: goi-7.4 rationale_hi had 「あमारी ありません」
+  where the kana 「あまく」 was meant. Result: invalid Japanese,
+  invalid Hindi, garbled the polite-negative paraphrase point.
+
+  Horizontal-deployment finding: the sharpened JA-139 detector,
+  run corpus-wide, surfaced 2 MORE instances in dokkai-2.11
+  (「一時間ぐらि」 → 「一時間ぐらい」) and dokkai-3.4 (「あमारी
+  上手では」 → 「あまり 上手では」) that the goi-only sweep missed.
+  All 3 fixed in the same batch as BUG-135.
+
+  Detector: regex `[ぁ-ゖァ-ヺ一-鿿][ऀ-ॣ०-ॿ]` — Devanagari
+  letter immediately following a kana/CJK character. Exclusions:
+  danda ।  (U+0964) and double-danda ॥ (U+0965), which are
+  legitimate sentence-end punctuation; hyphen-separated cross-
+  script terms like 「い-विशेषण」.
+
+Class B — Off-by-one rationale_hi shift across consecutive Qs (CI: JA-137)
+  Two consecutive questions have their rationale_hi shifted by
+  one: question N carries (N+1)'s rationale_hi; (N+1) carries
+  (N+2)'s. English rationale is correct on both; only Hindi shifted.
+  Hard to catch with a strict token-overlap detector (21% FP rate
+  on existing corpus from polite/dictionary form variation), so the
+  detector targets the NARROW shift signal: rationale_hi has 0
+  overlap with own stem AND ≥2 overlap with next-Q's stem.
+
+  GOI-004 example: goi-7.6 stem about ゆうがた/夕方 carries goi-7.7's
+  「話すのが じょうず」 rationale_hi; goi-7.7 stem about 話すのが
+  じょうず carries goi-7.8's 「しゅくだいを 出す」 rationale_hi.
+  goi-7.8 itself is correct.
+
+  Detector lifts the "narrow signal" idea: any same-question rationale_hi
+  that ZERO-overlaps with its own stem AND TWO-PLUS overlaps with next-
+  question's stem is flagged. Rejected: a strict broad-overlap detector
+  with the same coverage produced ~100 false positives from polite/
+  dictionary form variation. Sharper detector → cleaner CI gate.
+
+Class C — Extended fix-history / version-references / replacement-history (CI: JA-121 extended)
+  Extension of A74 Class B (PAPER-003 / GOI-002/003). 7 more rationale
+  fields surfaced in goi sweep iteration 2 with phrases like:
+    - "replaces the prior" / "replaces the previous"
+    - "previous version" / "prior version"
+    - "Strict-N5:" + "in v1." + "policy applied at"
+    - "no longer appears" + "Note: kept in kana since 私 is not in..."
+    - Hindi "पिछले संस्करण" / "पुराने" / "की जगह लेता"
+
+  JA-121 trigger set extended 2026-05-21 with these 11 phrases.
+  No new JA-NN minted — the existing detector's name and intent
+  already match the class. Operational rule: extend in place when
+  the underlying anti-pattern is unchanged; mint a new JA-NN only
+  when the anti-pattern itself is new.
+
+Fix protocol (all three classes):
+  - Class A: replace the mixed-script token with the intended pure-
+    JP token, then rewrite the surrounding Hindi naturally if
+    needed. Provenance: native_reviewed_<YYYY_MM_DD>.
+  - Class B: rewrite both Hindi strings from scratch about their
+    actual stems' content (don't just shift them back — the (N+2)
+    cell might have its own issue). Provenance: native_reviewed_
+    <YYYY_MM_DD>.
+  - Class C: strip the fix-history sentence; keep only the actual
+    paraphrase pedagogy. Hindi mirror gets the same treatment.
+
+The combined 7-invariant family on paper-question rationale fields:
+  - JA-121 — no meta-fix history (PAPER-003 + GOI-002/003/005 extended)
+  - JA-122 — no English-pattern fragments in Hindi (PAPER-004)
+  - JA-129 — no untranslated temporal markers (DOKKAI-002/004)
+  - JA-130 — grammarPatternId schema-shape (DOKKAI-003)
+  - JA-136 — no cross-question rationale_hi duplication (GOI-001)
+  - JA-137 — no off-by-one rationale_hi shift (GOI-001/004)
+  - JA-139 — no mixed-script Devanagari-inside-kana mojibake (GOI-006)
+
+Bounded-coverage phrasing:
+  - "JA-137 catches *the narrow off-by-one shift signal (0 own +
+    ≥2 next overlap)*" — broader token-overlap divergence stays
+    advisory in tools/audit_rationale_overlap_2026_05_21.py.
+  - "JA-139 catches *Devanagari-inside-kana mojibake* (excluding
+    sentence-end danda and hyphen-separated cross-script terms)" —
+    full-line mojibake / encoding-double-pass artifacts need
+    separate detectors.
+  - "JA-121 (extended) trigger set covers *these 11+11=22 specific
+    phrases as of 2026-05-21*" — subtler meta-commentary phrasings
+    still need per-entry review.
+
+Cross-reference: AUDIT-COVERAGE Part 33; procedure-manual §F.37;
+tools/fix_goi_004_006_2026_05_21.py + tools/fix_dokkai_mojibake_2026_05_21.py.
+
+CI invariants at this checkpoint: 141 (was 139 before GOI-004/005/006 close).
+Note: 138 reserved for the JA-121 trigger-set extension; no separate
+JA-NN minted there because the existing JA-121's intent already covered it.
+============================================================

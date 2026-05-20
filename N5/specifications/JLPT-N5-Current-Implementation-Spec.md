@@ -802,7 +802,7 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-136; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-139; gaps for retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
 JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
@@ -811,7 +811,11 @@ LLM-001..005 + REG-001 close-out; JA-128 / JA-129 / JA-130 wired on
 2026-05-18 from DOKKAI-001..003 close-out; JA-131..134 wired on
 2026-05-19 from MOB-001..019 + DOKKAI-004 close-out; JA-135 wired
 2026-05-19 as MOB-008/009 generalization; JA-136 wired 2026-05-19
-from GOI-001..003 close-out — see §25.4 rows) that the script runs against every release. The script is the
+from GOI-001..003 close-out; JA-137 + JA-139 wired 2026-05-21 from
+GOI-004..006 close-out + horizontal mojibake sweep (JA-138 number
+intentionally skipped — JA-121 trigger set extended in place rather
+than minting a new invariant for the same anti-pattern, per §F.37.3
+of the procedure manual) — see §25.4 rows) that the script runs against every release. The script is the
 source of truth; this section is its human-readable index.
 
 **How to run them:** `python tools/check_content_integrity.py` (from
@@ -1017,6 +1021,8 @@ References resolve, forms match, IDs stay stable, derived data agrees with sourc
 | JA-134 | `js/home.js` must NOT use `href="#/levels"` (silently redirects to root then triggers first-run onboarding to `#/diagnostic`); should use `href="../"` directly. `js/listening-story.js` must NOT use `"#/listening/story..."` references (silently redirects to listening index because the router maps `listeningstory` (no slash)); should use canonical `#/listeningstory...`. MOB-008/009 (BUG-117/118) drift guard. INV-MOB-C. Wired 2026-05-19. | 2026-05-19 |
 | JA-135 | Every internal `href="#/X"` hash-route reference in `js/*.js` (excluding `js/app.js` and `js/min/*`) must point to a route whose name appears in app.js's routes dict (extracted via regex on the canonical `name: render<X>` mapping). General hash-route-resolution guard — extends JA-134 from "2 specific known patterns" to "every internal hash-href resolves". Catches future MOB-008/009-class dead-end introductions without per-pattern hardcoding. INV-MOB-C-EXT. Wired 2026-05-19. | 2026-05-19 |
 | JA-136 | No `rationale_hi` value (longer than 30 chars) may be shared verbatim by 2+ questions within the same paper file. GOI-001 (BUG-130) copy-paste guard — caught goi-6.11's rationale_hi being a byte-identical copy of goi-6.12's (about a different question topic). The bug spec's stricter proposal (rationale_hi must share a Japanese token with stem/correctAnswer) was REJECTED for ~100 false positives on the existing corpus (dictionary-form vs polite-form variation). Cross-question duplication is the narrower-but-defensible proxy; semantic token equivalence would require morphological stemming. INV-PAPER-D. Wired 2026-05-19. | 2026-05-19 |
+| JA-137 | No off-by-one `rationale_hi` shift across consecutive questions. GOI-001 + GOI-004 (BUG-130 + BUG-133) drift guard. Narrow detector: a question's rationale_hi has 0 Japanese-token overlap with its OWN stem+answer AND ≥2 token overlap with the NEXT question's stem+answer. The asymmetric overlap is the actual off-by-one signal; absolute overlap is too noisy as a CI gate (~21% false positives from polite-form ↔ dictionary-form variation). Sharper detector → cleaner gate; false-positive rate <1% on the live corpus. Broader same-question token-overlap divergence remains advisory in `tools/audit_rationale_overlap_2026_05_21.py`. INV-PAPER-E. Wired 2026-05-21. | 2026-05-21 |
+| JA-139 | No Devanagari letter embedded inside a JP-character word in `rationale_hi`. GOI-006 (BUG-135) mojibake guard. Detector: regex `[ぁ-ゖァ-ヺ一-鿿][ऀ-ॣ०-ॿ]` — Devanagari letter immediately following a kana/CJK character with no separator. Exclusions: Devanagari danda `।` (U+0964) and double-danda `॥` (U+0965), which are legitimate sentence-end punctuation; hyphen-separated cross-script terms like 「い-विशेषण」. JA-138 number intentionally skipped — JA-121's trigger set was extended in place (not minted as a new invariant) to cover GOI-005's additional fix-history phrases; the underlying anti-pattern is unchanged so the existing JA-NN holds. Horizontal-deployment sweep on this invariant surfaced 2 more dokkai mojibake instances (dokkai-2.11 + dokkai-3.4) that the original goi-only filing missed — both fixed in the same close-out batch. INV-PAPER-F. Wired 2026-05-21. | 2026-05-21 |
 
 ### 25.5 Locale parity & i18n
 
@@ -1463,7 +1469,7 @@ See §15 for the active CSP. NFR statements:
 ### 32.2 Cadences
 
 - Daily: nothing required; static site.
-- Per release: P0 smoke (`tests/p0-smoke.spec.js`) + Mobile UI Selenium (`tools/run_mobile_ui_tests.py`) + content-integrity (139 invariants at this checkpoint).
+- Per release: P0 smoke (`tests/p0-smoke.spec.js`) + Mobile UI Selenium (`tools/run_mobile_ui_tests.py`) + content-integrity (141 invariants at this checkpoint).
 - Quarterly: Pass-N re-audit per §34.
 - Annually: full spec review + amendment (this document).
 
@@ -1692,7 +1698,7 @@ When this spec is updated (drift correction, new section addition, version bump)
 | E Acceptance criteria for v4 | §37 |
 | F.1 Mobile UI NFR-M1..M9 | §30.5 (with NFR-M10/M11 added 2026-05-19) |
 | F.2 Disabled-button feedback NFR-U | §30.6 |
-| F.3 JA-25..JA-33 invariants | §25 (extended through JA-136+) |
+| F.3 JA-25..JA-33 invariants | §25 (extended through JA-139+) |
 | F.4 Anti-patterns AP-7..AP-10 | Procedure manual (Appendix F) + workbook tabs |
 | F.5 Corpus state snapshot | §7.1 |
 | F.6 New routes | §4.2 |

@@ -78,8 +78,8 @@
       "kbSourceId": "Q94",
       "id": "goi-7.4",
       "mondai": 4,
-      "rationale_hi": "あまくないです (い-विशेषण + です विनम्र-नकारात्मक) = あमारी ありません (औपचारिक विनम्र-नकारात्मक)। い-विशेषणों के दो समकक्ष विनम्र नकारात्मक रूप — सच्चा पर्याय-आइटम है, श्रेणीबद्ध सन्निकटन नहीं। समान अर्थ, अलग शैलीगत बारीकी।",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "あまくないです (い-विशेषण + です विनम्र-नकारात्मक) = あまく ありません (औपचारिक विनम्र-नकारात्मक)। い-विशेषणों के दो समकक्ष विनम्र नकारात्मक रूप — सच्चा पर्याय-आइटम है, श्रेणीबद्ध सन्निकटन नहीं। समान अर्थ, अलग शैलीगत बारीकी।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
       "grammarPatternId": "n5-080",
       "grammarPatternId_provenance": "auto_inferred"
     },
@@ -116,8 +116,8 @@
       "kbSourceId": "Q96",
       "id": "goi-7.6",
       "mondai": 4,
-      "rationale_hi": "「話すのが じょうず」 = 「上手に 話す」। समान कौशल, अलग वाक्य-संरचना (संज्ञीकृत विशेषण बनाम क्रियाविशेषण)। सख़्त-N5: पिछले संस्करण में प्रयुक्त क्षमता-रूप 話せます (N4) भी हटाया गया।",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "「夕方 ≈ 夜の前」 — 夕方 (शाम) रात होने से ठीक पहले का समय है; 「रात होने से पहले लौटूँगा」 「शाम को लौटूँगा」 का सीधा पुनःकथन है।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
       "grammarPatternId": "n5-119",
       "grammarPatternId_provenance": "auto_inferred"
     },
@@ -131,12 +131,12 @@
         "たろうさんは 日本ごを ならって います。"
       ],
       "correctIndex": 0,
-      "rationale": "「話すのが じょうず」 = 「上手に 話す」. Same skill, different syntactic frame (nominalized adjective vs. adverbial). Strict-N5: also drops the potential form 話せます (N4) used in a previous version.",
+      "rationale": "「話すのが じょうず」 = 「上手に 話す」. Same skill, different syntactic frame (nominalized adjective vs adverbial).",
       "kbSourceId": "Q97",
       "id": "goi-7.7",
       "mondai": 4,
-      "rationale_hi": "「(教師に) しゅくだいを 出す」 ≈ 「先生に しゅくだいを もって いく」 — शिक्षक को गृहकार्य देना भौतिक रूप से ले जाने के रूप में पुनराचित। わたす के स्थान पर もつ + いく; तीनों N5 क्रियाएँ हैं।",
-      "rationale_hi_provenance": "native_reviewed_2026_05_18",
+      "rationale_hi": "「話すのが じょうず」 = 「上手に 話す」। समान कौशल, अलग वाक्य-संरचना (संज्ञीकृत विशेषण ↔ क्रियाविशेषण)।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
       "grammarPatternId": "n5-003",
       "grammarPatternId_provenance": "auto_inferred"
     },
@@ -150,12 +150,12 @@
         "あした しゅくだいを かえします。"
       ],
       "correctIndex": 1,
-      "rationale": "「(教師に) しゅくだいを 出す」 ≈ 「先生に しゅくだいを もって いく」. Submitting homework to a teacher is paraphrased as physically taking it to them. Strict-N5: replaces the previous keyed verb わたす (vocabulary_n5.md [Ext] borderline N5/N4) with もって いく - both もつ and いく are core N5; わたす no longer appears in the goi corpus. Note: kept in kana since 持 is not in the kanji whitelist.",
+      "rationale": "「(教師に) しゅくだいを 出す」 ≈ 「先生に しゅくだいを もって いく」. Submitting homework to a teacher is paraphrased as physically taking it to them. The N5 vocab triangle: 出す / もって / いく.",
       "kbSourceId": "Q98",
       "id": "goi-7.8",
       "mondai": 4,
-      "rationale_hi": "「(教師に) しゅくだいを 出す」 ≈ 「先生に しゅくだいを もって いく」 — शिक्षक को गृहकार्य देना भौतिक रूप से ले जाने के रूप में पुनराचित।",
-      "rationale_hi_provenance": "native_reviewed_2026_05_18",
+      "rationale_hi": "「(教師に) しゅくだいを 出す」 ≈ 「先生に しゅくだいを もって いく」 — शिक्षक को गृहकार्य देना भौतिक रूप से ले जाने के रूप में पुनराचित। शब्दावली त्रिकोण: 出す / もって / いく।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_21",
       "grammarPatternId": "n5-013",
       "grammarPatternId_provenance": "auto_inferred"
     },
