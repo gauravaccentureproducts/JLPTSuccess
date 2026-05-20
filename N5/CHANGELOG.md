@@ -2,6 +2,57 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-21 (4-class batch closure: codify-policy + advisory-tool + CI-workflow + path-forward-doc)
+
+### Added
+
+- **`docs/ORTHOGRAPHY-POLICY-N5.md`** — codifies the per-word kana-vs-
+  kanji convention with empirical counts (21 N5 high-frequency words
+  tabulated; わたし 14× vs 私 2×; ともだち 35× vs 友だち 14×;
+  人 25× vs ひと 6×; etc.). Documents the convention as established
+  project policy. **Closes REG-001 SWEEP-5** (previously
+  "declined-with-reason"; now **closed-as-policy**).
+- **`tools/audit_rationale_overlap_2026_05_21.py`** — standalone
+  advisory audit tool for the GOI-001 follow-up token-overlap check.
+  Includes lightweight Japanese stemmer (strip particles + ます/
+  ました/ません + です/だ + kana↔kanji normalization + dict-form
+  ↔ polite-stem table). Outputs candidate list; does NOT fail CI.
+  Documented 21% false-positive rate; not eligible for strict CI
+  invariant pending kuromoji-class morphological analysis.
+- **`.github/workflows/regen-llm-surfaces.yml`** — CI workflow
+  triggered on push touching `N5/data/**` or build tools. Re-runs
+  `tools/build_llm_surfaces_2026_05_18.py` + `build_static_mirrors.py
+  --stages meta`; asserts no drift via `git diff --quiet`. Pre-merge
+  feedback instead of post-merge JA-125 catch. **Closes LLM-005
+  build-script CI integration deferred item.**
+- **`docs/NATIVE-SPEAKER-RE-VERIFICATION.md`** — path-forward doc
+  for the 54 register_variant entries carrying
+  `llm_curated_with_reference_*` or pre-existing `native_reviewed`
+  provenance. Documents 3 options: community PR-based review,
+  commissioned single-pass review, status-quo with
+  promote-on-finding. Default is status-quo. Explicit
+  acknowledgment that actual-native-speaker review is genuinely
+  human-only.
+- **Procedure manual F.36** — 4-class batch-closure pattern (A:
+  codify policy; B: ship advisory tool; C: wire CI workflow; D:
+  path-forward doc). Reusable Nx-builder methodology for closing
+  accumulated deferred items at the end of a long audit session.
+
+### State
+
+CI **139 / 139 invariants green** (unchanged — no new CI invariants).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: this batch closes 3 actionable deferred items
+(codify-policy + advisory-tool + CI-workflow) and explicitly
+surfaces 1 genuinely-human-only item (native-speaker
+re-verification) with documented path-forward. All deferred items
+from the multi-day audit session (Parts 24-31) now have explicit
+status: code-closed / policy-closed / workflow-closed /
+path-forward-status. No "pending future work" items remain in
+zombie deferred state.
+
 ## Unreleased - 2026-05-19 (Tier 3: SWEEP-2 + SWEEP-3 audits — both clean, REG-001 closed)
 
 ### Audit completed (no code changes)

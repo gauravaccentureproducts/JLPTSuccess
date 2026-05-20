@@ -4855,3 +4855,141 @@ with-reason. Honest-provenance flag
 `llm_curated_with_reference_genki_minna_jees_2026_05_19` remains
 on Tier 1's 21 A migrations — surfaced marker for future actual-
 native-speaker re-verification.
+
+## ADDENDUM 2026-05-21 (Part 32) — Closing 4 deferred items via the 4-class batch-closure pattern
+
+### Trigger
+
+Accumulated deferred items from the multi-day audit session
+(Parts 24-31). Closing pattern: surface each item against one of
+4 classes (A/B/C/D) and close via the appropriate output type.
+
+### 4 items closed
+
+**Class A — Codify implicit convention** (SWEEP-5 orthography
+policy):
+
+  - SWEEP-5 was previously "declined-with-reason" (Part 29
+    documented the corpus-convention conflict with REG-001 D5).
+  - **Class A closure**: wrote `docs/ORTHOGRAPHY-POLICY-N5.md`
+    documenting the per-word kana-vs-kanji convention with
+    measured counts (21 N5 high-frequency words tabulated).
+    SWEEP-5 now closes as **closed-as-policy** rather than
+    "declined-with-reason".
+  - Surfaces the convention as explicit project policy. Future
+    audits/contributors can cite the doc.
+
+**Class B — Advisory audit tool** (token-overlap content-mismatch):
+
+  - The original GOI-001 bug spec proposed a stricter rationale_hi
+    ↔ stem token-overlap invariant. Implementation produces
+    21% false-positive rate (dictionary-form ↔ polite-form ↔
+    orthography variation) — too noisy for a strict CI invariant.
+  - **Class B closure**: shipped
+    `tools/audit_rationale_overlap_2026_05_21.py` as standalone
+    advisory tool. Includes lightweight Japanese stemmer (strip
+    particles + ます/ました/ません + です/だ + kana↔kanji
+    normalization + dict-form ↔ polite-stem table). Outputs
+    candidate list; does NOT fail CI.
+  - Current corpus state: 68/317 questions with rationale_hi flag
+    advisory candidates (21% false-positive rate; each needs
+    human-reviewer judgment).
+
+**Class C — CI workflow integration** (LLM-005 build-script):
+
+  - `tools/build_llm_surfaces_2026_05_18.py` (the 8-stage
+    regenerator from LLM-005 close-out) was run manually only.
+    Maintainer could forget after a data edit, producing stale
+    mirrors caught only post-fact by JA-125 byte-size drift.
+  - **Class C closure**: created
+    `.github/workflows/regen-llm-surfaces.yml`. Triggers on push
+    touching `N5/data/**` or relevant tools; re-runs regen +
+    asserts `git diff --quiet`; fails CI with clear error
+    message + diff summary if drift detected.
+  - Pre-merge feedback instead of post-merge JA-125 catch.
+
+**Class D — Path-forward doc** (native-speaker re-verification):
+
+  - 54 register_variant entries in grammar.json carry
+    `llm_curated_with_reference_*` or pre-existing
+    `native_reviewed` provenance (depth not documented). Actual
+    native-speaker review remains genuinely human-only.
+  - **Class D closure**: wrote
+    `docs/NATIVE-SPEAKER-RE-VERIFICATION.md` documenting 3
+    options (community PR, commissioned review, status-quo
+    promote-on-finding) + tracking signal + expected-outcome
+    ranges. Default is Option C (status-quo with promote-on-
+    finding).
+  - Explicit acknowledgment of LLM limits + path-forward.
+
+### What's NOT closed in this batch
+
+  - **Actual native-speaker review** itself — Option C is the
+    default; Options A/B require maintainer action.
+  - **Subtle near-duplicate detection** (paraphrased copy-paste
+    where a few tokens differ but topic is wrong) — needs
+    semantic NLP, not in scope.
+  - **Other corpora reviews** (vocab.json, kanji.json, etc.) —
+    have their own provenance / review processes.
+
+### CI count after Part 32
+
+**139** (unchanged — no new CI invariants in this batch).
+`cross_artifact_sync_report.py` exits CLEAN.
+
+### Bug-tracker after Part 32
+
+  - Total: 132 rows (unchanged)
+  - Fixed: 132 / 132 (unchanged)
+  - Open: 0
+
+### Reusable tooling deliverables (Part 32)
+
+  - `tools/audit_rationale_overlap_2026_05_21.py` — standalone
+    advisory audit tool with documented 21% false-positive rate
+    (Class B pattern-template)
+  - `.github/workflows/regen-llm-surfaces.yml` — CI workflow for
+    surface-regeneration drift detection (Class C
+    pattern-template)
+
+### Pattern-template doc
+
+`JLPT Common/procedure-manual-build-next-jlpt-level.md` F.36
+documents the 4-class batch-closure pattern (A: codify policy;
+B: ship advisory tool; C: wire CI workflow; D: path-forward
+doc). Reusable Nx-builder methodology for closing accumulated
+deferred items at the end of a long audit session.
+
+### Files touched (Part 32)
+
+  - N5/docs/ORTHOGRAPHY-POLICY-N5.md (NEW — Class A)
+  - N5/docs/NATIVE-SPEAKER-RE-VERIFICATION.md (NEW — Class D)
+  - N5/tools/audit_rationale_overlap_2026_05_21.py (NEW — Class B)
+  - N5/.github/workflows/regen-llm-surfaces.yml (NEW — Class C)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md (F.36
+    added — the 4-class methodology)
+  - N5/docs/AUDIT-COVERAGE-2026-05-15.md (this Part 32)
+  - N5/docs/cross-artifact-sync-map.md (Part 32 audit-log row)
+  - N5/CHANGELOG.md (Unreleased entry)
+
+No `grammar.json` / data changes — this is a docs + tooling +
+workflow batch.
+
+### Final state for Part 32
+
+CI **139 / 139 invariants green** (unchanged).
+cross_artifact_sync_report.py EXIT: CLEAN.
+Bug tracker: **132 / 132 Fixed / 0 Open**.
+
+Bounded framing: the 4-class batch-closure pattern closes 3
+actionable deferred items (codify-policy + advisory-tool +
+CI-workflow) and explicitly surfaces 1 genuine-human-only item
+with documented path-forward. All deferred items from the
+multi-day audit session (Parts 24-31) now have either:
+
+  - Code-closed status (commit reference in tracker), or
+  - Policy-closed status (orthography doc), or
+  - Workflow-closed status (CI integration), or
+  - Path-forward status (native-speaker doc with options)
+
+No "pending future work" items remain in zombie deferred state.

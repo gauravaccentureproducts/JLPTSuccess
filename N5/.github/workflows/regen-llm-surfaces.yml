@@ -1,0 +1,85 @@
+name: regen-llm-surfaces
+
+# Closes the deferred item from LLM-005 (BUG-105) close-out:
+# "LLM-005 build-script CI integration into .github/workflows/".
+#
+# Verifies the LLM-accessibility surfaces (papers static mirrors,
+# data/index.json corpus discovery, sitemap.xml, llms.txt, 7 thin
+# summary pages) are in sync with current data/ content on every
+# push touching data files. Fails CI if a regeneration would
+# change any surface — i.e., the maintainer forgot to re-run
+# tools/build_llm_surfaces_2026_05_18.py after a data edit.
+#
+# Companion to:
+#   - JA-123 (paper mirror existence)
+#   - JA-124 (sitemap floor ≥1000 URLs)
+#   - JA-125 (data/index.json size_bytes match actual files)
+#   - JA-126 (7 summary pages + llms.txt presence)
+#   - JA-113 (meta-route static mirror freshness)
+#
+# This workflow catches drift that JA-125 alone would also catch,
+# but provides earlier feedback (one job runs ahead of the full
+# content-integrity battery) and a clearer error message.
+#
+# Manual run:
+#   python tools/build_llm_surfaces_2026_05_18.py
+#   git diff --quiet || echo "DRIFT — regen left changes"
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'N5/data/**'
+      - 'N5/tools/build_llm_surfaces_2026_05_18.py'
+      - 'N5/tools/build_static_mirrors.py'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'N5/data/**'
+      - 'N5/tools/build_llm_surfaces_2026_05_18.py'
+      - 'N5/tools/build_static_mirrors.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-surfaces-current:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: N5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate LLM surfaces (papers mirrors + data/index.json + sitemap + llms.txt + summary pages)
+        run: python tools/build_llm_surfaces_2026_05_18.py
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Regenerate meta-route static mirrors
+        run: python tools/build_static_mirrors.py --stages meta
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Assert no drift from regen
+        # If the build scripts changed anything, the data/ or papers/
+        # or sitemap.xml or data/index.json is stale vs. its source —
+        # the maintainer forgot to run the regen. Fail the workflow
+        # with a clear message + diff summary.
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::LLM surfaces drifted from source data."
+            echo "Run 'python N5/tools/build_llm_surfaces_2026_05_18.py' + 'python N5/tools/build_static_mirrors.py --stages meta' locally and commit the result."
+            echo ""
+            echo "Files changed by regen:"
+            git diff --stat
+            exit 1
+          fi
+        working-directory: .

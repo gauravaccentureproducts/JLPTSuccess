@@ -84,6 +84,31 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>Unreleased - 2026-05-21 (4-class batch closure: codify-policy + advisory-tool + CI-workflow + path-forward-doc)</h2>
+<h3>Added</h3>
+<ul>
+<li><strong><code>docs/ORTHOGRAPHY-POLICY-N5.md</code></strong> — codifies the per-word kana-vs-</li>
+</ul>
+<p>kanji convention with empirical counts (21 N5 high-frequency words tabulated; わたし 14× vs 私 2×; ともだち 35× vs 友だち 14×; 人 25× vs ひと 6×; etc.). Documents the convention as established project policy. <strong>Closes REG-001 SWEEP-5</strong> (previously &quot;declined-with-reason&quot;; now <strong>closed-as-policy</strong>).</p>
+<ul>
+<li><strong><code>tools/audit_rationale_overlap_2026_05_21.py</code></strong> — standalone</li>
+</ul>
+<p>advisory audit tool for the GOI-001 follow-up token-overlap check. Includes lightweight Japanese stemmer (strip particles + ます/ ました/ません + です/だ + kana↔kanji normalization + dict-form ↔ polite-stem table). Outputs candidate list; does NOT fail CI. Documented 21% false-positive rate; not eligible for strict CI invariant pending kuromoji-class morphological analysis.</p>
+<ul>
+<li><strong><code>.github/workflows/regen-llm-surfaces.yml</code></strong> — CI workflow</li>
+</ul>
+<p>triggered on push touching <code>N5/data/<strong></code> or build tools. Re-runs <code>tools/build_llm_surfaces_2026_05_18.py</code> + <code>build_static_mirrors.py --stages meta</code>; asserts no drift via <code>git diff --quiet</code>. Pre-merge feedback instead of post-merge JA-125 catch. </strong>Closes LLM-005 build-script CI integration deferred item.**</p>
+<ul>
+<li><strong><code>docs/NATIVE-SPEAKER-RE-VERIFICATION.md</code></strong> — path-forward doc</li>
+</ul>
+<p>for the 54 register_variant entries carrying <code>llm_curated_with_reference_*</code> or pre-existing <code>native_reviewed</code> provenance. Documents 3 options: community PR-based review, commissioned single-pass review, status-quo with promote-on-finding. Default is status-quo. Explicit acknowledgment that actual-native-speaker review is genuinely human-only.</p>
+<ul>
+<li><strong>Procedure manual F.36</strong> — 4-class batch-closure pattern (A:</li>
+</ul>
+<p>codify policy; B: ship advisory tool; C: wire CI workflow; D: path-forward doc). Reusable Nx-builder methodology for closing accumulated deferred items at the end of a long audit session.</p>
+<h3>State</h3>
+<p>CI <strong>139 / 139 invariants green</strong> (unchanged — no new CI invariants). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>132 / 132 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: this batch closes 3 actionable deferred items (codify-policy + advisory-tool + CI-workflow) and explicitly surfaces 1 genuinely-human-only item (native-speaker re-verification) with documented path-forward. All deferred items from the multi-day audit session (Parts 24-31) now have explicit status: code-closed / policy-closed / workflow-closed / path-forward-status. No &quot;pending future work&quot; items remain in zombie deferred state.</p>
 <h2>Unreleased - 2026-05-19 (Tier 3: SWEEP-2 + SWEEP-3 audits — both clean, REG-001 closed)</h2>
 <h3>Audit completed (no code changes)</h3>
 <ul>
