@@ -5101,3 +5101,118 @@ Bug tracker: **135 / 135 Fixed / 0 Open**.
 | Mixed-script mojibake | GOI-006 (goi-7.4, 2026-05-21) | dokkai-2.11 + dokkai-3.4 same day via JA-139 sweep | Always run corpus-wide before claim of closure |
 | Off-by-one rationale_hi shift | GOI-001 (goi-6.11, 2026-05-19) | GOI-004 (goi-7.6 + goi-7.7, 2026-05-21) | First fix is the sample, not the close |
 | Fix-history in rationale | PAPER-003 + GOI-002 + GOI-003 (2026-05-18..19) | GOI-005 (7 fields across 5 papers, 2026-05-21) | Phrase-list detectors miss synonyms; extend trigger set each time |
+
+---
+
+## ADDENDUM 2026-05-21 (Part 34) — MOJI-001..007 close-out + JA-143 same-class sweep
+
+Closed the 7 moji-paper content bugs registered earlier today
+(paper-1..paper-7 moji content review, Q1-Q100). All 7 fixed
+in one atomic batch via `tools/fix_moji_bugs_2026_05_21.py`. Wired
+4 new CI invariants (JA-140..143). First-run of JA-143 surfaced
+4 pre-existing same-class instances; all extended in the same
+batch via `tools/fix_moji_006_followup_2026_05_21.py`.
+
+### Bugs closed
+
+| Bug | Workbook row | Severity | Class |
+|-----|-------------:|----------|-------|
+| MOJI-001 | R139 | Major | Stem-emphasis convention split (HTML vs markdown) |
+| MOJI-002 | R140 | Major | auto_inferred grammarPatternId on orthography (28 spurious IDs) |
+| MOJI-003 | R141 | Major | Antonymic distractors disguising meaning-discrimination as reading question |
+| MOJI-004 | R142 | Major | Legitimate spelling (子供) marked wrong due to corpus-policy scope rule |
+| MOJI-005 | R143 | Minor | Word-by-word HI rendering of EN verb construction "has reading" |
+| MOJI-006 | R144 | Minor | HI rationale content-coverage truncation (drops EN conclusion) |
+| MOJI-007 | R145 | Minor | Missing polysemy flag for 永い (same shape as moji-7.2's 起ちます treatment) |
+
+All 7 marked `status=Fixed`, `fix_date=2026-05-21` in workbook.
+
+### Same-class follow-ups (caught by JA-143)
+
+After wiring JA-143 (EN/HI rationale character-count parity), 4
+pre-existing truncation cases surfaced when the invariant ran
+corpus-wide for the first time:
+
+| Question | EN length | HI length | Ratio | Fix |
+|----------|----------:|----------:|------:|-----|
+| `goi-7.9` | 281c | 165c → 252c | 0.59 → 0.90 | Added "तीनों विकल्पों में सबसे निकट" + residence-status detail |
+| `moji-1.6` | 104c | 62c → 85c | 0.60 → 0.82 | Added NHK / Olympic にっぽん usage context |
+| `moji-4.10` | 279c | 120c → 192c | 0.43 → 0.69 | Added vocabulary_n5.md citation + irregular-reading pattern context |
+| `moji-6.3` | 375c | 129c → 246c | 0.34 → 0.66 | Added distractor-family examples + pedagogical purpose |
+
+All 4 now pass JA-143 (ratio ≥ 0.6) with provenance flipped to
+`native_reviewed_2026_05_21`.
+
+### CI invariants added (4, all wired this batch)
+
+- **JA-140** — moji `stem_html` uses HTML `<u>...</u>` (MOJI-001 drift guard)
+- **JA-141** — moji `grammarPatternId` non-null + `auto_inferred` forbidden (MOJI-002 drift guard)
+- **JA-142** — no over-literal Hindi `के पास है पढ़ते हुए` in `rationale_hi` (MOJI-005 translation-pattern guard; same family as JA-122/JA-129)
+- **JA-143** — rationale / rationale_hi character-count parity within 0.6×–2.0× (MOJI-006 content-coverage truncation guard)
+
+CI invariant count: 141 → **145** at this checkpoint.
+
+### Bug-sheet state
+
+**0 Open / 142 Fixed** (was 7 Open / 135 Fixed before this batch).
+
+### Derived-artifact regeneration
+
+- `data/index.json` `size_bytes` for 8 modified paper files
+  refreshed via `tools/build_llm_surfaces_2026_05_18.py` (JA-125)
+- 5 `papers/moji-N/index.html` static mirrors regenerated (JA-113)
+
+### 4 durable defect classes (added to procedure-manual §F.38)
+
+| Class | CI gate | N5 instance | Lesson |
+|-------|---------|-------------|--------|
+| A — Per-mondai stem-emphasis convention split | JA-140 | moji Mondai 1 (HTML) vs Mondai 2 (markdown) | Pick ONE convention based on render-target; convert other half in one atomic pass |
+| B — auto_inferred grammarPatternId on non-grammar questions | JA-141 | 28 moji questions with surface-token IDs | Default to `null + not_applicable_<type>` for non-grammar categories; same anti-pattern class as PAPER-001 n5-013 over-misuse |
+| C — Word-by-word HI rendering of EN verb construction | JA-142 | moji-2.1 + moji-2.2 `के पास है पढ़ते हुए` | Each cognate-mismatch gets its own substring trigger; family is open-ended (JA-122 / JA-129 / JA-142 etc.) |
+| D — Cross-language content-coverage truncation | JA-143 | moji-7.2 + 4 pre-existing same-class instances | Length-ratio is structural heuristic; within-band drops still need manual review |
+
+### Operational lesson generalized (extends Part 33 horizontal-deployment rule)
+
+**When wiring a new invariant from a single-instance bug filing,
+run it corpus-wide in the same close-out commit and fix all
+discovered instances.** JA-143 caught 4 pre-existing same-class
+instances beyond MOJI-006's single-instance filing — fixing them
+in the MOJI batch saved a follow-up commit and gave a clean
+"0 Open" close-out. Generalized as F.38.5 in the procedure manual.
+
+### Tools added (preserved in active tree)
+
+- `tools/register_moji_bugs_2026_05_21.py` — bug registration
+- `tools/fix_moji_bugs_2026_05_21.py` — 7-bug atomic fix
+- `tools/fix_moji_006_followup_2026_05_21.py` — JA-143 4-case extension
+- `tools/close_moji_bugs_2026_05_21.py` — workbook status updater
+
+### Cross-references
+
+- Accuracy prompt: `prompts/Japanese language Accuracy check.txt` §A76
+- Improvement prompt: `prompts/N5Improvement.txt` Phase-0 moji content-discipline block
+- Procedure manual: `JLPT Common/procedure-manual-build-next-jlpt-level.md` §F.38
+- Spec: `specifications/JLPT-N5-Current-Implementation-Spec.md` §25 (JA-140..143 rows in
+  schema validation + pedagogical content quality + locale parity subsections)
+- CHANGELOG: 2026-05-21 entry "MOJI-001..007 close-out + JA-143 follow-ups"
+
+### Writing-discipline boundary (per Rule 4)
+
+- "100/100 moji stems normalized to HTML" — bounded by the
+  corpus snapshot at commit `de5ca21` (paper-1..paper-7 moji,
+  Q1-Q100). Future moji additions are guarded by JA-140 going
+  forward.
+- "0 spurious grammarPatternId values" — bounded to moji
+  category. Other categories (bunpou, dokkai, goi, listening,
+  authentic) may still have surface-token-inferred IDs; their
+  own invariants (JA-120 for bunpou; none yet for the others)
+  cover those.
+- "0 over-literal HI translations" — bounded to the ONE
+  trigger phrase `के पास है पढ़ते हुए`. Other English→Hindi
+  cognate-mismatches not in the trigger list are still
+  possible; each will need its own substring added when
+  discovered.
+- "All rationales within 0.6×–2.0× ratio" — bounded by the
+  EN ≥ 80c AND HI ≥ 40c gate. Pre-existing minimalist
+  rationales (intentionally short EN) are NOT in scope. Future
+  ratio-band drift is the open class.

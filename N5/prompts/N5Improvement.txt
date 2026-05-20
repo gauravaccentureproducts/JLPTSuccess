@@ -1380,6 +1380,79 @@ procedure-manual §F.37 (Class A mixed-script mojibake + Class B
 off-by-one shift + Class C extended fix-history); accuracy prompt
 §A75; AUDIT-COVERAGE Part 33.
 
+### Phase-0 moji-paper content-discipline regression block (added 2026-05-21)
+
+CI-enforced via JA-140 + JA-141 + JA-142 + JA-143 (all wired
+2026-05-21 in the MOJI-001..007 close-out). Maintainer-side Phase-0
+mirror runs:
+
+1. **Moji stem-emphasis convention uniform HTML (MOJI-001 / JA-140)**
+   For every moji-category question, scan `stem_html` for the
+   markdown emphasis wrapper `__X__`. Expected: 0 hits (all 100
+   moji stems normalized to HTML `<u>X</u>` on 2026-05-21).
+   The renderer-fragility risk is real: corpus mixed HTML + markdown
+   before normalization, so a renderer that only knew one rule-set
+   silently failed on half the corpus.
+
+2. **No auto_inferred grammarPatternId on moji questions (MOJI-002 / JA-141)**
+   For every moji-category question, flag any with
+   `grammarPatternId != null` AND `grammarPatternId_provenance ==
+   "auto_inferred"`. Expected: 0 hits. Moji tests orthography, not
+   grammar; auto-inferred IDs are surface-token artifacts (e.g.,
+   `こども` → n5-013 because も appears). Same anti-pattern class
+   as the n5-013 over-misuse fixed at PAPER-001 in the bunpou
+   sweep — see Phase-0 paper-question regression block (added
+   2026-05-18) for the bunpou-side detector.
+
+3. **No over-literal Hindi "के पास है पढ़ते हुए" in rationale_hi (MOJI-005 / JA-142)**
+   Substring scan across all paper rationale_hi fields for
+   `'के पास है पढ़ते हुए'` (word-by-word rendering of English
+   "has reading" — no direct Hindi cognate). Same defect-class
+   shape as DOKKAI-002 (` ago `), DOKKAI-004 (` by `), PAPER-004
+   (`'s घर`, `यहाँre`). Expected: 0 hits.
+
+4. **Rationale / rationale_hi content-coverage parity (MOJI-006 / JA-143)**
+   For every paper question where EN rationale ≥ 80 chars AND HI
+   rationale_hi ≥ 40 chars, compute ratio = len(rationale_hi) /
+   len(rationale). Flag any question outside [0.6, 2.0]. Expected:
+   0 hits. (HI's typical 1.3× expansion vs EN gives a natural
+   ratio around 1.0-1.5; <0.6 = HI truncated, >2.0 = EN truncated.)
+   Catches the moji-7.2-class content drop where HI omitted the
+   EN conclusion sentence.
+
+Bounded-coverage framing:
+  - "JA-140 catches *markdown `__X__` emphasis in moji stems*" —
+    other emphasis wrappers (italic, bold, color codes) NOT covered;
+    add new substring scans per-wrapper if those classes appear.
+  - "JA-141 catches *moji-category with auto_inferred provenance*" —
+    other categories (bunpou, dokkai, etc.) use different rules.
+    PAPER-001's JA-120 covers bunpou particle-tag class; if moji's
+    over-misuse pattern appears in chokai or other categories,
+    minted invariants would need extension.
+  - "JA-142 catches *one specific Hindi translation-pattern leak*" —
+    each over-literal English→Hindi cognate gets its own substring;
+    full enumeration is open-ended. Always add the trigger phrase
+    to JA-142 when a new instance is fixed.
+  - "JA-143 catches *the 0.6×–2.0× ratio band*" — within-band
+    truncations (e.g., HI at 0.7× of EN but the dropped content was
+    pedagogically critical) still need manual review. The ratio is
+    a structural heuristic, not a pedagogical-coverage check.
+  - Horizontal-deployment finding: JA-143 first-run discovered 4
+    pre-existing same-class instances (goi-7.9 / moji-1.6 / moji-4.10
+    / moji-6.3) beyond the MOJI-006 single-instance filing. The
+    lesson generalized in procedure-manual §F.38: **run a newly-
+    wired invariant corpus-wide and fix all discovered instances
+    in the same batch — even if they weren't in the original bug
+    report**. This is the same lesson as procedure-manual §F.37's
+    "horizontal-deployment sweep is part of the fix commit."
+
+Source: MOJI-001..007 close-out (2026-05-21); fix scripts
+tools/fix_moji_bugs_2026_05_21.py + tools/fix_moji_006_followup_2026_05_21.py;
+procedure-manual §F.38 (Class A stem-emphasis convention + Class B
+auto_inferred grammarPatternId on orthography + Class C HI word-by-
+word translation + Class D EN/HI content-coverage parity); accuracy
+prompt §A76; AUDIT-COVERAGE Part 34.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

@@ -4326,3 +4326,128 @@ CI invariants at this checkpoint: 141 (was 139 before GOI-004/005/006 close).
 Note: 138 reserved for the JA-121 trigger-set extension; no separate
 JA-NN minted there because the existing JA-121's intent already covered it.
 ============================================================
+
+============================================================
+A76. Moji-paper content discipline — 4 durable classes
+     (MOJI-001..007 + JA-143 same-class follow-ups close-out).
+     (Audit category — added 2026-05-21, AUDIT-COVERAGE Part 34.)
+============================================================
+
+Four durable defect classes from the moji-paper content review.
+Combines with A67 (PAPER-001 grammarPatternId mis-tag) + A72 (paper-
+question schema discipline) + A74/A75 (rationale content discipline)
+to form an 11-invariant family across paper-question fields. CI-
+enforced via JA-140 + JA-141 + JA-142 + JA-143.
+
+Class A — Per-mondai stem-emphasis convention split (CI: JA-140)
+  A subsection of one corpus uses HTML `<u>...</u>` for emphasis while
+  another subsection uses markdown `__...__`, with no documented
+  contract declaring the split. Renderer fragility: an HTML-only
+  renderer displays markdown literally as underscores; a markdown-
+  only renderer leaves HTML tags as raw text. Either way the emphasis
+  fails on the half that doesn't match the renderer's rule-set.
+
+  MOJI-001 example: moji Mondai 1 (50 questions) used `<u>X</u>`;
+  moji Mondai 2 (50 questions) used `__X__`; paper-4 mixed both
+  within one file at the Mondai 1→2 boundary. Field name is
+  `stem_html` (implying HTML rendering), but half the corpus used
+  markdown.
+
+  Resolution pattern: pick ONE convention based on the rendering
+  target. For a web UI with `stem_html`-named fields, HTML `<u>X</u>`
+  is the right choice. Convert the other half in one atomic pass.
+
+  Detector: regex `__[^_]+__` in any moji `stem_html`. Trip = at
+  least one moji question still uses markdown emphasis.
+
+Class B — auto_inferred grammarPatternId on orthography questions (CI: JA-141)
+  Auto-inference of `grammarPatternId` picks up surface-token similarity
+  without semantic understanding. On grammar tests this is usually
+  sound. On ORTHOGRAPHY tests (moji = kanji-reading / kana-to-kanji
+  conversion), the kana particles inside the stem (も in こども, は in
+  今日, に in 北 に あります) are NOT what the question tests — but
+  auto-inferrence still produces n5-013/n5-117/n5-067 etc. tags.
+
+  Same anti-pattern class as the n5-013 over-misuse fixed at
+  PAPER-001 in the bunpou paper sweep. The unique signal for moji:
+  the question's *correct-answer selection* never hinges on a
+  particle decision — it hinges on a kanji-reading decision. So
+  `grammarPatternId` should be null + `not_applicable_orthography`
+  in nearly all cases.
+
+  MOJI-002 example: 28 of 100 moji questions had spurious
+  `grammarPatternId` values (n5-013, n5-117, n5-067, n5-078, n5-108,
+  etc.) auto-inferred from incidental tokens. None of the 28 actually
+  tested the inferred grammar pattern.
+
+  Resolution pattern: bulk-scrub the entire orthography category to
+  null + `not_applicable_orthography`. If any question is later found
+  to legitimately test a pattern, restore individually with manual
+  review (forbid `auto_inferred` provenance via CI).
+
+  Detector: moji-category question with grammarPatternId non-null
+  AND `grammarPatternId_provenance == "auto_inferred"`. Trip = at
+  least one such question exists.
+
+Class C — Word-by-word HI rendering of EN verb constructions (CI: JA-142)
+  Translation pass renders English verb constructions word-by-word
+  into Hindi when no direct cognate exists. Symptoms:
+    EN: "X has reading Y in Z"
+    HI: "X के पास है पढ़ते हुए Y में Z" — grammatically broken.
+  Natural Hindi: "X का पठन Z में Y है".
+
+  Same defect class as DOKKAI-002 (`एक महीना ago`), DOKKAI-004
+  (`आना-जाना by ट्रेन`), PAPER-004 fragment scan (`यहाँre`, `o'घड़ी`).
+  Each fix adds a substring-trigger to a corpus-wide regression
+  scanner. Per-defect-class trigger phrase:
+    JA-122 (PAPER-004): `'s घर`, `यहाँre`, `o'क्लॉक`, etc.
+    JA-129 (DOKKAI-002): ` ago `, ` ago.`, ` yet `, ` lot `, etc.
+    JA-142 (MOJI-005): `के पास है पढ़ते हुए`
+
+  MOJI-005 example: moji-2.1 + moji-2.2 both used the broken
+  construction. Rewrite pattern: replace with natural-Hindi `X का
+  पठन Y है` syntax.
+
+Class D — Cross-language content-coverage truncation (CI: JA-143)
+  Translation pass produces a HI rationale that says LESS than the
+  EN counterpart. Symptoms:
+    EN (343c): "...The other forms 起ちます/経ちます/建ちます are real
+                 Japanese verbs ... for N5 the 立 form is the only
+                 correct match."
+    HI (250c): "...अन्य रूप 起ちます/經ちます/建ちます भी असली ... [STOP]"
+                  — drops the "only correct match" conclusion.
+
+  This is content-coverage parity, NOT translation-quality. The HI
+  reader is left ambiguous on the question's pedagogical takeaway
+  while the EN reader gets a definitive answer.
+
+  Detector: for any question with rationale ≥ 80 chars AND
+  rationale_hi ≥ 40 chars, the HI/EN length ratio must be 0.6 ≤ r ≤ 2.0.
+  (0.6 floor accounts for HI's typical 1.3× expansion vs EN; 2.0
+  ceiling catches the inverse where EN dropped content. Below 0.6
+  = HI truncated; above 2.0 = EN truncated.)
+
+  MOJI-006 example: moji-7.2 was at 250c HI / 343c EN (ratio 0.73,
+  borderline but acceptable on raw ratio; the truncation was on the
+  CONCLUSION sentence specifically). The threshold was set at 0.6
+  after analyzing pre-existing distribution; tighter than 0.6 would
+  false-positive on legitimately-concise HI rationales.
+
+  Same-class follow-ups discovered when JA-143 first ran:
+    goi-7.9 (0.59), moji-1.6 (0.60), moji-4.10 (0.43), moji-6.3 (0.34)
+  All 4 extended in the same close-out batch.
+
+Skipped pattern (not a new class, just noted): MOJI-003 (antonymic
+distractors) and MOJI-004 (legitimate-spelling-marked-wrong) were
+single-instance content fixes. The maintainer reviewed the full
+moji corpus (60 Mondai 1 + 50 Mondai 2 distractor sets) and found
+no other instances. No CI gate added for these singletons; their
+correctness is enforced by the existing audit categories A52
+(right/wrong framing for valid alternatives) + A67 (paper-question
+distractor pedagogy).
+
+Cross-reference: AUDIT-COVERAGE Part 34; procedure-manual §F.38;
+tools/fix_moji_bugs_2026_05_21.py + tools/fix_moji_006_followup_2026_05_21.py.
+
+CI invariants at this checkpoint: 145 (was 141 before MOJI-001..007 close).
+============================================================

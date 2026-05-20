@@ -2,7 +2,134 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
-## Unreleased - 2026-05-21 (GOI-004..006 close-out + horizontal mojibake sweep — 3 goi-paper rationale bugs + 2 dokkai horizontal-deployment fixes + 2 new CI invariants)
+## Unreleased - 2026-05-21 (MOJI-001..007 close-out + JA-143 follow-ups — 7 moji-paper content bugs + 4 same-class HI rationale truncations + 4 new CI invariants JA-140..143)
+
+### Fixed
+
+- **MOJI-001 (BUG-139) — Stem markup convention normalized to HTML `<u>...</u>` across all 100 moji questions.**
+  Mondai 1 used HTML `<u>X</u>` (50 questions); Mondai 2 used markdown
+  `__X__` (50 questions); paper-4 mixed both within one file at the
+  Mondai 1→2 boundary. Rendering risk: an HTML-only renderer displays
+  `__X__` literally as underscores; a markdown-only renderer leaves
+  `<u>X</u>` as raw tags. Standardized all 50 Mondai 2 stems to HTML
+  via `tools/fix_moji_bugs_2026_05_21.py`. Final state: 100/100 use
+  `<u>...</u>`; 0/100 use `__...__`. JA-140 invariant wired to prevent
+  regression.
+
+- **MOJI-002 (BUG-140) — 28 spurious `grammarPatternId` values scrubbed in moji corpus.**
+  28 moji questions carried `grammarPatternId` from `auto_inferred`
+  picking up incidental token similarities (e.g., `moji-5.2 こども` →
+  n5-013 because も appears in 子ども; `moji-2.3 今日は` → n5-117
+  because は appears in jukujikun-reading context). Moji tests
+  orthography, not grammar — `grammarPatternId` should be null with
+  `not_applicable_orthography` provenance in nearly all cases. Same
+  anti-pattern class as the n5-013 over-misuse fixed at PAPER-001 in
+  the bunpou paper sweep. All 28 scrubbed; JA-141 invariant wired to
+  block the `non-null + auto_inferred` combination going forward.
+
+- **MOJI-003 (BUG-141) — `moji-3.5` (Q35) antonymic distractors replaced with per-kanji reading variants of 北.**
+  Old choices `[ひがし, きた, みなみ, にし]` were the four cardinal directions
+  (readings of 東/北/南/西); only the kanji 北 was actually asked, so a
+  student who knew "北 = north" could score correctly by elimination
+  without recognizing the phonological reading. This was the ONLY
+  case of antonymic-distractor design across all 60 Mondai 1 questions.
+  New choices: `[きた, きだ, ほく, ぼく]` — correct kun-yomi + voicing-
+  variant trap + real on-yomi (used in 北西/北部 compounds, wrong
+  standalone) + voiced-on-yomi no-such-reading trap. Rationale extended
+  to explain the on/kun distinction.
+
+- **MOJI-004 (BUG-142) — `moji-5.2` (Q62) 子供 distractor replaced with 子分; eliminates "marked-wrong-for-valid-spelling" confidence-eroder.**
+  The legitimate Japanese spelling 子供 was being marked wrong because
+  供 is N4 (outside the N5-only-kanji policy). The rationale honestly
+  acknowledged "both 子供 and 子ども are standard in modern Japanese,"
+  but a learner picking 子供 still saw the answer labeled wrong. Same
+  anti-pattern class as REG-001 (だれ vs どなた marked Incorrect when
+  both are legitimate register variants). Replaced 子供 → 子分 (こぶん
+  'underling' — a real Japanese word but rare at N5 and unrelated to
+  the stem's "two ... at home" context). Rationale simplified to a
+  clean orthography test with a brief note about the 供-kanji scope
+  rule.
+
+- **MOJI-005 (BUG-143) — `moji-2.1` + `moji-2.2` rationale_hi rewritten from word-by-word `के पास है पढ़ते हुए` to natural `X का पठन Y है`.**
+  Two consecutive questions carried the same translation artifact:
+  `'七 के पास है पढ़ते हुए シチ में 七月।'` is word-by-word "has reading"
+  with no direct Hindi cognate. Rewritten as `'七 का पठन 七月 में シチ है।'`
+  (and parallel for 四/シ). Provenance flipped to
+  `native_reviewed_2026_05_21`. Same defect class as DOKKAI-002
+  (`एक महीना ago`), DOKKAI-004 (`आना-जाना by ट्रेन`), PAPER-004 fragment
+  sweep. JA-142 invariant wired as substring guard.
+
+- **MOJI-006 (BUG-144) — `moji-7.2` rationale_hi extended from 250c to 337c, restoring the dropped EN conclusion sentence.**
+  The HI version cut off after acknowledging that experienced students
+  might know the alternative kanji (起ちます / 経ちます / 建ちます) but
+  DROPPED the crucial EN conclusion: "for N5 the 立 form is the only
+  correct match." Added the equivalent Hindi sentence
+  `'पर N5 स्तर पर ... के लिए 立 ही एकमात्र सही उत्तर है।'`. Provenance:
+  `native_reviewed_2026_05_21`. JA-143 invariant wired (rationale /
+  rationale_hi character-count parity within ~0.6×–2.0× ratio).
+
+- **MOJI-007 (BUG-145) — `moji-7.8` (Q98) rationale + rationale_hi extended with 永い polysemy explanation.**
+  Both rationales were a single token (`長い.` / `長い।`). The
+  distractor 永い is exactly the same shape of polysemy that `moji-7.2`
+  handles excellently (起ちます/経ちます/建ちます as alternate readings of
+  たちます). Extended with: 長い is the everyday N5 sense (physical /
+  temporal length); 永い is also a real reading of ながい meaning
+  "eternal / everlasting" (N3+, literary contexts like 永い眠り).
+  For a river, only 長い is natural.
+
+### Same-class follow-ups (caught by new JA-143 invariant)
+
+After wiring JA-143 (EN/HI rationale character-count parity), 4
+pre-existing truncation cases surfaced. Fixed in the same batch via
+`tools/fix_moji_006_followup_2026_05_21.py`:
+
+- `goi-7.9` rationale_hi 165c → ≥0.6 ratio: added "तीनों विकल्पों में
+  सबसे निकट" + residence-status detail.
+- `moji-1.6` rationale_hi 62c → ≥0.6: added NHK / Olympic にっぽん
+  usage context.
+- `moji-4.10` rationale_hi 120c → ≥0.6: added vocabulary_n5.md
+  citation + irregular-reading-pattern standard for N5 family/age
+  vocabulary.
+- `moji-6.3` rationale_hi 129c → ≥0.6: added distractor-family
+  examples (通る / 通り / 道路 / 路上 / 行く) + pedagogical purpose of
+  the semantic-distractor design.
+
+All 4 now `native_reviewed_2026_05_21`.
+
+### CI invariants added (4, all wired this batch)
+
+- **JA-140** — moji `stem_html` uses HTML `<u>...</u>` emphasis wrapper
+  (not markdown `__...__`). MOJI-001 drift guard.
+- **JA-141** — moji `grammarPatternId` non-null must not have
+  `provenance="auto_inferred"`. MOJI-002 drift guard; forces manual
+  sign-off when a moji question legitimately tests a grammar pattern.
+- **JA-142** — no over-literal Hindi `के पास है पढ़ते हुए` substring in
+  rationale_hi. MOJI-005 translation-pattern guard; same shape as
+  DOKKAI-002 / DOKKAI-004 / PAPER-004 fragment scans.
+- **JA-143** — rationale / rationale_hi character-count parity within
+  ~0.6×–2.0× ratio (accounting for HI's typical 1.3× expansion).
+  MOJI-006 content-coverage truncation guard.
+
+CI invariant count: 141 → **145** (4 net adds).
+
+### Derived-artifact regeneration
+
+- `data/index.json` `size_bytes` refreshed for all 8 modified paper
+  files (JA-125 sync via `tools/build_llm_surfaces_2026_05_18.py`).
+- 5 `papers/moji-N/index.html` static mirrors regenerated.
+
+### Bug-sheet state
+
+All 7 MOJI rows (R139-R145) in `User Reported Bugs` tab marked
+`status=Fixed`, `fix_date=2026-05-21`. Fix Commit cells will be
+back-filled by `populate_bug_fix_commits_2026_05_17.py` after this
+commit lands (JA-118 enforces).
+
+State at this checkpoint: **0 Open / 142 Fixed** in the bug sheet.
+
+---
+
+## 2026-05-21 - GOI-004..006 close-out + horizontal mojibake sweep — 3 goi-paper rationale bugs + 2 dokkai horizontal-deployment fixes + 2 new CI invariants
 
 ### Fixed
 
