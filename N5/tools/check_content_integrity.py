@@ -1353,6 +1353,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     ("JA-141", "moji grammarPatternId non-null must not have provenance=auto_inferred (MOJI-002 drift guard, 2026-05-21)", lambda: _check_ja_141_moji_grammar_pattern_id_no_auto_inferred()),
     ("JA-142", "no over-literal Hindi 'के पास है पढ़ते हुए' in rationale_hi (MOJI-005 word-by-word translation guard, 2026-05-21)", lambda: _check_ja_142_no_word_by_word_hi_has_reading()),
     ("JA-143", "rationale / rationale_hi character-count parity within ~0.6×–2.0× ratio (MOJI-006 content-coverage truncation guard, 2026-05-21)", lambda: _check_ja_143_en_hi_rationale_length_parity()),
+    # JA-144 (2026-05-21): DOCS-KANJI-004 REVIEW_DATE format guard.
+    # Any "- REVIEW_DATE: …" line in the kanji whitelist exceptions
+    # register must use ISO 8601 (YYYY-MM-DD); other date shapes
+    # ("Q3 2026", "next release", "August 2026") cause downstream
+    # parsing inconsistency.
+    ("JA-144", "REVIEW_DATE lines in n5_kanji_whitelist.exceptions.md use ISO 8601 YYYY-MM-DD format (DOCS-KANJI-004 guard, 2026-05-21)", lambda: _check_ja_144_kanji_exceptions_review_date_iso8601()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -7829,6 +7835,50 @@ def _check_ja_143_en_hi_rationale_length_parity() -> list[str]:
                     f"(ratio={ratio:.2f}); EN may be truncated (MOJI-006 inverse, "
                     f"2026-05-21)"
                 )
+    return failures
+
+
+def _check_ja_144_kanji_exceptions_review_date_iso8601() -> list[str]:
+    """DOCS-KANJI-004 (2026-05-21) drift guard. Every
+    `- REVIEW_DATE: <value>` line in the kanji whitelist exceptions
+    register must use ISO 8601 (YYYY-MM-DD) format. Catches the date-
+    format-ambiguity class flagged by the audit:
+
+        - REVIEW_DATE: Q3 2026         → rejected (not YYYY-MM-DD)
+        - REVIEW_DATE: August 2026     → rejected
+        - REVIEW_DATE: 2026-08         → rejected (incomplete)
+        - REVIEW_DATE: 2026-08-01      → accepted
+        - (line absent)                → accepted (REVIEW_DATE is optional)
+
+    Detector: regex `^- REVIEW_DATE: (.+)$` extracts the value, then
+    `^\\d{4}-\\d{2}-\\d{2}$` must match exactly.
+
+    Scope: only the kanji whitelist exceptions file
+    (data/n5_kanji_whitelist.exceptions.md). Future N4/N3/N2/N1 parallels
+    would add their own paths; for now N5 is the only file.
+
+    Skips: lines inside HTML comments `<!-- ... -->` (template / example
+    blocks that are commented out so they don't count as live entries).
+    """
+    import re as _re
+    fp = ROOT / "data" / "n5_kanji_whitelist.exceptions.md"
+    if not fp.exists():
+        return []
+    text = fp.read_text(encoding="utf-8")
+    # Strip HTML comment blocks before scanning so template examples
+    # inside `<!-- ... -->` don't get validated as live entries.
+    text_live = _re.sub(r"<!--.*?-->", "", text, flags=_re.DOTALL)
+    # Find every REVIEW_DATE line outside comments
+    ISO_PAT = _re.compile(r"^\d{4}-\d{2}-\d{2}$")
+    failures: list[str] = []
+    for m in _re.finditer(r"^- REVIEW_DATE:\s*(.+)$", text_live, _re.M):
+        value = m.group(1).strip()
+        if not ISO_PAT.match(value):
+            failures.append(
+                f"JA-144 {fp.relative_to(ROOT)}: REVIEW_DATE value "
+                f"{value!r} is not ISO 8601 (YYYY-MM-DD) — fix per "
+                f"DOCS-KANJI-004 / 2026-05-21"
+            )
     return failures
 
 
