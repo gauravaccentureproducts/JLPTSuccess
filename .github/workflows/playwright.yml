@@ -26,7 +26,15 @@ jobs:
       run:
         working-directory: N5
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    # 2026-05-21: bumped from 8 → 12 minutes after the first real CI
+    # runs (post the orphaned-workflow migration, commit 127124e) hit
+    # 8m22s consistently and got cancelled. Local run is 4.6 min; the
+    # CI overhead (cold browser install + Python setup + Node deps
+    # cache hydration) accounts for the gap. Combined with the
+    # Playwright browser cache below (~3 min savings on cache hit),
+    # this brings typical CI run to 5-7 min with a 12 min safety
+    # margin for slow-runner days.
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
 
@@ -45,8 +53,39 @@ jobs:
       - name: Install Node deps
         run: npm ci || npm install
 
-      - name: Install Playwright browsers
+      # 2026-05-21: Playwright browser-binary cache. The
+      # `npx playwright install --with-deps chromium` step downloads
+      # ~170 MB of Chromium binaries + apt-installs system deps;
+      # took ~3-4 min on cold runs. Caching keyed on (OS + Playwright
+      # version from package-lock.json) means subsequent runs hit a
+      # warm cache and skip both the npx install AND the apt step on
+      # cache hit. ~PLAYWRIGHT_BROWSERS_PATH points to the cache.
+      - name: Get Playwright version
+        id: pwver
+        working-directory: .
+        run: |
+          PW_VERSION=$(node -p "require('./N5/package-lock.json').packages['N5/node_modules/@playwright/test'].version" 2>/dev/null || echo "unknown")
+          echo "version=$PW_VERSION" >> $GITHUB_OUTPUT
+          echo "Cached against Playwright version: $PW_VERSION"
+
+      - name: Cache Playwright browser binaries
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.pwver.outputs.version }}
+
+      - name: Install Playwright browsers (full install on cache miss)
+        if: steps.pw-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system deps only (on cache hit)
+        # On cache hit the browser binary is restored from cache but
+        # apt-installed system libs (libnss3, libgbm1, etc.) are not.
+        # Install just the system-deps without re-downloading the
+        # browser binary.
+        if: steps.pw-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Run P0 smoke + visual regression
         # Visual-regression suite was wired in 2026-05-03 (DEFER-6
