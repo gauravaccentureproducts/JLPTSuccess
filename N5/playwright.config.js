@@ -20,13 +20,23 @@ module.exports = defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  // 2026-05-21: workers 1 → 2 on CI. With 60 tests × 2 projects = 120
+  // instances on a single worker, runtime exceeded 15 min on GitHub-
+  // hosted ubuntu-latest (2 cores). Using both cores roughly halves
+  // execution time; `fullyParallel: true` was already set. If this
+  // surfaces flakiness, fall back to a matrix-shard-by-project layout
+  // (one job per device profile) rather than re-serializing.
+  workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [['html', { open: 'never' }], ['github']] : 'list',
   use: {
     baseURL: 'http://localhost:8000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    // 2026-05-21: video off on CI. `retain-on-failure` always records
+    // (just discards on pass) which costs CPU per test on a 2-core
+    // runner; screenshots + on-first-retry traces are sufficient for
+    // triage. Locally we keep video for interactive debugging.
+    video: process.env.CI ? 'off' : 'retain-on-failure',
   },
   projects: [
     {
