@@ -273,7 +273,12 @@ def stage_data_index(data):
         "_meta": {
             "schema_version": "1.0",
             "generator": "tools/build_llm_surfaces_2026_05_18.py",
-            "generated_at": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            # `generated_at` removed 2026-05-21 — caused regen-llm-surfaces
+            # CI to fail on every push because the timestamp updates on
+            # every regen even when no content changed. Same noise-pattern
+            # as the per-entry `last_modified` field that was dropped the
+            # same day. The build-tag is captured in `version` below from
+            # data/version.json.
             "license_code": "MIT",
             "license_content": "CC-BY-SA-4.0",
             "level": "N5",
