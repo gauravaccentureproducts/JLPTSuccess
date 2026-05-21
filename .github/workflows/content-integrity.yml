@@ -17,9 +17,9 @@ name: content-integrity
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -27,6 +27,9 @@ permissions:
 
 jobs:
   integrity:
+    defaults:
+      run:
+        working-directory: N5
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
