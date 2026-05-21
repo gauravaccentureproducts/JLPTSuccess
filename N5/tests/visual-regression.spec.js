@@ -119,9 +119,16 @@ test.describe('Visual regression - Hindi locale (Devanagari)', () => {
         // 26259633696). addInitScript runs before any page script.
         await page.addInitScript(() => {
           try {
+            // Storage key is `jlpt-n5-tutor:settings` (NS+`settings`);
+            // value-object key is `uiLocale` per storage.js DEFAULT_SETTINGS
+            // and i18n.js initI18n() which reads `getSettings().uiLocale`.
+            // (Previously this used `locale: 'hi'` — wrong inner key → boot
+            // fell through to the default-locale path and html[lang] never
+            // became 'hi', timing out the waitForFunction below on CI run
+            // 26259851285.)
             localStorage.setItem(
               'jlpt-n5-tutor:settings',
-              JSON.stringify({ locale: 'hi' })
+              JSON.stringify({ uiLocale: 'hi' })
             );
           } catch {}
         });
