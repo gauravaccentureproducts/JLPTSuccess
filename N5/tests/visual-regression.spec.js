@@ -44,7 +44,27 @@ const VIEWPORTS = [
   { name: 'mobile',  width: 375,  height: 812 },
 ];
 
+// 2026-05-21: visual-regression suite is gated to local-only runs.
+//
+// The committed baselines under tests/visual-regression.spec.js-snapshots/
+// were all generated on Windows (file suffix `-win32.png`). When CI runs
+// on ubuntu-latest, Playwright looks for `-linux.png` baselines — none
+// exist — and reports "snapshot doesn't exist, writing actual" for each
+// of the ~76 viewport×project×OS combinations, surfacing as 38 unique
+// failures.
+//
+// The right fix is a CI workflow_dispatch input that runs the suite
+// with `--update-snapshots` and uploads the new Linux PNGs as an
+// artifact for committing. That's a separate piece of work and the
+// rest of the smoke suite is being unblocked first. Until then this
+// suite runs locally (where the win32 baselines apply) and is skipped
+// on CI.
+//
+// Tracking: tests/visual-regression.spec.js Linux-baseline regen
+// will be its own commit + workflow_dispatch addition.
 test.describe('Visual regression - homepage + canonical routes', () => {
+  // Skip on CI until Linux baselines land.
+  test.skip(!!process.env.CI, 'Visual-regression baselines are -win32.png; Linux baselines need separate regen + commit. See file header.');
   for (const vp of VIEWPORTS) {
     for (const route of ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
@@ -87,6 +107,9 @@ const HINDI_ROUTES = [
 ];
 
 test.describe('Visual regression - Hindi locale (Devanagari)', () => {
+  // Same CI gate as the main visual-regression describe above. See
+  // the file-header comment for the win32 → linux baseline migration plan.
+  test.skip(!!process.env.CI, 'Visual-regression baselines are -win32.png; Linux baselines need separate regen + commit. See file header.');
   for (const vp of VIEWPORTS) {
     for (const route of HINDI_ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {

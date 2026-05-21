@@ -1159,12 +1159,17 @@ h2 + * + .section-label:first-of-type {
 .app-footer .footer-meta { color: var(--color-text-muted); }
 /* F-4 (legal-vetting 2026-05-11): trademark non-affiliation disclaimer.
    Faint but readable; sits below version, above nav. Block-display so
-   it occupies its own row and doesn't get squeezed inline. */
+   it occupies its own row and doesn't get squeezed inline.
+   2026-05-21: switched from --color-text-faint (#9A968C) to
+   --color-text-muted (#6F6D66). The faint variant only hit 2.95
+   contrast on the white footer bg (fails WCAG AA 4.5:1); muted lands
+   at 4.94. axe-core surfaced this on every route once the smoke
+   suite first ran to completion. */
 .app-footer .footer-disclaimer {
   display: block;
   margin: var(--space-2) auto var(--space-3);
   max-width: var(--container-narrow);
-  color: var(--color-text-faint);
+  color: var(--color-text-muted);
   font-size: var(--text-2xs);
   line-height: var(--leading-base);
   text-align: center;
@@ -4531,7 +4536,12 @@ textarea:focus-visible,
 }
 
 /* Header icon buttons (settings cog, fullscreen toggle). 32px square,
- * monochrome SVG, hairline border on hover only. */
+ * monochrome SVG, hairline border on hover only.
+ *
+ * Color: --color-text-on-header. Sits on the tea-green --header-bg
+ * #cfd8b5; the plain --color-text-muted #6F6D66 only hits 3.48
+ * contrast (axe-core flagged the .icon-btn-text "HI" label, 2026-05-21).
+ * Wired in tandem with .primary-nav a per the c1750a3 a11y fix. */
 .app-header .icon-btn {
   display: inline-flex;
   align-items: center;
@@ -4542,7 +4552,7 @@ textarea:focus-visible,
   background: transparent;
   border: 0.5px solid transparent;
   border-radius: var(--radius-md);
-  color: var(--color-text-muted);
+  color: var(--color-text-on-header);
   cursor: pointer;
   transition: background var(--motion-fast) var(--easing),
               color var(--motion-fast) var(--easing),
