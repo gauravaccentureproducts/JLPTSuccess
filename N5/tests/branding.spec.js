@@ -16,13 +16,17 @@ test.describe('Branding empty-scaffold defaults — IMP-003', () => {
     await page.goto('/');
 
     // The shipped data/branding.json has brand.name = "" (empty string).
-    // The header brand-link must STILL show the default "JLPT N5" wordmark.
-    // Defensive: check both the .brand-link text and the page <title>.
+    // The header brand-link must STILL show the default branding.
+    // Post-commit a91bb68 (2026-05-04) the visible wordmark is just the
+    // level code "N5" + the 5-bar SVG mark; the "JLPT" prefix lives in
+    // the page title + the aria-label. Defensive: assert all three.
     await expect(page).toHaveTitle(/JLPT N5/);
     await expect(page.locator('.brand-link')).toBeVisible();
     const brandText = await page.locator('.brand-link').innerText();
     expect(brandText.trim().length, 'brand text should not be empty').toBeGreaterThan(0);
-    expect(brandText, 'brand text should fall through to default JLPT N5').toMatch(/JLPT.*N5/i);
+    expect(brandText, 'visible wordmark should be the level code').toMatch(/N5/);
+    const ariaLabel = await page.locator('.brand-link').getAttribute('aria-label');
+    expect(ariaLabel, 'brand-link aria-label should reference JLPTSuccess').toMatch(/JLPT/i);
   });
 
   test('empty branding.json → theme-color meta tag still emits the default brand-dark hex', async ({ page }) => {

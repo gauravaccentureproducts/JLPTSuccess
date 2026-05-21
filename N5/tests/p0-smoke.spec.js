@@ -23,7 +23,11 @@ test.describe('P0 smoke - core navigation', () => {
     // Tab title dropped the em-dash subtitle in homepage update 2026-05-02
     // per spec §2.1 (the em-dash form was a project-policy violation).
     await expect(page).toHaveTitle('JLPT N5');
-    await expect(page.locator('.brand-link')).toContainText('JLPT N5');
+    // Brand-link visible wordmark is just "N5" + SVG mark since
+    // commit a91bb68 (2026-05-04 "unify brand mark with landing page").
+    // The "JLPT" branding lives in the page <title> + aria-label.
+    await expect(page.locator('.brand-link')).toContainText('N5');
+    await expect(page.locator('.brand-link')).toHaveAttribute('aria-label', /JLPT/i);
     // Header: syllabus title + subtitle (replaces the marketing-style hero
     // headline and inventory list shipped 2026-05-02 first iteration).
     await expect(page.locator('.syllabus-title')).toContainText('JLPT N5 Syllabus');

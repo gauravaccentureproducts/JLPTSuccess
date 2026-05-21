@@ -30,8 +30,11 @@ test.describe('v1.12.28+ feature regression', () => {
 
   test('mock-test setup shows exam-mode toggle + pass-mark note', async ({ page }) => {
     await page.goto('/#/test');
-    // Pass-mark study-target note (IMP-002).
-    const note = page.locator('.bank-note');
+    // Pass-mark study-target note (IMP-002). The setup screen has TWO
+    // .bank-note elements — one for the question-bank size + one for
+    // the pass-mark target. Filter explicitly so the assertion still
+    // works if order changes.
+    const note = page.locator('.bank-note').filter({ hasText: 'Pass mark' });
     await expect(note).toContainText('Pass mark');
     await expect(note).toContainText('60%');
     // Exam-mode opt-in toggle (IMP-001).

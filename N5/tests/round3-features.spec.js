@@ -13,37 +13,41 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('round-3 + round-4 surface regression', () => {
 
-  test('home renders the trust band with 5 niche-N2 pills', async ({ page }) => {
+  // Trust-band test removed 2026-05-21: the `.syllabus-trust-band` +
+  // `.trust-pill` UI was removed from the homepage in favor of in-card
+  // niche-N2 messaging. Privacy/offline trust signals now live in the
+  // footer `.footer-trust-strip` and on the level-picker landing page,
+  // not on the per-level home. If the trust band is ever re-introduced
+  // as a homepage block, restore the test from git history (round3-
+  // features.spec.js prior to 2026-05-21).
+  test.skip('home renders the trust band with 5 niche-N2 pills', () => {});
+
+  test('header has a locale toggle (EN ↔ HI) — redesigned 2026-05-09 (single icon-btn)', async ({ page }) => {
     await page.goto('/');
-    const band = page.locator('.syllabus-trust-band');
-    await expect(band).toBeVisible();
-    const pills = band.locator('.trust-pill');
-    await expect(pills).toHaveCount(5);
-    await expect(pills.nth(0)).toContainText('No login');
-    await expect(pills.nth(1)).toContainText('No tracking');
-    await expect(pills.nth(2)).toContainText('Works offline');
-    await expect(pills.nth(3)).toContainText('Open source');
-    await expect(pills.nth(4)).toContainText('100% on-device');
+    // Locale UI was redesigned in v1.12.59-era (2026-05-09) from a
+    // 2-segment pill toggle (#locale-chip-group with two .locale-chip
+    // buttons) to a single square icon-btn that displays the DESTINATION
+    // locale label and swaps on click. The data-locale-label span carries
+    // the current label.
+    const toggle = page.locator('#locale-toggle');
+    await expect(toggle).toBeVisible();
+    const label = toggle.locator('[data-locale-label]');
+    await expect(label).toBeVisible();
+    // From the default EN context, the destination is HI, so the label
+    // initially reads "HI".
+    await expect(label).toHaveText('HI');
   });
 
-  test('header has 2 locale chips (EN / HI) - narrowed 2026-05-06 per IMP-096', async ({ page }) => {
+  test('clicking the locale toggle swaps the active locale to Hindi', async ({ page }) => {
     await page.goto('/');
-    const group = page.locator('#locale-chip-group');
-    await expect(group).toBeVisible();
-    const chips = group.locator('.locale-chip');
-    await expect(chips).toHaveCount(2);
-    const labels = await chips.allTextContents();
-    expect(labels).toEqual(['EN', 'HI']);
-    // EN is active for an EN-default browser context.
-    await expect(chips.nth(0)).toHaveClass(/is-active/);
-  });
-
-  test('clicking the HI chip swaps the active locale to Hindi', async ({ page }) => {
-    await page.goto('/');
-    await page.locator('#locale-chip-group .locale-chip[data-lc="hi"]').click();
-    // After click, HI chip should be active.
-    await expect(page.locator('.locale-chip[data-lc="hi"]')).toHaveClass(/is-active/);
-    await expect(page.locator('.locale-chip[data-lc="en"]')).not.toHaveClass(/is-active/);
+    const toggle = page.locator('#locale-toggle');
+    await toggle.click();
+    // After click, locale should have flipped to HI; the label now
+    // shows the new destination (EN, since we just switched to HI).
+    await expect(toggle.locator('[data-locale-label]')).toHaveText('EN');
+    // Verify by inspecting <html lang> too — most robust check that
+    // the actual locale machinery responded.
+    await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
   });
 
   test('#/missed shows the empty-state message when history is empty', async ({ page }) => {
@@ -77,7 +81,13 @@ test.describe('round-3 + round-4 surface regression', () => {
 
   test('JSON-LD EducationalApplication schema present in head', async ({ page }) => {
     await page.goto('/');
-    const ld = await page.locator('script[type="application/ld+json"]').textContent();
+    // IMP-142 (2026-05-09) added 2 more JSON-LD blocks (Course schema
+    // for the N5 syllabus + BreadcrumbList). The EducationalApplication
+    // block we care about is the first one; filter explicitly so the
+    // assertion still works if block order ever changes.
+    const ld = await page.locator('script[type="application/ld+json"]')
+      .filter({ hasText: '"EducationalApplication"' })
+      .textContent();
     expect(ld).toBeTruthy();
     const data = JSON.parse(ld);
     expect(data['@type']).toBe('EducationalApplication');
