@@ -111,18 +111,31 @@ test.describe('Visual regression - Hindi locale (Devanagari)', () => {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
         await page.setViewportSize({ width: vp.width, height: vp.height });
         await page.emulateMedia({ reducedMotion: 'reduce' });
-        // Pre-set the locale before the first paint so the Hindi
-        // shell renders immediately. The localStorage key matches
-        // the JA-37 namespace invariant.
-        await page.goto('/');
-        await page.evaluate(() => {
-          localStorage.setItem(
-            'jlpt-n5-tutor:settings',
-            JSON.stringify({ locale: 'hi' })
-          );
+        // Pre-set the locale BEFORE first navigation via addInitScript
+        // so the runtime observes locale=hi on its first read — without
+        // this, the runtime hydrates in English first, then re-renders
+        // when the locale switch fires, producing race conditions
+        // (settings-hi 1020px→2265px height drift observed on CI run
+        // 26259633696). addInitScript runs before any page script.
+        await page.addInitScript(() => {
+          try {
+            localStorage.setItem(
+              'jlpt-n5-tutor:settings',
+              JSON.stringify({ locale: 'hi' })
+            );
+          } catch {}
         });
         await page.goto(route.path);
         await page.waitForLoadState('networkidle');
+        // Confirm the locale switch landed before snapshotting. i18n.js
+        // sets document.documentElement.lang = 'hi' when the locale
+        // applies; wait for that explicitly so we don't screenshot a
+        // half-hydrated frame.
+        await page.waitForFunction(
+          () => document.documentElement.lang === 'hi',
+          null,
+          { timeout: 5000 }
+        );
         const masks = route.slug === 'home-hi'
           ? [page.locator('.syllabus-daily-status')]
           : [];
