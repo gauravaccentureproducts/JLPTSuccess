@@ -64,7 +64,16 @@ const VIEWPORTS = [
 // will be its own commit + workflow_dispatch addition.
 test.describe('Visual regression - homepage + canonical routes', () => {
   // Skip on CI until Linux baselines land.
-  test.skip(!!process.env.CI, 'Visual-regression baselines are -win32.png; Linux baselines need separate regen + commit. See file header.');
+  // Two gates:
+  //   - On CI without an explicit update opt-in, skip (baselines
+  //     are -win32.png and the runner is Linux).
+  //   - Opt-in via workflow_dispatch input `update_snapshots: true`
+  //     sets PLAYWRIGHT_UPDATE_SNAPSHOTS=true → suite runs with
+  //     --update-snapshots so missing baselines get written.
+  test.skip(
+    !!process.env.CI && process.env.PLAYWRIGHT_UPDATE_SNAPSHOTS !== 'true',
+    'Visual-regression baselines are -win32.png; Linux baselines need workflow_dispatch update_snapshots run. See file header.'
+  );
   for (const vp of VIEWPORTS) {
     for (const route of ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
@@ -109,7 +118,16 @@ const HINDI_ROUTES = [
 test.describe('Visual regression - Hindi locale (Devanagari)', () => {
   // Same CI gate as the main visual-regression describe above. See
   // the file-header comment for the win32 → linux baseline migration plan.
-  test.skip(!!process.env.CI, 'Visual-regression baselines are -win32.png; Linux baselines need separate regen + commit. See file header.');
+  // Two gates:
+  //   - On CI without an explicit update opt-in, skip (baselines
+  //     are -win32.png and the runner is Linux).
+  //   - Opt-in via workflow_dispatch input `update_snapshots: true`
+  //     sets PLAYWRIGHT_UPDATE_SNAPSHOTS=true → suite runs with
+  //     --update-snapshots so missing baselines get written.
+  test.skip(
+    !!process.env.CI && process.env.PLAYWRIGHT_UPDATE_SNAPSHOTS !== 'true',
+    'Visual-regression baselines are -win32.png; Linux baselines need workflow_dispatch update_snapshots run. See file header.'
+  );
   for (const vp of VIEWPORTS) {
     for (const route of HINDI_ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {

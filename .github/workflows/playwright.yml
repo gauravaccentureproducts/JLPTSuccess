@@ -15,7 +15,18 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+  # workflow_dispatch supports manual triggering. The
+  # `update_snapshots` input lets a maintainer regenerate the
+  # platform-specific visual-regression baselines (e.g., -linux.png)
+  # without committing them from a different-OS dev box. See the
+  # "Update visual-regression baselines" step below.
   workflow_dispatch:
+    inputs:
+      update_snapshots:
+        description: 'Run visual-regression with --update-snapshots and upload the new baselines as an artifact'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -102,9 +113,33 @@ jobs:
         # and accepts maxDiffPixelRatio = 0.001 (sub-pixel font noise).
         # To refresh after intentional layout changes:
         #   npm run test:visual:update      # locally, then commit PNGs.
-        run: npx playwright test
+        #
+        # 2026-05-21: PLAYWRIGHT_UPDATE_SNAPSHOTS=true is set by the
+        # workflow_dispatch input above. When set, visual-regression
+        # specs are unskipped (otherwise they're gated to local-only)
+        # and the test runner is invoked with --update-snapshots so
+        # missing baselines are written instead of failing.
+        run: |
+          if [ "${{ github.event.inputs.update_snapshots }}" = "true" ]; then
+            echo "Running with --update-snapshots (regenerating baselines)"
+            npx playwright test --update-snapshots
+          else
+            npx playwright test
+          fi
         env:
           CI: '1'
+          PLAYWRIGHT_UPDATE_SNAPSHOTS: ${{ github.event.inputs.update_snapshots || 'false' }}
+
+      - name: Upload regenerated visual-regression baselines
+        # Only fires for workflow_dispatch with update_snapshots=true.
+        # Uploads the entire snapshots dir so the maintainer can
+        # download + extract only the new -linux.png files + commit them.
+        if: github.event.inputs.update_snapshots == 'true' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-baselines
+          path: N5/tests/visual-regression.spec.js-snapshots/
+          retention-days: 14
 
       - name: Upload Playwright HTML report
         if: always()
