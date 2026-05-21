@@ -36,7 +36,7 @@
     "status": "FAIL",
     "title": "All nav links >= 44x44 px",
     "expected": "min(w,h) >= 44 for every a[data-route]",
-    "actual": "2 undersized: test=0x0, summary=0x0",
+    "actual": "9 undersized: learn/grammar=40x44, learn/vocab=40x44, kanji=40x44, reading=40x44, listening=40x44",
     "severity": "Major"
   },
   {
@@ -376,7 +376,7 @@
     "status": "FAIL",
     "title": "Footer reachable on #/home",
     "expected": "footer in viewport after scrollTo bottom",
-    "actual": "top=3020, bottom=3297, innerHeight=800, inview=False",
+    "actual": "top=3183, bottom=3460, innerHeight=800, inview=False",
     "severity": "Minor"
   },
   {
