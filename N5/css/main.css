@@ -60,6 +60,15 @@
   --color-text:         #1F1F1C;
   --color-text-muted:   #6F6D66;
   --color-text-faint:   #9A968C;
+  /* Muted text variant for use against the tea-green header band
+   * (--header-bg #cfd8b5). The plain --color-text-muted #6F6D66 only
+   * hits 3.48 contrast against #cfd8b5 — fails WCAG AA 4.5:1. This
+   * darker variant (#4A4A47, contrast 5.92) preserves the visual
+   * hierarchy with --color-text #1F1F1C (active state) while passing
+   * AA. Wired 2026-05-21 to close the axe-core color-contrast
+   * violation surfaced when the Playwright suite first ran to
+   * completion (run 26253902149 / commit 3349c97). */
+  --color-text-on-header: #4A4A47;
 
   /* === Brand accent (used sparingly: nav active, primary CTA, focus ring,
    *     progress fill, accent line under wordmark - five places only) ===
@@ -186,6 +195,9 @@
     /* Dark-mode header band — deep moss tint, parallel to the
      * landing page's dark-mode --header-bg. Sage logo on this = ~5:1. */
     --header-bg:           #2a3a2c;
+    /* Dark-mode primary-nav text. #A8A59C on #2a3a2c = 5.76 contrast,
+     * already passes AA, so we use the existing muted color. */
+    --color-text-on-header: var(--color-text-muted);
   }
 }
 
@@ -209,6 +221,7 @@
   --color-due:           #D9A560;
   --color-due-tint:      #332B1E;
   --header-bg:           #2a3a2c;
+  --color-text-on-header: var(--color-text-muted);
 }
 [data-theme="light"] {
   --color-bg:           #FFFFFF;
@@ -470,7 +483,12 @@ body {
   padding: var(--space-2) 0;
   font-size: var(--text-sm);
   font-weight: var(--weight-base);
-  color: var(--color-text-muted);
+  /* Use the header-band-specific muted color (--color-text-on-header).
+   * The generic --color-text-muted #6F6D66 fails WCAG AA 4.5:1 against
+   * the tea-green --header-bg #cfd8b5 (contrast 3.48). The on-header
+   * variant #4A4A47 lands at 5.92 contrast, comfortably above AA, while
+   * preserving the visual hierarchy with the active-state --color-text. */
+  color: var(--color-text-on-header);
   text-decoration: none;
   transition: color var(--motion-fast) var(--easing);
 }
