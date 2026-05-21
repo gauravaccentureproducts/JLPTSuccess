@@ -44,36 +44,23 @@ const VIEWPORTS = [
   { name: 'mobile',  width: 375,  height: 812 },
 ];
 
-// 2026-05-21: visual-regression suite is gated to local-only runs.
+// 2026-05-21: visual-regression suite runs on every platform.
 //
-// The committed baselines under tests/visual-regression.spec.js-snapshots/
-// were all generated on Windows (file suffix `-win32.png`). When CI runs
-// on ubuntu-latest, Playwright looks for `-linux.png` baselines — none
-// exist — and reports "snapshot doesn't exist, writing actual" for each
-// of the ~76 viewport×project×OS combinations, surfacing as 38 unique
-// failures.
+// Baselines are committed per-OS:
+//   - `<name>-chromium-<project>-win32.png`  (local Windows dev)
+//   - `<name>-chromium-<project>-linux.png`  (CI ubuntu-latest)
+// Playwright auto-selects the right baseline based on process.platform
+// at test time. The Linux baselines were generated via the
+// workflow_dispatch input `update_snapshots: true` on
+// .github/workflows/playwright.yml (gh workflow run playwright.yml -f
+// update_snapshots=true) and committed alongside the win32 ones.
 //
-// The right fix is a CI workflow_dispatch input that runs the suite
-// with `--update-snapshots` and uploads the new Linux PNGs as an
-// artifact for committing. That's a separate piece of work and the
-// rest of the smoke suite is being unblocked first. Until then this
-// suite runs locally (where the win32 baselines apply) and is skipped
-// on CI.
-//
-// Tracking: tests/visual-regression.spec.js Linux-baseline regen
-// will be its own commit + workflow_dispatch addition.
+// To refresh baselines after intentional layout changes:
+//   - Local Windows: `npm run test:visual:update`, commit -win32 PNGs.
+//   - CI Linux:     `gh workflow run playwright.yml -f update_snapshots=true`,
+//                   download artifact, commit -linux PNGs.
+// See procedure-manual §F.40.6 (cross-platform-snapshot class).
 test.describe('Visual regression - homepage + canonical routes', () => {
-  // Skip on CI until Linux baselines land.
-  // Two gates:
-  //   - On CI without an explicit update opt-in, skip (baselines
-  //     are -win32.png and the runner is Linux).
-  //   - Opt-in via workflow_dispatch input `update_snapshots: true`
-  //     sets PLAYWRIGHT_UPDATE_SNAPSHOTS=true → suite runs with
-  //     --update-snapshots so missing baselines get written.
-  test.skip(
-    !!process.env.CI && process.env.PLAYWRIGHT_UPDATE_SNAPSHOTS !== 'true',
-    'Visual-regression baselines are -win32.png; Linux baselines need workflow_dispatch update_snapshots run. See file header.'
-  );
   for (const vp of VIEWPORTS) {
     for (const route of ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
@@ -116,18 +103,9 @@ const HINDI_ROUTES = [
 ];
 
 test.describe('Visual regression - Hindi locale (Devanagari)', () => {
-  // Same CI gate as the main visual-regression describe above. See
-  // the file-header comment for the win32 → linux baseline migration plan.
-  // Two gates:
-  //   - On CI without an explicit update opt-in, skip (baselines
-  //     are -win32.png and the runner is Linux).
-  //   - Opt-in via workflow_dispatch input `update_snapshots: true`
-  //     sets PLAYWRIGHT_UPDATE_SNAPSHOTS=true → suite runs with
-  //     --update-snapshots so missing baselines get written.
-  test.skip(
-    !!process.env.CI && process.env.PLAYWRIGHT_UPDATE_SNAPSHOTS !== 'true',
-    'Visual-regression baselines are -win32.png; Linux baselines need workflow_dispatch update_snapshots run. See file header.'
-  );
+  // Runs on every platform — Linux baselines were generated via the
+  // workflow_dispatch update_snapshots run alongside the main suite
+  // (2026-05-21). See file header for the cross-platform pattern.
   for (const vp of VIEWPORTS) {
     for (const route of HINDI_ROUTES) {
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
