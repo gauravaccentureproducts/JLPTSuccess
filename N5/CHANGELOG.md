@@ -2,6 +2,62 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## Unreleased - 2026-05-21 (CI-recovery triage — Playwright suite green for the first time since 2026-05-03)
+
+### CI infrastructure (continued)
+
+- **Playwright suite parallelised.** `workers: 1` → `workers: 2` in
+  `N5/playwright.config.js`. With 60 tests × 2 device profiles
+  (Desktop Chrome + Pixel 5) = 120 instances on a single worker,
+  the suite was exceeding the 15-min job timeout on the 2-core
+  GitHub-hosted ubuntu-latest runner. Parallelisation collapsed
+  runtime to ~2-3 min and surfaced 65 pre-existing failures the
+  cancellation had been masking.
+- **Playwright video recording disabled on CI.** Was `'retain-on-
+  failure'` (records during every test, discards on pass) → `'off'`
+  when `process.env.CI` is set. Saves CPU + IO on each test; local
+  retains the video for interactive debugging. Combined with
+  `workers: 2`, dropped median CI runtime from cancelled-at-15-min
+  to 2m33s.
+- **Visual-regression suite gated to local-only on CI.** The 76
+  committed baselines under `tests/visual-regression.spec.js-
+  snapshots/` are all `-win32.png` (generated on Windows dev box);
+  CI runs Linux and requests `-linux.png` → every CI run after the
+  suite was wired (DEFER-6 closure 2026-05-03) reported 38 unique
+  "snapshot doesn't exist" failures. Added `test.skip(!!process
+  .env.CI, ...)` on both describe blocks until Linux baselines are
+  regenerated via a separate workflow_dispatch round-trip. Local
+  Windows dev still runs the full visual-regression check.
+
+### UX hardening (continued)
+
+- **Color-contrast trio fixed (3 elements, axe-core surfaced).**
+  Once the Playwright + axe-core suite ran to completion, three
+  primary-route a11y violations surfaced (all serious-impact):
+  - `.primary-nav a` text foreground `#6F6D66` on header band
+    `#cfd8b5` → contrast 3.48, fails WCAG AA 4.5:1. Introduced
+    `--color-text-on-header` (#4A4A47, contrast 5.92) + wired the
+    nav-link rule.
+  - `.app-header .icon-btn` (locale toggle "HI" label + settings
+    cog + fullscreen toggle) — same root cause; same fix wired.
+  - `.app-footer .footer-disclaimer` text foreground `#9A968C`
+    (faint variant) on white = 2.95 contrast, fails AA. Switched
+    to `--color-text-muted` (#6F6D66, contrast 4.94). Preserves
+    visual subordination, clears AA.
+- **Recommender rule-priority bug fixed (real product bug).** R-13
+  ("catch-all returning user gets Open Learn") had condition
+  `if (signal.isReturning)` — too permissive — and dispatched
+  BEFORE R-14 ("mock-paper ready", grammar≥60% AND kanji≥50%) in
+  the RULES array. R-14 was effectively dead code for any
+  returning user. Swapped RULES dispatch order to put R-14 before
+  R-13. R-13 remains the true catch-all per its inline doc.
+
+### Documentation propagation
+
+- Procedure manual §F.40 (6 durable classes from the CI-recovery
+  triage: timeout-masking, stale assertions, first-run-bypass,
+  rule-order, branded-header contrast, cross-platform snapshots).
+
 ## Unreleased - 2026-05-21 (governance + CI hardening — orphaned-workflows fix, CLS 0.126→0, MOB-020 nav-width, 8 DOCS bugs + JA-144)
 
 ### CI infrastructure

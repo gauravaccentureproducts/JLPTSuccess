@@ -4686,3 +4686,171 @@ data/n5_kanji_whitelist.exceptions.md + data/n5_vocab_whitelist_README.md
 CI invariants at this checkpoint: 146 (was 145 before DOCS-KANJI-004
 close).
 ============================================================
+A78. CI-recovery triage - test-side and product-side discoveries
+     when the Playwright suite first ran green
+     (2026-05-21 CI-recovery batch — 6 durable classes from
+     post-timeout-fix triage of 65 pre-existing failures).
+     (Audit category - added 2026-05-21, AUDIT-COVERAGE Part 36.)
+============================================================
+
+Six durable classes from the 2026-05-21 CI-recovery triage. When
+the Playwright suite first ran green (after parallelisation +
+video-off + 15-min timeout), the cancellations had been masking 65
+failures across 6 distinct classes. This entry generalises the
+discoveries so the patterns are detectable by future audits.
+
+Class A - CI-timeout-masking-failures class (operational)
+
+  Pattern. A long-running CI suite hits the workflow timeout cap
+  and gets cancelled. The cancellation prevents the test reporter
+  from printing failure summaries, so the CI badge says "cancelled"
+  instead of showing the actual failure breakdown. Repeated
+  cancellations look like an infrastructure problem when they're
+  actually concealing 50+ assertion failures.
+
+  N5 instance. Playwright suite cancelled at 8m22s / 12m21s /
+  15m17s on three successive runs. The actual cost wasn't in setup
+  (cache-restored browsers took 25s) - it was workers: 1 that
+  serialised 120 test instances. Parallelising to workers: 2
+  collapsed runtime to 2m33s and surfaced 65 unique failures.
+
+  Detector. When CI is consistently "cancelled" rather than
+  "failed": read the actual log via `gh run view <id> --log-failed`,
+  get the per-step timing breakdown, then parallelise BEFORE
+  bumping the timeout.
+
+Class B - Stale test assertions when UI evolves class
+
+  Pattern. When the UI is restructured (elements removed, text
+  changed, layout collapsed), tests against those affordances become
+  stale but typically don't fail loudly until the test suite runs
+  end-to-end.
+
+  N5 instances. ~15 stale tests: `.syllabus-title` /
+  `.syllabus-trust-band` / `.locale-chip` (removed); "Start sitting"
+  → "Start full mock test" (copy change); 177 → 178 grammar
+  patterns / 30 → 54 reading / 30 → 50 listening (count drift);
+  `button.length-btn` → `<select id="test-length">` (UI redesign).
+
+  Resolution. Replace hardcoded counts with `fetch('data/version
+  .json')` reads at test runtime. For removed UI, either skip
+  with a git-history reference or rewrite for the replacement.
+  Prefer regex match for product-marketing-controlled copy.
+
+  Detector. After ANY UI restructure: grep `tests/` for class
+  names + copy strings touched. Horizontal-deployment sweep
+  extends to test artifacts in the same commit as the UI change.
+
+Class C - First-run onboarding bypass for tests class
+
+  Pattern. When the app has a "first-run experience" gate
+  (redirect on no-history / no-streak / no-results), every CI test
+  hits it because Playwright's fresh-context browsers have empty
+  localStorage. Tests asserting against the home DOM find a
+  diagnostic-page DOM instead.
+
+  N5 instance. IMP-044 (2026-05-11) added first-run onboarding:
+  hash-less visits with no history redirect to #/diagnostic. Every
+  test loading `/` failed because the page title showed "JLPT N5
+  placement diagnostic" not the home title. Affected ~12 tests
+  across 3 spec files.
+
+  Resolution. Add a global test.beforeEach that sets the
+  onboarding sentinel via addInitScript before navigation:
+
+    test.beforeEach(async ({ page }) => {
+      await page.addInitScript(() => {
+        try { localStorage.setItem(SENTINEL_KEY, '1'); } catch {}
+      });
+    });
+
+  Detector. When a fresh-context CI run produces "title mismatch"
+  or "element not found" failures concentrated on hash-less routes,
+  check for first-run redirect logic.
+
+Class D - Rule-order bugs in priority chains class
+
+  Pattern. A recommender / decision engine with rules in a
+  priority chain has a too-permissive catch-all that dominates
+  lower-priority specific rules.
+
+  N5 instance. Pedagogy recommender's R-13 ("catch-all returning
+  user gets Open Learn") had condition `if (signal.isReturning)` -
+  too broad - and dispatched BEFORE R-14 ("mock-paper ready",
+  grammar≥60% AND kanji≥50%). R-14 was dead code for any returning
+  user.
+
+  Resolution. Audit every rule chain for catch-all conditions.
+  Document explicitly which rule is "the catch-all" - one per
+  chain, placed at the END of dispatch. Add positive + tie-break
+  tests for EVERY rule.
+
+  Detector. For any module with a "rule_id" / "priority" / "rules
+  array" pattern, audit the dispatch loop: does the most-permissive
+  condition appear before more-specific ones? Catch-alls go last.
+
+Class E - Color-contrast on branded headers class (CI: axe-core)
+
+  Pattern. A design system ships a "muted text" color calibrated
+  for white / default-surface backgrounds. When used inside a
+  branded header band (non-white bg), the contrast ratio fails
+  WCAG AA.
+
+  N5 instances. `--color-text-muted: #6F6D66` on tea-green
+  `--header-bg: #cfd8b5` = 3.48 contrast (fails). Used in
+  `.primary-nav a`, `.app-header .icon-btn`. Parallel case:
+  `--color-text-faint: #9A968C` on white footer = 2.95 contrast.
+  axe-core flagged 408+ violation instances on the homepage alone.
+
+  Resolution. Introduce a `--color-text-on-<surface>` token per
+  non-white branded surface. Use the surface-specific token in
+  every selector living on that surface. Keep the original
+  muted/faint tokens for white-bg contexts.
+
+  Detector. axe-core color-contrast check (already part of P0
+  smoke). Pre-emptive guard: for each new non-white branded
+  background, audit every text-color rule that lives on top of it.
+
+Class F - Cross-platform snapshot baselines class
+
+  Pattern. Visual-regression tests with screenshot baselines tag
+  each baseline with the OS (`-win32.png`, `-linux.png`,
+  `-darwin.png`). If the dev box that captures the baselines runs
+  Windows but CI runs Linux, the suite hits a 100% miss rate.
+
+  N5 instance. 76 committed PNGs all `-win32.png`; CI Linux
+  requests `-linux.png` → 38 unique "snapshot doesn't exist"
+  failures since suite was wired 2026-05-03.
+
+  Resolution. Three options in order of effort:
+    (a) Skip on CI: `test.skip(!!process.env.CI, ...)`. Local
+        dev still gets diffing. Quick unblock.
+    (b) Workflow-dispatch regenerate: add `update-snapshots` input,
+        run `--update-snapshots`, upload artifact, commit.
+    (c) Per-OS baselines committed: run on all supported platforms,
+        commit all baselines.
+
+  Detector. Once a visual-regression suite is wired: grep
+  `tests/**/*-snapshots/` for baselines; if all are tagged with a
+  single OS and CI runs a different OS, every diff will miss.
+
+Operational rule §A78.7 - the discovery-cascade rule
+
+  When an infra fix unblocks visibility (CI timeout fix, log-level
+  fix, infrastructure migration), treat the next N hours as
+  observation time, not fix time. Capture the full failure list,
+  bucket by class (test-side vs product-side; new vs pre-existing),
+  stack-rank by fix cost, commit in revertable batches with
+  per-batch scopes. After every batch, re-read the CI log - new
+  failures may surface as old ones get out of the way. The final
+  batch is doc propagation per Rule 4 + bug-sheet registration per
+  Rule 5.
+
+Cross-reference: AUDIT-COVERAGE Part 36; procedure-manual §F.40;
+N5/playwright.config.js (workers 2 + video off on CI);
+N5/css/main.css (--color-text-on-header token);
+N5/js/pedagogy-recommender.js (R-14 / R-13 dispatch swap);
+N5/tests/p0-smoke.spec.js (onboardingSeen beforeEach pattern).
+
+CI invariants at this checkpoint: 146 (unchanged from A77 close).
+============================================================

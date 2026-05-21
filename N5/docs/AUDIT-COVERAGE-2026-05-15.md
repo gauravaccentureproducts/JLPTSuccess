@@ -5375,3 +5375,129 @@ CI invariant count: 145 → **146** at this checkpoint.
   drift, not "newly introduced." Documenting as backlog rather
   than fixing it in this batch preserves the audit-cycle
   cohesion.
+
+## ADDENDUM 2026-05-21 (Part 36) — CI-recovery triage: Playwright suite first green run since 2026-05-03
+
+The Playwright P0 smoke suite ran to completion on CI for the
+first time since DEFER-6 closure (2026-05-03), and the
+cancellations from the 15-min timeout had been masking 65
+pre-existing failures. Triage produced 7 commits + the procedure
+manual §F.40 abstraction (6 durable classes).
+
+### Discovery sequence
+
+| Run | Commit | Outcome | Runtime | Unique failures |
+|---|---|---|---|---|
+| 26253902149 | 397a933 (workers 1→2 + video off) | failure | 9m23s | 129 |
+| 26257247291 | 3349c97 (test batch 2) | failure | 5m20s | 98 |
+| 26257614498 | c1750a3 (a11y batch 3) | failure | 5m11s | 91 |
+| 26257860644 | 68d9241 (test batch 4) | failure | 5m12s | 91 |
+| 26257997871 | 9a9d827 (a11y + visual-regression skip) | failure | 3m21s | 4 |
+| **26258169250** | **4c491b4 (test batch 6)** | **success** | **2m33s** | **0** |
+| 26258233476 | 18f1774 (flaky search-input fix) | success | - | 0 |
+
+### Failure breakdown
+
+- **38 visual-regression baselines** — all `-win32.png`; CI
+  Linux requests `-linux.png`. Pre-existing since suite was
+  wired 2026-05-03. Resolved by `test.skip(!!process.env.CI, ...)`
+  on both describe blocks until separate Linux-baseline
+  regen lands.
+- **15 stale UI-assertion tests** — removed elements
+  (`.syllabus-title`, `.syllabus-trust-band`, `.locale-chip`),
+  changed copy ("Start sitting" → "Start full mock test"),
+  drifted counts (177 → 178 grammar patterns; 30 → 54 reading;
+  30 → 50 listening; 8 → 9 study-order steps), restructured
+  UI (test-length picker `button.length-btn` → `<select>`).
+  All updated to current state or skipped.
+- **6 axe-core color-contrast violations** — 3 distinct CSS
+  elements:
+  - `.primary-nav a` muted-text on tea-green header (3.48 ratio)
+  - `.app-header .icon-btn` muted-text on tea-green header
+  - `.app-footer .footer-disclaimer` faint-text on white (2.95)
+  All fixed via the new `--color-text-on-header` token + a
+  swap from faint → muted on the footer disclaimer.
+- **5 recommender test failures (R-07..R-14)** — 4 of the 5
+  fixed by adding `lastLearnId: null` to baseline overrides
+  (R-06 resume-last was dominating). The 5th (R-14) revealed
+  a real product bug: R-13's `if (signal.isReturning)` catch-
+  all dispatched before R-14 in the RULES array. Swapped
+  dispatch order to put R-14 first.
+- **1 first-run-onboarding redirect class** — IMP-044 (2026-
+  05-11) auto-redirects hash-less visits with no history/
+  results/streak to `#/diagnostic`. Affected every test loading
+  `/` from a fresh browser context (~12 tests across 3 spec
+  files). Fixed with a global `test.beforeEach` that sets the
+  `jlpt-n5-tutor:onboardingSeen='1'` sentinel via
+  `addInitScript` before navigation.
+- **3 strict-mode locator violations** — `<script type=
+  "application/ld+json">` (3 elements after IMP-142),
+  `.bank-note` (2 elements: question-bank + pass-mark),
+  fullscreen-toggle visible-on-mobile (hidden by CSS). All
+  fixed with `.filter`, `.first()`, evaluate-walk, or
+  `toHaveCount` substitution.
+
+### Classes documented (procedure manual §F.40)
+
+1. **Class A — CI-timeout-masking-failures.** When CI is
+   consistently "cancelled," diagnose via `gh run view --log` +
+   per-step timing, NOT by bumping the timeout. The first
+   complete run is the discovery moment.
+2. **Class B — Stale test assertions when UI evolves.**
+   Hardcoded counts, removed elements, changed copy. Fix
+   pattern: replace counts with runtime fetch; remove or
+   rewrite tests for removed UI; regex-match copy that's
+   product-marketing-controlled.
+3. **Class C — First-run onboarding bypass for tests.**
+   Document the bypass sentinel in test fixtures; apply via
+   `test.beforeEach` + `addInitScript`.
+4. **Class D — Rule-order bugs in priority chains.** Audit
+   for too-permissive catch-alls. One catch-all per chain,
+   placed at the END of dispatch. Positive + tie-break tests
+   for every rule.
+5. **Class E — Color-contrast on branded headers.** Per-
+   surface `--color-text-on-<surface>` token; never reuse a
+   generic muted variable across non-white backgrounds.
+6. **Class F — Cross-platform snapshot baselines.** Generate
+   on CI runner OS; never commit baselines from a dev box
+   whose OS differs.
+7. **Operational rule §F.40.7 — the discovery cascade rule.**
+   When an infra fix unblocks visibility, budget triage as a
+   separate phase. Batch fixes by class. Doc + bug-sheet
+   propagation is the final batch, not an afterthought.
+
+### Bug-sheet state
+
+| Phase | Open | Fixed | Total |
+|---|---|---|---|
+| End of Part 35 close-out | 0 | 151 | 151 |
+| CI-recovery triage learnings (not registered) | 0 | 151 | 151 |
+
+The triage produced *test-suite* fixes (not user-facing bug
+fixes per the bug-sheet convention) — the user-facing color-
+contrast triplet + the recommender R-13/R-14 priority bug are
+the actual product issues. They will be registered in a
+follow-up commit as BUG-A11Y-001 + BUG-RECO-001 if useful for
+tracking.
+
+### Writing-discipline boundary (per Rule 4)
+
+- "6 durable classes" — bounded by the patterns observed in
+  THIS triage. Future CI-recovery cycles may surface new
+  classes (e.g., "test-data leakage between describe blocks,"
+  "headless Chrome vs headful timing drift").
+- "First green run since 2026-05-03" — bounded to the Playwright
+  workflow only; other workflows (content-integrity, lighthouse-
+  ci) were green throughout.
+- The 38 visual-regression failures are deferred, not resolved.
+  Linux baseline regen tracked as separate work.
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.40 (6 durable classes + operational rule).
+- CHANGELOG: 2026-05-21 entry (CI-recovery triage block).
+- Accuracy prompt: `prompts/Japanese language Accuracy check.txt`
+  §A78 (test-side discovery patterns).
+- Improvement prompt: `prompts/N5Improvement.txt` Phase-0
+  CI-recovery regression block.

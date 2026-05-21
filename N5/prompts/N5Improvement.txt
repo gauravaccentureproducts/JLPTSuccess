@@ -1522,6 +1522,87 @@ Source: DOCS-KANJI-001..004 + DOCS-VOCAB-001..004 + orphaned-
 workflow close-out (2026-05-21); accuracy prompt §A77;
 procedure-manual §F.39; AUDIT-COVERAGE Part 35.
 
+### Phase-0 CI-recovery triage regression block (added 2026-05-21)
+
+Six durable regression checks for the patterns surfaced when the
+Playwright suite first ran green on CI (2026-05-21 batches 2-7).
+Currently a mix of convention checks (Classes A/C/F) + product
+guards (Classes D/E) + CI infrastructure verification (Classes
+A/B/F operational).
+
+1. **CI runtime sanity (Class A — timeout-masking)**
+   For every CI workflow file under `.github/workflows/*.yml`:
+   the most recent successful run should complete within
+   `timeout-minutes * 0.7` (i.e., 30% safety margin). If the
+   most recent run is `cancelled` rather than `success` or
+   `failure`, treat as a timeout-masking signal — investigate
+   per-step timing before bumping the cap. Expected: 0
+   cancellation events on the playwright-p0-smoke workflow.
+
+2. **Stale-assertion drift scan (Class B — UI evolves)**
+   For every UI element class referenced in `N5/tests/**/*.spec.js`:
+   verify the class exists in either `N5/index.html` or the
+   active `N5/js/*.js` source. Heuristic: grep for `.locator(
+   '\.X')` patterns, then grep the source tree for `class.*X`.
+   Mismatches indicate stale test refs. Expected: 0 dangling.
+
+3. **First-run-bypass sentinel coverage (Class C — onboarding)**
+   For every `test.beforeEach` or `addInitScript` in spec files:
+   verify the onboarding sentinel
+   (`localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1')`)
+   is set in EVERY spec file that calls `page.goto('/')` or
+   `page.goto('/#/home')`. Without the sentinel, fresh-context
+   tests hit the diagnostic redirect. Expected: 3+ spec files
+   with the sentinel (p0-smoke / recommender / round3-features).
+
+4. **Recommender catch-all dispatch order (Class D — rule order)**
+   In `N5/js/pedagogy-recommender.js`, verify the `RULES` array
+   places more-specific rules BEFORE catch-alls. Specifically:
+   `R14_mockPaperReady` must precede `R13_continueExplore` in
+   the dispatch array. Generalize: any catch-all whose
+   condition is just `if (signal.isReturning)` should sit at
+   the LAST position. Expected: R-13 is last (or
+   second-to-last if R-05's "new user" catch-all is also
+   structurally a catch-all).
+
+5. **Branded-header color-contrast token coverage (Class E — a11y)**
+   For every CSS rule that uses a non-white background variable
+   (e.g., `--header-bg`, `--surface-alt`), verify the text
+   color is a SURFACE-SPECIFIC token (e.g., `--color-text-on-
+   header`) not the generic `--color-text-muted`. Currently
+   `--color-text-on-header` is used in `.primary-nav a` +
+   `.app-header .icon-btn`. Expected: every selector matching
+   `header *` or `[class*="header"] *` uses the on-header
+   token. Wider sweep (footer, banners) is future work.
+
+6. **Visual-regression baseline OS alignment (Class F)**
+   For every PNG under `N5/tests/visual-regression.spec.js-
+   snapshots/`: parse the filename suffix (e.g., `-win32.png`,
+   `-linux.png`, `-darwin.png`). Verify the platform suffix
+   matches the CI runner OS — if all baselines are `-win32`
+   but CI is `ubuntu-latest`, every CI diff misses. Currently
+   gated via `test.skip(!!process.env.CI, ...)` until Linux
+   baselines land. Expected (when ungated): baselines exist
+   for every test × CI-runner-OS combination.
+
+Bounded-coverage framing:
+  - "Stale-assertion drift" — grep heuristic only; doesn't
+    catch DOM-rendered-class-name strings constructed at
+    runtime. False negatives possible.
+  - "Recommender catch-all order" — N5-specific to the current
+    recommender shape. Future schedulers (SRS, EB-N adaptive)
+    would need their own catch-all-position invariants.
+  - "Color-contrast token coverage" — convention check; the
+    runtime guard is axe-core in the P0 smoke suite (already
+    catches at CI time).
+  - "Baseline OS alignment" — file-name parsing; would miss
+    intentional cross-platform baselines if a future schema
+    encodes the OS in a metadata file instead.
+
+Source: CI-recovery triage 2026-05-21 (commits 397a933 through
+4c491b4); accuracy prompt §A78; procedure-manual §F.40;
+AUDIT-COVERAGE Part 36.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
