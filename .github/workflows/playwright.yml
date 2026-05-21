@@ -26,15 +26,20 @@ jobs:
       run:
         working-directory: N5
     runs-on: ubuntu-latest
-    # 2026-05-21: bumped from 8 → 12 minutes after the first real CI
-    # runs (post the orphaned-workflow migration, commit 127124e) hit
-    # 8m22s consistently and got cancelled. Local run is 4.6 min; the
-    # CI overhead (cold browser install + Python setup + Node deps
-    # cache hydration) accounts for the gap. Combined with the
-    # Playwright browser cache below (~3 min savings on cache hit),
-    # this brings typical CI run to 5-7 min with a 12 min safety
-    # margin for slow-runner days.
-    timeout-minutes: 12
+    # 2026-05-21: bumped from 8 → 12 → 15 minutes.
+    #
+    # First bump (8→12) was a wrong-cause guess: I assumed cold
+    # browser install was the bottleneck. Run d65d8c8 showed
+    # otherwise — browser install was only 25 sec; actual
+    # `npx playwright test` execution was 11m39s. GitHub-hosted
+    # ubuntu-latest 2-core runners run the test suite ~2.5× slower
+    # than the local Windows machine (4.6 min local → 11m39s CI).
+    #
+    # Second bump (12→15) gives ~25% safety margin over the
+    # observed 11m39s. Cache (below) is preserved for incremental
+    # gains on subsequent runs; the dominant cost is the test
+    # execution itself, not the setup.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
