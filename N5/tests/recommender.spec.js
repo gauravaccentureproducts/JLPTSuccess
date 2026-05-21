@@ -140,8 +140,13 @@ test.describe('EB-4 pedagogy recommender', () => {
   });
 
   test('R-07 fires for returning user with <5% grammar coverage and no due queue', async ({ page }) => {
+    // baselineSignal() sets lastLearnId='n5-001'; with isReturning=true
+    // that triggers R-06 (resume-last) which dominates R-07. To isolate
+    // R-07 we must null out lastLearnId. Same pattern applies to R-08,
+    // R-09, R-12, R-14 below.
     const r = await runRecommend(page, baselineSignal({
       dueTotal: 0,
+      lastLearnId: null,
       completionPct: { grammar: 0.02, vocab: 0.10, kanji: 0.10, reading: 0.10, listening: 0.10 },
     }));
     expect(r.rule_id).toBe('R-07');
@@ -151,6 +156,7 @@ test.describe('EB-4 pedagogy recommender', () => {
   test('R-08 fires when daily-goal progress < 50% and no due queue', async ({ page }) => {
     const r = await runRecommend(page, baselineSignal({
       dueTotal: 0,
+      lastLearnId: null,  // prevent R-06 dominance.
       goalMet: false,
       goalPct: 25,
       reviewsToday: 5,
@@ -165,6 +171,7 @@ test.describe('EB-4 pedagogy recommender', () => {
   test('R-09 fires for returning user with one skill <5%', async ({ page }) => {
     const r = await runRecommend(page, baselineSignal({
       dueTotal: 0,
+      lastLearnId: null,  // prevent R-06 dominance.
       goalPct: 100,
       goalMet: false,
       // listening untouched, others fine.
@@ -208,6 +215,7 @@ test.describe('EB-4 pedagogy recommender', () => {
   test('R-12 acknowledge-goal-met fires when learner has practiced today', async ({ page }) => {
     const r = await runRecommend(page, baselineSignal({
       dueTotal: 0,
+      lastLearnId: null,  // prevent R-06 dominance.
       goalMet: true,
       goalPct: 110,
       reviewsToday: 22,
@@ -237,9 +245,11 @@ test.describe('EB-4 pedagogy recommender', () => {
   test('R-14 fires when grammar >= 60% AND kanji >= 50%', async ({ page }) => {
     // Coverage broad enough → mock-paper recommendation. To prevent
     // R-01..R-13 from short-circuiting: no due queue, no weak patterns,
-    // no minority-coverage gap, daily goal already at floor.
+    // no minority-coverage gap, daily goal already at floor, AND
+    // lastLearnId nulled (else R-06 resume-last fires).
     const r = await runRecommend(page, baselineSignal({
       dueTotal: 0,
+      lastLearnId: null,
       goalPct: 80,
       goalMet: false,
       completionPct: { grammar: 0.65, vocab: 0.30, kanji: 0.55, reading: 0.30, listening: 0.30 },

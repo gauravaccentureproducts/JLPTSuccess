@@ -76,7 +76,9 @@ test.describe('round-3 + round-4 surface regression', () => {
     await page.goto('/#/test');
     const cta = page.locator('.test-sitting-cta a[href*="sitting"]');
     await expect(cta).toBeVisible();
-    await expect(cta).toContainText('Start sitting');
+    // CTA copy was changed 2026-05-10 from "Start sitting" to
+    // "Start full mock test →". The link target stays #/sitting.
+    await expect(cta).toContainText('Start full mock test');
   });
 
   test('JSON-LD EducationalApplication schema present in head', async ({ page }) => {

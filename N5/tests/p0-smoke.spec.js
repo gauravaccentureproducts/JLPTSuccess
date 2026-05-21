@@ -7,6 +7,20 @@
 const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
 
+// IMP-044 (2026-05-11) added first-run onboarding that auto-redirects
+// hash-less visits with no history/results/streak to #/diagnostic. In
+// CI every test launches a fresh browser context (no localStorage), so
+// every page.goto('/') trips the redirect and the title becomes "JLPT
+// N5 placement diagnostic" instead of the home title. Mark the
+// onboarding sentinel as "seen" before navigation to bypass the
+// redirect — tests that actually exercise the diagnostic surface
+// navigate to /#/diagnostic explicitly and clear this sentinel locally.
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    try { localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1'); } catch {}
+  });
+});
+
 test.describe('P0 smoke - core navigation', () => {
   // Note: Playwright gives each test a fresh browser context with empty
   // storage by default, so no beforeEach storage cleanup is needed. An
@@ -20,9 +34,12 @@ test.describe('P0 smoke - core navigation', () => {
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
 
     await page.goto('/');
-    // Tab title dropped the em-dash subtitle in homepage update 2026-05-02
-    // per spec §2.1 (the em-dash form was a project-policy violation).
-    await expect(page).toHaveTitle('JLPT N5');
+    // app.js applyRouteMeta() rewrites the title from the static
+    // "JLPT N5" to the home-route-specific title once the SPA initialises.
+    // We assert against the prefix so future copy edits to the route
+    // descriptor don't break the test — the JLPT N5 brand anchor must
+    // remain intact.
+    await expect(page).toHaveTitle(/^JLPT N5/);
     // Brand-link visible wordmark is just "N5" + SVG mark since
     // commit a91bb68 (2026-05-04 "unify brand mark with landing page").
     // The "JLPT" branding lives in the page <title> + aria-label.
@@ -92,9 +109,15 @@ test.describe('P0 smoke - core navigation', () => {
     await page.goto('/#/learn/grammar');
     await expect(page.locator('h2')).toContainText('Grammar');
     await expect(page.locator('details.toc-category')).toHaveCount(5);
-    // Pattern count: 187 → 177 after Pass-19 F-19 dedup (commit 4c9b9c4) retired
-    // 10 duplicate / subset patterns. See data/grammar.json#_meta.retired_pattern_ids.
-    await expect(page.locator('.grammar-card')).toHaveCount(177);
+    // Pattern count drifts as new entries land or duplicates retire.
+    // Source of truth: data/grammar.json. Read it at runtime so the
+    // assertion tracks the data rather than a hardcoded number.
+    const expectedCount = await page.evaluate(async () => {
+      const r = await fetch('data/grammar.json');
+      const d = await r.json();
+      return (d.patterns || []).length;
+    });
+    await expect(page.locator('.grammar-card')).toHaveCount(expectedCount);
   });
 
   test('pattern detail (n5-001) shows pattern, EN + JA meaning, examples', async ({ page }) => {
@@ -258,8 +281,6 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
     const toggle = page.locator('#reading-mock-mode');
     await expect(toggle).toBeVisible();
     await expect(toggle).not.toBeChecked();
-    // Capture per-passage question count BEFORE toggle (full set).
-    const beforeText = await page.locator('.reading-list li').first().innerText();
     await toggle.check();
     await expect(toggle).toBeChecked();
     // Page re-renders; check setting persisted to localStorage.
@@ -268,10 +289,13 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
       return s.readingMockTestMode;
     });
     expect(stored).toBe(true);
-    // After toggle, question count per passage should be ≤ before.
-    const afterText = await page.locator('.reading-list li').first().innerText();
-    // Both should contain "もん" (counter for questions).
-    expect(afterText).toContain('もん');
+    // MOB-017 (BUG-126, 2026-05-19) simplified the reading-list rows
+    // to <a class="reading-pick"> wrapping just the passage title;
+    // per-row question counts are no longer rendered, so the older
+    // "contains もん" content-comparison was dropped. The persistence
+    // check above is the meaningful assertion — it verifies the
+    // toggle round-trips through storage and the re-render is wired.
+    await expect(page.locator('.reading-list .reading-pick').first()).toBeVisible();
   });
 
   test('homepage Progress reflects completion-state localStorage', async ({ page }) => {
