@@ -28,6 +28,16 @@ All user-visible changes to the JLPT N5 study material site.
   .env.CI, ...)` on both describe blocks until Linux baselines are
   regenerated via a separate workflow_dispatch round-trip. Local
   Windows dev still runs the full visual-regression check.
+- **Visual-regression Linux baselines committed.** Added a
+  `workflow_dispatch.inputs.update_snapshots` to `playwright.yml`
+  (commit `0e505e4`) that runs the suite with `--update-snapshots`
+  and uploads the regenerated baselines as an artifact. Triggered
+  via `gh workflow run playwright.yml -f update_snapshots=true`,
+  downloaded the 76 new `-linux.png` files, and committed them
+  alongside the existing 76 `-win32.png` baselines (commit
+  `d43828c`). Snapshots dir now holds 152 PNGs and the
+  CI skip gate has been removed — visual-regression runs on
+  every push, comparing against the OS-appropriate baseline.
 
 ### UX hardening (continued)
 

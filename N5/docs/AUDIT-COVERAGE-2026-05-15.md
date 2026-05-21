@@ -5472,13 +5472,15 @@ manual §F.40 abstraction (6 durable classes).
 |---|---|---|---|
 | End of Part 35 close-out | 0 | 151 | 151 |
 | CI-recovery triage learnings (not registered) | 0 | 151 | 151 |
+| After CI-recovery 4 bugs registered + fixed (d43828c) | **0** | **155** | **155** |
 
-The triage produced *test-suite* fixes (not user-facing bug
-fixes per the bug-sheet convention) — the user-facing color-
-contrast triplet + the recommender R-13/R-14 priority bug are
-the actual product issues. They will be registered in a
-follow-up commit as BUG-A11Y-001 + BUG-RECO-001 if useful for
-tracking.
+The triage produced four user-facing-system bugs registered as
+BUG-A11Y-001 (color-contrast trio), BUG-RECO-001 (recommender
+R-13 dominance over R-14), BUG-CI-001 (visual-regression
+-win32/-linux platform mismatch), and BUG-TEST-001 (15+ stale
+Playwright assertions). All four registered as Status=Fixed in
+the same commit that landed the 76 Linux baselines + removed
+the CI skip gate.
 
 ### Writing-discipline boundary (per Rule 4)
 
