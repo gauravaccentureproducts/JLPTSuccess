@@ -7407,7 +7407,13 @@ def _check_ja_125_data_index_corpus_sizes_match() -> list[str]:
         if not on_disk.exists():
             failures.append(f"JA-125 data/index.json lists {rel} but file does not exist")
             continue
-        actual_size = on_disk.stat().st_size
+        # Use LF-normalized byte count (matches git's storage representation)
+        # so the check is platform-independent — Windows working-tree
+        # files have CRLF inflation that Linux CI doesn't see (fix
+        # 2026-05-21 after the workflow migration commit 127124e
+        # surfaced the CRLF-vs-LF size drift class).
+        with open(on_disk, "rb") as fh:
+            actual_size = len(fh.read().replace(b"\r\n", b"\n"))
         recorded_size = entry.get("size_bytes")
         if recorded_size != actual_size:
             failures.append(

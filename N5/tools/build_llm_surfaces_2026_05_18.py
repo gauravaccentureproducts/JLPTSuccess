@@ -220,11 +220,21 @@ def stage_data_index(data):
         ("papers/manifest.json", "application/json", f"Mock paper test manifest ({counts.get('papers','?')} papers, {counts.get('paperQuestions','?')} questions)", None),
     ]
 
+    def _lf_normalized_size(path: str) -> int:
+        """Return byte-size of the file with CRLF normalized to LF.
+        Matches git's storage representation (LF) so the recorded size
+        agrees with what CI sees on Linux — even when the script runs
+        on Windows where the working-tree has CRLF endings (JA-125
+        guard fix, 2026-05-21)."""
+        with open(path, "rb") as fh:
+            data = fh.read()
+        return len(data.replace(b"\r\n", b"\n"))
+
     for rel, content_type, desc, count in file_specs:
         full = os.path.join(DATA_DIR, rel.replace("/", os.sep))
         if not os.path.exists(full):
             continue
-        size = os.path.getsize(full)
+        size = _lf_normalized_size(full)
         mtime = datetime.datetime.utcfromtimestamp(os.path.getmtime(full)).strftime("%Y-%m-%dT%H:%M:%SZ")
         entries.append({
             "path": f"data/{rel}",
@@ -243,7 +253,7 @@ def stage_data_index(data):
         if "manifest" in os.path.basename(fp):
             continue
         rel = os.path.relpath(fp, DATA_DIR).replace(os.sep, "/")
-        size = os.path.getsize(fp)
+        size = _lf_normalized_size(fp)
         mtime = datetime.datetime.utcfromtimestamp(os.path.getmtime(fp)).strftime("%Y-%m-%dT%H:%M:%SZ")
         try:
             d = json.load(open(fp, encoding="utf-8"))
