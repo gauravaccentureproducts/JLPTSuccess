@@ -492,6 +492,15 @@ function R14_mockPaperReady(signal) {
 
 // Rule list, ordered by priority. Edit at your peril — the order
 // encodes pedagogy, not just code style.
+// Dispatch order. R-14 must precede R-13 because R-13's condition
+// (`if signal.isReturning`) is a too-permissive catch-all that would
+// otherwise dominate R-14's specific mock-ready signal (grammar≥60%
+// AND kanji≥50%). The numerically-suggestive ordering R13→R14 used
+// to ship the original numbering as the dispatch order; tightened
+// 2026-05-21 to let the more-specific rule win as the inline
+// documentation has always intended ("R-13 catch-all returning user
+// with no other signal" — the "no other signal" gating only works if
+// R-14 is consulted first). Other priority ordering preserved.
 const RULES = [
   R01_clearLargeReviewQueue,
   R02_clearMediumReviewQueue,
@@ -505,8 +514,8 @@ const RULES = [
   R10_lateralSwap,
   R11_reReadJustExploredPattern,
   R12_acknowledgeGoalMet,
-  R13_continueExplore,
   R14_mockPaperReady,
+  R13_continueExplore,
 ];
 
 // ---------------------------------------------------------------------------

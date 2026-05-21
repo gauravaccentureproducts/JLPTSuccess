@@ -45,10 +45,15 @@ test.describe('P0 smoke - core navigation', () => {
     // The "JLPT" branding lives in the page <title> + aria-label.
     await expect(page.locator('.brand-link')).toContainText('N5');
     await expect(page.locator('.brand-link')).toHaveAttribute('aria-label', /JLPT/i);
-    // Header: syllabus title + subtitle (replaces the marketing-style hero
-    // headline and inventory list shipped 2026-05-02 first iteration).
-    await expect(page.locator('.syllabus-title')).toContainText('JLPT N5 Syllabus');
-    await expect(page.locator('.syllabus-subtitle')).toContainText('Study grammar, vocabulary, kanji');
+    // Homepage was restructured ~2026-05-09: the marketing-style
+    // `.syllabus-title` + `.syllabus-subtitle` hero pair was dropped
+    // in favor of in-card narrative. Section affordances now lead
+    // with `.section-label-text` chips. Action-block CTAs (placement
+    // + start-grammar) were removed; placement now lives on the
+    // first-run onboarding flow instead. Test was updated to
+    // assert the structural invariants that survived (cards,
+    // study-order, progress) without micro-asserting removed copy.
+
     // Six syllabus cards in canonical order.
     await expect(page.locator('.syllabus-card')).toHaveCount(6);
     const titles = page.locator('.syllabus-card-title');
@@ -61,18 +66,14 @@ test.describe('P0 smoke - core navigation', () => {
     // 01..06 indices on every card.
     await expect(page.locator('.syllabus-card-index').first()).toContainText('01');
     await expect(page.locator('.syllabus-card-index').nth(5)).toContainText('06');
-    // Recommended study order: 8 numbered steps, each a clickable link
-    // to the relevant section (added 2026-05-02 per user request).
-    await expect(page.locator('.study-order-item')).toHaveCount(8);
-    await expect(page.locator('.study-order-link')).toHaveCount(8);
+    // Recommended study order: 9 numbered steps (added 2026-05-02;
+    // IMP-126 added authentic real-world JP as the 9th step on 2026-05-09).
+    await expect(page.locator('.study-order-item')).toHaveCount(9);
+    await expect(page.locator('.study-order-link')).toHaveCount(9);
     await expect(page.locator('.study-order-link').first()).toHaveAttribute('href', '#/learn/grammar');
-    await expect(page.locator('.study-order-link').nth(7)).toHaveAttribute('href', '#/review');
+    await expect(page.locator('.study-order-link').last()).toHaveAttribute('href', '#/authentic');
     // Progress overview: 6 rows.
     await expect(page.locator('.progress-row')).toHaveCount(6);
-    // Action block: prompt + 2 buttons (placement + grammar).
-    await expect(page.locator('.syllabus-action-prompt')).toContainText('Not sure where to start?');
-    await expect(page.locator('.btn-action-primary')).toContainText('Take Placement Check');
-    await expect(page.locator('.btn-action-secondary')).toContainText('Start with Grammar');
     // Fullscreen toggle present in header (top-right cluster).
     await expect(page.locator('#fullscreen-toggle')).toBeVisible();
     expect(errors, `console errors: ${errors.join('\n')}`).toEqual([]);
@@ -250,9 +251,11 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
     await expect(page.locator('.syllabus-daily-today')).toContainText('Not yet practiced today');
   });
 
-  test('study-order links: all 8 route to the right surface', async ({ page }) => {
+  test('study-order links: all 9 route to the right surface', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
+    // IMP-126 (2026-05-09) added authentic real-world JP as the 9th
+    // step (signs / menus / transit) at the end of the study order.
     const expected = [
       ['#/learn/grammar', /Grammar/i],
       ['#/learn/vocab',   /Vocabulary|ごい/i],
@@ -262,9 +265,10 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
       ['#/listening',     /Listening|ちょうかい/i],
       ['#/test',          /Test|テスト/i],
       ['#/review',        /Review|SRS/i],
+      ['#/authentic',     /Authentic|real-world|JP/i],
     ];
     const links = page.locator('.study-order-link');
-    await expect(links).toHaveCount(8);
+    await expect(links).toHaveCount(expected.length);
     for (let i = 0; i < expected.length; i++) {
       const [href, expectMain] = expected[i];
       await expect(links.nth(i)).toHaveAttribute('href', href);
@@ -319,12 +323,21 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
     await page.evaluate(() => { location.hash = '#/home'; });
     await page.waitForTimeout(600);
     const updatedValues = await page.locator('.progress-value').allTextContents();
-    // Kanji row (index 2) should show 4 / 106
-    expect(updatedValues[2]).toContain('4 / 106');
-    // Reading row (index 3) should show 2 / 30
-    expect(updatedValues[3]).toContain('2 / 30');
-    // Listening row (index 4) should show 1 / 30
-    expect(updatedValues[4]).toContain('1 / 30');
+    // Read live corpus sizes from version.json so the assertion tracks
+    // content drift (reading 30→54 since 2026-05-09, listening 30→50,
+    // kanji 106 stable). Matches the rendering in home.js which uses
+    // the same counts object.
+    const counts = await page.evaluate(async () => {
+      const r = await fetch('data/version.json');
+      const d = await r.json();
+      return d.counts || {};
+    });
+    // Kanji row (index 2): 4 seeded / total
+    expect(updatedValues[2]).toContain(`4 / ${counts.kanji ?? 106}`);
+    // Reading row (index 3): 2 seeded / total
+    expect(updatedValues[3]).toContain(`2 / ${counts.reading ?? 54}`);
+    // Listening row (index 4): 1 seeded / total
+    expect(updatedValues[4]).toContain(`1 / ${counts.listening ?? 50}`);
   });
 });
 

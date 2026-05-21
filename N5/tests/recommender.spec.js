@@ -56,6 +56,13 @@ async function runRecommend(page, signalDict) {
 
 test.describe('EB-4 pedagogy recommender', () => {
   test.beforeEach(async ({ page }) => {
+    // IMP-044 (2026-05-11) first-run onboarding redirects hash-less
+    // visits to #/diagnostic. Bypass so the test's page.goto('/')
+    // actually lands on the SPA root with home loaded — the
+    // pedagogy-recommender.js module imports from the SPA bundle.
+    await page.addInitScript(() => {
+      try { localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1'); } catch {}
+    });
     // Navigate so the baseURL is the N5 root and dynamic imports
     // resolve correctly. The recommender module is plain JS so we
     // do not need the recommender card itself to render.

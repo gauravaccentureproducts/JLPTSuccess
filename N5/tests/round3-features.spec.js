@@ -11,6 +11,16 @@
 
 const { test, expect } = require('@playwright/test');
 
+// IMP-044 (2026-05-11) first-run onboarding redirects hash-less visits
+// to #/diagnostic. Bypass via the onboardingSeen sentinel so tests
+// hit the home / hash-explicit routes they actually assert against.
+// See N5/js/app.js initApp() onboarding gate.
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    try { localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1'); } catch {}
+  });
+});
+
 test.describe('round-3 + round-4 surface regression', () => {
 
   // Trust-band test removed 2026-05-21: the `.syllabus-trust-band` +
