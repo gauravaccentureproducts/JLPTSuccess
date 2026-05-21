@@ -1453,6 +1453,75 @@ auto_inferred grammarPatternId on orthography + Class C HI word-by-
 word translation + Class D EN/HI content-coverage parity); accuracy
 prompt §A76; AUDIT-COVERAGE Part 34.
 
+### Phase-0 governance-doc + CI-hardening regression block (added 2026-05-21)
+
+CI-enforced via JA-144 (DOCS-KANJI-004) + convention-only checks
+for the other classes (governance-doc "Document status" header,
+orphaned-workflow verification, ephemeral-field drift).
+
+1. **Governance-doc Last-verified header presence (Class A)**
+   For every governance README in data/ + docs/, verify a
+   "Document status" block exists with "Last verified against
+   corpus: YYYY-MM-DD" + "Corpus version at verification: vX.Y.Z".
+   Currently 2 docs comply (n5_kanji_whitelist.exceptions.md +
+   n5_vocab_whitelist_README.md). Future governance docs added at
+   N4/N3/N2/N1 levels should follow the same convention.
+
+2. **Broken cross-file ref scan (Class B, JA-117 / JA-82 family)**
+   For every path-shaped string in every governance doc + JSON
+   field, verify filesystem-resolves. Already covered by JA-82
+   (_meta.see_also) + JA-109 (procedure-manual + prompts script
+   refs). Periodically re-scan for the broader class — README
+   prose + paper source_file fields + grammar.json _meta blocks
+   etc. Expected: 0 hits.
+
+3. **REVIEW_DATE format ISO 8601 (DOCS-KANJI-004 / JA-144)**
+   For every "- REVIEW_DATE: <value>" line in
+   n5_kanji_whitelist.exceptions.md (outside HTML comment blocks),
+   regex-match `^\d{4}-\d{2}-\d{2}$`. Skips template values inside
+   `<!-- ... -->`. Currently 0 live entries (bootstrapping mode);
+   invariant pre-activated.
+
+4. **Orphaned-CI workflow verification (Class F)**
+   Run `gh workflow list` and compare to filesystem
+   `find . -name "*.yml" -path "*/.github/workflows/*"`. Every
+   filesystem file should be in the registered list. Mismatch =
+   orphaned workflows at the wrong path. Should be repo-level
+   convention; could be wired as commit-hook eventually.
+
+5. **CI-metadata ephemeral-fields drift (Class G)**
+   For every generated artifact (data/index.json, manifests, etc.),
+   verify "regen produces no diff" — i.e., running the build script
+   produces byte-identical output unless content actually changed.
+   If a field changes on every regen regardless of content, it's
+   an ephemeral-field candidate for removal (or for serialization
+   exclusion).
+
+6. **Cross-platform LF-normalized size_bytes (Class H, JA-125)**
+   For every data/index.json size_bytes entry, the LF-normalized
+   actual file size must match. Both build script + CI check must
+   normalize: `len(open(p, 'rb').read().replace(b'\\r\\n', b'\\n'))`.
+   Already covered by JA-125. Verify post any build_llm_surfaces
+   change.
+
+Bounded-coverage framing:
+  - "JA-144 catches *malformed REVIEW_DATE in one specific file*"
+    — other governance docs with date fields would need their own
+    invariants.
+  - "Document status header convention" — currently convention,
+    not hard CI. Could be promoted to invariant if drift recurs.
+  - "Orphaned-CI verification" — gh CLI dependency; works in
+    local dev + GitHub Actions but not portable to other CI
+    systems.
+  - "Ephemeral-fields drift" — caught by "regen produces no diff"
+    check, which is itself a workflow (regen-llm-surfaces). If
+    that workflow is itself orphaned, the check is silent (see
+    Class F bootstrapping risk).
+
+Source: DOCS-KANJI-001..004 + DOCS-VOCAB-001..004 + orphaned-
+workflow close-out (2026-05-21); accuracy prompt §A77;
+procedure-manual §F.39; AUDIT-COVERAGE Part 35.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

@@ -4451,3 +4451,238 @@ tools/fix_moji_bugs_2026_05_21.py + tools/fix_moji_006_followup_2026_05_21.py.
 
 CI invariants at this checkpoint: 145 (was 141 before MOJI-001..007 close).
 ============================================================
+
+============================================================
+A77. Governance-doc stale-content discipline + orphaned-CI class
+     (DOCS-KANJI-001..004 + DOCS-VOCAB-001..004 + orphaned-workflow
+     close-out, 2026-05-21).
+     (Audit category - added 2026-05-21, AUDIT-COVERAGE Part 35.)
+============================================================
+
+Six durable classes from the 2026-05-21 governance-doc + CI-
+hardening batch. Combines with A75 (mixed-script mojibake) + A76
+(moji-paper content discipline) into a 13-invariant content-
+governance family. CI-enforced via JA-144 + cross-doc convention
++ workflow-location verification.
+
+Class A - Governance-doc stale-state class (CI: governance review;
+         convention via Document status header)
+
+  Pattern. Hand-maintained README / governance docs claim
+  numerical state (counts, alignment ratios, deletion claims)
+  that drift from reality as the corpus moves through batch
+  cleanups. The docs were authored at a snapshot point (e.g.,
+  v1.12.8) but the corpus has since moved (v1.15.5) without
+  doc updates.
+
+  N5 instances (8 in one audit pass):
+    - DOCS-VOCAB-001: 1041→995 entry-count drift (46-entry stale)
+    - DOCS-VOCAB-004: math 1041-969=72 surplus enumerated to
+      only 17; other 55 hand-waved
+    - DOCS-KANJI-001: false "canonically 103 per JLPT.jp"
+      authority citation (third-party reconstruction misattributed
+      to JLPT.jp's official scope)
+
+  Resolution pattern: install a "Document status" header
+  convention on every governance doc:
+
+    ---
+    Document status:
+    - Last verified against corpus: YYYY-MM-DD
+    - Corpus version at verification: vX.Y.Z
+    - Maintenance: hand-updated; CI does not regenerate this README
+    ---
+
+  Stale drift becomes visible at a glance. Future readers + audit
+  reviewers can immediately see when the doc was last reconciled.
+
+  Detector: governance-doc audits scan for the header presence.
+  Could be wired as CI invariant if needed (currently convention).
+
+Class B - Broken cross-file ref class (CI: extension of JA-117 / JA-82)
+
+  Pattern. README / spec claims a directory/file was deleted but
+  other artifacts still reference it (or vice versa). Same shape
+  as JA-117's `passage_id` + `pattern_id` cross-file resolution
+  family.
+
+  N5 instance: DOCS-VOCAB-003 - README said KnowledgeBank/
+  deleted 2026-05-14 but 28 paper files still carried
+  `source_file: KnowledgeBank/<cat>_questions_n5.md`.
+
+  Resolution: either (a) restore the missing target, (b) update
+  the broken refs, or (c) downgrade to honest tombstones
+  (`"(authored in-place; was X before Y date)"`). N5 went with (c)
+  since no consumer reads `source_file`.
+
+  Detector: filesystem-resolve every path-string in every
+  governance doc + JSON artifact. Already covered by JA-82 (`_meta`
+  see_also) + JA-109 (procedure-manual / prompts script refs).
+  Extension candidate: enumerate ALL string fields that look like
+  paths (heuristic: contains `/`, ends in known extension).
+
+Class C - False-authority citation class (no CI; manual review)
+
+  Pattern. Governance doc cites an "official source" that doesn't
+  actually publish what's claimed. The cited number circulates in
+  third-party materials but the original cited authority is
+  silent/explicit-non-publication.
+
+  N5 instance: DOCS-KANJI-001 - "canonically 103 kanji per
+  JLPT.jp" but JLPT.jp's own FAQ says they don't publish kanji
+  lists post-2010 reform.
+
+  Resolution: trace every "canonically per X" / "officially per Y"
+  citation to its primary source. If primary source doesn't say
+  what's cited, rewrite with honest provenance (consensus
+  reconstruction / textbook intersection / etc.).
+
+  Detector: hard to automate (requires semantic verification).
+  Treat as a per-audit manual check; flag any "canonically per",
+  "officially per", "per JLPT.jp" citations for source-trace.
+
+Class D - Underspecified-format class (CI: regex-validation pattern)
+
+  Pattern. Governance doc says a field is "optional date for X"
+  or "format: see tooling" without specifying the canonical
+  representation. Downstream parsing fails inconsistently when
+  contributors enter free-form values ("Q3 2026", "next release",
+  "2026-08", "August 2026" all valid by the prose; none valid by
+  the parser).
+
+  N5 instance: DOCS-KANJI-004 - REVIEW_DATE field format
+  unspecified. Fixed by specifying ISO 8601 + wiring JA-144
+  regex check.
+
+  Resolution: for every optional/free-form field in a governance
+  doc, specify the canonical format (ISO 8601 for dates, RFC 3987
+  for URIs, ...). Add a CI invariant that regex-validates the
+  format. Skip values inside HTML comment blocks
+  (`<!-- ... -->`) so template/example entries don't trigger.
+
+  Pattern wiring: `^- FIELD: \d{4}-\d{2}-\d{2}$` style match
+  against non-comment lines. JA-144 is the canonical example.
+
+Class E - Indefinite-bootstrapping class (CI: convention via exit criteria)
+
+  Pattern. Governance doc references a "bootstrapping mode" or
+  "pending state" without exit criteria. The invariant or feature
+  stays inactive indefinitely because no one knows when it should
+  activate.
+
+  N5 instance: DOCS-KANJI-003 - JA-25 in bootstrapping mode
+  pending `data/n5_official_kanji_scope.json`; no documented
+  target/owner/contents → stays inactive forever.
+
+  Resolution: every "bootstrapping" / "pending" state in a
+  governance doc must have an exit criteria block:
+    1. What must be true to exit (concrete + measurable)
+    2. Target version / date
+    3. Owner (named person)
+    4. Estimated effort
+
+  Detector: governance-doc audits flag any "bootstrapping" /
+  "pending" / "deferred until" prose without an accompanying
+  exit-criteria block. Currently manual; could be a future CI
+  pattern.
+
+Class F - Orphaned-CI class (CI: workflow location verification)
+
+  Pattern. CI workflow files authored at the wrong directory
+  location are silently never executed. GitHub Actions only reads
+  `.github/workflows/` at REPO ROOT. Files at `N5/.github/workflows/`,
+  `subproject/.github/workflows/`, etc. are silently inactive.
+
+  N5 instance: 5 workflow files (browserstack / content-integrity /
+  lighthouse / playwright / regen-llm-surfaces) at
+  `N5/.github/workflows/` had been defined-but-never-executed since
+  authoring. Verified via `gh api repos/.../actions/workflows`:
+  only Dependabot Updates + pages-build-deployment were
+  registered pre-fix.
+
+  Symptoms (what indicates the orphan class):
+    - `gh workflow list` shows fewer workflows than the local
+      .github/workflows count
+    - `gh api repos/.../actions/workflows` shows only Dependabot +
+      Pages defaults
+    - Workflows-defined-locally never appear in recent run history
+    - Recently-introduced check failures (CSS drift, data
+      integrity, etc.) never surface — because the workflow that
+      would catch them isn't actually running
+
+  Resolution: `git mv subproject/.github/workflows/* .github/workflows/`
+  + add `defaults: run: working-directory: subproject` per job +
+  update branch trigger to match the repo's default branch (master
+  vs main).
+
+  Detector: every audit cycle, verify `gh workflow list` matches
+  `find . -name "*.yml" -path "*/.github/workflows/*"`. Mismatch =
+  orphaned workflows.
+
+  Once activated, expect a backlog. The N5 instance surfaced:
+    - 37 CRLF-vs-LF size_bytes drift violations (cross-platform
+      metadata class)
+    - last_modified mtime drift on every push (CI metadata
+      ephemeral-fields class)
+    - generated_at timestamp drift on every push (same class)
+    - 1 reference to a deleted KB-era script
+    - 112 design-system violations across D-1..D-6 (pre-existing
+      backlog hidden by orphan)
+
+  These are normal "previously-inactive checks activate" outcomes,
+  not regressions. Plan for backlog payment.
+
+Class G - CI-metadata ephemeral-fields class (CI: drift-guard via field removal)
+
+  Pattern. Build scripts that generate artifacts (manifests, index
+  files) record per-regen timestamps. CI regenerates → records
+  ITS timestamp → diff fails the "no drift" check even when
+  content didn't change. Result: every push spuriously fails
+  drift-guard workflows.
+
+  N5 instance: `data/index.json` recorded
+    - per-entry `last_modified` (mtime from filesystem)
+    - top-level `_meta.generated_at` (UTC now at regen)
+
+  Both changed every regen → CI failed on every push regardless
+  of content changes.
+
+  Resolution: drop ephemeral fields from generated artifacts.
+  Build-tag belongs in version.json (single source of truth);
+  not in every derived artifact. Generator identity can stay
+  (`_meta.generator`) since the script path is stable.
+
+  Detector: a CI "regen produces no diff" check is itself the
+  detector. Any field that fails this check on every push is an
+  ephemeral-field candidate for removal.
+
+Class H - Cross-platform line-ending class (CI: LF-normalize at compute time)
+
+  Pattern. Build scripts on Windows compute byte sizes via
+  `os.path.getsize()` which returns CRLF-bloated counts. CI on
+  Linux compares against LF-only file sizes. Mismatch ~1-3% per
+  file across the corpus.
+
+  N5 instance: `data/index.json.size_bytes` recorded CRLF sizes
+  on Windows-authored regens. Linux CI saw LF sizes. 37
+  violations on first real CI run.
+
+  Resolution: LF-normalize when computing canonical sizes:
+    `len(open(path, 'rb').read().replace(b'\\r\\n', b'\\n'))`
+  Apply BOTH at the build script (recording the size) AND at the
+  CI check (computing the actual size). Both ends must agree on
+  canonical (LF) representation.
+
+  Detector: any size-tracking field that diffs cross-platform
+  is a candidate. The build script + check function must both
+  normalize.
+
+Cross-reference: AUDIT-COVERAGE Part 35; procedure-manual §F.39;
+tools/check_content_integrity.py JA-144;
+tools/migrate_workflows_2026_05_21.py;
+data/n5_kanji_whitelist.exceptions.md + data/n5_vocab_whitelist_README.md
+(both with "Document status" headers).
+
+CI invariants at this checkpoint: 146 (was 145 before DOCS-KANJI-004
+close).
+============================================================
