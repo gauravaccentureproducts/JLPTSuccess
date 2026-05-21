@@ -366,9 +366,17 @@ test.describe('P0 smoke - keyboard shortcuts', () => {
     // anyway. Skip on mobile rather than test something the user won't do.
     test.skip(isMobile, 'desktop-only shortcut');
     await page.goto('/#/learn');
-    await page.waitForLoadState('domcontentloaded');
+    // waitForLoadState('networkidle') is more reliable than
+    // domcontentloaded for SPA bundles — the keydown handler is
+    // attached after the SPA boots, not at DOMContentLoaded.
+    await page.waitForLoadState('networkidle');
     await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur());
-    await page.evaluate(() => document.dispatchEvent(new KeyboardEvent('keydown', { key: '/' })));
+    // Use page.keyboard.press() rather than dispatchEvent(). Playwright's
+    // keyboard simulation routes through the browser's input pipeline
+    // (which matches a real user) instead of synthesising a JS-side
+    // KeyboardEvent that some handlers may not fully process. This
+    // closes the 2026-05-21 flake reported in CI run 26257997871.
+    await page.keyboard.press('/');
     await expect(page.locator('#search-input')).toBeFocused();
   });
 });
