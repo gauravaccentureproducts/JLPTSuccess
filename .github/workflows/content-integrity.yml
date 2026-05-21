@@ -40,15 +40,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run all content integrity invariants (24 as of Pass 14c)
+      - name: Run all content integrity invariants (145 as of 2026-05-21)
         run: python tools/check_content_integrity.py -v
         env:
           PYTHONIOENCODING: utf-8
 
-      - name: Run build-pipeline regression tests (Pass-13 corruption guard)
-        run: python tools/test_build_data.py
-        env:
-          PYTHONIOENCODING: utf-8
+      # Removed 2026-05-21: `python tools/test_build_data.py` step.
+      # That script was a KB-markdown-era build-pipeline regression
+      # test (pre-2026-05-14 KB → data/ merge). The KB no longer
+      # exists and the script was archived to not-required/tools-
+      # archive/test_build_data_kb_era.py. Modern equivalent: the
+      # integrity invariants above cover the data/ file shapes that
+      # the legacy test used to assert.
 
       - name: Run design-system compliance checks (Zen Modern)
         # Hard release-blocker for design drift. 8 rules covering:

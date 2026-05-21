@@ -235,13 +235,11 @@ def stage_data_index(data):
         if not os.path.exists(full):
             continue
         size = _lf_normalized_size(full)
-        mtime = datetime.datetime.utcfromtimestamp(os.path.getmtime(full)).strftime("%Y-%m-%dT%H:%M:%SZ")
         entries.append({
             "path": f"data/{rel}",
             "url": f"{BASE_URL}/N5/data/{rel}",
             "content_type": content_type,
             "size_bytes": size,
-            "last_modified": mtime,
             "schema_version": "1.0",
             "description": desc,
             "item_count": count,
@@ -254,7 +252,6 @@ def stage_data_index(data):
             continue
         rel = os.path.relpath(fp, DATA_DIR).replace(os.sep, "/")
         size = _lf_normalized_size(fp)
-        mtime = datetime.datetime.utcfromtimestamp(os.path.getmtime(fp)).strftime("%Y-%m-%dT%H:%M:%SZ")
         try:
             d = json.load(open(fp, encoding="utf-8"))
             qcount = d.get("questionCount", 0)
@@ -267,7 +264,6 @@ def stage_data_index(data):
             "url": f"{BASE_URL}/N5/data/{rel}",
             "content_type": "application/json",
             "size_bytes": size,
-            "last_modified": mtime,
             "schema_version": "1.0",
             "description": f"{name} — {qcount} questions",
             "item_count": qcount,

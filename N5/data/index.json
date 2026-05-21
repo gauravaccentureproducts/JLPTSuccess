@@ -2,7 +2,7 @@
   "_meta": {
     "schema_version": "1.0",
     "generator": "tools/build_llm_surfaces_2026_05_18.py",
-    "generated_at": "2026-05-21T09:53:43Z",
+    "generated_at": "2026-05-21T10:03:57Z",
     "license_code": "MIT",
     "license_content": "CC-BY-SA-4.0",
     "level": "N5",
@@ -16,7 +16,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/grammar.json",
       "content_type": "application/json",
       "size_bytes": 3095825,
-      "last_modified": "2026-05-20T06:48:34Z",
       "schema_version": "1.0",
       "description": "N5 grammar patterns (178 entries; particles, verb conjugations, adjectives, conditionals)",
       "item_count": 178
@@ -26,7 +25,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/vocab.json",
       "content_type": "application/json",
       "size_bytes": 2294897,
-      "last_modified": "2026-05-17T21:24:15Z",
       "schema_version": "1.0",
       "description": "N5 vocabulary (995 entries; pitch-accent, PoS, frequency, collocations)",
       "item_count": 995
@@ -36,7 +34,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/kanji.json",
       "content_type": "application/json",
       "size_bytes": 605267,
-      "last_modified": "2026-05-16T23:29:56Z",
       "schema_version": "1.0",
       "description": "N5 kanji (106 entries; on/kun readings, stroke order, vocab examples)",
       "item_count": 106
@@ -46,7 +43,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/reading.json",
       "content_type": "application/json",
       "size_bytes": 520980,
-      "last_modified": "2026-05-17T00:32:26Z",
       "schema_version": "1.0",
       "description": "N5 dokkai reading passages (54 entries; with vocab + grammar footnotes)",
       "item_count": 54
@@ -56,7 +52,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/listening.json",
       "content_type": "application/json",
       "size_bytes": 479063,
-      "last_modified": "2026-05-17T10:01:23Z",
       "schema_version": "1.0",
       "description": "N5 choukai listening drills (50 entries; VOICEVOX audio, line-level seek)",
       "item_count": 50
@@ -66,7 +61,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/questions.json",
       "content_type": "application/json",
       "size_bytes": 520855,
-      "last_modified": "2026-05-17T20:52:40Z",
       "schema_version": "1.0",
       "description": "N5 drill / paraphrase / kanji-writing questions (290 entries)",
       "item_count": 290
@@ -76,7 +70,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/authentic.json",
       "content_type": "application/json",
       "size_bytes": 141753,
-      "last_modified": "2026-05-16T10:13:12Z",
       "schema_version": "1.0",
       "description": "Authentic source-citation index for grammar patterns",
       "item_count": null
@@ -86,7 +79,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/drills_auto.json",
       "content_type": "application/json",
       "size_bytes": 452578,
-      "last_modified": "2026-05-16T13:37:07Z",
       "schema_version": "1.0",
       "description": "Auto-generated mixed-skill drill sets",
       "item_count": null
@@ -96,7 +88,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/audio_manifest.json",
       "content_type": "application/json",
       "size_bytes": 742203,
-      "last_modified": "2026-05-16T08:50:12Z",
       "schema_version": "1.0",
       "description": "Audio asset manifest (paths, durations, speaker assignment)",
       "item_count": null
@@ -106,7 +97,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/version.json",
       "content_type": "application/json",
       "size_bytes": 964,
-      "last_modified": "2026-05-17T01:14:54Z",
       "schema_version": "1.0",
       "description": "Build version, cacheVersion, builtAt, content-count claims",
       "item_count": null
@@ -116,7 +106,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/manifest.json",
       "content_type": "application/json",
       "size_bytes": 19480,
-      "last_modified": "2026-05-14T02:23:36Z",
       "schema_version": "1.0",
       "description": "Mock paper test manifest (28 papers, 402 questions)",
       "item_count": null
@@ -126,7 +115,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-1.json",
       "content_type": "application/json",
       "size_bytes": 8969,
-      "last_modified": "2026-05-18T03:04:32Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 1 — 15 questions",
       "item_count": 15
@@ -136,7 +124,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-2.json",
       "content_type": "application/json",
       "size_bytes": 9249,
-      "last_modified": "2026-05-18T03:04:32Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 2 — 15 questions",
       "item_count": 15
@@ -146,7 +133,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-3.json",
       "content_type": "application/json",
       "size_bytes": 9754,
-      "last_modified": "2026-05-18T03:10:30Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 3 — 15 questions",
       "item_count": 15
@@ -156,7 +142,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-4.json",
       "content_type": "application/json",
       "size_bytes": 10531,
-      "last_modified": "2026-05-18T03:04:32Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 4 — 15 questions",
       "item_count": 15
@@ -166,7 +151,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-5.json",
       "content_type": "application/json",
       "size_bytes": 13722,
-      "last_modified": "2026-05-18T03:04:32Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 5 — 15 questions",
       "item_count": 15
@@ -176,7 +160,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-6.json",
       "content_type": "application/json",
       "size_bytes": 13717,
-      "last_modified": "2026-05-18T03:04:32Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 6 — 15 questions",
       "item_count": 15
@@ -186,7 +169,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-7.json",
       "content_type": "application/json",
       "size_bytes": 8826,
-      "last_modified": "2026-05-18T22:22:52Z",
       "schema_version": "1.0",
       "description": "Bunpou Paper 7 — 10 questions",
       "item_count": 10
@@ -196,7 +178,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-1.json",
       "content_type": "application/json",
       "size_bytes": 16102,
-      "last_modified": "2026-05-18T22:21:14Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 1 — 16 questions",
       "item_count": 16
@@ -206,7 +187,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-2.json",
       "content_type": "application/json",
       "size_bytes": 17612,
-      "last_modified": "2026-05-20T21:29:19Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 2 — 16 questions",
       "item_count": 16
@@ -216,7 +196,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-3.json",
       "content_type": "application/json",
       "size_bytes": 17965,
-      "last_modified": "2026-05-20T21:29:19Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 3 — 16 questions",
       "item_count": 16
@@ -226,7 +205,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-4.json",
       "content_type": "application/json",
       "size_bytes": 13901,
-      "last_modified": "2026-05-18T23:13:13Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 4 — 12 questions",
       "item_count": 12
@@ -236,7 +214,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-5.json",
       "content_type": "application/json",
       "size_bytes": 17640,
-      "last_modified": "2026-05-18T22:21:14Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 5 — 15 questions",
       "item_count": 15
@@ -246,7 +223,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-6.json",
       "content_type": "application/json",
       "size_bytes": 16687,
-      "last_modified": "2026-05-18T22:21:14Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 6 — 15 questions",
       "item_count": 15
@@ -256,7 +232,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-7.json",
       "content_type": "application/json",
       "size_bytes": 13834,
-      "last_modified": "2026-05-18T22:21:14Z",
       "schema_version": "1.0",
       "description": "Dokkai Paper 7 — 12 questions",
       "item_count": 12
@@ -266,7 +241,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-1.json",
       "content_type": "application/json",
       "size_bytes": 10038,
-      "last_modified": "2026-05-20T21:21:51Z",
       "schema_version": "1.0",
       "description": "Goi Paper 1 — 15 questions",
       "item_count": 15
@@ -276,7 +250,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-2.json",
       "content_type": "application/json",
       "size_bytes": 10153,
-      "last_modified": "2026-05-18T22:22:52Z",
       "schema_version": "1.0",
       "description": "Goi Paper 2 — 15 questions",
       "item_count": 15
@@ -286,7 +259,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-3.json",
       "content_type": "application/json",
       "size_bytes": 10697,
-      "last_modified": "2026-05-20T21:21:51Z",
       "schema_version": "1.0",
       "description": "Goi Paper 3 — 15 questions",
       "item_count": 15
@@ -296,7 +268,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-4.json",
       "content_type": "application/json",
       "size_bytes": 13230,
-      "last_modified": "2026-05-20T21:21:51Z",
       "schema_version": "1.0",
       "description": "Goi Paper 4 — 15 questions",
       "item_count": 15
@@ -306,7 +277,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-5.json",
       "content_type": "application/json",
       "size_bytes": 13178,
-      "last_modified": "2026-05-20T21:21:51Z",
       "schema_version": "1.0",
       "description": "Goi Paper 5 — 15 questions",
       "item_count": 15
@@ -316,7 +286,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-6.json",
       "content_type": "application/json",
       "size_bytes": 15461,
-      "last_modified": "2026-05-19T22:28:29Z",
       "schema_version": "1.0",
       "description": "Goi Paper 6 — 15 questions",
       "item_count": 15
@@ -326,7 +295,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-7.json",
       "content_type": "application/json",
       "size_bytes": 11206,
-      "last_modified": "2026-05-20T23:01:57Z",
       "schema_version": "1.0",
       "description": "Goi Paper 7 — 10 questions",
       "item_count": 10
@@ -336,7 +304,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-1.json",
       "content_type": "application/json",
       "size_bytes": 9853,
-      "last_modified": "2026-05-20T23:01:57Z",
       "schema_version": "1.0",
       "description": "Moji Paper 1 — 15 questions",
       "item_count": 15
@@ -346,7 +313,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-2.json",
       "content_type": "application/json",
       "size_bytes": 8961,
-      "last_modified": "2026-05-20T22:55:51Z",
       "schema_version": "1.0",
       "description": "Moji Paper 2 — 15 questions",
       "item_count": 15
@@ -356,7 +322,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-3.json",
       "content_type": "application/json",
       "size_bytes": 9599,
-      "last_modified": "2026-05-20T22:55:51Z",
       "schema_version": "1.0",
       "description": "Moji Paper 3 — 15 questions",
       "item_count": 15
@@ -366,7 +331,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-4.json",
       "content_type": "application/json",
       "size_bytes": 10438,
-      "last_modified": "2026-05-20T23:01:57Z",
       "schema_version": "1.0",
       "description": "Moji Paper 4 — 15 questions",
       "item_count": 15
@@ -376,7 +340,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-5.json",
       "content_type": "application/json",
       "size_bytes": 9664,
-      "last_modified": "2026-05-20T22:55:51Z",
       "schema_version": "1.0",
       "description": "Moji Paper 5 — 15 questions",
       "item_count": 15
@@ -386,7 +349,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-6.json",
       "content_type": "application/json",
       "size_bytes": 9799,
-      "last_modified": "2026-05-20T23:01:57Z",
       "schema_version": "1.0",
       "description": "Moji Paper 6 — 15 questions",
       "item_count": 15
@@ -396,7 +358,6 @@
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-7.json",
       "content_type": "application/json",
       "size_bytes": 7706,
-      "last_modified": "2026-05-20T22:55:51Z",
       "schema_version": "1.0",
       "description": "Moji Paper 7 — 10 questions",
       "item_count": 10
