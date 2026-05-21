@@ -33,10 +33,10 @@
     "scenario_id": "O-X-021",
     "device": "D-360",
     "route": "",
-    "status": "FAIL",
+    "status": "PASS",
     "title": "All nav links >= 44x44 px",
     "expected": "min(w,h) >= 44 for every a[data-route]",
-    "actual": "9 undersized: learn/grammar=40x44, learn/vocab=40x44, kanji=40x44, reading=40x44, listening=40x44",
+    "actual": "all 14 links pass",
     "severity": "Major"
   },
   {

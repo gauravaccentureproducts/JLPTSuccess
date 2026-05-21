@@ -264,6 +264,27 @@ body {
   padding-top: 16px;
 }
 
+/* 2026-05-21 CLS fix (Lighthouse #/learn/grammar mobile was 0.126):
+ * Reserve viewport-height for #app so the skeleton-loader-to-content
+ * transition doesn't cause the footer to shift downward as content
+ * fills in. The skeleton occupies a fraction of viewport height; once
+ * content (grammar list of ~178 items, vocab list of 995, etc.) fills
+ * in, layout would shift if #app weren't reserved.
+ *
+ * min-height: calc(100vh - 200px) approximates viewport minus header
+ * + footer + page margins. Content larger than that flows naturally
+ * (no max-height cap); content smaller is held at this min so the
+ * footer stays at the natural viewport-bottom position.
+ *
+ * Tried first: body flex column + flex:1 on main. That made things
+ * worse (0.48 CLS) because main grew between its initial 0 px and
+ * its post-content height — both counted as layout shifts in the
+ * main element itself. min-height: calc on #app holds the box stable
+ * across the skeleton→content swap. */
+#app {
+  min-height: calc(100vh - 200px);
+}
+
 /* Japanese text never inherits latin font; it uses the JP stack and weight 400. */
 :lang(ja), .lang-ja, [lang="ja"] {
   font-family: var(--font-jp);
@@ -2678,20 +2699,32 @@ textarea:focus-visible,
   .app-footer { padding-inline: 16px; }
   .primary-nav {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-    display: flex; justify-content: space-around;
-    /* Reset desktop gap (var(--space-6) = 30px). With 5 mobile bottom-nav
-     * items each at min-width: 44px, four 30px gaps would total 348px and
-     * overflow a 320px viewport (Galaxy S9+) - pushing the rightmost item
-     * off-screen and triggering page-wide horizontal scroll. space-around
-     * already distributes whitespace, so no explicit gap needed. */
+    display: flex; justify-content: flex-start;
+    /* MOB-020 fix (2026-05-21): switched from `space-around` + `flex: 1 1 0`
+     * (which forced 9 items to share 360px equally → 40x44 each, 91% of
+     * HIG 44 minimum on width) to horizontal-scroll + natural-width
+     * children + flex-shrink: 0 (so each item gets its natural ~70-80px
+     * width, fully HIG-compliant on both dimensions).
+     *
+     * On viewports too narrow to fit all 9 items, the user horizontal-
+     * scrolls within the nav strip. Scroll-snap aligns each item to the
+     * left edge of the visible band for predictable scrolling. */
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     gap: 0;
     background: var(--c-surface); border-top: 1px solid var(--c-border);
     padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    /* Hide the horizontal scrollbar visually (still functional on touch). */
+    scrollbar-width: none;
   }
+  .primary-nav::-webkit-scrollbar { display: none; }
   .primary-nav a {
-    flex: 1 1 0; min-height: 44px; min-width: 44px;
+    flex: 0 0 auto;
+    min-height: 44px; min-width: 44px;
     display: inline-flex; align-items: center; justify-content: center;
-    text-align: center; font-size: 13px; padding: 4px 6px;
+    text-align: center; font-size: 13px; padding: 4px 12px;
+    scroll-snap-align: start;
   }
   /* Mobile secondary-nav: keep search + settings on a single row.
    * Was: search forced to 100% width, wrapping settings to row 2 →
@@ -2717,9 +2750,15 @@ textarea:focus-visible,
 @media (max-width: 380px) {
   .primary-nav { padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0px)); }
   .primary-nav a {
+    /* Per MOB-020 fix (2026-05-21): keep natural width + min-width: 44px
+     * (HIG floor) inherited from the parent @media (max-width: 480px)
+     * rule. The previous rule here zeroed min-width to squeeze 5+ items
+     * into a 320-380px viewport; with horizontal-scroll overflow now
+     * supported on .primary-nav, that squeeze isn't needed.
+     * font-size: 11px tightens text so labels still fit naturally; the
+     * scroll container handles overflow. */
     font-size: 11px;
-    padding: 4px 2px;
-    min-width: 0;
+    padding: 4px 8px;
     letter-spacing: -0.01em;
   }
 }

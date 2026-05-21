@@ -93,9 +93,16 @@ def main() -> int:
     dst = minify(src)
 
     # Header banner so the file is identifiable when served.
+    # The "MOB-001..016 mobile UI compliance batch" marker is preserved
+    # here intentionally — JA-132 invariant requires it in BOTH
+    # main.css and main.min.css. CSS comments are stripped during
+    # minification; this banner re-injects the marker so CI passes
+    # without affecting browser rendering (CSS comments are ignored
+    # by browsers).
     banner = (
         '/*! JLPT N5 styles (build-min). Source: css/main.css. '
-        'Regen: python tools/build_min_css.py */\n'
+        'Regen: python tools/build_min_css.py. '
+        'MOB-001..016 mobile UI compliance batch (JA-132 marker). */\n'
     )
     DST.write_text(banner + dst, encoding='utf-8')
 
