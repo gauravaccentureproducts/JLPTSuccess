@@ -94,14 +94,21 @@ test.describe('round-3 + round-4 surface regression', () => {
   test('JSON-LD EducationalApplication schema present in head', async ({ page }) => {
     await page.goto('/');
     // IMP-142 (2026-05-09) added 2 more JSON-LD blocks (Course schema
-    // for the N5 syllabus + BreadcrumbList). The EducationalApplication
-    // block we care about is the first one; filter explicitly so the
-    // assertion still works if block order ever changes.
-    const ld = await page.locator('script[type="application/ld+json"]')
-      .filter({ hasText: '"EducationalApplication"' })
-      .textContent();
-    expect(ld).toBeTruthy();
-    const data = JSON.parse(ld);
+    // for the N5 syllabus + BreadcrumbList). Find the
+    // EducationalApplication block via page.evaluate() since Playwright's
+    // locator.filter({ hasText }) only matches *visible* text and <script>
+    // tags are display:none — the JSON content isn't considered visible.
+    const data = await page.evaluate(() => {
+      const scripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
+      for (const s of scripts) {
+        try {
+          const j = JSON.parse(s.textContent);
+          if (j['@type'] === 'EducationalApplication') return j;
+        } catch {}
+      }
+      return null;
+    });
+    expect(data, 'EducationalApplication JSON-LD block must exist').not.toBeNull();
     expect(data['@type']).toBe('EducationalApplication');
     expect(data.educationalLevel).toBe('JLPT N5');
     expect(data.isAccessibleForFree).toBe(true);

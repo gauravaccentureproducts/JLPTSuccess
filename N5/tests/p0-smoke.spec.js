@@ -74,8 +74,11 @@ test.describe('P0 smoke - core navigation', () => {
     await expect(page.locator('.study-order-link').last()).toHaveAttribute('href', '#/authentic');
     // Progress overview: 6 rows.
     await expect(page.locator('.progress-row')).toHaveCount(6);
-    // Fullscreen toggle present in header (top-right cluster).
-    await expect(page.locator('#fullscreen-toggle')).toBeVisible();
+    // Fullscreen toggle exists in header (top-right cluster). CSS
+    // hides it on mobile (display:none at <901px viewport), so check
+    // for DOM presence rather than visibility — the button is wired
+    // for desktop where it's reachable, mobile relies on the OS.
+    await expect(page.locator('#fullscreen-toggle')).toHaveCount(1);
     expect(errors, `console errors: ${errors.join('\n')}`).toEqual([]);
   });
 
