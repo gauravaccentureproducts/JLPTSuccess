@@ -177,7 +177,9 @@
         "source": "kanjium-8a0cdaa1-by-reading",
         "alternates": [
           1
-        ]
+        ],
+        "native_review_pending": "2026_05_22_NTR_008",
+        "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
       },
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 219,
@@ -555,7 +557,9 @@
         "mora": 4,
         "drop": 2,
         "confidence": "high",
-        "source": "kanjium-8a0cdaa1-by-reading"
+        "source": "kanjium-8a0cdaa1-by-reading",
+        "native_review_pending": "2026_05_22_NTR_008",
+        "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations": [
@@ -10473,7 +10477,9 @@
         "alternates": [
           0,
           2
-        ]
+        ],
+        "native_review_pending": "2026_05_22_NTR_008",
+        "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7352,
@@ -40820,7 +40826,7 @@
       "form": "えいが",
       "reading": "えいが",
       "gloss": "movie",
-      "section": "26. House and Furniture",
+      "section": "37. Common nouns - miscellaneous",
       "pos": "noun",
       "examples": [
         {
@@ -40913,7 +40919,8 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "section_provenance": "native_reviewed_2026_05_22"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.おんがく",
@@ -72814,7 +72821,7 @@
       "reading": "おはし",
       "gloss": "chopsticks (polite)",
       "gloss_hi": "चॉपस्टिक्स",
-      "section": "20. Tableware and Cooking",
+      "section": "19. Tableware and Cooking",
       "pos": "noun",
       "examples": [
         {
@@ -72878,7 +72885,8 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "section_provenance": "native_reviewed_2026_05_22"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.ビル",
