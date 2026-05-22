@@ -2,6 +2,65 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.7 - 2026-05-22 (SVA-1: privacy moat made visible — Settings verify panel + homepage hero + TASKS hygiene)
+
+### Added
+
+- **Settings → Privacy section** (SVA-1.2) with 3-step DevTools
+  verification instructions and a **"Run live verification"** button.
+  The widget reads `performance.getEntriesByType('resource')` in the
+  browser and reports same-origin vs cross-origin request counts in
+  real time. On a healthy load it displays "✓ Verified. N resources
+  loaded, all from this site. 0 third-party requests." Any future
+  third-party leak surfaces the offending domain(s) and turns the
+  result red. Turns the privacy claim from "trust me" into "click
+  and verify."
+
+- **Homepage privacy hero line** (SVA-1.3): "Your study data never
+  leaves your device. No login, no email, no credit card." Rendered
+  via `.home-privacy-hero` above the syllabus cards so first-time
+  visitors see the data-locality claim above the fold. Distinct from
+  the footer trust-strip (which lists six differentiators); this is
+  the elevator-pitch sentence for the data-locality moat.
+
+- **Locale strings in EN + HI**: `settings.privacy`, `settings.privacy_help`,
+  `settings.privacy_step1..3`, `settings.privacy_check_btn`,
+  `settings.privacy_check_ok`, `settings.privacy_check_fail`, and
+  `home.privacy_hero`. JA-108 enforces parity across all locales.
+
+- **CSS additions in main.css + main.min.css**: `.home-privacy-hero`
+  (accent-coloured callout above syllabus) and `.settings-verify-steps`
+  (ordered list inside the new Privacy section). The Verify-button
+  inherits the existing `.settings-actions button` styles which
+  carry JA-132 touch-target compliance (`min-height: 44px`).
+
+### Documentation hygiene (SVA-1 status sweep)
+
+- **TASKS.md** flipped to `[x]` for SVA-1.1 (footer trust-strip
+  already shipped earlier — `<p class="footer-trust-strip">` at
+  index.html:353), SVA-1.2 (this commit), SVA-1.3 (this commit),
+  SVA-1.4 (Export Progress already shipped earlier — `set-export`
+  handler at js/settings.js:302). 4 of 5 SVA-1 items now closed;
+  SVA-1.5 (PRIVACY.md homepage card) remains open.
+
+### Versioning
+
+- `data/version.json`: v1.15.6 → v1.15.7. Corpus counts unchanged.
+- `cacheVersion`: jlptsuccess-n5-v1.15.6 → -v1.15.7.
+- `sw.js` CACHE_VERSION: v1.15.5 → v1.15.7 (JA-68 enforced).
+- `index.html` asset cache-bust: `?v=1.15.5` → `?v=1.15.7`.
+
+### State
+
+CI **147 / 147 invariants green**.
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **155 / 155 Fixed / 0 Open**.
+
+Skipped doc updates per Rule 4 mechanical-change exception (no
+new audit class / no new CI invariant / no methodology learning;
+procedure manual / accuracy prompt / N5Improvement Phase-0 not
+applicable to this feature commit).
+
 ## v1.15.6 - 2026-05-22 (DOCS-VOCAB-005 — paper-file source_file canonical sentinel)
 
 ### Fixed

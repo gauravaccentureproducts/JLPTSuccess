@@ -4176,6 +4176,35 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   font-weight: 500;
 }
 
+/* SVA-1.3 (2026-05-22): home privacy hero. Single line above the
+ * syllabus cards. Stronger than the muted footer trust-strip because
+ * it sits above the fold and surfaces the data-locality claim
+ * directly. Distinct from footer-trust-strip's 6-differentiator list
+ * — this is the one-sentence elevator pitch for the privacy moat. */
+.home-privacy-hero {
+  margin: var(--space-3) 0 var(--space-4);
+  padding: 10px 16px;
+  font-size: var(--text-sm);
+  color: var(--color-accent, #14452a);
+  background: color-mix(in srgb, var(--color-accent, #14452a) 6%, transparent);
+  border-left: 3px solid var(--color-accent, #14452a);
+  border-radius: 4px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* SVA-1.2 (2026-05-22): privacy-verify steps in Settings → Privacy.
+ * Ordered list inside a settings-section, slightly tighter than
+ * browser default and with the 3 DevTools steps visually grouped. */
+.settings-verify-steps {
+  margin: var(--space-2) 0 var(--space-3);
+  padding-left: 1.5em;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+.settings-verify-steps li { margin-bottom: 4px; }
+
 /* Promotional callouts on Test / Privacy / Feedback / install-banner
  * surfaces. Same design language as the home band but framed as a
  * standalone aside. */

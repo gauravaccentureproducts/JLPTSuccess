@@ -84,6 +84,39 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.15.7 - 2026-05-22 (SVA-1: privacy moat made visible — Settings verify panel + homepage hero + TASKS hygiene)</h2>
+<h3>Added</h3>
+<ul>
+<li><strong>Settings → Privacy section</strong> (SVA-1.2) with 3-step DevTools</li>
+</ul>
+<p>verification instructions and a <strong>&quot;Run live verification&quot;</strong> button. The widget reads <code>performance.getEntriesByType(&#x27;resource&#x27;)</code> in the browser and reports same-origin vs cross-origin request counts in real time. On a healthy load it displays &quot;✓ Verified. N resources loaded, all from this site. 0 third-party requests.&quot; Any future third-party leak surfaces the offending domain(s) and turns the result red. Turns the privacy claim from &quot;trust me&quot; into &quot;click and verify.&quot;</p>
+<ul>
+<li><strong>Homepage privacy hero line</strong> (SVA-1.3): &quot;Your study data never</li>
+</ul>
+<p>leaves your device. No login, no email, no credit card.&quot; Rendered via <code>.home-privacy-hero</code> above the syllabus cards so first-time visitors see the data-locality claim above the fold. Distinct from the footer trust-strip (which lists six differentiators); this is the elevator-pitch sentence for the data-locality moat.</p>
+<ul>
+<li><strong>Locale strings in EN + HI</strong>: <code>settings.privacy</code>, <code>settings.privacy_help</code>,</li>
+</ul>
+<p><code>settings.privacy_step1..3</code>, <code>settings.privacy_check_btn</code>, <code>settings.privacy_check_ok</code>, <code>settings.privacy_check_fail</code>, and <code>home.privacy_hero</code>. JA-108 enforces parity across all locales.</p>
+<ul>
+<li><strong>CSS additions in main.css + main.min.css</strong>: <code>.home-privacy-hero</code></li>
+</ul>
+<p>(accent-coloured callout above syllabus) and <code>.settings-verify-steps</code> (ordered list inside the new Privacy section). The Verify-button inherits the existing <code>.settings-actions button</code> styles which carry JA-132 touch-target compliance (<code>min-height: 44px</code>).</p>
+<h3>Documentation hygiene (SVA-1 status sweep)</h3>
+<ul>
+<li><strong>TASKS.md</strong> flipped to <code>[x]</code> for SVA-1.1 (footer trust-strip</li>
+</ul>
+<p>already shipped earlier — <code>&lt;p class=&quot;footer-trust-strip&quot;&gt;</code> at index.html:353), SVA-1.2 (this commit), SVA-1.3 (this commit), SVA-1.4 (Export Progress already shipped earlier — <code>set-export</code> handler at js/settings.js:302). 4 of 5 SVA-1 items now closed; SVA-1.5 (PRIVACY.md homepage card) remains open.</p>
+<h3>Versioning</h3>
+<ul>
+<li><code>data/version.json</code>: v1.15.6 → v1.15.7. Corpus counts unchanged.</li>
+<li><code>cacheVersion</code>: jlptsuccess-n5-v1.15.6 → -v1.15.7.</li>
+<li><code>sw.js</code> CACHE_VERSION: v1.15.5 → v1.15.7 (JA-68 enforced).</li>
+<li><code>index.html</code> asset cache-bust: <code>?v=1.15.5</code> → <code>?v=1.15.7</code>.</li>
+</ul>
+<h3>State</h3>
+<p>CI <strong>147 / 147 invariants green</strong>. <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>155 / 155 Fixed / 0 Open</strong>.</p>
+<p>Skipped doc updates per Rule 4 mechanical-change exception (no new audit class / no new CI invariant / no methodology learning; procedure manual / accuracy prompt / N5Improvement Phase-0 not applicable to this feature commit).</p>
 <h2>v1.15.6 - 2026-05-22 (DOCS-VOCAB-005 — paper-file source_file canonical sentinel)</h2>
 <h3>Fixed</h3>
 <ul>

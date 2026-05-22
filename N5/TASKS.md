@@ -366,10 +366,10 @@ Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invar
 
 > **Why it's a moat:** Bunpro / WaniKani / Renshuu CANNOT match this without rewriting their architecture. They depend on accounts for recurring revenue. JLPTSuccess does not.
 
-- [ ] **SVA-1.1 Privacy badge on every page footer.** Currently the privacy story is buried in PRIVACY.md. Surface a visible one-line badge.
-- [ ] **SVA-1.2 One-click "Verify privacy" panel in Settings** that opens DevTools / Network tab instructions. Bunpro CANNOT do this without exposing they phone home.
-- [ ] **SVA-1.3 Homepage marketing line:** "Your study data never leaves your device. No login, no email, no credit card. Forever."
-- [ ] **SVA-1.4 "Export your data" button** that produces a JSON of all localStorage. Proves the data IS yours.
+- [x] **SVA-1.1 Privacy badge on every page footer.** ✓ Shipped earlier — `index.html:353` `<p class="footer-trust-strip">` carrying "No login · No tracking · Works offline · Open source · 100% on-device · Free, no ads, no paywall." Locale-mirrored via `footer.trust_strip` in en.json + hi.json.
+- [x] **SVA-1.2 One-click "Verify privacy" panel in Settings** that opens DevTools / Network tab instructions. ✓ Shipped 2026-05-22 (v1.15.7). Settings → Privacy section: 3-step DevTools instructions + "Run live verification" button that scans `performance.getEntriesByType('resource')` and reports same-origin vs cross-origin request counts in real time. Code: `js/settings.js` `set-privacy-check` handler. Strings: `settings.privacy*` in en.json + hi.json. Bunpro CANNOT do this without exposing they phone home.
+- [x] **SVA-1.3 Homepage privacy hero line:** "Your study data never leaves your device. No login, no email, no credit card." ✓ Shipped 2026-05-22 (v1.15.7). Rendered above syllabus-overview via `.home-privacy-hero` in `js/home.js`. Locale-mirrored via `home.privacy_hero`.
+- [x] **SVA-1.4 "Export your data" button** that produces a JSON of all localStorage. ✓ Shipped earlier — `js/settings.js:302` `set-export` click handler calls `storage.exportProgress()` and downloads `jlpt-n5-progress-YYYY-MM-DD.json`. Settings → Data section. PRIVACY.md documents the flow.
 - [ ] **SVA-1.5 PRIVACY.md homepage card** linking to the public privacy promise + audit log.
 
 ### SVA-2: Exam-fidelity mock paper mode (JLPT-specific) (priority *)

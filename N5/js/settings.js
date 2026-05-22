@@ -138,6 +138,20 @@ export async function renderSettings(container) {
     </section>
 
     <section class="settings-section">
+      <h3>${t('settings.privacy')}</h3>
+      <p class="muted small">${t('settings.privacy_help')}</p>
+      <ol class="settings-verify-steps">
+        <li>${t('settings.privacy_step1')}</li>
+        <li>${t('settings.privacy_step2')}</li>
+        <li>${t('settings.privacy_step3')}</li>
+      </ol>
+      <div class="settings-actions">
+        <button id="set-privacy-check">${t('settings.privacy_check_btn')}</button>
+      </div>
+      <p id="set-privacy-result" class="muted small" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="settings-section">
       <h3>${t('settings.data')}</h3>
       <p class="muted small">${t('settings.data_help')}</p>
       <div class="settings-actions">
@@ -297,6 +311,43 @@ export async function renderSettings(container) {
   document.getElementById('set-export-kanji').addEventListener('click', async () => {
     const n = await exportKanjiTSV();
     showCorpusMsg(`Exported ${n} kanji entries to TSV. Check downloads.`);
+  });
+
+  // SVA-1.2 (2026-05-22): live privacy verification widget.
+  // Reads performance.getEntriesByType('resource') and counts requests
+  // by origin. Same-origin only = privacy claim holds. Any cross-origin
+  // hit surfaces the offending domain. Runs entirely in-browser; no
+  // network call to perform the check (the check IS "what did the
+  // browser already load"). Proves the claim in real time rather than
+  // asking the user to trust the trust-strip.
+  document.getElementById('set-privacy-check').addEventListener('click', () => {
+    const out = document.getElementById('set-privacy-result');
+    try {
+      const origin = location.origin;
+      const entries = performance.getEntriesByType('resource') || [];
+      const sameOrigin = entries.filter(e => {
+        try { return new URL(e.name).origin === origin; } catch { return false; }
+      });
+      const crossOrigin = entries.filter(e => {
+        try { return new URL(e.name).origin !== origin; } catch { return false; }
+      });
+      if (crossOrigin.length === 0) {
+        out.textContent = t('settings.privacy_check_ok', { same: sameOrigin.length });
+        out.style.color = 'var(--c-success)';
+      } else {
+        const offendingOrigins = Array.from(new Set(crossOrigin.map(e => {
+          try { return new URL(e.name).origin; } catch { return e.name; }
+        }))).slice(0, 3).join(', ');
+        out.textContent = t('settings.privacy_check_fail', {
+          cross: crossOrigin.length,
+          offending: offendingOrigins,
+        });
+        out.style.color = 'var(--c-error)';
+      }
+    } catch (err) {
+      out.textContent = `Verification error: ${err.message}`;
+      out.style.color = 'var(--c-error)';
+    }
   });
 
   document.getElementById('set-export').addEventListener('click', () => {

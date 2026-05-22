@@ -383,6 +383,15 @@ export async function renderHome(container) {
 
       ${recCard}
 
+      <!-- SVA-1.3 (2026-05-22): single-line privacy hero. The footer
+           trust-strip carries the differentiators list; this line
+           surfaces the strongest one (data-locality) above the fold
+           so first-time visitors see it without scrolling. Settings
+           → Privacy provides the live verification widget. -->
+      <p class="home-privacy-hero" data-i18n-key="home.privacy_hero">
+        ${esc(t('home.privacy_hero'))}
+      </p>
+
       <section class="syllabus-overview" aria-label="Syllabus overview">
         <header class="section-label">
           <span class="section-label-text">${esc(t('home.syllabus_section_label'))}</span>
