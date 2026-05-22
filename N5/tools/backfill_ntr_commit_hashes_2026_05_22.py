@@ -26,7 +26,9 @@ COMMITS = {
 wb = load_workbook(XLSX)
 ws = wb["User Reported Bugs"]
 for row, h in COMMITS.items():
-    # Final commit ce1c195 added the Rule 4/5 docs; the actual data fix is the per-row commit above
-    ws.cell(row=row, column=10, value=f"{h} (Rule 4/5 propagation: ce1c195 + submodule 1cef80b)")
-    print(f"  R{row}: commit = {h}")
+    # Canonical JA-146 format: HASH (+ submodule HASH)
+    # The per-bug data-fix commit is the primary; the submodule commit
+    # (1cef80b) added the F.44 procedure-manual entry for the batch.
+    ws.cell(row=row, column=10, value=f"{h} (+ submodule 1cef80b)")
+    print(f"  R{row}: commit = {h} (+ submodule 1cef80b)")
 wb.save(XLSX)
