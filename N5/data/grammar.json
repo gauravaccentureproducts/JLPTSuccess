@@ -6781,7 +6781,6 @@
         "respectful": "こちらは なんで いらっしゃいますか。"
       },
       "politeness_ladder_provenance": "llm_curated",
-      "_alias_of": "n5-045",
       "cultural_callout": {
         "note": "何 reading varies by next-word context: 何月 = なんがつ (counter follows); 何ですか = なんですか (です follows); 何を食べる = なにをたべる (object particle follows). Mistake: reading 何 as なに in counter contexts. Rule of thumb: counter/desu → なん; particle → なに.",
         "contexts": [
@@ -17771,7 +17770,9 @@
         "です",
         "なん"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "deprecated": true,
+      "deprecated_reason": "Duplicate of n5-017 (canonical 何 pattern). Marked deprecated 2026-05-22 per NTR-002. UI grammar TOC filters this entry out; external references (questions.json, audio_manifest, etc.) still resolve to this ID for backward compatibility."
     },
     {
       "id": "n5-046",

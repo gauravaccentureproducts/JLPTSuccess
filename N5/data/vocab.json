@@ -143,31 +143,33 @@
       "id": "n5.vocab.1-people-pronouns-and-se.あなた",
       "form": "あなた",
       "reading": "あなた",
-      "gloss": "you",
+      "gloss": "you (use with caution — Japanese typically uses the person's name + さん or drops the subject entirely)",
       "section": "1. People - Pronouns and Self",
       "pos": "pronoun",
       "examples": [
         {
-          "ja": "あなたは どなたですか。",
-          "translation_en": "Who are you?"
+          "ja": "田中さんは どこから 来ましたか。",
+          "translation_en": "Who are you?",
+          "en": "Tanaka-san, where are you from? (Note: Japanese uses name+さん rather than あなた when addressing someone you know.)",
+          "provenance": "native_reviewed_2026_05_22",
+          "usage_demo": "name_based_address_alternative"
         },
         {
           "ja": "あなたは がくせいですか。",
           "translation_en": "Are you a student?",
-          "source": "n5-001"
+          "source": "n5-001",
+          "usage_context": "anata_appropriate_register"
         },
         {
           "ja": "あなたは 何さいですか。",
           "translation_en": "How old are you?",
-          "provenance": "llm_curated"
+          "provenance": "llm_curated",
+          "usage_context": "anata_appropriate_register"
         }
       ],
       "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "आप",
+      "gloss_provenance": "native_reviewed_2026_05_22",
+      "gloss_hi": "आप (सावधानी से प्रयोग करें — जापानी में आमतौर पर व्यक्ति का नाम + さん का प्रयोग किया जाता है, या विषय छोड़ दिया जाता है)",
       "pitch_accent": {
         "mora": 3,
         "drop": 2,
@@ -231,13 +233,17 @@
       "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "usage_note": "あなた is distant or formal, or (from a wife to a husband) intimate. It is NOT the normal way to address someone you know — use their name + さん, or drop the subject. Appropriate contexts: form-filling, wedding vows, lyrics, addressing strangers respectfully.",
+      "usage_note_hi": "あなた का प्रयोग दूरी या औपचारिकता दर्शाता है, या (पत्नी से पति को) आत्मीयता। यह किसी परिचित को संबोधित करने का सामान्य तरीका नहीं है — उनके नाम + さん का प्रयोग करें, या विषय छोड़ दें। उपयुक्त संदर्भ: फ़ॉर्म भरना, विवाह की शपथ, गीत, अजनबियों को सम्मानपूर्वक संबोधित करना।",
+      "gloss_hi_provenance": "native_reviewed_2026_05_22",
+      "usage_note_provenance": "native_reviewed_2026_05_22"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かれ",
       "form": "かれ",
       "reading": "かれ",
-      "gloss": "he, him (boyfriend - more advanced sense)",
+      "gloss": "boyfriend (primary); he, him (third-person pronoun, more formal/literary)",
       "section": "1. People - Pronouns and Self",
       "pos": "pronoun",
       "examples": [
@@ -256,11 +262,8 @@
         }
       ],
       "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "वह (पुरुष)",
+      "gloss_provenance": "native_reviewed_2026_05_22",
+      "gloss_hi": "बॉयफ्रेंड (प्राथमिक अर्थ); वह (पुरुष, औपचारिक/साहित्यिक सर्वनाम के रूप में)",
       "pitch_accent": {
         "mora": 2,
         "drop": 1,
@@ -294,13 +297,14 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_hi_provenance": "native_reviewed_2026_05_22"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かのじょ",
       "form": "かのじょ",
       "reading": "かのじょ",
-      "gloss": "she, her (girlfriend - more advanced sense)",
+      "gloss": "girlfriend (primary); she, her (third-person pronoun, more formal/literary)",
       "section": "1. People - Pronouns and Self",
       "pos": "pronoun",
       "examples": [
@@ -319,11 +323,8 @@
         }
       ],
       "review_status": "ai_quality_reviewed",
-      "gloss_provenance": {
-        "en": "machine_translated",
-        "hi": "native_reviewed"
-      },
-      "gloss_hi": "वह (महिला)",
+      "gloss_provenance": "native_reviewed_2026_05_22",
+      "gloss_hi": "गर्लफ्रेंड (प्राथमिक अर्थ); वह (महिला, औपचारिक/साहित्यिक सर्वनाम के रूप में)",
       "pitch_accent": {
         "mora": 3,
         "drop": 1,
@@ -355,7 +356,8 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "gloss_hi_provenance": "native_reviewed_2026_05_22"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かた",
