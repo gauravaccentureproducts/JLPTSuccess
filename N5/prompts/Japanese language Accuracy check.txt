@@ -5479,3 +5479,102 @@ F.44.17 + F.44.18; AUDIT-COVERAGE Part 42.
 
 CI invariants at this checkpoint: 154 (was 152; +JA-151 +JA-152).
 ============================================================
+
+
+A85. RE-PASTE TRIAGE DISCIPLINE TIGHTENING — verification-script
+     correctness + four new follow-up sub-classes (added 2026-05-23,
+     AUDIT-COVERAGE Part 43, procedure-manual F.44.19 + F.44.20).
+============================================================
+
+Amendment to A84 (re-paste triage methodology). Surfaced by the
+2026-05-23 re-re-review of v1.16.2 against the regenerated review
+packet: the reviewer caught a false-positive STALE classification
+from Part 42 because the verification script used the wrong
+top-level key (`g.get('grammar')` instead of `g.get('patterns')`)
+and silently iterated empty. "No output" was wrongly read as
+"STALE confirmed" instead of "verification failed."
+
+The discipline tightening (mandatory):
+  - STALE classification requires the verification script to
+    PRINT non-empty per-claim output showing the field state
+    observed.
+  - "Found N=0 matches" is FAILED VERIFICATION, not STALE-
+    CONFIRMED. Re-write the script.
+  - Every STALE entry in audit-coverage must cite the per-claim
+    verification line from the script's output.
+  - A first-pass sanity check (load file, find known-present ID)
+    is mandatory before classifying any claim STALE.
+
+Four new follow-up sub-classes from the 2026-05-23 re-pass:
+
+Class B sub-class — Deprecation lattice complete on entry,
+  incomplete on canonical-pattern catalog (NTR-FU-004 / JA-153).
+  When `deprecated: true` is set on a grammar.json entry, the
+  entry must also be moved out of `core_n5` / `late_n5` /
+  `deferred_to_n4` lists in n5_core_pattern_ids.json into a new
+  `deprecated` bucket. Plus: the entry's own `contrasts.note`
+  fields that self-identify as duplicate become redundant with
+  the deprecation field — update to reference the new field
+  rather than echo the same info. JA-148 extended to accept the
+  new bucket. JA-34 extended to exclude deprecated entries from
+  the actual-vs-listed tier comparison.
+
+Class D sub-class — Pronoun-usage-note added; cohort-of-examples
+  sweep incomplete (NTR-FU-005).
+  When authoring a usage_note for a pronoun (per F.44.4),
+  sweep ALL examples in the entry — not just example [0].
+  Rewrite each to either parallel the alternative OR
+  demonstrate the narrow legitimate use case the usage_note
+  allows. One example showing legitimate use is pedagogically
+  valuable.
+
+Class K sub-class — Reflexive vs singular pronoun counter
+  distinction (NTR-FU-006).
+  NTR-013 closed for collective pronouns (private + みなさん) by
+  adding applies_to='noun_of_reference'. Singular pronouns
+  defensibly kept plain counter. But reflexives (じぶん) are
+  semantically distinct — counting "ones-self" isn't meaningful.
+  Pattern: distinguish reflexive from singular before per-class
+  counter discipline.
+
+Class P — ID-immutability vs section-retag divergence
+  (NTR-FU-007 / JA-154).
+  Vocab entries' IDs embed the original section slug. When the
+  `section` field is later retagged, the slug-encoded section
+  diverges from the field-encoded section. IDs kept immutable
+  to preserve external references. Fix: add
+  `legacy_section_in_id: true` flag to every entry where the
+  divergence is intentional; CI invariant catches any future
+  drift without the flag. Horizontal sweep beats eyeball-review:
+  reviewer flagged 2 entries (おはし + えいが), sweep tool
+  surfaced 1 additional (にこにこ).
+
+CI-enforced this batch: JA-153 (deprecated-grammar-bucket
+discipline); JA-154 (vocab ID-slug section staleness flag).
+
+Operational rule: when applying F.44.17 triage to a re-paste,
+the verification scripts MUST print non-empty per-claim output.
+Silent iterations are failed verification, not confirmed STALE.
+
+Bounded-coverage phrasing:
+  - "JA-153 prevents re-introduction of *deprecated grammar
+    entries leaking back into the canonical N5 pattern catalog*"
+    — does not assert the deprecation flag itself is correctly
+    set on every duplicate (that's content discipline at the
+    entry level).
+  - "JA-154 prevents re-introduction of *ID-slug section
+    staleness without explicit flag*" — does not assert the
+    flagged entries' sections are correctly classified (that's
+    content discipline at the section-field level).
+  - "Horizontal sweep found 1 additional entry beyond the 2
+    the reviewer flagged" — bounded to the ID-slug-section
+    divergence pattern; other classes of slug staleness (e.g.,
+    headword-slug embedding stale spelling) not audited here.
+
+Source: NTR-FU-004/005/006/007 close-out 2026-05-23; tooling
+tools/file_ntr_fu_v2_batch_2026_05_23.py +
+tools/fix_ntr_fu_v2_batch_2026_05_23.py; procedure-manual
+F.44.19 + F.44.20; AUDIT-COVERAGE Part 43.
+
+CI invariants at this checkpoint: 156 (was 154; +JA-153 +JA-154).
+============================================================

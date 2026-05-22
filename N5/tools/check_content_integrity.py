@@ -1420,6 +1420,18 @@ CHECKS: list[tuple[str, str, callable]] = [
     # the field-name overclaim broadened to all 983 entries beyond
     # the 12 pronouns NTR-011 had renamed.
     ("JA-152", "vocab.json entries use `particle_examples` field; `collocations` is forbidden (NTR-FU-003 guard, 2026-05-23)", lambda: _check_ja_152_collocations_renamed()),
+    # JA-153 (2026-05-23): NTR-FU-004 deprecated-grammar-not-in-core_n5 gate.
+    # Every grammar.json entry with `deprecated: true` must be listed in
+    # n5_core_pattern_ids.json `deprecated` bucket (NOT `core_n5` or
+    # `late_n5` or `deferred_to_n4`). Locks the cleanup discipline
+    # established in 2026-05-23.
+    ("JA-153", "grammar.json deprecated entries appear in n5_core_pattern_ids `deprecated` bucket, NOT in core_n5 / late_n5 / deferred_to_n4 (NTR-FU-004 guard, 2026-05-23)", lambda: _check_ja_153_deprecated_grammar_bucket()),
+    # JA-154 (2026-05-23): NTR-FU-007 vocab ID-slug section-staleness gate.
+    # When a vocab entry's ID slug encodes a section number that disagrees
+    # with the entry's authoritative `section` field, the entry MUST carry
+    # `legacy_section_in_id: true` flag documenting the intentional
+    # ID-immutability + section-field-authoritative policy.
+    ("JA-154", "vocab.json ID-slug section disagreement with `section` field must carry `legacy_section_in_id: true` flag (NTR-FU-007 guard, 2026-05-23)", lambda: _check_ja_154_vocab_id_slug_section_consistency()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -2786,12 +2798,19 @@ def _check_ja_34_core_late_split() -> list[str]:
     except Exception as e:
         return [f"JA-34: parse error: {e}"]
 
+    # NTR-FU-004 (2026-05-23): exclude deprecated entries from tier
+    # classification — they live in the `deprecated` bucket, not in
+    # core_n5 / late_n5 / deferred_to_n4. (The bucket itself is the
+    # classification.)
     core_actual = sorted(p["id"] for p in grammar.get("patterns", [])
-                         if (p.get("tier", "core_n5") or "core_n5") == "core_n5")
+                         if (p.get("tier", "core_n5") or "core_n5") == "core_n5"
+                         and not p.get("deprecated"))
     late_actual = sorted(p["id"] for p in grammar.get("patterns", [])
-                         if p.get("tier") == "late_n5")
+                         if p.get("tier") == "late_n5"
+                         and not p.get("deprecated"))
     deferred_actual = sorted(p["id"] for p in grammar.get("patterns", [])
-                             if p.get("tier") == "deferred_to_n4")
+                             if p.get("tier") == "deferred_to_n4"
+                             and not p.get("deprecated"))
     core_listed = sorted(whitelist.get("core_n5", []))
     # late_n5 may be flat strings (legacy) or objects (post 2026-05-14)
     late_raw = whitelist.get("late_n5", [])
@@ -8222,6 +8241,11 @@ def _check_ja_148_grammar_scope_classification() -> list[str]:
     core_n5 = set(ids_of(p.get("core_n5") or []))
     late_n5 = set(ids_of(p.get("late_n5") or []))
     deferred = set(ids_of(p.get("deferred_to_n4") or []))
+    # NTR-FU-004 (2026-05-23): deprecated bucket holds entries with
+    # `deprecated: true` on the grammar.json side. These are valid
+    # classifications and must be accepted by JA-148 alongside the
+    # three N5/N4-scope buckets.
+    deprecated_bucket = set(ids_of(p.get("deprecated") or []))
 
     failures: list[str] = []
     for entry in gl:
@@ -8229,11 +8253,16 @@ def _check_ja_148_grammar_scope_classification() -> list[str]:
             continue
         eid = entry.get("id")
         scope = entry.get("scope")
-        if eid not in core_n5 and eid not in late_n5 and eid not in deferred:
+        if eid not in core_n5 and eid not in late_n5 and eid not in deferred and eid not in deprecated_bucket:
             failures.append(
                 f"JA-148 grammar.json id {eid!r} not classified in n5_core_pattern_ids.json "
-                f"(must appear in core_n5 OR late_n5 OR deferred_to_n4)"
+                f"(must appear in core_n5 OR late_n5 OR deferred_to_n4 OR deprecated)"
             )
+            continue
+        if eid in deprecated_bucket:
+            # Deprecated entries are out-of-bucket for the scope check —
+            # their scope semantics are governed by the deprecation lattice
+            # (deprecated=True + _alias_of), not the n5/n4 classification.
             continue
         if eid in deferred and scope != "n4":
             failures.append(
@@ -8290,6 +8319,86 @@ def _check_ja_149_dokkai_kanji_exception_no_placeholder() -> list[str]:
                 f"JA-149 dokkai_kanji_exception {k!r}: reason contains placeholder "
                 f"'rationale not individually recorded' — replace with a specific per-kanji rationale"
             )
+    return failures
+
+
+def _check_ja_153_deprecated_grammar_bucket() -> list[str]:
+    """NTR-FU-004 (2026-05-23) deprecated-grammar cleanup lock.
+
+    Every grammar.json entry with `deprecated: true` must appear in
+    n5_core_pattern_ids.json `deprecated` bucket (NOT in core_n5 /
+    late_n5 / deferred_to_n4). Prevents deprecated entries from
+    leaking back into the canonical N5 pattern catalog through a
+    future edit.
+    """
+    import json as _json
+    g_path = ROOT / "data" / "grammar.json"
+    c_path = ROOT / "data" / "n5_core_pattern_ids.json"
+    if not all(p.exists() for p in (g_path, c_path)): return []
+    g = _json.loads(g_path.read_text(encoding="utf-8"))
+    patterns = g.get("patterns") or []
+    deprecated_ids = {p.get("id") for p in patterns if isinstance(p, dict) and p.get("deprecated") is True and p.get("id")}
+    c = _json.loads(c_path.read_text(encoding="utf-8"))
+    core = set(c.get("core_n5") or [])
+    late_ids = {e.get("id") for e in (c.get("late_n5") or []) if isinstance(e, dict)}
+    deferred_ids = {e.get("id") for e in (c.get("deferred_to_n4") or []) if isinstance(e, dict)}
+    dep_bucket_ids = {e.get("id") for e in (c.get("deprecated") or []) if isinstance(e, dict)}
+    failures: list[str] = []
+    for did in sorted(deprecated_ids):
+        in_core = did in core
+        in_late = did in late_ids
+        in_deferred = did in deferred_ids
+        in_dep = did in dep_bucket_ids
+        if in_core:
+            failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is still in n5_core_pattern_ids.json `core_n5` list — move to `deprecated` bucket")
+        if in_late:
+            failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is still in `late_n5` — move to `deprecated` bucket")
+        if in_deferred:
+            failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is still in `deferred_to_n4` — move to `deprecated` bucket")
+        if not in_dep:
+            failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is not in n5_core_pattern_ids.json `deprecated` bucket")
+    return failures
+
+
+def _check_ja_154_vocab_id_slug_section_consistency() -> list[str]:
+    """NTR-FU-007 (2026-05-23) vocab ID-slug section staleness gate.
+
+    Vocab IDs encode the original section slug. When the entry's
+    `section` field is later changed (NTR-005/006 section retags),
+    the ID slug becomes stale. IDs are kept immutable for
+    backward-compat (audio_manifest / questions.json / user
+    localStorage references). The honest fix: require entries with
+    slug-section ≠ field-section divergence to carry
+    `legacy_section_in_id: true`.
+
+    Pattern matches `n5.vocab.<NN>-<slug>.<form>` and extracts the
+    leading number; compares to leading number in `section` field.
+    """
+    import json as _json, re as _re
+    vocab_path = ROOT / "data" / "vocab.json"
+    if not vocab_path.exists(): return []
+    vocab = _json.loads(vocab_path.read_text(encoding="utf-8"))
+    vl = vocab if isinstance(vocab, list) else (vocab.get("vocab") or vocab.get("entries") or [])
+    ID_SECTION_RE = _re.compile(r"^n5\.vocab\.(\d+)-")
+    SECTION_LEADING_NUM_RE = _re.compile(r"^(\d+)\.")
+    failures: list[str] = []
+    for entry in vl:
+        if not isinstance(entry, dict): continue
+        eid = entry.get("id") or ""
+        section = entry.get("section") or ""
+        m_id = ID_SECTION_RE.match(eid)
+        m_sec = SECTION_LEADING_NUM_RE.match(section)
+        if not (m_id and m_sec): continue
+        slug_num = int(m_id.group(1))
+        field_num = int(m_sec.group(1))
+        if slug_num == field_num: continue
+        if entry.get("legacy_section_in_id") is True: continue
+        failures.append(
+            f"JA-154 vocab.json {eid!r}: ID slug encodes section {slug_num} "
+            f"but `section` field is {field_num!r} — add `legacy_section_in_id: true` "
+            f"flag if this divergence is intentional (per NTR-FU-007 ID-immutability "
+            f"+ section-field-authoritative policy)"
+        )
     return failures
 
 

@@ -1959,6 +1959,75 @@ Source: NTR-FU-001/002/003 close-out 2026-05-23 (single commit);
 accuracy prompt §A84; procedure-manual §F.44.17 + §F.44.18;
 AUDIT-COVERAGE Part 42.
 
+### Phase-0 re-paste triage discipline tightening + 4 follow-up sub-classes block (added 2026-05-23)
+
+Surfaced by the 2026-05-23 re-re-review of v1.16.2 against the
+regenerated review packet. The reviewer caught a false-positive
+STALE classification from Part 42 (the verification script used
+the wrong top-level key for grammar.json and silently iterated
+empty). 4 new follow-up bugs filed + closed (NTR-FU-004..007 /
+BUG-177..180).
+
+Maintainer-side pre-release checks:
+
+1. **Verification-script correctness sanity check (F.44.19).**
+   Before classifying any re-paste claim as STALE, the
+   verification script's first dry-run on a known-present field
+   (e.g., load grammar.json, find n5-001) is MANDATORY. "No
+   output" ≠ STALE; "non-empty per-claim output showing the
+   field state" IS STALE.
+
+2. **Deprecated-grammar-bucket discipline (NTR-FU-004 / JA-153).**
+   Every grammar.json entry with `deprecated: true` must:
+     - appear in `n5_core_pattern_ids.json` `deprecated` bucket
+     - NOT appear in core_n5 / late_n5 / deferred_to_n4
+   Plus: entry's `contrasts.note` self-identifying as duplicate
+   should reference the deprecation field instead.
+   Currently 1 entry in deprecated bucket: n5-045.
+
+3. **Pronoun-usage-note example-cohort sweep (NTR-FU-005).**
+   Whenever a pronoun gains a `usage_note` documenting register
+   restrictions, ALL examples in the entry must be swept — not
+   just example [0]. Each example either parallels the
+   alternative (name+さん) OR demonstrates the narrow legitimate
+   use case the usage_note allows (form-filling, spousal
+   address, etc.). Currently complete on あなた (3 examples
+   coherent with usage_note).
+
+4. **Reflexive pronoun counter distinction (NTR-FU-006).**
+   Collective pronouns (私たち / みなさん) have
+   `applies_to='noun_of_reference'` per NTR-013. Singular
+   pronouns (私, あなた, etc.) keep plain counter (defensible).
+   Reflexive pronouns (じぶん) are semantically distinct —
+   counting "ones-self" isn't meaningful; apply the same
+   annotation as collectives. Currently complete on じぶん.
+
+5. **Vocab ID-slug section staleness flag (NTR-FU-007 / JA-154).**
+   Vocab IDs embed the original section slug. When `section`
+   field is retagged, slug-section diverges from field-section.
+   Entries with this divergence MUST carry
+   `legacy_section_in_id: true` flag + note + provenance.
+   Currently 3 entries flagged: おはし (id-sec=20, field-sec=19),
+   えいが (id-sec=26, field-sec=37), にこにこ (id-sec=31,
+   field-sec=33). Horizontal sweep tool finds any future drift.
+
+Bounded-coverage framing:
+  - "JA-153 catches *deprecated grammar entries leaking back
+    into the canonical pattern catalog*" — does not catch
+    entries that should be deprecated but lack the flag (that's
+    content discipline at the entry level).
+  - "JA-154 catches *ID-slug section staleness without flag*"
+    — does not assert the flagged entries' sections are
+    correctly classified (that's content discipline at the
+    section-field level).
+  - "Horizontal sweep beats eyeball-review (3 entries found vs
+    reviewer's 2)" — bounded to this specific divergence
+    pattern; other slug-staleness classes not audited here.
+
+Source: NTR-FU-004/005/006/007 close-out 2026-05-23 (single
+commit); accuracy prompt §A85; procedure-manual §F.44.19 +
+§F.44.20; AUDIT-COVERAGE Part 43.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

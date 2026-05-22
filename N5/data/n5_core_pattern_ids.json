@@ -2,7 +2,7 @@
   "_meta": {
     "doc": "ISSUE-033 (audit round-4) + ISSUE-005 + 2026-05-14 merge: explicit list of pattern IDs that are strictly within JLPT N5 scope (core_n5 — flat strings), borderline N5/N4 (late_n5 — array of objects with rationale + sources_n5 + sources_n4 per pattern), and deliberately-deferred-to-N4 (deferred_to_n4 — array of objects, SAME SHAPE as late_n5). The deferred patterns ship in grammar.json with tier='deferred_to_n4' — they remain accessible to learners but are flagged as N4-equivalent in the tier classification. Schema-merge 2026-05-14: standalone data/n5_deferred_to_n4.json was merged into this file to eliminate three-file drift risk; the index now carries the rationale + source attribution that previously lived in the standalone file.",
     "schema_version": 1,
-    "lastUpdated": "2026-05-14",
+    "lastUpdated": "2026-05-23",
     "id_space_policy": "The grammar.json ID space is sparse — IDs n5-012, n5-020, n5-022, n5-032, n5-047, n5-128, n5-138, n5-139, n5-140, n5-141 are NOT in grammar.json (and therefore NOT in either core_n5 or late_n5 list). They are deliberately retired/unused slots from earlier authoring iterations. The lists are 100% in sync with grammar.json: total = 178 = 153 core + 25 late, no orphans either way. Verified by JA-34 invariant in tools/check_content_integrity.py.",
     "see_also": [
       "data/grammar.json",
@@ -50,7 +50,6 @@
     "n5-042",
     "n5-043",
     "n5-044",
-    "n5-045",
     "n5-046",
     "n5-048",
     "n5-049",
@@ -388,7 +387,7 @@
     }
   ],
   "totalCount": 178,
-  "coreCount": 153,
+  "coreCount": 152,
   "lateCount": 20,
   "deferredCount": 5,
   "deferred_to_n4": [
@@ -451,5 +450,14 @@
         "Shin Kanzen Master N4"
       ]
     }
-  ]
+  ],
+  "deprecated": [
+    {
+      "id": "n5-045",
+      "canonical_id": "n5-017",
+      "pattern": "何（なに／なん）",
+      "rationale": "Duplicate of n5-017 (canonical 何 pattern). Marked deprecated 2026-05-22 per NTR-002; moved out of core_n5 list 2026-05-23 per NTR-FU-004 follow-up. External references in questions.json / audio_manifest / pattern_markers / native-teacher-review docs still resolve to this ID for backward compatibility; UI renders an alias-link from the deprecated entry to the canonical."
+    }
+  ],
+  "deprecatedCount": 1
 }

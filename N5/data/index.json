@@ -7,14 +7,14 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.16.1"
+    "version": "v1.16.2"
   },
   "files": [
     {
       "path": "data/grammar.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/grammar.json",
       "content_type": "application/json",
-      "size_bytes": 3098028,
+      "size_bytes": 3098315,
       "schema_version": "1.0",
       "description": "N5 grammar patterns (178 entries; particles, verb conjugations, adjectives, conditionals)",
       "item_count": 178
@@ -23,7 +23,7 @@
       "path": "data/vocab.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/vocab.json",
       "content_type": "application/json",
-      "size_bytes": 2316246,
+      "size_bytes": 2318420,
       "schema_version": "1.0",
       "description": "N5 vocabulary (995 entries; pitch-accent, PoS, frequency, collocations)",
       "item_count": 995
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9241313,
+    "total_bytes": 9243774,
     "counts": {
       "grammar": 178,
       "vocab": 995,

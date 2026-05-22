@@ -17659,7 +17659,8 @@
       "contrasts": [
         {
           "with_pattern_id": "n5-017",
-          "note": "This is a duplicate entry - see the canonical pattern."
+          "note": "[Deprecated entry.] This pattern is the deprecated alias of n5-017 (canonical 何 pattern). See `deprecated: true` + `_alias_of: 'n5-017'` + `deprecated_reason` on this entry. UI may filter this from grammar TOC listings; external references resolve here for backward compatibility.",
+          "note_provenance": "native_reviewed_2026_05_23"
         }
       ],
       "notes": "",

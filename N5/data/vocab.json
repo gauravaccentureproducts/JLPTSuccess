@@ -159,16 +159,19 @@
           "usage_demo": "name_based_address_alternative"
         },
         {
-          "ja": "あなたは がくせいですか。",
+          "ja": "山田さんは がくせいですか。",
           "translation_en": "Are you a student?",
           "source": "n5-001",
-          "usage_context": "anata_appropriate_register"
+          "usage_context": "anata_appropriate_register",
+          "en": "Yamada-san, are you a student? (Note: Japanese uses name+さん rather than あなた when addressing someone known. The bare 'are YOU a student?' phrasing with あなた sounds confrontational.)",
+          "provenance": "native_reviewed_2026_05_23"
         },
         {
-          "ja": "あなたは 何さいですか。",
+          "ja": "あなたの 名前を ここに 書いて ください。",
           "translation_en": "How old are you?",
-          "provenance": "llm_curated",
-          "usage_context": "anata_appropriate_register"
+          "provenance": "native_reviewed_2026_05_23",
+          "usage_context": "anata_appropriate_register",
+          "en": "Please write your name here. (Form-filling / generic-instruction context — one of the few places where あなた is the natural choice because the addressee is unspecified and the register is impersonal.)"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -823,10 +826,12 @@
       "register_provenance": "auto_derived",
       "counter": {
         "kanji": "人",
-        "reading": "にん"
+        "reading": "にん",
+        "applies_to": "noun_of_reference",
+        "note": "Counter 人/にん is shown here for cohort consistency but じぶん is reflexive (oneself) and doesn't count itself. UI may choose to suppress counter display for reflexive pronouns."
       },
       "counter_register": null,
-      "counter_provenance": "native_reviewed",
+      "counter_provenance": "native_reviewed_2026_05_23",
       "counter_audit_wave": "imp-162-people-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona",
       "particle_examples": [
@@ -40950,7 +40955,10 @@
         "えいがを おもう",
         "えいがを しる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "legacy_section_in_id": true,
+      "legacy_section_in_id_note": "Entry ID embeds the original section slug; section field is authoritative for current classification. ID kept immutable to preserve external references (audio_manifest, questions.json, user localStorage, etc.). Section retag landed in NTR-005/006 (2026-05-22); slug-section-vs-field-section divergence flagged in NTR-FU-007 (2026-05-23).",
+      "legacy_section_in_id_provenance": "native_reviewed_2026_05_23"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.おんがく",
@@ -72504,7 +72512,10 @@
         "いつも にこにこ",
         "にこにこ おはなしする"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "legacy_section_in_id": true,
+      "legacy_section_in_id_note": "Entry ID embeds section 31 (i-Adjectives) from earlier classification; section field is now 33 (Adverbs) — onomatopoeia/expressive モ moved into Adverbs section. ID kept immutable to preserve external references. Flagged 2026-05-23 per NTR-FU-007 horizontal sweep.",
+      "legacy_section_in_id_provenance": "native_reviewed_2026_05_23"
     },
     {
       "id": "n5.vocab.33-adverbs.どきどき",
@@ -72917,7 +72928,10 @@
         "はしを おく",
         "いっぱい おはし"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "legacy_section_in_id": true,
+      "legacy_section_in_id_note": "Entry ID embeds the original section slug; section field is authoritative for current classification. ID kept immutable to preserve external references (audio_manifest, questions.json, user localStorage, etc.). Section retag landed in NTR-005/006 (2026-05-22); slug-section-vs-field-section divergence flagged in NTR-FU-007 (2026-05-23).",
+      "legacy_section_in_id_provenance": "native_reviewed_2026_05_23"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.ビル",

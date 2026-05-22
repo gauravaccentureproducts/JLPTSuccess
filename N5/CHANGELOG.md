@@ -2,6 +2,161 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.3 - 2026-05-23 (Re-paste discipline tightening + 4 follow-up sub-classes: n5-045 deprecation lattice cleanup + あなた example sweep + じぶん reflexive counter + ID-slug section staleness flag)
+
+### Background
+
+After v1.16.2 shipped, the reviewer ran a re-pass against the
+regenerated review packet and surfaced 4 additional items.
+**One was a self-correction:** Part 42's STALE classification of
+re-paste item #2 (n5-017/n5-045 duplicate) was false-positive
+due to a verification-script bug — the script used the wrong
+top-level key (`g.get('grammar')` instead of `g.get('patterns')`)
+and silently iterated empty; the empty output was misread as
+"STALE confirmed."
+
+Re-verification with the correct lookup showed eda9441 DID land
+the deprecation flags (`deprecated: true` + `_alias_of` +
+`deprecated_reason`), but the cleanup discipline didn't propagate
+to the canonical pattern catalog: n5-045 was still in
+`n5_core_pattern_ids.json` `core_n5` list, and its
+`contrasts[0].note` still self-identified as a duplicate. So
+Part 42's "9 of 13 STALE" had one false-positive STALE
+(correctly: 8 STALE + 1 PARTIAL).
+
+Procedure-manual F.44.19 documents the discipline tightening:
+**STALE classification now requires verification scripts to PRINT
+non-empty per-claim output.** Silent iterations are failed
+verification, not confirmed STALE.
+
+### Fixed
+
+- **BUG-177 (NTR-FU-004) — n5-045 deprecation lattice cleanup
+  incomplete.** eda9441 set `deprecated: true` + `_alias_of` +
+  `deprecated_reason` on the grammar.json side. Two follow-ups
+  remained: (a) n5-045 still appeared in `n5_core_pattern_ids.json`
+  `core_n5` list; (b) `n5-045.contrasts[0].note` still read
+  "This is a duplicate entry - see the canonical pattern."
+  Resolution:
+    - Created new `deprecated` bucket in n5_core_pattern_ids.json
+      (mirrors the `late_n5` / `deferred_to_n4` object-shape)
+    - Moved n5-045 from `core_n5` (153 → 152 entries) to the new
+      `deprecated` bucket (deprecatedCount: 1)
+    - Updated n5-045's contrasts[0].note to reference the
+      deprecation field structure instead of self-identifying
+    - New CI invariant **JA-153** locks the discipline: every
+      grammar entry with `deprecated: true` must appear in the
+      `deprecated` bucket, NOT in core_n5 / late_n5 /
+      deferred_to_n4
+    - JA-148 extended to accept the new `deprecated` bucket as a
+      valid classification target
+    - JA-34 extended to exclude `deprecated: true` entries from
+      `core_actual` / `late_actual` / `deferred_actual` tier
+      comparisons
+
+- **BUG-178 (NTR-FU-005) — あなた examples [1] and [2] contradicted
+  the new usage_note.** NTR-004 added a usage_note documenting
+  formal/intimate/marked-only restriction + rewrote example [0]
+  to a name+さん alternative. Examples [1] and [2] kept using
+  あなた the way the usage_note warns against:
+    - [1] was `あなたは がくせいですか。` — rewritten to
+      `山田さんは がくせいですか。` (parallel to [0])
+    - [2] was `あなたは 何さいですか。` — rewritten to `あなたの
+      名前を ここに 書いて ください。` (form-filling context,
+      one of the few places あなた is the natural choice — preserves
+      a positive example of legitimate use)
+  Name 山田 chosen over 木村 so the kanji stay within whitelist
+  (JA-150 PASS). Provenance: native_reviewed_2026_05_23.
+
+- **BUG-179 (NTR-FU-006) — じぶん (reflexive) carried plain
+  counter.** NTR-013 added `applies_to: 'noun_of_reference'` to
+  collective pronouns (私たち / みなさん). Singular pronouns
+  (私, あなた, etc.) kept plain counter — defensibly, since
+  counting people with 人 IS semantically valid (1人, 2人, 3人).
+  But じぶん is REFLEXIVE — "ones-self" isn't a meaningful count.
+  Added applies_to='noun_of_reference' + reflexive-counter-
+  suppression note. Provenance: native_reviewed_2026_05_23.
+
+- **BUG-180 (NTR-FU-007) — Vocab ID-slug section staleness.**
+  NTR-005 + NTR-006 retagged section fields for おはし (20 → 19)
+  and えいが (26 → 37). Entry IDs embedding the original section
+  slug (`n5.vocab.20-tableware-and-cooking.はし-chopsticks`;
+  `n5.vocab.26-house-and-furniture.えいが`) were kept immutable
+  to preserve external references (audio_manifest, questions.json,
+  user localStorage, etc.). The slug-encoded section then
+  diverges from the field-encoded section. Resolution:
+    - Added `legacy_section_in_id: true` + note + provenance to
+      these entries (+ にこにこ which the horizontal sweep tool
+      caught beyond the reviewer's 2)
+    - Documented policy: **ID-immutability + section-field-
+      authoritative**. The `section` field is the source of
+      truth; the slug is preserved for backward compatibility
+    - New CI invariant **JA-154** catches any future
+      ID-slug-vs-section divergence without the explicit flag
+
+### Engineering
+
+- **Procedure-manual F.44.19** — Re-paste triage verification-
+  script correctness amendment. STALE classification MUST run
+  actual data-inspection that prints non-empty per-claim output.
+  Silent iterations are failed verification, not confirmed
+  STALE. First-pass sanity check on known-present field is
+  mandatory before any STALE classification.
+
+- **Procedure-manual F.44.20** — Four new follow-up defect
+  sub-classes documented for Nx-builders:
+    - Class B sub-class — deprecation lattice complete on entry,
+      incomplete on canonical-pattern catalog
+    - Class D sub-class — pronoun-usage-note added; example-
+      cohort sweep incomplete
+    - Class K sub-class — reflexive vs singular pronoun counter
+      distinction
+    - Class P — ID-immutability vs section-retag divergence
+      (new top-level class)
+
+- **Accuracy prompt A85** — captures the discipline tightening +
+  4 sub-classes for the audit-prompt pattern catalog.
+
+- **N5Improvement Phase-0 re-paste triage tightening block** —
+  5 maintainer-side pre-release checks: verification-script
+  sanity; deprecated-grammar-bucket discipline; pronoun
+  example-cohort sweep; reflexive pronoun counter; vocab
+  ID-slug section staleness flag.
+
+- **AUDIT-COVERAGE Part 43** — full close-out with discipline-
+  failure debrief + bugs filed/closed + CI invariants + bounded-
+  coverage phrasing bounds. Includes the corrected count for
+  Part 42: 8 STALE + 1 PARTIAL (not 9 STALE).
+
+### CI / tracker / version
+
+- CI invariants: **156 / 156** (was 154; +JA-153 +JA-154).
+- Bug tracker: **180 / 180 Fixed / 0 Open** (was 176;
+  +BUG-177/178/179/180 filed + closed in same commit).
+- Version: v1.16.2 → **v1.16.3** (data deltas: 1 grammar
+  deprecation move + 2 あなた example rewrites + 1 じぶん counter
+  annotation + 3 legacy_section_in_id flags; cache-bust for
+  end-users to pull the new content).
+
+### Bounded-coverage phrasing
+
+- "Part 42's '9 of 13 STALE' had 1 false-positive STALE
+  (verification-script bug); corrected as 8 STALE + 1 PARTIAL
+  with the cleanup discipline gap addressed in this release."
+  — Honest about the prior session's discipline failure.
+- "JA-153 prevents re-introduction of *deprecated grammar
+  entries leaking back into the canonical N5 pattern catalog*"
+  — does not assert the `deprecated` flag is correctly set on
+  every duplicate.
+- "JA-154 prevents re-introduction of *ID-slug section
+  staleness without explicit flag*" — does not assert the
+  flagged entries' section retags are correctly classified.
+- "Horizontal sweep found 1 additional entry (にこにこ) beyond
+  the reviewer's 2" — bounded to ID-slug-section divergence;
+  other slug-staleness classes not audited here.
+
+---
+
 ## v1.16.2 - 2026-05-23 (Stale-snapshot re-paste triage + 3 broader-scope NTR follow-ups: whitelist asymmetry + listening pacing 3-band + collocations corpus-wide rename)
 
 ### Background

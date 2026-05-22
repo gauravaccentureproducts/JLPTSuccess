@@ -6307,3 +6307,151 @@ renames; UI + locale + min.js cascade; cache-bust for end-users).
   regression block.
 - Spec: §25.4 JA-151 + JA-152 rows + count update 152 → 154.
 - Sync-map: 2026-05-23 (Part 42) row.
+
+## ADDENDUM 2026-05-23 (Part 43) — Re-paste triage discipline tightening + 4 follow-up sub-classes (NTR-FU-004..007)
+
+Reviewer's 2026-05-23 re-re-pass against the regenerated review
+packet (v1.16.2) caught a false-positive STALE classification
+from Part 42 + 3 additional broader-scope findings + 1 new
+ID-slug staleness class.
+
+### Verification-discipline failure surfaced (Part 43 self-correction)
+
+Part 42 classified re-paste item #2 (n5-017/n5-045 duplicate) as
+STALE based on a verification script that:
+  - Used `g.get('grammar', g.get('entries', []))` to load patterns
+  - Actual top-level key is `patterns` — lookup returned empty
+  - Loop ran on empty iteration; no output produced
+  - Empty output was read as "STALE confirmed"
+
+Re-verification (with correct lookup) showed:
+  - n5-045.deprecated = True ✓ (eda9441 landed correctly)
+  - n5-045._alias_of = "n5-017" ✓
+  - n5-045.deprecated_reason documented ✓
+  - **n5-045 STILL in n5_core_pattern_ids.json `core_n5` list ✗**
+  - **n5-045.contrasts[0].note still self-identifies as duplicate ✗**
+
+So Part 42's STALE classification was a false-positive STALE
+(should have been PARTIAL — data fix landed, cleanup discipline
+incomplete). Cost: 1 follow-up bug filed a session later.
+
+**Procedure-manual F.44.19 documents the discipline tightening:**
+STALE classification requires verification scripts to PRINT
+non-empty per-claim output. Silent iterations are failed
+verification, not confirmed STALE.
+
+### Bugs filed + closed (Part 43)
+
+| Bug ID | Severity / Priority | Class | Fix |
+|---|---|---|---|
+| BUG-177 NTR-FU-004 | Medium / P3 | F.44.20 Class B sub-class (deprecation lattice cleanup incomplete) | Move n5-045 from core_n5 → new `deprecated` bucket; update contrasts.note; +JA-153 |
+| BUG-178 NTR-FU-005 | Medium / P3 | F.44.20 Class D sub-class (pronoun example-cohort sweep) | Rewrite あなた examples [1] (name+さん) + [2] (form-filling context) |
+| BUG-179 NTR-FU-006 | Low / P4 | F.44.20 Class K sub-class (reflexive vs singular counter) | じぶん counter gets applies_to='noun_of_reference' |
+| BUG-180 NTR-FU-007 | Low / P4 | F.44.20 Class P (ID-immutability vs section-retag divergence) | Flag おはし + えいが + にこにこ with legacy_section_in_id=true; +JA-154 |
+
+### CI invariants added (Part 43)
+
+  - **JA-153** — deprecated-grammar-bucket discipline. Every
+    grammar.json entry with `deprecated: true` must appear in
+    n5_core_pattern_ids.json `deprecated` bucket, NOT in
+    core_n5 / late_n5 / deferred_to_n4. JA-148 + JA-34 extended
+    to accept the new bucket.
+  - **JA-154** — vocab ID-slug section staleness flag. Entries
+    where slug-encoded section ≠ field-encoded section must
+    carry `legacy_section_in_id: true` flag. Horizontal sweep
+    surfaced 1 additional entry (にこにこ) beyond reviewer's 2.
+
+### Existing-invariant extensions (Part 43)
+
+  - **JA-148** extended to accept `deprecated` bucket
+    (NTR-FU-004 cleanup made the new bucket a valid
+    classification target).
+  - **JA-34** extended to exclude `deprecated: true` entries
+    from `core_actual` / `late_actual` / `deferred_actual`
+    tier-comparison (deprecation lattice is the alternative
+    classification).
+
+### Discipline acknowledgment (Part 43)
+
+Honest debrief of Part 42's discipline failure documented
+in-line in F.44.19. Cost: 1 bug filed a session later. Audit-
+doc framing: Part 42's "9 of 13 STALE" had 1 false-positive
+STALE (NTR-FU-004's parent). Corrected count: 8 STALE + 1
+PARTIAL (NTR-FU-004 parent = "data fix landed but cleanup
+discipline didn't propagate to n5_core_pattern_ids").
+
+### Commits landed (Part 43)
+
+  - (This commit) — File NTR-FU-004/005/006/007 + fixes +
+    JA-153/154 + JA-148/JA-34 extensions + Rule 4/5
+    propagation + v1.16.2 → v1.16.3.
+
+### Files touched (Part 43)
+
+  - data/grammar.json (n5-045.contrasts[0].note updated)
+  - data/n5_core_pattern_ids.json (n5-045 moved from core_n5
+    to new `deprecated` bucket; coreCount 153→152;
+    deprecatedCount 0→1)
+  - data/vocab.json (あなた examples [1]+[2]; じぶん counter
+    annotation; おはし+えいが+にこにこ legacy_section_in_id flag)
+  - data/index.json (regenerated for size_bytes drift)
+  - data/version.json (v1.16.2 → v1.16.3)
+  - sw.js (CACHE_VERSION bump)
+  - index.html (?v= cache-bust)
+  - tools/check_content_integrity.py (+JA-153, +JA-154, JA-148
+    extension for deprecated bucket, JA-34 extension to exclude
+    deprecated tier from comparison)
+  - 2 new tools (file batch + fix batch v2)
+  - specifications/test-scenarios-by-specialist-perspective.xlsx
+    (4 bugs filed + flipped Fixed)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md
+    (F.44.19 + F.44.20)
+  - prompts/Japanese language Accuracy check.txt (A85)
+  - prompts/N5Improvement.txt (Phase-0 re-paste-triage
+    tightening block)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 43)
+  - docs/cross-artifact-sync-map.md (Part 43 row)
+  - CHANGELOG.md (v1.16.3 entry)
+
+### Final state for Part 43
+
+CI **156 / 156 invariants green** (was 154; +JA-153 +JA-154).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **180 / 180 Fixed / 0 Open** (was 176;
++BUG-177/178/179/180).
+Version: v1.16.2 → **v1.16.3** (data deltas: 1 grammar
+deprecation move + 2 あなた example rewrites + 1 じぶん counter
+annotation + 3 legacy_section_in_id flags; cache-bust for
+end-users).
+
+### Bounded-coverage phrasing for Part 43
+
+  - "1 of 9 STALE classifications from Part 42 was a false-
+    positive (verification-script bug); now corrected as
+    PARTIAL with the cleanup discipline gap addressed" — bounded
+    to this specific verification failure; F.44.19 tightening
+    prevents re-introduction.
+  - "JA-153 prevents re-introduction of *deprecated grammar
+    entries leaking back into the canonical N5 pattern catalog*"
+    — does not assert the deprecation flag is correctly set on
+    every duplicate entry (that's content discipline).
+  - "JA-154 prevents re-introduction of *ID-slug section
+    staleness without explicit flag*" — does not assert the
+    flagged entries' section retags are correctly classified
+    (that's content discipline at the section-field level).
+  - "Horizontal sweep found 1 additional entry (にこにこ) beyond
+    the reviewer's 2" — bounded to ID-slug-section divergence
+    pattern; other slug-staleness classes (headword-slug stale
+    spelling, etc.) not audited here.
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44.19 (re-paste triage verification-script
+  correctness amendment) + §F.44.20 (4 follow-up defect sub-
+  classes B/D/K/P).
+- CHANGELOG: 2026-05-23 v1.16.3 entry.
+- Accuracy prompt: §A85 (discipline tightening + 4 sub-classes).
+- Improvement prompt: Phase-0 re-paste triage tightening block.
+- Spec: §25.4 JA-153 + JA-154 rows + count update 154 → 156.
+- Sync-map: 2026-05-23 (Part 43) row.
