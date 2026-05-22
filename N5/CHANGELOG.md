@@ -2,6 +2,160 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.1 - 2026-05-23 (Deferred-NTR-item closure — 3 of 3 follow-ups shipped: cohort sweep + annotation-only + sample audit)
+
+### Background
+
+The 2026-05-22 native-teacher review batch (v1.16.0) closed 13 of 13
+surfaced items but explicitly deferred three follow-ups per
+procedure-manual F.44.12 step 3 ("Severity-3 polish can land in a
+follow-up"): (5) cohort sweep over OTHER kanji mnemonics after the
+三 finding (NTR-007); (6) NHK 2016 refinement of the 4 pitch-accent
+flags (NTR-008); (7) spot-check OTHER llm_curated vocab examples for
+regressions beyond the kanji-whitelist breach (NTR-001).
+
+All three closed 2026-05-23 with methodology-specific tooling. The
+three close-out shapes — cohort sweep, annotation-only, deterministic-
+stratified sample — are generalized in procedure-manual F.44.15 +
+F.44.16 for Nx-builders. The deferred items did NOT require new
+bug-tracker entries; they're follow-ups on already-closed
+BUG-161 / BUG-167 / BUG-168.
+
+### Changed
+
+- **Kanji-mnemonic cohort sweep (NTR-007 follow-up).**
+  `tools/audit_kanji_mnemonic_etymology_2026_05_22.py` scanned all
+  106 mnemonics in data/kanji.json for explicit etymology-claim
+  regex patterns (r"(borrowed everywhere|borrowed from|comes from|
+  same root|honorific|particle|-さん|-さま)"). Result: 1 hit
+  beyond the 三 fix that was already in v1.16.0. The 八 mnemonic
+  had conflated 蜂 ("bee", pronounced はち) with 八 itself.
+  Softened to: "はち — visual hook: sharp like a bee sting.
+  (Coincidence: 蜂 'bee' is also pronounced はち — a separate
+  kanji with separate etymology; the shared sound is a useful
+  memory hook, not a derivation.) Used in 8-hour: はちじかん."
+  104 of 106 mnemonics now clean against the N patterns scanned.
+  Bound: result is "no matches against the pattern-set on the
+  corpus snapshot scanned" — not "no etymology errors in the
+  corpus."
+
+- **Pitch-accent NHK-claim metadata (NTR-008 follow-up).**
+  `tools/fix_pitch_accent_nhk_refinement_2026_05_22.py` added
+  per-sense NHK-claim metadata to 3 of 4 entries from NTR-008:
+    - **あなた:** `nhk_2016_claim_drops_by_sense:
+      {generic_pronoun: 0, spousal_address: 2}` +
+      `audio_uses_drop: 2`. The reviewer cited NHK 2016
+      distinguishing two senses; current data lists drop=2
+      primary + alternate [1]. Audio remains source of truth
+      for rendered material.
+    - **みなさん:** `nhk_2016_claim_drop: 3` (nakadaka on 4th
+      mora) + `audio_uses_drop: 2`. Current data lists drop=2
+      which the reviewer noted is heard regionally.
+    - **きのう:** `nhk_2016_claim_drop: 2` + `nhk_2016_claim_alts:
+      [0]` + `audio_uses_drop: 1`. Current data lists drop=1
+      primary which is unusual; reviewer cites drop=2 standard
+      with drop=0 colloquial alternate.
+  Each entry also gained `nhk_2016_claim_provenance: "review-
+  cited 2026-05-22 (NTR-008); pending actual NHK 2016 source
+  verification"` and a v2 `native_review_note` documenting the
+  dictionary-vs-audio gap.
+  **Primary drop values UNCHANGED.** The reviewer is the same
+  author who produced the audit pipeline; elevating the review's
+  NHK claims to authoritative would be circular. Final native-
+  speaker pass per NATIVE-SPEAKER-RE-VERIFICATION.md remains the
+  gating step. これ (drop=0) confirmed correct in the review and
+  NOT re-annotated.
+
+- **llm_curated vocab spot-check (NTR-001 follow-up).**
+  `tools/audit_llm_curated_vocab_sample_2026_05_22.py` sampled
+  99 of 914 llm_curated examples (10.8% rate, stratified by
+  section, SHA256-seeded by `vocab_id|ex_idx` for
+  reproducibility) across named regression dimensions:
+    - **D1** over-formal register (でございます / おります /
+      sonkeigo patterns)
+    - **D2** unidiomatic / literary phrasing (のである, であろう,
+      〜なければなりません as N5 obligation form)
+    - **D3** headword absent from example (rendaku-aware)
+    - **D5** cross-entry template duplication (8-char prefix
+      ≥5 times across all 914 examples)
+  Result: **0 real findings across all dimensions.** 3 D3 hits
+  were ALL false positives caused by rendaku (びき) and する-
+  verb conjugation (さんぽし / コピーし). No regression-class
+  inferences justified by this sample.
+  Bound: "0 findings against named D1/D2/D3/D5 dimensions on the
+  sample scanned" — does NOT assert the LLM-curated layer is
+  regression-free; the audit did not sample at 100% and did not
+  name every possible LLM-regression class.
+
+### Engineering
+
+- **Procedure-manual F.44.15 + F.44.16.** Three deferred-item
+  close-out shapes generalized for Nx-builders: (1) cohort
+  sweep with regex-pattern audit when one finding implies a
+  class; (2) annotation-only when the only verifier is the
+  same author who produced the audit (circular-authority
+  guard); (3) deterministic-stratified sample audit with named
+  dimensions and bounded-honesty result format. Lineage table
+  extension catalogs the patterns. Operational rule extension
+  to F.44.12 step 6: batch the three deferred-item closes as a
+  single audit/fix/fix triple plus ONE Rule 4/5 propagation
+  commit.
+
+- **Accuracy prompt A83.** Captures the three close-out shapes
+  + bounded-coverage phrasing template + operational rule for
+  the audit prompt's pattern catalog.
+
+- **N5Improvement Phase-0 deferred-NTR-item closure regression
+  block.** Maintainer-side pre-release checks for each of the
+  three follow-ups; expected outputs documented (≤1 hit on
+  cohort sweep; 3 entries flagged with NHK-claim metadata; 0
+  findings against D1/D2/D3/D5 on stratified sample).
+
+- **AUDIT-COVERAGE Part 41.** Full close-out documentation with
+  findings table + tooling published + bounded-coverage phrasing
+  bounds.
+
+- **No new CI invariant.** This release is methodology /
+  annotation propagation, not a new gate. CI 152 / 152
+  invariants unchanged from v1.16.0.
+
+### CI / tracker / version
+
+- CI invariants: **152 / 152** (unchanged from v1.16.0).
+- Bug tracker: **173 / 173 Fixed / 0 Open** (unchanged — these
+  are follow-ups on already-closed bugs, not new entries).
+- Version: v1.16.0 → **v1.16.1** (data deltas: 1 kanji mnemonic
+  softening + 3 pitch-accent annotation refinements; cache-bust
+  for end-users to pull the new content).
+- Provenance stamp on all data deltas:
+  `native_reviewed_2026_05_22`.
+
+### Bounded-coverage phrasing
+
+- "Cohort sweep over 106 kanji mnemonics against N regex
+  patterns: 1 of 106 hit. 104/106 clean against *the scanned
+  pattern-set*." — does NOT claim "no etymology errors remain in
+  the corpus."
+- "3 of 4 pitch-accent entries annotated with NHK-claim
+  metadata + audio_uses_drop; primary drop values UNCHANGED." —
+  does NOT claim "pitch-accent verified against NHK 2016."
+- "0 findings against named D1/D2/D3/D5 dimensions on 99/914
+  llm_curated examples (10.8% stratified sample, SHA256-
+  seeded)." — does NOT claim "LLM-curated layer is regression-
+  free."
+
+### Commits
+
+- `89254d6` — fix(kanji): review §4 item 5 — kanji-mnemonic
+  etymology cohort sweep (八 softened)
+- `9015e3d` — fix(pitch-accent): review §4 item 6 — refine
+  NHK-claim annotations on 3 flagged entries
+- `e601345` — audit(vocab): review §4 item 7 — spot-check
+  99/914 llm_curated examples (0 real findings)
+- This commit — Rule 4/5 propagation + v1.16.1 cache-bust
+
+---
+
 ## v1.16.0 - 2026-05-22 (Native teacher review close-out — 13 bugs across vocab/grammar/kanji/questions + JA-150)
 
 ### Background

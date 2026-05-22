@@ -1825,6 +1825,63 @@ Source: NTR-001..013 close-out 2026-05-22 (commits 43cd37b +
 578b56f + eda9441 + 9e0925c + adac786); accuracy prompt §A82;
 procedure-manual §F.44; AUDIT-COVERAGE Part 40.
 
+### Phase-0 deferred-NTR-item closure regression block (added 2026-05-23)
+
+The 2026-05-22 NTR-001..013 batch closed 13/13 surfaced items
+but explicitly deferred three follow-ups (per F.44.15). All
+three closed via methodology-specific tooling 2026-05-23:
+
+1. **Kanji-mnemonic etymology cohort sweep (NTR-007 cohort)**
+   `audit_kanji_mnemonic_etymology_2026_05_22.py` scans all 106
+   entries in data/kanji.json `mnemonic.reading` + `mnemonic.
+   meaning` fields for r"(borrowed everywhere|borrowed from|
+   comes from|same root|honorific|particle|-さん|-さま)".
+   Expected: ≤ 1 hit (八 already softened 2026-05-23). Future
+   regressions: re-run audit when authoring new mnemonics.
+   Bound: pattern-set covers explicit etymology-claim phrasings;
+   does NOT catch mnemonics that imply false etymology without
+   the listed trigger words.
+
+2. **Pitch-accent NHK-claim metadata (NTR-008 follow-up)**
+   `fix_pitch_accent_nhk_refinement_2026_05_22.py` is the
+   reference annotation-only refinement. 3 entries (あなた,
+   みなさん, きのう) hold:
+     - `nhk_2016_claim_drop` / `nhk_2016_claim_drops_by_sense`
+     - `nhk_2016_claim_provenance: "review-cited, pending
+       actual NHK 2016 source verification"`
+     - `audio_uses_drop: <current rendered value>`
+     - `native_review_note` v2 documenting the dictionary-vs-
+       audio gap
+   Primary drop values UNCHANGED (reviewer == author = circular
+   if elevated to authoritative). Final native-speaker pass
+   remains the gating step per NATIVE-SPEAKER-RE-VERIFICATION.md.
+
+3. **llm_curated vocab spot-check (NTR-001 follow-up)**
+   `audit_llm_curated_vocab_sample_2026_05_22.py` performs
+   deterministic stratified sampling (10.8% rate, SHA256-seeded
+   by vocab_id|ex_idx) across named regression dimensions:
+     - D1 over-formal register (でございます / おります / etc.)
+     - D2 unidiomatic / literary forms (のである, であろう, etc.)
+     - D3 headword absent from example (rendaku-aware)
+     - D5 cross-entry template duplication (8-char prefix ≥5 times)
+   Expected on current corpus: 0 real findings across all
+   dimensions (3 D3 false positives caused by rendaku /
+   する-verb conjugation, not actual headword-absent).
+   Bound: 10.8% sample on named dimensions — does NOT assert
+   the LLM-curation layer is regression-free.
+
+Bounded-coverage framing for deferred-item closure:
+  - "Cohort sweep over 106 kanji mnemonics — N regex patterns
+    in scope" — not "no etymology errors."
+  - "Annotation-only on 3 pitch-accent entries; primary drop
+    values UNCHANGED" — not "verified against NHK 2016."
+  - "0 findings against D1/D2/D3/D5 on 99/914 sample" — not
+    "LLM-curated layer is regression-free."
+
+Source: NTR follow-up close-out 2026-05-23 (commits 89254d6 +
+9015e3d + e601345); accuracy prompt §A83; procedure-manual
+§F.44.15 + §F.44.16; AUDIT-COVERAGE Part 41.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

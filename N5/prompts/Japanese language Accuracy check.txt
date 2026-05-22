@@ -5271,3 +5271,105 @@ AUDIT-COVERAGE Part 40.
 
 CI invariants at this checkpoint: 152 (was 151; +JA-150).
 ============================================================
+
+
+A83. DEFERRED-ITEM BATCH CLOSE-OUT — cohort sweep + annotation-
+     only + sample audit; 3 of 3 deferred NTR follow-ups closed
+     (added 2026-05-23, AUDIT-COVERAGE Part 41, procedure-manual
+     F.44.15).
+============================================================
+
+Three follow-up shapes generalized from the 2026-05-22 NTR batch.
+A native-teacher batch typically closes 13 of 13 surfaced items
+but leaves 1-3 items deferred at first-pass close because they
+require methodology decisions, not data edits. The deferred trio:
+
+Shape 1 — COHORT SWEEP when one finding implies a class.
+  Trigger: a single defect (e.g., 三 mnemonic etymology) is
+  fixed; question "are there OTHER items in the same class?"
+  remains open.
+  Resolution: mechanical regex-pattern sweep over the cohort.
+  N5 instance: audit_kanji_mnemonic_etymology_2026_05_22.py
+  scanned all 106 kanji mnemonic fields for r"(borrowed
+  everywhere|borrowed from|comes from|same root|honorific|
+  particle|-さん|-さま)". Found 八 conflating 蜂 "bee"
+  pronunciation with 八. Softened mnemonic (commit 89254d6).
+  Result: 104/106 mnemonics clean.
+  Bound: result is "no matches against N regex patterns in
+  the corpus snapshot scanned" — NOT "no etymology errors in
+  the corpus."
+
+Shape 2 — ANNOTATION-ONLY when verifier == author.
+  Trigger: defect is "data value disagrees with canonical
+  reference X" AND the only verifier of X is the same author
+  who produced the audit. Auto-correcting under those
+  conditions is circular.
+  Resolution: annotate to preserve the gap; don't auto-correct.
+  N5 instance: NTR-008 pitch-accent 4 flags. The reviewer
+  cited NHK 2016 drop values. The reviewer is Claude (same
+  author as the audit pipeline). fix_pitch_accent_nhk_
+  refinement_2026_05_22.py added per-entry nhk_2016_claim_drop
+  + nhk_2016_claim_drops_by_sense + audio_uses_drop (source of
+  truth for rendered material) + nhk_2016_claim_provenance:
+  "review-cited, pending actual NHK source verification".
+  Primary drop values UNCHANGED. Native-speaker pass (per
+  NATIVE-SPEAKER-RE-VERIFICATION.md) remains the gating step.
+  Bound: annotation, not correction.
+
+Shape 3 — DETERMINISTIC-STRATIFIED SAMPLE with named dimensions.
+  Trigger: one finding (e.g., 99 vocab kanji-whitelist breaches
+  in the LLM-curation layer) implies "there may be MORE
+  regression classes hiding in the same authoring pass." Full
+  corpus audit is too expensive; random spot-checks produce
+  false positives (per N5Improvement Anti-pattern A).
+  Resolution: deterministic stratified sample with SHA256
+  seeding for reproducibility, named regex/heuristic
+  dimensions, bounded-honesty result.
+  N5 instance: audit_llm_curated_vocab_sample_2026_05_22.py
+  sampled 99 of 914 llm_curated examples (10.8% rate,
+  stratified by section, SHA256-seeded by f"{vocab_id}|
+  {ex_idx}"). Dimensions:
+    D1 — over-formal register (でございます / おります /
+         sonkeigo patterns)
+    D2 — unidiomatic / literary phrasing (のである, であろう,
+         〜なければなりません as N5 obligation form)
+    D3 — headword absent from example (heuristic; rendaku-
+         aware variants excluded)
+    D5 — cross-entry template duplication (same 8-char prefix
+         N+ times across all 914 examples)
+  Result: 0 real findings across all dimensions. 3 D3 hits
+  were all false positives (rendaku びき, する-verb
+  conjugation さんぽし / コピーし).
+  Bound: "0 findings against named D1/D2/D3/D5 dimensions on
+  the sample scanned" — does NOT assert the LLM layer is
+  regression-free; sample is 10.8% + named dimensions are
+  the scope-bound.
+
+Operational rule (A83 / F.44.15 extension to F.44.12 step 6):
+  Batch the three deferred-item close-out commits as a single
+  audit/fix/fix triple, then ONE Rule 4/5 propagation commit
+  covering all three. Per-item propagation for cohort /
+  annotation / sample audits wastes Rule-5 cycles; the methodology
+  pattern is shared.
+
+Bounded-coverage phrasing:
+  - "Cohort sweep over 106 kanji mnemonics — pattern-set N
+    regex patterns" — NOT "no etymology errors remain in the
+    corpus."
+  - "3 of 4 pitch-accent entries annotated with NHK-claim
+    metadata; primary drop values UNCHANGED" — NOT "pitch-
+    accent verified against NHK 2016."
+  - "0 findings against named D1/D2/D3/D5 dimensions on 99/914
+    llm_curated examples" — NOT "LLM-curated layer is
+    regression-free."
+
+Source: NTR follow-up close-out 2026-05-23; tooling
+tools/audit_kanji_mnemonic_etymology_2026_05_22.py +
+tools/fix_kanji_mnemonic_etymology_cohort_2026_05_22.py +
+tools/fix_pitch_accent_nhk_refinement_2026_05_22.py +
+tools/audit_llm_curated_vocab_sample_2026_05_22.py;
+procedure-manual F.44.15 + F.44.16; AUDIT-COVERAGE Part 41.
+
+CI invariants at this checkpoint: 152 (unchanged; this is a
+methodology / annotation propagation, not a new gate).
+============================================================

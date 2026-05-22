@@ -6041,3 +6041,119 @@ Version: v1.15.9 → **v1.16.0** (substantive content release —
   block.
 - Spec: §25.4 JA-150 row + count update 151 → 152.
 - Sync-map: 2026-05-22 (Part 40) row.
+
+## ADDENDUM 2026-05-23 (Part 41) — Deferred-NTR-item closure: 3 of 3 follow-ups shipped (cohort sweep + annotation-only + sample audit)
+
+Per F.44.12 step 3 ("Severity-3 polish can land in a follow-up"),
+the 2026-05-22 NTR batch (Part 40) deferred three follow-up
+items: (5) cohort sweep over OTHER kanji mnemonics after 三
+(NTR-007); (6) NHK 2016 refinement of the 4 pitch-accent flags
+(NTR-008); (7) spot-check OTHER llm_curated vocab examples for
+regressions beyond the kanji-whitelist breach (NTR-001).
+
+All three closed 2026-05-23 with methodology-specific tooling.
+Procedure-manual §F.44.15 + §F.44.16 generalize the three
+close-out shapes for Nx-builders. The deferred items did NOT
+require new bug-tracker entries — they're follow-ups on
+already-closed bugs (BUG-161 / BUG-167 / BUG-168). The
+provenance for the data deltas is `native_reviewed_2026_05_22`.
+
+### Findings closed (Part 41)
+
+| Source | Item | Shape | Outcome |
+|---|---|---|---|
+| NTR-007 cohort (kanji mnemonic etymology) | 105 mnemonics NOT yet swept after 三 fixed | Shape 1 — cohort sweep | 1 of 106 hit (八 conflated 蜂 "bee" pronunciation); softened. 104/106 mnemonics clean against the N regex patterns scanned. |
+| NTR-008 NHK refinement (pitch-accent) | 4 entries with defensible-but-deviant primary drop | Shape 2 — annotation-only | 3 entries got per-sense NHK-claim metadata + audio_uses_drop + provenance flag. Primary drop values UNCHANGED. これ confirmed correct. |
+| NTR-001 follow-up (llm_curated regressions) | 914 llm_curated examples, kanji-whitelist breach found 99; OTHER regression classes? | Shape 3 — deterministic stratified sample | 99/914 sampled (10.8%, SHA256-seeded). 0 real findings against named D1/D2/D3/D5 dimensions. 3 D3 hits all false positives (rendaku びき, する-verb さんぽし / コピーし). |
+
+### Tooling published (Part 41)
+
+  - `tools/audit_kanji_mnemonic_etymology_2026_05_22.py` —
+    regex sweep over kanji.json mnemonic fields, pattern-set:
+    r"(borrowed everywhere|borrowed from|comes from|same root|
+    honorific|particle|-さん|-さま)"
+  - `tools/fix_kanji_mnemonic_etymology_cohort_2026_05_22.py`
+    — 八 softening with explicit "coincidence, not derivation"
+    framing
+  - `tools/fix_pitch_accent_nhk_refinement_2026_05_22.py` —
+    annotation-only refinement; primary drop values NOT
+    changed (circular-authority guard)
+  - `tools/audit_llm_curated_vocab_sample_2026_05_22.py` —
+    deterministic stratified sampler, SHA256 seed, named
+    dimensions, bounded-honesty result format
+
+### CI invariants (Part 41)
+
+  - **None added.** This part is methodology / annotation
+    propagation, not a new gate. CI 152 / 152 invariants
+    unchanged from Part 40.
+
+### Commits landed (Part 41)
+
+  - `89254d6` — fix(kanji): review §4 item 5 cohort sweep
+    (八 softened, audit tool published)
+  - `9015e3d` — fix(pitch-accent): review §4 item 6
+    annotation-only refinement (3 entries flagged with NHK-
+    claim metadata)
+  - `e601345` — audit(vocab): review §4 item 7 spot-check
+    99/914 llm_curated examples (0 real findings)
+  - (This commit) — Rule 4/5 propagation + v1.16.0 → v1.16.1
+
+### Files touched (Part 41)
+
+  - data/kanji.json (八 mnemonic.reading softened, provenance
+    bumped to native_reviewed_2026_05_22)
+  - data/vocab.json (3 pitch-accent entries: あなた + みなさん
+    + きのう each gained nhk_2016_claim_* metadata fields +
+    audio_uses_drop + native_review_note v2)
+  - data/version.json (v1.16.0 → v1.16.1, builtAt bumped)
+  - sw.js (CACHE_VERSION bump)
+  - index.html (?v= cache-bust)
+  - 4 new tools (audit + fix + fix + audit scripts above)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md
+    (F.44.15 + F.44.16)
+  - prompts/Japanese language Accuracy check.txt (A83)
+  - prompts/N5Improvement.txt (Phase-0 deferred-NTR-item-
+    closure block)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 41)
+  - docs/cross-artifact-sync-map.md (Part 41 row)
+  - CHANGELOG.md (v1.16.1 entry)
+
+### Final state for Part 41
+
+CI **152 / 152 invariants green** (unchanged from Part 40).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **173 / 173 Fixed / 0 Open** (unchanged — these
+are follow-ups on already-closed bugs).
+Version: v1.16.0 → **v1.16.1** (data deltas: 1 kanji
+mnemonic + 3 pitch-accent annotations; cache-bust for end-
+users to pull the new content).
+
+### Bounded-coverage phrasing for Part 41
+
+  - "Cohort sweep over 106 kanji mnemonics against N regex
+    patterns: 1 of 106 hit, softened. 104/106 clean against
+    *the scanned pattern-set*." — does NOT claim "no etymology
+    errors remain in the corpus."
+  - "3 of 4 pitch-accent entries annotated with NHK-claim
+    metadata + audio_uses_drop; primary drop values UNCHANGED."
+    — does NOT claim "pitch-accent verified against NHK 2016."
+    Native-speaker pass remains the gating step.
+  - "0 findings against named D1/D2/D3/D5 dimensions on 99/914
+    llm_curated examples (10.8% stratified sample, SHA256-
+    seeded)." — does NOT claim "LLM-curated layer is
+    regression-free."
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44.15 + §F.44.16 (three deferred-item
+  close-out shapes + same drift-class lineage extension).
+- CHANGELOG: 2026-05-23 v1.16.1 entry.
+- Accuracy prompt: §A83 (deferred-item batch close-out
+  methodology).
+- Improvement prompt: Phase-0 deferred-NTR-item-closure
+  regression block.
+- Spec: no change (no new JA-NN; data deltas covered by
+  existing JA-150 + provenance audit).
+- Sync-map: 2026-05-23 (Part 41) row.
