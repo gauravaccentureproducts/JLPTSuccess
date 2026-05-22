@@ -1639,6 +1639,56 @@ Source: DOCS-VOCAB-005 close-out 2026-05-22; fix tool
 tools/fix_docs_vocab_005_2026_05_22.py; accuracy prompt §A79;
 procedure-manual §F.41; AUDIT-COVERAGE Part 37.
 
+### Phase-0 Fix Commit shape + TASKS-vs-code coverage-gap block (added 2026-05-22)
+
+CI-enforced via JA-146 (strict) + advisory tool (loose). Maintainer-
+side Phase-0 mirror runs pre-release:
+
+1. **xlsx Fix Commit cell shape (JA-146)**
+   For every Fixed row in `specifications/test-scenarios-by-specialist-
+   perspective.xlsx`, the Fix Commit cell (col 10) must be either
+   (a) a commit-hash-shaped string (7-40 hex, optionally followed by
+   `(+ submodule HASH)`) OR (b) a `<...>`-shaped sentinel acknowledging
+   hash absence. Rejects datetime objects, bare date strings, empty
+   cells, free text. Expected: 0 hits across all Fixed rows.
+
+2. **TASKS.md vs codebase drift (advisory only)**
+   Run `python tools/audit_tasks_md_against_codebase_2026_05_22.py`.
+   For each `- [ ]` item, extracts keywords + greps codebase. Surfaces
+   HIGH/MEDIUM-confidence candidates that may already be shipped.
+   Maintainer reviews each: flip to `[x]` (if shipped) or document
+   why it's still open. Expected output: 0 candidates ideally, but
+   non-zero is acceptable as long as each is reviewed and resolved
+   (not silently ignored).
+
+Bounded-coverage framing:
+  - "JA-146 catches *the shape mismatch types we surveyed (hash-or-
+    sentinel)*" — does NOT catch a hash that's stale or wrong-commit.
+  - "Advisory heuristic surfaces *keyword matches between TASKS.md
+    and named code surfaces*" — does NOT catch features shipped under
+    different keywords.
+  - Generalizes: every string field where the *intended* shape is
+    narrower than "any string" needs a shape-invariant. Currently
+    only the xlsx Fix Commit field is wired (JA-146); 30+ other
+    metadata fields across the corpus could have similar shape-
+    invariants written proactively (procedure-manual F.42.1
+    operational rule).
+
+Operational lesson — reactive→proactive CI-invariant authoring:
+  Every JA-NN was added AFTER a bug surfaced the pattern it now
+  catches. No invariant has ever been written for a class of bug not
+  yet seen. The CI suite catches re-introduction of *specific named
+  patterns* but does not catch first occurrence of an *unnamed*
+  pattern. Audit-doc writing discipline ("JA-NN prevents re-
+  introduction of *these specific patterns*") was set up precisely
+  to acknowledge this limit. For Nx: when adding a new schema field,
+  author the shape-invariant in the same commit.
+
+Source: meta-audit gap-closure batch 2026-05-22; tools
+tools/cleanup_fix_commit_cells_2026_05_22.py +
+tools/audit_tasks_md_against_codebase_2026_05_22.py; accuracy
+prompt §A80; procedure-manual §F.42; AUDIT-COVERAGE Part 38.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

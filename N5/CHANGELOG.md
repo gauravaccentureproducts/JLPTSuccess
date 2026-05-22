@@ -2,6 +2,95 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.8 - 2026-05-22 (test-coverage gap closures — JA-146 Fix Commit cell shape guard + TASKS↔codebase advisory tool)
+
+### Background
+
+A meta-audit conversation surfaced two coverage classes the existing
+148 invariants weren't designed to catch:
+
+- **GAP-A**: a field can be schema-valid but semantically the wrong
+  shape (e.g., a date string in a column meant for commit hashes).
+  JA-118 only checked "is the Fix Commit cell non-empty" — it didn't
+  validate the cell contained a commit-hash-shaped value. A 2026-05-22
+  survey found **150/155 Fixed rows had dates** (99 as Excel-coerced
+  datetime objects, 51 as YYYY-MM-DD strings) in col 10 (Fix Commit)
+  rather than hashes — the convention had drifted silently for the
+  entire project's history.
+- **GAP-B**: doc-state drifts from code-state. TASKS.md said `[ ]` for
+  SVA-1.1 (footer privacy badge) and SVA-1.4 (Export Progress button)
+  when both had been shipped weeks earlier. No automation linked
+  TASKS.md bullets to their implementation.
+
+### Added
+
+- **JA-146** — CI invariant: every Fixed row in
+  `specifications/test-scenarios-by-specialist-perspective.xlsx`
+  must have its Fix Commit cell (col 10) hold either:
+    (a) a commit-hash-shaped string (7-40 hex, optionally followed by
+        `(+ submodule HASH)`); or
+    (b) a `<...>`-shaped sentinel acknowledging hash absence with
+        explanatory prose (e.g. `<no-hash-archived; see Fix Date col 9>`).
+  Rejects: datetime objects, bare date strings, empty cells, free text.
+  Closes GAP-A.
+
+- **`tools/audit_tasks_md_against_codebase_2026_05_22.py`** — advisory
+  heuristic (not a CI gate). For each `- [ ]` item in TASKS.md, extracts
+  distinctive keywords (backticked tokens, file paths, quoted phrases)
+  and greps the codebase. Surfaces HIGH/MEDIUM-confidence matches as
+  candidates that may already be shipped. Bounded-coverage: false
+  positives expected; results are advisory, not enforcing. Closes GAP-B.
+
+  First-run output flagged 13 HIGH/MEDIUM candidates (JCE-1 pitch_accent,
+  JCE-3 grammar_footnotes, JCE-4 collocations, JCE-7 stroke_order_
+  mistakes, JCE-8 sources, JCE-9 cultural_context, JCE-10 timestamp
+  metadata, plus SVA-3.2 branding.json + SVA-3.4 Powered-by footer +
+  smaller). User review required to flip [x] or document why they
+  remain open.
+
+### Fixed (data hygiene one-time pass)
+
+- **xlsx Fix Commit column cleanup** (`tools/cleanup_fix_commit_cells_
+  2026_05_22.py`): of 155 Fixed rows, 4 had real hashes (kept), 142
+  had date-duplicates between col 9 (Fix Date) and col 10 (Fix Commit)
+  → col 10 sentinelized to `<no-hash-archived; see Fix Date col 9>`,
+  8 had date mislocated to col 10 with col 9 empty → date moved to col
+  9 then col 10 sentinelized, 1 already a sentinel (DOCS-VOCAB-003 from
+  earlier today). The historical convention drift is honestly preserved
+  as "<no-hash-archived; see Fix Date col 9>" sentinels rather than
+  fabricated hashes.
+
+### Documentation propagation (Rule 4 — methodology learning)
+
+- **Procedure manual F.42** — reactive-vs-proactive CI invariant
+  authoring pattern + the "type-confusion-in-string-field" defect
+  class generalized for Nx-builders.
+- **Accuracy prompt A80** — coverage-gap audit categories + the
+  bounded-honesty framing.
+- **N5Improvement Phase-0 block** — Fix Commit shape + TASKS-vs-code
+  pre-release sweep.
+- **AUDIT-COVERAGE Part 38** — gap-closure batch close-out.
+
+### Versioning
+
+- `data/version.json`: v1.15.7 → v1.15.8. Corpus counts unchanged.
+- `cacheVersion`: -v1.15.7 → -v1.15.8.
+- `sw.js` CACHE_VERSION + `index.html` `?v=` cache-bust bumped (JA-68).
+
+### State
+
+CI **148 / 148 invariants green** (was 147; +JA-146).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **155 / 155 Fixed / 0 Open**.
+
+Bounded framing: JA-146 catches "Fix Commit cells that aren't a hash
+or a `<...>`-shaped sentinel." It does NOT catch a hash that's stale
+(pointing at a rewritten history) or a hash from a different repo.
+The TASKS↔code advisory tool catches "items whose keywords have
+implementation evidence in named directories"; it does NOT catch
+items whose feature exists under different keywords or in surfaces
+not scanned (sw.js, data/*.json, etc.).
+
 ## v1.15.7 - 2026-05-22 (SVA-1: privacy moat made visible — Settings verify panel + homepage hero + TASKS hygiene)
 
 ### Added

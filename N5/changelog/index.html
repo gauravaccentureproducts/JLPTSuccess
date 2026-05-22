@@ -84,6 +84,57 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.15.8 - 2026-05-22 (test-coverage gap closures — JA-146 Fix Commit cell shape guard + TASKS↔codebase advisory tool)</h2>
+<h3>Background</h3>
+<p>A meta-audit conversation surfaced two coverage classes the existing 148 invariants weren&#x27;t designed to catch:</p>
+<ul>
+<li><strong>GAP-A</strong>: a field can be schema-valid but semantically the wrong</li>
+</ul>
+<p>shape (e.g., a date string in a column meant for commit hashes). JA-118 only checked &quot;is the Fix Commit cell non-empty&quot; — it didn&#x27;t validate the cell contained a commit-hash-shaped value. A 2026-05-22 survey found <strong>150/155 Fixed rows had dates</strong> (99 as Excel-coerced datetime objects, 51 as YYYY-MM-DD strings) in col 10 (Fix Commit) rather than hashes — the convention had drifted silently for the entire project&#x27;s history.</p>
+<ul>
+<li><strong>GAP-B</strong>: doc-state drifts from code-state. TASKS.md said <code>[ ]</code> for</li>
+</ul>
+<p>SVA-1.1 (footer privacy badge) and SVA-1.4 (Export Progress button) when both had been shipped weeks earlier. No automation linked TASKS.md bullets to their implementation.</p>
+<h3>Added</h3>
+<ul>
+<li><strong>JA-146</strong> — CI invariant: every Fixed row in</li>
+</ul>
+<p><code>specifications/test-scenarios-by-specialist-perspective.xlsx</code> must have its Fix Commit cell (col 10) hold either: (a) a commit-hash-shaped string (7-40 hex, optionally followed by <code>(+ submodule HASH)</code>); or (b) a <code>&lt;...&gt;</code>-shaped sentinel acknowledging hash absence with explanatory prose (e.g. <code>&lt;no-hash-archived; see Fix Date col 9&gt;</code>). Rejects: datetime objects, bare date strings, empty cells, free text. Closes GAP-A.</p>
+<ul>
+<li><strong><code>tools/audit_tasks_md_against_codebase_2026_05_22.py</code></strong> — advisory</li>
+</ul>
+<p>heuristic (not a CI gate). For each <code>- [ ]</code> item in TASKS.md, extracts distinctive keywords (backticked tokens, file paths, quoted phrases) and greps the codebase. Surfaces HIGH/MEDIUM-confidence matches as candidates that may already be shipped. Bounded-coverage: false positives expected; results are advisory, not enforcing. Closes GAP-B.</p>
+<p>First-run output flagged 13 HIGH/MEDIUM candidates (JCE-1 pitch_accent, JCE-3 grammar_footnotes, JCE-4 collocations, JCE-7 stroke_order_ mistakes, JCE-8 sources, JCE-9 cultural_context, JCE-10 timestamp metadata, plus SVA-3.2 branding.json + SVA-3.4 Powered-by footer + smaller). User review required to flip [x] or document why they remain open.</p>
+<h3>Fixed (data hygiene one-time pass)</h3>
+<ul>
+<li><strong>xlsx Fix Commit column cleanup</strong> (`tools/cleanup_fix_commit_cells_</li>
+</ul>
+<p>2026_05_22.py<code>): of 155 Fixed rows, 4 had real hashes (kept), 142 had date-duplicates between col 9 (Fix Date) and col 10 (Fix Commit) → col 10 sentinelized to </code>&lt;no-hash-archived; see Fix Date col 9&gt;`, 8 had date mislocated to col 10 with col 9 empty → date moved to col 9 then col 10 sentinelized, 1 already a sentinel (DOCS-VOCAB-003 from earlier today). The historical convention drift is honestly preserved as &quot;&lt;no-hash-archived; see Fix Date col 9&gt;&quot; sentinels rather than fabricated hashes.</p>
+<h3>Documentation propagation (Rule 4 — methodology learning)</h3>
+<ul>
+<li><strong>Procedure manual F.42</strong> — reactive-vs-proactive CI invariant</li>
+</ul>
+<p>authoring pattern + the &quot;type-confusion-in-string-field&quot; defect class generalized for Nx-builders.</p>
+<ul>
+<li><strong>Accuracy prompt A80</strong> — coverage-gap audit categories + the</li>
+</ul>
+<p>bounded-honesty framing.</p>
+<ul>
+<li><strong>N5Improvement Phase-0 block</strong> — Fix Commit shape + TASKS-vs-code</li>
+</ul>
+<p>pre-release sweep.</p>
+<ul>
+<li><strong>AUDIT-COVERAGE Part 38</strong> — gap-closure batch close-out.</li>
+</ul>
+<h3>Versioning</h3>
+<ul>
+<li><code>data/version.json</code>: v1.15.7 → v1.15.8. Corpus counts unchanged.</li>
+<li><code>cacheVersion</code>: -v1.15.7 → -v1.15.8.</li>
+<li><code>sw.js</code> CACHE_VERSION + <code>index.html</code> <code>?v=</code> cache-bust bumped (JA-68).</li>
+</ul>
+<h3>State</h3>
+<p>CI <strong>148 / 148 invariants green</strong> (was 147; +JA-146). <code>cross_artifact_sync_report.py</code> exits CLEAN. Bug tracker <strong>155 / 155 Fixed / 0 Open</strong>.</p>
+<p>Bounded framing: JA-146 catches &quot;Fix Commit cells that aren&#x27;t a hash or a <code>&lt;...&gt;</code>-shaped sentinel.&quot; It does NOT catch a hash that&#x27;s stale (pointing at a rewritten history) or a hash from a different repo. The TASKS↔code advisory tool catches &quot;items whose keywords have implementation evidence in named directories&quot;; it does NOT catch items whose feature exists under different keywords or in surfaces not scanned (sw.js, data/*.json, etc.).</p>
 <h2>v1.15.7 - 2026-05-22 (SVA-1: privacy moat made visible — Settings verify panel + homepage hero + TASKS hygiene)</h2>
 <h3>Added</h3>
 <ul>

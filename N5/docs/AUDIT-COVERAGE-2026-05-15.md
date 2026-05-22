@@ -5649,3 +5649,147 @@ Bug tracker: **155 / 155 Fixed / 0 Open** (DOCS-VOCAB-005 flipped + 3 pre-existi
 - Improvement prompt: Phase-0 source_file canonical-sentinel block.
 - Spec: §25.4 JA-145 row.
 - Sync-map: 2026-05-22 row.
+
+## ADDENDUM 2026-05-22 (Part 38) — Meta-audit gap-closure: JA-146 + TASKS↔code advisory tool
+
+### Scope
+
+Two coverage classes the existing 147 invariants weren't designed to catch,
+surfaced not by a content bug but by a meta-audit conversation:
+
+- **GAP-A — type-confusion in string fields**: a column typed as "string"
+  drifts from its intended shape (commit hash → date string; path →
+  prose annotation). Schema-level type checks don't fire because the
+  value is technically still a string.
+- **GAP-B — doc-state vs code-state drift**: hand-curated documentation
+  (TASKS.md, roadmap files) drifts silently from the codebase when
+  features ship without doc updates.
+
+Neither class corresponds to a specific content bug — they're systematic
+properties of how the CI suite has been authored (reactively) and how
+documentation has been maintained (manually).
+
+### Gaps closed (Part 38)
+
+| Gap | Class | Closure mechanism | CI status |
+|---|---|---|---|
+| GAP-A | Type-confusion in string fields | JA-146 (strict) — Fix Commit cell shape guard on xlsx tracker | Wired |
+| GAP-B | Doc-state vs code-state drift | `tools/audit_tasks_md_against_codebase_2026_05_22.py` (advisory, not strict) | Manual-deferred |
+
+### N5 proof points
+
+**GAP-A survey (xlsx Fix Commit column):**
+- 99/155 Fixed rows: Excel-coerced `datetime.datetime` objects in col 10
+- 51/155 Fixed rows: bare YYYY-MM-DD strings
+- 4/155 Fixed rows: actual commit hashes (only my recent close-outs)
+- 1/155 Fixed rows: an explicit `<...>` sentinel (the DOCS-VOCAB-003 row I'd
+  already fixed earlier in the day)
+
+JA-118 (existing "Fix Commit cell non-empty on Fixed row" check) passed
+all 155 because non-emptiness was preserved — the failure mode was
+wrong-shape-with-non-empty-content. JA-118 didn't validate hash shape.
+
+**GAP-B finding (TASKS.md sweep):**
+- SVA-1.1 (footer privacy badge) was shipped 2026-05-07 (round-9), still `[ ]`
+  in TASKS.md as of 2026-05-22 morning.
+- SVA-1.4 (Export Progress button) was shipped earlier, documented in
+  PRIVACY.md, still `[ ]` in TASKS.md.
+- First-run of the advisory tool surfaced 13 HIGH/MEDIUM candidates from 60
+  `[ ]` items (JCE-1 pitch_accent, JCE-4 collocations, JCE-7
+  stroke_order_mistakes, etc.). Each requires human review.
+
+### One-time cleanup pass (Part 38 GAP-A close-out)
+
+`tools/cleanup_fix_commit_cells_2026_05_22.py`:
+- 142 rows: date duplicated between col 9 (Fix Date) + col 10 (Fix Commit)
+  → col 10 sentinelized to `<no-hash-archived; see Fix Date col 9>`
+  (preserves the date in col 9; honestly acknowledges no hash was archived)
+- 8 rows: date in col 10, col 9 empty → moved date to col 9, sentinelized col 10
+- 4 rows: already-hash, kept unchanged
+- 1 row: already-sentinel, kept unchanged
+
+Historical commit hashes for the 150 sentinelized rows are NOT fabricated.
+The sentinel is honest: "we didn't archive the hash at the time of fix; the
+fix date is in col 9; the actual commit can be located via git log if needed."
+
+### Reactive→proactive CI-invariant authoring (procedure-manual §F.42.1)
+
+Every existing JA-NN was added AFTER a bug surfaced the pattern it catches.
+No invariant has ever been written for a class of bug not yet seen. The CI
+suite catches re-introduction of specific named patterns but does NOT catch
+first occurrence of an unnamed pattern.
+
+The audit-doc writing discipline ("JA-NN prevents re-introduction of *these
+specific patterns*") was set up precisely to acknowledge this limit, but it
+hasn't translated into a proactive habit.
+
+**Operational rule for Nx**: for every metadata field added to a data schema,
+author the shape-invariant in the same commit. Don't wait for a bug to
+surface the drift.
+
+### CI invariant added (Part 38)
+
+- **JA-146** — xlsx Fix Commit cell shape guard. Accepts hash-shape OR
+  `<...>`-shaped sentinel; rejects datetime / date-string / empty / free text.
+  Closes GAP-A.
+
+### Advisory tool added (Part 38)
+
+- `tools/audit_tasks_md_against_codebase_2026_05_22.py` — bounded-honest
+  heuristic. Not wired as CI gate. Closes GAP-B as much as a heuristic can.
+
+### Files touched (Part 38)
+
+- `tools/check_content_integrity.py` (JA-146 added)
+- `tools/audit_fix_commit_cells_2026_05_22.py` (NEW — survey tool)
+- `tools/cleanup_fix_commit_cells_2026_05_22.py` (NEW — one-time cleanup)
+- `tools/audit_tasks_md_against_codebase_2026_05_22.py` (NEW — advisory)
+- `specifications/test-scenarios-by-specialist-perspective.xlsx` (150 rows sentinelized)
+- `data/version.json` (v1.15.7 → v1.15.8 + cacheVersion + builtAt)
+- `data/index.json` (regenerated; JA-125 byte-size parity)
+- `sw.js` CACHE_VERSION + `index.html` cache-bust (JA-68)
+- `JLPT Common/procedure-manual-build-next-jlpt-level.md` (F.42)
+- `prompts/Japanese language Accuracy check.txt` (A80)
+- `prompts/N5Improvement.txt` (Phase-0 Fix Commit + TASKS-vs-code block)
+- `docs/AUDIT-COVERAGE-2026-05-15.md` (this Part 38)
+- `docs/cross-artifact-sync-map.md` (Part 38 audit-log row)
+- `CHANGELOG.md` (v1.15.8 entry)
+- `changelog/index.html` (meta-route mirror regenerated for JA-113)
+- `specifications/JLPT-N5-Current-Implementation-Spec.md` (§25.4 JA-146 row + count update + last-updated header)
+
+### Final state for Part 38
+
+CI **148 / 148 invariants green** (was 147; +JA-146).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker **155 / 155 Fixed / 0 Open** (unchanged — meta-audit cleanup,
+not a bug close-out).
+
+### Bounded-coverage phrasing for Part 38
+
+- "JA-146 prevents re-introduction of *date-in-hash-column drift*" — does
+  NOT catch hashes that are stale, point at rewritten history, or come
+  from a different repo.
+- "Advisory tool surfaces *keyword matches between TASKS.md and named
+  code surfaces*" — does NOT catch features shipped under different
+  keywords or in surfaces not scanned (sw.js, data/*.json, vendored code).
+- "Coverage expanded by *1 strict invariant + 1 advisory tool* at this
+  checkpoint" — does NOT imply universal corpus correctness; the
+  reactive→proactive gap remains for the ~30-50 other metadata fields
+  that could have shape-invariants written.
+- "Historical hashes are *honestly absent* (sentinelized as documented
+  unknowns), not fabricated. The 150 rows whose original commit hashes
+  weren't archived are recoverable via git log archaeology if anyone
+  ever needs them."
+
+### Cross-references
+
+- Procedure manual: §F.42 (reactive→proactive invariant authoring +
+  type-confusion-in-string-field defect class + doc-state-vs-code-state
+  drift class + verification-discipline-before-fix + bounded-coverage
+  phrasing template + same-defect-class lineage table).
+- CHANGELOG: 2026-05-22 v1.15.8 entry.
+- Accuracy prompt: §A80.
+- Improvement prompt: Phase-0 Fix Commit shape + TASKS-vs-code coverage-
+  gap block.
+- Spec: §25.4 JA-146 row + count update 147 → 148.
+- Sync-map: 2026-05-22 (Part 38) row.

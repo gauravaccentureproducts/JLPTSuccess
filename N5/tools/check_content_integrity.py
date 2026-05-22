@@ -1366,6 +1366,21 @@ CHECKS: list[tuple[str, str, callable]] = [
     # Catches re-introduction of stale historical breadcrumbs (DOCS-VOCAB-003
     # / DOCS-VOCAB-005 class) or pointers to deleted files.
     ("JA-145", "paper-file source_file is a resolvable path OR the literal '(authored in-place)' (DOCS-VOCAB-005 guard, 2026-05-22)", lambda: _check_ja_145_paper_source_file_sentinel()),
+    # JA-146 (2026-05-22): xlsx tracker "Fix Commit" cell shape guard.
+    # Closes the GAP-A class surfaced when DOCS-VOCAB-003's Fix Commit
+    # cell turned out to hold a date string "2026-05-21" instead of a
+    # commit hash — JA-118 only checked non-emptiness, so the date-in-
+    # hash-column drift slipped through silently. A 2026-05-22 survey
+    # found 150/155 Fixed rows had dates (datetime objects or YYYY-MM-DD
+    # strings) in col 10 instead of hashes. Cleanup pass sentinelized
+    # all redundant dates; JA-146 now locks the convention.
+    #
+    # Accepts: (a) commit-hash-shaped string (7-40 hex, optional
+    # "(+ submodule HASH)" suffix), or (b) a "<...>"-shaped sentinel
+    # acknowledging hash absence with explanatory prose.
+    # Rejects: datetime objects, date strings (YYYY-MM-DD), empty cells
+    # on Fixed rows, free text that is neither a hash nor a sentinel.
+    ("JA-146", "xlsx Fix Commit cell on every Fixed row is a commit hash OR a '<...>'-shaped sentinel (closes the type-confusion gap surfaced 2026-05-22)", lambda: _check_ja_146_xlsx_fix_commit_shape()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -7946,6 +7961,104 @@ def _check_ja_145_paper_source_file_sentinel() -> list[str]:
                 f"JA-145 {os.path.relpath(fp, ROOT)}: source_file path "
                 f"{sf!r} does not resolve to an existing file under {ROOT.name}/"
             )
+    return failures
+
+
+def _check_ja_146_xlsx_fix_commit_shape() -> list[str]:
+    """xlsx "Fix Commit" cell shape guard (2026-05-22).
+
+    Closes the gap surfaced 2026-05-22 in the DOCS-VOCAB-003 row 153:
+    its Fix Commit cell held the string "2026-05-21" instead of a
+    commit hash, and JA-118 (which only checks "Fix Commit cell is
+    non-empty on Fixed rows") didn't notice. A 2026-05-22 survey
+    found 150/155 Fixed rows had similar drift — col 10 had been
+    populated with dates (datetime objects or YYYY-MM-DD strings)
+    rather than hashes throughout the project's history.
+
+    After the cleanup pass (tools/cleanup_fix_commit_cells_2026_05_22.py)
+    sentinelized all redundant date entries, this invariant locks the
+    convention.
+
+    Accepts on Fixed rows:
+      (a) commit-hash shape: 7-40 hex chars, optionally followed by
+          " (+ submodule HASH)" where HASH is another 7-40 hex chars
+          (the file-based commit pattern's output for submodule-
+          touching changes); or
+      (b) a "<...>"-shaped sentinel string (parenthesized prose
+          acknowledging hash absence with explanation, e.g.
+          "<no-hash-archived; see Fix Date col 9>" or
+          "<pending-main-commit>"). Sentinels MUST start with "<"
+          and end with ">" and contain non-empty content.
+
+    Rejects on Fixed rows:
+      - datetime.datetime / datetime.date objects (Excel auto-coerced)
+      - bare date strings (YYYY-MM-DD)
+      - empty cells (also caught by JA-118, but redundancy is intentional)
+      - any other free text
+
+    Scope: row 4 through ws.max_row, only rows where Status == "Fixed".
+    Out-of-scope rows (Open, WontFix, blank) are skipped without
+    inspection.
+    """
+    import datetime as _dt
+    import re as _re
+    try:
+        from openpyxl import load_workbook
+    except ImportError:
+        return ["JA-146 openpyxl not installed — install with `pip install openpyxl` to enable this check"]
+    xlsx_path = ROOT / "specifications" / "test-scenarios-by-specialist-perspective.xlsx"
+    if not xlsx_path.exists():
+        return [f"JA-146 xlsx not found: {xlsx_path}"]
+
+    HASH_RE = _re.compile(r"^[a-f0-9]{7,40}(\s+\(\+\s+submodule\s+[a-f0-9]{7,40}\))?$")
+    SENTINEL_RE = _re.compile(r"^<[^>]+>$")
+    DATE_STR_RE = _re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+    wb = load_workbook(xlsx_path, read_only=True, data_only=True)
+    ws = wb["User Reported Bugs"]
+    failures: list[str] = []
+    for r in range(4, ws.max_row + 1):
+        title = ws.cell(row=r, column=4).value
+        status = ws.cell(row=r, column=8).value
+        fc = ws.cell(row=r, column=10).value
+        if not title or status != "Fixed":
+            continue
+
+        if fc is None or (isinstance(fc, str) and not fc.strip()):
+            failures.append(
+                f"JA-146 row {r} ({(title or '')[:50]}): Fix Commit cell "
+                f"is empty on a Fixed row"
+            )
+            continue
+        if isinstance(fc, (_dt.datetime, _dt.date)):
+            failures.append(
+                f"JA-146 row {r} ({(title or '')[:50]}): Fix Commit cell "
+                f"is a datetime object ({fc!r}), not a commit-hash string. "
+                f"Excel auto-coerced a date-shaped value into the wrong "
+                f"column. Move the date to col 9 (Fix Date) and put a "
+                f"hash or '<...>'-shaped sentinel in col 10."
+            )
+            continue
+        s = str(fc).strip()
+        if HASH_RE.match(s):
+            continue
+        if SENTINEL_RE.match(s):
+            continue
+        if DATE_STR_RE.match(s):
+            failures.append(
+                f"JA-146 row {r} ({(title or '')[:50]}): Fix Commit cell "
+                f"is a date string ({s!r}), not a commit-hash. Move the "
+                f"date to col 9 (Fix Date) and put a hash or '<...>'-"
+                f"shaped sentinel in col 10."
+            )
+            continue
+        failures.append(
+            f"JA-146 row {r} ({(title or '')[:50]}): Fix Commit cell value "
+            f"{s[:80]!r} is neither a commit hash, a '<...>'-shaped "
+            f"sentinel, nor a recognized shape."
+        )
+
+    wb.close()
     return failures
 
 

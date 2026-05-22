@@ -4920,3 +4920,71 @@ AUDIT-COVERAGE Part 37.
 
 CI invariants at this checkpoint: 147 (was 146; +JA-145).
 ============================================================
+
+A80. COVERAGE-GAP CLOSURE — type-confusion in string fields +
+     doc-state-vs-code-state drift (2026-05-22 meta-audit batch).
+     (Audit category — added 2026-05-22, AUDIT-COVERAGE Part 38.)
+============================================================
+
+Two coverage classes the existing 147 invariants weren't designed
+to catch, surfaced by a meta-audit conversation rather than a
+content bug. Generalizes the reactive→proactive CI-invariant-
+authoring tension into a named audit category for future review.
+
+Class A — Type-confusion in string fields (CI: JA-146)
+  A spreadsheet column or JSON field is *typed* as "string" in the
+  schema but *meant* to hold a specific shape (commit hash, ISO date,
+  file path, URL, enum). The schema accepts any string, so type-
+  checkers don't fire. Actual values drift from the intended shape
+  via muscle-memory data entry, autocomplete suggestions, Excel
+  auto-coercion to datetime, or simple typos that look plausible.
+
+  N5 proof point: 150/155 Fixed rows in the xlsx bug-tracker had
+  dates (99 as Excel-coerced datetime objects, 51 as YYYY-MM-DD
+  strings) in the "Fix Commit" column. JA-118 (the existing "non-
+  empty Fix Commit" check) passed all 155 because none were empty —
+  the failure mode was wrong-shape-with-non-empty-content. JA-146
+  now locks the shape (hash OR `<...>`-shaped sentinel).
+
+  Operational rule (extends procedure-manual F.42.1): for every
+  string field where the *intended* shape is narrower than "any
+  string," author the shape-invariant in the same commit as the
+  schema addition. Don't wait for a content bug to surface the drift.
+
+Class B — Doc-state vs code-state drift (CI: advisory tool, not strict)
+  Hand-curated documentation (TASKS.md, roadmap files, README counts,
+  feature checklists) drifts silently from the actual codebase. When
+  a feature ships, the maintainer must remember to flip the
+  corresponding `[ ]` to `[x]`.
+
+  N5 proof point: SVA-1.1 (footer privacy badge) and SVA-1.4 (Export
+  Progress button) were both shipped weeks before being noticed in a
+  TASKS.md review on 2026-05-22 — still `[ ]` despite the features
+  being live.
+
+  Advisory heuristic (tools/audit_tasks_md_against_codebase_2026_05_22.py):
+  for each `- [ ]` item, extract keywords, grep js/css/locales/etc,
+  score HIGH/MEDIUM/LOW. Surface HIGH/MEDIUM candidates for human
+  review. NOT a strict CI gate — false positives expected; the
+  heuristic gets ~70% recall at acceptable FP rate.
+
+  Why advisory rather than enforcing: a strict rule would need LLM-
+  grade matching between feature descriptions and code surfaces;
+  beyond practical reach. The maintainer sweep closes the gap.
+
+Bounded-coverage phrasing:
+  - "JA-146 catches *the shape mismatch we surveyed (hash-or-
+    sentinel)*" — does NOT catch a hash that's stale or points at the
+    wrong commit.
+  - "Advisory heuristic surfaces *keyword matches between TASKS.md and
+    named code surfaces*" — does NOT catch features shipped under
+    different keywords or in surfaces not scanned.
+  - "Coverage expanded by 1 strict invariant + 1 advisory tool at
+    this checkpoint" — does NOT imply universal corpus correctness.
+
+Source: meta-audit gap-closure batch 2026-05-22; tools
+cleanup_fix_commit_cells_2026_05_22.py + audit_tasks_md_against_
+codebase_2026_05_22.py; procedure-manual §F.42; AUDIT-COVERAGE Part 38.
+
+CI invariants at this checkpoint: 148 (was 147; +JA-146).
+============================================================
