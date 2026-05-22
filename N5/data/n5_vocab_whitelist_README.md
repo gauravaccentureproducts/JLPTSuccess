@@ -2,9 +2,9 @@
 
 ---
 **Document status:**
-- Last verified against corpus: 2026-05-21
-- Corpus version at verification: v1.15.5
-- Maintenance: hand-updated; CI does not regenerate this README
+- Last verified against corpus: 2026-05-22
+- Corpus version at verification: v1.15.8 (about to bump to v1.15.9)
+- Maintenance: hand-updated; CI does not regenerate this README. JA-147 enforces the "Known mismatches" list below stays in lockstep with the actual whitelist - vocab.json diff.
 ---
 
 This whitelist is the **hand-tuned canonical N5 vocab scope**, used by
@@ -27,15 +27,16 @@ lint warning when it appears in user-facing content.
 
 ## Relationship to data/vocab.json
 
-As of **2026-05-21 (v1.15.5)**, the whitelist and vocab.json are
-**near-fully aligned**: 966 of 969 whitelist tokens (99.7 %) match
+As of **2026-05-22 (v1.15.9)**, the whitelist and vocab.json are
+**near-fully aligned**: 965 of 969 whitelist tokens (99.6 %) match
 a `form` or `reading` value in some `vocab.json` entry.
 
   - **vocab.json**:  **995** structured catalog entries (form, reading,
                      gloss, section, pos, examples).
-  - **whitelist**:    **969** unique form-tokens, 966 of which match
-                     vocab.json (3 unmatched as of 2026-05-21:
-                     `倍`, `国籍`, `週末` - see "Known mismatches" below).
+  - **whitelist**:    **969** unique form-tokens, 965 of which match
+                     vocab.json (4 unmatched as of 2026-05-22:
+                     `倍`, `国籍`, `週末`, `では` - see "Known mismatches"
+                     below).
 
 The size difference (**995 entries vs 969 unique tokens, gap of 26**)
 reflects entries-side multi-section homographs:
@@ -68,9 +69,9 @@ Examples of cross-section homographs (10 of 24):
   - `かた` - section 1 (people, "person - honorific") + section 37
     (nouns, "way / method")
 
-### Known mismatches (3, as of 2026-05-21)
+### Known mismatches (4, as of 2026-05-22)
 
-These 3 whitelist tokens have no matching form/reading in vocab.json:
+These 4 whitelist tokens have no matching form/reading in vocab.json:
 
   - `倍` - counter suffix (e.g., 三倍 "triple"). Documented as FP-13
     in the audit-prompt false-positive catalog; treated as a multiplier
@@ -81,11 +82,25 @@ These 3 whitelist tokens have no matching form/reading in vocab.json:
     listening drill stems but never as a vocab.json entry.
   - `週末` (しゅうまつ, "weekend") - same shape: appears in
     reading/listening prose but not catalogued as a standalone entry.
+  - `では` - standalone copula-negative-particle (じゃない vs ではない,
+    じゃありません vs ではありません) and adverbial discourse marker
+    ("well then, in that case"). High-frequency N5 token; appears as
+    fragment in それでは / ではない / ではありません in vocab.json
+    (substring of それでは entry) but not as a standalone catalog row.
+    Whitelist-included for token-level scope checks; standalone
+    vocab.json entry deferred as separate authoring work (DOCS-VOCAB-006
+    option (a) - needs glosses/examples/audio/pitch-accent and is out
+    of scope for the doc-cleanup batch).
 
-The 3-token gap is **not drift** - these are deliberate kanji-scope
+The 4-token gap is **not drift** - these are deliberate kanji-scope
 whitelist entries that don't need a vocab.json catalog row. Future
 authoring may add them as full entries; until then, document them
 here so the audit chain is clean.
+
+**CI invariant JA-147** (added 2026-05-22) enforces that the
+"Known mismatches" enumeration above equals the actual computed set
+of (whitelist tokens) − (vocab.json forms ∪ vocab.json readings).
+Discrepancy fails the build.
 
 ## History
 
@@ -105,11 +120,25 @@ here so the audit chain is clean.
 
   - `tools/lint_content.py` reads the whitelist as an allowlist for
     the vocab-scope check across the following user-facing data files:
-    - `data/grammar.json` (178 patterns with examples)
-    - `data/questions.json` (290 questions - bank source)
+    - `data/grammar.json` (178 patterns with examples; 173 in N5 scope
+      + 5 deferred-to-N4 per `scope: 'n4'` field - see
+      `n5_core_pattern_ids.json`)
+    - `data/questions.json` (290 drill-bank questions - used in
+      spaced-repetition and diagnostic flows; per-option distractor
+      explanations and difficulty tags; **independent corpus** from
+      the paper files. Uses `q-NNNN` ID scheme, no `category`/`mondai`
+      fields, `correctAnswer` is a string. **0 ID overlap** with paper
+      files - questions.json is not a "source" for paper-bound questions;
+      the two corpora are parallel, not source-and-derived. Calling
+      questions.json a "bank source" in earlier README revisions was
+      misleading; corrected 2026-05-22 per DOCS-Q-001.)
     - `data/papers/<cat>/paper-{1..7}.json` (per-category paper-pack
       files: bunpou / dokkai / goi / moji; 28 paper files total
-      containing 402 paper-bound questions)
+      containing 402 paper-bound questions - **independent corpus**
+      from questions.json with different schema and ID scheme: uses
+      `Q1..Q102` `kbSourceId`, `correctIndex` int, plus `mondai` and
+      `category` fields. Used for end-to-end timed-test simulations
+      matching the official JLPT N5 paper structure.)
   - `tools/check_content_integrity.py` derives N5 scope from the
     whitelist's union with the kanji whitelist for various invariants
     (JA-13, JA-66, JA-99 etc.)

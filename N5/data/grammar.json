@@ -58032,7 +58032,9 @@
         "〜ながら",
         "ながら"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "scope": "n4",
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. Verb-stem + ながら is mainstream N4 in Genki II L13, Minna no Nihongo I L28, Try! N4, Shin Kanzen Master N4. Previous late_n5 classification was over-permissive. Retained in grammar.json for traceability + future N4 build; scope='n4' filters it out of N5-only consumers."
     },
     {
       "id": "n5-145",
@@ -63384,7 +63386,9 @@
         "〜でしょう",
         "でしょう"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "scope": "n4",
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. 〜でしょう (probability / seeking-agreement formal) is consensus N4 across Genki II L12, Minna no Nihongo I L32, Try! N4, Shin Kanzen Master N4. scope='n4' filters it out of N5-only consumers."
     },
     {
       "id": "n5-158",
@@ -63822,7 +63826,9 @@
         "〜でしょう",
         "だろう"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "scope": "n4",
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. 〜だろう is the plain-form variant of 〜でしょう (n5-157); inherits N4 classification by parallelism. Genki II / Minna no Nihongo I / Try! / Shin Kanzen Master all categorize as N4. scope='n4' filters it out of N5-only consumers."
     },
     {
       "id": "n5-159",
@@ -71524,7 +71530,9 @@
         "べんきょう"
       ],
       "meaning_ja_provenance": "phase1_thin_expand_2026_05_13_run4",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "scope": "n4",
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. 〜ないといけない (obligation, colloquial-formal) is consensus N4 across Genki II L12, Minna no Nihongo I L37 region, Try! N4. The variant 〜なくてはいけない (n5-173) is the N5-boundary form retained in scope. scope='n4' filters this entry out of N5-only consumers."
     },
     {
       "id": "n5-176",
@@ -71914,7 +71922,9 @@
         "なくちゃ",
         "なきゃ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "scope": "n4",
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. 〜なくちゃ / 〜なきゃ are casual contractions of 〜なくては / 〜なければ. All 4 references (Genki II, Minna no Nihongo I, Try! N4, Shin Kanzen Master N4) classify as N4 colloquial. The formal counterpart 〜なくてはいけない (n5-173) is the N5-boundary form retained. scope='n4' filters this entry out of N5-only consumers."
     },
     {
       "id": "n5-177",

@@ -16,8 +16,8 @@
   "exception_kanji": [
     {
       "kanji": "京",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 東京 / 大阪 proper-noun placenames in dokkai passages (e.g., paper-3.json Passage 24 'shinkansen 大阪 → 東京'). Place-name kanji whitelisted per dokkai authentic-content policy.",
       "surfaces": [
         "dokkai-passage"
       ]
@@ -32,24 +32,24 @@
     },
     {
       "kanji": "作",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 作る / 作って / 作りかた verb compounds in dokkai cooking/making contexts (e.g., paper-1.json Passage 5 'おすしを 作ります'; paper-5.json Passage C 'カレーの 作りかたを 教わって'). N5 verb 作る is high-frequency in dokkai.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "使",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 使える / 使えません / 使いたい potential/permission forms in dokkai utility contexts (e.g., paper-3.json Passage 19 'プールも 使えません'; paper-7.json Passage 6 '図書館を つかいたい'). N5 verb 使う is whitelisted; 使 supports the kanji-spelled compound.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "同",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 同じ identity-adjective in dokkai recurring-encounter contexts (e.g., paper-1.json Passage 7 'こうえんで いつも 同じ おじいさんに あいます'). N5 adjective 同じ is whitelisted; kanji 同 supports the standard spelling.",
       "surfaces": [
         "dokkai-passage"
       ]
@@ -64,16 +64,16 @@
     },
     {
       "kanji": "回",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 回 counter for frequency in dokkai routine contexts (e.g., paper-3.json Passage 19 '一しゅうかんに 三回 プールに 行きます'). N5 counter 回 is core scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "図",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 図書館 (library) compound in dokkai reading-habit contexts (e.g., paper-1.json Passage 4 '本やで 本を 買う... 図書館で かりる'; paper-7.json Item 6 schedule). 図書館 is a high-frequency N5-dokkai location compound.",
       "surfaces": [
         "dokkai-passage"
       ]
@@ -88,80 +88,80 @@
     },
     {
       "kanji": "家",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 家 (home/house) high-frequency location noun in dokkai daily-life contexts (e.g., paper-1.json Passage 1 '友だちの 家に いました'; paper-2.json Passage 14 '家から かいしゃまで 一時間 ぐらい'; paper-3.json Passage 22 '私たちの 家は 大学から とおい'). N5 noun 家 is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "弁",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 弁当 (lunch box) compound in dokkai outing/picnic contexts (e.g., paper-2.json Passage 10 '弁当と 水を じぶんで もって 来て'; paper-2.json Passage 12 'こうえんで お弁当を 食べる つもり'). 弁当 is a canonical N5-dokkai lunch noun.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "当",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 当 appears exclusively in 弁当 (lunch box) compound in dokkai (paper-2.json Passages 10 + 12). Allowed as compound-component kanji of 弁当.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "思",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 思います / 思う opinion-marker verb in dokkai reasoning contexts (e.g., paper-3.json Passage 21 'ケーキを かおうと 思います'; paper-5.json Passage C 'よろこぶと 思います'; paper-6.json Passage J 'いい 本に なると 思います'). N5 verb 思う is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "教",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 教える / 教わる teach-learn verb pair in dokkai instruction contexts (e.g., paper-3.json Passage 18 '父は 私にも 中国語を 教えて くれます'; paper-5.json Passage B 'ともだちに ピアノを 教えて'; paper-5.json Passage C 'カレーの 作りかたを 教わって'). N5 verb 教える is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "朝",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 朝 / 朝ごはん / まい朝 morning-time noun in dokkai daily-routine contexts (e.g., paper-2.json Passage 10 '朝 七時に 駅に'; paper-3.json Passage 20 '朝ごはんに いつも パンと ぎゅうにゅうを 食べます'; paper-4.json Passage 27 'まい朝、 でんしゃの 中で パンを 食べます'). N5 time noun 朝 is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "楽",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 楽しい / 楽しみ enjoyment-adjective in dokkai positive-affect contexts (e.g., paper-2.json Passage 11 '毎日 学校に 行くのが 楽しいと 言って'; paper-4.json Passage 26 '朝から 楽しみに して います'). N5 adjective 楽しい is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "犬",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 犬 (dog) animal noun in dokkai pet/family-pet contexts (e.g., paper-2.json Passage 15 '私の いえには 大きい 犬が 一ぴき'). N5 animal noun 犬 is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "病",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 病院 (hospital) compound in dokkai health/workplace contexts (e.g., paper-2.json Passage 9 '水曜日は 病院に 行きました'; paper-2.json Passage 11 '母は 病院で はたらいて'). 病院 is a canonical N5-dokkai location compound.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "終",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 終わる / 終わったら finish-verb in dokkai temporal-sequence contexts (e.g., paper-3.json Passage 17 'えいがが 終わったら、 こうちゃの きっさてんで すこし 話し'). N5 verb 終わる is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
@@ -176,48 +176,48 @@
     },
     {
       "kanji": "近",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 近い / 近く proximity-adjective + adverb in dokkai location/distance contexts (e.g., paper-3.json Passage 22 '大学の ちかくの アパート' — kana form ちかく but the 近 kanji form also appears in dokkai location-description prose). N5 adjective 近い is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "阪",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 大阪 (Osaka) proper-noun placename in dokkai travel/business contexts (e.g., paper-3.json Passage 24 'やまださんは あした 大阪に しゅっちょう'). Place-name kanji 阪 is whitelisted as compound-component of 大阪.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "院",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 院 appears in 病院 (hospital) compound in dokkai health/workplace contexts (e.g., paper-2.json Passages 9 + 11). Allowed as compound-component kanji of 病院.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "青",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 青い (blue) color-adjective in dokkai nature/scenery contexts (e.g., paper-2.json Passage 12 'そらは 青くて、 きれいな 花が さいて'). N5 color adjective 青い is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "館",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 図書館 (library) compound in dokkai location contexts (paper-1.json Passage 4 + paper-7.json Item 6). Allowed as compound-component kanji of 図書館 (paired with 図).",
       "surfaces": [
         "dokkai-passage"
       ]
     },
     {
       "kanji": "黒",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 黒い (black) color-adjective in dokkai descriptive contexts (e.g., paper-6.json Passage I '黒い ねこは クロ、 白い ねこは シロ'). N5 color adjective 黒い is core dokkai scope.",
       "surfaces": [
         "dokkai-passage"
       ]
@@ -906,8 +906,8 @@
     },
     {
       "kanji": "妹",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 妹 (younger sister) family-relation noun in dokkai sibling/family contexts (e.g., paper-3.json Passage 22 '私の 妹は 来年の 四月、 大学に 入ります'; paper-6.json Passage J '妹の へやには 本が いっぱい あります'). Family-relation kanji whitelisted in dokkai per authentic-content policy.",
       "surfaces": [
         "dokkai-passage",
         "paper-distractor"
@@ -918,8 +918,8 @@
     },
     {
       "kanji": "紙",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 紙 (paper) physical-object noun in dokkai school/homework contexts (e.g., paper-1.json Passage 6 'しゅくだいの 紙を わすれて しまいました... きょうしつから 紙を とって 来て くれませんか'). N5 noun 紙 is core dokkai scope.",
       "surfaces": [
         "dokkai-passage",
         "paper-distractor"
@@ -930,8 +930,8 @@
     },
     {
       "kanji": "自",
-      "addedAt": "<2026-05-02",
-      "reason": "Pre-formalization (initial dokkai authoring; rationale not individually recorded). Allowed in dokkai passages where authentic JLPT N5 reading texts routinely include this kanji.",
+      "addedAt": "2026-05-22-backfill",
+      "reason": "DOCS-DKE-001 backfill (2026-05-22): 自分 (self) reflexive pronoun + 自転車 (bicycle) compound in dokkai self-reference and transportation contexts. N5 pronoun 自分 and noun 自転車 are core dokkai vocabulary.",
       "surfaces": [
         "dokkai-passage",
         "paper-distractor"

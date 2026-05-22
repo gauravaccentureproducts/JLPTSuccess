@@ -161,6 +161,20 @@ Built by `N5/tools/build_review_packet.py`.
   `build_timestamp`, `build_id`
 - `audio_files` lists (just per-item file paths; review the audio elsewhere)
 - `schema_version`, `spec_version`, hash/etag/checksum fields
+- **`branding.json`: all string values replaced with empty strings**
+  (`brand.name`, `brand.short_name`, `brand.header_label`, `brand.watermark_text`,
+  `brand.footer_attribution_html`, `brand.footer_homepage_url`,
+  `meta.title`, `meta.description`, `meta.og_title`, `meta.og_description`,
+  `meta.og_url`, `meta.twitter_title`, `meta.canonical_url`,
+  `trust_strip.en`, `trust_strip.hi`). The schema-shape is preserved
+  (all keys present, all values blank). **This is a privacy/anonymity
+  strip** to protect brand-identifying content from leaking into the
+  review chat — it is NOT a bug in the live site. The live site's
+  branding works via hardcoded values in `N5/index.html`
+  (`<title>JLPT N5</title>` + ~46 other JLPT references); branding.json
+  is consumed as an optional override layer for self-host deploys.
+  Added 2026-05-22 per DOCS-BRAND-001 to prevent reviewers from
+  misreading the all-empty branding.json as a live-site defect.
 
 **Files skipped entirely (pure CI/build artifacts):**
 - `audio_manifest.json` — 770 KB of file paths

@@ -1381,6 +1381,25 @@ CHECKS: list[tuple[str, str, callable]] = [
     # Rejects: datetime objects, date strings (YYYY-MM-DD), empty cells
     # on Fixed rows, free text that is neither a hash nor a sentinel.
     ("JA-146", "xlsx Fix Commit cell on every Fixed row is a commit hash OR a '<...>'-shaped sentinel (closes the type-confusion gap surfaced 2026-05-22)", lambda: _check_ja_146_xlsx_fix_commit_shape()),
+    # JA-147 (2026-05-22): DOCS-VOCAB-006 whitelist-alignment + README parity.
+    # The whitelist tokens NOT matching any vocab.json form/reading
+    # value MUST equal the set documented in n5_vocab_whitelist_README.md's
+    # "Known mismatches" section. Catches the drift where the README
+    # falls out of sync with the actual computed mismatch set.
+    ("JA-147", "whitelist ↔ vocab.json mismatch set equals README 'Known mismatches' list (DOCS-VOCAB-006 guard, 2026-05-22)", lambda: _check_ja_147_whitelist_readme_parity()),
+    # JA-148 (2026-05-22): DOCS-CORE-001 scope classification agreement.
+    # Every grammar.json entry's id must appear in EITHER core_n5
+    # OR late_n5 OR deferred_to_n4 in n5_core_pattern_ids.json. AND:
+    # entries classified deferred_to_n4 must have scope='n4'; entries
+    # classified core_n5/late_n5 must have scope='n5' or absent (n5 default).
+    ("JA-148", "grammar.json scope field agrees with n5_core_pattern_ids.json classification (DOCS-CORE-001 guard, 2026-05-22)", lambda: _check_ja_148_grammar_scope_classification()),
+    # JA-149 (2026-05-22): DOCS-DKE-001 no-placeholder-boilerplate.
+    # Every dokkai_kanji_exception entry's `reason` field must NOT
+    # contain the placeholder phrases "Pre-formalization" or
+    # "rationale not individually recorded". The backfill landed 25
+    # specific rationales; this prevents the placeholder from being
+    # re-introduced for new exception entries.
+    ("JA-149", "dokkai_kanji_exception entries have specific rationales, no placeholder boilerplate (DOCS-DKE-001 guard, 2026-05-22)", lambda: _check_ja_149_dokkai_kanji_exception_no_placeholder()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -6428,6 +6447,23 @@ def _check_ja_107_version_json_counts() -> list[str]:
                     f"data/papers/manifest.json.{manifest_key}={actual} (drift; "
                     f"INV-4 violation)"
                 )
+        elif key == "grammar_n5":
+            # DOCS-CORE-001 close-out (2026-05-22): scope-filtered count
+            # of grammar.json patterns whose scope != 'n4'. Sibling to
+            # `grammar` (total) — `grammar_n5` is the N5-only subset.
+            try:
+                gd = json.loads((ROOT / "data" / "grammar.json").read_text(encoding="utf-8"))
+            except Exception as e:
+                failures.append(f"JA-107 could not read data/grammar.json for grammar_n5: {e}")
+                continue
+            patterns = gd.get("patterns") or []
+            actual = sum(1 for p in patterns if isinstance(p, dict) and p.get("scope") != "n4")
+            if declared != actual:
+                failures.append(
+                    f"JA-107 version.json.counts.grammar_n5={declared} but "
+                    f"grammar.json has {actual} entries with scope != 'n4' (drift; "
+                    f"INV-4 violation)"
+                )
         else:
             # Unknown count key — surface as a warning so we maintain the
             # explicit-source-mapping discipline.
@@ -8059,6 +8095,181 @@ def _check_ja_146_xlsx_fix_commit_shape() -> list[str]:
         )
 
     wb.close()
+    return failures
+
+
+def _check_ja_147_whitelist_readme_parity() -> list[str]:
+    """DOCS-VOCAB-006 (2026-05-22) drift guard.
+
+    The whitelist tokens NOT matching any vocab.json form/reading
+    value MUST equal the set documented in n5_vocab_whitelist_README.md's
+    "Known mismatches" section header (regex extracts the
+    "Known mismatches (N, as of YYYY-MM-DD)" count + the comma-separated
+    backticked tokens).
+
+    Catches the class where:
+      - a new token is added to the whitelist without a corresponding
+        vocab.json entry, but the README isn't updated;
+      - a vocab.json entry is added for a previously-mismatched token,
+        but the README isn't trimmed.
+    """
+    import json as _json, re as _re
+    wl_path = ROOT / "data" / "n5_vocab_whitelist.json"
+    vocab_path = ROOT / "data" / "vocab.json"
+    readme_path = ROOT / "data" / "n5_vocab_whitelist_README.md"
+    if not (wl_path.exists() and vocab_path.exists() and readme_path.exists()):
+        return []
+    wl = _json.loads(wl_path.read_text(encoding="utf-8"))
+    wl_tokens = wl if isinstance(wl, list) else (wl.get("tokens") or list(wl.keys()))
+    vocab = _json.loads(vocab_path.read_text(encoding="utf-8"))
+    vlist = vocab if isinstance(vocab, list) else (vocab.get("vocab") or vocab.get("entries") or [])
+    forms = set()
+    readings = set()
+    for e in vlist:
+        if isinstance(e, dict):
+            if "form" in e: forms.add(e["form"])
+            if "reading" in e: readings.add(e["reading"])
+    actual_mismatches = {t for t in wl_tokens if t not in forms and t not in readings}
+
+    readme = readme_path.read_text(encoding="utf-8")
+    # Extract the "Known mismatches" section header count + the backticked
+    # tokens in the bulleted list.
+    header_m = _re.search(r"###\s+Known mismatches\s*\(\s*(\d+)\s*,", readme)
+    if not header_m:
+        return [f"JA-147 {readme_path.relative_to(ROOT)}: cannot find '### Known mismatches (N, ...)' header"]
+    declared_count = int(header_m.group(1))
+    # The bulleted list starts after the header; pull backticked tokens
+    # until the next "###" or top-level "## " header.
+    section_start = header_m.end()
+    section_end = _re.search(r"\n##\s", readme[section_start:])
+    section_end_idx = section_start + (section_end.start() if section_end else len(readme) - section_start)
+    section_text = readme[section_start:section_end_idx]
+    declared_tokens = set(_re.findall(r"^\s*-\s+`([^`]+)`", section_text, _re.M))
+
+    failures: list[str] = []
+    if declared_count != len(actual_mismatches):
+        failures.append(
+            f"JA-147 {readme_path.relative_to(ROOT)}: 'Known mismatches' header says "
+            f"({declared_count}, ...) but actual whitelist↔vocab mismatch count is "
+            f"{len(actual_mismatches)} ({sorted(actual_mismatches)})"
+        )
+    if declared_tokens != actual_mismatches:
+        only_readme = declared_tokens - actual_mismatches
+        only_actual = actual_mismatches - declared_tokens
+        msg = f"JA-147 {readme_path.relative_to(ROOT)}: 'Known mismatches' bulleted list ≠ actual mismatch set."
+        if only_readme:
+            msg += f" README claims (but actually matches): {sorted(only_readme)}."
+        if only_actual:
+            msg += f" Actually mismatches (but README missing): {sorted(only_actual)}."
+        failures.append(msg)
+    return failures
+
+
+def _check_ja_148_grammar_scope_classification() -> list[str]:
+    """DOCS-CORE-001 (2026-05-22) drift guard.
+
+    Every grammar.json entry's `id` must appear in EITHER core_n5 OR
+    late_n5 OR deferred_to_n4 in n5_core_pattern_ids.json. AND:
+      - Entries classified deferred_to_n4 must have `scope: 'n4'`.
+      - Entries classified core_n5 or late_n5 must have `scope: 'n5'`
+        OR no `scope` field (n5 is the default).
+    """
+    import json as _json
+    g_path = ROOT / "data" / "grammar.json"
+    p_path = ROOT / "data" / "n5_core_pattern_ids.json"
+    if not (g_path.exists() and p_path.exists()):
+        return []
+    g = _json.loads(g_path.read_text(encoding="utf-8"))
+    gl = g if isinstance(g, list) else (g.get("patterns") or g.get("grammar") or [])
+    p = _json.loads(p_path.read_text(encoding="utf-8"))
+
+    def ids_of(section):
+        """core_n5 in n5_core_pattern_ids.json is a plain list of ID
+        strings; late_n5 and deferred_to_n4 are lists of dicts with `id`
+        field. Accept both shapes."""
+        if isinstance(section, list):
+            out = []
+            for item in section:
+                if isinstance(item, str):
+                    out.append(item)
+                elif isinstance(item, dict) and "id" in item:
+                    out.append(item["id"])
+            return out
+        if isinstance(section, dict):
+            return [item.get("id") for item in (section.get("ids") or []) if isinstance(item, dict)] or list(section.keys())
+        return []
+
+    core_n5 = set(ids_of(p.get("core_n5") or []))
+    late_n5 = set(ids_of(p.get("late_n5") or []))
+    deferred = set(ids_of(p.get("deferred_to_n4") or []))
+
+    failures: list[str] = []
+    for entry in gl:
+        if not isinstance(entry, dict):
+            continue
+        eid = entry.get("id")
+        scope = entry.get("scope")
+        if eid not in core_n5 and eid not in late_n5 and eid not in deferred:
+            failures.append(
+                f"JA-148 grammar.json id {eid!r} not classified in n5_core_pattern_ids.json "
+                f"(must appear in core_n5 OR late_n5 OR deferred_to_n4)"
+            )
+            continue
+        if eid in deferred and scope != "n4":
+            failures.append(
+                f"JA-148 grammar.json id {eid!r} classified deferred_to_n4 in "
+                f"n5_core_pattern_ids.json but scope={scope!r} (expected 'n4')"
+            )
+            continue
+        if eid in (core_n5 | late_n5) and scope not in (None, "n5"):
+            failures.append(
+                f"JA-148 grammar.json id {eid!r} classified core_n5/late_n5 in "
+                f"n5_core_pattern_ids.json but scope={scope!r} (expected 'n5' or absent)"
+            )
+    return failures
+
+
+def _check_ja_149_dokkai_kanji_exception_no_placeholder() -> list[str]:
+    """DOCS-DKE-001 (2026-05-22) drift guard.
+
+    Every entry in data/dokkai_kanji_exception.json's exception_kanji
+    list must have a `reason` field that does NOT contain the
+    placeholder phrases "Pre-formalization" or "rationale not
+    individually recorded".
+
+    The 2026-05-22 backfill replaced 25 placeholder entries with
+    per-kanji rationales derived from actual dokkai-corpus usage.
+    This invariant prevents future re-introduction of the placeholder
+    when new exception entries are added.
+    """
+    import json as _json
+    fp = ROOT / "data" / "dokkai_kanji_exception.json"
+    if not fp.exists():
+        return []
+    d = _json.loads(fp.read_text(encoding="utf-8"))
+    ek = d.get("exception_kanji") if isinstance(d, dict) else d
+    if not isinstance(ek, list):
+        return []
+    failures: list[str] = []
+    for entry in ek:
+        if not isinstance(entry, dict):
+            continue
+        k = entry.get("kanji")
+        reason = entry.get("reason") or ""
+        if not reason.strip():
+            failures.append(f"JA-149 dokkai_kanji_exception {k!r}: reason field empty")
+            continue
+        if "Pre-formalization" in reason:
+            failures.append(
+                f"JA-149 dokkai_kanji_exception {k!r}: reason contains placeholder "
+                f"'Pre-formalization' — replace with a specific per-kanji rationale"
+            )
+            continue
+        if "rationale not individually recorded" in reason:
+            failures.append(
+                f"JA-149 dokkai_kanji_exception {k!r}: reason contains placeholder "
+                f"'rationale not individually recorded' — replace with a specific per-kanji rationale"
+            )
     return failures
 
 

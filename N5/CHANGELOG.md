@@ -2,6 +2,74 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.9 - 2026-05-22 (5-bug close-out: DOCS-VOCAB-006 + DOCS-CORE-001 + DOCS-BRAND-001 + DOCS-Q-001 + DOCS-DKE-001 + 3 new CI invariants)
+
+### Bug-spec verification (DOCS-VOCAB-005 carry-over rejected)
+
+Review-packet meta-audit surfaced 6 candidate bugs. Per procedure-manual
+F.41.4 (bug-spec-vs-reality verification), each was checked against current
+data BEFORE applying any fix. DOCS-VOCAB-005's "CARRY-OVER" claim that 28
+paper files still hold KnowledgeBank/ refs was rejected: all 28 files have
+held the literal sentinel "(authored in-place)" since commit b7f5787
+(2026-05-22). The audit pipeline ran against a review-packet snapshot
+pre-dating that fix. 5 of 6 bugs were real and shipped in this batch.
+
+### Fixed
+
+- **BUG-156 (DOCS-VOCAB-006)** - README documented 3 known whitelist
+  mismatches but actual count was 4. では was undocumented. Updated
+  data/n5_vocab_whitelist_README.md "Known mismatches" section to 4
+  entries (倍, 国籍, 週末, では) with rationale for each. Option (a)
+  authoring a standalone では vocab.json entry deferred as separate work.
+
+- **BUG-157 (DOCS-CORE-001)** - 5 grammar.json entries (n5-144, n5-157,
+  n5-158, n5-175, n5-176) were classified as deferred_to_n4 in
+  n5_core_pattern_ids.json but had no scope marker in grammar.json.
+  Added scope='n4' + scope_note to all 5; added grammar_n5: 173 to
+  version.json.counts alongside grammar: 178. JA-107 extended.
+
+- **BUG-158 (DOCS-BRAND-001)** - review-packet README's "Stripped"
+  section didn't acknowledge branding.json strip. Added explicit bullet
+  to data/_review_packet/README.md documenting the privacy/anonymity
+  strip (live site unaffected; uses hardcoded title in index.html).
+
+- **BUG-159 (DOCS-Q-001)** - questions.json (290 q-NNNN IDs) described
+  as "bank source" for paper files (Q1..Q102 IDs); verified 0 ID overlap.
+  Rewrote vocab README consumers section to call out the independence.
+
+- **BUG-160 (DOCS-DKE-001)** - 25 of 90 dokkai_kanji_exception entries
+  carried placeholder boilerplate ("Pre-formalization... rationale not
+  individually recorded"). Backfilled all 25 with specific rationales
+  derived from actual dokkai-corpus surfaces.
+
+### Added
+
+- **JA-147** - whitelist vs vocab.json mismatch set MUST equal the
+  "Known mismatches" enumeration in n5_vocab_whitelist_README.md.
+- **JA-148** - every grammar.json entry's id must appear in EITHER
+  core_n5 OR late_n5 OR deferred_to_n4 in n5_core_pattern_ids.json;
+  classification must agree with the entry's scope field.
+- **JA-149** - dokkai_kanji_exception entries' reason field must NOT
+  contain placeholder phrases.
+- **JA-107 extension** - recognizes grammar_n5 as a scope-filtered
+  count.
+
+### Versioning
+
+- data/version.json: v1.15.8 -> v1.15.9. Counts include grammar_n5: 173.
+- cacheVersion + sw.js CACHE_VERSION + index.html ?v= bumped (JA-68).
+- Spec section 7.3 sample version.json + last-updated header updated.
+
+### State
+
+CI 151 / 151 invariants green (was 148; +JA-147 +JA-148 +JA-149).
+cross_artifact_sync_report.py exits CLEAN.
+Bug tracker 160 / 160 Fixed / 0 Open.
+
+Bounded framing: each new JA-NN catches its named pattern; none claim
+universal coverage of "all README staleness" / "all scope
+misclassification" / "all unspecific rationales".
+
 ## v1.15.8 - 2026-05-22 (test-coverage gap closures — JA-146 Fix Commit cell shape guard + TASKS↔codebase advisory tool)
 
 ### Background

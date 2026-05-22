@@ -84,6 +84,56 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.15.9 - 2026-05-22 (5-bug close-out: DOCS-VOCAB-006 + DOCS-CORE-001 + DOCS-BRAND-001 + DOCS-Q-001 + DOCS-DKE-001 + 3 new CI invariants)</h2>
+<h3>Bug-spec verification (DOCS-VOCAB-005 carry-over rejected)</h3>
+<p>Review-packet meta-audit surfaced 6 candidate bugs. Per procedure-manual F.41.4 (bug-spec-vs-reality verification), each was checked against current data BEFORE applying any fix. DOCS-VOCAB-005&#x27;s &quot;CARRY-OVER&quot; claim that 28 paper files still hold KnowledgeBank/ refs was rejected: all 28 files have held the literal sentinel &quot;(authored in-place)&quot; since commit b7f5787 (2026-05-22). The audit pipeline ran against a review-packet snapshot pre-dating that fix. 5 of 6 bugs were real and shipped in this batch.</p>
+<h3>Fixed</h3>
+<ul>
+<li><strong>BUG-156 (DOCS-VOCAB-006)</strong> - README documented 3 known whitelist</li>
+</ul>
+<p>mismatches but actual count was 4. では was undocumented. Updated data/n5_vocab_whitelist_README.md &quot;Known mismatches&quot; section to 4 entries (倍, 国籍, 週末, では) with rationale for each. Option (a) authoring a standalone では vocab.json entry deferred as separate work.</p>
+<ul>
+<li><strong>BUG-157 (DOCS-CORE-001)</strong> - 5 grammar.json entries (n5-144, n5-157,</li>
+</ul>
+<p>n5-158, n5-175, n5-176) were classified as deferred_to_n4 in n5_core_pattern_ids.json but had no scope marker in grammar.json. Added scope=&#x27;n4&#x27; + scope_note to all 5; added grammar_n5: 173 to version.json.counts alongside grammar: 178. JA-107 extended.</p>
+<ul>
+<li><strong>BUG-158 (DOCS-BRAND-001)</strong> - review-packet README&#x27;s &quot;Stripped&quot;</li>
+</ul>
+<p>section didn&#x27;t acknowledge branding.json strip. Added explicit bullet to data/_review_packet/README.md documenting the privacy/anonymity strip (live site unaffected; uses hardcoded title in index.html).</p>
+<ul>
+<li><strong>BUG-159 (DOCS-Q-001)</strong> - questions.json (290 q-NNNN IDs) described</li>
+</ul>
+<p>as &quot;bank source&quot; for paper files (Q1..Q102 IDs); verified 0 ID overlap. Rewrote vocab README consumers section to call out the independence.</p>
+<ul>
+<li><strong>BUG-160 (DOCS-DKE-001)</strong> - 25 of 90 dokkai_kanji_exception entries</li>
+</ul>
+<p>carried placeholder boilerplate (&quot;Pre-formalization... rationale not individually recorded&quot;). Backfilled all 25 with specific rationales derived from actual dokkai-corpus surfaces.</p>
+<h3>Added</h3>
+<ul>
+<li><strong>JA-147</strong> - whitelist vs vocab.json mismatch set MUST equal the</li>
+</ul>
+<p>&quot;Known mismatches&quot; enumeration in n5_vocab_whitelist_README.md.</p>
+<ul>
+<li><strong>JA-148</strong> - every grammar.json entry&#x27;s id must appear in EITHER</li>
+</ul>
+<p>core_n5 OR late_n5 OR deferred_to_n4 in n5_core_pattern_ids.json; classification must agree with the entry&#x27;s scope field.</p>
+<ul>
+<li><strong>JA-149</strong> - dokkai_kanji_exception entries&#x27; reason field must NOT</li>
+</ul>
+<p>contain placeholder phrases.</p>
+<ul>
+<li><strong>JA-107 extension</strong> - recognizes grammar_n5 as a scope-filtered</li>
+</ul>
+<p>count.</p>
+<h3>Versioning</h3>
+<ul>
+<li>data/version.json: v1.15.8 -&gt; v1.15.9. Counts include grammar_n5: 173.</li>
+<li>cacheVersion + sw.js CACHE_VERSION + index.html ?v= bumped (JA-68).</li>
+<li>Spec section 7.3 sample version.json + last-updated header updated.</li>
+</ul>
+<h3>State</h3>
+<p>CI 151 / 151 invariants green (was 148; +JA-147 +JA-148 +JA-149). cross_artifact_sync_report.py exits CLEAN. Bug tracker 160 / 160 Fixed / 0 Open.</p>
+<p>Bounded framing: each new JA-NN catches its named pattern; none claim universal coverage of &quot;all README staleness&quot; / &quot;all scope misclassification&quot; / &quot;all unspecific rationales&quot;.</p>
 <h2>v1.15.8 - 2026-05-22 (test-coverage gap closures — JA-146 Fix Commit cell shape guard + TASKS↔codebase advisory tool)</h2>
 <h3>Background</h3>
 <p>A meta-audit conversation surfaced two coverage classes the existing 148 invariants weren&#x27;t designed to catch:</p>
