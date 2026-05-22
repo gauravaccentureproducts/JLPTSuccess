@@ -1,6 +1,6 @@
 {
-  "version": "v1.15.5",
-  "builtAt": "2026-05-17T00:00:00Z",
+  "version": "v1.15.6",
+  "builtAt": "2026-05-22T00:00:00Z",
   "counts": {
     "grammar": 178,
     "vocab": 995,
@@ -11,6 +11,6 @@
     "papers": 28,
     "paperQuestions": 402
   },
-  "cacheVersion": "jlptsuccess-n5-v1.15.5",
+  "cacheVersion": "jlptsuccess-n5-v1.15.6",
   "note": "Single source of truth for build-stamp + corpus counts (public). Read by js/app.js footer parser (fallback path), sw.js CACHE_VERSION derivation, and the README-consistency check. CI metadata (invariants passing count, etc.) lives in sibling data/build_metadata.json per IMP-002. Regenerate via `python tools/build_version_json.py`. CI invariant JA-107 (added 2026-05-17, INV-4 of cross-artifact sync protocol) enforces counts == live data array lengths; vocab count synced 1009 → 995 in the protocol-install commit after BUG-018/019/024 dedup residue. cacheVersion bump deferred to the next release commit (no js/css/sw change in the protocol-install batch)."
 }

@@ -2,6 +2,98 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.15.6 - 2026-05-22 (DOCS-VOCAB-005 — paper-file source_file canonical sentinel)
+
+### Fixed
+
+- **BUG-136 (DOCS-VOCAB-005) — 28 paper files trimmed to canonical
+  sentinel.** Replaced the verbose prose annotation
+  `"(authored in-place; was KnowledgeBank/<x>_questions_n5.md before
+  KnowledgeBank/ merge into data/ + docs/N5-syllabus-methodology.md on
+  2026-05-14)"` in `source_file` on every paper file under
+  `data/papers/{bunpou,dokkai,goi,moji}/paper-{1..7}.json` (28 files)
+  with the literal canonical sentinel `"(authored in-place)"`.
+  Closes the unaddressed half of DOCS-VOCAB-003, which marked itself
+  Fixed on 2026-05-21 after only reworking the README (case (a)) and
+  never touching the paper files (case (b)).
+
+  Bug-spec verification rejected the original proposed fix (replace
+  with `docs/N5-syllabus-methodology.md#bunpou-questions` and parallel
+  per-category anchors) because:
+    1. Those fragment IDs don't exist in the methodology doc — it has
+       `## Part C/D/E/F` headings covering authoring conventions, not
+       per-category question content.
+    2. Pointing `source_file` at the methodology doc would falsely
+       imply that doc contains the questions; it describes how
+       questions are authored.
+    3. Replacing accurate "authored in-place" prose with a non-
+       existent pointer is a regression, not a fix.
+
+  Historical KB breadcrumb preserved in CHANGELOG entries about the
+  2026-05-14 merge + `data/n5_vocab_whitelist_README.md` + git history
+  (commit `136abc4`); no information lost.
+
+### Added
+
+- **JA-145** — CI invariant: every `data/papers/<cat>/paper-N.json`
+  `source_file` must be either (a) a path that resolves to an existing
+  repo file under `N5/`, OR (b) the literal canonical sentinel
+  `"(authored in-place)"`. Any other value fails. Locks the
+  canonical-sentinel pattern for authored-in-place data-metadata
+  fields. Catches re-introduction of stale historical breadcrumbs
+  and pointers to deleted files.
+
+- **Procedure manual F.41** — canonical-sentinel pattern for
+  authored-in-place data-metadata fields + multi-case-bug close-out
+  discipline (every multi-case bug must specify which case(s) the
+  close-out addressed, and explicitly note remaining cases as
+  resolved-in-batch or filed-as-follow-up). Generalizes the
+  DOCS-VOCAB-003 → DOCS-VOCAB-005 lesson into Nx-builder methodology.
+
+- **Accuracy prompt §A79** — full pattern documentation including
+  bounded-coverage phrasing and the operational lesson about
+  multi-case-bug close-outs.
+
+- **N5Improvement Phase-0 source_file canonical-sentinel block** —
+  maintainer-side mirror of the JA-145 check; runs pre-release.
+
+- **AUDIT-COVERAGE Part 37** — close-out narrative + bug-spec
+  verification record + bounded-coverage phrasing.
+
+### Pre-existing drift fixed in same commit (Rule 5)
+
+- **Sync-tool catalog gap** — A76 (MOJI close-out), A77 (governance
+  docs close-out), A78 (CI-recovery triage) were added to
+  `prompts/Japanese language Accuracy check.txt` during 2026-05-21
+  batches but their entries were never added to
+  `tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py`.
+  Filled. Sync tool now materializes 4 new xlsx scenario rows
+  (A76 + A77 + A78 + A79 + 2 new Phase-0 blocks).
+
+- **`Phase-0 CI-recovery triage regression block` catalog gap** —
+  added to `N5Improvement.txt` during 2026-05-21 CI-recovery batch
+  but never to the sync catalog. Filled.
+
+- **`changelog/index.html` mirror staleness** — JA-113 surfaced that
+  the changelog mirror didn't reflect the 2026-05-21 CI-recovery
+  Unreleased entry. Regenerated via `build_static_mirrors.py
+  --stages meta`.
+
+### State
+
+CI **147 / 147 invariants green** (was 146; +JA-145).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **155 / 155 Fixed / 0 Open**.
+
+`version.json` bumped to **v1.15.6** (corpus counts unchanged —
+grammar 178, vocab 995, kanji 106, reading 54, listening 50, papers
+28, paperQuestions 402). `cacheVersion` bumped in parallel.
+
+Bounded framing: JA-145 prevents re-introduction of the specific
+patterns "parenthesized prose other than the canonical sentinel" and
+"path that does not resolve under N5/"; it does NOT catch a future
+case where `source_file` resolves to a semantically-wrong file.
+
 ## Unreleased - 2026-05-21 (CI-recovery triage — Playwright suite green for the first time since 2026-05-03)
 
 ### CI infrastructure (continued)

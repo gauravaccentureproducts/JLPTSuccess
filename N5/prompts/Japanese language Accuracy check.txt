@@ -4854,3 +4854,69 @@ N5/tests/p0-smoke.spec.js (onboardingSeen beforeEach pattern).
 
 CI invariants at this checkpoint: 146 (unchanged from A77 close).
 ============================================================
+
+A79. PAPER-FILE source_file CANONICAL SENTINEL
+     (DOCS-VOCAB-005 close-out, 2026-05-22).
+     (Audit category — added 2026-05-22, AUDIT-COVERAGE Part 37.)
+============================================================
+
+One durable defect class — a JSON metadata field carries historical
+breadcrumb prose long after the upstream file is deleted, embedding
+strings like "(authored in-place; was KnowledgeBank/<x>_questions_n5.md
+before KnowledgeBank/ merge into data/ + docs/N5-syllabus-methodology.md
+on 2026-05-14)" in every paper-file across all 4 categories.
+
+Anti-pattern. When a directory is deleted as part of a refactor, every
+field that referenced that directory in prose either:
+  - keeps the prose (and the directory name leaks into N28 files of
+    metadata for years, including in CI greps / docs / search results
+    that misclassify it as a current pointer), or
+  - is replaced with a half-fix that breaks correctness (e.g., pointing
+    source_file at a methodology doc that doesn't actually contain the
+    sourced content; what DOCS-VOCAB-005's original bug spec proposed).
+
+Canonical sentinel pattern (CI JA-145). For data fields that represent
+provenance of authored-in-place content, define a literal canonical
+sentinel string and a parallel resolvable-path option. The CI invariant
+enforces: source_file in every paper file is EITHER
+  (a) a path that resolves to an existing repo file, OR
+  (b) the literal string "(authored in-place)".
+
+Other values fail. The sentinel approach is honest (questions ARE
+authored in-place), preserves the schema field (so downstream consumers
+don't break), and lets future external-source papers populate the
+field with a real path that JA-145 will verify resolves.
+
+DOCS-VOCAB-005 specifics:
+- Replaced 28 prose values across data/papers/{bunpou,dokkai,goi,moji}/
+  paper-{1..7}.json with the literal sentinel.
+- Wired JA-145 to lock the sentinel-or-path invariant.
+- Closes the unaddressed half of DOCS-VOCAB-003, which had marked itself
+  Fixed after only updating the README (case (a)) without touching the
+  28 paper files (case (b)).
+- Historical KB breadcrumb preserved in CHANGELOG + n5_vocab_whitelist_
+  README.md + git history (commit 136abc4); no information lost.
+
+Operational lesson — "Premature-close-without-fix detection":
+DOCS-VOCAB-003 demonstrates how a multi-case bug can be incorrectly
+closed by addressing only one case. The fix: in any bug that lists
+"case (a) OR case (b)" resolution paths, the close-out must specify
+which case was taken AND explicitly note the other case as either
+resolved-in-this-batch or filed-as-follow-up. Marking the bug Fixed
+without that disambiguation buries the unaddressed half.
+
+Bounded-coverage phrasing:
+  - "JA-145 catches *source_file values that are neither the literal
+    sentinel '(authored in-place)' nor a resolvable repo path*" — does
+    not catch a future case where source_file points at the wrong file
+    (would resolve but be semantically wrong).
+  - "Canonical sentinel pattern at *this one field*" — generalising to
+    other authored-in-place fields would need separate JA-NN with the
+    sentinel string each field uses.
+
+Source: DOCS-VOCAB-005 close-out 2026-05-22; fix tool
+tools/fix_docs_vocab_005_2026_05_22.py; procedure-manual §F.41;
+AUDIT-COVERAGE Part 37.
+
+CI invariants at this checkpoint: 147 (was 146; +JA-145).
+============================================================

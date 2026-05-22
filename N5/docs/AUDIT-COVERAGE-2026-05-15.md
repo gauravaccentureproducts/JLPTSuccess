@@ -5162,7 +5162,7 @@ CI invariant count: 141 → **145** at this checkpoint.
   refreshed via `tools/build_llm_surfaces_2026_05_18.py` (JA-125)
 - 5 `papers/moji-N/index.html` static mirrors regenerated (JA-113)
 
-### 4 durable defect classes (added to procedure-manual §F.38)
+### 4 durable defect classes (added to procedure-manual §F.41)
 
 | Class | CI gate | N5 instance | Lesson |
 |-------|---------|-------------|--------|
@@ -5503,3 +5503,149 @@ the CI skip gate.
   §A78 (test-side discovery patterns).
 - Improvement prompt: `prompts/N5Improvement.txt` Phase-0
   CI-recovery regression block.
+
+## ADDENDUM 2026-05-22 (Part 37) — DOCS-VOCAB-005 close-out: paper-file source_file canonical sentinel
+
+### Scope
+
+One governance-doc data-hygiene bug closing the unaddressed half of
+DOCS-VOCAB-003 (which closed prematurely on 2026-05-21 with only the
+README updated). DOCS-VOCAB-005 trims 28 paper-file `source_file`
+prose annotations to a canonical sentinel and wires JA-145 to
+prevent re-introduction.
+
+### Bug closed (Part 37)
+
+| Bug ID | Drift class | Where | Fix | Provenance |
+|---|---|---|---|---|
+| BUG-136 (DOCS-VOCAB-005) | Stale-prose-in-data-metadata | `data/papers/{bunpou,dokkai,goi,moji}/paper-{1..7}.json` × 28 files | Trimmed source_file from prose annotation to literal sentinel `(authored in-place)` | n/a (data structure change) |
+
+### Bug-spec verification before fix
+
+The original bug spec claimed the 28 paper files had `source_file:
+"KnowledgeBank/<x>_questions_n5.md"` as broken file-path references.
+Verified actual state: source_file values are explicit parenthesized
+prose annotations starting with `"(authored in-place; was KnowledgeBank/
+<x>_questions_n5.md before KnowledgeBank/ merge into data/ + docs/
+N5-syllabus-methodology.md on 2026-05-14)"`. A JSON consumer that
+treats this as a path fails at the leading parenthesis, not 404.
+
+The bug-spec's proposed fix (replace with
+`docs/N5-syllabus-methodology.md#bunpou-questions`) was rejected:
+- Those anchors don't exist in the methodology doc (it has Part C/D/E/F
+  headings; GitHub slugs would be `part-c--vocabulary-authoring-
+  conventions`, etc., not `bunpou-questions`).
+- Pointing source_file at the methodology doc would falsely imply
+  that doc contains the question content; it describes authoring
+  methodology, not question content.
+- Replacing accurate "authored in-place" prose with a non-existent
+  pointer would be a regression, not a fix.
+
+User confirmed Option 1 (trim prose to canonical sentinel). All 28
+files trimmed to `"(authored in-place)"`. Historical KB breadcrumb
+preserved in CHANGELOG + `n5_vocab_whitelist_README.md` + git history
+(commit 136abc4 of 2026-05-14).
+
+### CI invariant added (Part 37)
+
+**JA-145** — paper-file source_file canonical sentinel guard. For every
+`data/papers/<cat>/paper-N.json`, `source_file` must be either:
+  (a) a path that resolves to an existing repo file under N5/, OR
+  (b) the literal string `(authored in-place)`.
+
+Anything else fails. Honest scope: catches stale historical breadcrumbs
+and pointers to deleted files; does NOT catch a future case where
+source_file resolves to a file that is semantically wrong.
+
+### Pre-existing drift fixed in this commit (Rule 5)
+
+Three pre-existing drifts surfaced when running CI after the data fix:
+
+- **A76/A77/A78 catalog gap** — three audit categories were added to
+  `prompts/Japanese language Accuracy check.txt` during 2026-05-21
+  batches (MOJI close-out, DOCS-KANJI/DOCS-VOCAB close-out,
+  CI-recovery triage) but their entries were never added to the
+  `tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py`
+  catalog. JA-116 surfaced this. Filled with descriptions matching the
+  prompt content. Sync tool re-run, 4 new xlsx rows materialized
+  (A76 + A77 + A78 + A79; +2 new Phase-0 blocks).
+- **`Phase-0 CI-recovery triage regression block` catalog gap** —
+  added to N5Improvement.txt during 2026-05-21 CI-recovery batch
+  but never to the sync catalog. Filled.
+- **`changelog/index.html` mirror staleness** — JA-113 flagged that
+  the changelog mirror didn't reflect the 2026-05-21 CI-recovery
+  Unreleased entry. Regenerated via `build_static_mirrors.py
+  --stages meta`.
+
+### Bug-tracker hygiene (DOCS-VOCAB-003 follow-up)
+
+DOCS-VOCAB-003 (row 153, BUG-150) was marked Fixed with empty Fix Date /
+empty Fix Notes / a date string `2026-05-21` (not a commit hash) in the
+Fix Commit cell. Its multi-case resolution path ("case (a) reword README
+OR case (b) update paper files") was closed on case (a) only.
+
+Operational lesson generalized in procedure-manual §F.41 + accuracy
+prompt §A79 + N5Improvement Phase-0 block: every multi-case bug
+close-out MUST specify which case(s) were taken AND explicitly note
+remaining cases as either resolved-in-this-batch or filed-as-follow-up.
+Marking Fixed without this disambiguation buries the unaddressed half.
+
+DOCS-VOCAB-003's Fix Notes will be back-filled in this commit to
+cross-reference DOCS-VOCAB-005 as the case-(b) follow-up.
+
+### Files touched (Part 37)
+
+- `data/papers/{bunpou,dokkai,goi,moji}/paper-{1..7}.json` (28 — source_file trimmed)
+- `data/version.json` (v1.15.5 → v1.15.6 + cacheVersion bump + builtAt)
+- `data/index.json` (regenerated; byte-size parity restored)
+- `tools/check_content_integrity.py` (JA-145 added)
+- `tools/fix_docs_vocab_005_2026_05_22.py` (NEW)
+- `tools/file_docs_vocab_005_bug_2026_05_22.py` (NEW)
+- `tools/audit_docs_vocab_005_2026_05_22.py` (NEW — verification script)
+- `tools/audit_paper_kb_refs_2026_05_22.py` (NEW — broader KB-residue audit)
+- `tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py` (A76/A77/A78/A79 + 2 P0 catalog entries)
+- `specifications/test-scenarios-by-specialist-perspective.xlsx` (BUG-136 filed + 4 new scenario rows)
+- `prompts/Japanese language Accuracy check.txt` (§A79)
+- `prompts/N5Improvement.txt` (Phase-0 source_file sentinel block)
+- `docs/AUDIT-COVERAGE-2026-05-15.md` (this Part 37)
+- `docs/cross-artifact-sync-map.md` (Part 37 audit-log row)
+- `CHANGELOG.md` (Unreleased DOCS-VOCAB-005 entry)
+- `changelog/index.html` (mirror regenerated)
+- `specifications/JLPT-N5-Current-Implementation-Spec.md` (§25.4 JA-145 row + count 146 → 147)
+- `JLPT Common/procedure-manual-build-next-jlpt-level.md` (§F.41 canonical-sentinel pattern + multi-case close-out discipline)
+
+### Final state for Part 37
+
+CI **147 / 147 invariants green** (was 146; +JA-145).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **155 / 155 Fixed / 0 Open** (DOCS-VOCAB-005 flipped + 3 pre-existing drift items folded into this batch).
+
+### Bounded-coverage phrasing for Part 37
+
+- "JA-145 catches *values that are neither the literal sentinel nor
+  a resolvable repo path*" — does not catch a future case where
+  source_file points at a semantically-wrong but resolvable file.
+- "Canonical-sentinel pattern at *the source_file field*" — generalising
+  to other authored-in-place fields would need separate JA-NN per field
+  with the sentinel string each uses.
+- "Historical breadcrumb preserved in CHANGELOG / README / git history;
+  removed from 28 paper-files of data metadata" — the information
+  isn't lost, just relocated to the artifacts where audit-trail
+  context belongs.
+
+### Same drift-class lineage (Part 37)
+
+| Class | First seen | Next sighting | Lesson |
+|---|---|---|---|
+| Multi-case bug closed on only one case | DOCS-VOCAB-003 (2026-05-21) | DOCS-VOCAB-005 (2026-05-22) | Close-out must disambiguate which case(s) addressed; otherwise the unaddressed half surfaces as a follow-up bug |
+| Historical breadcrumb prose in data-metadata field | DOCS-VOCAB-005 source_file (28 files, 2026-05-22) | — | Canonical-sentinel pattern (sentinel OR resolvable path) on the field, with CI invariant locking it |
+
+### Cross-references
+
+- Procedure manual: §F.41 (canonical-sentinel pattern + multi-case-
+  close-out discipline).
+- CHANGELOG: 2026-05-22 Unreleased entry.
+- Accuracy prompt: §A79.
+- Improvement prompt: Phase-0 source_file canonical-sentinel block.
+- Spec: §25.4 JA-145 row.
+- Sync-map: 2026-05-22 row.

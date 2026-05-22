@@ -1603,6 +1603,42 @@ Source: CI-recovery triage 2026-05-21 (commits 397a933 through
 4c491b4); accuracy prompt §A78; procedure-manual §F.40;
 AUDIT-COVERAGE Part 36.
 
+### Phase-0 paper-file source_file canonical-sentinel regression block (added 2026-05-22)
+
+CI-enforced via JA-145 (introduced 2026-05-22). Maintainer-side
+Phase-0 mirror runs pre-release:
+
+1. **source_file canonical sentinel (DOCS-VOCAB-005 / JA-145)**
+   For every paper file under data/papers/<cat>/paper-N.json, read the
+   top-level `source_file` field. Assert it is exactly:
+   (a) the literal string `(authored in-place)`, OR
+   (b) a path that resolves to an existing repo file (relative to N5/).
+   Anything else fails. Expected: 0 hits across all 28 paper files.
+
+Bounded-coverage framing:
+  - "JA-145 catches *values that are neither the literal sentinel nor
+    a resolvable repo path*" — does not catch a future case where
+    source_file points at the wrong (but resolvable) file.
+  - "Canonical sentinel covers *this one field*" — generalising to
+    other authored-in-place fields needs separate JA-NN per field.
+  - "Honesty over breadcrumb" — historical KB references preserved in
+    CHANGELOG + n5_vocab_whitelist_README.md + git history; doesn't
+    need to live in 28 paper-file metadata fields.
+
+Operational lesson — multi-case-bug-close-out discipline:
+  DOCS-VOCAB-003 demonstrates how a bug listing "case (a) OR case (b)"
+  resolution paths can be incorrectly closed by addressing only one
+  case. Future close-outs of multi-case bugs MUST specify which case
+  was taken AND explicitly note the other case as either resolved-in-
+  this-batch or filed-as-follow-up. Marking Fixed without that
+  disambiguation buries the unaddressed half (which then surfaces as
+  a follow-up bug, like DOCS-VOCAB-005 surfaced 2026-05-22 after
+  DOCS-VOCAB-003 prematurely-closed on 2026-05-21).
+
+Source: DOCS-VOCAB-005 close-out 2026-05-22; fix tool
+tools/fix_docs_vocab_005_2026_05_22.py; accuracy prompt §A79;
+procedure-manual §F.41; AUDIT-COVERAGE Part 37.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

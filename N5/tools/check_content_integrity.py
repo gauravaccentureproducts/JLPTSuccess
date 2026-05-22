@@ -1359,6 +1359,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     # ("Q3 2026", "next release", "August 2026") cause downstream
     # parsing inconsistency.
     ("JA-144", "REVIEW_DATE lines in n5_kanji_whitelist.exceptions.md use ISO 8601 YYYY-MM-DD format (DOCS-KANJI-004 guard, 2026-05-21)", lambda: _check_ja_144_kanji_exceptions_review_date_iso8601()),
+    # JA-145 (2026-05-22): DOCS-VOCAB-005 paper-file source_file canonical sentinel guard.
+    # Every paper file under data/papers/<cat>/paper-N.json must carry
+    # `source_file` as either (a) a path that resolves to an existing
+    # repo file, OR (b) the literal canonical sentinel "(authored in-place)".
+    # Catches re-introduction of stale historical breadcrumbs (DOCS-VOCAB-003
+    # / DOCS-VOCAB-005 class) or pointers to deleted files.
+    ("JA-145", "paper-file source_file is a resolvable path OR the literal '(authored in-place)' (DOCS-VOCAB-005 guard, 2026-05-22)", lambda: _check_ja_145_paper_source_file_sentinel()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -7878,6 +7885,66 @@ def _check_ja_144_kanji_exceptions_review_date_iso8601() -> list[str]:
                 f"JA-144 {fp.relative_to(ROOT)}: REVIEW_DATE value "
                 f"{value!r} is not ISO 8601 (YYYY-MM-DD) — fix per "
                 f"DOCS-KANJI-004 / 2026-05-21"
+            )
+    return failures
+
+
+def _check_ja_145_paper_source_file_sentinel() -> list[str]:
+    """DOCS-VOCAB-005 (2026-05-22) drift guard. Every paper file under
+    data/papers/<cat>/paper-N.json must carry `source_file` as either:
+
+      (a) a path (no leading paren) that resolves to an existing repo
+          file (relative to repo N5 root), OR
+      (b) the literal canonical sentinel string "(authored in-place)".
+
+    Other values fail. Rationale:
+      - These questions are authored in-place in the JSON — there is no
+        upstream source file to point at.
+      - Earlier values like "(authored in-place; was KnowledgeBank/...md
+        before merge on YYYY-MM-DD)" embedded historical breadcrumbs in
+        every paper file. That breadcrumb is preserved in CHANGELOG +
+        n5_vocab_whitelist_README.md + git history; doesn't need to live
+        in 28 places.
+      - DOCS-VOCAB-003 marked itself Fixed without actually trimming these.
+        DOCS-VOCAB-005 trimmed all 28 to the canonical sentinel and this
+        invariant guards against re-introduction.
+
+    If a future paper genuinely sources from an external file, that
+    external file's repo-relative path is acceptable (it must resolve).
+    """
+    import json as _json
+    import glob as _glob
+    SENTINEL = "(authored in-place)"
+    failures: list[str] = []
+    for fp in sorted(_glob.glob(str(ROOT / "data" / "papers" / "*" / "paper-*.json"))):
+        try:
+            with open(fp, "r", encoding="utf-8") as f:
+                d = _json.load(f)
+        except Exception as e:
+            failures.append(f"JA-145 {os.path.relpath(fp, ROOT)}: cannot parse JSON ({e})")
+            continue
+        sf = d.get("source_file")
+        if not isinstance(sf, str):
+            failures.append(
+                f"JA-145 {os.path.relpath(fp, ROOT)}: source_file missing or "
+                f"not a string (got {type(sf).__name__})"
+            )
+            continue
+        if sf == SENTINEL:
+            continue  # canonical sentinel — pass
+        if sf.startswith("("):
+            failures.append(
+                f"JA-145 {os.path.relpath(fp, ROOT)}: source_file is parenthesized "
+                f"prose other than the canonical sentinel — value {sf!r}; "
+                f"expected exactly {SENTINEL!r} or a resolvable file path"
+            )
+            continue
+        # Treat as a file path — must resolve relative to N5 root
+        candidate = ROOT / sf
+        if not candidate.exists():
+            failures.append(
+                f"JA-145 {os.path.relpath(fp, ROOT)}: source_file path "
+                f"{sf!r} does not resolve to an existing file under {ROOT.name}/"
             )
     return failures
 
