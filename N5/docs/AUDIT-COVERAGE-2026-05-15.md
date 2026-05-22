@@ -5793,3 +5793,140 @@ not a bug close-out).
   gap block.
 - Spec: §25.4 JA-146 row + count update 147 → 148.
 - Sync-map: 2026-05-22 (Part 38) row.
+
+## ADDENDUM 2026-05-22 (Part 39) — 5-bug DOCS-* close-out from review-packet meta-audit
+
+### Scope
+
+Five governance-doc consistency bugs surfaced by a review-packet
+meta-audit pipeline. 1 of 6 candidates rejected as stale-snapshot
+artifact per F.41.4 verification (DOCS-VOCAB-005 had already been
+fixed at commit b7f5787 — the audit ran on a packet pre-dating
+that fix). The remaining 5 were verified real against current data
+and closed in this batch.
+
+### Bugs closed (Part 39)
+
+| Bug ID | Class | Where | Fix | New CI |
+|---|---|---|---|---|
+| BUG-156 (DOCS-VOCAB-006) | README known-mismatch drift | n5_vocab_whitelist_README.md | Documented では as 4th mismatch (option (c)); option (a) authoring deferred | JA-147 |
+| BUG-157 (DOCS-CORE-001) | Multi-source classification | grammar.json + n5_core_pattern_ids.json + version.json | Added scope='n4' + scope_note to 5 entries; added grammar_n5: 173 dual-count | JA-148; JA-107 extended |
+| BUG-158 (DOCS-BRAND-001) | Review-packet strip undocumented | data/_review_packet/README.md + tools/build_review_packet.py | Added branding.json strip bullet to both the packet README AND the builder template (so it survives regen) | none (build convention) |
+| BUG-159 (DOCS-Q-001) | "Bank source" terminology overclaim | n5_vocab_whitelist_README.md | Rewrote consumers section to call out questions.json ↔ paper-files independence (0 ID overlap) | none (terminology) |
+| BUG-160 (DOCS-DKE-001) | Placeholder boilerplate at-rest | dokkai_kanji_exception.json | Backfilled 25 placeholder rationales with dokkai-corpus surface citations | JA-149 |
+
+### Rejected stale-snapshot artifact
+
+**DOCS-VOCAB-005 carry-over claim** — the audit pipeline filed
+this as "fix not applied; all 28 paper files still hold
+`source_file: KnowledgeBank/<x>_questions_n5.md`." Verification
+against the working tree showed all 28 already held
+`"(authored in-place)"` since commit `b7f5787`. The audit ran on
+a review-packet snapshot that pre-dated the actual fix.
+
+**Operational rule (procedure-manual §F.43.1):** every bug from
+an autonomous audit pipeline must be verified against current
+data BEFORE applying any fix. Expect 1-2 of N candidates to be
+stale-snapshot artifacts.
+
+### CI invariants added (Part 39)
+
+  - **JA-147** — `n5_vocab_whitelist.json` ↔ `vocab.json` mismatch
+    set MUST equal the "Known mismatches" enumeration in
+    `n5_vocab_whitelist_README.md` (both header count + bulleted
+    token set verified).
+  - **JA-148** — every `data/grammar.json` entry's `id` must
+    appear in EITHER `core_n5` OR `late_n5` OR `deferred_to_n4`
+    in `data/n5_core_pattern_ids.json`; classification must agree
+    with the entry's `scope` field (`deferred_to_n4` → `scope='n4'`;
+    `core_n5`/`late_n5` → `scope='n5'` or absent).
+  - **JA-149** — every entry in `data/dokkai_kanji_exception.json`
+    `exception_kanji` list must have a non-empty `reason` field
+    that does NOT contain "Pre-formalization" or "rationale not
+    individually recorded".
+  - **JA-107 extension** — recognizes `grammar_n5` in
+    `version.json.counts` as the scope-filtered count of
+    grammar.json patterns where `scope != 'n4'`.
+
+### Files touched (Part 39)
+
+  - data/grammar.json (5 entries gained scope='n4' + scope_note)
+  - data/dokkai_kanji_exception.json (25 placeholder rationales
+    backfilled with dokkai-corpus surface citations)
+  - data/n5_vocab_whitelist_README.md (Known mismatches: 3→4;
+    consumers section rewritten for questions.json independence)
+  - data/_review_packet/README.md (branding.json strip bullet —
+    one-time edit; gitignored)
+  - data/version.json (v1.15.8 → v1.15.9; added grammar_n5: 173)
+  - data/index.json (regenerated; JA-125 byte-size parity)
+  - tools/build_review_packet.py (strip-bullet embedded in
+    builder template so regenerations preserve it)
+  - tools/check_content_integrity.py (JA-147 / JA-148 / JA-149
+    detectors added + JA-107 grammar_n5 extension)
+  - tools/file_docs_5bug_batch_2026_05_22.py (NEW — filed BUG-156..160)
+  - tools/fix_docs_core_001_2026_05_22.py (NEW)
+  - tools/survey_docs_dke_001_2026_05_22.py (NEW)
+  - tools/fix_docs_dke_001_2026_05_22.py (NEW)
+  - tools/flip_docs_5bug_fixed_2026_05_22.py (NEW)
+  - tools/backfill_docs_5bug_commit_2026_05_22.py (NEW)
+  - specifications/test-scenarios-by-specialist-perspective.xlsx
+    (BUG-156..160 filed + flipped Fixed)
+  - specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25.4 JA-147/148/149 rows + §7.3 sample with grammar_n5
+    + count update 148 → 151 + last-updated header)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md
+    (F.43 added — 5 durable defect classes + operational rules)
+  - prompts/Japanese language Accuracy check.txt (A81 added)
+  - prompts/N5Improvement.txt (Phase-0 governance-doc consistency
+    regression block added)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 39)
+  - docs/cross-artifact-sync-map.md (2026-05-22 Part 39 row)
+  - CHANGELOG.md (v1.15.9 entry)
+  - sw.js + index.html (cache-bust v1.15.9)
+
+### Final state for Part 39
+
+CI **151 / 151 invariants green** (was 148; +JA-147 +JA-148 +JA-149).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **160 / 160 Fixed / 0 Open**.
+
+### Bounded-coverage phrasing for Part 39
+
+  - "JA-147 catches *the specific README-vs-computed mismatch
+    set divergence*" — does not catch all README-vs-data drift
+    classes not specifically wired.
+  - "JA-148 catches *the specific scope-field-vs-classification
+    disagreement*" — does not catch broader multi-source
+    consistency bugs.
+  - "JA-149 catches *the specific placeholder phrasings*
+    'Pre-formalization' / 'rationale not individually recorded'"
+    — does not catch all unspecific rationales.
+  - "Bug-spec verification rejected 1 of 6 candidates as
+    stale-snapshot artifact" — names the verification step +
+    reports honestly the fraction rejected.
+  - "5 of 6 verified real and shipped against the corpus
+    snapshot scanned" — does not claim universal coverage of
+    governance-doc defects beyond the named classes.
+
+### Same drift-class lineage (Part 39)
+
+| Class | First seen | Next sighting | Lesson |
+|---|---|---|---|
+| README-vs-computed drift | DOCS-VOCAB-006 (2026-05-22) | — | Parity-check CI at the README header + bulleted set |
+| Multi-source classification | DOCS-CORE-001 (2026-05-22) | — | Mirror classification into per-entry field + CI |
+| Review-packet strip undocumented | DOCS-BRAND-001 (2026-05-22) | — | Embed strip docs in builder script |
+| "Bank source" terminology overclaim | DOCS-Q-001 (2026-05-22) | — | Reserve source-derived terms; otherwise call out independence |
+| Placeholder boilerplate at-rest | DOCS-DKE-001 (2026-05-22) | — | Phrase-rejection CI invariant |
+| Stale-snapshot meta-audit | DOCS-VOCAB-005 carry-over rejection (2026-05-22) | (F.43.1 reinforces F.41.4) | Verify-before-fix gate |
+
+### Cross-references
+
+- Procedure manual: §F.43 (5 durable governance-doc consistency
+  defect classes + same-batch CI-invariant authoring discipline
+  + bounded-coverage phrasing).
+- CHANGELOG: 2026-05-22 v1.15.9 entry.
+- Accuracy prompt: §A81 (5 defect classes documented).
+- Improvement prompt: Phase-0 governance-doc consistency
+  regression block.
+- Spec: §25.4 JA-147/148/149 rows + count update 148 → 151.
+- Sync-map: 2026-05-22 (Part 39) row.

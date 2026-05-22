@@ -4988,3 +4988,170 @@ codebase_2026_05_22.py; procedure-manual §F.42; AUDIT-COVERAGE Part 38.
 
 CI invariants at this checkpoint: 148 (was 147; +JA-146).
 ============================================================
+
+A81. GOVERNANCE-DOC CONSISTENCY DEFECTS - 5 durable classes from
+     review-packet meta-audit (DOCS-VOCAB-006 + DOCS-CORE-001 +
+     DOCS-BRAND-001 + DOCS-Q-001 + DOCS-DKE-001 close-out).
+     (Audit category - added 2026-05-22, AUDIT-COVERAGE Part 39.)
+============================================================
+
+Five durable defect classes from the 2026-05-22 review-packet
+meta-audit batch. All five surfaced from a separately-running
+audit pipeline that consumed a sanitized snapshot of the project
+and returned bug candidates; bug-spec verification (per F.41.4)
+rejected 1 of 6 as a stale-snapshot artifact (DOCS-VOCAB-005's
+"CARRY-OVER" claim was false), and the remaining 5 were verified
+real and shipped. CI-enforced via JA-147 + JA-148 + JA-149 +
+JA-107 extension.
+
+Class A - Known-mismatch enumeration drifts from computed set
+  Pattern: a README documents "Known mismatches (N)" between two
+  related data files. The author maintains both sides by hand.
+  One side gains or loses entries over time; the README's count
+  and bulleted list silently diverge from the actual computed set.
+
+  N5 evidence: n5_vocab_whitelist_README.md documented 3 known
+  whitelist <-> vocab.json mismatches (倍, 国籍, 週末); the
+  actual computed mismatch set had 4 entries - では had been
+  added to the whitelist but never to vocab.json, and the README
+  was never updated.
+
+  Fix: document the missing case in the README OR author the
+  missing piece in the data; wire a parity-check CI invariant
+  that parses the README header count + bulleted-token set and
+  compares to the actual computed set.
+
+  CI invariant JA-147 (added 2026-05-22).
+
+Class B - Multi-source classification, one source updated
+  Pattern: taxonomy lives in one authoritative file (e.g.,
+  n5_core_pattern_ids.json classifies patterns as core / late /
+  deferred); consumers read a different file (e.g., grammar.json
+  is the per-entry catalog). When the authoritative file changes
+  a classification but the per-entry catalog doesn't reflect it,
+  downstream consumers can't filter by classification.
+
+  N5 evidence: 5 patterns (n5-144 / n5-157 / n5-158 / n5-175 /
+  n5-176) were classified deferred_to_n4 in n5_core_pattern_ids.
+  json but had no scope/status/excluded/scope_note field in
+  grammar.json. Lint, UI, paper-builder couldn't distinguish them
+  from in-scope N5 patterns. version.json reported 178 total but
+  only 173 in-scope.
+
+  Fix: mirror the classification into the per-entry catalog with
+  a dedicated field (scope='n4' + scope_note); update consumer
+  count fields (add grammar_n5: 173 alongside grammar: 178); wire
+  a CI invariant verifying per-entry field reflects authoritative
+  classification.
+
+  CI invariants JA-148 (added 2026-05-22) + JA-107 extension
+  (recognizes scope-filtered count).
+
+Class C - Review-packet strip, undocumented in the packet's own README
+  Pattern: a build script generates a sanitized export by
+  stripping certain fields (privacy / anonymity / CI noise). The
+  packet's own README enumerates "What was stripped" - but not
+  all strip categories are listed. Reviewers see empty/blank
+  fields and reasonably conclude the live system has a bug.
+
+  N5 evidence: tools/build_review_packet.py zeros all string
+  values in branding.json for privacy/anonymity. The packet's
+  own README's "Stripped" section enumerated _meta blocks,
+  timestamps, audio file paths, hash fields - but did NOT
+  mention the branding strip. Reviewers seeing empty brand.name /
+  meta.title / og_* fields would reasonably conclude the live
+  site has no SEO. (Live site works fine; index.html hardcodes
+  the brand strings.)
+
+  Fix: document every strip in the packet's own README; embed
+  the strip documentation in the builder script (not just in
+  a hand-edited README) so the docs survive regeneration;
+  distinguish "stripped for privacy" from "stripped because
+  noise" so reviewers know which fields are intentionally blank.
+
+  No CI invariant - this is documentation discipline, not data
+  shape. Lives in build script conventions.
+
+Class D - "Bank source" / "derived from" terminology overclaim
+  Pattern: a README describes two independent data corpora as if
+  one were derived from the other. The terminology ("bank source",
+  "derived from", "drawn from") implies a many-to-one or
+  one-to-one relationship that doesn't exist. New contributors
+  assume the relationship and try to "reconcile" the two,
+  wasting effort or introducing bugs.
+
+  N5 evidence: n5_vocab_whitelist_README.md's consumers section
+  described data/questions.json (290 entries, q-NNNN IDs) as a
+  "bank source" for the paper files (402 questions, Q1..Q102
+  IDs). Actual ID overlap = 0. Different ID schemes. Different
+  schemas (correctAnswer string vs correctIndex int; per-option
+  distractor explanations vs none; category/mondai fields vs
+  none). The two corpora are PARALLEL, not source-and-derived.
+
+  Fix: reserve "source of" / "derived from" / "bank source" for
+  actual source-derived relationships; use independent-corpora
+  language ("Used in spaced-repetition flows" / "0 ID overlap")
+  when the corpora are parallel.
+
+  No CI invariant - terminology, not data shape.
+
+Class E - Placeholder boilerplate as "this'll get filled in later"
+  Pattern: pre-formalization authoring leaves placeholder
+  boilerplate in production data ("Pre-formalization (initial
+  authoring; rationale not individually recorded)"). The
+  placeholder is honest about its emptiness but adds no
+  information. Later authoring batches add real per-item
+  rationales to NEW entries but never backfill the placeholders.
+  Over time, the placeholder ratio drifts.
+
+  N5 evidence: 25 of 90 (28%) entries in
+  data/dokkai_kanji_exception.json carried the placeholder
+  boilerplate. All 25 had addedAt: "<2026-05-02" (the
+  formalization deadline). The 65 newer entries (72%) had
+  specific per-kanji rationales.
+
+  Fix: backfill placeholder entries with real rationales derived
+  from actual corpus usage; wire a CI invariant that REJECTS
+  placeholder phrasings so they can't be re-introduced.
+
+  CI invariant JA-149 (added 2026-05-22).
+
+Bug-spec-vs-reality verification (F.43.1 reinforcement):
+  - 1 of 6 candidates rejected as stale-snapshot artifact
+    (DOCS-VOCAB-005: claimed paper files held KnowledgeBank refs;
+     verification found they hold "(authored in-place)" since
+     b7f5787 - audit ran on a packet pre-dating the fix).
+  - 5 of 6 verified real and shipped.
+  - The verification step is the gate, not the bug filing.
+
+Operational rule:
+  For every batch close-out, classify each defect by:
+    - "Data-shape, CI-enforceable" -> mint or extend a JA-NN.
+    - "Terminology / convention / one-time edit" -> document in
+      procedure manual + README + build script.
+  3 of 5 classes shipped a CI invariant; 2 remain conventions.
+
+Bounded-coverage phrasing:
+  - "JA-147 catches *the specific README-vs-computed mismatch
+    set divergence*" - does not catch other README-vs-data
+    drift classes not specifically wired.
+  - "JA-148 catches *the specific scope-field-vs-classification
+    disagreement*" - does not catch broader multi-source
+    consistency bugs beyond the named classification.
+  - "JA-149 catches *the specific placeholder phrasings*
+    'Pre-formalization' / 'rationale not individually recorded'" -
+    does not catch all unspecific rationales (TBD, see notes,
+    etc.).
+  - "Bug-spec verification rejected 1 of 6 candidates as
+    stale-snapshot artifact" - names the verification step +
+    reports honestly the fraction rejected.
+
+Source: 5-bug DOCS-* close-out 2026-05-22; tooling
+tools/file_docs_5bug_batch_2026_05_22.py +
+tools/fix_docs_core_001_2026_05_22.py +
+tools/survey_docs_dke_001_2026_05_22.py +
+tools/fix_docs_dke_001_2026_05_22.py; procedure-manual F.43;
+AUDIT-COVERAGE Part 39.
+
+CI invariants at this checkpoint: 151 (was 148; +JA-147 +JA-148 +JA-149).
+============================================================

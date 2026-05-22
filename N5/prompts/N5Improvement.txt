@@ -1689,6 +1689,64 @@ tools/cleanup_fix_commit_cells_2026_05_22.py +
 tools/audit_tasks_md_against_codebase_2026_05_22.py; accuracy
 prompt §A80; procedure-manual §F.42; AUDIT-COVERAGE Part 38.
 
+### Phase-0 governance-doc consistency regression block (added 2026-05-22)
+
+CI-enforced via JA-147 + JA-148 + JA-149 (introduced 2026-05-22
+from the 5-bug DOCS-* close-out). Maintainer-side Phase-0 mirror
+runs pre-release:
+
+1. **Whitelist ↔ README known-mismatch parity (DOCS-VOCAB-006 / JA-147)**
+   Compute the set of n5_vocab_whitelist.json tokens NOT matching
+   any vocab.json form/reading. Compare to the "Known mismatches"
+   enumeration in data/n5_vocab_whitelist_README.md (both header
+   count AND bulleted-token set). Expected: parity. Currently 4
+   entries: 倍, 国籍, 週末, では (965/969 = 99.6% matched).
+
+2. **Grammar.json scope ↔ n5_core_pattern_ids classification (DOCS-CORE-001 / JA-148)**
+   For every grammar.json entry, verify the entry's `scope` field
+   matches the classification in n5_core_pattern_ids.json:
+     deferred_to_n4 → scope='n4' (5 entries: n5-144, n5-157, n5-158,
+       n5-175, n5-176);
+     core_n5 or late_n5 → scope='n5' or absent (173 entries).
+   Expected: 0 disagreements. Plus version.json.counts.grammar_n5
+   must equal the count of grammar.json patterns with scope != 'n4'.
+
+3. **dokkai_kanji_exception placeholder rejection (DOCS-DKE-001 / JA-149)**
+   For every entry in data/dokkai_kanji_exception.json's
+   exception_kanji list, verify the `reason` field does NOT contain
+   the placeholder phrases "Pre-formalization" or "rationale not
+   individually recorded". Expected: 0 hits. (Backfilled 25 entries
+   2026-05-22 with dokkai-corpus-specific surface citations.)
+
+Bug-spec-vs-reality verification check:
+  When a meta-audit pipeline files N bug candidates, expect 1-2 to
+  be stale-snapshot artifacts. Verification gate: read the current
+  data BEFORE applying the proposed fix. The 2026-05-22 batch
+  rejected DOCS-VOCAB-005's "CARRY-OVER" claim as a stale-snapshot
+  artifact (audit ran on a packet pre-dating the actual fix at
+  commit b7f5787).
+
+Bounded-coverage framing:
+  - "JA-147 catches *the specific README-vs-computed mismatch set
+    divergence*" — does not catch other README-vs-data drift not
+    specifically wired.
+  - "JA-148 catches *the specific scope-field-vs-classification
+    disagreement*" — does not catch broader multi-source consistency
+    bugs.
+  - "JA-149 catches *the specific placeholder phrasings*" — does
+    not catch all unspecific rationales (TBD, see notes, etc.).
+
+Operational rule: for batch close-outs, classify each defect by
+"data-shape, CI-enforceable → mint a JA-NN" vs "terminology /
+convention → document in procedure manual + README + build script".
+3 of 5 classes shipped a CI invariant this batch; 2 (Class C /
+review-packet strip docs; Class D / "bank source" terminology)
+remain conventions documented in procedure-manual F.43.
+
+Source: 5-bug DOCS-* close-out 2026-05-22 (commits b63bdcc +
+fdd7be8); accuracy prompt §A81; procedure-manual §F.43;
+AUDIT-COVERAGE Part 39.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the
