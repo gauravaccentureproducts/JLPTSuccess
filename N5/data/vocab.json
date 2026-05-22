@@ -183,7 +183,13 @@
           1
         ],
         "native_review_pending": "2026_05_22_NTR_008",
-        "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
+        "native_review_note": "Reviewer-cited NHK 2016 distinguishes two senses for あなた: drop=0 (heiban) for the generic-pronoun sense; drop=2 (atamadaka) for the spousal-address sense. Current data lists drop=2 primary + alternate [1]. The audio file (if rendered) is at drop=2; that value remains source of truth for rendered material. Native-speaker pass (per NATIVE-SPEAKER-RE-VERIFICATION.md) needed to resolve dictionary-vs-audio gap and decide whether to split the entry by sense.",
+        "nhk_2016_claim_drops_by_sense": {
+          "generic_pronoun": 0,
+          "spousal_address": 2
+        },
+        "nhk_2016_claim_provenance": "review-cited 2026-05-22 (NTR-008 native-teacher review § 2.4); pending actual NHK 2016 source verification",
+        "audio_uses_drop": 2
       },
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 219,
@@ -570,7 +576,10 @@
         "confidence": "high",
         "source": "kanjium-8a0cdaa1-by-reading",
         "native_review_pending": "2026_05_22_NTR_008",
-        "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
+        "native_review_note": "Reviewer-cited NHK 2016 lists drop=3 (nakadaka on 4th mora). Current data lists drop=2 (review notes this is heard regionally). If audio is rendered at drop=2, that value matches the audio. Native-speaker pass needed to confirm the standard dictionary value vs the regional/audio value.",
+        "nhk_2016_claim_drop": 3,
+        "nhk_2016_claim_provenance": "review-cited 2026-05-22 (NTR-008 native-teacher review § 2.4); pending actual NHK 2016 source verification",
+        "audio_uses_drop": 2
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations_provenance": "llm_curated",
@@ -10494,7 +10503,13 @@
           2
         ],
         "native_review_pending": "2026_05_22_NTR_008",
-        "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
+        "native_review_note": "Reviewer-cited NHK 2016 lists drop=2 standard; drop=0 is the colloquial alternate. Current data lists drop=1 primary + alternates [0, 2] — drop=1 is unusual as primary. The audio file (if rendered) is at drop=1; mark which value the audio uses. Native-speaker pass needed to resolve.",
+        "nhk_2016_claim_drop": 2,
+        "nhk_2016_claim_alts": [
+          0
+        ],
+        "nhk_2016_claim_provenance": "review-cited 2026-05-22 (NTR-008 native-teacher review § 2.4); pending actual NHK 2016 source verification",
+        "audio_uses_drop": 1
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7352,
