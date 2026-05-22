@@ -39,14 +39,6 @@
       "frequency_rank": 38,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "わたしの ともだち",
-        "わたしの なまえ",
-        "わたしは がくせい",
-        "わたしも いく",
-        "わたしを しる",
-        "わたしと あう"
-      ],
       "collocations_provenance": "llm_curated",
       "register_origin": "wago",
       "register_origin_provenance": "auto_derived",
@@ -66,7 +58,16 @@
       "frequent_patterns_provenance": "auto_derived",
       "frequent_patterns_basis": "pos_heuristic",
       "frequent_patterns_audit_wave": "imp-d2-pos-heuristic-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "わたしの ともだち",
+        "わたしの なまえ",
+        "わたしは がくせい",
+        "わたしも いく",
+        "わたしを しる",
+        "わたしと あう"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.私たち",
@@ -106,14 +107,6 @@
       "frequency_rank": 1000,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "わたしたちの ともだち",
-        "わたしたちの なまえ",
-        "わたしたちは がくせい",
-        "わたしたちも いく",
-        "わたしたちを しる",
-        "わたしたちと あう"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-001",
@@ -132,12 +125,23 @@
       "devoiced_vowel_provenance": "auto_derived",
       "counter": {
         "kanji": "人",
-        "reading": "にん"
+        "reading": "にん",
+        "applies_to": "noun_of_reference",
+        "note": "Counter 人/にん applies to the people the pronoun refers to, not to the pronoun itself. (We don't count 'we's' / 'みなさん's.) UI may choose to suppress counter display for collective pronouns."
       },
       "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "わたしたちの ともだち",
+        "わたしたちの なまえ",
+        "わたしたちは がくせい",
+        "わたしたちも いく",
+        "わたしたちを しる",
+        "わたしたちと あう"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.あなた",
@@ -185,14 +189,6 @@
       "frequency_rank": 219,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "あなたの ともだち",
-        "あなたの なまえ",
-        "あなたは がくせい",
-        "あなたも いく",
-        "あなたを しる",
-        "あなたと あう"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-001",
@@ -239,7 +235,16 @@
       "usage_note": "あなた is distant or formal, or (from a wife to a husband) intimate. It is NOT the normal way to address someone you know — use their name + さん, or drop the subject. Appropriate contexts: form-filling, wedding vows, lyrics, addressing strangers respectfully.",
       "usage_note_hi": "あなた का प्रयोग दूरी या औपचारिकता दर्शाता है, या (पत्नी से पति को) आत्मीयता। यह किसी परिचित को संबोधित करने का सामान्य तरीका नहीं है — उनके नाम + さん का प्रयोग करें, या विषय छोड़ दें। उपयुक्त संदर्भ: फ़ॉर्म भरना, विवाह की शपथ, गीत, अजनबियों को सम्मानपूर्वक संबोधित करना।",
       "gloss_hi_provenance": "native_reviewed_2026_05_22",
-      "usage_note_provenance": "native_reviewed_2026_05_22"
+      "usage_note_provenance": "native_reviewed_2026_05_22",
+      "particle_examples": [
+        "あなたの ともだち",
+        "あなたの なまえ",
+        "あなたは がくせい",
+        "あなたも いく",
+        "あなたを しる",
+        "あなたと あう"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かれ",
@@ -280,14 +285,6 @@
       "frequency_rank": 4888,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "かれの ともだち",
-        "かれの なまえ",
-        "かれは がくせい",
-        "かれも いく",
-        "かれを しる",
-        "かれと あう"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-001",
@@ -300,7 +297,16 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "review_status_provenance": "claude_native_reviewer_persona",
-      "gloss_hi_provenance": "native_reviewed_2026_05_22"
+      "gloss_hi_provenance": "native_reviewed_2026_05_22",
+      "particle_examples": [
+        "かれの ともだち",
+        "かれの なまえ",
+        "かれは がくせい",
+        "かれも いく",
+        "かれを しる",
+        "かれと あう"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かのじょ",
@@ -341,14 +347,6 @@
       "frequency_rank": 1400,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "かのじょの ともだち",
-        "かのじょの なまえ",
-        "かのじょは がくせい",
-        "かのじょも いく",
-        "かのじょを しる",
-        "かのじょと あう"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-100"
@@ -359,7 +357,16 @@
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
       "review_status_provenance": "claude_native_reviewer_persona",
-      "gloss_hi_provenance": "native_reviewed_2026_05_22"
+      "gloss_hi_provenance": "native_reviewed_2026_05_22",
+      "particle_examples": [
+        "かのじょの ともだち",
+        "かのじょの なまえ",
+        "かのじょは がくせい",
+        "かのじょも いく",
+        "かのじょを しる",
+        "かのじょと あう"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かた",
@@ -406,18 +413,6 @@
         ]
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "読みかたは",
-        "書きかたを",
-        "読みかたを",
-        "行きかたが",
-        "日本人の かた",
-        "よみかた",
-        "つくりかた",
-        "かんがえかた",
-        "いきかた",
-        "ねかた"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-028",
@@ -441,7 +436,20 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "読みかたは",
+        "書きかたを",
+        "読みかたを",
+        "行きかたが",
+        "日本人の かた",
+        "よみかた",
+        "つくりかた",
+        "かんがえかた",
+        "いきかた",
+        "ねかた"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.人",
@@ -486,16 +494,6 @@
         "source": "kanjium-8a0cdaa1-exact"
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "人と あう",
-        "人と はなす",
-        "人に きく",
-        "人は どこ",
-        "人の なまえ",
-        "人が くる",
-        "人が いる",
-        "人は やさしい"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-066",
@@ -516,7 +514,18 @@
       "register_provenance": "auto_derived",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "人と あう",
+        "人と はなす",
+        "人に きく",
+        "人は どこ",
+        "人の なまえ",
+        "人が くる",
+        "人が いる",
+        "人は やさしい"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.みなさん",
@@ -548,7 +557,9 @@
       "gloss_hi": "सभी (आदर)",
       "counter": {
         "kanji": "人",
-        "reading": "人"
+        "reading": "にん",
+        "applies_to": "noun_of_reference",
+        "note": "Counter 人/にん applies to the people the pronoun refers to, not to the pronoun itself. (We don't count 'we's' / 'みなさん's.) UI may choose to suppress counter display for collective pronouns."
       },
       "frequency_rank": 1676,
       "frequency_rank_source": "leeds_corpus_internet_jp",
@@ -562,14 +573,6 @@
         "native_review_note": "Per native-teacher review 2026-05-22: NHK 2016 edition value differs from current kanjium-by-reading lookup. Annotated pending actual native-speaker pass. The audio file (if rendered) matches the current drop value; audio is the source of truth for the rendered material until native review resolves the dictionary-vs-audio gap."
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "みなさん こんにちは",
-        "みなさんの ところ",
-        "クラスの みなさん",
-        "みなさんに あう",
-        "みなさん いっしょに",
-        "みなさんの こえ"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-041",
@@ -582,7 +585,16 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "みなさん こんにちは",
+        "みなさんの ところ",
+        "クラスの みなさん",
+        "みなさんに あう",
+        "みなさん いっしょに",
+        "みなさんの こえ"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.だれ",
@@ -623,14 +635,6 @@
       "frequency_rank": 2128,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "だれですか",
-        "だれが いい",
-        "だれを しますか",
-        "だれに いきますか",
-        "だれと あいますか",
-        "だれの なまえ"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-003",
@@ -658,7 +662,16 @@
       "register": "neutral",
       "register_provenance": "auto_derived",
       "pitch_accent_audit_wave": "v1-kanjium-recover-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "だれですか",
+        "だれが いい",
+        "だれを しますか",
+        "だれに いきますか",
+        "だれと あいますか",
+        "だれの なまえ"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.どなた",
@@ -698,14 +711,6 @@
         "source": "kanjium-8a0cdaa1-by-reading"
       },
       "pitch_accent_provenance": "kanjium_lookup",
-      "collocations": [
-        "どなたですか",
-        "どなたが いい",
-        "どなたを しますか",
-        "どなたに いきますか",
-        "どなたと あいますか",
-        "どなたの なまえ"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-015",
@@ -734,7 +739,16 @@
       "register_origin_provenance": "auto_derived",
       "register": "neutral",
       "register_provenance": "auto_derived",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "どなたですか",
+        "どなたが いい",
+        "どなたを しますか",
+        "どなたに いきますか",
+        "どなたと あいますか",
+        "どなたの なまえ"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.じぶん",
@@ -777,14 +791,6 @@
       "frequency_rank": 1800,
       "frequency_rank_source": "section_band_estimate",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "じぶんの ともだち",
-        "じぶんの なまえ",
-        "じぶんは がくせい",
-        "じぶんも いく",
-        "じぶんを しる",
-        "じぶんと あう"
-      ],
       "collocations_provenance": "llm_curated",
       "frequent_patterns": [
         "n5-004",
@@ -813,7 +819,16 @@
       "counter_register": null,
       "counter_provenance": "native_reviewed",
       "counter_audit_wave": "imp-162-people-2026-05-13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "じぶんの ともだち",
+        "じぶんの なまえ",
+        "じぶんは がくせい",
+        "じぶんも いく",
+        "じぶんを しる",
+        "じぶんと あう"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.2-people-family.かぞく",
@@ -72176,14 +72191,6 @@
       "frequency_rank": 486,
       "frequency_rank_source": "leeds_corpus_internet_jp",
       "frequency_rank_provenance": "auto_extracted",
-      "collocations": [
-        "みんなで いく",
-        "みんな しっている",
-        "みんなの ともだち",
-        "みんなが すき",
-        "みんなに あう",
-        "クラスの みんな"
-      ],
       "collocations_provenance": "llm_curated",
       "pitch_accent": {
         "mora": 3,
@@ -72205,7 +72212,16 @@
         "みな"
       ],
       "readings_provenance": "v2_migration_2026_05_13",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "particle_examples": [
+        "みんなで いく",
+        "みんな しっている",
+        "みんなの ともだち",
+        "みんなが すき",
+        "みんなに あう",
+        "クラスの みんな"
+      ],
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
     },
     {
       "id": "n5.vocab.33-adverbs.やはり",
