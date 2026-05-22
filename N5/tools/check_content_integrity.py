@@ -1400,6 +1400,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     # specific rationales; this prevents the placeholder from being
     # re-introduced for new exception entries.
     ("JA-149", "dokkai_kanji_exception entries have specific rationales, no placeholder boilerplate (DOCS-DKE-001 guard, 2026-05-22)", lambda: _check_ja_149_dokkai_kanji_exception_no_placeholder()),
+    # JA-150 (2026-05-22): NTR-001 vocab-example kanji whitelist guard.
+    # Every kanji that appears in any vocab.json example's `ja` field
+    # MUST be in n5_kanji_whitelist OR dokkai_kanji_exception. Brings
+    # vocab examples up to parity with grammar examples / reading
+    # passages / listening scripts (all already gated). Closes the
+    # 99-violation finding from the 2026-05-22 native-teacher review.
+    ("JA-150", "vocab.json example ja text contains only whitelist + exception kanji (NTR-001 guard, 2026-05-22)", lambda: _check_ja_150_vocab_example_kanji_whitelist()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8270,6 +8277,64 @@ def _check_ja_149_dokkai_kanji_exception_no_placeholder() -> list[str]:
                 f"JA-149 dokkai_kanji_exception {k!r}: reason contains placeholder "
                 f"'rationale not individually recorded' — replace with a specific per-kanji rationale"
             )
+    return failures
+
+
+def _check_ja_150_vocab_example_kanji_whitelist() -> list[str]:
+    """NTR-001 (2026-05-22) drift guard.
+
+    Every kanji that appears in any data/vocab.json example's `ja`
+    field must be in EITHER:
+      (a) data/n5_kanji_whitelist.json (the canonical N5 106-kanji
+          scope), OR
+      (b) data/dokkai_kanji_exception.json's exception_kanji list
+          (90 additional kanji whitelisted for dokkai-passage
+          authenticity).
+
+    Catches the 99-violation finding from the 2026-05-22 native-
+    teacher review: LLM-curation passes "naturalized" example
+    orthography from kana to kanji without consulting the kanji
+    whitelist that the human curation respected. The LLM pass
+    introduced ~3× the rate of the human baseline (56/970 vs
+    43/2066).
+
+    After the rewrite landed (tools/fix_ntr_001_vocab_examples_
+    2026_05_22.py), this invariant locks the predicate.
+
+    Brings vocab examples up to parity with grammar examples /
+    reading passages / listening scripts — all of which were
+    already gated. Vocab was the outlier.
+    """
+    import json as _json, re as _re
+    wl_path = ROOT / "data" / "n5_kanji_whitelist.json"
+    ex_path = ROOT / "data" / "dokkai_kanji_exception.json"
+    vocab_path = ROOT / "data" / "vocab.json"
+    if not all(p.exists() for p in (wl_path, ex_path, vocab_path)):
+        return []
+
+    wl = _json.loads(wl_path.read_text(encoding="utf-8"))
+    WL = set(wl if isinstance(wl, list) else wl.get("kanji", []))
+    exd = _json.loads(ex_path.read_text(encoding="utf-8"))
+    EX = set(e["kanji"] for e in (exd.get("exception_kanji") or []) if isinstance(e, dict) and "kanji" in e)
+    ALLOWED = WL | EX
+
+    vocab = _json.loads(vocab_path.read_text(encoding="utf-8"))
+    vl = vocab if isinstance(vocab, list) else (vocab.get("vocab") or vocab.get("entries") or [])
+
+    KANJI_RE = _re.compile(r"[一-鿿]")
+    failures: list[str] = []
+    for entry in vl:
+        if not isinstance(entry, dict): continue
+        eid = entry.get("id") or entry.get("form") or "<unknown>"
+        for idx, ex in enumerate(entry.get("examples") or []):
+            if not isinstance(ex, dict): continue
+            ja = ex.get("ja") or ""
+            offending = set(KANJI_RE.findall(ja)) - ALLOWED
+            if offending:
+                failures.append(
+                    f"JA-150 vocab.json {eid!r}[{idx}]: example ja contains "
+                    f"non-whitelist kanji {sorted(offending)} — text: {ja[:80]!r}"
+                )
     return failures
 
 
