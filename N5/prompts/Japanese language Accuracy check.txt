@@ -5373,3 +5373,109 @@ procedure-manual F.44.15 + F.44.16; AUDIT-COVERAGE Part 41.
 CI invariants at this checkpoint: 152 (unchanged; this is a
 methodology / annotation propagation, not a new gate).
 ============================================================
+
+
+A84. STALE-SNAPSHOT RE-PASTE TRIAGE — verify each claim against
+     current data before filing; STALE / REAL / PARTIAL / REJECT
+     buckets (added 2026-05-23, AUDIT-COVERAGE Part 42,
+     procedure-manual F.44.17 + F.44.18).
+============================================================
+
+When a previously-closed review document is re-pasted (the
+"Pending bugs" 13-item list on 2026-05-23 was the 2026-05-22
+NTR-001..013 review re-paste), the audit-pipeline cost of filing
+every claim as a fresh bug is high: 9 of 13 re-verified as
+already-closed. Use these buckets for re-paste-triage:
+
+  STALE — claim was real against an earlier corpus snapshot; current
+    data already shows the fix. Reject as a filing; note in commit
+    message + audit-coverage that the verification ran.
+
+  REAL — current data confirms the claim. File as new bug; apply
+    fix.
+
+  PARTIAL / BROADER-SCOPE — original close was bounded to a subset;
+    re-paste implies the broader scope is now in play. Decide:
+      - If broader scope is genuinely correct, file as NTR-FU-NNN
+        follow-up extending the original.
+      - If broader scope is incorrect (e.g., singular pronouns
+        counting people with 人 IS semantically valid), REJECT-
+        with-rationale; document the rationale.
+
+  REJECT-with-rationale — broader-scope claim that's not actually
+    a defect. Document explicit reasoning; don't silently drop.
+
+CI-enforced this batch: JA-151 (vocab→whitelist reverse direction;
+brings whitelist asymmetry to parity); JA-152 (collocations field
+forbidden; particle_examples is the renamed canonical field).
+
+Three durable defect classes (NTR-FU-001/002/003):
+
+Class M — Reverse-direction CI gate asymmetry (NTR-FU-001 / JA-151)
+  A CI invariant gates one direction of a cross-file predicate;
+  the reverse direction is ungated and silently drifts. N5
+  evidence: JA-147 gated whitelist→vocab (4 Known mismatches
+  documented); vocab→whitelist had accumulated 11 entries
+  unmatched (kana-only onomatopoeia + katakana borrowings).
+  Detection: enumerate all directional predicates + check both.
+  Fix: add JA-NN for the reverse direction; close drift by
+  either adding the missing entries or documenting them as
+  exceptions in BOTH directions.
+
+Class N — Multi-band metric flattened to single-tier (NTR-FU-002)
+  A continuous metric (listening pacing morae/min) gets a
+  binary "in_range" classification against a single threshold,
+  hiding distribution detail consumers want. N5 evidence: all
+  50 items tagged in_range against learner [180-240]; 38/50
+  below JEES-strict [220-240]; 3/50 below round-9 ideal
+  [200-220]. Single-tier hid the strict + ideal bands. Fix:
+  expose multiple bands as parallel fields; keep single-tier
+  for backward compat; document the methodology decision in
+  _meta so consumers can choose the threshold they're
+  claiming.
+
+Class O — Field-name overclaim broadened beyond bounded close
+  (NTR-FU-003 / JA-152)
+  A field-name fix (NTR-011 renamed `collocations` →
+  `particle_examples` on 12 pronouns) leaves the broader
+  corpus drift. The renamed 12 had a silent UI regression
+  because the UI reader wasn't updated. N5 evidence: 983
+  remaining entries kept `collocations`; UI read only the old
+  field name so the 12 renamed pronouns silently lost their
+  particle examples in the rendered surface. Fix: expand
+  rename to all 995 entries + update UI reader (with legacy
+  fallback for safety) + locale strings + CSS class + min
+  rebuild + JA-NN locking the new name.
+
+Re-paste triage operational rule:
+  - Verify-before-file (F.41.4) on every claim. STALE-snapshot
+    rate from re-pastes of recent reviews is typically high
+    (NTR re-paste: 9 of 13 = 69% stale).
+  - Categorize: STALE / REAL / PARTIAL / REJECT.
+  - File only REAL + PARTIAL. Document STALE + REJECT in commit
+    message + audit-coverage entry.
+  - Use NTR-FU-NNN naming for broader-scope follow-ups on
+    already-closed bugs.
+
+Bounded-coverage phrasing:
+  - "M of N items from re-paste verified as stale-snapshot
+    (already closed in batch X); K of N filed as new bugs;
+    J of N rejected with rationale" — never "N items closed."
+  - "JA-151 prevents re-introduction of *vocab-form / reading
+    whitelist asymmetry*" — does not catch documented Known-
+    mismatch entries the README explicitly enumerates.
+  - "JA-152 prevents re-introduction of *legacy `collocations`
+    field name*" — does not assert the particle_examples field
+    content has been independently re-curated. Field-name fix,
+    not content fix.
+
+Source: NTR-FU-001/002/003 close-out 2026-05-23; tooling
+tools/file_ntr_fu_batch_2026_05_23.py +
+tools/fix_ntr_fu_001_whitelist_2026_05_23.py +
+tools/fix_ntr_fu_002_listening_pacing_bands_2026_05_23.py +
+tools/fix_ntr_fu_003_collocations_rename_2026_05_23.py +
+tools/flip_ntr_fu_fixed_2026_05_23.py; procedure-manual
+F.44.17 + F.44.18; AUDIT-COVERAGE Part 42.
+
+CI invariants at this checkpoint: 154 (was 152; +JA-151 +JA-152).
+============================================================

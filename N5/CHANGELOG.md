@@ -2,6 +2,150 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.2 - 2026-05-23 (Stale-snapshot re-paste triage + 3 broader-scope NTR follow-ups: whitelist asymmetry + listening pacing 3-band + collocations corpus-wide rename)
+
+### Background
+
+The 2026-05-22 native-teacher review document (NTR-001..013, closed
+as BUG-161..173 in v1.16.0) was re-pasted on 2026-05-23 as a 13-item
+"Pending bugs" list. Per procedure-manual F.41.4 verify-before-fix
+discipline, ran claim-by-claim verification against current data
+before filing anything.
+
+**Re-verification result:**
+- **9 of 13** verified as **stale-snapshot** (already closed in
+  NTR-001..013 batch within this session)
+- **3 of 13** filed as **broader-scope follow-ups** (NTR-FU-001/
+  002/003 → BUG-174/175/176)
+- **1 of 13** **rejected with rationale** (broader-scope claim
+  that singular pronouns shouldn't have counter='人/にん' is
+  incorrect — singular pronouns counting people with 人 IS
+  semantically valid: 「あなたは何人いますか」)
+
+All three follow-ups closed in this single commit. Procedure-manual
+F.44.17 + F.44.18 generalize the re-paste triage methodology + the
+three new defect classes (reverse-direction CI gate asymmetry;
+multi-band metric flattened to single-tier; field-name overclaim
+broadened beyond bounded close).
+
+### Fixed
+
+- **BUG-174 (NTR-FU-001) — n5_vocab_whitelist.json missed 11 vocab
+  forms.** Forward-direction gate (JA-147) enforced whitelist→vocab
+  parity with 4 documented Known mismatches (倍/国籍/週末/では).
+  The reverse direction (vocab→whitelist) was ungated. 11 entries
+  (おはし, こくせき, だんだん, どきどき, にこにこ, ばい, ぴかぴか,
+  ぺこぺこ, まあまあ, わくわく, ビル) had no whitelist match. Added
+  to whitelist (980 total). New CI invariant **JA-151** locks the
+  reverse direction. Asymmetry now fully gated.
+
+- **BUG-175 (NTR-FU-002) — listening `pacing_status: in_range`
+  flattened multi-band distribution.** All 50 items tagged
+  `in_range` against learner band [180, 240], hiding the JEES-
+  strict [220, 240] + round-9-ideal [200, 220] bands. Added per-
+  item secondary fields: `pacing_band_strict` (in/below/above) +
+  `pacing_band_ideal` (in/below/above). Distribution: strict
+  (in=12, below=38, above=0); ideal (in=35, below=3, above=12);
+  learner (all 50 in). Kept `pacing_status` for backward compat.
+  Updated `_meta.pacing_audit.methodology_three_band_2026_05_23`
+  to document the three-band methodology decision explicitly so
+  consumers can choose the threshold they're claiming. Audio
+  re-render to JEES-strict deferred as out-of-scope.
+
+- **BUG-176 (NTR-FU-003) — `collocations` field templated corpus-
+  wide.** NTR-011 had renamed `collocations` → `particle_examples`
+  on 12 pronoun entries; 983 other entries kept the legacy name.
+  Audit confirmed mass template-substitution: "を かう" appeared
+  228 times across entries, "を つかう" 220 times, "は どこ" 215
+  times. Renamed all 983 to `particle_examples` (995 total
+  unified). Updated `js/learn-vocab.js` to read
+  `entry.particle_examples` with legacy `entry.collocations`
+  fallback for rolling-deploy safety. Rebuilt `js/min/learn-vocab.js`
+  via build_min_js.py. Updated locales/{en,hi}.json to rename
+  `vocab_detail.collocations` → `vocab_detail.particle_examples`.
+  Updated CSS class names (`vocab-collocations` →
+  `vocab-particle-examples`; `collocation-list` →
+  `particle-example-list`; `collocation-chip` →
+  `particle-example-chip`). New CI invariant **JA-152** forbids
+  the legacy field name. **Side-effect bug fix:** the NTR-011
+  rename had introduced a silent UI regression — the 12 renamed
+  pronouns had lost their particle examples in the rendered
+  surface because the UI reader still read `entry.collocations`.
+  This commit fixes that regression as a side-effect of the
+  corpus-wide rename + UI update.
+
+### Rejected with rationale
+
+- **Re-paste item #12 (broader-scope pronoun counter).** Original
+  claim: even singular pronouns (私, あなた, かれ, etc.) shouldn't
+  have `counter: {kanji: '人', reading: 'にん'}`. **This is
+  incorrect.** Counting people with 人 IS semantically valid for
+  singular pronouns — 「あなたは何人いますか」 = "how many of you are
+  there." NTR-013 closed for collective pronouns only (私たち,
+  みなさん gained `applies_to: noun_of_reference` annotation), and
+  that bounded scope was correct. No fix applied.
+
+### Engineering
+
+- **Procedure-manual F.44.17.** Generalizes the stale-snapshot
+  re-paste verification methodology: when a previously-closed
+  review document is re-pasted, run verify-before-file (F.41.4)
+  on every claim; categorize into STALE / REAL / PARTIAL /
+  REJECT buckets; file only REAL + PARTIAL; document STALE +
+  REJECT in commit + audit-coverage so the rationale survives
+  future audits.
+
+- **Procedure-manual F.44.18.** Three durable defect classes
+  added to the lineage table: Class M (reverse-direction CI
+  gate asymmetry), Class N (multi-band metric flattened to
+  single-tier classification), Class O (field-name overclaim
+  broadened beyond bounded close, with UI cascade discipline).
+
+- **Accuracy prompt A84.** Captures the four buckets +
+  three durable defect classes for the audit-prompt pattern
+  catalog. Bounded-coverage phrasing template added.
+
+- **N5Improvement Phase-0 stale-snapshot re-paste triage
+  regression block.** Maintainer-side pre-release checks for
+  re-paste-triage discipline + the three new defect classes.
+
+- **AUDIT-COVERAGE Part 42.** Full close-out documentation with
+  bugs filed/closed + CI invariants + stale-snapshot re-
+  verification table + rejection rationale + bounded-coverage
+  phrasing bounds.
+
+### CI / tracker / version
+
+- CI invariants: **154 / 154** (was 152; +JA-151 +JA-152).
+- Bug tracker: **176 / 176 Fixed / 0 Open** (was 173; +BUG-174/
+  175/176 filed + closed in same commit).
+- Version: v1.16.1 → **v1.16.2** (data deltas: 11 whitelist
+  entries + 50 listening 3-band annotations + 983 vocab field
+  renames; UI + locale + min.js cascade; cache-bust for end-
+  users).
+
+### Bounded-coverage phrasing
+
+- "9 of 13 re-paste items verified as stale-snapshot within
+  this session; 3 of 13 filed + closed as broader-scope
+  follow-ups; 1 of 13 rejected with rationale" — never "all 13
+  re-paste items closed."
+- "JA-151 prevents re-introduction of *the vocab-form / reading
+  whitelist asymmetry on this corpus*" — does not assert the
+  whitelist is N5-content-complete. The 4 documented Known-
+  mismatch entries (倍/国籍/週末/では) remain on the README's
+  forward-direction enumeration.
+- "JA-152 prevents re-introduction of *the legacy `collocations`
+  field name*" — does not assert the renamed `particle_examples`
+  field content has been independently re-curated for content
+  quality. Field-name fix, not content fix.
+- "Listening pacing exposed as 3-band metric (learner / ideal /
+  strict)" — does not assert all 50 items pass JEES-strict; 38
+  of 50 fall below 220 mpm. Re-render to strict deferred;
+  consumers choose the threshold via the per-item band fields.
+
+---
+
 ## v1.16.1 - 2026-05-23 (Deferred-NTR-item closure — 3 of 3 follow-ups shipped: cohort sweep + annotation-only + sample audit)
 
 ### Background

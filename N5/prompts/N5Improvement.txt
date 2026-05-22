@@ -1882,6 +1882,83 @@ Source: NTR follow-up close-out 2026-05-23 (commits 89254d6 +
 9015e3d + e601345); accuracy prompt §A83; procedure-manual
 §F.44.15 + §F.44.16; AUDIT-COVERAGE Part 41.
 
+### Phase-0 stale-snapshot re-paste triage regression block (added 2026-05-23)
+
+Triggered by the 2026-05-23 NTR re-paste (the 2026-05-22
+review document re-pasted as 13 "Pending bugs"). 9 of 13 items
+re-verified as stale-snapshot (already closed in NTR-001..013
+batch within this session); 3 filed as broader-scope follow-ups
+(NTR-FU-001/002/003 → BUG-174/175/176); 1 rejected with
+rationale.
+
+Maintainer-side pre-release checks:
+
+1. **Verify-before-file on EVERY claim from a re-pasted review.**
+   Before filing any bug from a re-paste, run claim-by-claim
+   verification scripts against current data. STALE-snapshot
+   rate from re-pastes of recent reviews has been ~69% (9 of 13
+   in the 2026-05-23 NTR re-paste).
+
+2. **Triage into STALE / REAL / PARTIAL / REJECT buckets.**
+   - STALE → reject as filing; document the verification ran.
+   - REAL → file new bug; apply fix.
+   - PARTIAL / BROADER-SCOPE → if broader scope is correct,
+     file as NTR-FU-NNN follow-up; if not, REJECT-with-rationale.
+   - REJECT → document the explicit reasoning; do not silently
+     drop.
+
+3. **Vocab→whitelist reverse-direction gate (NTR-FU-001 / JA-151).**
+   For every vocab.json form, either the form OR its reading
+   must appear in n5_vocab_whitelist.json. JA-151 enforces.
+   Expected: 0 violations after the 11-entry add (commit
+   following 2026-05-23). README's "Known mismatches" section
+   documents the forward direction (4 whitelist tokens without
+   vocab matches: 倍/国籍/週末/では); the reverse direction is
+   now ungated-then-gated.
+
+4. **Listening pacing multi-band exposure (NTR-FU-002).**
+   Each listening item carries 3 pacing classifications:
+     - pacing_status (learner band 180-240; all 50 in_range)
+     - pacing_band_ideal (round-9 ideal 200-220; in/below/above)
+     - pacing_band_strict (JEES exam-grade 220-240;
+       in/below/above)
+   Distribution: strict (in=12, below=38); ideal (in=35,
+   below=3, above=12); learner (all 50 in). Audio re-render
+   to JEES-strict deferred as out-of-scope; consumers can
+   choose the threshold via the relevant field.
+
+5. **Field-name discipline broadened beyond bounded close
+   (NTR-FU-003 / JA-152).**
+   When a field-name fix (NTR-011 renamed `collocations` →
+   `particle_examples` on 12 pronouns) leaves broader corpus
+   drift, check entire corpus + UI consumers. JA-152 forbids
+   the legacy `collocations` field. UI consumers must update
+   in the same commit (the NTR-011 close had a silent UI
+   regression for the 12 renamed pronouns — particle examples
+   disappeared from rendered surface). Expected: 0 entries
+   with `collocations`; 995 entries with `particle_examples`;
+   js/learn-vocab.js reads `particle_examples` with legacy
+   `collocations` fallback for rolling-deploy safety; locales/
+   {en,hi}.json + CSS class names + min.js bundle all
+   updated.
+
+Bounded-coverage framing:
+  - "JA-151 catches *vocab→whitelist reverse-direction
+    asymmetry on this corpus snapshot*" — does not assert the
+    whitelist is N5-content-complete.
+  - "JA-152 catches *re-introduction of the `collocations`
+    field name*" — does not assert the renamed `particle_
+    examples` field content has been independently re-curated.
+    Field-name discipline, not content discipline.
+  - "9 of 13 re-paste items re-verified as stale-snapshot in
+    this session" — bounded to the items the re-paste named;
+    future re-pastes of older reviews may have different
+    stale-snapshot rates.
+
+Source: NTR-FU-001/002/003 close-out 2026-05-23 (single commit);
+accuracy prompt §A84; procedure-manual §F.44.17 + §F.44.18;
+AUDIT-COVERAGE Part 42.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

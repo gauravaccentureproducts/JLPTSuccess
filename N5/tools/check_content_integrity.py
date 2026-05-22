@@ -1407,6 +1407,19 @@ CHECKS: list[tuple[str, str, callable]] = [
     # passages / listening scripts (all already gated). Closes the
     # 99-violation finding from the 2026-05-22 native-teacher review.
     ("JA-150", "vocab.json example ja text contains only whitelist + exception kanji (NTR-001 guard, 2026-05-22)", lambda: _check_ja_150_vocab_example_kanji_whitelist()),
+    # JA-151 (2026-05-23): NTR-FU-001 reverse-direction whitelist gate.
+    # vocab.json forms (or their readings) must all appear in
+    # n5_vocab_whitelist.json. Closes the asymmetry the user surfaced
+    # in the 2026-05-23 review re-paste (#8): JA-147 gated only the
+    # whitelist→vocab direction; vocab→whitelist drift was ungated and
+    # had accumulated 11 entries.
+    ("JA-151", "n5_vocab_whitelist contains every vocab.json form OR reading (NTR-FU-001 guard, 2026-05-23)", lambda: _check_ja_151_vocab_whitelist_reverse()),
+    # JA-152 (2026-05-23): NTR-FU-003 collocations-renamed lock.
+    # `collocations` field must NOT appear in any vocab.json entry —
+    # the corpus-wide rename to `particle_examples` is locked. Closes
+    # the field-name overclaim broadened to all 983 entries beyond
+    # the 12 pronouns NTR-011 had renamed.
+    ("JA-152", "vocab.json entries use `particle_examples` field; `collocations` is forbidden (NTR-FU-003 guard, 2026-05-23)", lambda: _check_ja_152_collocations_renamed()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8276,6 +8289,75 @@ def _check_ja_149_dokkai_kanji_exception_no_placeholder() -> list[str]:
             failures.append(
                 f"JA-149 dokkai_kanji_exception {k!r}: reason contains placeholder "
                 f"'rationale not individually recorded' — replace with a specific per-kanji rationale"
+            )
+    return failures
+
+
+def _check_ja_151_vocab_whitelist_reverse() -> list[str]:
+    """NTR-FU-001 (2026-05-23) reverse-direction whitelist gate.
+
+    JA-147 enforces the forward direction: every entry in
+    n5_vocab_whitelist.json must match a vocab.json form or reading,
+    OR appear in the README's "Known mismatches" enumeration. Closes
+    the whitelist→vocab drift. The reverse direction
+    (vocab→whitelist) was ungated.
+
+    The user's 2026-05-23 native-teacher review re-paste surfaced 11
+    vocab forms (kana-only + katakana) that were not in the whitelist.
+    This invariant locks the reverse direction: every vocab.json form
+    OR its reading must appear in n5_vocab_whitelist.json. No
+    documented-exception bucket — the whitelist should be a superset.
+    """
+    import json as _json
+    wl_path = ROOT / "data" / "n5_vocab_whitelist.json"
+    vocab_path = ROOT / "data" / "vocab.json"
+    if not all(p.exists() for p in (wl_path, vocab_path)):
+        return []
+    wl = _json.loads(wl_path.read_text(encoding="utf-8"))
+    WL = set(wl if isinstance(wl, list) else wl.get("vocab", []))
+    vocab = _json.loads(vocab_path.read_text(encoding="utf-8"))
+    vl = vocab if isinstance(vocab, list) else (vocab.get("vocab") or vocab.get("entries") or [])
+    failures: list[str] = []
+    for entry in vl:
+        if not isinstance(entry, dict): continue
+        form = entry.get("form")
+        reading = entry.get("reading")
+        if not form: continue
+        if form in WL: continue
+        if reading and reading in WL: continue
+        failures.append(
+            f"JA-151 vocab.json form={form!r} (reading={reading!r}) "
+            f"is not present in n5_vocab_whitelist.json (neither form nor reading)"
+        )
+    return failures
+
+
+def _check_ja_152_collocations_renamed() -> list[str]:
+    """NTR-FU-003 (2026-05-23) collocations-renamed lock.
+
+    The `collocations` field across vocab.json was mass-template
+    substitution (228x "を かう", 220x "を つかう", 215x "は どこ").
+    Per F.44.9 field-name-overclaim discipline, NTR-FU-003 renamed
+    `collocations` → `particle_examples` corpus-wide on 995 entries.
+
+    This invariant locks the rename: no entry may carry the
+    `collocations` field. The renamed `particle_examples` field is
+    expected; absence is allowed (entries may have neither).
+    """
+    import json as _json
+    vocab_path = ROOT / "data" / "vocab.json"
+    if not vocab_path.exists(): return []
+    vocab = _json.loads(vocab_path.read_text(encoding="utf-8"))
+    vl = vocab if isinstance(vocab, list) else (vocab.get("vocab") or vocab.get("entries") or [])
+    failures: list[str] = []
+    for entry in vl:
+        if not isinstance(entry, dict): continue
+        if "collocations" in entry:
+            form = entry.get("form", "<unknown>")
+            failures.append(
+                f"JA-152 vocab.json {form!r}: legacy `collocations` field "
+                f"detected; should be renamed to `particle_examples` per "
+                f"NTR-FU-003 (2026-05-23) field-name-overclaim discipline"
             )
     return failures
 

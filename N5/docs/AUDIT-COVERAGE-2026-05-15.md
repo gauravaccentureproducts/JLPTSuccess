@@ -6157,3 +6157,153 @@ users to pull the new content).
 - Spec: no change (no new JA-NN; data deltas covered by
   existing JA-150 + provenance audit).
 - Sync-map: 2026-05-23 (Part 41) row.
+
+## ADDENDUM 2026-05-23 (Part 42) — Stale-snapshot re-paste triage + 3 broader-scope follow-ups (NTR-FU-001/002/003)
+
+The 2026-05-22 NTR review document (Part 40) was re-pasted on
+2026-05-23 as "Pending bugs (13 items)". Per F.41.4 verify-
+before-fix discipline, ran claim-by-claim verification against
+current data. Result:
+  - 9 of 13 verified as **stale-snapshot** (already closed in
+    NTR-001..013 batch within this session: NTR-001 via JA-150 +
+    99 vocab rewrites; NTR-002 via n5-045 deprecation;
+    NTR-003/004 via gloss flip + usage_note; NTR-005/006 via
+    section retags; NTR-007 via mnemonic softening; NTR-008 via
+    NHK-claim metadata; NTR-010 via q-0226 contrast note).
+  - 3 of 13 filed as **broader-scope follow-ups** (NTR-FU-001/
+    002/003 → BUG-174/175/176).
+  - 1 of 13 **rejected with rationale** (broader-scope claim
+    that singular pronouns shouldn't have counter='人/にん' is
+    incorrect; singular pronouns counting people with 人 IS
+    semantically valid — 「あなたは何人いますか」).
+
+Procedure-manual §F.44.17 + §F.44.18 generalize the re-paste
+triage methodology + the three new defect classes (reverse-
+direction CI gate asymmetry; multi-band metric flattened to
+single-tier; field-name overclaim broadened beyond bounded
+close).
+
+### Bugs filed + closed (Part 42)
+
+| Bug ID | Severity / Priority | Class | Fix |
+|---|---|---|---|
+| BUG-174 NTR-FU-001 | Medium / P3 | F.44.18 Class M reverse-direction CI gate asymmetry | Added 11 missing entries to n5_vocab_whitelist.json + JA-151 |
+| BUG-175 NTR-FU-002 | Medium / P3 | F.44.18 Class N multi-band metric flattened | Added pacing_band_ideal + pacing_band_strict per-item; documented 3-band methodology in _meta |
+| BUG-176 NTR-FU-003 | Medium / P3 | F.44.18 Class O field-name overclaim broadened | Renamed collocations → particle_examples on 983 entries (995/995 unified) + JA-152 + UI updates + locales + min.js rebuild |
+
+### CI invariants added (Part 42)
+
+  - **JA-151** — vocab→whitelist reverse-direction gate. Every
+    vocab.json form OR reading must appear in
+    n5_vocab_whitelist.json. Brings whitelist asymmetry to
+    parity (JA-147 gated the forward direction only).
+  - **JA-152** — collocations-renamed lock. No vocab.json entry
+    may carry the legacy `collocations` field; the renamed
+    `particle_examples` is canonical.
+
+### Rejections with rationale (Part 42)
+
+- Item #12 (broader-scope pronoun counter): user's restated
+  claim says even singular pronouns shouldn't have
+  counter='人/にん'. This is incorrect — singular pronouns
+  counting people with 人 IS semantically valid (e.g.,
+  「あなたは何人いますか」 = "how many of you are there"). The
+  original NTR-013 close was bounded-correct: collective
+  pronouns (私たち, みなさん) need applies_to='noun_of_reference'
+  annotation; singular pronouns don't. **No fix applied;
+  rationale documented here + in commit message.**
+
+### Stale-snapshot re-verification table (Part 42)
+
+| Re-paste item | Claim | Current state | Verdict |
+|---|---|---|---|
+| #1 (99 vocab kanji) | JA-150 = 0 violations | Already closed via 99 rewrites + JA-150 | STALE |
+| #2 (n5-017/n5-045 dup) | n5-045 deprecated=True + _alias_of=n5-017 | Already closed | STALE |
+| #3 (おはし section) | section = "19. Tableware and Cooking" | Already closed | STALE |
+| #4 (えいが section) | section = "37. Common nouns - miscellaneous" | Already closed | STALE |
+| #5 (gloss inverted) | gloss leads "boyfriend (primary)" | Already closed | STALE |
+| #6 (あなた usage warning) | usage_note documents formal/intimate restriction | Already closed | STALE |
+| #7 (三 mnemonic) | "shared sound is coincidental" framing | Already closed | STALE |
+| #8 (whitelist mismatch) | 16 in-vocab-not-whitelist (11 real after reading-check) | Real, broader scope | REAL → NTR-FU-001 |
+| #9 (listening pacing) | All 50 tagged in_range against learner band; 38/50 below strict | Real | REAL → NTR-FU-002 |
+| #10 (pitch-accent) | 3 entries native_review_pending + nhk_2016_claim_* metadata | Already closed | STALE |
+| #11 (q-0226 contrast) | explanation_en has "は after a time noun introduces contrast" | Already closed | STALE |
+| #12 (counter mechanical) | Collective pronouns annotated; singular pronouns counter semantically correct | REJECT-with-rationale |
+| #13 (collocations templated) | 983 entries still templated; UI silent regression on 12 renamed pronouns | Real, broader scope | REAL → NTR-FU-003 |
+
+### Commits landed (Part 42)
+
+  - (This commit) — File NTR-FU-001/002/003 + fixes + JA-151/152
+    + UI + locales + min.js rebuild + Rule 4/5 propagation +
+    v1.16.1 → v1.16.2.
+
+### Files touched (Part 42)
+
+  - data/n5_vocab_whitelist.json (+11 entries: 980 total)
+  - data/listening.json (50 items annotated with 3-band pacing
+    + _meta.pacing_audit.methodology_three_band_2026_05_23)
+  - data/vocab.json (983 entries renamed collocations →
+    particle_examples; 12 NTR-011 pronouns already renamed)
+  - data/index.json (regenerated for size_bytes drift after
+    vocab+listening writes)
+  - data/version.json (v1.16.1 → v1.16.2)
+  - sw.js (CACHE_VERSION bump)
+  - index.html (?v= cache-bust)
+  - js/learn-vocab.js (reads particle_examples with legacy
+    collocations fallback)
+  - js/min/learn-vocab.js (rebuilt; 38 modules total via
+    build_min_js.py)
+  - locales/en.json + locales/hi.json (i18n key rename)
+  - tools/check_content_integrity.py (+JA-151 + JA-152)
+  - 4 new tools (file batch + 3 fix scripts + 1 flip script)
+  - specifications/test-scenarios-by-specialist-perspective.xlsx
+    (3 new bugs filed + flipped Fixed)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md
+    (F.44.17 + F.44.18)
+  - prompts/Japanese language Accuracy check.txt (A84)
+  - prompts/N5Improvement.txt (Phase-0 re-paste-triage block)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 42)
+  - docs/cross-artifact-sync-map.md (Part 42 row)
+  - CHANGELOG.md (v1.16.2 entry)
+
+### Final state for Part 42
+
+CI **154 / 154 invariants green** (was 152; +JA-151 +JA-152).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **176 / 176 Fixed / 0 Open** (was 173; +BUG-174/
+175/176 filed + flipped Fixed in same commit).
+Version: v1.16.1 → **v1.16.2** (data deltas: 11 whitelist
+entries + 50 listening pacing annotations + 983 vocab field
+renames; UI + locale + min.js cascade; cache-bust for end-users).
+
+### Bounded-coverage phrasing for Part 42
+
+  - "9 of 13 re-paste items verified as stale-snapshot in this
+    session; 3 filed + closed as broader-scope follow-ups;
+    1 rejected with rationale" — bounded to the items the
+    re-paste named.
+  - "JA-151 prevents re-introduction of *the vocab-form / reading
+    whitelist asymmetry on this corpus*" — does not assert the
+    whitelist is N5-content-complete; documented Known-mismatch
+    entries the README explicitly enumerates remain.
+  - "JA-152 prevents re-introduction of *the legacy `collocations`
+    field name*" — does not assert the renamed `particle_examples`
+    field has been independently re-curated for content quality.
+    Field-name fix, not content fix.
+  - "Listening pacing exposed as 3-band metric (learner / ideal /
+    strict)" — does not assert all 50 items pass JEES-strict;
+    38 of 50 fall below 220 mpm. Re-render to strict deferred;
+    consumers choose the threshold via the per-item band fields.
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44.17 (re-paste triage methodology) +
+  §F.44.18 (three new defect classes lineage extension).
+- CHANGELOG: 2026-05-23 v1.16.2 entry.
+- Accuracy prompt: §A84 (re-paste triage + 3 durable defect
+  classes M/N/O).
+- Improvement prompt: Phase-0 stale-snapshot re-paste triage
+  regression block.
+- Spec: §25.4 JA-151 + JA-152 rows + count update 152 → 154.
+- Sync-map: 2026-05-23 (Part 42) row.

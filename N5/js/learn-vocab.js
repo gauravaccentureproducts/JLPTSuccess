@@ -514,17 +514,23 @@ export function renderVocabularyDetail(container, vocabData, grammarData, form) 
       </section>
 
       ${(() => {
-        // IMP-WAVE4 (UI audit fix, 2026-05-11): collocations.
-        // 988/1009 entries have curated collocations. Render as a flex-list of
-        // chips. Format: array of strings, each one a real Japanese phrase
-        // (e.g., "コーヒーを のむ", "あつい コーヒー").
-        const colls = Array.isArray(entry.collocations) ? entry.collocations.filter(c => typeof c === 'string' && c.trim()) : [];
+        // IMP-WAVE4 (UI audit fix, 2026-05-11): originally "collocations".
+        // NTR-FU-003 (2026-05-23): renamed corpus-wide collocations →
+        // particle_examples to honest-label the field (mass template
+        // substitution: 228x "を かう", 220x "を つかう", 215x "は どこ",
+        // etc. — not real corpus collocations). Reads particle_examples
+        // with fallback to legacy collocations field for safety during
+        // rolling deploys. 995 / 995 entries renamed.
+        const peSrc = Array.isArray(entry.particle_examples)
+          ? entry.particle_examples
+          : (Array.isArray(entry.collocations) ? entry.collocations : []);
+        const colls = peSrc.filter(c => typeof c === 'string' && c.trim());
         if (!colls.length) return '';
         return `
-          <section class="vocab-collocations">
-            <h3 class="section-title">${esc(t('vocab_detail.collocations'))} (${colls.length})</h3>
-            <ul class="collocation-list">
-              ${colls.map(c => `<li class="collocation-chip" lang="ja">${esc(c)}</li>`).join('')}
+          <section class="vocab-particle-examples">
+            <h3 class="section-title">${esc(t('vocab_detail.particle_examples'))} (${colls.length})</h3>
+            <ul class="particle-example-list">
+              ${colls.map(c => `<li class="particle-example-chip" lang="ja">${esc(c)}</li>`).join('')}
             </ul>
           </section>
         `;
