@@ -5930,3 +5930,114 @@ Bug tracker: **160 / 160 Fixed / 0 Open**.
   regression block.
 - Spec: §25.4 JA-147/148/149 rows + count update 148 → 151.
 - Sync-map: 2026-05-22 (Part 39) row.
+
+## ADDENDUM 2026-05-22 (Part 40) — Native-teacher review of v1.15.8: 13-bug close-out (NTR-001..013)
+
+### Scope
+
+Native-teacher / JLPT-expert review of the v1.15.8 build packet
+filed 13 bugs as BUG-161..173 under prefix NTR-NNN. Reviewer's
+headline verdict: "this is a strong N5 corpus — better than most
+commercial N5 apps and competitive with Try!/So-matome on
+substance." The 13 findings are per-item content quality bugs
+that surface only when structural CI gates have already passed.
+
+All 13 verified against current data via
+tools/verify_native_teacher_review_2026_05_22.py before fixing
+(per F.41.4). 0 of 13 rejected as stale-snapshot artifact — the
+review was human-curated, not autonomous-audit-pipeline.
+
+### Bugs closed (Part 40)
+
+| Bug ID | Severity / Priority | Class | Fix |
+|---|---|---|---|
+| BUG-161 NTR-001 | S1 / P1 | F.44.1 multi-artifact discipline gap | Rewrote 99/3036 vocab examples to whitelist; +JA-150 |
+| BUG-162 NTR-002 | S1 / P2 | F.44.2 half-finished duplicate cleanup | Marked n5-045 deprecated; cleared n5-017 reverse alias |
+| BUG-163 NTR-003 | S1 / P2 | F.44.3 gloss-primary inversion | Re-glossed かれ/かのじょ boyfriend/girlfriend as primary |
+| BUG-164 NTR-004 | S1 / P2 | F.44.4 pronoun missing register caveat | あなた gained usage_note + example pivoted to name+さん |
+| BUG-165 NTR-005 | S2 / P3 | F.44.5 section / category mislabel | おはし section 20 → 19 |
+| BUG-166 NTR-006 | S2 / P3 | F.44.5 section / category mislabel | えいが section 26 → 37 |
+| BUG-167 NTR-007 | S2 / P3 | F.44.6 etymology-as-mnemonic conflation | 三 mnemonic.reading softened (-さん coincidence) |
+| BUG-168 NTR-008 | S2 / P4 | F.44.7 defensible-but-deviant pitch-accent | 3 entries annotated native_review_pending; これ confirmed |
+| BUG-169 NTR-009 | S3 / P4 | F.44.x (paired with NTR-003) | Hindi gloss sync for かれ/かのじょ |
+| BUG-170 NTR-010 | S3 / P4 | F.44.8 particle-nuance not flagged in Q&A | q-0226 explanation_en + は-contrast note |
+| BUG-171 NTR-011 | S3 / P4 | F.44.9 field-name overclaim | 12 pronouns `collocations` → `particle_examples` |
+| BUG-172 NTR-012 | S3 / P4 | F.44.10 prescriptive vs colloquial reading | 七 reading_rule + なな-usage note |
+| BUG-173 NTR-013 | S3 / P4 | F.44.11 counter applied indiscriminately + typo | みなさん.counter.reading typo fix + 2 collective annotations |
+
+### CI invariant added (Part 40)
+
+  - **JA-150** — every kanji in any data/vocab.json example's `ja`
+    field must be in n5_kanji_whitelist ∪ dokkai_kanji_exception.
+    Brings vocab examples up to parity with grammar / reading /
+    listening (all already gated). Catches the LLM-curation
+    regression that introduced ~3× the human-baseline rate.
+
+### Commits landed (Part 40)
+
+  - `43cd37b` — register NTR-001..013 (13 bugs) + verification record
+  - `578b56f` — NTR-001 fix (99 vocab examples) + JA-150
+  - `eda9441` — NTR-002/003/004/009 (S1 remaining + Hindi sync)
+  - `9e0925c` — NTR-005/006/007/008 (S2 section retags + 三 mnemonic + pitch-accent flags)
+  - `adac786` — NTR-010/011/012/013 (S3 polish)
+  - (This commit) — Rule 4/5 propagation + version bump
+
+### Files touched (Part 40)
+
+  - data/vocab.json (99 example rewrites + 3 entry edits + 12 field renames + 1 typo fix + 2 counter annotations + 3 pitch-accent annotations + 2 section retags)
+  - data/grammar.json (n5-045 deprecated + n5-017 alias cleared)
+  - data/kanji.json (三 mnemonic softened + 七 reading_rule appended)
+  - data/questions.json (q-0226 explanation_en + は-contrast note)
+  - data/version.json (v1.15.9 → v1.16.0)
+  - data/index.json (regenerated)
+  - tools/check_content_integrity.py (JA-150)
+  - 5 new fix scripts + 4 new flip scripts + 1 verification script
+  - specifications/test-scenarios-by-specialist-perspective.xlsx (13 bugs flipped)
+  - specifications/JLPT-N5-Current-Implementation-Spec.md (JA-150 row + count + last-updated)
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md (F.44)
+  - prompts/Japanese language Accuracy check.txt (A82)
+  - prompts/N5Improvement.txt (Phase-0 native-teacher-review block)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 40)
+  - docs/cross-artifact-sync-map.md (Part 40 row)
+  - CHANGELOG.md (v1.16.0 entry)
+  - sw.js + index.html (cache-bust v1.16.0)
+
+### Final state for Part 40
+
+CI **152 / 152 invariants green** (was 151; +JA-150).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **173 / 173 Fixed / 0 Open**.
+Version: v1.15.9 → **v1.16.0** (substantive content release —
+99 vocab edits + 4 structural changes + new CI invariant).
+
+### Bounded-coverage phrasing for Part 40
+
+  - "13 of 13 findings closed for the corpus snapshot scanned;
+    6 of 13 added a JA-NN CI invariant or annotation locking the
+    named pattern."
+  - "JA-150 prevents re-introduction of *vocab-example kanji
+    whitelist violations*" — does not catch the second-line
+    safety net (per-example `reading` field for UI furigana) the
+    reviewer also recommended; that's a separate ~3,036-example
+    authoring task, deferred.
+  - "Pitch-accent entries flagged native_review_pending pending
+    actual native-speaker pass" — does not assert dictionary
+    values are correct; defers to NATIVE-SPEAKER-RE-VERIFICATION.md
+    path-forward.
+  - "Bug-spec verification rejected 0 of 13 candidates this batch"
+    — the review was human-curated, so stale-snapshot artifact
+    rate was 0%. Autonomous-audit-pipeline reviews historically
+    have a 1-2 of N rejection rate (per F.43.1).
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44 (11 durable defect classes + operational
+  rule for batched close-out + bounded-coverage phrasing template
+  + lineage table).
+- CHANGELOG: 2026-05-22 v1.16.0 entry.
+- Accuracy prompt: §A82 (full 11-class documentation).
+- Improvement prompt: Phase-0 native-teacher-review regression
+  block.
+- Spec: §25.4 JA-150 row + count update 151 → 152.
+- Sync-map: 2026-05-22 (Part 40) row.

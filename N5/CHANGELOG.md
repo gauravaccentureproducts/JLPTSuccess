@@ -2,6 +2,122 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.0 - 2026-05-22 (Native teacher review close-out — 13 bugs across vocab/grammar/kanji/questions + JA-150)
+
+### Background
+
+External native-teacher / JLPT-expert review of the v1.15.8 build packet
+filed 13 bugs (BUG-161..173, prefix NTR-001..013). Reviewer's verdict:
+"this is a strong N5 corpus — better than most commercial N5 apps and
+competitive with Try!/So-matome on substance." The 13 findings are
+per-item content-quality bugs that surface only when structural CI gates
+have already passed. All 13 verified against current data before fixing
+(per procedure-manual F.41.4); 0 stale-snapshot artifacts.
+
+### Fixed
+
+- **BUG-161 (NTR-001) — 99 vocab examples leaked non-whitelist kanji.**
+  Of 3,036 vocab examples in data/vocab.json, 99 contained kanji NOT in
+  n5_kanji_whitelist (106) AND NOT in dokkai_kanji_exception (90). LLM-
+  curation pass ran ~3× the human-baseline violation rate (5.8% vs 2.1%).
+  Rewrote all 99 via mechanical kana-substitution of side-words; the
+  headword being taught was preserved in every case. Examples touched
+  include 待 → まって, 杯 → ぱい, 借 → かりました, 京都 → きょうと,
+  予報 → よほう, 匹 → ひき, 様 → さま, 夜 → よる/こんや, etc.
+  Provenance bumped to native_reviewed_2026_05_22 on all 99.
+
+- **BUG-162 (NTR-002) — n5-045 deprecated (duplicate of n5-017).**
+  Pattern n5-045 self-identified as duplicate via its `contrasts` block.
+  Marked `deprecated: true` + kept `_alias_of: 'n5-017'`. Cleared the
+  reverse `_alias_of` from n5-017 (canonical entry doesn't point back at
+  deprecated alias). External references in questions.json / audio_manifest
+  / etc. still resolve.
+
+- **BUG-163 (NTR-003) — かれ/かのじょ gloss inversion fixed.** Modern
+  spoken Japanese has boyfriend/girlfriend as the primary sense, not
+  parenthetical. New glosses: "boyfriend (primary); he, him (third-person
+  pronoun, more formal/literary)" and parallel for かのじょ.
+
+- **BUG-164 (NTR-004) — あなた usage warning added.** Added `usage_note`
+  field: "あなた is distant or formal, or (from a wife to a husband)
+  intimate. It is NOT the normal way to address someone you know — use
+  their name + さん, or drop the subject." Gloss updated with caveat.
+  Replaced example[0] `あなたは どなたですか。` (survey-form register)
+  with `田中さんは どこから 来ましたか。` (name-based-address alternative).
+
+- **BUG-165 (NTR-005) — おはし section 20 → 19.** Verified actual section
+  20 = Colors; section 19 = Tableware. One-line section retag.
+
+- **BUG-166 (NTR-006) — えいが section 26 → 37.** Movie/film moved from
+  "House and Furniture" to "Common nouns - miscellaneous" (closest fit
+  lacking dedicated Entertainment section).
+
+- **BUG-167 (NTR-007) — 三 kanji mnemonic etymology softened.** Old text
+  implied -さん honorific shares etymology with 三/さん; new text states
+  shared sound is coincidental (honorific さん comes from 様 → さま → さん).
+
+- **BUG-168 (NTR-008) — 3 pitch-accent entries flagged native_review_pending.**
+  あなた / みなさん / きのう annotated for actual native-speaker pass; これ
+  confirmed matching NHK and NOT flagged.
+
+- **BUG-169 (NTR-009) — Hindi gloss sync for かれ/かのじょ.** Resolved
+  alongside NTR-003 (gloss_hi parallel updated with boyfriend/girlfriend
+  primary).
+
+- **BUG-170 (NTR-010) — q-0226 explanation_en gains は-contrast note.**
+  Documents the contrastive nuance of は after a time noun.
+
+- **BUG-171 (NTR-011) — pronoun `collocations` renamed to `particle_examples`.**
+  On 12 entries in section "1. People - Pronouns and Self". The field
+  held particle-template substitutions, not corpus-linguistics collocations.
+
+- **BUG-172 (NTR-012) — 七 reading_rule gains なな-usage note.** Documents
+  the prescriptive (しち) vs colloquial (なな) split: 七時 しちじ, 七月
+  しちがつ, 七つ ななつ, NHK uses なな for numerals.
+
+- **BUG-173 (NTR-013) — pronoun counter cleanup.** Fixed みなさん.counter.
+  reading typo '人' (kanji) → 'にん' (kana). Annotated collective pronouns
+  (私たち, みなさん) with `counter.applies_to: 'noun_of_reference'` since
+  the counter applies to people referred to, not the pronoun itself.
+
+### Added
+
+- **JA-150** — every kanji in any data/vocab.json example's `ja` field must
+  be in n5_kanji_whitelist ∪ dokkai_kanji_exception. Brings vocab examples
+  up to parity with grammar / reading / listening (all already gated).
+
+- **Procedure manual F.44** — 11 durable defect classes from native-teacher
+  review of a shippable corpus + operational rule for batched close-out
+  + bounded-coverage phrasing template + Nx-prediction lineage table.
+
+- **Accuracy prompt A82** — full 11-class documentation with bug-spec
+  verification reinforcement.
+
+- **N5Improvement Phase-0 native-teacher-review block** — 11 maintainer-
+  side pre-release checks.
+
+- **AUDIT-COVERAGE Part 40** — close-out narrative + per-bug class mapping.
+
+### Versioning
+
+- `data/version.json`: v1.15.9 → **v1.16.0** (substantive content
+  release — 99 vocab edits + 4 structural changes + new CI invariant).
+- `cacheVersion`: -v1.15.9 → -v1.16.0.
+- `sw.js` CACHE_VERSION + `index.html` `?v=` cache-bust bumped (JA-68).
+
+### State
+
+CI **152 / 152 invariants green** (was 151; +JA-150).
+`cross_artifact_sync_report.py` exits CLEAN.
+Bug tracker **173 / 173 Fixed / 0 Open**.
+
+Bounded framing: 13 of 13 findings closed against the corpus snapshot
+the native-teacher reviewed; 6 of 13 added a JA-NN CI invariant or
+provenance annotation. JA-150 prevents re-introduction of *vocab-example
+kanji whitelist violations*; it does NOT catch register drift,
+unidiomatic phrasing, or other LLM-curation regressions the reviewer
+flagged for follow-up audit (§4 item 7 of the review).
+
 ## v1.15.9 - 2026-05-22 (5-bug close-out: DOCS-VOCAB-006 + DOCS-CORE-001 + DOCS-BRAND-001 + DOCS-Q-001 + DOCS-DKE-001 + 3 new CI invariants)
 
 ### Bug-spec verification (DOCS-VOCAB-005 carry-over rejected)

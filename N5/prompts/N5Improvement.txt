@@ -1747,6 +1747,84 @@ Source: 5-bug DOCS-* close-out 2026-05-22 (commits b63bdcc +
 fdd7be8); accuracy prompt §A81; procedure-manual §F.43;
 AUDIT-COVERAGE Part 39.
 
+### Phase-0 native-teacher-review regression block (added 2026-05-22)
+
+CI-enforced via JA-150 (introduced 2026-05-22 from NTR-001
+close-out). Maintainer-side Phase-0 mirror runs pre-release:
+
+1. **Vocab-example kanji whitelist (NTR-001 / JA-150)**
+   Every kanji in any data/vocab.json example's `ja` field must be
+   in n5_kanji_whitelist ∪ dokkai_kanji_exception. Brings vocab
+   examples up to parity with grammar / reading / listening (all
+   already gated). Expected: 0 violations.
+
+2. **Deprecated grammar entries hidden from listings (NTR-002)**
+   For every grammar.json entry with `deprecated: true`, verify
+   it has `_alias_of: <canonical_id>` pointing at a non-deprecated
+   entry. UI grammar TOC filter on `deprecated: true` is a small
+   follow-up. Expected: 0 deprecated-without-alias_of entries.
+
+3. **Gloss-Hindi sync after gloss re-edits (NTR-003 / NTR-009)**
+   When gloss is edited, gloss_hi must be edited in same commit
+   (or explicitly flagged "Hindi follow-up"). Not automatable;
+   discipline-only.
+
+4. **Pronoun usage_note presence (NTR-004)**
+   Every pronoun entry where the register is restricted (formal-
+   only, intimate-only, marked-only) carries a usage_note field.
+   Currently only あなた flagged; future pronouns may need same
+   treatment.
+
+5. **Section uniqueness audit (NTR-005 / NTR-006)**
+   Cross-tabulate vocab.json section numbers + labels. Duplicate
+   numbers across distinct labels are bugs. Semantic-mismatch
+   (movie under furniture) is spot-check qualitative.
+
+6. **Kanji-mnemonic etymology audit (NTR-007)**
+   Per-mnemonic native-speaker pass over etymology claims. Where
+   a mnemonic asserts shared etymology between unrelated tokens,
+   soften to "shared sound is coincidental." Not automatable.
+
+7. **Pitch-accent native-review queue (NTR-008)**
+   Entries with `native_review_pending: '<date>_NTR_008'` are
+   awaiting actual native-speaker pass. Audio is source of truth
+   for rendered material until resolved. Expected: 3 entries
+   currently flagged (あなた, みなさん, きのう).
+
+8. **Q&A particle-nuance scan (NTR-010)**
+   Native-speaker spot-check question-bank explanations for
+   nuance traps (は after time noun = contrast, etc.). Not
+   automatable; qualitative.
+
+9. **Field-name overclaim audit (NTR-011)**
+   Per-field semantic audit: does the field name match content?
+   E.g., "collocations" field containing particle templates was
+   renamed to "particle_examples" on 12 pronoun entries.
+
+10. **Reading-rule colloquial-vs-prescriptive split (NTR-012)**
+    For kanji whose primary_reading is prescriptive but
+    colloquial usage is split, reading_rule must document the
+    split. Currently 七 carries the note.
+
+11. **Pronoun counter applicability (NTR-013)**
+    Collective pronouns (私たち, みなさん) carry counter with
+    `applies_to: 'noun_of_reference'` annotation. Individual
+    pronouns retain counter as-is. みなさん.counter.reading must
+    be kana 'にん' (not kanji '人').
+
+Bounded-coverage framing:
+  - "JA-150 catches *vocab-example kanji whitelist violations*"
+    — does not catch register drift, unidiomatic phrasing, or
+    other LLM-curation regressions the review didn't systematically
+    audit.
+  - "13 of 13 findings closed for the corpus snapshot scanned" —
+    bounded to the specific items the native-teacher review named;
+    future native-teacher passes may surface new defect classes.
+
+Source: NTR-001..013 close-out 2026-05-22 (commits 43cd37b +
+578b56f + eda9441 + 9e0925c + adac786); accuracy prompt §A82;
+procedure-manual §F.44; AUDIT-COVERAGE Part 40.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

@@ -5155,3 +5155,119 @@ AUDIT-COVERAGE Part 39.
 
 CI invariants at this checkpoint: 151 (was 148; +JA-147 +JA-148 +JA-149).
 ============================================================
+
+A82. NATIVE-TEACHER REVIEW OF A SHIPPABLE CORPUS - 11 durable
+     defect classes from the 2026-05-22 NTR-001..013 batch.
+     (Audit category - added 2026-05-22, AUDIT-COVERAGE Part 40.)
+============================================================
+
+Eleven durable defect classes from the 2026-05-22 native-teacher /
+JLPT-expert review of v1.15.8 (13 bugs filed, all 13 closed).
+Headline verdict from the reviewer: "this is a strong N5 corpus -
+better than most commercial N5 apps and competitive with Try!/
+So-matome on substance." The 13 findings are per-item content
+quality bugs that surface only when structural CI gates have
+already passed.
+
+CI-enforced this batch: JA-150 (vocab-example kanji whitelist;
+brings vocab examples up to parity with grammar / reading /
+listening).
+
+Class A - Multi-artifact discipline gap (NTR-001 / JA-150)
+  Whitelist predicate gated 4 of 5 example-carrying artifacts;
+  vocab was the outlier. 99/3036 vocab examples leaked
+  non-whitelist kanji. LLM-curation pass ran 3x the human-
+  baseline violation rate (5.8% vs 2.1%) because the LLM didn't
+  know about the whitelist. Fix: rewrite 99 + add CI invariant.
+
+Class B - Half-finished duplicate cleanup (NTR-002)
+  Pattern n5-045 self-identified as duplicate via contrasts
+  block, but cleanup wasn't completed. Marked deprecated=True;
+  external refs still resolve; n5-017 reverse alias cleared.
+
+Class C - Gloss-primary inversion vs modern spoken usage (NTR-003)
+  かれ/かのじょ glossed "he/she (boyfriend - more advanced)";
+  modern spoken Japanese inverts this. Re-glossed boyfriend/
+  girlfriend as primary, third-person pronoun as formal/literary.
+
+Class D - Pronoun missing register caveat (NTR-004)
+  あなた glossed "you" with no caveat. Added usage_note covering
+  the formal/intimate/marked-only restriction + replaced lead
+  example with name-based-address alternative.
+
+Class E - Section / category mislabel (NTR-005 + NTR-006)
+  おはし section 20 (Colors!) instead of 19 (Tableware); えいが
+  section 26 (House) instead of 37 (misc nouns). One-line edits.
+
+Class F - Etymology-as-mnemonic conflation (NTR-007)
+  三 mnemonic claimed -さん honorific shares etymology with 三/さん.
+  Soften to documented-coincidence + correct etymology
+  (様 → さま → さん).
+
+Class G - Defensible-but-deviant pitch-accent (NTR-008)
+  3 of 4 flagged entries (あなた, みなさん, きのう) annotated
+  native_review_pending; これ confirmed matching NHK. Audio is
+  source of truth for rendered material until native-speaker pass.
+
+Class H - Hindi gloss out-of-sync after English re-gloss (NTR-009)
+  Auto-resolved by NTR-003 same-commit fix. Document the
+  language-pair-sync expectation: gloss_hi parallel updates in
+  the same commit as gloss EN.
+
+Class I - Particle-nuance not flagged in Q&A explanations (NTR-010)
+  q-0226 「きのうは」 carries は-contrast nuance not flagged in
+  explanation_en. Appended one-line note.
+
+Class J - Field-name overclaim (NTR-011)
+  Pronoun `collocations` field held particle-template
+  substitutions, not corpus-linguistics collocations. Renamed
+  to `particle_examples` on 12 entries.
+
+Class K - Prescriptive vs colloquial reading split (NTR-012)
+  七 primary しち is prescriptive; modern colloquial reading is
+  split (七つ ななつ; NHK uses なな for numerals). Kept primary;
+  appended reading_rule usage note.
+
+Class L - Counter applied indiscriminately + sub-typo (NTR-013)
+  9 pronouns carry counter='人/にん'; collective pronouns
+  (私たち, みなさん) shouldn't (counter applies to noun-of-reference,
+  not pronoun). みなさん.counter.reading typo '人' → 'にん'.
+  Added applies_to='noun_of_reference' on collective pronouns.
+
+Bug-spec verification (F.43.1 / F.44.12 reinforcement):
+  - 0 of 13 candidates rejected as stale-snapshot artifact this
+    batch. (The review was human-curated, not autonomous-audit-
+    pipeline, so stale-snapshot rate was 0%.)
+  - All 13 verified real against current data before fixing.
+
+Operational rule (F.44.12 — batched close-out):
+  - File all bugs in single batch under prefix (NTR-NNN).
+  - Triage by Severity 1/2/3 + Priority P1..P4.
+  - Bundle related fixes into single commits (NTR-003 + NTR-009
+    same commit because gloss_hi was downstream).
+  - CI invariants for data-shape findings; document the rest as
+    conventions. 6 of 13 findings shipped a CI invariant or
+    annotation; 7 are content edits / terminology / conventions.
+  - Single Rule 4/5 propagation commit at end of batch.
+
+Bounded-coverage phrasing:
+  - "13 of 13 findings closed for the corpus snapshot scanned"
+    — does not assert N5 is defect-free; the review didn't
+    systematically audit register drift, unidiomatic phrasing,
+    or other LLM-curation regressions beyond what surfaced here.
+  - "JA-150 prevents re-introduction of *vocab-example kanji
+    whitelist violations*" — does not catch the second-line
+    safety net (per-example `reading` field for UI furigana);
+    that's a separate authoring task deferred.
+  - "Pitch-accent entries flagged native_review_pending pending
+    actual native-speaker pass" — does not assert dictionary
+    values are correct.
+
+Source: NTR-001..013 close-out 2026-05-22; tooling
+tools/verify_native_teacher_review_2026_05_22.py +
+tools/file_ntr_native_teacher_batch_2026_05_22.py +
+4 fix scripts + 4 flip scripts; procedure-manual F.44;
+AUDIT-COVERAGE Part 40.
+
+CI invariants at this checkpoint: 152 (was 151; +JA-150).
+============================================================
