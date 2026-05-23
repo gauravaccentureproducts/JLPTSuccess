@@ -2,6 +2,99 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.8 - 2026-05-23 (External reviewer v1.16.7 pass close: 6 findings fixed + 2 horizontal sweeps + 2 new CI invariants)
+
+### Background
+
+External reviewer report against v1.16.7 surfaced 4 REAL defects + 2
+PREFERENCE/polish items + 1 DEFERRED-BY-DESIGN. Triage applied per
+F.44.17 + F.44.19 (verify-before-fix with PRINT non-empty per-claim
+output). Horizontal scope on Findings 3 + 4 turned 2 single-item
+surfaces into 21 total fixes.
+
+### Fixed
+
+- **BUG-186 (RV-001) — あなた example [0] translation_en mismatch.**
+  Field said "Who are you?" for ja 「田中さんは どこから 来ましたか。」.
+  Root cause: RP-002 fix updated a NEW `en` field with rich commentary
+  but left the canonical `translation_en` (3036/3036 examples) stale.
+  Resolution: merged RP-002 commentary into `translation_en`; dropped
+  the redundant `en` field on 3 あなた examples.
+
+- **BUG-187 (RV-002) — あなた example [2] translation_en mismatch.**
+  Field said "How old are you?" for ja 「あなたの 名前を ここに 書いて
+  ください。」. Same root cause as RV-001. Updated to "Please write
+  your name here…" with form-filling context note.
+
+- **BUG-188 (RV-003) — Listening glossary substring-collision
+  contamination.** Reviewer found 1 case (n5.listen.001 has あし
+  glossary entry; script_ja contains ましょう substring-matched as
+  あし). Horizontal sweep across 50 items found **3 total**:
+  n5.listen.001 (あし), n5.listen.028 (いえ), n5.listen.049 (まがる).
+  Resolution: removed 3 irrelevant glossary entries. New CI invariant
+  **JA-159** locks the form-or-reading-in-script_ja predicate.
+
+- **BUG-189 (RV-004) — Listening speaker tag drift.** Reviewer found
+  1 case (n5.listen.001 line[2] tagged male despite 女： prefix).
+  Horizontal sweep found **18 mismatches across 8 listening items**
+  (likely a build-pipeline bug that assigned all dialogue speakers
+  'male' without parsing 男：/女：). Resolution: corrected all 18
+  speaker tags based on prefix. New CI invariant **JA-158** locks the
+  speaker-tag-vs-prefix predicate.
+
+- **BUG-191 (RV-006) — q-0005 distractor_explanations_hi.で polish.**
+  English-loanword "फ़िट होता है" replaced with natural Hindi
+  "उपयुक्त नहीं है".
+
+### Acknowledged (PREFERENCE)
+
+- **BUG-190 (RV-005) — かれ + かのじょ gloss enrichment.** Reviewer
+  suggested either reverting to "he, him (primary)" (REJECTed — NTR-003
+  project stance preserved) or adding explicit "modern conversational
+  bias" marker to the current gloss (ACCEPTED). New gloss:
+  "boyfriend (primary in modern conversational Japanese); he, him
+  (third-person pronoun, more formal/literary)". Mirror change applied
+  to かのじょ.
+
+### Deferred (per reviewer's classification)
+
+- **Finding 7 — broader pitch-accent verification queue.** Reviewer
+  correctly flagged DEFERRED-BY-DESIGN. The F.44.21 audit-block
+  scaffold pattern is the protocol; expanding the queue beyond the
+  current 3 entries (あなた / みなさん / きのう) is separate work that
+  requires a real human native speaker. Not closed in this release.
+
+### Acknowledged zero-findings
+
+- **Finding 8 — cross-corpus consistency PASS.** Reviewer's spot-check
+  of vocab↔grammar↔questions ID resolution returned zero hits.
+
+### CI invariants added
+
+- **JA-158** — listening line speaker tag matches 男:/女: prefix
+- **JA-159** — listening vocab_glossary form OR reading appears in
+  script_ja (substring-collision guard)
+
+### CI / tracker / version
+
+- CI invariants: **161 / 161** (was 159; +JA-158 +JA-159).
+- Bug tracker: **196 / 196 Fixed / 0 Open** (was 190; +BUG-186..191).
+- Version: v1.16.7 → **v1.16.8**.
+- Packet: v1.16.8 / 2026-05-23T17:00:00Z, JA-156 + JA-157 + JA-158 +
+  JA-159 PASS.
+
+### Bounded coverage
+
+- "4 REAL + 2 horizontal sweeps closed; 1 DEFERRED-BY-DESIGN preserved;
+  1 PREFERENCE enriched-without-revert" — does NOT assert v1.16.8 is
+  defect-free against a fresh independent review.
+- "Horizontal sweep multipliers: Finding 3 reviewer surfaced 1, found
+  3 total; Finding 4 reviewer surfaced 1, found 18 total" — the
+  reviewer-spot-check + horizontal-sweep pattern continues to find
+  ~3-18× the reviewer's directly-named count.
+
+---
+
 ## v1.16.7 - 2026-05-23 (All-pending close: markdown-table renderer for dokkai-7 + JA-157 paper-mirror staleness gate + framing clarification for auto_inferred)
 
 ### Fixed

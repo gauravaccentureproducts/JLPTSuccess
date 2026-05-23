@@ -1465,6 +1465,18 @@ CHECKS: list[tuple[str, str, callable]] = [
     # checkouts). Per F.44.25 gitignored-artifact freshness pattern
     # generalization.
     ("JA-157", "paper static mirrors (papers/<cat>-N/index.html) contain every question id from data/papers/<cat>/paper-N.json (mirror staleness guard, 2026-05-23)", lambda: _check_ja_157_paper_static_mirror_freshness()),
+    # JA-158 (2026-05-23): listening.json speaker tag matches script
+    # prefix. Lines with 男： prefix must have speaker='male'; 女： →
+    # speaker='female'. Catches the build-pipeline drift the 2026-05-23
+    # reviewer surfaced (18 mismatches across 8 listening items).
+    # RV-004 / Finding 4 close-out.
+    ("JA-158", "listening.json line speaker tag matches 男:/女: prefix (RV-004 guard, 2026-05-23)", lambda: _check_ja_158_listening_speaker_tag()),
+    # JA-159 (2026-05-23): listening.json vocab_glossary entries' form
+    # OR reading must appear as a substring in script_ja. Catches the
+    # auto-build pipeline that injected vocab entries via substring-
+    # collision (e.g., あし extracted from ましょう). RV-003 / Finding 3
+    # close-out.
+    ("JA-159", "listening.json glossary entries' form or reading present in script_ja (RV-003 guard, 2026-05-23)", lambda: _check_ja_159_listening_glossary_in_script()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8390,6 +8402,73 @@ def _check_ja_153_deprecated_grammar_bucket() -> list[str]:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is still in `deferred_to_n4` — move to `deprecated` bucket")
         if not in_dep:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is not in n5_core_pattern_ids.json `deprecated` bucket")
+    return failures
+
+
+def _check_ja_158_listening_speaker_tag() -> list[str]:
+    """RV-004 (2026-05-23) listening speaker-tag drift guard.
+
+    Lines in `listening.json[].lines[]` carry a `speaker` tag and a
+    `ja` field. When the `ja` text starts with 男： the speaker tag
+    must be 'male'; with 女： it must be 'female'. (No-prefix lines
+    are narrator and not checked.)
+
+    Catches the build-pipeline drift the 2026-05-23 reviewer surfaced
+    (1 explicit finding + 17 more in horizontal sweep across 8
+    listening items).
+    """
+    import json as _json
+    p = ROOT / "data" / "listening.json"
+    if not p.exists(): return []
+    d = _json.loads(p.read_text(encoding="utf-8"))
+    items = d.get("items") if isinstance(d, dict) else (d if isinstance(d, list) else [])
+    failures: list[str] = []
+    for it in items:
+        if not isinstance(it, dict): continue
+        iid = it.get("id", "<unknown>")
+        for i, ln in enumerate(it.get("lines") or []):
+            if not isinstance(ln, dict): continue
+            ja = ln.get("ja", "") or ""
+            sp = ln.get("speaker", "")
+            if ja.startswith("男：") and sp != "male":
+                failures.append(f"JA-158 {iid} line[{i}]: 男: prefix but speaker={sp!r}, expected 'male'")
+            elif ja.startswith("女：") and sp != "female":
+                failures.append(f"JA-158 {iid} line[{i}]: 女: prefix but speaker={sp!r}, expected 'female'")
+    return failures
+
+
+def _check_ja_159_listening_glossary_in_script() -> list[str]:
+    """RV-003 (2026-05-23) listening glossary substring-collision guard.
+
+    Every entry in `listening.json[].vocab_glossary[]` must have its
+    `form` OR `reading` appear as a substring in the same item's
+    `script_ja`. Catches the build-pipeline pattern where a substring
+    accidentally collides (e.g., あし extracted from ましょう) and an
+    irrelevant glossary entry leaks into the item.
+    """
+    import json as _json
+    p = ROOT / "data" / "listening.json"
+    if not p.exists(): return []
+    d = _json.loads(p.read_text(encoding="utf-8"))
+    items = d.get("items") if isinstance(d, dict) else (d if isinstance(d, list) else [])
+    failures: list[str] = []
+    for it in items:
+        if not isinstance(it, dict): continue
+        iid = it.get("id", "<unknown>")
+        script = it.get("script_ja", "") or ""
+        for g in it.get("vocab_glossary") or []:
+            if not isinstance(g, dict): continue
+            form = g.get("form") or ""
+            reading = g.get("reading") or ""
+            # The reading field may carry an alternates list like "いえ / うち"
+            # — split on / and check each part.
+            reading_parts = [r.strip() for r in reading.split("/") if r.strip()]
+            if form and form in script: continue
+            if any(r and r in script for r in reading_parts): continue
+            failures.append(
+                f"JA-159 {iid}: glossary entry form={form!r} reading={reading!r} "
+                f"not found in script_ja (substring-collision contamination)"
+            )
     return failures
 
 

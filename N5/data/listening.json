@@ -38,7 +38,7 @@
           "startMs": 7910,
           "endMs": 10427,
           "ja": "女：いいですね。何時に 会いますか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 10427,
@@ -50,7 +50,7 @@
           "startMs": 12944,
           "endMs": 17259,
           "ja": "女：えきの 前は 人が おおいですね。カフェの 前で 会いましょう。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 17259,
@@ -107,13 +107,6 @@
           "gloss": "tomorrow",
           "gloss_hi": "कल (आगामी)",
           "vocab_id": "n5.vocab.10-time-general.あした"
-        },
-        {
-          "form": "あし",
-          "reading": "あし",
-          "gloss": "leg, foot",
-          "gloss_hi": "पैर",
-          "vocab_id": "n5.vocab.4-body-parts.あし"
         },
         {
           "form": "下",
@@ -345,7 +338,14 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "in",
-      "pacing_band_ideal": "above"
+      "pacing_band_ideal": "above",
+      "rv_003_fix_2026_05_23": [
+        "removed irrelevant glossary entry 'あし' not present in script_ja"
+      ],
+      "rv_004_fix_2026_05_23": [
+        "line[2]: speaker 'male' → 'female' (matched prefix)",
+        "line[4]: speaker 'male' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.002",
@@ -379,7 +379,7 @@
           "startMs": 5309,
           "endMs": 8168,
           "ja": "女：もしもし。いま スーパーですか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 8168,
@@ -391,7 +391,7 @@
           "startMs": 10823,
           "endMs": 13886,
           "ja": "女：パンと たまごを かって ください。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 13886,
@@ -403,7 +403,7 @@
           "startMs": 15928,
           "endMs": 18787,
           "ja": "女：あ、ぎゅうにゅうも おねがいします。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 18787,
@@ -683,7 +683,12 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "in",
-      "pacing_band_ideal": "above"
+      "pacing_band_ideal": "above",
+      "rv_004_fix_2026_05_23": [
+        "line[1]: speaker 'male' → 'female' (matched prefix)",
+        "line[3]: speaker 'male' → 'female' (matched prefix)",
+        "line[5]: speaker 'male' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.003",
@@ -717,7 +722,7 @@
           "startMs": 4896,
           "endMs": 7435,
           "ja": "女：あしたの あさ、何時に 出ますか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 7435,
@@ -729,7 +734,7 @@
           "startMs": 10880,
           "endMs": 13419,
           "ja": "女：では、うちを 八時半に 出ましょう。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 13419,
@@ -1008,7 +1013,11 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "in",
-      "pacing_band_ideal": "above"
+      "pacing_band_ideal": "above",
+      "rv_004_fix_2026_05_23": [
+        "line[1]: speaker 'male' → 'female' (matched prefix)",
+        "line[3]: speaker 'male' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.004",
@@ -1801,7 +1810,7 @@
           "startMs": 5237,
           "endMs": 7855,
           "ja": "女：日本語の 本は どこですか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 7855,
@@ -1813,7 +1822,7 @@
           "startMs": 9819,
           "endMs": 12874,
           "ja": "女：上ですか。下では ありませんか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 12874,
@@ -1825,7 +1834,7 @@
           "startMs": 15929,
           "endMs": 18546,
           "ja": "女：わかりました。ありがとう。",
-          "speaker": "male"
+          "speaker": "female"
         }
       ],
       "voice_variety_status": "rendered",
@@ -2123,7 +2132,12 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "below",
-      "pacing_band_ideal": "below"
+      "pacing_band_ideal": "below",
+      "rv_004_fix_2026_05_23": [
+        "line[1]: speaker 'male' → 'female' (matched prefix)",
+        "line[3]: speaker 'male' → 'female' (matched prefix)",
+        "line[5]: speaker 'male' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.007",
@@ -2490,7 +2504,7 @@
           "startMs": 6593,
           "endMs": 10301,
           "ja": "女：たんじょうび、何が ほしいですか。本ですか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 10301,
@@ -2502,7 +2516,7 @@
           "startMs": 14627,
           "endMs": 16893,
           "ja": "女：何ですか。とけいですか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 16893,
@@ -2514,7 +2528,7 @@
           "startMs": 20189,
           "endMs": 21426,
           "ja": "女：そうですか。",
-          "speaker": "narrator"
+          "speaker": "female"
         }
       ],
       "voice_variety_status": "rendered",
@@ -2805,7 +2819,12 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "in",
-      "pacing_band_ideal": "above"
+      "pacing_band_ideal": "above",
+      "rv_004_fix_2026_05_23": [
+        "line[1]: speaker 'male' → 'female' (matched prefix)",
+        "line[3]: speaker 'male' → 'female' (matched prefix)",
+        "line[5]: speaker 'narrator' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.009",
@@ -7368,15 +7387,7 @@
       },
       "explanation_hi_provenance": "native_reviewed",
       "audio_slow": "audio/listening/n5.listen.028.slow.mp3",
-      "vocab_glossary": [
-        {
-          "form": "いえ",
-          "reading": "いえ / うち",
-          "gloss": "house / home (いえ emphasizes the building; うち emphasizes \"my place / my household\")",
-          "gloss_hi": "घर",
-          "vocab_id": "n5.vocab.26-house-and-furniture.いえ"
-        }
-      ],
+      "vocab_glossary": [],
       "vocab_glossary_provenance": "auto_derived",
       "transcript_timing_provenance": "mora_proportional",
       "ambient_context": "home",
@@ -7481,7 +7492,10 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "below",
-      "pacing_band_ideal": "in"
+      "pacing_band_ideal": "in",
+      "rv_003_fix_2026_05_23": [
+        "removed irrelevant glossary entry 'いえ' not present in script_ja"
+      ]
     },
     {
       "id": "n5.listen.029",
@@ -7908,7 +7922,7 @@
           "startMs": 4507,
           "endMs": 7031,
           "ja": "女：たんじょうびに 何を あげますか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 7031,
@@ -7920,7 +7934,7 @@
           "startMs": 8293,
           "endMs": 10276,
           "ja": "女：ぼうしも きれいですよ。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 10276,
@@ -8189,7 +8203,11 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "in",
-      "pacing_band_ideal": "above"
+      "pacing_band_ideal": "above",
+      "rv_004_fix_2026_05_23": [
+        "line[1]: speaker 'male' → 'female' (matched prefix)",
+        "line[3]: speaker 'male' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.032",
@@ -8221,7 +8239,7 @@
           "startMs": 4413,
           "endMs": 6436,
           "ja": "女：土よう日、何を しますか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 6436,
@@ -8233,7 +8251,7 @@
           "startMs": 9194,
           "endMs": 11401,
           "ja": "女：日よう日も 出かけますか。",
-          "speaker": "male"
+          "speaker": "female"
         },
         {
           "startMs": 11401,
@@ -8440,7 +8458,11 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "below",
-      "pacing_band_ideal": "below"
+      "pacing_band_ideal": "below",
+      "rv_004_fix_2026_05_23": [
+        "line[1]: speaker 'male' → 'female' (matched prefix)",
+        "line[3]: speaker 'male' → 'female' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.033",
@@ -8490,7 +8512,7 @@
           "startMs": 8452,
           "endMs": 11040,
           "ja": "男：レストランは 一かいに あります。",
-          "speaker": "narrator"
+          "speaker": "male"
         }
       ],
       "voice_variety_status": "rendered",
@@ -8709,7 +8731,10 @@
       "bug_047_fix_2026_05_17": true,
       "bug_051_fix_2026_05_17": true,
       "pacing_band_strict": "below",
-      "pacing_band_ideal": "in"
+      "pacing_band_ideal": "in",
+      "rv_004_fix_2026_05_23": [
+        "line[4]: speaker 'narrator' → 'male' (matched prefix)"
+      ]
     },
     {
       "id": "n5.listen.034",
@@ -12250,13 +12275,6 @@
           "reading": "みぎ",
           "gloss": "right",
           "gloss_hi": "दाएँ"
-        },
-        {
-          "form": "まがる",
-          "reading": "まがる",
-          "gloss": "to turn, to bend",
-          "gloss_hi": "मुड़ना",
-          "vocab_id": "n5.vocab.27-verbs-group-1-verbs.まがる"
         }
       ],
       "vocab_glossary_provenance": "auto_derived",
@@ -12356,7 +12374,10 @@
       "bug_051_fix_2026_05_17": true,
       "pacing_morae_per_min": 211.4,
       "pacing_band_strict": "below",
-      "pacing_band_ideal": "in"
+      "pacing_band_ideal": "in",
+      "rv_003_fix_2026_05_23": [
+        "removed irrelevant glossary entry 'まがる' not present in script_ja"
+      ]
     },
     {
       "id": "n5.listen.050",

@@ -236,11 +236,12 @@
       "distractor_explanations_hi": {
         "が": "が होता ज़ोर देता है 'आज (specifically) है गरम' - सम्भव पर कम स्वाभाविक।",
         "を": "を सूचित करता है सीधा कर्म। きょう नहीं है कर्म यहाँ।",
-        "で": "で सूचित करता है क्रिया का स्थान या साधन - कोई भी नहीं फ़िट होता है विषय।"
+        "で": "で क्रिया का स्थान या साधन सूचित करता है — यह वाक्य के विषय-सूचक के रूप में उपयुक्त नहीं है।"
       },
       "distractor_explanations_hi_provenance": "native_reviewed",
       "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "rv_006_fix_2026_05_23": "distractor_explanations_hi.で polished: 'फ़िट होता है' English-loanword → natural Hindi 'उपयुक्त नहीं है'"
     },
     {
       "id": "q-0006",

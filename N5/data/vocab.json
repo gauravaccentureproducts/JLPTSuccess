@@ -153,25 +153,25 @@
       "examples": [
         {
           "ja": "田中さんは どこから 来ましたか。",
-          "translation_en": "Who are you?",
-          "en": "Tanaka-san, where are you from? (Note: Japanese uses name+さん rather than あなた when addressing someone you know.)",
+          "translation_en": "Tanaka-san, where are you from? (Note: Japanese uses name+さん rather than あなた when addressing someone known. The bare 'where are YOU from?' phrasing with あなた sounds confrontational.)",
           "provenance": "native_reviewed_2026_05_22",
-          "usage_demo": "name_based_address_alternative"
+          "usage_demo": "name_based_address_alternative",
+          "translation_en_provenance": "native_reviewed_2026_05_23"
         },
         {
           "ja": "山田さんは がくせいですか。",
-          "translation_en": "Are you a student?",
+          "translation_en": "Yamada-san, are you a student? (Note: Japanese uses name+さん rather than あなた when addressing someone known.)",
           "source": "n5-001",
           "usage_context": "anata_appropriate_register",
-          "en": "Yamada-san, are you a student? (Note: Japanese uses name+さん rather than あなた when addressing someone known. The bare 'are YOU a student?' phrasing with あなた sounds confrontational.)",
-          "provenance": "native_reviewed_2026_05_23"
+          "provenance": "native_reviewed_2026_05_23",
+          "translation_en_provenance": "native_reviewed_2026_05_23"
         },
         {
           "ja": "あなたの 名前を ここに 書いて ください。",
-          "translation_en": "How old are you?",
+          "translation_en": "Please write your name here. (Form-filling / generic-instruction context — one of the few places where あなた is the natural choice because the addressee is unspecified and the register is impersonal.)",
           "provenance": "native_reviewed_2026_05_23",
           "usage_context": "anata_appropriate_register",
-          "en": "Please write your name here. (Form-filling / generic-instruction context — one of the few places where あなた is the natural choice because the addressee is unspecified and the register is impersonal.)"
+          "translation_en_provenance": "native_reviewed_2026_05_23"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -261,7 +261,7 @@
       "id": "n5.vocab.1-people-pronouns-and-se.かれ",
       "form": "かれ",
       "reading": "かれ",
-      "gloss": "boyfriend (primary); he, him (third-person pronoun, more formal/literary)",
+      "gloss": "boyfriend (primary in modern conversational Japanese); he, him (third-person pronoun, more formal/literary)",
       "section": "1. People - Pronouns and Self",
       "pos": "pronoun",
       "examples": [
@@ -280,7 +280,7 @@
         }
       ],
       "review_status": "ai_quality_reviewed",
-      "gloss_provenance": "native_reviewed_2026_05_22",
+      "gloss_provenance": "native_reviewed_2026_05_23",
       "gloss_hi": "बॉयफ्रेंड (प्राथमिक अर्थ); वह (पुरुष, औपचारिक/साहित्यिक सर्वनाम के रूप में)",
       "pitch_accent": {
         "mora": 2,
@@ -317,13 +317,14 @@
         "かれを しる",
         "かれと あう"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
+      "rv_005_fix_2026_05_23": "added 'modern conversational' marker per reviewer suggestion"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かのじょ",
       "form": "かのじょ",
       "reading": "かのじょ",
-      "gloss": "girlfriend (primary); she, her (third-person pronoun, more formal/literary)",
+      "gloss": "girlfriend (primary in modern conversational Japanese); she, her (third-person pronoun, more formal/literary)",
       "section": "1. People - Pronouns and Self",
       "pos": "pronoun",
       "examples": [
@@ -342,7 +343,7 @@
         }
       ],
       "review_status": "ai_quality_reviewed",
-      "gloss_provenance": "native_reviewed_2026_05_22",
+      "gloss_provenance": "native_reviewed_2026_05_23",
       "gloss_hi": "गर्लफ्रेंड (प्राथमिक अर्थ); वह (महिला, औपचारिक/साहित्यिक सर्वनाम के रूप में)",
       "pitch_accent": {
         "mora": 3,
@@ -377,7 +378,8 @@
         "かのじょを しる",
         "かのじょと あう"
       ],
-      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)"
+      "particle_examples_provenance": "native_reviewed_2026_05_22 (NTR-011: renamed from `collocations`; these are particle-template-illustrative, not real corpus-linguistics collocations. Real collocations can override this field where they exist.)",
+      "rv_005_fix_2026_05_23": "added 'modern conversational' marker per reviewer suggestion"
     },
     {
       "id": "n5.vocab.1-people-pronouns-and-se.かた",
