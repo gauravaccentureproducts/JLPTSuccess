@@ -17,7 +17,22 @@
     "consumers": [
       "tools/check_content_integrity.py JA-90"
     ],
-    "regenerate_with": "python tools/refresh_pitch_accent_reference.py"
+    "regenerate_with": "python tools/refresh_pitch_accent_reference.py",
+    "audit_waves": [
+      {
+        "wave": "pitch-accent-native-verify-2026-05-23",
+        "scope": "3 by-reading entries flagged by 2026-05-23 reviewer task",
+        "entries": [
+          "みなさん",
+          "あなた",
+          "きのう"
+        ],
+        "scaffold_landed": "2026-05-23",
+        "discipline": "Scaffold-only — verification fields blank pending real human native-speaker review. F.44.7 + F.44.15 Shape 2 prohibit LLM-authored verification (circular authority).",
+        "broader_pass_queue": "see tools/build_pitch_accent_by_reading_queue_2026_05_23.py output"
+      }
+    ],
+    "discipline_note_2026_05_23": "354 entries with match_kind=\"exact\" are grandfathered legacy kanjium-exact-form matches (form+reading both exact-matched against kanjium upstream). They pre-date the 2026-05-23 audit-block discipline (F.44.7 + F.44.15 Shape 2 + JA-155). They are NOT native-speaker-verified per se — the authority bar is the exact-form match against the kanjium reference (MIT-licensed, source pinned at commit 8a0cdaa1). Future promotions from match_kind=\"by-reading\" to \"exact\" go through the verification protocol (see docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-accent-protocol-2026-05-23): entries gain an audit block + verifier_pending=false + result_schema populated. JA-155 enforces completeness on audit-bearing entries; grandfathered entries without audit blocks are accepted as-is."
   },
   "entries": [
     {
@@ -46,7 +61,37 @@
         2,
         1
       ],
-      "match_kind": "by-reading"
+      "match_kind": "by-reading",
+      "audit": {
+        "verifier_pending": true,
+        "pending_since": "2026-05-23",
+        "pending_wave": "pitch-accent-native-verify-2026-05-23",
+        "current_state_at_audit_request": {
+          "drops": [
+            2,
+            1
+          ],
+          "match_kind": "by-reading"
+        },
+        "review_question": "NHK 2016 lists ⓪ as the generic-pronoun form and ② as the address-spouse form. The data has ② primary and ① alternate — neither matches the ⓪ heiban-pronoun NHK reading. Three possibilities: (a) NHK has updated since the data was sourced — verify in current edition. (b) Our voice actor uses the ② address-pronoun consistently across all contexts (acceptable but should be documented). (c) Data is wrong — replace with [0] or [0, 2].",
+        "verification_protocol_link": "docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-accent-protocol-2026-05-23",
+        "verification_required_against": [
+          "NHK 日本語発音アクセント新辞典 (2016) — cite page + drop notation if conflicting",
+          "Audio recordings — for this corpus, per-vocab pitch audio does NOT exist as standalone files. The word must be located within listening passages (audio_manifest_voice.json / data/listening.json entries) where it occurs in script_ja. Note timestamp + passage_id when verifying."
+        ],
+        "verifier_credential_required": "Native Japanese speaker OR certified Japanese-language teacher (CIJL / 日本語教師 marketplace / Upwork JLPT-instructor pool acceptable). LLM-only verification is explicitly REJECTED per F.44.7 + F.44.15 Shape 2 circular-authority discipline.",
+        "result_schema": {
+          "_doc": "Human verifier fills these fields. When all are populated and verifier_pending is flipped to false, JA-155 unblocks promotion of match_kind from 'by-reading' to 'exact'.",
+          "verified_against": null,
+          "verified_at": null,
+          "verifier_credential": null,
+          "verified_drops": null,
+          "verified_match_kind": null,
+          "decision_note": null,
+          "audio_passage_reference": null,
+          "nhk_page_reference": null
+        }
+      }
     },
     {
       "vocab_id": "n5.vocab.1-people-pronouns-and-se.かれ",
@@ -92,7 +137,36 @@
       "drops": [
         2
       ],
-      "match_kind": "by-reading"
+      "match_kind": "by-reading",
+      "audit": {
+        "verifier_pending": true,
+        "pending_since": "2026-05-23",
+        "pending_wave": "pitch-accent-native-verify-2026-05-23",
+        "current_state_at_audit_request": {
+          "drops": [
+            2
+          ],
+          "match_kind": "by-reading"
+        },
+        "review_question": "NHK lists ③ as well-known standard. Is the data choice of ② the one our voice actor recorded? If audio uses ③, update drops to [3] or [3, 2].",
+        "verification_protocol_link": "docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-accent-protocol-2026-05-23",
+        "verification_required_against": [
+          "NHK 日本語発音アクセント新辞典 (2016) — cite page + drop notation if conflicting",
+          "Audio recordings — for this corpus, per-vocab pitch audio does NOT exist as standalone files. The word must be located within listening passages (audio_manifest_voice.json / data/listening.json entries) where it occurs in script_ja. Note timestamp + passage_id when verifying."
+        ],
+        "verifier_credential_required": "Native Japanese speaker OR certified Japanese-language teacher (CIJL / 日本語教師 marketplace / Upwork JLPT-instructor pool acceptable). LLM-only verification is explicitly REJECTED per F.44.7 + F.44.15 Shape 2 circular-authority discipline.",
+        "result_schema": {
+          "_doc": "Human verifier fills these fields. When all are populated and verifier_pending is flipped to false, JA-155 unblocks promotion of match_kind from 'by-reading' to 'exact'.",
+          "verified_against": null,
+          "verified_at": null,
+          "verifier_credential": null,
+          "verified_drops": null,
+          "verified_match_kind": null,
+          "decision_note": null,
+          "audio_passage_reference": null,
+          "nhk_page_reference": null
+        }
+      }
     },
     {
       "vocab_id": "n5.vocab.1-people-pronouns-and-se.だれ",
@@ -1373,7 +1447,38 @@
         0,
         2
       ],
-      "match_kind": "by-reading"
+      "match_kind": "by-reading",
+      "audit": {
+        "verifier_pending": true,
+        "pending_since": "2026-05-23",
+        "pending_wave": "pitch-accent-native-verify-2026-05-23",
+        "current_state_at_audit_request": {
+          "drops": [
+            1,
+            0,
+            2
+          ],
+          "match_kind": "by-reading"
+        },
+        "review_question": "NHK lists ② as standard. Three drops listed is generous. Confirm whether the audio recording uses ②, and if so, reorder to put 2 first (drops[0] is treated as primary by the UI per the schema).",
+        "verification_protocol_link": "docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-accent-protocol-2026-05-23",
+        "verification_required_against": [
+          "NHK 日本語発音アクセント新辞典 (2016) — cite page + drop notation if conflicting",
+          "Audio recordings — for this corpus, per-vocab pitch audio does NOT exist as standalone files. The word must be located within listening passages (audio_manifest_voice.json / data/listening.json entries) where it occurs in script_ja. Note timestamp + passage_id when verifying."
+        ],
+        "verifier_credential_required": "Native Japanese speaker OR certified Japanese-language teacher (CIJL / 日本語教師 marketplace / Upwork JLPT-instructor pool acceptable). LLM-only verification is explicitly REJECTED per F.44.7 + F.44.15 Shape 2 circular-authority discipline.",
+        "result_schema": {
+          "_doc": "Human verifier fills these fields. When all are populated and verifier_pending is flipped to false, JA-155 unblocks promotion of match_kind from 'by-reading' to 'exact'.",
+          "verified_against": null,
+          "verified_at": null,
+          "verifier_credential": null,
+          "verified_drops": null,
+          "verified_match_kind": null,
+          "decision_note": null,
+          "audio_passage_reference": null,
+          "nhk_page_reference": null
+        }
+      }
     },
     {
       "vocab_id": "n5.vocab.10-time-general.あさって",

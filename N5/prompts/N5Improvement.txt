@@ -2028,6 +2028,67 @@ Source: NTR-FU-004/005/006/007 close-out 2026-05-23 (single
 commit); accuracy prompt §A85; procedure-manual §F.44.19 +
 §F.44.20; AUDIT-COVERAGE Part 43.
 
+### Phase-0 native-speaker-verification audit-block discipline block (added 2026-05-23)
+
+Triggered by the 2026-05-23 reviewer task asking for native-
+speaker verification of 3 pitch-accent entries (みなさん, あなた,
+きのう). Per F.44.7 + F.44.15 Shape 2, this work is human-only
+when the only verifier is the same author as the audit pipeline.
+Instead of doing the task as written, shipped scaffolding +
+queue + JA invariant + protocol doc.
+
+Maintainer-side pre-release checks:
+
+1. **Audit-block schema present on the 3 canary entries.**
+   `n5_pitch_accent_reference.json` entries for みなさん /
+   あなた / きのう must each carry an `audit` block with
+   `verifier_pending: true` (until a real human native speaker
+   fills in the result_schema). Vocab.json `pitch_accent`
+   cross-references via `native_review_audit_block_at`.
+
+2. **Grandfather rule preserved (NTR-FU-008 / JA-155).**
+   354 pre-existing match_kind=exact entries (from kanjium-
+   exact-form lookup) are accepted as-is — they pre-date the
+   audit-block discipline. _meta.discipline_note_2026_05_23
+   documents the policy. JA-155 only enforces completeness on
+   entries that HAVE an audit block.
+
+3. **Queue file built for the broader pass.**
+   `docs/PITCH-ACCENT-VERIFICATION-QUEUE-2026-05-23.md` lists
+   the remaining 587 match_kind=by-reading entries sorted by
+   N5 vocab frequency proxy (section number). Top sections
+   covered: 1 (Pronouns/Self) 5 entries; 5 (Time-Hours) 19
+   entries; etc. A native speaker working ~5 entries/hour can
+   clear in ~120 hours; ~30/hour with NHK 2016 open, ~20 hours.
+
+4. **Pitch-accent verification protocol documented.**
+   `docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-accent-
+   protocol-2026-05-23` lists the 5-step procedure (NHK
+   lookup, audio location in listening passages, audio-vs-
+   dictionary reconciliation defaulting to audio, match_kind
+   promotion, vocab.json cross-update).
+
+5. **CI invariant locks the discipline (JA-155).**
+   When `match_kind: "exact"` is paired with an audit block,
+   the audit block must be completed (verifier_pending: false,
+   result_schema populated). Catches any future LLM-authored
+   promotion that bypasses the human pass.
+
+Bounded-coverage framing:
+  - "Audit-block scaffold on 3 entries with verifier_pending=
+    true" — bounded to the SCAFFOLD action; does NOT assert
+    the 3 entries are verified.
+  - "JA-155 enforces audit-block completeness on entries that
+    have one" — does NOT require every match_kind=exact entry
+    to have an audit block; grandfather rule explicit.
+  - "Queue size 587 entries" — bounded to remaining match_kind=
+    by-reading; does NOT commit to clearing the queue, just
+    sorts it.
+
+Source: pitch-accent native-verify scaffolding 2026-05-23
+(single commit); accuracy prompt §A86; procedure-manual
+§F.44.21 + §F.44.22; AUDIT-COVERAGE Part 44.
+
 ## SATURATION DEFINITION (binding — supersedes prior "0 actionable" wording)
 
 The audit is **saturated against its current pattern set** — and the

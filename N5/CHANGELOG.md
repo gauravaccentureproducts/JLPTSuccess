@@ -2,6 +2,139 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.4 - 2026-05-23 (Native-speaker-verification audit-block scaffold — LLM declined verification task; shipped protocol doc + queue file + JA-155 + scaffolded blocks instead)
+
+### Background
+
+A reviewer asked Claude to perform native-speaker verification of
+3 pitch-accent entries (みなさん / あなた / きのう) against NHK 2016
+日本語発音アクセント新辞典 + audio recordings. Per procedure-manual
+F.44.7 + F.44.15 Shape 2 + `docs/NATIVE-SPEAKER-RE-VERIFICATION.md`,
+this is **human-only work**: Claude is the same author as the
+audit pipeline that produced the kanjium-by-reading drops, so
+LLM-authored verification would be circular authority.
+
+Doing the task as written would have set a precedent that LLM-
+authored verification of native-intuition claims is acceptable —
+eroding the trust contract for verification claims across the
+corpus.
+
+**Instead, this release ships the honest alternative:** scaffold
+the audit-block schema with `verifier_pending: true`, lock the
+discipline with a CI invariant, document the protocol so a real
+human knows what to do, and build a queue file for the broader
+pass.
+
+### Added
+
+- **3 audit blocks scaffolded** on みなさん / あなた / きのう in
+  `data/n5_pitch_accent_reference.json` with:
+    - `verifier_pending: true`
+    - `pending_wave: "pitch-accent-native-verify-2026-05-23"`
+    - `current_state_at_audit_request`: snapshot of drops +
+      match_kind so the reviewer sees what they're verifying
+      against
+    - `review_question`: per-entry, lifted verbatim from the
+      reviewer's task
+    - `verification_protocol_link`: pointer to the protocol
+      section in NATIVE-SPEAKER-RE-VERIFICATION.md
+    - `verifier_credential_required`: native Japanese speaker OR
+      certified Japanese-language teacher (LLM-only explicitly
+      REJECTED)
+    - `result_schema`: 8 blank fields (verified_against,
+      verified_at, verifier_credential, verified_drops,
+      verified_match_kind, decision_note, audio_passage_reference,
+      nhk_page_reference) for the human to fill in
+- **3 cross-references** added on the same entries in `vocab.json`
+  (`pitch_accent.native_review_pending_wave` +
+  `pitch_accent.native_review_audit_block_at`)
+- **CI invariant JA-155**: any entry with `match_kind: "exact"`
+  AND an audit block must have `verifier_pending: false` +
+  `result_schema` populated. Grandfathered entries (no audit
+  block) accepted as-is.
+- **`docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-accent-protocol-2026-05-23`**
+  — 5-step protocol for the human verifier (NHK lookup → audio
+  location in listening passages → audio-vs-dictionary
+  reconciliation defaulting to audio → match_kind promotion →
+  vocab.json cross-update). Plus discipline meta-note documenting
+  that Claude declined the task per F.44.7 + F.44.15 Shape 2.
+- **`docs/PITCH-ACCENT-VERIFICATION-QUEUE-2026-05-23.md`** +
+  **`.json`** — 587 remaining `match_kind: "by-reading"` entries
+  sorted by N5 vocab frequency proxy (vocab.json section number)
+  for the broader native-speaker pass.
+
+### Documented (grandfather rule)
+
+- **354 pre-existing `match_kind: "exact"` entries** come from
+  kanjium-exact-form lookup (form+reading both exact-matched
+  against the kanjium upstream MIT-licensed reference, pinned at
+  commit 8a0cdaa1). They pre-date the audit-block discipline.
+  Accepted as legacy provenance via
+  `_meta.discipline_note_2026_05_23` on
+  `n5_pitch_accent_reference.json`.
+- The bar for **new promotions** from `by-reading` to `exact`
+  remains: complete audit block + verifier_pending=false +
+  populated result_schema. JA-155 enforces.
+
+### Engineering
+
+- **Procedure-manual F.44.21** — generalized audit-block schema
+  pattern for LLM-circular-authority claims. Four discipline
+  anchors: no LLM-authored verification of native-intuition
+  claims; scaffold-don't-fake; CI invariant locks the discipline;
+  document the grandfather. Canonical schema reusable for other
+  domain-specific verification needs (natural-sounding L2
+  judgments, dialect-specific register checks, audio-prosody
+  assessment).
+- **Procedure-manual F.44.22** — drift-class lineage table
+  extension for native-speaker-deferral discipline.
+- **Accuracy prompt A86** — captures the scaffold-don't-fake
+  pattern for the audit-prompt catalog. Bounded-coverage phrasing.
+- **N5Improvement Phase-0 native-speaker-verification audit-block
+  discipline block** — 5 maintainer-side pre-release checks.
+- **AUDIT-COVERAGE Part 44** — full close-out documenting what
+  was scaffolded, what was NOT done (intentionally — no values
+  populated, no match_kind promotion, no bug filed against the 3
+  entries since they are correctly-flagged-for-verification, not
+  defects).
+
+### CI / tracker / version
+
+- CI invariants: **157 / 157** (was 156; +JA-155).
+- Bug tracker: **180 / 180 Fixed / 0 Open** (unchanged — this
+  release filed no bugs; the 3 pitch-accent entries are not
+  defects, they are correctly flagged for verification).
+- Version: v1.16.3 → **v1.16.4** (data deltas: 3 audit blocks +
+  3 cross-references + _meta annotations; cache-bust for end-
+  users to pull the schema additions).
+
+### Bounded-coverage phrasing
+
+- "Audit-block scaffolded on 3 canary entries with
+  `verifier_pending: true`" — does NOT assert the entries are
+  verified.
+- "354 pre-existing `match_kind: 'exact'` entries are
+  grandfathered as legacy kanjium-exact-form provenance" — does
+  NOT assert they're native-speaker-verified; the authority bar
+  is the original automated match.
+- "JA-155 locks audit-block completeness on entries that have
+  one" — does NOT require every `match_kind: 'exact'` entry to
+  have an audit block (grandfather rule explicit).
+- "Queue file lists 587 by-reading entries for the broader
+  pass" — does NOT commit to running the broader pass; that
+  requires a real human + access to NHK 2016.
+
+### Honest scope statement
+
+Claude declined to perform the verification task as written. The
+3 pitch-accent entries remain in their pre-existing state
+(drops + match_kind: "by-reading"); only the audit-block
+schema was added. When a real human native speaker engages with
+the protocol, they populate the result_schema and JA-155 unblocks
+the promotion to `match_kind: "exact"`.
+
+---
+
 ## v1.16.3 - 2026-05-23 (Re-paste discipline tightening + 4 follow-up sub-classes: n5-045 deprecation lattice cleanup + あなた example sweep + じぶん reflexive counter + ID-slug section staleness flag)
 
 ### Background

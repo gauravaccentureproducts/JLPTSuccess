@@ -1432,6 +1432,16 @@ CHECKS: list[tuple[str, str, callable]] = [
     # `legacy_section_in_id: true` flag documenting the intentional
     # ID-immutability + section-field-authoritative policy.
     ("JA-154", "vocab.json ID-slug section disagreement with `section` field must carry `legacy_section_in_id: true` flag (NTR-FU-007 guard, 2026-05-23)", lambda: _check_ja_154_vocab_id_slug_section_consistency()),
+    # JA-155 (2026-05-23): pitch-accent audit-block-required-when-
+    # exact-promoted gate. When an entry in
+    # n5_pitch_accent_reference.json has `match_kind: "exact"`, it
+    # MUST carry an `audit` block with `verifier_pending: false` +
+    # `result_schema` populated with verified_against / verified_at /
+    # verifier_credential / verified_drops / verified_match_kind /
+    # decision_note. Prevents LLM-authored or unverified entries
+    # from leaking back into the canonical "exact" classification.
+    # Author-authority discipline lock per F.44.7 + F.44.15 Shape 2.
+    ("JA-155", "n5_pitch_accent_reference.json match_kind=exact entries carry completed audit block (NTR-FU-008 / pitch-accent-native-verify guard, 2026-05-23)", lambda: _check_ja_155_pitch_accent_audit_block()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8357,6 +8367,67 @@ def _check_ja_153_deprecated_grammar_bucket() -> list[str]:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is still in `deferred_to_n4` — move to `deprecated` bucket")
         if not in_dep:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is not in n5_core_pattern_ids.json `deprecated` bucket")
+    return failures
+
+
+def _check_ja_155_pitch_accent_audit_block() -> list[str]:
+    """Pitch-accent native-verify discipline lock (2026-05-23).
+
+    Promotion of `match_kind` from `by-reading` to `exact` in
+    n5_pitch_accent_reference.json requires a completed audit
+    block:
+      - audit.verifier_pending: false
+      - audit.result_schema.verified_against: non-null
+      - audit.result_schema.verified_at: non-null
+      - audit.result_schema.verifier_credential: non-null
+      - audit.result_schema.verified_drops: non-null
+      - audit.result_schema.verified_match_kind: 'exact'
+
+    Author-authority discipline: this invariant prevents LLM-
+    authored verifications (Claude can author the kanjium-by-
+    reading drops; cannot honestly claim NHK-2016-verified
+    promotion to 'exact'). When the 587-entry broader pass
+    runs, each entry must clear this gate before promotion.
+
+    Entries with `match_kind: 'by-reading'` or `'exact'-but-with-
+    incomplete-audit` are accepted as-is; only `match_kind:
+    'exact'` WITHOUT a complete audit block fails.
+    """
+    import json as _json
+    pa_path = ROOT / "data" / "n5_pitch_accent_reference.json"
+    if not pa_path.exists(): return []
+    d = _json.loads(pa_path.read_text(encoding="utf-8"))
+    entries = d.get("entries") if isinstance(d, dict) else (d if isinstance(d, list) else [])
+    failures: list[str] = []
+    for e in entries:
+        if not isinstance(e, dict): continue
+        if e.get("match_kind") != "exact": continue
+        audit = e.get("audit")
+        # Grandfather discipline: entries WITHOUT an `audit` block are
+        # treated as legacy kanjium-exact-form matches that pre-date the
+        # audit-block schema (introduced 2026-05-23). They're not native-
+        # speaker-verified per se, but the exact-form match against the
+        # kanjium reference is the historical bar. File-level _meta
+        # documents this. Only entries that HAVE an audit block (i.e.,
+        # were promoted through the 2026-05-23+ verification protocol)
+        # must complete it.
+        if not isinstance(audit, dict):
+            continue  # grandfathered legacy exact-form match
+        if audit.get("verifier_pending") is not False:
+            failures.append(
+                f"JA-155 n5_pitch_accent_reference.json form={e.get('form')!r}: "
+                f"match_kind='exact' but audit.verifier_pending is not false "
+                f"(verification incomplete; cannot promote)"
+            )
+            continue
+        rs = audit.get("result_schema") or {}
+        for k in ("verified_against", "verified_at", "verifier_credential", "verified_drops", "verified_match_kind"):
+            if rs.get(k) in (None, "", []):
+                failures.append(
+                    f"JA-155 n5_pitch_accent_reference.json form={e.get('form')!r}: "
+                    f"match_kind='exact' but audit.result_schema.{k} is empty"
+                )
+                break
     return failures
 
 

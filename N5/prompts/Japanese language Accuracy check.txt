@@ -5578,3 +5578,93 @@ F.44.19 + F.44.20; AUDIT-COVERAGE Part 43.
 
 CI invariants at this checkpoint: 156 (was 154; +JA-153 +JA-154).
 ============================================================
+
+
+A86. NATIVE-SPEAKER-VERIFICATION AUDIT-BLOCK SCHEMA — scaffold,
+     don't fake; CI-lock the discipline; protocol-doc the human
+     work (added 2026-05-23, AUDIT-COVERAGE Part 44,
+     procedure-manual F.44.21 + F.44.22).
+============================================================
+
+Anti-pattern surfaced 2026-05-23: a reviewer asked Claude to
+perform native-speaker verification of 3 pitch-accent entries
+against NHK 2016 dictionary + audio recordings. Doing the task
+as written would have violated F.44.7 (defensible-but-deviant
+pitch-accent), F.44.15 Shape 2 (annotation-only when verifier
+== author), and the NATIVE-SPEAKER-RE-VERIFICATION.md doc that
+already lists this as human-only work.
+
+The honest alternative shipped:
+
+  1. Audit-block schema scaffolded on the 3 canary entries
+     (みなさん / あなた / きのう) with verifier_pending=true +
+     blank result_schema. The per-entry review questions are
+     lifted verbatim from the task description so the future
+     human verifier sees exactly what to answer.
+
+  2. Queue file built (docs/PITCH-ACCENT-VERIFICATION-QUEUE-
+     2026-05-23.md + .json) listing the remaining 587
+     match_kind=by-reading entries sorted by N5 frequency
+     proxy (vocab.json section number). Top section coverage:
+     section 1 (Pronouns/Self): 5 entries; section 5 (Time-
+     Hours): 19 entries; etc.
+
+  3. Pitch-accent verification protocol added to NATIVE-
+     SPEAKER-RE-VERIFICATION.md (#pitch-accent-protocol-
+     2026-05-23): 5 explicit steps — NHK lookup with page
+     citation, audio location within listening passages,
+     audio-vs-dictionary reconciliation (default to audio
+     when they disagree), match_kind promotion, vocab.json
+     cross-update.
+
+  4. Grandfather rule documented in
+     n5_pitch_accent_reference.json _meta: the 354 pre-existing
+     match_kind=exact entries from kanjium-exact-form lookup
+     are accepted as legacy provenance; post-2026-05-23
+     promotions require the audit block.
+
+  5. JA-155 CI invariant: any entry with match_kind=exact AND
+     an audit block must have verifier_pending=false AND
+     result_schema populated. Grandfathered entries (exact
+     without audit block) accepted as-is. New "exact" promotions
+     through the verification protocol must clear the gate.
+
+Discipline anchors (binding):
+  - **No LLM-authored verification of native-intuition claims.**
+  - **Scaffold-don't-fake** — add the schema, leave values blank.
+  - **CI invariant locks the discipline.**
+  - **Document the grandfather** — pre-discipline entries are
+    explicit; the bar for new entries is clearly higher.
+
+CI-enforced this batch: JA-155 (pitch-accent audit-block
+completeness for non-grandfathered exact entries).
+
+Bounded-coverage phrasing:
+  - "Audit-block scaffolded on 3 canary entries; verifier_pending
+    is true; values are blank pending real human native speaker"
+    — does NOT assert the 3 entries are verified.
+  - "354 pre-existing exact entries are grandfathered as legacy
+    kanjium-exact-form provenance" — does NOT assert they're
+    native-speaker-verified; the authority bar is the original
+    automated match.
+  - "JA-155 locks audit-block completeness on entries that have
+    one" — does NOT enforce that every match_kind=exact entry
+    must have an audit block (grandfather is intentional).
+  - "Queue file lists 587 by-reading entries for the broader
+    pass" — does NOT commit to running the broader pass; that
+    requires a real human + access to NHK 2016.
+
+Operational rule: when a task asks the LLM to verify what only
+a native speaker can verify, the LLM should decline + scaffold
++ queue + protocol-doc + CI-lock instead. The audit-block
+schema is canonical; reuse it for other LLM-circular-authority
+classes (e.g., natural-sounding L2 judgments, dialect-specific
+register checks, audio-prosody assessment).
+
+Source: pitch-accent native-verify scaffolding 2026-05-23;
+tooling tools/scaffold_pitch_accent_audit_blocks_2026_05_23.py
++ tools/build_pitch_accent_by_reading_queue_2026_05_23.py;
+procedure-manual F.44.21 + F.44.22; AUDIT-COVERAGE Part 44.
+
+CI invariants at this checkpoint: 157 (was 156; +JA-155).
+============================================================

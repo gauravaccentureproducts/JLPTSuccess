@@ -192,7 +192,9 @@
           "spousal_address": 2
         },
         "nhk_2016_claim_provenance": "review-cited 2026-05-22 (NTR-008 native-teacher review § 2.4); pending actual NHK 2016 source verification",
-        "audio_uses_drop": 2
+        "audio_uses_drop": 2,
+        "native_review_pending_wave": "pitch-accent-native-verify-2026-05-23",
+        "native_review_audit_block_at": "data/n5_pitch_accent_reference.json → form='あなた'"
       },
       "pitch_accent_provenance": "llm_curated",
       "frequency_rank": 219,
@@ -582,7 +584,9 @@
         "native_review_note": "Reviewer-cited NHK 2016 lists drop=3 (nakadaka on 4th mora). Current data lists drop=2 (review notes this is heard regionally). If audio is rendered at drop=2, that value matches the audio. Native-speaker pass needed to confirm the standard dictionary value vs the regional/audio value.",
         "nhk_2016_claim_drop": 3,
         "nhk_2016_claim_provenance": "review-cited 2026-05-22 (NTR-008 native-teacher review § 2.4); pending actual NHK 2016 source verification",
-        "audio_uses_drop": 2
+        "audio_uses_drop": 2,
+        "native_review_pending_wave": "pitch-accent-native-verify-2026-05-23",
+        "native_review_audit_block_at": "data/n5_pitch_accent_reference.json → form='みなさん'"
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "collocations_provenance": "llm_curated",
@@ -10514,7 +10518,9 @@
           0
         ],
         "nhk_2016_claim_provenance": "review-cited 2026-05-22 (NTR-008 native-teacher review § 2.4); pending actual NHK 2016 source verification",
-        "audio_uses_drop": 1
+        "audio_uses_drop": 1,
+        "native_review_pending_wave": "pitch-accent-native-verify-2026-05-23",
+        "native_review_audit_block_at": "data/n5_pitch_accent_reference.json → form='きのう'"
       },
       "pitch_accent_provenance": "kanjium_lookup",
       "frequency_rank": 7352,
