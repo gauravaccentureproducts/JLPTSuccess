@@ -5668,3 +5668,77 @@ procedure-manual F.44.21 + F.44.22; AUDIT-COVERAGE Part 44.
 
 CI invariants at this checkpoint: 157 (was 156; +JA-155).
 ============================================================
+
+
+A87. CI-INVARIANT RE-PASTE DISCIPLINE — verify-before-add;
+     resist symbolic-consolidation-invariant temptation
+     (added 2026-05-23, AUDIT-COVERAGE Part 45,
+     procedure-manual F.44.23 + F.44.24).
+============================================================
+
+Surfaced 2026-05-23: a reviewer asked to "add a CI invariant
+that prevents future vocab examples from re-introducing the
+kanji-whitelist regression (BUG-1 / NTR-001 / v1.16.2 close)"
+plus extend coverage to grammar / reading / listening.
+Verification per F.44.17 + F.44.19 (verify-before-classify,
+PRINT non-empty per-claim output):
+
+  - **JA-150** already enforces the EXACT task predicate
+    (whitelist ∪ exception) on vocab.json examples (added
+    2026-05-22, NTR-001 close, commit 578b56f).
+  - **JA-13** enforces a STRICTER predicate (whitelist only)
+    across grammar/questions/reading/listening — same coverage
+    the task asks for, with a tighter rule.
+  - **JA-28** enforces the union for dokkai-paper context.
+  - Live state: 0 violations across all 4 corpora against the
+    union predicate.
+
+Triaged as STALE per F.44.17. No new invariant added.
+
+Anti-pattern documented (F.44.23):
+  - "Symbolic consolidation invariant" temptation = add JA-N+1
+    whose predicate is already enforced by JA-X + JA-Y + JA-Z,
+    just so the reviewer has ONE named lock to point at.
+  - Cost: CI surface grows; test runtime increases; future
+    maintainers may "improve" the redundant invariant
+    independently from its parent and silently diverge.
+  - Discipline: documentation belongs in the procedure manual +
+    audit log, NOT in CI. If the predicate is enforced, no new
+    CI is needed.
+
+Verification protocol (mandatory before adding any new CI
+invariant per a re-paste task):
+  1. Run the EXACT predicate against the current corpus; PRINT
+     per-corpus violation counts (F.44.19 non-empty output rule).
+  2. Grep check_content_integrity.py for existing JA-NNs that
+     name the same predicate or its components.
+  3. Read the existing invariants' implementations to confirm
+     they enforce — not just name — the predicate.
+  4. Triage STALE / REAL / PARTIAL / REJECT.
+  5. Add only REAL + PARTIAL; document STALE rejections in
+     the audit log so future sessions don't re-litigate.
+
+Bounded-coverage phrasing:
+  - "Predicate already enforced by JA-150 + JA-13 + JA-28;
+    live state 0 violations against all 4 corpora" — does NOT
+    assert the predicate is bulletproof; only that the existing
+    invariants are green.
+  - "Distributed across 3 existing invariants" — does NOT
+    consolidate them into one; the distribution is intentional
+    (different scopes / sources of truth).
+  - "STALE per F.44.17 triage" — does NOT mean the task was
+    invalid; it means the work was already done in v1.16.0
+    (commit 578b56f).
+
+This A87 entry is the catalog companion to F.44.23. The
+methodology lesson: a CI-invariant re-paste task is the same
+shape as a bug-fix re-paste task (F.44.17) and gets the same
+discipline.
+
+Source: BUG-1 CI-invariant re-paste triage 2026-05-23
+(decision: STALE, no commit beyond this doc capture);
+procedure-manual F.44.23 + F.44.24; AUDIT-COVERAGE Part 45.
+
+CI invariants at this checkpoint: 157 (unchanged; this is a
+methodology / discipline capture, not a new gate).
+============================================================

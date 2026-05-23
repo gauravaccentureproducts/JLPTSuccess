@@ -6611,3 +6611,86 @@ users to pull the audit-block schema).
 - Worklist: `docs/PITCH-ACCENT-VERIFICATION-QUEUE-2026-05-23.md`.
 - Protocol: `docs/NATIVE-SPEAKER-RE-VERIFICATION.md#pitch-
   accent-protocol-2026-05-23`.
+
+## ADDENDUM 2026-05-23 (Part 45) — CI-invariant re-paste triage (BUG-1 vocab-whitelist): STALE, no new code
+
+A reviewer task on 2026-05-23 asked to "Add a CI invariant that
+prevents future vocab examples from re-introducing the kanji-
+whitelist regression that v1.16.2 just cleaned up" plus extend
+to grammar / reading / listening / vocab.
+
+Verification per F.41.4 + F.44.17 + F.44.19 (verify-before-add,
+print non-empty per-corpus output) showed the predicate is
+**already load-bearing**:
+
+  - **JA-150** (added 2026-05-22, NTR-001 close, commit
+    `578b56f`) enforces the EXACT task predicate (whitelist ∪
+    exception) on vocab.json examples
+  - **JA-13** enforces a STRICTER predicate (whitelist only)
+    across grammar / questions / reading / listening
+  - **JA-28** enforces the union for dokkai-paper context
+
+Live state ran with the union predicate: **0 violations across
+all 4 corpora (vocab examples / grammar examples / reading
+passages+Qs / listening scripts+prompts+choices)**.
+
+### Triage decision
+
+**STALE per F.44.17.** No new CI invariant added.
+
+The "add a JA-156 consolidation pointer invariant" option was
+considered and rejected per F.44.23:
+  - It would be redundant with JA-150 (same predicate)
+  - It would be weaker than JA-13 (uses union, JA-13 uses
+    strict whitelist)
+  - "Symbolic consolidation invariant" violates Reuse Over
+    Recreate; documentation belongs in audit log + procedure
+    manual, not in CI
+
+### Files touched (Part 45 — doc-only)
+
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md
+    (F.44.23 + F.44.24 generalize the CI-invariant re-paste
+    discipline)
+  - prompts/Japanese language Accuracy check.txt (A87)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 45)
+  - docs/cross-artifact-sync-map.md (Part 45 row)
+
+### What was NOT touched (intentionally)
+
+  - **No new CI invariant.** JA-150 + JA-13 + JA-28 are the
+    load-bearing locks; adding a redundant JA-156 would have
+    added CI surface without detection value.
+  - **No version bump.** No data/code change; pure methodology
+    capture.
+  - **No CHANGELOG entry.** Nothing user-facing changed.
+  - **No new bug filed.** Not a defect; the predicate was
+    already enforced.
+
+### Final state for Part 45
+
+CI **157 / 157 invariants green** (unchanged from Part 44).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **180 / 180 Fixed / 0 Open** (unchanged).
+Version: **v1.16.4** (unchanged; doc-only commit).
+
+### Bounded-coverage phrasing for Part 45
+
+  - "Predicate already enforced by JA-150 + JA-13 + JA-28;
+    live state 0 violations against the 4 corpora" — does NOT
+    assert the predicate is bulletproof; only that the existing
+    invariants are green at this checkpoint.
+  - "STALE per F.44.17 triage" — does NOT mean the task was
+    invalid; it means the work was already done in v1.16.0
+    (commit 578b56f).
+  - "No new code" — does NOT mean nothing was captured; F.44.23
+    + F.44.24 + A87 document the methodology lesson so future
+    sessions don't re-litigate.
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44.23 (CI-invariant re-paste verify-before-
+  add discipline) + §F.44.24 (drift-class lineage extension).
+- Accuracy prompt: §A87 (catalog companion to F.44.23).
+- Sync-map: 2026-05-23 (Part 45) row.
