@@ -84,6 +84,69 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.8 - 2026-05-23 (External reviewer v1.16.7 pass close: 6 findings fixed + 2 horizontal sweeps + 2 new CI invariants)</h2>
+<h3>Background</h3>
+<p>External reviewer report against v1.16.7 surfaced 4 REAL defects + 2 PREFERENCE/polish items + 1 DEFERRED-BY-DESIGN. Triage applied per F.44.17 + F.44.19 (verify-before-fix with PRINT non-empty per-claim output). Horizontal scope on Findings 3 + 4 turned 2 single-item surfaces into 21 total fixes.</p>
+<h3>Fixed</h3>
+<ul>
+<li><strong>BUG-186 (RV-001) — あなた example [0] translation_en mismatch.</strong></li>
+</ul>
+<p>Field said &quot;Who are you?&quot; for ja 「田中さんは どこから 来ましたか。」. Root cause: RP-002 fix updated a NEW <code>en</code> field with rich commentary but left the canonical <code>translation_en</code> (3036/3036 examples) stale. Resolution: merged RP-002 commentary into <code>translation_en</code>; dropped the redundant <code>en</code> field on 3 あなた examples.</p>
+<ul>
+<li><strong>BUG-187 (RV-002) — あなた example [2] translation_en mismatch.</strong></li>
+</ul>
+<p>Field said &quot;How old are you?&quot; for ja 「あなたの 名前を ここに 書いて ください。」. Same root cause as RV-001. Updated to &quot;Please write your name here…&quot; with form-filling context note.</p>
+<ul>
+<li>**BUG-188 (RV-003) — Listening glossary substring-collision</li>
+</ul>
+<p>contamination.<strong> Reviewer found 1 case (n5.listen.001 has あし glossary entry; script_ja contains ましょう substring-matched as あし). Horizontal sweep across 50 items found </strong>3 total<strong>: n5.listen.001 (あし), n5.listen.028 (いえ), n5.listen.049 (まがる). Resolution: removed 3 irrelevant glossary entries. New CI invariant </strong>JA-159** locks the form-or-reading-in-script_ja predicate.</p>
+<ul>
+<li><strong>BUG-189 (RV-004) — Listening speaker tag drift.</strong> Reviewer found</li>
+</ul>
+<p>1 case (n5.listen.001 line[2] tagged male despite 女： prefix). Horizontal sweep found <strong>18 mismatches across 8 listening items</strong> (likely a build-pipeline bug that assigned all dialogue speakers &#x27;male&#x27; without parsing 男：/女：). Resolution: corrected all 18 speaker tags based on prefix. New CI invariant <strong>JA-158</strong> locks the speaker-tag-vs-prefix predicate.</p>
+<ul>
+<li><strong>BUG-191 (RV-006) — q-0005 distractor_explanations_hi.で polish.</strong></li>
+</ul>
+<p>English-loanword &quot;फ़िट होता है&quot; replaced with natural Hindi &quot;उपयुक्त नहीं है&quot;.</p>
+<h3>Acknowledged (PREFERENCE)</h3>
+<ul>
+<li><strong>BUG-190 (RV-005) — かれ + かのじょ gloss enrichment.</strong> Reviewer</li>
+</ul>
+<p>suggested either reverting to &quot;he, him (primary)&quot; (REJECTed — NTR-003 project stance preserved) or adding explicit &quot;modern conversational bias&quot; marker to the current gloss (ACCEPTED). New gloss: &quot;boyfriend (primary in modern conversational Japanese); he, him (third-person pronoun, more formal/literary)&quot;. Mirror change applied to かのじょ.</p>
+<h3>Deferred (per reviewer&#x27;s classification)</h3>
+<ul>
+<li><strong>Finding 7 — broader pitch-accent verification queue.</strong> Reviewer</li>
+</ul>
+<p>correctly flagged DEFERRED-BY-DESIGN. The F.44.21 audit-block scaffold pattern is the protocol; expanding the queue beyond the current 3 entries (あなた / みなさん / きのう) is separate work that requires a real human native speaker. Not closed in this release.</p>
+<h3>Acknowledged zero-findings</h3>
+<ul>
+<li><strong>Finding 8 — cross-corpus consistency PASS.</strong> Reviewer&#x27;s spot-check</li>
+</ul>
+<p>of vocab↔grammar↔questions ID resolution returned zero hits.</p>
+<h3>CI invariants added</h3>
+<ul>
+<li><strong>JA-158</strong> — listening line speaker tag matches 男:/女: prefix</li>
+<li><strong>JA-159</strong> — listening vocab_glossary form OR reading appears in</li>
+</ul>
+<p>script_ja (substring-collision guard)</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>161 / 161</strong> (was 159; +JA-158 +JA-159).</li>
+<li>Bug tracker: <strong>196 / 196 Fixed / 0 Open</strong> (was 190; +BUG-186..191).</li>
+<li>Version: v1.16.7 → <strong>v1.16.8</strong>.</li>
+<li>Packet: v1.16.8 / 2026-05-23T17:00:00Z, JA-156 + JA-157 + JA-158 +</li>
+</ul>
+<p>JA-159 PASS.</p>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;4 REAL + 2 horizontal sweeps closed; 1 DEFERRED-BY-DESIGN preserved;</li>
+</ul>
+<p>1 PREFERENCE enriched-without-revert&quot; — does NOT assert v1.16.8 is defect-free against a fresh independent review.</p>
+<ul>
+<li>&quot;Horizontal sweep multipliers: Finding 3 reviewer surfaced 1, found</li>
+</ul>
+<p>3 total; Finding 4 reviewer surfaced 1, found 18 total&quot; — the reviewer-spot-check + horizontal-sweep pattern continues to find ~3-18× the reviewer&#x27;s directly-named count.</p>
+<hr>
 <h2>v1.16.7 - 2026-05-23 (All-pending close: markdown-table renderer for dokkai-7 + JA-157 paper-mirror staleness gate + framing clarification for auto_inferred)</h2>
 <h3>Fixed</h3>
 <ul>
