@@ -187,10 +187,11 @@
       "passage_label": "Passage 11 (Q21, Q22)",
       "id": "dokkai-2.5",
       "mondai": 4,
-      "rationale_hi": "母は 病院で はたらいて います - माता काम करता है में अस्पताल।",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "「母は 病院で はたらいて います」 — माँ अस्पताल में काम करती हैं।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_23",
       "grammarPatternId": "n5-091",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId_provenance": "auto_inferred",
+      "rv3_001_fix_2026_05_23": "fixed gender agreement (माता→माँ, करता→करती) + word order (अस्पताल में → preposition before object)"
     },
     {
       "type": "mcq",

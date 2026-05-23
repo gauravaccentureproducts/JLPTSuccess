@@ -1477,6 +1477,13 @@ CHECKS: list[tuple[str, str, callable]] = [
     # collision (e.g., あし extracted from ましょう). RV-003 / Finding 3
     # close-out.
     ("JA-159", "listening.json glossary entries' form or reading present in script_ja (RV-003 guard, 2026-05-23)", lambda: _check_ja_159_listening_glossary_in_script()),
+    # JA-160 (2026-05-23): rationale_hi word-salad / anglicism guard.
+    # Catches specific markers of literal-translation artifacts that
+    # bypass natural Hindi grammar (RV3-001..004 close-out). Tight
+    # pattern set to minimize false positives on intentional minimal
+    # rationales (e.g., moji mondai-2 morpheme breakdowns — see
+    # docs/PAPER-RATIONALE-STYLE-GUIDE.md).
+    ("JA-160", "rationale_hi free of word-salad markers (कुछ एक / है में / करना यह / नहीं में सब / etc.) (RV3-001..004 guard, 2026-05-23)", lambda: _check_ja_160_rationale_hi_word_salad()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8434,6 +8441,54 @@ def _check_ja_158_listening_speaker_tag() -> list[str]:
                 failures.append(f"JA-158 {iid} line[{i}]: 男: prefix but speaker={sp!r}, expected 'male'")
             elif ja.startswith("女：") and sp != "female":
                 failures.append(f"JA-158 {iid} line[{i}]: 女: prefix but speaker={sp!r}, expected 'female'")
+    return failures
+
+
+def _check_ja_160_rationale_hi_word_salad() -> list[str]:
+    """RV3-001..004 (2026-05-23) rationale_hi word-salad guard.
+
+    Catches specific markers of literal-translation artifacts that
+    bypass natural Hindi grammar:
+      - 'कुछ एक'        — 'some one' anglicism (literal English)
+      - 'है में'         — copula + postposition wrong order
+      - 'करना यह'        — broken infinitive + demonstrative
+      - 'नहीं में सब'    — 'not in all' literal nonsense
+      - 'करता है में'    — masculine verb + 'in' broken
+      - 'है कुछ एक'      — anglicism with copula
+
+    Tight pattern set — does NOT catch the intentional minimal-
+    rationale style on moji mondai-2 (morpheme + reading breakdowns
+    like '学 (ガク) + 生 (セイ)'). See
+    docs/PAPER-RATIONALE-STYLE-GUIDE.md for the documented style policy.
+    """
+    import json as _json, glob as _glob
+    BAD = [
+        "कुछ एक",
+        "है में",
+        "करना यह",
+        "नहीं में सब",
+        "करता है में",
+        "है कुछ एक",
+    ]
+    failures: list[str] = []
+    for cat in ("moji", "goi", "bunpou", "dokkai"):
+        for fp in (ROOT / "data" / "papers" / cat).glob("paper-*.json"):
+            if ".bak" in fp.name: continue
+            try:
+                d = _json.loads(fp.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for q in d.get("questions") or []:
+                if not isinstance(q, dict): continue
+                rh = q.get("rationale_hi", "") or ""
+                for marker in BAD:
+                    if marker in rh:
+                        failures.append(
+                            f"JA-160 {cat}/{fp.name} {q.get('id')!r}: "
+                            f"rationale_hi contains word-salad marker "
+                            f"{marker!r}: {rh[:80]!r}"
+                        )
+                        break
     return failures
 
 

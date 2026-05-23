@@ -7,7 +7,7 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.16.8"
+    "version": "v1.16.9"
   },
   "files": [
     {
@@ -113,7 +113,7 @@
       "path": "data/papers/bunpou/paper-1.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-1.json",
       "content_type": "application/json",
-      "size_bytes": 9124,
+      "size_bytes": 9358,
       "schema_version": "1.0",
       "description": "Bunpou Paper 1 — 15 questions",
       "item_count": 15
@@ -185,7 +185,7 @@
       "path": "data/papers/dokkai/paper-2.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/dokkai/paper-2.json",
       "content_type": "application/json",
-      "size_bytes": 19110,
+      "size_bytes": 19320,
       "schema_version": "1.0",
       "description": "Dokkai Paper 2 — 16 questions",
       "item_count": 16
@@ -239,7 +239,7 @@
       "path": "data/papers/goi/paper-1.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-1.json",
       "content_type": "application/json",
-      "size_bytes": 10422,
+      "size_bytes": 10749,
       "schema_version": "1.0",
       "description": "Goi Paper 1 — 15 questions",
       "item_count": 15
@@ -257,7 +257,7 @@
       "path": "data/papers/goi/paper-3.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-3.json",
       "content_type": "application/json",
-      "size_bytes": 10683,
+      "size_bytes": 11039,
       "schema_version": "1.0",
       "description": "Goi Paper 3 — 15 questions",
       "item_count": 15
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9262298,
+    "total_bytes": 9263425,
     "counts": {
       "grammar": 178,
       "vocab": 995,

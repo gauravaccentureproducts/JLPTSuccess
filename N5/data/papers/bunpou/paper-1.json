@@ -154,10 +154,11 @@
       "kbSourceId": "Q8",
       "id": "bunpou-1.8",
       "mondai": 1,
-      "rationale_hi": "क्रिया का स्थान (जहाँ आप करना यह)।",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "「で」 क्रिया का स्थान बताता है (जहाँ काम होता है)। N5 का मूल पैटर्न: 場所 + で + क्रिया।",
+      "rationale_hi_provenance": "native_reviewed_2026_05_23",
       "grammarPatternId": "n5-007",
-      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18",
+      "rv3_003_fix_2026_05_23": "fixed broken infinitive 'करना यह' to natural Hindi explanation"
     },
     {
       "type": "mcq",

@@ -2,6 +2,103 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.9 - 2026-05-23 (Reviewer v3 close — 4 Hindi word-salad fixes + style-guide doc + JA-160 + discipline note on version-cite drift)
+
+### Background
+
+Third reviewer pass surfaced 4 REAL Hindi defects + 1 FRAMING (style doc
+needed) + 2 DEFERRED-BY-DESIGN (already-queued) + 1 PREFERENCE (skipped).
+Reviewer's version cite was **fictional** (`2026-05-23-n5-full` /
+`2026-05-23T12:00:00Z` — never existed in our timeline; actual current
+is v1.16.8 / 2026-05-23T17:00:00Z), but all content findings verified
+against actual data per F.44.19 verify-before-fix.
+
+### Fixed
+
+- **BUG-192 (RV3-001) — dokkai-2.5 rationale_hi Hindi gender + word-order
+  errors.** Was: `母は 病院で はたらいて います - माता काम करता है में
+  अस्पताल।` (masculine verb करता with feminine subject माता; copula
+  position wrong). Rewrote to: `「母は 病院で はたらいて います」 — माँ
+  अस्पताल में काम करती हैं।` (correct gender + Hindi SOV).
+
+- **BUG-193 (RV3-002) — goi-3.4 rationale_hi: `ぜんぜん + नकारात्मक =
+  "नहीं में सब"` literal artifact.** "नहीं में सब" is meaningless
+  Hindi (word-by-word transfer of "not in all"). Rewrote to idiomatic
+  `बिलकुल नहीं / ज़रा भी नहीं` ("absolutely not / not even a bit").
+
+- **BUG-194 (RV3-003) — bunpou-1.8 rationale_hi: `क्रिया का स्थान
+  (जहाँ आप करना यह)` broken infinitive.** "करना यह" is not valid
+  Hindi (infinitive + demonstrative). Rewrote to natural explanation
+  of で particle: `「で」 क्रिया का स्थान बताता है (जहाँ काम होता है)।`
+
+- **BUG-195 (RV3-004) — goi-1.1 rationale_hi: `コーヒー है कुछ एक पेय
+  (のむ)` anglicism + broken syntax.** "है कुछ एक पेय" is a literal
+  English transfer ("is some-one drink"). Rewrote to natural Hindi:
+  `「コーヒー」 एक पेय है, और इसके साथ क्रिया 「のむ」 (पीना) का
+  प्रयोग होता है।`
+
+### Documented
+
+- **BUG-196 (RV3-005, Finding 6 FRAMING) — moji mondai-2 minimal-
+  rationale style.** New doc `docs/PAPER-RATIONALE-STYLE-GUIDE.md`
+  explicitly documents that moji Mondai 2 (orthography) rationales
+  intentionally use a minimal morpheme+reading-breakdown style
+  (e.g., `学 (ガク) + 生 (セイ)`). Future reviewers should not flag
+  these as "incomplete." Style guide cross-referenced from the
+  reviewer-facing prompt's anti-patterns section.
+
+### Acknowledged
+
+- **Findings 1, 2 (DEFERRED-BY-DESIGN)** — dokkai-2.3 + dokkai-7.6
+  audit blocks already in place per F.44.21. No action.
+- **Finding 7 (PREFERENCE)** — Hindi punctuation consistency (mixed
+  `—` and `।`). Skipped; would require 100+ entry sweeps with
+  marginal benefit; cosmetic.
+
+### Discipline note (version-cite violation)
+
+The reviewer cited `version.json.version = "2026-05-23-n5-full"` /
+`builtAt = "2026-05-23T12:00:00Z"`. **No such version has ever
+existed in our timeline.** Actual at review time was v1.16.8 /
+2026-05-23T17:00:00Z. The reviewer either skipped the version-cite
+step or fabricated the values, violating the reviewer prompt's
+"Skipping invalidates the report" rule.
+
+**Why we processed the report anyway:** content findings verified
+against actual data via F.44.19 (PRINT non-empty per-claim output);
+4 of 4 REAL findings + 1 FRAMING + 2 DEFERRED-BY-DESIGN + 1 PREFERENCE
+all reproduced exactly against current corpus state. So while the
+version cite was unreliable, the content was sound.
+
+**Discipline lesson:** version-cite is necessary but not sufficient
+— content claims must be verified independently. F.44.19 caught the
+gap; no harm done this cycle. Could add a stricter requirement to
+the prompt: reviewer must quote a literal field value (e.g., the
+exact builtAt string) so fabrication is detectable upfront.
+
+### CI invariants added
+
+- **JA-160** — rationale_hi free of word-salad markers (`कुछ एक` /
+  `है में` / `करना यह` / `नहीं में सब` / etc.). Tight pattern set
+  to avoid false positives on the documented minimal style.
+
+### CI / tracker / version
+
+- CI invariants: **162 / 162** (was 161; +JA-160).
+- Bug tracker: **201 / 201 Fixed / 0 Open** (was 196; +BUG-192..196).
+- Version: v1.16.8 → **v1.16.9**.
+- Packet: v1.16.9 / 2026-05-23T19:00:00Z, JA-156/157/158/159/160 PASS.
+
+### Bounded coverage
+
+- "4 word-salad fixes + 1 style-doc + 1 framing acknowledgment" —
+  does NOT assert v1.16.9 is defect-free against a fresh review.
+- "JA-160 pattern set: 6 explicit markers" — does NOT catch every
+  possible word-salad pattern; tight to avoid false positives on
+  the documented minimal-rationale style for moji mondai-2.
+
+---
+
 ## v1.16.8 - 2026-05-23 (External reviewer v1.16.7 pass close: 6 findings fixed + 2 horizontal sweeps + 2 new CI invariants)
 
 ### Background

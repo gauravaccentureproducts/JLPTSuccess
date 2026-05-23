@@ -84,6 +84,66 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.9 - 2026-05-23 (Reviewer v3 close — 4 Hindi word-salad fixes + style-guide doc + JA-160 + discipline note on version-cite drift)</h2>
+<h3>Background</h3>
+<p>Third reviewer pass surfaced 4 REAL Hindi defects + 1 FRAMING (style doc needed) + 2 DEFERRED-BY-DESIGN (already-queued) + 1 PREFERENCE (skipped). Reviewer&#x27;s version cite was <strong>fictional</strong> (<code>2026-05-23-n5-full</code> / <code>2026-05-23T12:00:00Z</code> — never existed in our timeline; actual current is v1.16.8 / 2026-05-23T17:00:00Z), but all content findings verified against actual data per F.44.19 verify-before-fix.</p>
+<h3>Fixed</h3>
+<ul>
+<li>**BUG-192 (RV3-001) — dokkai-2.5 rationale_hi Hindi gender + word-order</li>
+</ul>
+<p>errors.** Was: <code>母は 病院で はたらいて います - माता काम करता है में अस्पताल।</code> (masculine verb करता with feminine subject माता; copula position wrong). Rewrote to: <code>「母は 病院で はたらいて います」 — माँ अस्पताल में काम करती हैं।</code> (correct gender + Hindi SOV).</p>
+<ul>
+<li>**BUG-193 (RV3-002) — goi-3.4 rationale_hi: `ぜんぜん + नकारात्मक =</li>
+</ul>
+<p>&quot;नहीं में सब&quot;<code> literal artifact.** &quot;नहीं में सब&quot; is meaningless Hindi (word-by-word transfer of &quot;not in all&quot;). Rewrote to idiomatic </code>बिलकुल नहीं / ज़रा भी नहीं` (&quot;absolutely not / not even a bit&quot;).</p>
+<ul>
+<li>**BUG-194 (RV3-003) — bunpou-1.8 rationale_hi: `क्रिया का स्थान</li>
+</ul>
+<p>(जहाँ आप करना यह)<code> broken infinitive.** &quot;करना यह&quot; is not valid Hindi (infinitive + demonstrative). Rewrote to natural explanation of で particle: </code>「で」 क्रिया का स्थान बताता है (जहाँ काम होता है)।`</p>
+<ul>
+<li>**BUG-195 (RV3-004) — goi-1.1 rationale_hi: `コーヒー है कुछ एक पेय</li>
+</ul>
+<p>(のむ)<code> anglicism + broken syntax.** &quot;है कुछ एक पेय&quot; is a literal English transfer (&quot;is some-one drink&quot;). Rewrote to natural Hindi: </code>「コーヒー」 एक पेय है, और इसके साथ क्रिया 「のむ」 (पीना) का प्रयोग होता है।`</p>
+<h3>Documented</h3>
+<ul>
+<li>**BUG-196 (RV3-005, Finding 6 FRAMING) — moji mondai-2 minimal-</li>
+</ul>
+<p>rationale style.** New doc <code>docs/PAPER-RATIONALE-STYLE-GUIDE.md</code> explicitly documents that moji Mondai 2 (orthography) rationales intentionally use a minimal morpheme+reading-breakdown style (e.g., <code>学 (ガク) + 生 (セイ)</code>). Future reviewers should not flag these as &quot;incomplete.&quot; Style guide cross-referenced from the reviewer-facing prompt&#x27;s anti-patterns section.</p>
+<h3>Acknowledged</h3>
+<ul>
+<li><strong>Findings 1, 2 (DEFERRED-BY-DESIGN)</strong> — dokkai-2.3 + dokkai-7.6</li>
+</ul>
+<p>audit blocks already in place per F.44.21. No action.</p>
+<ul>
+<li><strong>Finding 7 (PREFERENCE)</strong> — Hindi punctuation consistency (mixed</li>
+</ul>
+<p><code>—</code> and <code>।</code>). Skipped; would require 100+ entry sweeps with marginal benefit; cosmetic.</p>
+<h3>Discipline note (version-cite violation)</h3>
+<p>The reviewer cited <code>version.json.version = &quot;2026-05-23-n5-full&quot;</code> / <code>builtAt = &quot;2026-05-23T12:00:00Z&quot;</code>. <strong>No such version has ever existed in our timeline.</strong> Actual at review time was v1.16.8 / 2026-05-23T17:00:00Z. The reviewer either skipped the version-cite step or fabricated the values, violating the reviewer prompt&#x27;s &quot;Skipping invalidates the report&quot; rule.</p>
+<p><strong>Why we processed the report anyway:</strong> content findings verified against actual data via F.44.19 (PRINT non-empty per-claim output); 4 of 4 REAL findings + 1 FRAMING + 2 DEFERRED-BY-DESIGN + 1 PREFERENCE all reproduced exactly against current corpus state. So while the version cite was unreliable, the content was sound.</p>
+<p><strong>Discipline lesson:</strong> version-cite is necessary but not sufficient — content claims must be verified independently. F.44.19 caught the gap; no harm done this cycle. Could add a stricter requirement to the prompt: reviewer must quote a literal field value (e.g., the exact builtAt string) so fabrication is detectable upfront.</p>
+<h3>CI invariants added</h3>
+<ul>
+<li><strong>JA-160</strong> — rationale_hi free of word-salad markers (<code>कुछ एक</code> /</li>
+</ul>
+<p><code>है में</code> / <code>करना यह</code> / <code>नहीं में सब</code> / etc.). Tight pattern set to avoid false positives on the documented minimal style.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>162 / 162</strong> (was 161; +JA-160).</li>
+<li>Bug tracker: <strong>201 / 201 Fixed / 0 Open</strong> (was 196; +BUG-192..196).</li>
+<li>Version: v1.16.8 → <strong>v1.16.9</strong>.</li>
+<li>Packet: v1.16.9 / 2026-05-23T19:00:00Z, JA-156/157/158/159/160 PASS.</li>
+</ul>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;4 word-salad fixes + 1 style-doc + 1 framing acknowledgment&quot; —</li>
+</ul>
+<p>does NOT assert v1.16.9 is defect-free against a fresh review.</p>
+<ul>
+<li>&quot;JA-160 pattern set: 6 explicit markers&quot; — does NOT catch every</li>
+</ul>
+<p>possible word-salad pattern; tight to avoid false positives on the documented minimal-rationale style for moji mondai-2.</p>
+<hr>
 <h2>v1.16.8 - 2026-05-23 (External reviewer v1.16.7 pass close: 6 findings fixed + 2 horizontal sweeps + 2 new CI invariants)</h2>
 <h3>Background</h3>
 <p>External reviewer report against v1.16.7 surfaced 4 REAL defects + 2 PREFERENCE/polish items + 1 DEFERRED-BY-DESIGN. Triage applied per F.44.17 + F.44.19 (verify-before-fix with PRINT non-empty per-claim output). Horizontal scope on Findings 3 + 4 turned 2 single-item surfaces into 21 total fixes.</p>
