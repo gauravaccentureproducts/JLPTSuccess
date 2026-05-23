@@ -2,6 +2,106 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.5 - 2026-05-23 (Reviewer's 19-item review of v1.16.4 — Batch A close: 5 paper content fixes + 5 REJECTs with rationale + 5 deferred to Batches B/C)
+
+### Background
+
+External reviewer ran a consolidated 19-item review against v1.16.4
+covering the 4 paper corpora (moji / goi / bunpou / dokkai) plus
+cross-cutting style claims. Triage per F.44.17 + F.44.19 + F.44.23
+disciplines:
+  - 5 of 19 closed as REAL defects (this release — Batch A)
+  - 5 deferred to Batches B / C (preference-tweaks + UI rendering)
+  - 4 rejected with explicit rationale
+  - 3 classified PARTIAL framing-disagreement
+  - 2 edge / TBD
+
+### Fixed (Batch A)
+
+- **BUG-181 (RP-001) — goi-4.13 tautological paraphrase.**
+  Stem 「きのうの よる、はやく ねました」 → answer 「きのう はやく
+  ねました」 only differed by dropping よる. Rewrote stem to
+  「きのうの よる、はやく ベッドに 入りました」 testing
+  「ベッドに 入る」≡「ねる」 (get into bed ≡ sleep) — genuine
+  vocabulary equivalence.
+
+- **BUG-182 (RP-002) — goi-4.6 hospital-worker → doctor too loose.**
+  Original stem 「父は びょういんで はたらいて います」 (father
+  works at hospital) → answer 「父は いしゃです」 (he's a doctor).
+  Hospital worker isn't necessarily a doctor. Tightened stem to
+  「ちちは びょういんで びょうきの 人を みて います」 (sees sick
+  people at hospital) — makes the inference defensible.
+
+- **BUG-183 (RP-003) — 2 dokkai rationale_hi llm_curated entries
+  queued for native review.** dokkai-2.3 and dokkai-7.6 carried
+  `rationale_hi_provenance: 'llm_curated'`. Added
+  `audit.verifier_pending: true` block to both per the F.44.21
+  audit-block schema, so a future human native Hindi/Japanese
+  reviewer can fill in result_schema.
+
+- **BUG-184 (RP-004) — 4 mixed-register rationales rewritten
+  all-Japanese.** Pattern like 「time + に for time of action」
+  (English + Japanese particle fragments). Hits: goi-2.4, goi-7.4,
+  goi-7.10, bunpou-7.1. All 4 rewritten in coherent Japanese.
+
+- **BUG-185 (RP-005) — 5 Hindi-punctuation hits cleaned.** Pattern
+  「父 (father)।」 — danda after parenthetical English gloss inside
+  Hindi rationale. Hits: moji-4.11, moji-5.3, goi-1.4, bunpou-1.10,
+  bunpou-2.4. Translated all parenthetical glosses to Hindi.
+
+### Rejected (Part 48 audit log documents rationale)
+
+- **Item 3** — moji-1.5 "uses 員, N4 not N5". 員 IS in this
+  project's n5_kanji_whitelist (intentional inclusion); project
+  scope explicitly includes it.
+- **Item 4** — moji-2.1 distractor なながつ "defensible but non-
+  standard". Defensible distractor; mondai 2 distractors are
+  designed to be plausible misreads.
+- **Item 10** — bunpou-7.10 "rationale claims ぐらい clashes with
+  ぜったいに". Reviewer misread: the correct answer is でも (not
+  ぐらい); the rationale never makes the ぐらい-clash claim.
+- **Item 17** — "No 聴解 section". `data/listening.json` EXISTS
+  with 50 items. Verified false.
+
+### Deferred to Batches B / C
+
+- **Items 1 + 5** — distractor-level adjustment (7 entries) +
+  correctIndex distribution rebalance. Both are JLPT-format-
+  acceptable; surfaced as preference-tweaks vs defect-repairs.
+- **Item 2** — bulk enrichment of 36 thin mondai-2 rationales in
+  moji. Large mechanical content task; deferred to dedicated batch.
+- **Items 11 + 13** — bunpou mondai-3 passage-dependent stems +
+  dokkai paper-7 markdown blockquote+pipe-tables. Both rendering-
+  contract concerns; need UI investigation before action.
+
+### Engineering
+
+- No new CI invariant. Existing JA-150 / JA-13 / JA-156 cover the
+  predicates the reviewer named.
+- No procedure-manual extension. Methodology unchanged; F.44.17 +
+  F.44.19 + F.44.23 disciplines shipped earlier today are
+  load-bearing for this kind of review triage.
+- AUDIT-COVERAGE Part 48 documents the full 19-item triage + 4
+  rejections with rationale.
+
+### CI / tracker / version
+
+- CI invariants: **158 / 158** (unchanged).
+- Bug tracker: **185 / 185 Fixed / 0 Open** (was 180; +BUG-181..185).
+- Version: v1.16.4 → **v1.16.5** (Batch A content fixes + cache-bust).
+
+### Bounded-coverage phrasing
+
+- "5 of 19 reviewer items closed in Batch A" — does NOT assert
+  the 19 items represent a complete review of v1.16.4.
+- "4 REJECTs with rationale" — REJECT items are documented; if
+  the reviewer disagrees with any rejection, the specific
+  argument should surface so we can re-triage.
+- "5 items deferred to Batches B/C" — does NOT commit to shipping
+  those; Batch B/C scope/timing is a separate decision.
+
+---
+
 ## v1.16.4 - 2026-05-23 (Native-speaker-verification audit-block scaffold — LLM declined verification task; shipped protocol doc + queue file + JA-155 + scaffolded blocks instead)
 
 ### Background

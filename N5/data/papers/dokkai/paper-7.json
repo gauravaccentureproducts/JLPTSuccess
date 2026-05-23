@@ -175,7 +175,26 @@
       "rationale_hi": "मेनू के अनुसार, केवल ハンバーガー セット पर のみもの と サラダ 付き (पेय और सलाद दोनों के साथ) लिखा है। बाक़ी पर सिर्फ़ のみもの 付き या +200円 पेय विकल्प।",
       "rationale_hi_provenance": "llm_curated",
       "grammarPatternId": null,
-      "grammarPatternId_provenance": "not_applicable_comprehension"
+      "grammarPatternId_provenance": "not_applicable_comprehension",
+      "audit": {
+        "verifier_pending": true,
+        "pending_since": "2026-05-23",
+        "pending_wave": "dokkai-rationale-hi-native-verify-2026-05-23",
+        "current_state_at_audit_request": {
+          "rationale_hi": "मेनू के अनुसार, केवल ハンバーガー セット पर のみもの と サラダ 付き (पेय और सलाद दोनों के साथ) लिखा है। बाक़ी पर सिर्फ़ のみもの 付き या +200円 पेय विकल्प।",
+          "provenance": "llm_curated"
+        },
+        "review_question": "The Hindi rationale for this dokkai question is LLM-curated, not native-reviewed. Native Hindi/Japanese bilingual reviewer must confirm: (a) the Hindi explanation is grammatically natural, (b) the explanation correctly matches the Japanese rationale's intent, (c) any technical terms (particles, conjugations) are translated correctly.",
+        "verification_protocol_link": "docs/NATIVE-SPEAKER-RE-VERIFICATION.md",
+        "verifier_credential_required": "Native Hindi speaker with JLPT N3+ Japanese, OR certified Japanese-language teacher fluent in Hindi.",
+        "result_schema": {
+          "verified_against": null,
+          "verified_at": null,
+          "verifier_credential": null,
+          "verified_rationale_hi": null,
+          "decision_note": null
+        }
+      }
     },
     {
       "type": "mcq",

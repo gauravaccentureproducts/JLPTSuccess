@@ -74,14 +74,16 @@
         "この みせの ケーキは おいしくないです。"
       ],
       "correctIndex": 2,
-      "rationale": "あまくないです (い-adj + です polite neg) = あまく ありません (formal polite neg). Two equivalent polite negative forms of i-adjectives - a true synonymy item rather than a graded approximation. Same meaning, different polite form.",
+      "rationale": "「あまくないです」(い-形容詞の 否定 + です) = 「あまく ありません」(丁寧な 否定形). 同じ 意味の 2 つの 表現.",
       "kbSourceId": "Q94",
       "id": "goi-7.4",
       "mondai": 4,
       "rationale_hi": "あまくないです (い-विशेषण + です विनम्र-नकारात्मक) = あまく ありません (औपचारिक विनम्र-नकारात्मक)। い-विशेषणों के दो समकक्ष विनम्र नकारात्मक रूप — सच्चा पर्याय-आइटम है, श्रेणीबद्ध सन्निकटन नहीं। समान अर्थ, अलग शैलीगत बारीकी।",
       "rationale_hi_provenance": "native_reviewed_2026_05_21",
       "grammarPatternId": "n5-080",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId_provenance": "auto_inferred",
+      "rationale_provenance": "native_reviewed_2026_05_23",
+      "rp_004_fix_2026_05_23": "mixed-register English fragments → all-Japanese rewrite"
     },
     {
       "type": "mcq",
@@ -188,14 +190,16 @@
         "わたしは ピアノの れんしゅうを して います。"
       ],
       "correctIndex": 3,
-      "rationale": "「ならって + まいにち れんしゅうする」 = 「れんしゅうを して いる」. Lessons + daily practice is a direct paraphrase of \"doing practice\", not an inference from \"is taking lessons\".",
+      "rationale": "「ならって + まいにち れんしゅうする」 = 「れんしゅうを して いる」. レッスンを 取って 毎日 練習する = 練習している の 言い換え.",
       "kbSourceId": "Q100",
       "id": "goi-7.10",
       "mondai": 4,
       "rationale_hi": "「ならって + まいにち れんしゅうする」 = 「れんしゅうを して いる」। पाठ + दैनिक अभ्यास \"अभ्यास कर रहा है\" का सीधा पुनराचना है, \"पाठ ले रहा है\" से अनुमान नहीं।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": "n5-005",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId_provenance": "auto_inferred",
+      "rationale_provenance": "native_reviewed_2026_05_23",
+      "rp_004_fix_2026_05_23": "mixed-register English fragments → all-Japanese rewrite"
     }
   ]
 }

@@ -131,7 +131,26 @@
       "rationale_hi": "यामादा का निमंत्रण कहता है 来週の 土曜日、みんなで 山に のぼりに 行きませんか — 'अगले शनिवार सब मिलकर पहाड़ चढ़ने चलें?' यही पहाड़-चढ़ाई वह गतिविधि है जो यामादा सबको करने को कह रहा है।",
       "rationale_hi_provenance": "llm_curated",
       "grammarPatternId": "n5-069",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId_provenance": "auto_inferred",
+      "audit": {
+        "verifier_pending": true,
+        "pending_since": "2026-05-23",
+        "pending_wave": "dokkai-rationale-hi-native-verify-2026-05-23",
+        "current_state_at_audit_request": {
+          "rationale_hi": "यामादा का निमंत्रण कहता है 来週の 土曜日、みんなで 山に のぼりに 行きませんか — 'अगले शनिवार सब मिलकर पहाड़ चढ़ने चलें?' यही पहाड़-चढ़ाई वह गतिविधि है जो यामादा सबको करने को कह रहा है।",
+          "provenance": "llm_curated"
+        },
+        "review_question": "The Hindi rationale for this dokkai question is LLM-curated, not native-reviewed. Native Hindi/Japanese bilingual reviewer must confirm: (a) the Hindi explanation is grammatically natural, (b) the explanation correctly matches the Japanese rationale's intent, (c) any technical terms (particles, conjugations) are translated correctly.",
+        "verification_protocol_link": "docs/NATIVE-SPEAKER-RE-VERIFICATION.md",
+        "verifier_credential_required": "Native Hindi speaker with JLPT N3+ Japanese, OR certified Japanese-language teacher fluent in Hindi.",
+        "result_schema": {
+          "verified_against": null,
+          "verified_at": null,
+          "verifier_credential": null,
+          "verified_rationale_hi": null,
+          "decision_note": null
+        }
+      }
     },
     {
       "type": "mcq",

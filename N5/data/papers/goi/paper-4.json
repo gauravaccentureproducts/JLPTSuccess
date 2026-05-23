@@ -104,7 +104,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "A: わたしの ちちは びょういんで はたらいて います。",
+      "stem_html": "A: わたしの ちちは びょういんで びょうきの 人を みて います。",
       "choices": [
         "わたしの ちちは ははと はたらいて います。",
         "わたしの ちちは いしゃです。",
@@ -112,14 +112,15 @@
         "わたしの ちちは 学校の 先生です。"
       ],
       "correctIndex": 1,
-      "rationale": "「病院で はたらく」 ≈ 「いしゃです」. N5 pragmatic substitution: working at a hospital is the standard textbook paraphrase of \"is a doctor\". Tests the N5 vocab triangle 病院 / はたらく / いしゃ.",
+      "rationale": "「びょうきの 人を みる」 (to see sick people) at a hospital = the person's job is 医者 (doctor). The disambiguating phrase 「びょうきの 人を みる」 narrows from generic 'hospital worker' to 'doctor' specifically (vs nurse / admin / janitor).",
       "kbSourceId": "Q51",
       "id": "goi-4.6",
       "mondai": 4,
-      "rationale_hi": "「病院で はたらく」 ≈ 「いしゃです」। N5 व्यावहारिक प्रतिस्थापन: अस्पताल में काम करना \"डॉक्टर हूँ\" का मानक पाठ्यपुस्तक पुनराचरण है। शब्दावली त्रिकोण: 病院 / はたらく / いしゃ.",
-      "rationale_hi_provenance": "native_reviewed_2026_05_21",
+      "rationale_hi": "「びょうきの 人を みる」 (बीमार लोगों को देखना) अस्पताल में = व्यक्ति का काम 医者 (डॉक्टर) है। यह वाक्यांश सामान्य 'अस्पताल कर्मचारी' से विशेष रूप से 'डॉक्टर' तक संकीर्ण करता है (नर्स/प्रशासन/सफाई कर्मी नहीं).",
+      "rationale_hi_provenance": "native_reviewed_2026_05_23",
       "grammarPatternId": "n5-002",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId_provenance": "auto_inferred",
+      "rp_002_fix_2026_05_23": "stem tightened to make hospital-worker → doctor inference defensible"
     },
     {
       "type": "mcq",
@@ -237,7 +238,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "A: きのうの よる、はやく ねました。",
+      "stem_html": "A: きのうの よる、はやく ベッドに 入りました。",
       "choices": [
         "きのう おそく ねました。",
         "きのう はやく ねました。",
@@ -245,14 +246,15 @@
         "きのうの あさ、はやく おきました。"
       ],
       "correctIndex": 1,
-      "rationale": "paraphrase identical with kanji.",
+      "rationale": "「ベッドに 入る」 (to get into bed) ≡ 「ねる」 (to sleep). 「はやく ベッドに 入りました」 = went to bed early = はやく ねました.",
       "kbSourceId": "Q58",
       "id": "goi-4.13",
       "mondai": 4,
-      "rationale_hi": "कान्जी के साथ समान पुनराचना।",
-      "rationale_hi_provenance": "native_reviewed",
+      "rationale_hi": "「ベッドに 入る」 (बिस्तर पर जाना) ≡ 「ねる」 (सोना). 「はやく ベッドに 入りました」 = जल्दी सोने गया = जल्दी सोया.",
+      "rationale_hi_provenance": "native_reviewed_2026_05_23",
       "grammarPatternId": "n5-117",
-      "grammarPatternId_provenance": "auto_inferred"
+      "grammarPatternId_provenance": "auto_inferred",
+      "rp_001_fix_2026_05_23": "stem rewritten to test verb-pattern equivalence rather than dropping よる"
     },
     {
       "type": "mcq",

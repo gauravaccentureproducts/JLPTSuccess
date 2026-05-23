@@ -84,6 +84,93 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.5 - 2026-05-23 (Reviewer&#x27;s 19-item review of v1.16.4 — Batch A close: 5 paper content fixes + 5 REJECTs with rationale + 5 deferred to Batches B/C)</h2>
+<h3>Background</h3>
+<p>External reviewer ran a consolidated 19-item review against v1.16.4 covering the 4 paper corpora (moji / goi / bunpou / dokkai) plus cross-cutting style claims. Triage per F.44.17 + F.44.19 + F.44.23 disciplines: - 5 of 19 closed as REAL defects (this release — Batch A) - 5 deferred to Batches B / C (preference-tweaks + UI rendering) - 4 rejected with explicit rationale - 3 classified PARTIAL framing-disagreement - 2 edge / TBD</p>
+<h3>Fixed (Batch A)</h3>
+<ul>
+<li><strong>BUG-181 (RP-001) — goi-4.13 tautological paraphrase.</strong></li>
+</ul>
+<p>Stem 「きのうの よる、はやく ねました」 → answer 「きのう はやく ねました」 only differed by dropping よる. Rewrote stem to 「きのうの よる、はやく ベッドに 入りました」 testing 「ベッドに 入る」≡「ねる」 (get into bed ≡ sleep) — genuine vocabulary equivalence.</p>
+<ul>
+<li><strong>BUG-182 (RP-002) — goi-4.6 hospital-worker → doctor too loose.</strong></li>
+</ul>
+<p>Original stem 「父は びょういんで はたらいて います」 (father works at hospital) → answer 「父は いしゃです」 (he&#x27;s a doctor). Hospital worker isn&#x27;t necessarily a doctor. Tightened stem to 「ちちは びょういんで びょうきの 人を みて います」 (sees sick people at hospital) — makes the inference defensible.</p>
+<ul>
+<li>**BUG-183 (RP-003) — 2 dokkai rationale_hi llm_curated entries</li>
+</ul>
+<p>queued for native review.** dokkai-2.3 and dokkai-7.6 carried <code>rationale_hi_provenance: &#x27;llm_curated&#x27;</code>. Added <code>audit.verifier_pending: true</code> block to both per the F.44.21 audit-block schema, so a future human native Hindi/Japanese reviewer can fill in result_schema.</p>
+<ul>
+<li>**BUG-184 (RP-004) — 4 mixed-register rationales rewritten</li>
+</ul>
+<p>all-Japanese.** Pattern like 「time + に for time of action」 (English + Japanese particle fragments). Hits: goi-2.4, goi-7.4, goi-7.10, bunpou-7.1. All 4 rewritten in coherent Japanese.</p>
+<ul>
+<li><strong>BUG-185 (RP-005) — 5 Hindi-punctuation hits cleaned.</strong> Pattern</li>
+</ul>
+<p>「父 (father)।」 — danda after parenthetical English gloss inside Hindi rationale. Hits: moji-4.11, moji-5.3, goi-1.4, bunpou-1.10, bunpou-2.4. Translated all parenthetical glosses to Hindi.</p>
+<h3>Rejected (Part 48 audit log documents rationale)</h3>
+<ul>
+<li><strong>Item 3</strong> — moji-1.5 &quot;uses 員, N4 not N5&quot;. 員 IS in this</li>
+</ul>
+<p>project&#x27;s n5_kanji_whitelist (intentional inclusion); project scope explicitly includes it.</p>
+<ul>
+<li><strong>Item 4</strong> — moji-2.1 distractor なながつ &quot;defensible but non-</li>
+</ul>
+<p>standard&quot;. Defensible distractor; mondai 2 distractors are designed to be plausible misreads.</p>
+<ul>
+<li><strong>Item 10</strong> — bunpou-7.10 &quot;rationale claims ぐらい clashes with</li>
+</ul>
+<p>ぜったいに&quot;. Reviewer misread: the correct answer is でも (not ぐらい); the rationale never makes the ぐらい-clash claim.</p>
+<ul>
+<li><strong>Item 17</strong> — &quot;No 聴解 section&quot;. <code>data/listening.json</code> EXISTS</li>
+</ul>
+<p>with 50 items. Verified false.</p>
+<h3>Deferred to Batches B / C</h3>
+<ul>
+<li><strong>Items 1 + 5</strong> — distractor-level adjustment (7 entries) +</li>
+</ul>
+<p>correctIndex distribution rebalance. Both are JLPT-format- acceptable; surfaced as preference-tweaks vs defect-repairs.</p>
+<ul>
+<li><strong>Item 2</strong> — bulk enrichment of 36 thin mondai-2 rationales in</li>
+</ul>
+<p>moji. Large mechanical content task; deferred to dedicated batch.</p>
+<ul>
+<li><strong>Items 11 + 13</strong> — bunpou mondai-3 passage-dependent stems +</li>
+</ul>
+<p>dokkai paper-7 markdown blockquote+pipe-tables. Both rendering- contract concerns; need UI investigation before action.</p>
+<h3>Engineering</h3>
+<ul>
+<li>No new CI invariant. Existing JA-150 / JA-13 / JA-156 cover the</li>
+</ul>
+<p>predicates the reviewer named.</p>
+<ul>
+<li>No procedure-manual extension. Methodology unchanged; F.44.17 +</li>
+</ul>
+<p>F.44.19 + F.44.23 disciplines shipped earlier today are load-bearing for this kind of review triage.</p>
+<ul>
+<li>AUDIT-COVERAGE Part 48 documents the full 19-item triage + 4</li>
+</ul>
+<p>rejections with rationale.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>158 / 158</strong> (unchanged).</li>
+<li>Bug tracker: <strong>185 / 185 Fixed / 0 Open</strong> (was 180; +BUG-181..185).</li>
+<li>Version: v1.16.4 → <strong>v1.16.5</strong> (Batch A content fixes + cache-bust).</li>
+</ul>
+<h3>Bounded-coverage phrasing</h3>
+<ul>
+<li>&quot;5 of 19 reviewer items closed in Batch A&quot; — does NOT assert</li>
+</ul>
+<p>the 19 items represent a complete review of v1.16.4.</p>
+<ul>
+<li>&quot;4 REJECTs with rationale&quot; — REJECT items are documented; if</li>
+</ul>
+<p>the reviewer disagrees with any rejection, the specific argument should surface so we can re-triage.</p>
+<ul>
+<li>&quot;5 items deferred to Batches B/C&quot; — does NOT commit to shipping</li>
+</ul>
+<p>those; Batch B/C scope/timing is a separate decision.</p>
+<hr>
 <h2>v1.16.4 - 2026-05-23 (Native-speaker-verification audit-block scaffold — LLM declined verification task; shipped protocol doc + queue file + JA-155 + scaffolded blocks instead)</h2>
 <h3>Background</h3>
 <p>A reviewer asked Claude to perform native-speaker verification of 3 pitch-accent entries (みなさん / あなた / きのう) against NHK 2016 日本語発音アクセント新辞典 + audio recordings. Per procedure-manual F.44.7 + F.44.15 Shape 2 + <code>docs/NATIVE-SPEAKER-RE-VERIFICATION.md</code>, this is <strong>human-only work</strong>: Claude is the same author as the audit pipeline that produced the kanjium-by-reading drops, so LLM-authored verification would be circular authority.</p>

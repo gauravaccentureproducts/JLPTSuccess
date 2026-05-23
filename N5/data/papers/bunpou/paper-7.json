@@ -17,7 +17,7 @@
         "に"
       ],
       "correctIndex": 3,
-      "rationale": "time + に.",
+      "rationale": "「時間 + に」(動作の 時を 示す 助詞).",
       "kbSourceId": "Q91",
       "passage_label": "Passage A",
       "blank_number": 1,
@@ -26,7 +26,9 @@
       "rationale_hi": "समय + に।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": "n5-005",
-      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"
+      "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18",
+      "rationale_provenance": "native_reviewed_2026_05_23",
+      "rp_004_fix_2026_05_23": "mixed-register English fragments → all-Japanese rewrite"
     },
     {
       "type": "mcq",

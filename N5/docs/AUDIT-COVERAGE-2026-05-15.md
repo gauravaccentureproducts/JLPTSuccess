@@ -6893,3 +6893,137 @@ Packet: v1.16.4 / 2026-05-23T09:00:00Z (JA-156-verified-matching).
 - Live invariant: JA-154 (the spec row, §25.4).
 - Closed bug: BUG-180 (NTR-FU-007, v1.16.3, commit `7f3e4af`).
 - Sync-map: 2026-05-23 (Part 47) row.
+
+## ADDENDUM 2026-05-23 (Part 48) — 19-item reviewer's consolidated review of v1.16.4: 5 REAL → fixed (Batch A); 3 REJECT with rationale; 3 PARTIAL framing-disagreement documented
+
+Reviewer's consolidated 19-item review against v1.16.4 (covering
+moji.json / goi.json / bunpou.json / dokkai.json / cross-cutting).
+
+### Triage applied (F.44.17 + F.44.19 + F.44.23)
+
+Ran verify-before-fix with PRINT non-empty per-claim output on every
+numbered item. Categorization:
+
+**REAL — fixed in Batch A (v1.16.5):**
+  - Item 6 (RP-001) — goi-4.13 tautological paraphrase
+  - Item 7 (RP-002) — goi-4.6 hospital-worker inference too loose
+  - Item 14 (RP-003) — 2 dokkai rationale_hi llm_curated → audit-queued
+  - Item 18 (RP-004) — 4 mixed-register rationales rewritten all-Japanese
+  - Item 19 (RP-005) — 5 Hindi-punctuation hits cleaned
+
+**REAL — deferred to Batches B / C (NOT in this release):**
+  - Item 1 — 7 off-level kanji distractors in moji-6.9/6.11/6.12/7.4
+    (deferred; arguably JLPT-format-acceptable preference-tweak vs
+    defect-repair — see PARTIAL note below)
+  - Item 2 — 36 thin rationales in moji mondai 2 (deferred; bulk
+    rationale-enrichment task)
+  - Item 5 / 9 — correctIndex distribution skew (28/26/25/21 moji;
+    27/27/25/21 goi) (deferred; statistical skew, not strict defect)
+  - Item 11 — bunpou mondai-3 passage-dependent stems (deferred;
+    UI rendering-contract concern, needs renderer test)
+  - Item 13 — dokkai paper-7 markdown blockquote+pipe-tables
+    (deferred; UI rendering investigation needed)
+
+**REJECT with rationale:**
+  - **Item 3** — moji-1.5 (会社員) "uses 員, N4 not N5". 員 IS in
+    this project's `n5_kanji_whitelist.json`; project scope
+    explicitly includes it. Reviewer's claim doesn't match
+    project's documented scope.
+  - **Item 4** — moji-2.1 distractor なながつ "defensible but
+    non-standard". なながつ is a defensible visually-similar
+    distractor for the correct しちがつ; mondai 2 distractors are
+    designed to be plausible misreads. Standard JLPT format.
+  - **Item 10** — bunpou-7.10 "rationale claims ぐらい clashes with
+    ぜったいに". Reviewer misread the rationale: the correct answer
+    is でも (not ぐらい), and the rationale explains でも = "even
+    (just)" combined with ぜったいに. The rationale never makes
+    the ぐらい claim the reviewer attributes to it.
+  - **Item 17** — "No 聴解 (listening) section". `data/listening.json`
+    EXISTS with 50 items. Verified false.
+
+**PARTIAL — framing disagreement, not defect:**
+  - **Items 8 / 12 / 15** — auto_inferred provenance counts (goi
+    89/100 / bunpou 41/100 / dokkai 78/102). Counts are correct,
+    but `auto_inferred` is a DOCUMENTED provenance label in this
+    project (per F.41 canonical-sentinel pattern). "Unverified"
+    framing doesn't match the project's documented stance that
+    auto_inferred is acceptable provenance for the
+    grammarPatternId field. Not a defect; framing-only.
+  - **Item 16** — dokkai-2.1 "Saturday omission" edge case.
+    Reviewer themselves flagged "it works — flag for
+    completeness." Not actionable; documented as observed-and-
+    accepted.
+
+**Pattern recognition:** 5 of 19 items closed in Batch A (clear
+defects, mechanical fixes); 5 deferred to Batches B/C (real but
+larger scope OR preference-tweak class); 4 rejected with explicit
+rationale (false claims / reviewer misread / project-scope
+mismatch); 3 PARTIAL framing-disagreements. This is the cleanest
+mix-of-classifications triage of the session — most prior reviews
+had higher STALE rates.
+
+### Bugs filed + closed (Part 48 — Batch A)
+
+| Bug ID | Severity | Class | Fix |
+|---|---|---|---|
+| BUG-181 RP-001 | Medium | F.44.x paraphrase-tautology | goi-4.13 stem rewritten to test ベッドに 入る≡ねる equivalence |
+| BUG-182 RP-002 | Medium | F.44.x inference-too-loose | goi-4.6 stem tightened with びょうきの 人を みる disambiguator |
+| BUG-183 RP-003 | Low | F.44.21 native-review-queue | 2 dokkai rationale_hi entries flagged audit.verifier_pending=true |
+| BUG-184 RP-004 | Low | F.44.x mixed-register rationale | 4 rationales rewritten all-Japanese |
+| BUG-185 RP-005 | Low | F.44.x Hindi-punctuation | 5 parenthetical-English glosses translated to Hindi |
+
+### Files touched (Part 48 — Batch A)
+
+  - data/papers/goi/paper-4.json (goi-4.13 + goi-4.6)
+  - data/papers/goi/paper-2.json (goi-2.4)
+  - data/papers/goi/paper-7.json (goi-7.4 + goi-7.10)
+  - data/papers/goi/paper-1.json (goi-1.4)
+  - data/papers/bunpou/paper-7.json (bunpou-7.1)
+  - data/papers/bunpou/paper-1.json (bunpou-1.10)
+  - data/papers/bunpou/paper-2.json (bunpou-2.4)
+  - data/papers/moji/paper-4.json (moji-4.11)
+  - data/papers/moji/paper-5.json (moji-5.3)
+  - data/papers/dokkai/paper-2.json (dokkai-2.3 audit-queue)
+  - data/papers/dokkai/paper-7.json (dokkai-7.6 audit-queue)
+  - data/index.json (regenerated for size_bytes drift)
+  - data/version.json (v1.16.4 → v1.16.5)
+  - sw.js + index.html (cache-bust v1.16.5)
+  - tools/fix_rp_batch_a_2026_05_23.py + file_rp_batch_a_bugs_2026_05_23.py (new)
+  - specifications/test-scenarios-by-specialist-perspective.xlsx (5 new bugs)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 48)
+  - docs/cross-artifact-sync-map.md (Part 48 row)
+  - CHANGELOG.md (v1.16.5 entry)
+  - data/_review_packet/* (regenerated; JA-156 PASS)
+
+### Final state for Part 48 (Batch A close)
+
+CI **158 / 158 invariants green** (unchanged from Part 47).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **185 / 185 Fixed / 0 Open** (was 180; +BUG-181..185).
+Version: v1.16.4 → **v1.16.5** (Batch A content fixes + cache-bust).
+Packet: v1.16.5 / 2026-05-23T11:00:00Z (JA-156-verified-matching).
+
+### Bounded-coverage phrasing for Part 48
+
+  - "5 of 19 reviewer items closed in Batch A" — does NOT assert
+    the 19 items represent a complete review of v1.16.4; the
+    reviewer's coverage was their own scope choice.
+  - "4 items rejected with rationale" — REJECTs are documented;
+    if the reviewer disagrees with any rejection, they should
+    surface the specific argument so we can re-triage.
+  - "5 items deferred to Batches B / C" — does NOT commit to
+    shipping those; Batches B/C scope/timing is separate
+    decision.
+  - "PARTIAL items are framing-disagreements, not defects" — does
+    NOT mean the framing is unimportant; auto_inferred provenance
+    could be re-validated through a separate native-review-pass
+    cycle if the user prefers.
+
+### Cross-references
+
+- Procedure manual: §F.44.17 (re-paste triage) + F.44.19
+  (verification-script correctness) + F.44.23 (CI-invariant
+  re-paste discipline) — all three disciplines applied to this
+  review's triage.
+- CHANGELOG: 2026-05-23 v1.16.5 entry.
+- Sync-map: 2026-05-23 (Part 48) row.
