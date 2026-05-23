@@ -6788,3 +6788,108 @@ JA-156-verified-matching).
 - Accuracy prompt: §A88 (CI lock catalog entry).
 - Spec: §25.4 JA-156 row.
 - Sync-map: 2026-05-23 (Part 46) row.
+
+## ADDENDUM 2026-05-23 (Part 47) — Vocab ID-slug reconcile re-paste: STALE (4th re-paste today)
+
+A reviewer task on 2026-05-23 asked to "Reconcile vocab entry IDs
+with their current `section` field in vocab.json" naming the 3
+entries えいが / にこにこ / おはし with their stale slugs vs current
+section fields, and offering Strategy A (keep IDs opaque + flag
+divergence + new CI invariant) vs Strategy B (migrate IDs + alias
+old + sweep references).
+
+### Verification per F.44.17 + F.44.19 + F.44.23
+
+Ran actual data inspection with PRINT non-empty per-claim output:
+all 3 entries ALREADY carry the divergence flag:
+
+  - **えいが** — `legacy_section_in_id: true` + `*_note` + provenance
+  - **にこにこ** — `legacy_section_in_id: true` + `*_note` + provenance
+  - **おはし** — `legacy_section_in_id: true` + `*_note` + provenance
+
+All 3 provenance-stamped `native_reviewed_2026_05_23`.
+
+CI invariant **JA-154** (NTR-FU-007 guard, 2026-05-23) already
+enforces the EXACT predicate the task asks for: "vocab.json ID-slug
+section disagreement with section field must carry
+`legacy_section_in_id: true` flag." Live state: PASS.
+
+### Triage decision
+
+**STALE per F.44.17 + F.44.23.** No new code.
+
+The task's proposed `id_slug_origin` block schema (5 structured
+sub-fields: original_section_slug, migrated_to_section, migrated_at,
+rationale, audit_wave) is functionally equivalent to the shipped
+3-field schema (legacy_section_in_id + _note + _provenance). The
+shipped schema packs the structured info into the free-text `_note`
+field, which is less auditable but adequate. Refactoring to the
+task's schema would be the F.44.23 "symbolic schema upgrade"
+anti-pattern.
+
+The task's proposed "new invariant JA-<next>" would be the F.44.23
+"symbolic consolidation invariant" anti-pattern — JA-154 already
+enforces the predicate; a new JA-157 covering the same predicate
+would add CI surface for zero detection value.
+
+The task's claim "the previous one is JA-155 per the pitch-accent
+audit" is also stale — live state is JA-156 (review-packet
+staleness, just shipped 2 commits ago); next free is JA-157.
+
+### Pattern recognition
+
+This is the **4th re-paste of already-done work in this session**:
+  1. NTR re-paste #1 (13-item review): 9 STALE / 3 REAL → NTR-FU-001/002/003
+  2. NTR re-paste #2 (re-pass against v1.16.2): 4 REAL → NTR-FU-004/005/006/007
+  3. BUG-1 CI-invariant re-paste: STALE → F.44.23 + A87
+  4. **This vocab-ID-slug re-paste: STALE → this Part 47**
+
+The 4th re-paste confirms F.44.17/F.44.23/F.44.25 (the discipline
+family shipped over the last 6 commits) is doing its job: the
+verify-before-fix protocol caught the STALE classification in <2
+minutes via 1 data-inspection script + 1 CI invariant grep.
+Without that discipline, this task would have produced ~20 minutes
+of redundant code + a refactor that subtly diverges from existing
+schema.
+
+### What was NOT touched (intentionally)
+
+  - **No `id_slug_origin` block added.** Existing
+    `legacy_section_in_id*` fields are functionally equivalent.
+  - **No new CI invariant.** JA-154 already enforces the
+    predicate.
+  - **No version bump.** No data/code change.
+  - **No CHANGELOG entry.** Nothing user-facing.
+  - **No new bug filed.** Already closed as NTR-FU-007 / BUG-180
+    in v1.16.3.
+
+### Final state for Part 47
+
+CI **158 / 158 invariants green** (unchanged).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **180 / 180 Fixed / 0 Open** (unchanged).
+Version: **v1.16.4** (unchanged).
+Packet: v1.16.4 / 2026-05-23T09:00:00Z (JA-156-verified-matching).
+
+### Bounded-coverage phrasing for Part 47
+
+  - "Predicate already enforced by JA-154 (NTR-FU-007 guard,
+    2026-05-23); 3 entries flagged + provenance-stamped" — does
+    NOT assert no future drift can occur; JA-154 catches new
+    drift, and the existing flags are stable.
+  - "STALE per F.44.17 + F.44.23" — does NOT mean the task was
+    invalid; it means the work was done in v1.16.3 (NTR-FU-007 /
+    BUG-180 / commit 7f3e4af) before the task was re-pasted.
+  - "Functionally equivalent schema" — does NOT mean the task's
+    proposed schema is wrong; it means the lighter shipped
+    schema covers the same functional requirement; refactor would
+    be aesthetic-only.
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44.23 (the verify-before-add discipline that
+  this triage applies).
+- Live invariant: JA-154 (the spec row, §25.4).
+- Closed bug: BUG-180 (NTR-FU-007, v1.16.3, commit `7f3e4af`).
+- Sync-map: 2026-05-23 (Part 47) row.
