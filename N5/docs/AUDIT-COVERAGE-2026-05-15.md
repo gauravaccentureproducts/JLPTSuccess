@@ -7027,3 +7027,108 @@ Packet: v1.16.5 / 2026-05-23T11:00:00Z (JA-156-verified-matching).
   review's triage.
 - CHANGELOG: 2026-05-23 v1.16.5 entry.
 - Sync-map: 2026-05-23 (Part 48) row.
+
+## ADDENDUM 2026-05-23 (Part 49) — v4 reviewer cited correct version but quoted stale-packet content (mirror of Part 47's STALE-snapshot pattern)
+
+A 4th reviewer pass on 2026-05-23 produced this re-validation report
+header:
+  > Reviewed against `version.json.version = v1.16.9` / `builtAt =
+  > 2026-05-23T19:00:00Z`
+
+Version anchor is **correct** (matches HEAD `5dacb58` / v1.16.9).
+However, the report's REAL findings quoted verbatim strings that
+**v1.16.9 does not contain**:
+
+| Finding | Reviewer quoted | LIVE v1.16.9 content |
+|---|---|---|
+| F1 dokkai-2.5 | `माता काम करता है में अस्पताल` | `माँ अस्पताल में काम करती हैं` |
+| F2 goi-3.4 | `नहीं में सब` | `बिलकुल नहीं / ज़रा भी नहीं` |
+| F3a bunpou-1.8 | `(जहाँ आप करना यह)` | `(जहाँ काम होता है)` |
+| F3b goi-1.1 | `है कुछ एक पेय` | `एक पेय है, और` |
+| F5 moji style doc | "documentation gap remains" | `docs/PAPER-RATIONALE-STYLE-GUIDE.md` exists |
+
+All 5 quoted strings are from the v1.16.8 packet that was the
+previous state. The reviewer either:
+(a) Uploaded the v1.16.8 packet to their Project Knowledge then
+    typed the v1.16.9 version anchor without re-uploading
+(b) Had v1.16.8 cached and pattern-matched against memory of prior
+    findings without re-checking
+
+JA-160 CI invariant **PASS** on current data — if the quoted strings
+actually existed in v1.16.9, JA-160 would fail. It doesn't.
+
+### Triage decision
+
+**All 4 REAL claims + F5 FRAMING classified STALE-against-cited-
+version.** No data changes. Findings 4 (DEFERRED) + 6 (PREFERENCE)
+correctly classified by reviewer; no action required there either.
+
+### Pattern: Two complementary stale-anchor failure modes
+
+| Pass | Version cite | Content match | Failure shape |
+|---|---|---|---|
+| v3 reviewer (Part 48 cycle) | **Fictional** (`2026-05-23-n5-full`) | Matched real v1.16.8 data | Version-cite unreliable, content sound |
+| v4 reviewer (this Part 49) | **Correct** (`v1.16.9` matches HEAD) | Matched v1.16.8 PREVIOUS state | Version-cite reliable, content stale |
+
+Together these two cycles demonstrate: **version-cite alone is
+necessary-but-not-sufficient.** Reviewers can cite the right version
+while reviewing the wrong content (cached upload), or cite the wrong
+version while reviewing the right content (correct upload, fabricated
+header).
+
+The defensive response: **require a content-fingerprint** in the
+review-report header so packet-staleness is detectable upfront
+without running 4 separate content lookups every cycle.
+
+### Prompt strengthening (this Part)
+
+`docs/REVIEW-PACKET-PROMPT.md` updated to require:
+
+1. version.json.version + builtAt (existing requirement)
+2. **PLUS** a content fingerprint: pitch-accent entry count + the
+   exact first 40 chars of あなた `examples[0].translation_en`. If
+   the version field says v1.16.9 but the fingerprint shows
+   "Who are you?" (v1.16.8 content), packet-staleness is caught at
+   line 1 of the report — not after 4 verify-before-fix lookups.
+
+Anti-patterns table extended:
+- Added the 4 v1.16.9-fixed Hindi word-salad strings explicitly,
+  with "if you see this in your packet, re-upload" guidance
+- Added the moji minimal-style doc reference with the same guidance
+
+### Files touched (Part 49)
+
+  - docs/REVIEW-PACKET-PROMPT.md (content-fingerprint + anti-pattern
+    table extension)
+  - tools/build_review_packet.py (auto-extracts updated prompt section)
+  - data/_review_packet/REVIEW-PROMPT.md (regenerated)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 49)
+
+### What was NOT touched (intentionally)
+
+  - **No data changes.** The 4 quoted strings were already fixed in
+    v1.16.9; data is correct.
+  - **No new CI invariant.** JA-160 already locks the markers; it
+    passes.
+  - **No new bug filed.** Reviewer's claims are STALE-against-cited-
+    version, not actual defects.
+  - **No version bump.** Doc-only methodology improvement.
+
+### Final state for Part 49
+
+CI **162 / 162 invariants green** (unchanged from Part 48 close).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **196 / 196 Fixed / 0 Open** (unchanged).
+Version: **v1.16.9** (unchanged).
+Packet: regenerated with updated REVIEW-PROMPT.md including content-
+fingerprint requirement.
+
+### Bounded coverage
+
+- "v4 reviewer's 4 REAL claims classified STALE-against-cited-version"
+  — does NOT assert v1.16.9 is defect-free against a fresh independent
+  review; it asserts the reviewer's quoted strings don't exist in
+  current data.
+- "Content-fingerprint requirement added to prompt" — does NOT
+  guarantee future reviewers will comply; it surfaces the violation
+  if they don't quote the fingerprint accurately.

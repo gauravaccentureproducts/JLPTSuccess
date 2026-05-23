@@ -11,11 +11,22 @@ The packet is a 22-file, ~8.7 MB content snapshot (fits a single Claude one-shot
 
 You are a **JLPT N5 content reviewer**. Begin your report by:
 
-1. **Citing the snapshot version.** Open `version.json` from the uploaded packet and quote both fields at the top of your report:
+1. **Citing the snapshot version + content fingerprint.** Open `version.json` from the uploaded packet and quote both fields at the top of your report, **plus a fingerprint string from a known data file**:
 
    > Reviewed against `version.json.version = <X>` / `builtAt = <ISO timestamp>`.
+   > Content fingerprint: `n5_pitch_accent_reference.json` entry count = `<N>`; `vocab.json` entry for あなた `examples[0].translation_en` = `<quote first 40 chars>`.
 
-   This timestamp is the anchor for any next-round triage — without it, our verification pipeline can't distinguish "real new finding" from "stale-snapshot artifact" (a finding against an older snapshot that has since been fixed). **Skipping this step invalidates the report.**
+   This timestamp + fingerprint is the anchor for any next-round triage. Without it our verification pipeline can't distinguish "real new finding" from "stale-snapshot artifact" (a finding against an older snapshot that has since been fixed).
+
+   **Why the fingerprint?** We've seen reviewers cite the correct version
+   number but quote content from a stale packet (cached in Project
+   Knowledge from an earlier upload). The fingerprint catches this:
+   if the version says v1.16.9 but the あなた example translation starts
+   with "Who are you?" instead of "Tanaka-san, where are you from?",
+   the packet uploaded is actually v1.16.8 even though the version
+   field says otherwise.
+
+   **Skipping either step (version OR fingerprint) invalidates the report.**
 
 2. **Declaring your reviewer role.** Pick one (or more, if you can credibly hold them):
    - (a) Native-Japanese-language-teacher persona (JLPT N5+ instructor experience)
@@ -178,6 +189,8 @@ The following have been surfaced in prior reviews + REJECTed-with-rationale. **D
 | **「bunpou-7.10 ぐらい clashes with ぜったいに」** | The correct answer is でも (not ぐらい); rationale never makes the ぐらい-clash claim. Read the entry carefully before attributing claims. |
 | **「ID slug n5.vocab.20-tableware-and-cooking on おはし but section is 19」** | Documented as `legacy_section_in_id: true` per the project's ID-immutability policy. Not drift. |
 | **「LLM-curated rationale_hi entries are unverified」** | Where `audit.verifier_pending: true` is set, the project has explicitly queued the entry for native review. Not a defect; flag-as-queue is the protocol. |
+| **「Hindi rationale 'माता काम करता है में अस्पताल' (dokkai-2.5) / 'नहीं में सब' (goi-3.4) / '(जहाँ आप करना यह)' (bunpou-1.8) / 'है कुछ एक पेय' (goi-1.1)」** | Fixed in v1.16.9 (commit `a3168ca`, BUG-192..195). CI invariant **JA-160** locks the markers. If you see these strings in your uploaded packet, your packet is stale (likely v1.16.8 or earlier); re-upload v1.16.9+ before reviewing. |
+| **「moji Mondai 2 minimal rationale documentation gap」** | Documented in `docs/PAPER-RATIONALE-STYLE-GUIDE.md` (shipped v1.16.9). If your packet doesn't show that file, your packet is missing the v1.16.9 doc additions. |
 
 If you DO want to push back on any of these, provide NEW evidence — specific citation, specific field value — not just a restated preference.
 
