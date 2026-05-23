@@ -1442,6 +1442,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     # from leaking back into the canonical "exact" classification.
     # Author-authority discipline lock per F.44.7 + F.44.15 Shape 2.
     ("JA-155", "n5_pitch_accent_reference.json match_kind=exact entries carry completed audit block (NTR-FU-008 / pitch-accent-native-verify guard, 2026-05-23)", lambda: _check_ja_155_pitch_accent_audit_block()),
+    # JA-156 (2026-05-23): review-packet staleness gate. When the
+    # gitignored data/_review_packet/ exists locally, its version.json
+    # must match data/version.json. Catches the failure mode where an
+    # author bumps version.json + commits data changes but forgets to
+    # `python tools/build_review_packet.py` before sharing the packet
+    # with a reviewer. Skips silently when the packet doesn't exist
+    # (e.g., GitHub Actions CI where the gitignored dir is absent).
+    # Per F.44.25 (review-packet-staleness discipline). Real failure
+    # observed 2026-05-23: packet at v1.16.2 while HEAD was v1.16.4
+    # after the user asked "have you updated review packet?"
+    ("JA-156", "data/_review_packet/version.json (if present) matches data/version.json (review-packet staleness guard, 2026-05-23)", lambda: _check_ja_156_review_packet_version_match()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8368,6 +8379,55 @@ def _check_ja_153_deprecated_grammar_bucket() -> list[str]:
         if not in_dep:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is not in n5_core_pattern_ids.json `deprecated` bucket")
     return failures
+
+
+def _check_ja_156_review_packet_version_match() -> list[str]:
+    """Review-packet staleness gate (added 2026-05-23).
+
+    The `data/_review_packet/` directory is gitignored — it's a
+    locally-generated artifact for sharing with external Claude
+    reviewers (chat / Project Knowledge). When it exists, its
+    version.json must match the live data/version.json. Catches
+    the failure mode where an author bumps the data version +
+    commits, but forgets to run `python tools/build_review_packet.py`
+    before sharing the packet — the reviewer then reviews against
+    stale content and surfaces "bugs" that were already fixed in
+    the working tree.
+
+    Skip-on-absent: when the packet doesn't exist (GitHub Actions
+    CI, fresh clone), this invariant returns 0 failures. The check
+    is local-only — it catches the pre-share author mistake, not
+    a remote-CI state.
+
+    Real failure that motivated this invariant: 2026-05-23 session,
+    author shipped v1.16.0 → v1.16.4 across 4 minor version bumps,
+    explicitly regenerated the packet only once (at v1.16.2). The
+    reviewer flagged "have you updated review packet? because the
+    review is based on it." The fix should be load-bearing —
+    codify it.
+    """
+    import json as _json
+    pkt_path = ROOT / "data" / "_review_packet" / "version.json"
+    live_path = ROOT / "data" / "version.json"
+    if not pkt_path.exists():
+        return []  # skip-on-absent — gitignored dir not regenerated yet
+    if not live_path.exists():
+        return ["JA-156: data/version.json missing (cannot compare to packet)"]
+    try:
+        pkt = _json.loads(pkt_path.read_text(encoding="utf-8"))
+        live = _json.loads(live_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-156: parse error reading packet vs live version.json: {e}"]
+    pkt_v = pkt.get("version")
+    live_v = live.get("version")
+    if pkt_v != live_v:
+        return [
+            f"JA-156 packet at {pkt_v!r} but live data/version.json is {live_v!r}. "
+            f"Run `python tools/build_review_packet.py` before sharing the "
+            f"packet to bring it to HEAD. (Per F.44.25 review-packet-staleness "
+            f"discipline.)"
+        ]
+    return []
 
 
 def _check_ja_155_pitch_accent_audit_block() -> list[str]:

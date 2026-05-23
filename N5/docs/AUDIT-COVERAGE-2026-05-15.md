@@ -6694,3 +6694,97 @@ Version: **v1.16.4** (unchanged; doc-only commit).
   add discipline) + §F.44.24 (drift-class lineage extension).
 - Accuracy prompt: §A87 (catalog companion to F.44.23).
 - Sync-map: 2026-05-23 (Part 45) row.
+
+## ADDENDUM 2026-05-23 (Part 46) — Review-packet staleness discipline (JA-156 + F.44.25)
+
+**User-caught discipline gap:** session shipped v1.16.0 → v1.16.4
+across 4 minor version bumps + 18+ commits; author explicitly
+regenerated the gitignored `data/_review_packet/` exactly once
+(at v1.16.2). User asked "have you updated review packet?
+because the review is based on it" — verification showed the
+packet had happened-to-be-current via a side-effect, but the
+author had NOT explicitly regenerated it.
+
+The failure mode: when a stale packet is shared with an external
+reviewer (Claude Project Knowledge or one-shot chat), the
+reviewer surfaces "bugs" that are already fixed in the working
+tree. The fix re-paste in the next session triggers
+STALE/REAL/PARTIAL/REJECT triage cycles (per F.44.17) that are
+pure overhead — context burnt re-litigating already-closed work.
+
+### CI invariant added (Part 46)
+
+  - **JA-156** — packet-vs-live version-stamp match. When
+    `data/_review_packet/version.json` exists locally, its
+    `version` field must equal `data/version.json.version`.
+    Skip-on-absent (GitHub Actions CI doesn't have the
+    gitignored dir; that's intentional — JA-156 is a
+    local-pre-share lock, not remote-CI).
+
+### Procedural discipline added (F.44.25)
+
+  - After every commit that bumps `data/version.json.version`
+    (or touches `data/*.json`), run
+    `python tools/build_review_packet.py` before sharing.
+  - Pre-share verification: run JA-156 explicitly before
+    answering "is the packet ready to share?"
+
+### Generalizable pattern (F.44.26)
+
+Any gitignored generated artifact shared externally needs a
+freshness CI invariant of this shape: compare a version /
+timestamp field in the artifact to the canonical source;
+skip-on-absent. Applies to review packets, generated docs,
+exports, build artifacts, etc.
+
+### Files touched (Part 46 — doc + 1 CI invariant)
+
+  - JLPT Common/procedure-manual-build-next-jlpt-level.md
+    (F.44.25 + F.44.26)
+  - tools/check_content_integrity.py (+JA-156)
+  - prompts/Japanese language Accuracy check.txt (A88)
+  - docs/AUDIT-COVERAGE-2026-05-15.md (this Part 46)
+  - docs/cross-artifact-sync-map.md (Part 46 row)
+  - specifications/JLPT-N5-Current-Implementation-Spec.md
+    (§25.4 JA-156 row + last-updated header)
+
+### What was NOT touched (intentionally)
+
+  - **No version bump.** No data/code-of-substance change; the
+    CI invariant addition is a methodology lock, not a content
+    release.
+  - **No CHANGELOG entry.** Nothing user-facing changed.
+  - **No new bug filed.** The packet-staleness is a process
+    discipline gap, not a content defect.
+
+### Final state for Part 46
+
+CI **158 / 158 invariants green** (was 157; +JA-156).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **180 / 180 Fixed / 0 Open** (unchanged).
+Version: **v1.16.4** (unchanged).
+Packet: v1.16.4 / 2026-05-23T09:00:00Z (regenerated and
+JA-156-verified-matching).
+
+### Bounded-coverage phrasing for Part 46
+
+  - "JA-156 catches *packet-version-vs-live-data-version
+    mismatch when the packet exists locally*" — does NOT catch
+    content drift inside the packet (would require deep diff);
+    only the version-stamp mismatch.
+  - "Skip-on-absent guarantees remote CI doesn't break" — does
+    NOT mean remote CI is enforcing the freshness; only local
+    pre-share CI enforces.
+  - "F.44.25 is procedural discipline" — does NOT mechanically
+    prevent forgetting; it documents the rule. JA-156 is the
+    load-bearing mechanical lock; F.44.25 is the doc that
+    explains why and what to do.
+
+### Cross-references
+
+- Procedure manual: `JLPT Common/procedure-manual-build-next-
+  jlpt-level.md` §F.44.25 (review-packet staleness discipline)
+  + §F.44.26 (gitignored-artifact freshness generalization).
+- Accuracy prompt: §A88 (CI lock catalog entry).
+- Spec: §25.4 JA-156 row.
+- Sync-map: 2026-05-23 (Part 46) row.

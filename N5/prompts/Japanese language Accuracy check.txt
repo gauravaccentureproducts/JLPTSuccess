@@ -5742,3 +5742,59 @@ procedure-manual F.44.23 + F.44.24; AUDIT-COVERAGE Part 45.
 CI invariants at this checkpoint: 157 (unchanged; this is a
 methodology / discipline capture, not a new gate).
 ============================================================
+
+
+A88. REVIEW-PACKET STALENESS DISCIPLINE — regen-after-data-change
+     locked by JA-156 (added 2026-05-23, AUDIT-COVERAGE Part 46,
+     procedure-manual F.44.25 + F.44.26).
+============================================================
+
+Surfaced 2026-05-23: shipped v1.16.0 → v1.16.4 across 4 minor
+version bumps; explicitly regenerated the gitignored review
+packet only once (at v1.16.2). Reviewer asked "have you
+updated review packet? because the review is based on it" —
+verification confirmed the packet had happened-to-be-current
+via a side-effect, but the author had NOT explicitly
+regenerated it.
+
+Failure mode: when a stale packet is shared, the reviewer
+surfaces "bugs" that are already fixed in the working tree.
+The fix re-paste then forces a STALE/REAL/PARTIAL/REJECT
+triage cycle in the next session (F.44.17). The cleanest fix
+is preventing the stale share in the first place.
+
+Codification:
+
+  - **JA-156 CI invariant** — when data/_review_packet/ exists
+    locally, its version.json.version must match
+    data/version.json.version. Skip-on-absent for remote CI.
+  - **F.44.25 procedural discipline** — after every commit that
+    bumps version.json or touches data/*.json, run
+    `python tools/build_review_packet.py` before sharing the
+    packet.
+  - **Pre-share verification** — before answering "is the
+    packet ready to share?", run JA-156 explicitly.
+
+Generalizable pattern (F.44.26): any gitignored generated
+artifact that's shared externally needs a freshness CI
+invariant of this shape — compare a version/timestamp field
+in the artifact to the canonical source, skip-on-absent.
+
+CI-enforced this batch: JA-156 (review packet vs live data
+version-stamp match).
+
+Bounded-coverage phrasing:
+  - "JA-156 catches *packet-version-vs-live-data-version
+    mismatch when the packet exists locally*" — does NOT catch
+    content drift inside the packet (would require deep diff);
+    only the version-stamp mismatch.
+  - "Skip-on-absent guarantees remote CI doesn't break" — does
+    NOT mean remote CI is enforcing the freshness; only local
+    CI enforces.
+
+Source: 2026-05-23 packet-staleness audit + codification
+(catch by user); procedure-manual F.44.25 + F.44.26;
+AUDIT-COVERAGE Part 46.
+
+CI invariants at this checkpoint: 158 (was 157; +JA-156).
+============================================================
