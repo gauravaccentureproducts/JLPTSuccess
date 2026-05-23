@@ -2,6 +2,66 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.7 - 2026-05-23 (All-pending close: markdown-table renderer for dokkai-7 + JA-157 paper-mirror staleness gate + framing clarification for auto_inferred)
+
+### Fixed
+
+- **dokkai-7 markdown-table rendering (item 13 second-order).** RP-010
+  closed item 13 by making the passages display (root cause was the
+  papers.js field-name bug). But 4 of 6 dokkai-7 mondai-7 passages
+  use markdown blockquote + pipe-table syntax (`> | a | b | c |`)
+  which displayed as raw markdown after RP-010. Added
+  `renderPassageMarkdown()` to `js/papers.js`: parses blockquote +
+  pipe-table patterns and emits `<table>` HTML. CSS rules added for
+  `.paper-passage-table` / `.paper-passage-blockquote`. Affected:
+  dokkai-7 passages "中央こうえんの あんない" / "サクラ レストラン
+  メニュー" / "中央えき から こうえん 行き バス" / "こころ びょういん".
+
+### Engineering
+
+- **CI invariant JA-157 — paper-static-mirror staleness gate.**
+  For each `data/papers/<cat>/paper-N.json` source, the corresponding
+  `papers/<cat>-N/index.html` static mirror must contain every
+  question id from the JSON. Catches the failure mode where content
+  fixes update the source but the static-mirror regeneration step
+  gets forgotten. Skip-on-absent for partial checkouts.
+  - Motivating failure: 2026-05-23 v1.16.6 batch left 10 static
+    mirrors with uncommitted regenerations; user caught it by asking
+    "all fixed?". JA-157 closes the discipline gap.
+- **Min js + min css rebuilt** to ship the new markdown renderer +
+  table styles.
+
+### Framing clarification (no data change)
+
+- **Items 8 / 12 / 15 — auto_inferred grammarPatternId provenance**
+  (208 entries: 89 goi + 41 bunpou + 78 dokkai). PARTIAL classification
+  stands as-is: `auto_inferred` IS the documented provenance label per
+  F.41 / DOCS-VOCAB-005 conventions. The reviewer's "unverified"
+  framing doesn't match the project's documented stance. No data
+  change. If a future native-review pass wants to upgrade specific
+  entries to `native_reviewed`, the F.44.21 audit-block scaffold
+  pattern (shipped in v1.16.4 for pitch-accent) is the protocol —
+  separate batch from this release.
+
+### CI / tracker / version
+
+- CI invariants: **159 / 159** (was 158; +JA-157).
+- Bug tracker: **190 / 190 Fixed / 0 Open** (unchanged — RP-010
+  follow-up + JA-157 are engineering, not bug filings).
+- Version: v1.16.6 → **v1.16.7**.
+- Packet: v1.16.7 / 2026-05-23T15:00:00Z, JA-156 + JA-157 PASS.
+
+### 19-item review final close
+
+After this release, all genuinely-actionable items from the
+reviewer's 19-item review of v1.16.4 are closed:
+- 10 REAL → fixed (RP-001..010 / BUG-181..190 across v1.16.5/.6/.7)
+- 4 REJECT-with-rationale (items 3 / 4 / 10 / 17)
+- 3 PARTIAL framing-only (items 8 / 12 / 15 — documented stance)
+- 2 edge / observed-and-accepted (item 16)
+
+---
+
 ## v1.16.6 - 2026-05-23 (Reviewer's 19-item review — Batch B+C close: distractor swaps + rationale enrichment + correctIndex rebalance + CRITICAL UI fix for passage-dependent questions)
 
 ### Fixed (Batches B + C)

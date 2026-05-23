@@ -308,7 +308,13 @@ function renderAttempting(container) {
   if (q.passage_label && Array.isArray(s.paper?.passages)) {
     const p = s.paper.passages.find(x => x && x.label === q.passage_label);
     if (p && p.text) {
-      passageBlock = `<div class="paper-passage" lang="ja">${renderJaSafe(p.text)}</div>`;
+      // Use the markdown-aware renderer so dokkai-7 info-retrieval
+      // passages (blockquote + pipe-tables) render as actual tables.
+      // Falls back to plain wrapping for non-markdown passages.
+      const usesMarkdown = p.text.includes('> ') || p.text.includes('|---|');
+      passageBlock = usesMarkdown
+        ? `<div class="paper-passage" lang="ja">${renderPassageMarkdown(p.text)}</div>`
+        : `<div class="paper-passage" lang="ja">${renderJaSafe(p.text)}</div>`;
     }
   } else if (q.passage_text) {
     passageBlock = `<div class="paper-passage" lang="ja">${renderJaSafe(q.passage_text)}</div>`;
@@ -388,6 +394,85 @@ function renderJaSafe(html) {
   // Light pass: trust the KB content (already audited). renderJa() expects
   // plain text, so we emit the html directly with class="ja" wrapping.
   return `<span class="ja-text" lang="ja">${html}</span>`;
+}
+
+// RP-010 follow-up (2026-05-23): markdown renderer for passage blocks.
+//
+// dokkai paper-7 mondai 7 (情報検索, 6 passages) authors passages as
+// markdown blockquote + pipe-table. The plain renderJaSafe shows the
+// raw markdown to the learner (literal `>` chars and `|` chars). That
+// renders the table content as nonsense.
+//
+// This renderer handles the specific patterns the dokkai-7 corpus uses:
+//   1. Lines starting with `> ` are blockquote content
+//   2. Inside a blockquote, `| a | b | c |` lines are table rows
+//   3. The line `| --- | --- | --- |` is the table header separator
+//   4. Non-table lines inside blockquotes are paragraph text
+//
+// Not a full CommonMark implementation. Targeted at the patterns that
+// actually appear in passage_text fields. Falls back to renderJaSafe
+// (plain wrapping) for non-markdown content. Tested against the 4 of 6
+// dokkai-7 passages that use pipe-tables.
+function renderPassageMarkdown(text) {
+  if (!text) return '';
+  const lines = text.split('\n');
+  const out = [];
+  let inTable = false;
+  let inBlockquote = false;
+  let tableRows = [];
+
+  function flushTable() {
+    if (tableRows.length === 0) return;
+    // First row = header (skip the --- separator row)
+    const header = tableRows[0];
+    const body = tableRows.slice(2);  // skip separator line
+    let html = '<table class="paper-passage-table"><thead><tr>';
+    for (const cell of header) html += `<th lang="ja">${cell}</th>`;
+    html += '</tr></thead><tbody>';
+    for (const row of body) {
+      html += '<tr>';
+      for (const cell of row) html += `<td lang="ja">${cell}</td>`;
+      html += '</tr>';
+    }
+    html += '</tbody></table>';
+    out.push(html);
+    tableRows = [];
+    inTable = false;
+  }
+
+  for (let raw of lines) {
+    let line = raw;
+    // Strip blockquote marker
+    if (line.startsWith('> ') || line === '>') {
+      inBlockquote = true;
+      line = line.replace(/^> ?/, '');
+    } else if (line.trim() === '') {
+      // Blank line ends current table if any
+      if (inTable) flushTable();
+      if (out.length && !out[out.length-1].endsWith('<br>')) out.push('<br>');
+      continue;
+    }
+    // Detect table row
+    const tableMatch = line.match(/^\|(.*)\|$/);
+    if (tableMatch) {
+      const cells = tableMatch[1].split('|').map(s => s.trim());
+      inTable = true;
+      tableRows.push(cells);
+      continue;
+    }
+    // Not a table row → flush any pending table first
+    if (inTable) flushTable();
+    if (line.trim()) {
+      out.push(`<div class="paper-passage-line" lang="ja">${line}</div>`);
+    }
+  }
+  // Tail flush
+  if (inTable) flushTable();
+  // Wrap in a blockquote class if any blockquote was detected
+  const inner = out.join('\n');
+  return inBlockquote
+    ? `<blockquote class="paper-passage-blockquote">${inner}</blockquote>`
+    : inner;
 }
 
 // ---------- Submit + results ----------

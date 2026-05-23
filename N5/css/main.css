@@ -5573,6 +5573,36 @@ body[data-route="n1"] #search-input {
   white-space: pre-line;
 }
 
+/* RP-010 follow-up (2026-05-23): markdown-table rendering for
+   dokkai-7 mondai-7 info-retrieval passages. Passages with pipe-
+   tables now display as actual tables; passage authors use markdown
+   `> | a | b | c |` syntax in the source. */
+.paper-passage-blockquote {
+  margin: 0;
+  border-left: 2px solid var(--c-border);
+  padding-left: 12px;
+}
+.paper-passage-line {
+  margin: 4px 0;
+}
+.paper-passage-table {
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 15px;
+  width: 100%;
+}
+.paper-passage-table th,
+.paper-passage-table td {
+  border: 1px solid var(--c-border);
+  padding: 6px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.paper-passage-table th {
+  background: var(--c-surface-alt, rgba(0,0,0,0.04));
+  font-weight: 600;
+}
+
 .paper-question-stem {
   font-size: 18px;
   line-height: 1.8;

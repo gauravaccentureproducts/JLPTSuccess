@@ -1453,6 +1453,18 @@ CHECKS: list[tuple[str, str, callable]] = [
     # observed 2026-05-23: packet at v1.16.2 while HEAD was v1.16.4
     # after the user asked "have you updated review packet?"
     ("JA-156", "data/_review_packet/version.json (if present) matches data/version.json (review-packet staleness guard, 2026-05-23)", lambda: _check_ja_156_review_packet_version_match()),
+    # JA-157 (2026-05-23): paper-static-mirror staleness gate. For
+    # each `data/papers/<cat>/paper-N.json` (non-bak), the
+    # corresponding `papers/<cat>-N/index.html` static mirror must
+    # contain every question id from the JSON source. Catches the
+    # failure mode where content fixes update paper-N.json but the
+    # author forgets to regenerate the static mirrors (failure
+    # observed 2026-05-23 after the RP-006..010 batch — user caught
+    # the drift). Skip-on-absent if mirror file doesn't exist locally
+    # (mirrors only generated in full builds; CI skips on partial
+    # checkouts). Per F.44.25 gitignored-artifact freshness pattern
+    # generalization.
+    ("JA-157", "paper static mirrors (papers/<cat>-N/index.html) contain every question id from data/papers/<cat>/paper-N.json (mirror staleness guard, 2026-05-23)", lambda: _check_ja_157_paper_static_mirror_freshness()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8378,6 +8390,62 @@ def _check_ja_153_deprecated_grammar_bucket() -> list[str]:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is still in `deferred_to_n4` — move to `deprecated` bucket")
         if not in_dep:
             failures.append(f"JA-153 grammar entry {did!r} has `deprecated: true` but is not in n5_core_pattern_ids.json `deprecated` bucket")
+    return failures
+
+
+def _check_ja_157_paper_static_mirror_freshness() -> list[str]:
+    """Paper-static-mirror staleness gate (added 2026-05-23).
+
+    For each `data/papers/<cat>/paper-N.json` source file, find the
+    corresponding `papers/<cat>-N/index.html` static mirror and verify
+    every question's `id` appears in the mirror's text. If any id is
+    missing, the mirror is stale relative to the source and needs
+    regeneration.
+
+    Skip-on-absent: mirrors only exist in full builds; on partial
+    checkouts (e.g., a CI run that didn't build the static surfaces)
+    the mirror file is absent and the check passes silently. This is
+    a LOCAL pre-share lock, like JA-156.
+
+    Real failure that motivated this invariant: 2026-05-23 session,
+    Batch B+C content fixes (RP-006..010) updated paper-N.json files
+    but the static mirrors auto-regenerated locally without being
+    committed in the same commit. User caught the drift by asking
+    "all fixed?" and noticing 10 stale mirrors in `git status`. JA-157
+    closes the discipline gap per F.44.25 gitignored-artifact
+    freshness pattern.
+    """
+    import json as _json, glob as _glob
+    failures: list[str] = []
+    for cat in ("moji", "goi", "bunpou", "dokkai"):
+        src_dir = ROOT / "data" / "papers" / cat
+        if not src_dir.exists(): continue
+        for src_fp in sorted(src_dir.glob("paper-*.json")):
+            if ".bak" in src_fp.name: continue
+            # Derive mirror path: papers/<cat>-<N>/index.html
+            paper_num = src_fp.stem.replace("paper-", "")
+            mirror_fp = ROOT / "papers" / f"{cat}-{paper_num}" / "index.html"
+            if not mirror_fp.exists():
+                continue  # skip-on-absent — mirror not generated
+            try:
+                src = _json.loads(src_fp.read_text(encoding="utf-8"))
+                mirror_html = mirror_fp.read_text(encoding="utf-8")
+            except Exception as e:
+                failures.append(f"JA-157 {cat}/{src_fp.name}: parse error: {e}")
+                continue
+            missing_ids = []
+            for q in (src.get("questions") or []):
+                if not isinstance(q, dict): continue
+                qid = q.get("id")
+                if qid and qid not in mirror_html:
+                    missing_ids.append(qid)
+            if missing_ids:
+                failures.append(
+                    f"JA-157 paper mirror {mirror_fp.name} missing {len(missing_ids)} "
+                    f"question id(s) from {cat}/{src_fp.name} "
+                    f"(first 5: {missing_ids[:5]}). Regenerate via the static-mirror "
+                    f"build tool before committing."
+                )
     return failures
 
 
