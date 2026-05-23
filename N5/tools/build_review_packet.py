@@ -222,6 +222,21 @@ Useful framings (the corpus is sizable; narrow scope per turn):
 """
     (OUT / "README.md").write_text(readme, encoding="utf-8")
 
+    # 2026-05-23: ship the reviewer prompt INSIDE the packet so the
+    # reviewer doesn't need a separate paste step. Source of truth is
+    # N5/docs/REVIEW-PACKET-PROMPT.md (versioned doc); we extract the
+    # text between ---PROMPT START--- and ---PROMPT END--- markers and
+    # write it to _review_packet/REVIEW-PROMPT.md.
+    prompt_src = ROOT / "docs" / "REVIEW-PACKET-PROMPT.md"
+    if prompt_src.exists():
+        full = prompt_src.read_text(encoding="utf-8")
+        start = full.find("<!-- PROMPT_START -->")
+        end = full.find("<!-- PROMPT_END -->")
+        if start != -1 and end != -1 and end > start:
+            prompt_text = full[start + len("<!-- PROMPT_START -->"):end].strip()
+            (OUT / "REVIEW-PROMPT.md").write_text(prompt_text + "\n", encoding="utf-8")
+            print(f"  Embedded REVIEW-PROMPT.md from docs/REVIEW-PACKET-PROMPT.md")
+
     print(f"Wrote {len(inventory)} files + README to {OUT.relative_to(ROOT.parent)}")
     print(f"Total size: {total_before/1024:.0f} KB → {total_after/1024:.0f} KB "
           f"(-{(1 - total_after/total_before)*100:.1f}% size reduction)")
