@@ -84,6 +84,45 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.7 - 2026-05-23 (All-pending close: markdown-table renderer for dokkai-7 + JA-157 paper-mirror staleness gate + framing clarification for auto_inferred)</h2>
+<h3>Fixed</h3>
+<ul>
+<li><strong>dokkai-7 markdown-table rendering (item 13 second-order).</strong> RP-010</li>
+</ul>
+<p>closed item 13 by making the passages display (root cause was the papers.js field-name bug). But 4 of 6 dokkai-7 mondai-7 passages use markdown blockquote + pipe-table syntax (<code>&gt; | a | b | c |</code>) which displayed as raw markdown after RP-010. Added <code>renderPassageMarkdown()</code> to <code>js/papers.js</code>: parses blockquote + pipe-table patterns and emits <code>&lt;table&gt;</code> HTML. CSS rules added for <code>.paper-passage-table</code> / <code>.paper-passage-blockquote</code>. Affected: dokkai-7 passages &quot;中央こうえんの あんない&quot; / &quot;サクラ レストラン メニュー&quot; / &quot;中央えき から こうえん 行き バス&quot; / &quot;こころ びょういん&quot;.</p>
+<h3>Engineering</h3>
+<ul>
+<li><strong>CI invariant JA-157 — paper-static-mirror staleness gate.</strong></li>
+</ul>
+<p>For each <code>data/papers/&lt;cat&gt;/paper-N.json</code> source, the corresponding <code>papers/&lt;cat&gt;-N/index.html</code> static mirror must contain every question id from the JSON. Catches the failure mode where content fixes update the source but the static-mirror regeneration step gets forgotten. Skip-on-absent for partial checkouts. - Motivating failure: 2026-05-23 v1.16.6 batch left 10 static mirrors with uncommitted regenerations; user caught it by asking &quot;all fixed?&quot;. JA-157 closes the discipline gap.</p>
+<ul>
+<li><strong>Min js + min css rebuilt</strong> to ship the new markdown renderer +</li>
+</ul>
+<p>table styles.</p>
+<h3>Framing clarification (no data change)</h3>
+<ul>
+<li><strong>Items 8 / 12 / 15 — auto_inferred grammarPatternId provenance</strong></li>
+</ul>
+<p>(208 entries: 89 goi + 41 bunpou + 78 dokkai). PARTIAL classification stands as-is: <code>auto_inferred</code> IS the documented provenance label per F.41 / DOCS-VOCAB-005 conventions. The reviewer&#x27;s &quot;unverified&quot; framing doesn&#x27;t match the project&#x27;s documented stance. No data change. If a future native-review pass wants to upgrade specific entries to <code>native_reviewed</code>, the F.44.21 audit-block scaffold pattern (shipped in v1.16.4 for pitch-accent) is the protocol — separate batch from this release.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>159 / 159</strong> (was 158; +JA-157).</li>
+<li>Bug tracker: <strong>190 / 190 Fixed / 0 Open</strong> (unchanged — RP-010</li>
+</ul>
+<p>follow-up + JA-157 are engineering, not bug filings).</p>
+<ul>
+<li>Version: v1.16.6 → <strong>v1.16.7</strong>.</li>
+<li>Packet: v1.16.7 / 2026-05-23T15:00:00Z, JA-156 + JA-157 PASS.</li>
+</ul>
+<h3>19-item review final close</h3>
+<p>After this release, all genuinely-actionable items from the reviewer&#x27;s 19-item review of v1.16.4 are closed:</p>
+<ul>
+<li>10 REAL → fixed (RP-001..010 / BUG-181..190 across v1.16.5/.6/.7)</li>
+<li>4 REJECT-with-rationale (items 3 / 4 / 10 / 17)</li>
+<li>3 PARTIAL framing-only (items 8 / 12 / 15 — documented stance)</li>
+<li>2 edge / observed-and-accepted (item 16)</li>
+</ul>
+<hr>
 <h2>v1.16.6 - 2026-05-23 (Reviewer&#x27;s 19-item review — Batch B+C close: distractor swaps + rationale enrichment + correctIndex rebalance + CRITICAL UI fix for passage-dependent questions)</h2>
 <h3>Fixed (Batches B + C)</h3>
 <ul>
