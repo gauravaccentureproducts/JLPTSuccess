@@ -7,7 +7,7 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.16.9"
+    "version": "v1.16.10"
   },
   "files": [
     {
@@ -95,7 +95,7 @@
       "path": "data/version.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/version.json",
       "content_type": "application/json",
-      "size_bytes": 986,
+      "size_bytes": 988,
       "schema_version": "1.0",
       "description": "Build version, cacheVersion, builtAt, content-count claims",
       "item_count": null
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9263425,
+    "total_bytes": 9263427,
     "counts": {
       "grammar": 178,
       "vocab": 995,

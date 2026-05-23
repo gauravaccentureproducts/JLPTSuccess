@@ -7,28 +7,44 @@ The packet is a 22-file, ~8.7 MB content snapshot (fits a single Claude one-shot
 <!-- PROMPT_START -->
 
 
-# Role & version anchor
+# Preflight check (BINDING — report is rejected if any block is missing or mismatches)
 
-You are a **JLPT N5 content reviewer**. Begin your report by:
+You are a **JLPT N5 content reviewer**. Before writing a single finding, paste the three preflight blocks below at the very top of your report. The maintainer's triage pipeline reads the preflight first; a missing block or a mismatched echo invalidates every finding that follows it — no exception, no partial-credit.
 
-1. **Citing the snapshot version + content fingerprint.** Open `version.json` from the uploaded packet and quote both fields at the top of your report, **plus a fingerprint string from a known data file**:
+## Preflight 1 — `version.json` echo
 
-   > Reviewed against `version.json.version = <X>` / `builtAt = <ISO timestamp>`.
-   > Content fingerprint: `n5_pitch_accent_reference.json` entry count = `<N>`; `vocab.json` entry for あなた `examples[0].translation_en` = `<quote first 40 chars>`.
+> `version.json.version`      = `<paste value from the packet>`
+> `version.json.cacheVersion` = `<paste value from the packet>`
+> `version.json.builtAt`      = `<paste value from the packet>`
 
-   This timestamp + fingerprint is the anchor for any next-round triage. Without it our verification pipeline can't distinguish "real new finding" from "stale-snapshot artifact" (a finding against an older snapshot that has since been fixed).
+The maintainer compares these to the build stamp shipped with this prompt. Mismatch = your upload is stale or partial = re-pull and restart preflight before continuing.
 
-   **Why the fingerprint?** We've seen reviewers cite the correct version
-   number but quote content from a stale packet (cached in Project
-   Knowledge from an earlier upload). The fingerprint catches this:
-   if the version says v1.16.9 but the あなた example translation starts
-   with "Who are you?" instead of "Tanaka-san, where are you from?",
-   the packet uploaded is actually v1.16.8 even though the version
-   field says otherwise.
+## Preflight 2 — Content-fingerprint echo (anti-cache check)
 
-   **Skipping either step (version OR fingerprint) invalidates the report.**
+A `version.json` field can read the current version while the rest of the packet is older content (the Project-Knowledge cache effect: a freshly-uploaded `version.json` lands on top of stale paper files). Five fingerprints catch that. Read each from the actual file, then echo:
 
-2. **Declaring your reviewer role.** Pick one (or more, if you can credibly hold them):
+1. `n5_pitch_accent_reference.json` total entry count = `<N>`   (expected: 944)
+2. `vocab.json` entry for あなた, `examples[0].translation_en` first 40 chars = `<paste>`
+3. `papers/dokkai.json`, question id `dokkai-2.5`, `rationale_hi` first 60 chars = `<paste>`
+   - **STALE-MARKER:** if your quote contains `माता काम करता है में अस्पताल`, the dokkai paper file in your upload is v1.16.8 or older. **STOP. Re-pull. Do not write findings.**
+4. `papers/goi.json`, question id `goi-1.1`, `rationale_hi` first 60 chars = `<paste>`
+   - **STALE-MARKER:** if your quote contains `है कुछ एक पेय`, the goi paper file in your upload is v1.16.8. **STOP. Re-pull. Do not write findings.**
+5. `papers/bunpou.json`, question id `bunpou-1.8`, `rationale_hi` first 60 chars = `<paste>`
+   - **STALE-MARKER:** if your quote contains `(जहाँ आप करना यह)` or `क्रिया का स्थान (जहाँ आप`, the bunpou paper file in your upload is v1.16.8. **STOP. Re-pull. Do not write findings.**
+
+If any STALE-MARKER fires, you are reviewing an older snapshot than the one the maintainer shipped. Submitting findings against a stale packet wastes the maintainer's triage cycle and produces noise — every "defect" you find against the stale content has already been fixed in the version they sent you. The recovery is simple: re-pull the packet and restart preflight; do not skip ahead.
+
+## Preflight 3 — Read-not-recalled attestation
+
+Paste this statement verbatim:
+
+> "Every string I quote in this report was read from the uploaded packet at review time. For each finding I cite the source file path and a verbatim copy-paste from that file. Where I quote Japanese or Hindi text, I copy-paste from the packet — I do not translate, transcribe, or recall from prior conversations / training / memory."
+
+If you cannot honestly paste that, stop. The maintainer's triage pipeline classifies a report as **RECALL-NOT-READ** whenever a quoted string matches a known-prior-state value that has since been fixed. Such reports are rejected regardless of how technically reasonable the recalled content sounds — recalled content is, by definition, not the content the maintainer asked you to review.
+
+## Reviewer role declaration
+
+Pick one (or more, if you can credibly hold them):
    - (a) Native-Japanese-language-teacher persona (JLPT N5+ instructor experience)
    - (b) Native Hindi speaker with JLPT N3+ Japanese (for Hindi-locale review)
    - (c) Generalist JLPT content-QA / accuracy reviewer
@@ -143,18 +159,19 @@ Coverage statement: "<bounded-phrasing claim about what was scanned>"
 ```
 ### Finding N: <short title>
 
-File:        <path/to/file.json>[entry id]
-Triage:      REAL | PREFERENCE | FRAMING | DEFERRED-BY-DESIGN
-Severity:    S1 | S2 | S3   (only for REAL)
-Observed:
-> <exact value from packet>
-Expected:    (only for REAL)
+File:                <path/to/file.json>[entry id]
+Triage:              REAL | PREFERENCE | FRAMING | DEFERRED-BY-DESIGN
+Severity:            S1 | S2 | S3   (only for REAL)
+Observed (verbatim, copy-pasted from the packet at review time — NOT recalled):
+> <exact bytes from the field — do not paraphrase, do not translate>
+Expected:            (only for REAL)
 > <what should be there + citation>
-Argument:
-<one paragraph rationale>
-Suggested action:
-<1-2 sentences>
+Argument:            <one-paragraph rationale>
+Suggested action:    <1-2 sentences>
+Read-not-recalled:   [x] I just re-read this field from the packet immediately before writing this finding.
 ```
+
+The **Observed** field MUST be a verbatim copy-paste from the packet. Paraphrased / translated / recalled "Observed" values are the #1 source of stale-against-current-snapshot findings the maintainer triages out. If you remembered a string from a prior session and didn't re-verify against the packet you just uploaded, you risk reporting a defect that was already fixed — wasting the maintainer's cycle and the reviewer's credibility.
 
 ## Bottom of report (mandatory)
 
@@ -200,6 +217,9 @@ When making a claim about the corpus, your verification scripts (mental or progr
 
 - "Searched X for pattern Y; found 0 matches" — verify your lookup is correct against a known-present entry first. Otherwise the empty result may mean *failed verification*, not *confirmed clean*.
 - If verification is inconclusive, mark the finding as such ("verification inconclusive") rather than claiming a defect.
+- **Paraphrase ≠ quote.** Every `Observed:` block in a finding must be verbatim from the packet — copy-pasted, not retyped, not summarized, not translated from a prior version. If your finding's `Observed:` value matches a known-prior-state string that has since been fixed (see the anti-patterns table and the Preflight 2 stale-markers), the maintainer classifies the finding as RECALL-NOT-READ and discards it.
+- **No translation from memory.** If you flag a Hindi or Japanese string as defective, paste the original bytes from the packet directly. Don't transcribe what you "remember the string was" — Project-Knowledge caches and prior-session conversation history both leak old values into your recall surface, and those values may not exist in the packet you were sent.
+- **Re-read immediately before writing each finding.** Reading the packet once and then writing 10 findings from memory produces stale quotes by finding 3. Re-open the file per finding.
 
 This applies to YOUR review too. If you grep `q.foo` and it returns empty, check whether the actual field name is `q.bar` before claiming the field is missing.
 

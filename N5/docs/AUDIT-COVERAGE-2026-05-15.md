@@ -7132,3 +7132,151 @@ fingerprint requirement.
 - "Content-fingerprint requirement added to prompt" — does NOT
   guarantee future reviewers will comply; it surfaces the violation
   if they don't quote the fingerprint accurately.
+
+---
+
+## ADDENDUM 2026-05-24 (Part 50) — reviewer-prompt preflight strengthening (3-block BINDING preflight + JA-161) after Part 49's content-fingerprint defense proved insufficient
+
+### Trigger
+
+User: "ok i will give him the files again. update REVIEW-PROMPT.md as
+required." (the user, preparing to re-share the packet with the v4
+reviewer, asked for a stronger prompt — the implicit signal that
+Part 49's content-fingerprint addition wasn't enough).
+
+Part 49 added a content-fingerprint requirement (echoing the pitch-
+accent entry count + first 40 chars of あなた examples[0]
+translation_en) to catch reviewers who cite the correct version but
+quote stale content. The reviewer v4 cycle proved that single
+fingerprint is insufficient — the reviewer was either (a) skipping
+the fingerprint, (b) filling it correctly but still using recalled
+content for findings, or (c) reading from a Project-Knowledge cache
+that has fresh `version.json` but stale paper files.
+
+Part 50 is the upstream-defense strengthening pass: replace single
+fingerprint with **3-block BINDING preflight** that catches all 3
+mechanisms.
+
+### Designed defense — 3-block preflight
+
+The reviewer-facing prompt in `docs/REVIEW-PACKET-PROMPT.md` now
+opens with a "Preflight check (BINDING — report rejected if any
+block is missing or mismatches)" section requiring:
+
+1. **Preflight 1 — `version.json` echo.** Reviewer pastes
+   `version.json.version` + `cacheVersion` + `builtAt` verbatim
+   from the packet. Standard version anchor.
+
+2. **Preflight 2 — Content-fingerprint echo with explicit
+   STALE-MARKER strings.** Reviewer echoes 5 specific values from
+   actual data files (pitch-accent count + あなた translation_en
+   + 3 paper-file Hindi rationale first-60-chars). For each of
+   the 3 paper-file fingerprints, the prompt names the v1.16.8
+   broken string with a "STOP + re-pull" instruction:
+   - dokkai-2.5: STALE-MARKER `माता काम करता है में अस्पताल`
+   - goi-1.1: STALE-MARKER `है कुछ एक पेय`
+   - bunpou-1.8: STALE-MARKER `(जहाँ आप करना यह)` / `क्रिया का स्थान (जहाँ आप`
+   If the reviewer's echo contains a STALE-MARKER, the report
+   self-terminates — no findings against a stale upload.
+
+3. **Preflight 3 — Read-not-recalled attestation.** Reviewer
+   pastes a verbatim statement that every quoted string was read
+   from the uploaded packet at review time, not recalled from
+   prior sessions / training / memory. Pasting an attestation is
+   a low-cost gate against high-cost downstream noise.
+
+Plus per-finding amplification:
+
+- `Observed:` field MUST be verbatim copy-paste (no paraphrase,
+  no translation-from-memory, no recall)
+- Explicit `Read-not-recalled: [x]` checkbox per finding
+- Verification-discipline section gained 3 new BINDING bullets
+  (Paraphrase ≠ quote / No translation from memory / Re-read
+  immediately before writing each finding)
+
+### CI invariant
+
+**JA-161** locks the canonical prompt against accidental future
+edits that drop any of the 12 required defense markers:
+
+- 3 preflight section headers (Preflight 1 / 2 / 3)
+- 4 v1.16.8 stale-content STALE-MARKER strings (dokkai-2.5,
+  goi-1.1, bunpou-1.8 paren, bunpou-1.8 lead)
+- 1 per-finding `Read-not-recalled:` checkbox text
+- 1 `Paraphrase ≠ quote.` rule
+- 1 `No translation from memory.` rule
+- 1 `RECALL-NOT-READ` triage label
+- 1 main preflight section header (`# Preflight check (BINDING`)
+
+CI now at **163 / 163 invariants green** (was 162; +JA-161).
+
+### Failure-mode lineage (lifted from F.44.27)
+
+| Pass | Anchor | Content | Defense triggered |
+|---|---|---|---|
+| v3 reviewer (Part 48) | Fictional version cite | Matched real v1.16.8 data | F.44.17 STALE / F.44.19 verify-before-fix (downstream) |
+| v4 reviewer (Part 49) | Correct version cite | Matched v1.16.8 PRIOR state — stale | F.44.27 RECALL-NOT-READ / 3-block preflight (upstream, added Part 50) |
+
+The v4 pattern motivated F.44.27 + F.44.28 in the procedure
+manual + JA-161 in the CI. Defense is now both upstream
+(preflight self-terminates stale reports) AND downstream
+(verify-before-fix catches anything that slips through).
+
+### Files touched (Part 50)
+
+- docs/REVIEW-PACKET-PROMPT.md (replaced "Role & version anchor"
+  with 3-block "Preflight check (BINDING)"; strengthened per-
+  finding format; added 3 verification-discipline bullets)
+- tools/check_content_integrity.py (added JA-161 +
+  _check_ja_161_review_prompt_preflight_lock function)
+- data/version.json (v1.16.9 → v1.16.10, builtAt updated)
+- data/index.json (size_bytes re-synced via build_llm_surfaces)
+- data/_review_packet/* (regenerated)
+- CHANGELOG.md (v1.16.10 entry)
+- JLPT Common/procedure-manual-build-next-jlpt-level.md
+  (F.44.27 RECALL-NOT-READ + F.44.28 lineage table)
+- docs/AUDIT-COVERAGE-2026-05-15.md (this Part 50)
+- docs/cross-artifact-sync-map.md (Part 50 row)
+- prompts/Japanese language Accuracy check.txt (FP entry for
+  RECALL-NOT-READ class)
+- prompts/N5Improvement.txt (Phase-0 block verifying JA-161
+  returns 0)
+
+### What was NOT touched (intentionally)
+
+- **No data changes.** v4 reviewer's "REAL" findings were all
+  STALE-against-current (verified per F.44.19); data is correct
+  as of v1.16.9 = v1.16.10 (data delta is zero between these
+  versions; only the prompt + CI invariant changed).
+- **No new BUG-NNN filed.** Reviewer's claims do not name a
+  corpus defect that requires a data edit.
+- **specifications/test-scenarios-by-specialist-perspective.xlsx
+  not touched.** The bug tracker has no Open items; the prompt
+  strengthening is a methodology improvement, not a defect close-out.
+
+### Final state for Part 50
+
+CI **163 / 163 invariants green** (was 162; +JA-161).
+`cross_artifact_sync_report.py` EXIT: CLEAN (expected, will
+verify before commit).
+Bug tracker: **201 / 201 Fixed / 0 Open** (unchanged).
+Version: **v1.16.10** (was v1.16.9).
+Packet: regenerated v1.16.10 / 2026-05-24T07:30:00Z with the
+strengthened REVIEW-PROMPT.md embedded.
+
+### Bounded coverage
+
+- "3-block preflight catches the v4 RECALL-NOT-READ failure mode"
+  — does NOT claim the prompt is reviewer-proof against every
+  future stale-anchor variant. Pattern-class continues to grow;
+  the defense lineage extends accordingly.
+- "JA-161 locks the 12 required defense markers" — guards
+  substring presence; does NOT verify the surrounding text still
+  reads coherently if a future edit reshapes the section while
+  preserving the markers. Coherence is a maintainer concern,
+  not a CI concern.
+- "Per-finding read-not-recalled checkbox is BINDING" —
+  enforcement is by maintainer-triage convention (reports without
+  the checkbox are rejected). CI cannot verify the reviewer
+  actually re-read; the checkbox is a discipline signal, not a
+  proof. F.44.27 documents this honestly.

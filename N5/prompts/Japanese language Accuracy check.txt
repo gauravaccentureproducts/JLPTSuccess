@@ -5798,3 +5798,95 @@ AUDIT-COVERAGE Part 46.
 
 CI invariants at this checkpoint: 158 (was 157; +JA-156).
 ============================================================
+
+A89. REVIEWER-PROMPT PREFLIGHT STRENGTHENING — 3-block BINDING
+     preflight + JA-161 lock (added 2026-05-24, AUDIT-COVERAGE
+     Part 50, procedure-manual F.44.27 + F.44.28).
+============================================================
+
+Surfaced 2026-05-24: v4 reviewer pass against v1.16.9 packet
+cited the correct `version.json.version` (v1.16.9) but quoted
+4 Hindi rationale strings from the v1.16.8 broken state — the
+strings that had just been fixed in v1.16.9. Per F.44.19
+verify-before-fix against the actual packet on disk: all 4
+strings in the shipped v1.16.9 packet matched the FIXED state.
+The reviewer was reading recalled / cached content, not the
+uploaded packet.
+
+This is a new false-positive class: **RECALL-NOT-READ**. The
+single-line content-fingerprint defense (A88's predecessor,
+shipped Part 49) is necessary but not sufficient — the
+reviewer either skipped the fingerprint or filled it correctly
+but still used recalled content for findings.
+
+Three plausible mechanisms (all addressed by the 3-block
+preflight):
+
+  1. **Project-Knowledge cache effect** — reviewer uploaded a
+     fresh version.json (small file at top of packet) but the
+     larger paper files in Project Knowledge are still cached
+     from a prior upload.
+  2. **Conversation-history recall** — reviewer participated in
+     a prior session against the prior version; conversation
+     history contains the broken strings; model surfaces
+     remembered strings instead of re-reading.
+  3. **Training-data leakage** — if the broken strings were
+     public for a non-trivial window, the model may surface
+     them from pretraining instead of from the upload.
+
+Codification:
+
+  - **3-block BINDING preflight in docs/REVIEW-PACKET-PROMPT.md:**
+    - Preflight 1 — version.json echo (version + cacheVersion +
+      builtAt)
+    - Preflight 2 — content-fingerprint echo with explicit
+      STALE-MARKER strings for each of the 4 v1.16.8 broken
+      Hindi rationales (STOP + re-pull on marker hit)
+    - Preflight 3 — read-not-recalled attestation paste
+  - **Per-finding amplification:** `Observed:` MUST be verbatim
+    copy-paste (no paraphrase, no translation-from-memory, no
+    recall); explicit `Read-not-recalled: [x]` checkbox per
+    finding; verification-discipline gains 3 new BINDING bullets
+    (Paraphrase ≠ quote / No translation from memory / Re-read
+    immediately before writing each finding).
+  - **JA-161 CI invariant** — substring-locks the canonical
+    prompt against accidental future edits dropping any of the
+    12 required defense markers (3 preflight headers + 4
+    STALE-MARKER strings + 5 discipline rules).
+
+Failure-mode lineage (lifted from F.44.27):
+
+  | Pass | Anchor | Content | Defense |
+  |---|---|---|---|
+  | v3 | Fictional version | Matched real prior data | F.44.17 / F.44.19 (downstream) |
+  | v4 | Correct version | Matched v1.16.8 PRIOR state | F.44.27 / 3-block preflight (upstream) |
+
+Bounded-coverage phrasing:
+  - "3-block preflight catches the v4 RECALL-NOT-READ failure
+    mode" — does NOT claim the prompt is reviewer-proof against
+    every future stale-anchor variant.
+  - "JA-161 locks the 12 required defense markers" — guards
+    substring presence; does NOT verify the surrounding text
+    still reads coherently if a future edit reshapes the
+    section while preserving the markers.
+  - "Per-finding read-not-recalled checkbox is BINDING" —
+    enforcement is by maintainer-triage convention; CI cannot
+    verify the reviewer actually re-read. The checkbox is a
+    discipline signal, not a proof.
+
+False-positive class catalog entry:
+
+  FP-RECALL-NOT-READ. Reviewer cites correct version but
+                       quotes strings from a prior fixed state
+                       (Project-Knowledge cache effect /
+                       conversation-history recall /
+                       training-data leakage). Defense:
+                       3-block BINDING preflight + per-finding
+                       read-not-recalled + JA-161 lock.
+
+Source: 2026-05-24 reviewer v4 pass + user re-share preparation
+("update REVIEW-PROMPT.md as required"); procedure-manual
+F.44.27 + F.44.28; AUDIT-COVERAGE Part 50.
+
+CI invariants at this checkpoint: 163 (was 162; +JA-161).
+============================================================

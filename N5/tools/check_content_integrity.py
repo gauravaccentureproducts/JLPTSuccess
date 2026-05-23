@@ -37,6 +37,20 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Iterable
 
+# Reconfigure stdout/stderr to UTF-8 on Windows so invariant labels
+# containing characters outside cp932 (e.g. `≥` in JA-116's label,
+# Devanagari in JA-160's label) don't crash the result-table printer.
+# Without this, callers must set PYTHONIOENCODING=utf-8 in env; the
+# sync-report subprocess doesn't, so it interprets the encoding crash
+# as DRIFT-DETECTED. Fixed inline so the script is encoding-robust
+# regardless of caller. (2026-05-24 fix; surfaced during Part 50
+# JA-161 add.)
+try:
+    sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
+    sys.stderr.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
+except (AttributeError, Exception):
+    pass
+
 ROOT = Path(__file__).resolve().parent.parent
 KB = ROOT / "KnowledgeBank"
 
@@ -1484,6 +1498,17 @@ CHECKS: list[tuple[str, str, callable]] = [
     # rationales (e.g., moji mondai-2 morpheme breakdowns — see
     # docs/PAPER-RATIONALE-STYLE-GUIDE.md).
     ("JA-160", "rationale_hi free of word-salad markers (कुछ एक / है में / करना यह / नहीं में सब / etc.) (RV3-001..004 guard, 2026-05-23)", lambda: _check_ja_160_rationale_hi_word_salad()),
+    # JA-161 (2026-05-24): reviewer-prompt preflight-defense lock.
+    # Reviewer v4 cited the correct version.json.version (v1.16.9) but
+    # quoted Hindi rationale strings from v1.16.8 (the fixed-in-v1.16.9
+    # broken strings). Existing content-fingerprint guidance was
+    # insufficient — the reviewer either didn't fill the fingerprint or
+    # filled it correctly but still recalled stale content for findings.
+    # JA-161 locks the reviewer-facing prompt (docs/REVIEW-PACKET-PROMPT.md)
+    # to keep the 3-block preflight (version echo / content-fingerprint
+    # echo with explicit STALE-MARKERs / read-not-recalled attestation),
+    # so future prompt edits cannot accidentally drop the defenses.
+    ("JA-161", "docs/REVIEW-PACKET-PROMPT.md retains the 3-block preflight + 4 v1.16.8 stale-content markers (v4-reviewer recall-not-read guard, 2026-05-24)", lambda: _check_ja_161_review_prompt_preflight_lock()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8489,6 +8514,77 @@ def _check_ja_160_rationale_hi_word_salad() -> list[str]:
                             f"{marker!r}: {rh[:80]!r}"
                         )
                         break
+    return failures
+
+
+def _check_ja_161_review_prompt_preflight_lock() -> list[str]:
+    """Reviewer-prompt preflight-defense lock (2026-05-24).
+
+    Reviewer v4 surfaced a new false-positive class: cited the correct
+    version (v1.16.9) but quoted 4 Hindi rationale strings from v1.16.8
+    (the broken pre-fix state). The existing content-fingerprint
+    guidance + anti-pattern table were insufficient; reviewer recalled
+    stale content instead of re-reading the packet.
+
+    Defense added to docs/REVIEW-PACKET-PROMPT.md in v1.16.10:
+      - 3-block preflight (BINDING — report rejected if missing):
+        Preflight 1 = version.json echo
+        Preflight 2 = content-fingerprint echo with explicit
+                      STALE-MARKER strings for each of the 4 v1.16.8
+                      broken Hindi rationales
+        Preflight 3 = read-not-recalled attestation
+      - Per-finding format: Observed must be verbatim copy-paste, not
+        paraphrased / translated / recalled
+      - Read-not-recalled checkbox per finding
+
+    This invariant locks the canonical prompt against accidental
+    edits that drop any of those defenses. If a future maintainer
+    rewrites the prompt and forgets to keep the STALE-MARKERs or
+    the preflight headers, JA-161 catches it before the packet ships.
+
+    Author-authority discipline: these markers are NOT data;
+    they're text in a doc-file. The invariant just substring-greps
+    for known-required text. Cheap and load-bearing.
+    """
+    prompt_path = ROOT / "docs" / "REVIEW-PACKET-PROMPT.md"
+    if not prompt_path.exists():
+        return [f"JA-161: docs/REVIEW-PACKET-PROMPT.md missing"]
+    try:
+        txt = prompt_path.read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-161: read error on docs/REVIEW-PACKET-PROMPT.md: {e}"]
+    required_markers = [
+        # Preflight section headers (3-block contract)
+        ("# Preflight check (BINDING", "preflight header"),
+        ("## Preflight 1 — `version.json` echo", "preflight 1"),
+        ("## Preflight 2 — Content-fingerprint echo", "preflight 2"),
+        ("## Preflight 3 — Read-not-recalled attestation", "preflight 3"),
+        # 4 v1.16.8 stale-content markers (the strings that triggered
+        # the v4 reviewer false-positive class). Each one MUST be
+        # present in the prompt so a reviewer doing the fingerprint
+        # echo can self-detect a stale packet.
+        ("माता काम करता है में अस्पताल", "stale-marker dokkai-2.5 v1.16.8"),
+        ("है कुछ एक पेय", "stale-marker goi-1.1 v1.16.8"),
+        ("(जहाँ आप करना यह)", "stale-marker bunpou-1.8 v1.16.8 (paren form)"),
+        ("क्रिया का स्थान (जहाँ आप", "stale-marker bunpou-1.8 v1.16.8 (lead form)"),
+        # Per-finding format strengthening
+        ("Read-not-recalled:", "per-finding read-not-recalled checkbox"),
+        ("Paraphrase ≠ quote.", "no-paraphrase rule"),
+        ("No translation from memory.", "no-translation-from-memory rule"),
+        ("RECALL-NOT-READ", "RECALL-NOT-READ triage label"),
+    ]
+    failures = []
+    for marker, label in required_markers:
+        if marker not in txt:
+            failures.append(
+                f"JA-161 docs/REVIEW-PACKET-PROMPT.md missing required "
+                f"defense marker for {label!r}: expected substring "
+                f"{marker!r}. Reviewer-prompt preflight defenses are "
+                f"load-bearing against the v4-reviewer recall-not-read "
+                f"failure mode (see CHANGELOG v1.16.10). Restore the "
+                f"marker before shipping. (Per F.44.29 reviewer-prompt-"
+                f"preflight discipline.)"
+            )
     return failures
 
 

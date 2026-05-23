@@ -2,6 +2,115 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.10 - 2026-05-24 (Reviewer-prompt preflight strengthening — v4 RECALL-NOT-READ defense + JA-161)
+
+### Background
+
+Reviewer v4 pass surfaced a new false-positive class the existing
+content-fingerprint guidance didn't catch: reviewer cited the correct
+`version.json.version` (v1.16.9) but quoted 4 Hindi rationale strings
+from v1.16.8 (the strings that had just been fixed in v1.16.9 —
+`माता काम करता है में अस्पताल`, `नहीं में सब`, `करना यह`,
+`है कुछ एक पेय`). Per F.44.19 verify-before-fix against the actual
+packet on disk, all 4 strings in the shipped v1.16.9 packet matched
+the FIXED state. The reviewer was reading recalled / cached content,
+not the uploaded packet.
+
+The existing prompt already required a content fingerprint (पिच-accent
+entry count + あなた `examples[0].translation_en` first 40 chars).
+That defense is necessary but not sufficient — the reviewer either
+skipped it or filled it in correctly but still used recalled content
+for findings. v1.16.10 strengthens the prompt with a 3-block BINDING
+preflight + per-finding read-not-recalled discipline.
+
+### Changed
+
+- **`docs/REVIEW-PACKET-PROMPT.md`** — replaced the single "Role &
+  version anchor" section with a **3-block BINDING preflight**:
+    1. `version.json` echo (version + cacheVersion + builtAt)
+    2. Content-fingerprint echo with **explicit STALE-MARKER strings**
+       for the 4 v1.16.8 broken Hindi rationales (if the reviewer's
+       quote contains a STALE-MARKER, the upload is stale → STOP +
+       re-pull, do not write findings against stale content)
+    3. Read-not-recalled attestation (reviewer pastes a verbatim
+       statement that every quoted string was read from the packet
+       at review time, not recalled from prior sessions / training /
+       memory)
+- **Per-finding format** strengthened: `Observed:` field MUST be a
+  verbatim copy-paste from the packet (not paraphrased / translated /
+  recalled); explicit `Read-not-recalled: [x]` checkbox added per
+  finding.
+- **Verification discipline** section gained 3 new BINDING bullets:
+  Paraphrase ≠ quote / No translation from memory / Re-read
+  immediately before writing each finding.
+
+### CI invariants added
+
+- **JA-161** — `docs/REVIEW-PACKET-PROMPT.md` retains the 3-block
+  preflight headers + the 4 v1.16.8 stale-content marker strings +
+  the per-finding read-not-recalled checkbox + the no-paraphrase /
+  no-translation-from-memory rules + the `RECALL-NOT-READ` triage
+  label. Locks the prompt against accidental future edits that
+  drop any of those defenses.
+
+### Discipline note (RECALL-NOT-READ failure mode)
+
+Two complementary stale-anchor failure modes have now been observed
+from the reviewer side:
+
+| Pass | Anchor | Content |
+|---|---|---|
+| v3 | **Fictional version cite** (`2026-05-23-n5-full`) | Findings against actual current data — still actionable |
+| v4 | **Correct version cite** (v1.16.9) | Findings against v1.16.8 strings that were fixed in the cited v1.16.9 — STALE artifacts |
+
+v3 was caught by the existing F.44.19 verify-before-fix (content
+verified against real data, despite the bogus version label). v4
+required stronger upstream defense — the reviewer's findings looked
+plausible until cross-checked against the shipped packet (which all
+4 strings showed as already-fixed). The strengthened preflight now
+forces the reviewer to either echo the FIXED string (which proves
+they're reading current content) OR echo a STALE-MARKER (which
+self-terminates the report and triggers re-pull). Recall-only
+reports cannot pass either gate.
+
+### Procedure manual + prompts propagation (Rule 4)
+
+- `JLPT Common/procedure-manual-build-next-jlpt-level.md` — F.44.27
+  + F.44.28 added (RECALL-NOT-READ false-positive class + the
+  3-block preflight defense pattern + drift-class lineage table
+  extension, generalized for next-Nx-level builders).
+- `N5/prompts/Japanese language Accuracy check.txt` — FP entry
+  for "stale-content recalled despite correct version cite".
+- `N5/prompts/N5Improvement.txt` — Phase-0 regression block
+  validating JA-161 returns 0 (proves the prompt still has the
+  defenses).
+- `N5/docs/AUDIT-COVERAGE-2026-05-15.md` — Part 50 added
+  documenting the v4 reviewer pass close-out + the prompt
+  strengthening.
+- `N5/docs/cross-artifact-sync-map.md` — Part 50 row added.
+
+### CI / tracker / version
+
+- CI invariants: **163 / 163** (was 162; +JA-161).
+- Bug tracker: **201 / 201 Fixed / 0 Open** (no new BUG-NNN; the
+  v4 reviewer findings were all STALE-against-current, not real
+  defects in the corpus).
+- Version: v1.16.9 → **v1.16.10**.
+- Packet: v1.16.10 / 2026-05-24T07:30:00Z, JA-156/161 PASS.
+
+### Bounded coverage
+
+- "Strengthened preflight defends against the v4 RECALL-NOT-READ
+  failure mode" — does NOT claim the prompt is reviewer-proof
+  against every future stale-anchor variant. New patterns will
+  surface; the defense lineage will grow.
+- "JA-161 locks the 12 required defense markers in the prompt" —
+  guards substring presence; does NOT verify the surrounding text
+  still reads coherently if a future edit reshapes the section
+  while preserving the markers.
+
+---
+
 ## v1.16.9 - 2026-05-23 (Reviewer v3 close — 4 Hindi word-salad fixes + style-guide doc + JA-160 + discipline note on version-cite drift)
 
 ### Background

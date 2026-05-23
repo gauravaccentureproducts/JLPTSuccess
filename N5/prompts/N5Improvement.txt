@@ -2123,6 +2123,61 @@ set" in the report — never just "saturated" — to avoid implying
 universal corpus correctness. (Cross-ref: WRITING DISCIPLINE FOR
 AUDIT DOCS in `prompts/Japanese language Accuracy check.txt`.)
 
+### Phase-0 reviewer-prompt preflight-defense regression block (added 2026-05-24)
+
+CI-enforced via JA-161 (introduced 2026-05-24). Maintainer-side
+Phase-0 mirror runs pre-release:
+
+1. **REVIEW-PACKET-PROMPT preflight markers (FP-RECALL-NOT-READ / JA-161)**
+   Read `docs/REVIEW-PACKET-PROMPT.md`. Assert all 12 required defense
+   markers are present:
+   - 4 section headers: `# Preflight check (BINDING`,
+     `## Preflight 1 — \`version.json\` echo`,
+     `## Preflight 2 — Content-fingerprint echo`,
+     `## Preflight 3 — Read-not-recalled attestation`
+   - 4 v1.16.8 STALE-MARKER strings:
+     `माता काम करता है में अस्पताल` (dokkai-2.5),
+     `है कुछ एक पेय` (goi-1.1),
+     `(जहाँ आप करना यह)` (bunpou-1.8 paren form),
+     `क्रिया का स्थान (जहाँ आप` (bunpou-1.8 lead form)
+   - 4 discipline markers: `Read-not-recalled:`,
+     `Paraphrase ≠ quote.`, `No translation from memory.`,
+     `RECALL-NOT-READ`
+   Expected: 0 missing markers across the canonical prompt.
+
+Bounded-coverage framing:
+  - "JA-161 catches *substring-presence of the 12 required defense
+    markers*" — does NOT verify the surrounding text reads
+    coherently if a future edit reshapes the section while
+    preserving the substrings. Coherence is a maintainer concern,
+    not a CI concern.
+  - "STALE-MARKER list locks the 4 v1.16.8 broken strings" — does
+    NOT catch future stale-against-current quotations from yet-
+    unfixed defects. List grows when a new stale-marker class is
+    surfaced.
+  - "Per-finding read-not-recalled checkbox is BINDING" — CI
+    cannot verify the reviewer actually re-read; the checkbox is
+    a discipline signal, not a proof. Enforcement is by
+    maintainer-triage convention (reports without it rejected).
+
+Operational lesson — upstream-vs-downstream defense layering:
+  Part 49 added a single-line content-fingerprint defense
+  (downstream-ish — catches if reviewer fills it incorrectly,
+  but allows the reviewer to skip it). The v4 reviewer cycle
+  proved this isn't sufficient — even when the fingerprint is
+  notionally required, reviewers may skip it or pass it
+  correctly and still write findings from memory. The fix is
+  upstream defenses (3-block BINDING preflight + STALE-MARKER
+  self-test + read-not-recalled attestation paste). Defense
+  layering rule: every reviewer-protocol defense needs BOTH
+  upstream (gate before findings) and downstream
+  (verify-before-fix after findings); single-layer defenses
+  always have an escape valve.
+
+Source: 2026-05-24 reviewer v4 close + user re-share preparation
+("update REVIEW-PROMPT.md as required"); accuracy prompt §A89;
+procedure-manual F.44.27 + F.44.28; AUDIT-COVERAGE Part 50.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

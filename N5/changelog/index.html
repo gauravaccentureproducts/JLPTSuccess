@@ -84,6 +84,72 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.10 - 2026-05-24 (Reviewer-prompt preflight strengthening — v4 RECALL-NOT-READ defense + JA-161)</h2>
+<h3>Background</h3>
+<p>Reviewer v4 pass surfaced a new false-positive class the existing content-fingerprint guidance didn&#x27;t catch: reviewer cited the correct <code>version.json.version</code> (v1.16.9) but quoted 4 Hindi rationale strings from v1.16.8 (the strings that had just been fixed in v1.16.9 — <code>माता काम करता है में अस्पताल</code>, <code>नहीं में सब</code>, <code>करना यह</code>, <code>है कुछ एक पेय</code>). Per F.44.19 verify-before-fix against the actual packet on disk, all 4 strings in the shipped v1.16.9 packet matched the FIXED state. The reviewer was reading recalled / cached content, not the uploaded packet.</p>
+<p>The existing prompt already required a content fingerprint (पिच-accent entry count + あなた <code>examples[0].translation_en</code> first 40 chars). That defense is necessary but not sufficient — the reviewer either skipped it or filled it in correctly but still used recalled content for findings. v1.16.10 strengthens the prompt with a 3-block BINDING preflight + per-finding read-not-recalled discipline.</p>
+<h3>Changed</h3>
+<ul>
+<li><strong><code>docs/REVIEW-PACKET-PROMPT.md</code></strong> — replaced the single &quot;Role &amp;</li>
+</ul>
+<p>version anchor&quot; section with a <strong>3-block BINDING preflight</strong>: 1. <code>version.json</code> echo (version + cacheVersion + builtAt) 2. Content-fingerprint echo with <strong>explicit STALE-MARKER strings</strong> for the 4 v1.16.8 broken Hindi rationales (if the reviewer&#x27;s quote contains a STALE-MARKER, the upload is stale → STOP + re-pull, do not write findings against stale content) 3. Read-not-recalled attestation (reviewer pastes a verbatim statement that every quoted string was read from the packet at review time, not recalled from prior sessions / training / memory)</p>
+<ul>
+<li><strong>Per-finding format</strong> strengthened: <code>Observed:</code> field MUST be a</li>
+</ul>
+<p>verbatim copy-paste from the packet (not paraphrased / translated / recalled); explicit <code>Read-not-recalled: [x]</code> checkbox added per finding.</p>
+<ul>
+<li><strong>Verification discipline</strong> section gained 3 new BINDING bullets:</li>
+</ul>
+<p>Paraphrase ≠ quote / No translation from memory / Re-read immediately before writing each finding.</p>
+<h3>CI invariants added</h3>
+<ul>
+<li><strong>JA-161</strong> — <code>docs/REVIEW-PACKET-PROMPT.md</code> retains the 3-block</li>
+</ul>
+<p>preflight headers + the 4 v1.16.8 stale-content marker strings + the per-finding read-not-recalled checkbox + the no-paraphrase / no-translation-from-memory rules + the <code>RECALL-NOT-READ</code> triage label. Locks the prompt against accidental future edits that drop any of those defenses.</p>
+<h3>Discipline note (RECALL-NOT-READ failure mode)</h3>
+<p>Two complementary stale-anchor failure modes have now been observed from the reviewer side:</p>
+<p>| Pass | Anchor | Content | |---|---|---| | v3 | <strong>Fictional version cite</strong> (<code>2026-05-23-n5-full</code>) | Findings against actual current data — still actionable | | v4 | <strong>Correct version cite</strong> (v1.16.9) | Findings against v1.16.8 strings that were fixed in the cited v1.16.9 — STALE artifacts |</p>
+<p>v3 was caught by the existing F.44.19 verify-before-fix (content verified against real data, despite the bogus version label). v4 required stronger upstream defense — the reviewer&#x27;s findings looked plausible until cross-checked against the shipped packet (which all 4 strings showed as already-fixed). The strengthened preflight now forces the reviewer to either echo the FIXED string (which proves they&#x27;re reading current content) OR echo a STALE-MARKER (which self-terminates the report and triggers re-pull). Recall-only reports cannot pass either gate.</p>
+<h3>Procedure manual + prompts propagation (Rule 4)</h3>
+<ul>
+<li><code>JLPT Common/procedure-manual-build-next-jlpt-level.md</code> — F.44.27</li>
+</ul>
+<p>+ F.44.28 added (RECALL-NOT-READ false-positive class + the 3-block preflight defense pattern + drift-class lineage table extension, generalized for next-Nx-level builders).</p>
+<ul>
+<li><code>N5/prompts/Japanese language Accuracy check.txt</code> — FP entry</li>
+</ul>
+<p>for &quot;stale-content recalled despite correct version cite&quot;.</p>
+<ul>
+<li><code>N5/prompts/N5Improvement.txt</code> — Phase-0 regression block</li>
+</ul>
+<p>validating JA-161 returns 0 (proves the prompt still has the defenses).</p>
+<ul>
+<li><code>N5/docs/AUDIT-COVERAGE-2026-05-15.md</code> — Part 50 added</li>
+</ul>
+<p>documenting the v4 reviewer pass close-out + the prompt strengthening.</p>
+<ul>
+<li><code>N5/docs/cross-artifact-sync-map.md</code> — Part 50 row added.</li>
+</ul>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>163 / 163</strong> (was 162; +JA-161).</li>
+<li>Bug tracker: <strong>201 / 201 Fixed / 0 Open</strong> (no new BUG-NNN; the</li>
+</ul>
+<p>v4 reviewer findings were all STALE-against-current, not real defects in the corpus).</p>
+<ul>
+<li>Version: v1.16.9 → <strong>v1.16.10</strong>.</li>
+<li>Packet: v1.16.10 / 2026-05-24T07:30:00Z, JA-156/161 PASS.</li>
+</ul>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;Strengthened preflight defends against the v4 RECALL-NOT-READ</li>
+</ul>
+<p>failure mode&quot; — does NOT claim the prompt is reviewer-proof against every future stale-anchor variant. New patterns will surface; the defense lineage will grow.</p>
+<ul>
+<li>&quot;JA-161 locks the 12 required defense markers in the prompt&quot; —</li>
+</ul>
+<p>guards substring presence; does NOT verify the surrounding text still reads coherently if a future edit reshapes the section while preserving the markers.</p>
+<hr>
 <h2>v1.16.9 - 2026-05-23 (Reviewer v3 close — 4 Hindi word-salad fixes + style-guide doc + JA-160 + discipline note on version-cite drift)</h2>
 <h3>Background</h3>
 <p>Third reviewer pass surfaced 4 REAL Hindi defects + 1 FRAMING (style doc needed) + 2 DEFERRED-BY-DESIGN (already-queued) + 1 PREFERENCE (skipped). Reviewer&#x27;s version cite was <strong>fictional</strong> (<code>2026-05-23-n5-full</code> / <code>2026-05-23T12:00:00Z</code> — never existed in our timeline; actual current is v1.16.8 / 2026-05-23T17:00:00Z), but all content findings verified against actual data per F.44.19 verify-before-fix.</p>
