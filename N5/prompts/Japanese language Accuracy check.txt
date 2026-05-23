@@ -5890,3 +5890,65 @@ F.44.27 + F.44.28; AUDIT-COVERAGE Part 50.
 
 CI invariants at this checkpoint: 163 (was 162; +JA-161).
 ============================================================
+
+A90. REAL-PATTERN + STALE-ENTRIES SUB-PATTERN — F.44.27 refinement
+     (added 2026-05-24, AUDIT-COVERAGE Part 51, procedure-manual
+     F.44.29 + F.44.30).
+============================================================
+
+Surfaced 2026-05-24: reviewer v5 shipped a "developer bug-fix
+instruction prompt" with 4 REPLACE rules for specific entries.
+F.44.19 verification showed all 4 specific SEARCH strings were
+0-hit (already fixed in v1.16.9 BUG-192..195 — STALE per F.44.27).
+BUT the prompt's broader NORMALIZATION RULE supplied a REAL
+underlying pattern (`भूखा + चाहना को खाना` shape). Horizontal
+sweep on `चाहना को` against live data found 3 hits; sweep on
+`का क्रिया` found a 4th. All 4 fixed via natural-Hindi rewrites.
+
+This is a NEW sub-pattern under F.44.27 — distinct from v4's
+"stale entries, no real pattern" pure-recall failure mode:
+
+  v4 shape: STALE entries + NO real pattern → ignore-with-rationale
+            (caught upstream by F.44.27 3-block preflight)
+  v5 shape: STALE entries + REAL pattern → ignore-the-entries
+            BUT sweep-the-pattern (caught downstream by F.44.19
+            verify-before-fix + horizontal sweep multiplier)
+
+Codification:
+
+  - Each cited entry: triage STALE/REAL individually per F.44.19.
+  - If ANY cited entry is REAL → the pattern is suspect; HORIZONTAL
+    SWEEP the pattern, name an explicit substring marker, fix all
+    hits, lock the marker via CI invariant (JA-NN extension).
+  - Document cited-but-stale entries explicitly as STALE so the
+    reviewer's report is fully triaged.
+  - The multiplier holds: reviewer-named n → swept-found n+k
+    (v5 batch: 2 → 4; v4 listening cycle: 1 → 18).
+
+Defense layering rule (from F.44.30):
+  - Upstream: 3-block preflight (F.44.27 / JA-161) — catches
+    pure-recall reviewers before findings.
+  - Downstream: F.44.19 verify-before-fix — catches stale entries
+    that pass preflight (e.g., reviewer cites a stale entry inside
+    a real-pattern claim).
+  - Lock: JA-NN substring extension — locks the surfaced pattern
+    against re-introduction.
+
+Bounded-coverage phrasing:
+  - "REAL-pattern + STALE-entries sub-pattern documented" — captures
+    one observed variant under F.44.27; future patterns will surface
+    new sub-classes.
+  - "Horizontal sweep multiplier holds" — empirically observed
+    n → n+k in 2 cycles (v4 listening, v5 word-salad). Does NOT
+    guarantee the multiplier will hold on every future cycle.
+  - "JA-160 marker extension catches re-introduction" — locks the
+    surfaced shapes; does NOT catch novel word-salad shapes that
+    don't match any of the 7 markers.
+
+Source: 2026-05-24 reviewer v5 close + 4 word-salad fixes
+(BUG-197..200); procedure-manual F.44.29 + F.44.30; AUDIT-COVERAGE
+Part 51.
+
+CI invariants at this checkpoint: 163 (JA-160 marker set extended
+from 6 → 7; invariant count unchanged).
+============================================================

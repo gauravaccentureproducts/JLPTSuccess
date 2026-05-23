@@ -7,7 +7,7 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.16.10"
+    "version": "v1.16.11"
   },
   "files": [
     {
@@ -113,7 +113,7 @@
       "path": "data/papers/bunpou/paper-1.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-1.json",
       "content_type": "application/json",
-      "size_bytes": 9358,
+      "size_bytes": 9591,
       "schema_version": "1.0",
       "description": "Bunpou Paper 1 — 15 questions",
       "item_count": 15
@@ -131,7 +131,7 @@
       "path": "data/papers/bunpou/paper-3.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-3.json",
       "content_type": "application/json",
-      "size_bytes": 9737,
+      "size_bytes": 10114,
       "schema_version": "1.0",
       "description": "Bunpou Paper 3 — 15 questions",
       "item_count": 15
@@ -275,7 +275,7 @@
       "path": "data/papers/goi/paper-5.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-5.json",
       "content_type": "application/json",
-      "size_bytes": 13164,
+      "size_bytes": 13437,
       "schema_version": "1.0",
       "description": "Goi Paper 5 — 15 questions",
       "item_count": 15
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9263427,
+    "total_bytes": 9264310,
     "counts": {
       "grammar": 178,
       "vocab": 995,

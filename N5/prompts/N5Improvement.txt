@@ -2178,6 +2178,51 @@ Source: 2026-05-24 reviewer v4 close + user re-share preparation
 ("update REVIEW-PROMPT.md as required"); accuracy prompt §A89;
 procedure-manual F.44.27 + F.44.28; AUDIT-COVERAGE Part 50.
 
+### Phase-0 word-salad horizontal-sweep regression block (added 2026-05-24)
+
+CI-enforced via JA-160 (marker set extended 2026-05-24 from 6 → 7
+patterns; added `चाहना को`). Maintainer-side Phase-0 mirror runs
+pre-release:
+
+1. **rationale_hi word-salad markers (BUG-197..200 / JA-160)**
+   Scan all `data/papers/<cat>/paper-N.json` for `rationale_hi`
+   substrings matching any of: `कुछ एक` / `है में` / `करना यह` /
+   `नहीं में सब` / `करता है में` / `है कुछ एक` / `चाहना को`.
+   Expected: 0 hits across all 402 paper rationale_hi entries.
+
+2. **Horizontal-sweep multiplier discipline (F.44.27 / F.44.29)**
+   When a reviewer surfaces a word-salad pattern, sweep on the
+   pattern's distinguishing substring against live data. Reviewer-
+   named n entries → swept-found n+k. Validate the multiplier:
+   reviewer v4 (n=1 → swept 18); reviewer v5 (n=2 → swept 4).
+   If sweep hits ≥1 entry the reviewer didn't name, lock the
+   marker via JA-160 extension.
+
+Bounded-coverage framing:
+  - "JA-160 catches *the 7 documented word-salad markers*" —
+    does NOT catch novel word-salad shapes that don't match any
+    marker. New markers added as new shapes surface.
+  - "Horizontal-sweep multiplier holds n → n+k" — empirically
+    observed in 2 cycles; does NOT guarantee the multiplier on
+    every future cycle.
+  - "Tight pattern set avoids false positives on minimal moji
+    mondai-2 style" — documented in
+    `docs/PAPER-RATIONALE-STYLE-GUIDE.md`.
+
+Operational lesson — REAL-pattern + STALE-entries sub-pattern:
+  Reviewer v5 cited 4 STALE search strings (items 1-4 fixed in
+  v1.16.9) PLUS supplied a real underlying pattern (NORMALIZATION
+  RULE item 5). The stale citations could have been classified
+  STALE-and-discarded, but the pattern was real and surfaced 4
+  REAL entries via horizontal sweep. The discipline: triage each
+  cited entry individually; if any cited entry is REAL, the
+  pattern is suspect; sweep the pattern; document the stale-
+  cited entries explicitly. F.44.29 codifies this sub-pattern.
+
+Source: 2026-05-24 reviewer v5 word-salad close + 4 fixes
+(BUG-197..200); accuracy prompt §A90; procedure-manual F.44.29 +
+F.44.30; AUDIT-COVERAGE Part 51.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

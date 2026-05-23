@@ -7280,3 +7280,122 @@ strengthened REVIEW-PROMPT.md embedded.
   the checkbox are rejected). CI cannot verify the reviewer
   actually re-read; the checkbox is a discipline signal, not a
   proof. F.44.27 documents this honestly.
+
+---
+
+## ADDENDUM 2026-05-24 (Part 51) — reviewer v5 close-out: 4 word-salad fixes via REAL-pattern + STALE-entries sub-pattern (F.44.27 refinement)
+
+### Trigger
+
+Reviewer v5 shipped as a "developer bug-fix instruction prompt" with
+4 REPLACE rules for specific entries + a NORMALIZATION RULE for the
+broader pattern + a validation regex set.
+
+### F.44.19 triage results
+
+| Item | Reviewer claim | Live-data verdict | Action |
+|---|---|---|---|
+| 1 | Replace `माता काम करता है में अस्पताल` in dokkai-2.5 | 0 hits (fixed in v1.16.9) | STALE |
+| 2 | Replace `नहीं में सब` in goi-3.4 | 0 hits (fixed in v1.16.9) | STALE |
+| 3 | Replace `(जहाँ आप करना यह)` in bunpou-1.8 | 0 hits (fixed in v1.16.9) | STALE |
+| 4 | Replace `है कुछ एक पेय` in goi-1.1 | 0 hits (fixed in v1.16.9) | STALE |
+| 5 | NORMALIZATION RULE — `भूखा + चाहना को खाना` pattern | **2 named entries hit + horizontal sweep found 2 more** | **REAL, 4 fixed** |
+| 6 specific | `(के साथ) = with`, `meet` patterns | 0 hits | STALE |
+| 6 broader | Mixed-script Devanagari + English | 3 hits, all defensible teaching aids (`Nippon`, `(object)`, `kinou`) | NO ACTION |
+| 7 | Validation regex set (4 patterns) | 0 hits (JA-160 already locks) | CONFIRMED-CLEAN |
+
+### REAL fixes (4 entries, BUG-197..200)
+
+Per F.44.27 horizontal-sweep discipline (reviewer named 2 →
+sweep found 4):
+
+- **bunpou-3.7** — `भूखा + चाहना को खाना।` → ～たい explanation
+- **goi-5.1**   — `भूखा → चाहना को खाना।` → synonym-matching explanation
+- **bunpou-3.9** — `चाहना को आराम।` → ～たい explanation (sweep)
+- **bunpou-1.7** — `समय का क्रिया-कर्म।` → に particle explanation (sweep)
+
+### CI extension
+
+**JA-160 marker set** extended from 6 → 7 patterns (added `चाहना को`).
+Tight pattern; locks against re-introduction of "want.INF + object-
+marker + noun" word-salad shape.
+
+### New sub-pattern documented under F.44.27
+
+> **REAL-pattern + STALE-entries.** When a reviewer cites STALE
+> specific entries (Project-Knowledge cache effect or memory
+> recall) but supplies a real underlying pattern, the pattern is
+> more valuable than the cited entries. Verify the pattern via
+> horizontal sweep against live data; entries the reviewer didn't
+> name may surface. The discipline:
+>   1. Triage each cited entry STALE/REAL via F.44.19 individually.
+>   2. If ANY cited entry is REAL → the pattern itself is suspect.
+>   3. Horizontally sweep the pattern against live data, name an
+>      explicit substring marker (or set of markers).
+>   4. Fix all hits; lock the marker via CI invariant (JA-NN
+>      extension).
+>   5. Document the cited-but-stale entries explicitly as STALE
+>      so the reviewer's report is fully triaged.
+
+This is a refinement of F.44.27, not a replacement. F.44.27's
+v4 shape was "stale entries, no real pattern" → ignore-with-rationale.
+The v5 shape is "stale entries, real pattern" → ignore-the-stale-
+entries-but-sweep-the-pattern. Both are RECALL-NOT-READ; F.44.27's
+3-block preflight defense catches the v4 shape upstream; the v5
+shape requires F.44.19 verify-before-fix DOWNSTREAM (which caught
+all 4 REAL entries here).
+
+### Files touched (Part 51)
+
+- data/papers/bunpou/paper-1.json (bunpou-1.7 rationale_hi)
+- data/papers/bunpou/paper-3.json (bunpou-3.7 + bunpou-3.9 rationale_hi)
+- data/papers/goi/paper-5.json (goi-5.1 rationale_hi)
+- tools/check_content_integrity.py (JA-160 marker set extended)
+- data/version.json (v1.16.10 → v1.16.11)
+- data/index.json (size_bytes resync)
+- changelog/index.html (changelog mirror sync)
+- CHANGELOG.md (v1.16.11 entry)
+- specifications/test-scenarios-by-specialist-perspective.xlsx
+  (BUG-197..200 appended)
+- docs/AUDIT-COVERAGE-2026-05-15.md (this Part 51)
+- docs/cross-artifact-sync-map.md (Part 51 row)
+- prompts/Japanese language Accuracy check.txt (A90 entry)
+- prompts/N5Improvement.txt (sweep-shape note appended to existing
+  Phase-0 reviewer-prompt block)
+- JLPT Common/procedure-manual-build-next-jlpt-level.md
+  (F.44.29 + F.44.30 — REAL-pattern + STALE-entries case study)
+- data/_review_packet/* (regenerated)
+
+### What was NOT touched (intentionally)
+
+- 4 entries the reviewer's items 1-4 named — already fixed in
+  v1.16.9 / BUG-192..195; no edit needed (STALE).
+- 3 mixed-script entries from broader item-6 sweep (`Nippon`,
+  `(object)`, `kinou`) — defensible teaching aids; no edit.
+- Reviewer's "DO NOT TOUCH" list (audit.verifier_pending,
+  provenance, grammarPatternId, Japanese text, answer keys) —
+  respected; only rationale_hi fields edited.
+
+### Final state for Part 51
+
+CI **163 / 163 invariants green** (JA-160 marker set extended from
+6 → 7 patterns; invariant count unchanged).
+`cross_artifact_sync_report.py` EXIT: CLEAN.
+Bug tracker: **205 / 205 Fixed / 0 Open** (was 201; +BUG-197..200).
+Version: **v1.16.11** (was v1.16.10).
+Packet: regenerated v1.16.11 / 2026-05-24T08:00:00Z, all 7 JA-160
+markers PASS, JA-161 preflight defense markers PASS.
+
+### Bounded coverage
+
+- "4 word-salad fixes against the reviewer pattern + horizontal
+  sweep" — does NOT claim the corpus is free of all word-salad
+  shapes; JA-160's 7-marker set is tight (avoids false positives
+  on the documented minimal-rationale style) but catches only
+  documented shapes.
+- "JA-160 prevents re-introduction of these specific patterns" —
+  does NOT prevent new word-salad shapes that don't match any of
+  the 7 markers; new markers added as new shapes surface.
+- "REAL-pattern + STALE-entries sub-pattern documented" — captures
+  one observed variant; future RECALL-NOT-READ patterns will
+  surface new sub-classes, and the documentation will grow.

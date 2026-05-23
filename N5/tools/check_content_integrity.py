@@ -8470,7 +8470,8 @@ def _check_ja_158_listening_speaker_tag() -> list[str]:
 
 
 def _check_ja_160_rationale_hi_word_salad() -> list[str]:
-    """RV3-001..004 (2026-05-23) rationale_hi word-salad guard.
+    """RV3-001..004 (2026-05-23) + v1.16.11 batch (2026-05-24) rationale_hi
+    word-salad guard.
 
     Catches specific markers of literal-translation artifacts that
     bypass natural Hindi grammar:
@@ -8480,10 +8481,15 @@ def _check_ja_160_rationale_hi_word_salad() -> list[str]:
       - 'नहीं में सब'    — 'not in all' literal nonsense
       - 'करता है में'    — masculine verb + 'in' broken
       - 'है कुछ एक'      — anglicism with copula
+      - 'चाहना को'       — 'want.INFINITIVE to' broken (added v1.16.11
+                            after reviewer v5 batch caught bunpou-3.7,
+                            goi-5.1, bunpou-3.9 with "X + चाहना को Y"
+                            template — literal English-to-Hindi
+                            "want to X" transfer)
 
     Tight pattern set — does NOT catch the intentional minimal-
     rationale style on moji mondai-2 (morpheme + reading breakdowns
-    like '学 (ガク) + 生 (セイ)'). See
+    like '学 (ガक) + 生 (セイ)'). See
     docs/PAPER-RATIONALE-STYLE-GUIDE.md for the documented style policy.
     """
     import json as _json, glob as _glob
@@ -8494,6 +8500,7 @@ def _check_ja_160_rationale_hi_word_salad() -> list[str]:
         "नहीं में सब",
         "करता है में",
         "है कुछ एक",
+        "चाहना को",
     ]
     failures: list[str] = []
     for cat in ("moji", "goi", "bunpou", "dokkai"):

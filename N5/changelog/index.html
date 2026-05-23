@@ -84,6 +84,77 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.11 - 2026-05-24 (Reviewer v5 close — 4 rationale_hi word-salad fixes + JA-160 marker extension)</h2>
+<h3>Background</h3>
+<p>Reviewer v5 pass shipped as a &quot;developer bug-fix instruction prompt&quot; with REPLACE rules for 4 entries (items 1-4) + general NORMALIZATION RULE (item 5) + validation regex (item 7).</p>
+<p>Per F.44.19 verify-before-fix with PRINT non-empty per-claim output against live data:</p>
+<ul>
+<li><strong>Items 1-4 (specific REPLACE rules):</strong> SEARCH strings were the</li>
+</ul>
+<p>v1.16.8 broken Hindi rationales — already fixed in v1.16.9 (BUG-192 to BUG-195). 0 hits in live data. Classified <strong>STALE</strong> per F.44.27 (RECALL-NOT-READ pattern). Reviewer is reading from a packet that pre-dates v1.16.9 OR recalling from memory.</p>
+<ul>
+<li><strong>Item 7 (validation regex set):</strong> All 4 listed patterns</li>
+</ul>
+<p>(<code>करता है में</code> / <code>नहीं में सब</code> / <code>जहाँ आप</code> / <code>है कुछ एक</code>) returned 0 hits — JA-160 was already locking them. Classified <strong>CONFIRMED- CLEAN</strong> (expected from existing CI).</p>
+<ul>
+<li><strong>Item 5 (NORMALIZATION RULE — &quot;भूखा + चाहना को खाना&quot; pattern):</strong></li>
+</ul>
+<p>Reviewer&#x27;s general pattern triggered a horizontal sweep that found REAL defects — <strong>the pattern is real even though items 1-4&#x27;s search strings were stale</strong>. The reviewer named 2 entry shapes (<code>भूखा + चाहना को खाना</code> / <code>भूखा → चाहना को खाना</code>); horizontal sweep on <code>चाहना को</code> found a 3rd entry (<code>चाहना को आराम</code>); plus <code>समय का क्रिया-कर्म</code> surfaced as semantically muddled. <strong>4 REAL fixes</strong> — multiplier pattern (2 named → 4 fixed) per F.44.27 horizontal-sweep discipline.</p>
+<h3>Fixed</h3>
+<ul>
+<li><strong>BUG-197 (RV5-001) — <code>bunpou-3.7</code> rationale_hi word-salad.</strong> Was:</li>
+</ul>
+<p><code>भूखा + चाहना को खाना।</code> (literal English &quot;hungry + want to food&quot;, ungrammatical: infinitive + object-marker on noun). Rewrote to: <code>「～たい」 इच्छा-रूप (&quot;करना चाहना&quot;)। おなかが すいた (भूख लगी) → 「たべたい」 (खाना चाहता हूँ)। N5 इच्छा-पैटर्न।</code></p>
+<ul>
+<li><strong>BUG-198 (RV5-002) — <code>goi-5.1</code> rationale_hi word-salad.</strong> Was:</li>
+</ul>
+<p><code>भूखा → चाहना को खाना।</code> (same shape as RV5-001 with arrow). Rewrote to: <code>「おなかが すいて います」 = &quot;भूख लगी है&quot;। अर्थ-संबंध: भूख लगी होने पर खाना चाहना (たべたい) स्वाभाविक। इसलिए विकल्प 1 「何か たべたいです」 सही पर्याय है।</code></p>
+<ul>
+<li><strong>BUG-199 (RV5-003) — <code>bunpou-3.9</code> rationale_hi word-salad.</strong> Was:</li>
+</ul>
+<p><code>चाहना को आराम।</code> (&quot;want.INF object-marker rest&quot;, ungrammatical). Found by horizontal sweep on <code>चाहना को</code>, NOT explicitly named by reviewer. Rewrote to: <code>「～たい」 इच्छा-रूप (&quot;करना चाहना&quot;)। つかれた (थक गया) → 「やすみたい」 (आराम करना चाहता हूँ)। N5 इच्छा-पैटर्न।</code></p>
+<ul>
+<li><strong>BUG-200 (RV5-004) — <code>bunpou-1.7</code> rationale_hi semantic mud.</strong></li>
+</ul>
+<p>Was: <code>समय का क्रिया-कर्म।</code> (&quot;verb-object of time&quot; — Hindi compound noun chain semantically confusing for <code>に</code> particle on time expression). Found by horizontal sweep on <code>का क्रिया</code>, NOT explicitly named by reviewer. Rewrote to: <code>「に」 कण निश्चित समय-बिंदु बताता है (कब कार्य होता है)। 七時に = &quot;सात बजे&quot; (जागने का निश्चित समय)। N5 का मूल समय-पैटर्न।</code></p>
+<h3>CI invariants extended</h3>
+<ul>
+<li><strong>JA-160</strong> marker set extended (was 6 markers; now 7) with</li>
+</ul>
+<p><code>चाहना को</code> — locks against re-introduction of the &quot;want.INF + object-marker&quot; word-salad shape. Tight pattern, low false-positive risk (infinitive + object-marker is non-standard Hindi).</p>
+<h3>Acknowledged (no action)</h3>
+<ul>
+<li><strong>Item 6 specific patterns (<code>(के साथ) = with</code>, <code>meet</code>):</strong> 0 hits</li>
+</ul>
+<p>in live data. Classified <strong>STALE</strong> — reviewer&#x27;s patterns don&#x27;t exist in current rationale_hi corpus.</p>
+<ul>
+<li><strong>Item 6 broader mixed-script sweep</strong> — 3 hits found by broader</li>
+</ul>
+<p>Devanagari → English-word → Devanagari grep: - <code>moji-1.6</code>: <code>(NHK समाचार, ओलंपिक &#x27;Nippon&#x27;)</code> — <code>Nippon</code> is a deliberate romanization teaching aid for an N5 orthography rationale. Defensible. <strong>No action.</strong> - <code>bunpou-2.3</code>: <code>सीधे कर्म (object) को</code> — <code>(object)</code> is an English gloss clarifying the technical Hindi term <code>कर्म</code>. Defensible teaching aid. <strong>No action.</strong> - <code>bunpou-2.13</code>: <code>भूत-सकारात्मक रूप (kinou + पिया)</code> — <code>kinou</code> is romaji of きのう (from the stem). Defensible romaji teaching aid. <strong>No action.</strong></p>
+<h3>Discipline note (REAL-pattern + STALE-entries)</h3>
+<p>This batch validates a new sub-pattern under F.44.27:</p>
+<p>&gt; When a reviewer cites STALE specific entries (Project-Knowledge &gt; cache effect or memory recall) but supplies a real underlying &gt; pattern, the pattern is more valuable than the cited entries. &gt; Verify the pattern via horizontal sweep against live data; &gt; entries the reviewer didn&#x27;t name may surface (n=2 named → n=4 &gt; fixed in this batch). The discipline is: triage cited entries &gt; STALE/REAL individually, then horizontally sweep on the &gt; reviewer&#x27;s general pattern to catch what they missed.</p>
+<p>The previous v4 pattern was &quot;stale entries, no real pattern&quot; — ignore. The v5 pattern is &quot;stale entries, real pattern&quot; — ignore-the-entries-but-sweep-the-pattern. Both flavors of RECALL-NOT-READ; F.44.27&#x27;s defense (preflight) catches the v4 shape; the v5 shape requires F.44.19 verify-before-fix downstream (which caught all 4 REAL entries here).</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>163 / 163</strong> (unchanged; JA-160 marker set</li>
+</ul>
+<p>extended from 6 → 7 patterns).</p>
+<ul>
+<li>Bug tracker: <strong>205 / 205 Fixed / 0 Open</strong> (was 201; +BUG-197..200).</li>
+<li>Version: v1.16.10 → <strong>v1.16.11</strong>.</li>
+<li>Packet: v1.16.11 / 2026-05-24T08:00:00Z, JA-156/160/161 PASS.</li>
+</ul>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;4 word-salad fixes via reviewer pattern + horizontal sweep&quot; —</li>
+</ul>
+<p>does NOT claim v1.16.11 is word-salad-free against a fresh native-Hindi-speaker review. JA-160&#x27;s 7-marker pattern set is tight (avoids false positives) but catches only the documented shapes.</p>
+<ul>
+<li>&quot;JA-160 prevents re-introduction of these specific patterns&quot; —</li>
+</ul>
+<p>does NOT prevent new word-salad shapes that don&#x27;t match any of the 7 markers; new markers added as new shapes surface.</p>
+<hr>
 <h2>v1.16.10 - 2026-05-24 (Reviewer-prompt preflight strengthening — v4 RECALL-NOT-READ defense + JA-161)</h2>
 <h3>Background</h3>
 <p>Reviewer v4 pass surfaced a new false-positive class the existing content-fingerprint guidance didn&#x27;t catch: reviewer cited the correct <code>version.json.version</code> (v1.16.9) but quoted 4 Hindi rationale strings from v1.16.8 (the strings that had just been fixed in v1.16.9 — <code>माता काम करता है में अस्पताल</code>, <code>नहीं में सब</code>, <code>करना यह</code>, <code>है कुछ एक पेय</code>). Per F.44.19 verify-before-fix against the actual packet on disk, all 4 strings in the shipped v1.16.9 packet matched the FIXED state. The reviewer was reading recalled / cached content, not the uploaded packet.</p>

@@ -2,6 +2,133 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.11 - 2026-05-24 (Reviewer v5 close — 4 rationale_hi word-salad fixes + JA-160 marker extension)
+
+### Background
+
+Reviewer v5 pass shipped as a "developer bug-fix instruction prompt"
+with REPLACE rules for 4 entries (items 1-4) + general NORMALIZATION
+RULE (item 5) + validation regex (item 7).
+
+Per F.44.19 verify-before-fix with PRINT non-empty per-claim output
+against live data:
+
+- **Items 1-4 (specific REPLACE rules):** SEARCH strings were the
+  v1.16.8 broken Hindi rationales — already fixed in v1.16.9 (BUG-192
+  to BUG-195). 0 hits in live data. Classified **STALE** per F.44.27
+  (RECALL-NOT-READ pattern). Reviewer is reading from a packet that
+  pre-dates v1.16.9 OR recalling from memory.
+
+- **Item 7 (validation regex set):** All 4 listed patterns
+  (`करता है में` / `नहीं में सब` / `जहाँ आप` / `है कुछ एक`) returned
+  0 hits — JA-160 was already locking them. Classified **CONFIRMED-
+  CLEAN** (expected from existing CI).
+
+- **Item 5 (NORMALIZATION RULE — "भूखा + चाहना को खाना" pattern):**
+  Reviewer's general pattern triggered a horizontal sweep that found
+  REAL defects — **the pattern is real even though items 1-4's
+  search strings were stale**. The reviewer named 2 entry shapes
+  (`भूखा + चाहना को खाना` / `भूखा → चाहना को खाना`); horizontal
+  sweep on `चाहना को` found a 3rd entry (`चाहना को आराम`); plus
+  `समय का क्रिया-कर्म` surfaced as semantically muddled. **4 REAL
+  fixes** — multiplier pattern (2 named → 4 fixed) per F.44.27
+  horizontal-sweep discipline.
+
+### Fixed
+
+- **BUG-197 (RV5-001) — `bunpou-3.7` rationale_hi word-salad.** Was:
+  `भूखा + चाहना को खाना।` (literal English "hungry + want to food",
+  ungrammatical: infinitive + object-marker on noun). Rewrote to:
+  `「～たい」 इच्छा-रूप ("करना चाहना")। おなかが すいた (भूख लगी) →
+  「たべたい」 (खाना चाहता हूँ)। N5 इच्छा-पैटर्न।`
+
+- **BUG-198 (RV5-002) — `goi-5.1` rationale_hi word-salad.** Was:
+  `भूखा → चाहना को खाना।` (same shape as RV5-001 with arrow).
+  Rewrote to: `「おなかが すいて います」 = "भूख लगी है"। अर्थ-संबंध:
+  भूख लगी होने पर खाना चाहना (たべたい) स्वाभाविक। इसलिए विकल्प 1
+  「何か たべたいです」 सही पर्याय है।`
+
+- **BUG-199 (RV5-003) — `bunpou-3.9` rationale_hi word-salad.** Was:
+  `चाहना को आराम।` ("want.INF object-marker rest", ungrammatical).
+  Found by horizontal sweep on `चाहना को`, NOT explicitly named by
+  reviewer. Rewrote to: `「～たい」 इच्छा-रूप ("करना चाहना")।
+  つかれた (थक गया) → 「やすみたい」 (आराम करना चाहता हूँ)। N5
+  इच्छा-पैटर्न।`
+
+- **BUG-200 (RV5-004) — `bunpou-1.7` rationale_hi semantic mud.**
+  Was: `समय का क्रिया-कर्म।` ("verb-object of time" — Hindi
+  compound noun chain semantically confusing for `に` particle on
+  time expression). Found by horizontal sweep on `का क्रिया`, NOT
+  explicitly named by reviewer. Rewrote to: `「に」 कण निश्चित
+  समय-बिंदु बताता है (कब कार्य होता है)। 七時に = "सात बजे"
+  (जागने का निश्चित समय)। N5 का मूल समय-पैटर्न।`
+
+### CI invariants extended
+
+- **JA-160** marker set extended (was 6 markers; now 7) with
+  `चाहना को` — locks against re-introduction of the "want.INF +
+  object-marker" word-salad shape. Tight pattern, low false-positive
+  risk (infinitive + object-marker is non-standard Hindi).
+
+### Acknowledged (no action)
+
+- **Item 6 specific patterns (`(के साथ) = with`, `meet`):** 0 hits
+  in live data. Classified **STALE** — reviewer's patterns don't
+  exist in current rationale_hi corpus.
+
+- **Item 6 broader mixed-script sweep** — 3 hits found by broader
+  Devanagari → English-word → Devanagari grep:
+  - `moji-1.6`: `(NHK समाचार, ओलंपिक 'Nippon')` — `Nippon` is a
+    deliberate romanization teaching aid for an N5 orthography
+    rationale. Defensible. **No action.**
+  - `bunpou-2.3`: `सीधे कर्म (object) को` — `(object)` is an
+    English gloss clarifying the technical Hindi term `कर्म`.
+    Defensible teaching aid. **No action.**
+  - `bunpou-2.13`: `भूत-सकारात्मक रूप (kinou + पिया)` — `kinou` is
+    romaji of きのう (from the stem). Defensible romaji teaching
+    aid. **No action.**
+
+### Discipline note (REAL-pattern + STALE-entries)
+
+This batch validates a new sub-pattern under F.44.27:
+
+> When a reviewer cites STALE specific entries (Project-Knowledge
+> cache effect or memory recall) but supplies a real underlying
+> pattern, the pattern is more valuable than the cited entries.
+> Verify the pattern via horizontal sweep against live data;
+> entries the reviewer didn't name may surface (n=2 named → n=4
+> fixed in this batch). The discipline is: triage cited entries
+> STALE/REAL individually, then horizontally sweep on the
+> reviewer's general pattern to catch what they missed.
+
+The previous v4 pattern was "stale entries, no real pattern" —
+ignore. The v5 pattern is "stale entries, real pattern" —
+ignore-the-entries-but-sweep-the-pattern. Both flavors of
+RECALL-NOT-READ; F.44.27's defense (preflight) catches the v4
+shape; the v5 shape requires F.44.19 verify-before-fix downstream
+(which caught all 4 REAL entries here).
+
+### CI / tracker / version
+
+- CI invariants: **163 / 163** (unchanged; JA-160 marker set
+  extended from 6 → 7 patterns).
+- Bug tracker: **205 / 205 Fixed / 0 Open** (was 201; +BUG-197..200).
+- Version: v1.16.10 → **v1.16.11**.
+- Packet: v1.16.11 / 2026-05-24T08:00:00Z, JA-156/160/161 PASS.
+
+### Bounded coverage
+
+- "4 word-salad fixes via reviewer pattern + horizontal sweep" —
+  does NOT claim v1.16.11 is word-salad-free against a fresh
+  native-Hindi-speaker review. JA-160's 7-marker pattern set is
+  tight (avoids false positives) but catches only the documented
+  shapes.
+- "JA-160 prevents re-introduction of these specific patterns" —
+  does NOT prevent new word-salad shapes that don't match any
+  of the 7 markers; new markers added as new shapes surface.
+
+---
+
 ## v1.16.10 - 2026-05-24 (Reviewer-prompt preflight strengthening — v4 RECALL-NOT-READ defense + JA-161)
 
 ### Background
