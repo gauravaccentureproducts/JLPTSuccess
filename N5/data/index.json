@@ -7,7 +7,7 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.16.4"
+    "version": "v1.16.5"
   },
   "files": [
     {
@@ -239,7 +239,7 @@
       "path": "data/papers/goi/paper-1.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/goi/paper-1.json",
       "content_type": "application/json",
-      "size_bytes": 10138,
+      "size_bytes": 10422,
       "schema_version": "1.0",
       "description": "Goi Paper 1 — 15 questions",
       "item_count": 15
@@ -302,7 +302,7 @@
       "path": "data/papers/moji/paper-1.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-1.json",
       "content_type": "application/json",
-      "size_bytes": 9837,
+      "size_bytes": 10050,
       "schema_version": "1.0",
       "description": "Moji Paper 1 — 15 questions",
       "item_count": 15
@@ -329,7 +329,7 @@
       "path": "data/papers/moji/paper-4.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-4.json",
       "content_type": "application/json",
-      "size_bytes": 10530,
+      "size_bytes": 11939,
       "schema_version": "1.0",
       "description": "Moji Paper 4 — 15 questions",
       "item_count": 15
@@ -338,7 +338,7 @@
       "path": "data/papers/moji/paper-5.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-5.json",
       "content_type": "application/json",
-      "size_bytes": 9762,
+      "size_bytes": 13266,
       "schema_version": "1.0",
       "description": "Moji Paper 5 — 15 questions",
       "item_count": 15
@@ -347,7 +347,7 @@
       "path": "data/papers/moji/paper-6.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-6.json",
       "content_type": "application/json",
-      "size_bytes": 9783,
+      "size_bytes": 13704,
       "schema_version": "1.0",
       "description": "Moji Paper 6 — 15 questions",
       "item_count": 15
@@ -356,7 +356,7 @@
       "path": "data/papers/moji/paper-7.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/moji/paper-7.json",
       "content_type": "application/json",
-      "size_bytes": 7690,
+      "size_bytes": 9892,
       "schema_version": "1.0",
       "description": "Moji Paper 7 — 10 questions",
       "item_count": 10
@@ -364,7 +364,7 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9249015,
+    "total_bytes": 9260548,
     "counts": {
       "grammar": 178,
       "vocab": 995,

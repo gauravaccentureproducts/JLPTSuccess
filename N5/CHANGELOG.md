@@ -2,6 +2,62 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.6 - 2026-05-23 (Reviewer's 19-item review — Batch B+C close: distractor swaps + rationale enrichment + correctIndex rebalance + CRITICAL UI fix for passage-dependent questions)
+
+### Fixed (Batches B + C)
+
+- **BUG-186 (RP-006) — 7 off-level distractor swaps in moji-6.9/6.11/
+  6.12/7.4.** Replaced N1+/non-JLPT distractors (訊/詠/諳/掻/謂) with
+  visually-similar in-scope alternatives (問/話/語/画/試). Added 問 + 試
+  to `dokkai_kanji_exception` with `surfaces=['paper-distractor']`
+  per the F.41 paper-distractor exception convention.
+
+- **BUG-187 (RP-007) — 36 thin moji mondai-2 rationales template-
+  enriched.** Replaced rationales under 15 chars with a structured
+  template naming the visually-similar distractors. Provenance:
+  `template_enriched_2026_05_23`.
+
+- **BUG-188 (RP-008) — moji correctIndex rebalance.** Distribution
+  28/26/25/21 → 25/26/25/24 (3 questions rotated).
+
+- **BUG-189 (RP-009) — goi correctIndex rebalance.** Distribution
+  27/27/25/21 → 25/25/25/25 (4 questions rotated).
+
+- **BUG-190 (RP-010) — CRITICAL UI fix: passage-dependent questions
+  never rendered their passage context.** `js/papers.js` was reading
+  the legacy `q.passage_text` field that DOKKAI-001 close-out
+  (2026-05-18) migrated AWAY from. After that migration, passages
+  live in the top-level `passages` block (list of
+  `{label, text, question_ids}`) and questions reference them via
+  `q.passage_label`. The UI had not been updated to follow the
+  migration — so bunpou-7 mondai-3 (passage-dependent grammar) and
+  dokkai-7 mondai-7 (情報検索, 6 passages × 2 questions = 12 questions)
+  silently rendered as nonsense (`→ [1]番。` style stems with no
+  context above). Fix: look up `q.passage_label` in
+  `s.paper.passages` list; fallback to legacy `q.passage_text` for
+  defensive safety. **Closes items 11 + 13 of the reviewer's
+  19-item review at the root cause** (UI rendering contract) rather
+  than as content rewrites. Markdown table rendering inside
+  blockquotes (dokkai-7) still uses plain renderer — passages now
+  display as raw markdown rather than not displaying at all;
+  rich-markdown-table renderer deferred as separate item.
+
+### Notes
+
+- `js/min/papers.js` rebuilt via `tools/build_min_js.py`.
+- 5 deferred items from the 19-item review now all closed (Batches
+  A + B + C combined). 4 REJECTs (items 3 / 4 / 10 / 17) remain
+  documented in AUDIT-COVERAGE Part 48 with rationale.
+
+### CI / tracker / version
+
+- CI invariants: **158 / 158** (unchanged).
+- Bug tracker: **190 / 190 Fixed / 0 Open** (was 185; +BUG-186..190).
+- Version: v1.16.5 → **v1.16.6** (UI bug fix + content fixes).
+- Packet: v1.16.6 / 2026-05-23T13:00:00Z, JA-156-verified-matching.
+
+---
+
 ## v1.16.5 - 2026-05-23 (Reviewer's 19-item review of v1.16.4 — Batch A close: 5 paper content fixes + 5 REJECTs with rationale + 5 deferred to Batches B/C)
 
 ### Background

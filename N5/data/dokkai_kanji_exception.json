@@ -939,6 +939,20 @@
       "paper_occurrences": [
         "moji/paper-7.json#moji-7.9"
       ]
+    },
+    {
+      "kanji": "問",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "reason": "Added 2026-05-23 per RP-006 distractor swap. 問 (もん, question) is visually similar to 聞 (もん-share radical) and serves as a defensible distractor for moji-6.9 where the correct kanji is 聞. N4-level; acceptable in distractor position per F.41 paper-distractor exception convention."
+    },
+    {
+      "kanji": "試",
+      "surfaces": [
+        "paper-distractor"
+      ],
+      "reason": "Added 2026-05-23 per RP-006 distractor swap. 試 (し, try) shares the 言-radical with 言 and serves as a defensible distractor for moji-7.4 where the correct kanji is 言. N3-level; acceptable in distractor position per F.41 paper-distractor exception convention."
     }
   ]
 }

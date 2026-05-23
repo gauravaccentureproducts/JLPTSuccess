@@ -288,10 +288,31 @@ function renderAttempting(container) {
   const total = s.questions.length;
   const answered = s.answers.filter(a => a !== null).length;
 
-  // Passage rendering for dokkai (passage_text on the question entry)
-  const passageBlock = q.passage_text
-    ? `<div class="paper-passage" lang="ja">${renderJaSafe(q.passage_text)}</div>`
-    : '';
+  // Passage rendering for dokkai mondai 6/7 + bunpou mondai 3 +
+  // any other passage-dependent question type.
+  //
+  // Schema: paper.passages = [{ label, text, question_ids }];
+  // question.passage_label references one entry in that list. This
+  // replaced the legacy q.passage_text-on-question schema in
+  // DOKKAI-001 close-out (2026-05-18 / commit f7b3c44). The previous
+  // code here still read q.passage_text — RP-010 close-out (2026-05-23)
+  // updates the lookup to the current schema so dokkai-7 mondai 7
+  // (情報検索 6 passages) + bunpou-7 mondai 3 (passage-dependent
+  // grammar) actually render their context. Without this fix the
+  // learner saw `→ [1]番。` style stem strings with no passage above —
+  // unrenderable in isolation, exactly as the 2026-05-23 reviewer flagged.
+  //
+  // Fallback to legacy q.passage_text for any data that hasn't been
+  // migrated yet (defensive; the migration completed in v1.15.x).
+  let passageBlock = '';
+  if (q.passage_label && Array.isArray(s.paper?.passages)) {
+    const p = s.paper.passages.find(x => x && x.label === q.passage_label);
+    if (p && p.text) {
+      passageBlock = `<div class="paper-passage" lang="ja">${renderJaSafe(p.text)}</div>`;
+    }
+  } else if (q.passage_text) {
+    passageBlock = `<div class="paper-passage" lang="ja">${renderJaSafe(q.passage_text)}</div>`;
+  }
 
   const choicesHtml = q.choices.map((choice, i) => `
     <label class="paper-choice ${s.answers[s.currentIdx] === i ? 'selected' : ''}">

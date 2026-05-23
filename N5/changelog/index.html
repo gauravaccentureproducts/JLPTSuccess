@@ -84,6 +84,42 @@
 </p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.6 - 2026-05-23 (Reviewer&#x27;s 19-item review — Batch B+C close: distractor swaps + rationale enrichment + correctIndex rebalance + CRITICAL UI fix for passage-dependent questions)</h2>
+<h3>Fixed (Batches B + C)</h3>
+<ul>
+<li>**BUG-186 (RP-006) — 7 off-level distractor swaps in moji-6.9/6.11/</li>
+</ul>
+<p>6.12/7.4.** Replaced N1+/non-JLPT distractors (訊/詠/諳/掻/謂) with visually-similar in-scope alternatives (問/話/語/画/試). Added 問 + 試 to <code>dokkai_kanji_exception</code> with <code>surfaces=[&#x27;paper-distractor&#x27;]</code> per the F.41 paper-distractor exception convention.</p>
+<ul>
+<li>**BUG-187 (RP-007) — 36 thin moji mondai-2 rationales template-</li>
+</ul>
+<p>enriched.** Replaced rationales under 15 chars with a structured template naming the visually-similar distractors. Provenance: <code>template_enriched_2026_05_23</code>.</p>
+<ul>
+<li><strong>BUG-188 (RP-008) — moji correctIndex rebalance.</strong> Distribution</li>
+</ul>
+<p>28/26/25/21 → 25/26/25/24 (3 questions rotated).</p>
+<ul>
+<li><strong>BUG-189 (RP-009) — goi correctIndex rebalance.</strong> Distribution</li>
+</ul>
+<p>27/27/25/21 → 25/25/25/25 (4 questions rotated).</p>
+<ul>
+<li>**BUG-190 (RP-010) — CRITICAL UI fix: passage-dependent questions</li>
+</ul>
+<p>never rendered their passage context.<strong> <code>js/papers.js</code> was reading the legacy <code>q.passage_text</code> field that DOKKAI-001 close-out (2026-05-18) migrated AWAY from. After that migration, passages live in the top-level <code>passages</code> block (list of <code>{label, text, question_ids}</code>) and questions reference them via <code>q.passage_label</code>. The UI had not been updated to follow the migration — so bunpou-7 mondai-3 (passage-dependent grammar) and dokkai-7 mondai-7 (情報検索, 6 passages × 2 questions = 12 questions) silently rendered as nonsense (<code>→ [1]番。</code> style stems with no context above). Fix: look up <code>q.passage_label</code> in <code>s.paper.passages</code> list; fallback to legacy <code>q.passage_text</code> for defensive safety. </strong>Closes items 11 + 13 of the reviewer&#x27;s 19-item review at the root cause** (UI rendering contract) rather than as content rewrites. Markdown table rendering inside blockquotes (dokkai-7) still uses plain renderer — passages now display as raw markdown rather than not displaying at all; rich-markdown-table renderer deferred as separate item.</p>
+<h3>Notes</h3>
+<ul>
+<li><code>js/min/papers.js</code> rebuilt via <code>tools/build_min_js.py</code>.</li>
+<li>5 deferred items from the 19-item review now all closed (Batches</li>
+</ul>
+<p>A + B + C combined). 4 REJECTs (items 3 / 4 / 10 / 17) remain documented in AUDIT-COVERAGE Part 48 with rationale.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>158 / 158</strong> (unchanged).</li>
+<li>Bug tracker: <strong>190 / 190 Fixed / 0 Open</strong> (was 185; +BUG-186..190).</li>
+<li>Version: v1.16.5 → <strong>v1.16.6</strong> (UI bug fix + content fixes).</li>
+<li>Packet: v1.16.6 / 2026-05-23T13:00:00Z, JA-156-verified-matching.</li>
+</ul>
+<hr>
 <h2>v1.16.5 - 2026-05-23 (Reviewer&#x27;s 19-item review of v1.16.4 — Batch A close: 5 paper content fixes + 5 REJECTs with rationale + 5 deferred to Batches B/C)</h2>
 <h3>Background</h3>
 <p>External reviewer ran a consolidated 19-item review against v1.16.4 covering the 4 paper corpora (moji / goi / bunpou / dokkai) plus cross-cutting style claims. Triage per F.44.17 + F.44.19 + F.44.23 disciplines: - 5 of 19 closed as REAL defects (this release — Batch A) - 5 deferred to Batches B / C (preference-tweaks + UI rendering) - 4 rejected with explicit rationale - 3 classified PARTIAL framing-disagreement - 2 edge / TBD</p>

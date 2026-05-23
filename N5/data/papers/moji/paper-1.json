@@ -11,12 +11,12 @@
       "type": "mcq",
       "stem_html": "あの 人は <u>学生</u> です。",
       "choices": [
-        "がくせい",
+        "かくせ",
         "かくせい",
         "がくせ",
-        "かくせ"
+        "がくせい"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "rationale": "学 (ガク) + 生 (セイ).",
       "kbSourceId": "Q1",
       "id": "moji-1.1",
@@ -24,18 +24,19 @@
       "rationale_hi": "学 (ガク) + 生 (セイ)।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": null,
-      "grammarPatternId_provenance": "not_applicable_orthography"
+      "grammarPatternId_provenance": "not_applicable_orthography",
+      "rp_008_or_009_fix_2026_05_23": "correctIndex rebalanced 0→3"
     },
     {
       "type": "mcq",
       "stem_html": "きのう <u>先生</u> に あいました。",
       "choices": [
-        "せんせい",
+        "せんせえ",
         "せんぜい",
         "せんせ",
-        "せんせえ"
+        "せんせい"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "rationale": "先 (セン) + 生 (セイ).",
       "kbSourceId": "Q2",
       "id": "moji-1.2",
@@ -43,7 +44,8 @@
       "rationale_hi": "先 (セン) + 生 (セイ)।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": null,
-      "grammarPatternId_provenance": "not_applicable_orthography"
+      "grammarPatternId_provenance": "not_applicable_orthography",
+      "rp_008_or_009_fix_2026_05_23": "correctIndex rebalanced 0→3"
     },
     {
       "type": "mcq",
@@ -68,12 +70,12 @@
       "type": "mcq",
       "stem_html": "<u>大学</u> で にほんごを べんきょうします。",
       "choices": [
-        "だいがく",
+        "たいかく",
         "だいかく",
         "たいがく",
-        "たいかく"
+        "だいがく"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "rationale": "大 (ダイ) + 学 (ガク).",
       "kbSourceId": "Q4",
       "id": "moji-1.4",
@@ -81,7 +83,8 @@
       "rationale_hi": "大 (ダイ) + 学 (ガク)।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": null,
-      "grammarPatternId_provenance": "not_applicable_orthography"
+      "grammarPatternId_provenance": "not_applicable_orthography",
+      "rp_008_or_009_fix_2026_05_23": "correctIndex rebalanced 0→3"
     },
     {
       "type": "mcq",
