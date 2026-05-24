@@ -7,6 +7,7 @@ import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { esc, wireExpandCollapseControls } from './learn.js';
 import { currentLocale, t } from './i18n.js';
+import { assetUrl } from './router.js';
 
 // IMP-AUDIO-FIX (UI audit critical, 2026-05-11): audio manifest cache.
 // Many grammar examples (1043 of 1782) have no rendered audio file because
@@ -507,7 +508,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       <span class="form-tag">${esc(ex.form || '')}</span>
       ${renderJa(ex.ja, ex.furigana)}
       ${ex.translation_en ? `<span class="translation">${esc(ex.translation_en)}</span>` : ''}
-      ${audioPath ? `<audio class="example-audio" controls preload="none" src="${esc(audioPath)}"></audio>` : ''}
+      ${audioPath ? `<audio class="example-audio" controls preload="none" src="${esc(assetUrl(audioPath))}"></audio>` : ''}
     </li>
   `;
   }).join('');

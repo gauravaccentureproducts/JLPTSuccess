@@ -6,6 +6,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { hasAlignedTranscript, renderTranscriptHTML, wireTranscriptSync } from './listening-transcript.js';
+import { assetUrl } from './router.js';
 import { t } from './i18n.js';
 import { navigateTo } from './router.js';
 
@@ -188,7 +189,7 @@ function renderItem(container) {
       <p class="muted small">${renderJa('けいしき')}: ${renderJa(FORMATS[it.format_type] || it.format_type)}</p>
       <div class="listening-audio">
         ${it.audio ? `
-          <audio id="listening-audio-${esc(it.id)}" controls preload="none" src="${esc(it.audio)}">Audio</audio>
+          <audio id="listening-audio-${esc(it.id)}" controls preload="none" src="${esc(assetUrl(it.audio))}">Audio</audio>
           ${it.audio_slow ? `
             <!-- IMP-141 (richness audit, 2026-05-09): slow-version
                  0.7x render. Toggle swaps the <audio> src + label
@@ -197,14 +198,14 @@ function renderItem(container) {
             <div class="listening-speed-toggle" role="group" aria-label="${esc(renderJa('さいせい そくど'))}">
               <button type="button" class="listening-speed-btn is-active" data-listening-speed="normal"
                       data-audio-target="listening-audio-${esc(it.id)}"
-                      data-audio-normal="${esc(it.audio)}"
-                      data-audio-slow="${esc(it.audio_slow)}">
+                      data-audio-normal="${esc(assetUrl(it.audio))}"
+                      data-audio-slow="${esc(assetUrl(it.audio_slow))}">
                 ${renderJa('ふつう')} (1.0×)
               </button>
               <button type="button" class="listening-speed-btn" data-listening-speed="slow"
                       data-audio-target="listening-audio-${esc(it.id)}"
-                      data-audio-normal="${esc(it.audio)}"
-                      data-audio-slow="${esc(it.audio_slow)}">
+                      data-audio-normal="${esc(assetUrl(it.audio))}"
+                      data-audio-slow="${esc(assetUrl(it.audio_slow))}">
                 ${renderJa('ゆっくり')} (0.7×)
               </button>
             </div>

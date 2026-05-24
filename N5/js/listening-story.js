@@ -17,6 +17,7 @@
 
 import { renderJa } from './furigana.js';
 import { t } from './i18n.js';
+import { assetUrl } from './router.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -113,7 +114,7 @@ function renderChain(container, items, ctx) {
       </summary>
       ${it.audio ? `
         <audio class="listening-story-audio" controls preload="metadata"
-               src="${esc(it.audio)}" data-next-index="${i + 1}"></audio>
+               src="${esc(assetUrl(it.audio))}" data-next-index="${i + 1}"></audio>
       ` : ''}
       <details class="listening-story-script muted small">
         <summary>Show script + prompt</summary>

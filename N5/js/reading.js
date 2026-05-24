@@ -3,7 +3,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { t } from './i18n.js';
-import { navigateTo } from './router.js';
+import { navigateTo, assetUrl } from './router.js';
 
 // Display labels for level / topic taxonomy. Data values stay English
 // (stable code keys for lookup); we localize at render time so the
@@ -300,7 +300,7 @@ function renderRead(container, p) {
       ${p.audio ? `
         <div class="reading-audio">
           <p class="muted small">${renderJa('おんせい (ある とき):')}</p>
-          <audio controls preload="none" src="${esc(p.audio)}">Your browser does not support audio.</audio>
+          <audio controls preload="none" src="${esc(assetUrl(p.audio))}">Your browser does not support audio.</audio>
         </div>
       ` : ''}
       <button id="reading-start-q" class="btn-primary">${renderJa('しつもんを はじめる')} (${p.questions.length})</button>

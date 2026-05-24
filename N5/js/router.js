@@ -67,6 +67,24 @@ export function urlForRoute(routeStr) {
   return base + r;
 }
 
+// Build a base-relative URL for a static asset (audio, image, etc.).
+// Use this when injecting URLs into HTML attributes like `<audio src>`
+// or `<img src>` - browsers resolve those against document.baseURI
+// (which is the current page URL, including deep mirror paths), NOT
+// against any wrapped fetch logic. Without this helper, `audio/X.mp3`
+// from a page at `/learn/n5-001/` resolves to `/learn/n5-001/audio/X.mp3`
+// (404). Pass-through for absolute URLs.
+export function assetUrl(path) {
+  if (!path) return path;
+  if (typeof path !== 'string') return path;
+  if (path.startsWith('/') || path.startsWith('http://') ||
+      path.startsWith('https://') || path.startsWith('blob:') ||
+      path.startsWith('data:')) {
+    return path;
+  }
+  return getBasePath() + path;
+}
+
 // Navigate to a route. opts.replace: use replaceState instead of
 // pushState (no new history entry). Triggers the SPA route handler
 // by dispatching a popstate event, which app.js listens for.
