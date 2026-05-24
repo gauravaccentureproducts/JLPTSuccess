@@ -3171,5 +3171,214 @@
         }
       }
     ]
+  },
+  "native_review_2026_05_24": {
+    "description": "Native-Japanese-teacher persona review of BUG-A..H followup queues Q3/Q4/Q5. 8 row rewrites + review_status marks on 57 cm rows + 4 explanation_ja review marks.",
+    "rewrites": [
+      {
+        "pattern": "n5-033",
+        "index": 2,
+        "before": {
+          "wrong": "いちにちだけにに べんきょうしました。",
+          "right": "いちにちだけ べんきょうしました。",
+          "why": "だけ does not stack with に. Time-with-だけ takes no other particle.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        "after": {
+          "wrong": "いちにちにだけ べんきょうしました。",
+          "right": "いちにちだけ べんきょうしました。",
+          "why": "Time-duration + だけ takes no particle. Adding に before だけ stacks unneeded particles. Pattern: [time-duration]だけ + verb. (に is for time-points like 3時に, not durations.)",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form had spurious double に (typo-like); replaced with the realistic learner error of に+だけ stacking."
+        }
+      },
+      {
+        "pattern": "n5-034",
+        "index": 2,
+        "before": {
+          "wrong": "ひゃくえんしか もって いません。",
+          "right": "ひゃくえんしか ありません。",
+          "why": "Context: intent: I have ¥100. For money/possessions in this idiom use あります not もっている; both work but あります is standard for しか.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        "after": {
+          "wrong": "ひゃくえんしか あります。",
+          "right": "ひゃくえんしか ありません。",
+          "why": "しか REQUIRES a negative predicate. あります must be ありません. Pattern: NOUN しか + V-ません/V-ない. (Without the negative, the sentence is ungrammatical — しか cannot stand with positive predicates.)",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original conflated verb-choice (もって vs ある) AND polarity; simplified to one polarity teaching point with ある."
+        }
+      },
+      {
+        "pattern": "n5-110",
+        "index": 2,
+        "before": {
+          "wrong": "りんごを にこ かいました。",
+          "right": "りんごを に こ かいました。 / りんごを にこ かいました。",
+          "why": "Context: sentence-final position issue. Number+counter goes between object and verb (after を, before V).",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        "after": {
+          "wrong": "りんごを かいました にこ。",
+          "right": "りんごを にこ かいました。",
+          "why": "Number + counter goes BEFORE the verb (after the object's を, before V), not after. Pattern: NOUNを + 数+counter + V. Trailing counter-after-verb is ungrammatical except in specific spoken afterthoughts.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form (りんごを にこ かいました。) was actually CORRECT; replaced with realistic post-verb counter mistake."
+        }
+      },
+      {
+        "pattern": "n5-111",
+        "index": 2,
+        "before": {
+          "wrong": "よじ。",
+          "right": "よじ。 (already correct)",
+          "why": "4 o'clock is よじ (not しじ). Irregular reading.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        "after": {
+          "wrong": "しじです。",
+          "right": "よじです。",
+          "why": "4 o'clock is よじ — irregular reading. The reading し is avoided for 4-related counters because し is homophone of 死 (death). Always use よ for 4時 (yo-ji), 4日 (yokka), etc.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form was already CORRECT (よじ) with 'already correct' note in right; replaced with realistic しじ reading-error."
+        }
+      },
+      {
+        "pattern": "n5-155",
+        "index": 0,
+        "before": {
+          "wrong": "むずかしいけど、おもしろいですが。",
+          "right": "むずかしいですが、おもしろいです。",
+          "why": "けど is the casual contrastive; pairs with plain forms (むずかしい+けど). With polite-form clauses use が (or けれども). Don't mix plain-form けど + polite-form です. Pattern: [polite-clause]が、[polite-clause].",
+          "category": "register",
+          "category_provenance": "heuristic_categorized",
+          "provenance": "auto_fix_2026_05_24",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "BUG-A..H followup item-6 (substantive variant)"
+        },
+        "after": {
+          "wrong": "むずかしいけど、おもしろいです。",
+          "right": "むずかしいですが、おもしろいです。",
+          "why": "けど is the casual contrastive (pairs with plain forms: むずかしい+けど). With polite-form clauses (です/ます), use が. Don't mix plain-form けど + polite-form です in the second clause. Pattern: [polite-clause]が、[polite-clause].",
+          "category": "register",
+          "category_provenance": "heuristic_categorized",
+          "provenance": "auto_fix_2026_05_24",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "BUG-A..H followup item-6 (substantive variant)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form had dual issues (けど vs が AND trailing が); simplified to the けど↔が register-mismatch as a single teaching point."
+        }
+      },
+      {
+        "pattern": "n5-155",
+        "index": 2,
+        "before": {
+          "wrong": "たかいです がやすいです。",
+          "right": "たかい ですが、やすい くないです。",
+          "why": "Context: no comma. In standard punctuation, comma after が; also avoid contradictory adjective pair.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        "after": {
+          "wrong": "たかいです がやすいです。",
+          "right": "たかいですが、やすいです。",
+          "why": "Mid-sentence が attaches DIRECTLY to the first clause's predicate (たかい+です+が = たかいですが) followed immediately by 、(comma). Pattern: [clause-A]が、[clause-B]. Don't leave space before が; don't drop the comma after が.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original right form added やすい+くない negation as a second teaching point (logical-contradiction fix); simplified to single punctuation-spacing teaching."
+        }
+      },
+      {
+        "pattern": "n5-166",
+        "index": 1,
+        "before": {
+          "wrong": "おはようでございます。",
+          "right": "おはようございます。",
+          "why": "おはようございます is a fixed greeting — one fused word. Don't insert で between おはよう and ございます; the compound is not [おはよう] + [で] + [ございます]. The morning-polite form is morphologically a single unit.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "BUG-A..H followup item-6 (substantive variant)"
+        },
+        "after": {
+          "wrong": "おはようござます。",
+          "right": "おはようございます。",
+          "why": "The polite morning greeting is おはよう + ございます. The ございます part (literally 'be there') has the い in ござい — don't drop it. The full form ございます is non-negotiable for this set phrase. Pattern: fixed greeting, written as one fused word with full ござい+ます.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "BUG-A..H followup item-6 (substantive variant)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form (おはようでございます) was archaic over-polite, not a typical learner error; replaced with the realistic 'dropping い in ござい' learner mistake."
+        }
+      },
+      {
+        "pattern": "n5-168",
+        "index": 2,
+        "before": {
+          "wrong": "たべる ね、よむり する。",
+          "right": "たべたり よんだり する。",
+          "why": "たり attaches to PAST plain form: 食べた→食べたり, 読んだ→読んだり.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        "after": {
+          "wrong": "たべる、よむ する。",
+          "right": "たべたり よんだり する。",
+          "why": "For listing actions, use Vた + たり, NOT dictionary form. Pattern: V1たり V2たり + する. (食べる→食べたり, 読む→読んだり.) Listing with bare dictionary forms + する is ungrammatical for representative-action listing.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form ('たべる ね、よむり する') was incoherent (spurious ね + non-existent よむり form); replaced with realistic bare-dictionary-form listing mistake."
+        }
+      }
+    ],
+    "rows_reviewed_count": 57,
+    "q5_explanation_ja_reviewed": [
+      "n5-098",
+      "n5-154",
+      "n5-166",
+      "n5-183"
+    ],
+    "reviewer_persona": "ai_native_reviewer (Claude under authorized persona; not equivalent to human native teacher)"
   }
 }

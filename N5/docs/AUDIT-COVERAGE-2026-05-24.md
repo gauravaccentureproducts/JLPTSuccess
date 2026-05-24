@@ -322,3 +322,116 @@ items 3-5 require native-human review and remain queued.
 - Bug tracker: BUG-A..H rows 215-222 remain Fixed; no new BUG-NNN entries
   needed (followups are scope-extensions of the same clusters).
 - CI invariants at this checkpoint: 164 (JA-162 added; all green).
+
+---
+
+## Part 54 — Native-reviewer-persona pass on follow-up queues (added 2026-05-24)
+
+**Authority.** Per `data/grammar.json _meta.review_status_note`, the user
+explicitly authorized Claude to apply the native-reviewer persona "in lieu
+of recruiting a native Hindi-speaking Japanese teacher" — so this part
+closes the Part 53 queues 3-5 under the authorized
+`ai_native_reviewer_2026_05_24` review_status. (Not equivalent to a future
+human native-teacher pass; that pass remains the long-term truth-source.)
+
+**Inputs.** Followup items 3, 4, 5 from Part 53:
+- Q3: 46 cm rows backfilled from `wrong_corrected_pair` (BUG-A JA-51 backfill)
+- Q4: 11 cm rows Claude-authored (BUG-C + BUG-H + item-6 rewrites)
+- Q5: 4 `explanation_ja` splits from BUG-F
+
+**Methodology.** For each queue item, the reviewer applied 4 judgments:
+1. **Is the WRONG form a realistic learner error?** A typo or grammatically
+   incoherent form is NOT a teachable error.
+2. **Is the RIGHT form actually correct natural Japanese?**
+3. **Is the WRONG→RIGHT delta a single coherent teaching point?** Multiple
+   conflated changes obscure the lesson.
+4. **Does the WHY explanation accurately frame the rule a native speaker
+   would teach?**
+
+**Outcome.**
+
+| Queue | Total | PASS | FAIL→rewritten |
+|---|---|---|---|
+| Q3 (backfilled cm) | 46 | 40 | 6 |
+| Q4 (Claude rewrites) | 11 | 9 | 2 |
+| Q5 (explanation_ja) | 4 | 4 | 0 |
+| **Total** | **61** | **53** | **8** |
+
+**8 rewrites applied** (`tools/native_review_queue_2026_05_24.py`):
+
+Q3 failures + corrections:
+
+1. **n5-033[2]** — `いちにちだけにに` had spurious double に (typo-like, not a
+   real learner error). Rewritten to `いちにちにだけ` (に+だけ stacking)
+   which is a realistic over-particle-attachment error.
+2. **n5-034[2]** — `しか` row conflated verb-swap (もって→ある) AND polarity
+   (positive→negative); native teaching practice uses one change per cm row.
+   Simplified to `ひゃくえんしか あります。`→`ありません。` (polarity only).
+3. **n5-110[2]** — wrong form `りんごを にこ かいました。` is actually
+   CORRECT Japanese (the "right" listed wrong-form-as-option-2; row was
+   self-contradictory). Replaced with `りんごを かいました にこ。` (counter
+   after verb — real word-order mistake).
+4. **n5-111[2]** — wrong form `よじ。` was already CORRECT; "right" noted
+   `(already correct)`; broken row. Replaced with `しじです。`→`よじです。`
+   teaching the 4→よ irregular reading (homophone-with-死 avoidance).
+5. **n5-155[2]** — wrong→right added `やすい+くない` negation as a second
+   teaching point (logical-contradiction fix on top of punctuation fix);
+   conflated. Simplified to punctuation-and-spacing only:
+   `たかいです がやすいです。`→`たかいですが、やすいです。`
+6. **n5-168[2]** — wrong form `たべる ね、よむり する。` was incoherent
+   (spurious ね particle, non-existent よむり form). Replaced with
+   `たべる、よむ する。`→`たべたり よんだり する。` (bare-dictionary-form
+   listing mistake, a real N5 error).
+
+Q4 failures + corrections:
+
+7. **n5-155[0]** — wrong form had dual issues (けど vs が AND a trailing
+   sentence-final が); simplified to single けど↔が register-mismatch:
+   `むずかしいけど、おもしろいです。`→`むずかしいですが、おもしろいです。`
+8. **n5-166[1]** — wrong form `おはようでございます` was archaic over-polite
+   (not a typical N5 learner error). Replaced with the realistic
+   `おはようござます` (dropping い in ござい) → `おはようございます`.
+
+**Q5 PASS notes:**
+
+All 4 `explanation_ja` splits have well-formed heads (rule statements) and
+sensible tails (example sentences or memorization advice). Split point at
+the first 。 between chars 60-100 yields self-contained meaning_ja head in
+all 4 cases (n5-098, n5-154, n5-166, n5-183).
+
+**Tagging applied:**
+
+- All 8 rewritten rows: `provenance="auto_fix_2026_05_24"` +
+  `audit_wave="claude_audit_2026_05_24"` +
+  `review_status="ai_native_reviewer_2026_05_24"` +
+  `reviewer_note="<specific reason for rewrite>"`.
+- Remaining 53 PASS rows: `review_status="ai_native_reviewer_2026_05_24"` +
+  generic `reviewer_note` documenting PASS verdict.
+- Q5 patterns: `explanation_ja_review_status="ai_native_reviewer_2026_05_24"`
+  + `explanation_ja_reviewer_note` at the pattern level.
+
+**`_meta.version`** bumped to `2026.05.24-native-review`.
+
+**Bounded coverage (Part 54):**
+- "PASS on 53 rows means content is pedagogically sound" — applies to my
+  best judgment under the authorized persona; NOT equivalent to human
+  native-teacher review. A future human pass may find items I missed.
+- "FAIL→rewrite on 8 rows means the issues identified are resolved" —
+  applies to the specific issues called out; future audits may surface
+  different angles on the same rows.
+- "Q5 splits preserve readability" — measured by my reading of the head
+  alone for self-containment; native users may prefer different split
+  points or thresholds.
+
+**Tools added in Part 54:**
+- `tools/native_review_queue_2026_05_24.py` — reviewer + rewriter
+
+**Cross-references (Part 54):**
+- Procedure manual: no new F.44.X needed — existing F.44.31 + F.44.32
+  cover the audit-cluster discipline; this is an application, not a new
+  class.
+- Bug tracker: no new BUG-NNN — followup is scope-extension of BUG-A..H.
+- Fix log: `data/grammar.fix_log.json` `native_review_2026_05_24` section
+  with all 8 rewrites + counts.
+- CI invariants at this checkpoint: 164 (all green; TS-02..TS-10 all
+  178/178 in `audit_ts_pass_counts_2026_05_24.py`).

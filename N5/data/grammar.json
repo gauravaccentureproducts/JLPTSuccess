@@ -778,7 +778,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -7183,7 +7185,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -7589,7 +7593,9 @@
           "category_provenance": "heuristic_categorized",
           "provenance": "auto_fix_2026_05_24",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "いつに いきますか。",
@@ -7606,7 +7612,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -8511,7 +8519,9 @@
           "category_provenance": "heuristic_categorized",
           "provenance": "auto_fix_2026_05_24",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "form_a": "あなたは がくせいですね。",
@@ -9000,7 +9010,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -9391,7 +9403,9 @@
           "why": "Don't string よ and ね together at the sentence end. よ ASSERTS new info to the listener; ね SEEKS AGREEMENT on shared observation. Pick one based on the speech-act you want — they're not stackable. For shared weather small-talk, ね alone is the natural choice.",
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -12522,13 +12536,15 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "いちにちだけにに べんきょうしました。",
+          "wrong": "いちにちにだけ べんきょうしました。",
           "right": "いちにちだけ べんきょうしました。",
-          "why": "だけ does not stack with に. Time-with-だけ takes no other particle.",
+          "why": "Time-duration + だけ takes no particle. Adding に before だけ stacks unneeded particles. Pattern: [time-duration]だけ + verb. (に is for time-points like 3時に, not durations.)",
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form had spurious double に (typo-like); replaced with the realistic learner error of に+だけ stacking."
         }
       ],
       "contrasts": [
@@ -12951,16 +12967,20 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
-          "wrong": "ひゃくえんしか もって いません。",
+          "wrong": "ひゃくえんしか あります。",
           "right": "ひゃくえんしか ありません。",
-          "why": "Context: intent: I have ¥100. For money/possessions in this idiom use あります not もっている; both work but あります is standard for しか.",
-          "category": "register",
+          "why": "しか REQUIRES a negative predicate. あります must be ありません. Pattern: NOUN しか + V-ません/V-ない. (Without the negative, the sentence is ungrammatical — しか cannot stand with positive predicates.)",
+          "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original conflated verb-choice (もって vs ある) AND polarity; simplified to one polarity teaching point with ある."
         }
       ],
       "contrasts": [
@@ -13827,7 +13847,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -15219,7 +15241,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -16178,7 +16202,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -19059,7 +19085,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -23861,7 +23889,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -26022,7 +26052,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -26490,7 +26522,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -30956,7 +30990,9 @@
           "why": "Negative request uses V-ない (not V-るない). とる → とらない (not とるない). Pattern: V-Group-1 plain-negative + でください.",
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "ここで しゃしんを とらないて ください。",
@@ -31440,7 +31476,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -33942,7 +33980,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -34794,7 +34834,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -39876,7 +39918,9 @@
           "why": "いちばん の しゅごには 「が」 を つかいます。「は」 では ありません。 「いちばん」は最上級を 表します。 例えば 「これが いちばん おいしい です」 (this is the best). Topic 「は」 would shift the focus to comparison, which changes the meaning.",
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "クラスの 中に たなかさんが いちばん せが たかいです。",
@@ -40028,7 +40072,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "explanation_ja": "「くだものの 中で りんごが いちばん すきです」「クラスの 中で たなかさんが いちばん せが たかいです」。",
       "provenance": "auto_fix_2026_05_24",
-      "audit_wave": "claude_audit_2026_05_24"
+      "audit_wave": "claude_audit_2026_05_24",
+      "explanation_ja_review_status": "ai_native_reviewer_2026_05_24",
+      "explanation_ja_reviewer_note": "PASS — meaning_ja head is self-contained (rule statement); explanation_ja tail carries example sentences or memorization advice. Split point preserves readability."
     },
     {
       "id": "n5-099",
@@ -40315,7 +40361,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -40795,7 +40843,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -41253,7 +41303,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -41655,7 +41707,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -42049,7 +42103,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -42836,7 +42892,9 @@
           "category_provenance": "heuristic_categorized",
           "provenance": "auto_fix_2026_05_24",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "今日は 行かないたいです。",
@@ -45016,13 +45074,15 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "りんごを にこ かいました。",
-          "right": "りんごを に こ かいました。 / りんごを にこ かいました。",
-          "why": "Context: sentence-final position issue. Number+counter goes between object and verb (after を, before V).",
-          "category": "register",
+          "wrong": "りんごを かいました にこ。",
+          "right": "りんごを にこ かいました。",
+          "why": "Number + counter goes BEFORE the verb (after the object's を, before V), not after. Pattern: NOUNを + 数+counter + V. Trailing counter-after-verb is ungrammatical except in specific spoken afterthoughts.",
+          "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form (りんごを にこ かいました。) was actually CORRECT; replaced with realistic post-verb counter mistake."
         }
       ],
       "contrasts": [
@@ -45414,13 +45474,15 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "よじ。",
-          "right": "よじ。 (already correct)",
-          "why": "4 o'clock is よじ (not しじ). Irregular reading.",
-          "category": "register",
+          "wrong": "しじです。",
+          "right": "よじです。",
+          "why": "4 o'clock is よじ — irregular reading. The reading し is avoided for 4-related counters because し is homophone of 死 (death). Always use よ for 4時 (yo-ji), 4日 (yokka), etc.",
+          "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form was already CORRECT (よじ) with 'already correct' note in right; replaced with realistic しじ reading-error."
         }
       ],
       "contrasts": [
@@ -45848,7 +45910,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -46281,7 +46345,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "にじはん ぐらい です ね。",
@@ -46290,7 +46356,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -47643,7 +47711,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -48068,7 +48138,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -48968,7 +49040,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -49456,7 +49530,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -52451,7 +52527,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "BUG-A..H followup item-6 (substantive variant)"
+          "source": "BUG-A..H followup item-6 (substantive variant)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -55245,7 +55323,9 @@
           "why": "い-adjectives attach から directly (あつい + から). Don't insert だ — that's for な-adjectives and nouns. Pattern: [い-adj]から、[result].",
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "まどを あけてください、あついから。",
@@ -55253,7 +55333,9 @@
           "why": "In Japanese, [reason]から comes BEFORE [result], not after. Sentence-final から sounds like an after-thought — natural ordering is reason first. Pattern: [reason-clause]から、[result-clause].",
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "あついから、まどを あけて。",
@@ -57149,7 +57231,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -57503,7 +57587,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         },
         {
           "wrong": "コーヒーで します。",
@@ -57512,7 +57598,9 @@
           "category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -61186,7 +61274,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -62555,7 +62645,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "explanation_ja": "「もう 食べました」「もう しゅくだいを しました」。よく 「まだ + Verb-ていません」(まだ 食べて いません) と ペアで つかいます。",
       "provenance": "auto_fix_2026_05_24",
-      "audit_wave": "claude_audit_2026_05_24"
+      "audit_wave": "claude_audit_2026_05_24",
+      "explanation_ja_review_status": "ai_native_reviewer_2026_05_24",
+      "explanation_ja_reviewer_note": "PASS — meaning_ja head is self-contained (rule statement); explanation_ja tail carries example sentences or memorization advice. Split point preserves readability."
     },
     {
       "id": "n5-155",
@@ -62824,15 +62916,17 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "むずかしいけど、おもしろいですが。",
+          "wrong": "むずかしいけど、おもしろいです。",
           "right": "むずかしいですが、おもしろいです。",
-          "why": "けど is the casual contrastive; pairs with plain forms (むずかしい+けど). With polite-form clauses use が (or けれども). Don't mix plain-form けど + polite-form です. Pattern: [polite-clause]が、[polite-clause].",
+          "why": "けど is the casual contrastive (pairs with plain forms: むずかしい+けど). With polite-form clauses (です/ます), use が. Don't mix plain-form けど + polite-form です in the second clause. Pattern: [polite-clause]が、[polite-clause].",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "auto_fix_2026_05_24",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "BUG-A..H followup item-6 (substantive variant)"
+          "source": "BUG-A..H followup item-6 (substantive variant)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form had dual issues (けど vs が AND trailing が); simplified to the けど↔が register-mismatch as a single teaching point."
         },
         {
           "wrong": "コーヒーは すきです、おちゃは すきじゃありません。",
@@ -62844,12 +62938,14 @@
         },
         {
           "wrong": "たかいです がやすいです。",
-          "right": "たかい ですが、やすい くないです。",
-          "why": "Context: no comma. In standard punctuation, comma after が; also avoid contradictory adjective pair.",
+          "right": "たかいですが、やすいです。",
+          "why": "Mid-sentence が attaches DIRECTLY to the first clause's predicate (たかい+です+が = たかいですが) followed immediately by 、(comma). Pattern: [clause-A]が、[clause-B]. Don't leave space before が; don't drop the comma after が.",
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original right form added やすい+くない negation as a second teaching point (logical-contradiction fix); simplified to single punctuation-spacing teaching."
         }
       ],
       "contrasts": [
@@ -65906,7 +66002,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -67266,7 +67364,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -67688,13 +67788,15 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "おはようでございます。",
+          "wrong": "おはようござます。",
           "right": "おはようございます。",
-          "why": "おはようございます is a fixed greeting — one fused word. Don't insert で between おはよう and ございます; the compound is not [おはよう] + [で] + [ございます]. The morning-polite form is morphologically a single unit.",
+          "why": "The polite morning greeting is おはよう + ございます. The ございます part (literally 'be there') has the い in ござい — don't drop it. The full form ございます is non-negotiable for this set phrase. Pattern: fixed greeting, written as one fused word with full ござい+ます.",
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "BUG-A..H followup item-6 (substantive variant)"
+          "source": "BUG-A..H followup item-6 (substantive variant)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form (おはようでございます) was archaic over-polite, not a typical learner error; replaced with the realistic 'dropping い in ござい' learner mistake."
         },
         {
           "wrong": "いただきますを どうぞ。",
@@ -67841,7 +67943,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "provenance": "auto_fix_2026_05_24",
       "audit_wave": "claude_audit_2026_05_24",
-      "explanation_ja": "これらは そのまま おぼえます。"
+      "explanation_ja": "これらは そのまま おぼえます。",
+      "explanation_ja_review_status": "ai_native_reviewer_2026_05_24",
+      "explanation_ja_reviewer_note": "PASS — meaning_ja head is self-contained (rule statement); explanation_ja tail carries example sentences or memorization advice. Split point preserves readability."
     },
     {
       "id": "n5-167",
@@ -68559,13 +68663,15 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "たべる ね、よむり する。",
+          "wrong": "たべる、よむ する。",
           "right": "たべたり よんだり する。",
-          "why": "たり attaches to PAST plain form: 食べた→食べたり, 読んだ→読んだり.",
+          "why": "For listing actions, use Vた + たり, NOT dictionary form. Pattern: V1たり V2たり + する. (食べる→食べたり, 読む→読んだり.) Listing with bare dictionary forms + する is ungrammatical for representative-action listing.",
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original wrong form ('たべる ね、よむり する') was incoherent (spurious ね + non-existent よむり form); replaced with realistic bare-dictionary-form listing mistake."
         }
       ],
       "contrasts": [
@@ -69033,7 +69139,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -69446,7 +69554,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -69902,7 +70012,9 @@
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -70354,7 +70466,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -72570,7 +72684,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -72997,7 +73113,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -74332,7 +74450,9 @@
           "category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "PASS — pedagogically sound learner error; clear teaching point; wrong/right pair is realistic for an N5 learner. Review conducted by Claude under the authorized ai_native_reviewer persona (per _meta.review_status_note); not equivalent to native-human teacher review."
         }
       ],
       "contrasts": [
@@ -75270,7 +75390,9 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "explanation_ja": "「だれかが 来ました」「なにも 食べませんでした」。",
       "provenance": "auto_fix_2026_05_24",
-      "audit_wave": "claude_audit_2026_05_24"
+      "audit_wave": "claude_audit_2026_05_24",
+      "explanation_ja_review_status": "ai_native_reviewer_2026_05_24",
+      "explanation_ja_reviewer_note": "PASS — meaning_ja head is self-contained (rule statement); explanation_ja tail carries example sentences or memorization advice. Split point preserves readability."
     },
     {
       "id": "n5-184",
@@ -77449,8 +77571,9 @@
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
-    "version": "2026.05.24-followups",
-    "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split."
+    "version": "2026.05.24-native-review",
+    "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split.",
+    "native_review_pass_2026_05_24": "Native-Japanese-teacher persona review of BUG-A..H followup queues. Q3 (46 backfilled cm): 40 PASS, 6 FAIL→rewritten. Q4 (11 Claude rewrites): 9 PASS, 2 FAIL→rewritten. Q5 (4 explanation_ja splits): 4 PASS. Total: 8 row rewrites + 57 cm review_status marks + 4 explanation_ja review marks. Reviewer: Claude under authorized ai_native_reviewer persona."
   },
   "_translation_status": {
     "note": "IMP-045 (audit round-5) + IMP-096 (locale narrowing 2026-05-06): grammar.json content-body translation. Per Q14 + the round-5 anti-items list, the long English explanations are NOT machine-translated - they would be confidently wrong in subtle JLPT-context-sensitive ways. Native Hindi reviewers (per Q20 recruitment in docs/TRANSLATING.md) author the per-locale fields when available. Renderer falls back to explanation_en when explanation_hi is absent. The deprecated explanation_vi/id/ne/zh fields were stripped in Phase 4 of the en+hi locale transition. 2026-05-07 ISSUE-093 update: LLM-persona scaling authorized via Q33; authored 151 explanation_hi entries with provenance.hi = llm_curated. Native-review remains the target end-state.",
