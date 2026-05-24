@@ -667,3 +667,129 @@ The reviewer flagged 11 TS-10 partials. Investigation revealed:
 - CI invariants at this checkpoint: 165 (all green; JA-13/JA-35/JA-77
   caught my own draft fixes; honest CI works as designed).
 - _meta.version: `2026.05.24-ts10-cleanup`.
+
+---
+
+## Part 57 — TS-02 near-duplicate polish + reviewer-v5 verdict (added 2026-05-24, post-1046ffcb)
+
+**Reviewer v5 correction.** The independent reviewer re-audited
+post-`1046ffcb` and CORRECTED their own TS-02 verdict. Their original
+TS-02 audit flagged 60 patterns with "duplicate EN translations" —
+they then drilled in and realized **43 of the 60 are intentional
+kana↔kanji pedagogical variants** (same sentence, one written with
+kanji, one all-kana — a feature for N5 mid-transition learners, not a
+bug). Only **11 are real near-duplicates**, and **5 of those 11 are
+arguably intentional pedagogical contrasts** (synonyms, particle
+variants, topic-drop demos).
+
+This part addresses the remaining 6 accidental near-duplicates.
+
+**Methodology applied (`tools/fix_ts02_near_dup_polish_2026_05_24.py`):**
+
+1. **Strict kanji-to-reading normalization** using `data/kanji.json` +
+   `data/vocab.json` readings (primary kun > on-katakana-as-hiragana).
+   Two examples sharing the same EN AND the same normalized kana-skeleton
+   = kana-variant (kept; 43 cases plus more under stricter matching).
+2. **Pedagogical-intent annotation** for 5 pairs that vary content
+   meaningfully but teach an intentional contrast — these get
+   `intentional_variant_pair: <other_index>` +
+   `intentional_variant_intent: "<description>"` markers on BOTH examples.
+3. **Drop 6 accidental near-duplicates** that share the same EN AND have
+   no contrastive teaching value.
+
+**6 dropped accidentals:**
+
+| Pattern | Dropped Index | Reason |
+|---|---|---|
+| n5-034 | ex[9] | Duplicate of [4] modulo digit-vs-kana spelling (100→ひゃく). |
+| n5-035 | ex[9] | Duplicate of [2] modulo digit-vs-kana spelling (10→じゅう). |
+| n5-092 | ex[7] | Duplicate of [0] sans 上 (locative position word) — accidental. |
+| n5-093 | ex[7] | Same shape as n5-092 (locative drop). |
+| n5-103 | ex[4] | Expanded form (話す ことが できます) carries same EN as [0] (できます alone). |
+| n5-109 | ex[6] | Word-order variant of [4]; same content, no contrastive intent. |
+
+**5 annotated intentional-contrast pairs:**
+
+| Pattern | Pair | Intent |
+|---|---|---|
+| n5-044 | ex[4]↔ex[7] | Teaches synonym pair やる vs する for verb-of-doing. |
+| n5-059 | ex[0]↔ex[9] | Teaches topic-drop (with vs without わたしは). |
+| n5-062 | ex[1]↔ex[8] | Teaches へ vs に particle equivalence for destination. |
+| n5-073 | ex[2]↔ex[5] | Teaches word-order flexibility with まだ + V-ていません. |
+| n5-082 | ex[1]↔ex[8] | Teaches その vs あの demonstrative contrast (mid-distance vs far). |
+
+**xlsx detail updates:**
+
+`test/categorized testing/CategorizedtestScenarios.xlsx` Grammar Pattern
+List sheet — all 178 rows updated:
+- TS-02 cell: `Pass (43 kana↔kanji intentional pedagogical variants + 5
+  intentional contrast pairs annotated + 6 accidental near-dups dropped).
+  Reviewer v5 corrected (2026-05-24).`
+- TS-06 cell: `Pass (structural audit: 1768/1768 audio refs resolve in
+  audio_manifest.json + exist on disk; commit 1046ffcb).`
+
+The TS-06 audit was already done in Part 56 (commit `1046ffcb`); the
+reviewer's "unprovable without audio_manifest check" comment crossed the
+audit. This part adds the audit-evidence reference to the xlsx cells so
+the reference is visible at the point of use.
+
+**Honest final scorecard (from reviewer v5 + Part 57):**
+
+| TS | Verdict | Evidence |
+|---|---|---|
+| TS-01 | NA | explanation_ja Phase-2 placeholder |
+| TS-02 | **Pass** | 43 kana-variants + 5 intentional contrasts + 6 dropped |
+| TS-03 | **Pass** | 0 cm/wcp wrong==right or dups (Parts 53-55) |
+| TS-04 | **Pass** | Category rename applied (BUG-B) |
+| TS-05 | **Pass (effective)** | 7 Fail + 20 Partial → all NA-heuristic-limit (conjugation FPs) |
+| TS-06 | **Pass** | Audio-manifest structural audit (Part 56) |
+| TS-07 | **Pass** | No regression (unchanged through all passes) |
+| TS-08 | **Pass** | No regression (unchanged) |
+| TS-09 | **Pass** | cm/wcp.why non-empty (BUG-K reverted; floor removed) |
+| TS-10 | **Pass** | 5 native-teacher rewrites + 20 slot-token whitelist (Part 56) |
+
+**Reviewer v5 trajectory across 4 passes:**
+
+| Pass | Real Bugs Open | Notable |
+|---|---|---|
+| Pre-fix | 64 TS-03 hard FAIL + 4 TS-04 PARTIAL + various | Starting state |
+| Post-BUG-A..H | 11 TS-03 FAIL + 60+ TS-02 PARTIAL | First sweep |
+| Post-BUG-I/J/K | 0 hard FAIL but BUG-K boilerplate flagged | Reviewer caught metric-gaming |
+| Post-revert + Part 57 | **0 hard FAIL, 0 accidental near-dups** | Reviewer's "near-publishable N5 grammar corpus" verdict |
+
+**Bounded coverage (Part 57):**
+- "6 accidental near-dups dropped" — closes the 6 cases identified;
+  if a future authoring pass introduces new accidental near-dups,
+  they will need a fresh detection sweep (the audit predicate is
+  kana-skeleton-aware now, but only via the `data/kanji.json` +
+  `data/vocab.json` reading dictionaries).
+- "5 intentional-contrast pairs annotated" — markers
+  `intentional_variant_pair` + `intentional_variant_intent` are on
+  the pairs we identified; downstream tools that want to skip
+  near-dup checks should respect these markers.
+- "TS-06 audit evidence surfaced" — cell-level reference to
+  commit `1046ffcb` makes the evidence visible at the point of use;
+  the audit itself is captured in `fix_log.json` and Part 56.
+
+**Tools added in Part 57:**
+- `tools/fix_ts02_near_dup_polish_2026_05_24.py` — drop + annotate
+
+**Cross-references (Part 57):**
+- Procedure manual: no new F.44.X needed — existing F.44.33/34 cover
+  the audit-discipline class; this is application.
+- Bug tracker: no new BUG-NNN — scope-extension of BUG-A..K close-out.
+- Fix log: `data/grammar.fix_log.json` `TS02_near_dup_polish_2026_05_24` section.
+- CI invariants at this checkpoint: 165 (all green).
+- _meta.version: `2026.05.24-ts02-polish`.
+
+**Final state (commit chain through this work stream):**
+- 936f6950 — BUG-A..H sweep
+- 3a7c6788 — followups 1-7
+- bfb5cd8a — native-reviewer pass Q3/Q4/Q5
+- 61366b43 — polish A/B/C
+- d4636585 — BUG-I/J/K
+- 1046ffcb — revert BUG-K + TS-10 cleanup + Part 56
+- (this commit) — TS-02 polish + Part 57
+
+Reviewer's bottom line, restated: "a strong, near-publishable N5 grammar
+corpus" with **0 hard FAILs** across all 9 runnable TS scenarios.

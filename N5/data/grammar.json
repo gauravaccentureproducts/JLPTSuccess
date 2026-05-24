@@ -12916,42 +12916,6 @@
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
-          "ja": "ひゃくえんしか ありません。",
-          "form": "money-only-negative",
-          "translation_en": "I have only 100 yen.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.35-particles-functional-.しか",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "audio": "audio/grammar/n5-034.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "ひゃく",
-              "mora": 2,
-              "drop": 2
-            },
-            {
-              "form": "えん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "しか",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "せん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
       ],
       "common_mistakes": [
@@ -13371,31 +13335,6 @@
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
-          "ja": "じゅっぷんぐらい かかります。",
-          "form": "time-required-approx",
-          "translation_en": "It takes about 10 minutes.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.かかる",
-            "n5.vocab.35-particles-functional-.ぐらい"
-          ],
-          "audio": "audio/grammar/n5-035.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "ぐらい",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "かります",
-              "mora": 4,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
       ],
       "common_mistakes": [
@@ -13543,7 +13482,9 @@
         "くらい",
         "ぐらい"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-036",
@@ -17349,7 +17290,9 @@
           "pitch_marks": [],
           "audio": "audio/grammar/n5-044.4.mp3",
           "form": "affirmative",
-          "form_provenance": "auto_derived_form_2026_05_13"
+          "form_provenance": "auto_derived_form_2026_05_13",
+          "intentional_variant_pair": 7,
+          "intentional_variant_intent": "teaches synonym pair やる vs する for verb-of-doing"
         },
         {
           "ja": "ああ しましょう。",
@@ -17391,7 +17334,9 @@
             }
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13",
+          "intentional_variant_pair": 4,
+          "intentional_variant_intent": "teaches synonym pair やる vs する for verb-of-doing"
         },
         {
           "ja": "どう しましたか。",
@@ -22814,7 +22759,9 @@
               "drop": 1
             }
           ],
-          "audio": "audio/grammar/n5-059.0.mp3"
+          "audio": "audio/grammar/n5-059.0.mp3",
+          "intentional_variant_pair": 9,
+          "intentional_variant_intent": "teaches topic-drop (with vs without わたしは)"
         },
         {
           "ja": "おさけは のみません。",
@@ -22992,7 +22939,9 @@
             }
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13",
+          "intentional_variant_pair": 0,
+          "intentional_variant_intent": "teaches topic-drop (with vs without わたしは)"
         }
       ],
       "common_mistakes": [
@@ -24113,7 +24062,9 @@
               "drop": 0
             }
           ],
-          "audio": "audio/grammar/n5-062.1.mp3"
+          "audio": "audio/grammar/n5-062.1.mp3",
+          "intentional_variant_pair": 8,
+          "intentional_variant_intent": "teaches へ vs に particle equivalence for destination"
         },
         {
           "ja": "ちょっと やすみましょう。",
@@ -24265,7 +24216,9 @@
             }
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13",
+          "intentional_variant_pair": 1,
+          "intentional_variant_intent": "teaches へ vs に particle equivalence for destination"
         },
         {
           "ja": "えいがを みましょう。",
@@ -29119,7 +29072,9 @@
               "drop": 1
             }
           ],
-          "audio": "audio/grammar/n5-073.2.mp3"
+          "audio": "audio/grammar/n5-073.2.mp3",
+          "intentional_variant_pair": 5,
+          "intentional_variant_intent": "teaches word-order flexibility with まだ + V-ていません"
         },
         {
           "form": "phone-context",
@@ -29164,7 +29119,9 @@
           "pitch_marks": [],
           "audio": "audio/grammar/n5-073.5.mp3",
           "form": "negative",
-          "form_provenance": "auto_derived_form_2026_05_13"
+          "form_provenance": "auto_derived_form_2026_05_13",
+          "intentional_variant_pair": 2,
+          "intentional_variant_intent": "teaches word-order flexibility with まだ + V-ていません"
         },
         {
           "ja": "テストは うけて いません。",
@@ -32863,7 +32820,9 @@
               "drop": 2
             }
           ],
-          "audio": "audio/grammar/n5-082.1.mp3"
+          "audio": "audio/grammar/n5-082.1.mp3",
+          "intentional_variant_pair": 8,
+          "intentional_variant_intent": "teaches その vs あの demonstrative contrast (mid-distance vs far)"
         },
         {
           "ja": "テストは むずかしくなかったですか。",
@@ -33000,7 +32959,9 @@
           "audio": "audio/grammar/n5-082.8.mp3",
           "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13",
+          "intentional_variant_pair": 1,
+          "intentional_variant_intent": "teaches その vs あの demonstrative contrast (mid-distance vs far)"
         },
         {
           "ja": "りょうりは おいしくなかったです。",
@@ -37363,34 +37324,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "つくえに ほんが あります。",
-          "form": "location-inanimate",
-          "translation_en": "There is a book on the desk.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.つくえ",
-            "n5.vocab.27-verbs-group-1-verbs.つく",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.に"
-          ],
-          "audio": "audio/grammar/n5-092.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "つくえ",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "うちに ねこが います。",
           "form": "location-animate",
           "translation_en": "There is a cat at my house.",
@@ -37582,7 +37515,9 @@
         "います",
         "何かが"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-093",
@@ -37753,34 +37688,6 @@
           "audio": "audio/grammar/n5-093.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
-          "ja": "ほんは つくえに あります。",
-          "form": "topic-location",
-          "translation_en": "The book is on the desk.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.つくえ",
-            "n5.vocab.27-verbs-group-1-verbs.つく",
-            "n5.vocab.30-verbs-existence-and-p.ある",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.に"
-          ],
-          "audio": "audio/grammar/n5-093.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "つくえ",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
           "ja": "ねこは うちに います。",
@@ -37973,7 +37880,9 @@
         "どこに",
         "います"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-094",
@@ -41992,17 +41901,6 @@
           "audio": "audio/grammar/n5-103.3.mp3"
         },
         {
-          "ja": "日本語を 話す ことが できます。",
-          "translation_en": "I can speak Japanese.",
-          "source": "vocab.n5.vocab.2-people-family.あに.examples[1]",
-          "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [],
-          "pitch_marks": [],
-          "audio": "audio/grammar/n5-103.4.mp3",
-          "form": "affirmative",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
           "ja": "ピアノを ひく ことが できます。",
           "translation_en": "I can play the piano.",
           "source": "vocab.n5.vocab.2-people-family.いもうと.examples[0]",
@@ -44588,37 +44486,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "なんにん 学生が いますか。",
-          "translation_en": "How many students are there?",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.3-people-roles.学生",
-            "n5.vocab.28-verbs-group-2-verbs.いる",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "学生",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "にん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "いま",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "audio": "audio/grammar/n5-109.6.mp3",
-          "form": "question",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
           "ja": "かみは なんまい ありますか。",
           "form": "count-tsu",
           "translation_en": "How many sheets of paper are there?",
@@ -44838,7 +44705,9 @@
         "かずを",
         "ねだん"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-110",
@@ -77647,9 +77516,10 @@
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
-    "version": "2026.05.24-ts10-cleanup",
+    "version": "2026.05.24-ts02-polish",
     "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split.",
-    "native_review_pass_2026_05_24": "Native-Japanese-teacher persona review of BUG-A..H followup queues. Q3 (46 backfilled cm): 40 PASS, 6 FAIL→rewritten. Q4 (11 Claude rewrites): 9 PASS, 2 FAIL→rewritten. Q5 (4 explanation_ja splits): 4 PASS. Total: 8 row rewrites + 57 cm review_status marks + 4 explanation_ja review marks. Reviewer: Claude under authorized ai_native_reviewer persona."
+    "native_review_pass_2026_05_24": "Native-Japanese-teacher persona review of BUG-A..H followup queues. Q3 (46 backfilled cm): 40 PASS, 6 FAIL→rewritten. Q4 (11 Claude rewrites): 9 PASS, 2 FAIL→rewritten. Q5 (4 explanation_ja splits): 4 PASS. Total: 8 row rewrites + 57 cm review_status marks + 4 explanation_ja review marks. Reviewer: Claude under authorized ai_native_reviewer persona.",
+    "ts02_near_dup_polish_2026_05_24": "Reviewer v5 correction applied: 6 accidental near-duplicate examples dropped; 5 intentional-contrast example pairs annotated with intentional_variant_pair markers. 43 kana↔kanji pedagogical variants retained as-is per reviewer guidance."
   },
   "_translation_status": {
     "note": "IMP-045 (audit round-5) + IMP-096 (locale narrowing 2026-05-06): grammar.json content-body translation. Per Q14 + the round-5 anti-items list, the long English explanations are NOT machine-translated - they would be confidently wrong in subtle JLPT-context-sensitive ways. Native Hindi reviewers (per Q20 recruitment in docs/TRANSLATING.md) author the per-locale fields when available. Renderer falls back to explanation_en when explanation_hi is absent. The deprecated explanation_vi/id/ne/zh fields were stripped in Phase 4 of the en+hi locale transition. 2026-05-07 ISSUE-093 update: LLM-persona scaling authorized via Q33; authored 151 explanation_hi entries with provenance.hi = llm_curated. Native-review remains the target end-state.",

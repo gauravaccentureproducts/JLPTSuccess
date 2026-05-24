@@ -3808,5 +3808,256 @@
         "reason": "Replaced placeholder \"question word + か / も\" with real native-teacher description."
       }
     ]
+  },
+  "TS02_near_dup_polish_2026_05_24": {
+    "description": "Reviewer v5 correction applied to TS-02 near-duplicates. Distinguished kana↔kanji pedagogical variants (kept) from intentional-contrast pairs (annotated) from accidental near-duplicates (dropped).",
+    "drops": [
+      {
+        "pattern": "n5-034",
+        "dropped_index": 9,
+        "dropped_example": {
+          "ja": "ひゃくえんしか ありません。",
+          "form": "money-only-negative",
+          "translation_en": "I have only 100 yen.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.しか",
+            "n5.vocab.35-particles-functional-.か"
+          ],
+          "audio": "audio/grammar/n5-034.9.mp3",
+          "pitch_marks": [
+            {
+              "form": "ひゃく",
+              "mora": 2,
+              "drop": 2
+            },
+            {
+              "form": "えん",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "しか",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "せん",
+              "mora": 2,
+              "drop": 1
+            }
+          ],
+          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+        },
+        "reason": "duplicate of [4] modulo digit-vs-kana spelling (100→ひゃく)",
+        "orphan_audio": "audio/grammar/n5-034.9.mp3"
+      },
+      {
+        "pattern": "n5-035",
+        "dropped_index": 9,
+        "dropped_example": {
+          "ja": "じゅっぷんぐらい かかります。",
+          "form": "time-required-approx",
+          "translation_en": "It takes about 10 minutes.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.27-verbs-group-1-verbs.かかる",
+            "n5.vocab.35-particles-functional-.ぐらい"
+          ],
+          "audio": "audio/grammar/n5-035.9.mp3",
+          "pitch_marks": [
+            {
+              "form": "ぐらい",
+              "mora": 3,
+              "drop": 1
+            },
+            {
+              "form": "かります",
+              "mora": 4,
+              "drop": 1
+            }
+          ],
+          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+        },
+        "reason": "duplicate of [2] modulo digit-vs-kana spelling (10→じゅう)",
+        "orphan_audio": "audio/grammar/n5-035.9.mp3"
+      },
+      {
+        "pattern": "n5-092",
+        "dropped_index": 7,
+        "dropped_example": {
+          "ja": "つくえに ほんが あります。",
+          "form": "location-inanimate",
+          "translation_en": "There is a book on the desk.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.つくえ",
+            "n5.vocab.27-verbs-group-1-verbs.つく",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.に"
+          ],
+          "audio": "audio/grammar/n5-092.7.mp3",
+          "pitch_marks": [
+            {
+              "form": "つくえ",
+              "mora": 3,
+              "drop": 0
+            },
+            {
+              "form": "ほん",
+              "mora": 2,
+              "drop": 1
+            }
+          ],
+          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+        },
+        "reason": "duplicate of [0] sans 上 (locative position word) — accidental",
+        "orphan_audio": "audio/grammar/n5-092.7.mp3"
+      },
+      {
+        "pattern": "n5-093",
+        "dropped_index": 7,
+        "dropped_example": {
+          "ja": "ほんは つくえに あります。",
+          "form": "topic-location",
+          "translation_en": "The book is on the desk.",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.24-school-and-study.つくえ",
+            "n5.vocab.27-verbs-group-1-verbs.つく",
+            "n5.vocab.30-verbs-existence-and-p.ある",
+            "n5.vocab.35-particles-functional-.は",
+            "n5.vocab.35-particles-functional-.に"
+          ],
+          "audio": "audio/grammar/n5-093.7.mp3",
+          "pitch_marks": [
+            {
+              "form": "ほん",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "つくえ",
+              "mora": 3,
+              "drop": 0
+            }
+          ],
+          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
+          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
+        },
+        "reason": "duplicate of [0] sans 上 (locative position word) — accidental",
+        "orphan_audio": "audio/grammar/n5-093.7.mp3"
+      },
+      {
+        "pattern": "n5-103",
+        "dropped_index": 4,
+        "dropped_example": {
+          "ja": "日本語を 話す ことが できます。",
+          "translation_en": "I can speak Japanese.",
+          "source": "vocab.n5.vocab.2-people-family.あに.examples[1]",
+          "provenance": "auto_xref_vocab_corpus",
+          "vocab_ids": [],
+          "pitch_marks": [],
+          "audio": "audio/grammar/n5-103.4.mp3",
+          "form": "affirmative",
+          "form_provenance": "auto_derived_form_2026_05_13"
+        },
+        "reason": "duplicate of [0] — expanded form (話す ことが できます) carries same EN",
+        "orphan_audio": "audio/grammar/n5-103.4.mp3"
+      },
+      {
+        "pattern": "n5-109",
+        "dropped_index": 6,
+        "dropped_example": {
+          "ja": "なんにん 学生が いますか。",
+          "translation_en": "How many students are there?",
+          "provenance": "llm_curated",
+          "vocab_ids": [
+            "n5.vocab.3-people-roles.学生",
+            "n5.vocab.28-verbs-group-2-verbs.いる",
+            "n5.vocab.35-particles-functional-.が",
+            "n5.vocab.35-particles-functional-.か"
+          ],
+          "pitch_marks": [
+            {
+              "form": "学生",
+              "mora": 2,
+              "drop": 0
+            },
+            {
+              "form": "にん",
+              "mora": 2,
+              "drop": 1
+            },
+            {
+              "form": "いま",
+              "mora": 2,
+              "drop": 1
+            }
+          ],
+          "audio": "audio/grammar/n5-109.6.mp3",
+          "form": "question",
+          "form_provenance": "auto_derived_form_2026_05_13"
+        },
+        "reason": "word-order variant of [4]; same content, no contrastive intent",
+        "orphan_audio": "audio/grammar/n5-109.6.mp3"
+      }
+    ],
+    "annotations": [
+      {
+        "pattern": "n5-044",
+        "pair": [
+          4,
+          7
+        ],
+        "intent": "teaches synonym pair やる vs する for verb-of-doing"
+      },
+      {
+        "pattern": "n5-059",
+        "pair": [
+          0,
+          9
+        ],
+        "intent": "teaches topic-drop (with vs without わたしは)"
+      },
+      {
+        "pattern": "n5-062",
+        "pair": [
+          1,
+          8
+        ],
+        "intent": "teaches へ vs に particle equivalence for destination"
+      },
+      {
+        "pattern": "n5-073",
+        "pair": [
+          2,
+          5
+        ],
+        "intent": "teaches word-order flexibility with まだ + V-ていません"
+      },
+      {
+        "pattern": "n5-082",
+        "pair": [
+          1,
+          8
+        ],
+        "intent": "teaches その vs あの demonstrative contrast (mid-distance vs far)"
+      }
+    ],
+    "orphan_audio_files": [
+      "audio/grammar/n5-034.9.mp3",
+      "audio/grammar/n5-035.9.mp3",
+      "audio/grammar/n5-092.7.mp3",
+      "audio/grammar/n5-093.7.mp3",
+      "audio/grammar/n5-103.4.mp3",
+      "audio/grammar/n5-109.6.mp3"
+    ],
+    "note": "Orphan audio files exist on disk; audio_manifest entries remain. Consistent with BUG-D leftover handling (Part 56). Manifest trim deferred to a future cleanup pass."
   }
 }
