@@ -59,10 +59,10 @@ LISTENING = DATA_DIR / "listening.json"
 SITE_BASE = "https://gauravaccentureproducts.github.io/JLPTSuccess/"
 N5_BASE = SITE_BASE + "N5/"
 
-# How long (ms) to wait before JS-redirecting to SPA. Long enough that
-# search-engine bots which abort JS execution early still see the
-# static content; short enough that human users don't wait visibly.
-JS_REDIRECT_DELAY_MS = 1500
+# SPA cache-buster version — must match the `?v=...` in index.html's
+# script tag so the mirrors load the same minified bundle the SPA root
+# does. Bumped 2026-05-24 with the history-mode migration to v1.17.0.
+SPA_VERSION = "1.17.0"
 
 
 # ----- Common HTML chrome -----
@@ -112,24 +112,14 @@ INLINE_CSS = """
   }
 """
 
-# JS that redirects to the SPA hash route after a short delay so bots
-# rendering JS still capture the static content (they typically time
-# out execution before this fires).
-JS_REDIRECT_TEMPLATE = """
-<script>
-(function(){{
-  var goToSPA = function(){{ location.href = {spa_url_json}; }};
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {{
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, {delay_ms});
-  }} catch (e) {{ /* never fail the static render on JS error */ }}
-}})();
-</script>
-"""
+# SPA boot script — loaded at end of <body>. The SPA's app.js reads
+# location.pathname (history-mode routing) and renders the route into
+# the <main id="app"> wrapper. Crawlers without JS see the static
+# pre-rendered content. Users with JS see the same content briefly
+# until the SPA boots and replaces #app with the interactive version.
+# Single URL serves both audiences — replaces the pre-v1.17 hash-
+# routing dual-surface architecture (static mirror + SPA redirect).
+SPA_BOOT_SCRIPT_TEMPLATE = '<script type="module" src="{spa_js_path}"></script>'
 
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="{lang}">
@@ -151,13 +141,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:title" content="{og_title}">
 <meta name="twitter:description" content="{description}">
 <style>{inline_css}</style>
-{js_redirect}
+<link rel="stylesheet" href="{main_css_path}">
 </head>
 <body>
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="{spa_url}">Open the interactive version</a>{interactive_note}
-</p>
+<main id="app">
+<p class="meta-banner"><a href="{n5_root}">&larr; JLPT N5 home</a></p>
 <h1>{h1}</h1>
 {body}
 <footer>
@@ -165,6 +153,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <p>Part of <a href="{n5_root}">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="{n5_root}CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   {footer_meta}
 </footer>
+</main>
+{spa_boot_script}
 </body>
 </html>
 """
@@ -222,10 +212,9 @@ def _build_page(
                 parts.append(_esc(label))
         breadcrumb_html = " · ".join(parts)
 
-    js_redirect = JS_REDIRECT_TEMPLATE.format(
-        spa_url_json=json.dumps(spa_url),
-        delay_ms=JS_REDIRECT_DELAY_MS,
-    )
+    main_css_path = n5_root + "css/main.min.css"
+    spa_js_path = n5_root + f"js/min/app.js?v={SPA_VERSION}"
+    spa_boot_script = SPA_BOOT_SCRIPT_TEMPLATE.format(spa_js_path=spa_js_path)
 
     return PAGE_TEMPLATE.format(
         lang=lang,
@@ -236,9 +225,8 @@ def _build_page(
         og_title=_esc(og_title or title_tag),
         og_image=_esc(og_img),
         inline_css=INLINE_CSS,
-        js_redirect=js_redirect,
-        spa_url=_esc(spa_url),
-        interactive_note=interactive_note,
+        main_css_path=main_css_path,
+        spa_boot_script=spa_boot_script,
         h1=_esc(h1),
         body=body_html,
         n5_root=n5_root,
@@ -404,12 +392,17 @@ def _render_grammar_pattern_body(p: dict) -> tuple[str, str]:
 def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
     """Stage 1 — grammar pattern mirrors.
 
+    History-mode (2026-05-24 onward): each pattern lives at
+    learn/<pid>/index.html (not learn/grammar/<pid>/) — clean URL =
+    SPA URL = single source of truth. The mirror boots the SPA in
+    place rather than redirecting after 1.5s.
+
     Returns (written, unchanged, total).
     """
     g = json.loads(GRAMMAR.read_text(encoding="utf-8"))
     patterns = g.get("patterns", [])
 
-    out_root = ROOT / "learn" / "grammar"
+    out_root = ROOT / "learn"
     written = 0
     unchanged = 0
 
@@ -422,8 +415,9 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
         tier = p.get("tier") or ""
         category = p.get("category") or ""
 
+        # New layout: learn/<pid>/index.html (depth=2 from N5 root)
         out_path = out_root / pid / "index.html"
-        canonical = f"{N5_BASE}#/learn/{pid}"
+        canonical = f"{N5_BASE}learn/{pid}/"
         spa_url = canonical
 
         footer_meta = (
@@ -434,8 +428,8 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
         )
 
         breadcrumb = [
-            ("Home", _relative_root_from(3) + "#/home"),
-            ("Grammar", "../index.html"),
+            ("Home", _relative_root_from(2)),
+            ("Grammar", "../grammar/"),
             (title, ""),
         ]
 
@@ -447,7 +441,7 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
             canonical_url=canonical,
             spa_url=spa_url,
             body_html=body,
-            depth=3,
+            depth=2,
             og_title=f"{title} — JLPT N5 Grammar",
             breadcrumb=breadcrumb,
             footer_meta_html=footer_meta,
@@ -458,9 +452,9 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
         else:
             unchanged += 1
 
-        # Sitemap: list canonical SPA URL plus the static mirror.
-        # The static mirror is the actual crawlable artifact.
-        mirror_url = f"{N5_BASE}learn/grammar/{pid}/"
+        # Sitemap: the static mirror IS the canonical URL now
+        # (history-mode = single URL per pattern).
+        mirror_url = canonical
         sitemap_urls.append(mirror_url)
 
     # Grammar index page
@@ -483,8 +477,12 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
             pid = p.get("id")
             title = p.get("pattern") or pid
             gloss = (p.get("meaning_en") or "")[:80]
+            # Pattern mirrors live one level up at learn/<pid>/ in
+            # history-mode (post-migration 2026-05-24). From this
+            # listing at learn/grammar/index.html, the relative path
+            # is ../<pid>/.
             idx_parts.append(
-                f'<a class="index-card" href="{_esc(pid)}/">'
+                f'<a class="index-card" href="../{_esc(pid)}/">'
                 f'<span class="label" lang="ja">{_esc(title)}</span> — '
                 f'<span class="gloss">{_esc(gloss)}</span>'
                 f'</a>'
@@ -492,26 +490,30 @@ def build_grammar(sitemap_urls: list[str]) -> tuple[int, int, int]:
         idx_parts.append("</section>")
     idx_body = "\n".join(idx_parts)
 
-    idx_canonical = f"{N5_BASE}#/learn/grammar"
-    idx_path = out_root / "index.html"
+    # Grammar listing page stays at learn/grammar/index.html (the SPA
+    # route /learn/grammar/ matches). Pattern mirrors moved to
+    # learn/<pid>/ per the history-mode migration. The listing's
+    # per-pattern links point UP one level to ../<pid>/.
+    idx_canonical = f"{N5_BASE}learn/grammar/"
+    idx_path = ROOT / "learn" / "grammar" / "index.html"
     idx_html = _build_page(
         lang="en",
         title_tag="N5 Grammar — All Patterns (static index)",
         h1="N5 Grammar — All Patterns",
-        description=f"All {len(patterns)} N5 grammar patterns, organized by category. Static index for non-JS clients; interactive version at the SPA route.",
+        description=f"All {len(patterns)} N5 grammar patterns, organized by category. Static index for non-JS clients; SPA enhances on hydration.",
         canonical_url=idx_canonical,
         spa_url=idx_canonical,
         body_html=idx_body,
         depth=2,
         og_title="N5 Grammar — All Patterns",
-        breadcrumb=[("Home", "../../#/home"), ("Grammar", "")],
+        breadcrumb=[("Home", "../../"), ("Grammar", "")],
         footer_meta_html=f"<p>{len(patterns)} patterns indexed.</p>",
     )
     if _write_if_changed(idx_path, idx_html):
         written += 1
     else:
         unchanged += 1
-    sitemap_urls.append(f"{N5_BASE}learn/grammar/")
+    sitemap_urls.append(idx_canonical)
 
     return written, unchanged, len(patterns)
 
