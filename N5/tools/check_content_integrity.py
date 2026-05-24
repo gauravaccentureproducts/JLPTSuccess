@@ -1509,6 +1509,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     # echo with explicit STALE-MARKERs / read-not-recalled attestation),
     # so future prompt edits cannot accidentally drop the defenses.
     ("JA-161", "docs/REVIEW-PACKET-PROMPT.md retains the 3-block preflight + 4 v1.16.8 stale-content markers (v4-reviewer recall-not-read guard, 2026-05-24)", lambda: _check_ja_161_review_prompt_preflight_lock()),
+    # JA-162 (2026-05-24): BUG-F explanation_ja non-empty lock.
+    # BUG-F split meaning_ja > 100 chars on 4 patterns (n5-098, n5-154,
+    # n5-166, n5-183); the tail moved to a new explanation_ja field.
+    # If a future edit clears explanation_ja while leaving meaning_ja
+    # un-merged, the pattern would lose the tail content silently.
+    # JA-162 locks: every pattern that has an explanation_ja key has
+    # non-empty content (no silent emptying).
+    ("JA-162", "every pattern with an explanation_ja field has non-empty content (BUG-F lock, 2026-05-24)", lambda: _check_ja_162_explanation_ja_non_empty()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8592,6 +8600,47 @@ def _check_ja_161_review_prompt_preflight_lock() -> list[str]:
                 f"marker before shipping. (Per F.44.29 reviewer-prompt-"
                 f"preflight discipline.)"
             )
+    return failures
+
+
+def _check_ja_162_explanation_ja_non_empty() -> list[str]:
+    """BUG-F explanation_ja non-empty lock (2026-05-24).
+
+    BUG-F split meaning_ja > 100 chars on 4 patterns (n5-098, n5-154,
+    n5-166, n5-183); the tail content moved to a new explanation_ja
+    field. If a future edit clears explanation_ja while leaving
+    meaning_ja unchanged, the pattern would lose the tail content
+    silently — the UI renderer would have nothing to display.
+
+    JA-162 catches that: every pattern that has an `explanation_ja`
+    key must have a non-empty string value.
+
+    Author-authority discipline: this is a structural lock, not a
+    content-quality check. The 4 BUG-F splits are forensically
+    documented in data/grammar.fix_log.json BUG-F section; this
+    invariant prevents silent emptying of the field.
+    """
+    import json as _json
+    p = ROOT / "data" / "grammar.json"
+    if not p.exists():
+        return ["JA-162: data/grammar.json missing"]
+    try:
+        data = _json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-162: parse error: {e}"]
+    failures = []
+    for pat in data.get("patterns", []):
+        pid = pat.get("id", "?")
+        if "explanation_ja" in pat:
+            val = pat.get("explanation_ja")
+            if not isinstance(val, str) or not val.strip():
+                failures.append(
+                    f"JA-162 {pid}: explanation_ja key present but value "
+                    f"is empty or non-string ({val!r}). BUG-F splits the "
+                    f"meaning_ja tail into this field; emptying it loses "
+                    f"the tail content (see data/grammar.fix_log.json "
+                    f"BUG-F)."
+                )
     return failures
 
 

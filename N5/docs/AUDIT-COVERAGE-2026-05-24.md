@@ -268,9 +268,57 @@ exiting):**
 - Procedure manual: `JLPT Common/procedure-manual-build-next-jlpt-level.md`
   F.44.31 + F.44.32 (audit-cluster discipline)
 - Accuracy prompt: `prompts/Japanese language Accuracy check.txt`
-  FP-17 + FP-18 + A-17 + A-18
+  FP-17 + FP-18 + A91 + A92
 - N5Improvement: `prompts/N5Improvement.txt` → Phase-0 audit-cluster
   discipline block
 - Bug tracker: `specifications/test-scenarios-by-specialist-perspective.xlsx`
   rows 215-222 (BUG-A..H with Severity / Priority / Status / Fix Commit)
-- CI invariants at this checkpoint: 163 (all pass; JA-51 floor preserved).
+- CI invariants at this checkpoint: 164 (all pass; JA-51 floor preserved;
+  JA-162 added to lock explanation_ja non-emptiness).
+
+---
+
+## Part 53 — BUG-A..H followups (added 2026-05-24, post-936f6950)
+
+After the initial sweep commit landed, 7 follow-up items were identified
+(captured in the conversation). 6 actionable items resolved in this part;
+items 3-5 require native-human review and remain queued.
+
+| Item | Status | Resolution |
+|---|---|---|
+| 1: Blank xlsx Pass cells | DONE | `tools/xlsx_blank_ts_pass_cells_2026_05_24.py` — 1780 cells cleared (TS-02..TS-10 + Overall across 178 rows); replaced with "Pending native review (programmatic-only)". Reviewer / Reviewed Date / Native Review Status columns now sole verdict source. |
+| 2: explanation_ja renderer + JA-NN | DONE | `js/learn-grammar.js` adds `<p class="grammar-explanation-ja">…</p>` after the meaning_ja paragraph. Rebuilt minified JS. JA-162 invariant added: every pattern with an `explanation_ja` key must have non-empty content (4 patterns: n5-098, n5-154, n5-166, n5-183). Browser-verified on n5-098. |
+| 3: Native review of 47 backfilled cm | QUEUED | Rows promoted from wcp; tagged `source="promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"`. Native reviewer should confirm pedagogical appropriateness as cm entries vs only fitting the wcp affordance. |
+| 4: Native review of 9 Claude rewrites | QUEUED | BUG-C n5-025[2] + n5-166[1]; BUG-H n5-019[1], n5-023[1], n5-077[1], n5-105[1], n5-133[2], n5-133[3], n5-155[0]; plus 3 followup-item-6 substantive-variant rewrites on n5-126[2], n5-155[0], n5-166[1] (overlap with BUG-H rows). |
+| 5: Native review of 4 explanation_ja splits | QUEUED | n5-098, n5-154, n5-166, n5-183. Reviewer should confirm split point yields a self-contained meaning_ja head. |
+| 6: Substantive variants for 3 aggressive-norm cm rows | DONE | `tools/fix_pending_followups_2026_05_24.py` — rewrote n5-126[2], n5-155[0], n5-166[1] with substantive learner-error variants (different conjunction / different register / spurious-で morphology). All 3 now distinct under BOTH aggressive and strip-only norms. Logged to `data/grammar.fix_log.json` `BUG-A_followup_item6` section. |
+| 7: TS-* Pass count audit report | DONE | `tools/audit_ts_pass_counts_2026_05_24.py` — programmatic re-run against acceptance criteria: TS-02 178/178 (≥175 ✓), TS-03 178/178 (=178 ✓), TS-04 178/178 (=178 ✓), TS-09 178/178 (≥175 ✓), TS-10 178/178 (≥175 ✓). All 5 targets MET. Report at `docs/audit_ts_pass_report_2026_05_24.json`. |
+
+**Bounded coverage (Part 53):**
+- "Pass cells blanked" — applies to the 1780 cells with values starting
+  with "Pass*" at scan time; does NOT prevent re-introduction if a future
+  programmatic verdict-writer regenerates the cells. To prevent
+  re-introduction, the xlsx-writer tool needs a Reviewer/Date column
+  contract.
+- "explanation_ja renderer wired + JA-162 lock" — covers the 4 patterns
+  with explanation_ja today; a future BUG-F-shape split (e.g., on N4)
+  would re-add the field and JA-162 covers that automatically. Renderer
+  is shared across all patterns; JA-162 is shared across all corpus.
+- "Items 3-5 documented as queued" — does NOT replace native human review;
+  the rows are tagged with provenance + audit_wave to make a future native
+  review pass easy to filter.
+- "TS-* acceptance MET (178/178 on all 5)" — measured by the
+  programmatic predicate slices in `tools/audit_ts_pass_counts_2026_05_24.py`;
+  predicates use schema-shape checks, not native-quality checks. The
+  underlying content-quality remains in the native-review queue.
+
+**Tools added in Part 53:**
+- `tools/xlsx_blank_ts_pass_cells_2026_05_24.py` — blank the TS Pass grid
+- `tools/fix_pending_followups_2026_05_24.py` — item-6 substantive rewrites
+- `tools/audit_ts_pass_counts_2026_05_24.py` — item-7 TS audit re-run
+- `docs/audit_ts_pass_report_2026_05_24.json` — TS audit report sidecar
+
+**Cross-references (Part 53):**
+- Bug tracker: BUG-A..H rows 215-222 remain Fixed; no new BUG-NNN entries
+  needed (followups are scope-extensions of the same clusters).
+- CI invariants at this checkpoint: 164 (JA-162 added; all green).

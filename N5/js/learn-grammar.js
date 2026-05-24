@@ -778,6 +778,7 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       <section>
         <h3 class="section-title">意味（やさしい にほんご）</h3>
         <p>${renderJa(p.meaning_ja)}</p>
+        ${p.explanation_ja ? `<p class="grammar-explanation-ja">${renderJa(p.explanation_ja)}</p>` : ''}
       </section>
 
       ${p.notes ? `<section><h3 class="section-title">${esc(t('grammar_detail.notes'))}</h3><p>${esc(p.notes)}</p></section>` : ''}

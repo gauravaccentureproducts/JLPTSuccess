@@ -52445,13 +52445,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "高いです。が、おいしいです。",
+          "wrong": "高いですから、おいしいです。",
           "right": "高いですが、おいしいです。",
-          "why": "Mid-sentence が attaches to the previous clause without a sentence break.",
+          "why": "Use が for CONTRAST ('high BUT delicious'). から means BECAUSE/SO and would imply 'because expensive, therefore delicious' — wrong logic. Pattern: [polite-clause]が、[polite-clause] for contrastive connection.",
           "category": "register",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+          "source": "BUG-A..H followup item-6 (substantive variant)"
         }
       ],
       "contrasts": [
@@ -62824,14 +62824,15 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "むずかしいですが おもしろいです。",
+          "wrong": "むずかしいけど、おもしろいですが。",
           "right": "むずかしいですが、おもしろいです。",
-          "why": "In written Japanese, mid-sentence が is followed by a comma (、) to mark the clause break. Without 、 the two clauses run together visually. Pattern: [clause-A]が、[clause-B].",
+          "why": "けど is the casual contrastive; pairs with plain forms (むずかしい+けど). With polite-form clauses use が (or けれども). Don't mix plain-form けど + polite-form です. Pattern: [polite-clause]が、[polite-clause].",
           "category": "register",
           "category_provenance": "heuristic_categorized",
           "provenance": "auto_fix_2026_05_24",
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "BUG-A..H followup item-6 (substantive variant)"
         },
         {
           "wrong": "コーヒーは すきです、おちゃは すきじゃありません。",
@@ -67687,12 +67688,13 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "おはよう ございます。",
+          "wrong": "おはようでございます。",
           "right": "おはようございます。",
-          "why": "おはようございます is one combined word — don't insert a space between おはよう and ございます. Written as a single token in modern Japanese. The polite morning greeting form is おはよう + ございます fused together.",
-          "category": "conjugation",
+          "why": "おはようございます is a fixed greeting — one fused word. Don't insert で between おはよう and ございます; the compound is not [おはよう] + [で] + [ございます]. The morning-polite form is morphologically a single unit.",
+          "category": "register",
           "provenance": "auto_fix_2026_05_24",
-          "audit_wave": "claude_audit_2026_05_24"
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "BUG-A..H followup item-6 (substantive variant)"
         },
         {
           "wrong": "いただきますを どうぞ。",
@@ -77447,7 +77449,7 @@
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
-    "version": "2026.05.24-content-fixes",
+    "version": "2026.05.24-followups",
     "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split."
   },
   "_translation_status": {
