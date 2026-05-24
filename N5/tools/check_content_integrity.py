@@ -1517,6 +1517,12 @@ CHECKS: list[tuple[str, str, callable]] = [
     # JA-162 locks: every pattern that has an explanation_ja key has
     # non-empty content (no silent emptying).
     ("JA-162", "every pattern with an explanation_ja field has non-empty content (BUG-F lock, 2026-05-24)", lambda: _check_ja_162_explanation_ja_non_empty()),
+    # JA-163 (2026-05-24): review_status lock for the BUG-A..H audit-cluster
+    # auto-fix rows. Every common_mistakes row tagged with
+    # provenance=auto_fix_2026_05_24 MUST carry a review_status (any value)
+    # so a future edit that drops review_status silently is caught.
+    # Prevents silent un-reviewing of the 8 rewritten + 53 PASS rows.
+    ("JA-163", "every cm row with provenance=auto_fix_2026_05_24 carries a review_status (BUG-A..H native-review lock, 2026-05-24)", lambda: _check_ja_163_auto_fix_review_status_lock()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8600,6 +8606,47 @@ def _check_ja_161_review_prompt_preflight_lock() -> list[str]:
                 f"marker before shipping. (Per F.44.29 reviewer-prompt-"
                 f"preflight discipline.)"
             )
+    return failures
+
+
+def _check_ja_163_auto_fix_review_status_lock() -> list[str]:
+    """BUG-A..H native-review lock (2026-05-24).
+
+    The BUG-A..H audit-cluster sweep tagged every mutated cm row with
+    `provenance="auto_fix_2026_05_24"`. After the native-reviewer pass
+    (Part 54), every such row also carries `review_status` (either a
+    rewrite verdict or a PASS mark).
+
+    JA-163 catches the regression where a future edit accidentally
+    clears `review_status` while keeping `provenance` — that would
+    silently un-review a row.
+
+    Scope: only rows with `provenance="auto_fix_2026_05_24"` in
+    common_mistakes; other rows are not subject to the lock (they
+    pre-date the audit-cluster sweep and have their own review_status
+    conventions or none).
+    """
+    import json as _json
+    p = ROOT / "data" / "grammar.json"
+    if not p.exists():
+        return ["JA-163: data/grammar.json missing"]
+    try:
+        data = _json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-163: parse error: {e}"]
+    failures = []
+    for pat in data.get("patterns", []):
+        pid = pat.get("id", "?")
+        for i, cm in enumerate(pat.get("common_mistakes") or []):
+            if cm.get("provenance") == "auto_fix_2026_05_24":
+                rs = cm.get("review_status")
+                if not isinstance(rs, str) or not rs.strip():
+                    failures.append(
+                        f"JA-163 {pid} cm[{i}]: provenance=auto_fix_2026_05_24 "
+                        f"but review_status is missing or empty. Every "
+                        f"audit-cluster mutated row must carry a review_status "
+                        f"(see docs/AUDIT-COVERAGE-2026-05-24.md Part 54)."
+                    )
     return failures
 
 
