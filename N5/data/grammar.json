@@ -2922,12 +2922,12 @@
         {
           "wrong": "カフェに コーヒーを 飲みます。",
           "correct": "カフェで コーヒーを 飲みます。",
-          "why": "Action-location uses で, not に. This is a frequent N5 learner error on pattern で; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "Action-location uses で, not に.",
           "provenance": "auto_fix_2026_05_24",
           "error_category": "particle",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "バスに がっこうへ いきます。",
@@ -19163,12 +19163,12 @@
         {
           "wrong": "どれは ペンですか。",
           "correct": "どれが ペンですか。",
-          "why": "Q-word どれ takes が. This is a frequent N5 learner error on pattern どれ / どの / どちら; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "Q-word どれ takes が.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "authentic_citations": [
@@ -20316,12 +20316,12 @@
         {
           "wrong": "どうやってに きましたか。",
           "correct": "どうやって きましたか。",
-          "why": "どうやって takes no particle. This is a frequent N5 learner error on pattern どうやって; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "どうやって takes no particle.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "どうやって よみますか。",
@@ -21121,12 +21121,12 @@
         {
           "wrong": "りんごは いくつに ありますか。",
           "correct": "りんごは いくつ ありますか。",
-          "why": "いくつ takes no particle. This is a frequent N5 learner error on pattern いくつ; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "いくつ takes no particle.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "authentic_citations": [
@@ -33125,12 +33125,12 @@
         {
           "wrong": "たかいくなかったです。",
           "correct": "たかくなかったです。",
-          "why": "Drop い + くなかった: 高い→高くなかった. This is a frequent N5 learner error on pattern い-Adjective past negative: 〜くなかったです / 〜くありませんでした; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+          "why": "Drop い + くなかった: 高い→高くなかった.",
           "error_category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "たかくありませんかった。",
@@ -33591,12 +33591,12 @@
         {
           "wrong": "いいくて おいしいです。",
           "correct": "よくて おいしいです。",
-          "why": "いい→よくて (irregular stem-switch). This is a frequent N5 learner error on pattern い-Adjective て-form: 〜くて; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+          "why": "いい→よくて (irregular stem-switch).",
           "error_category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "おいしいくて たかいです、すしは。",
@@ -35815,12 +35815,12 @@
         {
           "wrong": "げんきじゃありませんでした と、おもいます。",
           "correct": "げんきじゃありませんでしたと、おもいます。",
-          "why": "No space before quotative と. This is a frequent N5 learner error on pattern な-Adjective past negative: 〜じゃありませんでした; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+          "why": "No space before quotative と.",
           "error_category": "word_order",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "politeness_ladder": {
@@ -37117,12 +37117,12 @@
         {
           "wrong": "本が います。",
           "correct": "本が あります。",
-          "why": "Inanimate takes あります. This is a frequent N5 learner error on pattern います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "why": "Inanimate takes あります.",
           "provenance": "auto_fix_2026_05_24",
           "error_category": "lexicon",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "ともだちが あります。",
@@ -37508,12 +37508,12 @@
         {
           "wrong": "へやで テーブルが あります。",
           "correct": "へやに テーブルが あります。",
-          "why": "Existence-location uses に, not で. This is a frequent N5 learner error on pattern 〜に〜があります / います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "why": "Existence-location uses に, not で.",
           "provenance": "auto_fix_2026_05_24",
           "error_category": "lexicon",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "がっこうで ねこが います。",
@@ -38306,12 +38306,12 @@
         {
           "wrong": "うちに ねこが あります。",
           "correct": "うちに ねこが います。",
-          "why": "Animate → います. This is a frequent N5 learner error on pattern 〜があります; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "why": "Animate → います.",
           "error_category": "lexicon",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "ほんが あった。",
@@ -39186,12 +39186,12 @@
         {
           "wrong": "こうちゃから コーヒーの ほうが すきです。",
           "correct": "こうちゃより コーヒーの ほうが すきです。",
-          "why": "Comparison takes より, not から. This is a frequent N5 learner error on pattern 〜より〜のほうが〜です; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "Comparison takes より, not から.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "authentic_citations": [
@@ -40933,12 +40933,12 @@
         {
           "wrong": "テニスを じょうずです。",
           "correct": "テニスが じょうずです。",
-          "why": "じょうず/へた take が, not を. This is a frequent N5 learner error on pattern 〜がじょうずです / へたです; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "why": "じょうず/へた take が, not を.",
           "provenance": "auto_fix_2026_05_24",
           "error_category": "lexicon",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "わたしは にほんごを じょうずです。",
@@ -43439,12 +43439,12 @@
         {
           "wrong": "ほしいくないです。",
           "correct": "ほしくないです。",
-          "why": "い-Adj negative drops い: ほしい→ほしく+ない. This is a frequent N5 learner error on pattern Noun + が ほしいです; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+          "why": "い-Adj negative drops い: ほしい→ほしく+ない.",
           "error_category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "authentic_citations": [
@@ -51743,12 +51743,12 @@
         {
           "wrong": "しかしに、ちがいます。",
           "correct": "しかし、ちがいます。",
-          "why": "しかし takes no particle. This is a frequent N5 learner error on pattern しかし; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "しかし takes no particle.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "むずかしい でも しかし、たのしい です。",
@@ -55453,12 +55453,12 @@
         {
           "wrong": "おそいから ですから、 いかない。",
           "correct": "おそいですから、 いきません。",
-          "why": "Single から; do not double. This is a frequent N5 learner error on pattern Sentence + から、Sentence; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+          "why": "Single から; do not double.",
           "error_category": "word_order",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "authentic_citations": [
@@ -57322,12 +57322,12 @@
         {
           "wrong": "にほん ほん。",
           "correct": "にほんの ほん。",
-          "why": "Noun-noun linkage requires の. This is a frequent N5 learner error on pattern Noun + の + Noun; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "Noun-noun linkage requires の.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "にほんの の ほん。",
@@ -60210,12 +60210,12 @@
         {
           "wrong": "いつもに テレビを みます。",
           "correct": "いつも テレビを みます。",
-          "why": "いつも takes no particle. This is a frequent N5 learner error on pattern いつも / たいてい / たまに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "いつも takes no particle.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "politeness_ladder": {
@@ -63054,12 +63054,12 @@
         {
           "wrong": "たかいですがが、おいしいです。",
           "correct": "たかいですが、おいしいです。",
-          "why": "Single が only. This is a frequent N5 learner error on pattern 〜が、〜; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+          "why": "Single が only.",
           "error_category": "word_order",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "politeness_ladder": {
@@ -65682,12 +65682,12 @@
         {
           "wrong": "がっこうまえに、 たべます。",
           "correct": "がっこうのまえに、 たべます。",
-          "why": "Noun + まえに needs の. This is a frequent N5 learner error on pattern Noun + の + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "Noun + まえに needs の.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "がっこうのまえで、 たべます。",
@@ -66119,12 +66119,12 @@
         {
           "wrong": "たべるまえで、 ねます。",
           "correct": "たべるまえに、 ねます。",
-          "why": "Time-before takes に, not で. This is a frequent N5 learner error on pattern V-plain + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "Time-before takes に, not で.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "authentic_citations": [
@@ -66609,12 +66609,12 @@
         {
           "wrong": "たべるあとで。",
           "correct": "たべたあとで。",
-          "why": "あとで takes PAST plain (Vた). This is a frequent N5 learner error on pattern V-た + あとで; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+          "why": "あとで takes PAST plain (Vた).",
           "error_category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "たべたあとに。",
@@ -67148,7 +67148,7 @@
       "categoryOrder": 23,
       "patternOrder": 2,
       "meaning_en": "お〜 / ご〜 - beautifying / honorific prefixes",
-      "meaning_ja": "「お〜／ご〜」は ことばの 前に つけて、ていねいな いいかたを つくります。お(wa-go): お花、お水。ご(kan-go): ごりょうしん、ごあいさつ。",
+      "meaning_ja": "「お〜／ご〜」は ことばの 前に つけて、ていねいな いいかたを つくります。お は やまとことばに つけます：お花、お水。",
       "form_rules": {
         "attaches_to": [
           "before_noun"
@@ -67554,7 +67554,9 @@
       ],
       "review_status_provenance": "claude_native_reviewer_persona",
       "provenance": "auto_fix_2026_05_24",
-      "audit_wave": "claude_audit_2026_05_24"
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "やまとことば/かんご Latin terms replaced; pattern-level review status updated to closed-enum value.",
+      "explanation_ja": "ご は ちゅうごくから きた ことば（かんご）に つけます：ごりょうしん、ごあいさつ。"
     },
     {
       "id": "n5-166",
@@ -67943,12 +67945,12 @@
         {
           "wrong": "いただく ます。",
           "correct": "いただきます。",
-          "why": "Set phrase いただきます; not separated. This is a frequent N5 learner error on pattern いただきます / ごちそうさま / おはようございます etc.; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+          "why": "Set phrase いただきます; not separated.",
           "error_category": "word_order",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "ごちそうさまだ。",
@@ -71521,12 +71523,12 @@
         {
           "wrong": "たべないて はならない。",
           "correct": "たべなくては ならない。",
-          "why": "Negative is なくて, not ないて. This is a frequent N5 learner error on pattern 〜なくてはならない; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+          "why": "Negative is なくて, not ないて.",
           "error_category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         },
         {
           "wrong": "たべなくては なります。",
@@ -75039,7 +75041,7 @@
       "categoryOrder": 4,
       "patternOrder": 17,
       "meaning_en": "Question word + か / も - 'something / anyone' compounds",
-      "meaning_ja": "「だれか／なにか／どこか」は ある人・もの・ばしょを いいます。「だれも／なにも／どこも」は (with negative) いない・ない、と いう いみに なります。",
+      "meaning_ja": "「だれか／なにか／どこか」は ある人・もの・ばしょを いいます。「だれも／なにも／どこも」は ない／ません と いっしょに つかって、「いない・ない」と いう いみに なります。",
       "form_rules": {
         "attaches_to": [
           "question_word"
@@ -75450,7 +75452,8 @@
       "provenance": "auto_fix_2026_05_24",
       "audit_wave": "claude_audit_2026_05_24",
       "explanation_ja_review_status": "ai_native_reviewer_2026_05_24",
-      "explanation_ja_reviewer_note": "PASS — meaning_ja head is self-contained (rule statement); explanation_ja tail carries example sentences or memorization advice. Split point preserves readability."
+      "explanation_ja_reviewer_note": "PASS — meaning_ja head is self-contained (rule statement); explanation_ja tail carries example sentences or memorization advice. Split point preserves readability.",
+      "reviewer_note": "\"(with negative)\" English aside replaced with ない／ません と いっしょに."
     },
     {
       "id": "n5-184",
@@ -75844,7 +75847,7 @@
       "categoryOrder": 4,
       "patternOrder": 19,
       "meaning_en": "Someone / no one",
-      "meaning_ja": "「だれか」は 「ある人」、「だれも」は (with negative) 「みんな〜ない／いない」を いいます。「だれかが 来ました」「だれも いません」。",
+      "meaning_ja": "「だれか」は 「ある人」、「だれも」は ない／ません と いっしょに つかって 「みんな〜ない／いない」を いいます。「だれかが 来ました」「だれも いません」。",
       "form_rules": {
         "attaches_to": [],
         "conjugations": [
@@ -76269,7 +76272,10 @@
         "ある人",
         "だれか"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "\"(with negative)\" English aside replaced."
     },
     {
       "id": "n5-186",
@@ -76279,7 +76285,7 @@
       "categoryOrder": 4,
       "patternOrder": 20,
       "meaning_en": "Somewhere / nowhere",
-      "meaning_ja": "「question word + か / も」",
+      "meaning_ja": "「どこか」は ある ばしょを いいます。「どこも」は ない／ません と いっしょに つかって、「どこにも 〜ない」と いう いみに なります。「どこかへ 行きたいです」「どこも あいて いません」。",
       "form_rules": {
         "attaches_to": [],
         "conjugations": [
@@ -76654,12 +76660,12 @@
         {
           "wrong": "どこにも いきました。",
           "correct": "どこにも いきませんでした。",
-          "why": "どこにも requires negative (\"nowhere\" went). This is a frequent N5 learner error on pattern どこか / どこも; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+          "why": "どこにも requires negative (\"nowhere\" went).",
           "error_category": "conjugation",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "politeness_ladder": {
@@ -76712,7 +76718,10 @@
         "どこか",
         "どこも"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "Replaced minimal stub \"question word + か / も\" with real native-teacher description."
     },
     {
       "id": "n5-187",
@@ -76722,7 +76731,7 @@
       "categoryOrder": 4,
       "patternOrder": 21,
       "meaning_en": "Sometime / always",
-      "meaning_ja": "「question word + か / も」",
+      "meaning_ja": "「いつか」は ある とき（みらいの こと）、「いつも」は つねに する こと（しゅうかん）を いいます。「いつか 日本に 行きたいです」「いつも あさ 7時に おきます」。",
       "form_rules": {
         "attaches_to": [],
         "conjugations": [
@@ -77135,12 +77144,12 @@
         {
           "wrong": "いつかに きます。",
           "correct": "いつか きます。",
-          "why": "いつか takes no particle. This is a frequent N5 learner error on pattern いつか / いつも; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "why": "いつか takes no particle.",
           "error_category": "particle",
           "provenance": "auto_fix_2026_05_24",
           "audit_wave": "claude_audit_2026_05_24",
-          "review_status": "ai_native_reviewer_2026_05_24",
-          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
+          "review_status": "ai_native_reviewer_2026_05_24_reverted",
+          "reviewer_note": "Reverted from BUG-K boilerplate expansion. Original crisp rationale restored. Reviewer flagged the expansion as metric-gaming (tautology + empty generality + broken self-reference); pedagogical quality dropped. See AUDIT-COVERAGE-2026-05-24.md Part 56."
         }
       ],
       "politeness_ladder": {
@@ -77193,7 +77202,10 @@
         "いつも",
         "いつか"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "Replaced minimal stub \"question word + か / も\" with real native-teacher description."
     },
     {
       "id": "n5-188",
@@ -77635,7 +77647,7 @@
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
-    "version": "2026.05.24-bug-ijk",
+    "version": "2026.05.24-ts10-cleanup",
     "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split.",
     "native_review_pass_2026_05_24": "Native-Japanese-teacher persona review of BUG-A..H followup queues. Q3 (46 backfilled cm): 40 PASS, 6 FAIL→rewritten. Q4 (11 Claude rewrites): 9 PASS, 2 FAIL→rewritten. Q5 (4 explanation_ja splits): 4 PASS. Total: 8 row rewrites + 57 cm review_status marks + 4 explanation_ja review marks. Reviewer: Claude under authorized ai_native_reviewer persona."
   },

@@ -6110,3 +6110,97 @@ Source: BUG-A..H audit cluster sweep 2026-05-24; AUDIT-COVERAGE
 CI invariants at this checkpoint: 163 (no new JA-NN; existing
 JA-51 floor preserved by atomic dedup-with-backfill pass).
 ============================================================
+
+FP-19. Metric-gaming on quality-dimension token-count floors
+       (BUG-K revert, 2026-05-24)
+       ============================================================
+       SHAPE: An audit predicate enforces a quantitative floor on a
+       quality dimension (e.g., "rationale must be >=6 whitespace
+       tokens"). A fix-pass adds boilerplate filler suffixes to
+       satisfy the floor, damaging pedagogical quality. Crisp
+       one-liners that name a rule + a correction get padded with
+       tautology + empty generality + broken self-reference.
+
+       FALSE-POSITIVE TRIGGER: An audit run that catches this
+       expansion as "rationale richness improved (P=178)" when in
+       reality the content quality regressed.
+
+       Triage discipline:
+         - Quality dimensions need CONTENT checks, not size floors.
+         - Replace "rationale >=N tokens" with "rationale names
+           both a rule-statement and a correction-statement".
+         - If content checks are too hard for static analysis,
+           fall back to NON-EMPTINESS. Don't substitute a gameable
+           size proxy.
+         - When reverting a metric-gaming fix-pass, log the revert
+           + diff in fix_log; preserve the lesson so the next
+           maintainer doesn't re-introduce the same predicate.
+
+       Source: BUG-K wcp.why expansion 2026-05-24; reviewer
+       flagged 25 rationales boilerplate-expanded; revert applied
+       via tools/revert_bug_k_boilerplate_2026_05_24.py;
+       v2 audit predicate check_ts09_why no longer enforces token
+       floor.
+
+FP-20. NA-heuristic-limit vs Fail in audit verdicts
+       (TS-05 conjugation case, 2026-05-24)
+       ============================================================
+       SHAPE: A static-substring audit can't cleanly handle a case
+       that requires inflection-aware matching (e.g., pattern
+       '〜じはん' appears as '〜時はん' with kanji 半; pattern
+       '〜すぎる' appears conjugated as 'すぎました'). The audit
+       emits 'Fail' on every such case, overclaiming defects.
+
+       FALSE-POSITIVE TRIGGER: Tracker shows TS-05 Fail=7 when
+       all 7 are actually conjugation-driven false negatives.
+
+       Triage discipline:
+         - Distinguish 'Fail' (real defect) from
+           'NA-heuristic-limit' (audit predicate can't cleanly
+           handle this case) in verdict labels.
+         - The tracker accepts NA-heuristic-limit as
+           not-a-failure; aggregate counts should report
+           NA-heuristic-limit separately, not roll it into Fail.
+         - The fix is in the audit tool, not the data — the
+           content is correct, the static check is wrong.
+
+       Source: TS-05 'Fail=7' on n5-102/113/143/173/174/175/177
+       per independent reviewer 2026-05-24; all confirmed
+       conjugation false-positives; v2 audit predicate
+       check_ts05 now emits 'NA-heuristic-limit' label.
+
+FP-21. Slot-token Latin notation flagged as off-spec text
+       (TS-10 cleanup, 2026-05-24)
+       ============================================================
+       SHAPE: An audit whitelist for slot-token Latin tokens
+       (Verb, Adj, Noun, etc.) is narrower than the conventionally-
+       used set (Verb-, Verb-stem, counter, NP, etc.). Legitimate
+       pedagogical notation gets flagged as "unexplained Latin".
+
+       FALSE-POSITIVE TRIGGER: TS-10 shows N partials when most
+       are legitimate slot notation; only a few have real Latin-
+       transcription or English-aside content issues.
+
+       Triage discipline:
+         - Maintain a SHARED slot-token whitelist between
+           authoring conventions and audit predicates.
+         - On each new convention introduction, extend the
+           whitelist in the same commit (Rule 5).
+         - Real content issues (e.g., 'wa-go' transcription that
+           should be やまとことば, or '(with negative)' English
+           aside that should be ない／ません と いっしょに) need
+           native-teacher rewrite, NOT whitelist extension.
+
+       Source: TS-10 24 patterns flagged 2026-05-24; 20 were
+       legitimate slot notation (Verb-, counter); 5 were real
+       Latin-transcription/English-aside issues fixed via
+       fix_ts10_latin_tokens_2026_05_24.py.
+
+Source: BUG-K revert + TS-05/TS-06/TS-10 cleanup 2026-05-24;
+AUDIT-COVERAGE Part 56; procedure-manual F.44.33 + F.44.34.
+
+CI invariants at this checkpoint: 165 (JA-162 + JA-163 from
+prior parts; no new JA-NN in Part 56 — the lesson is process,
+not data-shape).
+============================================================
+

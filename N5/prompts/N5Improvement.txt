@@ -2374,6 +2374,76 @@ Reviewed Date columns),
 registration). Fix log sidecar:
 `data/grammar.fix_log.json`. Procedure manual: F.44.31 + F.44.32.
 
+### Phase-0 metric-gaming + verdict-label discipline block (added 2026-05-24)
+
+Codifies the lesson from BUG-K revert + TS-05 verdict-label fix
+(post-second-reviewer audit 2026-05-24). Three sub-checks:
+
+1. **Quality-dimension predicates must use content checks, not size
+   floors.** Any audit predicate of the form "field X >= N tokens /
+   chars / items" on a QUALITY dimension is metric-gameable. A
+   fix-pass that pads short-but-complete content to satisfy the
+   floor damages the corpus while turning the metric green.
+
+   Phase-0 check:
+   - Grep `tools/audit_*.py` for size-floor predicates on text
+     fields (`len(tokens) < N`, `len(text) > N`, `len(items) < N`).
+   - For each hit, verify the predicate is for STRUCTURAL coverage
+     (e.g., "examples >= 1") not for QUALITY (e.g., "why >= 6
+     tokens"). Quality floors should be replaced with content
+     checks or dropped.
+   - Expected: no quality-dimension size floors in active audit
+     predicates. BUG-K-shape regressions caught.
+
+2. **Verdict labels distinguish Fail (real defect) from
+   NA-heuristic-limit (predicate can't cleanly handle this case).**
+   A static-substring audit that can't handle conjugation should
+   not emit 'Fail' on conjugated forms — that overclaims defects.
+
+   Phase-0 check:
+   - Audit verdict aggregation tools (e.g., `audit_ts_pass_counts_v2`)
+     must emit 'NA-heuristic-limit' as a distinct label from 'Fail'.
+   - Tracker aggregations count NA-heuristic-limit separately;
+     do NOT roll into Fail in the headline summary.
+   - Expected: TS-05 conjugation cases labeled NA-heuristic-limit,
+     not Fail.
+
+3. **Slot-token Latin notation whitelist is SHARED between
+   authoring conventions and audit predicates.** Pedagogical
+   notation (`Verb-`, `Verb-stem`, `counter`, etc.) is legitimate
+   Latin in meaning_ja. When a new convention introduces a slot
+   token, extend the audit whitelist in the same commit (Rule 5).
+
+   Phase-0 check:
+   - Grep the corpus for unique Latin tokens in meaning_ja /
+     explanation_ja; cross-check against the audit whitelist in
+     `tools/audit_ts_pass_counts_v2_*.py`.
+   - Distinguish legitimate slot notation (Verb-, counter, NP)
+     from real Latin-transcription/English-aside content issues
+     (e.g., 'wa-go' transcription, '(with negative)' aside) —
+     the latter need native-teacher rewrite, the former whitelist
+     extension.
+   - Expected: zero false-positive Latin-flag in TS-10.
+
+Bounded-coverage framing:
+  - "Metric-gaming predicate dropped" — locks the specific ≥6 token
+    floor that was gamed; does NOT prevent novel quality-dimension
+    floors being introduced in future predicates. The discipline is
+    "drop or replace with content check"; each new predicate must
+    re-evaluate.
+  - "NA-heuristic-limit label" — establishes the verdict vocabulary;
+    individual predicate authors must use it for their own cases.
+  - "Slot-token whitelist sync" — codifies the dependency; the
+    actual whitelist content evolves with each convention change.
+
+Source: BUG-K revert + TS-05/TS-06/TS-10 cleanup 2026-05-24,
+post-second-reviewer audit. Documented in
+docs/AUDIT-COVERAGE-2026-05-24.md Part 56. Tools:
+`tools/revert_bug_k_boilerplate_2026_05_24.py`,
+`tools/fix_ts10_latin_tokens_2026_05_24.py`,
+`tools/audit_ts_pass_counts_v2_2026_05_24.py` (predicate edits).
+Procedure manual: F.44.33 + F.44.34.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

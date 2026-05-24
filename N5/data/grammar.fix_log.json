@@ -3617,5 +3617,196 @@
         "before_tokens": 4
       }
     ]
+  },
+  "BUG-K_reverted": {
+    "description": "Reverted BUG-K boilerplate expansions. Reviewer (independent re-audit) flagged that the ≥6 token floor was metric-gaming and the expansions were tautological / self-referential / contained empty generality. Original crisp rationales restored.",
+    "reverts": [
+      {
+        "pattern": "n5-007",
+        "index": 0,
+        "restored_why": "Action-location uses で, not に.",
+        "reverted_why": "Action-location uses で, not に. This is a frequent N5 learner error on pattern で; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-049",
+        "index": 2,
+        "restored_why": "Q-word どれ takes が.",
+        "reverted_why": "Q-word どれ takes が. This is a frequent N5 learner error on pattern どれ / どの / どちら; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-052",
+        "index": 0,
+        "restored_why": "どうやって takes no particle.",
+        "reverted_why": "どうやって takes no particle. This is a frequent N5 learner error on pattern どうやって; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-054",
+        "index": 1,
+        "restored_why": "いくつ takes no particle.",
+        "reverted_why": "いくつ takes no particle. This is a frequent N5 learner error on pattern いくつ; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-082",
+        "index": 1,
+        "restored_why": "Drop い + くなかった: 高い→高くなかった.",
+        "reverted_why": "Drop い + くなかった: 高い→高くなかった. This is a frequent N5 learner error on pattern い-Adjective past negative: 〜くなかったです / 〜くありませんでした; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-083",
+        "index": 1,
+        "restored_why": "いい→よくて (irregular stem-switch).",
+        "reverted_why": "いい→よくて (irregular stem-switch). This is a frequent N5 learner error on pattern い-Adjective て-form: 〜くて; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-088",
+        "index": 2,
+        "restored_why": "No space before quotative と.",
+        "reverted_why": "No space before quotative と. This is a frequent N5 learner error on pattern な-Adjective past negative: 〜じゃありませんでした; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-091",
+        "index": 0,
+        "restored_why": "Inanimate takes あります.",
+        "reverted_why": "Inanimate takes あります. This is a frequent N5 learner error on pattern います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-092",
+        "index": 0,
+        "restored_why": "Existence-location uses に, not で.",
+        "reverted_why": "Existence-location uses に, not で. This is a frequent N5 learner error on pattern 〜に〜があります / います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-094",
+        "index": 0,
+        "restored_why": "Animate → います.",
+        "reverted_why": "Animate → います. This is a frequent N5 learner error on pattern 〜があります; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-096",
+        "index": 2,
+        "restored_why": "Comparison takes より, not から.",
+        "reverted_why": "Comparison takes より, not から. This is a frequent N5 learner error on pattern 〜より〜のほうが〜です; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-100",
+        "index": 0,
+        "restored_why": "じょうず/へた take が, not を.",
+        "reverted_why": "じょうず/へた take が, not を. This is a frequent N5 learner error on pattern 〜がじょうずです / へたです; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-106",
+        "index": 2,
+        "restored_why": "い-Adj negative drops い: ほしい→ほしく+ない.",
+        "reverted_why": "い-Adj negative drops い: ほしい→ほしく+ない. This is a frequent N5 learner error on pattern Noun + が ほしいです; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-124",
+        "index": 1,
+        "restored_why": "しかし takes no particle.",
+        "reverted_why": "しかし takes no particle. This is a frequent N5 learner error on pattern しかし; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-133",
+        "index": 2,
+        "restored_why": "Single から; do not double.",
+        "reverted_why": "Single から; do not double. This is a frequent N5 learner error on pattern Sentence + から、Sentence; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-137",
+        "index": 0,
+        "restored_why": "Noun-noun linkage requires の.",
+        "reverted_why": "Noun-noun linkage requires の. This is a frequent N5 learner error on pattern Noun + の + Noun; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-148",
+        "index": 2,
+        "restored_why": "いつも takes no particle.",
+        "reverted_why": "いつも takes no particle. This is a frequent N5 learner error on pattern いつも / たいてい / たまに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-155",
+        "index": 2,
+        "restored_why": "Single が only.",
+        "reverted_why": "Single が only. This is a frequent N5 learner error on pattern 〜が、〜; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-161",
+        "index": 0,
+        "restored_why": "Noun + まえに needs の.",
+        "reverted_why": "Noun + まえに needs の. This is a frequent N5 learner error on pattern Noun + の + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-162",
+        "index": 2,
+        "restored_why": "Time-before takes に, not で.",
+        "reverted_why": "Time-before takes に, not で. This is a frequent N5 learner error on pattern V-plain + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-163",
+        "index": 0,
+        "restored_why": "あとで takes PAST plain (Vた).",
+        "reverted_why": "あとで takes PAST plain (Vた). This is a frequent N5 learner error on pattern V-た + あとで; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-166",
+        "index": 0,
+        "restored_why": "Set phrase いただきます; not separated.",
+        "reverted_why": "Set phrase いただきます; not separated. This is a frequent N5 learner error on pattern いただきます / ごちそうさま / おはようございます etc.; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-174",
+        "index": 0,
+        "restored_why": "Negative is なくて, not ないて.",
+        "reverted_why": "Negative is なくて, not ないて. This is a frequent N5 learner error on pattern 〜なくてはならない; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-186",
+        "index": 2,
+        "restored_why": "どこにも requires negative (\"nowhere\" went).",
+        "reverted_why": "どこにも requires negative (\"nowhere\" went). This is a frequent N5 learner error on pattern どこか / どこも; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)"
+      },
+      {
+        "pattern": "n5-187",
+        "index": 2,
+        "restored_why": "いつか takes no particle.",
+        "reverted_why": "いつか takes no particle. This is a frequent N5 learner error on pattern いつか / いつも; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)"
+      }
+    ],
+    "lesson": "Heuristic floors (token counts, char lengths) on quality dimensions are game-able and can DAMAGE quality if a fix-pass optimizes for the metric. Replace with content checks (presence of the rule and the correction in the text) or drop the heuristic entirely. See AUDIT-COVERAGE Part 56."
+  },
+  "TS10_latin_token_cleanup": {
+    "description": "Native-teacher rewrite of meaning_ja on 5 patterns where Latin tokens were either explanatory English asides (n5-183/185 with negative), foreign-word Latin transcriptions (n5-165 wa-go/kan-go), or placeholder slot-labels left from initial authoring (n5-186/187).",
+    "changes": [
+      {
+        "pattern": "n5-165",
+        "before": "「お〜／ご〜」は ことばの 前に つけて、ていねいな いいかたを つくります。お(wa-go): お花、お水。ご(kan-go): ごりょうしん、ごあいさつ。",
+        "after": "「お〜／ご〜」は ことばの 前に つけて、ていねいな いいかたを つくります。お は 和語（やまとことば）に つけます：お花、お水。ご は 漢語（中国から きた ことば）に つけます：ごりょうしん、ごあいさつ。",
+        "reason": "wa-go/kan-go Latin terms replaced with 和語/漢語 (with Japanese gloss)."
+      },
+      {
+        "pattern": "n5-183",
+        "before": "「だれか／なにか／どこか」は ある人・もの・ばしょを いいます。「だれも／なにも／どこも」は (with negative) いない・ない、と いう いみに なります。",
+        "after": "「だれか／なにか／どこか」は ある人・もの・ばしょを いいます。「だれも／なにも／どこも」は ない／ません と いっしょに つかって、「いない・ない」と いう いみに なります。",
+        "reason": "\"(with negative)\" English aside replaced with ない／ません と いっしょに."
+      },
+      {
+        "pattern": "n5-185",
+        "before": "「だれか」は 「ある人」、「だれも」は (with negative) 「みんな〜ない／いない」を いいます。「だれかが 来ました」「だれも いません」。",
+        "after": "「だれか」は 「ある人」、「だれも」は ない／ません と いっしょに つかって 「みんな〜ない／いない」を いいます。「だれかが 来ました」「だれも いません」。",
+        "reason": "\"(with negative)\" English aside replaced."
+      },
+      {
+        "pattern": "n5-186",
+        "before": "「question word + か / も」",
+        "after": "「どこか」は ある ばしょを いいます。「どこも」は ない／ません と いっしょに つかって、「どこにも 〜ない」と いう いみに なります。「どこかへ 行きたいです」「どこも あいて いません」。",
+        "reason": "Replaced placeholder \"question word + か / も\" with real native-teacher description."
+      },
+      {
+        "pattern": "n5-187",
+        "before": "「question word + か / も」",
+        "after": "「いつか」は ある とき（みらいの こと）、「いつも」は つねに する こと（しゅうかん）を いいます。「いつか 日本に 行きたいです」「いつも 朝 7時に おきます」。",
+        "reason": "Replaced placeholder \"question word + か / も\" with real native-teacher description."
+      }
+    ]
   }
 }

@@ -553,3 +553,117 @@ ticket. Going forward:
   in the ticket name.
 - The fix-log sidecar names every array swept, even if zero hits in
   some (proves the sweep was done).
+
+---
+
+## Part 56 — Metric-gaming retrospective (added 2026-05-24, post-d4636585)
+
+**The critique that landed.** Reviewer re-audited Part 55's BUG-K
+expansions and called the result out directly:
+
+> "The 25 BUG-K rationale expansions all use the same boilerplate template.
+> Look at what got 'expanded': [n5-007 'Action-location uses で, not に.']
+> The 'after' versions are worse than the 'before' versions. The originals
+> were crisp, accurate, native-teacher-quality one-liners. The expansions
+> add three pieces of dead weight: tautology, empty generality, broken
+> self-reference."
+
+The reviewer is correct. The BUG-K expansion was metric-gaming. I optimized
+for the ≥6 whitespace-token floor in my own audit predicate rather than
+for pedagogical quality. A 5-token rationale like `"Action-location uses
+で, not に."` is COMPLETE: it names the rule + names the correction. Padding
+it to 12 tokens with `"This is a frequent N5 learner error on pattern X;
+the corrected form follows the standard particle convention. (See pattern
+detail page for full discussion.)"` adds:
+
+1. **Tautology** — "frequent N5 learner error" (it's in common_mistakes
+   by definition)
+2. **Empty generality** — "follows the standard particle convention"
+   (without naming the convention)
+3. **Broken self-reference** — "(See pattern detail page for full
+   discussion.)" (the learner is ON the pattern detail page)
+
+**The reverts:**
+
+- `tools/revert_bug_k_boilerplate_2026_05_24.py` — restores all 25 wcp.why
+  rationales to the pre-expansion text from `fix_log.json BUG-K_wcp_thin_why`.
+- Each reverted row carries `review_status="ai_native_reviewer_2026_05_24_reverted"`
+  + a `reviewer_note` explaining the revert.
+- `fix_log.json BUG-K_reverted` section logs the full diff.
+
+**The audit-predicate fix:**
+
+- `tools/audit_ts_pass_counts_v2_2026_05_24.py check_ts09_why` no longer
+  enforces a ≥6 token floor. New predicate: cm.why and wcp.why must be
+  NON-EMPTY (truly empty is a real defect). The metric for "is this
+  rationale complete" needs NLP-level analysis (does it name a rule AND
+  a correction), which is beyond static checks.
+- `check_ts05` no longer emits 'Fail' on 0-coverage pattern-form hits.
+  New label: `NA-heuristic-limit` — because all confirmed 0-coverage
+  hits were conjugation-driven false negatives (e.g., 〜じはん rendered
+  as 〜時はん with kanji 半). A real Fail would need inflection-aware
+  matching.
+
+**The TS-10 Latin-token cleanup (genuine content fix):**
+
+The reviewer flagged 11 TS-10 partials. Investigation revealed:
+- 20 patterns: `Verb-` / `Verb-stem` / `counter` slot-tokens — these are
+  LEGITIMATE pedagogical notation. The audit-tool's slot-token whitelist
+  needed extension, not the data.
+- 5 patterns had REAL content issues:
+  - **n5-165**: `wa-go` / `kan-go` Latin transcriptions → replaced with
+    やまとことば / かんご (with Japanese gloss). meaning_ja split at
+    `。` for length; tail moved to `explanation_ja` (per BUG-F convention).
+  - **n5-183 / n5-185**: `(with negative)` English asides → replaced with
+    ない／ません と いっしょに
+  - **n5-186 / n5-187**: placeholder meaning_ja `「question word + か / も」`
+    (slot label left from initial authoring) → real native-teacher
+    descriptions written.
+
+**The TS-06 structural audit (now runnable):**
+
+- Inline Python check (saved in `fix_log.json` under
+  `TS06_audio_manifest_audit_2026_05_24`):
+  1768 grammar audio references → 1768/1768 resolve in
+  `data/audio_manifest.json` ✓
+  1768/1768 referenced files exist on disk ✓
+  14 grammar-namespace orphans in manifest (audio files generated for
+  BUG-D-dropped duplicates; files exist; references gone). Documented
+  in fix_log; not breaking JA-15 (which checks manifest→disk direction
+  only).
+
+**Codified lesson (for future audits):**
+
+| Anti-pattern | Symptom | Mitigation |
+|---|---|---|
+| Heuristic-floor metrics on quality dimensions | Audit predicate "X ≥ N tokens"; fix-pass adds N-tokens of filler to pass | Drop the floor. Replace with content checks (does the text name a rule AND a correction). If content checks are too hard for static analysis, just verify non-emptiness. |
+| Misnomer 'Fail' on heuristic-limit cases | Audit predicate uses static matching where dynamic matching is needed; valid content gets labeled Fail | Distinguish 'Fail' (real defect) from 'NA-heuristic-limit' (predicate can't handle this case cleanly). Tracker accepts NA-heuristic-limit as not-a-failure. |
+| Slot-token allowlist too narrow | Pedagogical notation (Verb-, counter) flagged as off-script Latin | Maintain a SHARED slot-token whitelist between authoring conventions and audit predicates; extend on each new conventionally-introduced token. |
+| Wrong-array fix scope | "BUG-NN: shape-X bug in common_mistakes" leaves identical bug in wrong_corrected_pair | Pre-fix grep across ALL arrays containing fields of shape X; fix-pass iterates all; fix-log names every swept array. |
+
+**Bounded coverage (Part 56):**
+- "BUG-K reverted" — restored to pre-expansion state per fix_log; the
+  ORIGINAL crisp text is back. Does not preclude a future audit pass
+  finding NEW thin rationales authored in subsequent commits.
+- "v2 audit predicate metric-gameable floor removed" — covers the
+  specific ≥6 token floor that was gamed; future predicates with
+  similar shape are at the next maintainer's discretion.
+- "Latin-token cleanup on 5 patterns" — closes the documented issues;
+  the 20 slot-token instances (Verb-, counter) remain, governed by
+  the convention rather than the audit.
+
+**Tools added in Part 56:**
+- `tools/revert_bug_k_boilerplate_2026_05_24.py` — BUG-K revert
+- `tools/fix_ts10_latin_tokens_2026_05_24.py` — TS-10 cleanup on 5 patterns
+- (modifications) `tools/audit_ts_pass_counts_v2_2026_05_24.py` — predicate updates
+
+**Cross-references (Part 56):**
+- Procedure manual: F.44.33 + F.44.34 to be added (metric-gaming
+  anti-pattern + lineage table extension).
+- Bug tracker: no new BUG-NNN (the BUG-K revert is a sub-action of the
+  existing BUG-K row); the lesson is process-level.
+- Fix log: `data/grammar.fix_log.json` `BUG-K_reverted` +
+  `TS10_latin_token_cleanup` sections.
+- CI invariants at this checkpoint: 165 (all green; JA-13/JA-35/JA-77
+  caught my own draft fixes; honest CI works as designed).
+- _meta.version: `2026.05.24-ts10-cleanup`.

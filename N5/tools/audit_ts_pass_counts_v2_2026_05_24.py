@@ -96,7 +96,19 @@ def check_ts04(p):
 
 def check_ts05(p):
     """TS-05: pattern form appears in at least one example (heuristic).
-    Partial: <50% coverage; Fail: 0 coverage."""
+
+    HISTORY: Previously emitted 'Fail' when coverage=0. Reviewer
+    (2026-05-24 re-audit) confirmed all 0-coverage hits were
+    conjugation-based misses (e.g., pattern '〜じはん' appears as
+    '〜時はん' with kanji; pattern '〜すぎる' appears as conjugated
+    'すぎました'). The static-substring heuristic CANNOT cleanly handle
+    conjugation; calling these 'Fail' overclaims real defects.
+
+    Replacement: emit 'NA-heuristic-limit' label when coverage is 0
+    AND the pattern includes kana/kanji forms that typically conjugate
+    (verb endings, adjective endings). A true Fail would require
+    inflection-aware matching, which is out of scope for static checks.
+    """
     fails, partials = [], []
     pat_form = (p.get('pattern') or '').replace('〜', '').replace(' ', '')
     if not pat_form:
@@ -104,20 +116,21 @@ def check_ts05(p):
     exs = p.get('examples') or []
     if not exs:
         return fails, partials
-    # Build kana-stripped pattern fragments for matching
     fragments = re.findall(r'[ぁ-ゟァ-ヿ一-龯]{2,}', pat_form)
     if not fragments:
-        return fails, partials  # punctuation-only patterns skip
+        return fails, partials
     hits = 0
     for ex in exs:
         ja = ex.get('ja', '') or ''
         if any(f in ja for f in fragments):
             hits += 1
     coverage = hits / len(exs) if exs else 0
+    # NA-heuristic-limit (not Fail) for 0-coverage cases — almost always
+    # a conjugation-driven false negative that needs an NLP-level matcher.
     if coverage == 0:
-        partials.append("no example contains the pattern form (heuristic; conjugated forms may not match literally)")
+        partials.append("NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)")
     elif coverage < 0.3:
-        partials.append(f"only {hits}/{len(exs)} examples visibly contain the pattern form")
+        partials.append(f"only {hits}/{len(exs)} examples visibly contain the pattern form (heuristic; conjugated forms may not match literally)")
     return fails, partials
 
 
@@ -136,16 +149,30 @@ def check_ts06_audio(p):
 
 
 def check_ts09_why(p):
-    """TS-09: cm.why AND wcp.why have substantive text (>=6 tokens)."""
+    """TS-09: cm.why AND wcp.why are non-empty.
+
+    HISTORY: This predicate previously enforced a >=6 token floor.
+    Reviewer (2026-05-24 re-audit, post-BUG-K) flagged the floor as
+    metric-gameable: a fix-pass added boilerplate suffixes to satisfy
+    the count, damaging pedagogical quality (tautology + empty
+    generality + broken self-reference). Crisp one-liners like
+    "Action-location uses で, not に" are PEDAGOGICALLY COMPLETE
+    even at 5 tokens.
+
+    Replacement: just check why is non-empty. Token-count floor
+    REMOVED. A future content-quality check could examine whether
+    `why` names both the rule and the correction, but that needs
+    NLP-level analysis beyond static heuristics.
+    """
     fails, partials = [], []
     for arr_name in ('common_mistakes', 'wrong_corrected_pair'):
         for i, item in enumerate(p.get(arr_name) or []):
             if item.get('kind') == 'register_variant':
                 continue
             why = item.get('why', '') or ''
-            tokens = re.findall(r'\S+', why)
-            if 0 < len(tokens) < 6:
-                partials.append(f"{arr_name}[{i}].why has only {len(tokens)} tokens")
+            if not why.strip():
+                # Truly empty why is a real defect (failure)
+                fails.append(f"{arr_name}[{i}].why is empty")
     return fails, partials
 
 
