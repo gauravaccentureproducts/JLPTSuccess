@@ -2,6 +2,7 @@
 // Both choices grammatical; meaning differs. Show BOTH translations after
 // the answer so the learner internalizes the meaning difference.
 import { renderJa } from './furigana.js';
+import { navigateTo } from './router.js';
 
 const PAIRS = [
   // に / で - location
@@ -157,7 +158,7 @@ function renderFinished(container) {
     renderSetup(container);
   });
   document.getElementById('pp-back').addEventListener('click', () => {
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 

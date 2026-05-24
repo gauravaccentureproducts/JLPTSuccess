@@ -1,4 +1,4 @@
-import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t as g}from"./i18n.js";const y={easy:"\u3084\u3055\u3057\u3044",medium:"\u3075\u3064\u3046","info-search":"\u3058\u3087\u3046\u307B\u3046\u3051\u3093\u3055\u304F"},v={"self-introduction":"\u3058\u3053\u3057\u3087\u3046\u304B\u3044","daily routine":"\u307E\u3044\u306B\u3061\u306E \u305B\u3044\u304B\u3064","weekend plan":"\u3057\u3085\u3046\u307E\u3064\u306E \u3088\u3066\u3044",weekend:"\u3057\u3085\u3046\u307E\u3064",shopping:"\u304B\u3044\u3082\u306E",family:"\u304B\u305E\u304F",weather:"\u3066\u3093\u304D",schedule:"\u3088\u3066\u3044",transport:"\u3053\u3046\u3064\u3046",hobby:"\u3057\u3085\u307F",school:"\u5B66\u6821",food:"\u305F\u3079\u3082\u306E",travel:"\u308A\u3087\u3053\u3046",health:"\u3051\u3093\u3053\u3046",study:"\u3079\u3093\u304D\u3087\u3046",people:"\u3072\u3068",request:"\u304A\u306D\u304C\u3044",room:"\u3078\u3084",directions:"\u307F\u3061\u3042\u3093\u306A\u3044"};let $=null,d=null;async function b(){return $||($=await(await fetch("data/reading.json")).json(),$)}function j(n){d={passage:!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode?{...n,questions:(n.questions||[]).filter(r=>r.format_role==="primary"||!r.format_role)}:n,phase:"read",answers:{},idx:0}}async function I(n,e){await b();const l=e?decodeURIComponent(e):"";if(l){const r=($.passages||[]).find(t=>t.id===l);if(r)return(!d||d.passage?.id!==r.id)&&j(r),_(n)}return d?_(n):f(n)}function f(n){const e=$.passages||[],o=!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode,r=e.map(t=>`
+import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t as g}from"./i18n.js";import{navigateTo as _}from"./router.js";const v={easy:"\u3084\u3055\u3057\u3044",medium:"\u3075\u3064\u3046","info-search":"\u3058\u3087\u3046\u307B\u3046\u3051\u3093\u3055\u304F"},b={"self-introduction":"\u3058\u3053\u3057\u3087\u3046\u304B\u3044","daily routine":"\u307E\u3044\u306B\u3061\u306E \u305B\u3044\u304B\u3064","weekend plan":"\u3057\u3085\u3046\u307E\u3064\u306E \u3088\u3066\u3044",weekend:"\u3057\u3085\u3046\u307E\u3064",shopping:"\u304B\u3044\u3082\u306E",family:"\u304B\u305E\u304F",weather:"\u3066\u3093\u304D",schedule:"\u3088\u3066\u3044",transport:"\u3053\u3046\u3064\u3046",hobby:"\u3057\u3085\u307F",school:"\u5B66\u6821",food:"\u305F\u3079\u3082\u306E",travel:"\u308A\u3087\u3053\u3046",health:"\u3051\u3093\u3053\u3046",study:"\u3079\u3093\u304D\u3087\u3046",people:"\u3072\u3068",request:"\u304A\u306D\u304C\u3044",room:"\u3078\u3084",directions:"\u307F\u3061\u3042\u3093\u306A\u3044"};let $=null,d=null;async function j(){return $||($=await(await fetch("data/reading.json")).json(),$)}function A(n){d={passage:!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode?{...n,questions:(n.questions||[]).filter(r=>r.format_role==="primary"||!r.format_role)}:n,phase:"read",answers:{},idx:0}}async function M(n,e){await j();const l=e?decodeURIComponent(e):"";if(l){const r=($.passages||[]).find(t=>t.id===l);if(r)return(!d||d.passage?.id!==r.id)&&A(r),k(n)}return d?k(n):f(n)}function f(n){const e=$.passages||[],o=!!(typeof p<"u"&&p.getSettings?p.getSettings():{}).readingMockTestMode,r=e.map(t=>`
       <li>
         <a class="reading-pick" href="#/reading/${encodeURIComponent(t.id)}" data-id="${a(t.id)}">
           <span class="reading-title"><strong>${i(t.title_ja)}</strong></span>
@@ -12,7 +12,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
       <span>${i("\u3082\u304E\u30C6\u30B9\u30C8\u30E2\u30FC\u30C9")} (primary questions only - matches official JLPT N5 distribution)</span>
     </label>
     <ul class="reading-list">${r}</ul>
-  `,document.getElementById("reading-mock-mode").addEventListener("change",t=>{p.setSettings({readingMockTestMode:t.target.checked}),f(n)}),n.querySelectorAll("[data-id]").forEach(t=>{t.addEventListener("click",()=>{location.hash=`#/reading/${encodeURIComponent(t.dataset.id)}`})})}function _(n){const e=d.passage;return d.phase==="read"?A(n,e):d.phase==="questions"?h(n,e):k(n,e)}function A(n,e){const l=$?.passages||[],o=l.findIndex(s=>s.id===e.id),r=o>0?l[o-1]:null,t=o>=0&&o<l.length-1?l[o+1]:null,u=`
+  `,document.getElementById("reading-mock-mode").addEventListener("change",t=>{p.setSettings({readingMockTestMode:t.target.checked}),f(n)}),n.querySelectorAll("[data-id]").forEach(t=>{t.addEventListener("click",()=>{_(`reading/${encodeURIComponent(t.dataset.id)}`)})})}function k(n){const e=d.passage;return d.phase==="read"?x(n,e):d.phase==="questions"?h(n,e):y(n,e)}function x(n,e){const l=$?.passages||[],o=l.findIndex(s=>s.id===e.id),r=o>0?l[o-1]:null,t=o>=0&&o<l.length-1?l[o+1]:null,u=`
     <nav class="reading-nav" aria-label="Passage navigation">
       ${r?`<a href="#/reading/${encodeURIComponent(r.id)}" title="${a(r.title_ja||r.id)}">\u2190 <span lang="ja">${i(r.title_ja||r.id)}</span></a>`:"<span></span>"}
       ${t?`<a href="#/reading/${encodeURIComponent(t.id)}" title="${a(t.title_ja||t.id)}"><span lang="ja">${i(t.title_ja||t.id)}</span> \u2192</a>`:"<span></span>"}
@@ -23,7 +23,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
         <span><a href="#/reading" id="reading-back">\u2190 ${i("\u3082\u3069\u308B")}</a> \u30FB ${i("\u3076\u3093\u3057\u3087\u3046\u3092 \u8AAD\u3093\u3067\u3001\u3057\u3064\u3082\u3093\u3092 \u306F\u3058\u3081\u3066 \u304F\u3060\u3055\u3044\u3002")}</span>
       </div>
       <h2>${i(e.title_ja)}</h2>
-      <p class="muted small">\u30EC\u30D9\u30EB: ${i(y[e.level]||e.level)} \u30FB \u30C8\u30D4\u30C3\u30AF: ${i(v[e.topic]||e.topic)}</p>
+      <p class="muted small">\u30EC\u30D9\u30EB: ${i(v[e.level]||e.level)} \u30FB \u30C8\u30D4\u30C3\u30AF: ${i(b[e.topic]||e.topic)}</p>
       <div class="passage-text">${i(e.ja)}</div>
       ${e.cultural_context?`
         <aside class="reading-cultural-context">
@@ -62,7 +62,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
           </ul>
         </aside>
       `:""}
-      ${x(e)}
+      ${E(e)}
       ${(()=>{const s=e.time_target_seconds;return!s||typeof s!="object"?"":`
           <aside class="reading-time-target muted small">
             <strong>${a(g("dokkai_detail.target_time"))}:</strong> ${a(s.total_seconds||"?")}s ${a(g("dokkai_detail.total"))}
@@ -132,7 +132,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
       <button id="reading-start-q" class="btn-primary">${i("\u3057\u3064\u3082\u3093\u3092 \u306F\u3058\u3081\u308B")} (${e.questions.length})</button>
       ${u}
     </article>
-  `,document.getElementById("reading-back").addEventListener("click",s=>{s.preventDefault(),d=null,location.hash="#/reading"}),document.getElementById("reading-start-q").addEventListener("click",()=>{d.phase="questions",h(n,e)})}function h(n,e){const l=e.questions.length,o=d.idx,r=e.questions[o],t=d.answers[r.id],u=t!=null,s=t===r.correctAnswer;n.innerHTML=`
+  `,document.getElementById("reading-back").addEventListener("click",s=>{s.preventDefault(),d=null,_("reading")}),document.getElementById("reading-start-q").addEventListener("click",()=>{d.phase="questions",h(n,e)})}function h(n,e){const l=e.questions.length,o=d.idx,r=e.questions[o],t=d.answers[r.id],u=t!=null,s=t===r.correctAnswer;n.innerHTML=`
     <article class="reading-passage">
       <div class="srs-progress">
         <span>${i(e.title_ja)} \u30FB ${i("\u3082\u3093\u3060\u3044")} ${o+1} / ${l}</span>
@@ -155,7 +155,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
         `:""}
       </div>
     </article>
-  `,n.querySelectorAll("[data-pick]").forEach(c=>{c.addEventListener("click",()=>{d.answers[r.id]=c.dataset.pick,h(n,e)})}),document.getElementById("reading-next")?.addEventListener("click",()=>{o===l-1?(d.phase="results",k(n,e)):(d.idx+=1,h(n,e))})}function k(n,e){const l=e.questions.length,o=e.questions.filter(t=>d.answers[t.id]===t.correctAnswer).length,r=Math.round(o/l*100);o>0&&p.setReadingCompleted(e.id),n.innerHTML=`
+  `,n.querySelectorAll("[data-pick]").forEach(c=>{c.addEventListener("click",()=>{d.answers[r.id]=c.dataset.pick,h(n,e)})}),document.getElementById("reading-next")?.addEventListener("click",()=>{o===l-1?(d.phase="results",y(n,e)):(d.idx+=1,h(n,e))})}function y(n,e){const l=e.questions.length,o=e.questions.filter(t=>d.answers[t.id]===t.correctAnswer).length,r=Math.round(o/l*100);o>0&&p.setReadingCompleted(e.id),n.innerHTML=`
     <div class="reading-results">
       <h2>${i(e.title_ja)} \u30FB ${i("\u3051\u3063\u304B")}</h2>
       <section class="srs-summary-stats">
@@ -166,7 +166,7 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
         <button id="reading-back-list" class="btn-primary">${i("\u307B\u304B\u306E \u3076\u3093\u3057\u3087\u3046\u3092 \u3048\u3089\u3076")}</button>
       </div>
     </div>
-  `,document.getElementById("reading-back-list").addEventListener("click",()=>{d=null,f(n)})}function a(n){return String(n??"").replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}function x(n){const e=Array.isArray(n.grammar_footnotes)?n.grammar_footnotes:[];if(e.length===0)return"";const l=(n.ja||"").split("\u3002").filter(t=>t.trim()).map(t=>t.trim()),o=new Map;for(const t of e){const u=t.sentence_index??0;o.has(u)||o.set(u,[]),o.get(u).push(t)}const r=[...o.entries()].sort((t,u)=>t[0]-u[0]).map(([t,u])=>{const s=(l[t]||"").slice(0,50)+(l[t]&&l[t].length>50?"\u2026":"\u3002"),c=u.map(m=>`
+  `,document.getElementById("reading-back-list").addEventListener("click",()=>{d=null,f(n)})}function a(n){return String(n??"").replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}function E(n){const e=Array.isArray(n.grammar_footnotes)?n.grammar_footnotes:[];if(e.length===0)return"";const l=(n.ja||"").split("\u3002").filter(t=>t.trim()).map(t=>t.trim()),o=new Map;for(const t of e){const u=t.sentence_index??0;o.has(u)||o.set(u,[]),o.get(u).push(t)}const r=[...o.entries()].sort((t,u)=>t[0]-u[0]).map(([t,u])=>{const s=(l[t]||"").slice(0,50)+(l[t]&&l[t].length>50?"\u2026":"\u3002"),c=u.map(m=>`
       <li class="reading-footnote-item">
         <a class="reading-footnote-pid" href="#/learn/${a(m.pattern_id)}" title="Open ${a(m.pattern_id)} in Learn">${a(m.pattern_id)}</a>
         <span class="reading-footnote-note">${a(m.note||"")}</span>
@@ -183,4 +183,4 @@ import{renderJa as i}from"./furigana.js";import*as p from"./storage.js";import{t
       <summary><strong>Grammar footnotes</strong> <span class="muted small">\u2014 ${e.length} note${e.length===1?"":"s"} across ${o.size} sentence${o.size===1?"":"s"}</span></summary>
       <ol class="reading-footnote-groups">${r}</ol>
     </details>
-  `}export{I as renderReading};
+  `}export{M as renderReading};

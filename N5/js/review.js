@@ -5,6 +5,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { t } from './i18n.js';
+import { navigateTo } from './router.js';
 
 const NEW_PER_DAY_DEFAULT = 10;
 const REVIEW_CAP_DEFAULT = 50;
@@ -469,7 +470,7 @@ function renderFinished(container) {
     renderSetup(container);
   });
   document.getElementById('srs-back')?.addEventListener('click', () => {
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 

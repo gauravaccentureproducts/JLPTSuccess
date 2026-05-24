@@ -7,6 +7,7 @@ import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { hasAlignedTranscript, renderTranscriptHTML, wireTranscriptSync } from './listening-transcript.js';
 import { t } from './i18n.js';
+import { navigateTo } from './router.js';
 
 let bank = null;
 let session = null;
@@ -58,7 +59,7 @@ export async function renderListening(container, params) {
       // the assignment causes the router to re-fire renderListening
       // with empty params, which falls into the index path below.
       session = null;
-      location.hash = '#/listening';
+      navigateTo('listening');
       return;
     }
     // Preserve `picked` only if we're already on the same item (e.g.
@@ -129,7 +130,7 @@ function renderIndex(container) {
       // (refresh-survives, share-link-able). The router's hashchange
       // listener in app.js calls renderListening(container, id),
       // which loads the item and shows renderItem.
-      location.hash = `#/listening/${encodeURIComponent(btn.dataset.id)}`;
+      navigateTo(`listening/${encodeURIComponent(btn.dataset.id)}`);
     });
   });
 }
@@ -413,10 +414,10 @@ function renderItem(container) {
   // captures the active item — refresh-survives, share-link-able.
   // Router's hashchange listener picks up the new id and re-renders.
   container.querySelector('[data-nav="prev"]')?.addEventListener('click', () => {
-    if (prev) { window.scrollTo(0, 0); location.hash = `#/listening/${encodeURIComponent(prev.id)}`; }
+    if (prev) { window.scrollTo(0, 0); navigateTo(`listening/${encodeURIComponent(prev.id)}`); }
   });
   container.querySelector('[data-nav="next"]')?.addEventListener('click', () => {
-    if (next) { window.scrollTo(0, 0); location.hash = `#/listening/${encodeURIComponent(next.id)}`; }
+    if (next) { window.scrollTo(0, 0); navigateTo(`listening/${encodeURIComponent(next.id)}`); }
   });
   container.querySelectorAll('[data-pick]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -433,7 +434,7 @@ function renderItem(container) {
   // the URL — a refresh would then jump back to the detail page).
   // No JS handler needed — the anchor's href does the work.
   document.getElementById('listening-back-list')?.addEventListener('click', () => {
-    location.hash = '#/listening';
+    navigateTo('listening');
   });
   // IMP-070: wire transcript-line click-to-seek + auto-highlight when
   // the item ships with a `lines` array. No-op when absent.

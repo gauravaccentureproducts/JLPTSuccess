@@ -5,6 +5,7 @@
 // Group 2 (帰る・入る・走る・知る・切る・要る・しゃべる・すべる).
 import { matchesAnswer } from './normalize.js';
 import * as storage from './storage.js';
+import { navigateTo } from './router.js';
 
 // Each verb: dictionary form (kana for safety), group (1/2/3), meaning, isException flag.
 const VERBS = [
@@ -243,7 +244,7 @@ function renderFinished(container) {
     renderTeach(container);
   });
   document.getElementById('vc-back').addEventListener('click', () => {
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 

@@ -34,6 +34,7 @@ import { estimate as estimateScore } from './score-estimator.js';
 // modal listing techniques + trap patterns scoped to the current
 // section (mojigoi/bunpoudok/choukai).
 import { openStrategyModal } from './strategy-modal.js';
+import { navigateTo } from './router.js';
 
 const SECTIONS = [
   // [section-id, label, ja-label, [paper-categories], duration-minutes]
@@ -197,7 +198,7 @@ async function renderSection(container, paperNumber, sectionIdx) {
       // Break screen, then advance.
       renderBreak(container, paperNumber, sectionIdx + 1);
     } else {
-      location.hash = `#/sitting/${paperNumber}/result`;
+      navigateTo(`sitting/${paperNumber}/result`);
     }
   };
 
@@ -311,7 +312,7 @@ function renderBreak(container, paperNumber, nextSectionIdx) {
     if (remain <= 0) {
       clearInterval(timerHandle);
       timerHandle = null;
-      location.hash = `#/sitting/${paperNumber}/${nextSectionIdx}`;
+      navigateTo(`sitting/${paperNumber}/${nextSectionIdx}`);
     }
   }, 1000);
 }

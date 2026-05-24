@@ -3,6 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- spa-github-pages decoder. Runs BEFORE the SPA boots. Unpacks the
+       ?spa-redirect=1&p=... query that 404.html builds, and rewrites
+       the URL back to the clean deep-link path via history.replaceState.
+       Pairs with the encoder in /404.html. See N5/404.html for details. -->
+  <script>
+    (function () {
+      var qs = location.search;
+      if (qs.indexOf('spa-redirect=1') === -1) return;
+      var params = new URLSearchParams(qs);
+      var p = params.get('p') || '';
+      var q = params.get('q') || '';
+      var pn = location.pathname;
+      var m = pn.match(/^(.*\/N5\/)/);
+      var base = m ? m[1] : '/';
+      var route = p ? p.replace(/~and~/g, '&').replace(/~/g, '/') : '';
+      var query = q ? '?' + q.replace(/~amp~/g, '&') : '';
+      var hash = location.hash || '';
+      history.replaceState(null, '', base + route + query + hash);
+    }());
+  </script>
   <!-- CSP: static-only, no third-party.
        ISSUE-012 (2026-05-04 round-2 audit): split style-src into
        style-src-elem ('self', no inline) and style-src-attr ('self'
@@ -225,19 +245,19 @@
       </h1>
     </div>
     <nav class="primary-nav" aria-label="Primary">
-      <a href="#/learn/grammar" data-route="learn/grammar">Grammar</a>
-      <a href="#/learn/vocab" data-route="learn/vocab">Vocabulary</a>
-      <a href="#/kanji" data-route="kanji">Kanji</a>
-      <a href="#/reading" data-route="reading">Reading</a>
-      <a href="#/listening" data-route="listening">Listening</a>
-      <a href="#/test" data-route="test">Test</a>
+      <a href="learn/grammar/" data-route="learn/grammar">Grammar</a>
+      <a href="learn/vocab/" data-route="learn/vocab">Vocabulary</a>
+      <a href="kanji/" data-route="kanji">Kanji</a>
+      <a href="reading/" data-route="reading">Reading</a>
+      <a href="listening/" data-route="listening">Listening</a>
+      <a href="test/" data-route="test">Test</a>
       <!-- ISSUE-039 + IMP-061 (audit round-5): surface the round-3
            routes that were previously orphaned (only reachable from
            Test / Review CTAs). Mock = full mock-paper sitting flow;
            Missed = wrong-answer history log. -->
-      <a href="#/sitting" data-route="sitting">Mock</a>
-      <a href="#/missed" data-route="missed">Missed</a>
-      <a href="#/summary" data-route="summary">Progress</a>
+      <a href="sitting/" data-route="sitting">Mock</a>
+      <a href="missed/" data-route="missed">Missed</a>
+      <a href="summary/" data-route="summary">Progress</a>
     </nav>
     <nav class="secondary-nav" aria-label="Secondary">
       <input type="search" id="search-input" placeholder="Search" aria-label="Search grammar / vocab / kanji" autocomplete="off">
@@ -262,7 +282,7 @@
           <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
         </svg>
       </button>
-      <a href="#/settings" data-route="settings" class="icon-btn" aria-label="Settings" title="Settings">
+      <a href="settings/" data-route="settings" class="icon-btn" aria-label="Settings" title="Settings">
         <!-- lucide-style settings cog icon. -->
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" width="18" height="18">
           <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
@@ -360,9 +380,9 @@
       JLPT® and Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and Japan Educational Exchanges and Services (JEES). This site is independent and is not affiliated with, endorsed by, or sponsored by either organization.
     </small>
     <nav class="footer-nav" aria-label="Footer">
-      <a href="#/changelog" data-route="changelog">What's new</a>
-      <a href="#/privacy" data-route="privacy">Privacy</a>
-      <a href="#/notices" data-route="notices">Notices</a>
+      <a href="changelog/" data-route="changelog">What's new</a>
+      <a href="privacy/" data-route="privacy">Privacy</a>
+      <a href="notices/" data-route="notices">Notices</a>
       <a href="#/feedback" data-route="feedback">Feedback</a>
       <!-- ISSUE-050 (audit round-6): permanent in-app discovery for the
            2-locale (EN | HI) chip group. The auto-detect toast fires once on first

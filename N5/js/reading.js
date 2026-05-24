@@ -3,6 +3,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { t } from './i18n.js';
+import { navigateTo } from './router.js';
 
 // Display labels for level / topic taxonomy. Data values stay English
 // (stable code keys for lookup); we localize at render time so the
@@ -129,7 +130,7 @@ function renderIndex(container) {
       // prev/next nav in renderRead can use the same routing.
       // Session setup happens inside renderReading() when it receives
       // the params; mock-test filtering preserved there.
-      location.hash = `#/reading/${encodeURIComponent(btn.dataset.id)}`;
+      navigateTo(`reading/${encodeURIComponent(btn.dataset.id)}`);
     });
   });
 }
@@ -309,7 +310,7 @@ function renderRead(container, p) {
   document.getElementById('reading-back').addEventListener('click', (e) => {
     e.preventDefault();
     session = null;
-    location.hash = '#/reading';
+    navigateTo('reading');
   });
   document.getElementById('reading-start-q').addEventListener('click', () => {
     session.phase = 'questions';

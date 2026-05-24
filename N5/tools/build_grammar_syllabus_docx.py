@@ -27,7 +27,7 @@ GRAMMAR_JSON = ROOT / "data" / "grammar.json"
 OUT_DIR = ROOT / "data" / "complete course syllabus"
 OUT_FILE = OUT_DIR / "JLPT_N5_Grammar_Patterns.docx"
 
-SPA_URL_TEMPLATE = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/{id}"
+SPA_URL_TEMPLATE = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/{id}/"
 AUDIO_URL_TEMPLATE = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/{path}"
 
 GREEN = RGBColor(0x14, 0x45, 0x2A)

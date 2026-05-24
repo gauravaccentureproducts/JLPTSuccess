@@ -6,6 +6,7 @@ import { t } from './i18n.js';
 import { renderJa } from './furigana.js';
 import { matchesAnswer, normalizeAnswer } from './normalize.js';
 import * as storage from './storage.js';
+import { navigateTo } from './router.js';
 
 let session = null;
 let view = 'setup'; // 'setup' | 'attempting' | 'results'
@@ -663,7 +664,7 @@ async function renderResults(container) {
     renderSetup(container);
   });
   document.getElementById('back-to-learn')?.addEventListener('click', () => {
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 

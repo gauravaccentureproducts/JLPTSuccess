@@ -33,7 +33,7 @@ GRAMMAR_JSON = ROOT / "data" / "grammar.json"
 OUT_DIR = ROOT / "test" / "categorized testing"
 OUT_FILE = OUT_DIR / "CategorizedtestScenarios.xlsx"
 
-SPA_URL_TEMPLATE = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/{id}"
+SPA_URL_TEMPLATE = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/{id}/"
 
 
 # ---------- styling ----------

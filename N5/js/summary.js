@@ -1,6 +1,7 @@
 // Chapter 4 - Summary. Mastered / weak / untested.
 import * as storage from './storage.js';
 import { t } from './i18n.js';
+import { navigateTo } from './router.js';
 
 let grammarCache = null;
 
@@ -104,11 +105,11 @@ export async function renderSummary(container) {
     if (!confirm('Reset all progress? This clears every test result, the rolling history, and weak-pattern flags.')) return;
     if (!confirm('Are you sure? This cannot be undone.')) return;
     storage.reset();
-    location.hash = '#/learn';
+    navigateTo('learn');
     location.reload();
   });
   document.getElementById('retake-diagnostic')?.addEventListener('click', () => {
-    location.hash = '#/diagnostic';
+    navigateTo('diagnostic');
   });
 }
 

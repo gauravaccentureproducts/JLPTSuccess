@@ -7,6 +7,7 @@ import { t } from './i18n.js';
 // IMP-WAVE-P4-21 (UI audit fix, 2026-05-12): romaji-kana auto-converter
 // for typed input fields. Attached to any element with [data-jp-input].
 import { attachRomajiKanaAll } from './romaji-kana.js';
+import { navigateTo } from './router.js';
 
 let questionBank = null;
 let grammarIndex = null;
@@ -589,7 +590,7 @@ function renderFinished(container) {
     renderSetup(container);
   });
   document.getElementById('drill-back')?.addEventListener('click', () => {
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 

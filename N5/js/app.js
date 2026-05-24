@@ -1,5 +1,6 @@
 // Router + chapter coordinator.
 import { initStorage, getDueCount, recordStudyToday, getHistory, getResults, getStreak } from './storage.js';
+import { parseRoute, navigateTo, urlForRoute, getBasePath } from './router.js';
 import { initFuriganaToggle } from './furigana.js';
 import { renderLearn } from './learn.js';
 import { renderTest } from './test.js';
@@ -111,22 +112,10 @@ const ROUTES = {
   n1:         renderLevelPlaceholder,
 };
 
-function parseRoute() {
-  // Default landing is the N5 syllabus dashboard.
-  // The level picker now lives at the parent path (../) - handled by
-  // JLPTSuccess/index.html, NOT by this app. Any bookmark to #/levels
-  // bounces out via the location.replace below.
-  const hash = location.hash;
-  if (hash === '#/levels' || hash === '#/n5' || hash === '#/n4'
-      || hash === '#/n3' || hash === '#/n2' || hash === '#/n1') {
-    location.replace('../');
-    return { name: 'home', params: '' };
-  }
-  const safe = hash || '#/home';
-  const m = safe.match(/^#\/(\w+)(?:\/(.*))?$/);
-  if (!m) return { name: 'home', params: '' };
-  return { name: m[1], params: m[2] || '' };
-}
+// parseRoute() moved to js/router.js to make it importable by every
+// module that navigates (no circular-import worries). Same shape:
+// returns { name, params }. Handles base-path detection AND legacy
+// #/... URL rewriting via replaceState for backward compatibility.
 
 function setActiveNav(name) {
   document.querySelectorAll('.primary-nav a').forEach(a => {
@@ -333,11 +322,15 @@ function applyRouteMeta(name, params) {
     const m = document.querySelector(sel);
     if (m) m.setAttribute('content', meta.desc);
   }
-  // og:url with the current hash so social-card previews resolve correctly
+  // og:url - the canonical pathname URL (history mode, no hash). Each
+  // pattern has its own server-resolvable URL, so social-card previews
+  // and crawlers can fetch the page directly. Normalised: strip
+  // /index.html from the tail so /learn/n5-001/index.html and
+  // /learn/n5-001/ produce the same canonical URL.
   const ogUrl = document.querySelector('meta[property="og:url"]');
   if (ogUrl) {
-    const base = ogUrl.getAttribute('content') || location.origin + location.pathname;
-    ogUrl.setAttribute('content', base.replace(/#.*$/, '') + location.hash);
+    const canonical = location.origin + location.pathname.replace(/\/index\.html$/, '/');
+    ogUrl.setAttribute('content', canonical);
   }
 }
 
@@ -370,10 +363,8 @@ async function route() {
 
 // Brief 2 §7.3: prompt before discarding in-progress Test state.
 function shouldPromptOnLeave() {
-  const hash = location.hash || '';
-  // The test module sets view='attempting' on its own state. We can't peek
-  // into it cleanly here, but we can detect via a global flag the module
-  // sets when it enters/exits attempting.
+  // The test module sets a window-global flag when it enters/exits
+  // attempting; we can't peek into its state cleanly from here.
   return !!window.__testInProgress;
 }
 
@@ -385,31 +376,70 @@ window.addEventListener('beforeunload', (ev) => {
   }
 });
 
-let lastConfirmedHash = location.hash;
-window.addEventListener('hashchange', (ev) => {
-  // Skip-link a11y: clicking "Skip to main content" sets the hash to
-  // #app (or any non-route fragment). parseRoute only recognises
-  // hashes that start with `#/`, so without this guard, every
-  // skip-link click silently re-routes the user back to #/home,
-  // losing their place. Detect non-route hashes and short-circuit -
-  // the browser still scrolls to / focuses the target anchor (which
-  // now has tabindex="-1" on <main id="app"> for programmatic focus).
-  // Closes #14 from the developer-issue-list audit.
-  const hash = location.hash;
-  if (hash && !hash.startsWith('#/')) {
-    return;
-  }
+// Track the last "confirmed" pathname so we can revert browser
+// back/forward navigation when an in-progress test is interrupted.
+let lastConfirmedPath = location.pathname;
+window.addEventListener('popstate', (ev) => {
   if (shouldPromptOnLeave()) {
     const ok = confirm('Quit this test? Progress so far will be saved to history.');
     if (!ok) {
-      // Revert hash without re-firing the handler (silent)
-      history.replaceState(null, '', lastConfirmedHash || '#/home');
+      // Revert without re-firing the handler
+      history.replaceState(null, '', lastConfirmedPath || getBasePath());
       return;
     }
     window.__testInProgress = false;
   }
-  lastConfirmedHash = location.hash;
+  lastConfirmedPath = location.pathname;
   route();
+});
+
+// Global click interception for internal navigation. Any <a> with a
+// data-route attribute (e.g. primary-nav links, footer links, in-page
+// CTAs) is routed via navigateTo() instead of triggering a full
+// page navigation. Works correctly whether the user is on index.html
+// or on a static-mirror deep-link, because navigateTo() builds the
+// absolute URL from getBasePath().
+//
+// Also catches anchor tags whose href still uses the legacy `#/...`
+// form (until every HTML href is migrated in Phase 3 + every static
+// mirror is regenerated). Modifier-clicks (Ctrl/Cmd/Shift/Alt and
+// middle-button) are NOT intercepted - the user wants those to open
+// in a new tab / window, which requires the real href.
+document.addEventListener('click', (ev) => {
+  if (ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+  const a = ev.target.closest('a');
+  if (!a) return;
+  const dataRoute = a.getAttribute('data-route');
+  const href = a.getAttribute('href') || '';
+  let route = null;
+  if (dataRoute) {
+    route = dataRoute;
+  } else if (href.startsWith('#/')) {
+    route = href.slice(2);
+  }
+  if (route == null) return;
+  ev.preventDefault();
+  navigateTo(route);
+});
+
+// Backward-compat: any legacy `#/...` link click or bookmark still
+// triggers a route. parseRoute() inside route() will replaceState the
+// URL to the clean path form. Skip-link a11y: ignore non-route hashes
+// (e.g. #app for "Skip to main content") - the browser still does the
+// anchor scroll / focus, just no route change.
+window.addEventListener('hashchange', (ev) => {
+  const hash = location.hash;
+  if (hash && !hash.startsWith('#/')) return;
+  if (shouldPromptOnLeave()) {
+    const ok = confirm('Quit this test? Progress so far will be saved to history.');
+    if (!ok) {
+      history.replaceState(null, '', lastConfirmedPath || getBasePath());
+      return;
+    }
+    window.__testInProgress = false;
+  }
+  // parseRoute() will rewrite the hash to a clean path; trigger route().
+  route().then(() => { lastConfirmedPath = location.pathname; });
 });
 window.addEventListener('DOMContentLoaded', async () => {
   initStorage();
@@ -444,26 +474,34 @@ window.addEventListener('DOMContentLoaded', async () => {
   ['click', 'keydown'].forEach(evt => {
     document.addEventListener(evt, () => recordStudyToday(), { once: true });
   });
-  // IMP-044 (audit round-3): first-run onboarding. Fresh installs (no
-  // prior history, no test results, no streak) get routed to the
-  // diagnostic at first touch. Returning users keep their normal hash.
-  // Once seen, the onboardingSeen sentinel keeps subsequent landings on
-  // home - diagnostic stays reachable from #/diagnostic.
-  if (!location.hash) {
-    try {
-      const noHistory = Object.keys(getHistory()).length === 0;
-      const noResults = (getResults() || []).length === 0;
-      const noStreak  = !getStreak()?.lastStudyDate;
-      const isFirstRun = noHistory && noResults && noStreak;
-      const seenOnboard = localStorage.getItem('jlpt-n5-tutor:onboardingSeen');
-      if (isFirstRun && !seenOnboard) {
-        localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1');
-        location.hash = '#/diagnostic';
-      } else {
-        location.hash = '#/home';
-      }
-    } catch {
-      location.hash = '#/home';
+  // IMP-044 (audit round-3): first-run onboarding. Fresh installs
+  // (no prior history, no test results, no streak) get routed to the
+  // diagnostic at first touch. Returning users land on home. Once
+  // seen, the onboardingSeen sentinel keeps subsequent landings on
+  // home; diagnostic stays reachable from /diagnostic/.
+  //
+  // History-mode rewrite (2026-05-24): the "is the user at the root
+  // URL?" check used to test `!location.hash`; now we test whether
+  // parseRoute() returns the default home route AND no legacy hash
+  // is present.
+  {
+    const basePath = getBasePath().replace(/\/$/, '');
+    const currentPath = location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+    const atRoot = currentPath === basePath;
+    const hasLegacyHash = location.hash && location.hash.startsWith('#/');
+    if (atRoot && !hasLegacyHash) {
+      try {
+        const noHistory = Object.keys(getHistory()).length === 0;
+        const noResults = (getResults() || []).length === 0;
+        const noStreak  = !getStreak()?.lastStudyDate;
+        const isFirstRun = noHistory && noResults && noStreak;
+        const seenOnboard = localStorage.getItem('jlpt-n5-tutor:onboardingSeen');
+        if (isFirstRun && !seenOnboard) {
+          localStorage.setItem('jlpt-n5-tutor:onboardingSeen', '1');
+          history.replaceState(null, '', urlForRoute('diagnostic'));
+        }
+        // else: stay at base — home is the default route from parseRoute().
+      } catch { /* noop */ }
     }
   }
   // IMP-063 (audit round-5): handle PWA share_target. When the OS Share
@@ -476,8 +514,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     const sharedQ = qs.get('q') || qs.get('text') || qs.get('title');
     if (sharedQ) {
       // Strip the query string from the URL so a refresh doesn't re-trigger.
-      history.replaceState(null, '', location.pathname + location.hash);
-      location.hash = '#/home';
+      // Also normalise to the home route in pathname mode.
+      history.replaceState(null, '', getBasePath());
       // Defer focus until the home route renders.
       queueMicrotask(() => {
         const input = document.getElementById('search-input');

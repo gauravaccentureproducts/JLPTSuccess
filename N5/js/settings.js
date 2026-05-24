@@ -4,6 +4,7 @@ import * as storage from './storage.js';
 import { setLocale, currentLocale, enabledLocales, t } from './i18n.js';
 import { renderJa } from './furigana.js';
 import { exportVocabTSV, exportGrammarTSV, exportKanjiTSV } from './corpus-export.js';
+import { navigateTo } from './router.js';
 
 // BUG-7 fix (UI test 2026-05-07): the `hi` entry was missing — the
 // switcher rendered the bare ISO code "hi" as the option label. Added
@@ -406,7 +407,7 @@ export async function renderSettings(container) {
   });
   document.getElementById('reset-confirm-btn').addEventListener('click', () => {
     storage.reset();
-    location.hash = '#/learn';
+    navigateTo('learn');
     location.reload();
   });
 }

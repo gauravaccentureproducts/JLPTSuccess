@@ -5,6 +5,7 @@
 import { renderJa } from './furigana.js';
 import * as storage from './storage.js';
 import { t } from './i18n.js';
+import { navigateTo } from './router.js';
 
 let questionBank = null;
 let grammarIndex = null;
@@ -62,7 +63,7 @@ function renderSetup(container) {
   document.getElementById('start-diagnostic').addEventListener('click', () => startDiagnostic(container));
   document.getElementById('skip-diagnostic').addEventListener('click', () => {
     storage.setSettings({ diagnosticCompleted: true });
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 
@@ -309,7 +310,7 @@ function renderResults(container) {
     </div>
   `;
 
-  document.getElementById('diag-back')?.addEventListener('click', () => { location.hash = '#/learn'; });
+  document.getElementById('diag-back')?.addEventListener('click', () => { navigateTo('learn'); });
 }
 
 function formatDate(iso) {

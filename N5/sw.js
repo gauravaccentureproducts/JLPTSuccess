@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.16.9';
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.0';  // bumped 2026-05-24: history-mode SPA migration (hash→pathname)
 
 const PRECACHE = [
   './',
@@ -35,6 +35,9 @@ const PRECACHE = [
   './css/main.css',
   './css/main.min.css',
   './js/app.js',
+  // History-mode router helpers + base-aware fetch wrapper (2026-05-24).
+  './js/router.js',
+  './js/min/router.js',
   './js/storage.js',
   './js/furigana.js',
   './js/learn.js',

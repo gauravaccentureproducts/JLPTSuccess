@@ -3,6 +3,7 @@
 // accuracy and surfaces it. Accepts kana or romaji.
 import { matchesAnswer } from './normalize.js';
 import * as storage from './storage.js';
+import { navigateTo } from './router.js';
 
 // Source verbs grouped by their te-form RULE (the transformation pattern).
 const RULES = {
@@ -228,7 +229,7 @@ function renderFinished(container) {
     renderTeach(container);
   });
   document.getElementById('te-back').addEventListener('click', () => {
-    location.hash = '#/learn';
+    navigateTo('learn');
   });
 }
 

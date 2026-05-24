@@ -1,4 +1,4 @@
-import{renderJa as n}from"./furigana.js";import*as A from"./storage.js";import{hasAlignedTranscript as x,renderTranscriptHTML as T,wireTranscriptSync as E}from"./listening-transcript.js";import{t as d}from"./i18n.js";let m=null,$=null;const k={task_understanding:"\u304B\u3060\u3044\u308A\u304B\u3044 (\u30BF\u30B9\u30AF\u308A\u304B\u3044)",point_understanding:"\u30DD\u30A4\u30F3\u30C8\u308A\u304B\u3044",utterance_expression:"\u306F\u3064\u308F\u3072\u3087\u3046\u3052\u3093",immediate_response:"\u305D\u304F\u3058\u304A\u3046\u3068\u3046"};async function L(){if(m)return m;try{const a=await fetch("data/listening.json");if(!a.ok)return m={items:[]},m;m=await a.json()}catch{m={items:[]}}return m}async function P(a,t){await L();const u=(t||"").trim();if(u){const p=(m.items||[]).find(h=>h.id===u);if(!p){$=null,location.hash="#/listening";return}return(!$||$.item?.id!==p.id)&&($={item:p,picked:null}),j(a)}return $=null,I(a)}function I(a){const t=m.items||[];if(t.length===0){a.innerHTML=`
+import{renderJa as n}from"./furigana.js";import*as x from"./storage.js";import{hasAlignedTranscript as T,renderTranscriptHTML as E,wireTranscriptSync as L}from"./listening-transcript.js";import{t as d}from"./i18n.js";import{navigateTo as h}from"./router.js";let m=null,$=null;const j={task_understanding:"\u304B\u3060\u3044\u308A\u304B\u3044 (\u30BF\u30B9\u30AF\u308A\u304B\u3044)",point_understanding:"\u30DD\u30A4\u30F3\u30C8\u308A\u304B\u3044",utterance_expression:"\u306F\u3064\u308F\u3072\u3087\u3046\u3052\u3093",immediate_response:"\u305D\u304F\u3058\u304A\u3046\u3068\u3046"};async function I(){if(m)return m;try{const a=await fetch("data/listening.json");if(!a.ok)return m={items:[]},m;m=await a.json()}catch{m={items:[]}}return m}async function H(a,t){await I();const u=(t||"").trim();if(u){const p=(m.items||[]).find(_=>_.id===u);if(!p){$=null,h("listening");return}return(!$||$.item?.id!==p.id)&&($={item:p,picked:null}),w(a)}return $=null,S(a)}function S(a){const t=m.items||[];if(t.length===0){a.innerHTML=`
       <h2>${n("\u3061\u3087\u3046\u304B\u3044 \u308C\u3093\u3057\u3085\u3046")}</h2>
       <div class="placeholder">
         <p><strong>No listening items shipped yet.</strong></p>
@@ -19,13 +19,13 @@ import{renderJa as n}from"./furigana.js";import*as A from"./storage.js";import{h
     </div>
     ${Object.entries(u).map(([i,c])=>`
       <details class="listening-section">
-        <summary><h3>${n(k[i]||i)} <span class="muted small">(${c.length})</span></h3></summary>
+        <summary><h3>${n(j[i]||i)} <span class="muted small">(${c.length})</span></h3></summary>
         <ul class="listening-list">
           ${c.map(o=>`<li><button class="listening-pick" data-id="${s(o.id)}">${o.title_ja?n(o.title_ja):s(o.id)}</button></li>`).join("")}
         </ul>
       </details>
     `).join("")}
-  `;const p=a.querySelector(".toc-expand-all"),h=a.querySelector(".toc-collapse-all");p&&p.addEventListener("click",()=>{a.querySelectorAll("details.listening-section").forEach(i=>i.open=!0)}),h&&h.addEventListener("click",()=>{a.querySelectorAll("details.listening-section").forEach(i=>i.open=!1)}),a.querySelectorAll("[data-id]").forEach(i=>{i.addEventListener("click",()=>{location.hash=`#/listening/${encodeURIComponent(i.dataset.id)}`})})}function j(a){const t=$.item,u=$.picked,p=u!=null,h=u===t.correctAnswer;p&&A.setListeningCompleted(t.id);const i=m?.items||[],c=i.findIndex(e=>e.id===t.id),o=c>0?i[c-1]:null,g=c>=0&&c<i.length-1?i[c+1]:null,w=o||g?`
+  `;const p=a.querySelector(".toc-expand-all"),_=a.querySelector(".toc-collapse-all");p&&p.addEventListener("click",()=>{a.querySelectorAll("details.listening-section").forEach(i=>i.open=!0)}),_&&_.addEventListener("click",()=>{a.querySelectorAll("details.listening-section").forEach(i=>i.open=!1)}),a.querySelectorAll("[data-id]").forEach(i=>{i.addEventListener("click",()=>{h(`listening/${encodeURIComponent(i.dataset.id)}`)})})}function w(a){const t=$.item,u=$.picked,p=u!=null,_=u===t.correctAnswer;p&&x.setListeningCompleted(t.id);const i=m?.items||[],c=i.findIndex(e=>e.id===t.id),o=c>0?i[c-1]:null,g=c>=0&&c<i.length-1?i[c+1]:null,A=o||g?`
     <nav class="listening-nav" aria-label="Listening item navigation">
       ${o?`<button type="button" class="listening-nav-btn listening-nav-prev" data-nav="prev" title="${s(o.title_ja||o.id)}">
              <span class="listening-nav-arrow" aria-hidden="true">&larr;</span>
@@ -48,7 +48,7 @@ import{renderJa as n}from"./furigana.js";import*as A from"./storage.js";import{h
         <span><a id="listening-back" href="#/listening">\u2190 ${n("\u30EA\u30B9\u30C8\u306B \u3082\u3069\u308B")}</a></span>
       </div>
       <h2>${t.title_ja?n(t.title_ja):s(t.id)}</h2>
-      <p class="muted small">${n("\u3051\u3044\u3057\u304D")}: ${n(k[t.format_type]||t.format_type)}</p>
+      <p class="muted small">${n("\u3051\u3044\u3057\u304D")}: ${n(j[t.format_type]||t.format_type)}</p>
       <div class="listening-audio">
         ${t.audio?`
           <audio id="listening-audio-${s(t.id)}" controls preload="none" src="${s(t.audio)}">Audio</audio>
@@ -74,8 +74,8 @@ import{renderJa as n}from"./furigana.js";import*as A from"./storage.js";import{h
           `:""}
         `:`<p class="muted small">${n("\u304A\u3093\u305B\u3044\u30D5\u30A1\u30A4\u30EB\u306F \u307E\u3060 \u3042\u308A\u307E\u305B\u3093\u3002")}</p>`}
       </div>
-      ${(()=>{const e=t.audio_render_meta;if(!e)return"";const l=e.voice_planned_for_engine||{},_=l.F&&l.F.character||"",r=l.M&&l.M.character||"",y=e.voice_provider||"";if(!_&&!r&&!y)return"";const v=[_,r].filter(Boolean).join(" \xB7 "),f=(typeof d=="function"?d("listening.voices_label"):"Voices")||"Voices";return`<p class="muted xs listening-voice-attribution">
-          ${s(f)}: ${s(v)} (${s(y)})
+      ${(()=>{const e=t.audio_render_meta;if(!e)return"";const l=e.voice_planned_for_engine||{},y=l.F&&l.F.character||"",r=l.M&&l.M.character||"",f=e.voice_provider||"";if(!y&&!r&&!f)return"";const b=[y,r].filter(Boolean).join(" \xB7 "),v=(typeof d=="function"?d("listening.voices_label"):"Voices")||"Voices";return`<p class="muted xs listening-voice-attribution">
+          ${s(v)}: ${s(b)} (${s(f)})
         </p>`})()}
       ${t.prompt_ja?`<p>${n(t.prompt_ja)}</p>`:""}
       ${(()=>{const e=Array.isArray(t.listening_strategy_hints)?t.listening_strategy_hints:[];return e.length?`
@@ -194,13 +194,13 @@ import{renderJa as n}from"./furigana.js";import*as A from"./storage.js";import{h
         </div>
       `:""}
       ${p?`
-        <div class="drill-feedback ${h?"correct":"incorrect"}">
-          <div class="feedback-headline">${h?n("\u305B\u3044\u304B\u3044"):n("\u3056\u3093\u306D\u3093")}</div>
-          ${x(t)?`<details open><summary>${n("\u30B9\u30AF\u30EA\u30D7\u30C8")}</summary>${T(t)}</details>`:t.script_ja?`<details><summary>${n("\u30B9\u30AF\u30EA\u30D7\u30C8\u3092 \u898B\u308B")}</summary><div>${n(t.script_ja)}</div></details>`:""}
+        <div class="drill-feedback ${_?"correct":"incorrect"}">
+          <div class="feedback-headline">${_?n("\u305B\u3044\u304B\u3044"):n("\u3056\u3093\u306D\u3093")}</div>
+          ${T(t)?`<details open><summary>${n("\u30B9\u30AF\u30EA\u30D7\u30C8")}</summary>${E(t)}</details>`:t.script_ja?`<details><summary>${n("\u30B9\u30AF\u30EA\u30D7\u30C8\u3092 \u898B\u308B")}</summary><div>${n(t.script_ja)}</div></details>`:""}
           ${t.explanation_en?`<p class="muted small">${s(t.explanation_en)}</p>`:""}
           <button id="listening-back-list" class="btn-primary">${n("\u30EA\u30B9\u30C8\u306B \u3082\u3069\u308B")}</button>
         </div>
       `:""}
-      ${w}
+      ${A}
     </article>
-  `,a.querySelector('[data-nav="prev"]')?.addEventListener("click",()=>{o&&(window.scrollTo(0,0),location.hash=`#/listening/${encodeURIComponent(o.id)}`)}),a.querySelector('[data-nav="next"]')?.addEventListener("click",()=>{g&&(window.scrollTo(0,0),location.hash=`#/listening/${encodeURIComponent(g.id)}`)}),a.querySelectorAll("[data-pick]").forEach(e=>{e.addEventListener("click",()=>{$.picked=e.dataset.pick,j(a)})}),document.getElementById("listening-back-list")?.addEventListener("click",()=>{location.hash="#/listening"}),E(a,t),a.querySelectorAll("[data-listening-speed]").forEach(e=>{e.addEventListener("click",()=>{const l=e.dataset.listeningSpeed,_=e.dataset.audioTarget,r=document.getElementById(_);if(!r)return;const y=l==="slow"?e.dataset.audioSlow:e.dataset.audioNormal,v=!r.paused,f=r.duration?r.currentTime/r.duration:0;r.pause(),r.src=y,r.addEventListener("loadedmetadata",()=>{r.duration&&f>0&&(r.currentTime=r.duration*f),v&&r.play().catch(()=>{})},{once:!0}),e.parentElement?.querySelectorAll("[data-listening-speed]").forEach(b=>{b.classList.toggle("is-active",b===e)})})})}function s(a){return String(a??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t])}export{P as renderListening};
+  `,a.querySelector('[data-nav="prev"]')?.addEventListener("click",()=>{o&&(window.scrollTo(0,0),h(`listening/${encodeURIComponent(o.id)}`))}),a.querySelector('[data-nav="next"]')?.addEventListener("click",()=>{g&&(window.scrollTo(0,0),h(`listening/${encodeURIComponent(g.id)}`))}),a.querySelectorAll("[data-pick]").forEach(e=>{e.addEventListener("click",()=>{$.picked=e.dataset.pick,w(a)})}),document.getElementById("listening-back-list")?.addEventListener("click",()=>{h("listening")}),L(a,t),a.querySelectorAll("[data-listening-speed]").forEach(e=>{e.addEventListener("click",()=>{const l=e.dataset.listeningSpeed,y=e.dataset.audioTarget,r=document.getElementById(y);if(!r)return;const f=l==="slow"?e.dataset.audioSlow:e.dataset.audioNormal,b=!r.paused,v=r.duration?r.currentTime/r.duration:0;r.pause(),r.src=f,r.addEventListener("loadedmetadata",()=>{r.duration&&v>0&&(r.currentTime=r.duration*v),b&&r.play().catch(()=>{})},{once:!0}),e.parentElement?.querySelectorAll("[data-listening-speed]").forEach(k=>{k.classList.toggle("is-active",k===e)})})})}function s(a){return String(a??"").replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t])}export{H as renderListening};
