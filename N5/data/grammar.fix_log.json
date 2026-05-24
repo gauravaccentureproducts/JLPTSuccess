@@ -4059,5 +4059,239 @@
       "audio/grammar/n5-109.6.mp3"
     ],
     "note": "Orphan audio files exist on disk; audio_manifest entries remain. Consistent with BUG-D leftover handling (Part 56). Manifest trim deferred to a future cleanup pass."
+  },
+  "cross_corpus_dedup_2026_05_24": {
+    "description": "Cross-corpus dedup pass under native-Japanese-teacher review. Vocab + kanji within-entry example duplicates removed. Reading + listening corpora are clean — no defects found.",
+    "vocab_drops": [
+      {
+        "entry_id": "n5.vocab.10-time-general.今",
+        "form": "今",
+        "kept_index": 0,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "今 何時ですか。",
+          "translation_en": "What time is it now?",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.11-time-days-weeks-month.月",
+        "form": "月",
+        "kept_index": 4,
+        "dropped_index": 5,
+        "dropped_example": {
+          "ja": "こんやの 月は とても きれいです。",
+          "translation_en": "Tonight's moon is very beautiful.",
+          "provenance": "native_reviewed_2026_05_22"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.13-locations-and-places-.かど",
+        "form": "かど",
+        "kept_index": 1,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "つぎの かどを 右に まがって ください。",
+          "translation_en": "Please turn right at the next corner.",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.17-food-items.バター",
+        "form": "バター",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_example": {
+          "ja": "パンに バターを ぬります。",
+          "translation_en": "I spread butter on bread."
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.17-food-items.うどん",
+        "form": "うどん",
+        "kept_index": 0,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "おひるに うどんを 食べました。",
+          "translation_en": "I had udon for lunch.",
+          "provenance": "native_reviewed_2026_05_22"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.19-tableware-and-cooking.フォーク",
+        "form": "フォーク",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_example": {
+          "ja": "フォークで サラダを 食べます。",
+          "translation_en": "I eat salad with a fork."
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.19-tableware-and-cooking.ナイフ",
+        "form": "ナイフ",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_example": {
+          "ja": "ナイフで パンを 切ります。",
+          "translation_en": "I cut bread with a knife."
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.24-school-and-study.れい",
+        "form": "れい",
+        "kept_index": 1,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "先生が れいを 三つ 出しました。",
+          "translation_en": "The teacher gave three examples.",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.26-house-and-furniture.せっけん",
+        "form": "せっけん",
+        "kept_index": 1,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "せっけんで 手を あらいます。",
+          "translation_en": "I wash my hands with soap.",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.27-verbs-group-1-verbs.わたす",
+        "form": "わたす",
+        "kept_index": 1,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "先生に レポートを わたしました。",
+          "translation_en": "I handed the report to the teacher.",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.31-adjectives.あつい",
+        "form": "あつい",
+        "kept_index": 3,
+        "dropped_index": 4,
+        "dropped_example": {
+          "ja": "なつは とても あついです。",
+          "translation_en": "Summer is very hot.",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.33-adverbs.ちょっと",
+        "form": "ちょっと",
+        "kept_index": 0,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "ちょっと まって ください。",
+          "translation_en": "Please wait a moment.",
+          "provenance": "native_reviewed_2026_05_22"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.33-adverbs.もうすこし",
+        "form": "もうすこし",
+        "kept_index": 0,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "もうすこし まって ください。",
+          "translation_en": "Please wait a little more.",
+          "provenance": "native_reviewed_2026_05_22"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.33-adverbs.どうぞ",
+        "form": "どうぞ",
+        "kept_index": 0,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "どうぞ、おかけください。",
+          "translation_en": "Please, have a seat."
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.36-greetings-and-set-phr.どうも",
+        "form": "どうも",
+        "kept_index": 0,
+        "dropped_index": 3,
+        "dropped_example": {
+          "ja": "どうも ありがとう。",
+          "translation_en": "Thank you very much."
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.37-common-nouns-miscella.話",
+        "form": "話",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_example": {
+          "ja": "おもしろい 話を 聞きました。",
+          "translation_en": "I heard an interesting story."
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      },
+      {
+        "entry_id": "n5.vocab.37-common-nouns-miscella.メートル",
+        "form": "メートル",
+        "kept_index": 0,
+        "dropped_index": 2,
+        "dropped_example": {
+          "ja": "百メートル はしりました。",
+          "translation_en": "I ran 100 meters.",
+          "provenance": "native_reviewed_2026_05_22"
+        },
+        "reason": "duplicate of earlier example within same vocab entry"
+      }
+    ],
+    "kanji_drops": [
+      {
+        "kanji_glyph": "十",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_example": {
+          "form": "十",
+          "reading": "とお",
+          "gloss": "ten"
+        },
+        "reason": "duplicate of earlier example within same kanji entry (same form)"
+      },
+      {
+        "kanji_glyph": "人",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_example": {
+          "form": "人",
+          "reading": "にん",
+          "gloss": "counter for people"
+        },
+        "reason": "duplicate of earlier example within same kanji entry (same form)"
+      }
+    ],
+    "heuristic_fp_classes_documented": {
+      "inflected_verb_adj_examples": "151 verb/adj entries where inflected example form differs from dictionary headword (たべる→たべます). Conjugation-aware matching needed; static check is insufficient.",
+      "multi_vocab_shared_examples": "7 example JA strings reused across >=4 entries — intentional multi-vocab demonstration (one sentence teaches several headwords efficiently).",
+      "pronoun_avoidance_pedagogy": "1 pronoun (あなた) intentional avoidance pedagogy showing 〜さん forms.",
+      "polysemic_vocab_forms": "24 vocab forms with multiple entries (different sections/POS) — intentional poly-section coverage (e.g., 十 as number + counter)."
+    },
+    "reviewer_persona": "ai_native_reviewer (Claude under authorized persona; not human native-teacher review)"
   }
 }

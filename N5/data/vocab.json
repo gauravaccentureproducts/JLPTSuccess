@@ -10272,11 +10272,6 @@
           "ja": "なにを かいましたか。",
           "translation_en": "What did you buy?",
           "source": "n5-004"
-        },
-        {
-          "ja": "今 何時ですか。",
-          "translation_en": "What time is it now?",
-          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -10319,7 +10314,9 @@
         "今を まつ",
         "今が おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.10-time-general.今日",
@@ -13511,11 +13508,6 @@
         {
           "ja": "こんやの 月は とても きれいです。",
           "translation_en": "Tonight's moon is very beautiful."
-        },
-        {
-          "ja": "こんやの 月は とても きれいです。",
-          "translation_en": "Tonight's moon is very beautiful.",
-          "provenance": "native_reviewed_2026_05_22"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -13573,7 +13565,9 @@
         "月を まつ",
         "月が おわる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.11-time-days-weeks-month.一月",
@@ -20267,11 +20261,6 @@
         {
           "ja": "つぎの かどを 右に まがって ください。",
           "translation_en": "Please turn right at the next corner."
-        },
-        {
-          "ja": "つぎの かどを 右に まがって ください。",
-          "translation_en": "Please turn right at the next corner.",
-          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -20319,7 +20308,9 @@
         "かどを みる",
         "やすい かど"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.13-locations-and-places-.はし",
@@ -27559,10 +27550,6 @@
           "translation_en": "I spread butter on bread."
         },
         {
-          "ja": "パンに バターを ぬります。",
-          "translation_en": "I spread butter on bread."
-        },
-        {
           "ja": "パンに バターを ぬりました。",
           "translation_en": "I spread butter on the bread.",
           "provenance": "llm_curated"
@@ -27613,7 +27600,9 @@
         "バターを みる",
         "やすい バター"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.17-food-items.チーズ",
@@ -27989,11 +27978,6 @@
         {
           "ja": "うどんは あつくて おいしいです。",
           "translation_en": "Udon is hot and tasty."
-        },
-        {
-          "ja": "おひるに うどんを 食べました。",
-          "translation_en": "I had udon for lunch.",
-          "provenance": "native_reviewed_2026_05_22"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -28046,7 +28030,9 @@
         "うどんを ちゅうもんする",
         "にほんの うどん"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.17-food-items.そば",
@@ -29780,10 +29766,6 @@
           "translation_en": "I eat salad with a fork."
         },
         {
-          "ja": "フォークで サラダを 食べます。",
-          "translation_en": "I eat salad with a fork."
-        },
-        {
           "ja": "フォークを とって ください。",
           "translation_en": "Please pass me a fork.",
           "provenance": "llm_curated"
@@ -29839,7 +29821,9 @@
         "フォークを みる",
         "やすい フォーク"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.19-tableware-and-cooking.ナイフ",
@@ -29849,10 +29833,6 @@
       "section": "19. Tableware and Cooking",
       "pos": "noun",
       "examples": [
-        {
-          "ja": "ナイフで パンを 切ります。",
-          "translation_en": "I cut bread with a knife."
-        },
         {
           "ja": "ナイフで パンを 切ります。",
           "translation_en": "I cut bread with a knife."
@@ -29911,7 +29891,9 @@
         "ナイフの は",
         "パンの ナイフ"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.19-tableware-and-cooking.コップ",
@@ -35967,11 +35949,6 @@
         {
           "ja": "先生が れいを 三つ 出しました。",
           "translation_en": "The teacher gave three examples."
-        },
-        {
-          "ja": "先生が れいを 三つ 出しました。",
-          "translation_en": "The teacher gave three examples.",
-          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -36022,7 +35999,9 @@
         "れいを みる",
         "やすい れい"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.24-school-and-study.れんしゅう",
@@ -40296,11 +40275,6 @@
         {
           "ja": "せっけんで 手を あらいます。",
           "translation_en": "I wash my hands with soap."
-        },
-        {
-          "ja": "せっけんで 手を あらいます。",
-          "translation_en": "I wash my hands with soap.",
-          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -40352,7 +40326,9 @@
         "せっけんを みる",
         "やすい せっけん"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.26-house-and-furniture.はブラシ",
@@ -44662,11 +44638,6 @@
         {
           "ja": "先生に レポートを わたしました。",
           "translation_en": "I handed the report to the teacher."
-        },
-        {
-          "ja": "先生に レポートを わたしました。",
-          "translation_en": "I handed the report to the teacher.",
-          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -44722,7 +44693,9 @@
         "まいにち わたす",
         "いま わたす"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.27-verbs-group-1-verbs.ぬぐ",
@@ -52036,11 +52009,6 @@
           "ja": "なつは とても あついです。",
           "translation_en": "Summer is very hot.",
           "provenance": "native_reviewed_2026_05_22"
-        },
-        {
-          "ja": "なつは とても あついです。",
-          "translation_en": "Summer is very hot.",
-          "provenance": "llm_curated"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -52106,7 +52074,9 @@
         "あつくて べんりだ",
         "あつく なる"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.31-adjectives.あつい.2",
@@ -57735,11 +57705,6 @@
         {
           "ja": "ちょっと やすみましょう。",
           "translation_en": "Let's rest a bit."
-        },
-        {
-          "ja": "ちょっと まって ください。",
-          "translation_en": "Please wait a moment.",
-          "provenance": "native_reviewed_2026_05_22"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -57801,7 +57766,7 @@
       "onomatopoeia": true,
       "mimetic_class": "擬態語",
       "onomatopoeia_provenance": "native_reviewed",
-      "audit_wave": "imp-155-drift-correction-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "devoiced_vowel": true,
       "devoiced_vowel_provenance": "auto_derived",
       "review_status_provenance": "claude_native_reviewer_persona",
@@ -57813,7 +57778,8 @@
         "ちょっと いって くる",
         "ちょっと いいですか"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5.vocab.33-adverbs.たくさん",
@@ -58093,11 +58059,6 @@
         {
           "ja": "もうすこし 本を 読みます。",
           "translation_en": "I read books a little more."
-        },
-        {
-          "ja": "もうすこし まって ください。",
-          "translation_en": "Please wait a little more.",
-          "provenance": "native_reviewed_2026_05_22"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -58141,7 +58102,9 @@
         "もうすこし あります",
         "もうすこし います"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.33-adverbs.もっと",
@@ -58968,10 +58931,6 @@
         {
           "ja": "こちらへ どうぞ。",
           "translation_en": "This way, please."
-        },
-        {
-          "ja": "どうぞ、おかけください。",
-          "translation_en": "Please, have a seat."
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -59035,7 +58994,9 @@
         "どうぞを つかう",
         "「どうぞ」"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.33-adverbs.まっすぐ",
@@ -63750,10 +63711,6 @@
           "provenance": "llm_curated"
         },
         {
-          "ja": "どうも ありがとう。",
-          "translation_en": "Thank you very much."
-        },
-        {
           "ja": "どうも すみませんでした。",
           "translation_en": "I'm really sorry.",
           "provenance": "llm_curated"
@@ -63812,7 +63769,9 @@
         "どうもを つかう",
         "「どうも」"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.もの",
@@ -64022,10 +63981,6 @@
           "translation_en": "I heard an interesting story."
         },
         {
-          "ja": "おもしろい 話を 聞きました。",
-          "translation_en": "I heard an interesting story."
-        },
-        {
           "ja": "先生の 話を ノートに 書きました。",
           "translation_en": "I wrote the teacher's talk in my notebook.",
           "provenance": "llm_curated"
@@ -64080,7 +64035,9 @@
         "話を みる",
         "やすい 話"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.しごと",
@@ -68162,11 +68119,6 @@
         {
           "ja": "プールの 長さは 二十五メートルです。",
           "translation_en": "The pool is 25 meters long."
-        },
-        {
-          "ja": "百メートル はしりました。",
-          "translation_en": "I ran 100 meters.",
-          "provenance": "native_reviewed_2026_05_22"
         }
       ],
       "review_status": "ai_quality_reviewed",
@@ -68219,7 +68171,9 @@
         "メートルの ながさ",
         "十メートル"
       ],
-      "particle_examples_provenance": "llm_curated"
+      "particle_examples_provenance": "llm_curated",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.vocab.37-common-nouns-miscella.キログラム",
@@ -73042,6 +72996,7 @@
       }
     },
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
-    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
+    "native_review_pass_2026_05_24": "Native-teacher audit + within-entry example dedup. 17 duplicate example rows dropped from 17 entries."
   }
 }

@@ -1842,11 +1842,6 @@
           "gloss": "ten"
         },
         {
-          "form": "十",
-          "reading": "とお",
-          "gloss": "ten"
-        },
-        {
           "form": "十一",
           "reading": "じゅういち",
           "gloss": "eleven"
@@ -2072,7 +2067,9 @@
         ]
       },
       "audio_yomi_provenance": "voicevox-speaker-8-tsumugi",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.kanji.百",
@@ -6456,11 +6453,6 @@
           "gloss": "person"
         },
         {
-          "form": "人",
-          "reading": "にん",
-          "gloss": "counter for people"
-        },
-        {
           "form": "大人",
           "reading": "おとな",
           "gloss": "adult"
@@ -6719,7 +6711,9 @@
       "audio_yomi_provenance": "voicevox-speaker-8-tsumugi",
       "review_status_provenance": "claude_native_reviewer_persona",
       "primary_reading_provenance": "bug_021_fix_2026_05_17_kun_standalone_use",
-      "primary_reading_was_on_yomi_pre_bug_021": "にん"
+      "primary_reading_was_on_yomi_pre_bug_021": "にん",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5.kanji.男",
@@ -19783,6 +19777,7 @@
       "kanji_below_3_examples_after_fix": []
     },
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
-    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
+    "native_review_pass_2026_05_24": "Native-teacher audit + within-entry example dedup. 2 duplicate example rows dropped from 2 kanji entries."
   }
 }

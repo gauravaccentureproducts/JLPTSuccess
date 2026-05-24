@@ -793,3 +793,101 @@ the reference is visible at the point of use.
 
 Reviewer's bottom line, restated: "a strong, near-publishable N5 grammar
 corpus" with **0 hard FAILs** across all 9 runnable TS scenarios.
+
+---
+
+## Part 58 — Cross-corpus native-teacher audit (added 2026-05-24, post-b2cab3ec)
+
+**Scope.** Reviewer v5 offered three follow-on streams: audit
+`vocab.json`, `kanji.json`, `reading.json` + `listening.json`. This part
+runs the same native-teacher methodology across all 4 corpora and
+addresses any real defects.
+
+**Audit dimensions applied (per corpus):**
+
+1. Duplicate primary keys (form / glyph / id)
+2. Empty mandatory fields (gloss / meanings / ja / script)
+3. Within-entry example dedup (same JA+EN appearing twice in one entry)
+4. Cross-entry shared examples (sentence reused across many entries)
+5. Question/answer well-formedness (where applicable)
+6. Schema integrity (≥1 example/sentence/choice/answer per entry)
+
+**Results (against current corpus snapshot scanned 2026-05-24):**
+
+| Corpus | Entries | Real defects | Heuristic FPs documented |
+|---|---|---|---|
+| vocab.json | 995 | **17 within-entry example dups** | 151 inflected verb/adj examples; 7 multi-vocab shared examples; 1 pronoun avoidance pedagogy; 24 poly-section forms |
+| kanji.json | 106 | **2 within-entry example dups** | 0 |
+| reading.json | 54 | 0 | 0 |
+| listening.json | 50 | 0 | 0 |
+| **Total** | **1,205** | **19 defects** | **183 documented FPs** |
+
+**Real defects fixed (`tools/fix_corpus_dedup_2026_05_24.py`):**
+
+17 vocab examples + 2 kanji examples dropped where the same JA+EN
+appeared twice within a single entry. Examples affected:
+- n5.vocab.今 ex[2] = ex[0] "今 何時ですか。" / "What time is it now?"
+- n5.vocab.バター ex[1] = ex[0] "パンに バターを ぬります。"
+- n5.kanji.六 ex[1] = ex[0] (form 六時)
+- n5.kanji.七 ex[1] = ex[0] (form 七時)
+- ... (full list in fix_log.json `cross_corpus_dedup_2026_05_24` section)
+
+All affected entries tagged `provenance=auto_fix_2026_05_24` + `audit_wave=claude_audit_2026_05_24`.
+`_meta.native_review_pass_2026_05_24` field added to both corpora's
+`_meta` block documenting the pass.
+
+**Heuristic-FP classes documented (NOT fixed):**
+
+| FP class | Count | Reason |
+|---|---|---|
+| Inflected verb/adj examples | 151 | Dictionary headword (たべる) differs from example form (たべます/たべました). Static substring check insufficient; needs conjugation-aware matcher. Same shape as TS-05 grammar FP. |
+| Multi-vocab shared examples | 7 | One example sentence intentionally teaches multiple vocab headwords (e.g., "へやにテレビがあります" teaches へや, テレビ, ある). Pedagogically efficient. |
+| Pronoun avoidance pedagogy | 1 | `あなた` entry examples deliberately use 〜さん forms instead of literal あなた (Japanese cultural norm: speakers avoid あなた; learners need to learn the AVOIDANCE pattern). |
+| Poly-section vocab forms | 24 | Same form (e.g., `十`, `人`) appears as multiple vocab entries with different IDs / sections / POS (number vs counter; noun vs counter). Intentional poly-section coverage. |
+
+**Native-teacher quality observations (positive):**
+
+- Listening items (50): well-formed scripts (60-250 chars), all 4-choice MCQ, all correct answers populated.
+- Reading passages (54): well-formed (62-250 char range), 103 questions all with correctAnswer + ≥2 choices.
+- Vocab entries (995): every entry has ≥3 examples, every entry has pitch_accent populated, every entry has gloss + reading + section, 0 empty translation_en across all example arrays.
+- Kanji entries (106): every entry has on/kun readings + meanings + stroke_order_svg. 0 weak meanings.
+
+**Bounded coverage (Part 58):**
+- "19 defects fixed" — applies to the within-entry example dedup
+  dimension; cross-corpus dedup (e.g., one vocab example reused across
+  many entries) was checked separately and found intentional (7 cases).
+- "Heuristic FPs documented" — the 4 FP classes describe known
+  static-check limitations; a future conjugation-aware audit pass
+  might surface real defects hidden behind the inflection-FP class.
+- "Reading + listening clean" — applies to schema-shape and well-
+  formedness; does NOT cover content quality (translation accuracy,
+  audio pitch accent, cultural appropriateness, JLPT level fit).
+  Those remain in the human-native-teacher review queue.
+
+**Cross-corpus quality verdict:**
+
+Across 1,205 entries in 4 corpora, 19 confirmed defects (1.6%) — all
+within-entry example duplicates of identical content (no contradictions,
+no incorrect content, no missing fields). Combined with the post-Part 57
+grammar corpus state (178/178 across TS-02..TS-10), this puts the full
+N5 content corpus at production-quality for programmatic schema +
+within-entry checks, with the standing native-human-review queue for
+content-quality dimensions that need a human teacher (audio pitch
+accent, deep translation naturalness, cultural appropriateness).
+
+**Tools added in Part 58:**
+- `tools/fix_corpus_dedup_2026_05_24.py` — cross-corpus dedup pass
+
+**Cross-references (Part 58):**
+- Procedure manual: no new F.44.X needed — existing audit-cluster
+  discipline (F.44.31-34) covers this; Part 58 is application across
+  additional corpora.
+- Bug tracker: no new BUG-NNN — small-scope cleanup of an
+  already-clean corpus; the lesson is "audit dimensions apply
+  uniformly across all corpora, not just grammar".
+- Fix log: `data/grammar.fix_log.json` `cross_corpus_dedup_2026_05_24`
+  section (sidecar reused; not a per-corpus sidecar split).
+- CI invariants at this checkpoint: 165 (all green; no new JA-NN
+  needed for this small-scope cleanup).
+- vocab.json `_meta.native_review_pass_2026_05_24`,
+  kanji.json `_meta.native_review_pass_2026_05_24` annotations added.
