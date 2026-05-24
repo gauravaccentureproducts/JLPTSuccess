@@ -640,6 +640,11 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
           const context = r.context ? `<p class="pd-context muted small">${esc(r.context)}</p>` : '';
           const role = r.pattern_role ? `<p class="pd-role muted small"><em>${esc(r.pattern_role)}</em></p>` : '';
           const link = r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener" class="pd-link">↗ source</a>` : '';
+          // PD-CITATION-001 fix (2026-05-24): render quote_ja + quote_translation_en
+          // when present. The actual sentence from the PD work demonstrates
+          // the pattern in real literature, complementing the metadata.
+          const quoteJa = r.quote_ja ? `<blockquote class="pd-quote-ja" lang="ja">${esc(r.quote_ja)}</blockquote>` : '';
+          const quoteEn = r.quote_translation_en ? `<p class="pd-quote-en muted small">${esc(r.quote_translation_en)}</p>` : '';
           return `
             <li class="pd-ref pd-ref-${source}">
               <div class="pd-ref-header">
@@ -647,6 +652,8 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
                 ${author ? `<span class="pd-author muted small">— ${author}${death}</span>` : ''}
               </div>
               ${pd}
+              ${quoteJa}
+              ${quoteEn}
               ${context}
               ${role}
             </li>`;
