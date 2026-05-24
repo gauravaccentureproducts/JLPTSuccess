@@ -177,3 +177,100 @@ that this session could not:
 5. **n5-098 audio reload verification** — the audio paths are now
    wired but the actual MP3s should be listened to once to confirm
    they correspond to the right examples.
+6. **BUG-A backfilled common_mistakes (47 rows promoted from
+   wrong_corrected_pair)** — these rows carry
+   `provenance="auto_fix_2026_05_24"` +
+   `source="promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"`.
+   The cm-vs-wcp content is identical except for category mapping;
+   native reviewer should confirm the promoted rows are pedagogically
+   appropriate as cm entries (vs only fitting the wcp affordance).
+7. **BUG-H rewrites + BUG-C rewrites (9 rows)** — n5-019[1], n5-023[1],
+   n5-025[2], n5-077[1], n5-105[1], n5-133[2,3], n5-155[0], n5-166[1].
+   These are claude-authored learner-error variants; review for
+   pedagogical accuracy and naturalness.
+8. **BUG-F new explanation_ja field on n5-098 / n5-154 / n5-166 / n5-183**
+   — the meaning_ja was split at the first `。` between chars 60-100 and
+   the tail moved to a new `explanation_ja` field. UI/renderer changes
+   deferred; native reviewer should confirm the split point yields a
+   self-contained meaning_ja head.
+
+---
+
+## Part 52 — BUG-A..H audit-cluster sweep (added 2026-05-24)
+
+**Source.** Audit reference `Claude_audit_2026-05-24` (cluster sweep)
+surfaced 8 bug clusters in `data/grammar.json`. Fixed in a single
+atomic pass via `tools/fix_audit_clusters_2026_05_24.py`.
+
+**Cluster summary (against the grammar.json corpus snapshot scanned —
+178 patterns, 30 categories, version 1.16.12 entering, 2026.05.24-content-fixes
+exiting):**
+
+| Cluster | Severity | Detected | Resolved | Method |
+|---|---|---|---|---|
+| BUG-A: cm duplicates | Critical | 59 patterns, 52 dup rows | 52 dropped + 47 backfilled from wcp | aggressive norm `re.sub('[、。「」？！\\s]', '', s)`; keep longer "why"; backfill via wcp promotion + 5 hand-authored punctuation templates |
+| BUG-B: category rename | High | 4 patterns (n5-065..068) | 4 renamed | string replace |
+| BUG-C: cm-vs-wcp contradiction | Critical | 2 patterns (n5-025, n5-166) | 2 rewritten | substitute non-contradicting learner-error variant |
+| BUG-H: wrong==right (strip-only) | High | 8 cm rows | 7 rewritten + 1 absorbed by BUG-C | substitute substantive learner error |
+| BUG-D: example duplicates | Medium | 13 patterns, 14 dup rows | 14 dropped | aggressive norm + lowercased EN |
+| BUG-E: short why (<6 tokens) | Low | 3 rows (1 pre-existing + 2 backfilled) | 3 expanded | pattern-aware suffix |
+| BUG-F: meaning_ja >100 chars | Low | 4 patterns | 4 split | head stays in meaning_ja, tail → new explanation_ja |
+| BUG-G: xlsx process | Medium | n/a (process change) | 3 columns added | Grammar Pattern List sheet: Reviewer / Reviewed Date / Native Review Status |
+
+**Discipline learnings (3 new):**
+
+1. **Norm-definition awareness per audit class.** BUG-A used
+   `re.sub(r'[、。「」？！\s]', '', s)` (aggressive); BUG-H used
+   `.strip()` (lenient). When the two diverge, a rewrite that
+   resolves BUG-H may still appear as a BUG-A "duplicate" candidate
+   under the aggressive norm. Substantive rewrites (different
+   particle / different conjugation, not just spacing) survive both.
+
+2. **Cross-array category-vocabulary mismatch.** When promoting
+   wcp entries to cm (JA-51 backfill), the wcp's `error_category`
+   uses {lexicon, pragmatic, word_order, morphology, ...} which is
+   NOT in JA-51's whitelist {particle, verb_class, conjugation,
+   register}. The promotion path requires a `CATEGORY_MAP`. First
+   naive pass produced 24 JA-51 violations until the mapper was
+   added.
+
+3. **Dedup-with-backfill atomicity.** A dedup pass on common_mistakes
+   that drops rows below JA-51's ≥3 floor must be paired with a
+   backfill from `wrong_corrected_pair` (with dedup against existing
+   keys to avoid re-introducing duplicates), executed in the same
+   `--apply` call. Of 59 patterns with duplicate cm rows, 44 dropped
+   below the floor naively; all restored via backfill (47 promotions).
+
+**Bounded coverage (Part 52):**
+- "BUG-A duplicates resolved" — applies to the aggressive-norm
+  duplicate-set scanned in this snapshot; does NOT prevent
+  re-introduction of new duplicates if future authoring bypasses
+  the aggressive-norm regression check.
+- "JA-51 floor preserved across the dedup pass" — verified
+  programmatically after `--apply`; the 47 backfilled rows have
+  whitelist-valid category via CATEGORY_MAP.
+- "BUG-H wrong==right rewrites distinct under strip-norm" — 3 rows
+  (n5-126[2], n5-155[0], n5-166[1]) still appear as `wrong==right`
+  under the aggressive norm but are distinct under strip-only.
+  Acceptable per the user's BUG-H criterion which uses strip-only.
+- "BUG-F explanation_ja field" — schema extension; renderer/UI
+  changes deferred to a follow-up. The data is structured per the
+  audit recommendation, but if surface views need the new field
+  they will require code work.
+
+**Tools added this part:**
+- `tools/fix_audit_clusters_2026_05_24.py` — single atomic pass
+- `tools/xlsx_bug_g_reviewer_cols_2026_05_24.py` — xlsx columns
+- `tools/register_audit_bugs_a_h_2026_05_24.py` — bug tracker entries
+- `data/grammar.fix_log.json` — sidecar with per-cluster drops/changes/backfills
+
+**Cross-references:**
+- Procedure manual: `JLPT Common/procedure-manual-build-next-jlpt-level.md`
+  F.44.31 + F.44.32 (audit-cluster discipline)
+- Accuracy prompt: `prompts/Japanese language Accuracy check.txt`
+  FP-17 + FP-18 + A-17 + A-18
+- N5Improvement: `prompts/N5Improvement.txt` → Phase-0 audit-cluster
+  discipline block
+- Bug tracker: `specifications/test-scenarios-by-specialist-perspective.xlsx`
+  rows 215-222 (BUG-A..H with Severity / Priority / Status / Fix Commit)
+- CI invariants at this checkpoint: 163 (all pass; JA-51 floor preserved).

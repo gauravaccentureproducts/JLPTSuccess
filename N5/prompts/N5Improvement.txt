@@ -2296,6 +2296,84 @@ particle-swap (n5-011, n5-024). Documented in
 `tools/fix_remaining_grammar_bugs_2026_05_24.py`,
 `tools/fix_class_e_paren_context_2026_05_24.py`.
 
+### Phase-0 audit-cluster discipline block (added 2026-05-24)
+
+Codifies the discipline learned from the BUG-A..H audit-cluster
+sweep (Claude_audit_2026-05-24). The 8 clusters surfaced 3
+generalizable gaps in the fix-pass workflow:
+
+1. **Norm-definition awareness per audit class**
+   When the same dataset can be classified under multiple norm
+   functions (aggressive vs strip-only), document which norm each
+   audit class uses. The fix pass must produce rewrites that
+   survive ALL relevant norms — not just the one the cluster was
+   detected under.
+
+   Phase-0 check:
+   - Anywhere a tool implements a `norm(s)` helper that strips
+     internal characters (Japanese punctuation, whitespace), the
+     tool's docstring or comment MUST state which audit class the
+     norm is for (e.g., "BUG-A dedup uses aggressive norm; BUG-H
+     wrong-vs-right uses strip-only").
+   - Expected: every norm helper used in audit tools is
+     class-tagged.
+
+2. **Category-whitelist propagation across array boundaries**
+   When code paths promote entries between arrays (e.g.,
+   wrong_corrected_pair → common_mistakes as JA-51 backfill), the
+   source array's category vocabulary may not match the
+   destination's CI-invariant whitelist. Cross-array promotion
+   paths MUST include a CATEGORY_MAP at the boundary.
+
+   Phase-0 check:
+   - Grep `tools/*.py` for any function that appends to
+     `common_mistakes` from another array, and verify the function
+     calls a `map_category()` helper (or equivalent) before
+     writing the category field.
+   - Expected: every cross-array promotion path uses category
+     mapping; raw `error_category` values from wrong_corrected_pair
+     never flow directly into common_mistakes.category.
+
+3. **Dedup-with-backfill atomicity**
+   When a dedup pass drops rows from a column with a "≥N per row"
+   CI invariant (N5 has JA-51 requiring ≥3 categorized cm), the
+   dedup MUST be paired with a backfill from an adjacent array
+   within the same pass. Naive dedup-only breaches the floor.
+
+   Phase-0 check:
+   - Any tool that implements `dedup_common_mistakes()` or similar
+     MUST also implement `backfill_ja51()` (or analog) in the same
+     module, and the `--apply` entry point MUST call both.
+   - Every backfill row carries `provenance="auto_fix_YYYY_MM_DD"`,
+     `audit_wave="..."`, and `source="promoted from <source-array>"`
+     for forensic traceability.
+   - Every drop AND every backfill MUST be logged to
+     `data/<corpus>.fix_log.json` sidecar.
+   - Expected: dedup + backfill emit a single fix_log entry per
+     bug cluster, with both `total_drops` and `backfill_records`
+     populated.
+
+Bounded-coverage framing:
+  - "Norm-definition awareness applied in this session's tools" —
+    does NOT guarantee future tool authors will tag their norms;
+    Phase-0 grep above is the regression check.
+  - "CATEGORY_MAP catches all whitelist mismatches" — locks the
+    documented mismatch classes; does NOT catch novel category
+    values introduced in future arrays.
+  - "Dedup-with-backfill preserves JA-51" — empirically verified
+    for the ≥3 floor; does NOT generalize automatically to higher
+    floors without quota adjustment.
+
+Source: BUG-A..H audit-cluster sweep 2026-05-24. Documented in
+`docs/AUDIT-COVERAGE-2026-05-24.md` Part 52. Tools added:
+`tools/fix_audit_clusters_2026_05_24.py` (single atomic pass for
+all 8 clusters),
+`tools/xlsx_bug_g_reviewer_cols_2026_05_24.py` (xlsx Reviewer +
+Reviewed Date columns),
+`tools/register_audit_bugs_a_h_2026_05_24.py` (bug tracker
+registration). Fix log sidecar:
+`data/grammar.fix_log.json`. Procedure manual: F.44.31 + F.44.32.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

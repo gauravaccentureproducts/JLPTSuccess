@@ -5991,3 +5991,122 @@ Part 51.
 CI invariants at this checkpoint: 163 (JA-160 marker set extended
 from 6 → 7; invariant count unchanged).
 ============================================================
+
+FP-17. Aggressive norm vs strip-only norm divergence (BUG-A/BUG-H
+       audit-cluster sweep, 2026-05-24)
+       ============================================================
+       SHAPE: A common_mistakes row appears as a duplicate of
+       another row under aggressive norm = re.sub('[, . " ? ! \\s]+',
+       '', s), but the two rows are distinct under strip-only
+       equality. Similarly, a cm row with `wrong == right` under
+       aggressive norm may differ under `.strip()`-only equality.
+       The two norm functions are NOT interchangeable for audit
+       purposes — they classify content differently.
+
+       FALSE-POSITIVE TRIGGER: An auditor uses one norm consistently
+       across all classifications and flags rows that pass under
+       a stricter or more lenient norm than the one the dataset
+       was designed for.
+
+       Triage discipline:
+         - Document which norm function each audit class uses.
+           (BUG-A dedup: aggressive norm; BUG-H wrong-vs-right:
+           strip-only.) Mismatched norms produce inconsistent counts.
+         - When rewriting a row to resolve a BUG-H wrong==right
+           finding, prefer wrong/right pairs that differ in
+           SUBSTANTIVE ways (different particle, different
+           conjugation) — not just spacing or punctuation — so the
+           rewritten row survives BOTH norms.
+         - For BUG-A dedup, the aggressive norm is correct (the
+           user explicitly chose it to catch spacing-only twin
+           rows). For BUG-H, .strip()-only is the user's stated
+           criterion.
+
+       Source: BUG-A + BUG-H audit-cluster sweep 2026-05-24; 3
+       cm rows in n5-126, n5-155, n5-166 looked like wrong==right
+       under aggressive norm but were actually distinct teaching
+       content under strip-only.
+
+FP-18. Cross-array category-vocabulary mismatch (JA-51 backfill,
+       2026-05-24)
+       ============================================================
+       SHAPE: When code paths promote entries between arrays
+       (e.g., wrong_corrected_pair -> common_mistakes as a JA-51
+       backfill after BUG-A dedup), the source array's category
+       vocabulary may NOT match the destination array's CI-invariant
+       whitelist. grammar.json's wrong_corrected_pair uses
+       `error_category` values like `lexicon`, `pragmatic`,
+       `word_order`, `morphology` — none of which are in JA-51's
+       valid set `{particle, verb_class, conjugation, register}`.
+
+       FALSE-POSITIVE TRIGGER: A naive cross-array promotion path
+       copies the source's category value verbatim, producing 24+
+       JA-51 violations on what should be a clean dedup-with-
+       backfill pass.
+
+       Triage discipline:
+         - Audit every cross-array promotion path for fields
+           whose validity is enforced by a CI invariant.
+         - Implement a CATEGORY_MAP at the promotion boundary
+           that maps source vocabulary -> destination whitelist.
+           Default unknowns to the broadest valid category
+           (typically `register` for "miscellaneous learner errors").
+         - Reference N5 mapping:
+             lexicon -> register
+             word_order -> register
+             pragmatic -> register
+             morphology -> conjugation
+             punctuation -> register
+             counter -> particle
+             unknown -> register
+
+       Source: BUG-A backfill 2026-05-24; promoted 47 wcp entries
+       up to common_mistakes; first naive pass produced 24
+       JA-51 category violations until CATEGORY_MAP added.
+
+============================================================
+WRITING DISCIPLINE FOR AUDIT DOCS (continued)
+============================================================
+
+New entries for the 2026-05-24 audit-cluster sweep:
+
+  - Always document which norm function an audit class uses
+    when reporting counts. "59 patterns with duplicate cm rows"
+    is ambiguous without "(under norm = strip-whitespace +
+    strip-Japanese-punctuation)".
+  - Always note when a fix pass invokes cross-array promotion
+    so the reader knows category-vocabulary mapping was applied.
+  - Always log dedup-with-backfill as a single atomic pass
+    (e.g., "BUG-A: 52 drops + 47 backfills") not as two
+    independent passes ("BUG-A: 52 drops" + "JA-51 backfill:
+    47 promotions").
+
+A-NN (catalog extension):
+
+A91. CROSS-ARRAY CATEGORY-VOCABULARY MISMATCH ON PROMOTION PATHS
+     (added 2026-05-24)
+     =====================================================
+     Question: When promoting an entry from one array to
+     another (e.g., wrong_corrected_pair -> common_mistakes),
+     does the source's `error_category` (or analogous field)
+     map cleanly to the destination's CI-invariant whitelist?
+
+     If not, the promotion path needs a CATEGORY_MAP at the
+     boundary. See FP-18 for the N5 reference mapping.
+
+A92. DEDUP-WITH-BACKFILL ATOMICITY DISCIPLINE (added 2026-05-24)
+     =====================================================
+     Question: Does the dedup pass on column X have a paired
+     backfill pass to restore any CI-invariant floor (>=N
+     per row) that the dedup may breach?
+
+     If a dedup drops a row, and an invariant requires >=N
+     rows per pattern, the same fix pass MUST include a
+     backfill from an adjacent non-duplicate source.
+
+Source: BUG-A..H audit cluster sweep 2026-05-24; AUDIT-COVERAGE
+2026-05-24 Part 52; procedure-manual F.44.31 + F.44.32.
+
+CI invariants at this checkpoint: 163 (no new JA-NN; existing
+JA-51 floor preserved by atomic dedup-with-backfill pass).
+============================================================

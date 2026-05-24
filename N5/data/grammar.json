@@ -766,19 +766,19 @@
         {
           "wrong": "わたしが がくせいです。",
           "right": "わたしは がくせいです。",
-          "why": "Context: in plain self-introduction. Use は for self-introduction. Use が only when emphasizing 'I (and not someone else) am the student' - i.e., when answering 'who is the student?'",
-          "category": "particle",
-          "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
-        },
-        {
-          "wrong": "わたしが がくせいです。",
-          "right": "わたしは がくせいです。",
           "why": "は marks the TOPIC (already-known referent — わたし). が marks a new-information SUBJECT. For self-introduction (the referent わたし is automatically known to both speakers), は is required. Swapping to が shifts the sentence into a contrast or response-to-question reading.",
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase3-2026-05-12"
+        },
+        {
+          "wrong": "私が 学生です。",
+          "right": "私は 学生です。",
+          "why": "Context: in self-introduction. は marks topic in introduction; が introduces NEW info or answers a who-question.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -924,7 +924,9 @@
         "しるし",
         "わだい"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-003",
@@ -6718,31 +6720,6 @@
           "pitch_marks": [],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
-          "ja": "いま、なんじですか。",
-          "form": "wh-time-counter",
-          "translation_en": "What time is it now?",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.26-house-and-furniture.いま",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "audio": "audio/grammar/n5-017.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "いま",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "なんじ",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
       ],
       "common_mistakes": [
@@ -6895,7 +6872,9 @@
         "です",
         "なん"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-018",
@@ -7169,15 +7148,6 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "だれは きましたか。",
-          "right": "だれが きましたか。",
-          "why": "Question words asking for new info take が, not は. は marks already-known topics - incompatible with asking for new identity.",
-          "category": "particle",
-          "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
-        },
-        {
           "wrong": "どなた + いますか",
           "right": "Match register: with friends use だれ; with strangers, customers, or your boss use どなた.",
           "why": "Context: used with co-workers as a very simple casual question. どなた is polite - using it with close friends sounds stiff. Using だれ with a customer sounds rude. Match the register.",
@@ -7205,6 +7175,15 @@
           "scope_note": "どなた is N4-N3 vocabulary. At N5 the canonical form is だれ; どなた shown for reference.",
           "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
           "reg_001_sweep1_class": "A"
+        },
+        {
+          "wrong": "あの ひとは だれの ですか。",
+          "right": "あの ひとは だれですか。",
+          "why": "Context: intent: who is that person. For \"who\", use だれ directly. だれの means \"whose\" (possessive).",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -7319,7 +7298,9 @@
         "ふつう",
         "だれ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-019",
@@ -7601,22 +7582,14 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "いつに いきますか。",
-          "right": "いつ いきますか。",
-          "why": "いつ does NOT take に. に is only for SPECIFIC time points (7時に, げつようびに). いつ is itself the question - no particle needed.",
+          "wrong": "いつに きますか。",
+          "right": "いつ きますか。",
+          "why": "いつ already means \"when\" — don't add に. に is for specific time-points (3じに), not for the interrogative いつ.",
           "category": "particle",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
-        },
-        {
-          "wrong": "いつ から いつ まで にほんに いますか。",
-          "right": "いつから いつまで にほんに いますか。",
-          "why": "から and まで attach directly to いつ - no space. いつから / いつまで are single units.",
-          "category": "particle",
-          "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "auto_fix_2026_05_24",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "いつに いきますか。",
@@ -7625,6 +7598,15 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase3-2026-05-12"
+        },
+        {
+          "wrong": "いつに きましたか。",
+          "right": "いつ きましたか。",
+          "why": "いつ takes no particle (relative time-word). Adding に is wrong.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -7746,7 +7728,9 @@
         "ことば",
         "いつ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-021",
@@ -8520,13 +8504,14 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "行きますか？",
+          "wrong": "行きますですか。",
           "right": "行きますか。",
-          "why": "Japanese sentence-final question particle is か, not ？; the ？ is optional and Western. Period (。) is the canonical end-mark in formal text.",
-          "category": "particle",
+          "why": "Don't stack です after a ます-form verb. Polite verbs already carry politeness; か attaches directly to ます. Pattern: V-ます + か (no です in between).",
+          "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "auto_fix_2026_05_24",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "form_a": "あなたは がくせいですね。",
@@ -9003,18 +8988,19 @@
         {
           "wrong": "コーヒー おちゃが いいです。",
           "right": "コーヒーか おちゃが いいです。",
-          "why": "Mid-sentence か links alternatives ('coffee OR tea'). Two unconnected nouns in this slot are ungrammatical — Japanese needs か for 'or', と for 'both', or や for 'and others'.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "コーヒー おちゃが いいです。",
-          "right": "コーヒーか おちゃが いいです。",
           "why": "Disjunctive か between two nouns expresses an EITHER/OR choice. Without か the two nouns become adjacent without a clear connector — the listener can't tell if you mean both, either, or are listing things. か is mandatory in the disjunction frame.",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "コーヒー と こうちゃ どちらに しますか。",
+          "right": "コーヒー か こうちゃに しますか。 / コーヒー と こうちゃと、どちらに しますか。",
+          "why": "Context: intent: coffee or tea. For \"X or Y\" use か between options; と links exhaustive pairs (with どちら as the binary choice question).",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -9139,7 +9125,9 @@
         "「か」",
         "or"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-025",
@@ -9398,12 +9386,12 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "いい てんきです。",
+          "wrong": "いい てんきですよ ね。",
           "right": "いい てんきですね。",
-          "why": "Context: with falling intonation, no ね. ね attaches AT THE END of a finished sentence — after です/ます, not before. Adding ね assumes shared observation with the listener. Dropping ね changes the sentence from agreement-seeking to bare assertion.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "why": "Don't string よ and ね together at the sentence end. よ ASSERTS new info to the listener; ね SEEKS AGREEMENT on shared observation. Pick one based on the speech-act you want — they're not stackable. For shared weather small-talk, ね alone is the natural choice.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24"
         }
       ],
       "contrasts": [
@@ -12534,12 +12522,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "コーヒーをだけ 飲みます。",
-          "right": "コーヒーだけ 飲みます。",
-          "why": "だけ replaces を; the particles don't stack. NOUN + だけ + Verb is the canonical frame. Adding を before だけ doubles up an object-marking function that だけ already implies.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "いちにちだけにに べんきょうしました。",
+          "right": "いちにちだけ べんきょうしました。",
+          "why": "だけ does not stack with に. Time-with-だけ takes no other particle.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -12661,7 +12650,9 @@
         "〜だけ",
         "だけ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-034",
@@ -12948,27 +12939,28 @@
         {
           "wrong": "1,000円しか あります。",
           "right": "1,000円しか ありません。",
-          "why": "しか requires the verb to be negative.",
-          "category": "register",
-          "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
-        },
-        {
-          "wrong": "1,000円しか あります。",
-          "right": "1,000円しか ありません。",
-          "why": "しか REQUIRES a negative predicate (ありません, できません, わかりません). It means 'nothing but / only X' with a regretful nuance. しか + positive predicate (あります) is grammatically wrong — always pair with ない/ません.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "1,000円しか あります。",
-          "right": "1,000円しか ありません。",
           "why": "しか mandates a negative predicate. 'しか + ある' is structurally impossible — must be 'しか + ない'. The pattern conveys 'nothing but X' with a regretful nuance; positive predicates can't carry that nuance.",
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "いちじかんしか べんきょうしました。",
+          "right": "いちじかんしか べんきょうしませんでした。",
+          "why": "しか REQUIRES a negative predicate. Without ません/ない the sentence is ungrammatical.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        {
+          "wrong": "ひゃくえんしか もって いません。",
+          "right": "ひゃくえんしか ありません。",
+          "why": "Context: intent: I have ¥100. For money/possessions in this idiom use あります not もっている; both work but あります is standard for しか.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -13090,7 +13082,9 @@
         "しかない",
         "げんてい"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-035",
@@ -13821,18 +13815,19 @@
         {
           "wrong": "3時ぐらい あいましょう。",
           "right": "3時ごろ あいましょう。",
-          "why": "ごろ = approximate TIME-POINT ('around 3 o'clock'). ぐらい would mean approximate DURATION ('about 3 hours'). For 'let's meet around 3', the time-point sense requires ごろ.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "3時ぐらい あいましょう。",
-          "right": "3時ごろ あいましょう。",
           "why": "ごろ = approximate TIME-POINT; ぐらい = approximate DURATION. For 'around 3 o'clock' (point on the clock), use ごろ. For 'about 3 hours' (duration), use ぐらい. Different N5 traps.",
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "にじぐらいに きました。",
+          "right": "にじごろ きました。",
+          "why": "Context: intent: about 2 o'clock. For approximate clock-time use ごろ (no に needed). ぐらい is for amounts/durations.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -13955,7 +13950,9 @@
         "じこく",
         "ごろ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-037",
@@ -15210,18 +15207,19 @@
         {
           "wrong": "あれは ほんです。",
           "right": "これは ほんです。",
-          "why": "Same kosoado proximity rule as n5-014. これ for near-speaker, それ for near-listener, あれ for far-from-both. Identifying an object the speaker is showing uses これ.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "あれは ほんです。",
-          "right": "これは ほんです。",
           "why": "Context: when speaker is holding the book. Proximity rule: これ for things near the speaker (in hand, nearby). あれ would put the book far from both speaker and listener — wrong if speaker is presenting the item. Choose by physical proximity, not by what 'sounds polite'.",
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "これ ほん。",
+          "right": "これは ほんです。",
+          "why": "Pronoun これ requires は + complete sentence with です.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -15351,7 +15349,9 @@
         "どれ",
         "それ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-040",
@@ -16172,12 +16172,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "あそこは としょかんです。",
-          "right": "ここは としょかんです。",
-          "why": "Context: when speaker is INSIDE the library. ここ = where the speaker IS. For introducing the current location (e.g., showing someone around a building you're in), ここ. あそこ puts the place at a distance, inappropriate when you're standing in it.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "あそこへ ぎんこうですか。",
+          "right": "あそこは ぎんこうですか。",
+          "why": "For \"Is that (over there) the bank?\" use は. へ is direction.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -16320,7 +16321,9 @@
         "そこ",
         "ここ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-042",
@@ -17701,26 +17704,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "なにが すきですか。",
-          "translation_en": "What do you like?",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.32-adjectives.すき",
-            "n5.vocab.35-particles-functional-.は",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "pitch_marks": [
-            {
-              "form": "すき",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
-          "audio": "audio/grammar/n5-045.6.mp3",
-          "form": "question",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
           "ja": "なんじですか。",
           "form": "time-counter",
           "translation_en": "What time is it?",
@@ -17941,7 +17924,9 @@
       ],
       "review_status_provenance": "claude_native_reviewer_persona",
       "deprecated": true,
-      "deprecated_reason": "Duplicate of n5-017 (canonical 何 pattern). Marked deprecated 2026-05-22 per NTR-002. UI grammar TOC filters this entry out; external references (questions.json, audio_manifest, etc.) still resolve to this ID for backward compatibility."
+      "deprecated_reason": "Duplicate of n5-017 (canonical 何 pattern). Marked deprecated 2026-05-22 per NTR-002. UI grammar TOC filters this entry out; external references (questions.json, audio_manifest, etc.) still resolve to this ID for backward compatibility.",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-046",
@@ -18939,17 +18924,6 @@
           "audio": "audio/grammar/n5-049.3.mp3"
         },
         {
-          "ja": "どれが あなたのですか。",
-          "translation_en": "Which one is yours?",
-          "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[0]",
-          "provenance": "auto_xref_vocab_corpus",
-          "vocab_ids": [],
-          "pitch_marks": [],
-          "audio": "audio/grammar/n5-049.4.mp3",
-          "form": "question",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
           "ja": "どちらが すきですか。",
           "translation_en": "Which do you like?",
           "source": "vocab.n5.vocab.1-people-pronouns-and-se.あなた.examples[1]",
@@ -19079,12 +19053,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "どれは あなたの ですか。",
-          "right": "どれが あなたの ですか。",
-          "why": "どれ is a question word, so the subject particle is が (not は). Same rule as だれが/なにが — question words live in the new-information slot, which が marks.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "どの は いいですか。",
+          "right": "どれが いいですか。",
+          "why": "どの requires a noun; for pronoun-only \"which\" use どれ + が.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -19216,7 +19191,9 @@
         "どの",
         "どれ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-050",
@@ -21331,31 +21308,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "いま、なんじですか。",
-          "form": "current-time",
-          "translation_en": "What time is it now?",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.26-house-and-furniture.いま",
-            "n5.vocab.35-particles-functional-.か"
-          ],
-          "audio": "audio/grammar/n5-055.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "いま",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "なんじ",
-              "mora": 3,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "がっこうは なんじから ですか。",
           "form": "start-time",
           "translation_en": "What time does school start?",
@@ -21577,7 +21529,9 @@
         "じかんを",
         "なんじ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-056",
@@ -23375,38 +23329,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "きのう、えいがを みました。",
-          "form": "past-experience",
-          "translation_en": "I watched a movie yesterday.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.10-time-general.きのう",
-            "n5.vocab.26-house-and-furniture.えいが",
-            "n5.vocab.28-verbs-group-2-verbs.見る",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "audio": "audio/grammar/n5-060.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "きのう",
-              "mora": 3,
-              "drop": 2
-            },
-            {
-              "form": "えいが",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "みました",
-              "mora": 4,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "けさ、しんぶんを よみました。",
           "form": "morning-completed",
           "translation_en": "I read the newspaper this morning.",
@@ -23619,7 +23541,9 @@
         "かこけい",
         "ました"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-061",
@@ -23931,12 +23855,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "きのうは ばんごはんを たべませんかった。",
-          "right": "きのうは ばんごはんを たべませんでした。",
-          "why": "Polite past negative: ません + でした (NOT ません + かった). でした is the past form of です/ます register; かった is for い-adjective past.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たべませんかった。",
+          "right": "たべませんでした。",
+          "why": "Polite past-negative is ませんでした (not ませんかった). The past tense sits in でした.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -24074,7 +23999,9 @@
         "ひていけい",
         "ていねいな"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-062",
@@ -25326,7 +25253,7 @@
       "id": "n5-065",
       "tier": "core_n5",
       "pattern": "Verb-る / Verb-う",
-      "category": "Verbs - Plain (Dictionary) Form and Negation",
+      "category": "Verbs - Plain Forms (Present/Past, Affirmative/Negative)",
       "categoryOrder": 7,
       "patternOrder": 1,
       "meaning_en": "Plain (dictionary) form - non-past affirmative, casual / written",
@@ -25773,13 +25700,15 @@
         "のむ",
         "する"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-066",
       "tier": "core_n5",
       "pattern": "Verb-ない",
-      "category": "Verbs - Plain (Dictionary) Form and Negation",
+      "category": "Verbs - Plain Forms (Present/Past, Affirmative/Negative)",
       "categoryOrder": 7,
       "patternOrder": 2,
       "meaning_en": "Plain non-past negative",
@@ -26087,12 +26016,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "おさけを のまるない。",
-          "right": "おさけを のまない。",
-          "why": "Group 1 plain negative: change last う-row to あ-row, add ない. のむ → のま + ない = のまない. Don't insert る — that's for Group 2 only. Pattern: stem (あ-row) + ない.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "行きないです。",
+          "right": "行きません。 / 行かないです。",
+          "why": "Polite negative is ません; plain negative of 行く is 行かない (NOT 行きない).",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -26215,13 +26145,15 @@
         "ふつうの",
         "ない"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-067",
       "tier": "core_n5",
       "pattern": "Verb-た",
-      "category": "Verbs - Plain (Dictionary) Form and Negation",
+      "category": "Verbs - Plain Forms (Present/Past, Affirmative/Negative)",
       "categoryOrder": 7,
       "patternOrder": 3,
       "meaning_en": "Plain past affirmative (た-form)",
@@ -26552,12 +26484,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "きのう ほんを よみた。",
-          "right": "きのう ほんを よんだ。",
-          "why": "Group 1 む-ending verbs: past plain uses んだ (む → んだ). よむ → よんだ. The form よみた applies the wrong sub-rule. Memorize the 5 Group-1 sub-rules: く→いた, ぐ→いだ, す→した, つ・る・う→った, ぶ・む・ぬ→んだ.",
+          "wrong": "行いた。",
+          "right": "行った。",
+          "why": "行く has irregular te/ta-form: 行く → 行って / 行った.",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -26684,13 +26617,15 @@
         "「〜た」",
         "かこ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-068",
       "tier": "core_n5",
       "pattern": "Verb-なかった",
-      "category": "Verbs - Plain (Dictionary) Form and Negation",
+      "category": "Verbs - Plain Forms (Present/Past, Affirmative/Negative)",
       "categoryOrder": 7,
       "patternOrder": 4,
       "meaning_en": "Plain past negative (-なかった)",
@@ -27090,7 +27025,9 @@
         "なかった",
         "ひてい"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-069",
@@ -29723,14 +29660,6 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "ここで しゃしんを とるても いいですか。",
-          "right": "ここで しゃしんを とってもいいですか。",
-          "why": "とる (Group 1, ends in る but う-row pattern): te-form = って (drop る, add って). The form とるて is wrong. Pattern: V-te + も + いい + ですか for permission-question.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
-        },
-        {
           "wrong": "ここで しゃしんを とってもいいか？",
           "right": "ここで しゃしんを とってもいいですか。",
           "why": "Context: formal context. Drop the bare か for casual; add ですか for polite. In formal contexts (museums, restaurants, business), use the full polite form ですか.",
@@ -29874,7 +29803,9 @@
         "てもいいです",
         "きょか"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-075",
@@ -30636,14 +30567,6 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "あさごはんを たべるから 行きます。",
-          "right": "あさごはんを たべてから 行きます。",
-          "why": "Sequence marker てから = te-form + から ('after V-ing, then...'). The dict-form たべるから would mean 'because I will eat' (reason, not sequence). For 'after eating', use te-form + から.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
-        },
-        {
           "wrong": "あさごはん たべてから 行きます。",
           "right": "あさごはんを たべてから 行きます。",
           "why": "Direct object marker を before たべる (transitive verb). Even in the てから frame, transitivity requires を. Don't drop the particle in casual speech if writing formally.",
@@ -30774,7 +30697,9 @@
         "てから",
         "あとで"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-077",
@@ -31026,12 +30951,12 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "ここで しゃしんを とらないで ください。",
+          "wrong": "ここで しゃしんを とるないでください。",
           "right": "ここで しゃしんを とらないでください。",
-          "why": "Negative request 'please don't': V-ない + で + ください. The form とらないでください is correct as one phrase. Don't separate ないで from ください — they form a tight grammatical unit. Pattern: V-ない (drop い) + で + ください.",
+          "why": "Negative request uses V-ない (not V-るない). とる → とらない (not とるない). Pattern: V-Group-1 plain-negative + でください.",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "ここで しゃしんを とらないて ください。",
@@ -31509,12 +31434,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "高いの 山が 見えます。",
-          "right": "高い 山が 見えます。",
-          "why": "い-adjectives modify nouns directly (高い + 山). No の, no な between adjective and noun. Adding の nominalizes the adjective ('the high one'), changing the meaning entirely.",
+          "wrong": "たかいなほん。",
+          "right": "たかい ほん。",
+          "why": "い-Adj attaches directly to noun (no な). な-Adj uses な; い-Adj doesn't.",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -31646,7 +31572,9 @@
         "あたらしい 本"
       ],
       "meaning_ja_provenance": "phase1_thin_expand_2026_05_13_run4",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-079",
@@ -34008,12 +33936,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "しずか へやが すきです。",
-          "right": "しずかな へやが すきです。",
-          "why": "な-adjective MUST take な before a noun (しずかな へや). The bare form しずか + 名詞 is structurally incomplete. Memorize: な-adj + な + Noun.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "しずかい へや。",
+          "right": "しずかな へや。",
+          "why": "しずか is na-Adj; do not add い. (い-Adj would be しずか-form like しずかい — does not exist.)",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -34141,14 +34070,15 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "な-けいようし",
         "けいようし",
         "な-adj",
         "めいし"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-085",
@@ -34850,20 +34780,21 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "この へやは しずかくない です。",
-          "right": "この へやは しずかじゃありません。",
-          "why": "な-adjective negative: stem + じゃありません (or でわありません/じゃない). The form しずかくない wrongly applies い-adj negation. な-adj uses じゃ/では, not くない.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
           "wrong": "この へやは しずかくないです。",
           "right": "この へやは しずかじゃありません。",
           "why": "な-adjective negative uses じゃありません (or でわありません/じゃない). The form くない is for い-adjectives only. Don't conflate the two adjective classes.",
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "しずかくないです。",
+          "right": "しずかじゃ ありません。 / しずかじゃないです。",
+          "why": "na-adj negation uses じゃ; くない is for い-adjectives only.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -34986,7 +34917,9 @@
         "けいようしの",
         "ひてい"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-087",
@@ -39637,7 +39570,7 @@
       "categoryOrder": 11,
       "patternOrder": 4,
       "meaning_en": "Among X (group), Y is the most [adj] — N5 superlative pattern. Uses が-particle on the superlative item; 'いちばん' (number one) before the adjective.",
-      "meaning_ja": "「〜の中で〜が いちばん [けいようし]」で、グループ(なかま)の 中で 何が いちばん [けいようし]か を いいます。「くだものの 中で りんごが いちばん すきです」「クラスの 中で たなかさんが いちばん せが たかいです」。",
+      "meaning_ja": "「〜の中で〜が いちばん [けいようし]」で、グループ(なかま)の 中で 何が いちばん [けいようし]か を いいます。",
       "form_rules": {
         "attaches_to": [],
         "conjugations": [
@@ -39940,8 +39873,10 @@
         {
           "wrong": "くだものの 中で りんごは いちばん すきです。",
           "right": "くだものの 中で りんごが いちばん すきです。",
-          "why": "いちばん の しゅごには「が」を つかいます。「は」では ありません。",
-          "category": "particle"
+          "why": "いちばん の しゅごには 「が」 を つかいます。「は」 では ありません。 「いちばん」は最上級を 表します。 例えば 「これが いちばん おいしい です」 (this is the best). Topic 「は」 would shift the focus to comparison, which changes the meaning.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "クラスの 中に たなかさんが いちばん せが たかいです。",
@@ -40090,7 +40025,10 @@
         "たなかさん"
       ],
       "meaning_ja_provenance": "phase1_body_swap_fix_2026_05_13_run4",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "explanation_ja": "「くだものの 中で りんごが いちばん すきです」「クラスの 中で たなかさんが いちばん せが たかいです」。",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-099",
@@ -40371,12 +40309,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "わたしは ねこを すきです。",
-          "right": "わたしは ねこが すきです。",
-          "why": "Same as n5-098 — すき is the family marker for this construction. Liking, ability, possession-feeling all take が. Even though English uses 'I LIKE cats' transitively, Japanese treats 'cats' as the subject of the liking-state.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "私は コーヒーが すきます。",
+          "right": "私は コーヒーが すきです。",
+          "why": "すき is a na-adjective; takes です, not ます (which is for verbs).",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -40509,7 +40448,7 @@
           "quote_provenance": "self_reference_proverb_text"
         }
       ],
-      "audit_wave": "phase-7-kanji-fix-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "〜が すきです／きらいです",
         "きらいです",
@@ -40520,7 +40459,8 @@
         "ものや",
         "ものを"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-100",
@@ -40849,12 +40789,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "あの 人は 日本語を じょうずです。",
-          "right": "あの 人は 日本語が じょうずです。",
-          "why": "じょうず ('skilled') uses が for the thing-skilled-at, like all adjectival predicates in this family. を is wrong — じょうず is not a transitive verb.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "テニスを じょうずです。",
+          "right": "テニスが じょうずです。",
+          "why": "じょうず/へた take が, not を. This is a frequent N5 learner error for pattern 〜がじょうずです / へたです; the corrected form follows the standard register convention for this construction.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -40987,7 +40928,9 @@
         "ことを",
         "へたな"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-101",
@@ -41304,12 +41247,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "新しい くるまを ほしいです。",
-          "right": "新しい くるまが ほしいです。",
-          "why": "ほしい ('want, desire') uses が for the wanted-thing. Same rule as すき, じょうず, わかる. The desired-noun is the subject of the wanting-state, not a transitive object.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "本を ほしいです。",
+          "right": "本が ほしいです。",
+          "why": "ほしい takes が because the wanted-thing is the SUBJECT.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -41438,7 +41382,9 @@
         "ほしい",
         "ものを"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-102",
@@ -41691,14 +41637,6 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "日本語を すこし わかります。",
-          "right": "日本語が すこし わかります。",
-          "why": "わかる ('understand') uses が. Even though English 'I understand Japanese' makes 'Japanese' a direct object, Japanese treats the understood-thing as the subject of the understanding-state.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
-        },
-        {
           "kind": "register_variant",
           "form_a": "わかってる。",
           "form_b": "わかります。 / わかっています。",
@@ -41709,6 +41647,15 @@
           "provenance": "native_reviewed",
           "provenance_note": "REG-001 D6 follow-up migration 2026-05-18 — moved from wrong_corrected_pair to common_mistakes register_variant. Caught by JA-127.",
           "bug_reg_001_d6_fix_2026_05_18": true
+        },
+        {
+          "wrong": "にほんごを わかります。",
+          "right": "にほんごが わかります。",
+          "why": "わかる is intransitive-ish; takes が for the thing-understood, not を.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -41830,7 +41777,9 @@
         "わかる",
         "ことを"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-103",
@@ -42094,12 +42043,13 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "日本語を できます。",
-          "right": "日本語が できます。",
-          "why": "できる ('can do, be capable') takes が. The ability-object goes with が, not を. For 'I can speak Japanese', 日本語が できます. The same が-rule applies to all adjectival-predicate verbs in this family.",
+          "wrong": "にほんごを できます。",
+          "right": "にほんごが できます。",
+          "why": "できる takes が, not を. (Like すき/上手 — feeling/capability adjectives use が.)",
           "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -42228,7 +42178,9 @@
         "ことを",
         "できる"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-104",
@@ -42877,13 +42829,14 @@
           "label_b": "natural polite (たくないです)"
         },
         {
-          "wrong": "食べたくない です。",
+          "wrong": "食べたい ないです。",
           "right": "食べたくないです。",
-          "why": "たくない is one unit; no space between くない and です.",
-          "category": "register",
+          "why": "~たい becomes ~たく + ない for the negative — drop い from たい, add く, then ない. Pattern: V-stem + たくない + です.",
+          "category": "conjugation",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "auto_fix_2026_05_24",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "今日は 行かないたいです。",
@@ -43328,14 +43281,6 @@
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "新しい かばんを ほしいです。",
-          "right": "新しい かばんが ほしいです。",
-          "why": "ほしい takes が for the wanted-thing (not を). Same family rule as すき, じょうず. The desired-noun is subject of want, not transitive object.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
         }
       ],
       "contrasts": [
@@ -43463,7 +43408,9 @@
         "ほしい",
         "ものを"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-107",
@@ -45069,12 +45016,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "りんごを ふたつを かいました。",
-          "right": "りんごを ふたつ かいました。",
-          "why": "Number-counter (ふたつ) appears BARE between the object and verb. Don't add another を. Pattern: NOUN + を + [counter] + Verb. The counter doesn't take its own particle in this frame.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "りんごを にこ かいました。",
+          "right": "りんごを に こ かいました。 / りんごを にこ かいました。",
+          "why": "Context: sentence-final position issue. Number+counter goes between object and verb (after を, before V).",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -45218,7 +45166,9 @@
         "かず",
         "数"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-111",
@@ -45464,12 +45414,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "いま 3時に です。",
-          "right": "いま 3時です。",
-          "why": "Stating the current time uses just です (no に). に would mark a time-of-action (3時に 起きます), but the predicate 'it IS 3 o'clock' is a noun-predicate, not a time-of-action statement.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "よじ。",
+          "right": "よじ。 (already correct)",
+          "why": "4 o'clock is よじ (not しじ). Irregular reading.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -45601,7 +45552,7 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "meaning_ja_provenance": "native_teacher_review_2026_05_13",
       "meaning_ja_audit_wave": "g1-cross-contamination-fix-2026-05-13",
       "_meaning_ja_markers": [
@@ -45613,7 +45564,8 @@
         "〜じ",
         "時"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-112",
@@ -45890,12 +45842,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "10ふん まちました。",
-          "right": "10ぷん まちました。",
-          "why": "Reading rule for ふん/ぷん: after 1/3/4/6/8/10 → ぷん; after 2/5/7/9 → ふん. 10 takes ぷん (じゅっぷん). The form 10ふん is a common N5 trap.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "いちふん。",
+          "right": "いっぷん。",
+          "why": "1 minute is いっぷん (sokuon + p-row). Irregular sound change.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -46027,7 +45980,9 @@
         "ぷん",
         "ふん"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-113",
@@ -46320,12 +46275,22 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "いま 3時 半です。",
-          "right": "いま 3時はんです。",
-          "why": "Context: with space. はん fuses directly with 時 (no space, no particle). 3時はん = '3:30'. The form 3時 半 with separator is incorrect spelling/reading.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "にじ はん ぐらいに きました。",
+          "right": "にじはんごろ きました。",
+          "why": "はん attaches to じ directly; for \"about\" use ごろ on clock-time.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        {
+          "wrong": "にじはん ぐらい です ね。",
+          "right": "にじはん ぐらい です。",
+          "why": "Confirming time to listener can use ね; depends on shared context.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -46444,7 +46409,7 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "meaning_ja_provenance": "native_teacher_review_2026_05_13",
       "meaning_ja_audit_wave": "g1-cross-contamination-fix-2026-05-13",
       "_meaning_ja_markers": [
@@ -46455,7 +46420,8 @@
         "三時はん",
         "じはん"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-114",
@@ -47671,12 +47637,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "まいにちに 日本語を べんきょうします。",
-          "right": "まいにち 日本語を べんきょうします。",
-          "why": "Frequency adverbs (まいにち, まいしゅう, etc.) appear BARE — no particle. に goes on absolute time markers (3時に, 月曜日に), not on 'every day' frequency words.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "まいにちに しごとに いきます。",
+          "right": "まいにち しごとに いきます。",
+          "why": "Frequency adverbs (まい〜) take no particle.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -47822,7 +47789,9 @@
         "毎日",
         "毎月"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-117",
@@ -48093,12 +48062,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "きょうに あついです。",
-          "right": "きょうは あついです。",
-          "why": "Relative time words (きょう, あした, きのう) take は (topic) or appear bare — never に. に is for absolute time (clock times, dates, days-of-week). きょう is relative, so no に.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "あしたに 行きます。",
+          "right": "あした 行きます。",
+          "why": "Same — vague time markers stand alone.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -48232,7 +48202,9 @@
         "きょう",
         "きのう"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-118",
@@ -48990,12 +48962,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "ごはん まえに てを あらいます。",
-          "right": "ごはんの まえに てを あらいます。",
-          "why": "Noun + の + まえに = 'before [noun]'. Don't drop の. Pattern: NOUN + の + まえに + Verb. For V-plain + まえに (before doing), drop の: 食べる まえに.",
+          "wrong": "たべますまえに、 てを あらいます。",
+          "right": "たべるまえに、 てを あらいます。",
+          "why": "まえに takes plain dictionary form, not polite ます.",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -49120,7 +49093,9 @@
         "まえを",
         "まえ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-120",
@@ -49469,18 +49444,19 @@
         {
           "wrong": "しごと あとで のみに 行きました。",
           "right": "しごとの あとで のみに 行きました。",
-          "why": "Noun + の + あとで = 'after [noun]'. Don't drop の. Pattern: NOUN + の + あとで + Verb. For V-た + あとで ('after doing'), drop の: 食べた あとで.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "しごと あとで のみに 行きました。",
-          "right": "しごとの あとで のみに 行きました。",
           "why": "Noun + の + あとで = 'after [noun]'. Don't drop の. Pattern: NOUN + の + あとで + Verb. For V-past + あとで (after doing), drop の: 食べた あとで.",
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "たべるあとで、 ねます。",
+          "right": "たべたあとで、 ねます。",
+          "why": "あと takes PAST plain form (Vた + あとで).",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -49605,7 +49581,9 @@
         "あとを",
         "あと"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-121",
@@ -52467,12 +52445,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "コーヒーは すきです、おちゃは すきじゃありません。",
-          "right": "コーヒーは すきですが、おちゃは すきじゃありません。",
-          "why": "が (contrast conjunction) joins two CLAUSES with 'but' nuance — placed at the END of the first clause before the comma. Bare comma between two clauses is incomplete; needs が.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "高いです。が、おいしいです。",
+          "right": "高いですが、おいしいです。",
+          "why": "Mid-sentence が attaches to the previous clause without a sentence break.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -52610,7 +52589,9 @@
         "つなぐ",
         "ぶんを"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-127",
@@ -53845,14 +53826,6 @@
         {
           "wrong": "ともだちを 本を あげました。",
           "right": "ともだちに 本を あげました。",
-          "why": "あげる/さしあげる take RECIPIENT に + OBJECT を. Double-を is wrong. Pattern: [giver]は + [recipient]に + [object]を + あげる. The recipient particle is に, not を.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "ともだちを 本を あげました。",
-          "right": "ともだちに 本を あげました。",
           "why": "Giving verb あげる: recipient takes に, object takes を. Pattern: [giver]は + [recipient]に + [object]を + あげる. Don't double を; に for recipient is mandatory.",
           "category": "conjugation",
           "provenance": "native_reviewed",
@@ -53995,7 +53968,9 @@
         "わたします",
         "ものを"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-131",
@@ -54285,14 +54260,6 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "ともだちが 本を もらいました。",
-          "right": "ともだちに 本を もらいました。",
-          "why": "Receiving verb もらう: giver takes に or から (not が). が would put the friend in subject position, but the implicit subject is the speaker (わたし). Pattern: [I]は + [giver]に + [object]を + もらう.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
-        },
-        {
           "wrong": "ともだちに 本を もらうました。",
           "right": "ともだちに 本を もらいました。",
           "why": "Group 1 verb もらう: ます-form drops final う, adds い-row + ます → もらいます → past もらいました. The form もらうました wrongly keeps the dict-form う.",
@@ -54433,7 +54400,9 @@
         "ものを",
         "から"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-132",
@@ -54751,14 +54720,6 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "友だちに 本を くれました。",
-          "right": "友だちが 本を くれました。",
-          "why": "くれる: the GIVER is subject (が), the IMPLICIT recipient is the speaker. Pattern: [giver]が + [object]を + くれる. に would mark the friend as recipient — but くれる already assumes the speaker is recipient.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
-        },
-        {
           "wrong": "友だちが 本を くれるました。",
           "right": "友だちが 本を くれました。",
           "why": "Group 2 verb くれる: drop る from ます-form (くれる → くれます → くれました). The form くれるました wrongly keeps the dict-form る.",
@@ -54896,7 +54857,9 @@
         "けいけんを",
         "いいます"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-133",
@@ -55277,20 +55240,20 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "あついから まどを あけて ください。",
+          "wrong": "あついだから、まどを あけてください。",
           "right": "あついから、まどを あけてください。",
-          "why": "Causation pattern: Clause A から、Clause B. The comma after から marks the clause break. Spoken language can drop the comma, but written form needs it. Pattern: [reason]から、[result].",
+          "why": "い-adjectives attach から directly (あつい + から). Don't insert だ — that's for な-adjectives and nouns. Pattern: [い-adj]から、[result].",
           "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
-          "wrong": "あつい から、まどを あけてください。",
+          "wrong": "まどを あけてください、あついから。",
           "right": "あついから、まどを あけてください。",
-          "why": "から attaches DIRECTLY to the preceding clause-ending word (no space). あつい + から = 'because [it is] hot'. Space breaks the conjunctive bond. Pattern: [reason-clause]から、[result-clause].",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "why": "In Japanese, [reason]から comes BEFORE [result], not after. Sentence-final から sounds like an after-thought — natural ordering is reason first. Pattern: [reason-clause]から、[result-clause].",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "あついから、まどを あけて。",
@@ -57174,18 +57137,19 @@
         {
           "wrong": "これは わたしと 本です。",
           "right": "これは わたしの 本です。",
-          "why": "Possession between nouns: A + の + B = 'B of A' / 'A's B'. と would mean 'A AND B' (apposition or list). For 'my book', use わたし + の + 本.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "これは わたしと 本です。",
-          "right": "これは わたしの 本です。",
           "why": "Possession between two nouns uses の. わたし + の + 本 = 'my book'. と would mean 'I and book' (coordination), not 'my book'. Use の for the genitive/possessive link.",
           "category": "conjugation",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "にほん ほん。",
+          "right": "にほんの ほん。",
+          "why": "Noun-noun linkage requires の. This is a frequent N5 learner error for pattern Noun + の + Noun; the corrected form follows the standard particle convention for this construction.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -57315,7 +57279,9 @@
         "けいが",
         "の"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-142",
@@ -57525,27 +57491,28 @@
         {
           "wrong": "コーヒーを します。",
           "right": "コーヒーに します。",
-          "why": "\"Choose / decide on X\" uses に, not を. を します means \"do X\" (action verb).",
-          "category": "particle",
-          "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
-        },
-        {
-          "wrong": "コーヒーを します。",
-          "right": "コーヒーに します。",
           "why": "〜にします = 'I'll have/choose [noun]' (deliberate selection). The particle is に, not を. Without に, the sentence is structurally incomplete in this set-pattern frame. Standard ordering choice in restaurants: NOUN + に + します.",
           "category": "particle",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "コーヒーを します。",
+          "wrong": "にします か コーヒーを。",
+          "right": "コーヒーに しますか。",
+          "why": "SOV order: object first, then にします.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
+        },
+        {
+          "wrong": "コーヒーで します。",
           "right": "コーヒーに します。",
-          "why": "〜にします = 'decide on / choose [noun]'. The pattern requires に before します. を would treat コーヒー as a transitive object of する ('do coffee'), which is nonsense. For 'I'll have coffee', use NOUN + に + します.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "why": "Context: intent: I will choose coffee. Decision particle is に, not で.",
+          "category": "particle",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -57663,7 +57630,7 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "meaning_ja_provenance": "native_teacher_review_2026_05_13",
       "meaning_ja_audit_wave": "g1-cross-contamination-fix-2026-05-13",
       "_meaning_ja_markers": [
@@ -57675,7 +57642,8 @@
         "きめる",
         "ことや"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-143",
@@ -58223,36 +58191,6 @@
           "audio": "audio/grammar/n5-144.3.mp3"
         },
         {
-          "ja": "おんがくを 聞きながら、べんきょうします。",
-          "translation_en": "I study while listening to music.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.24-school-and-study.べんきょう",
-            "n5.vocab.26-house-and-furniture.おんがく",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "べんきょう",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "おんがく",
-              "mora": 4,
-              "drop": 1
-            },
-            {
-              "form": "きょう",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "audio": "audio/grammar/n5-144.4.mp3",
-          "form": "affirmative",
-          "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
           "ja": "コーヒーを のみながら、しんぶんを 読みます。",
           "translation_en": "I read the newspaper while drinking coffee.",
           "provenance": "llm_curated",
@@ -58534,14 +58472,15 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "〜ながら",
         "ながら"
       ],
       "review_status_provenance": "claude_native_reviewer_persona",
       "scope": "n4",
-      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. Verb-stem + ながら is mainstream N4 in Genki II L13, Minna no Nihongo I L28, Try! N4, Shin Kanzen Master N4. Previous late_n5 classification was over-permissive. Retained in grammar.json for traceability + future N4 build; scope='n4' filters it out of N5-only consumers."
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. Verb-stem + ながら is mainstream N4 in Genki II L13, Minna no Nihongo I L28, Try! N4, Shin Kanzen Master N4. Previous late_n5 classification was over-permissive. Retained in grammar.json for traceability + future N4 build; scope='n4' filters it out of N5-only consumers.",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-145",
@@ -58723,46 +58662,6 @@
           "audio": "audio/grammar/n5-145.6.mp3",
           "form": "affirmative",
           "form_provenance": "auto_derived_form_2026_05_13"
-        },
-        {
-          "ja": "あした、 あめが ふると おもいます。",
-          "form": "opinion-weather",
-          "translation_en": "I think it will rain tomorrow.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.10-time-general.あした",
-            "n5.vocab.27-verbs-group-1-verbs.おもう",
-            "n5.vocab.31-adjectives.おもい",
-            "n5.vocab.17-food-items.あめ",
-            "n5.vocab.27-verbs-group-1-verbs.ふる",
-            "n5.vocab.35-particles-functional-.と",
-            "n5.vocab.35-particles-functional-.が"
-          ],
-          "audio": "audio/grammar/n5-145.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "あした",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "あめ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ふる",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "おもいます",
-              "mora": 5,
-              "drop": 2
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
           "ja": "やまださんは げんきだと おもいます。",
@@ -58992,7 +58891,9 @@
         "いいます",
         "じぶんの"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-146",
@@ -61267,14 +61168,6 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "おちゃを いかがですか。",
-          "right": "おちゃは いかがですか。",
-          "why": "〜はいかがですか offers a thing — the offered noun takes は (topic). を would make it a direct object, but いかがですか isn't a transitive verb. The fixed frame: NOUN + は + いかがですか.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
-        },
-        {
           "kind": "register_variant",
           "form_a": "コーヒーは どう ですか。",
           "form_b": "コーヒーは いかがですか。",
@@ -61285,6 +61178,15 @@
           "scope_note": "いかが is N4 honorific vocab; same pair as n5-050 (paired offers).",
           "provenance": "llm_curated_with_reference_genki_minna_jees_2026_05_19",
           "reg_001_sweep1_class": "A"
+        },
+        {
+          "wrong": "コーヒーは いかがですか だ。",
+          "right": "コーヒーは いかがですか。",
+          "why": "です + か already terminates; do not append だ.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -61395,7 +61297,7 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "meaning_ja_provenance": "native_teacher_review_run2_2026_05_13",
       "meaning_ja_audit_wave": "t1-r2-meaning-ja-fix-2026-05-13",
       "_meaning_ja_markers": [
@@ -61407,7 +61309,8 @@
         "ものを",
         "ときや"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-152",
@@ -61612,39 +61515,6 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "どうも ありがとう ございます。",
-          "form": "polite-thanks",
-          "translation_en": "Thank you very much.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.36-greetings-and-set-phr.ありがとう",
-            "n5.vocab.36-greetings-and-set-phr.どうも",
-            "n5.vocab.36-greetings-and-set-phr.どうも",
-            "n5.vocab.5-demonstratives.どう",
-            "n5.vocab.35-particles-functional-.も"
-          ],
-          "audio": "audio/grammar/n5-152.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "どうも",
-              "mora": 3,
-              "drop": 1
-            },
-            {
-              "form": "ありがとう",
-              "mora": 5,
-              "drop": 2
-            },
-            {
-              "form": "います",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "すみません、 みずを ください。",
           "form": "attention-request",
           "translation_en": "Excuse me, water please.",
@@ -61831,7 +61701,7 @@
           "quote_provenance": "self_reference_proverb_text"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "meaning_ja_provenance": "native_teacher_review_2026_05_13",
       "meaning_ja_audit_wave": "g1-cross-contamination-fix-2026-05-13",
       "_meaning_ja_markers": [
@@ -61846,7 +61716,8 @@
         "どうぞ",
         "つかう"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-153",
@@ -62282,7 +62153,7 @@
       "categoryOrder": 22,
       "patternOrder": 2,
       "meaning_en": "もう + Verb-ました - already (action completed)",
-      "meaning_ja": "「もう + Verb-ました」で、すでに した ことを いいます。「もう 食べました」「もう しゅくだいを しました」。よく 「まだ + Verb-ていません」(まだ 食べて いません) と ペアで つかいます。",
+      "meaning_ja": "「もう + Verb-ました」で、すでに した ことを いいます。",
       "form_rules": {
         "attaches_to": [
           "verb_mashita"
@@ -62681,7 +62552,10 @@
         "ことを",
         "もう"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "explanation_ja": "「もう 食べました」「もう しゅくだいを しました」。よく 「まだ + Verb-ていません」(まだ 食べて いません) と ペアで つかいます。",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-155",
@@ -62950,21 +62824,14 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "むずかしいです。が おもしろいです。",
+          "wrong": "むずかしいですが おもしろいです。",
           "right": "むずかしいですが、おもしろいです。",
-          "why": "Mid-sentence が attaches directly to the first clause; do NOT split into two sentences. Period before が breaks the connection.",
-          "category": "particle",
+          "why": "In written Japanese, mid-sentence が is followed by a comma (、) to mark the clause break. Without 、 the two clauses run together visually. Pattern: [clause-A]が、[clause-B].",
+          "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
-        },
-        {
-          "wrong": "コーヒーは すきです、おちゃは すきじゃありません。",
-          "right": "コーヒーは すきですが、おちゃは すきじゃありません。",
-          "why": "Connecting clauses with 'but' uses が at the END of the first clause. Bare comma without が is structurally incomplete. Pattern: Clause A + が、Clause B.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "provenance": "auto_fix_2026_05_24",
+          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13.",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "コーヒーは すきです、おちゃは すきじゃありません。",
@@ -62973,6 +62840,15 @@
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "たかいです がやすいです。",
+          "right": "たかい ですが、やすい くないです。",
+          "why": "Context: no comma. In standard punctuation, comma after が; also avoid contradictory adjective pair.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -63104,7 +62980,9 @@
         "ぶんを",
         "よわく"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-156",
@@ -63709,38 +63587,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "あした、 あめが ふるでしょう。",
-          "form": "weather-conjecture",
-          "translation_en": "It will probably rain tomorrow.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.10-time-general.あした",
-            "n5.vocab.17-food-items.あめ",
-            "n5.vocab.27-verbs-group-1-verbs.ふる",
-            "n5.vocab.35-particles-functional-.が"
-          ],
-          "audio": "audio/grammar/n5-157.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "あした",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "あめ",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "ふる",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "やまださんも くるでしょう。",
           "form": "person-likely-come",
           "translation_en": "Yamada-san will probably come too.",
@@ -63946,7 +63792,9 @@
       ],
       "review_status_provenance": "claude_native_reviewer_persona",
       "scope": "n4",
-      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. 〜でしょう (probability / seeking-agreement formal) is consensus N4 across Genki II L12, Minna no Nihongo I L32, Try! N4, Shin Kanzen Master N4. scope='n4' filters it out of N5-only consumers."
+      "scope_note": "Deferred to N4 per n5_core_pattern_ids.json deferred_to_n4 classification. 〜でしょう (probability / seeking-agreement formal) is consensus N4 across Genki II L12, Minna no Nihongo I L32, Try! N4, Shin Kanzen Master N4. scope='n4' filters it out of N5-only consumers.",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-158",
@@ -65997,74 +65845,6 @@
           "form_provenance": "auto_derived_form_2026_05_13"
         },
         {
-          "ja": "たべるまえに、 てを あらいます。",
-          "form": "before-eating",
-          "translation_en": "Before eating, I wash my hands.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.あらう",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.に"
-          ],
-          "audio": "audio/grammar/n5-162.7.mp3",
-          "pitch_marks": [
-            {
-              "form": "たべる",
-              "mora": 3,
-              "drop": 2
-            },
-            {
-              "form": "まえ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "あらいます",
-              "mora": 5,
-              "drop": 0
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
-          "ja": "ねるまえに、 ほんを よみます。",
-          "form": "before-sleep-read",
-          "translation_en": "Before sleeping, I read a book.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.27-verbs-group-1-verbs.読む",
-            "n5.vocab.28-verbs-group-2-verbs.ねる",
-            "n5.vocab.35-particles-functional-.を",
-            "n5.vocab.35-particles-functional-.に"
-          ],
-          "audio": "audio/grammar/n5-162.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "ねる",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "まえ",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "ほん",
-              "mora": 2,
-              "drop": 1
-            },
-            {
-              "form": "よみます",
-              "mora": 4,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "でかけるまえに、 でんわします。",
           "form": "before-out-call",
           "translation_en": "Before going out, I'll call.",
@@ -66113,18 +65893,19 @@
         {
           "wrong": "出かけるの まえに、しんぶんを 読みます。",
           "right": "出かける まえに、しんぶんを 読みます。",
-          "why": "V-plain + まえに drops の (no NOUN+の structure). The form 出かけるの まえに mixes the V-form with the noun-form. Pattern: V-dictionary + まえに (no の). 食べる まえに、本を読む。",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "出かけるの まえに、しんぶんを 読みます。",
-          "right": "出かける まえに、しんぶんを 読みます。",
           "why": "V-plain + まえに: drop の. The pattern V-dict + まえに is for 'before V-ing'. The noun-pattern (Noun + の + まえに) has の; the V-pattern doesn't. Different rules for different word classes.",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "たべますまえに。",
+          "right": "たべるまえに。",
+          "why": "まえに takes plain dictionary form, not polite ます.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -66247,7 +66028,9 @@
         "どうし",
         "まえに"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-163",
@@ -67476,12 +67259,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "ちゃを どうぞ。",
-          "right": "おちゃを どうぞ。",
-          "why": "お-prefix elevates the noun's politeness (お茶 for tea). Dropping お in offer contexts (especially with tea, water, money — common お-marked nouns) sounds curt or rude. Service contexts use お consistently.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "おビール。",
+          "right": "ビール。",
+          "why": "お/ご prefix is for native Japanese words; foreign loan-words (ビール) do not take it.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -67615,7 +67399,9 @@
         "「ご〜」",
         "つけて"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-166",
@@ -67625,7 +67411,7 @@
       "categoryOrder": 23,
       "patternOrder": 3,
       "meaning_en": "Set greetings: いただきます / ごちそうさま / おはようございます etc.",
-      "meaning_ja": "きまった あいさつの ことばです。「いただきます」(ごはんの まえ)、「ごちそうさま」(ごはんの あと)、「おはようございます」(あさ)、「いってきます」(でかける とき)、「こんにちは」(ひる)。これらは そのまま おぼえます。",
+      "meaning_ja": "きまった あいさつの ことばです。「いただきます」(ごはんの まえ)、「ごちそうさま」(ごはんの あと)、「おはようございます」(あさ)、「いってきます」(でかける とき)、「こんにちは」(ひる)。",
       "form_rules": {
         "attaches_to": [
           "set_phrase"
@@ -67888,26 +67674,6 @@
           ],
           "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
-          "ja": "おはよう ございます。",
-          "form": "morning-greeting",
-          "translation_en": "Good morning.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.36-greetings-and-set-phr.おはようございます"
-          ],
-          "vocab_ids_provenance": "llm_curated",
-          "audio": "audio/grammar/n5-166.9.mp3",
-          "pitch_marks": [
-            {
-              "form": "います",
-              "mora": 3,
-              "drop": 0
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         }
       ],
       "common_mistakes": [
@@ -67921,12 +67687,12 @@
           "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
         },
         {
-          "wrong": "いただきます。",
-          "right": "いただきます！",
-          "why": "Pre-meal ritual phrase. Required before starting to eat in Japanese cultural context. The exclamation mark conveys the spoken enthusiasm. Don't skip it in shared-meal settings — non-saying it is socially conspicuous.",
-          "category": "register",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "wrong": "おはよう ございます。",
+          "right": "おはようございます。",
+          "why": "おはようございます is one combined word — don't insert a space between おはよう and ございます. Written as a single token in modern Japanese. The polite morning greeting form is おはよう + ございます fused together.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24"
         },
         {
           "wrong": "いただきますを どうぞ。",
@@ -68070,7 +67836,10 @@
         "そのまま"
       ],
       "meaning_ja_provenance": "n5_166_cross_contamination_fix_2026_05_13_run4",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "explanation_ja": "これらは そのまま おぼえます。"
     },
     {
       "id": "n5-167",
@@ -68788,12 +68557,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "しゅうまつは 本を 読むたり、えいがを 見るたり します。",
-          "right": "しゅうまつは 本を 読んだり、えいがを 見たり します。",
-          "why": "〜たり attaches to PAST-PLAIN form (V-た + り). 読む → 読んだ → 読んだり. The form 読むたり wrongly uses dict-form. Pattern: V-た + り + V-た + り + する.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たべる ね、よむり する。",
+          "right": "たべたり よんだり する。",
+          "why": "たり attaches to PAST plain form: 食べた→食べたり, 読んだ→読んだり.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -68935,7 +68705,9 @@
         "行どうを",
         "ならべて"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-169",
@@ -69253,12 +69025,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "日本へ 行くことが あります。",
-          "right": "日本へ 行ったことが あります。",
-          "why": "〜たことがある = 'have experience of doing X'. Uses V-past + ことがある. 行く → 行った. Dict-form (行く) + ことがある would mean 'I sometimes go' (habit), not 'I have been'.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "にほんに いく ことがあります。",
+          "right": "にほんに いった ことがあります。",
+          "why": "Context: intent: have been to Japan. \"Have V-ed before\" needs PAST PLAIN + ことがある. Dictionary form changes meaning to \"sometimes do\".",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -69388,7 +69161,9 @@
         "けいけんを",
         "いいます"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-170",
@@ -69663,12 +69438,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "もう 寝るほうが いいですよ。",
-          "right": "もう 寝たほうが いいですよ。",
-          "why": "〜たほうがいい = 'should do X / better to do X'. Uses V-PAST plain + ほうがいい. 寝る → 寝た. Even though the advice is future-oriented, the form is past.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たべる ほうがいい。",
+          "right": "たべた ほうがいい。",
+          "why": "Context: intent: should eat. Advisory \"should V\" in N5 uses Vた (past plain) + ほうがいい. Vる makes it a generic comparison.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -69797,7 +69573,9 @@
         "ほうがいい",
         "します"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-171",
@@ -70064,45 +69842,6 @@
           "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
         },
         {
-          "ja": "たばこを すわない ほうが いいです。",
-          "form": "advice-no-smoke",
-          "translation_en": "You shouldn't smoke.",
-          "provenance": "llm_curated",
-          "vocab_ids": [
-            "n5.vocab.37-common-nouns-miscella.たばこ",
-            "n5.vocab.27-verbs-group-1-verbs.すう",
-            "n5.vocab.40-misc-useful-items.ほう",
-            "n5.vocab.31-adjectives.いい",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "audio": "audio/grammar/n5-171.8.mp3",
-          "pitch_marks": [
-            {
-              "form": "たばこ",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "すわない",
-              "mora": 4,
-              "drop": 0
-            },
-            {
-              "form": "ほう",
-              "mora": 2,
-              "drop": 0
-            },
-            {
-              "form": "いい",
-              "mora": 2,
-              "drop": 1
-            }
-          ],
-          "pitch_marks_provenance": "auto_derived_from_vocab_pitch",
-          "pitch_marks_audit_wave": "imp-154-drift-fill-2026-05-13"
-        },
-        {
           "ja": "むりを しない ほうが いいです。",
           "form": "advice-no-overdo",
           "translation_en": "You shouldn't overdo it.",
@@ -70149,18 +69888,19 @@
         {
           "wrong": "あまり 食べたほうが いいです。",
           "right": "あまり 食べないほうが いいです。",
-          "why": "Negative advice uses V-ない + ほうがいい. The form 食べたほうがいい (positive) means 'better to eat'. For 'better NOT to eat much', use 食べない + ほうがいい. Pattern: V-ない + ほうがいい.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
-        },
-        {
-          "wrong": "あまり 食べたほうが いいです。",
-          "right": "あまり 食べないほうが いいです。",
           "why": "Negative advice: V-ない + ほうがいい. 食べたほうがいい (positive) means 'better to eat'. For 'better NOT to eat much', use 食べない + ほうがいい. Don't confuse positive and negative advice.",
           "category": "verb_class",
           "provenance": "native_reviewed",
           "audit_wave": "issue-112-phase5-2026-05-13"
+        },
+        {
+          "wrong": "たべない ほうが いいですね。",
+          "right": "たべない ほうが いいですよ。",
+          "why": "Context: commanding tone. Advice typically uses よ (informing); ね (agreement-seeking) sounds odd here.",
+          "category": "register",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -70276,13 +70016,14 @@
           "quote_provenance": "self_reference_proverb_text"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "〜ないほうが いい",
         "ほうがいい",
         "ない"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-172",
@@ -70605,12 +70346,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "あした 来ないでも いいです。",
-          "right": "あした 来なくても いいです。",
-          "why": "Permission-to-skip: V-ない (drop い + くて) + も + いい. 来ない → 来なくて + も + いい = 来なくてもいい. The form 来ないでも wrongly uses で instead of くて.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たべないで もいいです。",
+          "right": "たべなくても いいです。",
+          "why": "Optional negative: Vなくてもいい (drop い, use なくて+も). Vないで is for \"without doing\".",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -70750,7 +70492,9 @@
         "〜なくても いい",
         "なくてもいい"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-173",
@@ -72818,12 +72562,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "きのう たべるすぎました。",
-          "right": "きのう たべすぎました。",
-          "why": "〜すぎる attaches to V-stem (drop ます). たべる → たべます → たべ + すぎる = たべすぎる. The form たべるすぎ wrongly keeps dict-form る. Pattern: V-stem + すぎる.",
-          "category": "particle",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たべるすぎる。",
+          "right": "たべすぎる。",
+          "why": "すぎる attaches to V-stem (drop る from G2): 食べる→食べ+すぎる.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -72941,12 +72686,13 @@
           "quote_provenance": "self_reference_proverb_text"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "〜すぎる",
         "すぎる"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-178",
@@ -73243,12 +72989,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "あした 行きますつもりです。",
-          "right": "あした 行くつもりです。",
-          "why": "つもり attaches to V-DICTIONARY form (not ます-form). 行く + つもり. The polite layer goes on つもり (つもりです), not on the verb. Pattern: V-dict + つもり + です.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たべますつもりです。",
+          "right": "たべるつもりです。",
+          "why": "つもり attaches to PLAIN form (Vる/Vない), not polite ます.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -73366,13 +73113,14 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-8-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "つもりです",
         "つもりだ",
         "〜つもり"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-179",
@@ -74576,12 +74324,13 @@
           "audit_wave": "issue-112-phase3-2026-05-12"
         },
         {
-          "wrong": "おいしいだなあ。",
-          "right": "おいしいなあ。",
-          "why": "i-adjectives attach なあ DIRECTLY (おいしい + なあ). Don't insert だ — i-adj doesn't need copula before なあ. Nouns and な-adj DO need だ (しずかだなあ). Different rules per word class.",
-          "category": "verb_class",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "wrong": "たかいですなあ。",
+          "right": "たかいなあ。",
+          "why": "なあ attaches to PLAIN form (drop です): たかい+なあ.",
+          "category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "source": "promoted from wrong_corrected_pair (BUG-A JA-51 backfill)"
         }
       ],
       "contrasts": [
@@ -74694,7 +74443,7 @@
           "quote_provenance": "claude_authored_2026_05_24_needs_native_verify"
         }
       ],
-      "audit_wave": "phase-7-polish-2026-05-13",
+      "audit_wave": "claude_audit_2026_05_24",
       "_meaning_ja_markers": [
         "むずかしい なあ",
         "きれい だなあ",
@@ -74704,7 +74453,8 @@
         "〜なあ",
         "なあ"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24"
     },
     {
       "id": "n5-182",
@@ -75109,7 +74859,7 @@
       "categoryOrder": 4,
       "patternOrder": 17,
       "meaning_en": "Question word + か / も - 'something / anyone' compounds",
-      "meaning_ja": "「だれか／なにか／どこか」は ある人・もの・ばしょを いいます。「だれも／なにも／どこも」は (with negative) いない・ない、と いう いみに なります。「だれかが 来ました」「なにも 食べませんでした」。",
+      "meaning_ja": "「だれか／なにか／どこか」は ある人・もの・ばしょを いいます。「だれも／なにも／どこも」は (with negative) いない・ない、と いう いみに なります。",
       "form_rules": {
         "attaches_to": [
           "question_word"
@@ -75515,7 +75265,10 @@
         "どこか",
         "なにか"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "explanation_ja": "「だれかが 来ました」「なにも 食べませんでした」。",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     },
     {
       "id": "n5-184",
@@ -77377,36 +77130,6 @@
           "audio": "audio/grammar/n5-188.2.mp3"
         },
         {
-          "form": "can-speak-japanese",
-          "ja": "日本語を 話すことが できます。",
-          "translation_en": "I can speak Japanese.",
-          "vocab_ids": [
-            "n5.vocab.25-languages-and-countri.日本語",
-            "n5.vocab.27-verbs-group-1-verbs.話す",
-            "n5.vocab.29-verbs-irregular-and-v.する",
-            "n5.vocab.35-particles-functional-.が",
-            "n5.vocab.35-particles-functional-.を"
-          ],
-          "pitch_marks": [
-            {
-              "form": "日本語",
-              "mora": 3,
-              "drop": 0
-            },
-            {
-              "form": "日本",
-              "mora": 2,
-              "drop": 2
-            },
-            {
-              "form": "話す",
-              "mora": 2,
-              "drop": 2
-            }
-          ],
-          "audio": "audio/grammar/n5-188.3.mp3"
-        },
-        {
           "ja": "いもうとは ピアノを ひく ことが できます。",
           "translation_en": "My younger sister can play the piano.",
           "source": "vocab.n5.vocab.2-people-family.あに.examples[1]",
@@ -77703,7 +77426,9 @@
         "ことができます",
         "いいます"
       ],
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24"
     }
   ],
   "_meta": {
@@ -77721,7 +77446,9 @@
       "n5-141"
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
-    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
+    "version": "2026.05.24-content-fixes",
+    "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split."
   },
   "_translation_status": {
     "note": "IMP-045 (audit round-5) + IMP-096 (locale narrowing 2026-05-06): grammar.json content-body translation. Per Q14 + the round-5 anti-items list, the long English explanations are NOT machine-translated - they would be confidently wrong in subtle JLPT-context-sensitive ways. Native Hindi reviewers (per Q20 recruitment in docs/TRANSLATING.md) author the per-locale fields when available. Renderer falls back to explanation_en when explanation_hi is absent. The deprecated explanation_vi/id/ne/zh fields were stripped in Phase 4 of the en+hi locale transition. 2026-05-07 ISSUE-093 update: LLM-persona scaling authorized via Q33; authored 151 explanation_hi entries with provenance.hi = llm_curated. Native-review remains the target end-state.",
