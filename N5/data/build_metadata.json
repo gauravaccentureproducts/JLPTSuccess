@@ -2,18 +2,19 @@
   "_meta": {
     "doc": "Internal / dev-facing build metadata. Sibling to data/version.json which holds PUBLIC build-stamp + corpus counts. This file holds CI plumbing fields that don't belong in the public version surface (which the runtime app + README parse). Created 2026-05-14 per IMP-002.",
     "schema_version": 1,
-    "lastUpdated": "2026-05-14",
+    "lastUpdated": "2026-05-24",
     "consumers": [
       "tools/check_content_integrity.py (could read invariants_passing to self-verify)",
       "Future CI dashboards / contributor tooling"
     ],
     "see_also": [
-      "data/version.json (public build stamp + corpus counts)"
+      "data/version.json (public build stamp + corpus counts)",
+      "specifications/JLPT-N5-Current-Implementation-Spec.md §25 (invariant lineage table)"
     ]
   },
-  "version": "v1.15.5",
-  "builtAt": "2026-05-14T08:30:00Z",
-  "invariants_passing": "85/85",
+  "version": "v1.16.11",
+  "builtAt": "2026-05-24T08:00:00Z",
+  "invariants_passing": "163/163",
   "invariants_source": "tools/check_content_integrity.py",
-  "ci_notes": "84 invariants total as of 2026-05-14 audit pass. JA-81 added this release (boilerplate-leak guard). New file kanji_scope_rules.json documents the single-source-of-truth surface map. JA-34 schema updated to handle late_n5 as array-of-objects with per-pattern attribution and deferred_to_n4 as new field."
+  "ci_notes": "163 invariants total as of 2026-05-24 reviewer v5 close. v1.16.11 batch: 4 rationale_hi word-salad fixes (BUG-197..200) via REAL-pattern + STALE-entries sub-pattern (procedure-manual F.44.29 + F.44.30); JA-160 marker set extended 6 → 7 patterns (added `चाहना को`); invariant count unchanged at 163. Earlier 2026-05-24 v1.16.10 batch: +JA-161 (locks the 12 required defense markers in docs/REVIEW-PACKET-PROMPT.md against RECALL-NOT-READ false-positive class — reviewer cites correct version but quotes prior-state strings); 3-block BINDING preflight added to reviewer-facing prompt (version-echo + content-fingerprint with STALE-MARKERs + read-not-recalled attestation); per-finding Read-not-recalled checkbox + verbatim-only Observed rule; cp932 → UTF-8 stdout reconfigure inline in check_content_integrity.py so sync-report subprocess no longer crashes on Devanagari / ≥ in labels. CI count went 162 → 163. Earlier 2026-05-23 v1.16.9 batch: +JA-160 (rationale_hi word-salad guard, initial 6 markers — RV3-001..004 close). Earlier batches: +JA-158 (listening speaker tag), +JA-159 (listening glossary in script), +JA-157 (paper static mirror staleness), +JA-156 (review-packet staleness lock for shared gitignored artifacts), +JA-155 (pitch-accent native-verify audit-block discipline). Full invariant lineage in specifications/JLPT-N5-Current-Implementation-Spec.md §25."
 }
