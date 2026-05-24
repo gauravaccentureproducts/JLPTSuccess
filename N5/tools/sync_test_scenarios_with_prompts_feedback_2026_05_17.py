@@ -197,6 +197,7 @@ PHASE0_BLOCKS = [
     ("P0-native-speaker-verify-audit-block", "Phase-0 native-speaker-verification audit-block discipline block (added 2026-05-23)"),
     ("P0-reviewer-prompt-preflight-defense", "Phase-0 reviewer-prompt preflight-defense regression block (added 2026-05-24)"),
     ("P0-word-salad-horizontal-sweep", "Phase-0 word-salad horizontal-sweep regression block (added 2026-05-24)"),
+    ("P0-register-variant-schema-aware", "Phase-0 register_variant schema-aware auto-check block (added 2026-05-24)"),
 ]
 
 # --- 15 FP-NN false-positive class entries → tab K ---
@@ -216,6 +217,7 @@ FP_ENTRIES = [
     ("FP-13", "倍 (ばい) is a multiplier suffix, not a noun-counter"),
     ("FP-14", "i-adjective inflected forms still demonstrate the headword"),
     ("FP-15", "ぜひ / ただ + neutral declarative — semantically thin, not a grammar bug"),
+    ("FP-16", "register_variant entries falsely flagged as empty wrong/right — these entries carry a different schema (form_a/form_b/label_a/label_b) where both forms are valid Japanese; auto-checks must short-circuit on kind=='register_variant' before reading wrong/right fields (BUG-011 schema lineage)"),
 ]
 
 # --- Feedback / closed audit docs → one summary scenario per doc ---
