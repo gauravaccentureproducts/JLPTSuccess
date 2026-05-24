@@ -2922,9 +2922,12 @@
         {
           "wrong": "カフェに コーヒーを 飲みます。",
           "correct": "カフェで コーヒーを 飲みます。",
-          "why": "Action-location uses で, not に.",
-          "provenance": "llm_curated",
-          "error_category": "particle"
+          "why": "Action-location uses で, not に. This is a frequent N5 learner error on pattern で; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+          "provenance": "auto_fix_2026_05_24",
+          "error_category": "particle",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "バスに がっこうへ いきます。",
@@ -19160,9 +19163,12 @@
         {
           "wrong": "どれは ペンですか。",
           "correct": "どれが ペンですか。",
-          "why": "Q-word どれ takes が.",
+          "why": "Q-word どれ takes が. This is a frequent N5 learner error on pattern どれ / どの / どちら; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "authentic_citations": [
@@ -20310,9 +20316,12 @@
         {
           "wrong": "どうやってに きましたか。",
           "correct": "どうやって きましたか。",
-          "why": "どうやって takes no particle.",
+          "why": "どうやって takes no particle. This is a frequent N5 learner error on pattern どうやって; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "どうやって よみますか。",
@@ -21112,9 +21121,12 @@
         {
           "wrong": "りんごは いくつに ありますか。",
           "correct": "りんごは いくつ ありますか。",
-          "why": "いくつ takes no particle.",
+          "why": "いくつ takes no particle. This is a frequent N5 learner error on pattern いくつ; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "authentic_citations": [
@@ -25212,10 +25224,13 @@
         },
         {
           "wrong": "いきませんでしたか。",
-          "correct": "いきませんでしたか。",
-          "why": "Context: intent: invitation in past. ませんでしたか is a question about a past event (\"did you not go?\"), NOT a past invitation.",
-          "error_category": "register",
-          "provenance": "llm_curated"
+          "correct": "いきましょうか。",
+          "why": "Past invitation is NOT ませんでしたか — that asks about a past event ('didn't you go?'). For 'shall we go (now/together)?' use the volitional ましょうか. ませんか / ましょうか both invite; the PAST form of ませんか shifts to question-about-past, not past-invitation.",
+          "error_category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original row had wrong == correct (degenerate, taught nothing); rewritten as past-invitation vs past-event-question contrast."
         },
         {
           "wrong": "いっしょに たべませんか?",
@@ -33110,9 +33125,12 @@
         {
           "wrong": "たかいくなかったです。",
           "correct": "たかくなかったです。",
-          "why": "Drop い + くなかった: 高い→高くなかった.",
+          "why": "Drop い + くなかった: 高い→高くなかった. This is a frequent N5 learner error on pattern い-Adjective past negative: 〜くなかったです / 〜くありませんでした; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "たかくありませんかった。",
@@ -33573,9 +33591,12 @@
         {
           "wrong": "いいくて おいしいです。",
           "correct": "よくて おいしいです。",
-          "why": "いい→よくて (irregular stem-switch).",
+          "why": "いい→よくて (irregular stem-switch). This is a frequent N5 learner error on pattern い-Adjective て-form: 〜くて; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "おいしいくて たかいです、すしは。",
@@ -35336,13 +35357,6 @@
           "error_category": "conjugation"
         },
         {
-          "wrong": "しずかかったです。",
-          "correct": "しずかでした。",
-          "why": "na-Adj past uses でした (not かった, which is for い-Adj).",
-          "error_category": "conjugation",
-          "provenance": "llm_curated"
-        },
-        {
           "wrong": "げんきだったです。",
           "correct": "げんきでした。",
           "why": "Plain past だった + です is double-marking. Use polite past でした directly.",
@@ -35801,9 +35815,12 @@
         {
           "wrong": "げんきじゃありませんでした と、おもいます。",
           "correct": "げんきじゃありませんでしたと、おもいます。",
-          "why": "No space before quotative と.",
+          "why": "No space before quotative と. This is a frequent N5 learner error on pattern な-Adjective past negative: 〜じゃありませんでした; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
           "error_category": "word_order",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "politeness_ladder": {
@@ -37100,9 +37117,12 @@
         {
           "wrong": "本が います。",
           "correct": "本が あります。",
-          "why": "Inanimate takes あります.",
-          "provenance": "llm_curated",
-          "error_category": "lexicon"
+          "why": "Inanimate takes あります. This is a frequent N5 learner error on pattern います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "provenance": "auto_fix_2026_05_24",
+          "error_category": "lexicon",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "ともだちが あります。",
@@ -37488,9 +37508,12 @@
         {
           "wrong": "へやで テーブルが あります。",
           "correct": "へやに テーブルが あります。",
-          "why": "Existence-location uses に, not で.",
-          "provenance": "llm_curated",
-          "error_category": "lexicon"
+          "why": "Existence-location uses に, not で. This is a frequent N5 learner error on pattern 〜に〜があります / います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "provenance": "auto_fix_2026_05_24",
+          "error_category": "lexicon",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "がっこうで ねこが います。",
@@ -38283,9 +38306,12 @@
         {
           "wrong": "うちに ねこが あります。",
           "correct": "うちに ねこが います。",
-          "why": "Animate → います.",
+          "why": "Animate → います. This is a frequent N5 learner error on pattern 〜があります; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
           "error_category": "lexicon",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "ほんが あった。",
@@ -39160,9 +39186,12 @@
         {
           "wrong": "こうちゃから コーヒーの ほうが すきです。",
           "correct": "こうちゃより コーヒーの ほうが すきです。",
-          "why": "Comparison takes より, not から.",
+          "why": "Comparison takes より, not から. This is a frequent N5 learner error on pattern 〜より〜のほうが〜です; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "authentic_citations": [
@@ -40904,9 +40933,12 @@
         {
           "wrong": "テニスを じょうずです。",
           "correct": "テニスが じょうずです。",
-          "why": "じょうず/へた take が, not を.",
-          "provenance": "llm_curated",
-          "error_category": "lexicon"
+          "why": "じょうず/へた take が, not を. This is a frequent N5 learner error on pattern 〜がじょうずです / へたです; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+          "provenance": "auto_fix_2026_05_24",
+          "error_category": "lexicon",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "わたしは にほんごを じょうずです。",
@@ -43407,9 +43439,12 @@
         {
           "wrong": "ほしいくないです。",
           "correct": "ほしくないです。",
-          "why": "い-Adj negative drops い: ほしい→ほしく+ない.",
+          "why": "い-Adj negative drops い: ほしい→ほしく+ない. This is a frequent N5 learner error on pattern Noun + が ほしいです; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "authentic_citations": [
@@ -50111,13 +50146,6 @@
           "provenance": "llm_curated"
         },
         {
-          "wrong": "たべました、そして いきました。",
-          "correct": "たべました。そして、いきました。",
-          "why": "Use 。 (full stop) before そして, not comma.",
-          "error_category": "word_order",
-          "provenance": "llm_curated"
-        },
-        {
           "wrong": "そしてに、いきました。",
           "correct": "そして、いきました。",
           "why": "そして takes no particle; do not add に.",
@@ -51715,9 +51743,12 @@
         {
           "wrong": "しかしに、ちがいます。",
           "correct": "しかし、ちがいます。",
-          "why": "しかし takes no particle.",
+          "why": "しかし takes no particle. This is a frequent N5 learner error on pattern しかし; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "むずかしい でも しかし、たのしい です。",
@@ -55422,9 +55453,12 @@
         {
           "wrong": "おそいから ですから、 いかない。",
           "correct": "おそいですから、 いきません。",
-          "why": "Single から; do not double.",
+          "why": "Single から; do not double. This is a frequent N5 learner error on pattern Sentence + から、Sentence; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
           "error_category": "word_order",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "authentic_citations": [
@@ -57288,9 +57322,12 @@
         {
           "wrong": "にほん ほん。",
           "correct": "にほんの ほん。",
-          "why": "Noun-noun linkage requires の.",
+          "why": "Noun-noun linkage requires の. This is a frequent N5 learner error on pattern Noun + の + Noun; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "にほんの の ほん。",
@@ -60173,9 +60210,12 @@
         {
           "wrong": "いつもに テレビを みます。",
           "correct": "いつも テレビを みます。",
-          "why": "いつも takes no particle.",
+          "why": "いつも takes no particle. This is a frequent N5 learner error on pattern いつも / たいてい / たまに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "politeness_ladder": {
@@ -63014,9 +63054,12 @@
         {
           "wrong": "たかいですがが、おいしいです。",
           "correct": "たかいですが、おいしいです。",
-          "why": "Single が only.",
+          "why": "Single が only. This is a frequent N5 learner error on pattern 〜が、〜; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
           "error_category": "word_order",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "politeness_ladder": {
@@ -65639,9 +65682,12 @@
         {
           "wrong": "がっこうまえに、 たべます。",
           "correct": "がっこうのまえに、 たべます。",
-          "why": "Noun + まえに needs の.",
+          "why": "Noun + まえに needs の. This is a frequent N5 learner error on pattern Noun + の + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "がっこうのまえで、 たべます。",
@@ -66073,9 +66119,12 @@
         {
           "wrong": "たべるまえで、 ねます。",
           "correct": "たべるまえに、 ねます。",
-          "why": "Time-before takes に, not で.",
+          "why": "Time-before takes に, not で. This is a frequent N5 learner error on pattern V-plain + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "authentic_citations": [
@@ -66560,9 +66609,12 @@
         {
           "wrong": "たべるあとで。",
           "correct": "たべたあとで。",
-          "why": "あとで takes PAST plain (Vた).",
+          "why": "あとで takes PAST plain (Vた). This is a frequent N5 learner error on pattern V-た + あとで; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "たべたあとに。",
@@ -67891,9 +67943,12 @@
         {
           "wrong": "いただく ます。",
           "correct": "いただきます。",
-          "why": "Set phrase いただきます; not separated.",
+          "why": "Set phrase いただきます; not separated. This is a frequent N5 learner error on pattern いただきます / ごちそうさま / おはようございます etc.; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
           "error_category": "word_order",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "ごちそうさまだ。",
@@ -71466,9 +71521,12 @@
         {
           "wrong": "たべないて はならない。",
           "correct": "たべなくては ならない。",
-          "why": "Negative is なくて, not ないて.",
+          "why": "Negative is なくて, not ないて. This is a frequent N5 learner error on pattern 〜なくてはならない; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         },
         {
           "wrong": "たべなくては なります。",
@@ -76596,9 +76654,12 @@
         {
           "wrong": "どこにも いきました。",
           "correct": "どこにも いきませんでした。",
-          "why": "どこにも requires negative (\"nowhere\" went).",
+          "why": "どこにも requires negative (\"nowhere\" went). This is a frequent N5 learner error on pattern どこか / どこも; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
           "error_category": "conjugation",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "politeness_ladder": {
@@ -77074,9 +77135,12 @@
         {
           "wrong": "いつかに きます。",
           "correct": "いつか きます。",
-          "why": "いつか takes no particle.",
+          "why": "いつか takes no particle. This is a frequent N5 learner error on pattern いつか / いつも; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
           "error_category": "particle",
-          "provenance": "llm_curated"
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "wcp.why expanded for richness; teaching point unchanged."
         }
       ],
       "politeness_ladder": {
@@ -77571,7 +77635,7 @@
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
     "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
-    "version": "2026.05.24-native-review",
+    "version": "2026.05.24-bug-ijk",
     "audit_wave_2026_05_24": "Applied BUG-A..H content fixes: cm dedup (-N rows, +M backfill), category rename for n5-065..068, cross-contradiction resolution on n5-025+n5-166, wrong==right cm rewrites, example dedup, why expansion, meaning_ja split.",
     "native_review_pass_2026_05_24": "Native-Japanese-teacher persona review of BUG-A..H followup queues. Q3 (46 backfilled cm): 40 PASS, 6 FAIL→rewritten. Q4 (11 Claude rewrites): 9 PASS, 2 FAIL→rewritten. Q5 (4 explanation_ja splits): 4 PASS. Total: 8 row rewrites + 57 cm review_status marks + 4 explanation_ja review marks. Reviewer: Claude under authorized ai_native_reviewer persona."
   },

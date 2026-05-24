@@ -1,0 +1,101 @@
+{
+  "corpus_version": "2026.05.24-bug-ijk",
+  "total_patterns": 178,
+  "register_variant_skip_applied": true,
+  "results": {
+    "TS-02": {
+      "pass": 178,
+      "partial": 0,
+      "fail": 0,
+      "target": ">=175",
+      "meets": true,
+      "sample_fails": [],
+      "sample_partials": []
+    },
+    "TS-03": {
+      "pass": 178,
+      "partial": 0,
+      "fail": 0,
+      "target": "=178",
+      "meets": true,
+      "sample_fails": [],
+      "sample_partials": []
+    },
+    "TS-04": {
+      "pass": 178,
+      "partial": 0,
+      "fail": 0,
+      "target": "=178",
+      "meets": true,
+      "sample_fails": [],
+      "sample_partials": []
+    },
+    "TS-05": {
+      "pass": 143,
+      "partial": 35,
+      "fail": 0,
+      "target": ">=150",
+      "meets": false,
+      "sample_fails": [],
+      "sample_partials": [
+        {
+          "id": "n5-021",
+          "partials": [
+            "no example contains the pattern form (heuristic; conjugated forms may not match literally)"
+          ]
+        },
+        {
+          "id": "n5-034",
+          "partials": [
+            "no example contains the pattern form (heuristic; conjugated forms may not match literally)"
+          ]
+        },
+        {
+          "id": "n5-045",
+          "partials": [
+            "no example contains the pattern form (heuristic; conjugated forms may not match literally)"
+          ]
+        },
+        {
+          "id": "n5-057",
+          "partials": [
+            "no example contains the pattern form (heuristic; conjugated forms may not match literally)"
+          ]
+        },
+        {
+          "id": "n5-094",
+          "partials": [
+            "no example contains the pattern form (heuristic; conjugated forms may not match literally)"
+          ]
+        }
+      ]
+    },
+    "TS-06": {
+      "pass": 178,
+      "partial": 0,
+      "fail": 0,
+      "target": ">=175",
+      "meets": true,
+      "sample_fails": [],
+      "sample_partials": []
+    },
+    "TS-09": {
+      "pass": 178,
+      "partial": 0,
+      "fail": 0,
+      "target": ">=175",
+      "meets": true,
+      "sample_fails": [],
+      "sample_partials": []
+    },
+    "TS-10": {
+      "pass": 178,
+      "partial": 0,
+      "fail": 0,
+      "target": ">=175",
+      "meets": true,
+      "sample_fails": [],
+      "sample_partials": []
+    }
+  }
+}

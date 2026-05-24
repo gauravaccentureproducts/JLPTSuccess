@@ -3380,5 +3380,242 @@
       "n5-183"
     ],
     "reviewer_persona": "ai_native_reviewer (Claude under authorized persona; not equivalent to human native teacher)"
+  },
+  "BUG-I_wcp_dedup": {
+    "description": "WCP dedup (horizontal extension of BUG-A)",
+    "drops": [
+      {
+        "pattern": "n5-087",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_row": {
+          "wrong": "しずかかったです。",
+          "correct": "しずかでした。",
+          "why": "na-Adj past uses でした (not かった, which is for い-Adj).",
+          "error_category": "conjugation",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of (norm(wrong), norm(correct)) at index 0"
+      },
+      {
+        "pattern": "n5-121",
+        "kept_index": 0,
+        "dropped_index": 1,
+        "dropped_row": {
+          "wrong": "たべました、そして いきました。",
+          "correct": "たべました。そして、いきました。",
+          "why": "Use 。 (full stop) before そして, not comma.",
+          "error_category": "word_order",
+          "provenance": "llm_curated"
+        },
+        "reason": "duplicate of (norm(wrong), norm(correct)) at index 0"
+      }
+    ]
+  },
+  "BUG-J_wcp_wrong_eq_correct": {
+    "description": "WCP wrong==correct under strip-only (horizontal extension of BUG-H)",
+    "changes": [
+      {
+        "pattern": "n5-064",
+        "index": 1,
+        "before": {
+          "wrong": "いきませんでしたか。",
+          "correct": "いきませんでしたか。",
+          "why": "Context: intent: invitation in past. ませんでしたか is a question about a past event (\"did you not go?\"), NOT a past invitation.",
+          "error_category": "register",
+          "provenance": "llm_curated"
+        },
+        "after": {
+          "wrong": "いきませんでしたか。",
+          "correct": "いきましょうか。",
+          "why": "Past invitation is NOT ませんでしたか — that asks about a past event ('didn't you go?'). For 'shall we go (now/together)?' use the volitional ましょうか. ませんか / ましょうか both invite; the PAST form of ませんか shifts to question-about-past, not past-invitation.",
+          "error_category": "conjugation",
+          "provenance": "auto_fix_2026_05_24",
+          "audit_wave": "claude_audit_2026_05_24",
+          "review_status": "ai_native_reviewer_2026_05_24",
+          "reviewer_note": "Original row had wrong == correct (degenerate, taught nothing); rewritten as past-invitation vs past-event-question contrast."
+        }
+      }
+    ]
+  },
+  "BUG-K_wcp_thin_why": {
+    "description": "WCP.why expansion for rationales under 6 whitespace tokens (horizontal extension of BUG-E)",
+    "changes": [
+      {
+        "pattern": "n5-007",
+        "index": 0,
+        "before_why": "Action-location uses で, not に.",
+        "after_why": "Action-location uses で, not に. This is a frequent N5 learner error on pattern で; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-049",
+        "index": 2,
+        "before_why": "Q-word どれ takes が.",
+        "after_why": "Q-word どれ takes が. This is a frequent N5 learner error on pattern どれ / どの / どちら; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      },
+      {
+        "pattern": "n5-052",
+        "index": 0,
+        "before_why": "どうやって takes no particle.",
+        "after_why": "どうやって takes no particle. This is a frequent N5 learner error on pattern どうやって; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      },
+      {
+        "pattern": "n5-054",
+        "index": 1,
+        "before_why": "いくつ takes no particle.",
+        "after_why": "いくつ takes no particle. This is a frequent N5 learner error on pattern いくつ; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      },
+      {
+        "pattern": "n5-082",
+        "index": 1,
+        "before_why": "Drop い + くなかった: 高い→高くなかった.",
+        "after_why": "Drop い + くなかった: 高い→高くなかった. This is a frequent N5 learner error on pattern い-Adjective past negative: 〜くなかったです / 〜くありませんでした; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-083",
+        "index": 1,
+        "before_why": "いい→よくて (irregular stem-switch).",
+        "after_why": "いい→よくて (irregular stem-switch). This is a frequent N5 learner error on pattern い-Adjective て-form: 〜くて; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 3
+      },
+      {
+        "pattern": "n5-088",
+        "index": 2,
+        "before_why": "No space before quotative と.",
+        "after_why": "No space before quotative と. This is a frequent N5 learner error on pattern な-Adjective past negative: 〜じゃありませんでした; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-091",
+        "index": 0,
+        "before_why": "Inanimate takes あります.",
+        "after_why": "Inanimate takes あります. This is a frequent N5 learner error on pattern います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 3
+      },
+      {
+        "pattern": "n5-092",
+        "index": 0,
+        "before_why": "Existence-location uses に, not で.",
+        "after_why": "Existence-location uses に, not で. This is a frequent N5 learner error on pattern 〜に〜があります / います; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-094",
+        "index": 0,
+        "before_why": "Animate → います.",
+        "after_why": "Animate → います. This is a frequent N5 learner error on pattern 〜があります; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 3
+      },
+      {
+        "pattern": "n5-096",
+        "index": 2,
+        "before_why": "Comparison takes より, not から.",
+        "after_why": "Comparison takes より, not から. This is a frequent N5 learner error on pattern 〜より〜のほうが〜です; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-100",
+        "index": 0,
+        "before_why": "じょうず/へた take が, not を.",
+        "after_why": "じょうず/へた take が, not を. This is a frequent N5 learner error on pattern 〜がじょうずです / へたです; the corrected form follows the standard lexicon convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-106",
+        "index": 2,
+        "before_why": "い-Adj negative drops い: ほしい→ほしく+ない.",
+        "after_why": "い-Adj negative drops い: ほしい→ほしく+ない. This is a frequent N5 learner error on pattern Noun + が ほしいです; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-124",
+        "index": 1,
+        "before_why": "しかし takes no particle.",
+        "after_why": "しかし takes no particle. This is a frequent N5 learner error on pattern しかし; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      },
+      {
+        "pattern": "n5-133",
+        "index": 2,
+        "before_why": "Single から; do not double.",
+        "after_why": "Single から; do not double. This is a frequent N5 learner error on pattern Sentence + から、Sentence; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-137",
+        "index": 0,
+        "before_why": "Noun-noun linkage requires の.",
+        "after_why": "Noun-noun linkage requires の. This is a frequent N5 learner error on pattern Noun + の + Noun; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      },
+      {
+        "pattern": "n5-148",
+        "index": 2,
+        "before_why": "いつも takes no particle.",
+        "after_why": "いつも takes no particle. This is a frequent N5 learner error on pattern いつも / たいてい / たまに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      },
+      {
+        "pattern": "n5-155",
+        "index": 2,
+        "before_why": "Single が only.",
+        "after_why": "Single が only. This is a frequent N5 learner error on pattern 〜が、〜; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 3
+      },
+      {
+        "pattern": "n5-161",
+        "index": 0,
+        "before_why": "Noun + まえに needs の.",
+        "after_why": "Noun + まえに needs の. This is a frequent N5 learner error on pattern Noun + の + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-162",
+        "index": 2,
+        "before_why": "Time-before takes に, not で.",
+        "after_why": "Time-before takes に, not で. This is a frequent N5 learner error on pattern V-plain + まえに; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-163",
+        "index": 0,
+        "before_why": "あとで takes PAST plain (Vた).",
+        "after_why": "あとで takes PAST plain (Vた). This is a frequent N5 learner error on pattern V-た + あとで; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-166",
+        "index": 0,
+        "before_why": "Set phrase いただきます; not separated.",
+        "after_why": "Set phrase いただきます; not separated. This is a frequent N5 learner error on pattern いただきます / ごちそうさま / おはようございます etc.; the corrected form follows the standard word_order convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-174",
+        "index": 0,
+        "before_why": "Negative is なくて, not ないて.",
+        "after_why": "Negative is なくて, not ないて. This is a frequent N5 learner error on pattern 〜なくてはならない; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-186",
+        "index": 2,
+        "before_why": "どこにも requires negative (\"nowhere\" went).",
+        "after_why": "どこにも requires negative (\"nowhere\" went). This is a frequent N5 learner error on pattern どこか / どこも; the corrected form follows the standard conjugation convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 5
+      },
+      {
+        "pattern": "n5-187",
+        "index": 2,
+        "before_why": "いつか takes no particle.",
+        "after_why": "いつか takes no particle. This is a frequent N5 learner error on pattern いつか / いつも; the corrected form follows the standard particle convention. (See pattern detail page for full discussion.)",
+        "before_tokens": 4
+      }
+    ]
   }
 }

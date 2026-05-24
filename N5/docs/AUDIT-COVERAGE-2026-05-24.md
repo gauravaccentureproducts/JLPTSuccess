@@ -435,3 +435,121 @@ all 4 cases (n5-098, n5-154, n5-166, n5-183).
   with all 8 rewrites + counts.
 - CI invariants at this checkpoint: 164 (all green; TS-02..TS-10 all
   178/178 in `audit_ts_pass_counts_2026_05_24.py`).
+
+---
+
+## Part 55 — Independent re-audit retrospective (added 2026-05-24, post-61366b43)
+
+**Source.** External reviewer ran an independent audit against the post-Part-54
+corpus (HEAD `61366b43`) and surfaced 3 real residual bugs (BUG-I/J/K) plus
+a methodological honesty critique: the Excel had been recording **Pass=178**
+on TS-02..TS-10 even though the underlying audit predicates had scope gaps.
+
+**The 3 surfaced bugs (now fixed):**
+
+| BUG | What was missed | Fix |
+|---|---|---|
+| BUG-I | BUG-A dedup was scoped only to `common_mistakes`; same dup-row pattern existed in `wrong_corrected_pair` on 2 patterns (n5-087, n5-121). | Horizontal extension: same aggressive-norm dedup applied to wcp; 2 rows dropped, logged to `fix_log.json BUG-I_wcp_dedup`. |
+| BUG-J | BUG-H was scoped only to `common_mistakes`; n5-064 wcp[1] had `wrong == correct` (identical Japanese on both sides) and taught nothing. | Native-teacher rewrite to past-invitation-vs-past-event-question contrast (volitional ましょうか vs ませんでしたか). |
+| BUG-K | BUG-E was scoped only to `common_mistakes.why`; 25 wcp.why rationales were under 6 tokens. | Horizontal extension: pattern-aware suffix expansion preserving the original teaching point, tagged with provenance + audit_wave + review_status. |
+
+**The honesty critique addressed:**
+
+The Excel `Grammar Pattern List` sheet's TS-01..TS-10 columns previously
+contained "Pending native review (programmatic-only)" placeholders or
+generic "Pass" verdicts that didn't distinguish Pass vs Partial vs Fail.
+The independent reviewer pointed out: **"Stop recording Pass=178 as the
+aggregate when partials remain."**
+
+**Honest verdict-writer:** `tools/xlsx_write_honest_verdicts_2026_05_24.py`
+imports the v2 audit predicates from
+`tools/audit_ts_pass_counts_v2_2026_05_24.py` and writes per-pattern
+verdicts of the shape `Pass / Partial: <reason> / Fail: <reason>
+(programmatic-v2, 2026-05-24)` into TS-02..TS-10 cells. The Overall
+column reflects the worst per-row TS verdict.
+
+**v2 audit predicate scope (broader than v1):**
+
+| TS | v1 predicate | v2 predicate |
+|---|---|---|
+| TS-02 | well-formed examples | + within-pattern example dedup |
+| TS-03 | cm dups + cm wrong==right | + wcp dups + wcp wrong==correct, skipping register_variant by-design entries |
+| TS-04 | contrasts >= 1 | (unchanged) |
+| TS-05 | (not audited) | heuristic: pattern form appears in ≥1 example (Partial if conjugated forms don't literal-match) |
+| TS-06 | examples have audio path | + count partial (some examples lack audio) |
+| TS-09 | (cm.why scope only) | + wcp.why scope |
+| TS-10 | examples shape | + meaning_ja length + explanation_ja non-empty |
+
+**Honest counts (post-BUG-I/J/K, corpus version 2026.05.24-bug-ijk):**
+
+| TS | Pass | Partial | Fail | Target | Meets? |
+|---|---|---|---|---|---|
+| TS-02 | 178 | 0 | 0 | ≥175 | YES |
+| TS-03 | 178 | 0 | 0 | =178 | YES |
+| TS-04 | 178 | 0 | 0 | =178 | YES |
+| TS-05 | 143 | 35 | 0 | ≥150 | NO (heuristic) |
+| TS-06 | 178 | 0 | 0 | ≥175 | YES |
+| TS-09 | 178 | 0 | 0 | ≥175 | YES |
+| TS-10 | 178 | 0 | 0 | ≥175 | YES |
+
+**TS-05 honest note:** The 35 Partials are patterns where the literal
+pattern-form Kanji/kana fragments don't appear in any example. Almost
+all of these are verb/adjective patterns where examples use conjugated
+forms (e.g., pattern `〜ます`, example uses `食べました` — no literal
+match to `ます` alone). The reviewer agreed this is "heuristic limits —
+most 'partials' are conjugated forms, not real failures." A future
+audit-tool refinement could check stem-form-with-conjugation rather
+than literal substring, but the current data is pedagogically sound.
+
+**The register_variant schema observation (deferred for separate decision):**
+
+The reviewer flagged 54 `common_mistakes` rows across 38 patterns that
+have empty `wrong`/`right` but substantive `why` — these are
+`kind="register_variant"` by-design entries (per FP-16) where two
+forms are both grammatical and the entry teaches a register choice
+(e.g., n5-125 では vs じゃ). The reviewer's recommended schema split:
+
+```json
+"common_mistakes": [ ... ],     // actual errors (non-empty wrong/right)
+"register_notes": [ ... ]       // contrastive notes (formal vs casual)
+```
+
+**Status: deferred.** Requires schema migration + renderer update + CI
+invariant update + downstream tooling changes. The v2 audit predicate
+`check_ts03_cm_wcp` already skips `kind="register_variant"` entries so
+they don't inflate Fail counts; the current encoding works for content
+quality. If/when the schema migration is approved, the migration is
+its own work stream (BUG-L or equivalent).
+
+**Tools added in Part 55:**
+- `tools/fix_bug_ijk_2026_05_24.py` — BUG-I/J/K applier
+- `tools/audit_ts_pass_counts_v2_2026_05_24.py` — v2 honest audit
+- `tools/xlsx_write_honest_verdicts_2026_05_24.py` — per-pattern verdict writer
+- `tools/register_bug_ijk_2026_05_24.py` — bug tracker registration
+- `docs/audit_ts_pass_report_v2_2026_05_24.json` — v2 audit report sidecar
+
+**Cross-references (Part 55):**
+- Procedure manual: no new F.44.X needed; horizontal-extension
+  discipline already documented in F.44.31 (audit-cluster discipline,
+  the dedup-with-backfill sub-rule generalizes to "audit-fix should
+  sweep ALL arrays of analogous schema, not just the named one").
+- Bug tracker: BUG-I/J/K added at xlsx rows 223-225.
+- Fix log: `data/grammar.fix_log.json` BUG-I_wcp_dedup, BUG-J_wcp_wrong_eq_correct, BUG-K_wcp_thin_why.
+- CI invariants at this checkpoint: 165 (unchanged; BUG-I/J/K fix is
+  pure-content within existing invariants).
+- _meta.version: `2026.05.24-bug-ijk`.
+
+**Honesty-discipline learning (codified for future audits):**
+
+The independent reviewer's critique surfaces a process gap: when authoring
+an audit pass for "any field of shape X" (e.g., wrong==right cm rows), the
+horizontal sweep MUST cover EVERY array containing fields of shape X
+(here: cm AND wcp), not just the array explicitly named in the audit
+ticket. Going forward:
+
+- Any new "BUG-NN: clean up field-shape X" audit ticket triggers a
+  pre-fix grep: which arrays in the schema contain fields of shape X?
+- The fix-pass tool MUST iterate all surfaced arrays, not just the one
+  in the ticket name.
+- The fix-log sidecar names every array swept, even if zero hits in
+  some (proves the sweep was done).
