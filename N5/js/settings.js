@@ -1,7 +1,7 @@
 // Settings panel - per spec §3.6 of the developer brief + Brief 2 §5.
 // On-device only. Reads/writes via storage adapter.
 import * as storage from './storage.js';
-import { setLocale, currentLocale, supportedLocales, t } from './i18n.js';
+import { setLocale, currentLocale, enabledLocales, t } from './i18n.js';
 import { renderJa } from './furigana.js';
 import { exportVocabTSV, exportGrammarTSV, exportKanjiTSV } from './corpus-export.js';
 
@@ -32,7 +32,7 @@ export async function renderSettings(container) {
       <label class="settings-row">
         <span>${t('settings.language')}</span>
         <select id="set-locale">
-          ${supportedLocales.map(lc => `<option value="${lc}" ${currentLocale()===lc?'selected':''}>${LOCALE_NAMES[lc] || lc}</option>`).join('')}
+          ${enabledLocales.map(lc => `<option value="${lc}" ${currentLocale()===lc?'selected':''}>${LOCALE_NAMES[lc] || lc}</option>`).join('')}
         </select>
       </label>
       <label class="settings-row">

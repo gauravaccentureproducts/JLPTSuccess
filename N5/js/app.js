@@ -22,7 +22,7 @@ import { renderReading } from './reading.js';
 import { renderListening } from './listening.js';
 import { renderKanji } from './kanji.js';
 import { renderHome } from './home.js';
-import { initI18n, setLocale, currentLocale, supportedLocales, t } from './i18n.js';
+import { initI18n, setLocale, currentLocale, supportedLocales, enabledLocales, t } from './i18n.js';
 import { renderPapers } from './papers.js';
 import { renderChangelog } from './changelog.js';
 import { renderFeedback } from './feedback.js';
@@ -551,10 +551,31 @@ document.addEventListener('DOMContentLoaded', () => {
 function initLocaleChips() {
   const btn = document.getElementById('locale-toggle');
   if (!btn) return;
+  // Phase-1 launch (2026-05-24): when only one locale is UI-enabled,
+  // hide the toggle entirely (and do not register click listeners).
+  // The button stays in the DOM so Phase 2 reactivation is a one-line
+  // change in js/i18n.js (widen ENABLED_LOCALES) — no HTML edit needed.
+  // Note: the `hidden` HTML attribute is overridden by `.icon-btn`'s
+  // `display: flex` CSS rule, so we also force `display: none` inline
+  // to make the hide actually take effect visually.
+  if (!enabledLocales || enabledLocales.length <= 1) {
+    btn.hidden = true;
+    btn.setAttribute('aria-hidden', 'true');
+    btn.style.display = 'none';
+    // Also hide the footer "Switch language" link — it would otherwise
+    // scroll to and pulse the now-invisible toggle, leaving the user
+    // confused about why nothing happened.
+    const footerSwitch = document.getElementById('footer-switch-lang');
+    if (footerSwitch) {
+      footerSwitch.hidden = true;
+      footerSwitch.style.display = 'none';
+    }
+    return;
+  }
   const label = btn.querySelector('[data-locale-label]');
-  // Two-locale rotation. If supportedLocales ever grows, this just cycles
-  // through whatever's available in declaration order.
-  const cycle = supportedLocales.length ? supportedLocales : ['en', 'hi'];
+  // Multi-locale rotation. Cycles through the ENABLED subset (UI-offered),
+  // not the SUPPORTED set (data-shipped). Phase 2 widens ENABLED_LOCALES.
+  const cycle = enabledLocales.length ? enabledLocales : ['en'];
   const sync = () => {
     const cur = currentLocale();
     // Visible label is the DESTINATION locale (the one click will

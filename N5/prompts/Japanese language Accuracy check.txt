@@ -3045,6 +3045,42 @@ FP-15. ぜひ / ただ + neutral declarative — semantically thin, not a
        (caught at vocab.adverb entries' example[1] slot), not a
        grammar error. Treat as "should improve" not "must fix".
 
+FP-16. register_variant entries falsely flagged as empty wrong/right
+       (added 2026-05-24 v4 test-review session)
+
+       `grammar.json` `common_mistakes` and `wrong_corrected_pair`
+       arrays may contain entries with `kind: "register_variant"`.
+       These carry a DIFFERENT schema:
+         form_a / form_b      (both forms — both valid)
+         label_a / label_b    (style labels: "neutral" / "polite" / …)
+         why                  (explains the register contrast)
+       The entry is teaching register *variation*, not error correction.
+       Both forms are grammatically correct; there is no wrong/right.
+
+       Origin: BUG-011 introduced this schema (HTML rendering carries
+       a `.variant-pair` CSS class with neutral framing — no
+       strike/check icons, unlike normal wrong/right pairs).
+
+       A naive auto-check looking for empty `wrong`/`right` strings
+       will flag every register_variant entry. In the 178-pattern N5
+       corpus, this produced 38 false-positive "empty row" findings.
+
+       RULE for any auto-check / export / test-scenario tool that
+       reads `wrong`/`right` from common_mistakes or
+       wrong_corrected_pair: short-circuit on
+       `kind == "register_variant"` BEFORE reading wrong/right.
+       Tools updated this session:
+         tools/grammar_auto_checks.py        (skips register_variant)
+         tools/export_grammar_for_review.py  (preserves `kind` through pipeline)
+         tools/grammar_horizontal_checks.py  (skips register_variant)
+         tools/fix_class_e_paren_context_2026_05_24.py (skips register_variant)
+
+       Also: tools that update `data/index.json` size_bytes must use
+       the LF-normalised byte count (matches JA-125 calculation), not
+       `os.stat().st_size` — on Windows CRLF inflation makes the
+       on-disk size ~77KB higher than what the integrity check
+       expects for grammar.json.
+
 ============================================================
 N5 KANJI WHITELIST CONSTRAINT (authoring guardrail)
 ============================================================
@@ -3204,6 +3240,9 @@ Added in this session (chronologically):
     the headword — stem-strip required in headword-presence checks
   - FP-15: ぜひ/ただ + neutral declarative — pedagogical-quality
     issue, not a grammar bug
+  - FP-16: register_variant entries (kind=register_variant) carry
+    form_a/form_b instead of wrong/right — skip in any empty-field
+    check (2026-05-24)
 
 CI invariants added this session: JA-81, JA-83, JA-84, JA-85, JA-86,
 JA-87, JA-88, JA-89, JA-90. CI count at this checkpoint: 81 → 93

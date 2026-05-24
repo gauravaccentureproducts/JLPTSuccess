@@ -1,5 +1,7 @@
 # JLPT N5 ट्यूटर
 
+> **NOTICE (Phase 1 launch, 2026-05-24):** The Hindi UI is **temporarily disabled** in the live app while the English-medium launch ships. All Hindi content (`locales/hi.json`, `meaning_hi`, `explanation_hi` across the corpus) is **retained intact** in the build — no data has been removed. The Hindi locale toggle and Hindi option in Settings will return in **Phase 2** by widening `ENABLED_LOCALES` in [`js/i18n.js`](js/i18n.js). This Hindi README will continue to be maintained.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../LICENSE)
 [![Content: CC BY-SA 4.0](https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg)](CONTENT-LICENSE.md)
 [![JLPT Level: N5](https://img.shields.io/badge/JLPT-N5-14452a.svg)](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/)

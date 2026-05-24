@@ -2223,6 +2223,79 @@ Source: 2026-05-24 reviewer v5 word-salad close + 4 fixes
 (BUG-197..200); accuracy prompt §A90; procedure-manual F.44.29 +
 F.44.30; AUDIT-COVERAGE Part 51.
 
+### Phase-0 register_variant schema-aware auto-check block (added 2026-05-24)
+
+Any tool that reads `wrong` / `right` (or `wrong` / `correct`) from
+`common_mistakes` or `wrong_corrected_pair` arrays in `grammar.json`
+MUST short-circuit on `kind == "register_variant"` BEFORE reading
+those fields. register_variant entries carry a different schema
+(`form_a` / `form_b` / `label_a` / `label_b`) where both forms are
+valid; flagging them as "empty wrong/right" is a false positive (see
+accuracy-prompt FP-16).
+
+Pre-release Phase-0 mirror runs:
+
+1. **register_variant skip-discipline scan**
+   Grep all tooling under `tools/*.py` for naive checks of
+   `wrong == ""` or `right == ""` on common_mistakes /
+   wrong_corrected_pair entries. Every such check MUST be preceded by
+   a `kind != "register_variant"` guard.
+   Expected: every empty-field check on these arrays is gated by the
+   register_variant skip.
+
+2. **Class D arrow-character regression block**
+   `data/grammar.json` `common_mistakes[*].wrong` and `.right` (and
+   `wrong_corrected_pair[*].wrong` / `.correct`) MUST NOT contain
+   any of: `→` `➔` `➜` `⇒`. Arrow characters indicate the old
+   "wrong-sentence → wrong-fragment" data-shape anti-pattern; the
+   wrong/right cells must be single complete sentences. Diagnostic
+   transformations belong in `why`.
+   Expected: 0 hits.
+
+3. **Class E parenthetical-context regression block**
+   `data/grammar.json` `common_mistakes[*].wrong` and similar fields
+   MUST NOT end with an English parenthetical context annotation of
+   the shape `... (English text with at least one Latin letter)`.
+   The parenthetical belongs in `why` as `Context: ...`.
+   Expected: 0 hits in the cm[].wrong space (form_a/form_b on
+   register_variant entries are exempt — their parentheticals are
+   labels like "(polite)" and live in label_a/label_b instead).
+
+4. **LF-normalised size_bytes discipline for index.json**
+   Any tool that writes `data/grammar.json` (or any data file listed
+   in `data/index.json` files[]) and then updates
+   `data/index.json.size_bytes` MUST compute the LF-normalised byte
+   count, not the on-disk size. Reference pattern:
+   ```python
+   with open(path, "rb") as fh:
+       lf_size = len(fh.read().replace(b"\r\n", b"\n"))
+   ```
+   On Windows the on-disk `os.stat().st_size` is ~77KB higher than
+   the LF-normalised count for grammar.json (CRLF inflation), which
+   breaks JA-125.
+   Expected: every tool updating size_bytes uses the LF-normalised
+   helper.
+
+Bounded-coverage framing:
+  - "register_variant skip applied in all tools touched this session"
+    — does NOT guarantee every future tool author will remember; the
+    Phase-0 grep block above is the regression check.
+  - "Class D arrow-character regression catches the documented arrow
+    symbols" — does NOT catch arbitrary ASCII representations like
+    "->" or "=>"; pattern set extends if new shapes surface.
+  - "JA-125 LF-normalisation discipline" — applies only to tools
+    updating size_bytes; the underlying invariant is unchanged.
+
+Source: 2026-05-24 v4 test-review session — fix batch covered Class D
+(7 patterns), Class E (154 rows), P3 audio wiring (n5-098), P4
+particle-swap (n5-011, n5-024). Documented in
+`docs/AUDIT-COVERAGE-2026-05-24.md`. Tools added:
+`tools/grammar_auto_checks.py` (register_variant-aware),
+`tools/grammar_horizontal_checks.py`,
+`tools/fix_class_d_arrow_cells_2026_05_24.py`,
+`tools/fix_remaining_grammar_bugs_2026_05_24.py`,
+`tools/fix_class_e_paren_context_2026_05_24.py`.
+
 ## LESSONS FROM PRIOR CYCLES (don't relitigate these)
 
 These lessons came from 13 audit cycles producing ~185 content fixes

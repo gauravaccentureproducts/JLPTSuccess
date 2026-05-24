@@ -22,6 +22,13 @@ import * as storage from './storage.js';
 const SUPPORTED = ['en', 'hi'];
 const DEFAULT_LOCALE = 'en';
 
+// Phase-1 launch (2026-05-24): Hindi UI is temporarily disabled to focus
+// the first public launch on English-medium learners. hi.json data is
+// retained in the build so JA-108 (locale key-set parity) still passes
+// and Phase 2 re-enables Hindi without a data migration. To re-enable:
+// widen ENABLED_LOCALES to include 'hi' (must be a subset of SUPPORTED).
+const ENABLED_LOCALES = ['en'];
+
 // Phase 2 of locale transition (2026-05-06): locales being removed in
 // Phase 3. Persisted preferences in this set get migrated to 'en' on
 // first load post-transition. Existing-user safety contract - no error,
@@ -51,6 +58,17 @@ export function migrateLocaleSetting() {
     return; // storage layer broken; nothing to migrate from
   }
   const cur = settings && settings.uiLocale;
+  // Phase-1 launch (2026-05-24): if a user has 'hi' persisted from a
+  // prior session, migrate them back to 'en' since the Hindi UI is
+  // disabled (hi.json data is retained for Phase 2).
+  if (cur === 'hi' && !ENABLED_LOCALES.includes('hi')) {
+    try { storage.setSettings({ uiLocale: 'en' }); } catch { /* swallow */ }
+    if (!_migrationRunThisSession) {
+      _migrationRunThisSession = true;
+      console.info('locale migrated: hi -> en (Hindi UI temporarily disabled - Phase 2)');
+    }
+    return;
+  }
   if (cur === 'en' || cur === 'hi') return;
   const wasDeprecated = DEPRECATED_LOCALES.includes(cur);
   const wasJunk = cur != null && !wasDeprecated;
@@ -79,7 +97,11 @@ export function currentLocale() {
 }
 
 export async function setLocale(lc) {
-  if (!SUPPORTED.includes(lc)) lc = DEFAULT_LOCALE;
+  // Phase-1 launch: clamp to ENABLED_LOCALES (the UI-offered subset),
+  // not just SUPPORTED. Any attempt to set a data-supported-but-not-UI-
+  // enabled locale (e.g. 'hi' while ENABLED_LOCALES = ['en']) falls
+  // through to DEFAULT_LOCALE.
+  if (!ENABLED_LOCALES.includes(lc)) lc = DEFAULT_LOCALE;
   locale = lc;
   storage.setSettings({ uiLocale: lc });
   // BUG-8 fix (UI test 2026-05-07): keep <html lang> in sync with the
@@ -184,6 +206,15 @@ export async function initI18n() {
       auto = (initial !== DEFAULT_LOCALE);
     }
   }
+  // Phase-1 launch (2026-05-24): if the auto-detected initial locale
+  // is in SUPPORTED (data exists) but NOT in ENABLED_LOCALES (UI
+  // disabled), fall through to DEFAULT_LOCALE silently — do not fire
+  // the "auto-detected: <X>" toast for a locale the user can't switch
+  // back to via the toggle.
+  if (!ENABLED_LOCALES.includes(initial)) {
+    initial = DEFAULT_LOCALE;
+    auto = false;
+  }
   await setLocale(initial);
   if (auto) {
     queueMicrotask(() => _flashAutoLocaleToast(initial));
@@ -250,3 +281,9 @@ export function t(key, vars = {}) {
 }
 
 export const supportedLocales = SUPPORTED.slice();
+
+// Phase-1 launch (2026-05-24): UI-offered subset of SUPPORTED. App.js +
+// settings.js use this for the locale toggle / dropdown so disabled
+// locales never appear as user choices. Reactivation for Phase 2 is a
+// one-line edit to ENABLED_LOCALES at the top of this file.
+export const enabledLocales = ENABLED_LOCALES.slice();
