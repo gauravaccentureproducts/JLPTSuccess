@@ -9699,13 +9699,13 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "Using よ in formal business writing.",
-          "right": "Drop the particle in writing.",
-          "why": "ね/よ are conversational particles. They're rarely used in formal written contexts.",
+          "wrong": "みなさんに よろしく おねがいしますよ。",
+          "right": "みなさんに よろしく おねがいします。",
+          "why": "よ adds a chatty, FYI-style tone. In formal written contexts (business emails, reports, official messages) drop よ for a neutral, professional register. よ stays appropriate in casual speech or messaging where you are informing the listener of new information.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "native_reviewed_2026_05_24",
+          "provenance_note": "BUG-211 Option-A rewrite: replaced English meta-advice entry with a real JA-JA wrong/right pair that demonstrates the same register-teaching point (drop よ in formal written contexts). Prior content was \"Using よ in formal business writing.\" / \"Drop the particle in writing.\" — flagged by GRAMMAR-CT-001 TS-03 check 2026-05-24."
         },
         {
           "wrong": "あした しけんですね。",
@@ -57907,13 +57907,13 @@
       ],
       "common_mistakes": [
         {
-          "wrong": "Two different subjects with ながら",
-          "right": "Same subject for both verbs.",
-          "why": "ながら requires the SAME subject. For two actors, use other connectors.",
+          "wrong": "兄が テレビを 見ながら、私が ほんを 読みます。",
+          "right": "兄は テレビを 見ながら、ほんを 読みます。",
+          "why": "ながら requires the SAME subject to do both actions simultaneously. In the wrong sentence 兄 watches TV while 私 reads — two different people doing different things, which ながら cannot express. The corrected sentence drops 私が, so 兄 does both actions himself. For genuinely different actors, use the 〜て connector or two separate sentences instead.",
           "category": "register",
           "category_provenance": "heuristic_categorized",
-          "provenance": "native_reviewed",
-          "provenance_note": "Original pre-2026-05-12 audit-cycle content; hand-curated across prior audit rounds, verified as pattern-instance quality during phase 5 polish 2026-05-13."
+          "provenance": "native_reviewed_2026_05_24",
+          "provenance_note": "BUG-211 Option-A rewrite: replaced English meta-advice entry with a real JA-JA wrong/right pair that demonstrates the same-subject rule. Prior content was \"Two different subjects with ながら\" / \"Same subject for both verbs.\" — flagged by GRAMMAR-CT-001 TS-03 check 2026-05-24."
         },
         {
           "wrong": "おんがくを 聞くながら べんきょうします。",

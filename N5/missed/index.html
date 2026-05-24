@@ -61,27 +61,11 @@
     .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
   }
 </style>
-
-<script>
-(function(){
-  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/missed"; };
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, 1500);
-  } catch (e) { /* never fail the static render on JS error */ }
-})();
-</script>
-
+<link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/missed">Open the interactive version</a> — your missed-answer history is in localStorage and requires JavaScript to read.
-</p>
+<main id="app">
+<p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Wrong-answer review — JLPT N5 Tutor</h1>
 <p>The wrong-answer-review surface at <a href="../#/missed">/N5/#/missed</a> reads your personal history from browser localStorage.</p><p>The history is stored on-device only — never sent to any server, never visible to anyone outside your browser. A static mirror cannot show it for that reason.</p>
 <footer>
@@ -89,5 +73,7 @@
   <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   
 </footer>
+</main>
+<script type="module" src="../js/min/app.js?v=1.17.0"></script>
 </body>
 </html>

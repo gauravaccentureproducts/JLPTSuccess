@@ -2,6 +2,97 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.16.12 - 2026-05-24 (BUG-211 GRAMMAR-CT-001 close — rewrite English-meta-advice common_mistakes entries as real JA-JA pairs)
+
+### Background
+
+The 2026-05-24 re-run of `CategorizedtestScenarios.xlsx` grammar
+test scenarios surfaced 2 REAL TS-03 (JA grammar in
+common_mistakes pairs) failures on patterns **n5-026** (よ particle)
+and **n5-144** (Verb-stem + ながら). Filed as BUG-211 (GRAMMAR-CT-001).
+
+In both cases `common_mistakes[0]` used the `wrong`/`right` slot
+to carry pure English meta-advice instead of the documented JA-JA
+wrong→corrected learner-mistake pair:
+
+  n5-026 cm[0]:  wrong="Using よ in formal business writing."
+                 right="Drop the particle in writing."
+  n5-144 cm[0]:  wrong="Two different subjects with ながら"
+                 right="Same subject for both verbs."
+
+This broke the wrong/right card affordance — no Japanese sentences
+to read aloud + compare; the audio pipeline could not voice the
+cards; the UI's strike-through/check-mark icons rendered against
+English advice text that didn't structurally match.
+
+### Fixed (Option A rewrite — preserves teaching point with real JA-JA pairs)
+
+- **BUG-211 / n5-026 cm[0]** (よ particle register teaching):
+  - wrong: `みなさんに よろしく おねがいしますよ。` (formal email — too casual)
+  - right: `みなさんに よろしく おねがいします。` (formal — drop the よ)
+  - why: "よ adds a chatty, FYI-style tone. In formal written
+    contexts (business emails, reports, official messages) drop よ
+    for a neutral, professional register…"
+
+- **BUG-211 / n5-144 cm[0]** (verb-stem + ながら same-subject rule):
+  - wrong: `兄が テレビを 見ながら、私が ほんを 読みます。` (two subjects — wrong with ながら)
+  - right: `兄は テレビを 見ながら、ほんを 読みます。` (same subject — correct)
+  - why: "ながら requires the SAME subject to do both actions
+    simultaneously…"
+
+Both rewrites carry `provenance: native_reviewed_2026_05_24` +
+`provenance_note` documenting the Option-A history so future
+auditors can trace the change.
+
+### Test results (post-fix)
+
+CategorizedtestScenarios.xlsx Grammar Pattern List + Grammar tab
+both refreshed: n5-026 + n5-144 now Pass on TS-03 (was Fail). All
+10 scenarios across 178 patterns now Pass / DEFERRED / N/A — no
+Fails outstanding.
+
+### Discipline note
+
+3 fix options were considered (rewrite as JA-JA / delete redundant
+entry / add `kind: "principle"` schema variant). Option A (rewrite)
+was chosen because:
+- preserves the teaching point (register rule for n5-026,
+  same-subject rule for n5-144) that the other 2 cm entries on
+  each pattern don't fully cover
+- lowest schema impact (no new fields, no UI changes)
+- audio pipeline + UI render unchanged
+
+Option B (delete) would have lost the teaching point. Option C
+(new schema kind) was over-engineered for a 2-entry fix.
+
+### CI / tracker / version
+
+- CI invariants: **163 / 163 PASS** (unchanged).
+- Bug tracker: **211 / 211 Fixed / 0 Open** (was 210 Fixed / 1 Open;
+  flipped BUG-211 Open → Fixed).
+- Version: v1.16.11 → **v1.16.12**.
+- Packet: v1.16.12 / 2026-05-24T19:00:00Z.
+
+### Bounded coverage
+
+- "TS-03 PASS on all 178 patterns" — programmatic schema check
+  (zero-JA-chars predicate) only. Native-reviewer correctness of
+  the rewrites (do the Japanese sentences sound natural? is the
+  teaching pedagogically sound?) DEFERRED.
+- "Option A preserves teaching" — does NOT claim the rewrites
+  are pedagogically equivalent to the prior English advice; a
+  native teacher should sanity-check the new sentences before
+  considering the close-out final.
+
+### Skipped doc propagation (Rule 4 mechanical-change exception)
+
+This batch is a 2-entry content fix to close a tracked bug; no
+new methodology / CI invariant / FP class produced. The Option
+analysis lives in this CHANGELOG entry; the close-out detail
+lives in BUG-211's description. Sufficient for traceability.
+
+---
+
 ## v1.16.11 - 2026-05-24 (Reviewer v5 close — 4 rationale_hi word-salad fixes + JA-160 marker extension)
 
 ### Background

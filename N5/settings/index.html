@@ -61,27 +61,11 @@
     .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
   }
 </style>
-
-<script>
-(function(){
-  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/settings"; };
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, 1500);
-  } catch (e) { /* never fail the static render on JS error */ }
-})();
-</script>
-
+<link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/settings">Open the interactive version</a> — settings are stored in your browser's localStorage and require JavaScript to apply.
-</p>
+<main id="app">
+<p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Settings — JLPT N5 Tutor</h1>
 <p>Settings live in the SPA route at <a href="../#/settings">/N5/#/settings</a>. They include:</p><ul><li>Locale: English / हिन्दी</li><li>Audio voice (where multiple speakers are available)</li><li>Theme (system / light / dark)</li><li>Accessibility: font size, motion-reduction, contrast</li><li>Reset (clears localStorage / SRS state)</li></ul><p class="muted">Settings cannot be modified from this static mirror — JavaScript is required to read / write localStorage.</p>
 <footer>
@@ -89,5 +73,7 @@
   <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   
 </footer>
+</main>
+<script type="module" src="../js/min/app.js?v=1.17.0"></script>
 </body>
 </html>

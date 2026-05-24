@@ -61,27 +61,11 @@
     .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
   }
 </style>
-
-<script>
-(function(){
-  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/home"; };
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, 1500);
-  } catch (e) { /* never fail the static render on JS error */ }
-})();
-</script>
-
+<link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/home">Open the interactive version</a> (the interactive version offers additional features that require JavaScript).
-</p>
+<main id="app">
+<p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>JLPT N5 Tutor</h1>
 <p><a href="https://img.shields.io/badge/License-MIT-blue.svg">![License: MIT</a>](../LICENSE) <a href="https://img.shields.io/badge/Content-CC%20BY--SA%204.0-lightgrey.svg">![Content: CC BY-SA 4.0</a>](CONTENT-LICENSE.md) <a href="https://img.shields.io/badge/JLPT-N5-14452a.svg">![JLPT Level: N5</a>](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/) <a href="https://img.shields.io/badge/PWA-installable-brightgreen.svg">![PWA</a>](https://gauravaccentureproducts.github.io/JLPTSuccess/N5/) <a href="https://img.shields.io/badge/locales-EN%20%C2%B7%20HI-blueviolet.svg">![Locales: EN · HI</a>](docs/TRANSLATING.md) <a href="https://img.shields.io/badge/privacy-no%20telemetry-success.svg">![Privacy: no telemetry</a>](PRIVACY.md)</p>
 <p>&gt; <strong>No login · No tracking · Works offline · Open source · 100% on-device · Free, no ads, no paywall.</strong></p>
@@ -220,5 +204,7 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
   <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   
 </footer>
+</main>
+<script type="module" src="../js/min/app.js?v=1.17.0"></script>
 </body>
 </html>

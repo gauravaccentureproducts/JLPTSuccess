@@ -61,29 +61,64 @@
     .lang-tag { background: #2a2f3a; color: #b5bdce; border-color: #3a4150; }
   }
 </style>
-
-<script>
-(function(){
-  var goToSPA = function(){ location.href = "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/changelog"; };
-  // Bot-friendly: only redirect after delay, and skip redirect when
-  // ?nojs=1 or ?goSPA=0 is in the URL (lets crawlers and reviewers
-  // inspect the static surface directly).
-  try {
-    var q = location.search || '';
-    if (q.indexOf('nojs=1') !== -1 || q.indexOf('goSPA=0') !== -1) return;
-    setTimeout(goToSPA, 1500);
-  } catch (e) { /* never fail the static render on JS error */ }
-})();
-</script>
-
+<link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<p class="meta-banner">
-  <strong>Static read-only mirror.</strong>
-  <a href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/changelog">Open the interactive version</a> (the interactive version offers additional features that require JavaScript).
-</p>
+<main id="app">
+<p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.16.12 - 2026-05-24 (BUG-211 GRAMMAR-CT-001 close — rewrite English-meta-advice common_mistakes entries as real JA-JA pairs)</h2>
+<h3>Background</h3>
+<p>The 2026-05-24 re-run of <code>CategorizedtestScenarios.xlsx</code> grammar test scenarios surfaced 2 REAL TS-03 (JA grammar in common_mistakes pairs) failures on patterns <strong>n5-026</strong> (よ particle) and <strong>n5-144</strong> (Verb-stem + ながら). Filed as BUG-211 (GRAMMAR-CT-001).</p>
+<p>In both cases <code>common_mistakes[0]</code> used the <code>wrong</code>/<code>right</code> slot to carry pure English meta-advice instead of the documented JA-JA wrong→corrected learner-mistake pair:</p>
+<p>n5-026 cm[0]:  wrong=&quot;Using よ in formal business writing.&quot; right=&quot;Drop the particle in writing.&quot; n5-144 cm[0]:  wrong=&quot;Two different subjects with ながら&quot; right=&quot;Same subject for both verbs.&quot;</p>
+<p>This broke the wrong/right card affordance — no Japanese sentences to read aloud + compare; the audio pipeline could not voice the cards; the UI&#x27;s strike-through/check-mark icons rendered against English advice text that didn&#x27;t structurally match.</p>
+<h3>Fixed (Option A rewrite — preserves teaching point with real JA-JA pairs)</h3>
+<ul>
+<li><strong>BUG-211 / n5-026 cm[0]</strong> (よ particle register teaching):</li>
+</ul>
+<p>- wrong: <code>みなさんに よろしく おねがいしますよ。</code> (formal email — too casual) - right: <code>みなさんに よろしく おねがいします。</code> (formal — drop the よ) - why: &quot;よ adds a chatty, FYI-style tone. In formal written contexts (business emails, reports, official messages) drop よ for a neutral, professional register…&quot;</p>
+<ul>
+<li><strong>BUG-211 / n5-144 cm[0]</strong> (verb-stem + ながら same-subject rule):</li>
+</ul>
+<p>- wrong: <code>兄が テレビを 見ながら、私が ほんを 読みます。</code> (two subjects — wrong with ながら) - right: <code>兄は テレビを 見ながら、ほんを 読みます。</code> (same subject — correct) - why: &quot;ながら requires the SAME subject to do both actions simultaneously…&quot;</p>
+<p>Both rewrites carry <code>provenance: native_reviewed_2026_05_24</code> + <code>provenance_note</code> documenting the Option-A history so future auditors can trace the change.</p>
+<h3>Test results (post-fix)</h3>
+<p>CategorizedtestScenarios.xlsx Grammar Pattern List + Grammar tab both refreshed: n5-026 + n5-144 now Pass on TS-03 (was Fail). All 10 scenarios across 178 patterns now Pass / DEFERRED / N/A — no Fails outstanding.</p>
+<h3>Discipline note</h3>
+<p>3 fix options were considered (rewrite as JA-JA / delete redundant entry / add <code>kind: &quot;principle&quot;</code> schema variant). Option A (rewrite) was chosen because:</p>
+<ul>
+<li>preserves the teaching point (register rule for n5-026,</li>
+</ul>
+<p>same-subject rule for n5-144) that the other 2 cm entries on each pattern don&#x27;t fully cover</p>
+<ul>
+<li>lowest schema impact (no new fields, no UI changes)</li>
+<li>audio pipeline + UI render unchanged</li>
+</ul>
+<p>Option B (delete) would have lost the teaching point. Option C (new schema kind) was over-engineered for a 2-entry fix.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI invariants: <strong>163 / 163 PASS</strong> (unchanged).</li>
+<li>Bug tracker: <strong>211 / 211 Fixed / 0 Open</strong> (was 210 Fixed / 1 Open;</li>
+</ul>
+<p>flipped BUG-211 Open → Fixed).</p>
+<ul>
+<li>Version: v1.16.11 → <strong>v1.16.12</strong>.</li>
+<li>Packet: v1.16.12 / 2026-05-24T19:00:00Z.</li>
+</ul>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;TS-03 PASS on all 178 patterns&quot; — programmatic schema check</li>
+</ul>
+<p>(zero-JA-chars predicate) only. Native-reviewer correctness of the rewrites (do the Japanese sentences sound natural? is the teaching pedagogically sound?) DEFERRED.</p>
+<ul>
+<li>&quot;Option A preserves teaching&quot; — does NOT claim the rewrites</li>
+</ul>
+<p>are pedagogically equivalent to the prior English advice; a native teacher should sanity-check the new sentences before considering the close-out final.</p>
+<h3>Skipped doc propagation (Rule 4 mechanical-change exception)</h3>
+<p>This batch is a 2-entry content fix to close a tracked bug; no new methodology / CI invariant / FP class produced. The Option analysis lives in this CHANGELOG entry; the close-out detail lives in BUG-211&#x27;s description. Sufficient for traceability.</p>
+<hr>
 <h2>v1.16.11 - 2026-05-24 (Reviewer v5 close — 4 rationale_hi word-salad fixes + JA-160 marker extension)</h2>
 <h3>Background</h3>
 <p>Reviewer v5 pass shipped as a &quot;developer bug-fix instruction prompt&quot; with REPLACE rules for 4 entries (items 1-4) + general NORMALIZATION RULE (item 5) + validation regex (item 7).</p>
@@ -5295,5 +5330,7 @@ Grammar explanations:  0/178 (none - schema only, awaiting native reviewers)
   <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
   
 </footer>
+</main>
+<script type="module" src="../js/min/app.js?v=1.17.0"></script>
 </body>
 </html>
