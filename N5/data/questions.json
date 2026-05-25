@@ -1791,15 +1791,15 @@
       "choices": [
         "ます",
         "ました",
-        "ますか",
+        "でした",
         "ませんでした"
       ],
       "correctAnswer": "ます",
-      "explanation_en": "Future declarative: あした (tomorrow) + のみます (will drink). ました/ませんでした are past tense and conflict with あした. ますか is a question form that requires the sentence to end with か。 (the stem ends with 。 only, so ますか creates a punctuation mismatch).",
+      "explanation_en": "Only ます is grammatically valid here. Replaced ますか (still valid as future-question) with でした (V-stem+でした ungrammatical).",
       "distractor_explanations": {
-        "ました": "Past tense, contradicts あした (tomorrow).",
-        "ますか": "Question form, requires the sentence to end with か。 The stem ends with 。 only.",
-        "ませんでした": "Past negative, contradicts あした."
+        "ました": "Past tense — conflicts with the future/invitation context.",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ませんでした": "Past negative — would change the polarity of the statement."
       },
       "high_confusion": false,
       "difficulty": 1,
@@ -1809,11 +1809,11 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "provenance": "auto_fix_2026_05_25",
       "audit_wave": "claude_audit_2026_05_25",
-      "reviewer_note": "Replaced ましょう (volitional, also-valid) and ません (polarity-ambiguous) with clear-wrong distractors.",
+      "reviewer_note": "Replaced ますか (still valid as future-question) with でした (V-stem+でした ungrammatical).",
       "distractor_explanations_hi": {
-        "ました": "भूतकाल; あした (कल) के साथ टकराता है।",
-        "ますか": "प्रश्न रूप; वाक्य को か। से समाप्त होना चाहिए। मूल वाक्य 。 से समाप्त होता है।",
-        "ませんでした": "भूत नकारात्मक; あした के साथ टकराता है।"
+        "ました": "भूतकाल; भविष्य/निमंत्रण-संदर्भ से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं (でした संज्ञा/na-विशेषण के बाद आता है)।",
+        "ませんでした": "भूत नकारात्मक; कथन की ध्रुवता बदल देता है।"
       },
       "distractor_explanations_hi_provenance": "auto_fix_2026_05_25"
     },
@@ -1895,32 +1895,35 @@
       "type": "mcq",
       "direction": "j_to_e",
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
-      "question_ja": "きのう えいがを み（　）。",
+      "question_ja": "きのう えいがを み（　）。とても おもしろかったです。",
       "choices": [
         "ました",
-        "ません",
         "ます",
-        "ませんでした"
+        "でした",
+        "ながら"
       ],
       "correctAnswer": "ました",
-      "explanation_en": "ました is the polite past affirmative. きのう (yesterday) requires past tense.",
+      "explanation_en": "Only ました is grammatically valid here. Added positive-emotion follow-up. Replaced ません/ませんでした (past-polarity ambig) with present-conflict + ungrammatical.",
       "distractor_explanations": {
-        "ます": "Present, not past.",
-        "ません": "Present negative.",
-        "ませんでした": "Past negative - would mean 'didn't watch'."
+        "ます": "Present/future tense — conflicts with the past-tense context.",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ながら": "V-stem + ながら means \"while V-ing\" and needs a following main verb. Cannot end a sentence."
       },
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "ました यहाँ विनम्र भूत-सकारात्मक रूप। きのう (yesterday) की आवश्यकता है भूत-काल।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "वर्तमान, भूत नहीं।",
-        "ません": "वर्तमान-नकारात्मक रूप।",
-        "ませんでした": "भूत-नकारात्मक — \"नहीं देखा\" अर्थ देगा।"
+        "ます": "वर्तमान/भविष्य; भूत-संदर्भ से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं (でした संज्ञा/na-विशेषण के बाद आता है)।",
+        "ながら": "V-stem + ながら = \"V करते हुए\"; इसके बाद दूसरा क्रिया चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Added positive-emotion follow-up. Replaced ません/ませんでした (past-polarity ambig) with present-conflict + ungrammatical."
     },
     {
       "id": "q-0225",
@@ -1964,33 +1967,36 @@
       "type": "mcq",
       "direction": "j_to_e",
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
-      "question_ja": "きのうは ばんごはんを たべ（　）。",
+      "question_ja": "きのうは おなかが いたくて、ばんごはんを たべ（　）。",
       "choices": [
-        "ません",
-        "ました",
         "ませんでした",
-        "ます"
+        "ます",
+        "でした",
+        "ながら"
       ],
       "correctAnswer": "ませんでした",
-      "explanation_en": "ませんでした is the polite past negative. 'I didn't eat dinner yesterday'. Note: は after a time noun introduces contrast ('yesterday in particular' — implying other days are different). Fine here, but typical neutral past-negative would drop the particle (きのう ばんごはんを 食べませんでした) or use 'に'.",
+      "explanation_en": "Only ませんでした is grammatically valid here. Added \"おなかが いたくて、\" to lock negative polarity. ました now semantically contradicts.",
       "distractor_explanations": {
-        "ません": "Present negative - but きのう is past.",
-        "ました": "Past affirmative - would mean 'did eat'.",
-        "ます": "Present affirmative."
+        "ます": "Present/future tense, conflicts with the past-tense marker (きのう/せんしゅう).",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ながら": "V-stem + ながら needs a following main verb; cannot end the sentence."
       },
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "ませんでした विनम्र भूत-नकारात्मक रूप। \"मैंने कल रात का खाना नहीं खाया।\"",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ません": "वर्तमान नकारात्मक - पर きのう है भूत।",
-        "ました": "भूत-सकारात्मक रूप - होता मतलब 'किया खाना'।",
-        "ます": "वर्तमान सकारात्मक।"
+        "ます": "वर्तमान/भविष्य; भूतकाल-संकेत (きのう/せんしゅう) से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं।",
+        "ながら": "V-stem + ながら के बाद दूसरा क्रिया चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
       "review_status_provenance": "claude_native_reviewer_persona",
-      "explanation_provenance": "native_reviewed_2026_05_22"
+      "explanation_provenance": "native_reviewed_2026_05_22",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Added \"おなかが いたくて、\" to lock negative polarity. ました now semantically contradicts."
     },
     {
       "id": "q-0227",
@@ -1998,32 +2004,35 @@
       "type": "mcq",
       "direction": "j_to_e",
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
-      "question_ja": "せんしゅう しごとが あり（　）。",
+      "question_ja": "せんしゅうは やすみだったから、しごとが あり（　）。",
       "choices": [
-        "ません",
-        "ました",
+        "ませんでした",
         "ます",
-        "ませんでした"
+        "でした",
+        "ながら"
       ],
       "correctAnswer": "ませんでした",
-      "explanation_en": "せんしゅう (last week) + negative = past negative ませんでした. あります goes to ありませんでした.",
+      "explanation_en": "Only ませんでした is grammatically valid here. Added \"やすみだったから、\" to lock negative polarity.",
       "distractor_explanations": {
-        "ません": "Present negative - wrong tense.",
-        "ます": "Present affirmative.",
-        "ました": "Past affirmative - wrong polarity."
+        "ます": "Present/future tense, conflicts with the past-tense marker (きのう/せんしゅう).",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ながら": "V-stem + ながら needs a following main verb; cannot end the sentence."
       },
       "high_confusion": false,
       "difficulty": 2,
       "explanation_hi": "せんしゅう (last week) + नकारात्मक = भूत-नकारात्मक रूप ませんでした। あります जाता है को ありませんでした।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ません": "वर्तमान-नकारात्मक — ग़लत काल।",
-        "ます": "वर्तमान-सकारात्मक।",
-        "ました": "भूत-सकारात्मक — ग़लत ध्रुवता।"
+        "ます": "वर्तमान/भविष्य; भूतकाल-संकेत (きのう/せんしゅう) से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं।",
+        "ながら": "V-stem + ながら के बाद दूसरा क्रिया चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Added \"やすみだったから、\" to lock negative polarity."
     },
     {
       "id": "q-0228",
@@ -2035,28 +2044,31 @@
       "choices": [
         "ましょう",
         "ました",
-        "ます",
-        "ません"
+        "でした",
+        "ながら"
       ],
       "correctAnswer": "ましょう",
-      "explanation_en": "ましょう = 'let's' - a suggestion to do something together. いっしょに reinforces this.",
+      "explanation_en": "Only ましょう is grammatically valid here. Replaced ます/ません (also valid in invitation) with past + ungrammatical distractors.",
       "distractor_explanations": {
-        "ます": "Plain statement - doesn't convey 'let's'.",
-        "ました": "Past tense - wrong meaning.",
-        "ません": "Negative - opposite of inviting."
+        "ました": "Past tense — conflicts with the future/invitation context.",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ながら": "V-stem + ながら means \"while V-ing\" and needs a following main verb. Cannot end a sentence."
       },
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "ましょう = 'चलिए' - सुझाव को करना कुछ साथ। いっしょに पुष्ट करता है यह।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "सादा कथन — \"चलिए\" का भाव नहीं देता।",
-        "ました": "भूत-काल — ग़लत अर्थ।",
-        "ません": "नकारात्मक — आमंत्रण के विपरीत।"
+        "ました": "भूतकाल; भविष्य/निमंत्रण-संदर्भ से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं (でした संज्ञा/na-विशेषण के बाद आता है)।",
+        "ながら": "V-stem + ながら = \"V करते हुए\"; इसके बाद दूसरा क्रिया चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Replaced ます/ません (also valid in invitation) with past + ungrammatical distractors."
     },
     {
       "id": "q-0229",
@@ -2067,16 +2079,16 @@
       "question_ja": "（いっしょに つかれましたね。）ちょっと やすみ（　）。",
       "choices": [
         "ましょう",
-        "ます",
         "ました",
-        "ません"
+        "でした",
+        "ながら"
       ],
       "correctAnswer": "ましょう",
-      "explanation_en": "Volitional/invitation locked by the preceding \"(一緒に つかれましたね)\" — \"(we're tired together, aren't we)\". With this fatigue + inclusive frame, \"let's rest a bit\" (やすみましょう) is the only natural completion. やすみます (declarative; doesn't respond to the invitation cue), やすみました (past conflict), やすみません (contradicts the fatigue cue).",
+      "explanation_en": "Only ましょう is grammatically valid here. Round-2-fixed stem retained. Choices tightened: replaced ます/ません with past + ungrammatical distractors.",
       "distractor_explanations": {
-        "ます": "Declarative, doesn't respond to the inclusive fatigue cue.",
-        "ました": "Past tense, doesn't match the \"let's rest now\" invitation.",
-        "ません": "Contradicts the fatigue cue (why would you not rest when tired?)."
+        "ました": "Past tense — conflicts with the future/invitation context.",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ながら": "V-stem + ながら means \"while V-ing\" and needs a following main verb. Cannot end a sentence."
       },
       "high_confusion": false,
       "difficulty": 1,
@@ -2086,11 +2098,11 @@
       "review_status_provenance": "claude_native_reviewer_persona",
       "provenance": "auto_fix_2026_05_25",
       "audit_wave": "claude_audit_2026_05_25",
-      "reviewer_note": "Added \"(いっしょに つかれましたね。)\" inclusive-fatigue context to lock volitional.",
+      "reviewer_note": "Round-2-fixed stem retained. Choices tightened: replaced ます/ません with past + ungrammatical distractors.",
       "distractor_explanations_hi": {
-        "ます": "घोषणात्मक; समावेशी थकान संकेत का जवाब नहीं देता।",
-        "ました": "भूतकाल; \"अभी आराम करें\" आमंत्रण से मेल नहीं खाता।",
-        "ません": "थकान संकेत के साथ टकराता है (थक गए तो आराम क्यों न करें?)।"
+        "ました": "भूतकाल; भविष्य/निमंत्रण-संदर्भ से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं (でした संज्ञा/na-विशेषण के बाद आता है)।",
+        "ながら": "V-stem + ながら = \"V करते हुए\"; इसके बाद दूसरा क्रिया चाहिए।"
       },
       "distractor_explanations_hi_provenance": "auto_fix_2026_05_25"
     },
@@ -2102,30 +2114,33 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "いっしょに えいがを み（　）か。",
       "choices": [
-        "ます",
-        "ました",
         "ません",
-        "ましょう"
+        "ました",
+        "でした",
+        "ながら"
       ],
       "correctAnswer": "ません",
-      "explanation_en": "ませんか = 'won't you' / 'shall we' - a polite invitation. The negative form is the standard polite invite.",
+      "explanation_en": "Only ません is grammatically valid here. Replaced ます/ましょう (both valid as ますか/ましょうか) with past-conflict + ungrammatical. ません+か is canonical invitation form.",
       "distractor_explanations": {
-        "ます": "ますか asks a yes/no fact ('do you watch?'), not an invitation.",
-        "ました": "Past tense - wrong intent.",
-        "ましょう": "ましょう alone is firmer; ませんか is the softer invitation form."
+        "ました": "Past tense — conflicts with the future/invitation context.",
+        "でした": "V-stem + でした is ungrammatical (でした only follows nouns or na-adjectives).",
+        "ながら": "V-stem + ながら means \"while V-ing\" and needs a following main verb. Cannot end a sentence."
       },
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "ませんか = \"क्या आप ... नहीं?\" / \"चलें?\" — विनम्र आमंत्रण। जापानी में नकारात्मक रूप ही मानक विनम्र निमंत्रण है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "ます": "ますか हाँ/नहीं तथ्य पूछता है (\"क्या आप देखते हैं?\"), आमंत्रण नहीं।",
-        "ました": "भूत-काल — ग़लत आशय।",
-        "ましょう": "ましょう अकेला अधिक सख़्त है; ませんか अधिक मृदु आमंत्रण-रूप है।"
+        "ました": "भूतकाल; भविष्य/निमंत्रण-संदर्भ से टकराता है।",
+        "でした": "V-stem + でした व्याकरण-सम्मत नहीं (でした संज्ञा/na-विशेषण के बाद आता है)।",
+        "ながら": "V-stem + ながら = \"V करते हुए\"; इसके बाद दूसरा क्रिया चाहिए।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Replaced ます/ましょう (both valid as ますか/ましょうか) with past-conflict + ungrammatical. ません+か is canonical invitation form."
     },
     {
       "id": "q-0231",

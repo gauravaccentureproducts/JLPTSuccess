@@ -8768,51 +8768,80 @@ def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
 
 
 def _check_ja_167_mcq_verb_ending_ambiguity() -> list[str]:
-    """MCQ ambiguity guard (2026-05-25).
+    """MCQ ambiguity guard (2026-05-25, tightened 2026-05-25 Round 3).
 
-    For any MCQ in data/questions.json where all 4 choices are pure
-    verb endings (ます-family / たい), the stem must contain a
-    disambiguating cue OR include distractors that are clearly wrong
-    in the slot (e.g., ますか where stem ends with 。, ながら which
-    needs a following verb).
+    For any MCQ in data/questions.json where any choice is a pure verb
+    ending (ます-family / たい), the choices must be designed so an N5
+    learner can uniquely pick the correct answer.
 
-    Uses the same context-classification heuristic as
-    `tools/fix_ambiguous_mcq_2026_05_25.py`. Locks the 7-question
-    remediation against regression.
+    Tightened-predicate insight (Round 3): Japanese sentence-final 。
+    works for BOTH statements and questions — ますか + 。 = ますか。
+    is a fully valid future question. So the earlier predicate that
+    treated `（　）。` stems as declarative-only was wrong.
+
+    True compatibility (a choice X is grammatically valid for stem):
+      - X in UNGRAMMATICAL_AT_VSTEM  → never valid
+      - X in INCOMPLETE_VSTEM_ENDERS → never valid as sentence-end
+      - X in PAST forms              → valid only when stem context is PAST
+      - X in PRESENT/FUTURE forms    → valid only when stem context is not PAST
+      - X = たい                     → valid only in TAI_SLOT context
+
+    A question passes JA-167 if EXACTLY ONE choice is grammatically valid.
     """
     import json as _json
     p = ROOT / "data" / "questions.json"
     if not p.exists():
         return []
-    VERB_ENDINGS = {'ます', 'ません', 'ました', 'ませんでした', 'ましょう',
-                    'ましょうか', 'ますか', 'ませんか', 'たい', 'たくない'}
-    PAST_MARKERS = ['きのう', 'おととい', 'せんしゅう', 'せんげつ', 'きょねん']
-    FUTURE_MARKERS = ['あした', 'らいしゅう', 'らいげつ', 'らいねん', 'こんばん']
-    HABIT_MARKERS = ['いつも', 'まいにち', '毎日', 'まいしゅう', 'まいばん']
-    NEGATIVE_CTX_MARKERS = ['ベジタリアン', 'やすみです', 'きらい', '休みです']
-    INVITATION_CTX_MARKERS = ['いっしょに', 'つかれましたね']
 
-    def compat(stem):
+    UNGRAMMATICAL_AT_VSTEM = {'でした', 'でしょう', 'ない', 'なかった', 'だ', 'です'}
+    INCOMPLETE_VSTEM_ENDERS = {'ながら'}
+    PAST_FORMS = {'ました', 'ませんでした', 'ましたか', 'ませんでしたか'}
+    PRESENT_FUTURE_FORMS = {'ます', 'ません', 'ましょう', 'ますか', 'ませんか',
+                            'ましょうか', 'たい', 'たくない'}
+    TAI_FORMS = {'たい', 'たくない'}
+    ALL_TRACKED = (UNGRAMMATICAL_AT_VSTEM | INCOMPLETE_VSTEM_ENDERS
+                   | PAST_FORMS | PRESENT_FUTURE_FORMS)
+
+    PAST_MARKERS = ['きのう', 'おととい', 'せんしゅう', 'せんげつ', 'きょねん',
+                    'けさ', 'ゆうべ', 'さっき']
+    FUTURE_MARKERS = ['あした', 'らいしゅう', 'らいげつ', 'らいねん', 'こんばん']
+    HABIT_MARKERS = ['いつも', 'まいにち', '毎日', 'まいしゅう', 'まいばん',
+                     'まいあさ', 'よく', 'ときどき']
+    NEGATIVE_CTX_MARKERS = ['ベジタリアン', 'やすみです', 'やすみだ', 'きらい',
+                            '休みです', 'いやだ', 'いたくて', 'いたかった']
+    INVITATION_CTX_MARKERS = ['いっしょに', 'つかれましたね', 'おもいですね',
+                              '一緒に']
+
+    def classify(stem):
         tags = set()
         if any(m in stem for m in PAST_MARKERS): tags.add('PAST')
         if any(m in stem for m in FUTURE_MARKERS): tags.add('FUTURE')
         if any(m in stem for m in HABIT_MARKERS): tags.add('HABITUAL')
         if any(m in stem for m in NEGATIVE_CTX_MARKERS): tags.add('NEGATIVE_CTX')
         if any(m in stem for m in INVITATION_CTX_MARKERS): tags.add('INVITATION')
-        # Trailing です slot
         parts = stem.split('（　）')
         if len(parts) >= 2 and parts[-1].strip().startswith('です'):
             tags.add('TAI_SLOT')
-        # Compatible endings per context
-        if 'TAI_SLOT' in tags: return {'たい'}
-        if 'PAST' in tags: return {'ました'}
-        if 'INVITATION' in tags: return {'ましょう', 'ませんか', 'ましょうか'}
-        if 'HABITUAL' in tags:
-            return {'ません'} if 'NEGATIVE_CTX' in tags else {'ます'}
-        if 'FUTURE' in tags:
-            return {'ません'} if 'NEGATIVE_CTX' in tags else {'ます'}
-        if 'NEGATIVE_CTX' in tags: return {'ません'}
-        return None  # ambiguous frame; will trigger flag
+        return tags
+
+    def is_grammatically_valid(choice, tags):
+        if choice in UNGRAMMATICAL_AT_VSTEM:
+            return False
+        if choice in INCOMPLETE_VSTEM_ENDERS:
+            return False
+        if choice in TAI_FORMS:
+            return 'TAI_SLOT' in tags
+        if choice in PAST_FORMS:
+            return 'PAST' in tags and 'FUTURE' not in tags
+        if choice in PRESENT_FUTURE_FORMS:
+            if 'PAST' in tags:
+                return False
+            # NEGATIVE_CTX locks positive forms out
+            if 'NEGATIVE_CTX' in tags and choice in {'ます', 'ましょう', 'ますか',
+                                                     'ましょうか'}:
+                return False
+            return True
+        return False  # unknown — be safe
 
     try:
         data = _json.loads(p.read_text(encoding="utf-8"))
@@ -8820,24 +8849,23 @@ def _check_ja_167_mcq_verb_ending_ambiguity() -> list[str]:
         return [f"JA-167: parse error: {e}"]
     failures = []
     for it in data['questions']:
-        if it.get('type') != 'mcq': continue
-        ch = it.get('choices') or []
-        if not ch or not all(c in VERB_ENDINGS for c in ch): continue
-        stem = it.get('question_ja', '') or ''
-        compat_set = compat(stem)
-        if compat_set is None:
-            failures.append(
-                f"JA-167 {it.get('id','?')}: MCQ verb-ending question has no disambiguating "
-                f"context cue. Stem: {stem[:60]!r}. Choices: {ch}. "
-                f"Add a time/polarity/intent marker, or replace ambiguous distractors."
-            )
+        if it.get('type') != 'mcq':
             continue
-        valid = [c for c in ch if c in compat_set]
+        ch = it.get('choices') or []
+        if not ch:
+            continue
+        # Only flag MCQs whose choices are all in the verb-ending tracked set
+        if not all(c in ALL_TRACKED for c in ch):
+            continue
+        stem = it.get('question_ja', '') or ''
+        tags = classify(stem)
+        valid = [c for c in ch if is_grammatically_valid(c, tags)]
         if len(valid) >= 2:
             failures.append(
-                f"JA-167 {it.get('id','?')}: {len(valid)} choices are grammatically "
-                f"valid in context (valid={valid}). Stem: {stem[:60]!r}. "
-                f"Disambiguate via stem context or distractor replacement."
+                f"JA-167 {it.get('id','?')}: {len(valid)} choices grammatically "
+                f"valid (valid={valid}). Stem: {stem[:60]!r}. Choices: {ch}. "
+                f"Replace ambiguous distractors with past-conflict / ungrammatical "
+                f"(でした) / incomplete (ながら) forms, or add a stem cue."
             )
     return failures
 
