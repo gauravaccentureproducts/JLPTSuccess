@@ -4440,5 +4440,189 @@
       "n5-166",
       "n5-183"
     ]
+  },
+  "ambiguous_mcq_fix_2026_05_25": {
+    "description": "7 MCQ questions surfaced where 2+ choices are grammatically valid for an N5 learner without context disambiguation. Native-teacher pass added disambiguating context to stems OR replaced ambiguous distractors with clearly-grammatically-wrong ones (e.g., ますか where stem ends with 。 not か。; V-stem + ながら without a following verb).",
+    "questions_json_fixes": [
+      {
+        "id": "q-0220",
+        "before": {
+          "question_ja": "わたしは まいにち ほんを よみ（　）。",
+          "choices": [
+            "ます",
+            "ません",
+            "ました",
+            "たい"
+          ],
+          "correctAnswer": "ます"
+        },
+        "after": {
+          "question_ja": "わたしは まいにち ほんを よみ（　）。",
+          "choices": [
+            "ます",
+            "ました",
+            "ませんでした",
+            "ながら"
+          ],
+          "correctAnswer": "ます",
+          "explanation_en": "Habitual present positive: まいにち (every day) + ほんを よみます (I read books). ました/ませんでした are past tense and conflict with the まいにち habitual frame. ながら needs another verb to follow (V-stem + ながら = \"while V-ing\") so it cannot end the sentence.",
+          "note": "Replaced ません (polarity-ambiguous) and たい (register-ambiguous) with clear-wrong distractors."
+        }
+      },
+      {
+        "id": "q-0221",
+        "before": {
+          "question_ja": "あした コーヒーを のみ（　）。",
+          "choices": [
+            "ません",
+            "ます",
+            "ました",
+            "ましょう"
+          ],
+          "correctAnswer": "ます"
+        },
+        "after": {
+          "question_ja": "あした コーヒーを のみ（　）。",
+          "choices": [
+            "ます",
+            "ました",
+            "ますか",
+            "ませんでした"
+          ],
+          "correctAnswer": "ます",
+          "explanation_en": "Future declarative: あした (tomorrow) + のみます (will drink). ました/ませんでした are past tense and conflict with あした. ますか is a question form that requires the sentence to end with か。 (the stem ends with 。 only, so ますか creates a punctuation mismatch).",
+          "note": "Replaced ましょう (volitional, also-valid) and ません (polarity-ambiguous) with clear-wrong distractors."
+        }
+      },
+      {
+        "id": "q-0222",
+        "before": {
+          "question_ja": "わたしは にくを たべ（　）。",
+          "choices": [
+            "ます",
+            "ました",
+            "ません",
+            "ましょう"
+          ],
+          "correctAnswer": "ません"
+        },
+        "after": {
+          "question_ja": "わたしは ベジタリアンです。にくを たべ（　）。",
+          "choices": [
+            "ません",
+            "ます",
+            "ました",
+            "ましょう"
+          ],
+          "correctAnswer": "ません",
+          "explanation_en": "Negative declarative locked by the preceding sentence \"わたしは ベジタリアンです\" (I am vegetarian). The ベジタリアン context makes \"I don't eat meat\" the only natural completion. たべます (contradicts vegetarianism), たべました (past doesn't match \"I am vegetarian\" present-tense framing), たべましょう (\"let's eat meat\" contradicts the stated identity).",
+          "note": "Added \"わたしは ベジタリアンです。\" context to lock negative polarity (was: stem was contextless)."
+        }
+      },
+      {
+        "id": "q-0223",
+        "before": {
+          "question_ja": "あした がっこうへ いき（　）。",
+          "choices": [
+            "ます",
+            "ましょうか",
+            "ました",
+            "ません"
+          ],
+          "correctAnswer": "ません"
+        },
+        "after": {
+          "question_ja": "あしたは やすみです。がっこうへ いき（　）。",
+          "choices": [
+            "ません",
+            "ます",
+            "ました",
+            "ましょうか"
+          ],
+          "correctAnswer": "ません",
+          "explanation_en": "Negative future locked by the preceding sentence \"あしたは やすみです\" (tomorrow is a day off). With \"tomorrow is a holiday\", \"won't go to school\" is the only natural completion. いきます (contradicts day-off), いきました (past + あした conflict), いきましょうか (\"shall we go to school\" contradicts day-off).",
+          "note": "Added \"あしたは やすみです。\" context to lock negative polarity."
+        }
+      },
+      {
+        "id": "q-0229",
+        "before": {
+          "question_ja": "ちょっと やすみ（　）。",
+          "choices": [
+            "ます",
+            "ましょう",
+            "ました",
+            "ません"
+          ],
+          "correctAnswer": "ましょう"
+        },
+        "after": {
+          "question_ja": "（一緒に つかれましたね。）ちょっと やすみ（　）。",
+          "choices": [
+            "ましょう",
+            "ます",
+            "ました",
+            "ません"
+          ],
+          "correctAnswer": "ましょう",
+          "explanation_en": "Volitional/invitation locked by the preceding \"(一緒に つかれましたね)\" — \"(we're tired together, aren't we)\". With this fatigue + inclusive frame, \"let's rest a bit\" (やすみましょう) is the only natural completion. やすみます (declarative; doesn't respond to the invitation cue), やすみました (past conflict), やすみません (contradicts the fatigue cue).",
+          "note": "Added \"(一緒に つかれましたね。)\" inclusive-fatigue context to lock volitional."
+        }
+      }
+    ],
+    "paper_fixes": [
+      {
+        "id": "bunpou-2.12",
+        "paper": "bunpou/paper-2.json",
+        "before": {
+          "stem_html": "毎日 学校で ともだちに あい（　　）。",
+          "choices": [
+            "ます",
+            "ません",
+            "ました",
+            "ませんでした"
+          ],
+          "correctIndex": 0
+        },
+        "after": {
+          "stem_html": "毎日 学校で ともだちに あい（　　）。とても たのしいです。",
+          "choices": [
+            "ます",
+            "ません",
+            "ました",
+            "ませんでした"
+          ],
+          "correctIndex": 0,
+          "rationale": "Habitual present positive: 毎日 (every day) + あいます (I meet). The follow-up \"とても たのしいです\" (very fun) locks positive polarity — you wouldn't describe NOT meeting friends as \"very fun\". ました/ませんでした are past tense and conflict with 毎日.",
+          "note": "Added \"とても たのしいです。\" to lock positive polarity (was: contextless)."
+        }
+      },
+      {
+        "id": "bunpou-3.9",
+        "paper": "bunpou/paper-3.json",
+        "before": {
+          "stem_html": "つかれましたから、すこし やすみ （　　）。",
+          "choices": [
+            "ます",
+            "たい",
+            "ました",
+            "ません"
+          ],
+          "correctIndex": 1
+        },
+        "after": {
+          "stem_html": "つかれましたから、すこし やすみ（　　）です。",
+          "choices": [
+            "ます",
+            "たい",
+            "ました",
+            "ません"
+          ],
+          "correctIndex": 1,
+          "rationale": "Desiderative + polite copula: V-stem + たい + です = \"want to V\" in polite form. The trailing です in the stem locks the slot to a い-form word (V-stem+たい). ますです / ましたです / ませんです are not grammatical (です doesn't attach to these).",
+          "note": "Added trailing です to lock the slot to V-stem+たい (was: open slot ambiguous between ます/たい)."
+        }
+      }
+    ]
   }
 }

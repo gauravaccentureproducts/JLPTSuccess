@@ -161,7 +161,7 @@
     },
     {
       "type": "mcq",
-      "stem_html": "つかれましたから、すこし やすみ （　　）。",
+      "stem_html": "つかれましたから、すこし やすみ（　　）です。",
       "choices": [
         "ます",
         "たい",
@@ -169,11 +169,11 @@
         "ません"
       ],
       "correctIndex": 1,
-      "rationale": "want to rest.",
+      "rationale": "V-stem + たい + です = polite \"want to V\". Trailing です locks the slot to い-form (たい). ますです/ましたです/ませんです are not grammatical.",
       "kbSourceId": "Q39",
       "id": "bunpou-3.9",
       "mondai": 1,
-      "rationale_hi": "「～たい」 इच्छा-रूप (\"करना चाहना\")। つかれた (थक गया) → 「やすみたい」 (आराम करना चाहता हूँ)। N5 इच्छा-पैटर्न।",
+      "rationale_hi": "V-stem + たい + です = विनम्र \"करना चाहता हूँ\"। पीछे आने वाला です 슬ॉट को い-form (たい) तक सीमित करता है। ますです/ましたです/ませんです व्याकरण-सम्मत नहीं हैं।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": "n5-104",
       "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"

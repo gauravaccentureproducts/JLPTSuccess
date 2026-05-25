@@ -1541,6 +1541,18 @@ CHECKS: list[tuple[str, str, callable]] = [
     # must include these tokens; if a future audit-tool maintainer
     # narrows the whitelist, JA-166 catches it and points back to FP-21.
     ("JA-166", "TS-10 slot-token Latin whitelist includes Verb-/Verb-stem/counter/NP/A/B/X/Y (FP-21 lock, 2026-05-24)", lambda: _check_ja_166_slot_token_whitelist()),
+    # JA-167 (2026-05-25): MCQ ambiguity guard.
+    # Reviewer flagged q-0221 (あした コーヒーを のみ + [ます,ません,ました,ましょう])
+    # where 3 of 4 choices are grammatically valid completions for an N5
+    # learner. After remediation (7 questions rewritten), this invariant
+    # locks the gain: for verb-ending MCQs, the stem MUST disambiguate
+    # so the correct answer is uniquely valid.
+    #
+    # Predicate: for any MCQ where all 4 choices are pure verb endings
+    # (ます-family / たい), the stem must contain a disambiguating cue
+    # OR the choices must include only 1 grammatically-valid-for-context
+    # option. Approximated by checking known disambiguation markers.
+    ("JA-167", "MCQ verb-ending choices have stem context that uniquely disambiguates the correct answer (2026-05-25)", lambda: _check_ja_167_mcq_verb_ending_ambiguity()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8752,6 +8764,81 @@ def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
         except Exception as e:
             failures.append(f"JA-165: kanji.json parse error: {e}")
 
+    return failures
+
+
+def _check_ja_167_mcq_verb_ending_ambiguity() -> list[str]:
+    """MCQ ambiguity guard (2026-05-25).
+
+    For any MCQ in data/questions.json where all 4 choices are pure
+    verb endings (ます-family / たい), the stem must contain a
+    disambiguating cue OR include distractors that are clearly wrong
+    in the slot (e.g., ますか where stem ends with 。, ながら which
+    needs a following verb).
+
+    Uses the same context-classification heuristic as
+    `tools/fix_ambiguous_mcq_2026_05_25.py`. Locks the 7-question
+    remediation against regression.
+    """
+    import json as _json
+    p = ROOT / "data" / "questions.json"
+    if not p.exists():
+        return []
+    VERB_ENDINGS = {'ます', 'ません', 'ました', 'ませんでした', 'ましょう',
+                    'ましょうか', 'ますか', 'ませんか', 'たい', 'たくない'}
+    PAST_MARKERS = ['きのう', 'おととい', 'せんしゅう', 'せんげつ', 'きょねん']
+    FUTURE_MARKERS = ['あした', 'らいしゅう', 'らいげつ', 'らいねん', 'こんばん']
+    HABIT_MARKERS = ['いつも', 'まいにち', '毎日', 'まいしゅう', 'まいばん']
+    NEGATIVE_CTX_MARKERS = ['ベジタリアン', 'やすみです', 'きらい', '休みです']
+    INVITATION_CTX_MARKERS = ['いっしょに', 'つかれましたね']
+
+    def compat(stem):
+        tags = set()
+        if any(m in stem for m in PAST_MARKERS): tags.add('PAST')
+        if any(m in stem for m in FUTURE_MARKERS): tags.add('FUTURE')
+        if any(m in stem for m in HABIT_MARKERS): tags.add('HABITUAL')
+        if any(m in stem for m in NEGATIVE_CTX_MARKERS): tags.add('NEGATIVE_CTX')
+        if any(m in stem for m in INVITATION_CTX_MARKERS): tags.add('INVITATION')
+        # Trailing です slot
+        parts = stem.split('（　）')
+        if len(parts) >= 2 and parts[-1].strip().startswith('です'):
+            tags.add('TAI_SLOT')
+        # Compatible endings per context
+        if 'TAI_SLOT' in tags: return {'たい'}
+        if 'PAST' in tags: return {'ました'}
+        if 'INVITATION' in tags: return {'ましょう', 'ませんか', 'ましょうか'}
+        if 'HABITUAL' in tags:
+            return {'ません'} if 'NEGATIVE_CTX' in tags else {'ます'}
+        if 'FUTURE' in tags:
+            return {'ません'} if 'NEGATIVE_CTX' in tags else {'ます'}
+        if 'NEGATIVE_CTX' in tags: return {'ません'}
+        return None  # ambiguous frame; will trigger flag
+
+    try:
+        data = _json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-167: parse error: {e}"]
+    failures = []
+    for it in data['questions']:
+        if it.get('type') != 'mcq': continue
+        ch = it.get('choices') or []
+        if not ch or not all(c in VERB_ENDINGS for c in ch): continue
+        stem = it.get('question_ja', '') or ''
+        compat_set = compat(stem)
+        if compat_set is None:
+            failures.append(
+                f"JA-167 {it.get('id','?')}: MCQ verb-ending question has no disambiguating "
+                f"context cue. Stem: {stem[:60]!r}. Choices: {ch}. "
+                f"Add a time/polarity/intent marker, or replace ambiguous distractors."
+            )
+            continue
+        valid = [c for c in ch if c in compat_set]
+        if len(valid) >= 2:
+            failures.append(
+                f"JA-167 {it.get('id','?')}: {len(valid)} choices are grammatically "
+                f"valid in context (valid={valid}). Stem: {stem[:60]!r}. "
+                f"Disambiguate via stem context or distractor replacement."
+            )
     return failures
 
 
