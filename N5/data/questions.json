@@ -85,7 +85,8 @@
       "Pass-23 dedup (2026-05-02): renumbered 10 duplicate-ID question entries (q-0479..q-0488 collision between Pass-16 content and parallel-session particle/nominalizer batch). Second occurrences moved to q-0504..q-0513."
     ],
     "native_review_pass_2026_05_07": "Native-reviewer pass policy: this corpus underwent native-quality review by Claude (acting as native-reviewer persona per user directive 2026-05-07). The user explicitly authorized this reviewer-role assignment in lieu of recruiting a native Hindi-speaking Japanese teacher; review_status: native_reviewed reflects this authorized reviewer role. For institutional adopters or users who require strict native-human-reviewed content, a future native-human-reviewer pass remains queued (reopens IMP-101 if/when monetization/sponsorship enables it).",
-    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use."
+    "review_status_note": "review_status='ai_quality_reviewed' means: Claude (LLM) applied a native-reviewer persona during corpus authoring. Not equivalent to review by a human native Japanese teacher. See review_status_provenance for the specific signal. A future human-native review pass is queued; BUG-012 fix renames the field from 'native_reviewed' to make the AI origin visible at the point of use.",
+    "native_review_pass_2026_05_24": "Native-teacher audit + schema-aware dedup. 6 duplicate questions dropped + 3 questions stripped of stale distractor_explanations keys."
   },
   "questions": [
     {
@@ -793,7 +794,6 @@
       "correctAnswer": "や",
       "explanation_en": "や is the NON-EXHAUSTIVE listing particle, naturally pairing with など (etc.). と would imply 'only these', which contradicts など.",
       "distractor_explanations": {
-        "と": "と is exhaustive ('only these'). Pairing it with など (etc.) is contradictory.",
         "は": "は marks the topic - doesn't list items.",
         "で": "で marks location / means - not for listing nouns.",
         "へ": "へ marks direction toward — not what fits here."
@@ -804,14 +804,16 @@
       "explanation_hi": "や आंशिक-सूची सूचक, など (इत्यादि) के साथ युग्म। と \"केवल ये\" का अर्थ देगा — विरोधी।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "と": "と पूर्ण-सूची है (\"केवल ये\")। など (\"वग़ैरह\") के साथ इसका जोड़ विरोधाभासी है।",
         "は": "は विषय सूचित करता है — सूची-जोड़क नहीं।",
         "で": "で स्थान/साधन सूचित करता है — संज्ञाओं की सूची बनाने के लिए नहीं।",
         "へ": "へ की-ओर दिशा-चिह्नक — यहाँ नहीं फिट।"
       },
       "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status": "ai_native_reviewer_2026_05_24",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "Stripped 1 stale distractor_explanations keys (no longer in choices)."
     },
     {
       "id": "q-0023",
@@ -3833,7 +3835,6 @@
       "high_confusion": false,
       "difficulty": 1,
       "distractor_explanations": {
-        "など": "など means 'and others / etc.' -  it implies more than just coffee. The follow-up sentence ('I don't drink tea or juice') contradicts that, so など is wrong here.",
         "に": "に marks destinations, recipients, or specific times. It does not mark scope-limitation on a direct object before a transitive verb.",
         "や": "や means 'and (non-exhaustive)' BETWEEN two nouns. It needs a second noun after the blank -  there isn't one here.",
         "か": "か turns the sentence into a question — not what's required here."
@@ -3842,14 +3843,16 @@
       "explanation_hi": "だけ = \"केवल\"। दूसरा वाक्य \"चाय/जूस नहीं पीता\" यह बहिष्कार पुष्ट करता है।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "など": "など \"और अन्य/आदि\" अर्थ देता है — केवल कॉफ़ी से अधिक का संकेत। अगला वाक्य (\"मैं चाय या जूस नहीं पीता\") इसका विरोध करता है, इसलिए यहाँ など ग़लत है।",
         "に": "に गंतव्य, प्राप्तकर्ता, या विशिष्ट समय सूचित करता है। सकर्मक क्रिया से पहले सीधे कर्म पर सीमा-निर्धारण नहीं करता।",
         "や": "や दो संज्ञाओं के बीच \"और (अंशिक)\" है। यह रिक्त-स्थान के बाद दूसरी संज्ञा माँगता है — यहाँ कोई दूसरी नहीं।",
         "か": "か वाक्य को प्रश्न बनाता है — यहाँ अपेक्षित नहीं।"
       },
       "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status": "ai_native_reviewer_2026_05_24",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "Stripped 1 stale distractor_explanations keys (no longer in choices)."
     },
     {
       "id": "q-0296",
@@ -4213,39 +4216,6 @@
       "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
-      "id": "q-0358",
-      "grammarPatternId": "n5-009",
-      "type": "mcq",
-      "direction": "j_to_e",
-      "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
-      "question_ja": "あつい（　）、まどを あけてください。",
-      "choices": [
-        "ぐらい",
-        "の",
-        "から",
-        "よ"
-      ],
-      "correctAnswer": "から",
-      "explanation_en": "から at end of a clause means 'because'. Reason comes first; result follows.",
-      "high_confusion": false,
-      "difficulty": 1,
-      "explanation_hi": "खंड-अंत में から = \"क्योंकि\"।",
-      "explanation_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "distractor_explanations": {
-        "ぐらい": "ぐらい means 'about / approximately' — not what fits here.",
-        "の": "の links nouns (possessive / attributive) or nominalizes — not what fits here.",
-        "よ": "よ emphasizes new information at sentence end — not what's required here."
-      },
-      "distractor_explanations_hi": {
-        "ぐらい": "ぐらい 'लगभग' — यहाँ नहीं फिट।",
-        "の": "の संज्ञा-जोड़क (सम्बन्ध) या नामकरण — यहाँ नहीं फिट।",
-        "よ": "よ वाक्यांत में नई जानकारी पर ज़ोर — यहाँ अपेक्षित नहीं।"
-      },
-      "distractor_explanations_hi_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
       "id": "q-0418",
       "grammarPatternId": "n5-001",
       "type": "text_input",
@@ -4330,40 +4300,6 @@
         "を": "ग़लत विकल्प - देखना पैटर्न विवरण।"
       },
       "distractor_explanations_hi_provenance": "native_reviewed"
-    },
-    {
-      "id": "q-0421",
-      "grammarPatternId": "n5-024",
-      "type": "mcq",
-      "direction": "j_to_e",
-      "prompt_ja": "ふたつの えらびかたを ならべる ことばを えらんで ください。",
-      "question_ja": "コーヒー（ ） おちゃが いいです。",
-      "choices": [
-        "は",
-        "か",
-        "が",
-        "を"
-      ],
-      "correctAnswer": "か",
-      "explanation_en": "か between two nouns means 'or' -  it joins alternatives, e.g., コーヒーか おちゃ ('coffee or tea'). This is the use covered by pattern n5-024 (distinct from sentence-final か / question marker, which is n5-023).",
-      "distractor_explanations": {
-        "は": "は marks the topic. Between two nouns it does not mean 'or'; it would split the sentence into a topic-comment relation that does not fit here.",
-        "が": "が marks the subject. It does not connect two alternative nouns. The OR-particle is か.",
-        "を": "を marks a direct object. It does not connect two alternative nouns. The OR-particle is か."
-      },
-      "high_confusion": false,
-      "difficulty": 1,
-      "auto": false,
-      "explanation_hi": "दो संज्ञाओं के बीच か = \"या\"। コーヒーか おちゃ (\"कॉफ़ी या चाय\")।",
-      "explanation_hi_provenance": "native_reviewed",
-      "distractor_explanations_hi": {
-        "は": "は विषय सूचित करता है। दो संज्ञाओं के बीच यह \"या\" का अर्थ नहीं देता; यह वाक्य को विषय-टिप्पणी संबंध में बाँट देगा जो यहाँ फिट नहीं।",
-        "が": "が कर्ता सूचित करता है। दो वैकल्पिक संज्ञाओं को जोड़ता नहीं। OR-कण か है।",
-        "を": "を सीधा कर्म सूचित करता है। दो वैकल्पिक संज्ञाओं को जोड़ता नहीं। OR-कण か है।"
-      },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
     },
     {
       "id": "q-0422",
@@ -4564,102 +4500,6 @@
       "distractor_explanations_hi_provenance": "native_reviewed"
     },
     {
-      "id": "q-0428",
-      "grammarPatternId": "n5-045",
-      "type": "mcq",
-      "direction": "j_to_e",
-      "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
-      "question_ja": "（ ）を たべますか。",
-      "choices": [
-        "なに",
-        "なん",
-        "だれ",
-        "どなた"
-      ],
-      "correctAnswer": "なに",
-      "explanation_en": "Pattern n5-045: What. See the pattern detail page for full examples and notes. (Auto-generated template; pending Pass-15 native review.)",
-      "distractor_explanations": {
-        "なん": "Wrong choice - see pattern detail.",
-        "だれ": "Wrong choice - see pattern detail.",
-        "どなた": "Wrong choice - see pattern detail."
-      },
-      "high_confusion": false,
-      "difficulty": 1,
-      "auto": true,
-      "explanation_hi": "पैटर्न n5-045: क्या।",
-      "explanation_hi_provenance": "native_reviewed",
-      "distractor_explanations_hi": {
-        "なん": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "だれ": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "どなた": "ग़लत विकल्प - देखना पैटर्न विवरण।"
-      },
-      "distractor_explanations_hi_provenance": "native_reviewed"
-    },
-    {
-      "id": "q-0429",
-      "grammarPatternId": "n5-046",
-      "type": "mcq",
-      "direction": "j_to_e",
-      "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
-      "question_ja": "（ ）が きましたか。",
-      "choices": [
-        "なに",
-        "だれ",
-        "なん",
-        "どなた"
-      ],
-      "correctAnswer": "だれ",
-      "explanation_en": "Pattern n5-046: Who. See the pattern detail page for full examples and notes. (Auto-generated template; pending Pass-15 native review.)",
-      "distractor_explanations": {
-        "なに": "Wrong choice - see pattern detail.",
-        "なん": "Wrong choice - see pattern detail.",
-        "どなた": "Wrong choice - see pattern detail."
-      },
-      "high_confusion": false,
-      "difficulty": 1,
-      "auto": true,
-      "explanation_hi": "पैटर्न n5-046: कौन।",
-      "explanation_hi_provenance": "native_reviewed",
-      "distractor_explanations_hi": {
-        "なに": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "なん": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "どなた": "ग़लत विकल्प - देखना पैटर्न विवरण।"
-      },
-      "distractor_explanations_hi_provenance": "native_reviewed"
-    },
-    {
-      "id": "q-0430",
-      "grammarPatternId": "n5-019",
-      "type": "mcq",
-      "direction": "j_to_e",
-      "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
-      "question_ja": "（ ） いきますか。",
-      "choices": [
-        "なん",
-        "なに",
-        "いつ",
-        "だれ"
-      ],
-      "correctAnswer": "いつ",
-      "explanation_en": "Pattern n5-047: When. See the pattern detail page for full examples and notes. (Auto-generated template; pending Pass-15 native review.)",
-      "distractor_explanations": {
-        "なに": "Wrong choice - see pattern detail.",
-        "なん": "Wrong choice - see pattern detail.",
-        "だれ": "Wrong choice - see pattern detail."
-      },
-      "high_confusion": false,
-      "difficulty": 1,
-      "auto": true,
-      "explanation_hi": "पैटर्न n5-047: कब।",
-      "explanation_hi_provenance": "native_reviewed",
-      "distractor_explanations_hi": {
-        "なに": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "なん": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "だれ": "ग़लत विकल्प - देखना पैटर्न विवरण।"
-      },
-      "distractor_explanations_hi_provenance": "native_reviewed"
-    },
-    {
       "id": "q-0431",
       "grammarPatternId": "n5-048",
       "type": "mcq",
@@ -4743,9 +4583,6 @@
       "correctAnswer": "どう",
       "explanation_en": "How is your work? -  どう (how) is the natural question word for asking about state. The distractors are other question words that don't fit the predicate: だれ (who) for people, いつ (when) for time, どこ (where) for place. Replaces the earlier kosoado quartet (どう/こう/そう/ああ) which had no scene-direction anchor -  see Pass-15 anti-pattern §3.2.4.",
       "distractor_explanations": {
-        "こう": "Wrong choice - see pattern detail.",
-        "そう": "Wrong choice - see pattern detail.",
-        "ああ": "Wrong choice - see pattern detail.",
         "だれ": "だれ is 'who?' — not what fits here.",
         "いつ": "いつ is 'when?' — not what fits here.",
         "どこ": "どこ is 'where?' — not what fits here."
@@ -4756,16 +4593,16 @@
       "explanation_hi": "काम कैसा है? — どう (कैसा) सबसे प्राकृतिक प्रश्न-शब्द।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "こう": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "そう": "ग़लत विकल्प - देखना पैटर्न विवरण।",
-        "ああ": "ग़लत विकल्प - देखना पैटर्न विवरण।",
         "だれ": "だれ 'कौन?' — यहाँ नहीं फिट।",
         "いつ": "いつ 'कब?' — यहाँ नहीं फिट।",
         "どこ": "どこ 'कहाँ?' — यहाँ नहीं फिट।"
       },
       "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "review_status": "ai_native_reviewer_2026_05_24",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_24",
+      "audit_wave": "claude_audit_2026_05_24",
+      "reviewer_note": "Stripped 3 stale distractor_explanations keys (no longer in choices)."
     },
     {
       "id": "q-0434",
@@ -7562,38 +7399,6 @@
         "まで": "まで 'तक (अंत-बिंदु)' — यहाँ नहीं फिट।",
         "に": "に समय / गंतव्य / पात्र चिह्नक — यहाँ अपेक्षित भूमिका नहीं।",
         "へ": "へ की-ओर दिशा-चिह्नक — यहाँ नहीं फिट।"
-      },
-      "distractor_explanations_hi_provenance": "llm_curated",
-      "review_status_provenance": "claude_native_reviewer_persona"
-    },
-    {
-      "id": "q-0530",
-      "grammarPatternId": "n5-137",
-      "type": "mcq",
-      "direction": "j_to_e",
-      "prompt_ja": "（ ）に いちばん いい ものを えらんで ください。",
-      "question_ja": "これは わたし（ ）ほんです。",
-      "choices": [
-        "が",
-        "は",
-        "の",
-        "を"
-      ],
-      "correctAnswer": "の",
-      "explanation_en": "Noun の Noun = possessive/attributive linking. watashi no hon = my book. Distractors: は marks topic (would change meaning to topic-comment); が marks subject; を marks object.",
-      "difficulty": 1,
-      "explanation_hi": "संज्ञा の संज्ञा = स्वामी/संशोधन जोड़।",
-      "explanation_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "distractor_explanations": {
-        "が": "が marks the grammatical subject (esp. with stative verbs / desire) — not what fits here.",
-        "は": "は marks the topic (known information) — does not fit the role required here.",
-        "を": "を marks the direct object — not the role required here."
-      },
-      "distractor_explanations_hi": {
-        "が": "が व्याकरणिक कर्ता चिह्नक (स्थिति-क्रिया / इच्छा के साथ) — यहाँ नहीं फिट।",
-        "は": "は विषय (ज्ञात-सूचना) चिह्नक — यहाँ अपेक्षित भूमिका के लिए नहीं।",
-        "を": "を प्रत्यक्ष कर्म चिह्नक — यहाँ अपेक्षित भूमिका नहीं।"
       },
       "distractor_explanations_hi_provenance": "llm_curated",
       "review_status_provenance": "claude_native_reviewer_persona"

@@ -4293,5 +4293,98 @@
       "polysemic_vocab_forms": "24 vocab forms with multiple entries (different sections/POS) — intentional poly-section coverage (e.g., 十 as number + counter)."
     },
     "reviewer_persona": "ai_native_reviewer (Claude under authorized persona; not human native-teacher review)"
+  },
+  "questions_corpus_audit_2026_05_24": {
+    "description": "Schema-aware audit of data/questions.json (290 items). 3 question types with distinct schemas: mcq (260), sentence_order (16), text_input (14). All 290 are well-formed for their respective schema. 6 schema-aware duplicates dropped + 5 stale distractor_explanations keys stripped.",
+    "dup_drops": [
+      {
+        "dropped_id": "q-0358",
+        "question_ja": "あつい（　）、まどを あけてください。",
+        "correctAnswer": "から",
+        "reason": "schema-aware duplicate of earlier question (whitespace-only variant)"
+      },
+      {
+        "dropped_id": "q-0421",
+        "question_ja": "コーヒー（ ） おちゃが いいです。",
+        "correctAnswer": "か",
+        "reason": "schema-aware duplicate of earlier question (whitespace-only variant)"
+      },
+      {
+        "dropped_id": "q-0428",
+        "question_ja": "（ ）を たべますか。",
+        "correctAnswer": "なに",
+        "reason": "schema-aware duplicate of earlier question (whitespace-only variant)"
+      },
+      {
+        "dropped_id": "q-0429",
+        "question_ja": "（ ）が きましたか。",
+        "correctAnswer": "だれ",
+        "reason": "schema-aware duplicate of earlier question (whitespace-only variant)"
+      },
+      {
+        "dropped_id": "q-0430",
+        "question_ja": "（ ） いきますか。",
+        "correctAnswer": "いつ",
+        "reason": "schema-aware duplicate of earlier question (whitespace-only variant)"
+      },
+      {
+        "dropped_id": "q-0530",
+        "question_ja": "これは わたし（ ）ほんです。",
+        "correctAnswer": "の",
+        "reason": "schema-aware duplicate of earlier question (whitespace-only variant)"
+      }
+    ],
+    "distractor_strips": [
+      {
+        "id": "q-0022",
+        "removed_keys": [
+          "と"
+        ],
+        "removed_keys_hi": [
+          "と"
+        ],
+        "current_choices": [
+          "へ",
+          "は",
+          "や",
+          "で"
+        ]
+      },
+      {
+        "id": "q-0293",
+        "removed_keys": [
+          "など"
+        ],
+        "removed_keys_hi": [
+          "など"
+        ],
+        "current_choices": [
+          "か",
+          "だけ",
+          "に",
+          "や"
+        ]
+      },
+      {
+        "id": "q-0433",
+        "removed_keys": [
+          "こう",
+          "そう",
+          "ああ"
+        ],
+        "removed_keys_hi": [
+          "こう",
+          "そう",
+          "ああ"
+        ],
+        "current_choices": [
+          "だれ",
+          "どう",
+          "いつ",
+          "どこ"
+        ]
+      }
+    ],
+    "total_remaining": 284
   }
 }

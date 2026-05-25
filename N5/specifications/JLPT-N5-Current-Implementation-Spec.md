@@ -317,7 +317,7 @@ live data by JA-107 and JA-119; see §25):
   "version": "v1.15.5",
   "builtAt": "2026-05-17T00:00:00Z",
   "counts": { "grammar": 178, "grammar_n5": 173, "vocab": 995, "kanji": 106,
-              "reading": 54, "listening": 50, "questions": 290,
+              "reading": 54, "listening": 50, "questions": 284,
               "papers": 28, "paperQuestions": 402 },
   "cacheVersion": "jlptsuccess-n5-v1.15.5"
 }
