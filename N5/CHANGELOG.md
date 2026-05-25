@@ -2,6 +2,50 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.1 - 2026-05-24/25 (BUG-A..K audit-cluster sweep + Waves 1-5 closure)
+
+The largest audit-and-fix cycle in the project's history. Started
+from an independent re-audit that surfaced 8 bug clusters (BUG-A..H);
+ran through to a full cross-corpus native-teacher review + UI a11y fix.
+
+### Headline outcomes (final state)
+- **0 hard FAILs** across all 9 runnable TS scenarios.
+- **All 7 N5 corpora audited clean** (2,073 entries): grammar (178),
+  vocab (995), kanji (106), reading (54), listening (50), questions
+  (284), papers (402).
+- **168 CI invariants pass** (3 new: JA-164/165/166 drift-prevention).
+- **178/178 explanation_ja populated**.
+- **First UI a11y fix** in the work stream: `--color-correct` bumped
+  #2E7D4F → #26703F for WCAG AA contrast (5.34:1 from 4.45:1).
+
+### Major commits
+- `936f6950` — BUG-A..H sweep (52 cm drops + 47 backfills + 7 rewrites + 4 category renames + 4 meaning_ja splits + 2 contradictions + 14 example drops + 3 why expansions)
+- `3a7c6788` — Followups 1-7 (explanation_ja renderer + JA-162 + audit v2 + xlsx blank + 6 substantive rewrites + native-review docs)
+- `bfb5cd8a` — Native-reviewer pass closing Q3/Q4/Q5 (8 rewrites + 53 PASS marks)
+- `61366b43` — Polish A/B/C (bug-tracker cross-link + JA-163 + P0 smoke green)
+- `d4636585` — BUG-I/J/K (wcp dedup + 1 wcp rewrite + 25 wcp.why expansions — later reverted)
+- `1046ffcb` — BUG-K REVERT (metric-gaming caught) + TS-10 cleanup + Part 56
+- `b2cab3ec` — TS-02 reviewer-v5 correction (6 dropped + 5 contrast-annotated)
+- `937b5ca3` — Cross-corpus dedup (17 vocab + 2 kanji within-entry dups)
+- `6010096e` — Wave 1 (JA-164/165/166 + js/home.js migration + 20 audio orphans)
+- `60c36430` — Wave 2 (questions + papers schema-aware audit)
+- `021c9a52` — Wave 3 (conjugation-aware TS-05 + unified audit_all.py)
+- `e327f102` — Wave 4 (173 explanation_ja authored from concrete examples)
+- `4959aed9` — Wave 5 (full Playwright + deep axe + --color-correct fix)
+
+### Documentation
+- `docs/AUDIT-COVERAGE-2026-05-24.md` — Parts 52-58 retrospective
+- `JLPT Common/procedure-manual-build-next-jlpt-level.md` — F.44.31-34
+- `prompts/Japanese language Accuracy check.txt` — FP-17..21, A-17/18
+- `prompts/N5Improvement.txt` — 3 new Phase-0 discipline blocks
+
+### Standing native-human-review queue
+- Audio quality (1,768 grammar + 50 listening) — needs native ear
+- TS-08 deep English translation naturalness
+- 47 wcp-promoted cm rows + 9 Claude rewrites tagged for review
+- 173 auto-authored explanation_ja for native polish
+- Cultural appropriateness + JLPT level fit
+
 ## v1.16.12 - 2026-05-24 (BUG-211 GRAMMAR-CT-001 close — rewrite English-meta-advice common_mistakes entries as real JA-JA pairs)
 
 ### Background

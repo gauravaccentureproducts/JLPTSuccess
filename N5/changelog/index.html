@@ -68,6 +68,51 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.1 - 2026-05-24/25 (BUG-A..K audit-cluster sweep + Waves 1-5 closure)</h2>
+<p>The largest audit-and-fix cycle in the project&#x27;s history. Started from an independent re-audit that surfaced 8 bug clusters (BUG-A..H); ran through to a full cross-corpus native-teacher review + UI a11y fix.</p>
+<h3>Headline outcomes (final state)</h3>
+<ul>
+<li><strong>0 hard FAILs</strong> across all 9 runnable TS scenarios.</li>
+<li><strong>All 7 N5 corpora audited clean</strong> (2,073 entries): grammar (178),</li>
+</ul>
+<p>vocab (995), kanji (106), reading (54), listening (50), questions (284), papers (402).</p>
+<ul>
+<li><strong>168 CI invariants pass</strong> (3 new: JA-164/165/166 drift-prevention).</li>
+<li><strong>178/178 explanation_ja populated</strong>.</li>
+<li><strong>First UI a11y fix</strong> in the work stream: <code>--color-correct</code> bumped</li>
+</ul>
+<p>#2E7D4F → #26703F for WCAG AA contrast (5.34:1 from 4.45:1).</p>
+<h3>Major commits</h3>
+<ul>
+<li><code>936f6950</code> — BUG-A..H sweep (52 cm drops + 47 backfills + 7 rewrites + 4 category renames + 4 meaning_ja splits + 2 contradictions + 14 example drops + 3 why expansions)</li>
+<li><code>3a7c6788</code> — Followups 1-7 (explanation_ja renderer + JA-162 + audit v2 + xlsx blank + 6 substantive rewrites + native-review docs)</li>
+<li><code>bfb5cd8a</code> — Native-reviewer pass closing Q3/Q4/Q5 (8 rewrites + 53 PASS marks)</li>
+<li><code>61366b43</code> — Polish A/B/C (bug-tracker cross-link + JA-163 + P0 smoke green)</li>
+<li><code>d4636585</code> — BUG-I/J/K (wcp dedup + 1 wcp rewrite + 25 wcp.why expansions — later reverted)</li>
+<li><code>1046ffcb</code> — BUG-K REVERT (metric-gaming caught) + TS-10 cleanup + Part 56</li>
+<li><code>b2cab3ec</code> — TS-02 reviewer-v5 correction (6 dropped + 5 contrast-annotated)</li>
+<li><code>937b5ca3</code> — Cross-corpus dedup (17 vocab + 2 kanji within-entry dups)</li>
+<li><code>6010096e</code> — Wave 1 (JA-164/165/166 + js/home.js migration + 20 audio orphans)</li>
+<li><code>60c36430</code> — Wave 2 (questions + papers schema-aware audit)</li>
+<li><code>021c9a52</code> — Wave 3 (conjugation-aware TS-05 + unified audit_all.py)</li>
+<li><code>e327f102</code> — Wave 4 (173 explanation_ja authored from concrete examples)</li>
+<li><code>4959aed9</code> — Wave 5 (full Playwright + deep axe + --color-correct fix)</li>
+</ul>
+<h3>Documentation</h3>
+<ul>
+<li><code>docs/AUDIT-COVERAGE-2026-05-24.md</code> — Parts 52-58 retrospective</li>
+<li><code>JLPT Common/procedure-manual-build-next-jlpt-level.md</code> — F.44.31-34</li>
+<li><code>prompts/Japanese language Accuracy check.txt</code> — FP-17..21, A-17/18</li>
+<li><code>prompts/N5Improvement.txt</code> — 3 new Phase-0 discipline blocks</li>
+</ul>
+<h3>Standing native-human-review queue</h3>
+<ul>
+<li>Audio quality (1,768 grammar + 50 listening) — needs native ear</li>
+<li>TS-08 deep English translation naturalness</li>
+<li>47 wcp-promoted cm rows + 9 Claude rewrites tagged for review</li>
+<li>173 auto-authored explanation_ja for native polish</li>
+<li>Cultural appropriateness + JLPT level fit</li>
+</ul>
 <h2>v1.16.12 - 2026-05-24 (BUG-211 GRAMMAR-CT-001 close — rewrite English-meta-advice common_mistakes entries as real JA-JA pairs)</h2>
 <h3>Background</h3>
 <p>The 2026-05-24 re-run of <code>CategorizedtestScenarios.xlsx</code> grammar test scenarios surfaced 2 REAL TS-03 (JA grammar in common_mistakes pairs) failures on patterns <strong>n5-026</strong> (よ particle) and <strong>n5-144</strong> (Verb-stem + ながら). Filed as BUG-211 (GRAMMAR-CT-001).</p>
