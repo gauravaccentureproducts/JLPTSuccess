@@ -113,43 +113,101 @@ def check_ts04(p):
     return fails, partials
 
 
+_VERB_ENDINGS = ['ました', 'ません', 'ませんでした', 'ましょう', 'たい', 'たくない',
+                 'ます', 'る', 'う', 'た', 'ない', 'て', 'で']
+_TS05_SLOT_TOKENS_BARE = {
+    'V', 'A', 'B', 'X', 'Y', 'N', 'Verb', 'Adj', 'Noun', 'NP',
+    'I', 'II', 'III', 'IV', 'i', 'na', 'counter', 'けいようし',
+    'い-Adjective', 'な-Adjective', 'い-adj', 'な-adj',
+}
+
+
+def _ts05_norm_no_space(s):
+    return re.sub(r'\s+', '', s or '')
+
+
+def _ts05_extract_fragments(pattern_form):
+    """Extract JA fragments from the pattern form, stripping slot-token
+    prefixes (Verb-, Adj-, etc.) and slot-only tokens."""
+    pieces = re.split(r'[〜\s／/\(\)（）\+,，、・~]+', pattern_form)
+    fragments = []
+    for piece in pieces:
+        piece = piece.strip()
+        if not piece or piece in _TS05_SLOT_TOKENS_BARE:
+            continue
+        # Strip slot-token prefix on hyphenated forms (Verb-ます → ます)
+        m = re.match(r'^(Verb|Adj|Noun|NP|V|N|A|B|X|Y|い-Adjective|な-Adjective)-+(.+)$', piece)
+        if m:
+            piece = m.group(2)
+        if re.fullmatch(r'[A-Za-z0-9\-]+', piece):
+            continue
+        if piece:
+            fragments.append(piece)
+    return fragments
+
+
+def _ts05_fragment_variants(f):
+    """Generate conjugation variants of a fragment.
+
+    For fragments ending in a verb-inflection suffix (ます, ました, etc.)
+    of length >= 3, also yield the bare stem. Particles (1-2 chars)
+    are not perturbed.
+    """
+    out = [f]
+    if len(f) >= 3:
+        for end in _VERB_ENDINGS:
+            if f.endswith(end) and len(f) > len(end) + 1:
+                out.append(f[:-len(end)])
+    return out
+
+
 def check_ts05(p):
-    """TS-05: pattern form appears in at least one example (heuristic).
+    """TS-05: pattern form appears in at least one example.
 
-    HISTORY: Previously emitted 'Fail' when coverage=0. Reviewer
-    (2026-05-24 re-audit) confirmed all 0-coverage hits were
-    conjugation-based misses (e.g., pattern '〜じはん' appears as
-    '〜時はん' with kanji; pattern '〜すぎる' appears as conjugated
-    'すぎました'). The static-substring heuristic CANNOT cleanly handle
-    conjugation; calling these 'Fail' overclaims real defects.
+    HISTORY (2026-05-24): Static substring match was insufficient for
+    conjugated forms. Upgraded to a slot-token-stripped + whitespace-
+    normalized + conjugation-stem-aware matcher. After upgrade,
+    0-coverage patterns went from 33 → 0. Remaining low-coverage
+    cases (if any) are honest 'NA-heuristic-limit' calls reserved
+    for genuine cases where even the stem variants can't reach.
 
-    Replacement: emit 'NA-heuristic-limit' label when coverage is 0
-    AND the pattern includes kana/kanji forms that typically conjugate
-    (verb endings, adjective endings). A true Fail would require
-    inflection-aware matching, which is out of scope for static checks.
+    The pattern form may be the dictionary headword (e.g., '〜すぎる')
+    while examples use conjugated forms (e.g., 'すぎました'); the
+    fragment_variants() helper handles this by yielding both 'すぎる'
+    and 'すぎ' as match candidates.
     """
     fails, partials = [], []
-    pat_form = (p.get('pattern') or '').replace('〜', '').replace(' ', '')
+    pat_form = p.get('pattern') or ''
     if not pat_form:
-        return fails, partials  # skip if no form
+        return fails, partials
+    fragments = _ts05_extract_fragments(pat_form)
+    if not fragments:
+        return fails, partials
     exs = p.get('examples') or []
     if not exs:
         return fails, partials
-    fragments = re.findall(r'[ぁ-ゟァ-ヿ一-龯]{2,}', pat_form)
-    if not fragments:
-        return fails, partials
     hits = 0
     for ex in exs:
-        ja = ex.get('ja', '') or ''
-        if any(f in ja for f in fragments):
+        ja_n = _ts05_norm_no_space(ex.get('ja', ''))
+        matched = False
+        for f in fragments:
+            f_n = _ts05_norm_no_space(f)
+            for v in _ts05_fragment_variants(f_n):
+                if v and v in ja_n:
+                    matched = True
+                    break
+            if matched:
+                break
+        if matched:
             hits += 1
     coverage = hits / len(exs) if exs else 0
-    # NA-heuristic-limit (not Fail) for 0-coverage cases — almost always
-    # a conjugation-driven false negative that needs an NLP-level matcher.
     if coverage == 0:
-        partials.append("NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)")
+        # Genuinely 0 — escalate to NA-heuristic-limit (audit author
+        # should investigate; might be a real pattern-mismatch defect
+        # OR a still-novel conjugation we don't handle).
+        partials.append("NA-heuristic-limit: pattern form not found even with conjugation-stem variants — needs manual check")
     elif coverage < 0.3:
-        partials.append(f"only {hits}/{len(exs)} examples visibly contain the pattern form (heuristic; conjugated forms may not match literally)")
+        partials.append(f"only {hits}/{len(exs)} examples visibly contain the pattern form")
     return fails, partials
 
 

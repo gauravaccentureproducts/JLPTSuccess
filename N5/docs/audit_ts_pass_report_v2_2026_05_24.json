@@ -1,5 +1,5 @@
 {
-  "corpus_version": "2026.05.24-ts10-cleanup",
+  "corpus_version": "2026.05.24-ts02-polish",
   "total_patterns": 178,
   "register_variant_skip_applied": true,
   "results": {
@@ -31,41 +31,17 @@
       "sample_partials": []
     },
     "TS-05": {
-      "pass": 143,
-      "partial": 35,
+      "pass": 177,
+      "partial": 1,
       "fail": 0,
       "target": ">=150",
-      "meets": false,
+      "meets": true,
       "sample_fails": [],
       "sample_partials": [
         {
-          "id": "n5-021",
+          "id": "n5-174",
           "partials": [
-            "NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)"
-          ]
-        },
-        {
-          "id": "n5-034",
-          "partials": [
-            "NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)"
-          ]
-        },
-        {
-          "id": "n5-045",
-          "partials": [
-            "NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)"
-          ]
-        },
-        {
-          "id": "n5-057",
-          "partials": [
-            "NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)"
-          ]
-        },
-        {
-          "id": "n5-094",
-          "partials": [
-            "NA-heuristic-limit: pattern form not found by static substring match (conjugation likely; needs inflection-aware matcher)"
+            "only 2/10 examples visibly contain the pattern form"
           ]
         }
       ]
