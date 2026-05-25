@@ -151,7 +151,7 @@ function syllabusCards(counts) {
       title: t('home.card_grammar_title'),
       count: localCount('card_grammar_count', counts.grammar),
       desc: t('home.card_grammar_desc'),
-      href: '#/learn/grammar',
+      href: 'learn/grammar/',
       action: t('home.card_grammar_action'),
     },
     {
@@ -159,7 +159,7 @@ function syllabusCards(counts) {
       title: t('home.card_vocab_title'),
       count: localCount('card_vocab_count', counts.vocab),
       desc: t('home.card_vocab_desc'),
-      href: '#/learn/vocab',
+      href: 'learn/vocab/',
       action: t('home.card_vocab_action'),
     },
     {
@@ -167,7 +167,7 @@ function syllabusCards(counts) {
       title: t('home.card_kanji_title'),
       count: localCount('card_kanji_count', counts.kanji),
       desc: t('home.card_kanji_desc'),
-      href: '#/kanji',
+      href: 'kanji/',
       action: t('home.card_kanji_action'),
     },
     {
@@ -175,7 +175,7 @@ function syllabusCards(counts) {
       title: t('home.card_reading_title'),
       count: localCount('card_reading_count', counts.reading),
       desc: t('home.card_reading_desc'),
-      href: '#/reading',
+      href: 'reading/',
       action: t('home.card_reading_action'),
     },
     {
@@ -183,7 +183,7 @@ function syllabusCards(counts) {
       title: t('home.card_listening_title'),
       count: localCount('card_listening_count', counts.listening),
       desc: t('home.card_listening_desc'),
-      href: '#/listening',
+      href: 'listening/',
       action: t('home.card_listening_action'),
     },
     {
@@ -191,7 +191,7 @@ function syllabusCards(counts) {
       title: t('home.card_test_title'),
       count: t('home.card_test_count'),
       desc: t('home.card_test_desc'),
-      href: '#/test',
+      href: 'test/',
       action: t('home.card_test_action'),
     },
   ];
@@ -214,17 +214,17 @@ function syllabusCards(counts) {
 // Localized at render time so the locale swap is live.
 function studyOrder() {
   return [
-    { text: t('home.study_step_grammar'),   href: '#/learn/grammar' },
-    { text: t('home.study_step_vocab'),     href: '#/learn/vocab' },
-    { text: t('home.study_step_kanji'),     href: '#/kanji' },
-    { text: t('home.study_step_drill'),     href: '#/drill' },
-    { text: t('home.study_step_reading'),   href: '#/reading' },
-    { text: t('home.study_step_listening'), href: '#/listening' },
-    { text: t('home.study_step_test'),      href: '#/test' },
-    { text: t('home.study_step_review'),    href: '#/review' },
+    { text: t('home.study_step_grammar'),   href: 'learn/grammar/' },
+    { text: t('home.study_step_vocab'),     href: 'learn/vocab/' },
+    { text: t('home.study_step_kanji'),     href: 'kanji/' },
+    { text: t('home.study_step_drill'),     href: 'drill/' },
+    { text: t('home.study_step_reading'),   href: 'reading/' },
+    { text: t('home.study_step_listening'), href: 'listening/' },
+    { text: t('home.study_step_test'),      href: 'test/' },
+    { text: t('home.study_step_review'),    href: 'review/' },
     // IMP-126 (richness audit, 2026-05-09): authentic real-world JP
     // (signs / menus / transit / shop / notice).
-    { text: t('home.study_step_authentic'), href: '#/authentic' },
+    { text: t('home.study_step_authentic'), href: 'authentic/' },
   ];
 }
 
@@ -313,7 +313,7 @@ export async function renderHome(container) {
   const resumeLabel = (patternLabels && patternLabels[lastViewed])
     || lastViewed;
   const resumeStrip = (isReturning && lastViewed)
-    ? `<a class="resume-strip" href="#/learn/${encodeURIComponent(lastViewed)}">Last session: ${esc(resumeLabel)}.</a>`
+    ? `<a class="resume-strip" href="learn/${encodeURIComponent(lastViewed)}/">Last session: ${esc(resumeLabel)}.</a>`
     : '';
 
   // EB-4: pedagogy recommender. The recommender returns a structured
@@ -361,14 +361,14 @@ export async function renderHome(container) {
       ${isReturning ? `
         <div class="syllabus-daily-status">
           <span class="syllabus-daily-streak">Streak: ${streak?.current ?? 0} ${(streak?.current ?? 0) === 1 ? 'day' : 'days'}</span>
-          <a class="syllabus-daily-progress" href="#/review" title="Open today's mixed-skill review queue (grammar + vocab + kanji SRS)">
+          <a class="syllabus-daily-progress" href="review/" title="Open today's mixed-skill review queue (grammar + vocab + kanji SRS)">
             <span class="syllabus-daily-progress-label">${t('home.today_label')}: <strong>${reviewsToday}</strong> / ${dailyGoal}</span>
             <span class="syllabus-daily-progress-bar" aria-hidden="true">
               <span class="syllabus-daily-progress-fill" style="width:${goalPct}%"></span>
             </span>
           </a>
           ${dueCount > 0 ? `
-            <a class="syllabus-daily-due" href="#/review">
+            <a class="syllabus-daily-due" href="review/">
               ${t('home.reviews_due', { n: `<strong>${dueCount}</strong>` })}${dueBreakdown}
             </a>
           ` : `
@@ -459,7 +459,7 @@ export async function renderHome(container) {
             }).join('')}
           </ol>
           <p class="muted small" style="margin-top:6px;">
-            <a href="#/missed">Browse wrong-answer history →</a>
+            <a href="missed/">Browse wrong-answer history →</a>
           </p>
         </section>
       ` : ''}
@@ -467,8 +467,8 @@ export async function renderHome(container) {
       <section class="syllabus-action" aria-label="Where to start">
         <p class="syllabus-action-prompt">${esc(t('home.action_prompt'))}</p>
         <div class="syllabus-action-buttons">
-          <a class="btn-action btn-action-primary" href="#/diagnostic">${esc(t('home.action_placement'))}</a>
-          <a class="btn-action btn-action-secondary" href="#/learn/grammar">${esc(t('home.action_start_grammar'))}</a>
+          <a class="btn-action btn-action-primary" href="diagnostic/">${esc(t('home.action_placement'))}</a>
+          <a class="btn-action btn-action-secondary" href="learn/grammar/">${esc(t('home.action_start_grammar'))}</a>
         </div>
       </section>
     </section>

@@ -25,6 +25,25 @@ def norm(s):
     return re.sub(r'[、。「」？！\s]', '', s or '')
 
 
+# TS-10 slot-token Latin whitelist (FP-21 lock, locked by JA-166).
+# These Latin tokens are LEGITIMATE pedagogical slot notation in
+# meaning_ja / explanation_ja (Verb-stem + たい, NOUN + を, etc.) per
+# Japanese-pedagogy conventions (Genki, Minna no Nihongo, etc.).
+# The TS-10 Latin-token audit MUST treat these as not-flagged.
+# Adding a new convention-introduced token? Extend this list AND
+# the matching xlsx scenario row (FP-21) per Rule 5 (cross-artifact sync).
+SLOT_TOKEN_WHITELIST = {
+    'Verb', 'Verb-stem', 'Verb-stem',
+    'Adj', 'i-Adj', 'na-Adj',
+    'Noun', 'NP',
+    'counter',
+    'A', 'B', 'X', 'Y',
+    'V', 'I', 'II', 'III', 'IV',
+    'na', 'i',
+    'V-', 'V-ます', 'V-て', 'V-た', 'V-ない',
+}
+
+
 def check_ts02_examples(p):
     """TS-02: examples are well-formed AND no within-pattern dups."""
     fails, partials = [], []

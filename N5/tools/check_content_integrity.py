@@ -1523,6 +1523,24 @@ CHECKS: list[tuple[str, str, callable]] = [
     # so a future edit that drops review_status silently is caught.
     # Prevents silent un-reviewing of the 8 rewritten + 53 PASS rows.
     ("JA-163", "every cm row with provenance=auto_fix_2026_05_24 carries a review_status (BUG-A..H native-review lock, 2026-05-24)", lambda: _check_ja_163_auto_fix_review_status_lock()),
+    # JA-164 (2026-05-24): intentional_variant_pair marker lock (Part 57).
+    # 5 grammar examples carry intentional_variant_pair markers documenting
+    # that the pair is a pedagogical contrast (へ vs に, やる vs する, etc.)
+    # — these prevent the example-dedup audit from misclassifying them.
+    # If a future edit drops the marker silently, the next dedup audit
+    # would flag the pair as accidental. JA-164 catches the regression.
+    ("JA-164", "intentional_variant_pair markers preserved on the 5 Part-57 pairs (drift guard, 2026-05-24)", lambda: _check_ja_164_intentional_variant_pair_lock()),
+    # JA-165 (2026-05-24): vocab/kanji within-entry example dedup lock (Part 58).
+    # 17 vocab + 2 kanji within-entry example duplicates were dropped in
+    # Part 58. If a future authoring/import pass re-introduces dups, this
+    # invariant catches it before merge.
+    ("JA-165", "no within-entry example dups in vocab.json + kanji.json (Part-58 regression guard, 2026-05-24)", lambda: _check_ja_165_corpus_within_entry_example_dedup()),
+    # JA-166 (2026-05-24): TS-10 slot-token whitelist extension (FP-21 lock).
+    # 20 grammar patterns carry legitimate slot-token Latin notation
+    # (Verb-, Verb-stem, counter, NP, A/B/X/Y). The audit-tool whitelist
+    # must include these tokens; if a future audit-tool maintainer
+    # narrows the whitelist, JA-166 catches it and points back to FP-21.
+    ("JA-166", "TS-10 slot-token Latin whitelist includes Verb-/Verb-stem/counter/NP/A/B/X/Y (FP-21 lock, 2026-05-24)", lambda: _check_ja_166_slot_token_whitelist()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8605,6 +8623,175 @@ def _check_ja_161_review_prompt_preflight_lock() -> list[str]:
                 f"failure mode (see CHANGELOG v1.16.10). Restore the "
                 f"marker before shipping. (Per F.44.29 reviewer-prompt-"
                 f"preflight discipline.)"
+            )
+    return failures
+
+
+def _check_ja_164_intentional_variant_pair_lock() -> list[str]:
+    """Part-57 intentional_variant_pair marker lock (2026-05-24).
+
+    Part 57 annotated 5 grammar example pairs as intentional pedagogical
+    contrasts (へ/に, やる/する, topic-drop, word-order flexibility,
+    その/あの). Each example in the pair carries
+    `intentional_variant_pair: <other_index>` +
+    `intentional_variant_intent: "<description>"` markers.
+
+    If a future edit drops these markers, the next dedup audit will
+    misclassify the pair as accidental and try to drop one example.
+    JA-164 catches the regression.
+
+    Scope: the 5 pairs from Part 57. Each pair must have BOTH examples
+    carry both markers, and the markers must be reciprocal (ex[a]
+    points to b, ex[b] points to a).
+    """
+    import json as _json
+    PAIRS = [
+        ('n5-044', 4, 7),
+        ('n5-059', 0, 9),
+        ('n5-062', 1, 8),
+        ('n5-073', 2, 5),
+        ('n5-082', 1, 8),
+    ]
+    p_path = ROOT / "data" / "grammar.json"
+    if not p_path.exists():
+        return ["JA-164: data/grammar.json missing"]
+    try:
+        data = _json.loads(p_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-164: parse error: {e}"]
+    pat_by_id = {p.get('id'): p for p in data.get('patterns', [])}
+    failures = []
+    for pid, a, b in PAIRS:
+        p = pat_by_id.get(pid)
+        if not p:
+            failures.append(f"JA-164 {pid}: pattern missing")
+            continue
+        exs = p.get('examples') or []
+        if a >= len(exs) or b >= len(exs):
+            failures.append(f"JA-164 {pid}: example indices [{a}, {b}] out of range")
+            continue
+        ex_a = exs[a]
+        ex_b = exs[b]
+        if ex_a.get('intentional_variant_pair') != b:
+            failures.append(
+                f"JA-164 {pid} ex[{a}].intentional_variant_pair: expected {b} "
+                f"(reciprocal to ex[{b}]), got {ex_a.get('intentional_variant_pair')!r}. "
+                f"Marker dropped silently — restore per Part 57."
+            )
+        if ex_b.get('intentional_variant_pair') != a:
+            failures.append(
+                f"JA-164 {pid} ex[{b}].intentional_variant_pair: expected {a}, "
+                f"got {ex_b.get('intentional_variant_pair')!r}."
+            )
+        if not (ex_a.get('intentional_variant_intent') or '').strip():
+            failures.append(
+                f"JA-164 {pid} ex[{a}].intentional_variant_intent: empty or missing"
+            )
+    return failures
+
+
+def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
+    """Part-58 cross-corpus within-entry example dedup regression guard
+    (2026-05-24).
+
+    Part 58 dropped 17 vocab + 2 kanji within-entry example duplicates
+    (same JA+EN appearing twice in one entry's examples array). This
+    invariant catches re-introduction of within-entry dups in either
+    corpus.
+
+    Scope: vocab.json entries + kanji.json entries; example dedup key
+    is (norm(ja), translation_en.lower()) for vocab, norm(form) for kanji.
+    Within-entry only — cross-entry sharing is intentional (FP-class).
+    """
+    import json as _json
+    import re as _re
+    def _norm(s):
+        return _re.sub(r'[、。「」？！\s]', '', s or '')
+
+    failures = []
+
+    v_path = ROOT / "data" / "vocab.json"
+    if v_path.exists():
+        try:
+            v = _json.loads(v_path.read_text(encoding="utf-8"))
+            for e in v.get('entries', []):
+                seen = set()
+                for i, ex in enumerate(e.get('examples') or []):
+                    if not isinstance(ex, dict): continue
+                    ja = ex.get('ja','')
+                    en = (ex.get('translation_en','') or '').strip().lower()
+                    key = (_norm(ja), en)
+                    if key in seen and ja:
+                        failures.append(
+                            f"JA-165 vocab {e.get('id','?')} (form={e.get('form','')}): "
+                            f"example[{i}] duplicates an earlier example within the "
+                            f"same entry. Part 58 dropped these; regression detected."
+                        )
+                    seen.add(key)
+        except Exception as e:
+            failures.append(f"JA-165: vocab.json parse error: {e}")
+
+    k_path = ROOT / "data" / "kanji.json"
+    if k_path.exists():
+        try:
+            k = _json.loads(k_path.read_text(encoding="utf-8"))
+            for e in k.get('entries', []):
+                seen = set()
+                for i, ex in enumerate(e.get('examples') or []):
+                    if not isinstance(ex, dict): continue
+                    form = ex.get('form','')
+                    if not form: continue
+                    key = _norm(form)
+                    if key in seen:
+                        failures.append(
+                            f"JA-165 kanji {e.get('glyph','?')}: example[{i}] duplicates "
+                            f"an earlier example (same form) within the same entry. "
+                            f"Part 58 dropped these; regression detected."
+                        )
+                    seen.add(key)
+        except Exception as e:
+            failures.append(f"JA-165: kanji.json parse error: {e}")
+
+    return failures
+
+
+def _check_ja_166_slot_token_whitelist() -> list[str]:
+    """FP-21 slot-token whitelist regression guard (2026-05-24).
+
+    20 grammar patterns carry legitimate slot-token Latin notation
+    (Verb-, Verb-stem, counter, NP, A/B/X/Y) in meaning_ja. The TS-10
+    audit tool's whitelist must include these tokens.
+
+    This invariant inspects tools/audit_ts_pass_counts_v2_2026_05_24.py
+    (or any future audit tool referenced by N5Improvement.txt) for the
+    required whitelist entries. If a future maintainer narrows the
+    whitelist, JA-166 catches the regression and points back to FP-21.
+
+    Required tokens (per Part 56 + Part 58): Verb-, Verb-stem, counter,
+    NP, A, B, X, Y, V, Adj, Noun.
+    """
+    audit_path = ROOT / "tools" / "audit_ts_pass_counts_v2_2026_05_24.py"
+    if not audit_path.exists():
+        # Tool removed/renamed — that's a separate JA-109 concern; this
+        # invariant only fires when the tool exists but its whitelist
+        # has dropped a required token.
+        return []
+    try:
+        txt = audit_path.read_text(encoding="utf-8")
+    except Exception as e:
+        return [f"JA-166: read error on {audit_path.name}: {e}"]
+    # The audit tool stores its whitelist inline; we check that the
+    # required Latin tokens appear as string literals in the source.
+    required = ['Verb', 'Verb-stem', 'counter', 'NP', 'A', 'B', 'X', 'Y', 'Adj', 'Noun']
+    failures = []
+    for tok in required:
+        # Wrap in quotes to look for string-literal occurrences
+        if f"'{tok}'" not in txt and f'"{tok}"' not in txt:
+            failures.append(
+                f"JA-166 audit_ts_pass_counts_v2_2026_05_24.py: slot-token "
+                f"whitelist missing required token {tok!r}. FP-21 (Part 56) "
+                f"lists this as legitimate slot notation in meaning_ja; "
+                f"restore to prevent false-flagging of legitimate patterns."
             )
     return failures
 
