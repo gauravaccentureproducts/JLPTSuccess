@@ -239,19 +239,19 @@
     },
     {
       "type": "mcq",
-      "stem_html": "おかね（　　）ありませんから、何も 買いません。",
+      "stem_html": "おかね（　　）ぜんぜん ありませんから、何も 買いません。",
       "choices": [
         "を",
         "に",
-        "は",
+        "へ",
         "が"
       ],
       "correctIndex": 3,
-      "rationale": "subject of ある (negative).",
+      "rationale": "ある/あります takes が as the subject particle: おかねが ありません. The added ぜんぜん (not at all) locks the existential-negation reading, where が is canonical. を/に/へ don't fit subject-of-ある.",
       "kbSourceId": "Q13",
       "id": "bunpou-1.13",
       "mondai": 1,
-      "rationale_hi": "कर्ता का ある (नकारात्मक)।",
+      "rationale_hi": "ある/あります विषय कण के रूप में が लेता है: おかねが ありません। ぜんぜん (बिल्कुल नहीं) जोड़ने से अस्तित्व-नकार पठन तय हो जाता है। を/に/へ ある के विषय के साथ नहीं आते।",
       "rationale_hi_provenance": "native_reviewed",
       "grammarPatternId": "n5-003",
       "grammarPatternId_provenance": "rule_based_correctanswer_2026_05_18"

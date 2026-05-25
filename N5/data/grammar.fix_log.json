@@ -4790,5 +4790,150 @@
         }
       }
     ]
+  },
+  "horizontal_mcq_ambiguity_fix_2026_05_25": {
+    "description": "Horizontal MCQ ambiguity sweep beyond JA-167 verb-ending class. Surfaced 5 question_word + 1 particle ambiguity across questions.json + 1 in papers. Fixed via context cues (answer-hints, constraining adverbs) + semantically-wrong Q-word distractors. bunpou-1.5 (kyou が/は) deliberately not fixed (は dominant in canonical teaching; reviewer polish only).",
+    "questions_json_fixes": [
+      {
+        "id": "q-0027",
+        "before": {
+          "q": "だれ（　）きませんでした。",
+          "ch": [
+            "は",
+            "が",
+            "を",
+            "も"
+          ],
+          "ca": "も"
+        },
+        "after": {
+          "q": "だれ（　）きませんでした。",
+          "ch": [
+            "も",
+            "を",
+            "に",
+            "へ"
+          ],
+          "ca": "も"
+        }
+      },
+      {
+        "id": "q-0034",
+        "before": {
+          "q": "（　）を たべますか。",
+          "ch": [
+            "どれ",
+            "なん",
+            "なに",
+            "どこ"
+          ],
+          "ca": "なに"
+        },
+        "after": {
+          "q": "（　）を たべますか。",
+          "ch": [
+            "なに",
+            "どこ",
+            "いつ",
+            "だれ"
+          ],
+          "ca": "なに"
+        }
+      },
+      {
+        "id": "q-0036",
+        "before": {
+          "q": "（　）が きましたか。",
+          "ch": [
+            "だれ",
+            "なに",
+            "どこ",
+            "いつ"
+          ],
+          "ca": "だれ"
+        },
+        "after": {
+          "q": "（　）が きましたか。",
+          "ch": [
+            "だれ",
+            "どこ",
+            "いつ",
+            "どう"
+          ],
+          "ca": "だれ"
+        }
+      },
+      {
+        "id": "q-0051",
+        "before": {
+          "q": "（　）から にほんごを べんきょうしていますか。",
+          "ch": [
+            "だれ",
+            "どこ",
+            "なに",
+            "いつ"
+          ],
+          "ca": "いつ"
+        },
+        "after": {
+          "q": "「3ねん前です。」と こたえました。（　）から にほんごを べんきょうしていますか。",
+          "ch": [
+            "いつ",
+            "どう",
+            "なぜ",
+            "どんな"
+          ],
+          "ca": "いつ"
+        }
+      },
+      {
+        "id": "q-0433",
+        "before": {
+          "q": "おしごとは （ ）ですか。",
+          "ch": [
+            "だれ",
+            "どう",
+            "いつ",
+            "どこ"
+          ],
+          "ca": "どう"
+        },
+        "after": {
+          "q": "おしごとは（　）ですか。 — たのしいです。",
+          "ch": [
+            "どう",
+            "だれ",
+            "どんな",
+            "なぜ"
+          ],
+          "ca": "どう"
+        }
+      }
+    ],
+    "paper_fixes": [
+      {
+        "id": "bunpou-1.13",
+        "before": {
+          "stem": "おかね（　　）ありませんから、何も 買いません。",
+          "ch": [
+            "を",
+            "に",
+            "は",
+            "が"
+          ],
+          "ci": 3
+        },
+        "after": {
+          "stem": "おかね（　　）ぜんぜん ありませんから、何も 買いません。",
+          "ch": [
+            "を",
+            "に",
+            "へ",
+            "が"
+          ],
+          "ci": 3
+        }
+      }
+    ]
   }
 }

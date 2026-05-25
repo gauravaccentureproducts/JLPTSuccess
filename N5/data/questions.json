@@ -956,30 +956,33 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "だれ（　）きませんでした。",
       "choices": [
-        "は",
-        "が",
+        "も",
         "を",
-        "も"
+        "に",
+        "へ"
       ],
       "correctAnswer": "も",
-      "explanation_en": "Question word + も + NEGATIVE verb means 'no one / nothing / nowhere'. だれも きませんでした = 'no one came'.",
+      "explanation_en": "Only も is the natural answer here. Replaced が (would yield \"Who didn't come?\" — also grammatically valid) with へ (direction particle, semantically wrong for subject-of-arrival).",
       "distractor_explanations": {
-        "は": "は + question word doesn't form 'no one' - that requires も.",
-        "が": "だれが きませんでした would ask 'who didn't come?', not state 'no one came'.",
-        "を": "を marks direct object - wrong here."
+        "を": "来る is intransitive; だれを来る is ungrammatical.",
+        "に": "に would mark a direction/target; だれに 来る is unusual.",
+        "へ": "へ is direction marker; doesn't fit subject-of-arrival."
       },
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "प्रश्न-शब्द + も + नकारात्मक क्रिया = \"कोई नहीं/कुछ नहीं\"। だれも きませんでした = \"कोई नहीं आया\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "は": "है विषय-कण; प्रश्न-शब्द के साथ \"कोई-नहीं\" का अर्थ नहीं देता।",
-        "が": "が कर्ता-कण; \"कोई-नहीं\" के लिए も + नकारात्मक चाहिए।",
-        "を": "を कर्म; \"कोई-नहीं\" अर्थ नहीं।"
+        "を": "来る अकर्मक क्रिया है; だれを来る व्याकरण-सम्मत नहीं।",
+        "に": "に दिशा/लक्ष्य चिह्न; だれに 来る असामान्य।",
+        "へ": "へ दिशा चिह्न; आगमन के विषय के साथ नहीं।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Replaced が (would yield \"Who didn't come?\" — also grammatically valid) with へ (direction particle, semantically wrong for subject-of-arrival)."
     },
     {
       "id": "q-0028",
@@ -1187,30 +1190,33 @@
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
       "question_ja": "（　）を たべますか。",
       "choices": [
-        "どれ",
-        "なん",
         "なに",
-        "どこ"
+        "どこ",
+        "いつ",
+        "だれ"
       ],
       "correctAnswer": "なに",
-      "explanation_en": "Before を (and が, も, は), 'what?' is なに - never なん.",
+      "explanation_en": "Only なに is the natural answer here. Replaced なん/どれ (both grammatically valid for \"what to eat\") with semantically-impossible Q-words for direct object of 食べる.",
       "distractor_explanations": {
-        "なん": "なん appears before です/ですか/でしょう and counters - never before を.",
-        "どれ": "どれ asks 'which (of these specific options)?'. なに is the open 'what?'.",
-        "どこ": "どこ asks 'where?', not 'what?'."
+        "どこ": "どこ asks for location, not for an object to eat.",
+        "いつ": "いつ asks for time, not for an object to eat.",
+        "だれ": "だれ asks for a person; semantically impossible as direct object of 食べる."
       },
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "こう + क्रिया-तरीक़ा = \"इस तरह\"। こう つかいます = \"इस तरह उपयोग करते हैं\"।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "なん": "なん です/ですか/でしょう और काउंटर से पहले आता है — を से पहले कभी नहीं।",
-        "どれ": "どれ \"इन विशिष्ट विकल्पों में से कौन सा?\" पूछता है। なに खुला \"क्या?\" है।",
-        "どこ": "どこ \"कहाँ?\" पूछता है, \"क्या?\" नहीं।"
+        "どこ": "どこ स्थान पूछता है; खाने की वस्तु नहीं।",
+        "いつ": "いつ समय पूछता है; खाने की वस्तु नहीं।",
+        "だれ": "だれ व्यक्ति पूछता है; 食べる का प्रत्यक्ष कर्म असंभव।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Replaced なん/どれ (both grammatically valid for \"what to eat\") with semantically-impossible Q-words for direct object of 食べる."
     },
     {
       "id": "q-0035",
@@ -1254,29 +1260,32 @@
       "question_ja": "（　）が きましたか。",
       "choices": [
         "だれ",
-        "なに",
         "どこ",
-        "いつ"
+        "いつ",
+        "どう"
       ],
       "correctAnswer": "だれ",
-      "explanation_en": "だれ asks 'who?'. With が (subject marker), it asks who did the action.",
+      "explanation_en": "Only だれ is the natural answer here. Replaced なに (also valid for non-person subject \"what came\") with semantically-impossible Q-words.",
       "distractor_explanations": {
-        "なに": "なに asks 'what?', not 'who?'.",
-        "どこ": "どこ asks 'where?'.",
-        "いつ": "いつ asks 'when?'."
+        "どこ": "\"Which place came\" — semantically odd.",
+        "いつ": "いつ takes no particle; いつが is ungrammatical.",
+        "どう": "どう asks for manner; doesn't fit subject slot before が."
       },
       "high_confusion": false,
       "difficulty": 1,
       "explanation_hi": "だれ = \"कौन\" (अनौपचारिक)। どなた = आदर-रूप।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "なに": "なに पूछता है 'क्या?', नहीं 'कौन?'।",
-        "どこ": "どこ पूछता है 'जहाँ?'।",
-        "いつ": "いつ पूछता है 'जब?'।"
+        "どこ": "\"कौन-सी जगह आई\" — अर्थहीन।",
+        "いつ": "いつ के साथ कण नहीं आता; いつが व्याकरण-सम्मत नहीं।",
+        "どう": "どう \"कैसे\" पूछता है; が से पहले विषय-स्लॉट में नहीं आता।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Replaced なに (also valid for non-person subject \"what came\") with semantically-impossible Q-words."
     },
     {
       "id": "q-0037",
@@ -1718,32 +1727,35 @@
       "type": "mcq",
       "direction": "j_to_e",
       "prompt_ja": "（　）に いちばん いい ものを えらんでください。",
-      "question_ja": "（　）から にほんごを べんきょうしていますか。",
+      "question_ja": "「3ねん前です。」と こたえました。（　）から にほんごを べんきょうしていますか。",
       "choices": [
-        "だれ",
-        "どこ",
-        "なに",
-        "いつ"
+        "いつ",
+        "どう",
+        "なぜ",
+        "どんな"
       ],
       "correctAnswer": "いつ",
-      "explanation_en": "いつから = 'since when?'. Pairs with から (start time) for 'since when have you been...?'.",
+      "explanation_en": "Only いつ is the natural answer here. Added \"「3ねん前です。」と こたえました。\" answer-hint to lock \"since when\" → いつ. Replaced だれ/どこ/なに (all valid as from-X) with Q-words that don't attach to から.",
       "distractor_explanations": {
-        "どこ": "どこから = 'from where?' - physical origin, not time.",
-        "なに": "なにから would mean 'starting with what?' - possible but unnatural for studies.",
-        "だれ": "だれから = 'from whom?' - about a giver, not time."
+        "どう": "どう+から is ungrammatical (どう doesn't take から).",
+        "なぜ": "なぜ+から is ungrammatical (なぜ stands alone; cause-of-cause is awkward).",
+        "どんな": "どんな needs a following noun; どんなから is ungrammatical."
       },
       "high_confusion": true,
       "difficulty": 2,
       "explanation_hi": "क्रिया + ませんでした = विनम्र भूत-नकारात्मक।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "どこ": "どこから = \"कहाँ से?\" — भौतिक मूल, समय नहीं।",
-        "なに": "なにから \"किस से शुरू करके?\" अर्थ देगा — संभव पर पढ़ाई के लिए अस्वाभाविक।",
-        "だれ": "だれから = \"किसके पास से?\" — दाता के बारे में, समय के बारे में नहीं।"
+        "どう": "どう+から व्याकरण-सम्मत नहीं।",
+        "なぜ": "なぜ+から व्याकरण-सम्मत नहीं।",
+        "どんな": "どんな के बाद संज्ञा चाहिए; どんなから व्याकरण-सम्मत नहीं।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_quality_reviewed",
-      "review_status_provenance": "claude_native_reviewer_persona"
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
+      "review_status_provenance": "claude_native_reviewer_persona",
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Added \"「3ねん前です。」と こたえました。\" answer-hint to lock \"since when\" → いつ. Replaced だれ/どこ/なに (all valid as from-X) with Q-words that don't attach to から."
     },
     {
       "id": "q-0220",
@@ -4609,19 +4621,19 @@
       "type": "mcq",
       "direction": "j_to_e",
       "prompt_ja": "（ ）に いれる ことばを えらんで ください。",
-      "question_ja": "おしごとは （ ）ですか。",
+      "question_ja": "おしごとは（　）ですか。 — たのしいです。",
       "choices": [
-        "だれ",
         "どう",
-        "いつ",
-        "どこ"
+        "だれ",
+        "どんな",
+        "なぜ"
       ],
       "correctAnswer": "どう",
-      "explanation_en": "How is your work? -  どう (how) is the natural question word for asking about state. The distractors are other question words that don't fit the predicate: だれ (who) for people, いつ (when) for time, どこ (where) for place. Replaces the earlier kosoado quartet (どう/こう/そう/ああ) which had no scene-direction anchor -  see Pass-15 anti-pattern §3.2.4.",
+      "explanation_en": "Only どう is the natural answer here. Added \"— たのしいです。\" reply-hint to lock \"how\" (asking about quality). Replaced いつ/どこ (also valid info-type questions) with semantically-impossible Q-words.",
       "distractor_explanations": {
-        "だれ": "だれ is 'who?' — not what fits here.",
-        "いつ": "いつ is 'when?' — not what fits here.",
-        "どこ": "どこ is 'where?' — not what fits here."
+        "だれ": "だれ asks for a person; work isn't a person.",
+        "どんな": "どんな needs a following noun; どんなですか is incomplete.",
+        "なぜ": "なぜ asks \"why\"; doesn't fit asking about a state/quality."
       },
       "high_confusion": false,
       "difficulty": 1,
@@ -4629,16 +4641,16 @@
       "explanation_hi": "काम कैसा है? — どう (कैसा) सबसे प्राकृतिक प्रश्न-शब्द।",
       "explanation_hi_provenance": "native_reviewed",
       "distractor_explanations_hi": {
-        "だれ": "だれ 'कौन?' — यहाँ नहीं फिट।",
-        "いつ": "いつ 'कब?' — यहाँ नहीं फिट।",
-        "どこ": "どこ 'कहाँ?' — यहाँ नहीं फिट।"
+        "だれ": "だれ व्यक्ति पूछता है; काम व्यक्ति नहीं।",
+        "どんな": "どんな के बाद संज्ञा चाहिए; どんなですか अधूरा।",
+        "なぜ": "なぜ \"क्यों\" पूछता है; स्थिति/गुण के बारे में नहीं।"
       },
-      "distractor_explanations_hi_provenance": "native_reviewed",
-      "review_status": "ai_native_reviewer_2026_05_24",
+      "distractor_explanations_hi_provenance": "auto_fix_2026_05_25",
+      "review_status": "ai_native_reviewer_2026_05_25",
       "review_status_provenance": "claude_native_reviewer_persona",
-      "provenance": "auto_fix_2026_05_24",
-      "audit_wave": "claude_audit_2026_05_24",
-      "reviewer_note": "Stripped 3 stale distractor_explanations keys (no longer in choices)."
+      "provenance": "auto_fix_2026_05_25",
+      "audit_wave": "claude_audit_2026_05_25",
+      "reviewer_note": "Added \"— たのしいです。\" reply-hint to lock \"how\" (asking about quality). Replaced いつ/どこ (also valid info-type questions) with semantically-impossible Q-words."
     },
     {
       "id": "q-0434",

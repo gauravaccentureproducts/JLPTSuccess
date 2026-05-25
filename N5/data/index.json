@@ -7,14 +7,14 @@
     "level": "N5",
     "site": "JLPTSuccess",
     "purpose": "Corpus-discovery index for programmatic / LLM access. Every entry here is a publicly-served static file. No CORS or auth required; any client can fetch.",
-    "version": "v1.16.12"
+    "version": "v1.17.2"
   },
   "files": [
     {
       "path": "data/grammar.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/grammar.json",
       "content_type": "application/json",
-      "size_bytes": 3256865,
+      "size_bytes": 3257408,
       "schema_version": "1.0",
       "description": "N5 grammar patterns (178 entries; particles, verb conjugations, adjectives, conditionals)",
       "item_count": 178
@@ -59,10 +59,10 @@
       "path": "data/questions.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/questions.json",
       "content_type": "application/json",
-      "size_bytes": 517926,
+      "size_bytes": 519626,
       "schema_version": "1.0",
-      "description": "N5 drill / paraphrase / kanji-writing questions (290 entries)",
-      "item_count": 290
+      "description": "N5 drill / paraphrase / kanji-writing questions (284 entries)",
+      "item_count": 284
     },
     {
       "path": "data/authentic.json",
@@ -95,7 +95,7 @@
       "path": "data/version.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/version.json",
       "content_type": "application/json",
-      "size_bytes": 989,
+      "size_bytes": 987,
       "schema_version": "1.0",
       "description": "Build version, cacheVersion, builtAt, content-count claims",
       "item_count": null
@@ -113,7 +113,7 @@
       "path": "data/papers/bunpou/paper-1.json",
       "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/data/papers/bunpou/paper-1.json",
       "content_type": "application/json",
-      "size_bytes": 9591,
+      "size_bytes": 10104,
       "schema_version": "1.0",
       "description": "Bunpou Paper 1 — 15 questions",
       "item_count": 15
@@ -364,14 +364,14 @@
   ],
   "totals": {
     "files": 39,
-    "total_bytes": 9266910,
+    "total_bytes": 9416845,
     "counts": {
       "grammar": 178,
       "vocab": 995,
       "kanji": 106,
       "reading": 54,
       "listening": 50,
-      "questions": 290,
+      "questions": 284,
       "papers": 28,
       "paperQuestions": 402,
       "grammar_n5": 173
