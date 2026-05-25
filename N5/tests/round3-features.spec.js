@@ -32,33 +32,14 @@ test.describe('round-3 + round-4 surface regression', () => {
   // features.spec.js prior to 2026-05-21).
   test.skip('home renders the trust band with 5 niche-N2 pills', () => {});
 
-  test('header has a locale toggle (EN ↔ HI) — redesigned 2026-05-09 (single icon-btn)', async ({ page }) => {
-    await page.goto('/');
-    // Locale UI was redesigned in v1.12.59-era (2026-05-09) from a
-    // 2-segment pill toggle (#locale-chip-group with two .locale-chip
-    // buttons) to a single square icon-btn that displays the DESTINATION
-    // locale label and swaps on click. The data-locale-label span carries
-    // the current label.
-    const toggle = page.locator('#locale-toggle');
-    await expect(toggle).toBeVisible();
-    const label = toggle.locator('[data-locale-label]');
-    await expect(label).toBeVisible();
-    // From the default EN context, the destination is HI, so the label
-    // initially reads "HI".
-    await expect(label).toHaveText('HI');
-  });
+  // Hindi locale tab DISABLED for Phase-1 English-only launch (2026-05-24).
+  // Hindi data retained in data/*.json + locales/hi.json for Phase-2;
+  // the UI toggle is feature-flagged off. Tests skipped until Phase-2.
+  // To re-enable: revert the feature-flag in js/i18n.js + remove the
+  // .skip() here. See docs/AUDIT-COVERAGE-2026-05-24.md.
+  test.skip('header has a locale toggle (EN ↔ HI) — redesigned 2026-05-09 (single icon-btn)', () => {});
 
-  test('clicking the locale toggle swaps the active locale to Hindi', async ({ page }) => {
-    await page.goto('/');
-    const toggle = page.locator('#locale-toggle');
-    await toggle.click();
-    // After click, locale should have flipped to HI; the label now
-    // shows the new destination (EN, since we just switched to HI).
-    await expect(toggle.locator('[data-locale-label]')).toHaveText('EN');
-    // Verify by inspecting <html lang> too — most robust check that
-    // the actual locale machinery responded.
-    await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
-  });
+  test.skip('clicking the locale toggle swaps the active locale to Hindi', () => {});
 
   test('#/missed shows the empty-state message when history is empty', async ({ page }) => {
     await page.goto('/#/missed');

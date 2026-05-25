@@ -70,8 +70,12 @@ test.describe('P0 smoke - core navigation', () => {
     // IMP-126 added authentic real-world JP as the 9th step on 2026-05-09).
     await expect(page.locator('.study-order-item')).toHaveCount(9);
     await expect(page.locator('.study-order-link')).toHaveCount(9);
-    await expect(page.locator('.study-order-link').first()).toHaveAttribute('href', '#/learn/grammar');
-    await expect(page.locator('.study-order-link').last()).toHaveAttribute('href', '#/authentic');
+    // 2026-05-24: post-W1.2 home.js hash→clean-path migration. hrefs
+    // now use clean paths (learn/grammar/, authentic/). SPA click-
+    // interceptor still routes both forms identically; URL post-nav
+    // is always clean-path.
+    await expect(page.locator('.study-order-link').first()).toHaveAttribute('href', 'learn/grammar/');
+    await expect(page.locator('.study-order-link').last()).toHaveAttribute('href', 'authentic/');
     // Progress overview: 6 rows.
     await expect(page.locator('.progress-row')).toHaveCount(6);
     // Fullscreen toggle exists in header (top-right cluster). CSS
