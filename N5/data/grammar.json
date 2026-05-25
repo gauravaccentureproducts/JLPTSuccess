@@ -44591,12 +44591,13 @@
           "audit_wave": "issue-112-phase4-2026-05-12"
         },
         {
-          "wrong": "りんごを 二つ ください。",
+          "wrong": "りんごを 二人 ください。",
           "right": "りんごを ふたつ ください。",
-          "why": "Context: using kanji-readable form when speaking. Native counters read with kun-yomi (ふたつ, not にじ). The kanji 二つ is OK in writing but the spoken/read form is ふたつ. Memorize the native series: ひとつ/ふたつ/みっつ/よっつ/いつつ/むっつ/ななつ/やっつ/ここのつ/とお.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase5-2026-05-13"
+          "why": "二人 (ふたり) is the PEOPLE counter — it can only count people. Apples are objects, so the native counter ふたつ is required. For small round objects another valid option is 二個 (にこ).",
+          "category": "register",
+          "category_provenance": "heuristic_categorized",
+          "provenance": "native_reviewed_2026_05_24",
+          "provenance_note": "Rewrite: prior wrong line \"りんごを 二つ ください。\" was not actually a linguistic error (kanji 二つ reads ふたつ and is widely used in real Japanese). Replaced with a real counter-mismatch error (二人 person-counter for fruit) so the strike-through marks a genuine mistake. Right line unchanged."
         }
       ],
       "contrasts": [
@@ -46681,12 +46682,13 @@
           "label_b": "casual (三時はん)"
         },
         {
-          "wrong": "いま 3時 半です。",
+          "wrong": "いま 3時 はんです。",
           "right": "いま 3時はんです。",
-          "why": "はん attaches DIRECTLY to 時, no space or extra particle. 3時はん = '3:30'. The form '3時 半' with separation reads awkwardly — はん is a fused suffix. Pronunciation: san-ji-han, not san-ji + han.",
-          "category": "conjugation",
-          "provenance": "native_reviewed",
-          "audit_wave": "issue-112-phase4-2026-05-12"
+          "why": "はん attaches DIRECTLY to 時, no space or extra particle. 3時はん = '3:30'. The form '3時 はん' with separation reads awkwardly — はん is a fused suffix. Pronunciation: san-ji-han, not san-ji + han.",
+          "category": "register",
+          "category_provenance": "heuristic_categorized",
+          "provenance": "native_reviewed_2026_05_24",
+          "provenance_note": "Rewrite: prior wrong line had kanji 半 + space (\"3時 半\"), which conflated two differences. Removed the kanji to isolate the actual error (the space). Kanji form 3時半 is itself valid; the strike-through should mark only the space issue."
         },
         {
           "wrong": "にじ はん ぐらいに きました。",

@@ -68,6 +68,56 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.2 - 2026-05-26 (Kanji-vs-kana over-reach fix — 2 wrong/right pairs now show real linguistic errors)</h2>
+<h3>Background</h3>
+<p>User-reported: a wrong/right card on a grammar page struck off <code>りんごを 二つ ください。</code> and marked <code>りんごを ふたつ ください。</code> as correct. The kanji form is not actually a learner mistake — 二 is N5 day-one whitelist kanji, 二つ reads ふたつ, and is the dominant form in real Japanese writing (Genki + Minna teach native counters in kanji). Strike-through on a non-error misleads learners.</p>
+<p>User rule set: <strong>wrong/right pairs must show a real linguistic error on the wrong line, not a stylistic / kanji-vs-kana preference.</strong></p>
+<h3>Fixed</h3>
+<ul>
+<li><strong>n5-108 cm[2]</strong> (Number + counter): replaced kanji-vs-kana</li>
+</ul>
+<p>preference pair with a real counter-mismatch error. wrong (new):  <code>りんごを 二人 ください。</code>  ← 二人=people-counter, wrong for fruit right:        <code>りんごを ふたつ ください。</code>  (unchanged) why:          &quot;二人 (ふたり) is the PEOPLE counter — apples are objects, so the native counter ふたつ is required. For small round objects 二個 (にこ) is also valid.&quot;</p>
+<ul>
+<li><strong>n5-113 cm[1]</strong> (〜じはん): wrong line had two differences from</li>
+</ul>
+<p>right (a real space error + a non-error kanji). Removed the kanji on the wrong line so the strike-through marks only the space: wrong (new):  <code>いま 3時 はんです。</code>  ← space between 時 and はん (real error) right:        <code>いま 3時はんです。</code>  (unchanged) why field unchanged (already correctly diagnoses the space).</p>
+<h3>Horizontal sweep result</h3>
+<p>Scanned all 178 patterns × all common_mistakes / wrong_corrected_pair entries for the kanji-vs-kana over-reach shape. <strong>5 candidates surfaced; 3 are real linguistic errors and were kept; 2 were over-reach and were fixed.</strong></p>
+<ul>
+<li>n5-096 cm[0] (大きい vs あつい): REAL — wrong adjective for</li>
+</ul>
+<p>weather. Kept.</p>
+<ul>
+<li>n5-108 cm[2] (二つ vs ふたつ): FIXED this batch.</li>
+<li>n5-113 cm[1] (3時 半 vs 3時はん): FIXED this batch.</li>
+<li>n5-144 cm[0] (same-subject rule for ながら): REAL — already fixed</li>
+</ul>
+<p>v1.16.12. Kept.</p>
+<ul>
+<li>n5-164 cm[2] (田中先生さん redundant honorific): REAL pragmatic</li>
+</ul>
+<p>error. Kept.</p>
+<h3>Discipline note</h3>
+<p>The 2 over-reach entries were artifacts of the earlier &quot;kana-first orthography policy&quot; sweep that legitimately covered out-of-N5-scope kanji but over-extended to native counters / time suffixes whose kanji IS in <code>n5_kanji_whitelist.json</code>. Rule going forward: kana-first applies only to kanji <strong>not</strong> in the N5 whitelist. Native counters and time suffixes using whitelisted kanji are authentic form, not learner mistake.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI: 169/169 invariants PASS (unchanged this batch — content fix</li>
+</ul>
+<p>only, no new invariant).</p>
+<ul>
+<li>Bug tracker: no new BUG-NNN (user-reported caught + fixed inline).</li>
+<li>Version: v1.17.1 → <strong>v1.17.2</strong>.</li>
+</ul>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;2 over-reach pairs fixed&quot; — sweep predicate was tight (wrong</li>
+</ul>
+<p>has more kanji than right, strings near-identical). Looser predicates may surface borderline mixed-script entries this one misses.</p>
+<ul>
+<li>&quot;Kanji form valid for N5-whitelisted kanji&quot; — claim is about</li>
+</ul>
+<p>real-world authenticity; classroom-fit at a specific level is a separate native-teacher judgement.</p>
+<hr>
 <h2>v1.17.1 - 2026-05-24/25 (BUG-A..K audit-cluster sweep + Waves 1-5 closure)</h2>
 <p>The largest audit-and-fix cycle in the project&#x27;s history. Started from an independent re-audit that surfaced 8 bug clusters (BUG-A..H); ran through to a full cross-corpus native-teacher review + UI a11y fix.</p>
 <h3>Headline outcomes (final state)</h3>

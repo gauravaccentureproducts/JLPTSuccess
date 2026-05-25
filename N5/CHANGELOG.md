@@ -2,6 +2,82 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.2 - 2026-05-26 (Kanji-vs-kana over-reach fix — 2 wrong/right pairs now show real linguistic errors)
+
+### Background
+
+User-reported: a wrong/right card on a grammar page struck off
+`りんごを 二つ ください。` and marked `りんごを ふたつ ください。` as
+correct. The kanji form is not actually a learner mistake — 二 is
+N5 day-one whitelist kanji, 二つ reads ふたつ, and is the dominant
+form in real Japanese writing (Genki + Minna teach native counters
+in kanji). Strike-through on a non-error misleads learners.
+
+User rule set: **wrong/right pairs must show a real linguistic
+error on the wrong line, not a stylistic / kanji-vs-kana preference.**
+
+### Fixed
+
+- **n5-108 cm[2]** (Number + counter): replaced kanji-vs-kana
+  preference pair with a real counter-mismatch error.
+    wrong (new):  `りんごを 二人 ください。`  ← 二人=people-counter, wrong for fruit
+    right:        `りんごを ふたつ ください。`  (unchanged)
+    why:          "二人 (ふたり) is the PEOPLE counter — apples are
+                   objects, so the native counter ふたつ is required.
+                   For small round objects 二個 (にこ) is also valid."
+
+- **n5-113 cm[1]** (〜じはん): wrong line had two differences from
+  right (a real space error + a non-error kanji). Removed the kanji
+  on the wrong line so the strike-through marks only the space:
+    wrong (new):  `いま 3時 はんです。`  ← space between 時 and はん (real error)
+    right:        `いま 3時はんです。`  (unchanged)
+    why field unchanged (already correctly diagnoses the space).
+
+### Horizontal sweep result
+
+Scanned all 178 patterns × all common_mistakes /
+wrong_corrected_pair entries for the kanji-vs-kana over-reach
+shape. **5 candidates surfaced; 3 are real linguistic errors and
+were kept; 2 were over-reach and were fixed.**
+
+- n5-096 cm[0] (大きい vs あつい): REAL — wrong adjective for
+  weather. Kept.
+- n5-108 cm[2] (二つ vs ふたつ): FIXED this batch.
+- n5-113 cm[1] (3時 半 vs 3時はん): FIXED this batch.
+- n5-144 cm[0] (same-subject rule for ながら): REAL — already fixed
+  v1.16.12. Kept.
+- n5-164 cm[2] (田中先生さん redundant honorific): REAL pragmatic
+  error. Kept.
+
+### Discipline note
+
+The 2 over-reach entries were artifacts of the earlier "kana-first
+orthography policy" sweep that legitimately covered out-of-N5-scope
+kanji but over-extended to native counters / time suffixes whose
+kanji IS in `n5_kanji_whitelist.json`. Rule going forward: kana-first
+applies only to kanji **not** in the N5 whitelist. Native counters
+and time suffixes using whitelisted kanji are authentic form, not
+learner mistake.
+
+### CI / tracker / version
+
+- CI: 169/169 invariants PASS (unchanged this batch — content fix
+  only, no new invariant).
+- Bug tracker: no new BUG-NNN (user-reported caught + fixed inline).
+- Version: v1.17.1 → **v1.17.2**.
+
+### Bounded coverage
+
+- "2 over-reach pairs fixed" — sweep predicate was tight (wrong
+  has more kanji than right, strings near-identical). Looser
+  predicates may surface borderline mixed-script entries this
+  one misses.
+- "Kanji form valid for N5-whitelisted kanji" — claim is about
+  real-world authenticity; classroom-fit at a specific level is
+  a separate native-teacher judgement.
+
+---
+
 ## v1.17.1 - 2026-05-24/25 (BUG-A..K audit-cluster sweep + Waves 1-5 closure)
 
 The largest audit-and-fix cycle in the project's history. Started
