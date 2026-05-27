@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.3';  // bumped 2026-05-26: removed footer-trust-strip from SPA shell — invalidate cached index.html
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.4';  // bumped 2026-05-26: new learn/drill/mock mirrors + footer-trust-strip removal — invalidate ALL cached HTML
 
 const PRECACHE = [
   './',
