@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.1';  // bumped 2026-05-25: add 12 new js modules to PRECACHE
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.2';  // bumped 2026-05-26: BUG-202 router unknown-route fallback (KNOWN_ROUTES guard) — invalidate cached app.js / router.js
 
 const PRECACHE = [
   './',

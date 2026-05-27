@@ -337,7 +337,13 @@ function applyRouteMeta(name, params) {
 async function route() {
   const container = document.getElementById('app');
   const { name, params } = parseRoute();
-  const handler = ROUTES[name] || renderLearn;
+  // Unknown-route fallback: parseRoute() now redirects unknown names to
+  // 'home' via replaceState (KNOWN_ROUTES guard in router.js, BUG-202).
+  // But keep a defensive fallback here too in case ROUTES drifts out of
+  // sync with KNOWN_ROUTES — fall back to renderHome (NOT renderLearn,
+  // which previously hung on unresolvable sub-params like
+  // /#/learn/grammar → renderLearn('grammar')).
+  const handler = ROUTES[name] || ROUTES.home;
   setActiveNav(handler === renderLearn ? 'learn' : name);
   applyNavTranslations();
   applyDataI18nKeys();
