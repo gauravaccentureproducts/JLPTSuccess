@@ -57,7 +57,6 @@ HEADER_HTML = '''<header class="app-header" role="banner">
 <a href="/JLPTSuccess/N5/reading/">Reading</a>
 <a href="/JLPTSuccess/N5/listening/">Listening</a>
 <a href="/JLPTSuccess/N5/test/">Test</a>
-<a href="/JLPTSuccess/N5/sitting/">Mock</a>
 <a href="/JLPTSuccess/N5/missed/">Missed</a>
 <a href="/JLPTSuccess/N5/summary/">Progress</a>
 </nav>

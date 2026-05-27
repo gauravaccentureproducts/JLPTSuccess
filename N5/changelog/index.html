@@ -64,40 +64,43 @@
 <link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<header class="app-header" role="banner">
-<div class="brand">
-<h1>
-<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
-<svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
-<g fill="currentColor">
-<rect x="1" y="0"  width="98" height="9" rx="4.5"/>
-<rect x="1" y="12" width="84" height="9" rx="4.5"/>
-<rect x="1" y="24" width="64" height="9" rx="4.5"/>
-<rect x="1" y="36" width="44" height="9" rx="4.5"/>
-<rect x="1" y="48" width="22" height="9" rx="4.5"/>
-</g>
-</svg>
-<span class="brand-wordmark">N5</span>
-</a>
-</h1>
-</div>
-<nav class="primary-nav" aria-label="Primary">
-<a href="/JLPTSuccess/N5/learn/grammar/">Grammar</a>
-<a href="/JLPTSuccess/N5/learn/vocab/">Vocabulary</a>
-<a href="/JLPTSuccess/N5/kanji/">Kanji</a>
-<a href="/JLPTSuccess/N5/reading/">Reading</a>
-<a href="/JLPTSuccess/N5/listening/">Listening</a>
-<a href="/JLPTSuccess/N5/test/">Test</a>
-<a href="/JLPTSuccess/N5/sitting/">Mock</a>
-<a href="/JLPTSuccess/N5/missed/">Missed</a>
-<a href="/JLPTSuccess/N5/summary/">Progress</a>
-</nav>
-</header>
-
 <main id="app">
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.11 - 2026-05-27 (Mock nav tab merged into Test — user said &quot;same/similar content at two different places&quot;)</h2>
+<h3>Background</h3>
+<p>The primary nav carried both <strong>Test</strong> and <strong>Mock</strong> tabs. Functionally they are different (Test = custom-length quick quiz, Mock = full JLPT-format 3-section paper with official timing), but from a user glance they read as duplicates. User flagged it.</p>
+<h3>Fixed</h3>
+<ul>
+<li>Removed the <code>&lt;a href=&quot;sitting/&quot; data-route=&quot;sitting&quot;&gt;Mock&lt;/a&gt;</code> line</li>
+</ul>
+<p>from the primary-nav block in <code>index.html</code>.</p>
+<ul>
+<li>Removed the same line from the injected app-header in all 1,410</li>
+</ul>
+<p>per-page mirrors (under /N5/learn/, /N5/kanji/, /N5/reading/, /N5/listening/, /N5/papers/, etc.).</p>
+<ul>
+<li>Removed the SPA-shell form (<code>&lt;a href=&quot;sitting/&quot; data-route=&quot;sitting&quot;&gt;Mock&lt;/a&gt;</code>)</li>
+</ul>
+<p>from the 3 directory-level SPA-shell mirrors (learn/, drill/, mock/).</p>
+<ul>
+<li>Removed the <code>Mock</code> entry from the static <code>HEADER_HTML</code> constant in</li>
+</ul>
+<p><code>tools/inject_app_header_into_mirrors_2026_05_27.py</code> so future injection runs don&#x27;t re-add it.</p>
+<ul>
+<li>Cache version bumped: sw.js + index.html css/js v1.17.10 → v1.17.11.</li>
+</ul>
+<h3>Preserved</h3>
+<ul>
+<li><strong>The <code>/sitting/</code> route still works</strong> — direct URL, all internal</li>
+</ul>
+<p>links, the &quot;Start full mock test →&quot; CTA on the /test/ setup screen. Only the primary-nav entry was removed.</p>
+<ul>
+<li><code>js/sitting.js</code> module untouched.</li>
+<li>All 178 grammar / 995 vocab / 106 kanji / 54 reading / 50 listening /</li>
+</ul>
+<p>28 paper-pack data unchanged.</p>
 <h2>v1.17.9 - 2026-05-27 (frontend mirror-header fix — 1,410 static SEO mirrors get the global app-header back)</h2>
 <h3>Background</h3>
 <p>User caught a deep-link regression on /N5/learn/n5-002/ (and equivalent on every other static SEO mirror): the per-page content rendered but the top-of-page chrome (brand mark + primary nav) was missing. Pages looked broken / orphaned. The earlier v1.17.6 fix had converted only the three directory-level mirrors (learn/, drill/, mock/) to full SPA-shell clones; the remaining 1,410 per-page mirrors were left in their &quot;standalone static content&quot; form which never had a header.</p>

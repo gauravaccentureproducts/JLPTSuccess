@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.10';  // bumped 2026-05-27: removed home-page study-order + progress + 'not sure where to start?' CTA sections — user-requested visual-clutter cleanup
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.11';  // bumped 2026-05-27: merged Mock nav tab into Test ('same/similar content' per user) — Mock link removed from primary-nav + every mirror header; /sitting/ route still works via direct URL + the 'Start full mock test' CTA on /test/
 
 const PRECACHE = [
   './',

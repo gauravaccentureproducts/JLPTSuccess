@@ -2,6 +2,38 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.11 - 2026-05-27 (Mock nav tab merged into Test — user said "same/similar content at two different places")
+
+### Background
+
+The primary nav carried both **Test** and **Mock** tabs. Functionally
+they are different (Test = custom-length quick quiz, Mock = full
+JLPT-format 3-section paper with official timing), but from a user
+glance they read as duplicates. User flagged it.
+
+### Fixed
+
+- Removed the `<a href="sitting/" data-route="sitting">Mock</a>` line
+  from the primary-nav block in `index.html`.
+- Removed the same line from the injected app-header in all 1,410
+  per-page mirrors (under /N5/learn/, /N5/kanji/, /N5/reading/,
+  /N5/listening/, /N5/papers/, etc.).
+- Removed the SPA-shell form (`<a href="sitting/" data-route="sitting">Mock</a>`)
+  from the 3 directory-level SPA-shell mirrors (learn/, drill/, mock/).
+- Removed the `Mock` entry from the static `HEADER_HTML` constant in
+  `tools/inject_app_header_into_mirrors_2026_05_27.py` so future
+  injection runs don't re-add it.
+- Cache version bumped: sw.js + index.html css/js v1.17.10 → v1.17.11.
+
+### Preserved
+
+- **The `/sitting/` route still works** — direct URL, all internal
+  links, the "Start full mock test →" CTA on the /test/ setup screen.
+  Only the primary-nav entry was removed.
+- `js/sitting.js` module untouched.
+- All 178 grammar / 995 vocab / 106 kanji / 54 reading / 50 listening /
+  28 paper-pack data unchanged.
+
 ## v1.17.9 - 2026-05-27 (frontend mirror-header fix — 1,410 static SEO mirrors get the global app-header back)
 
 ### Background
