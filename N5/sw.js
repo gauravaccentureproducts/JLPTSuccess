@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.12';  // bumped 2026-05-27: re-injected app-header into 10 meta-route mirrors that build_static_mirrors.py --stages meta wiped during the v1.17.11 build (sitting/, missed/, summary/, etc.)
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.13';  // bumped 2026-05-27: hide custom audio-skin (▶ −5s +5s 0:00/0:00 1×) in print/PDF — user-caught leak on listening item PDF export
 
 const PRECACHE = [
   './',
