@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JLPTSuccess — redirecting</title>
+<meta name="description" content="Redirecting to the JLPT N5 study site.">
+<meta name="robots" content="noindex">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", sans-serif; max-width: 760px; margin: 0 auto; padding: 1rem; line-height: 1.6; color: #1a1a1a; }
+  h1 { font-size: 1.4em; color: #14452a; }
+  a { color: #1a5c38; }
+</style>
+<script>
+  // Repo-root 404 handler. GitHub Pages serves this for any 404 within
+  // /JLPTSuccess/... (any path that doesn't have a matching file on
+  // disk). We redirect everything to the N5 home page — currently the
+  // only active level — so users never see a generic GitHub 404.
+  //
+  // Pattern: if the 404'd path was already under /JLPTSuccess/N5/,
+  // route via the SPA-redirect param so the SPA can try to recover
+  // the original path (rafgraph spa-github-pages style). Otherwise
+  // bounce straight to /JLPTSuccess/N5/ home.
+  //
+  // Added 2026-05-26 per user request: "any wrong URL → that N
+  // level's home page, no 404 errors".
+  (function () {
+    var pn = location.pathname;
+    var inN5 = /\/N5\//.test(pn);
+    var base = pn.replace(/\/JLPTSuccess\/.*/, '/JLPTSuccess/') || '/';
+    if (inN5) {
+      // Encode the original sub-path so the SPA can attempt to recover
+      // it via the spa-redirect handler in /N5/index.html.
+      var m = pn.match(/\/N5\/(.*)$/);
+      var sub = m ? m[1] : '';
+      var encoded = sub ? sub.replace(/&/g, '~and~').replace(/\//g, '~') : '';
+      var q = location.search ? location.search.slice(1).replace(/&/g, '~amp~') : '';
+      var url = base + 'N5/?spa-redirect=1'
+        + (encoded ? '&p=' + encodeURIComponent(encoded) : '')
+        + (q ? '&q=' + encodeURIComponent(q) : '')
+        + (location.hash || '');
+      location.replace(url);
+    } else {
+      // Any other 404 (e.g., legacy /JLPTSuccess/jlpt-n5-tutor/...,
+      // /JLPTSuccess/N4/typo, /JLPTSuccess/foo) → go straight to N5
+      // home with no path preservation. User-facing site has no
+      // currently-active level other than N5.
+      location.replace(base + 'N5/');
+    }
+  }());
+</script>
+</head>
+<body>
+  <h1>Redirecting…</h1>
+  <p>If you are not redirected automatically, <a href="N5/">go to the JLPT N5 homepage</a>.</p>
+</body>
+</html>
