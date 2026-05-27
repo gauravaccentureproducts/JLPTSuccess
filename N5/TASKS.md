@@ -314,28 +314,29 @@ Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invar
 
 ## Live site
 
-- **Repo**: https://github.com/gauravaccentureproducts/jlpt-n5-tutor
-- **Live URL**: https://gauravaccentureproducts.github.io/jlpt-n5-tutor/
+- **Repo**: https://github.com/gauravaccentureproducts/JLPTSuccess
+- **Live URL**: https://gauravaccentureproducts.github.io/JLPTSuccess/N5/
 - **Engine tests**: 37/37 passing (`tests.html`)
 - **Lint**: kanji-clean, vocab advisory-only
 
 ## Status snapshot
 
-- 187/187 patterns enriched, **198 real questions** (no stubs; post-Pass-14/15/16/17 cleanup). Distribution: 168 mcq / 16 sentence_order / 14 text_input. New mcq subtypes: `paraphrase` (10 from external-corpus Pass-15 P0), `kanji_writing` (6 from Pass-15 P1).
+_(Last verified 2026-05-25 by weekly audit)_
+
+- **178 grammar patterns** / **290 question-bank items** (no stubs). Distribution reflects all pass cleanup through v1.17.x.
 - **17 routed views + sub-paths**: Home / **Learn hub (5-card: Grammar/Vocab/Kanji/Dokkai/Listening)** with sub-paths `#/learn/grammar`, `#/learn/vocab`, `#/learn/vocab/<form>` (per-word detail with 5 example sentences), `#/learn/<patternId>` / Kanji (`#/kanji`, `#/kanji/<glyph>`) / Test (`#/test`, `#/test/<n>` direct-launch with quit-prompt) / Practice (`#/drill`, was "Daily Drill") / Review (SM-2 SRS) / Summary / Diagnostic / Settings / Reading / Listening / こそあど / は vs が / Verb groups / て-form gym / Particle pairs / Counters
 - SM-2 SRS in Review (4-button grading)
-- Service worker `jlpt-n5-tutor-v90` (stale-while-revalidate for shell, cache-first for content); update toast on new shell; lazy-caches audio on first play
-- 5-locale i18n shell (en at v1, vi/id/ne/zh structured)
+- Service worker `jlptsuccess-n5-v1.17.1` (stale-while-revalidate for shell, cache-first for content); update toast on new shell; lazy-caches audio on first play
+- 2-locale i18n shell (en + hi); additional locales (vi/id/ne/zh) pending translation
 - PWA manifest installable
 - Export / import progress round-trips through JSON
 - 37 browser-runnable tests
-- **Vocab corpus**: 1003 structured entries (data/vocab.json); whitelist 951 entries
-- **Kanji corpus**: 106 entries with stroke-order SVG slot (data/kanji.json) - recovered 9 missing entries via Pass-13 build-pipeline fix.
-- **Reading corpus**: 30 graded passages with 2-3 comprehension Qs each (data/reading.json)
-- **Listening corpus**: 30 items across 3 JLPT formats in data/listening.json (expanded from 12 by Pass-15-adjacent corpus work)
-- **Audio assets**: 491 MP3 files committed - 449 grammar examples, 30 reading passages, 12 listening scripts (~19 MB total). Generated via gTTS (build-time only).
+- **Vocab corpus**: 995 structured entries (data/vocab.json)
+- **Kanji corpus**: 106 entries with stroke-order SVG slot (data/kanji.json)
+- **Reading corpus**: 54 graded passages with comprehension Qs each (data/reading.json)
+- **Listening corpus**: 50 items across JLPT formats (data/listening.json); rendered with VOICEVOX 0.25.2 multi-voice
+- **Audio assets**: ~1936 MP3 files - 1782 grammar examples, 54 reading passages, 100 listening files. VOICEVOX Phase-2 re-render completed 2026-05-17.
 - **Audio TTS pipeline**: tools/build_audio.py - auto-detects piper-tts / gtts / pyttsx3. Idempotent. Uses string-suffix concat (not Path.with_suffix) so example IDs like 'n5-001.0' don't collide.
-- **Codebase em-dash-free** (881 occurrences stripped)
 - **Japanese-first learner surface (2026-05-02)**: dokkai + listening titles all in JA; English passage-translation panel removed from dokkai; UI page chrome (titles, intro, buttons, feedback labels, stat labels, level/topic) all rendered in JA via `renderJa()`. English glosses retained only on grammar examples (`grammar.json` `translation_en`) and after-answer rationales (`explanation_en`) where L1 scaffolding teaches new patterns.
 - **Content-protection layer (2026-05-02 v1.10.1)**: deters casual copying of question content. CSS `user-select: none` on body (with input/textarea/`.allow-select` opt-outs); JS module `js/content-protect.js` blocks contextmenu / copy / cut / dragstart / selectstart / Ctrl+C/A/X/S/P/U / F12 / Ctrl+Shift+I/J/K/C; window-blur sets `html[data-blur=true]` to obscure during region-screenshots; `@media print` blanks the page. NOT security - devtools / view-source / phone-camera-of-screen still work; honest limits documented in module header. GitHub source links removed from footer + changelog fallback + PRIVACY.md.
 

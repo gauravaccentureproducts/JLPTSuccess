@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.0';  // bumped 2026-05-24: history-mode SPA migration (hash→pathname)
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.1';  // bumped 2026-05-25: add 12 new js modules to PRECACHE
 
 const PRECACHE = [
   './',
@@ -189,6 +189,30 @@ const PRECACHE = [
   './fonts/inter-400.woff2',
   './fonts/inter-500.woff2',
   './fonts/noto-sans-jp-400.woff2',
+  // Audit 2026-05-25: new feature modules added since last PRECACHE sweep.
+  './js/exam-day.js',
+  './js/min/exam-day.js',
+  './js/listening-story.js',
+  './js/min/listening-story.js',
+  './js/listening-transcript.js',
+  './js/min/listening-transcript.js',
+  './js/md-viewer.js',
+  './js/min/md-viewer.js',
+  './js/mondai-pacing.js',
+  './js/min/mondai-pacing.js',
+  './js/papers.js',
+  './js/provenance-badge.js',
+  './js/min/provenance-badge.js',
+  './js/romaji-kana.js',
+  './js/min/romaji-kana.js',
+  './js/score-estimator.js',
+  './js/min/score-estimator.js',
+  './js/strategy.js',
+  './js/min/strategy.js',
+  './js/strategy-modal.js',
+  './js/min/strategy-modal.js',
+  './js/weak-areas.js',
+  './js/min/weak-areas.js',
 ];
 
 self.addEventListener('install', (event) => {
