@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.11';  // bumped 2026-05-27: merged Mock nav tab into Test ('same/similar content' per user) — Mock link removed from primary-nav + every mirror header; /sitting/ route still works via direct URL + the 'Start full mock test' CTA on /test/
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.12';  // bumped 2026-05-27: re-injected app-header into 10 meta-route mirrors that build_static_mirrors.py --stages meta wiped during the v1.17.11 build (sitting/, missed/, summary/, etc.)
 
 const PRECACHE = [
   './',
