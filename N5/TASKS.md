@@ -323,7 +323,7 @@ Last updated: 2026-05-02 (Content-protection layer - v1.10.1 / SW v90 / 38 invar
 
 _(Last verified 2026-05-25 by weekly audit)_
 
-- **178 grammar patterns** / **290 question-bank items** (no stubs). Distribution reflects all pass cleanup through v1.17.x.
+- **178 grammar patterns** / **284 question-bank items** (no stubs). Distribution reflects all pass cleanup through v1.17.x.
 - **17 routed views + sub-paths**: Home / **Learn hub (5-card: Grammar/Vocab/Kanji/Dokkai/Listening)** with sub-paths `#/learn/grammar`, `#/learn/vocab`, `#/learn/vocab/<form>` (per-word detail with 5 example sentences), `#/learn/<patternId>` / Kanji (`#/kanji`, `#/kanji/<glyph>`) / Test (`#/test`, `#/test/<n>` direct-launch with quit-prompt) / Practice (`#/drill`, was "Daily Drill") / Review (SM-2 SRS) / Summary / Diagnostic / Settings / Reading / Listening / こそあど / は vs が / Verb groups / て-form gym / Particle pairs / Counters
 - SM-2 SRS in Review (4-button grading)
 - Service worker `jlptsuccess-n5-v1.17.1` (stale-while-revalidate for shell, cache-first for content); update toast on new shell; lazy-caches audio on first play
