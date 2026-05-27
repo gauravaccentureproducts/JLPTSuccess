@@ -1553,6 +1553,16 @@ CHECKS: list[tuple[str, str, callable]] = [
     # OR the choices must include only 1 grammatically-valid-for-context
     # option. Approximated by checking known disambiguation markers.
     ("JA-167", "MCQ verb-ending choices have stem context that uniquely disambiguates the correct answer (2026-05-25)", lambda: _check_ja_167_mcq_verb_ending_ambiguity()),
+    # JA-168 (2026-05-26): BUG-201 PD-citation date-math lock.
+    # Every public_domain_refs entry with a non-null author_death_year
+    # must carry pd_since matching the death + applicable-term + 1
+    # formula. Catches the v1.17.2-and-earlier class where Sōseki
+    # (d.1916), Akutagawa (d.1927), Dazai (d.1948) etc. were tagged
+    # with the wrong "life + 70" rule when they're actually
+    # grandfathered to "life + 50" (Japan's 70-year extension only
+    # applies to works STILL under copyright when TPP took effect
+    # 2018-12-30 — pre-1968 deaths were already PD by then).
+    ("JA-168", "every public_domain_refs entry has pd_since matching death+50 (death≤1967) or death+70 (death≥1968) formula (BUG-201 lock, 2026-05-26)", lambda: _check_ja_168_pd_since_date_math()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8764,6 +8774,57 @@ def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
         except Exception as e:
             failures.append(f"JA-165: kanji.json parse error: {e}")
 
+    return failures
+
+
+def _check_ja_168_pd_since_date_math() -> list[str]:
+    """BUG-201 PD-citation date-math lock (2026-05-26).
+
+    Every public_domain_refs entry in grammar.json with a non-null
+    author_death_year must carry a pd_since field matching the formula:
+      - death_year <= 1967  →  pd_since = (death_year + 50 + 1)-01-01
+        (Japan's grandfathered death+50 rule for authors who were
+        already PD before the 2018-12-30 TPP-aligned 70-year term
+        took effect)
+      - death_year >= 1968  →  pd_since = (death_year + 70 + 1)-01-01
+        (post-TPP death+70 — those works were still under copyright
+        when the extension took effect)
+
+    Catches the v1.17.2-and-earlier class where 102 of 215 entries
+    had pd_status quoting "life + 70 years" for pre-1968 deaths.
+    """
+    import json as _json
+    grammar_path = ROOT / "data" / "grammar.json"
+    if not grammar_path.exists():
+        return []
+    try:
+        g = _json.loads(grammar_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-168: grammar.json parse error: {e}"]
+    failures = []
+    for p in g.get('patterns', []):
+        pid = p.get('id', '?')
+        for i, e in enumerate(p.get('public_domain_refs', [])):
+            dy = e.get('author_death_year')
+            if dy is None:
+                # Traditional / anonymous — pd_since may be null + term=public_domain_by_age
+                continue
+            expected_term = 'death+50' if dy <= 1967 else 'death+70'
+            expected_year = dy + (50 if dy <= 1967 else 70) + 1
+            expected_pd_since = f'{expected_year}-01-01'
+            actual = e.get('pd_since')
+            if actual != expected_pd_since:
+                failures.append(
+                    f"JA-168 {pid} public_domain_refs[{i}] ({e.get('work_title','?')} / "
+                    f"d.{dy}): pd_since={actual!r}, expected {expected_pd_since!r} "
+                    f"({expected_term})"
+                )
+            actual_term = e.get('term_used')
+            if actual_term != expected_term:
+                failures.append(
+                    f"JA-168 {pid} public_domain_refs[{i}]: term_used={actual_term!r}, "
+                    f"expected {expected_term!r} for d.{dy}"
+                )
     return failures
 
 

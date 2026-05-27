@@ -2,6 +2,82 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.3 - 2026-05-26 (BUG-201 PD-CITATION-001 close — corrected pd_since dates on 111 of 215 PD-reference entries + JA-168 lock)
+
+### Background
+
+User-reported (2026-05-24, on a grammar page): "Japan PD since 1998
+(Akutagawa d.1927)" — wrong date. Filed as BUG-201 (PD-CITATION-001).
+
+Cause: 111 of 215 `public_domain_refs` entries across grammar.json
+used the "life + 70 years" rule when computing `pd_status`, but the
+70-year term ONLY applies to authors who were STILL under copyright
+when the 2018-12-30 TPP-aligned extension took effect. Authors who
+died ≤ 1967 were already PD by then under the prior life+50 rule,
+and are grandfathered to that 50-year term.
+
+Affected: Sōseki (d.1916, 53 entries said 1987, should be 1967),
+Akutagawa (d.1927, 12 entries said 1998, should be 1978), Dazai
+(d.1948, said 2019, should be 1999), Miyazawa (d.1933, said 2004,
+should be 1984), and others.
+
+### Fixed
+
+- All 215 `public_domain_refs` entries rewritten with correct
+  PD-since date computed from `author_death_year`:
+    - death_year ≤ 1967  →  pd_since = (death_year + 50 + 1)-01-01
+    - death_year ≥ 1968  →  pd_since = (death_year + 70 + 1)-01-01
+    - death_year = null (traditional / proverb): pd_since = null,
+      pd_status = "Japan PD — public domain by age"
+- Added structured fields to every entry: `jurisdiction` ("JP"),
+  `term_used` ("death+50" / "death+70" / "public_domain_by_age"),
+  `pd_since` (ISO date string or null).
+- `pd_status` free-text rewritten to show correct date + term
+  rationale (e.g., "Japan PD since 1978-01-01 (death + 50 years
+  (grandfathered; author d. 1927 ≤ 1967))").
+
+### Note
+
+Quote enrichment (`quote_ja`, `quote_translation_en`,
+`quote_provenance`) was ALREADY done by a prior session — 155
+entries carry `claude_authored_2026_05_24_needs_native_verify`,
+60 entries carry `self_reference_proverb_text` (proverbs with no
+translator-copyright risk). Zero entries reference copyrighted
+translators (Jay Rubin / Penguin / Tuttle / etc.). The
+translation-copyright-trap defense in BUG-201's original spec is
+satisfied; no additional fix needed.
+
+### CI invariants added
+
+- **JA-168** — `public_domain_refs[].pd_since` matches the
+  date-math formula (death+50 grandfathered for pre-1968 deaths;
+  death+70 for post-1968 deaths). Locks the 111 corrected entries
+  against re-introduction of the wrong rule.
+
+### CI / tracker / version
+
+- CI: **170 / 170 PASS** (was 169; +JA-168).
+- Bug tracker: BUG-201 (PD-CITATION-001) **Open → Fixed**.
+- Version: v1.17.2 → **v1.17.3**.
+
+### Bounded coverage
+
+- "111 entries corrected via death-year math" — programmatic fix
+  derived from `author_death_year` already in each entry. Did NOT
+  re-verify the death years themselves (those are trusted from
+  the prior session).
+- "Quote-translation-trap defense satisfied" — based on regex
+  scan of `quote_provenance` for known copyrighted-translator
+  names; a translator the regex doesn't know would slip through.
+  Defense is the provenance-shape lock, not a comprehensive
+  translator-name DB.
+- "Japan grandfather rule" — claim is about pre-1968 deaths
+  staying at death+50. Edge cases (works that lost protection
+  due to non-renewal, foreign authors with reciprocal terms,
+  etc.) are out of scope for this batch.
+
+---
+
 ## v1.17.2 - 2026-05-26 (Kanji-vs-kana over-reach fix — 2 wrong/right pairs now show real linguistic errors)
 
 ### Background

@@ -68,6 +68,51 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.3 - 2026-05-26 (BUG-201 PD-CITATION-001 close — corrected pd_since dates on 111 of 215 PD-reference entries + JA-168 lock)</h2>
+<h3>Background</h3>
+<p>User-reported (2026-05-24, on a grammar page): &quot;Japan PD since 1998 (Akutagawa d.1927)&quot; — wrong date. Filed as BUG-201 (PD-CITATION-001).</p>
+<p>Cause: 111 of 215 <code>public_domain_refs</code> entries across grammar.json used the &quot;life + 70 years&quot; rule when computing <code>pd_status</code>, but the 70-year term ONLY applies to authors who were STILL under copyright when the 2018-12-30 TPP-aligned extension took effect. Authors who died ≤ 1967 were already PD by then under the prior life+50 rule, and are grandfathered to that 50-year term.</p>
+<p>Affected: Sōseki (d.1916, 53 entries said 1987, should be 1967), Akutagawa (d.1927, 12 entries said 1998, should be 1978), Dazai (d.1948, said 2019, should be 1999), Miyazawa (d.1933, said 2004, should be 1984), and others.</p>
+<h3>Fixed</h3>
+<ul>
+<li>All 215 <code>public_domain_refs</code> entries rewritten with correct</li>
+</ul>
+<p>PD-since date computed from <code>author_death_year</code>: - death_year ≤ 1967  →  pd_since = (death_year + 50 + 1)-01-01 - death_year ≥ 1968  →  pd_since = (death_year + 70 + 1)-01-01 - death_year = null (traditional / proverb): pd_since = null, pd_status = &quot;Japan PD — public domain by age&quot;</p>
+<ul>
+<li>Added structured fields to every entry: <code>jurisdiction</code> (&quot;JP&quot;),</li>
+</ul>
+<p><code>term_used</code> (&quot;death+50&quot; / &quot;death+70&quot; / &quot;public_domain_by_age&quot;), <code>pd_since</code> (ISO date string or null).</p>
+<ul>
+<li><code>pd_status</code> free-text rewritten to show correct date + term</li>
+</ul>
+<p>rationale (e.g., &quot;Japan PD since 1978-01-01 (death + 50 years (grandfathered; author d. 1927 ≤ 1967))&quot;).</p>
+<h3>Note</h3>
+<p>Quote enrichment (<code>quote_ja</code>, <code>quote_translation_en</code>, <code>quote_provenance</code>) was ALREADY done by a prior session — 155 entries carry <code>claude_authored_2026_05_24_needs_native_verify</code>, 60 entries carry <code>self_reference_proverb_text</code> (proverbs with no translator-copyright risk). Zero entries reference copyrighted translators (Jay Rubin / Penguin / Tuttle / etc.). The translation-copyright-trap defense in BUG-201&#x27;s original spec is satisfied; no additional fix needed.</p>
+<h3>CI invariants added</h3>
+<ul>
+<li><strong>JA-168</strong> — <code>public_domain_refs[].pd_since</code> matches the</li>
+</ul>
+<p>date-math formula (death+50 grandfathered for pre-1968 deaths; death+70 for post-1968 deaths). Locks the 111 corrected entries against re-introduction of the wrong rule.</p>
+<h3>CI / tracker / version</h3>
+<ul>
+<li>CI: <strong>170 / 170 PASS</strong> (was 169; +JA-168).</li>
+<li>Bug tracker: BUG-201 (PD-CITATION-001) <strong>Open → Fixed</strong>.</li>
+<li>Version: v1.17.2 → <strong>v1.17.3</strong>.</li>
+</ul>
+<h3>Bounded coverage</h3>
+<ul>
+<li>&quot;111 entries corrected via death-year math&quot; — programmatic fix</li>
+</ul>
+<p>derived from <code>author_death_year</code> already in each entry. Did NOT re-verify the death years themselves (those are trusted from the prior session).</p>
+<ul>
+<li>&quot;Quote-translation-trap defense satisfied&quot; — based on regex</li>
+</ul>
+<p>scan of <code>quote_provenance</code> for known copyrighted-translator names; a translator the regex doesn&#x27;t know would slip through. Defense is the provenance-shape lock, not a comprehensive translator-name DB.</p>
+<ul>
+<li>&quot;Japan grandfather rule&quot; — claim is about pre-1968 deaths</li>
+</ul>
+<p>staying at death+50. Edge cases (works that lost protection due to non-renewal, foreign authors with reciprocal terms, etc.) are out of scope for this batch.</p>
+<hr>
 <h2>v1.17.2 - 2026-05-26 (Kanji-vs-kana over-reach fix — 2 wrong/right pairs now show real linguistic errors)</h2>
 <h3>Background</h3>
 <p>User-reported: a wrong/right card on a grammar page struck off <code>りんごを 二つ ください。</code> and marked <code>りんごを ふたつ ください。</code> as correct. The kanji form is not actually a learner mistake — 二 is N5 day-one whitelist kanji, 二つ reads ふたつ, and is the dominant form in real Japanese writing (Genki + Minna teach native counters in kanji). Strike-through on a non-error misleads learners.</p>
