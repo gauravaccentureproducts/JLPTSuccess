@@ -2814,6 +2814,14 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .example-audio,
   .reading-audio,
   .listening-audio { display: none !important; }
+  /* 2026-05-27 (user-caught follow-up to the audio-skin fix): a stray
+     checkbox was still appearing under each grammar example in the PDF.
+     Belt-and-suspenders catch-all — print mode is non-interactive, so
+     any <input>, <select>, <textarea>, or <video> can never serve a
+     purpose on paper. Hiding the form-element classes globally also
+     immunizes against the next stray checkbox / search box / dropdown
+     that might be added without a .no-print parent. */
+  input, select, textarea, video { display: none !important; }
   a[href]::after { content: ""; }
   .skeleton-wrap { display: none; }
   /* IMP-146 (richness audit, 2026-05-09): hide route chrome that is
