@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.8';  // bumped 2026-05-26: removed home-privacy-hero banner from renderHome — user-requested
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.9';  // bumped 2026-05-27: injected global app-header (brand + primary-nav) into 1,410 static mirrors — restores header on deep-link pages
 
 const PRECACHE = [
   './',
