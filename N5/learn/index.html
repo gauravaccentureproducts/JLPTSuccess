@@ -1,53 +1,406 @@
-<!DOCTYPE html>
+<!-- AUTO-DERIVED MIRROR — clone of N5/index.html with <base href> injected so relative paths resolve from /JLPTSuccess/N5/ instead of this directory. If you regenerate index.html, also regenerate this file via tools/build_static_mirrors.py (when extended) or the one-shot script in this commit. Do not hand-edit. -->
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Learn — JLPT N5 Tutor</title>
-<meta name="description" content="Learn JLPT N5: grammar (178 patterns), vocab (995 entries), kanji (106), reading + listening.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/">
-
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/learn/">
-<meta property="og:title" content="Learn — JLPT N5 Tutor">
-<meta property="og:description" content="Learn JLPT N5: grammar (178 patterns), vocab (995 entries), kanji (106), reading + listening.">
-<meta property="og:site_name" content="JLPT N5 Tutor">
-<meta property="og:image" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/icons/icon-512.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learn — JLPT N5 Tutor">
-<meta name="twitter:description" content="Learn JLPT N5: grammar (178 patterns), vocab (995 entries), kanji (106), reading + listening.">
-<style>
-  :root { --green: #14452a; --green-soft: #1a5c38; --bg: #ffffff; --bg-soft: #f6f8f6; --text: #1a1a1a; --muted: #555; --border: #ddd; }
-  * { box-sizing: border-box; }
-  html, body { background: var(--bg); color: var(--text); }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", sans-serif; max-width: 760px; margin: 0 auto; padding: 1rem; line-height: 1.6; }
-  a { color: var(--green); }
-  a:hover { color: var(--green-soft); }
-  h1 { font-size: 1.6em; margin: 0.5rem 0; line-height: 1.3; }
-  h2 { font-size: 1.18em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; margin-top: 2rem; }
-  code { background: #f0f3f0; padding: 0.05em 0.35em; border-radius: 3px; font-size: 0.92em; }
-  .meta-banner { background: var(--bg-soft); border-left: 3px solid var(--green); padding: 0.75rem 1rem; font-size: 0.92em; margin: 0 0 1.5rem 0; }
-  .meta-banner a { font-weight: 600; }
-  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--muted); }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #1a1d1b; --bg-soft: #232826; --text: #e7eae8; --muted: #a5aba8; --border: #383d3a; }
-    code { background: #2a2f2c; }
-    .meta-banner { background: #232826; }
+  <base href="/JLPTSuccess/N5/">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- spa-github-pages decoder. Runs BEFORE the SPA boots. Unpacks the
+       ?spa-redirect=1&p=... query that 404.html builds, and rewrites
+       the URL back to the clean deep-link path via history.replaceState.
+       Pairs with the encoder in /404.html. See N5/404.html for details. -->
+  <script>
+    (function () {
+      var qs = location.search;
+      if (qs.indexOf('spa-redirect=1') === -1) return;
+      var params = new URLSearchParams(qs);
+      var p = params.get('p') || '';
+      var q = params.get('q') || '';
+      var pn = location.pathname;
+      var m = pn.match(/^(.*\/N5\/)/);
+      var base = m ? m[1] : '/';
+      var route = p ? p.replace(/~and~/g, '&').replace(/~/g, '/') : '';
+      var query = q ? '?' + q.replace(/~amp~/g, '&') : '';
+      var hash = location.hash || '';
+      history.replaceState(null, '', base + route + query + hash);
+    }());
+  </script>
+  <!-- CSP: static-only, no third-party.
+       ISSUE-012 (2026-05-04 round-2 audit): split style-src into
+       style-src-elem ('self', no inline) and style-src-attr ('self'
+       'unsafe-inline', for dynamic progress-bar widths etc.). This
+       forbids inline <style> element injection (the high-risk vector)
+       while still allowing the legitimate `style="width:N%"` attribute
+       writes used by progress bars across test/drill/diagnostic/home/
+       summary modules. The legacy `style-src 'self' 'unsafe-inline'` is
+       retained as a fallback for CSP-Level-2 user agents that ignore
+       the -elem/-attr directives.
+       script-src omits 'unsafe-inline' so any inline-script regression
+       fails fast. Per OQ-3 in spec supplement §B.9. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; base-uri 'self'; form-action 'none';">
+    <!-- NOTE: frame-ancestors + X-Frame-Options removed from <meta> per
+         browser-spec — both are IGNORED when delivered via meta (only
+         honored as HTTP headers). On GitHub Pages (static-hosted, no HTTP
+         header config), clickjacking protection cannot be set client-side.
+         The other CSP directives + Permissions-Policy + Referrer-Policy
+         ARE honored via meta and remain in place. See PRIVACY.md /
+         NOTICES.md for the documented static-hosting security limitation. -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+  <title>JLPT N5</title>
+  <meta name="description" content="JLPT N5 study material covering grammar, vocabulary, kanji, reading, and listening - static, on-device, privacy-preserving. No login. No tracking. Works offline.">
+  <meta name="theme-color" content="#14452a">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
+  <!-- IMP-142 (richness audit, 2026-05-09): hreflang alternates so
+       search engines surface the right locale (EN or HI) to each user.
+       Aligned with JA-39 invariant (locale set = {en, hi}). The HI
+       alternate uses the ?lc=hi URL parameter the runtime reads. -->
+  <link rel="alternate" hreflang="en" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
+  <link rel="alternate" hreflang="hi" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/?lc=hi">
+  <link rel="alternate" hreflang="x-default" href="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
+  <!-- ISSUE-032 + IMP-051 (audit round-4): social-share preview metadata.
+       og:image is shared for both Open Graph (Facebook/LinkedIn/Discord/Slack)
+       and Twitter Cards. JSON-LD EducationalApplication schema feeds Google
+       knowledge-panel + structured-data search results. Without these the
+       app's link previews degraded to "no preview" on every social platform. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JLPT N5 - free English + Hindi study material">
+  <meta property="og:description" content="Grammar, vocabulary, kanji, reading, listening, mock tests. No login. No tracking. Works offline. Open source.">
+  <meta property="og:url" content="https://gauravaccentureproducts.github.io/JLPTSuccess/N5/">
+  <meta property="og:image" content="https://gauravaccentureproducts.github.io/JLPTSuccess/assets/logo/icon-512.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="hi_IN">
+  <meta property="og:site_name" content="JLPTSuccess">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JLPT N5 - free English + Hindi study material">
+  <meta name="twitter:description" content="Grammar, vocabulary, kanji, reading, listening, mock tests. No login. No tracking. Works offline.">
+  <meta name="twitter:image" content="https://gauravaccentureproducts.github.io/JLPTSuccess/assets/logo/icon-512.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalApplication",
+    "name": "JLPTSuccess N5",
+    "description": "Free English + Hindi JLPT N5 study material - grammar, vocabulary, kanji, reading, listening, mock tests. No login, no tracking, works offline.",
+    "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/",
+    "image": "https://gauravaccentureproducts.github.io/JLPTSuccess/assets/logo/icon-512.png",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "any (PWA)",
+    "inLanguage": ["en", "hi", "ja"],
+    "isAccessibleForFree": true,
+    "license": "https://opensource.org/licenses/MIT",
+    "educationalLevel": "JLPT N5",
+    "teaches": "Japanese language (JLPT N5 syllabus): grammar, vocabulary, kanji, reading, listening",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
-</style>
-<link rel="stylesheet" href="../css/main.min.css">
+  </script>
+  <!-- IMP-142 (richness audit, 2026-05-09): Course schema for the N5
+       syllabus. Lets search engines understand the curriculum and
+       surface it as a learning-resource result. The five courseInstance
+       entries map to the five learning surfaces. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "JLPT N5 Complete Self-Study Course",
+    "description": "Complete JLPT N5 syllabus delivered as a free, on-device, privacy-preserving PWA. Covers 178 grammar patterns, 1000 vocab entries, 106 kanji, 45 reading passages, 47 listening drills, and 28 mock-test paper packs.",
+    "provider": {
+      "@type": "Organization",
+      "name": "JLPTSuccess",
+      "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/"
+    },
+    "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/",
+    "inLanguage": ["en", "hi", "ja"],
+    "isAccessibleForFree": true,
+    "educationalLevel": "JLPT N5",
+    "teaches": "Japanese language at JLPT N5 level",
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "name": "Grammar (178 N5 patterns)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/grammar"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Vocabulary (1000 entries)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/learn/vocab"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Kanji (106 N5 glyphs)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/kanji"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Reading comprehension (45 passages)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/reading"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Listening drills (47 items)",
+        "courseMode": "online",
+        "url": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/#/listening"
+      }
+    ]
+  }
+  </script>
+  <!-- IMP-142: BreadcrumbList for the N5 entry page. Tells crawlers
+       N5 is one level under the JLPTSuccess landing page. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "JLPTSuccess",
+        "item": "https://gauravaccentureproducts.github.io/JLPTSuccess/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "N5",
+        "item": "https://gauravaccentureproducts.github.io/JLPTSuccess/N5/"
+      }
+    ]
+  }
+  </script>
+  <!-- Brand favicon: the canonical JLPTSuccess five-bar mark, served from
+       the top-level assets/logo/. Same mark across the whole suite - the
+       N-level no longer appears in the favicon since the level is conveyed
+       in the URL bar (.../N5/) and the page title. -->
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/mark.svg">
+  <link rel="apple-touch-icon" href="../assets/logo/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <!-- Preload the two most-used fonts so first paint isn't a system-font
+       flash. Inter Regular (latin body) + Noto Sans JP (every ja example).
+       Light + Medium load on demand via the @font-face fallback chain. -->
+  <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/noto-sans-jp-400.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- IMP-021 (audit round-2): use the build-minified stylesheet. The
+       source `css/main.css` stays in the repo for editing; `main.min.css`
+       is regenerated by `python tools/build_min_css.py` before each
+       release (~34% smaller). -->
+  <link rel="stylesheet" href="css/main.min.css?v=1.17.6">
 </head>
 <body>
-<main id="app">
-<p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
-<h1>Learn</h1>
-<p>The Learn hub gives you 5 cards into the N5 syllabus:</p><ul><li><a href="grammar/">Grammar</a> &mdash; 178 patterns</li><li><a href="vocab/">Vocabulary</a> &mdash; 995 entries</li><li><a href="../kanji/">Kanji</a> &mdash; 106 characters</li><li><a href="../reading/">Reading</a> &mdash; 54 passages</li><li><a href="../listening/">Listening</a> &mdash; 50 items</li></ul><p>The full interactive hub loads automatically below.</p>
-<footer>
-  <p><a href="../">Home</a> · Learn</p>
-  <p>Part of <a href="../">JLPT N5 Tutor</a>. Content licensed CC BY-SA 4.0 · <a href="../CONTENT-LICENSE.md">CONTENT-LICENSE.md</a>.</p>
-</footer>
-</main>
-<script type="module" src="../js/min/app.js?v=1.17.4"></script>
+  <!-- Global print watermark (2026-05-14): tiled "JLPTSUCCESS.COM" diagonal
+       mark that appears on EVERY printed page from any route. The earlier
+       implementation in js/print-paper.js fired only on body[data-route="print"]
+       (the mock-paper sitting flow); printing other routes (grammar-detail,
+       vocab, kanji, reading, listening) shipped unwatermarked. This element
+       is hidden on screen via CSS (`.global-print-watermark { display: none }`)
+       and shown only in @media print with `position: fixed; width: 100vw;
+       height: 100vh` so it tiles on every printed page.
+
+       Foreground SVG (not a CSS background-image) so it prints reliably even
+       when the user has not enabled "Background graphics" in the print dialog.
+       fill-opacity 0.06 sits below the body-text contrast threshold — does
+       not hinder reading. pointer-events:none + user-select:none — never
+       blocks clicks or selection on screen (already display:none on screen
+       anyway, but defense-in-depth). -->
+  <div class="global-print-watermark" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="jlpts-global-watermark" x="0" y="0" width="280" height="160" patternUnits="userSpaceOnUse">
+          <text x="140" y="86"
+                font-family="Helvetica, Arial, sans-serif"
+                font-size="16"
+                font-weight="700"
+                fill="#000"
+                fill-opacity="0.06"
+                letter-spacing="2"
+                text-anchor="middle"
+                transform="rotate(-28 140 86)">JLPTSUCCESS.COM</text>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#jlpts-global-watermark)" />
+    </svg>
+  </div>
+  <a href="#app" class="skip-link">Skip to main content</a>
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <!-- Brand lockup: 5-bar mark (same SVG as the JLPTSuccess landing
+           page, inline so currentColor inherits the brand-green) +
+           level wordmark "N5". Per-level — N4/N3/N2/N1 sub-apps will
+           carry their own level code in the wordmark. Clicking the
+           lockup routes to the level picker. -->
+      <h1>
+        <a href="../" class="brand-link" aria-label="JLPTSuccess home, choose a level">
+          <svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
+            <g fill="currentColor">
+              <rect x="1" y="0"  width="98" height="9" rx="4.5" />
+              <rect x="1" y="12" width="84" height="9" rx="4.5" />
+              <rect x="1" y="24" width="64" height="9" rx="4.5" />
+              <rect x="1" y="36" width="44" height="9" rx="4.5" />
+              <rect x="1" y="48" width="22" height="9" rx="4.5" />
+            </g>
+          </svg>
+          <span class="brand-wordmark">N5</span>
+        </a>
+      </h1>
+    </div>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="learn/grammar/" data-route="learn/grammar">Grammar</a>
+      <a href="learn/vocab/" data-route="learn/vocab">Vocabulary</a>
+      <a href="kanji/" data-route="kanji">Kanji</a>
+      <a href="reading/" data-route="reading">Reading</a>
+      <a href="listening/" data-route="listening">Listening</a>
+      <a href="test/" data-route="test">Test</a>
+      <!-- ISSUE-039 + IMP-061 (audit round-5): surface the round-3
+           routes that were previously orphaned (only reachable from
+           Test / Review CTAs). Mock = full mock-paper sitting flow;
+           Missed = wrong-answer history log. -->
+      <a href="sitting/" data-route="sitting">Mock</a>
+      <a href="missed/" data-route="missed">Missed</a>
+      <a href="summary/" data-route="summary">Progress</a>
+    </nav>
+    <nav class="secondary-nav" aria-label="Secondary">
+      <input type="search" id="search-input" placeholder="Search" aria-label="Search grammar / vocab / kanji" autocomplete="off">
+      <!-- Locale toggle: single icon-btn-shaped square that displays the
+           current language ("EN" or "HI") and toggles between them on click.
+           Same shape/size as the fullscreen icon-btn next to it so they
+           read as a pair. Replaces the earlier 2-segment pill toggle
+           (locale-chip-group) per design family alignment 2026-05-09. -->
+      <button type="button" id="locale-toggle" class="icon-btn locale-toggle" aria-label="Switch language" title="Switch language">
+        <!-- Initial label is HI (the destination from default locale EN);
+             initLocaleChips() flips it on first sync if the user is
+             already on Hindi. -->
+        <span class="icon-btn-text" data-locale-label>HI</span>
+      </button>
+      <button type="button" id="fullscreen-toggle" class="icon-btn" aria-label="Toggle fullscreen" title="Toggle fullscreen">
+        <!-- lucide-style maximize icon (4 corner brackets). aria-hidden on the
+             SVG itself; the button carries the accessible name. -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" width="18" height="18">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+          <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+          <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+          <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+        </svg>
+      </button>
+      <a href="settings/" data-route="settings" class="icon-btn" aria-label="Settings" title="Settings">
+        <!-- lucide-style settings cog icon. -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" width="18" height="18">
+          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </a>
+    </nav>
+  </header>
+
+
+  <main id="app" role="main" tabindex="-1">
+    <div class="skeleton-wrap" role="status" aria-live="polite" aria-label="Loading">
+      <div class="skeleton skeleton-title" aria-hidden="true"></div>
+      <div class="skeleton skeleton-tagline" aria-hidden="true"></div>
+      <div class="skeleton-ctas" aria-hidden="true">
+        <div class="skeleton skeleton-btn"></div>
+        <div class="skeleton skeleton-btn"></div>
+      </div>
+      <div class="skeleton-pillars" aria-hidden="true">
+        <div class="skeleton skeleton-pillar"></div>
+        <div class="skeleton skeleton-pillar"></div>
+      </div>
+    </div>
+    <!-- IMP-142 (richness audit, 2026-05-09): noscript fallback content
+         for search-engine crawlers and JS-disabled visitors. Mirrors the
+         JSON-LD Course outline so the syllabus is indexable without
+         executing the SPA bundle. -->
+    <noscript>
+      <article style="max-width:680px;margin:24px auto;padding:0 16px;">
+        <h2>JLPT N5 — Free study material (English + Hindi)</h2>
+        <p>This site is a Progressive Web App and works best with JavaScript enabled.
+           Below is the syllabus outline + links to crawler-readable static pages.</p>
+
+        <h3>Module summaries (static, no-JS)</h3>
+        <ul>
+          <li><a href="home.html">JLPT N5 overview</a></li>
+          <li><a href="grammar.html">Grammar</a> — 178 patterns</li>
+          <li><a href="vocabulary.html">Vocabulary</a> — 995 entries</li>
+          <li><a href="kanji.html">Kanji</a> — 106 characters</li>
+          <li><a href="reading.html">Reading (Dokkai)</a> — 54 passages</li>
+          <li><a href="listening.html">Listening (Choukai)</a> — 50 drills</li>
+          <li><a href="test.html">Mock Tests</a> — 28 paper packs (402 questions)</li>
+        </ul>
+
+        <h3>Per-entity static indexes</h3>
+        <ul>
+          <li><a href="learn/grammar/">All 178 grammar patterns</a></li>
+          <li><a href="learn/vocab/">All 995 vocabulary entries</a></li>
+          <li><a href="kanji/">All 106 kanji</a></li>
+          <li><a href="reading/">All 54 reading passages</a></li>
+          <li><a href="listening/">All 50 listening drills</a></li>
+          <li><a href="papers/">All 28 mock paper packs</a></li>
+        </ul>
+
+        <h3>Data / Developers</h3>
+        <ul>
+          <li><a href="data/index.json">Corpus discovery index (JSON)</a></li>
+          <li><a href="data/grammar.json">grammar.json</a> ·
+              <a href="data/vocab.json">vocab.json</a> ·
+              <a href="data/kanji.json">kanji.json</a> ·
+              <a href="data/reading.json">reading.json</a> ·
+              <a href="data/listening.json">listening.json</a></li>
+          <li><a href="sitemap.xml">sitemap.xml</a> ·
+              <a href="/JLPTSuccess/llms.txt">llms.txt</a></li>
+        </ul>
+
+        <h3>Site meta</h3>
+        <ul>
+          <li><a href="changelog/">Changelog</a></li>
+          <li><a href="privacy/">Privacy</a></li>
+          <li><a href="notices/">Notices &amp; licenses</a></li>
+          <li><a href="https://github.com/gauravaccentureproducts/JLPTSuccess/issues">Feedback (GitHub Issues)</a></li>
+        </ul>
+
+        <p>Open source on
+          <a href="https://github.com/gauravaccentureproducts/JLPTSuccess">GitHub</a>.
+          MIT licensed code, CC BY-SA 4.0 content. No login, no tracking, works offline.</p>
+      </article>
+    </noscript>
+  </main>
+
+  <footer class="app-footer">
+    <!-- Footer-trust-strip removed 2026-05-26 per user request (visual
+         clutter; the trust signals are now communicated only through
+         the dedicated /privacy and /notices pages and the install
+         prompt copy). The data-i18n-key footer.trust_strip locale
+         string is retained in locales/*.json in case a future reviewer
+         wants to re-instate the strip without re-authoring the i18n. -->
+    <small class="footer-meta">Version <span data-footer-version aria-label="App version">v1.12.41</span></small>
+    <!-- F-4 (legal-vetting 2026-05-11): runtime-visible trademark
+         non-affiliation disclaimer per recommended remediation. -->
+    <small class="footer-disclaimer" data-i18n-key="footer.trademark_disclaimer">
+      JLPT® and Japanese-Language Proficiency Test® are trademarks of the Japan Foundation and Japan Educational Exchanges and Services (JEES). This site is independent and is not affiliated with, endorsed by, or sponsored by either organization.
+    </small>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="changelog/" data-route="changelog">What's new</a>
+      <a href="privacy/" data-route="privacy">Privacy</a>
+      <a href="notices/" data-route="notices">Notices</a>
+      <a href="#/feedback" data-route="feedback">Feedback</a>
+      <!-- ISSUE-050 (audit round-6): permanent in-app discovery for the
+           2-locale (EN | HI) chip group. The auto-detect toast fires once on first
+           init only - this link gives non-EN visitors a way to find the
+           switcher even after they've navigated past the home page. -->
+      <a href="#" id="footer-switch-lang" data-i18n-key="footer.switch_lang">Switch language</a>
+      <!-- IMP-069 (audit round-6): surface translator recruitment so
+           native speakers see the call-to-action beyond the docs/. -->
+      <a href="https://github.com/gauravaccentureproducts/JLPTSuccess/blob/master/N5/docs/TRANSLATING.md"
+         target="_blank" rel="noopener" data-i18n-key="footer.help_translate">Help translate</a>
+    </nav>
+  </footer>
+
+  <!-- ISSUE-043 (audit round-5): runtime references the minified
+       JS bundle in js/min/ (esbuild --minify, ~57% smaller than the
+       sources). The unminified js/<name>.js files stay in the repo +
+       precache so DevTools "Sources" tab can resolve them when
+       debugging on-device. Regen via `python tools/build_min_js.py`. -->
+  <script type="module" src="js/min/app.js?v=1.17.6"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.5';  // bumped 2026-05-26: learn-hub count fix (reading 30→54, listening 12→50) + JA-169 lock
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.6';  // bumped 2026-05-26: learn/drill/mock mirrors regenerated as full index.html clones (header + nav) — invalidate cached headerless mirrors
 
 const PRECACHE = [
   './',
