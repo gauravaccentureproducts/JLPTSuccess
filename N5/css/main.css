@@ -2796,8 +2796,9 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
   .app-header, .secondary-nav, .primary-nav, .skip-link, .location-indicator,
   #drill-badge, .furigana-toggle, .app-footer, .pwa-banner, .offline-indicator,
   .pwa-toast, .shortcuts-overlay, .kanji-popover, .search-panel { display: none !important; }
-  body { font-family: Georgia, "Times New Roman", serif; color: black; background: white; padding: 0; }
+  body { font-family: Georgia, "Times New Roman", serif; color: black; background: white; padding: 0; font-size: 10.5pt; line-height: 1.45; widows: 3; orphans: 3; }
   main, #app { max-width: none; padding: 0; }
+  p, li { widows: 3; orphans: 3; }
   details > summary { display: none; }
   details > * { display: block !important; }
   ruby rt { font-size: 0.6em; }
@@ -2829,14 +2830,22 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
      flagged with .no-print so the pattern-detail page renders as a
      clean lesson-note when printed (or saved as PDF). */
   .no-print { display: none !important; }
-  /* Pattern-detail page: stay readable on paper. */
+  /* Pattern-detail page: stay readable on paper.
+     2026-05-27 (user "think like a designer" print-reflow): the previous
+     rule `.pattern-detail section { page-break-inside: avoid }` forced
+     EVERY section (Examples, Deep dive, Categorized errors, …) to render
+     atomically. For 700+px sections this pushed the whole block to the
+     next page, leaving 200-500px blank zones at every page boundary. A
+     5-page PDF that should be 3. Switched to the textbook model: keep
+     individual examples / mistakes atomic, keep a heading attached to
+     its first paragraph, but allow long lists to flow across pages. */
   .pattern-detail { padding: 0; }
   .pattern-name { font-size: 22pt; margin: 0 0 6pt; }
-  .pattern-detail .meaning-en { font-size: 12pt; margin: 0 0 12pt; color: #333; }
-  .pattern-detail .section-title { font-size: 14pt; margin: 16pt 0 6pt; border-bottom: 0.5pt solid #999; padding-bottom: 2pt; }
+  .pattern-detail .meaning-en { font-size: 12pt; margin: 0 0 10pt; color: #333; }
+  .pattern-detail .section-title { font-size: 14pt; margin: 12pt 0 4pt; border-bottom: 0.5pt solid #999; padding-bottom: 2pt; page-break-after: avoid; break-after: avoid; }
+  .pattern-detail section { margin: 12pt 0; }
   .pattern-detail .example-list li,
-  .pattern-detail .mistakes-list li { margin: 6pt 0; page-break-inside: avoid; }
-  .pattern-detail section { page-break-inside: avoid; }
+  .pattern-detail .mistakes-list li { margin: 4pt 0; page-break-inside: avoid; break-inside: avoid; }
 
   /* IMP-143 cheat-sheet print mode: dense grammar TOC -> printable
      reference card. Active when JS adds .is-printing-cheatsheet to
