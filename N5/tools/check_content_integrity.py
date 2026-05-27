@@ -1563,6 +1563,14 @@ CHECKS: list[tuple[str, str, callable]] = [
     # applies to works STILL under copyright when TPP took effect
     # 2018-12-30 — pre-1968 deaths were already PD by then).
     ("JA-168", "every public_domain_refs entry has pd_since matching death+50 (death≤1967) or death+70 (death≥1968) formula (BUG-201 lock, 2026-05-26)", lambda: _check_ja_168_pd_since_date_math()),
+    # JA-169 (2026-05-26): user-caught drift — js/learn.js renderHub
+    # showed reading=30 / listening=12 long after the corpus grew to
+    # 54/50. The count strings are hardcoded constants in the JS
+    # template (no client-side cache module to compute them at runtime
+    # for reading + listening corpora). JA-169 locks the 5 hub-card
+    # count fallbacks to match data/version.json.counts so future
+    # corpus growth can't drift the displayed numbers silently.
+    ("JA-169", "js/learn.js renderHub() hardcoded count fallbacks (grammar/vocab/kanji/reading/listening) match data/version.json.counts (user-caught hub-drift lock, 2026-05-26)", lambda: _check_ja_169_learn_hub_count_sync()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8774,6 +8782,72 @@ def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
         except Exception as e:
             failures.append(f"JA-165: kanji.json parse error: {e}")
 
+    return failures
+
+
+def _check_ja_169_learn_hub_count_sync() -> list[str]:
+    """User-caught learn-hub-count drift lock (2026-05-26).
+
+    js/learn.js renderHub() hardcodes 5 count fallbacks that show on
+    the /learn/ hub cards. When the underlying data corpus grows
+    (grammar.json, vocab.json, kanji.json, reading.json, listening.json),
+    data/version.json.counts updates first. The hardcoded fallbacks in
+    learn.js MUST be bumped in the same change set; otherwise the hub
+    silently shows stale counts to the learner (e.g. reading=30 when
+    the corpus has 54 passages — the exact drift the user caught
+    2026-05-26).
+
+    Pattern matched: literal numeric constants in the renderHub source
+    that precede the field keywords. Tolerates the JS template-literal
+    `${name}` form (current shape) — only flags when the hardcoded
+    fallback initializer at the top of renderHub disagrees with
+    version.json.counts.
+    """
+    import re as _re, json as _json
+    learn_path = ROOT / "js" / "learn.js"
+    ver_path = ROOT / "data" / "version.json"
+    if not learn_path.exists() or not ver_path.exists():
+        return []
+    try:
+        learn = learn_path.read_text(encoding="utf-8")
+        ver = _json.loads(ver_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return [f"JA-169: read/parse error: {e}"]
+    counts = ver.get("counts", {})
+    # Pull the fallback constants from renderHub. Pattern:
+    #   const grammarCount = (grammarCache?.patterns || []).length || N;
+    #   const readingCount = N;
+    pairs = [
+        ("grammar",   r"const\s+grammarCount\s*=.*?\|\|\s*(\d+);"),
+        ("vocab",     r"const\s+vocabCount\s*=.*?\|\|\s*(\d+);"),
+        ("kanji",     r"const\s+kanjiCount\s*=.*?\|\|\s*(\d+);"),
+        ("reading",   r"const\s+readingCount\s*=\s*(\d+);"),
+        ("listening", r"const\s+listeningCount\s*=\s*(\d+);"),
+    ]
+    failures = []
+    for key, pattern in pairs:
+        m = _re.search(pattern, learn, _re.DOTALL)
+        if not m:
+            failures.append(
+                f"JA-169 js/learn.js renderHub() missing hardcoded fallback for {key!r} "
+                f"(pattern {pattern!r} did not match)"
+            )
+            continue
+        hardcoded = int(m.group(1))
+        expected = counts.get(key)
+        if expected is None:
+            failures.append(
+                f"JA-169 data/version.json.counts.{key} missing (cannot validate "
+                f"learn.js hardcoded fallback {hardcoded})"
+            )
+            continue
+        if hardcoded != expected:
+            failures.append(
+                f"JA-169 js/learn.js renderHub() {key} fallback = {hardcoded}, "
+                f"but data/version.json.counts.{key} = {expected}. "
+                f"Bump the fallback in renderHub to match (and run "
+                f"tools/build_min_js.py + cache-buster bump)."
+            )
     return failures
 
 

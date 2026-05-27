@@ -86,9 +86,19 @@ function renderHub(container) {
   // Zen Modern hub: two semantic groups (Reference + Practice) with
   // hairline-rule section labels and Muji-signature numbered card
   // indices (01-05). Reading-frequency order, not grid-symmetry order.
-  const grammarCount = (grammarCache?.patterns || []).length || 187;
-  const vocabCount = (vocabCache?.entries || []).length || 1003;
+  //
+  // Fallback constants kept in sync with data/version.json.counts via
+  // CI invariant JA-169 (added 2026-05-26 after user caught reading=30
+  // / listening=12 drift). When the corpus grows, version.json.counts
+  // updates first; JA-169 fails CI until the fallbacks below are
+  // bumped to match. Reading + Listening have no client-side cache
+  // module loaded ahead of renderHub, so the fallback IS the value
+  // shown on first render.
+  const grammarCount = (grammarCache?.patterns || []).length || 178;
+  const vocabCount = (vocabCache?.entries || []).length || 995;
   const kanjiCount = (kanjiCache?.entries || []).length || 106;
+  const readingCount = 54;
+  const listeningCount = 50;
   container.innerHTML = `
     <h2>Learn</h2>
 
@@ -125,13 +135,13 @@ function renderHub(container) {
       <a class="hub-card" href="#/reading">
         <p class="card-index" aria-hidden="true">04</p>
         <h3>Dokkai (Reading)</h3>
-        <p>30 graded passages with comprehension questions. Audio for every passage.</p>
+        <p>${readingCount} graded passages with comprehension questions. Audio for every passage.</p>
         <span class="hub-cta">Practice</span>
       </a>
       <a class="hub-card" href="#/listening">
         <p class="card-index" aria-hidden="true">05</p>
         <h3>Listening</h3>
-        <p>12 items across the three JLPT N5 listening formats. Audio for every script.</p>
+        <p>${listeningCount} items across the three JLPT N5 listening formats. Audio for every script.</p>
         <span class="hub-cta">Practice</span>
       </a>
     </div>
