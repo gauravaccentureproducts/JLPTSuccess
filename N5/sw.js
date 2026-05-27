@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.14';  // bumped 2026-05-27: catch-all print-hide for input/select/textarea/video — user reported stray checkbox under grammar examples in PDF; v1.17.13 hid the audio skin but missed input elements
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.15';  // bumped 2026-05-27: ROOT-CAUSE fix — Playwright print-mode probe identified the 'checkbox' as the OUTER .audio-skin wrapper div (17x17 tinted square left after my v1.17.13 fix hid only the INNER .audio-skin-controls). Added .audio-skin to the print-hide list.
 
 const PRECACHE = [
   './',

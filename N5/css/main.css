@@ -2810,6 +2810,7 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
      output shows the "0:00 / 0:00" timer + ▶ −5s +5s 1× buttons on every
      audio-bearing card. User screenshotted the leak on a listening item;
      fix is to hide the skin wrapper in print. */
+  .audio-skin,
   .audio-skin-controls,
   .example-audio,
   .reading-audio,
