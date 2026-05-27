@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.7';  // bumped 2026-05-26: <base href> in index.html — pins asset resolution to /N5/ across replaceState, fixes invalid-URL asset 404s
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.8';  // bumped 2026-05-26: removed home-privacy-hero banner from renderHome — user-requested
 
 const PRECACHE = [
   './',
