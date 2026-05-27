@@ -2,6 +2,48 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.9 - 2026-05-27 (frontend mirror-header fix — 1,410 static SEO mirrors get the global app-header back)
+
+### Background
+
+User caught a deep-link regression on /N5/learn/n5-002/ (and equivalent
+on every other static SEO mirror): the per-page content rendered but
+the top-of-page chrome (brand mark + primary nav) was missing. Pages
+looked broken / orphaned. The earlier v1.17.6 fix had converted only
+the three directory-level mirrors (learn/, drill/, mock/) to full
+SPA-shell clones; the remaining 1,410 per-page mirrors were left in
+their "standalone static content" form which never had a header.
+
+### Fixed
+
+- New tool: `tools/inject_app_header_into_mirrors_2026_05_27.py` —
+  injects a static `<header class="app-header">` (brand mark + 9
+  primary-nav links) immediately after the `<body>` tag in every
+  mirror that lacks one. All header href values are absolute
+  (/JLPTSuccess/N5/…) so the same HTML works at depth 1, 2, or 3
+  without a `<base href>`.
+- 1,410 mirrors gained the header; 1,222 also gained the
+  `<link rel="stylesheet" href="/JLPTSuccess/N5/css/main.min.css">`
+  needed to style it. The 3 directory SPA shells from v1.17.6 were
+  detected and skipped (idempotent).
+- Cache versions bumped: sw.js CACHE_VERSION v1.17.8 → v1.17.9;
+  index.html css + js `?v=` query strings v1.17.8 → v1.17.9.
+
+### Verification
+
+- All 171 CI invariants pass locally; JA-68 cache-version sync passes.
+- Live spot-check (6 sample mirrors across 4 categories — grammar
+  pattern, kanji hub, papers hub, reading hub, listening hub,
+  learn/grammar SPA hub) all return HTTP 200 with `app-header`,
+  `primary-nav`, and `brand-link` markers present.
+
+### Preserves
+
+- Every byte of existing per-page SEO content (titles, meta-descriptions,
+  OG tags, JSON-LD, embedded examples, redirect scripts). The script
+  only ADDS the header link + element; it never modifies existing
+  content. Idempotent — re-running on already-injected files is a no-op.
+
 ## v1.17.3 - 2026-05-26 (BUG-201 PD-CITATION-001 close — corrected pd_since dates on 111 of 215 PD-reference entries + JA-168 lock)
 
 ### Background
