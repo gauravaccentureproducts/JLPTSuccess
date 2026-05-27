@@ -400,37 +400,13 @@ export async function renderHome(container) {
         </div>
       </section>
 
-      <section class="syllabus-study-order" aria-label="Recommended study order">
-        <header class="section-label">
-          <span class="section-label-text">${esc(t('home.study_order_section_label'))}</span>
-          <span class="section-label-rule" aria-hidden="true"></span>
-        </header>
-        <ol class="study-order-list">
-          ${studyOrder().map((step, i) => `
-            <li class="study-order-item">
-              <a class="study-order-link" href="${step.href}">
-                <span class="study-order-num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
-                <span class="study-order-text">${esc(step.text)}</span>
-              </a>
-            </li>
-          `).join('')}
-        </ol>
-      </section>
-
-      <section class="syllabus-progress" aria-label="Progress overview">
-        <header class="section-label">
-          <span class="section-label-text">${esc(t('home.progress_section_label'))}</span>
-          <span class="section-label-rule" aria-hidden="true"></span>
-        </header>
-        <ul class="progress-list">
-          ${renderProgressRow(t('home.progress_label_grammar'), progress.grammar)}
-          ${renderProgressRow(t('home.progress_label_vocab'), progress.vocab)}
-          ${renderProgressRow(t('home.progress_label_kanji'), progress.kanji)}
-          ${renderProgressRow(t('home.progress_label_reading'), progress.reading)}
-          ${renderProgressRow(t('home.progress_label_listening'), progress.listening)}
-          ${renderProgressRow(t('home.progress_label_test'), progress.mockTest)}
-        </ul>
-      </section>
+      <!-- Recommended-study-order + progress-overview sections removed
+           2026-05-27 per user request (visual clutter on home page). The
+           studyOrder() helper, computeProgress(), and renderProgressRow()
+           remain defined above so a future revert is a single template-
+           block addition. i18n keys home.study_order_*, home.progress_*
+           retained in locales/*.json so JA-108 key-set parity stays
+           clean. Matches the v1.17.8 home-privacy-hero removal pattern. -->
 
       ${isReturning && forecast.length ? `
         <!-- IMP-036 (audit round-3): 7-day review forecast.
@@ -462,13 +438,13 @@ export async function renderHome(container) {
         </section>
       ` : ''}
 
-      <section class="syllabus-action" aria-label="Where to start">
-        <p class="syllabus-action-prompt">${esc(t('home.action_prompt'))}</p>
-        <div class="syllabus-action-buttons">
-          <a class="btn-action btn-action-primary" href="diagnostic/">${esc(t('home.action_placement'))}</a>
-          <a class="btn-action btn-action-secondary" href="learn/grammar/">${esc(t('home.action_start_grammar'))}</a>
-        </div>
-      </section>
+      <!-- "Not sure where to start?" action CTA section removed
+           2026-05-27 per user request (visual clutter; placement check
+           is still reachable from the diagnostic route directly, and
+           grammar is reachable from the primary nav). i18n keys
+           home.action_prompt / home.action_placement / home.action_start_grammar
+           retained in locales/*.json so JA-108 key-set parity stays
+           clean and a future revert is a single template-block addition. -->
     </section>
   `;
 }

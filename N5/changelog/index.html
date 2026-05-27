@@ -98,6 +98,33 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.9 - 2026-05-27 (frontend mirror-header fix — 1,410 static SEO mirrors get the global app-header back)</h2>
+<h3>Background</h3>
+<p>User caught a deep-link regression on /N5/learn/n5-002/ (and equivalent on every other static SEO mirror): the per-page content rendered but the top-of-page chrome (brand mark + primary nav) was missing. Pages looked broken / orphaned. The earlier v1.17.6 fix had converted only the three directory-level mirrors (learn/, drill/, mock/) to full SPA-shell clones; the remaining 1,410 per-page mirrors were left in their &quot;standalone static content&quot; form which never had a header.</p>
+<h3>Fixed</h3>
+<ul>
+<li>New tool: <code>tools/inject_app_header_into_mirrors_2026_05_27.py</code> —</li>
+</ul>
+<p>injects a static <code>&lt;header class=&quot;app-header&quot;&gt;</code> (brand mark + 9 primary-nav links) immediately after the <code>&lt;body&gt;</code> tag in every mirror that lacks one. All header href values are absolute (/JLPTSuccess/N5/…) so the same HTML works at depth 1, 2, or 3 without a <code>&lt;base href&gt;</code>.</p>
+<ul>
+<li>1,410 mirrors gained the header; 1,222 also gained the</li>
+</ul>
+<p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/JLPTSuccess/N5/css/main.min.css&quot;&gt;</code> needed to style it. The 3 directory SPA shells from v1.17.6 were detected and skipped (idempotent).</p>
+<ul>
+<li>Cache versions bumped: sw.js CACHE_VERSION v1.17.8 → v1.17.9;</li>
+</ul>
+<p>index.html css + js <code>?v=</code> query strings v1.17.8 → v1.17.9.</p>
+<h3>Verification</h3>
+<ul>
+<li>All 171 CI invariants pass locally; JA-68 cache-version sync passes.</li>
+<li>Live spot-check (6 sample mirrors across 4 categories — grammar</li>
+</ul>
+<p>pattern, kanji hub, papers hub, reading hub, listening hub, learn/grammar SPA hub) all return HTTP 200 with <code>app-header</code>, <code>primary-nav</code>, and <code>brand-link</code> markers present.</p>
+<h3>Preserves</h3>
+<ul>
+<li>Every byte of existing per-page SEO content (titles, meta-descriptions,</li>
+</ul>
+<p>OG tags, JSON-LD, embedded examples, redirect scripts). The script only ADDS the header link + element; it never modifies existing content. Idempotent — re-running on already-injected files is a no-op.</p>
 <h2>v1.17.3 - 2026-05-26 (BUG-201 PD-CITATION-001 close — corrected pd_since dates on 111 of 215 PD-reference entries + JA-168 lock)</h2>
 <h3>Background</h3>
 <p>User-reported (2026-05-24, on a grammar page): &quot;Japan PD since 1998 (Akutagawa d.1927)&quot; — wrong date. Filed as BUG-201 (PD-CITATION-001).</p>
