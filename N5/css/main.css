@@ -2830,22 +2830,46 @@ button, .btn-primary, .btn-secondary, .pillar-card a, .nav a, .primary-nav a, .s
      flagged with .no-print so the pattern-detail page renders as a
      clean lesson-note when printed (or saved as PDF). */
   .no-print { display: none !important; }
-  /* Pattern-detail page: stay readable on paper.
-     2026-05-27 (user "think like a designer" print-reflow): the previous
-     rule `.pattern-detail section { page-break-inside: avoid }` forced
-     EVERY section (Examples, Deep dive, Categorized errors, …) to render
-     atomically. For 700+px sections this pushed the whole block to the
-     next page, leaving 200-500px blank zones at every page boundary. A
-     5-page PDF that should be 3. Switched to the textbook model: keep
-     individual examples / mistakes atomic, keep a heading attached to
-     its first paragraph, but allow long lists to flow across pages. */
-  .pattern-detail { padding: 0; }
+  /* Detail-page print reflow — applies to ALL learn-surface detail pages:
+     grammar pattern, vocab entry, kanji glyph, reading passage, listening
+     drill. Same "textbook flow" model as v1.17.16: long sections allowed
+     to break across pages, individual atomic items (examples, mistakes,
+     reading paragraphs, listening glossary entries) stay whole, headings
+     pull their first paragraph along. Section margins tightened from 16pt
+     → 12pt so paper doesn't feel padded.
+     v1.17.17 (2026-05-27): extended the v1.17.16 .pattern-detail rules
+     to .vocab-detail, .kanji-detail, .reading-passage, .listening-item
+     in one comma-list. Same blank-zone problem the user originally
+     screenshotted on a grammar page would hit a vocab / kanji / reading /
+     listening PDF the same way; this preempts those reports. */
+  .pattern-detail,
+  .vocab-detail,
+  .kanji-detail,
+  .reading-passage,
+  .listening-item { padding: 0; }
   .pattern-name { font-size: 22pt; margin: 0 0 6pt; }
-  .pattern-detail .meaning-en { font-size: 12pt; margin: 0 0 10pt; color: #333; }
-  .pattern-detail .section-title { font-size: 14pt; margin: 12pt 0 4pt; border-bottom: 0.5pt solid #999; padding-bottom: 2pt; page-break-after: avoid; break-after: avoid; }
-  .pattern-detail section { margin: 12pt 0; }
+  .pattern-detail .meaning-en,
+  .vocab-detail .meaning-en,
+  .kanji-detail .meaning-en { font-size: 12pt; margin: 0 0 10pt; color: #333; }
+  .pattern-detail .section-title,
+  .vocab-detail .section-title,
+  .kanji-detail .section-title,
+  .reading-passage .section-title,
+  .listening-item .section-title { font-size: 14pt; margin: 12pt 0 4pt; border-bottom: 0.5pt solid #999; padding-bottom: 2pt; page-break-after: avoid; break-after: avoid; }
+  .pattern-detail section,
+  .vocab-detail section,
+  .kanji-detail section,
+  .reading-passage section,
+  .listening-item section { margin: 12pt 0; }
+  /* Atomic break-inside-avoid for "single item" content blocks across
+     all detail surfaces. The example-list/mistakes-list are grammar;
+     reading-footnote-item is reading; listening-list li is listening. */
   .pattern-detail .example-list li,
-  .pattern-detail .mistakes-list li { margin: 4pt 0; page-break-inside: avoid; break-inside: avoid; }
+  .pattern-detail .mistakes-list li,
+  .vocab-detail .example-list li,
+  .kanji-detail .kanji-examples-table tr,
+  .reading-passage .reading-footnote-item,
+  .listening-item .listening-list li { margin: 4pt 0; page-break-inside: avoid; break-inside: avoid; }
 
   /* IMP-143 cheat-sheet print mode: dense grammar TOC -> printable
      reference card. Active when JS adds .is-printing-cheatsheet to

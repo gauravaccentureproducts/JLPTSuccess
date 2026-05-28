@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.16';  // bumped 2026-05-27: print/PDF designer-reflow — removed page-break-inside:avoid on sections (forced 200-500px blank zones at page boundaries); added page-break-after:avoid on h3 + widows/orphans 3; tightened section margins 16→12pt; body 10.5pt/1.45. Pattern detail: 5pp → 4pp.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.17';  // bumped 2026-05-27: extended v1.17.16 designer print-reflow to .vocab-detail + .kanji-detail + .reading-passage + .listening-item — same blank-zone class would have hit those PDFs the same way.
 
 const PRECACHE = [
   './',
