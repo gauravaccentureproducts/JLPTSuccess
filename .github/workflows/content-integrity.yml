@@ -40,7 +40,19 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run all content integrity invariants (145 as of 2026-05-21)
+      - name: Install Python dependencies
+        # 2026-05-27: previously the integrity job had no `pip install`
+        # step, which meant JA-146 (xlsx Fix-Commit cell validator) always
+        # reported "openpyxl not installed — install with `pip install
+        # openpyxl` to enable this check" and the run exited 1. The check
+        # had been red on every commit going back many releases. Adding
+        # openpyxl unblocks JA-146 so it can actually validate the
+        # specifications/test-scenarios-by-specialist-perspective.xlsx
+        # "User Reported Bugs" sheet on every push. PyYAML is also pulled
+        # in defensively for any tool that might `import yaml`.
+        run: pip install openpyxl PyYAML
+
+      - name: Run all content integrity invariants (171 as of 2026-05-26)
         run: python tools/check_content_integrity.py -v
         env:
           PYTHONIOENCODING: utf-8
