@@ -31,6 +31,11 @@ node_modules/
 playwright-report/
 test-results/
 .lighthouseci/
+# 2026-05-27: URL-prefix shim used by playwright.config.js webServer to
+# mirror production's /JLPTSuccess/N5/ path on a local http.server.
+# Built fresh on every test run (mkdir -p + ln -sfn); the directory +
+# symlink should never be committed.
+.test-server/
 # package-lock.json IS committed (removed from gitignore 2026-04-30) — without
 # it, `setup-node@v4 cache: 'npm'` in CI fails because the npm-cache step
 # requires a lock file, and the playwright-p0-smoke workflow could not run.

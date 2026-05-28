@@ -29,7 +29,17 @@ module.exports = defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [['html', { open: 'never' }], ['github']] : 'list',
   use: {
-    baseURL: 'http://localhost:8000',
+    // 2026-05-27: index.html ships with `<base href="/JLPTSuccess/N5/">`
+    // since v1.17.7 to pin asset resolution across the SPA's
+    // history-mode replaceState() calls (so invalid-URL deep-links
+    // still resolve their CSS/JS/fonts). On production GitHub Pages
+    // the site IS at /JLPTSuccess/N5/ so it works. The local test
+    // server has to MIRROR that URL prefix or the browser fetches
+    // /JLPTSuccess/N5/css/main.min.css → 404 → SPA never boots →
+    // every assertion fails on an empty DOM. See the webServer block
+    // below for the symlink that gives python http.server the
+    // /JLPTSuccess/N5/ path.
+    baseURL: 'http://localhost:8000/JLPTSuccess/N5/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     // 2026-05-21: video off on CI. `retain-on-failure` always records
@@ -49,8 +59,19 @@ module.exports = defineConfig({
     },
   ],
   webServer: {
-    command: 'python -m http.server 8000',
-    url: 'http://localhost:8000/',
+    // 2026-05-27: build a tiny URL-prefix shim so the local server
+    // matches the production GitHub Pages path. Creates
+    // `.test-server/JLPTSuccess/N5` as a symlink to the current
+    // working directory (= N5/), then serves http.server from
+    // `.test-server/`. Result: GET /JLPTSuccess/N5/css/main.min.css
+    // → symlink → N5/css/main.min.css → 200. Matches the `<base
+    // href>` in index.html that ships with the production build.
+    //
+    // The `mkdir -p` is idempotent; `ln -sfn` overwrites any stale
+    // symlink (so re-running the suite locally without cleaning up
+    // works). The whole `.test-server/` directory is gitignored.
+    command: 'mkdir -p .test-server/JLPTSuccess && ln -sfn "$PWD" .test-server/JLPTSuccess/N5 && cd .test-server && python -m http.server 8000',
+    url: 'http://localhost:8000/JLPTSuccess/N5/',
     timeout: 15_000,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
