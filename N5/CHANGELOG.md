@@ -2,6 +2,118 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.16 - 2026-05-27 (print/PDF designer reflow — killed blank-space zones, 5pp → 3pp)
+
+### Background
+
+User flagged a grammar pattern PDF showing EXPLANATION followed by
+~500px of blank space, then a page break, then DEEP DIVE on page 2.
+The pattern repeated at every section boundary — five pages with
+dead-space chunks at the bottom of each.
+
+### Root cause (Playwright print-mode probe)
+
+The CSS rule `.pattern-detail section { page-break-inside: avoid }`
+treated each of the 12 sections (Examples, Deep dive, Categorized
+errors, Politeness ladder, etc.) as indivisible. A 736px Examples-list
+section that can't fit on remaining page space gets pushed whole to
+the next page, leaving 200–500px blank at the previous page's bottom.
+Wrong granularity — a printed textbook lets long lists flow across
+pages, it just never splits a single example mid-sentence.
+
+### Fixed (6 design changes to `css/main.css @media print`)
+
+1. Removed `.pattern-detail section { page-break-inside: avoid }` —
+   sections now flow naturally across page boundaries.
+2. Kept `page-break-inside: avoid` on `.example-list li` /
+   `.mistakes-list li` — single examples / mistakes stay atomic.
+3. Added `page-break-after: avoid` to `.section-title` (h3) — no
+   orphan headings at the bottom of a page.
+4. Added `widows: 3; orphans: 3` to body + p + li.
+5. Tightened section margin 16pt → 12pt; example-li margin 6pt → 4pt;
+   meaning-en margin-bottom 12pt → 10pt (~25% denser).
+6. Set body `font-size: 10.5pt; line-height: 1.45` in print only.
+
+### Verified (live Playwright probe on n5-095)
+
+Doc height 3043 → 2849 px (-6%); 12 sections with forced-avoid → 0;
+estimated pages 5 → 3; forced-jump blank zones 4-5 → 0.
+
+## v1.17.15 - 2026-05-27 (root-cause fix for residual print "checkbox" — outer .audio-skin wrapper)
+
+After v1.17.13 hid the inner `.audio-skin-controls` and v1.17.14 hid
+all `<input>` / `<select>` / `<textarea>` / `<video>`, a small empty
+square was still appearing under each grammar example in the PDF.
+Playwright print-mode probe identified the offender:
+
+  > DIV.audio-skin  17×17px  display:inline-flex  bg:rgb(250,250,248)
+
+The OUTER `<div class="audio-skin">` wraps the audio element and the
+inner `.audio-skin-controls`. With all its children hidden, the outer
+div collapsed to a 17×17 tinted-background box — the "checkbox" the
+user kept seeing. Added `.audio-skin` to the print-hide list.
+
+Lesson committed in the body: when a CSS leak survives two print-rule
+passes, stop guessing — open the DOM in print emulation and let the
+layout report the offender. Diagnostic tool committed at
+`tools/diag_print_square_2026_05_27.py`.
+
+## v1.17.14 - 2026-05-27 (catch-all print-hide for form elements + video)
+
+User flagged a small empty checkbox under each grammar example in
+the PDF. Belt-and-suspenders defensive rule added to
+`css/main.css @media print`:
+
+    input, select, textarea, video { display: none !important; }
+
+Print mode is non-interactive — these element types can never serve
+a purpose on paper. Also immunizes against any future stray form
+element that gets added without a `.no-print` parent.
+
+(Note: this didn't actually solve the user's report. The real fix
+landed in v1.17.15 — the leak was a non-form div wrapper. Kept this
+rule as defensive layer.)
+
+## v1.17.13 - 2026-05-27 (hide custom audio-skin in print/PDF)
+
+User caught a leak via screenshot of a listening-item PDF: the
+on-page audio controls (back / play / forward / time-display / rate
+buttons) were appearing in the printed/PDF output.
+
+The pre-existing `audio { display: none }` rule hid the NATIVE
+`<audio>` element but NOT the custom skin wrapper
+`<div class="audio-skin-controls">` rendered by `js/audio-player.js`.
+The skin is regular HTML — buttons + `<span class="audio-skin-time">`
+showing "0:00 / 0:00" — so the `audio { display: none }` rule didn't
+catch it.
+
+Added one rule to `css/main.css @media print`:
+
+    .audio-skin-controls,
+    .example-audio,
+    .reading-audio,
+    .listening-audio { display: none !important; }
+
+Result: listening drills, reading passages, grammar example audio,
+and vocab example audio all print without the player skin.
+
+## v1.17.12 - 2026-05-27 (re-injected app-header into 10 meta-route mirrors)
+
+During the v1.17.11 commit prep, `tools/build_static_mirrors.py
+--stages meta` was invoked to refresh the changelog mirror for the
+new CHANGELOG heading (satisfies JA-113). That regen wrote 10
+meta-route mirrors fresh — and those fresh files do NOT contain
+the app-header injected in v1.17.9. The v1.17.11 push landed with
+sitting/, missed/, summary/, home/, feedback/, etc. lacking the
+header. Caught by live spot-check on /N5/sitting/.
+
+Re-ran `tools/inject_app_header_into_mirrors_2026_05_27.py`
+(idempotent): 1,403 skipped, 10 re-injected, 0 errors.
+
+Process lesson logged in the commit body: when CHANGELOG changes
+trigger a meta-mirror regen, the header-inject script must follow
+in the same change set.
+
 ## v1.17.11 - 2026-05-27 (Mock nav tab merged into Test — user said "same/similar content at two different places")
 
 ### Background
@@ -33,6 +145,36 @@ glance they read as duplicates. User flagged it.
 - `js/sitting.js` module untouched.
 - All 178 grammar / 995 vocab / 106 kanji / 54 reading / 50 listening /
   28 paper-pack data unchanged.
+
+## v1.17.10 - 2026-05-27 (home page cleanup — removed 3 lower sections per user)
+
+### Background
+
+User flagged the lower half of the home page as visual clutter:
+
+1. **RECOMMENDED STUDY ORDER** — numbered 9-step ordered list
+2. **PROGRESS** — 6 progress bars (Grammar / Vocab / Kanji / Reading
+   / Listening / Mock Test, mostly showing 0 / N for first-time users)
+3. **"Not sure where to start?"** CTA box with Take Placement Check +
+   Start with Grammar buttons
+
+### Fixed
+
+- `js/home.js`: 3 template blocks removed, each replaced with an
+  explanatory comment. Pattern matches the v1.17.8 home-privacy-hero
+  removal style — a future revert is a single template-block addition.
+- Helper functions retained (`studyOrder()`, `computeProgress()`,
+  `renderProgressRow()`) for easy revert.
+- i18n keys retained in `locales/*.json` so JA-108 (locale key-set
+  parity) stays clean.
+- `js/min/home.js` + `.map`: rebuilt via `tools/build_min_js.py`.
+- Cache version bumped: v1.17.9 → v1.17.10.
+
+### Preserved
+
+- `syllabus-overview` 6-card grid (the main syllabus discovery surface).
+- `syllabus-forecast` 7-day review forecast (returning users only).
+- All header / nav / footer logic unchanged.
 
 ## v1.17.9 - 2026-05-27 (frontend mirror-header fix — 1,410 static SEO mirrors get the global app-header back)
 
