@@ -154,7 +154,25 @@ async function renderSetup(container) {
     <div class="test-sitting-cta">
       <h3 style="margin:0 0 8px; font-weight:400;">Full Mock Test (real JLPT N5 shape)</h3>
       <p style="margin:0 0 12px; color:var(--c-muted);">Take the entire JLPT N5 in one sitting: <strong>言語知識（文字・語彙） 30Q / 25 min</strong> → <strong>言語知識（文法）・読解 31Q / 50 min</strong> → <strong>聴解 24Q / 30 min</strong>. Total <strong>85Q / 105 min</strong> (close to the official 91Q / 105min). Each section runs at the official time budget and auto-submits at zero.${fullMockPapers ? ` ${fullMockPapers.length} papers available.` : ''}</p>
-      <a class="btn-secondary" href="#/sitting" style="text-decoration:none; padding:10px 18px; display:inline-block; min-height:44px; line-height:24px;">Start full mock test →</a>
+      <!-- v1.17.18 (2026-05-27): stronger Test/Mock merge per user.
+           Replaced the single "Start full mock test →" CTA with the
+           inline paper picker (was previously rendered as the landing
+           screen of /#/sitting). Saves a click + makes the mock entry
+           visible alongside the quick-test setup. Each card still
+           routes into the existing /#/sitting/<n>/0 flow so the
+           sitting renderer (js/sitting.js) is untouched. The
+           /#/sitting bare landing also still works (it renders the
+           same picker via sitting.js renderPicker()) for any inbound
+           bookmark or external link. -->
+      <div class="sitting-paper-grid">
+        ${[1, 2, 3, 4, 5, 6, 7].map(n => `
+          <a class="sitting-paper-card" href="#/sitting/${n}/0">
+            <span class="card-index" aria-hidden="true">${String(n).padStart(2, '0')}</span>
+            <h3>${esc(t('meta.paper_n').replace('${n}', n))}</h3>
+            <p class="muted small">moji-${n} · goi-${n} · bunpou-${n} · dokkai-${n} · listening</p>
+          </a>
+        `).join('')}
+      </div>
     </div>
   `;
   document.getElementById('start-test').addEventListener('click', () => {

@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.17';  // bumped 2026-05-27: extended v1.17.16 designer print-reflow to .vocab-detail + .kanji-detail + .reading-passage + .listening-item — same blank-zone class would have hit those PDFs the same way.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.18';  // bumped 2026-05-27: stronger Test/Mock merge — inlined the 7-paper picker from /#/sitting landing onto /#/test, replacing the single "Start full mock test →" CTA. One-click mock entry; /#/sitting still works for direct links.
 
 const PRECACHE = [
   './',
