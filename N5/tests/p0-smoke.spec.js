@@ -300,42 +300,22 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
     await expect(page.locator('.reading-list .reading-pick').first()).toBeVisible();
   });
 
-  test('homepage Progress reflects completion-state localStorage', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-    // Before: all rows should show 0/N or "Not attempted"
-    const initialValues = await page.locator('.progress-value').allTextContents();
-    expect(initialValues).toHaveLength(6);
-    // Seed completion state for reading + listening + a known kanji
-    await page.evaluate(() => {
-      localStorage.setItem('jlpt-n5-tutor:completedReading',
-        JSON.stringify({ 'n5.read.001': { at: '2026-05-02T00:00:00Z' },
-                         'n5.read.002': { at: '2026-05-02T00:00:00Z' } }));
-      localStorage.setItem('jlpt-n5-tutor:completedListening',
-        JSON.stringify({ 'n5.listen.001': { at: '2026-05-02T00:00:00Z' } }));
-      localStorage.setItem('jlpt-n5-tutor:knownKanji',
-        JSON.stringify({ '人': true, '日': true, '本': true, '中': true }));
-    });
-    await page.evaluate(() => { location.hash = '#/learn'; });
-    await page.waitForTimeout(400);
-    await page.evaluate(() => { location.hash = '#/home'; });
-    await page.waitForTimeout(600);
-    const updatedValues = await page.locator('.progress-value').allTextContents();
-    // Read live corpus sizes from version.json so the assertion tracks
-    // content drift (reading 30→54 since 2026-05-09, listening 30→50,
-    // kanji 106 stable). Matches the rendering in home.js which uses
-    // the same counts object.
-    const counts = await page.evaluate(async () => {
-      const r = await fetch('data/version.json');
-      const d = await r.json();
-      return d.counts || {};
-    });
-    // Kanji row (index 2): 4 seeded / total
-    expect(updatedValues[2]).toContain(`4 / ${counts.kanji ?? 106}`);
-    // Reading row (index 3): 2 seeded / total
-    expect(updatedValues[3]).toContain(`2 / ${counts.reading ?? 54}`);
-    // Listening row (index 4): 1 seeded / total
-    expect(updatedValues[4]).toContain(`1 / ${counts.listening ?? 50}`);
+  test.skip('homepage Progress reflects completion-state localStorage', async ({ page }) => {
+    // 2026-05-27: SKIPPED. The home-page Progress section (6 progress
+    // rows for Grammar / Vocab / Kanji / Reading / Listening / Mock
+    // Test) was removed in v1.17.10 per user request. The renderer
+    // helpers (computeProgress(), renderProgressRow()) in js/home.js
+    // are retained, and the i18n keys (home.progress_*) remain in
+    // locales/*.json (JA-108 parity). If the section is ever
+    // re-instated, flip `test.skip` back to `test`.
+    //
+    // The completion-state localStorage shape this test seeds
+    // (completedReading, completedListening, knownKanji) is still
+    // written by the relevant route renderers (reading.js, listening.js,
+    // kanji.js); only the home-page READ side is gone. Equivalent
+    // coverage for the home-page renderer's count math, were it ever
+    // useful, would now need a different surface (e.g., the syllabus
+    // forecast section for returning users).
   });
 });
 
