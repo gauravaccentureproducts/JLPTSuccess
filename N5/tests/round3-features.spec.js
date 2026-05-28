@@ -65,11 +65,24 @@ test.describe('round-3 + round-4 surface regression', () => {
 
   test('test setup CTA links to #/sitting', async ({ page }) => {
     await page.goto('/#/test');
-    const cta = page.locator('.test-sitting-cta a[href*="sitting"]');
-    await expect(cta).toBeVisible();
-    // CTA copy was changed 2026-05-10 from "Start sitting" to
-    // "Start full mock test →". The link target stays #/sitting.
-    await expect(cta).toContainText('Start full mock test');
+    // v1.17.18 (2026-05-27): the single "Start full mock test →" CTA
+    // was replaced with the inline 7-paper picker (.sitting-paper-card
+    // × 7), each routing to #/sitting/<n>/0. Reworked the assertion
+    // to count the cards + verify they all link into the sitting
+    // flow. The CTA-block (.test-sitting-cta) + the section heading
+    // copy are still the same; only the SINGLE button became 7 cards.
+    const cards = page.locator('.test-sitting-cta .sitting-paper-card');
+    await expect(cards).toHaveCount(7);
+    // Every card href contains "sitting" — i.e., they all route
+    // into the existing js/sitting.js flow (this is the merge that
+    // preserved the sitting renderer untouched).
+    const hrefs = await cards.evaluateAll(els => els.map(a => a.getAttribute('href')));
+    for (const h of hrefs) {
+      expect(h).toMatch(/#\/sitting\/[1-7]\/0/);
+    }
+    // Section heading copy ("Full Mock Test (real JLPT N5 shape)")
+    // still anchors the block.
+    await expect(page.locator('.test-sitting-cta h3')).toContainText('Full Mock Test');
   });
 
   test('JSON-LD EducationalApplication schema present in head', async ({ page }) => {
