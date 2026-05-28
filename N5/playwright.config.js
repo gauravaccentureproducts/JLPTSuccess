@@ -29,17 +29,12 @@ module.exports = defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [['html', { open: 'never' }], ['github']] : 'list',
   use: {
-    // 2026-05-27: index.html ships with `<base href="/JLPTSuccess/N5/">`
-    // since v1.17.7 to pin asset resolution across the SPA's
-    // history-mode replaceState() calls (so invalid-URL deep-links
-    // still resolve their CSS/JS/fonts). On production GitHub Pages
-    // the site IS at /JLPTSuccess/N5/ so it works. The local test
-    // server has to MIRROR that URL prefix or the browser fetches
-    // /JLPTSuccess/N5/css/main.min.css → 404 → SPA never boots →
-    // every assertion fails on an empty DOM. See the webServer block
-    // below for the symlink that gives python http.server the
-    // /JLPTSuccess/N5/ path.
-    baseURL: 'http://localhost:8000/JLPTSuccess/N5/',
+    // baseURL has no /JLPTSuccess/N5 prefix. The webServer below
+    // (tools/test_server.py) makes `GET /foo` and `GET /JLPTSuccess/
+    // N5/foo` resolve to the SAME file (`N5/foo`), so the SPA's
+    // base-href-resolved asset fetches AND test calls like
+    // `page.goto('/learn/n5-098/')` both work.
+    baseURL: 'http://localhost:8000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     // 2026-05-21: video off on CI. `retain-on-failure` always records
@@ -59,19 +54,22 @@ module.exports = defineConfig({
     },
   ],
   webServer: {
-    // 2026-05-27: build a tiny URL-prefix shim so the local server
-    // matches the production GitHub Pages path. Creates
-    // `.test-server/JLPTSuccess/N5` as a symlink to the current
-    // working directory (= N5/), then serves http.server from
-    // `.test-server/`. Result: GET /JLPTSuccess/N5/css/main.min.css
-    // → symlink → N5/css/main.min.css → 200. Matches the `<base
-    // href>` in index.html that ships with the production build.
+    // 2026-05-27: custom test server (tools/test_server.py) instead
+    // of plain `python -m http.server`. The custom server strips the
+    // /JLPTSuccess/N5 production URL prefix from inbound paths so
+    // both `GET /css/main.min.css` AND `GET /JLPTSuccess/N5/css/
+    // main.min.css` resolve to N5/css/main.min.css on disk. Needed
+    // because index.html ships with `<base href="/JLPTSuccess/N5/">`
+    // (v1.17.7) — without the prefix-stripping the browser issues
+    // base-href-resolved asset fetches that all 404, the SPA never
+    // boots, and every test fails on an empty DOM.
     //
-    // The `mkdir -p` is idempotent; `ln -sfn` overwrites any stale
-    // symlink (so re-running the suite locally without cleaning up
-    // works). The whole `.test-server/` directory is gitignored.
-    command: 'mkdir -p .test-server/JLPTSuccess && ln -sfn "$PWD" .test-server/JLPTSuccess/N5 && cd .test-server && python -m http.server 8000',
-    url: 'http://localhost:8000/JLPTSuccess/N5/',
+    // Tests can use bare paths (page.goto('/'), page.goto(
+    // '/learn/n5-098/')) and the SPA's relative-asset fetches both
+    // work. Pure shell-portable (Python 3 only); no symlinks, no
+    // platform-specific commands. See tools/test_server.py docstring.
+    command: 'python tools/test_server.py',
+    url: 'http://localhost:8000/',
     timeout: 15_000,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
