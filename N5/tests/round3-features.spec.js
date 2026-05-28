@@ -81,8 +81,11 @@ test.describe('round-3 + round-4 surface regression', () => {
       expect(h).toMatch(/#\/sitting\/[1-7]\/0/);
     }
     // Section heading copy ("Full Mock Test (real JLPT N5 shape)")
-    // still anchors the block.
-    await expect(page.locator('.test-sitting-cta h3')).toContainText('Full Mock Test');
+    // still anchors the block. Use `>` (direct child) selector to
+    // disambiguate from the 7 paper-card h3 titles nested inside
+    // .sitting-paper-grid (which is also a direct child of
+    // .test-sitting-cta, so `> h3` only matches the outer heading).
+    await expect(page.locator('.test-sitting-cta > h3')).toContainText('Full Mock Test');
   });
 
   test('JSON-LD EducationalApplication schema present in head', async ({ page }) => {

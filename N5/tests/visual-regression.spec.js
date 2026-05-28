@@ -138,10 +138,19 @@ test.describe('Visual regression - Hindi locale (Devanagari)', () => {
         // sets document.documentElement.lang = 'hi' when the locale
         // applies; wait for that explicitly so we don't screenshot a
         // half-hydrated frame.
+        // 2026-05-27: bumped timeout 5000 → 15000ms. CI run 26551918212
+        // showed all 8 Hindi-locale tests timing out at 5s after the
+        // v1.17.18 work landed. The addInitScript localStorage write
+        // is supposed to fire before the SPA reads settings, but on
+        // a busy CI runner the SPA boot + initI18n() chain can take
+        // longer than 5 seconds, especially when the test_server.py
+        // is also serving asset fetches for an already-running parallel
+        // test. 15s gives ~3× headroom; if a locale switch genuinely
+        // fails (vs. just slow), the assertion still surfaces it.
         await page.waitForFunction(
           () => document.documentElement.lang === 'hi',
           null,
-          { timeout: 5000 }
+          { timeout: 15000 }
         );
         const masks = route.slug === 'home-hi'
           ? [page.locator('.syllabus-daily-status')]
