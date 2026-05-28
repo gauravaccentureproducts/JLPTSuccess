@@ -28,12 +28,20 @@ test.describe('P0 smoke - core navigation', () => {
   // 'persists across reload' test because it cleared storage on the
   // reload too.
 
-  test('home loads as syllabus dashboard with 6 cards + study order + progress, no console errors', async ({ page }) => {
+  test('home loads as syllabus dashboard with 6 cards, no console errors', async ({ page }) => {
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
 
-    await page.goto('/');
+    // 2026-05-27: navigate via explicit #/home rather than `/`. The
+    // beforeEach addInitScript that sets `onboardingSeen=1` to bypass
+    // the IMP-044 first-run diagnostic redirect was unreliable on CI —
+    // tests had been failing on .syllabus-card count for ≥5 commits
+    // before this test edit, with the page resolving to the
+    // /diagnostic surface instead of /home. Explicit hash navigation
+    // bypasses the bare-/ onboarding redirect entirely and lands on
+    // the actual home renderer regardless of localStorage state.
+    await page.goto('/#/home');
     // app.js applyRouteMeta() rewrites the title from the static
     // "JLPT N5" to the home-route-specific title once the SPA initialises.
     // We assert against the prefix so future copy edits to the route
@@ -45,14 +53,16 @@ test.describe('P0 smoke - core navigation', () => {
     // The "JLPT" branding lives in the page <title> + aria-label.
     await expect(page.locator('.brand-link')).toContainText('N5');
     await expect(page.locator('.brand-link')).toHaveAttribute('aria-label', /JLPT/i);
-    // Homepage was restructured ~2026-05-09: the marketing-style
-    // `.syllabus-title` + `.syllabus-subtitle` hero pair was dropped
-    // in favor of in-card narrative. Section affordances now lead
-    // with `.section-label-text` chips. Action-block CTAs (placement
-    // + start-grammar) were removed; placement now lives on the
-    // first-run onboarding flow instead. Test was updated to
-    // assert the structural invariants that survived (cards,
-    // study-order, progress) without micro-asserting removed copy.
+    // Homepage was restructured ~2026-05-09: marketing-style hero
+    // dropped; section affordances now lead with `.section-label-text`
+    // chips. v1.17.10 (2026-05-27) further dropped the lower three
+    // sections per user: Recommended Study Order, Progress overview,
+    // and the "Not sure where to start?" CTA. Test was updated to
+    // assert the structural invariants that remain (6 syllabus cards
+    // in canonical order + their indices). The removed sections'
+    // assertions (.study-order-item, .study-order-link, .progress-row)
+    // were dropped in the same edit — those classes are no longer
+    // rendered.
 
     // Six syllabus cards in canonical order.
     await expect(page.locator('.syllabus-card')).toHaveCount(6);
@@ -66,18 +76,6 @@ test.describe('P0 smoke - core navigation', () => {
     // 01..06 indices on every card.
     await expect(page.locator('.syllabus-card-index').first()).toContainText('01');
     await expect(page.locator('.syllabus-card-index').nth(5)).toContainText('06');
-    // Recommended study order: 9 numbered steps (added 2026-05-02;
-    // IMP-126 added authentic real-world JP as the 9th step on 2026-05-09).
-    await expect(page.locator('.study-order-item')).toHaveCount(9);
-    await expect(page.locator('.study-order-link')).toHaveCount(9);
-    // 2026-05-24: post-W1.2 home.js hash→clean-path migration. hrefs
-    // now use clean paths (learn/grammar/, authentic/). SPA click-
-    // interceptor still routes both forms identically; URL post-nav
-    // is always clean-path.
-    await expect(page.locator('.study-order-link').first()).toHaveAttribute('href', 'learn/grammar/');
-    await expect(page.locator('.study-order-link').last()).toHaveAttribute('href', 'authentic/');
-    // Progress overview: 6 rows.
-    await expect(page.locator('.progress-row')).toHaveCount(6);
     // Fullscreen toggle exists in header (top-right cluster). CSS
     // hides it on mobile (display:none at <901px viewport), so check
     // for DOM presence rather than visibility — the button is wired
@@ -258,37 +256,25 @@ test.describe('P0 smoke - syllabus dashboard features (v1.10.0)', () => {
     await expect(page.locator('.syllabus-daily-today')).toContainText('Not yet practiced today');
   });
 
-  test('study-order links: all 9 route to the right surface', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-    // IMP-126 (2026-05-09) added authentic real-world JP as the 9th
-    // step (signs / menus / transit) at the end of the study order.
-    // 2026-05-24 (post-SPA-migration): hrefs may be either "#/route" hash
-    // form (legacy) or "/route/" clean-path form (post-migration). Both
-    // forms route correctly via the SPA click-interceptor in js/app.js.
-    // The URL assertion checks the post-navigation URL is clean-path.
-    const expected = [
-      ['learn/grammar', /Grammar/i],
-      ['learn/vocab',   /Vocabulary|ごい/i],
-      ['kanji',         /Kanji|かんじ/i],
-      ['drill',         /Drill|れんしゅう/i],
-      ['reading',       /Reading|どっかい/i],
-      ['listening',     /Listening|ちょうかい/i],
-      ['test',          /Test|テスト/i],
-      ['review',        /Review|SRS/i],
-      ['authentic',     /Authentic|real-world|JP/i],
-    ];
-    const links = page.locator('.study-order-link');
-    await expect(links).toHaveCount(expected.length);
-    for (let i = 0; i < expected.length; i++) {
-      const [hrefSubstr, expectMain] = expected[i];
-      const href = await links.nth(i).getAttribute('href');
-      expect(href).toContain(hrefSubstr);
-    }
-    // Click the 4th step (drill) and verify routing actually lands.
-    await links.nth(3).click();
-    await page.waitForTimeout(400);
-    expect(page.url()).toContain('/drill');
+  test.skip('study-order links: all 9 route to the right surface', async ({ page }) => {
+    // 2026-05-27: SKIPPED. The home-page "Recommended Study Order"
+    // section (with the 9 `.study-order-link` anchors) was removed in
+    // v1.17.10 per user request. The helper functions in js/home.js
+    // (studyOrder(), the renderer) are retained for an easy revert,
+    // and the i18n keys (home.study_order_*) remain in locales/*.json
+    // (JA-108 parity). If the section is ever re-instated, change
+    // `test.skip(...)` back to `test(...)` and this assertion should
+    // pass again unchanged.
+    //
+    // Equivalent navigation coverage (Grammar / Vocab / Kanji / Drill
+    // / Reading / Listening / Test / Review / Authentic) is still
+    // exercised through:
+    //   - The primary nav (.primary-nav a[data-route]) — clicked in
+    //     the "Primary nav routes to all 6 main surfaces" test below.
+    //   - The 6 syllabus cards on the home — covered by the
+    //     "home loads as syllabus dashboard" test above.
+    //   - The 5 hub-cards on /#/learn — covered by the
+    //     "Learn hub shows 5 numbered cards" test below.
   });
 
   test('reading mock-test mode toggle: persists + filters questions', async ({ page }) => {
