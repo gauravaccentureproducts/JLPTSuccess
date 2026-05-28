@@ -102,32 +102,16 @@ const HINDI_ROUTES = [
   { path: '/#/learn/vocab',         slug: 'vocab-list-hi' },
 ];
 
-// 2026-05-27: SKIPPED. The locale-pre-seed approach (addInitScript +
-// localStorage `jlpt-n5-tutor:settings` → uiLocale: 'hi') has been
-// chronically flaky on CI — multiple iterations documented in this
-// file's own comments (run 26259633696, 26259851285, …). The 5-second
-// waitForFunction was bumped to 15s in commit 471276b9; all 8 tests
-// still timed out, meaning the SPA isn't switching to Hindi within
-// 15s regardless of headroom. The SPA's i18n boot reads localStorage
-// synchronously, so this is presumably a localStorage-init timing
-// issue specific to the Playwright + test_server.py + Chromium-on-Linux
-// combination on GitHub-hosted runners.
-//
-// The Hindi locale STILL WORKS in production — the toggle in the
-// secondary nav switches it, and live spot-checks confirm correct
-// Devanagari rendering across all 4 routes covered here. This is a
-// test-infra issue, not a product defect.
-//
-// Path forward when this gets unblocked:
-//   - The SPA could read a `?lc=hi` URL parameter at boot, so the
-//     test could simply `page.goto('/?lc=hi#/learn')` and skip the
-//     localStorage dance entirely. js/app.js line 519 reads other
-//     URL params but not `lc=`; adding ~5 lines to i18n.js initI18n()
-//     would close the gap.
-//   - Or: wait for SPA boot complete (e.g., look for app-header
-//     rendered) before pre-seeding localStorage via page.evaluate(),
-//     then reload. Two-phase rather than addInitScript-first.
-test.describe.skip('Visual regression - Hindi locale (Devanagari) [SKIPPED — see comment]', () => {
+// 2026-05-27 UN-SKIP: v1.17.19 wired `?lc=hi` URL parameter into
+// js/i18n.js initI18n() with highest precedence (above saved-settings).
+// Tests now navigate via `page.goto('/?lc=hi#/<route>')` — the SPA
+// reads the URL param synchronously at boot, sets uiLocale, calls
+// setLocale() which writes documentElement.lang='hi'. No localStorage
+// pre-seed needed, no addInitScript timing dance. Reliable across the
+// Playwright + test_server.py + Chromium-on-Linux combination that
+// the addInitScript approach struggled with (skipped in commit
+// 65a6e889; re-enabled here).
+test.describe('Visual regression - Hindi locale (Devanagari)', () => {
   // Runs on every platform — Linux baselines were generated via the
   // workflow_dispatch update_snapshots run alongside the main suite
   // (2026-05-21). See file header for the cross-platform pattern.
@@ -136,42 +120,19 @@ test.describe.skip('Visual regression - Hindi locale (Devanagari) [SKIPPED — s
       test(`${route.slug} @ ${vp.name}`, async ({ page }) => {
         await page.setViewportSize({ width: vp.width, height: vp.height });
         await page.emulateMedia({ reducedMotion: 'reduce' });
-        // Pre-set the locale BEFORE first navigation via addInitScript
-        // so the runtime observes locale=hi on its first read — without
-        // this, the runtime hydrates in English first, then re-renders
-        // when the locale switch fires, producing race conditions
-        // (settings-hi 1020px→2265px height drift observed on CI run
-        // 26259633696). addInitScript runs before any page script.
-        await page.addInitScript(() => {
-          try {
-            // Storage key is `jlpt-n5-tutor:settings` (NS+`settings`);
-            // value-object key is `uiLocale` per storage.js DEFAULT_SETTINGS
-            // and i18n.js initI18n() which reads `getSettings().uiLocale`.
-            // (Previously this used `locale: 'hi'` — wrong inner key → boot
-            // fell through to the default-locale path and html[lang] never
-            // became 'hi', timing out the waitForFunction below on CI run
-            // 26259851285.)
-            localStorage.setItem(
-              'jlpt-n5-tutor:settings',
-              JSON.stringify({ uiLocale: 'hi' })
-            );
-          } catch {}
-        });
-        await page.goto(route.path);
+        // v1.17.19 (2026-05-27): navigate with `?lc=hi` URL param so the
+        // SPA's initI18n() picks up the locale synchronously at boot.
+        // route.path may already contain `#/...` (hash), so insert the
+        // query string BEFORE the hash. Empty paths get a bare `/?lc=hi`.
+        const [base, hash] = route.path.split('#');
+        const url = `${base}${base.includes('?') ? '&' : '?'}lc=hi${hash ? '#' + hash : ''}`;
+        await page.goto(url);
         await page.waitForLoadState('networkidle');
         // Confirm the locale switch landed before snapshotting. i18n.js
-        // sets document.documentElement.lang = 'hi' when the locale
-        // applies; wait for that explicitly so we don't screenshot a
-        // half-hydrated frame.
-        // 2026-05-27: bumped timeout 5000 → 15000ms. CI run 26551918212
-        // showed all 8 Hindi-locale tests timing out at 5s after the
-        // v1.17.18 work landed. The addInitScript localStorage write
-        // is supposed to fire before the SPA reads settings, but on
-        // a busy CI runner the SPA boot + initI18n() chain can take
-        // longer than 5 seconds, especially when the test_server.py
-        // is also serving asset fetches for an already-running parallel
-        // test. 15s gives ~3× headroom; if a locale switch genuinely
-        // fails (vs. just slow), the assertion still surfaces it.
+        // setLocale() writes document.documentElement.lang = 'hi'. With
+        // the URL-param approach this is essentially instantaneous (no
+        // localStorage round-trip), but keeping waitForFunction with a
+        // generous 15s timeout as a safety net.
         await page.waitForFunction(
           () => document.documentElement.lang === 'hi',
           null,

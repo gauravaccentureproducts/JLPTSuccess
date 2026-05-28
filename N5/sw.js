@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.18';  // bumped 2026-05-27: stronger Test/Mock merge — inlined the 7-paper picker from /#/sitting landing onto /#/test, replacing the single "Start full mock test →" CTA. One-click mock entry; /#/sitting still works for direct links.
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.19';  // bumped 2026-05-27: wired ?lc=<locale> URL parameter into i18n.js initI18n() with highest precedence. Un-skipped 16 Hindi-locale visual regression tests that the addInitScript-localStorage dance couldn't reliably exercise on CI. Hreflang alternates in index.html now actually switch locale on landing.
 
 const PRECACHE = [
   './',

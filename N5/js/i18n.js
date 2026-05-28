@@ -176,7 +176,26 @@ export async function initI18n() {
   // ships these locales become un-supported; this hook makes the
   // existing-user journey through the transition silent.
   migrateLocaleSetting();
-  const saved = storage.getSettings().uiLocale;
+  // v1.17.19 (2026-05-27): `?lc=<locale>` URL parameter override. Highest
+  // precedence (above saved-settings, above referrer/navigator hints).
+  // Wired so external links can deep-link into a locale (e.g. the
+  // hreflang alternates already exposed in index.html), and so the
+  // Playwright Hindi-locale visual regression tests can `page.goto(
+  // '/?lc=hi#/learn')` instead of the addInitScript-localStorage dance
+  // that was chronically flaky on CI (see visual-regression.spec.js
+  // skip block for context).
+  let urlLocaleOverride = null;
+  try {
+    const qsLc = new URLSearchParams(location.search).get('lc');
+    if (qsLc && ENABLED_LOCALES.includes(qsLc)) {
+      urlLocaleOverride = qsLc;
+      // Persist so subsequent SPA navigations stay in the chosen locale
+      // (the `?lc=` param doesn't survive history.replaceState chains
+      // through the SPA router).
+      storage.setSettings({ uiLocale: qsLc });
+    }
+  } catch { /* swallow — SPA boot continues with default-flow */ }
+  const saved = urlLocaleOverride || storage.getSettings().uiLocale;
   let initial = saved;
   let auto = false;
   if (!initial) {
