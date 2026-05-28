@@ -99,16 +99,16 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
 /fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
 /tests/                                Playwright specs (p0-smoke, visual-regression with 76 baselines)
 /tools/                                Python scripts run by the content author only
-  check_content_integrity.py           83 release-blocker invariants
+  check_content_integrity.py           171 release-blocker invariants
   check_design_system.py               8 D-rules (Muji-flat spec compliance)
   lint_content.py
-  build_spec.py build_audio.py
+  build_audio.py
   build_listening_audio_multivoice_2026_05_07.py    multi-provider listening render
   fix_*.py                             versioned fixers (one per release)
 /docs/N5-syllabus-methodology.md       N5 scope + source citations + authoring conventions
 verification.md                        cross-source audit of N5 content
 TASKS.md                               task list (mirrors session TodoWrite)
-JLPT N5 Tutor - Functional Spec.docx               full functional spec
+specifications/JLPT-N5-Current-Implementation-Spec.md   canonical functional + implementation spec (single source of truth)
 ```
 
 ## Content authoring workflow
@@ -127,7 +127,7 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
    ```
 6. Run integrity + design checks (release blockers):
    ```
-   python tools/check_content_integrity.py     # 48 invariants
+   python tools/check_content_integrity.py     # 171 invariants
    python tools/check_design_system.py         # 8 D-rules
    ```
 7. (Optional) Re-render listening audio with multi-voice VOICEVOX:
@@ -135,11 +135,6 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
    # Prereq: VOICEVOX engine on :50021 + ffmpeg in PATH
    python tools/build_listening_audio_multivoice_2026_05_07.py
    ```
-8. (Optional) Regenerate the spec docx:
-   ```
-   python tools/build_spec.py
-   ```
-
 The learner never runs any of these scripts - they are author-side only.
 
 ## Authoring conventions
