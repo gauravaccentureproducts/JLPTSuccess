@@ -102,16 +102,32 @@ const HINDI_ROUTES = [
   { path: '/#/learn/vocab',         slug: 'vocab-list-hi' },
 ];
 
-// 2026-05-27 UN-SKIP: v1.17.19 wired `?lc=hi` URL parameter into
-// js/i18n.js initI18n() with highest precedence (above saved-settings).
-// Tests now navigate via `page.goto('/?lc=hi#/<route>')` — the SPA
-// reads the URL param synchronously at boot, sets uiLocale, calls
-// setLocale() which writes documentElement.lang='hi'. No localStorage
-// pre-seed needed, no addInitScript timing dance. Reliable across the
-// Playwright + test_server.py + Chromium-on-Linux combination that
-// the addInitScript approach struggled with (skipped in commit
-// 65a6e889; re-enabled here).
-test.describe('Visual regression - Hindi locale (Devanagari)', () => {
+// 2026-05-27 RE-SKIP after F1 attempt (commit ab19c25a). The `?lc=hi`
+// URL param IS now wired in js/i18n.js initI18n() — and it works for
+// any future-enabled locale — but Hindi specifically remains gated:
+//
+//   js/i18n.js line 30:  const ENABLED_LOCALES = ['en'];
+//   js/i18n.js line 25-29 comment:
+//     "Phase-1 launch (2026-05-24): Hindi UI is temporarily disabled
+//      to focus the first public launch on English-medium learners.
+//      hi.json data is retained in the build so JA-108 (locale
+//      key-set parity) still passes and Phase 2 re-enables Hindi
+//      without a data migration. To re-enable: widen ENABLED_LOCALES
+//      to include 'hi' (must be a subset of SUPPORTED)."
+//
+// So the SPA's initI18n() (both the new URL-param path AND the
+// existing saved-settings path) clamps any 'hi' selection back to
+// DEFAULT_LOCALE ('en'). document.documentElement.lang never becomes
+// 'hi'; waitForFunction times out. This isn't a test-infra issue —
+// it's the intended Phase-1 product behavior.
+//
+// Un-skip path (Phase 2):
+//   1. Set ENABLED_LOCALES = ['en', 'hi'] in js/i18n.js
+//   2. Flip `test.describe.skip(...)` back to `test.describe(...)`
+//   3. Run `gh workflow run playwright.yml -f update_snapshots=true`
+//      to regenerate the 8 Hindi -linux.png baselines
+//   4. Commit baselines + locale-enable change in one batch
+test.describe.skip('Visual regression - Hindi locale (Devanagari) [SKIPPED — ENABLED_LOCALES gates hi off in Phase-1; un-skip when widened]', () => {
   // Runs on every platform — Linux baselines were generated via the
   // workflow_dispatch update_snapshots run alongside the main suite
   // (2026-05-21). See file header for the cross-platform pattern.
