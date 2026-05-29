@@ -12,7 +12,7 @@ Each level lives as a self-contained sub-app under its own subdirectory and URL 
 
 | Level | Path | Status |
 |---|---|---|
-| **N5 (Beginner)** | [`/N5/`](N5/) | **Live — actively maintained** (currently v1.12.50, post round-9 audit close-out) |
+| **N5 (Beginner)** | [`/N5/`](N5/) | **Live — actively maintained** (current version in [`N5/CHANGELOG.md`](N5/CHANGELOG.md)) |
 | N4 (Elementary) | [`/N4/`](N4/) | Paused (migrated state preserved; legacy URL still serves; no further development) |
 | N3 (Intermediate) | `/N3/` | Coming soon |
 | N2 (Upper-intermediate) | `/N2/` | Coming soon |
@@ -20,9 +20,9 @@ Each level lives as a self-contained sub-app under its own subdirectory and URL 
 
 The top-level page (this repo's `index.html`) is the level picker. Each level's app shell, data, audio, SVGs, build pipeline, and tests live under that level's subdirectory.
 
-### N5 surface highlights (v1.12.50)
+### N5 surface highlights
 
-- **Content**: 178 grammar patterns, 1041 vocab, 106 kanji, 45 reading passages, 47 listening drills, 290 question bank items + 426 paper-bound questions across 29 mock-test papers (incl. chokai virtual paper) + full-mock papers (85 Q × 105 min) matching real JLPT N5 shape.
+- **Content**: a full N5 corpus — grammar patterns, vocab, kanji, reading passages, listening drills — plus a mock-test question bank and full-mock papers (85 Q × 105 min) matching real JLPT N5 shape. (Corpus sizes are derived facts that drift as content grows; see [`N5/data/version.json`](N5/data/version.json) `counts` for the live figures rather than a hardcoded snapshot.)
 - **Hindi (niche-N1)**: 100 % `meaning_hi` / `gloss_hi` / `meanings_hi` / `summary_hi` / `explanation_hi` / `l1_notes.hi` across all surfaces, native_reviewed at LLM-persona Q33 quality bar.
 - **Audio**: multi-voice VOICEVOX-rendered listening (4 distinct speakers, JLPT-N5-paced); gtts-synthesized grammar/reading examples; per-example audio player with speed controls + transcript-aligned timestamped lines.
 - **PWA**: installable, offline-first, FSRS-4.5 SRS unified across grammar + vocab + kanji.
