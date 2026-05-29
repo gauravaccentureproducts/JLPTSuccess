@@ -2,6 +2,14 @@
 """Inject the global app-header (brand + primary nav) into every static
 SEO mirror that lacks it.
 
+STATUS (2026-05-29): PERMANENT, load-bearing component despite the dated
+filename. This is REQUIRED step 2 of the static-mirror pipeline: run it after
+tools/build_static_mirrors.py (which emits header-less mirrors) or every
+mirror renders header-less ("looks broken" on deep-link). The builder's
+docstring documents the two-step sequence and JA-170 in
+check_content_integrity.py guards the result. Do NOT archive or delete this
+during tools/ debris triage. Safe to run standalone (idempotent).
+
 Why
 ---
 The 1,413 static mirrors under /N5/learn/, /N5/kanji/, /N5/reading/,

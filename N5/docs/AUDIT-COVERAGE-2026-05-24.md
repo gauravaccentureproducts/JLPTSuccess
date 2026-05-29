@@ -1013,3 +1013,73 @@ checkpoint** ("171 at the 2026-05-29 checkpoint").
   coverage, no new JA-NN).
 - This part is a **documentation-consistency** change: no `data/` values,
   no `js/` behavior, and no UI surfaces were touched.
+
+## Part 60 — Static-mirror pipeline: misdiagnosis correction, regression fix, and an app-header CI guard (added 2026-05-29)
+
+**Trigger.** A self-surfaced "structural issue" claimed the 1,411/1,413 static
+mirrors carried a *stale* app-header from an old template and recommended a
+rebuild to remove it. Investigation against the git timeline showed that claim
+was **inverted**, and the correction produced the findings below. Recorded here
+with bounded phrasing; several items are *deferred*, not resolved.
+
+**What was actually true (against the commit history scanned):**
+1. The mirror app-header is **intentional**, not drift: commit `1d77c881`
+   (2026-05-27, frontend v1.17.9) injected it to fix a user-reported
+   "deep-link page looks broken, no nav" issue; `fdf0e634` (2026-05-28)
+   refined the nav. Both post-date the builder's last change (`ebf1cada`,
+   2026-05-24).
+2. The mirror build is a **two-step pipeline**: `build_static_mirrors.py`
+   emits a header-less template, then
+   `inject_app_header_into_mirrors_2026_05_27.py` adds the global header.
+   Running the builder alone strips the header from every mirror it writes.
+3. That trap had **already regressed** the home + changelog mirrors in commit
+   `7ce167ff` (the Part-59 invariant-count-drift commit rebuilt the changelog
+   meta mirror via the builder alone). Fixed this session in `e9032ba6`
+   (re-ran the idempotent injector; header-only insertion into exactly the 2
+   affected mirrors; 0 content bytes changed; verified by diff).
+
+**Addressed this part:**
+- **JA-170** (new CI invariant): every static SEO mirror in the injector's
+  domain carries the `class="app-header"` marker. Negative-tested (broke one
+  mirror's marker -> JA-170 FAIL (1); restored -> 172 green). This converts
+  "ran the builder alone" from a silent regression into a red build, *for the
+  specific header-strip pattern scanned*.
+- **Builder docstring**: a WARNING now documents the two-step pipeline and that
+  a wholesale run is a migration, not a refresh (see below), with the required
+  injector follow-up.
+- **Procedure manual F.46.7**: the generalizable lesson (un-integrated
+  post-step regression trap; artifact-outgrew-its-generator migration trap;
+  verify-before-bulk-acting; the "two misreads => stop and surface" meta-rule).
+- **Spec §25** header advanced to JA-1..JA-170 / 172 at this checkpoint.
+
+**Deferred for a separate, explicitly-reviewed migration task (NOT resolved
+here):**
+- The committed **content** mirrors (learn/kanji/reading/listening, ~1,372
+  pages) are still in the pre-2026-05-24 **hash-routing** format (a
+  `setTimeout` redirect to a `#/` route + a "Static read-only mirror" banner),
+  hand-patched with the injected header. The current builder emits the
+  history-mode template, so a wholesale rebuild rewrites ~42k lines of
+  routing/canonical/redirect markup — an SEO-affecting **migration** requiring
+  its own verification (canonical URLs, redirect behavior, render checks).
+- **Version drift** (builder `SPA_VERSION` literal vs `index.html`'s live
+  `app.js?v=`; the injector's hardcoded `main.min.css?v=`) — same derived-fact
+  class as Part 59; deferred into the migration so it is fixed by derivation in
+  one pass rather than re-bumped.
+- **4 orphan vocab mirrors** (`週末`, `て`, `じょうず`, `あし`) — forms no
+  longer in `vocab.json` (confirmed absent from the 969-form set); their mirror
+  dirs and stale `sitemap.xml` entries persist. Removal is entangled with a
+  sitemap regen (a bare `--stages meta` run regenerates `sitemap.xml` with
+  meta-only URLs, dropping content URLs — a separate builder foot-gun), so it
+  rides with the migration.
+
+**Bounded coverage.** JA-170 guards header *presence* for files in the
+injector's domain *as scanned*; it does not assert header *correctness*
+(nav-item parity, brand markup) and does not cover the routing-format or
+version-drift items, which remain open. CI invariants at this checkpoint: 172
+(all green). No `data/` values changed; no `js/` behavior changed; the only UI
+artifacts touched this session were the home + changelog mirrors restored in
+`e9032ba6`.
+
+**Surfaced for decision.** The content-mirror routing-format migration is a
+1,372-page change with live SEO/routing impact and is left for an explicit,
+separately-reviewed task rather than folded into this guard-and-document pass.

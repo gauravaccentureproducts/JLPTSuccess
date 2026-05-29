@@ -30,9 +30,28 @@ Run from N5/:
   python tools/build_static_mirrors.py --stages grammar,vocab
   python tools/build_static_mirrors.py --stages all  (default)
 
-Idempotent: re-running on unchanged inputs produces no diff. After
-running, run tools/check_content_integrity.py to verify the new
-JA-NN invariant (mirror-presence assertion).
+WARNING (2026-05-29) - a wholesale run is NOT a no-op; this builder is
+out of sync with the committed mirrors in two ways:
+  1. ROUTING FORMAT. The committed CONTENT mirrors (learn/, kanji/,
+     reading/, listening/) are still in the PRE-2026-05-24 hash-routing
+     format (a setTimeout redirect to a "#/" hash route + a "Static
+     read-only mirror" banner), hand-patched on top with the global
+     app-header (injected 2026-05-27) and a nav merge (2026-05-28). This
+     builder emits the NEWER history-mode template. Running it wholesale
+     RE-MIGRATES ~1372 content pages' routing/canonical/redirect markup
+     (~42k lines) - a deliberate, separately-reviewed migration, not
+     routine maintenance.
+  2. APP-HEADER. This builder does NOT emit the global brand+nav
+     app-header; a SECOND step adds it
+     (tools/inject_app_header_into_mirrors_2026_05_27.py). If you run this
+     builder you MUST run that injector afterwards, or every mirror it
+     wrote renders header-less ("looks broken" on deep-link) - the exact
+     regression that hit home/changelog twice (commit 7ce167ff + a
+     2026-05-29 rebuild). JA-170 in check_content_integrity.py is the CI
+     guard: it fails the build if any mirror is left header-less.
+
+After running, run tools/check_content_integrity.py (JA-113 meta-mirror
+freshness + JA-157 paper-mirror staleness + JA-170 app-header presence).
 """
 from __future__ import annotations
 

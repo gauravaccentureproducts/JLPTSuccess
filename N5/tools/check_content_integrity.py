@@ -1571,6 +1571,7 @@ CHECKS: list[tuple[str, str, callable]] = [
     # count fallbacks to match data/version.json.counts so future
     # corpus growth can't drift the displayed numbers silently.
     ("JA-169", "js/learn.js renderHub() hardcoded count fallbacks (grammar/vocab/kanji/reading/listening) match data/version.json.counts (user-caught hub-drift lock, 2026-05-26)", lambda: _check_ja_169_learn_hub_count_sync()),
+    ("JA-170", "every static SEO mirror (injector domain: all N5/ index.html except the SPA shell/review-packets/node_modules/N4) carries the global app-header; blocks the build_static_mirrors-run-alone header-strip regression (2026-05-29)", lambda: _check_ja_170_mirror_app_header_present()),
     # JA-80 was attempted (2026-05-13 run-4) and removed: heuristic
     # "meaning_ja must share ≥1 Japanese substring with meaning_en" had
     # 19 false positives on legitimate patterns where meaning_ja
@@ -8782,6 +8783,46 @@ def _check_ja_165_corpus_within_entry_example_dedup() -> list[str]:
         except Exception as e:
             failures.append(f"JA-165: kanji.json parse error: {e}")
 
+    return failures
+
+
+def _check_ja_170_mirror_app_header_present() -> list[str]:
+    """Every static SEO mirror carries the global app-header (2026-05-29).
+
+    The mirror build is a TWO-step pipeline: build_static_mirrors.py emits the
+    bare history-mode template (meta-banner only), then
+    inject_app_header_into_mirrors_2026_05_27.py adds the brand + primary-nav
+    app-header so a deep-linked mirror is not header-less (the 2026-05-27
+    user-reported "looks broken" fix, frontend v1.17.9). Running the builder
+    ALONE silently strips the header from every mirror it writes - this
+    regressed the home/changelog mirrors twice (commit 7ce167ff, then a
+    2026-05-29 rebuild). This invariant blocks that regression class: every
+    index.html in the injector's domain must contain the app-header marker.
+
+    Domain matches the injector exactly: all index.html under N5/ EXCEPT the
+    SPA shell (N5/index.html itself), review packets, node_modules, and N4.
+    """
+    marker = 'class="app-header"'
+    failures: list[str] = []
+    for p in ROOT.rglob("index.html"):
+        if p == ROOT / "index.html":
+            continue
+        s = p.as_posix()
+        if "_review_packet" in s or "node_modules" in s:
+            continue
+        rel = p.relative_to(ROOT).as_posix()
+        if rel.startswith("N4/") or "/N4/" in rel:
+            continue
+        try:
+            txt = p.read_text(encoding="utf-8", errors="ignore")
+        except OSError as exc:
+            failures.append(f"JA-170 cannot read mirror {rel}: {exc}")
+            continue
+        if marker not in txt:
+            failures.append(
+                "JA-170 static mirror missing app-header (regenerate via "
+                "tools/inject_app_header_into_mirrors_2026_05_27.py): " + rel
+            )
     return failures
 
 
