@@ -97,6 +97,35 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.21 - 2026-05-29 (grammar detail: meaning section - English first, drop the &quot;easy Japanese&quot; qualifier)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Grammar pattern page, 意味 (meaning) section</strong> - two tweaks:</li>
+</ul>
+<p>1. Heading simplified from &quot;意味（やさしい にほんご）&quot; to just <strong>&quot;意味&quot;</strong>. 2. The section now shows the <strong>English meaning first, then the Japanese meaning</strong> (previously Japanese-only). The English line uses the locale-aware meaning (English on the English UI, the localized meaning on other locales), then the easy-Japanese meaning, then the existing explanation line.</p>
+<h3>Scope</h3>
+<ul>
+<li>SPA-only template change in <code>js/learn-grammar.js</code> (+ rebuilt</li>
+</ul>
+<p><code>js/min/learn-grammar.js</code>). No content, data, or CSS changed.</p>
+<ul>
+<li>Cache version 1.17.20 -&gt; 1.17.21 in all three JA-68-synced places</li>
+</ul>
+<p>(index.html css <code>?v=</code>, index.html js <code>?v=</code>, sw.js CACHE_VERSION).</p>
+<h3>Verified</h3>
+<ul>
+<li><code>tools/check_content_integrity.py</code> -&gt; all invariants green (incl. JA-68</li>
+</ul>
+<p>cache-version sync, JA-113 changelog-mirror freshness, JA-170 app-header).</p>
+<ul>
+<li>Live render of the deployed page confirmed the new heading + En-then-Ja</li>
+</ul>
+<p>order.</p>
+<h3>Note</h3>
+<ul>
+<li>The grammar static MIRRORS still render the old heading + Japanese-only</li>
+</ul>
+<p>meaning; aligning them rides with the deferred mirror-pipeline migration (AUDIT-COVERAGE Part 60), not this SPA change.</p>
 <h2>v1.17.20 - 2026-05-29 (grammar detail: meaning section moved up to slot 3)</h2>
 <h3>Changed</h3>
 <ul>

@@ -2,6 +2,38 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.21 - 2026-05-29 (grammar detail: meaning section - English first, drop the "easy Japanese" qualifier)
+
+### Changed
+
+- **Grammar pattern page, 意味 (meaning) section** - two tweaks:
+  1. Heading simplified from "意味（やさしい にほんご）" to just **"意味"**.
+  2. The section now shows the **English meaning first, then the Japanese
+     meaning** (previously Japanese-only). The English line uses the
+     locale-aware meaning (English on the English UI, the localized meaning
+     on other locales), then the easy-Japanese meaning, then the existing
+     explanation line.
+
+### Scope
+
+- SPA-only template change in `js/learn-grammar.js` (+ rebuilt
+  `js/min/learn-grammar.js`). No content, data, or CSS changed.
+- Cache version 1.17.20 -> 1.17.21 in all three JA-68-synced places
+  (index.html css `?v=`, index.html js `?v=`, sw.js CACHE_VERSION).
+
+### Verified
+
+- `tools/check_content_integrity.py` -> all invariants green (incl. JA-68
+  cache-version sync, JA-113 changelog-mirror freshness, JA-170 app-header).
+- Live render of the deployed page confirmed the new heading + En-then-Ja
+  order.
+
+### Note
+
+- The grammar static MIRRORS still render the old heading + Japanese-only
+  meaning; aligning them rides with the deferred mirror-pipeline migration
+  (AUDIT-COVERAGE Part 60), not this SPA change.
+
 ## v1.17.20 - 2026-05-29 (grammar detail: meaning section moved up to slot 3)
 
 ### Changed

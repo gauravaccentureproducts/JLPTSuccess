@@ -703,7 +703,8 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${renderHowToUseTable(p)}
 
       <section>
-        <h3 class="section-title">意味（やさしい にほんご）</h3>
+        <h3 class="section-title">意味</h3>
+        <p>${esc(localizedMeaning(p))}</p>
         <p>${renderJa(p.meaning_ja)}</p>
         ${p.explanation_ja ? `<p class="grammar-explanation-ja">${renderJa(p.explanation_ja)}</p>` : ''}
       </section>

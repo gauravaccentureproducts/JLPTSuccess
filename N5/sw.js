@@ -18,7 +18,7 @@
 //
 // Bump CACHE_VERSION whenever a release ships, so old caches get evicted on
 // the next visit.
-const CACHE_VERSION = 'jlptsuccess-n5-v1.17.20';  // bumped 2026-05-29: grammar detail page - moved the 意味 (meaning, easy-Japanese) section up to slot 3 (after the how-to-use/usage table, before the explanation), per user request "pattern, usage, meaning, then the rest". SPA-only template reorder in js/learn-grammar.js; cache-bust so existing PWA users get the reordered bundle (JS is CACHE-FIRST).
+const CACHE_VERSION = 'jlptsuccess-n5-v1.17.21';  // bumped 2026-05-29: grammar detail 意味 (meaning) section - dropped the "（やさしい にほんご）" qualifier from the heading (now just "意味") and now shows the English (locale-aware) meaning first, then the Japanese meaning. SPA-only change in js/learn-grammar.js; cache-bust so existing PWA users get it (JS is CACHE-FIRST).
 
 const PRECACHE = [
   './',
