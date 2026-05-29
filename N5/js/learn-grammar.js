@@ -703,6 +703,12 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${renderHowToUseTable(p)}
 
       <section>
+        <h3 class="section-title">意味（やさしい にほんご）</h3>
+        <p>${renderJa(p.meaning_ja)}</p>
+        ${p.explanation_ja ? `<p class="grammar-explanation-ja">${renderJa(p.explanation_ja)}</p>` : ''}
+      </section>
+
+      <section>
         <h3 class="section-title">${esc(t('grammar_detail.explanation'))}</h3>
         <p>${esc(localizedExplanation(p))}</p>
       </section>
@@ -774,12 +780,6 @@ export async function renderGrammarPatternDetail(container, p, allPatterns) {
       ${citationsHtml}
 
       ${pdRefsHtml}
-
-      <section>
-        <h3 class="section-title">意味（やさしい にほんご）</h3>
-        <p>${renderJa(p.meaning_ja)}</p>
-        ${p.explanation_ja ? `<p class="grammar-explanation-ja">${renderJa(p.explanation_ja)}</p>` : ''}
-      </section>
 
       ${p.notes ? `<section><h3 class="section-title">${esc(t('grammar_detail.notes'))}</h3><p>${esc(p.notes)}</p></section>` : ''}
 

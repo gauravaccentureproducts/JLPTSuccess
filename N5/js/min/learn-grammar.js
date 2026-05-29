@@ -153,6 +153,12 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
       ${ce(e)}
 
       <section>
+        <h3 class="section-title">\u610F\u5473\uFF08\u3084\u3055\u3057\u3044 \u306B\u307B\u3093\u3054\uFF09</h3>
+        <p>${h(e.meaning_ja)}</p>
+        ${e.explanation_ja?`<p class="grammar-explanation-ja">${h(e.explanation_ja)}</p>`:""}
+      </section>
+
+      <section>
         <h3 class="section-title">${a(o("grammar_detail.explanation"))}</h3>
         <p>${a(ne(e))}</p>
       </section>
@@ -200,12 +206,6 @@ import{renderJa as h}from"./furigana.js";import*as V from"./storage.js";import{e
       ${O}
 
       ${z}
-
-      <section>
-        <h3 class="section-title">\u610F\u5473\uFF08\u3084\u3055\u3057\u3044 \u306B\u307B\u3093\u3054\uFF09</h3>
-        <p>${h(e.meaning_ja)}</p>
-        ${e.explanation_ja?`<p class="grammar-explanation-ja">${h(e.explanation_ja)}</p>`:""}
-      </section>
 
       ${e.notes?`<section><h3 class="section-title">${a(o("grammar_detail.notes"))}</h3><p>${a(e.notes)}</p></section>`:""}
 

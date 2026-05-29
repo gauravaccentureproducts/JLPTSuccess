@@ -97,6 +97,35 @@
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.20 - 2026-05-29 (grammar detail: meaning section moved up to slot 3)</h2>
+<h3>Changed</h3>
+<ul>
+<li><strong>Grammar pattern page</strong> - the &quot;意味（やさしい にほんご）&quot; (meaning, in</li>
+</ul>
+<p>easy Japanese) section now renders in <strong>third position</strong> - right after the pattern header and the How-to-use (使い方) table, and before the explanation - instead of near the bottom of the page. Per request: pattern, usage, meaning, then the remaining sections in their existing order. The one-line meaning gloss in the pattern header is unchanged, and the Cultural usage note + Contexts block stays where it was.</p>
+<h3>Scope</h3>
+<ul>
+<li>SPA-only template reorder in <code>js/learn-grammar.js</code> (and the rebuilt</li>
+</ul>
+<p><code>js/min/learn-grammar.js</code>). No content, data, or CSS changed.</p>
+<ul>
+<li>Cache version bumped 1.17.19 -&gt; 1.17.20 in all three JA-68-synced</li>
+</ul>
+<p>places (index.html css <code>?v=</code>, index.html js <code>?v=</code>, sw.js CACHE_VERSION) so existing PWA users get the reordered bundle (JS is cache-first).</p>
+<h3>Verified</h3>
+<ul>
+<li><code>tools/check_content_integrity.py</code> -&gt; all invariants green (incl. JA-68</li>
+</ul>
+<p>cache-version sync, JA-113 changelog-mirror freshness, JA-170 app-header presence).</p>
+<ul>
+<li>Minified-bundle order confirmed: how_to_use &lt; 意味 &lt; explanation, with</li>
+</ul>
+<p>the old end-of-page 意味 copy removed.</p>
+<h3>Note</h3>
+<ul>
+<li>The grammar static MIRRORS still render meaning_ja in their legacy</li>
+</ul>
+<p>position; aligning them rides with the deferred mirror-pipeline migration (AUDIT-COVERAGE Part 60), not this SPA change.</p>
 <h2>v1.17.17 - 2026-05-29 (docs: killed derived invariant-count drift across living docs)</h2>
 <h3>Background</h3>
 <p>A structural-review pass found the content-integrity invariant total (computed and reported by <code>tools/check_content_integrity.py</code> on every run) had been copied as a bare present-tense number into several living docs at different times — README, the implementation spec, both CLAUDE.md files, the self-host guides, and the cross-artifact sync map variously asserted 48 / 93 / 104 / 113 / 152 / 171 as if each were the current truth. The script stays correct; the frozen prose copies rot.</p>

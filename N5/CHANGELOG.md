@@ -2,6 +2,40 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.20 - 2026-05-29 (grammar detail: meaning section moved up to slot 3)
+
+### Changed
+
+- **Grammar pattern page** - the "意味（やさしい にほんご）" (meaning, in
+  easy Japanese) section now renders in **third position** - right after
+  the pattern header and the How-to-use (使い方) table, and before the
+  explanation - instead of near the bottom of the page. Per request:
+  pattern, usage, meaning, then the remaining sections in their existing
+  order. The one-line meaning gloss in the pattern header is unchanged,
+  and the Cultural usage note + Contexts block stays where it was.
+
+### Scope
+
+- SPA-only template reorder in `js/learn-grammar.js` (and the rebuilt
+  `js/min/learn-grammar.js`). No content, data, or CSS changed.
+- Cache version bumped 1.17.19 -> 1.17.20 in all three JA-68-synced
+  places (index.html css `?v=`, index.html js `?v=`, sw.js CACHE_VERSION)
+  so existing PWA users get the reordered bundle (JS is cache-first).
+
+### Verified
+
+- `tools/check_content_integrity.py` -> all invariants green (incl. JA-68
+  cache-version sync, JA-113 changelog-mirror freshness, JA-170 app-header
+  presence).
+- Minified-bundle order confirmed: how_to_use < 意味 < explanation, with
+  the old end-of-page 意味 copy removed.
+
+### Note
+
+- The grammar static MIRRORS still render meaning_ja in their legacy
+  position; aligning them rides with the deferred mirror-pipeline
+  migration (AUDIT-COVERAGE Part 60), not this SPA change.
+
 ## v1.17.17 - 2026-05-29 (docs: killed derived invariant-count drift across living docs)
 
 ### Background
