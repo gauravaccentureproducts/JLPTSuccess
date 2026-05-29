@@ -64,35 +64,6 @@
 <link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<header class="app-header" role="banner">
-<div class="brand">
-<h1>
-<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
-<svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
-<g fill="currentColor">
-<rect x="1" y="0"  width="98" height="9" rx="4.5"/>
-<rect x="1" y="12" width="84" height="9" rx="4.5"/>
-<rect x="1" y="24" width="64" height="9" rx="4.5"/>
-<rect x="1" y="36" width="44" height="9" rx="4.5"/>
-<rect x="1" y="48" width="22" height="9" rx="4.5"/>
-</g>
-</svg>
-<span class="brand-wordmark">N5</span>
-</a>
-</h1>
-</div>
-<nav class="primary-nav" aria-label="Primary">
-<a href="/JLPTSuccess/N5/learn/grammar/">Grammar</a>
-<a href="/JLPTSuccess/N5/learn/vocab/">Vocabulary</a>
-<a href="/JLPTSuccess/N5/kanji/">Kanji</a>
-<a href="/JLPTSuccess/N5/reading/">Reading</a>
-<a href="/JLPTSuccess/N5/listening/">Listening</a>
-<a href="/JLPTSuccess/N5/test/">Test</a>
-<a href="/JLPTSuccess/N5/missed/">Missed</a>
-<a href="/JLPTSuccess/N5/summary/">Progress</a>
-</nav>
-</header>
-
 <main id="app">
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>JLPT N5 Tutor</h1>
@@ -150,16 +121,16 @@
 /fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
 /tests/                                Playwright specs (p0-smoke, visual-regression with 76 baselines)
 /tools/                                Python scripts run by the content author only
-  check_content_integrity.py           83 release-blocker invariants
+  check_content_integrity.py           release-blocker content-integrity invariants (script reports the live count)
   check_design_system.py               8 D-rules (Muji-flat spec compliance)
   lint_content.py
-  build_spec.py build_audio.py
+  build_audio.py
   build_listening_audio_multivoice_2026_05_07.py    multi-provider listening render
   fix_*.py                             versioned fixers (one per release)
 /docs/N5-syllabus-methodology.md       N5 scope + source citations + authoring conventions
 verification.md                        cross-source audit of N5 content
 TASKS.md                               task list (mirrors session TodoWrite)
-JLPT N5 Tutor - Functional Spec.docx               full functional spec
+specifications/JLPT-N5-Current-Implementation-Spec.md   canonical functional + implementation spec (single source of truth)
 </code></pre>
 <h2>Content authoring workflow</h2>
 <ol>
@@ -175,16 +146,11 @@ JLPT N5 Tutor - Functional Spec.docx               full functional spec
 <ol>
 <li>Run integrity + design checks (release blockers):</li>
 </ol>
-<p>``<code> python tools/check_content_integrity.py     # 48 invariants python tools/check_design_system.py         # 8 D-rules </code>``</p>
+<p>``<code> python tools/check_content_integrity.py     # prints &quot;PASS: all NN invariants green&quot; python tools/check_design_system.py         # 8 D-rules </code>``</p>
 <ol>
 <li>(Optional) Re-render listening audio with multi-voice VOICEVOX:</li>
 </ol>
-<p>``<code> # Prereq: VOICEVOX engine on :50021 + ffmpeg in PATH python tools/build_listening_audio_multivoice_2026_05_07.py </code>``</p>
-<ol>
-<li>(Optional) Regenerate the spec docx:</li>
-</ol>
-<p>``<code> python tools/build_spec.py </code>``</p>
-<p>The learner never runs any of these scripts - they are author-side only.</p>
+<p>``<code> # Prereq: VOICEVOX engine on :50021 + ffmpeg in PATH python tools/build_listening_audio_multivoice_2026_05_07.py </code>`` The learner never runs any of these scripts - they are author-side only.</p>
 <h2>Authoring conventions</h2>
 <h3>Vocabulary whitelist exemptions</h3>
 <p>The <code>data/n5_vocab_whitelist.json</code> lookup is the source of truth for &quot;what counts as N5 vocabulary.&quot; Two classes of items are intentionally excluded from the whitelist:</p>

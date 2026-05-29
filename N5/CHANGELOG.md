@@ -2,6 +2,41 @@
 
 All user-visible changes to the JLPT N5 study material site.
 
+## v1.17.17 - 2026-05-29 (docs: killed derived invariant-count drift across living docs)
+
+### Background
+
+A structural-review pass found the content-integrity invariant total
+(computed and reported by `tools/check_content_integrity.py` on every
+run) had been copied as a bare present-tense number into several living
+docs at different times — README, the implementation spec, both
+CLAUDE.md files, the self-host guides, and the cross-artifact sync map
+variously asserted 48 / 93 / 104 / 113 / 152 / 171 as if each were the
+current truth. The script stays correct; the frozen prose copies rot.
+
+### Fixed (documentation consistency only — no app behavior, data, or UI change)
+
+- Present-tense invariant-count literals in living docs were converted
+  to either a **pointer** ("the script reports the live count") or a
+  **dated checkpoint** ("171 at the 2026-05-29 checkpoint"). README's
+  reference-table and example-comment counts now point at the script
+  rather than naming a frozen number.
+- **Point-in-time records were left untouched** (this CHANGELOG, dated
+  audit parts, version-stamped baselines, audit-session logs).
+- New standing guard: an N5Improvement Phase-0 "Invariant-count drift
+  scan" block (verified to return 0 against the 10 living docs scanned),
+  plus accuracy-prompt writing-discipline rule 7 and procedure-manual
+  F.46.6 generalizing the anti-pattern across JLPT levels.
+
+### Verified
+
+`PASS: all 171 invariants green` (full release-blocker checker);
+standalone drift scan reports 0 bare present-tense invariant-count
+literals across the living-doc set scanned 2026-05-29. JA-116 (Phase-0
+block ↔ xlsx scenario row) extended to cover the new block via the
+canonical sync script (1 tab-K row appended). Full detail:
+`docs/AUDIT-COVERAGE-2026-05-24.md` Part 59.
+
 ## v1.17.16 - 2026-05-27 (print/PDF designer reflow — killed blank-space zones, 5pp → 3pp)
 
 ### Background

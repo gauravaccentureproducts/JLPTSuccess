@@ -99,7 +99,7 @@ A **service worker** (`sw.js`) is included and pre-caches the app shell + all da
 /fonts/                                self-hosted woff2 (Inter, Noto Sans JP)
 /tests/                                Playwright specs (p0-smoke, visual-regression with 76 baselines)
 /tools/                                Python scripts run by the content author only
-  check_content_integrity.py           171 release-blocker invariants
+  check_content_integrity.py           release-blocker content-integrity invariants (script reports the live count)
   check_design_system.py               8 D-rules (Muji-flat spec compliance)
   lint_content.py
   build_audio.py
@@ -127,7 +127,7 @@ specifications/JLPT-N5-Current-Implementation-Spec.md   canonical functional + i
    ```
 6. Run integrity + design checks (release blockers):
    ```
-   python tools/check_content_integrity.py     # 171 invariants
+   python tools/check_content_integrity.py     # prints "PASS: all NN invariants green"
    python tools/check_design_system.py         # 8 D-rules
    ```
 7. (Optional) Re-render listening audio with multi-voice VOICEVOX:

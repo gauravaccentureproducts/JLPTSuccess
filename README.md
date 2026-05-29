@@ -26,7 +26,7 @@ The top-level page (this repo's `index.html`) is the level picker. Each level's 
 - **Hindi (niche-N1)**: 100 % `meaning_hi` / `gloss_hi` / `meanings_hi` / `summary_hi` / `explanation_hi` / `l1_notes.hi` across all surfaces, native_reviewed at LLM-persona Q33 quality bar.
 - **Audio**: multi-voice VOICEVOX-rendered listening (4 distinct speakers, JLPT-N5-paced); gtts-synthesized grammar/reading examples; per-example audio player with speed controls + transcript-aligned timestamped lines.
 - **PWA**: installable, offline-first, FSRS-4.5 SRS unified across grammar + vocab + kanji.
-- **Privacy**: no login, no tracking, no third-party scripts, all state in `localStorage` namespaced `jlpt-n5-tutor:*`. CSP same-origin. Verified by 48 content-integrity invariants + 8 design-system rules.
+- **Privacy**: no login, no tracking, no third-party scripts, all state in `localStorage` namespaced `jlpt-n5-tutor:*`. CSP same-origin. Verified by the CI content-integrity invariant suite + 8 design-system rules.
 
 ## Running locally
 

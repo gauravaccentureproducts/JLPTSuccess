@@ -508,6 +508,84 @@ for h in hits[:10]:
 Run ALL SIX blocks above before producing Section 2 of the report.
 The numbers from the script ARE Section 2; do not paraphrase.
 
+### Phase-0 Invariant-count drift scan (added 2026-05-29)
+
+Regression block for the derived-count drift class (procedure manual
+F.46.6). The CI invariant count is a *fact the checker derives on every
+run* — it must never be hardcoded as a bare present-tense literal in a
+living doc, because nobody re-greps every doc when invariant N+1 lands.
+Living docs must state the count only as a date-stamped checkpoint
+("171 at the 2026-05-29 checkpoint") or a pointer ("the script reports
+the live count"). Point-in-time records (CHANGELOG, dated audit
+reports, version-stamped baselines) are exempt — they are correct
+historical snapshots.
+
+```python
+import re
+# Living-doc set only — exclude point-in-time records + generated mirrors.
+LIVING = ['specifications/JLPT-N5-Current-Implementation-Spec.md',
+          'README.md', 'README.hi.md', '.claude/CLAUDE.md',
+          'docs/SELF-HOST.md', 'docs/SELF-HOST.hi.md',
+          'docs/NATIVE-AUDIO-WORKFLOW.md', 'docs/cross-artifact-sync-map.md',
+          'prompts/N5Improvement.txt',
+          'prompts/Japanese language Accuracy check.txt']
+# A bare invariant-count literal is OK only when the line OR its immediate
+# preceding context (same paragraph / block header, ~400 chars back) marks it
+# as a dated snapshot or a pointer to the deriving script. Bare "checkpoint"
+# is deliberately NOT a pass — an undated "NN invariants at this checkpoint"
+# is exactly the stale-present-tense drift we catch; a genuine snapshot
+# carries a real YYYY-MM-DD date, which the date alternative below matches.
+OK_NEARBY = re.compile(r'as of|\d{4}-\d{2}-\d{2}|source of truth|reports the '
+                       r'live|derives|live count|original set|were the '
+                       r'original|snapshot|Rule-5 install|existing|were'
+                       r"n.?t|wasn.?t|were not", re.I)
+COUNT = re.compile(r'\b(\d{2,3})\b[^\n]{0,4}(?:content-integrity |CI )?invariant'
+                   r'|(?:content-integrity |CI )?invariant[^\n]{0,4}\b(\d{2,3})\b',
+                   re.I)
+hits = []
+for p in LIVING:
+    try: text = open(p, encoding='utf-8').read()
+    except FileNotFoundError: continue
+    for m in COUNT.finditer(text):
+        ls = text.rfind('\n', 0, m.start()) + 1
+        le = text.find('\n', m.end()); le = le if le != -1 else len(text)
+        line = text[ls:le]
+        ctx  = text[max(0, m.start() - 400):le]   # line + preceding block/para
+        if OK_NEARBY.search(ctx):              continue  # dated snapshot / pointer
+        if re.search(r'JA-\d', line):          continue  # ID reference, not a count
+        if re.search(r'§\s*\d', line):    continue  # section ref ("§25 invariants")
+        if re.search(r'^\s*#{1,6}\s+\d{1,3}\.', line): continue  # numbered heading ("## 25. CI invariants")
+        if re.search(r'\d+-invariant', line):  continue  # "N-invariant family" sub-cluster
+        hits.append((p, line.strip()[:130]))
+print('Bare present-tense invariant-count literals in living docs '
+      '(target 0; any hit = drift, fix to pointer/dated checkpoint):', len(hits))
+for h in hits: print('  ', h[0], '::', h[1])
+```
+
+Verified 2026-05-29 to return 0 against the living-doc set above. The
+literals `21/48/83/91/104` — plus the spec's stale `113 named JA-NN
+rules` and `152 invariants at this checkpoint`, and README's two
+self-referential `171`s — were converted to pointers or dated
+checkpoints in that commit. A hit passes only when its line OR its
+preceding block (~400 chars: a paragraph lead or snapshot header) is
+a dated snapshot or a pointer to the deriving script; bare
+`checkpoint` with no date is deliberately NOT a pass — an undated
+"NN invariants at this checkpoint" is exactly the stale-present-tense
+drift this catches. Exempt by construction: `JA-NN` ID references;
+`§N` / numbered-heading section refs (the "25" in "## 25. CI
+invariants"); the `N-invariant family` sub-cluster adjective (a named
+group size, never the headline total); and point-in-time narrative
+(`existing N invariants weren't…`).
+
+Known limitation: the scan keys on the literal word `invariant`, so
+sibling phrasings of the same count (`N named JA-NN rules`, `N JA-NN
+rules`) are NOT auto-caught — hand-check those when editing the spec
+§25 preamble (that is where the stale `113 named JA-NN rules` lived).
+`home/index.html` is intentionally NOT in the set: it is a generated
+static mirror of `README.md`; a stale count there is a stale *build*,
+fixed by re-running `build_static_mirrors.py`, never by hand-editing
+the generated HTML.
+
 ### Phase-0 Native-teacher bug-class regression block (added 2026-05-16)
 
 Regression block: re-runs four mechanical checks that gate against
@@ -2625,11 +2703,11 @@ release. Re-derive from data files before quoting in findings.
 | Locales | `{en, hi}` (closed set; JA-39 invariant) |
 | Source-of-truth structure | Single source of truth: `data/*.json` for content + scope; `docs/N5-syllabus-methodology.md` for methodology + sources + authoring conventions. The former `KnowledgeBank/` directory was merged into the data + docs tree on 2026-05-14 (commit 136abc4). No second-copy scope reference exists. |
 | Content origin | Machine-generated and maintainer-curated via Claude (LLM). NO Japanese-native-speaker review has taken place. The internal provenance tag value `native_reviewed` is a TRACKING LABEL ONLY (it marks entries the maintainer hand-curated / promoted after LLM review), NOT a user-facing claim. Do NOT recommend exposing provenance tiers in the UI as a trust signal — that would be a false promise. (IMP-184 set 2026-05-13 to Avoid for this exact reason.) |
-| CI invariants | 83 (release-blocker; X-6.x + JA-1..JA-79; JA-67..JA-79 added in 2026-05 cycle; JA-12/X-6.6/JA-8 retargeted to `data/` on 2026-05-14 post-KB-merge — see `tools/check_content_integrity.py`. JA-80 was attempted run-4 and reverted — too lossy.) |
+| CI invariants | release-blocker; live count in `tools/check_content_integrity.py` (171 at the 2026-05-29 checkpoint — the script is the source of truth). X-6.x + JA-1..JA-79 were the original set; JA-67..JA-79 added in 2026-05 cycle; JA-12/X-6.6/JA-8 retargeted to `data/` on 2026-05-14 post-KB-merge. JA-80 was attempted run-4 and reverted — too lossy. |
 | Audit registry | `feedback/n5-audit-2026-05-04.xlsx` — refresh count via openpyxl scan |
 | Provenance enum | Internal tracking only: `{native_reviewed, llm_curated, auto_derived, auto_generated_template, auto_derived_from_vocab_pitch, auto_derived_template, kanjium_lookup, leeds_corpus_internet_jp, leeds_corpus_substring_proxy, section_band_estimate, mora_proportional, kb_migration_2026_05_14}`. The `native_reviewed` value is a misnomer — re-read the "Content origin" row above. |
 | Audio infra | VOICEVOX engine v0.25.2 + gTTS fallback + edge-tts voice plans; refresh MP3 count via `find audio -name '*.mp3' \| wc -l` |
-| Tests | `tools/check_content_integrity.py` (83 invariants) + Playwright e2e + visual regression |
+| Tests | `tools/check_content_integrity.py` (live invariant count reported on each run) + Playwright e2e + visual regression |
 | Live UI surfaces | Home, Grammar, Vocabulary, Kanji, Reading, Listening, Test, Mock-sitting, Progress, Settings, Diagnostic, Authentic, Print/Cheat-sheet, Print/Lesson |
 | Authentic content | `data/authentic.json` — 9 categories (signs, menu, transit, shop, notice, weather, hospital, post, time); ~100 items |
 
@@ -3452,8 +3530,8 @@ behavior, file as MAJOR / P2.
 
 ## TESTS
 
-- `tools/check_content_integrity.py` runs clean (currently 83
-  invariants — X-6.x + JA-1..JA-79). Coverage gaps vs the structural properties above.
+- `tools/check_content_integrity.py` runs clean (the script reports
+  the live invariant count on each run; 171 at the 2026-05-29 checkpoint). Coverage gaps vs the structural properties above.
 - Playwright runs clean. Automatable checks not yet covered.
 - Visual-regression coverage on highest-traffic surfaces.
 

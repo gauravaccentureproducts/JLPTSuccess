@@ -688,13 +688,13 @@ No npm packages at runtime. Node + Playwright are dev-only (`package.json` carri
 
 | Workflow | Trigger | Purpose |
 |---|---|---|
-| `content-integrity.yml` | push + PR to main/master | Run `tools/check_content_integrity.py` — enforces the 91+ JA-NN content-integrity invariants (full list in **Section 25**) |
+| `content-integrity.yml` | push + PR to main/master | Run `tools/check_content_integrity.py` — enforces all JA-NN content-integrity invariants (full list in **Section 25**; the script is the authoritative source of truth for the current count) |
 | `playwright.yml` | push + PR to main/master | P0 smoke suite (26 tests across desktop + mobile chromium) |
 | `lighthouse.yml` | push + PR to main/master | Performance + a11y audits |
 | `browserstack.yml` | manual / opt-in | Cross-browser smoke (Safari, Edge, mobile Chrome) |
 
 **See Section 25** for the full JA-NN invariant reference (schema /
-scope / pedagogy / cross-corpus / locale / legal — 91 rules grouped
+scope / pedagogy / cross-corpus / locale / legal — grouped
 into 6 categories plus the reserved-slot list and add-new-invariant
 workflow).
 
@@ -804,7 +804,10 @@ This spec is a living document. When implementation drifts from this spec:
 
 This section enumerates the **content-integrity invariants** enforced
 by `tools/check_content_integrity.py`. Each invariant is a named rule
-(JA-1 through JA-145; gaps for retired / reserved slots — JA-42..46
+(JA-1 through JA-169 at the 2026-05-29 checkpoint — 171 invariants
+total; `tools/check_content_integrity.py` is the authoritative current
+set and may carry rows newer than this reference's prose; gaps for
+retired / reserved slots — JA-42..46
 and JA-80 remain reserved; JA-91 and JA-94 were fully wired on
 2026-05-17 with baseline-allowlist auxiliaries, see §25.4 rows for
 JA-91 and JA-94; JA-120 / JA-121 / JA-122 wired on 2026-05-18 from
@@ -848,13 +851,15 @@ match the live registry in `tools/check_content_integrity.py`. The
 registry takes precedence — if the script disagrees with this spec,
 update the spec.
 
-Currently wired invariants: **113 named JA-NN rules** (the runtime
-total may also count auxiliary sub-checks; the registry-counted
-named invariants are listed exhaustively below; runtime CI count
-reports 122/122 at this checkpoint, post the 2026-05-17 final
-unblock of JA-91 + JA-94 AND their Phase A / Phase B resolution
-(2026-05-17, same day) — both invariants now run with EMPTY
-baselines, enforcing unconditionally against the current corpus:
+Currently wired invariants: the registry-counted named JA-NN rules
+are listed exhaustively below; the live count is given in the §25
+header above and reported by `tools/check_content_integrity.py` on
+every run (the runtime total may also count auxiliary sub-checks).
+For historical context, the runtime CI count was 122/122
+immediately post the 2026-05-17 final unblock of JA-91 + JA-94 AND
+their Phase A / Phase B resolution (2026-05-17, same day) — both
+invariants now run with EMPTY baselines, enforcing unconditionally
+against the current corpus:
 - JA-91: all 43 prior cross-pattern explanation_en similarity
   pairs (DUPLICATE_PATTERN ×8, CROSS_REFERENCE ×21,
   ALTERNATIVE_VARIANT ×12, SUBSET ×2) resolved via Phase B
@@ -1511,7 +1516,7 @@ See §15 for the active CSP. NFR statements:
 ### 32.2 Cadences
 
 - Daily: nothing required; static site.
-- Per release: P0 smoke (`tests/p0-smoke.spec.js`) + Mobile UI Selenium (`tools/run_mobile_ui_tests.py`) + content-integrity (152 invariants at this checkpoint).
+- Per release: P0 smoke (`tests/p0-smoke.spec.js`) + Mobile UI Selenium (`tools/run_mobile_ui_tests.py`) + content-integrity (release-blocker; `tools/check_content_integrity.py` reports the live invariant count).
 - Quarterly: Pass-N re-audit per §34.
 - Annually: full spec review + amendment (this document).
 

@@ -34,8 +34,8 @@ invariant is wired/retired.
 - `N5/css/*.css` — styling.
 - `N5/tools/*.py` — build / audit / fix scripts.
 - `tools/check_content_integrity.py` — CI invariant registry
-  (currently 104 invariants pre-Rule-5; protocol install adds
-  JA-107/108/109).
+  (104 at the 2026-05-17 Rule-5 install, which added
+  JA-107/108/109; the script holds the live count).
 - `.github/workflows/*.yml` — CI pipeline.
 - `N5/playwright.config.js` + Playwright suite — P0 smoke
   tests + axe-core a11y.
@@ -211,7 +211,7 @@ matrix. List every ✓-marked dependent.
 (a)-dependents together. Do not commit source alone.
 
 **Step 5 — Run INTEGRITY CHECKS.** Minimum:
-- `python tools/check_content_integrity.py` (104 JA-NN; must
+- `python tools/check_content_integrity.py` (all JA-NN invariants; must
   exit 0 / all green)
 - `python tools/cross_artifact_sync_report.py` (this batch's
   protocol-install tool — emits structured report; surfaces

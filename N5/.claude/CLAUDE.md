@@ -66,5 +66,5 @@ If you find yourself reaching for `"$(cat <<'EOF'...` STOP. Use the file pattern
 ## Working notes
 
 - Repo backups have a known GH007 email-privacy block on `origin` for normal push; the project uses release-bundle workaround for backups (per MEMORY.md). Regular pushes to working branches are fine.
-- Tests: `python tools/check_content_integrity.py` is the release-blocker CI check (21 invariants). Run it after any data/ or KB change.
+- Tests: `python tools/check_content_integrity.py` is the release-blocker CI check and the source of truth for the live invariant count (the script reports it on every run). Run it after any data/ or KB change.
 - The 13 audit passes have produced ~185 content fixes; the JA-accuracy bar is high and CI-enforced.

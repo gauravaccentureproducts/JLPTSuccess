@@ -64,39 +64,28 @@
 <link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-<header class="app-header" role="banner">
-<div class="brand">
-<h1>
-<a href="/JLPTSuccess/" class="brand-link" aria-label="JLPTSuccess home, choose a level">
-<svg class="brand-mark" viewBox="0 0 100 57" role="img" aria-hidden="true" focusable="false">
-<g fill="currentColor">
-<rect x="1" y="0"  width="98" height="9" rx="4.5"/>
-<rect x="1" y="12" width="84" height="9" rx="4.5"/>
-<rect x="1" y="24" width="64" height="9" rx="4.5"/>
-<rect x="1" y="36" width="44" height="9" rx="4.5"/>
-<rect x="1" y="48" width="22" height="9" rx="4.5"/>
-</g>
-</svg>
-<span class="brand-wordmark">N5</span>
-</a>
-</h1>
-</div>
-<nav class="primary-nav" aria-label="Primary">
-<a href="/JLPTSuccess/N5/learn/grammar/">Grammar</a>
-<a href="/JLPTSuccess/N5/learn/vocab/">Vocabulary</a>
-<a href="/JLPTSuccess/N5/kanji/">Kanji</a>
-<a href="/JLPTSuccess/N5/reading/">Reading</a>
-<a href="/JLPTSuccess/N5/listening/">Listening</a>
-<a href="/JLPTSuccess/N5/test/">Test</a>
-<a href="/JLPTSuccess/N5/missed/">Missed</a>
-<a href="/JLPTSuccess/N5/summary/">Progress</a>
-</nav>
-</header>
-
 <main id="app">
 <p class="meta-banner"><a href="../">&larr; JLPT N5 home</a></p>
 <h1>Changelog</h1>
 <p>All user-visible changes to the JLPT N5 study material site.</p>
+<h2>v1.17.17 - 2026-05-29 (docs: killed derived invariant-count drift across living docs)</h2>
+<h3>Background</h3>
+<p>A structural-review pass found the content-integrity invariant total (computed and reported by <code>tools/check_content_integrity.py</code> on every run) had been copied as a bare present-tense number into several living docs at different times — README, the implementation spec, both CLAUDE.md files, the self-host guides, and the cross-artifact sync map variously asserted 48 / 93 / 104 / 113 / 152 / 171 as if each were the current truth. The script stays correct; the frozen prose copies rot.</p>
+<h3>Fixed (documentation consistency only — no app behavior, data, or UI change)</h3>
+<ul>
+<li>Present-tense invariant-count literals in living docs were converted</li>
+</ul>
+<p>to either a <strong>pointer</strong> (&quot;the script reports the live count&quot;) or a <strong>dated checkpoint</strong> (&quot;171 at the 2026-05-29 checkpoint&quot;). README&#x27;s reference-table and example-comment counts now point at the script rather than naming a frozen number.</p>
+<ul>
+<li><strong>Point-in-time records were left untouched</strong> (this CHANGELOG, dated</li>
+</ul>
+<p>audit parts, version-stamped baselines, audit-session logs).</p>
+<ul>
+<li>New standing guard: an N5Improvement Phase-0 &quot;Invariant-count drift</li>
+</ul>
+<p>scan&quot; block (verified to return 0 against the 10 living docs scanned), plus accuracy-prompt writing-discipline rule 7 and procedure-manual F.46.6 generalizing the anti-pattern across JLPT levels.</p>
+<h3>Verified</h3>
+<p><code>PASS: all 171 invariants green</code> (full release-blocker checker); standalone drift scan reports 0 bare present-tense invariant-count literals across the living-doc set scanned 2026-05-29. JA-116 (Phase-0 block ↔ xlsx scenario row) extended to cover the new block via the canonical sync script (1 tab-K row appended). Full detail: <code>docs/AUDIT-COVERAGE-2026-05-24.md</code> Part 59.</p>
 <h2>v1.17.16 - 2026-05-27 (print/PDF designer reflow — killed blank-space zones, 5pp → 3pp)</h2>
 <h3>Background</h3>
 <p>User flagged a grammar pattern PDF showing EXPLANATION followed by ~500px of blank space, then a page break, then DEEP DIVE on page 2. The pattern repeated at every section boundary — five pages with dead-space chunks at the bottom of each.</p>

@@ -157,7 +157,8 @@ A_NN_CATEGORIES = [
     ("A90", "REAL-PATTERN + STALE-ENTRIES SUB-PATTERN — F.44.27 refinement", "Added 2026-05-24. Reviewer v5 shipped a developer bug-fix instruction prompt with 4 REPLACE rules for specific entries (items 1-4) + general NORMALIZATION RULE (item 5). F.44.19 verification showed all 4 cited search strings 0-hit (STALE per F.44.27, already fixed in v1.16.9 BUG-192..195). BUT item 5 NORMALIZATION RULE supplied a real underlying pattern (`भूखा + चाहना को खाना` shape). Horizontal sweep on distinguishing substring `चाहना को` against live data found 3 hits (2 named entries + 1 the reviewer didn't name); sweep on `का क्रिया` found a 4th muddled entry. Total: reviewer named n=2 → swept-found n+k=4 (multiplier pattern). All 4 fixed (BUG-197..200). JA-160 marker set extended 6 → 7 with `चाहना को`. New sub-pattern under F.44.27: stale-cited entries can coexist with a real pattern — triage entries individually, sweep the pattern, lock the marker. Defense layering: upstream preflight (F.44.27/JA-161) + downstream verify-before-fix (F.44.19) + marker lock (JA-NN extension); all 3 required. Procedure-manual F.44.29 + F.44.30. Source: AUDIT-COVERAGE Part 51."),
 ]
 
-# --- 18 Phase-0 regression blocks (N5Improvement) → tab K ---
+# --- Phase-0 regression blocks (N5Improvement) → tab K ---
+# (count not hardcoded; the list below is the source of truth)
 PHASE0_BLOCKS = [
     ("P0-grammar", "Phase-0 Grammar (run mechanically over all 178 patterns)"),
     ("P0-vocab", "Phase-0 Vocab (1009 entries)"),
@@ -198,6 +199,7 @@ PHASE0_BLOCKS = [
     ("P0-reviewer-prompt-preflight-defense", "Phase-0 reviewer-prompt preflight-defense regression block (added 2026-05-24)"),
     ("P0-word-salad-horizontal-sweep", "Phase-0 word-salad horizontal-sweep regression block (added 2026-05-24)"),
     ("P0-register-variant-schema-aware", "Phase-0 register_variant schema-aware auto-check block (added 2026-05-24)"),
+    ("P0-invariant-count-drift", "Phase-0 Invariant-count drift scan (added 2026-05-29)"),
 ]
 
 # --- 15 FP-NN false-positive class entries → tab K ---

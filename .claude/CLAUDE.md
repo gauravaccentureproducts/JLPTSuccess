@@ -70,7 +70,7 @@ Whenever an audit cycle, fix batch, methodology change, new CI invariant, new fa
 3. **Data / content** — `N5/data/*.json` (grammar / vocab / kanji / reading / listening / questions / papers / version), `N5/locales/*.json`, fixtures.
 4. **UI** — `N5/index.html`, `N5/learn/**/index.html`, `N5/kanji/**/index.html`, `N5/reading/**/index.html`, etc.; rendered surfaces, copy strings, accessibility attributes, themes.
 5. **Bug tracker** — `N5/specifications/test-scenarios-by-specialist-perspective.xlsx` "User Reported Bugs" sheet (BUG-NNN canonical).
-6. **Test scenarios** — same xlsx 14 category tabs (A. Japanese language..N. End-user POV); `tools/check_content_integrity.py` (104 JA-NN invariants); Playwright + axe-core P0 smoke suite.
+6. **Test scenarios** — same xlsx 14 category tabs (A. Japanese language..N. End-user POV); `tools/check_content_integrity.py` (the JA-NN content-integrity invariants — the script is the source of truth for the live count); Playwright + axe-core P0 smoke suite.
 7. **Prompts** — `N5/prompts/Japanese language Accuracy check.txt`, `N5/prompts/N5Improvement.txt`, system prompts, autonomous-loop prompts.
 8. **Procedure manuals** — `JLPT Common/procedure-manual-build-next-jlpt-level.md` (submodule), runbooks, deploy playbooks.
 9. **User-facing docs** — `N5/README.md`, `N5/README.hi.md`, `N5/CHANGELOG.md`, `N5/PRIVACY.md`, `N5/NOTICES.md`, `N5/CONTENT-LICENSE.md`, `N5/AUDIO.md`, `N5/SELFHOST.md`, `N5/TASKS.md`, plus `N5/docs/*`.

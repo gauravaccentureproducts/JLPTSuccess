@@ -891,3 +891,125 @@ accent, deep translation naturalness, cultural appropriateness).
   needed for this small-scope cleanup).
 - vocab.json `_meta.native_review_pass_2026_05_24`,
   kanji.json `_meta.native_review_pass_2026_05_24` annotations added.
+
+## Part 59 — Derived-count drift sweep across living docs (added 2026-05-29)
+
+**Trigger.** An open-ended "any other structural issues?" pass over the
+N5 project surfaced a documentation anti-pattern distinct from the
+content audits above: **derived-count drift in living docs.** A single
+derived fact — the content-integrity invariant total, which is computed
+and reported by `tools/check_content_integrity.py` on every run — had
+been copied as a bare present-tense literal into multiple prose docs at
+various points in the project's history. Because the deriving script
+stays correct while each prose copy is frozen at the value-of-the-day,
+the copies rot silently: at the 2026-05-29 checkpoint the script reports
+171 invariants, while scattered docs still asserted 48 / 93 / 104 / 113 /
+152 / 171 as if each were the current truth.
+
+**Why this is a structural issue, not a typo.** The same derived number
+lived as a literal in ≥8 files. Any future invariant addition silently
+falsifies every stale copy at once, and there is no single edit that
+keeps them all honest — the value is only correct at the source (the
+script). This is the documentation analogue of a magic-number constant
+duplicated across modules.
+
+**Sweep performed (living-doc set scanned, 10 files):**
+`specifications/JLPT-N5-Current-Implementation-Spec.md`, `README.md`,
+`README.hi.md`, `.claude/CLAUDE.md`, `docs/SELF-HOST.md`,
+`docs/SELF-HOST.hi.md`, `docs/NATIVE-AUDIO-WORKFLOW.md`,
+`docs/cross-artifact-sync-map.md`, `prompts/N5Improvement.txt`,
+`prompts/Japanese language Accuracy check.txt`.
+
+**Disposition rule applied (bright line).** Only **present-tense
+"the count right now" claims in LIVING docs** were rewritten; every
+**point-in-time record was left intact** (CHANGELOG entries, dated audit
+parts, version-stamped baselines, audit-session narrative logs, and any
+literal already carrying an `as of <date>` / `YYYY-MM-DD` / "were the
+original" qualifier). A present-tense literal was converted to one of
+two safe shapes: (a) a **pointer** ("the script reports the live count" /
+"the source of truth for the current set"), or (b) a **dated
+checkpoint** ("171 at the 2026-05-29 checkpoint").
+
+**Representative conversions (against the working-tree snapshot
+2026-05-29 — full set in the commit diff):**
+
+| File | Before (literal) | After (pointer / dated) |
+|---|---|---|
+| README.md | `171 release-blocker invariants` | `release-blocker content-integrity invariants (script reports the live count)` |
+| README.md | `# 171 invariants` | `# prints "PASS: all NN invariants green"` |
+| spec §25 | `113 named JA-NN rules` / `152 invariants at this checkpoint` | exhaustive-list pointer + `122/122 immediately post the 2026-05-17 unblock` (dated) |
+| `.claude/CLAUDE.md` | `48 invariants (incl. JA-15…)` | `content-integrity invariants (incl. JA-15…)` |
+| SELF-HOST.md / .hi.md | `48 invariants` | `the script is the source of truth for the current set` |
+| cross-artifact-sync-map.md | `104 invariants pre-Rule-5` | pointer phrasing |
+| accuracy prompt | `93/93 invariants still green` | `all invariants still green (the script reports the live count)` |
+
+**Codification (Rule-4 propagation, this change set):**
+
+1. **N5Improvement.txt** — new Phase-0 regression block
+   *"Phase-0 Invariant-count drift scan (added 2026-05-29)"*. It scans
+   the 10 living docs above for a bare 2-3 digit number adjacent to the
+   word `invariant`, exempting any match whose surrounding block carries
+   a date token / pointer phrase / "original-set" qualifier, and
+   excluding JA-NN identifiers, `§ N` section refs, numbered markdown
+   headings, and `N-invariant` adjectives. **Verified 2026-05-29 to
+   return 0 against the living-doc set + pattern scanned** (re-run after
+   the conversions above; evidence: standalone run printed
+   `…literals in living docs … : 0`).
+2. **Accuracy prompt** — WRITING DISCIPLINE FOR AUDIT DOCS gains
+   PRACTICAL RULE 7: never state a derived count (CI invariant total,
+   corpus sizes) as a bare present-tense literal in a living doc; point
+   to the deriving script or give a dated checkpoint. Point-in-time
+   records are exempt.
+3. **Procedure manual** — F.46.6 (cross-level generalization of the
+   derived-count-drift anti-pattern + the scan recipe).
+4. **CI** — no new JA-NN was needed; **JA-116** (every Phase-0 block has
+   a matching xlsx scenario row) automatically extends to cover the new
+   block. A tab-K row was added to
+   `specifications/test-scenarios-by-specialist-perspective.xlsx` via the
+   canonical `tools/sync_test_scenarios_with_prompts_feedback_2026_05_17.py`
+   (its `PHASE0_BLOCKS` catalog gained one entry; idempotent run appended
+   exactly 1 row). Verified: `PASS: all 171 invariants green`.
+
+**Bounded coverage (Part 59):**
+- "0 drift" means **0 hits against the count-near-`invariant` pattern,
+  over the 10 living docs, scanned 2026-05-29** — not "no derived-count
+  drift anywhere in the repo".
+- **Known scan limitation (documented, not yet closed):** the scan keys
+  on the literal word `invariant`. Sibling phrasings that count the same
+  thing without that word — e.g. "N named JA-NN rules", "N JA-NN rules" —
+  are **NOT auto-caught**; hand-check those when editing the spec §25
+  preamble.
+- **Out of scope for this scan:** content-count literals (grammar 178 /
+  vocab corpus sizes / paper counts) frozen in prose snapshots are a
+  *separate* drift class, partially guarded by JA-107 / JA-115 (data ↔
+  version.json ↔ README) but not by this invariant-count scan.
+- `home/index.html` is intentionally excluded from the living-doc set:
+  it is a generated static mirror of `README.md` (fix the source +
+  rebuild via `tools/build_static_mirrors.py`, never hand-edit).
+
+**Surfaced for user decision — NOT fixed in this change set (identification only):**
+- **§25 row-completeness gap:** the spec §25 header now reads
+  "JA-1 through JA-169 … 171 invariants total", but the §25 body rows may
+  enumerate only through ~JA-161 (≈8 trailing rows possibly missing).
+  Needs a row-by-row reconcile before claiming the §25 table is complete.
+- **`home/index.html` mirror freshness:** confirm the generated mirror
+  reflects the current README (regenerate via `build_static_mirrors.py`
+  if stale).
+- **Parent `README.md` content-snapshot drift:** the parent-repo README
+  carries a broader frozen content snapshot (vocab/paper counts, version
+  ~v1.12.50) that predates several N5 data bumps — a content-count drift
+  instance (separate class from this sweep).
+- **`tools/` debris triage:** the tools directory holds many one-shot
+  fix scripts; only a small subset is CI-wired. A verification sweep
+  (confirm no live import / workflow reference) before any archival is
+  the safe path; none was performed in this change set.
+
+**Cross-references (Part 59):**
+- Procedure manual: F.46.6 (derived-count-drift anti-pattern, cross-level).
+- Accuracy prompt: WRITING DISCIPLINE FOR AUDIT DOCS, PRACTICAL RULE 7.
+- N5Improvement: Phase-0 Invariant-count drift scan block.
+- Sync map: no INV-N change; the guard rides on the existing JA-116 wiring.
+- CI invariants at this checkpoint: 171 (all green; JA-116 extended in
+  coverage, no new JA-NN).
+- This part is a **documentation-consistency** change: no `data/` values,
+  no `js/` behavior, and no UI surfaces were touched.

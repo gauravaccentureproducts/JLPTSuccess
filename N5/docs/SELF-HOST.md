@@ -5,8 +5,10 @@ from your own infrastructure - for vocational schools, language
 schools, NGOs, or any institution wanting an offline-capable, no-
 account JLPT N5 prep tool branded for their context.
 
-**Current upstream baseline:** v1.12.50 (round-9 close-out,
-2026-05-07) · 178 grammar / 1041 vocab / 106 kanji / 45 reading / 47
+**Upstream baseline snapshot** (v1.12.50 round-9 close-out,
+2026-05-07; the live app has advanced since — run
+`tools/check_content_integrity.py` for current corpus + invariant
+counts) · 178 grammar / 1041 vocab / 106 kanji / 45 reading / 47
 listening / 426 paper-bound mock-test questions across 29 papers ·
 **48 content-integrity invariants** + 8 design-system rules · 718
 audio MP3s (VOICEVOX-rendered listening + gTTS grammar/reading) ·
@@ -196,8 +198,9 @@ are the editable content surface, plus `data/questions.json` (290
 question-bank items) and `data/mock_papers.json` (29 papers / 426
 paper-bound questions). Keep their schemas intact (the runtime
 expects specific field names - see
-`N5/tools/check_content_integrity.py` for the **48 invariants**
-JA-1..JA-39 + X-6.x), but the actual entries are CC BY-SA - translate,
+`N5/tools/check_content_integrity.py` for the content-integrity
+invariants — the script is the source of truth for the current set),
+but the actual entries are CC BY-SA - translate,
 adapt, or extend per your curriculum.
 
 **Audio re-render:** if you replace listening scripts or grammar

@@ -1920,7 +1920,8 @@ A56. STATIC-MIRROR COVERAGE (CRAWLABILITY) ACROSS ALL CONTENT SURFACES
      Run `python tools/build_static_mirrors.py` (idempotent;
      unchanged inputs produce 0 written). If it writes any files,
      mirror surface had drifted from the data source. Confirm CI
-     93/93 invariants still green after re-build. Then sample:
+     all invariants still green after re-build (the script reports
+     the live count). Then sample:
 
      ```
      curl -s "https://<deploy>/N5/learn/grammar/n5-008/" | head -20
@@ -2605,7 +2606,8 @@ CI INVARIANTS RELEVANT TO THIS AUDIT (verify these pre-audit)
 ============================================================
 
 Before opening any finding, run `python tools/check_content_integrity.py`
-and confirm 83/83 invariants are green. If any FAIL, the audit is
+and confirm all invariants are green (the script reports the live
+count). If any FAIL, the audit is
 running on broken baseline data and findings may be artifacts.
 
 Key invariants for language-accuracy work:
@@ -3192,6 +3194,23 @@ PRACTICAL RULES:
   6. Phase-0 doesn't establish saturation against unknown patterns.
      It establishes that the CURRENT pattern set returns 0. Always
      write the qualifier.
+
+  7. NEVER state a derived count (CI invariant total, corpus sizes)
+     as a bare present-tense literal in a LIVING doc (spec, README,
+     prompts, sync-map, self-host guide, CLAUDE.md). The count is a
+     fact the deriving script computes on every run
+     (`tools/check_content_integrity.py` for invariants; JA-107 /
+     JA-115 for corpus sizes) — point to it ("the script reports the
+     live count") or give a dated checkpoint ("171 at the 2026-05-29
+     checkpoint"). A bare "NN invariants" in a living doc rots
+     silently because nobody re-greps every doc when invariant N+1
+     lands; the same fact then disagrees across a dozen surfaces.
+     Point-in-time records (CHANGELOG, dated audit reports,
+     version-stamped baselines, this brief's session logs) are
+     exempt — a dated number there is a correct historical snapshot.
+     The Phase-0 invariant-count drift scan in N5Improvement.txt
+     mechanically enforces this against the living-doc set
+     (procedure manual F.46.6).
 
 Failure mode being prevented: an exam, a native reviewer, or a
 learner finds a defect that the audit docs implied couldn't exist

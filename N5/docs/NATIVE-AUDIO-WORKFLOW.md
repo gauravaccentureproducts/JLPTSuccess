@@ -108,7 +108,7 @@ first, ffmpeg transcodes to this same MP3 spec.)
    - Load `#/listening` (or `#/reading`), click play on a replaced
      item, confirm native voice.
    - Re-run `python tools/check_content_integrity.py` — verifies the
-     48 invariants (incl. JA-15 file-resolves-on-disk).
+     content-integrity invariants (incl. JA-15 file-resolves-on-disk).
    - Re-run `python tools/audit_audio_coverage.py` — confirms the
      manifest matches on-disk state.
 

@@ -69,7 +69,7 @@ python -m http.server 8000
 
 ## सामग्री अनुकूलन
 
-`N5/data/{grammar,vocab,kanji,reading,listening}.json` पाँच कोष फ़ाइलें + `data/questions.json` (290 प्रश्न-बैंक) + `data/mock_papers.json` (29 पेपर / 426 प्रश्न) — संपादन-योग्य सामग्री-सतह। उनकी स्कीमा अक्षुण्ण रखें (रनटाइम विशिष्ट फ़ील्ड-नाम अपेक्षित करता है — देखें `N5/tools/check_content_integrity.py` 48 invariants JA-1..JA-39 + X-6.x के लिए), पर वास्तविक प्रविष्टियाँ CC BY-SA हैं — अपने पाठ्यक्रम के अनुसार अनुवाद, अनुकूलन, या विस्तार करें।
+`N5/data/{grammar,vocab,kanji,reading,listening}.json` पाँच कोष फ़ाइलें + `data/questions.json` (290 प्रश्न-बैंक) + `data/mock_papers.json` (29 पेपर / 426 प्रश्न) — संपादन-योग्य सामग्री-सतह। उनकी स्कीमा अक्षुण्ण रखें (रनटाइम विशिष्ट फ़ील्ड-नाम अपेक्षित करता है — देखें `N5/tools/check_content_integrity.py`, जो content-integrity invariants का स्रोत है; वर्तमान सेट के लिए स्क्रिप्ट ही सत्य का स्रोत है), पर वास्तविक प्रविष्टियाँ CC BY-SA हैं — अपने पाठ्यक्रम के अनुसार अनुवाद, अनुकूलन, या विस्तार करें।
 
 बदलाव के बाद चलाएँ:
 
